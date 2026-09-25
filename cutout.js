@@ -32,12 +32,17 @@ const sheets = [
   { file: 'roster-mordor-elite-v1.png', rows: 2, cols: 3, names: ['black_numenorean', 'black_numenorean_mounted', 'orc_tracker', 'war_troll', 'black_guard', 'orc_taskmaster'] },
   { file: 'roster-goblin-v1.png', rows: 2, cols: 3, names: ['goblin_spear', 'goblin_shield', 'goblin_bow', 'goblin_prowler', 'goblin_king', 'goblin_shaman'] },
   { file: 'roster-isengard-exp-v1.png', rows: 2, cols: 3, names: ['dunlending_warrior', 'dunlending_huscarl', 'warg', 'uruk_sapper', 'uruk_scout_archer', 'crebain_swarm'] },
-  { file: 'roster-free-special-v1.png', rows: 2, cols: 3, names: ['hobbit_shirriff', 'hobbit_bounder', 'great_eagle', 'ent', 'beorning', 'ranger_north'] },
+  { file: 'roster-free-special-v1.png', rows: 2, cols: 3, noPad: ['hobbit_shirriff', 'hobbit_bounder'], names: ['hobbit_shirriff', 'hobbit_bounder', 'great_eagle', 'ent', 'beorning', 'ranger_north'] },
   { file: 'roster-free-heroes-exp-v1.png', rows: 2, cols: 3, names: ['theoden', 'faramir', 'haldir', 'galadriel', 'gamling', 'samwise'] },
   { file: 'roster-evil-heroes-exp-v1.png', rows: 2, cols: 3, names: ['mouth_of_sauron', 'gothmog', 'lurtz', 'sharku', 'grima', 'khamul'] },
   { file: 'terrain-natural-v1.png', rows: 2, cols: 3, noRim: true, names: ['terr_rock_outcrop', 'terr_standing_stones', 'terr_pine_copse', 'terr_oak_tree', 'terr_dead_tree', 'terr_hedgerow'] },
   { file: 'terrain-structures-v1.png', rows: 2, cols: 3, noRim: true, names: ['terr_ruined_wall', 'terr_ruined_tower', 'terr_gondor_house', 'terr_rohan_hall', 'terr_orc_camp', 'terr_barrow'] },
   { file: 'eagle-full.png', rows: 1, cols: 1, names: ['great_eagle'] },
+  // standalone full-frame regenerations — overwrite the sheet-cut versions below
+  { file: 'single-balrog.png', rows: 1, cols: 1, names: ['balrog'] },
+  { file: 'single-glorfindel-mounted.png', rows: 1, cols: 1, names: ['glorfindel_mounted'] },
+  { file: 'single-elf-bow.png', rows: 1, cols: 1, names: ['elf_bow'] },
+  { file: 'single-hobbit-shirriff.png', rows: 1, cols: 1, names: ['hobbit_shirriff'] },
 ];
 
 function idx(x, y, w) { return (y * w + x) << 2; }
@@ -66,7 +71,7 @@ function medianBg(png, cx0, cy0, cw, ch, W) {
   return [med(rs), med(gs), med(bs)];
 }
 
-function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul) {
+function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
   const d = png.data, W = png.width;
   const bg = medianBg(png, cx0, cy0, cw, ch, W);
   const TH = 26;
@@ -295,14 +300,15 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul) {
     // erosion can split a smear/arc off the main comp — re-label and apply the
     // anchor rule again so detached islands fail like they should have
     const rl = new Int32Array(cw * ch).fill(-1);
-    const rin = [], rmin = [], rarea = [];
+    const rin = [], rmin = [], rarea = [], rsx = [], rsy = [];
     for (let p = 0; p < cw * ch; p++) {
       if (!keep[p] || rl[p] >= 0) continue;
-      const c = rarea.length; rarea.push(0); rin.push(0); rmin.push(Infinity);
+      const c = rarea.length; rarea.push(0); rin.push(0); rmin.push(Infinity); rsx.push(0); rsy.push(0);
       stack.push(p); rl[p] = c;
       while (stack.length) {
         const q = stack.pop(); rarea[c]++;
         const qx = q % cw, qy = (q / cw) | 0;
+        rsx[c] += qx; rsy[c] += qy;
         const dd = (qx - cx) ** 2 + (qy - cy) ** 2;
         if (dd < rmin[c]) rmin[c] = dd;
         if (dd <= cr2) rin[c]++;
@@ -317,6 +323,12 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul) {
     for (let p = 0; p < cw * ch; p++) {
       const l = rl[p]; if (l < 0) continue;
       if (!((rin[l] >= 500 && rin[l] * 5 >= rarea[l]) || (rmin[l] <= deep2 && rin[l] >= 150))) keep[p] = 0;
+      else if (gate) {
+        // padded window: drop comps whose centre of mass sits outside the
+        // original cell bounds — they're neighbour tokens' bleed, not ours
+        const gx = rsx[l] / rarea[l], gy = rsy[l] / rarea[l];
+        if (gx < gate.x0 || gx >= gate.x1 || gy < gate.y0 || gy >= gate.y1) keep[p] = 0;
+      }
     }
   }
   // tangential shadow-halo arcs: dark keep-pixels sweeping 24+ angle bins in the
@@ -399,7 +411,13 @@ for (const s of sheets) {
   console.log(`px-${s.file} ${png.width}x${png.height} cells ${cw}x${ch}`);
   s.names.forEach((name, i) => {
     const r = Math.floor(i / s.cols), c = i % s.cols;
-    cutToken(png, c * cw, r * ch, cw, ch, name, !!s.noRim, s.clip);
+    // widen the cell window so protrusions that bleed into neighbor cells
+    // are still captured (they get filtered later by the anchor/comp rules)
+    const pad = (s.noPad && s.noPad.includes(name)) ? 0 : 56;
+    const x0 = Math.max(0, c * cw - pad), y0 = Math.max(0, r * ch - pad);
+    const x1 = Math.min(png.width, (c + 1) * cw + pad), y1 = Math.min(png.height, (r + 1) * ch + pad);
+    cutToken(png, x0, y0, x1 - x0, y1 - y0, name, !!s.noRim, s.clip,
+      { x0: c * cw - x0, y0: r * ch - y0, x1: (c + 1) * cw - x0, y1: (r + 1) * ch - y0 });
   });
 }
 console.log('done');
