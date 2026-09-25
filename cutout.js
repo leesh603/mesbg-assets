@@ -120,6 +120,7 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
   const TH = 26;
   const fg = new Uint8Array(cw * ch);
   const rim = new Uint8Array(cw * ch);
+  let rimBlue = 0, rimRed = 0;
   for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
     const i = idx(cx0 + x, cy0 + y, W);
     const p = y * cw + x;
@@ -127,8 +128,15 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
     if (dist(px, bg) > TH) fg[p] = 1;
     const r = d[i], g = d[i + 1], b = d[i + 2];
     const mx = Math.max(r, g, b), mn = Math.min(r, g, b), s = mx === 0 ? 0 : (mx - mn) / mx;
-    if (s >= 0.45 && mx >= 60 && ((b > r + 25) || (r > g + 30 && r > b + 30))) rim[p] = 1;
+    if (s >= 0.45 && mx >= 60 && ((b > r + 25) || (r > g + 30 && r > b + 30))) {
+      rim[p] = 1;
+      if (b > r + 25) rimBlue++; else rimRed++;
+    }
   }
+  // faction for the clean redrawn edge ring: canonical saturated colour reads
+  // at game size where a photographed rim does not
+  const faction = noRim || rimBlue + rimRed < 40 ? null
+    : rimRed > rimBlue ? [208, 50, 38] : [74, 130, 246];
   // confident rim-ring fit: modal colour -> centroid -> dist-histogram peak ->
   // band refit -> require >=22/32 angular bins covered (clean ring only)
   let rimFit = null;
@@ -443,10 +451,10 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
     if (keep[p] && keep[p - 1] && keep[p + 1] && keep[p - cw] && keep[p + cw]) er[p] = 1;
   }
   const alpha = new Float32Array(cw * ch);
-  // soft radial fade across the last ~30% of the clip radius: protrusions taper
-  // into transparency instead of ending on a visible hard chord
+  // short radial fade at the clip edge: anti-aliases protrusion tips without
+  // the wide fuzzy halo a long fade leaves around the silhouette
   const clipR = cr * (clipMul || 2.3);
-  const fadeW = Math.max(16, cr * 0.30), fade0 = clipR - fadeW;
+  const fadeW = Math.max(3, cr * 0.04), fade0 = clipR - fadeW;
   for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
     let s = 0;
     for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) {
@@ -469,11 +477,31 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
   bx1 = Math.min(cw - 1, bx1 + pad); by1 = Math.min(ch - 1, by1 + pad);
   const ow = bx1 - bx0 + 1, oh = by1 - by0 + 1;
   const out = new PNG({ width: ow, height: oh });
+  // game-readability pass: repaint a uniform saturated faction ring over the
+  // photographed rim (hides ragged rim edges; faction pops at 48px), and lift
+  // interior mids/saturation so figures don't read as dark mush
+  const ringIn = cr * 0.93, ringOut = cr * 1.0;
+  const lift = v => Math.min(255, Math.round(255 * Math.pow(v / 255, 0.80)));
   for (let y = 0; y < oh; y++) for (let x = 0; x < ow; x++) {
-    const si = idx(cx0 + bx0 + x, cy0 + by0 + y, W);
+    const gx = bx0 + x, gy = by0 + y;
+    const a = alpha[gy * cw + gx];
+    const si = idx(cx0 + gx, cy0 + gy, W);
     const di = idx(x, y, ow);
-    out.data[di] = d[si]; out.data[di + 1] = d[si + 1]; out.data[di + 2] = d[si + 2];
-    out.data[di + 3] = Math.round(alpha[(by0 + y) * cw + (bx0 + x)] * 255);
+    let R = d[si], G = d[si + 1], B = d[si + 2];
+    const dd = Math.hypot(gx - cx, gy - cy);
+    if (faction && a > 0 && dd >= ringIn && dd <= ringOut) {
+      R = Math.round(R * 0.15 + faction[0] * 0.85);
+      G = Math.round(G * 0.15 + faction[1] * 0.85);
+      B = Math.round(B * 0.15 + faction[2] * 0.85);
+    } else if (a > 0) {
+      R = lift(R); G = lift(G); B = lift(B);
+      const l = 0.299 * R + 0.587 * G + 0.114 * B;
+      R = Math.max(0, Math.min(255, Math.round(l + (R - l) * 1.28)));
+      G = Math.max(0, Math.min(255, Math.round(l + (G - l) * 1.28)));
+      B = Math.max(0, Math.min(255, Math.round(l + (B - l) * 1.28)));
+    }
+    out.data[di] = R; out.data[di + 1] = G; out.data[di + 2] = B;
+    out.data[di + 3] = Math.round(a * 255);
   }
   fs.writeFileSync(path.join(OUT, name + '.png'), PNG.sync.write(out));
   console.log(`  ${name} -> ${ow}x${oh}`);
