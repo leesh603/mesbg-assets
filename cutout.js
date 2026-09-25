@@ -513,8 +513,9 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
     }
   }
   // figure fringe past the base edge reads as a detached bleed at token size:
-  // when it's a thin overhang (<15% of kept px) fade it out at the rim so the
-  // disc stays a clean disc; big structural overflow (wings) keeps its shape
+  // when it's a thin overhang (<15% of kept px) fade it out — but only the far
+  // fringe (1.16-1.30cr): spear/axe/banner tips at ~1.05-1.15cr are legitimate
+  // weapon overhang and stay; big structural overflow (wings) keeps its shape
   let trimT0 = Infinity, trimT1 = Infinity;
   if (rimFit) {
     let outN = 0, totN = 0;
@@ -524,7 +525,7 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
       if ((x - cx) ** 2 + (y - cy) ** 2 > (cr * 1.05) ** 2) outN++;
     }
     if (outN > 0 && outN * 20 < totN * 3) {
-      trimT0 = cr * 1.00; trimT1 = cr * 1.05;
+      trimT0 = cr * 1.16; trimT1 = cr * 1.30;
       for (let p = 0; p < cw * ch; p++) {
         if (!keep[p]) continue;
         const x = p % cw, y = (p / cw) | 0;
@@ -593,6 +594,24 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
     }
     out.data[di] = R; out.data[di + 1] = G; out.data[di + 2] = B;
     out.data[di + 3] = Math.round(a * 255);
+  }
+  // detail/visibility pass: unsharp mask the opaque interior (skip the repainted
+  // ring band and alpha edge) so weapons/armour read crisp at game size
+  {
+    const src8 = out.data.slice();
+    const AMT = 0.65;
+    for (let y = 1; y < oh - 1; y++) for (let x = 1; x < ow - 1; x++) {
+      const gx = bx0 + x, gy = by0 + y;
+      const dd = Math.hypot(gx - cx, gy - cy);
+      if (dd >= ringIn || out.data[(y * ow + x) * 4 + 3] < 200) continue;
+      for (let chn = 0; chn < 3; chn++) {
+        let b9 = 0;
+        for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++)
+          b9 += src8[((y + dy) * ow + x + dx) * 4 + chn];
+        const c = src8[(y * ow + x) * 4 + chn];
+        out.data[(y * ow + x) * 4 + chn] = Math.max(0, Math.min(255, Math.round(c + AMT * (c - b9 / 9))));
+      }
+    }
   }
   fs.writeFileSync(path.join(OUT, name + '.png'), PNG.sync.write(out));
   console.log(`  ${name} -> ${ow}x${oh}`);
