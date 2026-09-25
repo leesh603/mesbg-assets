@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "count": 214,
+  "count": 226,
   "units": [
     {
       "id": "aragorn",
@@ -2281,6 +2281,150 @@
       "base": "XL",
       "sheet": "roster-exp-evil-v1.png",
       "file": "tokens/warg_alpha.png"
+    },
+    {
+      "id": "balin",
+      "name_ko": "발린",
+      "name_en": "Balin",
+      "side": "good",
+      "faction": "dwarf",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "M",
+      "sheet": "roster-hobbit-company-v1.png",
+      "file": "tokens/balin.png"
+    },
+    {
+      "id": "dwalin",
+      "name_ko": "드왈린",
+      "name_en": "Dwalin",
+      "side": "good",
+      "faction": "dwarf",
+      "role": "hero",
+      "weapon": "axe",
+      "base": "M",
+      "sheet": "roster-hobbit-company-v1.png",
+      "file": "tokens/dwalin.png"
+    },
+    {
+      "id": "gloin",
+      "name_ko": "글로인",
+      "name_en": "Gloin",
+      "side": "good",
+      "faction": "dwarf",
+      "role": "infantry",
+      "weapon": "axe",
+      "base": "M",
+      "sheet": "roster-hobbit-company-v1.png",
+      "file": "tokens/gloin.png"
+    },
+    {
+      "id": "oin",
+      "name_ko": "오인",
+      "name_en": "Oin",
+      "side": "good",
+      "faction": "dwarf",
+      "role": "infantry",
+      "weapon": "club",
+      "base": "M",
+      "sheet": "roster-hobbit-company-v1.png",
+      "file": "tokens/oin.png"
+    },
+    {
+      "id": "nori",
+      "name_ko": "노리",
+      "name_en": "Nori",
+      "side": "good",
+      "faction": "dwarf",
+      "role": "infantry",
+      "weapon": "sword",
+      "base": "M",
+      "sheet": "roster-hobbit-company-v1.png",
+      "file": "tokens/nori.png"
+    },
+    {
+      "id": "ori",
+      "name_ko": "오리",
+      "name_en": "Ori",
+      "side": "good",
+      "faction": "dwarf",
+      "role": "infantry",
+      "weapon": "sword",
+      "base": "M",
+      "sheet": "roster-hobbit-company-v1.png",
+      "file": "tokens/ori.png"
+    },
+    {
+      "id": "dori",
+      "name_ko": "도리",
+      "name_en": "Dori",
+      "side": "good",
+      "faction": "dwarf",
+      "role": "infantry",
+      "weapon": "sword",
+      "base": "M",
+      "sheet": "roster-hobbit-exp-v1.png",
+      "file": "tokens/dori.png"
+    },
+    {
+      "id": "bifur",
+      "name_ko": "비푸르",
+      "name_en": "Bifur",
+      "side": "good",
+      "faction": "dwarf",
+      "role": "infantry",
+      "weapon": "spear",
+      "base": "M",
+      "sheet": "roster-hobbit-exp-v1.png",
+      "file": "tokens/bifur.png"
+    },
+    {
+      "id": "bofur",
+      "name_ko": "보푸르",
+      "name_en": "Bofur",
+      "side": "good",
+      "faction": "dwarf",
+      "role": "infantry",
+      "weapon": "club",
+      "base": "M",
+      "sheet": "roster-hobbit-exp-v1.png",
+      "file": "tokens/bofur.png"
+    },
+    {
+      "id": "bombur",
+      "name_ko": "봄부르",
+      "name_en": "Bombur",
+      "side": "good",
+      "faction": "dwarf",
+      "role": "infantry",
+      "weapon": "club",
+      "base": "M",
+      "sheet": "roster-hobbit-exp-v1.png",
+      "file": "tokens/bombur.png"
+    },
+    {
+      "id": "goat_rider",
+      "name_ko": "산양 기수",
+      "name_en": "Iron Hills Goat Rider",
+      "side": "good",
+      "faction": "dwarf",
+      "role": "cavalry",
+      "weapon": "lance",
+      "base": "XL",
+      "sheet": "roster-hobbit-exp-v1.png",
+      "file": "tokens/goat_rider.png"
+    },
+    {
+      "id": "gollum",
+      "name_ko": "골룸",
+      "name_en": "Gollum",
+      "side": "evil",
+      "faction": "moria",
+      "role": "beast",
+      "weapon": "none",
+      "base": "M",
+      "sheet": "roster-hobbit-exp-v1.png",
+      "file": "tokens/gollum.png"
     },
     {
       "id": "terr_rubble",

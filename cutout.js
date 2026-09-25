@@ -60,6 +60,8 @@ const sheets = [
   { file: 'roster-hobbit-evil-v1.png', rows: 2, cols: 3, names: ['azog', 'azog_warg_rider', 'necromancer', 'hunter_orc', 'gundabad_orc', 'goblin_mercenary'] },
   { file: 'roster-exp-good-v1.png', rows: 2, cols: 3, names: ['halbarad', 'beregond', 'elladan', 'elrohir', 'grimbeorn', 'ghan_buri_ghan'] },
   { file: 'roster-exp-evil-v1.png', rows: 2, cols: 3, names: ['suladan', 'corsair_umbra', 'variag_horseman', 'shagrat', 'gorbag', 'warg_alpha'] },
+  { file: 'roster-hobbit-company-v1.png', rows: 2, cols: 3, names: ['balin', 'dwalin', 'gloin', 'oin', 'nori', 'ori'] },
+  { file: 'roster-hobbit-exp-v1.png', rows: 2, cols: 3, names: ['dori', 'bifur', 'bofur', 'bombur', 'goat_rider', 'gollum'] },
   { file: 'eagle-full.png', rows: 1, cols: 1, pxOnly: true, names: ['great_eagle'] },
   // standalone full-frame regenerations — overwrite the sheet-cut versions below
   // (px-only: no painted counterparts exist, so the sheet cells cover these ids in --painted mode)

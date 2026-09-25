@@ -261,6 +261,22 @@ module.exports = [
   ['gorbag', '고르바그', 'Gorbag', { faction: 'mordor', role: 'hero', weapon: 'sword' }],
   ['warg_alpha', '와르그 우두머리', 'Warg Alpha', { faction: 'isengard', role: 'beast', weapon: 'none', base: 'XL' }],
 ]},
+{ sheet: 'roster-hobbit-company-v1.png', side: 'good', faction: 'dwarf', role: 'infantry', base: 'M', units: [
+  ['balin', '발린', 'Balin', { role: 'hero', weapon: 'sword' }],
+  ['dwalin', '드왈린', 'Dwalin', { role: 'hero', weapon: 'axe' }],
+  ['gloin', '글로인', 'Gloin', { weapon: 'axe' }],
+  ['oin', '오인', 'Oin', { weapon: 'club' }],
+  ['nori', '노리', 'Nori', { weapon: 'sword' }],
+  ['ori', '오리', 'Ori', { weapon: 'sword' }],
+]},
+{ sheet: 'roster-hobbit-exp-v1.png', side: 'good', faction: 'dwarf', role: 'infantry', base: 'M', units: [
+  ['dori', '도리', 'Dori', { weapon: 'sword' }],
+  ['bifur', '비푸르', 'Bifur', { weapon: 'spear' }],
+  ['bofur', '보푸르', 'Bofur', { weapon: 'club' }],
+  ['bombur', '봄부르', 'Bombur', { weapon: 'club' }],
+  ['goat_rider', '산양 기수', 'Iron Hills Goat Rider', { role: 'cavalry', weapon: 'lance', base: 'XL' }],
+  ['gollum', '골룸', 'Gollum', { side: 'evil', faction: 'moria', role: 'beast', weapon: 'none' }],
+]},
 { sheet: 'terrain-objects-v1.png', side: 'terrain', faction: 'terrain', role: 'terrain', weapon: 'none', base: 'M', units: [
   ['terr_rubble', '돌무더기', 'Rubble pile'],
   ['terr_broken_pillar', '부러진 기둥', 'Broken pillar'],
