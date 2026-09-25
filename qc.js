@@ -3,7 +3,8 @@
 const { PNG } = require('pngjs');
 const fs = require('fs');
 const path = require('path');
-const TOK = 'C:/Users/Administrator/mesbg-assets/tokens';
+const dir = process.argv[2] || 'tokens';
+const TOK = path.join(__dirname, dir);
 
 function comps(png) {
   const { width: w, height: h, data: d } = png;
@@ -64,5 +65,5 @@ flagged.slice(0, cols*rowsN).forEach((x, i) => {
     out.data[di+3]=255;
   }
 });
-fs.writeFileSync('C:/Users/Administrator/mesbg-assets/qc-contact.png', PNG.sync.write(out));
-console.log('qc-contact.png written');
+fs.writeFileSync(path.join(__dirname, `qc-contact-${dir}.png`), PNG.sync.write(out));
+console.log(`qc-contact-${dir}.png written`);

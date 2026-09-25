@@ -6,14 +6,15 @@ const { PNG } = require('pngjs');
 const fs = require('fs');
 const path = require('path');
 
-const SRC = 'C:/Users/Administrator/mesbg-assets';
-const OUT = path.join(SRC, 'tokens');
+const SRC = __dirname;
+const PAINTED = process.argv.includes('--painted');
+const OUT = path.join(SRC, PAINTED ? 'tokens_painted' : 'tokens');
 fs.mkdirSync(OUT, { recursive: true });
 
 const sheets = [
   { file: 'lotr-tokens-v1.png', rows: 2, cols: 3, names: ['aragorn', 'gandalf', 'warrior_minas_tirith', 'witchking_foot', 'orc_sword', 'cave_troll'] },
   { file: 'glorfindel-topdown-v2.png', rows: 1, cols: 2, names: ['glorfindel_foot', 'glorfindel_mounted'] },
-  { file: 'fellbeast-full.png', rows: 1, cols: 1, clip: 2.0, names: ['witchking_fellbeast'] },
+  { file: 'fellbeast-full.png', rows: 1, cols: 1, clip: 2.0, paintedFile: 'fellbeast-topdown-v2.png', names: ['witchking_fellbeast'] },
   { file: 'witchking-mounted-topdown-v1.png', rows: 1, cols: 1, names: ['witchking_mounted'] },
   { file: 'roster-enemy-heroes-v1.png', rows: 2, cols: 3, names: ['witchking_mounted_sheet', 'witchking_foot_mace', 'nazgul_sword', 'saruman', 'orc_shaman', 'orc_captain'] },
   { file: 'roster-enemy-troops-v1.png', rows: 2, cols: 3, names: ['orc_spearman', 'orc_archer', 'uruk_swordshield', 'morannon_orc', 'warg_rider', 'haradrim_spearman'] },
@@ -37,12 +38,13 @@ const sheets = [
   { file: 'roster-evil-heroes-exp-v1.png', rows: 2, cols: 3, names: ['mouth_of_sauron', 'gothmog', 'lurtz', 'sharku', 'grima', 'khamul'] },
   { file: 'terrain-natural-v1.png', rows: 2, cols: 3, noRim: true, names: ['terr_rock_outcrop', 'terr_standing_stones', 'terr_pine_copse', 'terr_oak_tree', 'terr_dead_tree', 'terr_hedgerow'] },
   { file: 'terrain-structures-v1.png', rows: 2, cols: 3, noRim: true, names: ['terr_ruined_wall', 'terr_ruined_tower', 'terr_gondor_house', 'terr_rohan_hall', 'terr_orc_camp', 'terr_barrow'] },
-  { file: 'eagle-full.png', rows: 1, cols: 1, names: ['great_eagle'] },
+  { file: 'eagle-full.png', rows: 1, cols: 1, pxOnly: true, names: ['great_eagle'] },
   // standalone full-frame regenerations — overwrite the sheet-cut versions below
-  { file: 'single-balrog.png', rows: 1, cols: 1, names: ['balrog'] },
-  { file: 'single-glorfindel-mounted.png', rows: 1, cols: 1, names: ['glorfindel_mounted'] },
-  { file: 'single-elf-bow.png', rows: 1, cols: 1, names: ['elf_bow'] },
-  { file: 'single-hobbit-shirriff.png', rows: 1, cols: 1, names: ['hobbit_shirriff'] },
+  // (px-only: no painted counterparts exist, so the sheet cells cover these ids in --painted mode)
+  { file: 'single-balrog.png', rows: 1, cols: 1, pxOnly: true, names: ['balrog'] },
+  { file: 'single-glorfindel-mounted.png', rows: 1, cols: 1, pxOnly: true, names: ['glorfindel_mounted'] },
+  { file: 'single-elf-bow.png', rows: 1, cols: 1, pxOnly: true, names: ['elf_bow'] },
+  { file: 'single-hobbit-shirriff.png', rows: 1, cols: 1, pxOnly: true, names: ['hobbit_shirriff'] },
 ];
 
 function idx(x, y, w) { return (y * w + x) << 2; }
@@ -200,7 +202,25 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
       }
     }
   }
-  let main = 0; area.forEach((a, i) => { if (a > area[main]) main = i; });
+  // main = the comp that best fills its bounding disc, among comps >=30% of the
+  // largest — a token base+figure is disc-dense, a neighbour canopy/smear is
+  // thin even when it covers more pixels (painted hobbit cell: canopy 38k thin
+  // vs token 33k dense — raw area would pick the canopy)
+  let main = 0, maxArea = 0;
+  area.forEach((a, i) => { if (a > maxArea) maxArea = a; });
+  {
+    let bestScore = -1;
+    for (let i = 0; i < nc; i++) {
+      if (area[i] < maxArea * 0.3) continue;
+      let mx = cw, mX = 0, my = ch, mY = 0;
+      for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) if (lab[y * cw + x] === i) {
+        if (x < mx) mx = x; if (x > mX) mX = x; if (y < my) my = y; if (y > mY) mY = y;
+      }
+      const span = Math.max(mX - mx + 1, mY - my + 1);
+      const score = area[i] / (span * span);
+      if (score > bestScore) { bestScore = score; main = i; }
+    }
+  }
   let cx = cw / 2, cy = ch / 2, cr = Math.min(cw, ch) * 0.40;
   {
     let sx = 0, sy = 0;
@@ -247,9 +267,11 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
     }
     cr = Math.max(lastDense * 1.03, Math.min(cw, ch) * 0.25);
     // a confident rim-ring fit wins over the density estimate — but only when
-    // it broadly agrees; a wild fit (fake ring in the art) falls back
-    if (rimFit && Math.hypot(rimFit[0] - cx, rimFit[1] - cy) <= cr * 0.35 &&
-        rimFit[2] >= cr * 0.7 && rimFit[2] <= cr * 1.3) {
+    // it closely agrees. Interior rim-coloured blobs (navy capes, shields) can
+    // fake a ring at ~0.7·cr and must not override a good density fit: a real
+    // rim sits AT the base edge the density scan targets, so the two agree.
+    if (rimFit && Math.hypot(rimFit[0] - cx, rimFit[1] - cy) <= cr * 0.3 &&
+        rimFit[2] >= cr * 0.85 && rimFit[2] <= cr * 1.15) {
       cx = rimFit[0]; cy = rimFit[1]; cr = rimFit[2];
     } else rimFit = null;
   }
@@ -421,13 +443,20 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
     if (keep[p] && keep[p - 1] && keep[p + 1] && keep[p - cw] && keep[p + cw]) er[p] = 1;
   }
   const alpha = new Float32Array(cw * ch);
+  // soft radial fade across the last ~30% of the clip radius: protrusions taper
+  // into transparency instead of ending on a visible hard chord
+  const clipR = cr * (clipMul || 2.3);
+  const fadeW = Math.max(16, cr * 0.30), fade0 = clipR - fadeW;
   for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
     let s = 0;
     for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) {
       const nx = x + dx, ny = y + dy;
       if (nx >= 0 && ny >= 0 && nx < cw && ny < ch) s += er[ny * cw + nx];
     }
-    alpha[y * cw + x] = s / 9;
+    let a = s / 9;
+    const dd = Math.hypot(x - cx, y - cy);
+    if (dd > fade0) a *= Math.max(0, (clipR - dd) / fadeW);
+    alpha[y * cw + x] = a;
   }
   // bbox of keep
   let bx0 = cw, bx1 = -1, by0 = ch, by1 = -1;
@@ -451,11 +480,13 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
 }
 
 for (const s of sheets) {
-  const fp = path.join(SRC, 'px-' + s.file);
-  if (!fs.existsSync(fp)) { console.log(`MISSING px-${s.file}`); continue; }
+  if (PAINTED && s.pxOnly) continue;
+  const fname = PAINTED ? (s.paintedFile || s.file) : 'px-' + s.file;
+  const fp = path.join(SRC, fname);
+  if (!fs.existsSync(fp)) { console.log(`MISSING ${fname}`); continue; }
   const png = PNG.sync.read(fs.readFileSync(fp));
   const cw = Math.floor(png.width / s.cols), ch = Math.floor(png.height / s.rows);
-  console.log(`px-${s.file} ${png.width}x${png.height} cells ${cw}x${ch}`);
+  console.log(`${fname} ${png.width}x${png.height} cells ${cw}x${ch}`);
   s.names.forEach((name, i) => {
     const r = Math.floor(i / s.cols), c = i % s.cols;
     // adaptive padding: only widen the window on sides where the token's own
