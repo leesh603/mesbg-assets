@@ -277,6 +277,22 @@ module.exports = [
   ['goat_rider', '산양 기수', 'Iron Hills Goat Rider', { role: 'cavalry', weapon: 'lance', base: 'XL' }],
   ['gollum', '골룸', 'Gollum', { side: 'evil', faction: 'moria', role: 'beast', weapon: 'none' }],
 ]},
+{ sheet: 'roster-elf-exp-v1.png', side: 'good', role: 'hero', base: 'M', units: [
+  ['gil_galad', '길갈라드', 'Gil-galad', { faction: 'elf', weapon: 'spear', base: 'L' }],
+  ['cirdan', '키르단', 'Cirdan the Shipwright', { faction: 'elf', weapon: 'sword', base: 'L' }],
+  ['arwen', '아르웬', 'Arwen', { faction: 'rivendell', weapon: 'dagger' }],
+  ['lindir', '린디르', 'Lindir', { faction: 'rivendell', weapon: 'sword' }],
+  ['erestor', '에레스토르', 'Erestor', { faction: 'rivendell', weapon: 'sword' }],
+  ['elf_seer', '엘프 선견자', 'Elf Seer', { faction: 'lothlorien', role: 'support', weapon: 'staff' }],
+]},
+{ sheet: 'roster-elf-exp-v2.png', side: 'good', role: 'infantry', base: 'M', units: [
+  ['rumil', '루밀', 'Rumil', { faction: 'lothlorien', weapon: 'bow' }],
+  ['orophin', '오로핀', 'Orophin', { faction: 'lothlorien', weapon: 'spear' }],
+  ['mirkwood_sentinel', '미르크우드 보초', 'Mirkwood Sentinel', { faction: 'elf', weapon: 'pike' }],
+  ['noldor_warrior', '놀도르 정예병', 'Noldor Warrior', { faction: 'elf', weapon: 'sword_shield', base: 'L' }],
+  ['silvan_archer', '실반 궁수', 'Silvan Archer', { faction: 'elf', weapon: 'bow' }],
+  ['elven_lancer', '엘프 기창기병', 'Elven Lancer', { faction: 'rivendell', role: 'cavalry', weapon: 'lance', base: 'XL' }],
+]},
 { sheet: 'terrain-objects-v1.png', side: 'terrain', faction: 'terrain', role: 'terrain', weapon: 'none', base: 'M', units: [
   ['terr_rubble', '돌무더기', 'Rubble pile'],
   ['terr_broken_pillar', '부러진 기둥', 'Broken pillar'],

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "count": 226,
+  "count": 238,
   "units": [
     {
       "id": "aragorn",
@@ -2425,6 +2425,150 @@
       "base": "M",
       "sheet": "roster-hobbit-exp-v1.png",
       "file": "tokens/gollum.png"
+    },
+    {
+      "id": "gil_galad",
+      "name_ko": "길갈라드",
+      "name_en": "Gil-galad",
+      "side": "good",
+      "faction": "elf",
+      "role": "hero",
+      "weapon": "spear",
+      "base": "L",
+      "sheet": "roster-elf-exp-v1.png",
+      "file": "tokens/gil_galad.png"
+    },
+    {
+      "id": "cirdan",
+      "name_ko": "키르단",
+      "name_en": "Cirdan the Shipwright",
+      "side": "good",
+      "faction": "elf",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "L",
+      "sheet": "roster-elf-exp-v1.png",
+      "file": "tokens/cirdan.png"
+    },
+    {
+      "id": "arwen",
+      "name_ko": "아르웬",
+      "name_en": "Arwen",
+      "side": "good",
+      "faction": "rivendell",
+      "role": "hero",
+      "weapon": "dagger",
+      "base": "M",
+      "sheet": "roster-elf-exp-v1.png",
+      "file": "tokens/arwen.png"
+    },
+    {
+      "id": "lindir",
+      "name_ko": "린디르",
+      "name_en": "Lindir",
+      "side": "good",
+      "faction": "rivendell",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "M",
+      "sheet": "roster-elf-exp-v1.png",
+      "file": "tokens/lindir.png"
+    },
+    {
+      "id": "erestor",
+      "name_ko": "에레스토르",
+      "name_en": "Erestor",
+      "side": "good",
+      "faction": "rivendell",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "M",
+      "sheet": "roster-elf-exp-v1.png",
+      "file": "tokens/erestor.png"
+    },
+    {
+      "id": "elf_seer",
+      "name_ko": "엘프 선견자",
+      "name_en": "Elf Seer",
+      "side": "good",
+      "faction": "lothlorien",
+      "role": "support",
+      "weapon": "staff",
+      "base": "M",
+      "sheet": "roster-elf-exp-v1.png",
+      "file": "tokens/elf_seer.png"
+    },
+    {
+      "id": "rumil",
+      "name_ko": "루밀",
+      "name_en": "Rumil",
+      "side": "good",
+      "faction": "lothlorien",
+      "role": "infantry",
+      "weapon": "bow",
+      "base": "M",
+      "sheet": "roster-elf-exp-v2.png",
+      "file": "tokens/rumil.png"
+    },
+    {
+      "id": "orophin",
+      "name_ko": "오로핀",
+      "name_en": "Orophin",
+      "side": "good",
+      "faction": "lothlorien",
+      "role": "infantry",
+      "weapon": "spear",
+      "base": "M",
+      "sheet": "roster-elf-exp-v2.png",
+      "file": "tokens/orophin.png"
+    },
+    {
+      "id": "mirkwood_sentinel",
+      "name_ko": "미르크우드 보초",
+      "name_en": "Mirkwood Sentinel",
+      "side": "good",
+      "faction": "elf",
+      "role": "infantry",
+      "weapon": "pike",
+      "base": "M",
+      "sheet": "roster-elf-exp-v2.png",
+      "file": "tokens/mirkwood_sentinel.png"
+    },
+    {
+      "id": "noldor_warrior",
+      "name_ko": "놀도르 정예병",
+      "name_en": "Noldor Warrior",
+      "side": "good",
+      "faction": "elf",
+      "role": "infantry",
+      "weapon": "sword_shield",
+      "base": "L",
+      "sheet": "roster-elf-exp-v2.png",
+      "file": "tokens/noldor_warrior.png"
+    },
+    {
+      "id": "silvan_archer",
+      "name_ko": "실반 궁수",
+      "name_en": "Silvan Archer",
+      "side": "good",
+      "faction": "elf",
+      "role": "infantry",
+      "weapon": "bow",
+      "base": "M",
+      "sheet": "roster-elf-exp-v2.png",
+      "file": "tokens/silvan_archer.png"
+    },
+    {
+      "id": "elven_lancer",
+      "name_ko": "엘프 기창기병",
+      "name_en": "Elven Lancer",
+      "side": "good",
+      "faction": "rivendell",
+      "role": "cavalry",
+      "weapon": "lance",
+      "base": "XL",
+      "sheet": "roster-elf-exp-v2.png",
+      "file": "tokens/elven_lancer.png"
     },
     {
       "id": "terr_rubble",
