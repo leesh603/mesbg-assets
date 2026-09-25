@@ -7,7 +7,7 @@ const fs = require('fs');
 const path = require('path');
 
 const SRC = 'C:/Users/Administrator/mesbg-assets';
-const OUT = path.join(SRC, 'tokens');
+const OUT = path.join(SRC, 'tokens_px');
 fs.mkdirSync(OUT, { recursive: true });
 
 const sheets = [
@@ -391,11 +391,11 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul) {
 }
 
 for (const s of sheets) {
-  const fp = path.join(SRC, s.file);
-  if (!fs.existsSync(fp)) { console.log(`MISSING ${s.file}`); continue; }
+  const fp = path.join(SRC, 'px-' + s.file);
+  if (!fs.existsSync(fp)) { console.log(`MISSING px-${s.file}`); continue; }
   const png = PNG.sync.read(fs.readFileSync(fp));
   const cw = Math.floor(png.width / s.cols), ch = Math.floor(png.height / s.rows);
-  console.log(`${s.file} ${png.width}x${png.height} cells ${cw}x${ch}`);
+  console.log(`px-${s.file} ${png.width}x${png.height} cells ${cw}x${ch}`);
   s.names.forEach((name, i) => {
     const r = Math.floor(i / s.cols), c = i % s.cols;
     cutToken(png, c * cw, r * ch, cw, ch, name, !!s.noRim, s.clip);
