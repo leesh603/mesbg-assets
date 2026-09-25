@@ -71,6 +71,47 @@ function medianBg(png, cx0, cy0, cw, ch, W) {
   return [med(rs), med(gs), med(bs)];
 }
 
+// Which sides of this cell does the token's largest component reach?
+// Used to expand the crop window only into sides the token bleeds through.
+function probeEdges(png, cx0, cy0, cw, ch) {
+  const d = png.data, W = png.width;
+  const bg = medianBg(png, cx0, cy0, cw, ch, W);
+  const fg = new Uint8Array(cw * ch);
+  for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
+    const i = idx(cx0 + x, cy0 + y, W);
+    if (dist([d[i], d[i + 1], d[i + 2]], bg) > 26) fg[y * cw + x] = 1;
+  }
+  const lab = new Int32Array(cw * ch).fill(-1), areas = [];
+  const stack = [];
+  for (let p = 0; p < cw * ch; p++) {
+    if (!fg[p] || lab[p] >= 0) continue;
+    const c = areas.length; areas.push(0);
+    stack.push(p); lab[p] = c;
+    while (stack.length) {
+      const q = stack.pop(); areas[c]++;
+      const qx = q % cw, qy = (q / cw) | 0;
+      for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
+        const nx = qx + dx, ny = qy + dy;
+        if (nx < 0 || ny < 0 || nx >= cw || ny >= ch) continue;
+        const np = ny * cw + nx;
+        if (fg[np] && lab[np] < 0) { lab[np] = c; stack.push(np); }
+      }
+    }
+  }
+  let big = 0;
+  for (let c = 1; c < areas.length; c++) if (areas[c] > areas[big]) big = c;
+  const t = { t: false, b: false, l: false, r: false };
+  for (let p = 0; p < cw * ch; p++) {
+    if (lab[p] !== big) continue;
+    const x = p % cw, y = (p / cw) | 0;
+    if (y < 4) t.t = true;
+    if (y >= ch - 4) t.b = true;
+    if (x < 4) t.l = true;
+    if (x >= cw - 4) t.r = true;
+  }
+  return t;
+}
+
 function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
   const d = png.data, W = png.width;
   const bg = medianBg(png, cx0, cy0, cw, ch, W);
@@ -330,6 +371,12 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
         if (gx < gate.x0 || gx >= gate.x1 || gy < gate.y0 || gy >= gate.y1) keep[p] = 0;
       }
     }
+    // far-off scraps: small comps floating fully outside the base ring are
+    // leftover smears/splatters, not gear — real protrusions stay connected
+    for (let p = 0; p < cw * ch; p++) {
+      const l = rl[p]; if (l < 0 || !keep[p]) continue;
+      if (rarea[l] < 600 && rmin[l] > cr2 * 1.35) keep[p] = 0;
+    }
   }
   // tangential shadow-halo arcs: dark keep-pixels sweeping 24+ angle bins in the
   // protrusion annulus are painted ground-shadow, not gear — weapons stick out
@@ -411,13 +458,21 @@ for (const s of sheets) {
   console.log(`px-${s.file} ${png.width}x${png.height} cells ${cw}x${ch}`);
   s.names.forEach((name, i) => {
     const r = Math.floor(i / s.cols), c = i % s.cols;
-    // widen the cell window so protrusions that bleed into neighbor cells
-    // are still captured (they get filtered later by the anchor/comp rules)
-    const pad = (s.noPad && s.noPad.includes(name)) ? 0 : 56;
-    const x0 = Math.max(0, c * cw - pad), y0 = Math.max(0, r * ch - pad);
-    const x1 = Math.min(png.width, (c + 1) * cw + pad), y1 = Math.min(png.height, (r + 1) * ch + pad);
+    // adaptive padding: only widen the window on sides where the token's own
+    // largest connected component actually reaches the cell edge — this captures
+    // spears/banners/wings bleeding into neighbours without dragging foreign
+    // art in through clean sides (e.g. the ent canopy inside hobbit cells)
+    const px0 = c * cw, py0 = r * ch, px1 = px0 + cw, py1 = py0 + ch;
+    let pt = 0, pb = 0, pl = 0, pr = 0;
+    if (!(s.noPad && s.noPad.includes(name))) {
+      const touch = probeEdges(png, px0, py0, cw, ch);
+      const PAD = 96;
+      if (touch.t) pt = PAD; if (touch.b) pb = PAD; if (touch.l) pl = PAD; if (touch.r) pr = PAD;
+    }
+    const x0 = Math.max(0, px0 - pl), y0 = Math.max(0, py0 - pt);
+    const x1 = Math.min(png.width, px1 + pr), y1 = Math.min(png.height, py1 + pb);
     cutToken(png, x0, y0, x1 - x0, y1 - y0, name, !!s.noRim, s.clip,
-      { x0: c * cw - x0, y0: r * ch - y0, x1: (c + 1) * cw - x0, y1: (r + 1) * ch - y0 });
+      { x0: px0 - x0, y0: py0 - y0, x1: px1 - x0, y1: py1 - y0 });
   });
 }
 console.log('done');
