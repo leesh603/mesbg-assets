@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "count": 202,
+  "count": 214,
   "units": [
     {
       "id": "aragorn",
@@ -2137,6 +2137,150 @@
       "base": "",
       "sheet": "roster-hobbit-evil-v1.png",
       "file": "tokens/goblin_mercenary.png"
+    },
+    {
+      "id": "halbarad",
+      "name_ko": "할바라드",
+      "name_en": "Halbarad",
+      "side": "good",
+      "faction": "arnor",
+      "role": "hero",
+      "weapon": "banner",
+      "base": "L",
+      "sheet": "roster-exp-good-v1.png",
+      "file": "tokens/halbarad.png"
+    },
+    {
+      "id": "beregond",
+      "name_ko": "베레곤드",
+      "name_en": "Beregond",
+      "side": "good",
+      "faction": "gondor",
+      "role": "hero",
+      "weapon": "sword_shield",
+      "base": "M",
+      "sheet": "roster-exp-good-v1.png",
+      "file": "tokens/beregond.png"
+    },
+    {
+      "id": "elladan",
+      "name_ko": "엘라단",
+      "name_en": "Elladan",
+      "side": "good",
+      "faction": "rivendell",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "M",
+      "sheet": "roster-exp-good-v1.png",
+      "file": "tokens/elladan.png"
+    },
+    {
+      "id": "elrohir",
+      "name_ko": "엘로히르",
+      "name_en": "Elrohir",
+      "side": "good",
+      "faction": "rivendell",
+      "role": "hero",
+      "weapon": "spear",
+      "base": "M",
+      "sheet": "roster-exp-good-v1.png",
+      "file": "tokens/elrohir.png"
+    },
+    {
+      "id": "grimbeorn",
+      "name_ko": "그림베오른",
+      "name_en": "Grimbeorn",
+      "side": "good",
+      "faction": "beorning",
+      "role": "hero",
+      "weapon": "axe",
+      "base": "L",
+      "sheet": "roster-exp-good-v1.png",
+      "file": "tokens/grimbeorn.png"
+    },
+    {
+      "id": "ghan_buri_ghan",
+      "name_ko": "간부리간",
+      "name_en": "Ghan-buri-Ghan",
+      "side": "good",
+      "faction": "men",
+      "role": "infantry",
+      "weapon": "bow",
+      "base": "S",
+      "sheet": "roster-exp-good-v1.png",
+      "file": "tokens/ghan_buri_ghan.png"
+    },
+    {
+      "id": "suladan",
+      "name_ko": "술라단",
+      "name_en": "Suladan the Serpent Lord",
+      "side": "evil",
+      "faction": "harad",
+      "role": "hero",
+      "weapon": "spear",
+      "base": "L",
+      "sheet": "roster-exp-evil-v1.png",
+      "file": "tokens/suladan.png"
+    },
+    {
+      "id": "corsair_umbra",
+      "name_ko": "움바르 해적",
+      "name_en": "Corsair of Umbar",
+      "side": "evil",
+      "faction": "harad",
+      "role": "infantry",
+      "weapon": "sword",
+      "base": "",
+      "sheet": "roster-exp-evil-v1.png",
+      "file": "tokens/corsair_umbra.png"
+    },
+    {
+      "id": "variag_horseman",
+      "name_ko": "바리악 기수",
+      "name_en": "Variag Horseman",
+      "side": "evil",
+      "faction": "rhun",
+      "role": "cavalry",
+      "weapon": "spear",
+      "base": "XL",
+      "sheet": "roster-exp-evil-v1.png",
+      "file": "tokens/variag_horseman.png"
+    },
+    {
+      "id": "shagrat",
+      "name_ko": "샤그랏",
+      "name_en": "Shagrat",
+      "side": "evil",
+      "faction": "mordor",
+      "role": "hero",
+      "weapon": "sword_shield",
+      "base": "L",
+      "sheet": "roster-exp-evil-v1.png",
+      "file": "tokens/shagrat.png"
+    },
+    {
+      "id": "gorbag",
+      "name_ko": "고르바그",
+      "name_en": "Gorbag",
+      "side": "evil",
+      "faction": "mordor",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "",
+      "sheet": "roster-exp-evil-v1.png",
+      "file": "tokens/gorbag.png"
+    },
+    {
+      "id": "warg_alpha",
+      "name_ko": "와르그 우두머리",
+      "name_en": "Warg Alpha",
+      "side": "evil",
+      "faction": "isengard",
+      "role": "beast",
+      "weapon": "none",
+      "base": "XL",
+      "sheet": "roster-exp-evil-v1.png",
+      "file": "tokens/warg_alpha.png"
     },
     {
       "id": "terr_rubble",

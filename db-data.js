@@ -245,6 +245,22 @@ module.exports = [
   ['gundabad_orc', '군다바드 오크', 'Gundabad Orc', { faction: 'gundabad', role: 'infantry', weapon: 'sword_shield' }],
   ['goblin_mercenary', '고블린 용병', 'Goblin Mercenary', { faction: 'moria', role: 'infantry', weapon: 'club' }],
 ]},
+{ sheet: 'roster-exp-good-v1.png', side: 'good', role: 'hero', base: 'M', units: [
+  ['halbarad', '할바라드', 'Halbarad', { faction: 'arnor', weapon: 'banner', base: 'L' }],
+  ['beregond', '베레곤드', 'Beregond', { faction: 'gondor', weapon: 'sword_shield' }],
+  ['elladan', '엘라단', 'Elladan', { faction: 'rivendell', weapon: 'sword' }],
+  ['elrohir', '엘로히르', 'Elrohir', { faction: 'rivendell', weapon: 'spear' }],
+  ['grimbeorn', '그림베오른', 'Grimbeorn', { faction: 'beorning', weapon: 'axe', base: 'L' }],
+  ['ghan_buri_ghan', '간부리간', 'Ghan-buri-Ghan', { faction: 'men', role: 'infantry', weapon: 'bow', base: 'S' }],
+]},
+{ sheet: 'roster-exp-evil-v1.png', side: 'evil', units: [
+  ['suladan', '술라단', 'Suladan the Serpent Lord', { faction: 'harad', role: 'hero', weapon: 'spear', base: 'L' }],
+  ['corsair_umbra', '움바르 해적', 'Corsair of Umbar', { faction: 'harad', role: 'infantry', weapon: 'sword' }],
+  ['variag_horseman', '바리악 기수', 'Variag Horseman', { faction: 'rhun', role: 'cavalry', weapon: 'spear', base: 'XL' }],
+  ['shagrat', '샤그랏', 'Shagrat', { faction: 'mordor', role: 'hero', weapon: 'sword_shield', base: 'L' }],
+  ['gorbag', '고르바그', 'Gorbag', { faction: 'mordor', role: 'hero', weapon: 'sword' }],
+  ['warg_alpha', '와르그 우두머리', 'Warg Alpha', { faction: 'isengard', role: 'beast', weapon: 'none', base: 'XL' }],
+]},
 { sheet: 'terrain-objects-v1.png', side: 'terrain', faction: 'terrain', role: 'terrain', weapon: 'none', base: 'M', units: [
   ['terr_rubble', '돌무더기', 'Rubble pile'],
   ['terr_broken_pillar', '부러진 기둥', 'Broken pillar'],
