@@ -50,26 +50,24 @@ git clone https://github.com/leesh603/mesbg-assets.git
 
 ## 아이들 모션 (`token-idle.js`)
 
-토큰은 정지 PNG지만 게임 내에서 "살짝 숨쉬는" 느낌을 런타임에 줄 수 있음 — 프레임 이미지 불필요.
+토큰은 정지 PNG지만 게임 내에서 "살짝 숨쉬는" 느낌을 런타임에 줄 수 있음 — 프레임 이미지 불필요. **베이스(발판)는 항상 정지**: `mount()`가 같은 이미지를 한 장 더 쌓아 중심 방사형 마스크로 피겨 부분만 덮은 뒤 그 레이어만 움직임.
 
 ```html
 <script src="token-idle.js"></script>
 <script>
   // <img> 토큰: id만 넘기면 종류 자동 판별 (units.json 항목 넘겨도 됨)
-  TokenIdle.mount(imgEl, 'warg_rider');          // 아이들 시작
+  TokenIdle.mount(imgEl, 'warg_rider');          // 아이들 시작 (베이스 고정, 피겨만 움직임)
   TokenIdle.unmount(imgEl);                      // 정지
-  TokenIdle.strike(imgEl);                       // 공격 펀치 (원샷)
-  TokenIdle.die(imgEl);                          // 죽음 (가라앉으며 페이드)
+  TokenIdle.strike(imgEl);                       // 공격 펀치 (원샷, 피겨만)
+  TokenIdle.die(imgEl);                          // 죽음 (가라앉으며 페이드, 전체)
 </script>
 ```
 
-캔버스 렌더러면 매 프레임 샘플해서 직접 변환:
+캔버스 렌더러면 같은 2겹 구조를 직접 그림: 스프라이트를 한 번 그대로(고정 베이스), 중심 방사형 마스크를 씌워 한 번 더(피겨) — 두 번째 패스에만 transform 적용. `sample()`의 반환값 `m.mask` = `[불투명 반경, 페이드 끝 반경]` (절반 폭 기준 비율):
 
 ```js
 const m = TokenIdle.sample('cavalry', performance.now(), unitId);
-ctx.translate(m.dx * w, m.dy * h);
-ctx.rotate(m.rot);
-ctx.scale(m.sx, m.sy);   // dx/dy = 토큰 크기 대비 비율, rot = 라디안
+// pass 2 (figure) only: translate(m.dx*w, m.dy*h), rotate(m.rot), scale(m.sx, m.sy)
 ```
 
-종류: `foot`(숨쉬기) `hero`(느린 숨쉬기) `cavalry`(걸음 출렁임) `beast`(전진 몸흔들림) `monster`(무거운 숨) `flyer`(부유) `wraith`(표류+광번쩍임) `banner`(깃대 흔들림) `terrain`(정지). 토큰별로 위상이 해시로 어긋나서 일제히 움직이지 않음. `gallery.html`의 "모션" 버튼에서 바로 확인 가능.
+종류: `foot`(숨쉬기) `hero`(느린 숨쉬기) `cavalry`(걸음 출렁임 — 발굽 붙고 몸통만) `beast`(전진 몸흔들림) `monster`(무거운 숨) `flyer`(부유) `wraith`(표류+광번쩍임) `banner`(깃대 흔들림) `terrain`(정지). 토큰별로 위상이 해시로 어긋나서 일제히 움직이지 않음. `gallery.html`의 "모션" 버튼에서 바로 확인 가능.
