@@ -58,7 +58,7 @@ h1{font-size:20px}h2{font-size:15px;margin:28px 0 10px;color:#9db4d0;border-bott
 .ko{font-size:13px;font-weight:600;margin-top:2px}
 .meta{font-size:10px;color:#8a8f98;margin-top:3px}
 </style></head><body>
-<h1>MESBG 에셋 매칭 갤러리 — ${rows.length}종</h1>
+<h1>MESBG 에셋 매칭 갤러리 — ${rows.length}종 <button id="vsw" onclick="let p=document.querySelectorAll('img'),pt=document.body.dataset.pt!=='1';document.body.dataset.pt=pt?'1':'0';p.forEach(i=>i.src=i.src.replace(pt?'tokens/':'tokens_painted/',pt?'tokens_painted/':'tokens/'));this.textContent=pt?'보는중: 도색 (클릭→픽셀)':'보는중: 픽셀 (클릭→도색)';" style="font-size:12px;padding:4px 10px;cursor:pointer">보는중: 픽셀 (클릭→도색)</button></h1>
 ${['good','evil','terrain'].filter(k=>groups[k]).map(k=>`<h2>${k==='good'?'자유민족 (파랑 림)':k==='evil'?'악의 세력 (빨강 림)':'지형지물'} — ${groups[k].length}</h2><div class="grid">${groups[k].map(card).join('')}</div>`).join('')}
 </body></html>`;
 fs.writeFileSync(path.join(SRC, 'gallery.html'), html);
