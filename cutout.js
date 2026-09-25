@@ -13,7 +13,7 @@ fs.mkdirSync(OUT, { recursive: true });
 const sheets = [
   { file: 'lotr-tokens-v1.png', rows: 2, cols: 3, names: ['aragorn', 'gandalf', 'warrior_minas_tirith', 'witchking_foot', 'orc_sword', 'cave_troll'] },
   { file: 'glorfindel-topdown-v2.png', rows: 1, cols: 2, names: ['glorfindel_foot', 'glorfindel_mounted'] },
-  { file: 'fellbeast-topdown-v2.png', rows: 1, cols: 1, names: ['witchking_fellbeast'] },
+  { file: 'fellbeast-topdown-v2.png', rows: 1, cols: 1, clip: 1.15, names: ['witchking_fellbeast'] },
   { file: 'witchking-mounted-topdown-v1.png', rows: 1, cols: 1, names: ['witchking_mounted'] },
   { file: 'roster-enemy-heroes-v1.png', rows: 2, cols: 3, names: ['witchking_mounted_sheet', 'witchking_foot_mace', 'nazgul_sword', 'saruman', 'orc_shaman', 'orc_captain'] },
   { file: 'roster-enemy-troops-v1.png', rows: 2, cols: 3, names: ['orc_spearman', 'orc_archer', 'uruk_swordshield', 'morannon_orc', 'warg_rider', 'haradrim_spearman'] },
@@ -35,13 +35,13 @@ const sheets = [
   { file: 'roster-free-special-v1.png', rows: 2, cols: 3, names: ['hobbit_shirriff', 'hobbit_bounder', 'great_eagle', 'ent', 'beorning', 'ranger_north'] },
   { file: 'roster-free-heroes-exp-v1.png', rows: 2, cols: 3, names: ['theoden', 'faramir', 'haldir', 'galadriel', 'gamling', 'samwise'] },
   { file: 'roster-evil-heroes-exp-v1.png', rows: 2, cols: 3, names: ['mouth_of_sauron', 'gothmog', 'lurtz', 'sharku', 'grima', 'khamul'] },
-  { file: 'terrain-natural-v1.png', rows: 2, cols: 3, names: ['terr_rock_outcrop', 'terr_standing_stones', 'terr_pine_copse', 'terr_oak_tree', 'terr_dead_tree', 'terr_hedgerow'] },
-  { file: 'terrain-structures-v1.png', rows: 2, cols: 3, names: ['terr_ruined_wall', 'terr_ruined_tower', 'terr_gondor_house', 'terr_rohan_hall', 'terr_orc_camp', 'terr_barrow'] },
+  { file: 'terrain-natural-v1.png', rows: 2, cols: 3, noRim: true, names: ['terr_rock_outcrop', 'terr_standing_stones', 'terr_pine_copse', 'terr_oak_tree', 'terr_dead_tree', 'terr_hedgerow'] },
+  { file: 'terrain-structures-v1.png', rows: 2, cols: 3, noRim: true, names: ['terr_ruined_wall', 'terr_ruined_tower', 'terr_gondor_house', 'terr_rohan_hall', 'terr_orc_camp', 'terr_barrow'] },
 ];
 
 function idx(x, y, w) { return (y * w + x) << 2; }
-function sat(px) { const mx = Math.max(px[0], px[1], px[2]); const mn = Math.min(px[0], px[1], px[2]); return mx === 0 ? 0 : (mx - mn) / mx; }
-function isRim(d, i) {
+function sat_unused(px) { const mx = Math.max(px[0], px[1], px[2]); const mn = Math.min(px[0], px[1], px[2]); return mx === 0 ? 0 : (mx - mn) / mx; }
+function isRim_unused(d, i) {
   const r = d[i], g = d[i + 1], b = d[i + 2];
   const s = sat([r, g, b]);
   if (s < 0.45) return false;
@@ -65,7 +65,7 @@ function medianBg(png, cx0, cy0, cw, ch, W) {
   return [med(rs), med(gs), med(bs)];
 }
 
-function cutToken(png, cx0, cy0, cw, ch, name) {
+function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul) {
   const d = png.data, W = png.width;
   const bg = medianBg(png, cx0, cy0, cw, ch, W);
   const TH = 26;
@@ -76,34 +76,75 @@ function cutToken(png, cx0, cy0, cw, ch, name) {
     const p = y * cw + x;
     const px = [d[i], d[i + 1], d[i + 2]];
     if (dist(px, bg) > TH) fg[p] = 1;
-    if (isRim(d, i)) rim[p] = 1;
+    const r = d[i], g = d[i + 1], b = d[i + 2];
+    const mx = Math.max(r, g, b), mn = Math.min(r, g, b), s = mx === 0 ? 0 : (mx - mn) / mx;
+    if (s >= 0.45 && mx >= 60 && ((b > r + 25) || (r > g + 30 && r > b + 30))) rim[p] = 1;
   }
-  // rim circle: bbox of rim pixels
-  let rx0 = cw, rx1 = -1, ry0 = ch, ry1 = -1, rn = 0;
-  for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) if (rim[y * cw + x]) {
-    rn++; if (x < rx0) rx0 = x; if (x > rx1) rx1 = x; if (y < ry0) ry0 = y; if (y > ry1) ry1 = y;
+  // confident rim-ring fit: modal colour -> centroid -> dist-histogram peak ->
+  // band refit -> require >=22/32 angular bins covered (clean ring only)
+  let rimFit = null;
+  if (!noRim) {
+    const rimPts = [];
+    for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) if (rim[y * cw + x]) rimPts.push([x, y]);
+    if (rimPts.length > 200) {
+      const cbins = new Map();
+      for (const [x, y] of rimPts) {
+        const i = idx(cx0 + x, cy0 + y, W);
+        const key = ((d[i] >> 4) << 8) | ((d[i + 1] >> 4) << 4) | (d[i + 2] >> 4);
+        cbins.set(key, (cbins.get(key) || 0) + 1);
+      }
+      let modeK = -1, modeN = 0;
+      for (const [k, n] of cbins) if (n > modeN) { modeN = n; modeK = k; }
+      const mc = [(modeK >> 8) << 4, ((modeK >> 4) & 15) << 4, (modeK & 15) << 4];
+      const core = rimPts.filter(([x, y]) => {
+        const i = idx(cx0 + x, cy0 + y, W);
+        return Math.abs(d[i] - mc[0]) + Math.abs(d[i + 1] - mc[1]) + Math.abs(d[i + 2] - mc[2]) < 90;
+      });
+      const pts = core.length > 100 ? core : rimPts;
+      let sx = 0, sy = 0;
+      for (const [x, y] of pts) { sx += x; sy += y; }
+      const ex = sx / pts.length, ey = sy / pts.length;
+      const dmap = new Map();
+      for (const [x, y] of pts) {
+        const b = Math.round(Math.hypot(x - ex, y - ey) / 6);
+        dmap.set(b, (dmap.get(b) || 0) + 1);
+      }
+      const minB = Math.round(Math.min(cw, ch) * 0.28 / 6);
+      const maxB = Math.max(...dmap.keys());
+      // outermost ring wins: scan distance bins downward; interior blobs of the
+      // modal colour (robes, capes) stay interior so they can't fake a rim
+      for (let b = maxB; b >= minB && !rimFit; b--) {
+        if ((dmap.get(b) || 0) < 80) continue;
+        const rr = b * 6;
+        const band = pts.filter(([x, y]) => { const dd = Math.hypot(x - ex, y - ey); return dd >= rr * 0.85 && dd <= rr * 1.15; });
+        if (band.length < 80) continue;
+        let bx = 0, by = 0;
+        for (const [x, y] of band) { bx += x; by += y; }
+        const fx = bx / band.length, fy = by / band.length;
+        const fds = band.map(([x, y]) => Math.hypot(x - fx, y - fy)).sort((a, c) => a - c);
+        const fr = fds[fds.length >> 1];
+        const ang = new Set();
+        for (const [x, y] of band) {
+          const dd = Math.hypot(x - fx, y - fy);
+          if (dd >= fr * 0.85 && dd <= fr * 1.2) ang.add(Math.floor(Math.atan2(y - fy, x - fx) / (Math.PI / 16)) & 31);
+        }
+        if (ang.size >= 22 && fr > Math.min(cw, ch) * 0.2) rimFit = [fx, fy, fr];
+      }
+    }
   }
-  let cx = cw / 2, cy = ch / 2, cr = Math.min(cw, ch) * 0.40;
-  if (rn > 40) {
-    cx = (rx0 + rx1) / 2; cy = (ry0 + ry1) / 2;
-    cr = Math.max(rx1 - rx0, ry1 - ry0) / 2;
-  }
-  // inside-circle = foreground
-  const cr2 = (cr * 1.02) ** 2;
-  for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
-    const dx = x - cx, dy = y - cy;
-    if (dx * dx + dy * dy <= cr2) fg[y * cw + x] = 1;
-  }
-  // keep fg components overlapping circle (for weapons sticking out)
+  // label fg components FIRST — the token is the largest one; its centroid +
+  // 90th-percentile distance gives the base circle (rim colours unreliable)
   const lab = new Int32Array(cw * ch).fill(-1);
   let nc = 0;
+  const area = [];
   const stack = [];
   for (let p = 0; p < cw * ch; p++) {
     if (!fg[p] || lab[p] >= 0) continue;
-    const comp = nc++;
+    const comp = nc++; area.push(0);
     stack.push(p); lab[p] = comp;
     while (stack.length) {
-      const q = stack.pop(); const qx = q % cw, qy = (q / cw) | 0;
+      const q = stack.pop(); area[comp]++;
+      const qx = q % cw, qy = (q / cw) | 0;
       for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
         const nx = qx + dx, ny = qy + dy;
         if (nx < 0 || ny < 0 || nx >= cw || ny >= ch) continue;
@@ -112,19 +153,206 @@ function cutToken(png, cx0, cy0, cw, ch, name) {
       }
     }
   }
-  const cR = cr * 1.12;
-  const good = new Set();
+  let main = 0; area.forEach((a, i) => { if (a > area[main]) main = i; });
+  let cx = cw / 2, cy = ch / 2, cr = Math.min(cw, ch) * 0.40;
+  {
+    let sx = 0, sy = 0;
+    for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) if (lab[y * cw + x] === main) { sx += x; sy += y; }
+    cx = sx / area[main]; cy = sy / area[main];
+    const ds = [];
+    for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) if (lab[y * cw + x] === main) ds.push(Math.hypot(x - cx, y - cy));
+    ds.sort((a, b) => a - b);
+    cr = ds[Math.floor(ds.length * 0.90)] || cr;
+    cr = Math.max(cr, Math.min(cw, ch) * 0.28);
+    // tighten to the real base edge: scan outward, the rim is where the comp's
+    // radial fill-density collapses (base interior is dense, smears/scraps thin)
+    const rMax = Math.min(cw, ch) * 0.55, lo = cr * 0.7;
+    let lastDense = lo;
+    for (let r = lo; r < rMax; r += 4) {
+      let tot = 0, hit = 0;
+      for (let a = 0; a < 64; a++) {
+        const x = Math.round(cx + r * Math.cos(a * Math.PI / 32)), y = Math.round(cy + r * Math.sin(a * Math.PI / 32));
+        if (x < 0 || y < 0 || x >= cw || y >= ch) continue;
+        tot++; if (lab[y * cw + x] >= 0) hit++;
+      }
+      if (tot && hit / tot > 0.30) lastDense = r; else if (r > lastDense + 12) break;
+    }
+    // recenter on the dense core (protrusions pull the component centroid off
+    // the base, leaving a bg crescent on one side), then rescan once
+    {
+      let sx = 0, sy = 0, n = 0;
+      const lim = (lastDense * 0.95) ** 2;
+      for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) if (lab[y * cw + x] === main) {
+        const dx = x - cx, dy = y - cy;
+        if (dx * dx + dy * dy <= lim) { sx += x; sy += y; n++; }
+      }
+      if (n > 0) { cx = sx / n; cy = sy / n; }
+      lastDense = lo;
+      for (let r = lo; r < rMax; r += 4) {
+        let tot = 0, hit = 0;
+        for (let a = 0; a < 64; a++) {
+          const x = Math.round(cx + r * Math.cos(a * Math.PI / 32)), y = Math.round(cy + r * Math.sin(a * Math.PI / 32));
+          if (x < 0 || y < 0 || x >= cw || y >= ch) continue;
+          tot++; if (lab[y * cw + x] >= 0) hit++;
+        }
+        if (tot && hit / tot > 0.30) lastDense = r; else if (r > lastDense + 12) break;
+      }
+    }
+    cr = Math.max(lastDense * 1.03, Math.min(cw, ch) * 0.25);
+    // a confident rim-ring fit wins over the density estimate — but only when
+    // it broadly agrees; a wild fit (fake ring in the art) falls back
+    if (rimFit && Math.hypot(rimFit[0] - cx, rimFit[1] - cy) <= cr * 0.35 &&
+        rimFit[2] >= cr * 0.7 && rimFit[2] <= cr * 1.3) {
+      cx = rimFit[0]; cy = rimFit[1]; cr = rimFit[2];
+    } else rimFit = null;
+  }
+  // inside-circle = foreground
+  const cr2 = (cr * 1.02) ** 2;
+  // keep a component only if it has >=50 px inside the circle: weapons/cloaks
+  // anchored on the figure pass; scrap chains & neighbour bleed that merely
+  // graze the rim don't.
+  const inPix = new Int32Array(nc);
+  const minD2 = new Float64Array(nc).fill(Infinity);
   for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
     const l = lab[y * cw + x]; if (l < 0) continue;
     const dx = x - cx, dy = y - cy;
-    if (dx * dx + dy * dy <= cR * cR) good.add(l);
+    const dd = dx * dx + dy * dy;
+    if (dd < minD2[l]) minD2[l] = dd;
+    if (dd <= cr2) inPix[l]++;
   }
+  // anchored = solidly inside (>=500px AND >=20% of the comp) OR rooted deep in
+  // the figure (<=0.55cr with a real inside footprint). Shadow-smear arcs that
+  // only graze the rim edge fail both and drop.
+  const deep2 = (cr * 0.55) ** 2;
+  const clip2 = (cr * (clipMul || 1.7)) ** 2;
+  const STRONG = 55; // outside the circle only strongly-fg pixels survive (kills wispy blends)
   const keep = new Uint8Array(cw * ch);
-  for (let p = 0; p < cw * ch; p++) if (lab[p] >= 0 && good.has(lab[p])) keep[p] = 1;
+  for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
+    const p = y * cw + x, l = lab[p];
+    const dx = x - cx, dy = y - cy, dd = dx * dx + dy * dy;
+    const anchored = l >= 0 && ((inPix[l] >= 500 && inPix[l] * 5 >= area[l]) || (minD2[l] <= deep2 && inPix[l] >= 150));
+    if (!(anchored && dd <= clip2)) continue;
+    const i = idx(cx0 + x, cy0 + y, W);
+    if (dd <= cr2 || dist([d[i], d[i + 1], d[i + 2]], bg) > STRONG) keep[p] = 1;
+  }
+  // a fitted rim ring ends AT the rim: rim-coloured pixels beyond it are torn
+  // arcs / neighbour bleed — cut them (figure colours pass unaffected)
+  if (rimFit) {
+    const rimCut2 = (cr * 1.10) ** 2;
+    for (let p = 0; p < cw * ch; p++) {
+      if (!rim[p] || !keep[p]) continue;
+      const x = p % cw, y = (p / cw) | 0, dx = x - cx, dy = y - cy;
+      if (dx * dx + dy * dy > rimCut2) keep[p] = 0;
+    }
+  }
+  for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
+    const dx = x - cx, dy = y - cy;
+    if (dx * dx + dy * dy <= cr2) fg[y * cw + x] = 1;
+  }
   // also keep interior of circle even if same color as bg
   for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
     const dx = x - cx, dy = y - cy;
     if (dx * dx + dy * dy <= cr2) keep[y * cw + x] = 1;
+  }
+  // cut thin scrap bridges: erode keep by 2, relabel, drop islands <150px,
+  // dilate survivors back within the original keep (keeps weapon thickness)
+  {
+    const er = new Uint8Array(cw * ch);
+    for (let y = 2; y < ch - 2; y++) for (let x = 2; x < cw - 2; x++) {
+      const p = y * cw + x;
+      if (keep[p] && keep[p - 1] && keep[p + 1] && keep[p - cw] && keep[p + cw] &&
+          keep[p - 2] && keep[p + 2] && keep[p - 2 * cw] && keep[p + 2 * cw]) er[p] = 1;
+    }
+    const el = new Int32Array(cw * ch).fill(-1);
+    const earea = [];
+    for (let p = 0; p < cw * ch; p++) {
+      if (!er[p] || el[p] >= 0) continue;
+      const c = earea.length; earea.push(0);
+      stack.push(p); el[p] = c;
+      while (stack.length) {
+        const q = stack.pop(); earea[c]++;
+        const qx = q % cw, qy = (q / cw) | 0;
+        for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
+          const nx = qx + dx, ny = qy + dy;
+          if (nx < 0 || ny < 0 || nx >= cw || ny >= ch) continue;
+          const np = ny * cw + nx;
+          if (er[np] && el[np] < 0) { el[np] = c; stack.push(np); }
+        }
+      }
+    }
+    const survive = earea.map(a => a >= 100);
+    const dil = new Uint8Array(cw * ch);
+    for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
+      const p = y * cw + x, l = el[p];
+      if (l < 0 || !survive[l]) continue;
+      for (let dy = -2; dy <= 2; dy++) for (let dx = -2; dx <= 2; dx++) {
+        const nx = x + dx, ny = y + dy;
+        if (nx >= 0 && ny >= 0 && nx < cw && ny < ch) dil[ny * cw + nx] = 1;
+      }
+    }
+    for (let p = 0; p < cw * ch; p++) keep[p] &= dil[p];
+    // erosion can split a smear/arc off the main comp — re-label and apply the
+    // anchor rule again so detached islands fail like they should have
+    const rl = new Int32Array(cw * ch).fill(-1);
+    const rin = [], rmin = [], rarea = [];
+    for (let p = 0; p < cw * ch; p++) {
+      if (!keep[p] || rl[p] >= 0) continue;
+      const c = rarea.length; rarea.push(0); rin.push(0); rmin.push(Infinity);
+      stack.push(p); rl[p] = c;
+      while (stack.length) {
+        const q = stack.pop(); rarea[c]++;
+        const qx = q % cw, qy = (q / cw) | 0;
+        const dd = (qx - cx) ** 2 + (qy - cy) ** 2;
+        if (dd < rmin[c]) rmin[c] = dd;
+        if (dd <= cr2) rin[c]++;
+        for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
+          const nx = qx + dx, ny = qy + dy;
+          if (nx < 0 || ny < 0 || nx >= cw || ny >= ch) continue;
+          const np = ny * cw + nx;
+          if (keep[np] && rl[np] < 0) { rl[np] = c; stack.push(np); }
+        }
+      }
+    }
+    for (let p = 0; p < cw * ch; p++) {
+      const l = rl[p]; if (l < 0) continue;
+      if (!((rin[l] >= 500 && rin[l] * 5 >= rarea[l]) || (rmin[l] <= deep2 && rin[l] >= 150))) keep[p] = 0;
+    }
+  }
+  // tangential shadow-halo arcs: dark keep-pixels sweeping 24+ angle bins in the
+  // protrusion annulus are painted ground-shadow, not gear — weapons stick out
+  // radially over few bins and bright pixels pass untouched
+  if (!clipMul || clipMul > 1.3) {
+    for (let r = cr * 1.05; r < cr * 1.5; r += 3) {
+      let cov = 0, dark = 0;
+      for (let a = 0; a < 96; a++) {
+        const x = Math.round(cx + r * Math.cos(a * Math.PI / 48));
+        const y = Math.round(cy + r * Math.sin(a * Math.PI / 48));
+        if (x < 0 || y < 0 || x >= cw || y >= ch) continue;
+        if (!keep[y * cw + x]) continue;
+        cov++;
+        const i = idx(cx0 + x, cy0 + y, W);
+        if (Math.max(d[i], d[i + 1], d[i + 2]) < 70) dark++;
+      }
+      if (cov > 24 && dark * 2 >= cov) {
+        // a legit wide hem/cloak keeps covering ~14px inward; a shadow band
+        // floats in the annulus with a gap toward the base — spared vs erased
+        let covIn = 0;
+        for (let a = 0; a < 96; a++) {
+          const x = Math.round(cx + (r - 14) * Math.cos(a * Math.PI / 48));
+          const y = Math.round(cy + (r - 14) * Math.sin(a * Math.PI / 48));
+          if (x < 0 || y < 0 || x >= cw || y >= ch) continue;
+          if (keep[y * cw + x]) covIn++;
+        }
+        if (covIn >= cov * 0.5) continue;
+        for (let a = 0; a < 96; a++) for (let rr = -3; rr <= 3; rr++) {
+          const x = Math.round(cx + (r + rr) * Math.cos(a * Math.PI / 48));
+          const y = Math.round(cy + (r + rr) * Math.sin(a * Math.PI / 48));
+          if (x < 0 || y < 0 || x >= cw || y >= ch) continue;
+          const p = y * cw + x, i = idx(cx0 + x, cy0 + y, W);
+          if (keep[p] && Math.max(d[i], d[i + 1], d[i + 2]) < 80) keep[p] = 0;
+        }
+      }
+    }
   }
   // feather alpha: erode then 3x3 box blur
   const er = new Uint8Array(cw * ch);
@@ -170,7 +398,7 @@ for (const s of sheets) {
   console.log(`${s.file} ${png.width}x${png.height} cells ${cw}x${ch}`);
   s.names.forEach((name, i) => {
     const r = Math.floor(i / s.cols), c = i % s.cols;
-    cutToken(png, c * cw, r * ch, cw, ch, name);
+    cutToken(png, c * cw, r * ch, cw, ch, name, !!s.noRim, s.clip);
   });
 }
 console.log('done');
