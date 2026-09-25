@@ -67,7 +67,7 @@ git clone https://github.com/leesh603/mesbg-assets.git
 
 ```js
 const m = TokenIdle.sample('cavalry', performance.now(), unitId);
-// pass 2 (figure) only: translate(m.dx*w, m.dy*h), rotate(m.rot), scale(m.sx, m.sy)
+// pass 2 (figure) only: pivot at (50%, m.oy*h) — rotate(m.rot), scale(m.sx, m.sy), translate(m.dx*w, m.dy*h)
 ```
 
 종류: `foot`(숨쉬기) `hero`(느린 숨쉬기) `cavalry`(걸음 출렁임 — 발굽 붙고 몸통만) `beast`(전진 몸흔들림) `monster`(무거운 숨) `flyer`(부유) `wraith`(표류+광번쩍임) `banner`(깃대 흔들림) `terrain`(정지). 토큰별로 위상이 해시로 어긋나서 일제히 움직이지 않음. `gallery.html`의 "모션" 버튼에서 바로 확인 가능.
