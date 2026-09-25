@@ -61,7 +61,7 @@
     if (/spear|pike|lance|kataphrakt|pitchfork/.test(id)) return 'thrust';
     if (/banner|drum/.test(id)) return 'rally';
     if (/troll|balrog|mumak|oliphaunt/.test(id)) return 'smash';
-    if (/warg|shelob|beorning|ent|fellbeast|eagle/.test(id)) return 'pounce';
+    if (/warg|shelob|beorning|ent|fellbeast|eagle|spider|ungoliant/.test(id)) return 'pounce';
     const k = KINDS[idOrKind] ? idOrKind : classify(idOrKind, meta);
     if (k === 'monster') return 'smash';
     if (k === 'beast' || k === 'flyer') return 'pounce';
@@ -76,7 +76,7 @@
     if (id.startsWith('terr_') || (meta && meta.role === 'terrain')) return 'terrain';
     if (/banner/.test(id) || (meta && meta.weapon === 'banner')) return 'banner';
     if (/eagle|fellbeast|crebain/.test(id)) return 'flyer';
-    if (/nazgul|witchking|dwimmerlaik|khamul|wight|wraith/.test(id)) return 'wraith';
+    if (/nazgul|witchking|dwimmerlaik|khamul|wight|wraith|dead|ghost/.test(id)) return 'wraith';
     if (/warg|shelob|ent|beorning/.test(id)) return 'beast';
     if (/troll|balrog/.test(id) || (meta && meta.role === 'monster')) return 'monster';
     if (meta && meta.role === 'cavalry') return 'cavalry';
