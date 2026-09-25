@@ -11,6 +11,15 @@ const PAINTED = process.argv.includes('--painted');
 const OUT = path.join(SRC, PAINTED ? 'tokens_painted' : 'tokens');
 fs.mkdirSync(OUT, { recursive: true });
 
+// ground-truth faction per unit id — painted rims get occluded/tinted, and
+// gold/brown figure pixels fake the red family (dwarf_axeshield, pixel ent),
+// so the ring colour comes from the roster data, not pixel votes
+const sideByName = {};
+try {
+  for (const s of require('./db-data.js'))
+    for (const u of s.units) sideByName[u[0]] = (u[3] && u[3].side) || s.side;
+} catch (e) { /* db-data optional */ }
+
 const sheets = [
   { file: 'lotr-tokens-v1.png', rows: 2, cols: 3, names: ['aragorn', 'gandalf', 'warrior_minas_tirith', 'witchking_foot', 'orc_sword', 'cave_troll'] },
   { file: 'glorfindel-topdown-v2.png', rows: 1, cols: 2, names: ['glorfindel_foot', 'glorfindel_mounted'] },
@@ -134,59 +143,22 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
     }
   }
   // faction for the clean redrawn edge ring: canonical saturated colour reads
-  // at game size where a photographed rim does not
-  const faction = noRim || rimBlue + rimRed < 40 ? null
-    : rimRed > rimBlue ? [208, 50, 38] : [74, 130, 246];
-  // confident rim-ring fit: modal colour -> centroid -> dist-histogram peak ->
-  // band refit -> require >=22/32 angular bins covered (clean ring only)
+  // at game size where a photographed rim does not. Filled in below from the
+  // FITTED rim band — whole-cell votes let gold shields/orange beards
+  // (red-channel hues) outvote a blue rim (dwarf_axeshield went red)
+  let faction = null;
+  // rim-ring candidates: modal colour -> centroid -> dist-histogram peak ->
+  // band refit -> partial coverage ok (figure bits can occlude the ring — the
+  // downstream disc-edge density test filters interior colour blobs)
+  const rimCands = [];
   let rimFit = null;
+  // rimPts [x, y, family] — family 0 = blue-ish, 1 = red-ish (gold/brown/skin
+  // count as red, so faction votes must come from the fitted ring band only)
+  const rimPts = [];
   if (!noRim) {
-    const rimPts = [];
-    for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) if (rim[y * cw + x]) rimPts.push([x, y]);
-    if (rimPts.length > 200) {
-      const cbins = new Map();
-      for (const [x, y] of rimPts) {
-        const i = idx(cx0 + x, cy0 + y, W);
-        const key = ((d[i] >> 4) << 8) | ((d[i + 1] >> 4) << 4) | (d[i + 2] >> 4);
-        cbins.set(key, (cbins.get(key) || 0) + 1);
-      }
-      let modeK = -1, modeN = 0;
-      for (const [k, n] of cbins) if (n > modeN) { modeN = n; modeK = k; }
-      const mc = [(modeK >> 8) << 4, ((modeK >> 4) & 15) << 4, (modeK & 15) << 4];
-      const core = rimPts.filter(([x, y]) => {
-        const i = idx(cx0 + x, cy0 + y, W);
-        return Math.abs(d[i] - mc[0]) + Math.abs(d[i + 1] - mc[1]) + Math.abs(d[i + 2] - mc[2]) < 90;
-      });
-      const pts = core.length > 100 ? core : rimPts;
-      let sx = 0, sy = 0;
-      for (const [x, y] of pts) { sx += x; sy += y; }
-      const ex = sx / pts.length, ey = sy / pts.length;
-      const dmap = new Map();
-      for (const [x, y] of pts) {
-        const b = Math.round(Math.hypot(x - ex, y - ey) / 6);
-        dmap.set(b, (dmap.get(b) || 0) + 1);
-      }
-      const minB = Math.round(Math.min(cw, ch) * 0.28 / 6);
-      const maxB = Math.max(...dmap.keys());
-      // outermost ring wins: scan distance bins downward; interior blobs of the
-      // modal colour (robes, capes) stay interior so they can't fake a rim
-      for (let b = maxB; b >= minB && !rimFit; b--) {
-        if ((dmap.get(b) || 0) < 80) continue;
-        const rr = b * 6;
-        const band = pts.filter(([x, y]) => { const dd = Math.hypot(x - ex, y - ey); return dd >= rr * 0.85 && dd <= rr * 1.15; });
-        if (band.length < 80) continue;
-        let bx = 0, by = 0;
-        for (const [x, y] of band) { bx += x; by += y; }
-        const fx = bx / band.length, fy = by / band.length;
-        const fds = band.map(([x, y]) => Math.hypot(x - fx, y - fy)).sort((a, c) => a - c);
-        const fr = fds[fds.length >> 1];
-        const ang = new Set();
-        for (const [x, y] of band) {
-          const dd = Math.hypot(x - fx, y - fy);
-          if (dd >= fr * 0.85 && dd <= fr * 1.2) ang.add(Math.floor(Math.atan2(y - fy, x - fx) / (Math.PI / 16)) & 31);
-        }
-        if (ang.size >= 22 && fr > Math.min(cw, ch) * 0.2) rimFit = [fx, fy, fr];
-      }
+    for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) if (rim[y * cw + x]) {
+      const i = idx(cx0 + x, cy0 + y, W);
+      rimPts.push([x, y, d[i + 2] > d[i] + 25 ? 0 : 1]);
     }
   }
   // label fg components FIRST — the token is the largest one; its centroid +
@@ -274,14 +246,98 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
       }
     }
     cr = Math.max(lastDense * 1.03, Math.min(cw, ch) * 0.25);
-    // a confident rim-ring fit wins over the density estimate — but only when
-    // it closely agrees. Interior rim-coloured blobs (navy capes, shields) can
-    // fake a ring at ~0.7·cr and must not override a good density fit: a real
-    // rim sits AT the base edge the density scan targets, so the two agree.
-    if (rimFit && Math.hypot(rimFit[0] - cx, rimFit[1] - cy) <= cr * 0.3 &&
-        rimFit[2] >= cr * 0.85 && rimFit[2] <= cr * 1.15) {
-      cx = rimFit[0]; cy = rimFit[1]; cr = rimFit[2];
-    } else rimFit = null;
+    // rim-ring candidates around the density-est centre: per colour family,
+    // weight radial bins by ANGULAR COVERAGE — a true rim ring spans most of
+    // the circle even when figure bits occlude parts, while interior blobs
+    // (gold shield, cape, flag) pile up at few angles.
+    for (const fam of [0, 1]) {
+      const band = rimPts.filter(([x, y, f]) => {
+        if (f !== fam) return false;
+        const dd = Math.hypot(x - cx, y - cy);
+        return dd >= cr * 0.72 && dd <= cr * 1.45;
+      });
+      if (band.length < 120) continue;
+      const abin = new Map();   // dist bin -> Set of angular sectors
+      for (const [x, y] of band) {
+        const dd = Math.hypot(x - cx, y - cy);
+        const b = Math.round(dd / 6);
+        let s = abin.get(b); if (!s) abin.set(b, s = new Set());
+        s.add(Math.floor(Math.atan2(y - cy, x - cx) / (Math.PI / 16)) & 31);
+      }
+      const bins = [...abin.entries()].filter(([, s]) => s.size >= 10)
+        .sort((a, b) => b[1].size - a[1].size).slice(0, 3);
+      for (const [bb, s] of bins) {
+        const rr = bb * 6;
+        const ring = band.filter(([x, y]) => { const dd = Math.hypot(x - cx, y - cy); return dd >= rr * 0.88 && dd <= rr * 1.12; });
+        if (ring.length < 60) continue;
+        let bx = 0, by = 0;
+        for (const [x, y] of ring) { bx += x; by += y; }
+        const fx = bx / ring.length, fy = by / ring.length;
+        const fds = ring.map(([x, y]) => Math.hypot(x - fx, y - fy)).sort((a, c) => a - c);
+        const fr = fds[fds.length >> 1];
+        const ang = new Set();
+        for (const [x, y] of ring) {
+          const dd = Math.hypot(x - fx, y - fy);
+          if (dd >= fr * 0.85 && dd <= fr * 1.2) ang.add(Math.floor(Math.atan2(y - fy, x - fx) / (Math.PI / 16)) & 31);
+        }
+        if (process.env.DBG === name) console.log(`  DBGfam fam=${fam} rr=${rr} fr=${fr.toFixed(1)} fxy=${fx.toFixed(0)},${fy.toFixed(0)} ang=${ang.size} cover=${s.size}`);
+        if (ang.size >= 12 && fr > Math.min(cw, ch) * 0.28)
+          rimCands.push([fx, fy, fr, ang.size, fam]);
+      }
+    }
+    // a confident rim-ring fit wins over the density estimate — a real rim
+    // bounds a DENSE disc: inside it the fg stays solid, just outside it drops
+    // to bg/scraps. Interior rim-coloured blobs (navy capes, shields) fake a
+    // ring but the fg continues dense past them, so they fail the drop test.
+    // The radius may sit well inside the density estimate (figure protrusions
+    // inflate density past the true base — dwarf_banner's dark annulus).
+    // pick the biggest candidate that looks like a real base edge — interior
+    // colour blobs are bounded by the disc so the true rim is always the
+    // largest plausible ring; require dense inside, dropping outside
+    rimCands.sort((a, b) => b[2] - a[2]);
+    for (const [fx, fy, fr, ang, fam] of rimCands) {
+      if (rimFit) break;
+      if (fr < Math.min(cw, ch) * 0.25 || fr < cr * 0.5) continue;
+      if (Math.hypot(fx - cx, fy - cy) > cr * 0.35) continue;
+      let inH = 0, inT = 0, outH = 0, outT = 0, rimInH = 0, rimInT = 0;
+      for (let r = fr * 0.2; r < fr * 0.88; r += 6) {
+        for (let a = 0; a < 48; a++) {
+          const x = Math.round(fx + r * Math.cos(a * Math.PI / 24)), y = Math.round(fy + r * Math.sin(a * Math.PI / 24));
+          if (x < 0 || y < 0 || x >= cw || y >= ch) continue;
+          inT++; if (fg[y * cw + x]) inH++;
+        }
+      }
+      // the band just inside must be solid disc — a ring bounding a dark gap
+      // (an outer arc of cape/flag pixels) fails here
+      for (let r = fr * 0.86; r < fr * 0.99; r += 3) {
+        for (let a = 0; a < 64; a++) {
+          const x = Math.round(fx + r * Math.cos(a * Math.PI / 32)), y = Math.round(fy + r * Math.sin(a * Math.PI / 32));
+          if (x < 0 || y < 0 || x >= cw || y >= ch) continue;
+          rimInT++; if (lab[y * cw + x] >= 0) rimInH++;
+        }
+      }
+      const ann0 = fr * 1.10, ann1 = Math.min(fr * 1.5, Math.min(cw, ch) * 0.56);
+      for (let r = ann0; r < ann1; r += 5) {
+        for (let a = 0; a < 64; a++) {
+          const x = Math.round(fx + r * Math.cos(a * Math.PI / 32)), y = Math.round(fy + r * Math.sin(a * Math.PI / 32));
+          if (x < 0 || y < 0 || x >= cw || y >= ch) continue;
+          outT++; if (lab[y * cw + x] >= 0) outH++;
+        }
+      }
+      const inF = inT ? inH / inT : 0, outF = outT ? outH / outT : 1;
+      const rimInF = rimInT ? rimInH / rimInT : 0;
+      if (process.env.DBG === name) console.log(`  DBGcand fr=${fr.toFixed(1)} ang=${ang} inF=${inF.toFixed(2)} rimIn=${rimInF.toFixed(2)} outF=${outF.toFixed(2)}`);
+      if (inF >= 0.55 && rimInF >= 0.55 && inF - outF >= 0.30) rimFit = [fx, fy, fr, fam];
+    }
+    if (rimFit) { cx = rimFit[0]; cy = rimFit[1]; cr = rimFit[2]; }
+    // faction: roster ground truth first; art inference (fitted ring family /
+    // whole-cell votes) only when the unit is not in db-data
+    const knownSide = sideByName[name];
+    if (knownSide === 'good') faction = [74, 130, 246];
+    else if (knownSide === 'evil') faction = [208, 50, 38];
+    else if (rimFit) faction = rimFit[3] === 1 ? [208, 50, 38] : [74, 130, 246];
+    else if (!noRim && rimBlue + rimRed >= 40)
+      faction = rimRed > rimBlue ? [208, 50, 38] : [74, 130, 246];
   }
   // inside-circle = foreground
   const cr2 = (cr * 1.02) ** 2;
@@ -290,11 +346,13 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
   // graze the rim don't.
   const inPix = new Int32Array(nc);
   const minD2 = new Float64Array(nc).fill(Infinity);
+  const maxD2 = new Float64Array(nc);
   for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
     const l = lab[y * cw + x]; if (l < 0) continue;
     const dx = x - cx, dy = y - cy;
     const dd = dx * dx + dy * dy;
     if (dd < minD2[l]) minD2[l] = dd;
+    if (dd > maxD2[l]) maxD2[l] = dd;
     if (dd <= cr2) inPix[l]++;
   }
   // anchored = solidly inside (>=500px AND >=20% of the comp) OR rooted deep in
@@ -308,28 +366,38 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
     const p = y * cw + x, l = lab[p];
     const dx = x - cx, dy = y - cy, dd = dx * dx + dy * dy;
     const anchored = l >= 0 && ((inPix[l] >= 500 && inPix[l] * 5 >= area[l]) || (minD2[l] <= deep2 && inPix[l] >= 150));
+    // neighbour-bleed comps: reach far outside the disc yet have only a thin
+    // chord inside — a token part anchored on the figure never looks like that
+    const bleed = l >= 0 && maxD2[l] > (cr * 1.35) ** 2 && inPix[l] * 5 < area[l];
+    if (l >= 0 && bleed) continue;
     if (!(anchored && dd <= clip2)) continue;
     const i = idx(cx0 + x, cy0 + y, W);
     if (dd <= cr2 || dist([d[i], d[i + 1], d[i + 2]], bg) > STRONG) keep[p] = 1;
   }
-  // a fitted rim ring ends AT the rim: rim-coloured pixels beyond it are torn
-  // arcs / neighbour bleed — cut them (figure colours pass unaffected)
-  if (rimFit) {
-    const rimCut2 = (cr * 1.10) ** 2;
+  // rim-coloured pixels far past the disc edge are torn arcs / neighbour bleed
+  // (a neighbouring cell's rim leaking in) — cut them whether or not a rim fit
+  // succeeded; figure parts anchor inside so they rarely reach this far out
+  {
+    const rimCut2 = (cr * 1.06) ** 2;
     for (let p = 0; p < cw * ch; p++) {
       if (!rim[p] || !keep[p]) continue;
       const x = p % cw, y = (p / cw) | 0, dx = x - cx, dy = y - cy;
       if (dx * dx + dy * dy > rimCut2) keep[p] = 0;
     }
   }
+  // neighbour-bleed comps again for the inside-keep pass
+  const bleedComp = new Uint8Array(nc);
+  for (let l = 0; l < nc; l++) if (maxD2[l] > (cr * 1.35) ** 2 && inPix[l] * 5 < area[l]) bleedComp[l] = 1;
+  // also keep interior of circle even if same color as bg
+  for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
+    const p = y * cw + x;
+    const l = lab[p];
+    const dx = x - cx, dy = y - cy;
+    if (dx * dx + dy * dy <= cr2 && (l < 0 || !bleedComp[l])) keep[p] = 1;
+  }
   for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
     const dx = x - cx, dy = y - cy;
     if (dx * dx + dy * dy <= cr2) fg[y * cw + x] = 1;
-  }
-  // also keep interior of circle even if same color as bg
-  for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
-    const dx = x - cx, dy = y - cy;
-    if (dx * dx + dy * dy <= cr2) keep[y * cw + x] = 1;
   }
   // cut thin scrap bridges: erode keep by 2, relabel, drop islands <150px,
   // dilate survivors back within the original keep (keeps weapon thickness)
@@ -444,6 +512,26 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
       }
     }
   }
+  // figure fringe past the base edge reads as a detached bleed at token size:
+  // when it's a thin overhang (<15% of kept px) fade it out at the rim so the
+  // disc stays a clean disc; big structural overflow (wings) keeps its shape
+  let trimT0 = Infinity, trimT1 = Infinity;
+  if (rimFit) {
+    let outN = 0, totN = 0;
+    for (let p = 0; p < cw * ch; p++) if (keep[p]) {
+      totN++;
+      const x = p % cw, y = (p / cw) | 0;
+      if ((x - cx) ** 2 + (y - cy) ** 2 > (cr * 1.05) ** 2) outN++;
+    }
+    if (outN > 0 && outN * 20 < totN * 3) {
+      trimT0 = cr * 1.00; trimT1 = cr * 1.05;
+      for (let p = 0; p < cw * ch; p++) {
+        if (!keep[p]) continue;
+        const x = p % cw, y = (p / cw) | 0;
+        if ((x - cx) ** 2 + (y - cy) ** 2 > trimT1 * trimT1) keep[p] = 0;
+      }
+    }
+  }
   // feather alpha: erode then 3x3 box blur
   const er = new Uint8Array(cw * ch);
   for (let y = 1; y < ch - 1; y++) for (let x = 1; x < cw - 1; x++) {
@@ -464,6 +552,7 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
     let a = s / 9;
     const dd = Math.hypot(x - cx, y - cy);
     if (dd > fade0) a *= Math.max(0, (clipR - dd) / fadeW);
+    if (dd > trimT0) a *= Math.max(0, (trimT1 - dd) / (trimT1 - trimT0));
     alpha[y * cw + x] = a;
   }
   // bbox of keep
@@ -478,9 +567,11 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
   const ow = bx1 - bx0 + 1, oh = by1 - by0 + 1;
   const out = new PNG({ width: ow, height: oh });
   // game-readability pass: repaint a uniform saturated faction ring over the
-  // photographed rim (hides ragged rim edges; faction pops at 48px), and lift
-  // interior mids/saturation so figures don't read as dark mush
-  const ringIn = cr * 0.93, ringOut = cr * 1.0;
+  // whole rim zone — the painted rim is thick and partly occluded by figure
+  // bits, so reach inward far enough to swallow dark inner borders and
+  // rim-hugging figure pixels; lift interior mids/saturation so figures don't
+  // read as dark mush
+  const ringIn = cr * 0.86, ringOut = cr * 1.03;
   const lift = v => Math.min(255, Math.round(255 * Math.pow(v / 255, 0.80)));
   for (let y = 0; y < oh; y++) for (let x = 0; x < ow; x++) {
     const gx = bx0 + x, gy = by0 + y;

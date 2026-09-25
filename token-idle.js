@@ -15,14 +15,14 @@
   // so sway reads as weight shift, not sliding; mask = [opaqueFigureRadius,
   // fadeEndRadius] of the element half-size)
   const KINDS = {
-    foot:    { scale: 0.018, rot: 0.005, dy: 0.003, dur: 3400, oy: 0.62, mask: [0.60, 0.78] },
-    hero:    { scale: 0.016, rot: 0.007, dy: 0.004, dur: 3600, oy: 0.62, mask: [0.60, 0.78] },
-    cavalry: { scale: 0.009, rot: 0.010, dy: 0.020, dur: 1500, dx: 0.005, oy: 0.60, mask: [0.62, 0.80] },
-    beast:   { scale: 0.011, rot: 0.013, dy: 0.009, dur: 2600, dx: 0.010, oy: 0.58, mask: [0.64, 0.84] },
-    monster: { scale: 0.030, rot: 0.007, dy: 0.007, dur: 4200, oy: 0.64, mask: [0.68, 0.88] },
-    flyer:   { scale: 0.012, rot: 0.020, dy: 0.040, dur: 2700, dx: 0.008, oy: 0.50, mask: [0.76, 0.95] },
-    wraith:  { scale: 0.020, rot: 0.016, dy: 0.030, dur: 3900, dx: 0.016, oy: 0.50, glow: 0.10, mask: [0.70, 0.92] },
-    banner:  { scale: 0.006, rot: 0.026, dy: 0.003, dur: 2800, oy: 0.70, mask: [0.58, 0.84] },
+    foot:    { scale: 0.018, rot: 0.005, dy: 0.003, dur: 3400, oy: 0.62, mask: [0.76, 0.95] },
+    hero:    { scale: 0.016, rot: 0.007, dy: 0.004, dur: 3600, oy: 0.62, mask: [0.76, 0.95] },
+    cavalry: { scale: 0.009, rot: 0.010, dy: 0.020, dur: 1500, dx: 0.005, oy: 0.60, mask: [0.76, 0.95] },
+    beast:   { scale: 0.011, rot: 0.013, dy: 0.009, dur: 2600, dx: 0.010, oy: 0.58, mask: [0.78, 0.96] },
+    monster: { scale: 0.030, rot: 0.007, dy: 0.007, dur: 4200, oy: 0.64, mask: [0.80, 0.97] },
+    flyer:   { scale: 0.012, rot: 0.020, dy: 0.040, dur: 2700, dx: 0.008, oy: 0.50, mask: [0.82, 0.98] },
+    wraith:  { scale: 0.020, rot: 0.016, dy: 0.030, dur: 3900, dx: 0.016, oy: 0.50, glow: 0.10, mask: [0.78, 0.97] },
+    banner:  { scale: 0.006, rot: 0.026, dy: 0.003, dur: 2800, oy: 0.70, mask: [0.74, 0.95] },
     terrain: {},
   };
 
