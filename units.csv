@@ -1,0 +1,143 @@
+﻿id,name_ko,name_en,side,faction,role,weapon,base,sheet,file
+aragorn,아라곤,Aragorn,good,gondor,hero,sword,L,lotr-tokens-v1.png,tokens/aragorn.png
+gandalf,간달프,Gandalf the Grey,good,maiar,hero,staff,L,lotr-tokens-v1.png,tokens/gandalf.png
+warrior_minas_tirith,미나스 티리스 전사,Warrior of Minas Tirith,good,gondor,infantry,sword_shield,M,lotr-tokens-v1.png,tokens/warrior_minas_tirith.png
+witchking_foot,마술왕(도보),Witch-king on foot,evil,angmar,hero,sword,L,lotr-tokens-v1.png,tokens/witchking_foot.png
+orc_sword,모르도르 오크(검),"Mordor Orc, sword",evil,mordor,infantry,sword,S,lotr-tokens-v1.png,tokens/orc_sword.png
+cave_troll,동굴 트롤,Cave Troll,evil,moria,monster,club,XXL,lotr-tokens-v1.png,tokens/cave_troll.png
+glorfindel_foot,글로르핀델(도보),Glorfindel on foot,good,rivendell,hero,sword,L,glorfindel-topdown-v2.png,tokens/glorfindel_foot.png
+glorfindel_mounted,글로르핀델(기마),Glorfindel mounted,good,rivendell,cavalry,sword,XL,glorfindel-topdown-v2.png,tokens/glorfindel_mounted.png
+witchking_fellbeast,마술왕(펠비스트),Witch-king on Fell Beast,evil,angmar,monster,sword,XXL,fellbeast-topdown-v2.png,tokens/witchking_fellbeast.png
+witchking_mounted,마술왕(기마),Witch-king mounted,evil,angmar,cavalry,sword,XL,witchking-mounted-topdown-v1.png,tokens/witchking_mounted.png
+witchking_mounted_sheet,마술왕(기마·예비),Witch-king mounted (alt),evil,angmar,cavalry,sword,XL,roster-enemy-heroes-v1.png,tokens/witchking_mounted_sheet.png
+witchking_foot_mace,마술왕(철퇴),Witch-king with mace,evil,angmar,hero,mace,L,roster-enemy-heroes-v1.png,tokens/witchking_foot_mace.png
+nazgul_sword,나즈굴(검),"Nazgul, sword",evil,angmar,hero,sword,L,roster-enemy-heroes-v1.png,tokens/nazgul_sword.png
+saruman,사루만,Saruman the White,evil,isengard,hero,staff,L,roster-enemy-heroes-v1.png,tokens/saruman.png
+orc_shaman,오크 주술사,Orc Shaman,evil,moria,support,staff,S,roster-enemy-heroes-v1.png,tokens/orc_shaman.png
+orc_captain,오크 대장,Orc Captain,evil,mordor,hero,sword,M,roster-enemy-heroes-v1.png,tokens/orc_captain.png
+orc_spearman,오크 창병,Orc Spearman,evil,mordor,infantry,spear,S,roster-enemy-troops-v1.png,tokens/orc_spearman.png
+orc_archer,오크 궁수,Orc Archer,evil,mordor,infantry,bow,S,roster-enemy-troops-v1.png,tokens/orc_archer.png
+uruk_swordshield,우르크하이 검방,"Uruk-hai, sword & shield",evil,isengard,infantry,sword_shield,M,roster-enemy-troops-v1.png,tokens/uruk_swordshield.png
+morannon_orc,모라논 오크,Morannon Orc,evil,mordor,infantry,spear_shield,M,roster-enemy-troops-v1.png,tokens/morannon_orc.png
+warg_rider,와르그 기병,Warg Rider,evil,mordor,cavalry,spear,XL,roster-enemy-troops-v1.png,tokens/warg_rider.png
+haradrim_spearman,하라드림 창병,Haradrim Spearman,evil,harad,infantry,spear,M,roster-enemy-troops-v1.png,tokens/haradrim_spearman.png
+legolas,레골라스,Legolas,good,elf,hero,bow,M,roster-free-heroes-v1.png,tokens/legolas.png
+gimli,김리,Gimli,good,dwarf,hero,axe,M,roster-free-heroes-v1.png,tokens/gimli.png
+boromir,보로미르,Boromir,good,gondor,hero,sword_shield,L,roster-free-heroes-v1.png,tokens/boromir.png
+eowyn,에오윈,Eowyn,good,rohan,hero,sword,M,roster-free-heroes-v1.png,tokens/eowyn.png
+frodo,프로도,Frodo,good,shire,hero,dagger,S,roster-free-heroes-v1.png,tokens/frodo.png
+elrond,엘론드,Elrond,good,rivendell,hero,sword,L,roster-free-heroes-v1.png,tokens/elrond.png
+gondor_archer,곤도르 궁수,Gondor Archer,good,gondor,infantry,bow,M,roster-free-troops-v1.png,tokens/gondor_archer.png
+elf_swordsman,엘프 검사,Elf Swordsman,good,elf,infantry,sword,M,roster-free-troops-v1.png,tokens/elf_swordsman.png
+dwarf_guardian,드워프 가디언,Dwarf Guardian,good,dwarf,infantry,axe,M,roster-free-troops-v1.png,tokens/dwarf_guardian.png
+rohan_royal_guard,로한 근위병,Rohan Royal Guard,good,rohan,infantry,spear_shield,M,roster-free-troops-v1.png,tokens/rohan_royal_guard.png
+ithilien_ranger,이틸리엔 레인저,Ithilien Ranger,good,gondor,infantry,bow,M,roster-free-troops-v1.png,tokens/ithilien_ranger.png
+rohan_rider,로한 기병,Rider of Rohan,good,rohan,cavalry,spear,XL,roster-free-troops-v1.png,tokens/rohan_rider.png
+balrog,발록,Balrog of Moria,evil,moria,monster,various,XXL,roster-monsters-v1.png,tokens/balrog.png
+mountain_troll,산악 트롤,Mountain Troll,evil,mordor,monster,club,XXL,roster-monsters-v1.png,tokens/mountain_troll.png
+shelob,셀로브,Shelob,evil,mordor,monster,various,XXL,roster-monsters-v1.png,tokens/shelob.png
+barrow_wight,고분 망령,Barrow-wight,evil,angmar,hero,sword,M,roster-monsters-v1.png,tokens/barrow_wight.png
+moria_goblin,모리아 고블린,Moria Goblin,evil,moria,infantry,sword,S,roster-monsters-v1.png,tokens/moria_goblin.png
+uruk_berserker,우르크 광전사,Uruk-hai Berserker,evil,isengard,infantry,twohanded,M,roster-monsters-v1.png,tokens/uruk_berserker.png
+sauron,사우론,Sauron,evil,mordor,hero,mace,XXL,roster-sauron-nazgul-v1.png,tokens/sauron.png
+nazgul_sword_2,나즈굴(검·B),"Nazgul, sword (v2)",evil,angmar,hero,sword,L,roster-sauron-nazgul-v1.png,tokens/nazgul_sword_2.png
+nazgul_mace,나즈굴(철퇴),"Nazgul, mace",evil,angmar,hero,mace,L,roster-sauron-nazgul-v1.png,tokens/nazgul_mace.png
+nazgul_mounted,나즈굴(기마),Nazgul mounted,evil,angmar,cavalry,sword,XL,roster-sauron-nazgul-v1.png,tokens/nazgul_mounted.png
+morgul_knight,모르굴 기사,Morgul Knight,evil,mordor,cavalry,lance,XL,roster-sauron-nazgul-v1.png,tokens/morgul_knight.png
+dwimmerlaik,드위머레이크(갑옷 나즈굴),Dwimmerlaik,evil,angmar,hero,mace,L,roster-sauron-nazgul-v1.png,tokens/dwimmerlaik.png
+mt_swordshield,미나스 티리스 검방,MT sword & shield,good,gondor,infantry,sword_shield,M,roster-minastirith-variants-v1.png,tokens/mt_swordshield.png
+mt_spear,미나스 티리스 창병,MT spear,good,gondor,infantry,spear,M,roster-minastirith-variants-v1.png,tokens/mt_spear.png
+mt_spearshield,미나스 티리스 창방,MT spear & shield,good,gondor,infantry,spear_shield,M,roster-minastirith-variants-v1.png,tokens/mt_spearshield.png
+mt_bowman,미나스 티리스 궁수,MT bowman,good,gondor,infantry,bow,M,roster-minastirith-variants-v1.png,tokens/mt_bowman.png
+mt_banner,미나스 티리스 기수,MT banner bearer,good,gondor,support,banner,M,roster-minastirith-variants-v1.png,tokens/mt_banner.png
+mt_fountain_guard,샘물수위병,Fountain Court Guard,good,gondor,infantry,spear_shield,M,roster-minastirith-variants-v1.png,tokens/mt_fountain_guard.png
+orc_sword2,오크(검),"Orc, sword",evil,mordor,infantry,sword,S,roster-orc-variants-v1.png,tokens/orc_sword2.png
+orc_swordshield,오크(검방),"Orc, sword & shield",evil,mordor,infantry,sword_shield,S,roster-orc-variants-v1.png,tokens/orc_swordshield.png
+orc_spear2,오크(창),"Orc, spear",evil,mordor,infantry,spear,S,roster-orc-variants-v1.png,tokens/orc_spear2.png
+orc_twohanded,오크(양손도끼),"Orc, two-handed axe",evil,mordor,infantry,twohanded,S,roster-orc-variants-v1.png,tokens/orc_twohanded.png
+orc_bow,오크(활),"Orc, bow",evil,mordor,infantry,bow,S,roster-orc-variants-v1.png,tokens/orc_bow.png
+orc_drummer,오크 전쟁북,Orc war drummer,evil,mordor,support,drum,S,roster-orc-variants-v1.png,tokens/orc_drummer.png
+dwarf_axeshield,드워프 도끼방,"Dwarf, axe & shield",good,dwarf,infantry,axe,M,roster-dwarf-variants-v1.png,tokens/dwarf_axeshield.png
+dwarf_2haxe,드워프 양손도끼,"Dwarf, two-handed axe",good,dwarf,infantry,twohanded,M,roster-dwarf-variants-v1.png,tokens/dwarf_2haxe.png
+dwarf_ranger,드워프 레인저,Dwarf Ranger,good,dwarf,infantry,bow,M,roster-dwarf-variants-v1.png,tokens/dwarf_ranger.png
+khazad_guard,카자드 근위병,Khazad Guard,good,dwarf,infantry,axe,M,roster-dwarf-variants-v1.png,tokens/khazad_guard.png
+iron_guard,아이언 가드,Iron Guard,good,dwarf,infantry,sword_shield,M,roster-dwarf-variants-v1.png,tokens/iron_guard.png
+dwarf_banner,드워프 기수,Dwarf banner bearer,good,dwarf,support,banner,M,roster-dwarf-variants-v1.png,tokens/dwarf_banner.png
+elf_swordshield,엘프 검방,"Elf, sword & shield",good,elf,infantry,sword_shield,M,roster-elf-variants-v1.png,tokens/elf_swordshield.png
+elf_spear,엘프 창병,"Elf, spear",good,elf,infantry,spear,M,roster-elf-variants-v1.png,tokens/elf_spear.png
+elf_bow,엘프 궁수,"Elf, bow",good,elf,infantry,bow,M,roster-elf-variants-v1.png,tokens/elf_bow.png
+elf_glaive,엘프 글레이브,"Elf, glaive",good,elf,infantry,twohanded,M,roster-elf-variants-v1.png,tokens/elf_glaive.png
+galadhrim_warrior,갈라드림 전사,Galadhrim Warrior,good,lothlorien,infantry,sword,M,roster-elf-variants-v1.png,tokens/galadhrim_warrior.png
+elf_knight,엘프 기마기사,Elf Knight,good,rivendell,cavalry,lance,XL,roster-elf-variants-v1.png,tokens/elf_knight.png
+uruk_swordshield2,우르크하이 검방,"Uruk-hai, sword & shield",evil,isengard,infantry,sword_shield,M,roster-uruk-variants-v1.png,tokens/uruk_swordshield2.png
+uruk_pike,우르크하이 파이크,"Uruk-hai, pike",evil,isengard,infantry,pike,M,roster-uruk-variants-v1.png,tokens/uruk_pike.png
+uruk_crossbow,우르크하이 석궁,"Uruk-hai, crossbow",evil,isengard,infantry,crossbow,M,roster-uruk-variants-v1.png,tokens/uruk_crossbow.png
+uruk_scout,우르크하이 스카웃,Uruk-hai Scout,evil,isengard,infantry,sword,M,roster-uruk-variants-v1.png,tokens/uruk_scout.png
+uruk_berserker2,우르크하이 광전사,Uruk-hai Berserker,evil,isengard,infantry,twohanded,M,roster-uruk-variants-v1.png,tokens/uruk_berserker2.png
+uruk_banner,우르크하이 기수,Uruk-hai banner bearer,evil,isengard,support,banner,M,roster-uruk-variants-v1.png,tokens/uruk_banner.png
+haradrim_spear,하라드림 창병,Haradrim spearman,evil,harad,infantry,spear,M,roster-haradrim-easterling-v1.png,tokens/haradrim_spear.png
+haradrim_bow,하라드림 궁수,Haradrim archer,evil,harad,infantry,bow,M,roster-haradrim-easterling-v1.png,tokens/haradrim_bow.png
+haradrim_priest,하라드림 전사제,Haradrim warrior priest,evil,harad,support,staff,M,roster-haradrim-easterling-v1.png,tokens/haradrim_priest.png
+easterling_phalanx,이스터링 방진병,Easterling phalangite,evil,easterling,infantry,pike,M,roster-haradrim-easterling-v1.png,tokens/easterling_phalanx.png
+easterling_swordshield,이스터링 검방,"Easterling, sword & shield",evil,easterling,infantry,sword_shield,M,roster-haradrim-easterling-v1.png,tokens/easterling_swordshield.png
+easterling_kataphrakt,이스터링 중기병,Easterling Kataphrakt,evil,easterling,cavalry,lance,XL,roster-haradrim-easterling-v1.png,tokens/easterling_kataphrakt.png
+dol_amroth_knight,돌 암로스 백조기사,Knight of Dol Amroth,good,gondor,cavalry,lance,XL,roster-gondor-exp-v1.png,tokens/dol_amroth_knight.png
+gondor_knight,곤도르 기병,Knight of Minas Tirith,good,gondor,cavalry,lance,XL,roster-gondor-exp-v1.png,tokens/gondor_knight.png
+osgiliath_veteran,오스길리아스 베테랑,Osgiliath Veteran,good,gondor,infantry,sword_shield,M,roster-gondor-exp-v1.png,tokens/osgiliath_veteran.png
+lossarnach_axeman,로사르나흐 도끼병,Lossarnach Axeman,good,gondor,infantry,twohanded,M,roster-gondor-exp-v1.png,tokens/lossarnach_axeman.png
+citadel_guard,성채근위병,Citadel Guard,good,gondor,infantry,spear_shield,M,roster-gondor-exp-v1.png,tokens/citadel_guard.png
+pelennor_militia,펠렌노르 민병,Pelennor Militia,good,gondor,infantry,spear,M,roster-gondor-exp-v1.png,tokens/pelennor_militia.png
+rohan_swordshield,로한 검방,"Rohan, sword & shield",good,rohan,infantry,sword_shield,M,roster-rohan-exp-v1.png,tokens/rohan_swordshield.png
+rohan_spear,로한 창병,"Rohan, spear",good,rohan,infantry,spear,M,roster-rohan-exp-v1.png,tokens/rohan_spear.png
+rohan_archer,로한 궁수,Rohan archer,good,rohan,infantry,bow,M,roster-rohan-exp-v1.png,tokens/rohan_archer.png
+eomer,에오메르(기마),Eomer mounted,good,rohan,hero,sword,XL,roster-rohan-exp-v1.png,tokens/eomer.png
+rohan_outrider,로한 기마궁수,Rohan outrider,good,rohan,cavalry,bow,XL,roster-rohan-exp-v1.png,tokens/rohan_outrider.png
+rohan_banner,로한 기수,Rohan banner bearer,good,rohan,support,banner,M,roster-rohan-exp-v1.png,tokens/rohan_banner.png
+black_numenorean,검은 누메노르인(도보),Black Numenorean on foot,evil,mordor,infantry,sword_shield,M,roster-mordor-elite-v1.png,tokens/black_numenorean.png
+black_numenorean_mounted,검은 누메노르인(기마),Black Numenorean mounted,evil,mordor,cavalry,lance,XL,roster-mordor-elite-v1.png,tokens/black_numenorean_mounted.png
+orc_tracker,오크 추적자,Orc Tracker,evil,mordor,infantry,twohanded,S,roster-mordor-elite-v1.png,tokens/orc_tracker.png
+war_troll,전쟁 트롤,Mordor War Troll,evil,mordor,monster,club,XXL,roster-mordor-elite-v1.png,tokens/war_troll.png
+black_guard,바라드두르 흑근위,Black Guard of Barad-dur,evil,mordor,infantry,spear_shield,M,roster-mordor-elite-v1.png,tokens/black_guard.png
+orc_taskmaster,오크 두목,Orc Taskmaster,evil,mordor,support,whip,M,roster-mordor-elite-v1.png,tokens/orc_taskmaster.png
+goblin_spear,고블린 창병,"Goblin, spear",evil,moria,infantry,spear,S,roster-goblin-v1.png,tokens/goblin_spear.png
+goblin_shield,고블린 방패병,"Goblin, shield",evil,moria,infantry,sword_shield,S,roster-goblin-v1.png,tokens/goblin_shield.png
+goblin_bow,고블린 궁수,"Goblin, bow",evil,moria,infantry,bow,S,roster-goblin-v1.png,tokens/goblin_bow.png
+goblin_prowler,고블린 프라울러,Goblin Prowler,evil,moria,infantry,dagger,S,roster-goblin-v1.png,tokens/goblin_prowler.png
+goblin_king,고블린 왕,Goblin King,evil,moria,hero,club,L,roster-goblin-v1.png,tokens/goblin_king.png
+goblin_shaman,고블린 샤먼,Goblin Shaman,evil,moria,support,staff,S,roster-goblin-v1.png,tokens/goblin_shaman.png
+dunlending_warrior,던랜딩 전사,Dunlending Warrior,evil,dunland,infantry,sword,M,roster-isengard-exp-v1.png,tokens/dunlending_warrior.png
+dunlending_huscarl,던랜딩 허스칼,Dunlending Huscarl,evil,dunland,infantry,twohanded,M,roster-isengard-exp-v1.png,tokens/dunlending_huscarl.png
+warg,야생 와르그,Wild Warg,evil,isengard,monster,none,M,roster-isengard-exp-v1.png,tokens/warg.png
+uruk_sapper,우르크 폭파반,Uruk-hai Demolition Team,evil,isengard,infantry,bomb,M,roster-isengard-exp-v1.png,tokens/uruk_sapper.png
+uruk_scout_archer,우르크 스카웃 궁수,Uruk-hai Scout Archer,evil,isengard,infantry,bow,M,roster-isengard-exp-v1.png,tokens/uruk_scout_archer.png
+crebain_swarm,크레반 까마귀 떼,Crebain swarm,evil,isengard,support,none,M,roster-isengard-exp-v1.png,tokens/crebain_swarm.png
+hobbit_shirriff,호빗 민병,Hobbit Shirriff,good,shire,infantry,pitchfork,S,roster-free-special-v1.png,tokens/hobbit_shirriff.png
+hobbit_bounder,호빗 궁수,Hobbit Bounder,good,shire,infantry,bow,S,roster-free-special-v1.png,tokens/hobbit_bounder.png
+great_eagle,대독수리,Great Eagle,good,eagle,monster,none,XL,roster-free-special-v1.png,tokens/great_eagle.png
+ent,엔트,Ent,good,ent,monster,none,XXL,roster-free-special-v1.png,tokens/ent.png
+beorning,베오르닝 전사,Beorning,good,beorning,hero,axe,L,roster-free-special-v1.png,tokens/beorning.png
+ranger_north,북부 레인저,Ranger of the North,good,arnor,infantry,sword,M,roster-free-special-v1.png,tokens/ranger_north.png
+theoden,세오덴(기마),Theoden mounted,good,rohan,cavalry,sword_shield,XL,roster-free-heroes-exp-v1.png,tokens/theoden.png
+faramir,파라미르,Faramir,good,gondor,hero,bow,M,roster-free-heroes-exp-v1.png,tokens/faramir.png
+haldir,할디르,Haldir,good,lothlorien,hero,twohanded,M,roster-free-heroes-exp-v1.png,tokens/haldir.png
+galadriel,갈라드리엘,Galadriel,good,lothlorien,hero,none,M,roster-free-heroes-exp-v1.png,tokens/galadriel.png
+gamling,감링(기수),Gamling with banner,good,rohan,hero,banner,M,roster-free-heroes-exp-v1.png,tokens/gamling.png
+samwise,샘와이즈,Samwise Gamgee,good,shire,hero,dagger,S,roster-free-heroes-exp-v1.png,tokens/samwise.png
+mouth_of_sauron,사우론의 입(기마),Mouth of Sauron,evil,mordor,cavalry,sword,XL,roster-evil-heroes-exp-v1.png,tokens/mouth_of_sauron.png
+gothmog,고스모그,Gothmog,evil,mordor,hero,mace,L,roster-evil-heroes-exp-v1.png,tokens/gothmog.png
+lurtz,루르츠,Lurtz,evil,isengard,hero,bow,M,roster-evil-heroes-exp-v1.png,tokens/lurtz.png
+sharku,샤르쿠(와르그),Sharku on warg,evil,isengard,cavalry,spear,XL,roster-evil-heroes-exp-v1.png,tokens/sharku.png
+grima,그리마 웜텅,Grima Wormtongue,evil,isengard,hero,dagger,M,roster-evil-heroes-exp-v1.png,tokens/grima.png
+khamul,카물,Khamul the Easterling,evil,angmar,hero,mace,L,roster-evil-heroes-exp-v1.png,tokens/khamul.png
+terr_rock_outcrop,바위 지형,Rock outcrop,terrain,terrain,terrain,none,L,terrain-natural-v1.png,tokens/terr_rock_outcrop.png
+terr_standing_stones,입석,Standing stones,terrain,terrain,terrain,none,L,terrain-natural-v1.png,tokens/terr_standing_stones.png
+terr_pine_copse,소나무 숲,Pine copse,terrain,terrain,terrain,none,L,terrain-natural-v1.png,tokens/terr_pine_copse.png
+terr_oak_tree,참나무,Old oak,terrain,terrain,terrain,none,XL,terrain-natural-v1.png,tokens/terr_oak_tree.png
+terr_dead_tree,고목,Dead tree,terrain,terrain,terrain,none,L,terrain-natural-v1.png,tokens/terr_dead_tree.png
+terr_hedgerow,울타리 덤불,Hedgerow,terrain,terrain,terrain,none,L,terrain-natural-v1.png,tokens/terr_hedgerow.png
+terr_ruined_wall,무너진 성벽,Ruined wall,terrain,terrain,terrain,none,XL,terrain-structures-v1.png,tokens/terr_ruined_wall.png
+terr_ruined_tower,폐탑,Ruined tower,terrain,terrain,terrain,none,XL,terrain-structures-v1.png,tokens/terr_ruined_tower.png
+terr_gondor_house,곤도르 가옥,Gondor house,terrain,terrain,terrain,none,XL,terrain-structures-v1.png,tokens/terr_gondor_house.png
+terr_rohan_hall,로한 회관,Rohan mead hall,terrain,terrain,terrain,none,XL,terrain-structures-v1.png,tokens/terr_rohan_hall.png
+terr_orc_camp,오크 야영지,Orc camp,terrain,terrain,terrain,none,XL,terrain-structures-v1.png,tokens/terr_orc_camp.png
+terr_barrow,고분,Burial barrow,terrain,terrain,terrain,none,XL,terrain-structures-v1.png,tokens/terr_barrow.png

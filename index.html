@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>MESBG 에셋 허브</title>
+<style>
+  body{background:#14161a;color:#e8e4d8;font-family:system-ui;margin:0;display:flex;align-items:center;justify-content:center;min-height:100vh}
+  .wrap{max-width:720px;padding:40px}
+  h1{font-size:28px;margin-bottom:8px}
+  p{color:#9aa1aa;margin-bottom:28px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+  a.card{display:block;background:#1e2126;border:1px solid #2c3138;border-radius:14px;padding:22px;text-decoration:none;color:#e8e4d8;transition:.15s}
+  a.card:hover{background:#252a31;border-color:#4a90d9;transform:translateY(-2px)}
+  .t{font-size:17px;font-weight:700;margin-bottom:6px}
+  .d{font-size:13px;color:#9aa1aa;line-height:1.5}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>MESBG 에셋 허브</h1>
+  <p>팬게임 에셋 전체 — 토큰 142종 · 진영 주사위 7종 · 지형지물 · DB</p>
+  <div class="cards">
+    <a class="card" href="gallery.html"><div class="t">에셋 갤러리</div><div class="d">142종 토큰 전체 — id ↔ 한글명 ↔ 진영/무기/베이스 매칭 검수</div></a>
+    <a class="card" href="dice-demo/index.html"><div class="t">주사위 데모</div><div class="d">진영별 D6 — three.js + 물리엔진으로 실제 던지기 &amp; 윗면 판정</div></a>
+    <a class="card" href="units.csv"><div class="t">유닛 DB (CSV)</div><div class="d">엑셀용 유닛 테이블 — id/이름/진영/무기/베이스크기</div></a>
+    <a class="card" href="units.json"><div class="t">유닛 DB (JSON)</div><div class="d">엔진 로드용 — CSV와 같은 스키마</div></a>
+  </div>
+</div>
+</body>
+</html>
