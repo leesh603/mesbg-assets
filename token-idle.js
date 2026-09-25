@@ -26,23 +26,27 @@
     terrain: {},
   };
 
-  // attack kinds -> keyframe spec. Each row [pct, {dx,dy,rot,sx,sy,glow}]:
-  // dx/dy are % of element size, rot in degrees, glow = brightness lift.
-  // Wind up -> hit -> recover; the whole stack stays, only the figure moves.
+  // attack kinds -> keyframe spec. Each row [pct, {dx,dy,rot,sx,sy,glow,e}]:
+  // dx/dy are % of element size, rot in degrees, glow = brightness lift,
+  // e = easing (animation-timing-function) FROM this keyframe to the next.
+  // Shape: anticipation -> strike (+impact flash) -> overshoot -> settle.
   const ATTACKS = {
-    slash:  { dur: 560, keys: [[0,{}],[28,{rot:-13,dy:1.4,sy:1.02}],[52,{rot:16,dx:2,dy:-3}],[72,{rot:3}],[100,{}]] },
-    thrust: { dur: 600, keys: [[0,{}],[32,{dy:2.2,sx:.96,sy:1.05}],[58,{dy:-7,sx:1.05,sy:.9}],[82,{dy:1}],[100,{}]] },
-    smash:  { dur: 780, keys: [[0,{}],[32,{dy:-6,sx:1.02,sy:1.07}],[50,{dy:3.5,sx:1.12,sy:.76,glow:.18}],[72,{dy:-1.2,sy:.95}],[100,{}]] },
-    shoot:  { dur: 620, keys: [[0,{}],[38,{dy:1.6,rot:-4}],[48,{dy:-1.2,rot:3,glow:.28}],[70,{dy:.4}],[100,{}]] },
-    cast:   { dur: 900, keys: [[0,{}],[30,{dy:-3,sy:1.05,glow:.18}],[58,{dy:-4.5,sx:1.04,sy:1.09,glow:.5}],[78,{dy:-1,glow:.1}],[100,{}]] },
-    rally:  { dur: 900, keys: [[0,{}],[18,{rot:10}],[42,{rot:-9}],[66,{rot:7}],[86,{rot:-3}],[100,{}]] },
-    pounce: { dur: 700, keys: [[0,{}],[24,{dy:1.8,sx:1.06,sy:.82}],[55,{dy:-6,rot:2.5,sx:.97,sy:1.06}],[78,{dy:1,sx:1.03,sy:.9}],[100,{}]] },
+    slash:  { dur: 620, keys: [[0,{}],[20,{rot:-14,dy:1.6,sy:1.02,e:'cubic-bezier(.7,0,.9,.5)'}],[42,{rot:10,dx:1,dy:-2,e:'cubic-bezier(.2,.8,.4,1)'}],[50,{rot:18,dx:2.2,dy:-3.2,glow:.12}],[62,{rot:6,dx:.5,dy:-.5}],[80,{rot:-2}],[100,{}]] },
+    thrust: { dur: 640, keys: [[0,{}],[30,{dy:2.6,sx:.95,sy:1.06,e:'cubic-bezier(.8,0,.9,.6)'}],[52,{dy:-8,sx:1.06,sy:.88,glow:.1}],[64,{dy:-5.5,sx:1.02,sy:.95}],[82,{dy:1.2}],[100,{}]] },
+    smash:  { dur: 880, keys: [[0,{}],[28,{dy:-7,sx:1.02,sy:1.09,rot:-4,e:'cubic-bezier(.8,0,1,.4)'}],[46,{dy:4,sx:1.14,sy:.72,glow:.22}],[58,{dy:2.2,sx:1.07,sy:.85}],[72,{dy:-1.4,sy:.94}],[86,{dy:.5}],[100,{}]] },
+    shoot:  { dur: 680, keys: [[0,{}],[34,{dy:1.8,rot:-5,sy:1.03,e:'cubic-bezier(.85,0,1,.45)'}],[44,{dy:-1.4,rot:3.5,glow:.3}],[52,{rot:2}],[66,{rot:-1,dy:.5}],[100,{}]] },
+    cast:   { dur: 1100, keys: [[0,{}],[18,{dy:-2.5,sy:1.04,glow:.1}],[40,{dy:-5,sx:1.03,sy:1.09,glow:.35}],[52,{dy:-5.5,sx:1.05,sy:1.12,glow:.7}],[60,{glow:.25}],[68,{glow:.55,dy:-4.5}],[82,{dy:-1.2,glow:.15}],[100,{}]] },
+    rally:  { dur: 1000, keys: [[0,{}],[15,{rot:11}],[32,{rot:-9}],[50,{rot:8,glow:.15}],[68,{rot:-5}],[84,{rot:3}],[100,{}]] },
+    pounce: { dur: 760, keys: [[0,{}],[22,{dy:2.2,sx:1.08,sy:.78,e:'cubic-bezier(.6,0,.9,.4)'}],[50,{dy:-7,rot:3,sx:.96,sy:1.08}],[62,{dy:-4}],[76,{dy:1.2,sx:1.04,sy:.88}],[88,{dy:.4,sy:.95}],[100,{}]] },
   };
 
   // id / metadata -> attack kind. Meta: units.json entry {role, weapon} (optional)
   function attackTypeFor(idOrKind, meta) {
     const id = String(idOrKind || '').toLowerCase();
     const w = meta && meta.weapon;
+    // spellcasters by name first — the Witch-king swings a sword in the art
+    // but should visibly cast, same for Nazgul/Istari/shamans
+    if (/witchking|nazgul|dwimmerlaik|khamul|gandalf|saruman|shaman|wizard|sorcer|necromancer/.test(id)) return 'cast';
     if (w) {
       if (w === 'bow' || w === 'crossbow') return 'shoot';
       if (w === 'staff' || w === 'bomb') return 'cast';
@@ -52,7 +56,6 @@
       if (w === 'sword' || w === 'sword_shield' || w === 'axe' || w === 'dagger' || w === 'whip') return 'slash';
     }
     if (/archer|bowman|ranger|marksman|crossbow|bow_/.test(id)) return 'shoot';
-    if (/shaman|wizard|sorcer|gandalf|saruman/.test(id)) return 'cast';
     if (/spear|pike|lance|kataphrakt|pitchfork/.test(id)) return 'thrust';
     if (/banner|drum/.test(id)) return 'rally';
     if (/troll|balrog|mumak|oliphaunt/.test(id)) return 'smash';
@@ -168,7 +171,8 @@
         const dx = (k.dx || 0).toFixed(2), dy = (k.dy || 0).toFixed(2);
         const r = (k.rot || 0).toFixed(2), sx = k.sx == null ? 1 : k.sx, sy = k.sy == null ? 1 : k.sy;
         css += `${pct}%{transform:translate(${dx}%,${dy}%) rotate(${r}deg) scale(${sx},${sy});` +
-          `filter:brightness(${(1 + (k.glow || 0)).toFixed(2)})}`;
+          `filter:brightness(${(1 + (k.glow || 0)).toFixed(2)})` +
+          (k.e ? `;animation-timing-function:${k.e}` : '') + '}';
       }
       css += '}';
     }
