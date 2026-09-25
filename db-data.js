@@ -229,6 +229,22 @@ module.exports = [
   ['thuringwethil', '수링웨실', 'Thuringwethil', { faction: 'angband', role: 'monster', weapon: 'none', base: 'L' }],
   ['boldog', '볼독', 'Boldog', { faction: 'angband', role: 'hero', weapon: 'sword', base: 'L' }],
 ]},
+{ sheet: 'roster-hobbit-good-v1.png', side: 'good', role: 'hero', base: 'M', units: [
+  ['thorin', '토린 오큰실드', 'Thorin Oakenshield', { faction: 'dwarf', weapon: 'sword', base: 'L' }],
+  ['tauriel', '타우리엘', 'Tauriel', { faction: 'elf', weapon: 'dagger' }],
+  ['bard', '바드', 'Bard the Bowman', { faction: 'men', weapon: 'bow' }],
+  ['dain', '데인', 'Dain Ironfoot', { faction: 'dwarf', weapon: 'mace', base: 'L' }],
+  ['fili', '필리', 'Fili', { faction: 'dwarf', weapon: 'sword' }],
+  ['kili', '킬리', 'Kili', { faction: 'dwarf', weapon: 'bow' }],
+]},
+{ sheet: 'roster-hobbit-evil-v1.png', side: 'evil', units: [
+  ['azog', '아조그', 'Azog the Defiler', { faction: 'gundabad', role: 'hero', weapon: 'mace', base: 'L' }],
+  ['azog_warg_rider', '아조그(흰 와르그)', 'Azog on white warg', { faction: 'gundabad', role: 'cavalry', weapon: 'mace', base: 'XL' }],
+  ['necromancer', '네크로맨서', 'The Necromancer', { faction: 'dol_guldur', role: 'hero', weapon: 'staff', base: 'L' }],
+  ['hunter_orc', '헌터 오크', 'Hunter Orc', { faction: 'gundabad', role: 'infantry', weapon: 'bow' }],
+  ['gundabad_orc', '군다바드 오크', 'Gundabad Orc', { faction: 'gundabad', role: 'infantry', weapon: 'sword_shield' }],
+  ['goblin_mercenary', '고블린 용병', 'Goblin Mercenary', { faction: 'moria', role: 'infantry', weapon: 'club' }],
+]},
 { sheet: 'terrain-objects-v1.png', side: 'terrain', faction: 'terrain', role: 'terrain', weapon: 'none', base: 'M', units: [
   ['terr_rubble', '돌무더기', 'Rubble pile'],
   ['terr_broken_pillar', '부러진 기둥', 'Broken pillar'],

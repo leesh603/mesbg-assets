@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "count": 190,
+  "count": 202,
   "units": [
     {
       "id": "aragorn",
@@ -1993,6 +1993,150 @@
       "base": "L",
       "sheet": "roster-silmarillion-evil-v1.png",
       "file": "tokens/boldog.png"
+    },
+    {
+      "id": "thorin",
+      "name_ko": "토린 오큰실드",
+      "name_en": "Thorin Oakenshield",
+      "side": "good",
+      "faction": "dwarf",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "L",
+      "sheet": "roster-hobbit-good-v1.png",
+      "file": "tokens/thorin.png"
+    },
+    {
+      "id": "tauriel",
+      "name_ko": "타우리엘",
+      "name_en": "Tauriel",
+      "side": "good",
+      "faction": "elf",
+      "role": "hero",
+      "weapon": "dagger",
+      "base": "M",
+      "sheet": "roster-hobbit-good-v1.png",
+      "file": "tokens/tauriel.png"
+    },
+    {
+      "id": "bard",
+      "name_ko": "바드",
+      "name_en": "Bard the Bowman",
+      "side": "good",
+      "faction": "men",
+      "role": "hero",
+      "weapon": "bow",
+      "base": "M",
+      "sheet": "roster-hobbit-good-v1.png",
+      "file": "tokens/bard.png"
+    },
+    {
+      "id": "dain",
+      "name_ko": "데인",
+      "name_en": "Dain Ironfoot",
+      "side": "good",
+      "faction": "dwarf",
+      "role": "hero",
+      "weapon": "mace",
+      "base": "L",
+      "sheet": "roster-hobbit-good-v1.png",
+      "file": "tokens/dain.png"
+    },
+    {
+      "id": "fili",
+      "name_ko": "필리",
+      "name_en": "Fili",
+      "side": "good",
+      "faction": "dwarf",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "M",
+      "sheet": "roster-hobbit-good-v1.png",
+      "file": "tokens/fili.png"
+    },
+    {
+      "id": "kili",
+      "name_ko": "킬리",
+      "name_en": "Kili",
+      "side": "good",
+      "faction": "dwarf",
+      "role": "hero",
+      "weapon": "bow",
+      "base": "M",
+      "sheet": "roster-hobbit-good-v1.png",
+      "file": "tokens/kili.png"
+    },
+    {
+      "id": "azog",
+      "name_ko": "아조그",
+      "name_en": "Azog the Defiler",
+      "side": "evil",
+      "faction": "gundabad",
+      "role": "hero",
+      "weapon": "mace",
+      "base": "L",
+      "sheet": "roster-hobbit-evil-v1.png",
+      "file": "tokens/azog.png"
+    },
+    {
+      "id": "azog_warg_rider",
+      "name_ko": "아조그(흰 와르그)",
+      "name_en": "Azog on white warg",
+      "side": "evil",
+      "faction": "gundabad",
+      "role": "cavalry",
+      "weapon": "mace",
+      "base": "XL",
+      "sheet": "roster-hobbit-evil-v1.png",
+      "file": "tokens/azog_warg_rider.png"
+    },
+    {
+      "id": "necromancer",
+      "name_ko": "네크로맨서",
+      "name_en": "The Necromancer",
+      "side": "evil",
+      "faction": "dol_guldur",
+      "role": "hero",
+      "weapon": "staff",
+      "base": "L",
+      "sheet": "roster-hobbit-evil-v1.png",
+      "file": "tokens/necromancer.png"
+    },
+    {
+      "id": "hunter_orc",
+      "name_ko": "헌터 오크",
+      "name_en": "Hunter Orc",
+      "side": "evil",
+      "faction": "gundabad",
+      "role": "infantry",
+      "weapon": "bow",
+      "base": "",
+      "sheet": "roster-hobbit-evil-v1.png",
+      "file": "tokens/hunter_orc.png"
+    },
+    {
+      "id": "gundabad_orc",
+      "name_ko": "군다바드 오크",
+      "name_en": "Gundabad Orc",
+      "side": "evil",
+      "faction": "gundabad",
+      "role": "infantry",
+      "weapon": "sword_shield",
+      "base": "",
+      "sheet": "roster-hobbit-evil-v1.png",
+      "file": "tokens/gundabad_orc.png"
+    },
+    {
+      "id": "goblin_mercenary",
+      "name_ko": "고블린 용병",
+      "name_en": "Goblin Mercenary",
+      "side": "evil",
+      "faction": "moria",
+      "role": "infantry",
+      "weapon": "club",
+      "base": "",
+      "sheet": "roster-hobbit-evil-v1.png",
+      "file": "tokens/goblin_mercenary.png"
     },
     {
       "id": "terr_rubble",

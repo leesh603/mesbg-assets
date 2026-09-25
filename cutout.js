@@ -56,6 +56,8 @@ const sheets = [
   { file: 'terrain-objects-v2.png', rows: 2, cols: 3, noRim: true, names: ['terr_orc_totem', 'terr_siege_ladder', 'terr_tent', 'terr_cart', 'terr_campfire', 'terr_statue_head'] },
   { file: 'roster-silmarillion-good-v1.png', rows: 2, cols: 3, names: ['feanor', 'luthien', 'beren', 'turin', 'beleg', 'huan'] },
   { file: 'roster-silmarillion-evil-v1.png', rows: 2, cols: 3, names: ['glaurung', 'carcharoth', 'gothmog_balrog', 'draugluin', 'thuringwethil', 'boldog'] },
+  { file: 'roster-hobbit-good-v1.png', rows: 2, cols: 3, names: ['thorin', 'tauriel', 'bard', 'dain', 'fili', 'kili'] },
+  { file: 'roster-hobbit-evil-v1.png', rows: 2, cols: 3, names: ['azog', 'azog_warg_rider', 'necromancer', 'hunter_orc', 'gundabad_orc', 'goblin_mercenary'] },
   { file: 'eagle-full.png', rows: 1, cols: 1, pxOnly: true, names: ['great_eagle'] },
   // standalone full-frame regenerations — overwrite the sheet-cut versions below
   // (px-only: no painted counterparts exist, so the sheet cells cover these ids in --painted mode)
@@ -582,6 +584,30 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
   // rim-hugging figure pixels; lift interior mids/saturation so figures don't
   // read as dark mush
   const ringIn = cr * 0.86, ringOut = cr * 1.03;
+  // rim repaint mask: detected rim pixels dilated a few px, plus strongly
+  // faction-hued pixels inside the band. Figure parts crossing the ring are
+  // NOT in the mask, so the painted ring sits visually UNDER the figure
+  const rimBand = new Uint8Array(cw * ch);
+  if (faction) {
+    const isBlue = faction[2] >= faction[0];
+    const RD = 4;
+    for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
+      const p = y * cw + x;
+      const dd = Math.hypot(x - cx, y - cy);
+      if (dd < ringIn || dd > ringOut) continue;
+      if (rim[p]) { rimBand[p] = 1; continue; }
+      let near = false;
+      for (let dy = -RD; dy <= RD && !near; dy++) for (let dx = -RD; dx <= RD; dx++) {
+        const nx = x + dx, ny = y + dy;
+        if (nx >= 0 && nx < cw && ny >= 0 && ny < ch && rim[ny * cw + nx]) { near = true; break; }
+      }
+      if (near) { rimBand[p] = 1; continue; }
+      const i0 = idx(cx0 + x, cy0 + y, W);
+      const R0 = d[i0], G0 = d[i0 + 1], B0 = d[i0 + 2];
+      const mn = Math.min(R0, G0, B0), mx = Math.max(R0, G0, B0);
+      if ((R0 + G0 + B0) / 3 > 40 && mx - mn > 45 && (isBlue ? B0 > R0 + 30 : R0 > B0 + 30)) rimBand[p] = 1;
+    }
+  }
   const lift = v => Math.min(255, Math.round(255 * Math.pow(v / 255, 0.80)));
   for (let y = 0; y < oh; y++) for (let x = 0; x < ow; x++) {
     const gx = bx0 + x, gy = by0 + y;
@@ -590,7 +616,7 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
     const di = idx(x, y, ow);
     let R = d[si], G = d[si + 1], B = d[si + 2];
     const dd = Math.hypot(gx - cx, gy - cy);
-    if (faction && a > 0 && dd >= ringIn && dd <= ringOut) {
+    if (faction && a > 0 && rimBand[gy * cw + gx]) {
       R = Math.round(R * 0.15 + faction[0] * 0.85);
       G = Math.round(G * 0.15 + faction[1] * 0.85);
       B = Math.round(B * 0.15 + faction[2] * 0.85);
@@ -612,7 +638,7 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
     for (let y = 1; y < oh - 1; y++) for (let x = 1; x < ow - 1; x++) {
       const gx = bx0 + x, gy = by0 + y;
       const dd = Math.hypot(gx - cx, gy - cy);
-      if (dd >= ringIn || out.data[(y * ow + x) * 4 + 3] < 200) continue;
+      if ((dd >= ringIn && rimBand[gy * cw + gx]) || out.data[(y * ow + x) * 4 + 3] < 200) continue;
       for (let chn = 0; chn < 3; chn++) {
         let b9 = 0;
         for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++)
