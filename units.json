@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "count": 142,
+  "count": 154,
   "units": [
     {
       "id": "aragorn",
@@ -1561,6 +1561,150 @@
       "base": "L",
       "sheet": "roster-evil-heroes-exp-v1.png",
       "file": "tokens/khamul.png"
+    },
+    {
+      "id": "fingolfin",
+      "name_ko": "핑골핀",
+      "name_en": "Fingolfin",
+      "side": "good",
+      "faction": "elf",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "L",
+      "sheet": "roster-legends-good-v1.png",
+      "file": "tokens/fingolfin.png"
+    },
+    {
+      "id": "imrahil",
+      "name_ko": "임라힐",
+      "name_en": "Imrahil",
+      "side": "good",
+      "faction": "gondor",
+      "role": "hero",
+      "weapon": "lance",
+      "base": "M",
+      "sheet": "roster-legends-good-v1.png",
+      "file": "tokens/imrahil.png"
+    },
+    {
+      "id": "merry",
+      "name_ko": "메리아독",
+      "name_en": "Meriadoc Brandybuck",
+      "side": "good",
+      "faction": "shire",
+      "role": "hero",
+      "weapon": "dagger",
+      "base": "S",
+      "sheet": "roster-legends-good-v1.png",
+      "file": "tokens/merry.png"
+    },
+    {
+      "id": "pippin",
+      "name_ko": "피핀",
+      "name_en": "Peregrin Took",
+      "side": "good",
+      "faction": "shire",
+      "role": "hero",
+      "weapon": "dagger",
+      "base": "S",
+      "sheet": "roster-legends-good-v1.png",
+      "file": "tokens/pippin.png"
+    },
+    {
+      "id": "beorn",
+      "name_ko": "베오른",
+      "name_en": "Beorn",
+      "side": "good",
+      "faction": "beorning",
+      "role": "hero",
+      "weapon": "twohanded",
+      "base": "L",
+      "sheet": "roster-legends-good-v1.png",
+      "file": "tokens/beorn.png"
+    },
+    {
+      "id": "elendil",
+      "name_ko": "엘렌딜",
+      "name_en": "Elendil",
+      "side": "good",
+      "faction": "arnor",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "L",
+      "sheet": "roster-legends-good-v1.png",
+      "file": "tokens/elendil.png"
+    },
+    {
+      "id": "melkor",
+      "name_ko": "멜코르",
+      "name_en": "Melkor (Morgoth)",
+      "side": "evil",
+      "faction": "angband",
+      "role": "monster",
+      "weapon": "mace",
+      "base": "XXL",
+      "sheet": "roster-legends-evil-v1.png",
+      "file": "tokens/melkor.png"
+    },
+    {
+      "id": "mumakil",
+      "name_ko": "무마킬",
+      "name_en": "War Mumak",
+      "side": "evil",
+      "faction": "harad",
+      "role": "monster",
+      "weapon": "none",
+      "base": "XXL",
+      "sheet": "roster-legends-evil-v1.png",
+      "file": "tokens/mumakil.png"
+    },
+    {
+      "id": "smaug",
+      "name_ko": "스마우그",
+      "name_en": "Smaug",
+      "side": "evil",
+      "faction": "erebor",
+      "role": "monster",
+      "weapon": "none",
+      "base": "XXL",
+      "sheet": "roster-legends-evil-v1.png",
+      "file": "tokens/smaug.png"
+    },
+    {
+      "id": "ungoliant",
+      "name_ko": "웅골리안트",
+      "name_en": "Ungoliant",
+      "side": "evil",
+      "faction": "angband",
+      "role": "monster",
+      "weapon": "none",
+      "base": "XXL",
+      "sheet": "roster-legends-evil-v1.png",
+      "file": "tokens/ungoliant.png"
+    },
+    {
+      "id": "bolg",
+      "name_ko": "볼그",
+      "name_en": "Bolg",
+      "side": "evil",
+      "faction": "gundabad",
+      "role": "hero",
+      "weapon": "mace",
+      "base": "L",
+      "sheet": "roster-legends-evil-v1.png",
+      "file": "tokens/bolg.png"
+    },
+    {
+      "id": "easterling_warlord",
+      "name_ko": "이스터링 장군",
+      "name_en": "Easterling Warlord",
+      "side": "evil",
+      "faction": "easterling",
+      "role": "hero",
+      "weapon": "pike",
+      "base": "",
+      "sheet": "roster-legends-evil-v1.png",
+      "file": "tokens/easterling_warlord.png"
     },
     {
       "id": "terr_rock_outcrop",

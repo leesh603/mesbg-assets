@@ -181,6 +181,22 @@ module.exports = [
   ['grima', '그리마 웜텅', 'Grima Wormtongue', { faction: 'isengard', weapon: 'dagger', base: 'M' }],
   ['khamul', '카물', 'Khamul the Easterling', { faction: 'angmar', weapon: 'mace', base: 'L' }],
 ]},
+{ sheet: 'roster-legends-good-v1.png', side: 'good', role: 'hero', base: 'M', units: [
+  ['fingolfin', '핑골핀', 'Fingolfin', { faction: 'elf', weapon: 'sword', base: 'L' }],
+  ['imrahil', '임라힐', 'Imrahil', { faction: 'gondor', weapon: 'lance' }],
+  ['merry', '메리아독', 'Meriadoc Brandybuck', { faction: 'shire', weapon: 'dagger', base: 'S' }],
+  ['pippin', '피핀', 'Peregrin Took', { faction: 'shire', weapon: 'dagger', base: 'S' }],
+  ['beorn', '베오른', 'Beorn', { faction: 'beorning', weapon: 'twohanded', base: 'L' }],
+  ['elendil', '엘렌딜', 'Elendil', { faction: 'arnor', weapon: 'sword', base: 'L' }],
+]},
+{ sheet: 'roster-legends-evil-v1.png', side: 'evil', units: [
+  ['melkor', '멜코르', 'Melkor (Morgoth)', { faction: 'angband', role: 'monster', weapon: 'mace', base: 'XXL' }],
+  ['mumakil', '무마킬', 'War Mumak', { faction: 'harad', role: 'monster', weapon: 'none', base: 'XXL' }],
+  ['smaug', '스마우그', 'Smaug', { faction: 'erebor', role: 'monster', weapon: 'none', base: 'XXL' }],
+  ['ungoliant', '웅골리안트', 'Ungoliant', { faction: 'angband', role: 'monster', weapon: 'none', base: 'XXL' }],
+  ['bolg', '볼그', 'Bolg', { faction: 'gundabad', role: 'hero', weapon: 'mace', base: 'L' }],
+  ['easterling_warlord', '이스터링 장군', 'Easterling Warlord', { faction: 'easterling', role: 'hero', weapon: 'pike' }],
+]},
 { sheet: 'terrain-natural-v1.png', side: 'terrain', faction: 'terrain', role: 'terrain', weapon: 'none', base: 'L', units: [
   ['terr_rock_outcrop', '바위 지형', 'Rock outcrop'],
   ['terr_standing_stones', '입석', 'Standing stones'],

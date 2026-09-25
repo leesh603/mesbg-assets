@@ -8,6 +8,7 @@ const path = require('path');
 
 const SRC = __dirname;
 const PAINTED = process.argv.includes('--painted');
+const ONLY = ((process.argv.find(a => a.startsWith('--only=')) || '').slice(7)).split(',').filter(Boolean);
 const OUT = path.join(SRC, PAINTED ? 'tokens_painted' : 'tokens');
 fs.mkdirSync(OUT, { recursive: true });
 
@@ -47,6 +48,8 @@ const sheets = [
   { file: 'roster-evil-heroes-exp-v1.png', rows: 2, cols: 3, names: ['mouth_of_sauron', 'gothmog', 'lurtz', 'sharku', 'grima', 'khamul'] },
   { file: 'terrain-natural-v1.png', rows: 2, cols: 3, noRim: true, names: ['terr_rock_outcrop', 'terr_standing_stones', 'terr_pine_copse', 'terr_oak_tree', 'terr_dead_tree', 'terr_hedgerow'] },
   { file: 'terrain-structures-v1.png', rows: 2, cols: 3, noRim: true, names: ['terr_ruined_wall', 'terr_ruined_tower', 'terr_gondor_house', 'terr_rohan_hall', 'terr_orc_camp', 'terr_barrow'] },
+  { file: 'roster-legends-good-v1.png', rows: 2, cols: 3, names: ['fingolfin', 'imrahil', 'merry', 'pippin', 'beorn', 'elendil'] },
+  { file: 'roster-legends-evil-v1.png', rows: 2, cols: 3, names: ['melkor', 'mumakil', 'smaug', 'ungoliant', 'bolg', 'easterling_warlord'] },
   { file: 'eagle-full.png', rows: 1, cols: 1, pxOnly: true, names: ['great_eagle'] },
   // standalone full-frame regenerations — overwrite the sheet-cut versions below
   // (px-only: no painted counterparts exist, so the sheet cells cover these ids in --painted mode)
@@ -619,6 +622,7 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
 
 for (const s of sheets) {
   if (PAINTED && s.pxOnly) continue;
+  if (ONLY.length && !ONLY.includes(s.file)) continue;
   const fname = PAINTED ? (s.paintedFile || s.file) : 'px-' + s.file;
   const fp = path.join(SRC, fname);
   if (!fs.existsSync(fp)) { console.log(`MISSING ${fname}`); continue; }

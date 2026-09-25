@@ -2,7 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 const sheets = require('./db-data.js');
-const SRC = 'C:/Users/Administrator/mesbg-assets';
+const SRC = __dirname;
 const TOKENS = path.join(SRC, 'tokens');
 
 const rows = [];
