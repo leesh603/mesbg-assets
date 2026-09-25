@@ -74,4 +74,6 @@ const m = TokenIdle.sample('cavalry', performance.now(), unitId);
 
 종류: `foot`(숨쉬기) `hero`(느린 숨쉬기) `cavalry`(걸음 출렁임 — 발굽 붙고 몸통만) `beast`(전진 몸흔들림) `monster`(무거운 숨) `flyer`(부유) `wraith`(표류+광번쩍임) `banner`(깃대 흔들림) `terrain`(정지). 토큰별로 위상이 해시로 어긋나서 일제히 움직이지 않음. `gallery.html`의 "모션" 버튼에서 바로 확인 가능 — 카드 클릭 시 공격 모션 재생.
 
-공격 모션 종류 (무기/종류로 자동 판별, `attackTypeFor(id, meta)`): `slash`(검·도끼·단검 — 베기) `thrust`(창·랜스·파이크 — 찌르기) `smash`(둔기·양손무기·몬스터 — 들어올렸다 내리찍기) `shoot`(활·석궁 — 당겼다 놓기) `cast`(지팡이·폭탄 — 부상+광 폭발) `rally`(기수·북 — 깃 흔들기) `pounce`(야수 — 덮치기). 마술왕·나즈굴·간달프·사루만·주술사 계열은 이름 기준으로 무기와 무관하게 `cast` 적용. 모든 공격은 예비동작→타격(플래시)→여운 단계에 구간별 이징. 캔버스면 `attackSample(type, progress01)` 반환값을 idle `sample()` 결과에 합성(스케일은 곱, 나머지는 합)해서 사용.
+공격 모션 종류 (무기/종류로 자동 판별, `attackTypeFor(id, meta)`): `slash`(검·도끼·단검 — 베기) `thrust`(창·랜스·파이크 — 찌르기) `smash`(둔기·양손무기·몬스터 — 들어올렸다 내리찍기) `shoot`(활·석궁 — 당겼다 놓기) `cast`(지팡이·폭탄 — 부상+광 폭발) `rally`(기수·북 — 깃 흔들기) `pounce`(야수 — 덮치기). 마술왕·나즈굴·간달프·사루만·주술사 계열은 이름 기준으로 무기와 무관하게 `cast` 적용. 모든 공격은 예비동작→타격(플래시)→여운 단계에 구간별 이징.
+
+타격 프레임에 `effects/fx_<type>.png` 오버레이(베기 섬광·찌르기 잔상·충격파·마법 폭발·발톱·화살·기수 링)가 자동으로 얹힘 — 마스크 밖이라 피겨 실루엣 너머까지 표시됨. DOM 경로만 자동; 경로 바꾸려면 `TokenIdle.fxDir = 'assets/fx/'`. 스프라이트 재생성은 `node gen-effects.js`. 캔버스면 `attackSample(type, progress01)` 반환값을 idle `sample()` 결과에 합성(스케일은 곱, 나머지는 합)하고, `ATTACKS[type].fxAt` 시점부터 같은 스프라이트를 그리면 됨.

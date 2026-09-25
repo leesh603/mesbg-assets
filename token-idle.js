@@ -30,14 +30,16 @@
   // dx/dy are % of element size, rot in degrees, glow = brightness lift,
   // e = easing (animation-timing-function) FROM this keyframe to the next.
   // Shape: anticipation -> strike (+impact flash) -> overshoot -> settle.
+  // fxAt = fraction of dur when the blow lands -> effects/fx_<type>.png
+  // overlay (.tkn-fx) pops in there; needs a mounted stack.
   const ATTACKS = {
-    slash:  { dur: 620, keys: [[0,{}],[20,{rot:-14,dy:1.6,sy:1.02,e:'cubic-bezier(.7,0,.9,.5)'}],[42,{rot:10,dx:1,dy:-2,e:'cubic-bezier(.2,.8,.4,1)'}],[50,{rot:18,dx:2.2,dy:-3.2,glow:.12}],[62,{rot:6,dx:.5,dy:-.5}],[80,{rot:-2}],[100,{}]] },
-    thrust: { dur: 640, keys: [[0,{}],[30,{dy:2.6,sx:.95,sy:1.06,e:'cubic-bezier(.8,0,.9,.6)'}],[52,{dy:-8,sx:1.06,sy:.88,glow:.1}],[64,{dy:-5.5,sx:1.02,sy:.95}],[82,{dy:1.2}],[100,{}]] },
-    smash:  { dur: 880, keys: [[0,{}],[28,{dy:-7,sx:1.02,sy:1.09,rot:-4,e:'cubic-bezier(.8,0,1,.4)'}],[46,{dy:4,sx:1.14,sy:.72,glow:.22}],[58,{dy:2.2,sx:1.07,sy:.85}],[72,{dy:-1.4,sy:.94}],[86,{dy:.5}],[100,{}]] },
-    shoot:  { dur: 680, keys: [[0,{}],[34,{dy:1.8,rot:-5,sy:1.03,e:'cubic-bezier(.85,0,1,.45)'}],[44,{dy:-1.4,rot:3.5,glow:.3}],[52,{rot:2}],[66,{rot:-1,dy:.5}],[100,{}]] },
-    cast:   { dur: 1100, keys: [[0,{}],[18,{dy:-2.5,sy:1.04,glow:.1}],[40,{dy:-5,sx:1.03,sy:1.09,glow:.35}],[52,{dy:-5.5,sx:1.05,sy:1.12,glow:.7}],[60,{glow:.25}],[68,{glow:.55,dy:-4.5}],[82,{dy:-1.2,glow:.15}],[100,{}]] },
-    rally:  { dur: 1000, keys: [[0,{}],[15,{rot:11}],[32,{rot:-9}],[50,{rot:8,glow:.15}],[68,{rot:-5}],[84,{rot:3}],[100,{}]] },
-    pounce: { dur: 760, keys: [[0,{}],[22,{dy:2.2,sx:1.08,sy:.78,e:'cubic-bezier(.6,0,.9,.4)'}],[50,{dy:-7,rot:3,sx:.96,sy:1.08}],[62,{dy:-4}],[76,{dy:1.2,sx:1.04,sy:.88}],[88,{dy:.4,sy:.95}],[100,{}]] },
+    slash:  { dur: 620, fxAt: .48, keys: [[0,{}],[20,{rot:-14,dy:1.6,sy:1.02,e:'cubic-bezier(.7,0,.9,.5)'}],[42,{rot:10,dx:1,dy:-2,e:'cubic-bezier(.2,.8,.4,1)'}],[50,{rot:18,dx:2.2,dy:-3.2,glow:.12}],[62,{rot:6,dx:.5,dy:-.5}],[80,{rot:-2}],[100,{}]] },
+    thrust: { dur: 640, fxAt: .50, keys: [[0,{}],[30,{dy:2.6,sx:.95,sy:1.06,e:'cubic-bezier(.8,0,.9,.6)'}],[52,{dy:-8,sx:1.06,sy:.88,glow:.1}],[64,{dy:-5.5,sx:1.02,sy:.95}],[82,{dy:1.2}],[100,{}]] },
+    smash:  { dur: 880, fxAt: .44, keys: [[0,{}],[28,{dy:-7,sx:1.02,sy:1.09,rot:-4,e:'cubic-bezier(.8,0,1,.4)'}],[46,{dy:4,sx:1.14,sy:.72,glow:.22}],[58,{dy:2.2,sx:1.07,sy:.85}],[72,{dy:-1.4,sy:.94}],[86,{dy:.5}],[100,{}]] },
+    shoot:  { dur: 680, fxAt: .42, keys: [[0,{}],[34,{dy:1.8,rot:-5,sy:1.03,e:'cubic-bezier(.85,0,1,.45)'}],[44,{dy:-1.4,rot:3.5,glow:.3}],[52,{rot:2}],[66,{rot:-1,dy:.5}],[100,{}]] },
+    cast:   { dur: 1100, fxAt: .50, keys: [[0,{}],[18,{dy:-2.5,sy:1.04,glow:.1}],[40,{dy:-5,sx:1.03,sy:1.09,glow:.35}],[52,{dy:-5.5,sx:1.05,sy:1.12,glow:.7}],[60,{glow:.25}],[68,{glow:.55,dy:-4.5}],[82,{dy:-1.2,glow:.15}],[100,{}]] },
+    rally:  { dur: 1000, fxAt: .10, keys: [[0,{}],[15,{rot:11}],[32,{rot:-9}],[50,{rot:8,glow:.15}],[68,{rot:-5}],[84,{rot:3}],[100,{}]] },
+    pounce: { dur: 760, fxAt: .48, keys: [[0,{}],[22,{dy:2.2,sx:1.08,sy:.78,e:'cubic-bezier(.6,0,.9,.4)'}],[50,{dy:-7,rot:3,sx:.96,sy:1.08}],[62,{dy:-4}],[76,{dy:1.2,sx:1.04,sy:.88}],[88,{dy:.4,sy:.95}],[100,{}]] },
   };
 
   // id / metadata -> attack kind. Meta: units.json entry {role, weapon} (optional)
@@ -177,7 +179,12 @@
       css += '}';
     }
     css += '@keyframes tkn-die{0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(.82) translateY(4%)}}' +
-      '.tkn-die{animation:tkn-die .8s ease-in forwards}';
+      '.tkn-die{animation:tkn-die .8s ease-in forwards}' +
+      // attack effect overlay: pops in at the impact frame (delay set per
+      // attack), expands and fades; not masked so it can reach past the
+      // figure silhouette
+      '.tkn-fx{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none;opacity:0;will-change:transform,opacity}' +
+      '@keyframes tkn-fx{0%{opacity:0;transform:scale(.5) rotate(-8deg)}16%{opacity:.95}100%{opacity:0;transform:scale(1.3) rotate(5deg)}}';
     styleEl = document.createElement('style');
     styleEl.textContent = css;
     document.head.appendChild(styleEl);
@@ -237,6 +244,18 @@
     fig.style.animation = (idle ? idle + ', ' : '') + `tkn-atk-${type} ${spec.dur}ms ease-out 0s 1`;
     clearTimeout(fig._tknAtkT);
     fig._tknAtkT = setTimeout(() => { fig.style.animation = idle; }, spec.dur + 30);
+    // effect sprite overlay at the impact frame
+    const stack = el._tknStack;
+    if (stack && spec.fxAt != null) {
+      const fx = document.createElement('img');
+      fx.className = 'tkn-fx';
+      fx.src = (api.fxDir || 'effects/') + 'fx_' + type + '.png';
+      fx.alt = ''; fx.setAttribute('aria-hidden', 'true');
+      const delay = Math.max(0, spec.fxAt * spec.dur - 120);
+      fx.style.animation = `tkn-fx 560ms ease-out ${Math.round(delay)}ms 1 backwards`;
+      stack.appendChild(fx);
+      setTimeout(() => fx.remove(), delay + 640);
+    }
     return spec.dur;
   }
   // backward compat: strike = attack with explicit/auto type
@@ -246,7 +265,7 @@
     host.classList.remove('tkn-die'); void host.offsetWidth; host.classList.add('tkn-die');
   }
 
-  const api = { KINDS, ATTACKS, classify, attackTypeFor, mount, unmount, sample, attackSample, attack, strike, die };
+  const api = { KINDS, ATTACKS, classify, attackTypeFor, mount, unmount, sample, attackSample, attack, strike, die, fxDir: 'effects/' };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   global.TokenIdle = api;
 })(typeof window !== 'undefined' ? window : globalThis);
