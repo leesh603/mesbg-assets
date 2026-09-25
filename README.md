@@ -58,7 +58,9 @@ git clone https://github.com/leesh603/mesbg-assets.git
   // <img> 토큰: id만 넘기면 종류 자동 판별 (units.json 항목 넘겨도 됨)
   TokenIdle.mount(imgEl, 'warg_rider');          // 아이들 시작 (베이스 고정, 피겨만 움직임)
   TokenIdle.unmount(imgEl);                      // 정지
-  TokenIdle.strike(imgEl);                       // 공격 펀치 (원샷, 피겨만)
+  TokenIdle.attack(imgEl);                       // 공격 원샷 — 무기 종류 자동 판별
+  TokenIdle.attack(imgEl, 'smash');              // 종류 강제 지정도 가능
+  TokenIdle.strike(imgEl);                       // = attack() 별칭
   TokenIdle.die(imgEl);                          // 죽음 (가라앉으며 페이드, 전체)
 </script>
 ```
@@ -70,4 +72,6 @@ const m = TokenIdle.sample('cavalry', performance.now(), unitId);
 // pass 2 (figure) only: pivot at (50%, m.oy*h) — rotate(m.rot), scale(m.sx, m.sy), translate(m.dx*w, m.dy*h)
 ```
 
-종류: `foot`(숨쉬기) `hero`(느린 숨쉬기) `cavalry`(걸음 출렁임 — 발굽 붙고 몸통만) `beast`(전진 몸흔들림) `monster`(무거운 숨) `flyer`(부유) `wraith`(표류+광번쩍임) `banner`(깃대 흔들림) `terrain`(정지). 토큰별로 위상이 해시로 어긋나서 일제히 움직이지 않음. `gallery.html`의 "모션" 버튼에서 바로 확인 가능.
+종류: `foot`(숨쉬기) `hero`(느린 숨쉬기) `cavalry`(걸음 출렁임 — 발굽 붙고 몸통만) `beast`(전진 몸흔들림) `monster`(무거운 숨) `flyer`(부유) `wraith`(표류+광번쩍임) `banner`(깃대 흔들림) `terrain`(정지). 토큰별로 위상이 해시로 어긋나서 일제히 움직이지 않음. `gallery.html`의 "모션" 버튼에서 바로 확인 가능 — 카드 클릭 시 공격 모션 재생.
+
+공격 모션 종류 (무기/종류로 자동 판별, `attackTypeFor(id, meta)`): `slash`(검·도끼·단검 — 베기) `thrust`(창·랜스·파이크 — 찌르기) `smash`(둔기·양손무기·몬스터 — 들어올렸다 내리찍기) `shoot`(활·석궁 — 당겼다 놓기) `cast`(지팡이·폭탄 — 주문 광번쩍임) `rally`(기수·북 — 깃 흔들기) `pounce`(야수 — 덮치기). 캔버스면 `attackSample(type, progress01)` 반환값을 idle `sample()` 결과에 합성(스케일은 곱, 나머지는 합)해서 사용.

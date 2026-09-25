@@ -26,6 +26,45 @@
     terrain: {},
   };
 
+  // attack kinds -> keyframe spec. Each row [pct, {dx,dy,rot,sx,sy,glow}]:
+  // dx/dy are % of element size, rot in degrees, glow = brightness lift.
+  // Wind up -> hit -> recover; the whole stack stays, only the figure moves.
+  const ATTACKS = {
+    slash:  { dur: 560, keys: [[0,{}],[28,{rot:-13,dy:1.4,sy:1.02}],[52,{rot:16,dx:2,dy:-3}],[72,{rot:3}],[100,{}]] },
+    thrust: { dur: 600, keys: [[0,{}],[32,{dy:2.2,sx:.96,sy:1.05}],[58,{dy:-7,sx:1.05,sy:.9}],[82,{dy:1}],[100,{}]] },
+    smash:  { dur: 780, keys: [[0,{}],[32,{dy:-6,sx:1.02,sy:1.07}],[50,{dy:3.5,sx:1.12,sy:.76,glow:.18}],[72,{dy:-1.2,sy:.95}],[100,{}]] },
+    shoot:  { dur: 620, keys: [[0,{}],[38,{dy:1.6,rot:-4}],[48,{dy:-1.2,rot:3,glow:.28}],[70,{dy:.4}],[100,{}]] },
+    cast:   { dur: 900, keys: [[0,{}],[30,{dy:-3,sy:1.05,glow:.18}],[58,{dy:-4.5,sx:1.04,sy:1.09,glow:.5}],[78,{dy:-1,glow:.1}],[100,{}]] },
+    rally:  { dur: 900, keys: [[0,{}],[18,{rot:10}],[42,{rot:-9}],[66,{rot:7}],[86,{rot:-3}],[100,{}]] },
+    pounce: { dur: 700, keys: [[0,{}],[24,{dy:1.8,sx:1.06,sy:.82}],[55,{dy:-6,rot:2.5,sx:.97,sy:1.06}],[78,{dy:1,sx:1.03,sy:.9}],[100,{}]] },
+  };
+
+  // id / metadata -> attack kind. Meta: units.json entry {role, weapon} (optional)
+  function attackTypeFor(idOrKind, meta) {
+    const id = String(idOrKind || '').toLowerCase();
+    const w = meta && meta.weapon;
+    if (w) {
+      if (w === 'bow' || w === 'crossbow') return 'shoot';
+      if (w === 'staff' || w === 'bomb') return 'cast';
+      if (w === 'spear' || w === 'spear_shield' || w === 'pike' || w === 'lance' || w === 'pitchfork') return 'thrust';
+      if (w === 'twohanded' || w === 'mace' || w === 'club') return 'smash';
+      if (w === 'banner' || w === 'drum') return 'rally';
+      if (w === 'sword' || w === 'sword_shield' || w === 'axe' || w === 'dagger' || w === 'whip') return 'slash';
+    }
+    if (/archer|bowman|ranger|marksman|crossbow|bow_/.test(id)) return 'shoot';
+    if (/shaman|wizard|sorcer|gandalf|saruman/.test(id)) return 'cast';
+    if (/spear|pike|lance|kataphrakt|pitchfork/.test(id)) return 'thrust';
+    if (/banner|drum/.test(id)) return 'rally';
+    if (/troll|balrog|mumak|oliphaunt/.test(id)) return 'smash';
+    if (/warg|shelob|beorning|ent|fellbeast|eagle/.test(id)) return 'pounce';
+    const k = KINDS[idOrKind] ? idOrKind : classify(idOrKind, meta);
+    if (k === 'monster') return 'smash';
+    if (k === 'beast' || k === 'flyer') return 'pounce';
+    if (k === 'wraith') return 'cast';
+    if (k === 'banner') return 'rally';
+    return 'slash';
+  }
+
   // id / metadata -> kind. Meta: units.json entry {role, weapon, faction} (optional)
   function classify(id, meta) {
     id = String(id || '').toLowerCase();
@@ -52,6 +91,8 @@
   // dx/dy are fractions of sprite size, rot radians, glow = brightness swing.
   // oy = pivot height fraction (rotate/scale around this point, not centre).
   // m.mask = [solid, fade] fractions of half-width for the figure-layer mask.
+  // For one-shots use attackSample(type, k01) with k = elapsed/duration and
+  // compose it over the idle sample (multiply scales, add the rest).
   function sample(kind, t, seed) {
     const p = KINDS[kind] || KINDS.foot;
     if (!p.dur) return { dx: 0, dy: 0, rot: 0, sx: 1, sy: 1, glow: 0, oy: p.oy || 0.5, mask: p.mask || [0, 0] };
@@ -66,6 +107,28 @@
       glow: (p.glow || 0) * (0.5 + 0.5 * w2),
       oy: p.oy || 0.5,
       mask: p.mask || [0.6, 0.8],
+    };
+  }
+
+  // attack one-shot transform at progress k (0..1). Same fields as sample(),
+  // dx/dy fractions of sprite size, rot radians.
+  function attackSample(type, k) {
+    const spec = ATTACKS[type] || ATTACKS.slash;
+    k = Math.max(0, Math.min(1, k));
+    const keys = spec.keys;
+    let i = 0;
+    while (i < keys.length - 2 && keys[i + 1][0] <= k * 100) i++;
+    const [p0, a] = keys[i], [p1, b] = keys[i + 1];
+    let f = p1 > p0 ? (k * 100 - p0) / (p1 - p0) : 0;
+    f = f * f * (3 - 2 * f); // smoothstep
+    const L = (x, y) => (x == null ? 0 : x) + ((y == null ? 0 : y) - (x == null ? 0 : x)) * f;
+    const S = (x, y) => (x == null ? 1 : x) + ((y == null ? 1 : y) - (x == null ? 1 : x)) * f;
+    return {
+      dx: L(a.dx, b.dx) / 100, dy: L(a.dy, b.dy) / 100,
+      rot: L(a.rot, b.rot) * Math.PI / 180,
+      sx: S(a.sx, b.sx), sy: S(a.sy, b.sy),
+      glow: L(a.glow, b.glow),
+      oy: 0.5, mask: [0, 0],
     };
   }
 
@@ -97,9 +160,19 @@
     }
     // one-shot feedback: strike (attack punch) and die (sink+fade) — on the
     // fig layer for strike, whole token for die
-    css += '@keyframes tkn-strike{0%{transform:scale(1)}35%{transform:scale(1.13) rotate(-2deg)}100%{transform:scale(1)}}' +
-      '.tkn-strike{animation:tkn-strike .34s ease-out}' +
-      '@keyframes tkn-die{0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(.82) translateY(4%)}}' +
+    // one-shot attacks, generated from the ATTACKS spec; applied alongside the
+    // idle animation on the fig layer (later animation wins while active)
+    for (const [a, spec] of Object.entries(ATTACKS)) {
+      css += `@keyframes tkn-atk-${a}{`;
+      for (const [pct, k] of spec.keys) {
+        const dx = (k.dx || 0).toFixed(2), dy = (k.dy || 0).toFixed(2);
+        const r = (k.rot || 0).toFixed(2), sx = k.sx == null ? 1 : k.sx, sy = k.sy == null ? 1 : k.sy;
+        css += `${pct}%{transform:translate(${dx}%,${dy}%) rotate(${r}deg) scale(${sx},${sy});` +
+          `filter:brightness(${(1 + (k.glow || 0)).toFixed(2)})}`;
+      }
+      css += '}';
+    }
+    css += '@keyframes tkn-die{0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(.82) translateY(4%)}}' +
       '.tkn-die{animation:tkn-die .8s ease-in forwards}';
     styleEl = document.createElement('style');
     styleEl.textContent = css;
@@ -131,10 +204,12 @@
     fig.style.setProperty('--oY', ((KINDS[kind].oy || 0.5) * 100) + '%');
     const ph = -hash(String(idOrKind)) * (KINDS[kind].dur / 1000);
     fig.style.animation = `tkn-${kind} ${KINDS[kind].dur}ms ease-in-out ${ph.toFixed(2)}s infinite`;
+    fig._tknIdle = fig.style.animation;
     stack.appendChild(fig);
 
     el.dataset.tknMounted = kind;
     el._tknStack = stack; el._tknFig = fig;
+    el._tknId = idOrKind; el._tknMeta = meta;
     return kind;
   }
 
@@ -148,17 +223,26 @@
     delete el.dataset.tknMounted;
   }
 
-  // one-shots: strike animates the figure layer, die sinks the whole stack
-  function strike(el) {
+  // one-shot attack on the figure layer. type: 'slash'|'thrust'|'smash'|'shoot'|
+  // 'cast'|'rally'|'pounce'; omitted = auto from weapon/kind. Returns duration ms.
+  function attack(el, type) {
     const fig = el._tknFig || el;
-    fig.classList.remove('tkn-strike'); void fig.offsetWidth; fig.classList.add('tkn-strike');
+    if (!type || !ATTACKS[type]) type = attackTypeFor(el._tknId || fig.dataset.tknId || 'x', el._tknMeta);
+    const spec = ATTACKS[type];
+    const idle = fig._tknIdle || fig.style.animation || '';
+    fig.style.animation = (idle ? idle + ', ' : '') + `tkn-atk-${type} ${spec.dur}ms ease-out 0s 1`;
+    clearTimeout(fig._tknAtkT);
+    fig._tknAtkT = setTimeout(() => { fig.style.animation = idle; }, spec.dur + 30);
+    return spec.dur;
   }
+  // backward compat: strike = attack with explicit/auto type
+  function strike(el, type) { return attack(el, type); }
   function die(el) {
     const host = el._tknStack || el;
     host.classList.remove('tkn-die'); void host.offsetWidth; host.classList.add('tkn-die');
   }
 
-  const api = { KINDS, classify, mount, unmount, sample, strike, die };
+  const api = { KINDS, ATTACKS, classify, attackTypeFor, mount, unmount, sample, attackSample, attack, strike, die };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   global.TokenIdle = api;
 })(typeof window !== 'undefined' ? window : globalThis);

@@ -13,7 +13,7 @@ h1{font-size:20px}h2{font-size:15px;margin:28px 0 10px;color:#9db4d0;border-bott
 <script src="token-idle.js"></script>
 <script>
 window.__animOn = true;
-function mountAll(){document.querySelectorAll('.card').forEach(c=>{const img=c.querySelector('img'),idEl=c.querySelector('.id');if(img&&idEl)TokenIdle.mount(img,idEl.textContent.trim());});}
+function mountAll(){document.querySelectorAll('.card').forEach(c=>{const img=c.querySelector('img'),idEl=c.querySelector('.id');if(img&&idEl){TokenIdle.mount(img,idEl.textContent.trim());c.style.cursor='pointer';c.title='클릭: 공격 모션';c.onclick=()=>TokenIdle.attack(img);}});}
 function unmountAll(){document.querySelectorAll('.card img').forEach(i=>TokenIdle.unmount(i));}
 function toggleAnim(){window.__animOn=!window.__animOn;window.__animOn?mountAll():unmountAll();document.getElementById('asw').textContent=window.__animOn?'모션: 켜짐':'모션: 꺼짐';}
 addEventListener('DOMContentLoaded',mountAll);
