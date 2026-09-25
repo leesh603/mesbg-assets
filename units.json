@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "count": 178,
+  "count": 190,
   "units": [
     {
       "id": "aragorn",
@@ -1849,6 +1849,150 @@
       "base": "XL",
       "sheet": "roster-legends-evil-v2.png",
       "file": "tokens/hill_troll.png"
+    },
+    {
+      "id": "feanor",
+      "name_ko": "페아노르",
+      "name_en": "Feanor",
+      "side": "good",
+      "faction": "elf",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "L",
+      "sheet": "roster-silmarillion-good-v1.png",
+      "file": "tokens/feanor.png"
+    },
+    {
+      "id": "luthien",
+      "name_ko": "루시엔",
+      "name_en": "Luthien",
+      "side": "good",
+      "faction": "doriath",
+      "role": "hero",
+      "weapon": "staff",
+      "base": "M",
+      "sheet": "roster-silmarillion-good-v1.png",
+      "file": "tokens/luthien.png"
+    },
+    {
+      "id": "beren",
+      "name_ko": "베렌",
+      "name_en": "Beren",
+      "side": "good",
+      "faction": "men",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "M",
+      "sheet": "roster-silmarillion-good-v1.png",
+      "file": "tokens/beren.png"
+    },
+    {
+      "id": "turin",
+      "name_ko": "투린",
+      "name_en": "Turin Turambar",
+      "side": "good",
+      "faction": "men",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "L",
+      "sheet": "roster-silmarillion-good-v1.png",
+      "file": "tokens/turin.png"
+    },
+    {
+      "id": "beleg",
+      "name_ko": "벨레그",
+      "name_en": "Beleg Strongbow",
+      "side": "good",
+      "faction": "doriath",
+      "role": "hero",
+      "weapon": "bow",
+      "base": "M",
+      "sheet": "roster-silmarillion-good-v1.png",
+      "file": "tokens/beleg.png"
+    },
+    {
+      "id": "huan",
+      "name_ko": "훈",
+      "name_en": "Huan the Hound",
+      "side": "good",
+      "faction": "valinor",
+      "role": "beast",
+      "weapon": "none",
+      "base": "L",
+      "sheet": "roster-silmarillion-good-v1.png",
+      "file": "tokens/huan.png"
+    },
+    {
+      "id": "glaurung",
+      "name_ko": "글라우룽",
+      "name_en": "Glaurung",
+      "side": "evil",
+      "faction": "angband",
+      "role": "monster",
+      "weapon": "none",
+      "base": "XXL",
+      "sheet": "roster-silmarillion-evil-v1.png",
+      "file": "tokens/glaurung.png"
+    },
+    {
+      "id": "carcharoth",
+      "name_ko": "카르하로스",
+      "name_en": "Carcharoth",
+      "side": "evil",
+      "faction": "angband",
+      "role": "monster",
+      "weapon": "none",
+      "base": "L",
+      "sheet": "roster-silmarillion-evil-v1.png",
+      "file": "tokens/carcharoth.png"
+    },
+    {
+      "id": "gothmog_balrog",
+      "name_ko": "고스모그(발록 군주)",
+      "name_en": "Gothmog, Lord of Balrogs",
+      "side": "evil",
+      "faction": "angband",
+      "role": "monster",
+      "weapon": "whip",
+      "base": "XXL",
+      "sheet": "roster-silmarillion-evil-v1.png",
+      "file": "tokens/gothmog_balrog.png"
+    },
+    {
+      "id": "draugluin",
+      "name_ko": "드라우글루인",
+      "name_en": "Draugluin",
+      "side": "evil",
+      "faction": "angband",
+      "role": "monster",
+      "weapon": "none",
+      "base": "L",
+      "sheet": "roster-silmarillion-evil-v1.png",
+      "file": "tokens/draugluin.png"
+    },
+    {
+      "id": "thuringwethil",
+      "name_ko": "수링웨실",
+      "name_en": "Thuringwethil",
+      "side": "evil",
+      "faction": "angband",
+      "role": "monster",
+      "weapon": "none",
+      "base": "L",
+      "sheet": "roster-silmarillion-evil-v1.png",
+      "file": "tokens/thuringwethil.png"
+    },
+    {
+      "id": "boldog",
+      "name_ko": "볼독",
+      "name_en": "Boldog",
+      "side": "evil",
+      "faction": "angband",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "L",
+      "sheet": "roster-silmarillion-evil-v1.png",
+      "file": "tokens/boldog.png"
     },
     {
       "id": "terr_rubble",

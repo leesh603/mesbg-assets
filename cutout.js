@@ -54,6 +54,8 @@ const sheets = [
   { file: 'roster-legends-evil-v2.png', rows: 2, cols: 3, names: ['olog_hai', 'watcher_in_the_water', 'mirkwood_spider', 'harad_chieftain', 'uruk_captain', 'hill_troll'] },
   { file: 'terrain-objects-v1.png', rows: 2, cols: 3, noRim: true, names: ['terr_rubble', 'terr_broken_pillar', 'terr_barricade', 'terr_crates', 'terr_spike_line', 'terr_brazier'] },
   { file: 'terrain-objects-v2.png', rows: 2, cols: 3, noRim: true, names: ['terr_orc_totem', 'terr_siege_ladder', 'terr_tent', 'terr_cart', 'terr_campfire', 'terr_statue_head'] },
+  { file: 'roster-silmarillion-good-v1.png', rows: 2, cols: 3, names: ['feanor', 'luthien', 'beren', 'turin', 'beleg', 'huan'] },
+  { file: 'roster-silmarillion-evil-v1.png', rows: 2, cols: 3, names: ['glaurung', 'carcharoth', 'gothmog_balrog', 'draugluin', 'thuringwethil', 'boldog'] },
   { file: 'eagle-full.png', rows: 1, cols: 1, pxOnly: true, names: ['great_eagle'] },
   // standalone full-frame regenerations — overwrite the sheet-cut versions below
   // (px-only: no painted counterparts exist, so the sheet cells cover these ids in --painted mode)

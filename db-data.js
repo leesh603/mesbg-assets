@@ -213,6 +213,22 @@ module.exports = [
   ['uruk_captain', '우룩하이 대장', 'Uruk-hai Captain', { faction: 'isengard', role: 'hero', weapon: 'sword_shield', base: 'L' }],
   ['hill_troll', '언덕 트롤', 'Hill Troll', { faction: 'angmar', role: 'monster', weapon: 'club', base: 'XL' }],
 ]},
+{ sheet: 'roster-silmarillion-good-v1.png', side: 'good', role: 'hero', base: 'M', units: [
+  ['feanor', '페아노르', 'Feanor', { faction: 'elf', weapon: 'sword', base: 'L' }],
+  ['luthien', '루시엔', 'Luthien', { faction: 'doriath', weapon: 'staff' }],
+  ['beren', '베렌', 'Beren', { faction: 'men', weapon: 'sword' }],
+  ['turin', '투린', 'Turin Turambar', { faction: 'men', weapon: 'sword', base: 'L' }],
+  ['beleg', '벨레그', 'Beleg Strongbow', { faction: 'doriath', weapon: 'bow' }],
+  ['huan', '훈', 'Huan the Hound', { faction: 'valinor', role: 'beast', weapon: 'none', base: 'L' }],
+]},
+{ sheet: 'roster-silmarillion-evil-v1.png', side: 'evil', units: [
+  ['glaurung', '글라우룽', 'Glaurung', { faction: 'angband', role: 'monster', weapon: 'none', base: 'XXL' }],
+  ['carcharoth', '카르하로스', 'Carcharoth', { faction: 'angband', role: 'monster', weapon: 'none', base: 'L' }],
+  ['gothmog_balrog', '고스모그(발록 군주)', 'Gothmog, Lord of Balrogs', { faction: 'angband', role: 'monster', weapon: 'whip', base: 'XXL' }],
+  ['draugluin', '드라우글루인', 'Draugluin', { faction: 'angband', role: 'monster', weapon: 'none', base: 'L' }],
+  ['thuringwethil', '수링웨실', 'Thuringwethil', { faction: 'angband', role: 'monster', weapon: 'none', base: 'L' }],
+  ['boldog', '볼독', 'Boldog', { faction: 'angband', role: 'hero', weapon: 'sword', base: 'L' }],
+]},
 { sheet: 'terrain-objects-v1.png', side: 'terrain', faction: 'terrain', role: 'terrain', weapon: 'none', base: 'M', units: [
   ['terr_rubble', '돌무더기', 'Rubble pile'],
   ['terr_broken_pillar', '부러진 기둥', 'Broken pillar'],
