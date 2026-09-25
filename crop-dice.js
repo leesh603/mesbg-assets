@@ -4,17 +4,17 @@ const fs = require('fs');
 const path = require('path');
 
 const SRC = 'C:/Users/Administrator/mesbg-assets';
-const OUT = path.join(SRC, 'dice-faces');
+const OUT = path.join(SRC, 'px-dice-faces');
 fs.mkdirSync(OUT, { recursive: true });
 
 const factions = {
-  'dice-minastirith-faces-v1.png': 'minastirith',
-  'dice-mordor-faces-v1.png': 'mordor',
-  'dice-isengard-faces-v1.png': 'isengard',
-  'dice-rohan-faces-v1.png': 'rohan',
-  'dice-elf-faces-v1.png': 'elf',
-  'dice-dwarf-faces-v1.png': 'dwarf',
-  'dice-haradrim-faces-v1.png': 'haradrim',
+  'px-dice-minastirith-faces-v1.png': 'minastirith',
+  'px-dice-mordor-faces-v1.png': 'mordor',
+  'px-dice-isengard-faces-v1.png': 'isengard',
+  'px-dice-rohan-faces-v1.png': 'rohan',
+  'px-dice-elf-faces-v1.png': 'elf',
+  'px-dice-dwarf-faces-v1.png': 'dwarf',
+  'px-dice-haradrim-faces-v1.png': 'haradrim',
 };
 const FACE_NAMES = ['1', '2', '3', '4', '5', 'emblem'];
 

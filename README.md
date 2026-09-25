@@ -9,12 +9,13 @@
 |---|---|
 | `tokens/` | 유닛·지형 투명 PNG 142종 — **픽셀아트 단순화 버전** (게임에서 바로 쓰는 파일) |
 | `tokens_painted/` | 같은 142종의 도색 미니어처 원본 (픽셀화 전 마스터) |
-| `dice-faces/` | 진영별 D6 면 텍스처 42장 (`{faction}-{1~5|emblem}.png`) |
+| `dice-faces/` | 진영별 D6 면 텍스처 42장 — **픽셀아트 버전** (`{faction}-{1~5|emblem}.png`) |
+| `dice-faces-painted/` | 도색 원본 주사위 면 42장 |
 | `units.csv` / `units.json` | 유닛 DB — id ↔ 이름 ↔ 진영/타입/무기/베이스 ↔ 파일명 |
 | `dice.json` | 진영별 주사위 면 경로 매니페스트 |
 | `gallery.html` | 에셋 전체 매칭 검수용 갤러리 (정적 서빙해서 열면 됨) |
 | `dice-demo/` | three.js + cannon-es 3D 주사위 데모 |
-| `px-*.png` (루트) | 픽셀아트 6컷 시트들 (`tokens/`의 소스) |
+| `px-*.png` (루트) | 픽셀아트 6컷 시트들 + 주사위면 시트 (`tokens/`, `dice-faces/`의 소스) |
 | `*.png` (루트) | 도색 원본 6컷 시트들 (`tokens_painted/`의 소스) |
 | `cutout.js` | 시트 → 투명 PNG 컷아웃 스크립트 (node + pngjs) |
 | `build-db.js` | `db-data.js` → units.csv/json + gallery.html 생성기 |

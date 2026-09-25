@@ -7,13 +7,13 @@ const fs = require('fs');
 const path = require('path');
 
 const SRC = 'C:/Users/Administrator/mesbg-assets';
-const OUT = path.join(SRC, 'tokens_px');
+const OUT = path.join(SRC, 'tokens');
 fs.mkdirSync(OUT, { recursive: true });
 
 const sheets = [
   { file: 'lotr-tokens-v1.png', rows: 2, cols: 3, names: ['aragorn', 'gandalf', 'warrior_minas_tirith', 'witchking_foot', 'orc_sword', 'cave_troll'] },
   { file: 'glorfindel-topdown-v2.png', rows: 1, cols: 2, names: ['glorfindel_foot', 'glorfindel_mounted'] },
-  { file: 'fellbeast-topdown-v2.png', rows: 1, cols: 1, clip: 1.15, names: ['witchking_fellbeast'] },
+  { file: 'fellbeast-full.png', rows: 1, cols: 1, clip: 2.0, names: ['witchking_fellbeast'] },
   { file: 'witchking-mounted-topdown-v1.png', rows: 1, cols: 1, names: ['witchking_mounted'] },
   { file: 'roster-enemy-heroes-v1.png', rows: 2, cols: 3, names: ['witchking_mounted_sheet', 'witchking_foot_mace', 'nazgul_sword', 'saruman', 'orc_shaman', 'orc_captain'] },
   { file: 'roster-enemy-troops-v1.png', rows: 2, cols: 3, names: ['orc_spearman', 'orc_archer', 'uruk_swordshield', 'morannon_orc', 'warg_rider', 'haradrim_spearman'] },
@@ -37,6 +37,7 @@ const sheets = [
   { file: 'roster-evil-heroes-exp-v1.png', rows: 2, cols: 3, names: ['mouth_of_sauron', 'gothmog', 'lurtz', 'sharku', 'grima', 'khamul'] },
   { file: 'terrain-natural-v1.png', rows: 2, cols: 3, noRim: true, names: ['terr_rock_outcrop', 'terr_standing_stones', 'terr_pine_copse', 'terr_oak_tree', 'terr_dead_tree', 'terr_hedgerow'] },
   { file: 'terrain-structures-v1.png', rows: 2, cols: 3, noRim: true, names: ['terr_ruined_wall', 'terr_ruined_tower', 'terr_gondor_house', 'terr_rohan_hall', 'terr_orc_camp', 'terr_barrow'] },
+  { file: 'eagle-full.png', rows: 1, cols: 1, names: ['great_eagle'] },
 ];
 
 function idx(x, y, w) { return (y * w + x) << 2; }
@@ -224,7 +225,7 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul) {
   // the figure (<=0.55cr with a real inside footprint). Shadow-smear arcs that
   // only graze the rim edge fail both and drop.
   const deep2 = (cr * 0.55) ** 2;
-  const clip2 = (cr * (clipMul || 1.7)) ** 2;
+  const clip2 = (cr * (clipMul || 2.3)) ** 2;
   const STRONG = 55; // outside the circle only strongly-fg pixels survive (kills wispy blends)
   const keep = new Uint8Array(cw * ch);
   for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
