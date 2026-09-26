@@ -103,6 +103,8 @@ const sheets = [
   { file: 'nb-ents.png', rows: 1, cols: 2, noRim: true, paintedFile: 'px-nb-ents.png', names: ['ent', 'quickbeam'] },
   { file: 'nb-glaurung-v2.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-glaurung-v2.png', names: ['glaurung'] },
   { file: 'nb-glaurung-v3.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-glaurung-v3.png', names: ['glaurung'], wallDilate: 3, threshFill: true },
+  { file: 'nb-front-eomer.png', rows: 1, cols: 2, noRim: true, paintedFile: 'px-nb-front-eomer.png', names: ['eomer_foot', 'eomer'] },
+  { file: 'nb-front-gondor-witchking.png', rows: 1, cols: 2, noRim: true, paintedFile: 'px-nb-front-gondor-witchking.png', names: ['gondor_knight', 'witchking_mounted'] },
 ];
 
 function idx(x, y, w) { return (y * w + x) << 2; }
