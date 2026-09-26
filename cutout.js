@@ -46,6 +46,10 @@ const sheets = [
   { file: 'nb-roster-free-special-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-free-special-v1.png', noPad: ['hobbit_shirriff', 'hobbit_bounder'], names: ['hobbit_shirriff', 'hobbit_bounder', 'great_eagle', 'ent', 'beorning', 'ranger_north'] },
   { file: 'nb-roster-free-heroes-exp-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-free-heroes-exp-v1.png', names: ['theoden', 'faramir', 'haldir', 'galadriel', 'gamling', 'samwise'] },
   { file: 'nb-roster-evil-heroes-exp-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-evil-heroes-exp-v1.png', names: ['mouth_of_sauron', 'gothmog', 'lurtz', 'sharku', 'grima', 'khamul'] },
+  { file: 'nb-roster-nazgul-nine-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-nazgul-nine-v1.png', names: ['dark_marshal', 'shadow_lord', 'betrayer', 'tainted', 'undying', 'knight_of_umbar'] },
+  { file: 'nb-roster-good-fill-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-good-fill-v1.png', names: ['isildur', 'gandalf_white', 'denethor', 'huorn', 'boromir_mounted', 'elrond_mounted'] },
+  { file: 'nb-roster-good-fill-v2.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-good-fill-v2.png', names: ['gandalf_white_mounted', 'theoden_foot', 'dain_boar', 'faramir_mounted', 'eomer_foot', 'elfhelm'] },
+  { file: 'nb-roster-warg-riders-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-warg-riders-v1.png', names: ['warg_rider', 'warg_rider_spear', 'warg_rider_bow', 'warg_chieftain', 'wild_warg', 'wild_warg_alpha'] },
   { file: 'terrain-natural-v1.png', rows: 2, cols: 3, paintedFile: 'px-terrain-natural-v1.png', noRim: true, names: ['terr_rock_outcrop', 'terr_standing_stones', 'terr_pine_copse', 'terr_oak_tree', 'terr_dead_tree', 'terr_hedgerow'] },
   { file: 'terrain-structures-v1.png', rows: 2, cols: 3, paintedFile: 'px-terrain-structures-v1.png', noRim: true, names: ['terr_ruined_wall', 'terr_ruined_tower', 'terr_gondor_house', 'terr_rohan_hall', 'terr_orc_camp', 'terr_barrow'] },
   { file: 'nb-roster-legends-good-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-legends-good-v1.png', names: ['fingolfin', 'imrahil', 'merry', 'pippin', 'beorn', 'elendil'] },
@@ -72,12 +76,15 @@ const sheets = [
   { file: 'nb-eagle-full.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-eagle-full.png', pxOnly: true, names: ['great_eagle'] },
   // standalone full-frame regenerations — overwrite the sheet-cut versions below
   // (px-only: no painted counterparts exist, so the sheet cells cover these ids in --painted mode)
-  { file: 'nb-single-balrog.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-balrog.png', pxOnly: true, names: ['balrog'] },
+  { file: 'nb-single-balrog.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-balrog.png', names: ['balrog'] },
   { file: 'nb-single-glorfindel-mounted.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-glorfindel-mounted.png', pxOnly: true, names: ['glorfindel_mounted'] },
   { file: 'nb-single-elf-bow.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-elf-bow.png', pxOnly: true, names: ['elf_bow'] },
   { file: 'nb-single-hobbit-shirriff.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-hobbit-shirriff.png', pxOnly: true, names: ['hobbit_shirriff'] },
   { file: 'nb-single-aragorn-blackgate.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-aragorn-blackgate.png', names: ['aragorn_blackgate'] },
   { file: 'nb-single-aragorn-blackgate-mounted.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-aragorn-blackgate-mounted.png', names: ['aragorn_blackgate_mounted'] },
+  { file: 'nb-single-eomer.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-eomer.png', names: ['eomer'] },
+  { file: 'nb-single-gondor-knight.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-gondor-knight.png', names: ['gondor_knight'] },
+  { file: 'nb-single-ancalagon.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-ancalagon.png', names: ['ancalagon'] },
 ];
 
 function idx(x, y, w) { return (y * w + x) << 2; }
