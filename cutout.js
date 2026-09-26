@@ -110,6 +110,7 @@ const sheets = [
   { file: 'nb-single-aragorn-blackgate-v2.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-aragorn-blackgate-v2.png', names: ['aragorn_blackgate'] },
   { file: 'nb-single-ugluk.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-ugluk.png', names: ['ugluk'] },
   { file: 'nb-single-theoden-foot.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-theoden-foot.png', names: ['theoden_foot'] },
+  { file: 'nb-single-melkor.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-melkor.png', names: ['melkor'] },
 ];
 
 function idx(x, y, w) { return (y * w + x) << 2; }
@@ -899,6 +900,8 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate, noEdgeDrop,
     // grey halo at game size — drop it for a crisp silhouette
     out.data[di + 3] = a * 255 < 48 ? 0 : Math.round(a * 255);
   }
+  const dbgA = tag => { let n = 0; for (let i = 3; i < out.data.length; i += 4) if (out.data[i] > 110) n++; console.log(`    DBG-A ${name} ${tag}: opaque=${n}/${ow * oh}`); };
+  if (process.env.DBG) dbgA('after-write');
   // unify art style across sets: pixelate painted masters to the same chunky
   // 2D look as the pixel sheets (source sheets stay untouched)
   if (PAINTED && !noRim) {
@@ -990,10 +993,11 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate, noEdgeDrop,
       }
     }
   }
+  if (process.env.DBG) dbgA('after-polish');
   // detail/visibility pass: unsharp mask the opaque interior (skip the repainted
   // ring band and alpha edge) so weapons/armour read crisp at game size
   {
-    const src8 = out.data.slice();
+    const src8 = Uint8Array.from(out.data);
     const AMT = 0.65;
     for (let y = 1; y < oh - 1; y++) for (let x = 1; x < ow - 1; x++) {
       const gx = bx0 + x, gy = by0 + y;
@@ -1012,7 +1016,7 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate, noEdgeDrop,
   // silhouette so every sprite reads with the same crisp dark contour —
   // sprites whose source art has a weak/torn edge get a consistent border
   {
-    const src = out.data.slice();
+    const src = Uint8Array.from(out.data);
     const opaque = (x, y) =>
       x >= 0 && x < ow && y >= 0 && y < oh && src[(y * ow + x) * 4 + 3] >= 110;
     for (let y = 0; y < oh; y++) for (let x = 0; x < ow; x++) {
