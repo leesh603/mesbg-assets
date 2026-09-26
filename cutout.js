@@ -94,6 +94,7 @@ const sheets = [
   { file: 'nb-witchking-fellbeast-v2.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-witchking-fellbeast-v2.png', names: ['witchking_fellbeast'] },
   { file: 'nb-fellbeasts-v5.png', rows: 1, cols: 3, noRim: true, paintedFile: 'px-nb-fellbeasts-v5.png', names: ['witchking_fellbeast', 'nazgul_fellbeast', 'fellbeast'] },
   { file: 'nb-fellbeasts-v6.png', rows: 1, cols: 3, noRim: true, paintedFile: 'px-nb-fellbeasts-v6.png', names: ['witchking_fellbeast', 'nazgul_fellbeast', 'fellbeast'] },
+  { file: 'nb-fellbeasts-v7.png', rows: 1, cols: 3, noRim: true, paintedFile: 'px-nb-fellbeasts-v7.png', names: ['witchking_fellbeast', 'nazgul_fellbeast', 'fellbeast'] },
   { file: 'nb-boromir-elrond.png', rows: 1, cols: 2, noRim: true, paintedFile: 'px-nb-boromir-elrond.png', names: ['boromir', 'elrond'] },
   { file: 'nb-ents.png', rows: 1, cols: 2, noRim: true, paintedFile: 'px-nb-ents.png', names: ['ent', 'quickbeam'] },
 ];
