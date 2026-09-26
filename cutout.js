@@ -1083,4 +1083,13 @@ for (const s of sheets) {
       { x0: px0 - x0, y0: py0 - y0, x1: px1 - x0, y1: py1 - y0 });
   });
 }
+
+// aliases: the bare hero name should carry the mounted art (db lists it as
+// the mounted unit — 'theoden' is Theoden on horseback, foot lives under
+// 'theoden_foot')
+const aliases = { theoden: 'theoden_mounted' };
+for (const [a, src] of Object.entries(aliases)) {
+  const sp = path.join(OUT, src + '.png');
+  if (fs.existsSync(sp)) { fs.copyFileSync(sp, path.join(OUT, a + '.png')); console.log(`  alias ${a} <- ${src}`); }
+}
 console.log('done');
