@@ -595,6 +595,9 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
   // rim-hugging figure pixels; lift interior mids/saturation so figures don't
   // read as dark mush
   const ringIn = cr * 0.86, ringOut = cr * 1.03;
+  // muted faction tone for markers: desaturate toward dark slate so the ring
+  // reads as a base edge, not a neon halo
+  const factionSoft = faction && faction.map(v => Math.round(v * 0.55 + 30));
   // rim repaint mask: detected rim arc only — 1px edge fringe plus rim-hued
   // pixels within 3px of the arc. Figure parts crossing or touching the ring
   // are never in the mask, so the ring always sits visually UNDER the figure
@@ -629,9 +632,9 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
     let R = d[si], G = d[si + 1], B = d[si + 2];
     const dd = Math.hypot(gx - cx, gy - cy);
     if (faction && a > 0 && rimBand[gy * cw + gx]) {
-      R = Math.round(R * 0.15 + faction[0] * 0.85);
-      G = Math.round(G * 0.15 + faction[1] * 0.85);
-      B = Math.round(B * 0.15 + faction[2] * 0.85);
+      R = Math.round(R * 0.2 + factionSoft[0] * 0.8);
+      G = Math.round(G * 0.2 + factionSoft[1] * 0.8);
+      B = Math.round(B * 0.2 + factionSoft[2] * 0.8);
     } else if (a > 0) {
       R = lift(R); G = lift(G); B = lift(B);
       const l = 0.299 * R + 0.587 * G + 0.114 * B;
@@ -646,11 +649,11 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
     // outer marker ring: a continuous faction ring drawn on the background
     // AROUND the token — unbroken circle, only interrupted where the figure
     // itself protrudes past the base (reads as marker under figure)
-    if (faction && dd >= cr * 1.00 && dd <= cr * 1.14 && a < 0.5) {
-      const t = (dd - cr * 1.00) / (cr * 0.14);
+    if (faction && dd >= cr * 1.00 && dd <= cr * 1.09 && a < 0.5) {
+      const t = (dd - cr * 1.00) / (cr * 0.09);
       const band = 1 - Math.abs(t * 2 - 1); // peak mid-band
-      out.data[di] = faction[0]; out.data[di + 1] = faction[1]; out.data[di + 2] = faction[2];
-      out.data[di + 3] = Math.round(Math.max(a * 255, band * 255));
+      out.data[di] = factionSoft[0]; out.data[di + 1] = factionSoft[1]; out.data[di + 2] = factionSoft[2];
+      out.data[di + 3] = Math.round(Math.max(a * 255, band * 165));
     }
   }
   // unify art style across sets: pixelate painted masters to the same chunky
