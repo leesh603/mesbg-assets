@@ -118,6 +118,7 @@ const sheets = [
   { file: 'nb-single-aragorn.png', rows: 1, cols: 1, noRim: true, names: ['aragorn'] },
   { file: 'nb-single-aragorn-mounted.png', rows: 1, cols: 1, noRim: true, names: ['aragorn_mounted'] },
   { file: 'nb-single-gandalf-grey-mounted.png', rows: 1, cols: 1, noRim: true, names: ['gandalf_mounted'] },
+  { file: 'nb-single-suladan.png', rows: 1, cols: 1, noRim: true, names: ['suladan'] },
 ];
 
 function idx(x, y, w) { return (y * w + x) << 2; }

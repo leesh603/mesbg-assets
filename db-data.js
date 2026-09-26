@@ -62,7 +62,7 @@ module.exports = [
   ['uruk_berserker', '우르크 광전사', 'Uruk-hai Berserker', { faction: 'isengard', role: 'infantry', weapon: 'twohanded', base: 'M' }],
 ]},
 { sheet: 'roster-sauron-nazgul-v1.png', side: 'evil', role: 'hero', base: 'L', units: [
-  ['sauron', '사우론', 'Sauron', { faction: 'mordor', weapon: 'mace', base: 'XXL' }],
+  ['sauron', '사우론', 'Sauron', { faction: 'mordor', role: 'monster', weapon: 'mace', base: 'XXL' }],
   ['nazgul_sword_2', '나즈굴(검·B)', 'Nazgul, sword (v2)', { faction: 'angmar', weapon: 'sword' }],
   ['nazgul_mace', '나즈굴(철퇴)', 'Nazgul, mace', { faction: 'angmar', weapon: 'mace' }],
   ['nazgul_mounted', '나즈굴(기마)', 'Nazgul mounted', { faction: 'angmar', role: 'cavalry', weapon: 'sword', base: 'XL' }],
@@ -146,7 +146,7 @@ module.exports = [
   ['goblin_shield', '고블린 방패병', 'Goblin, shield', { weapon: 'sword_shield' }],
   ['goblin_bow', '고블린 궁수', 'Goblin, bow', { weapon: 'bow' }],
   ['goblin_prowler', '고블린 프라울러', 'Goblin Prowler', { weapon: 'dagger' }],
-  ['goblin_king', '고블린 왕', 'Goblin King', { role: 'hero', weapon: 'club', base: 'L' }],
+  ['goblin_king', '고블린 왕', 'Goblin King', { role: 'monster', weapon: 'club', base: 'L' }],
   ['goblin_shaman', '고블린 샤먼', 'Goblin Shaman', { role: 'support', weapon: 'staff' }],
 ]},
 { sheet: 'roster-isengard-exp-v1.png', side: 'evil', role: 'infantry', base: 'M', units: [
