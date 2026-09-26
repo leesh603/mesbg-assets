@@ -87,7 +87,7 @@ const sheets = [
   { file: 'nb-single-gondor-knight.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-gondor-knight.png', names: ['gondor_knight'] },
   { file: 'nb-single-ancalagon.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-ancalagon.png', names: ['ancalagon'] },
   { file: 'nb-single-nazgul-fellbeast.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-nazgul-fellbeast.png', names: ['nazgul_fellbeast'] },
-  { file: 'nb-suladan-fellbeast.png', rows: 1, cols: 2, noRim: true, paintedFile: 'px-nb-suladan-fellbeast.png', names: ['suladan', 'fellbeast'] },
+  { file: 'nb-suladan-fellbeast.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-suladan-fellbeast.png', names: ['suladan'] },
   { file: 'nb-fellbeasts-v2.png', rows: 1, cols: 3, noRim: true, paintedFile: 'px-nb-fellbeasts-v2.png', names: ['witchking_fellbeast', 'nazgul_fellbeast', 'fellbeast'] },
   { file: 'nb-fellbeasts-v3.png', rows: 1, cols: 3, noRim: true, paintedFile: 'px-nb-fellbeasts-v3.png', names: ['witchking_fellbeast', 'nazgul_fellbeast', 'fellbeast'] },
   { file: 'nb-fellbeasts-v4.png', rows: 1, cols: 3, noRim: true, paintedFile: 'px-nb-fellbeasts-v4.png', names: ['witchking_fellbeast', 'nazgul_fellbeast', 'fellbeast'] },
@@ -879,7 +879,7 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate, noEdgeDrop,
   bx0 = Math.max(0, bx0 - pad); by0 = Math.max(0, by0 - pad);
   bx1 = Math.min(cw - 1, bx1 + pad); by1 = Math.min(ch - 1, by1 + pad);
   const ow = bx1 - bx0 + 1, oh = by1 - by0 + 1;
-  const out = new PNG({ width: ow, height: oh });
+  let out = new PNG({ width: ow, height: oh });
   // figure-only tokens: base and rim were removed from keep already; lift
   // interior mids/saturation so figures don't read as dark mush
   const lift = v => Math.min(255, Math.round(255 * Math.pow(v / 255, 0.80)));
@@ -1013,23 +1013,42 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate, noEdgeDrop,
       }
     }
   }
-  // uniform outline: paint a thin near-black ring just outside the opaque
+  // uniform outline: paint a near-black ring just outside the opaque
   // silhouette so every sprite reads with the same crisp dark contour —
-  // sprites whose source art has a weak/torn edge get a consistent border
+  // 2px so silhouettes stay legible when shrunk for mobile
   {
-    const src = Uint8Array.from(out.data);
-    const opaque = (x, y) =>
-      x >= 0 && x < ow && y >= 0 && y < oh && src[(y * ow + x) * 4 + 3] >= 110;
-    for (let y = 0; y < oh; y++) for (let x = 0; x < ow; x++) {
-      const di = (y * ow + x) * 4;
-      if (src[di + 3] >= 110) continue;
-      let adj = false;
-      for (let dy = -1; dy <= 1 && !adj; dy++) for (let dx = -1; dx <= 1 && !adj; dx++)
-        if (opaque(x + dx, y + dy)) adj = true;
-      if (!adj) continue;
+    const mask = new Uint8Array(ow * oh);
+    for (let i = 0; i < ow * oh; i++) mask[i] = out.data[i * 4 + 3] >= 110 ? 1 : 0;
+    const dilate = m => {
+      const r = Uint8Array.from(m);
+      for (let y = 0; y < oh; y++) for (let x = 0; x < ow; x++) {
+        if (!m[y * ow + x]) continue;
+        for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) {
+          const nx = x + dx, ny = y + dy;
+          if (nx >= 0 && ny >= 0 && nx < ow && ny < oh) r[ny * ow + nx] = 1;
+        }
+      }
+      return r;
+    };
+    const ring = dilate(dilate(mask)); // 2px expansion
+    for (let i = 0; i < ow * oh; i++) {
+      if (mask[i] || !ring[i]) continue;
+      const di = i * 4;
       out.data[di] = 10; out.data[di + 1] = 10; out.data[di + 2] = 12;
       out.data[di + 3] = 255;
     }
+  }
+  // pad with transparent margin so sprites never visually touch the canvas
+  // edge — tight crops read as "clipped" in the gallery/game even when the
+  // figure itself is complete
+  {
+    const PAD = 10;
+    const padded = new PNG({ width: ow + PAD * 2, height: oh + PAD * 2 });
+    for (let y = 0; y < oh; y++) for (let x = 0; x < ow; x++) {
+      const si = (y * ow + x) * 4, di = ((y + PAD) * padded.width + x + PAD) * 4;
+      for (let c = 0; c < 4; c++) padded.data[di + c] = out.data[si + c];
+    }
+    out = padded;
   }
   fs.writeFileSync(path.join(OUT, name + '.png'), PNG.sync.write(out));
   console.log(`  ${name} -> ${ow}x${oh}`);
