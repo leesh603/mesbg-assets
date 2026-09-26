@@ -109,6 +109,7 @@ const sheets = [
   { file: 'nb-single-gandalf-mounted.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-gandalf-mounted.png', names: ['gandalf_white_mounted'] },
   { file: 'nb-single-aragorn-blackgate-v2.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-aragorn-blackgate-v2.png', names: ['aragorn_blackgate'] },
   { file: 'nb-single-ugluk.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-ugluk.png', names: ['ugluk'] },
+  { file: 'nb-single-theoden-foot.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-theoden-foot.png', names: ['theoden_foot'] },
 ];
 
 function idx(x, y, w) { return (y * w + x) << 2; }
