@@ -47,8 +47,15 @@ fs.writeFileSync(path.join(SRC, 'dice.json'), JSON.stringify({ dice }, null, 2))
 // gallery.html — visual check of id <-> image matching
 const groups = {};
 for (const r of rows) { (groups[r.side] ??= []).push(r); }
-// Display height maps to base size so relative scale reads at a glance.
+// Display height by MESBG base convention: all foot units (heroes, infantry,
+// support) share one display size like the real 25mm base; only cavalry and
+// monsters step up. bigmonster keeps its own size.
 const BASE_H = { S: 56, M: 76, L: 100, XL: 140, XXL: 190 };
+const dispH = r => {
+  const g = grp(r);
+  if ((g === 'hero' || g === 'infantry' || g === 'support') && r.base !== 'XXL') return BASE_H.M;
+  return BASE_H[r.base] || 90;
+};
 const ROLE_KO = { hero: '영웅', infantry: '보병', cavalry: '기병', monster: '괴물', bigmonster: '대형괴물', support: '지원/기수', terrain: '지형지물' };
 const ROLE_ORDER = ['hero', 'infantry', 'cavalry', 'monster', 'bigmonster', 'support', 'terrain'];
 // display group: mounted heroes and XL riders group under 기병, XXL monsters
@@ -57,7 +64,7 @@ const grp = r => r.role === 'monster' ? (r.base === 'XXL' ? 'bigmonster' : 'mons
   : (r.role === 'cavalry' || (r.base === 'XL' && r.role !== 'monster')) ? 'cavalry'
   : r.role;
 const card = r => {
-  const h = BASE_H[r.base] || 90;
+  const h = dispH(r);
   return `<div class="card"><div class="fig" style="height:${h}px"><img src="tokens/${r.id}.png" loading="lazy" style="max-height:${h}px;max-width:200px;height:auto;width:auto"></div><div class="id">${r.id}</div><div class="ko">${r.name_ko}</div><div class="meta">${r.faction} · ${r.role} · ${r.weapon} · ${r.base}</div></div>`;
 };
 const roleGrid = list => ROLE_ORDER.filter(ro => list.some(r => grp(r) === ro)).map(ro =>
