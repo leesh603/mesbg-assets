@@ -595,6 +595,8 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
   // rim-hugging figure pixels; lift interior mids/saturation so figures don't
   // read as dark mush
   const ringIn = cr * 0.86, ringOut = cr * 1.03;
+  // markers disabled: the game engine draws faction rings at runtime
+  const DRAW_MARKERS = false;
   // muted faction tone for markers: desaturate toward dark slate so the ring
   // reads as a base edge, not a neon halo
   const factionSoft = faction && faction.map(v => Math.round(v * 0.55 + 30));
@@ -623,6 +625,17 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
       if (hued && nearRim(x, y, 3)) rimBand[p] = 1;
     }
   }
+  // base-edge colour for neutralizing the painted rim: average the disc's
+  // inner-ground band so the rim blends into the base instead of reading as
+  // a faction marker
+  let bR = 0, bG = 0, bB = 0, bN = 0;
+  for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
+    const p = y * cw + x, dd2 = Math.hypot(x - cx, y - cy);
+    if (dd2 < cr * 0.68 || dd2 > cr * 0.82 || alpha[p] < 0.9) continue;
+    const i0 = idx(cx0 + x, cy0 + y, W);
+    bR += d[i0]; bG += d[i0 + 1]; bB += d[i0 + 2]; bN++;
+  }
+  if (bN) { bR /= bN; bG /= bN; bB /= bN; }
   const lift = v => Math.min(255, Math.round(255 * Math.pow(v / 255, 0.80)));
   for (let y = 0; y < oh; y++) for (let x = 0; x < ow; x++) {
     const gx = bx0 + x, gy = by0 + y;
@@ -631,10 +644,8 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
     const di = idx(x, y, ow);
     let R = d[si], G = d[si + 1], B = d[si + 2];
     const dd = Math.hypot(gx - cx, gy - cy);
-    if (faction && a > 0 && rimBand[gy * cw + gx]) {
-      R = Math.round(R * 0.2 + factionSoft[0] * 0.8);
-      G = Math.round(G * 0.2 + factionSoft[1] * 0.8);
-      B = Math.round(B * 0.2 + factionSoft[2] * 0.8);
+    if (a > 0 && rimBand[gy * cw + gx] && bN) {
+      R = Math.round(bR); G = Math.round(bG); B = Math.round(bB);
     } else if (a > 0) {
       R = lift(R); G = lift(G); B = lift(B);
       const l = 0.299 * R + 0.587 * G + 0.114 * B;
@@ -649,7 +660,7 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
     // outer marker ring: a continuous faction ring drawn on the background
     // AROUND the token — unbroken circle, only interrupted where the figure
     // itself protrudes past the base (reads as marker under figure)
-    if (faction && dd >= cr * 1.00 && dd <= cr * 1.09 && a < 0.5) {
+    if (DRAW_MARKERS && faction && dd >= cr * 1.00 && dd <= cr * 1.09 && a < 0.5) {
       const t = (dd - cr * 1.00) / (cr * 0.09);
       const band = 1 - Math.abs(t * 2 - 1); // peak mid-band
       out.data[di] = factionSoft[0]; out.data[di + 1] = factionSoft[1]; out.data[di + 2] = factionSoft[2];
