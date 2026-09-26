@@ -679,6 +679,57 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
       out.data[di + 3] = A[s] < 64 ? 0 : A[s]; // keep silhouette crisp in pixel form
     }
   }
+  // polish pass: drop isolated alpha specks, fill interior holes, and bleed
+  // edge RGB into transparent pixels so bilinear downscaling shows no halo
+  {
+    const od = out.data;
+    const seen = new Int32Array(ow * oh).fill(-1);
+    const comps = [];
+    for (let y = 0; y < oh; y++) for (let x = 0; x < ow; x++) {
+      const p = y * ow + x;
+      if (seen[p] >= 0 || od[p * 4 + 3] === 0) continue;
+      const id = comps.length, stack = [p], members = [];
+      seen[p] = id;
+      while (stack.length) {
+        const q = stack.pop(); members.push(q);
+        const qx = q % ow, qy = (q - qx) / ow;
+        for (const [nx, ny] of [[qx-1,qy],[qx+1,qy],[qx,qy-1],[qx,qy+1],[qx-1,qy-1],[qx+1,qy-1],[qx-1,qy+1],[qx+1,qy+1]]) {
+          if (nx < 0 || nx >= ow || ny < 0 || ny >= oh) continue;
+          const np = ny * ow + nx;
+          if (seen[np] < 0 && od[np * 4 + 3] > 0) { seen[np] = id; stack.push(np); }
+        }
+      }
+      comps.push(members);
+    }
+    for (const m of comps) {
+      if (m.length >= 12) continue;
+      for (const q of m) od[q * 4 + 3] = 0;
+    }
+    // interior holes: transparent pixel fully ringed by opaque -> average in
+    for (let y = 1; y < oh - 1; y++) for (let x = 1; x < ow - 1; x++) {
+      const p = y * ow + x, di = p * 4;
+      if (od[di + 3] !== 0) continue;
+      let n = 0, r = 0, g = 0, b = 0, asum = 0;
+      for (const q of [p-1, p+1, p-ow, p+ow, p-ow-1, p-ow+1, p+ow-1, p+ow+1]) {
+        if (od[q * 4 + 3] > 200) { n++; r += od[q * 4]; g += od[q * 4 + 1]; b += od[q * 4 + 2]; asum += od[q * 4 + 3]; }
+      }
+      if (n === 8) { od[di] = r / 8; od[di + 1] = g / 8; od[di + 2] = b / 8; od[di + 3] = asum / 8; }
+    }
+    // edge bleed: transparent pixels touching opaque get the opaque colour so
+    // bilinear filtering never samples raw black/white at the silhouette
+    for (let y = 0; y < oh; y++) for (let x = 0; x < ow; x++) {
+      const p = y * ow + x, di = p * 4;
+      if (od[di + 3] !== 0) continue;
+      let n = 0, r = 0, g = 0, b = 0;
+      for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) {
+        const nx = x + dx, ny = y + dy;
+        if (nx < 0 || nx >= ow || ny < 0 || ny >= oh) continue;
+        const q = (ny * ow + nx) * 4;
+        if (od[q + 3] > 0) { n++; r += od[q]; g += od[q + 1]; b += od[q + 2]; }
+      }
+      if (n) { od[di] = r / n; od[di + 1] = g / n; od[di + 2] = b / n; }
+    }
+  }
   // detail/visibility pass: unsharp mask the opaque interior (skip the repainted
   // ring band and alpha edge) so weapons/armour read crisp at game size
   {
