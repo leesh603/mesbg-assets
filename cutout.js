@@ -643,6 +643,38 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
     // hard-clip the low-alpha fringe: below ~19% opacity it only shows as a
     // grey halo at game size — drop it for a crisp silhouette
     out.data[di + 3] = a * 255 < 48 ? 0 : Math.round(a * 255);
+    // outer marker ring: a continuous faction ring drawn on the background
+    // AROUND the token — unbroken circle, only interrupted where the figure
+    // itself protrudes past the base (reads as marker under figure)
+    if (faction && dd >= cr * 1.00 && dd <= cr * 1.14 && a < 0.5) {
+      const t = (dd - cr * 1.00) / (cr * 0.14);
+      const band = 1 - Math.abs(t * 2 - 1); // peak mid-band
+      out.data[di] = faction[0]; out.data[di + 1] = faction[1]; out.data[di + 2] = faction[2];
+      out.data[di + 3] = Math.round(Math.max(a * 255, band * 255));
+    }
+  }
+  // unify art style across sets: pixelate painted masters to the same chunky
+  // 2D look as the pixel sheets (source sheets stay untouched)
+  if (PAINTED) {
+    const F = 5, pw = Math.max(40, Math.round(ow / F)), ph = Math.max(40, Math.round(oh / F));
+    const R = [], G = [], B = [], A = [];
+    for (let sy = 0; sy < ph; sy++) for (let sx = 0; sx < pw; sx++) {
+      let pr = 0, pg = 0, pb = 0, pa = 0, n = 0;
+      const y0 = Math.floor(sy * F), y1 = Math.min(oh, y0 + F), x0 = Math.floor(sx * F), x1 = Math.min(ow, x0 + F);
+      for (let y = y0; y < y1; y++) for (let x = x0; x < x1; x++) {
+        const q = (y * ow + x) * 4, av = out.data[q + 3] / 255;
+        pr += out.data[q] * av; pg += out.data[q + 1] * av; pb += out.data[q + 2] * av; pa += av; n++;
+      }
+      if (n && pa > 0) {
+        R.push(Math.round(pr / pa)); G.push(Math.round(pg / pa)); B.push(Math.round(pb / pa)); A.push(Math.round(pa / n * 255));
+      } else { R.push(0); G.push(0); B.push(0); A.push(0); }
+    }
+    for (let y = 0; y < oh; y++) for (let x = 0; x < ow; x++) {
+      const sx = Math.min(pw - 1, Math.floor(x / F)), sy = Math.min(ph - 1, Math.floor(y / F));
+      const s = sy * pw + sx, di = (y * ow + x) * 4;
+      out.data[di] = R[s]; out.data[di + 1] = G[s]; out.data[di + 2] = B[s];
+      out.data[di + 3] = A[s] < 64 ? 0 : A[s]; // keep silhouette crisp in pixel form
+    }
   }
   // detail/visibility pass: unsharp mask the opaque interior (skip the repainted
   // ring band and alpha edge) so weapons/armour read crisp at game size
