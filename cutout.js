@@ -66,6 +66,9 @@ const sheets = [
   { file: 'roster-elf-exp-v2.png', rows: 2, cols: 3, names: ['rumil', 'orophin', 'mirkwood_sentinel', 'noldor_warrior', 'silvan_archer', 'elven_lancer'] },
   { file: 'roster-mounted-heroes-v1.png', rows: 2, cols: 3, names: ['imrahil_mounted', 'gandalf_mounted', 'thranduil_mounted', 'aragorn_mounted', 'theoden_mounted', 'blackroot_archer'] },
   { file: 'roster-mordor-monsters-v1.png', rows: 2, cols: 3, names: ['half_troll', 'cave_drake', 'bat_swarm', 'muzgur', 'buhrdur', 'mahud_chieftain'] },
+  { file: 'roster-west-heroes-v1.png', rows: 2, cols: 3, names: ['eowyn_mounted', 'forlong', 'erkenbrand', 'damrod', 'mablung', 'duinhir'] },
+  { file: 'roster-east-monsters-v1.png', rows: 2, cols: 3, names: ['ugluk', 'mauhur', 'vrasku', 'stone_troll', 'werewolf', 'gulavhar'] },
+  { file: 'terrain-objects-v3.png', rows: 2, cols: 3, noRim: true, names: ['terr_catapult', 'terr_trebuchet', 'terr_ballista', 'terr_grond', 'terr_siege_tower', 'terr_bomb'] },
   { file: 'eagle-full.png', rows: 1, cols: 1, pxOnly: true, names: ['great_eagle'] },
   // standalone full-frame regenerations — overwrite the sheet-cut versions below
   // (px-only: no painted counterparts exist, so the sheet cells cover these ids in --painted mode)
@@ -636,7 +639,9 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
       B = Math.max(0, Math.min(255, Math.round(l + (B - l) * 1.28)));
     }
     out.data[di] = R; out.data[di + 1] = G; out.data[di + 2] = B;
-    out.data[di + 3] = Math.round(a * 255);
+    // hard-clip the low-alpha fringe: below ~19% opacity it only shows as a
+    // grey halo at game size — drop it for a crisp silhouette
+    out.data[di + 3] = a * 255 < 48 ? 0 : Math.round(a * 255);
   }
   // detail/visibility pass: unsharp mask the opaque interior (skip the repainted
   // ring band and alpha edge) so weapons/armour read crisp at game size

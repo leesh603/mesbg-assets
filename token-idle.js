@@ -75,7 +75,7 @@
     id = String(id || '').toLowerCase();
     if (id.startsWith('terr_') || (meta && meta.role === 'terrain')) return 'terrain';
     if (/banner/.test(id) || (meta && meta.weapon === 'banner')) return 'banner';
-    if (/eagle|fellbeast|crebain|thuringwethil|vampire|bat/.test(id)) return 'flyer';
+    if (/eagle|fellbeast|crebain|thuringwethil|vampire|bat|gulavhar/.test(id)) return 'flyer';
     if (/nazgul|witchking|dwimmerlaik|khamul|wight|wraith|dead|ghost/.test(id)) return 'wraith';
     if (/warg|shelob|ent|beorning|huan|carcharoth|draugluin|werewolf|gollum/.test(id)) return 'beast';
     if (/troll|balrog/.test(id) || (meta && meta.role === 'monster')) return 'monster';
