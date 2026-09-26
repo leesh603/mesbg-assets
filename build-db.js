@@ -58,7 +58,7 @@ const grp = r => r.role === 'monster' ? (r.base === 'XXL' ? 'bigmonster' : 'mons
   : r.role;
 const card = r => {
   const h = BASE_H[r.base] || 90;
-  return `<div class="card"><div class="fig" style="height:${h}px"><img src="tokens/${r.id}.png" loading="lazy" style="height:${h}px"></div><div class="id">${r.id}</div><div class="ko">${r.name_ko}</div><div class="meta">${r.faction} · ${r.role} · ${r.weapon} · ${r.base}</div></div>`;
+  return `<div class="card"><div class="fig" style="height:${h}px"><img src="tokens/${r.id}.png" loading="lazy" style="max-height:${h}px;max-width:200px;height:auto;width:auto"></div><div class="id">${r.id}</div><div class="ko">${r.name_ko}</div><div class="meta">${r.faction} · ${r.role} · ${r.weapon} · ${r.base}</div></div>`;
 };
 const roleGrid = list => ROLE_ORDER.filter(ro => list.some(r => grp(r) === ro)).map(ro =>
   `<h3>${ROLE_KO[ro] || ro} — ${list.filter(r => grp(r) === ro).length}</h3><div class="grid">${list.filter(r => grp(r) === ro).map(card).join('')}</div>`).join('');
