@@ -102,6 +102,7 @@ const sheets = [
   { file: 'nb-boromir-elrond.png', rows: 1, cols: 2, noRim: true, paintedFile: 'px-nb-boromir-elrond.png', names: ['boromir', 'elrond'] },
   { file: 'nb-ents.png', rows: 1, cols: 2, noRim: true, paintedFile: 'px-nb-ents.png', names: ['ent', 'quickbeam'] },
   { file: 'nb-glaurung-v2.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-glaurung-v2.png', names: ['glaurung'] },
+  { file: 'nb-glaurung-v3.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-glaurung-v3.png', names: ['glaurung'], wallDilate: 3, threshFill: true },
 ];
 
 function idx(x, y, w) { return (y * w + x) << 2; }
@@ -171,7 +172,7 @@ function probeEdges(png, cx0, cy0, cw, ch) {
   return t;
 }
 
-function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate, noEdgeDrop) {
+function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate, noEdgeDrop, wallDilate, threshFill) {
   const d = png.data, W = png.width;
   const bg = medianBg(png, cx0, cy0, cw, ch, W);
   const TH = 26;
@@ -432,12 +433,16 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate, noEdgeDrop)
       }
       if (Math.sqrt(gx2 + gy2) > 42) wall[y * cw + x] = 1;
     }
-    // dilate walls 1px to close anti-alias pinholes
+    // dilate walls 1px to close anti-alias pinholes; some figures need a
+    // second pass where the outline has a wider colour gap (wallDilate: 2)
     const wall2 = Uint8Array.from(wall);
-    for (let y = 1; y < ch - 1; y++) for (let x = 1; x < cw - 1; x++) {
-      if (!wall[y * cw + x]) continue;
-      for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
-        wall2[(y + dy) * cw + x + dx] = 1;
+    for (let pass = 0; pass < (wallDilate || 1); pass++) {
+      const src = Uint8Array.from(wall2);
+      for (let y = 1; y < ch - 1; y++) for (let x = 1; x < cw - 1; x++) {
+        if (!src[y * cw + x]) continue;
+        for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
+          wall2[(y + dy) * cw + x + dx] = 1;
+        }
       }
     }
     // The outermost rows/cols can never hold a Sobel wall, so a figure that
@@ -465,6 +470,16 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate, noEdgeDrop)
       }
     }
     for (let p = 0; p < cw * ch; p++) if (!flood[p]) keep[p] = 1;
+    // single-figure cells with faint outline gaps flood straight through into
+    // the head/tail interior — keep every clearly-non-bg pixel instead
+    if (threshFill) {
+      let tf = 0;
+      for (let p = 0; p < cw * ch; p++) {
+        const i = idx(cx0 + p % cw, cy0 + ((p / cw) | 0), W);
+        if (dist([d[i], d[i + 1], d[i + 2]], bg) > TH && !keep[p]) { keep[p] = 1; tf++; }
+      }
+      console.log(`    DBG ${name} threshFill added=${tf} bg=${bg.map(v => Math.round(v)).join(',')}`);
+    }
     // drop leftover unflooded specks (enclosed noise pockets <60px)
     const sl = new Int32Array(cw * ch).fill(-1);
     const sarea = [];
@@ -504,6 +519,18 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate, noEdgeDrop)
     }
     let mainComp = -1, mainArea = 0;
     for (let l = 0; l < sarea.length; l++) if (sarea[l] > mainArea) { mainArea = sarea[l]; mainComp = l; }
+    if (process.env.DBG) {
+      for (let l = 0; l < sarea.length; l++) {
+        if (sarea[l] < 40) continue;
+        let mx0 = cw, mx1 = -1, my0 = ch, my1 = -1;
+        for (let p = 0; p < cw * ch; p++) if (sl[p] === l) {
+          const x = p % cw, y = (p / cw) | 0;
+          if (x < mx0) mx0 = x; if (x > mx1) mx1 = x;
+          if (y < my0) my0 = y; if (y > my1) my1 = y;
+        }
+        console.log(`    DBG ${name} comp${l}: area=${sarea[l]} bbox=${mx0},${my0}-${mx1},${my1} fig=${hasFig[l]} edge=${touchesEdge[l]}${l === mainComp ? ' MAIN' : ''}`);
+      }
+    }
     // swarm cells (>=5 substantial comps: crebain, bats) keep every fragment —
     // edge-touch is normal there, so the foreign-sliver drop only applies to
     // single-figure cells
@@ -557,8 +584,10 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate, noEdgeDrop)
   }
   // rim-coloured pixels far past the disc edge are torn arcs / neighbour bleed
   // (a neighbouring cell's rim leaking in) — cut them whether or not a rim fit
-  // succeeded; figure parts anchor inside so they rarely reach this far out
-  {
+  // succeeded; figure parts anchor inside so they rarely reach this far out.
+  // Base-less art has no rim at all — warm saturated pixels (gold dragon
+  // scales!) are legitimate figure pixels and must never be radially culled.
+  if (!noRim) {
     const rimCut2 = (cr * 1.06) ** 2;
     for (let p = 0; p < cw * ch; p++) {
       if (!rim[p] || !keep[p]) continue;
@@ -811,6 +840,25 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate, noEdgeDrop)
     let kp = 0, ap = 0;
     for (let p = 0; p < cw * ch; p++) { if (keep[p]) kp++; if (alpha[p] > 0.05) ap++; }
     console.log(`  DBG ${name}: cw=${cw} ch=${ch} cx=${cx.toFixed(0)} cy=${cy.toFixed(0)} cr=${cr.toFixed(0)} clipR=${(cr * (clipMul || 2.3)).toFixed(0)} keep=${kp} alpha>0=${ap} rimFit=${!!rimFit} trimT0=${trimT0 === Infinity ? 'inf' : trimT0.toFixed(0)}`);
+    if (process.env.DBG === '2') {
+      const GX = 48, GY = 30;
+      // per-pixel probes at head/tail interior
+      for (const [lx, ly, tag] of [[510, 880, 'head'], [480, 90, 'tail'], [510, 500, 'body'], [510, 940, 'snout']]) {
+        const p = ly * cw + lx, i = idx(cx0 + lx, cy0 + ly, W);
+        console.log(`    DBG ${tag}(${lx},${ly}): rgb=${d[i]},${d[i + 1]},${d[i + 2]} keep=${keep[p]} alpha=${alpha[p].toFixed(2)}`);
+      }
+      for (let gy = 0; gy < GY; gy++) {
+        let row = '';
+        for (let gx = 0; gx < GX; gx++) {
+          let n = 0, t = 0;
+          const xs = Math.floor(gx * cw / GX), xe = Math.floor((gx + 1) * cw / GX);
+          const ys = Math.floor(gy * ch / GY), ye = Math.floor((gy + 1) * ch / GY);
+          for (let y = ys; y < ye; y++) for (let x = xs; x < xe; x++) { t++; if (keep[y * cw + x]) n++; }
+          row += n === 0 ? '.' : n * 4 >= t * 3 ? '#' : n * 4 >= t ? 'o' : '+';
+        }
+        console.log('    ' + row);
+      }
+    }
   }
   // bbox of keep
   let bx0 = cw, bx1 = -1, by0 = ch, by1 = -1;
@@ -981,7 +1029,7 @@ for (const s of sheets) {
     }
     const x0 = Math.max(0, px0 - pl), y0 = Math.max(0, py0 - pt);
     const x1 = Math.min(png.width, px1 + pr), y1 = Math.min(png.height, py1 + pb);
-    cutToken(png, x0, y0, x1 - x0, y1 - y0, name, !!s.noRim, s.clip, s.gate, !!s.noEdgeDrop,
+    cutToken(png, x0, y0, x1 - x0, y1 - y0, name, !!s.noRim, s.clip, s.gate, !!s.noEdgeDrop, s.wallDilate, !!s.threshFill,
       { x0: px0 - x0, y0: py0 - y0, x1: px1 - x0, y1: py1 - y0 });
   });
 }
