@@ -617,12 +617,27 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
       const p = y * cw + x;
       const dd = Math.hypot(x - cx, y - cy);
       if (dd < ringIn || dd > ringOut) continue;
-      if (rim[p] || nearRim(x, y, 1)) { rimBand[p] = 1; continue; }
+      if (rim[p] || nearRim(x, y, 3)) { rimBand[p] = 1; continue; }
       const i0 = idx(cx0 + x, cy0 + y, W);
       const R0 = d[i0], G0 = d[i0 + 1], B0 = d[i0 + 2];
       const mn = Math.min(R0, G0, B0), mx = Math.max(R0, G0, B0);
       const hued = (R0 + G0 + B0) / 3 > 40 && mx - mn > 45 && (isBlue ? B0 > R0 + 30 : R0 > B0 + 30);
-      if (hued && nearRim(x, y, 3)) rimBand[p] = 1;
+      const dark = mx < 70;
+      if ((hued || dark) && nearRim(x, y, 5)) rimBand[p] = 1;
+      // undetected arc segments: strongly rim-hued pixels in the outer annulus
+      // are the painted rim — neutralize without needing a detected arc nearby
+      if (hued && dd > cr * 0.90) rimBand[p] = 1;
+    }
+    // rim paint can spill past the fitted ring (dd > ringOut): catch leftover
+    // rim-hued pixels in the protrusion zone too
+    for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
+      const p = y * cw + x;
+      const dd = Math.hypot(x - cx, y - cy);
+      if (dd <= ringOut || dd > cr * 1.30) continue;
+      const i0 = idx(cx0 + x, cy0 + y, W);
+      const R0 = d[i0], G0 = d[i0 + 1], B0 = d[i0 + 2];
+      const mn = Math.min(R0, G0, B0), mx = Math.max(R0, G0, B0);
+      if ((R0 + G0 + B0) / 3 > 40 && mx - mn > 45 && (isBlue ? B0 > R0 + 30 : R0 > B0 + 30)) rimBand[p] = 1;
     }
   }
   // base-edge colour for neutralizing the painted rim: average the disc's
@@ -739,6 +754,18 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
         if (od[q + 3] > 0) { n++; r += od[q]; g += od[q + 1]; b += od[q + 2]; }
       }
       if (n) { od[di] = r / n; od[di + 1] = g / n; od[di + 2] = b / n; }
+    }
+    // thin black outline around the silhouette: opaque pixel within 2px of a
+    // transparent one gets darkened — crisp cartoon edge, reads at game size
+    for (let y = 0; y < oh; y++) for (let x = 0; x < ow; x++) {
+      const di = (y * ow + x) * 4;
+      if (od[di + 3] < 128) continue;
+      let edge = false;
+      for (let dy = -2; dy <= 2 && !edge; dy++) for (let dx = -2; dx <= 2 && !edge; dx++) {
+        const nx = x + dx, ny = y + dy;
+        if (nx < 0 || nx >= ow || ny < 0 || ny >= oh || od[(ny * ow + nx) * 4 + 3] < 60) edge = true;
+      }
+      if (edge) { od[di] *= 0.2; od[di + 1] *= 0.2; od[di + 2] *= 0.2; }
     }
   }
   // detail/visibility pass: unsharp mask the opaque interior (skip the repainted
