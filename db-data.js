@@ -74,7 +74,7 @@ module.exports = [
   ['mt_spear', '미나스 티리스 창병', 'MT spear', { weapon: 'spear' }],
   ['mt_spearshield', '미나스 티리스 창방', 'MT spear & shield', { weapon: 'spear_shield' }],
   ['mt_bowman', '미나스 티리스 궁수', 'MT bowman', { weapon: 'bow' }],
-  ['mt_banner', '미나스 티리스 기수', 'MT banner bearer', { role: 'support', weapon: 'banner' }],
+  ['mt_captain', '미나스 티리스 장교', 'MT shield captain'],
   ['mt_fountain_guard', '샘물수위병', 'Fountain Court Guard', { weapon: 'spear_shield' }],
 ]},
 { sheet: 'roster-orc-variants-v1.png', side: 'evil', faction: 'mordor', role: 'infantry', base: 'S', units: [
@@ -364,5 +364,11 @@ module.exports = [
   ['terr_rohan_hall', '로한 회관', 'Rohan mead hall'],
   ['terr_orc_camp', '오크 야영지', 'Orc camp'],
   ['terr_barrow', '고분', 'Burial barrow'],
+]},
+{ sheet: 'single-aragorn-blackgate.png', side: 'good', faction: 'gondor', role: 'hero', weapon: 'sword', base: 'L', units: [
+  ['aragorn_blackgate', '아라곤(검은문)', 'Aragorn at the Black Gate'],
+]},
+{ sheet: 'single-aragorn-blackgate-mounted.png', side: 'good', faction: 'gondor', role: 'hero', weapon: 'sword', base: 'XL', units: [
+  ['aragorn_blackgate_mounted', '아라곤(검은문·기마)', 'Aragorn at the Black Gate, mounted'],
 ]},
 ];

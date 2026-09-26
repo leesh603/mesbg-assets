@@ -49,7 +49,7 @@ mt_swordshield,미나스 티리스 검방,MT sword & shield,good,gondor,infantry
 mt_spear,미나스 티리스 창병,MT spear,good,gondor,infantry,spear,M,roster-minastirith-variants-v1.png,tokens/mt_spear.png
 mt_spearshield,미나스 티리스 창방,MT spear & shield,good,gondor,infantry,spear_shield,M,roster-minastirith-variants-v1.png,tokens/mt_spearshield.png
 mt_bowman,미나스 티리스 궁수,MT bowman,good,gondor,infantry,bow,M,roster-minastirith-variants-v1.png,tokens/mt_bowman.png
-mt_banner,미나스 티리스 기수,MT banner bearer,good,gondor,support,banner,M,roster-minastirith-variants-v1.png,tokens/mt_banner.png
+mt_captain,미나스 티리스 장교,MT shield captain,good,gondor,infantry,,M,roster-minastirith-variants-v1.png,tokens/mt_captain.png
 mt_fountain_guard,샘물수위병,Fountain Court Guard,good,gondor,infantry,spear_shield,M,roster-minastirith-variants-v1.png,tokens/mt_fountain_guard.png
 orc_sword2,오크(검),"Orc, sword",evil,mordor,infantry,sword,S,roster-orc-variants-v1.png,tokens/orc_sword2.png
 orc_swordshield,오크(검방),"Orc, sword & shield",evil,mordor,infantry,sword_shield,S,roster-orc-variants-v1.png,tokens/orc_swordshield.png
@@ -267,3 +267,5 @@ terr_gondor_house,곤도르 가옥,Gondor house,terrain,terrain,terrain,none,XL,
 terr_rohan_hall,로한 회관,Rohan mead hall,terrain,terrain,terrain,none,XL,terrain-structures-v1.png,tokens/terr_rohan_hall.png
 terr_orc_camp,오크 야영지,Orc camp,terrain,terrain,terrain,none,XL,terrain-structures-v1.png,tokens/terr_orc_camp.png
 terr_barrow,고분,Burial barrow,terrain,terrain,terrain,none,XL,terrain-structures-v1.png,tokens/terr_barrow.png
+aragorn_blackgate,아라곤(검은문),Aragorn at the Black Gate,good,gondor,hero,sword,L,single-aragorn-blackgate.png,tokens/aragorn_blackgate.png
+aragorn_blackgate_mounted,아라곤(검은문·기마),"Aragorn at the Black Gate, mounted",good,gondor,hero,sword,XL,single-aragorn-blackgate-mounted.png,tokens/aragorn_blackgate_mounted.png

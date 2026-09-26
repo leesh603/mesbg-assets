@@ -32,7 +32,7 @@ const sheets = [
   { file: 'nb-roster-free-troops-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-free-troops-v1.png', names: ['gondor_archer', 'elf_swordsman', 'dwarf_guardian', 'rohan_royal_guard', 'ithilien_ranger', 'rohan_rider'] },
   { file: 'nb-roster-monsters-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-monsters-v1.png', names: ['balrog', 'mountain_troll', 'shelob', 'barrow_wight', 'moria_goblin', 'uruk_berserker'] },
   { file: 'nb-roster-sauron-nazgul-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-sauron-nazgul-v1.png', names: ['sauron', 'nazgul_sword_2', 'nazgul_mace', 'nazgul_mounted', 'morgul_knight', 'dwimmerlaik'] },
-  { file: 'nb-roster-minastirith-variants-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-minastirith-variants-v1.png', names: ['mt_swordshield', 'mt_spear', 'mt_spearshield', 'mt_bowman', 'mt_banner', 'mt_fountain_guard'] },
+  { file: 'nb-roster-minastirith-variants-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-minastirith-variants-v1.png', names: ['mt_swordshield', 'mt_spear', 'mt_spearshield', 'mt_bowman', 'mt_captain', 'mt_fountain_guard'] },
   { file: 'nb-roster-orc-variants-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-orc-variants-v1.png', names: ['orc_sword2', 'orc_swordshield', 'orc_spear2', 'orc_twohanded', 'orc_bow', 'orc_drummer'] },
   { file: 'nb-roster-dwarf-variants-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-dwarf-variants-v1.png', names: ['dwarf_axeshield', 'dwarf_2haxe', 'dwarf_ranger', 'khazad_guard', 'iron_guard', 'dwarf_banner'] },
   { file: 'nb-roster-elf-variants-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-elf-variants-v1.png', names: ['elf_swordshield', 'elf_spear', 'elf_bow', 'elf_glaive', 'galadhrim_warrior', 'elf_knight'] },
@@ -76,6 +76,8 @@ const sheets = [
   { file: 'nb-single-glorfindel-mounted.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-glorfindel-mounted.png', pxOnly: true, names: ['glorfindel_mounted'] },
   { file: 'nb-single-elf-bow.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-elf-bow.png', pxOnly: true, names: ['elf_bow'] },
   { file: 'nb-single-hobbit-shirriff.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-hobbit-shirriff.png', pxOnly: true, names: ['hobbit_shirriff'] },
+  { file: 'nb-single-aragorn-blackgate.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-aragorn-blackgate.png', names: ['aragorn_blackgate'] },
+  { file: 'nb-single-aragorn-blackgate-mounted.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-aragorn-blackgate-mounted.png', names: ['aragorn_blackgate_mounted'] },
 ];
 
 function idx(x, y, w) { return (y * w + x) << 2; }
@@ -462,15 +464,15 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
     let figComps = 0;
     for (let l = 0; l < sarea.length; l++) if (sarea[l] >= 200 && hasFig[l]) figComps++;
     const big = [];
-    for (let l = 0; l < sarea.length; l++) if (sarea[l] >= 500 && hasFig[l]) big.push(l);
+    for (let l = 0; l < sarea.length; l++) if (sarea[l] >= 900 && hasFig[l]) big.push(l);
     if (figComps >= 5) big.length = 0; // swarm — keep every fragment
     if (big.length > 0 && big.length < 5) {
-      let main = big[0];
-      for (const l of big) if (sarea[l] > sarea[main]) main = l;
-      // mask of the main comp, dilated ~8px; any comp touching it merges in
+      // keep every substantial comp (a banner pole or a held weapon can be its
+      // own island) and anything touching one; drop only small detached shards
+      const bigSet = new Set(big);
       const touched = new Uint8Array(cw * ch);
-      for (let p = 0; p < cw * ch; p++) if (sl[p] === main) touched[p] = 1;
-      for (let it = 0; it < 8; it++) {
+      for (let p = 0; p < cw * ch; p++) if (bigSet.has(sl[p])) touched[p] = 1;
+      for (let it = 0; it < 16; it++) {
         const cur = Uint8Array.from(touched);
         for (let y = 1; y < ch - 1; y++) for (let x = 1; x < cw - 1; x++) {
           const p = y * cw + x;
@@ -480,7 +482,7 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
       }
       for (let p = 0; p < cw * ch; p++) {
         const l = sl[p];
-        if (l >= 0 && l !== main && !touched[p]) keep[p] = 0;
+        if (l >= 0 && !bigSet.has(l) && !touched[p]) keep[p] = 0;
       }
     }
   } else for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {

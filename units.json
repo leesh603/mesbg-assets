@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "count": 268,
+  "count": 270,
   "units": [
     {
       "id": "aragorn",
@@ -603,16 +603,16 @@
       "file": "tokens/mt_bowman.png"
     },
     {
-      "id": "mt_banner",
-      "name_ko": "미나스 티리스 기수",
-      "name_en": "MT banner bearer",
+      "id": "mt_captain",
+      "name_ko": "미나스 티리스 장교",
+      "name_en": "MT shield captain",
       "side": "good",
       "faction": "gondor",
-      "role": "support",
-      "weapon": "banner",
+      "role": "infantry",
+      "weapon": "",
       "base": "M",
       "sheet": "roster-minastirith-variants-v1.png",
-      "file": "tokens/mt_banner.png"
+      "file": "tokens/mt_captain.png"
     },
     {
       "id": "mt_fountain_guard",
@@ -3217,6 +3217,30 @@
       "base": "XL",
       "sheet": "terrain-structures-v1.png",
       "file": "tokens/terr_barrow.png"
+    },
+    {
+      "id": "aragorn_blackgate",
+      "name_ko": "아라곤(검은문)",
+      "name_en": "Aragorn at the Black Gate",
+      "side": "good",
+      "faction": "gondor",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "L",
+      "sheet": "single-aragorn-blackgate.png",
+      "file": "tokens/aragorn_blackgate.png"
+    },
+    {
+      "id": "aragorn_blackgate_mounted",
+      "name_ko": "아라곤(검은문·기마)",
+      "name_en": "Aragorn at the Black Gate, mounted",
+      "side": "good",
+      "faction": "gondor",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": "single-aragorn-blackgate-mounted.png",
+      "file": "tokens/aragorn_blackgate_mounted.png"
     }
   ]
 }
