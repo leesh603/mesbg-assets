@@ -83,11 +83,12 @@ const sheets = [
   { file: 'nb-single-hobbit-shirriff.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-hobbit-shirriff.png', pxOnly: true, names: ['hobbit_shirriff'] },
   { file: 'nb-single-aragorn-blackgate.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-aragorn-blackgate.png', names: ['aragorn_blackgate'] },
   { file: 'nb-single-aragorn-blackgate-mounted.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-aragorn-blackgate-mounted.png', names: ['aragorn_blackgate_mounted'] },
-  { file: 'nb-single-eomer.png', rows: 1, cols: 2, noRim: true, paintedFile: 'px-nb-single-eomer.png', names: ['eomer_foot', 'eomer'] },
+  { file: 'nb-single-eomer.png', rows: 1, cols: 2, noRim: true, noEdgeDrop: true, paintedFile: 'px-nb-single-eomer.png', names: ['eomer_foot', 'eomer'] },
   { file: 'nb-single-gondor-knight.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-gondor-knight.png', names: ['gondor_knight'] },
   { file: 'nb-single-ancalagon.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-ancalagon.png', names: ['ancalagon'] },
   { file: 'nb-single-nazgul-fellbeast.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-nazgul-fellbeast.png', names: ['nazgul_fellbeast'] },
   { file: 'nb-suladan-fellbeast.png', rows: 1, cols: 2, noRim: true, paintedFile: 'px-nb-suladan-fellbeast.png', names: ['suladan', 'fellbeast'] },
+  { file: 'nb-fellbeasts-v2.png', rows: 1, cols: 3, noRim: true, paintedFile: 'px-nb-fellbeasts-v2.png', names: ['witchking_fellbeast', 'nazgul_fellbeast', 'fellbeast'] },
   { file: 'nb-boromir-elrond.png', rows: 1, cols: 2, noRim: true, paintedFile: 'px-nb-boromir-elrond.png', names: ['boromir', 'elrond'] },
   { file: 'nb-ents.png', rows: 1, cols: 2, noRim: true, paintedFile: 'px-nb-ents.png', names: ['ent', 'quickbeam'] },
 ];
@@ -159,7 +160,7 @@ function probeEdges(png, cx0, cy0, cw, ch) {
   return t;
 }
 
-function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
+function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate, noEdgeDrop) {
   const d = png.data, W = png.width;
   const bg = medianBg(png, cx0, cy0, cw, ch, W);
   const TH = 26;
@@ -428,6 +429,17 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
         wall2[(y + dy) * cw + x + dx] = 1;
       }
     }
+    // The outermost rows/cols can never hold a Sobel wall, so a figure that
+    // touches the cell edge would let the flood pour into its interior. Seal
+    // the border: pixels there that differ from the page background are walls.
+    for (let x = 0; x < cw; x++) for (const y of [0, 1, ch - 2, ch - 1]) {
+      const p = y * cw + x, i = idx(cx0 + x, cy0 + y, W);
+      if (dist([d[i], d[i + 1], d[i + 2]], bg) > 30) wall2[p] = 1;
+    }
+    for (let y = 0; y < ch; y++) for (const x of [0, 1, cw - 2, cw - 1]) {
+      const p = y * cw + x, i = idx(cx0 + x, cy0 + y, W);
+      if (dist([d[i], d[i + 1], d[i + 2]], bg) > 30) wall2[p] = 1;
+    }
     const flood = new Uint8Array(cw * ch);
     const fq = [];
     const fpush = p => { if (!flood[p] && !wall2[p]) { flood[p] = 1; fq.push(p); } };
@@ -491,7 +503,7 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
       const l = sl[p];
       if (l >= 0 && (sarea[l] < 60 || !hasFig[l])) keep[p] = 0;
       // foreign sliver hugging the cell border — but never drop the main body
-      else if (!swarmCell && l >= 0 && l !== mainComp && touchesEdge[l] && sarea[l] < mainArea * 0.6) keep[p] = 0;
+      else if (!noEdgeDrop && !swarmCell && l >= 0 && l !== mainComp && touchesEdge[l] && sarea[l] < mainArea * 0.6) keep[p] = 0;
     }
     // the figure is one body: drop leftover comps detached from the main mass
     // (floating weapon shards / debris read as broken art). Swarm-type cells
@@ -762,8 +774,11 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
   // silhouette edge without eating thin parts.
   const alpha = new Float32Array(cw * ch);
   // short radial fade at the clip edge: anti-aliases protrusion tips without
-  // the wide fuzzy halo a long fade leaves around the silhouette
-  const clipR = cr * (clipMul || 2.3);
+  // the wide fuzzy halo a long fade leaves around the silhouette.
+  // Figure-only (noRim) art has no base disc, so a radial clip around the
+  // silhouette centroid just eats legit parts (a horse head far from the
+  // body centroid) — disable it there; the keep mask is already correct.
+  const clipR = noRim ? Infinity : cr * (clipMul || 2.3);
   const fadeW = Math.max(3, cr * 0.04), fade0 = clipR - fadeW;
   for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
     let s = 0;
@@ -780,6 +795,11 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
     if (dd > fade0) a *= Math.max(0, (clipR - dd) / fadeW);
     if (dd > trimT0) a *= Math.max(0, (trimT1 - dd) / (trimT1 - trimT0));
     alpha[y * cw + x] = a;
+  }
+  if (process.env.DBG) {
+    let kp = 0, ap = 0;
+    for (let p = 0; p < cw * ch; p++) { if (keep[p]) kp++; if (alpha[p] > 0.05) ap++; }
+    console.log(`  DBG ${name}: cw=${cw} ch=${ch} cx=${cx.toFixed(0)} cy=${cy.toFixed(0)} cr=${cr.toFixed(0)} clipR=${(cr * (clipMul || 2.3)).toFixed(0)} keep=${kp} alpha>0=${ap} rimFit=${!!rimFit} trimT0=${trimT0 === Infinity ? 'inf' : trimT0.toFixed(0)}`);
   }
   // bbox of keep
   let bx0 = cw, bx1 = -1, by0 = ch, by1 = -1;
@@ -943,14 +963,14 @@ for (const s of sheets) {
     // art in through clean sides (e.g. the ent canopy inside hobbit cells)
     const px0 = c * cw, py0 = r * ch, px1 = px0 + cw, py1 = py0 + ch;
     let pt = 0, pb = 0, pl = 0, pr = 0;
-    if (!s.noRim && !(s.noPad && s.noPad.includes(name))) {
+    if (!(s.noPad && s.noPad.includes(name))) {
       const touch = probeEdges(png, px0, py0, cw, ch);
       const PAD = 96;
       if (touch.t) pt = PAD; if (touch.b) pb = PAD; if (touch.l) pl = PAD; if (touch.r) pr = PAD;
     }
     const x0 = Math.max(0, px0 - pl), y0 = Math.max(0, py0 - pt);
     const x1 = Math.min(png.width, px1 + pr), y1 = Math.min(png.height, py1 + pb);
-    cutToken(png, x0, y0, x1 - x0, y1 - y0, name, !!s.noRim, s.clip,
+    cutToken(png, x0, y0, x1 - x0, y1 - y0, name, !!s.noRim, s.clip, s.gate, !!s.noEdgeDrop,
       { x0: px0 - x0, y0: py0 - y0, x1: px1 - x0, y1: py1 - y0 });
   });
 }
