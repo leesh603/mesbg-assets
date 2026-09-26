@@ -49,14 +49,19 @@ const groups = {};
 for (const r of rows) { (groups[r.side] ??= []).push(r); }
 // Display height maps to base size so relative scale reads at a glance.
 const BASE_H = { S: 56, M: 76, L: 100, XL: 140, XXL: 190 };
-const ROLE_KO = { hero: '영웅', infantry: '보병', cavalry: '기병', monster: '괴물', support: '지원/기수', terrain: '지형지물' };
-const ROLE_ORDER = ['hero', 'infantry', 'cavalry', 'monster', 'support', 'terrain'];
+const ROLE_KO = { hero: '영웅', infantry: '보병', cavalry: '기병', monster: '괴물', bigmonster: '대형괴물', support: '지원/기수', terrain: '지형지물' };
+const ROLE_ORDER = ['hero', 'infantry', 'cavalry', 'monster', 'bigmonster', 'support', 'terrain'];
+// display group: mounted heroes and XL riders group under 기병, XXL monsters
+// under 대형괴물 — matches how the user browses (by what they see on the map)
+const grp = r => r.role === 'monster' ? (r.base === 'XXL' ? 'bigmonster' : 'monster')
+  : (r.role === 'cavalry' || (r.base === 'XL' && r.role !== 'monster')) ? 'cavalry'
+  : r.role;
 const card = r => {
   const h = BASE_H[r.base] || 90;
   return `<div class="card"><div class="fig" style="height:${h}px"><img src="tokens/${r.id}.png" loading="lazy" style="height:${h}px"></div><div class="id">${r.id}</div><div class="ko">${r.name_ko}</div><div class="meta">${r.faction} · ${r.role} · ${r.weapon} · ${r.base}</div></div>`;
 };
-const roleGrid = list => ROLE_ORDER.filter(ro => list.some(r => r.role === ro)).map(ro =>
-  `<h3>${ROLE_KO[ro] || ro} — ${list.filter(r => r.role === ro).length}</h3><div class="grid">${list.filter(r => r.role === ro).map(card).join('')}</div>`).join('');
+const roleGrid = list => ROLE_ORDER.filter(ro => list.some(r => grp(r) === ro)).map(ro =>
+  `<h3>${ROLE_KO[ro] || ro} — ${list.filter(r => grp(r) === ro).length}</h3><div class="grid">${list.filter(r => grp(r) === ro).map(card).join('')}</div>`).join('');
 const TABS = [['good', '자유민족'], ['evil', '악의 세력'], ['terrain', '지형지물']].filter(([k]) => groups[k]);
 const html = `<!doctype html><html lang="ko"><head><meta charset="utf-8"><title>에셋 매칭 갤러리</title><style>
 body{background:#14161a;color:#e8e4d8;font-family:system-ui;margin:0;padding:24px}
