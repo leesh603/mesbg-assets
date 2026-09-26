@@ -1037,7 +1037,8 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate, noEdgeDrop,
 for (const s of sheets) {
   if (PAINTED && s.pxOnly) continue;
   if (ONLY.length && !ONLY.includes(s.file)) continue;
-  const fname = PAINTED ? (s.paintedFile || s.file) : 'px-' + s.file;
+  let fname = PAINTED ? (s.paintedFile || s.file) : 'px-' + s.file;
+  if (process.env.RS && fs.existsSync(path.join(SRC, 'rs-' + fname))) fname = 'rs-' + fname;
   const fp = path.join(SRC, fname);
   if (!fs.existsSync(fp)) { console.log(`MISSING ${fname}`); continue; }
   const png = PNG.sync.read(fs.readFileSync(fp));
