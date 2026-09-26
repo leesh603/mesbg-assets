@@ -617,12 +617,13 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
       const p = y * cw + x;
       const dd = Math.hypot(x - cx, y - cy);
       if (dd < ringIn || dd > ringOut) continue;
-      if (rim[p] || nearRim(x, y, 3)) { rimBand[p] = 1; continue; }
       const i0 = idx(cx0 + x, cy0 + y, W);
       const R0 = d[i0], G0 = d[i0 + 1], B0 = d[i0 + 2];
       const mn = Math.min(R0, G0, B0), mx = Math.max(R0, G0, B0);
       const hued = (R0 + G0 + B0) / 3 > 40 && mx - mn > 45 && (isBlue ? B0 > R0 + 30 : R0 > B0 + 30);
       const dark = mx < 70;
+      // only rim-coloured or very dark pixels get erased — figure parts
+      // (weapons, capes) crossing the band are never touched
       if ((hued || dark) && nearRim(x, y, 5)) rimBand[p] = 1;
       // undetected arc segments: strongly rim-hued pixels in the outer annulus
       // are the painted rim — neutralize without needing a detected arc nearby
