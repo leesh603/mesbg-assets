@@ -293,6 +293,22 @@ module.exports = [
   ['silvan_archer', '실반 궁수', 'Silvan Archer', { faction: 'elf', weapon: 'bow' }],
   ['elven_lancer', '엘프 기창기병', 'Elven Lancer', { faction: 'rivendell', role: 'cavalry', weapon: 'lance', base: 'XL' }],
 ]},
+{ sheet: 'roster-mounted-heroes-v1.png', side: 'good', role: 'cavalry', base: 'XL', units: [
+  ['imrahil_mounted', '임라힐(기마)', 'Prince Imrahil, mounted', { faction: 'gondor', weapon: 'lance' }],
+  ['gandalf_mounted', '간달프(섀도우팩스)', 'Gandalf on Shadowfax', { faction: 'maiar', role: 'hero', weapon: 'sword' }],
+  ['thranduil_mounted', '스란두일(기마)', 'Thranduil, mounted', { faction: 'elf', role: 'hero', weapon: 'sword' }],
+  ['aragorn_mounted', '아라곤(기마)', 'Aragorn, mounted', { faction: 'gondor', role: 'hero', weapon: 'sword' }],
+  ['theoden_mounted', '테오덴(기마)', 'Theoden, mounted', { faction: 'rohan', role: 'hero', weapon: 'sword' }],
+  ['blackroot_archer', '검은뿌리골 궁수', 'Blackroot Vale Archer', { faction: 'gondor', role: 'infantry', weapon: 'bow', base: 'M' }],
+]},
+{ sheet: 'roster-mordor-monsters-v1.png', side: 'evil', units: [
+  ['half_troll', '하프 트롤', 'Half-Troll of Far Harad', { faction: 'harad', role: 'monster', weapon: 'club', base: 'L' }],
+  ['cave_drake', '동굴 드레이크', 'Cave Drake', { faction: 'moria', role: 'monster', weapon: 'none', base: 'XL' }],
+  ['bat_swarm', '박쥐 떼', 'Bat Swarm', { faction: 'dol_guldur', role: 'monster', weapon: 'none' }],
+  ['muzgur', '무즈구르', 'Muzgur, Morgul Shaman', { faction: 'angmar', role: 'hero', weapon: 'staff' }],
+  ['buhrdur', '부르두르', 'Buhrdur, Troll Chieftain', { faction: 'angmar', role: 'monster', weapon: 'mace', base: 'XL' }],
+  ['mahud_chieftain', '마후드 족장', 'Mahud War-Chieftain', { faction: 'harad', role: 'hero', weapon: 'spear', base: 'L' }],
+]},
 { sheet: 'terrain-objects-v1.png', side: 'terrain', faction: 'terrain', role: 'terrain', weapon: 'none', base: 'M', units: [
   ['terr_rubble', '돌무더기', 'Rubble pile'],
   ['terr_broken_pillar', '부러진 기둥', 'Broken pillar'],

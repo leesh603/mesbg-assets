@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "count": 238,
+  "count": 250,
   "units": [
     {
       "id": "aragorn",
@@ -2569,6 +2569,150 @@
       "base": "XL",
       "sheet": "roster-elf-exp-v2.png",
       "file": "tokens/elven_lancer.png"
+    },
+    {
+      "id": "imrahil_mounted",
+      "name_ko": "임라힐(기마)",
+      "name_en": "Prince Imrahil, mounted",
+      "side": "good",
+      "faction": "gondor",
+      "role": "cavalry",
+      "weapon": "lance",
+      "base": "XL",
+      "sheet": "roster-mounted-heroes-v1.png",
+      "file": "tokens/imrahil_mounted.png"
+    },
+    {
+      "id": "gandalf_mounted",
+      "name_ko": "간달프(섀도우팩스)",
+      "name_en": "Gandalf on Shadowfax",
+      "side": "good",
+      "faction": "maiar",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": "roster-mounted-heroes-v1.png",
+      "file": "tokens/gandalf_mounted.png"
+    },
+    {
+      "id": "thranduil_mounted",
+      "name_ko": "스란두일(기마)",
+      "name_en": "Thranduil, mounted",
+      "side": "good",
+      "faction": "elf",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": "roster-mounted-heroes-v1.png",
+      "file": "tokens/thranduil_mounted.png"
+    },
+    {
+      "id": "aragorn_mounted",
+      "name_ko": "아라곤(기마)",
+      "name_en": "Aragorn, mounted",
+      "side": "good",
+      "faction": "gondor",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": "roster-mounted-heroes-v1.png",
+      "file": "tokens/aragorn_mounted.png"
+    },
+    {
+      "id": "theoden_mounted",
+      "name_ko": "테오덴(기마)",
+      "name_en": "Theoden, mounted",
+      "side": "good",
+      "faction": "rohan",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": "roster-mounted-heroes-v1.png",
+      "file": "tokens/theoden_mounted.png"
+    },
+    {
+      "id": "blackroot_archer",
+      "name_ko": "검은뿌리골 궁수",
+      "name_en": "Blackroot Vale Archer",
+      "side": "good",
+      "faction": "gondor",
+      "role": "infantry",
+      "weapon": "bow",
+      "base": "M",
+      "sheet": "roster-mounted-heroes-v1.png",
+      "file": "tokens/blackroot_archer.png"
+    },
+    {
+      "id": "half_troll",
+      "name_ko": "하프 트롤",
+      "name_en": "Half-Troll of Far Harad",
+      "side": "evil",
+      "faction": "harad",
+      "role": "monster",
+      "weapon": "club",
+      "base": "L",
+      "sheet": "roster-mordor-monsters-v1.png",
+      "file": "tokens/half_troll.png"
+    },
+    {
+      "id": "cave_drake",
+      "name_ko": "동굴 드레이크",
+      "name_en": "Cave Drake",
+      "side": "evil",
+      "faction": "moria",
+      "role": "monster",
+      "weapon": "none",
+      "base": "XL",
+      "sheet": "roster-mordor-monsters-v1.png",
+      "file": "tokens/cave_drake.png"
+    },
+    {
+      "id": "bat_swarm",
+      "name_ko": "박쥐 떼",
+      "name_en": "Bat Swarm",
+      "side": "evil",
+      "faction": "dol_guldur",
+      "role": "monster",
+      "weapon": "none",
+      "base": "",
+      "sheet": "roster-mordor-monsters-v1.png",
+      "file": "tokens/bat_swarm.png"
+    },
+    {
+      "id": "muzgur",
+      "name_ko": "무즈구르",
+      "name_en": "Muzgur, Morgul Shaman",
+      "side": "evil",
+      "faction": "angmar",
+      "role": "hero",
+      "weapon": "staff",
+      "base": "",
+      "sheet": "roster-mordor-monsters-v1.png",
+      "file": "tokens/muzgur.png"
+    },
+    {
+      "id": "buhrdur",
+      "name_ko": "부르두르",
+      "name_en": "Buhrdur, Troll Chieftain",
+      "side": "evil",
+      "faction": "angmar",
+      "role": "monster",
+      "weapon": "mace",
+      "base": "XL",
+      "sheet": "roster-mordor-monsters-v1.png",
+      "file": "tokens/buhrdur.png"
+    },
+    {
+      "id": "mahud_chieftain",
+      "name_ko": "마후드 족장",
+      "name_en": "Mahud War-Chieftain",
+      "side": "evil",
+      "faction": "harad",
+      "role": "hero",
+      "weapon": "spear",
+      "base": "L",
+      "sheet": "roster-mordor-monsters-v1.png",
+      "file": "tokens/mahud_chieftain.png"
     },
     {
       "id": "terr_rubble",
