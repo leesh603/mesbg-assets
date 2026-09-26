@@ -105,6 +105,10 @@ const sheets = [
   { file: 'nb-glaurung-v3.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-glaurung-v3.png', names: ['glaurung'], wallDilate: 3, threshFill: true },
   { file: 'nb-front-eomer.png', rows: 1, cols: 2, noRim: true, paintedFile: 'px-nb-front-eomer.png', names: ['eomer_foot', 'eomer'] },
   { file: 'nb-front-gondor-witchking.png', rows: 1, cols: 2, noRim: true, paintedFile: 'px-nb-front-gondor-witchking.png', names: ['gondor_knight', 'witchking_mounted'] },
+  { file: 'nb-single-theoden-mounted.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-theoden-mounted.png', names: ['theoden_mounted'] },
+  { file: 'nb-single-gandalf-mounted.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-gandalf-mounted.png', names: ['gandalf_white_mounted'] },
+  { file: 'nb-single-aragorn-blackgate-v2.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-aragorn-blackgate-v2.png', names: ['aragorn_blackgate'] },
+  { file: 'nb-single-ugluk.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-ugluk.png', names: ['ugluk'] },
 ];
 
 function idx(x, y, w) { return (y * w + x) << 2; }
@@ -1001,6 +1005,24 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate, noEdgeDrop,
         const c = src8[(y * ow + x) * 4 + chn];
         out.data[(y * ow + x) * 4 + chn] = Math.max(0, Math.min(255, Math.round(c + AMT * (c - b9 / 9))));
       }
+    }
+  }
+  // uniform outline: paint a thin near-black ring just outside the opaque
+  // silhouette so every sprite reads with the same crisp dark contour —
+  // sprites whose source art has a weak/torn edge get a consistent border
+  {
+    const src = out.data.slice();
+    const opaque = (x, y) =>
+      x >= 0 && x < ow && y >= 0 && y < oh && src[(y * ow + x) * 4 + 3] >= 110;
+    for (let y = 0; y < oh; y++) for (let x = 0; x < ow; x++) {
+      const di = (y * ow + x) * 4;
+      if (src[di + 3] >= 110) continue;
+      let adj = false;
+      for (let dy = -1; dy <= 1 && !adj; dy++) for (let dx = -1; dx <= 1 && !adj; dx++)
+        if (opaque(x + dx, y + dy)) adj = true;
+      if (!adj) continue;
+      out.data[di] = 10; out.data[di + 1] = 10; out.data[di + 2] = 12;
+      out.data[di + 3] = 255;
     }
   }
   fs.writeFileSync(path.join(OUT, name + '.png'), PNG.sync.write(out));
