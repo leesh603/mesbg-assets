@@ -595,28 +595,29 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
   // rim-hugging figure pixels; lift interior mids/saturation so figures don't
   // read as dark mush
   const ringIn = cr * 0.86, ringOut = cr * 1.03;
-  // rim repaint mask: detected rim pixels dilated a few px, plus strongly
-  // faction-hued pixels inside the band. Figure parts crossing the ring are
-  // NOT in the mask, so the painted ring sits visually UNDER the figure
+  // rim repaint mask: detected rim arc only — 1px edge fringe plus rim-hued
+  // pixels within 3px of the arc. Figure parts crossing or touching the ring
+  // are never in the mask, so the ring always sits visually UNDER the figure
   const rimBand = new Uint8Array(cw * ch);
   if (faction) {
     const isBlue = faction[2] >= faction[0];
-    const RD = 4;
+    const nearRim = (x, y, rd) => {
+      for (let dy = -rd; dy <= rd; dy++) for (let dx = -rd; dx <= rd; dx++) {
+        const nx = x + dx, ny = y + dy;
+        if (nx >= 0 && nx < cw && ny >= 0 && ny < ch && rim[ny * cw + nx]) return true;
+      }
+      return false;
+    };
     for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
       const p = y * cw + x;
       const dd = Math.hypot(x - cx, y - cy);
       if (dd < ringIn || dd > ringOut) continue;
-      if (rim[p]) { rimBand[p] = 1; continue; }
-      let near = false;
-      for (let dy = -RD; dy <= RD && !near; dy++) for (let dx = -RD; dx <= RD; dx++) {
-        const nx = x + dx, ny = y + dy;
-        if (nx >= 0 && nx < cw && ny >= 0 && ny < ch && rim[ny * cw + nx]) { near = true; break; }
-      }
-      if (near) { rimBand[p] = 1; continue; }
+      if (rim[p] || nearRim(x, y, 1)) { rimBand[p] = 1; continue; }
       const i0 = idx(cx0 + x, cy0 + y, W);
       const R0 = d[i0], G0 = d[i0 + 1], B0 = d[i0 + 2];
       const mn = Math.min(R0, G0, B0), mx = Math.max(R0, G0, B0);
-      if ((R0 + G0 + B0) / 3 > 40 && mx - mn > 45 && (isBlue ? B0 > R0 + 30 : R0 > B0 + 30)) rimBand[p] = 1;
+      const hued = (R0 + G0 + B0) / 3 > 40 && mx - mn > 45 && (isBlue ? B0 > R0 + 30 : R0 > B0 + 30);
+      if (hued && nearRim(x, y, 3)) rimBand[p] = 1;
     }
   }
   const lift = v => Math.min(255, Math.round(255 * Math.pow(v / 255, 0.80)));
