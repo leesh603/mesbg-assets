@@ -456,6 +456,33 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
       const l = sl[p];
       if (l >= 0 && (sarea[l] < 60 || !hasFig[l])) keep[p] = 0;
     }
+    // the figure is one body: drop leftover comps detached from the main mass
+    // (floating weapon shards / debris read as broken art). Swarm-type cells
+    // (>=5 substantial comps: bat flocks, crebain) keep all of them by design.
+    let figComps = 0;
+    for (let l = 0; l < sarea.length; l++) if (sarea[l] >= 200 && hasFig[l]) figComps++;
+    const big = [];
+    for (let l = 0; l < sarea.length; l++) if (sarea[l] >= 500 && hasFig[l]) big.push(l);
+    if (figComps >= 5) big.length = 0; // swarm — keep every fragment
+    if (big.length > 0 && big.length < 5) {
+      let main = big[0];
+      for (const l of big) if (sarea[l] > sarea[main]) main = l;
+      // mask of the main comp, dilated ~8px; any comp touching it merges in
+      const touched = new Uint8Array(cw * ch);
+      for (let p = 0; p < cw * ch; p++) if (sl[p] === main) touched[p] = 1;
+      for (let it = 0; it < 8; it++) {
+        const cur = Uint8Array.from(touched);
+        for (let y = 1; y < ch - 1; y++) for (let x = 1; x < cw - 1; x++) {
+          const p = y * cw + x;
+          if (cur[p]) continue;
+          if (cur[p - 1] || cur[p + 1] || cur[p - cw] || cur[p + cw]) touched[p] = 1;
+        }
+      }
+      for (let p = 0; p < cw * ch; p++) {
+        const l = sl[p];
+        if (l >= 0 && l !== main && !touched[p]) keep[p] = 0;
+      }
+    }
   } else for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
     const p = y * cw + x, l = lab[p];
     const dx = x - cx, dy = y - cy, dd = dx * dx + dy * dy;
