@@ -101,6 +101,7 @@ const sheets = [
   { file: 'nb-fellbeasts-v12.png', rows: 1, cols: 3, noRim: true, paintedFile: 'px-nb-fellbeasts-v12.png', names: ['witchking_fellbeast', 'nazgul_fellbeast', 'fellbeast'] },
   { file: 'nb-boromir-elrond.png', rows: 1, cols: 2, noRim: true, paintedFile: 'px-nb-boromir-elrond.png', names: ['boromir', 'elrond'] },
   { file: 'nb-ents.png', rows: 1, cols: 2, noRim: true, paintedFile: 'px-nb-ents.png', names: ['ent', 'quickbeam'] },
+  { file: 'nb-glaurung-v2.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-glaurung-v2.png', names: ['glaurung'] },
 ];
 
 function idx(x, y, w) { return (y * w + x) << 2; }
