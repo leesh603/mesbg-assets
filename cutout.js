@@ -111,6 +111,7 @@ const sheets = [
   { file: 'nb-single-ugluk.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-ugluk.png', names: ['ugluk'] },
   { file: 'nb-single-theoden-foot.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-theoden-foot.png', names: ['theoden_foot'] },
   { file: 'nb-single-melkor.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-melkor.png', names: ['melkor'] },
+  { file: 'nb-single-witchking-foot.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-witchking-foot.png', names: ['witchking_foot'] },
 ];
 
 function idx(x, y, w) { return (y * w + x) << 2; }
