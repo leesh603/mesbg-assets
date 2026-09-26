@@ -110,6 +110,7 @@ const sheets = [
   { file: 'nb-single-aragorn-blackgate-v2.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-aragorn-blackgate-v2.png', names: ['aragorn_blackgate'] },
   { file: 'nb-single-ugluk.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-ugluk.png', names: ['ugluk'] },
   { file: 'nb-single-theoden-foot.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-theoden-foot.png', names: ['theoden_foot'] },
+  { file: 'nb-single-mouth-of-sauron.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-mouth-of-sauron.png', names: ['mouth_of_sauron'] },
   { file: 'nb-single-melkor.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-melkor.png', names: ['melkor'] },
   { file: 'nb-single-witchking-foot.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-witchking-foot.png', names: ['witchking_foot'] },
 ];
