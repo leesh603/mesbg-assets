@@ -113,6 +113,11 @@ const sheets = [
   { file: 'nb-single-mouth-of-sauron.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-mouth-of-sauron.png', names: ['mouth_of_sauron'] },
   { file: 'nb-single-melkor.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-melkor.png', names: ['melkor'] },
   { file: 'nb-single-witchking-foot.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-witchking-foot.png', names: ['witchking_foot'] },
+  // pinned pre-restyle art (no rs- variant exists on purpose): user-approved
+  // rollback for aragorn — always resolves to the px- file under RS=1
+  { file: 'nb-single-aragorn.png', rows: 1, cols: 1, noRim: true, names: ['aragorn'] },
+  { file: 'nb-single-aragorn-mounted.png', rows: 1, cols: 1, noRim: true, names: ['aragorn_mounted'] },
+  { file: 'nb-single-gandalf-grey-mounted.png', rows: 1, cols: 1, noRim: true, names: ['gandalf_mounted'] },
 ];
 
 function idx(x, y, w) { return (y * w + x) << 2; }
