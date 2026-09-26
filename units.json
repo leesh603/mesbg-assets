@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "count": 301,
+  "count": 307,
   "units": [
     {
       "id": "aragorn",
@@ -3589,6 +3589,78 @@
       "base": "XXL",
       "sheet": "single-nazgul-fellbeast.png",
       "file": "tokens/nazgul_fellbeast.png"
+    },
+    {
+      "id": "suladan",
+      "name_ko": "술라단",
+      "name_en": "Suladan the Serpent Lord",
+      "side": "evil",
+      "faction": "harad",
+      "role": "hero",
+      "weapon": "spear",
+      "base": "L",
+      "sheet": "suladan-fellbeast.png",
+      "file": "tokens/suladan.png"
+    },
+    {
+      "id": "fellbeast",
+      "name_ko": "펠비스트",
+      "name_en": "Fell Beast (riderless)",
+      "side": "evil",
+      "faction": "angmar",
+      "role": "monster",
+      "weapon": "claws",
+      "base": "XXL",
+      "sheet": "suladan-fellbeast.png",
+      "file": "tokens/fellbeast.png"
+    },
+    {
+      "id": "boromir",
+      "name_ko": "보로미르",
+      "name_en": "Boromir",
+      "side": "good",
+      "faction": "gondor",
+      "role": "hero",
+      "weapon": "sword_shield",
+      "base": "L",
+      "sheet": "boromir-elrond.png",
+      "file": "tokens/boromir.png"
+    },
+    {
+      "id": "elrond",
+      "name_ko": "엘론드",
+      "name_en": "Elrond",
+      "side": "good",
+      "faction": "rivendell",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "L",
+      "sheet": "boromir-elrond.png",
+      "file": "tokens/elrond.png"
+    },
+    {
+      "id": "ent",
+      "name_ko": "트리비어드",
+      "name_en": "Treebeard",
+      "side": "good",
+      "faction": "ent",
+      "role": "monster",
+      "weapon": "none",
+      "base": "XXL",
+      "sheet": "ents.png",
+      "file": "tokens/ent.png"
+    },
+    {
+      "id": "quickbeam",
+      "name_ko": "퀵빔",
+      "name_en": "Quickbeam",
+      "side": "good",
+      "faction": "ent",
+      "role": "monster",
+      "weapon": "none",
+      "base": "XL",
+      "sheet": "ents.png",
+      "file": "tokens/quickbeam.png"
     },
     {
       "id": "aragorn_blackgate",

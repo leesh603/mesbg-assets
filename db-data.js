@@ -410,6 +410,18 @@ module.exports = [
 { sheet: 'single-nazgul-fellbeast.png', side: 'evil', faction: 'angmar', role: 'monster', weapon: 'claws', base: 'XXL', units: [
   ['nazgul_fellbeast', '나즈굴(펠비스트)', 'Ringwraith on Fell Beast'],
 ]},
+{ sheet: 'suladan-fellbeast.png', side: 'evil', faction: 'angmar', role: 'monster', weapon: 'claws', base: 'XXL', units: [
+  ['suladan', '술라단', 'Suladan the Serpent Lord', { faction: 'harad', role: 'hero', weapon: 'spear', base: 'L' }],
+  ['fellbeast', '펠비스트', 'Fell Beast (riderless)', { weapon: 'claws' }],
+]},
+{ sheet: 'boromir-elrond.png', side: 'good', faction: 'gondor', role: 'hero', weapon: 'sword', base: 'L', units: [
+  ['boromir', '보로미르', 'Boromir', { faction: 'gondor', weapon: 'sword_shield' }],
+  ['elrond', '엘론드', 'Elrond', { faction: 'rivendell' }],
+]},
+{ sheet: 'ents.png', side: 'good', faction: 'ent', role: 'monster', weapon: 'none', base: 'XXL', units: [
+  ['ent', '트리비어드', 'Treebeard'],
+  ['quickbeam', '퀵빔', 'Quickbeam', { base: 'XL' }],
+]},
 { sheet: 'single-aragorn-blackgate.png', side: 'good', faction: 'gondor', role: 'hero', weapon: 'sword', base: 'L', units: [
   ['aragorn_blackgate', '아라곤(검은문)', 'Aragorn at the Black Gate'],
 ]},

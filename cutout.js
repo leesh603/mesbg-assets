@@ -83,10 +83,13 @@ const sheets = [
   { file: 'nb-single-hobbit-shirriff.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-hobbit-shirriff.png', pxOnly: true, names: ['hobbit_shirriff'] },
   { file: 'nb-single-aragorn-blackgate.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-aragorn-blackgate.png', names: ['aragorn_blackgate'] },
   { file: 'nb-single-aragorn-blackgate-mounted.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-aragorn-blackgate-mounted.png', names: ['aragorn_blackgate_mounted'] },
-  { file: 'nb-single-eomer.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-eomer.png', names: ['eomer'] },
+  { file: 'nb-single-eomer.png', rows: 1, cols: 2, noRim: true, paintedFile: 'px-nb-single-eomer.png', names: ['eomer_foot', 'eomer'] },
   { file: 'nb-single-gondor-knight.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-gondor-knight.png', names: ['gondor_knight'] },
   { file: 'nb-single-ancalagon.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-ancalagon.png', names: ['ancalagon'] },
   { file: 'nb-single-nazgul-fellbeast.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-nazgul-fellbeast.png', names: ['nazgul_fellbeast'] },
+  { file: 'nb-suladan-fellbeast.png', rows: 1, cols: 2, noRim: true, paintedFile: 'px-nb-suladan-fellbeast.png', names: ['suladan', 'fellbeast'] },
+  { file: 'nb-boromir-elrond.png', rows: 1, cols: 2, noRim: true, paintedFile: 'px-nb-boromir-elrond.png', names: ['boromir', 'elrond'] },
+  { file: 'nb-ents.png', rows: 1, cols: 2, noRim: true, paintedFile: 'px-nb-ents.png', names: ['ent', 'quickbeam'] },
 ];
 
 function idx(x, y, w) { return (y * w + x) << 2; }
@@ -401,17 +404,21 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
     // flat (|g| ~ 0) while every silhouette edge is sharp. Flood the
     // background from the cell border through non-wall pixels — everything
     // unflooded is figure: outline, dark cloaks, interior holes, all of it.
-    const lumAt = (x, y) => {
-      const i = idx(cx0 + x, cy0 + y, W);
-      return (d[i] + d[i + 1] + d[i + 2]) / 3;
-    };
+    const chAt = (x, y, c) => d[idx(cx0 + x, cy0 + y, W) + c];
+    // Per-channel Sobel: a dark cloak on a dark background is a colour edge,
+    // not a luminance edge — luminance-only gradients let the flood leak
+    // through thin blades and dark silhouettes, shredding them from inside.
     const wall = new Uint8Array(cw * ch);
     for (let y = 1; y < ch - 1; y++) for (let x = 1; x < cw - 1; x++) {
-      const gx = lumAt(x + 1, y - 1) + 2 * lumAt(x + 1, y) + lumAt(x + 1, y + 1)
-               - lumAt(x - 1, y - 1) - 2 * lumAt(x - 1, y) - lumAt(x - 1, y + 1);
-      const gy = lumAt(x - 1, y + 1) + 2 * lumAt(x, y + 1) + lumAt(x + 1, y + 1)
-               - lumAt(x - 1, y - 1) - 2 * lumAt(x, y - 1) - lumAt(x + 1, y - 1);
-      if (Math.hypot(gx, gy) > 28) wall[y * cw + x] = 1;
+      let gx2 = 0, gy2 = 0;
+      for (let c = 0; c < 3; c++) {
+        const gx = chAt(x + 1, y - 1, c) + 2 * chAt(x + 1, y, c) + chAt(x + 1, y + 1, c)
+                 - chAt(x - 1, y - 1, c) - 2 * chAt(x - 1, y, c) - chAt(x - 1, y + 1, c);
+        const gy = chAt(x - 1, y + 1, c) + 2 * chAt(x, y + 1, c) + chAt(x + 1, y + 1, c)
+                 - chAt(x - 1, y - 1, c) - 2 * chAt(x, y - 1, c) - chAt(x + 1, y - 1, c);
+        gx2 += gx * gx; gy2 += gy * gy;
+      }
+      if (Math.sqrt(gx2 + gy2) > 42) wall[y * cw + x] = 1;
     }
     // dilate walls 1px to close anti-alias pinholes
     const wall2 = Uint8Array.from(wall);
@@ -463,9 +470,28 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
       const mx = Math.max(r, g, b), mn = Math.min(r, g, b);
       if ((r + g + b) / 3 > 80 || mx - mn > 45) hasFig[l] = true;
     }
+    // comps touching the cell border are neighbour-cell bleed (a wing tip or
+    // rock shard leaking in from the adjacent cell) — the figure itself never
+    // reaches the cell edge because sheets are generated with margins
+    const touchesEdge = sarea.map(() => false);
+    for (let p = 0; p < cw * ch; p++) {
+      const l = sl[p]; if (l < 0 || touchesEdge[l]) continue;
+      const x = p % cw, y = (p / cw) | 0;
+      if (x < 3 || y < 3 || x >= cw - 3 || y >= ch - 3) touchesEdge[l] = true;
+    }
+    let mainComp = -1, mainArea = 0;
+    for (let l = 0; l < sarea.length; l++) if (sarea[l] > mainArea) { mainArea = sarea[l]; mainComp = l; }
+    // swarm cells (>=5 substantial comps: crebain, bats) keep every fragment —
+    // edge-touch is normal there, so the foreign-sliver drop only applies to
+    // single-figure cells
+    let subN = 0;
+    for (let l = 0; l < sarea.length; l++) if (sarea[l] >= 200 && hasFig[l]) subN++;
+    const swarmCell = subN >= 5;
     for (let p = 0; p < cw * ch; p++) {
       const l = sl[p];
       if (l >= 0 && (sarea[l] < 60 || !hasFig[l])) keep[p] = 0;
+      // foreign sliver hugging the cell border — but never drop the main body
+      else if (!swarmCell && l >= 0 && l !== mainComp && touchesEdge[l] && sarea[l] < mainArea * 0.6) keep[p] = 0;
     }
     // the figure is one body: drop leftover comps detached from the main mass
     // (floating weapon shards / debris read as broken art). Swarm-type cells
@@ -730,12 +756,10 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
       }
     }
   }
-  // feather alpha: erode then 3x3 box blur
-  const er = new Uint8Array(cw * ch);
-  for (let y = 1; y < ch - 1; y++) for (let x = 1; x < cw - 1; x++) {
-    const p = y * cw + x;
-    if (keep[p] && keep[p - 1] && keep[p + 1] && keep[p - cw] && keep[p + cw]) er[p] = 1;
-  }
+  // feather alpha: 3x3 box blur of the keep mask. Do NOT erode first — a 1-3px
+  // wide sword/wingtip vanishes under erosion and re-emerges as semi-alpha
+  // shards ("broken blade" look). Blurring the mask itself already softens the
+  // silhouette edge without eating thin parts.
   const alpha = new Float32Array(cw * ch);
   // short radial fade at the clip edge: anti-aliases protrusion tips without
   // the wide fuzzy halo a long fade leaves around the silhouette
@@ -745,9 +769,13 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
     let s = 0;
     for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) {
       const nx = x + dx, ny = y + dy;
-      if (nx >= 0 && ny >= 0 && nx < cw && ny < ch) s += er[ny * cw + nx];
+      if (nx >= 0 && ny >= 0 && nx < cw && ny < ch) s += keep[ny * cw + nx];
     }
     let a = s / 9;
+    // interior must stay solid: a 1-3px blade only reaches ~0.5 alpha from the
+    // blur and then renders as shredded translucent scrap — pin kept pixels to
+    // near-opaque, let partial alpha live only on the outside fuzz
+    if (keep[y * cw + x]) a = Math.max(a, 0.9);
     const dd = Math.hypot(x - cx, y - cy);
     if (dd > fade0) a *= Math.max(0, (clipR - dd) / fadeW);
     if (dd > trimT0) a *= Math.max(0, (trimT1 - dd) / (trimT1 - trimT0));
@@ -868,7 +896,12 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
         const nx = x + dx, ny = y + dy;
         if (nx < 0 || nx >= ow || ny < 0 || ny >= oh || od[(ny * ow + nx) * 4 + 3] < 60) edge = true;
       }
-      if (edge) { od[di] *= 0.2; od[di + 1] *= 0.2; od[di + 2] *= 0.2; }
+      if (edge) {
+        // skip darkening already-bright pixels: on a thin silver blade every
+        // pixel is "edge" and darkening the whole blade leaves dashed shards
+        const lum = 0.299 * od[di] + 0.587 * od[di + 1] + 0.114 * od[di + 2];
+        if (lum < 190) { od[di] *= 0.2; od[di + 1] *= 0.2; od[di + 2] *= 0.2; }
+      }
     }
   }
   // detail/visibility pass: unsharp mask the opaque interior (skip the repainted
