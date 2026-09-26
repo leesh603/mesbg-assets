@@ -22,60 +22,60 @@ try {
 } catch (e) { /* db-data optional */ }
 
 const sheets = [
-  { file: 'lotr-tokens-v1.png', rows: 2, cols: 3, names: ['aragorn', 'gandalf', 'warrior_minas_tirith', 'witchking_foot', 'orc_sword', 'cave_troll'] },
-  { file: 'glorfindel-topdown-v2.png', rows: 1, cols: 2, names: ['glorfindel_foot', 'glorfindel_mounted'] },
-  { file: 'fellbeast-full.png', rows: 1, cols: 1, clip: 2.0, paintedFile: 'fellbeast-topdown-v2.png', names: ['witchking_fellbeast'] },
-  { file: 'witchking-mounted-topdown-v1.png', rows: 1, cols: 1, names: ['witchking_mounted'] },
-  { file: 'roster-enemy-heroes-v1.png', rows: 2, cols: 3, names: ['witchking_mounted_sheet', 'witchking_foot_mace', 'nazgul_sword', 'saruman', 'orc_shaman', 'orc_captain'] },
-  { file: 'roster-enemy-troops-v1.png', rows: 2, cols: 3, names: ['orc_spearman', 'orc_archer', 'uruk_swordshield', 'morannon_orc', 'warg_rider', 'haradrim_spearman'] },
-  { file: 'roster-free-heroes-v1.png', rows: 2, cols: 3, names: ['legolas', 'gimli', 'boromir', 'eowyn', 'frodo', 'elrond'] },
-  { file: 'roster-free-troops-v1.png', rows: 2, cols: 3, names: ['gondor_archer', 'elf_swordsman', 'dwarf_guardian', 'rohan_royal_guard', 'ithilien_ranger', 'rohan_rider'] },
-  { file: 'roster-monsters-v1.png', rows: 2, cols: 3, names: ['balrog', 'mountain_troll', 'shelob', 'barrow_wight', 'moria_goblin', 'uruk_berserker'] },
-  { file: 'roster-sauron-nazgul-v1.png', rows: 2, cols: 3, names: ['sauron', 'nazgul_sword_2', 'nazgul_mace', 'nazgul_mounted', 'morgul_knight', 'dwimmerlaik'] },
-  { file: 'roster-minastirith-variants-v1.png', rows: 2, cols: 3, names: ['mt_swordshield', 'mt_spear', 'mt_spearshield', 'mt_bowman', 'mt_banner', 'mt_fountain_guard'] },
-  { file: 'roster-orc-variants-v1.png', rows: 2, cols: 3, names: ['orc_sword2', 'orc_swordshield', 'orc_spear2', 'orc_twohanded', 'orc_bow', 'orc_drummer'] },
-  { file: 'roster-dwarf-variants-v1.png', rows: 2, cols: 3, names: ['dwarf_axeshield', 'dwarf_2haxe', 'dwarf_ranger', 'khazad_guard', 'iron_guard', 'dwarf_banner'] },
-  { file: 'roster-elf-variants-v1.png', rows: 2, cols: 3, names: ['elf_swordshield', 'elf_spear', 'elf_bow', 'elf_glaive', 'galadhrim_warrior', 'elf_knight'] },
-  { file: 'roster-uruk-variants-v1.png', rows: 2, cols: 3, names: ['uruk_swordshield2', 'uruk_pike', 'uruk_crossbow', 'uruk_scout', 'uruk_berserker2', 'uruk_banner'] },
-  { file: 'roster-haradrim-easterling-v1.png', rows: 2, cols: 3, names: ['haradrim_spear', 'haradrim_bow', 'haradrim_priest', 'easterling_phalanx', 'easterling_swordshield', 'easterling_kataphrakt'] },
-  { file: 'roster-gondor-exp-v1.png', rows: 2, cols: 3, names: ['dol_amroth_knight', 'gondor_knight', 'osgiliath_veteran', 'lossarnach_axeman', 'citadel_guard', 'pelennor_militia'] },
-  { file: 'roster-rohan-exp-v1.png', rows: 2, cols: 3, names: ['rohan_swordshield', 'rohan_spear', 'rohan_archer', 'eomer', 'rohan_outrider', 'rohan_banner'] },
-  { file: 'roster-mordor-elite-v1.png', rows: 2, cols: 3, names: ['black_numenorean', 'black_numenorean_mounted', 'orc_tracker', 'war_troll', 'black_guard', 'orc_taskmaster'] },
-  { file: 'roster-goblin-v1.png', rows: 2, cols: 3, names: ['goblin_spear', 'goblin_shield', 'goblin_bow', 'goblin_prowler', 'goblin_king', 'goblin_shaman'] },
-  { file: 'roster-isengard-exp-v1.png', rows: 2, cols: 3, names: ['dunlending_warrior', 'dunlending_huscarl', 'warg', 'uruk_sapper', 'uruk_scout_archer', 'crebain_swarm'] },
-  { file: 'roster-free-special-v1.png', rows: 2, cols: 3, noPad: ['hobbit_shirriff', 'hobbit_bounder'], names: ['hobbit_shirriff', 'hobbit_bounder', 'great_eagle', 'ent', 'beorning', 'ranger_north'] },
-  { file: 'roster-free-heroes-exp-v1.png', rows: 2, cols: 3, names: ['theoden', 'faramir', 'haldir', 'galadriel', 'gamling', 'samwise'] },
-  { file: 'roster-evil-heroes-exp-v1.png', rows: 2, cols: 3, names: ['mouth_of_sauron', 'gothmog', 'lurtz', 'sharku', 'grima', 'khamul'] },
-  { file: 'terrain-natural-v1.png', rows: 2, cols: 3, noRim: true, names: ['terr_rock_outcrop', 'terr_standing_stones', 'terr_pine_copse', 'terr_oak_tree', 'terr_dead_tree', 'terr_hedgerow'] },
-  { file: 'terrain-structures-v1.png', rows: 2, cols: 3, noRim: true, names: ['terr_ruined_wall', 'terr_ruined_tower', 'terr_gondor_house', 'terr_rohan_hall', 'terr_orc_camp', 'terr_barrow'] },
-  { file: 'roster-legends-good-v1.png', rows: 2, cols: 3, names: ['fingolfin', 'imrahil', 'merry', 'pippin', 'beorn', 'elendil'] },
-  { file: 'roster-legends-evil-v1.png', rows: 2, cols: 3, names: ['melkor', 'mumakil', 'smaug', 'ungoliant', 'bolg', 'easterling_warlord'] },
-  { file: 'roster-legends-good-v2.png', rows: 2, cols: 3, names: ['radagast', 'thranduil', 'celeborn', 'bilbo', 'king_of_the_dead', 'dead_soldier'] },
-  { file: 'roster-legends-evil-v2.png', rows: 2, cols: 3, names: ['olog_hai', 'watcher_in_the_water', 'mirkwood_spider', 'harad_chieftain', 'uruk_captain', 'hill_troll'] },
-  { file: 'terrain-objects-v1.png', rows: 2, cols: 3, noRim: true, names: ['terr_rubble', 'terr_broken_pillar', 'terr_barricade', 'terr_crates', 'terr_spike_line', 'terr_brazier'] },
-  { file: 'terrain-objects-v2.png', rows: 2, cols: 3, noRim: true, names: ['terr_orc_totem', 'terr_siege_ladder', 'terr_tent', 'terr_cart', 'terr_campfire', 'terr_statue_head'] },
-  { file: 'roster-silmarillion-good-v1.png', rows: 2, cols: 3, names: ['feanor', 'luthien', 'beren', 'turin', 'beleg', 'huan'] },
-  { file: 'roster-silmarillion-evil-v1.png', rows: 2, cols: 3, names: ['glaurung', 'carcharoth', 'gothmog_balrog', 'draugluin', 'thuringwethil', 'boldog'] },
-  { file: 'roster-hobbit-good-v1.png', rows: 2, cols: 3, names: ['thorin', 'tauriel', 'bard', 'dain', 'fili', 'kili'] },
-  { file: 'roster-hobbit-evil-v1.png', rows: 2, cols: 3, names: ['azog', 'azog_warg_rider', 'necromancer', 'hunter_orc', 'gundabad_orc', 'goblin_mercenary'] },
-  { file: 'roster-exp-good-v1.png', rows: 2, cols: 3, names: ['halbarad', 'beregond', 'elladan', 'elrohir', 'grimbeorn', 'ghan_buri_ghan'] },
-  { file: 'roster-exp-evil-v1.png', rows: 2, cols: 3, names: ['suladan', 'corsair_umbra', 'variag_horseman', 'shagrat', 'gorbag', 'warg_alpha'] },
-  { file: 'roster-hobbit-company-v1.png', rows: 2, cols: 3, names: ['balin', 'dwalin', 'gloin', 'oin', 'nori', 'ori'] },
-  { file: 'roster-hobbit-exp-v1.png', rows: 2, cols: 3, names: ['dori', 'bifur', 'bofur', 'bombur', 'goat_rider', 'gollum'] },
-  { file: 'roster-elf-exp-v1.png', rows: 2, cols: 3, names: ['gil_galad', 'cirdan', 'arwen', 'lindir', 'erestor', 'elf_seer'] },
-  { file: 'roster-elf-exp-v2.png', rows: 2, cols: 3, names: ['rumil', 'orophin', 'mirkwood_sentinel', 'noldor_warrior', 'silvan_archer', 'elven_lancer'] },
-  { file: 'roster-mounted-heroes-v1.png', rows: 2, cols: 3, names: ['imrahil_mounted', 'gandalf_mounted', 'thranduil_mounted', 'aragorn_mounted', 'theoden_mounted', 'blackroot_archer'] },
-  { file: 'roster-mordor-monsters-v1.png', rows: 2, cols: 3, names: ['half_troll', 'cave_drake', 'bat_swarm', 'muzgur', 'buhrdur', 'mahud_chieftain'] },
-  { file: 'roster-west-heroes-v1.png', rows: 2, cols: 3, names: ['eowyn_mounted', 'forlong', 'erkenbrand', 'damrod', 'mablung', 'duinhir'] },
-  { file: 'roster-east-monsters-v1.png', rows: 2, cols: 3, names: ['ugluk', 'mauhur', 'vrasku', 'stone_troll', 'werewolf', 'gulavhar'] },
-  { file: 'terrain-objects-v3.png', rows: 2, cols: 3, noRim: true, names: ['terr_catapult', 'terr_trebuchet', 'terr_ballista', 'terr_grond', 'terr_siege_tower', 'terr_bomb'] },
-  { file: 'eagle-full.png', rows: 1, cols: 1, pxOnly: true, names: ['great_eagle'] },
+  { file: 'nb-lotr-tokens-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-lotr-tokens-v1.png', names: ['aragorn', 'gandalf', 'warrior_minas_tirith', 'witchking_foot', 'orc_sword', 'cave_troll'] },
+  { file: 'nb-glorfindel-topdown-v2.png', rows: 1, cols: 2, noRim: true, paintedFile: 'px-nb-glorfindel-topdown-v2.png', names: ['glorfindel_foot', 'glorfindel_mounted'] },
+  { file: 'nb-fellbeast-full.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-fellbeast-full.png', names: ['witchking_fellbeast'] },
+  { file: 'nb-witchking-mounted-topdown-v1.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-witchking-mounted-topdown-v1.png', names: ['witchking_mounted'] },
+  { file: 'nb-roster-enemy-heroes-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-enemy-heroes-v1.png', names: ['witchking_mounted_sheet', 'witchking_foot_mace', 'nazgul_sword', 'saruman', 'orc_shaman', 'orc_captain'] },
+  { file: 'nb-roster-enemy-troops-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-enemy-troops-v1.png', names: ['orc_spearman', 'orc_archer', 'uruk_swordshield', 'morannon_orc', 'warg_rider', 'haradrim_spearman'] },
+  { file: 'nb-roster-free-heroes-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-free-heroes-v1.png', names: ['legolas', 'gimli', 'boromir', 'eowyn', 'frodo', 'elrond'] },
+  { file: 'nb-roster-free-troops-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-free-troops-v1.png', names: ['gondor_archer', 'elf_swordsman', 'dwarf_guardian', 'rohan_royal_guard', 'ithilien_ranger', 'rohan_rider'] },
+  { file: 'nb-roster-monsters-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-monsters-v1.png', names: ['balrog', 'mountain_troll', 'shelob', 'barrow_wight', 'moria_goblin', 'uruk_berserker'] },
+  { file: 'nb-roster-sauron-nazgul-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-sauron-nazgul-v1.png', names: ['sauron', 'nazgul_sword_2', 'nazgul_mace', 'nazgul_mounted', 'morgul_knight', 'dwimmerlaik'] },
+  { file: 'nb-roster-minastirith-variants-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-minastirith-variants-v1.png', names: ['mt_swordshield', 'mt_spear', 'mt_spearshield', 'mt_bowman', 'mt_banner', 'mt_fountain_guard'] },
+  { file: 'nb-roster-orc-variants-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-orc-variants-v1.png', names: ['orc_sword2', 'orc_swordshield', 'orc_spear2', 'orc_twohanded', 'orc_bow', 'orc_drummer'] },
+  { file: 'nb-roster-dwarf-variants-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-dwarf-variants-v1.png', names: ['dwarf_axeshield', 'dwarf_2haxe', 'dwarf_ranger', 'khazad_guard', 'iron_guard', 'dwarf_banner'] },
+  { file: 'nb-roster-elf-variants-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-elf-variants-v1.png', names: ['elf_swordshield', 'elf_spear', 'elf_bow', 'elf_glaive', 'galadhrim_warrior', 'elf_knight'] },
+  { file: 'nb-roster-uruk-variants-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-uruk-variants-v1.png', names: ['uruk_swordshield2', 'uruk_pike', 'uruk_crossbow', 'uruk_scout', 'uruk_berserker2', 'uruk_banner'] },
+  { file: 'nb-roster-haradrim-easterling-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-haradrim-easterling-v1.png', names: ['haradrim_spear', 'haradrim_bow', 'haradrim_priest', 'easterling_phalanx', 'easterling_swordshield', 'easterling_kataphrakt'] },
+  { file: 'nb-roster-gondor-exp-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-gondor-exp-v1.png', names: ['dol_amroth_knight', 'gondor_knight', 'osgiliath_veteran', 'lossarnach_axeman', 'citadel_guard', 'pelennor_militia'] },
+  { file: 'nb-roster-rohan-exp-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-rohan-exp-v1.png', names: ['rohan_swordshield', 'rohan_spear', 'rohan_archer', 'eomer', 'rohan_outrider', 'rohan_banner'] },
+  { file: 'nb-roster-mordor-elite-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-mordor-elite-v1.png', names: ['black_numenorean', 'black_numenorean_mounted', 'orc_tracker', 'war_troll', 'black_guard', 'orc_taskmaster'] },
+  { file: 'nb-roster-goblin-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-goblin-v1.png', names: ['goblin_spear', 'goblin_shield', 'goblin_bow', 'goblin_prowler', 'goblin_king', 'goblin_shaman'] },
+  { file: 'nb-roster-isengard-exp-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-isengard-exp-v1.png', names: ['dunlending_warrior', 'dunlending_huscarl', 'warg', 'uruk_sapper', 'uruk_scout_archer', 'crebain_swarm'] },
+  { file: 'nb-roster-free-special-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-free-special-v1.png', noPad: ['hobbit_shirriff', 'hobbit_bounder'], names: ['hobbit_shirriff', 'hobbit_bounder', 'great_eagle', 'ent', 'beorning', 'ranger_north'] },
+  { file: 'nb-roster-free-heroes-exp-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-free-heroes-exp-v1.png', names: ['theoden', 'faramir', 'haldir', 'galadriel', 'gamling', 'samwise'] },
+  { file: 'nb-roster-evil-heroes-exp-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-evil-heroes-exp-v1.png', names: ['mouth_of_sauron', 'gothmog', 'lurtz', 'sharku', 'grima', 'khamul'] },
+  { file: 'terrain-natural-v1.png', rows: 2, cols: 3, paintedFile: 'px-terrain-natural-v1.png', noRim: true, names: ['terr_rock_outcrop', 'terr_standing_stones', 'terr_pine_copse', 'terr_oak_tree', 'terr_dead_tree', 'terr_hedgerow'] },
+  { file: 'terrain-structures-v1.png', rows: 2, cols: 3, paintedFile: 'px-terrain-structures-v1.png', noRim: true, names: ['terr_ruined_wall', 'terr_ruined_tower', 'terr_gondor_house', 'terr_rohan_hall', 'terr_orc_camp', 'terr_barrow'] },
+  { file: 'nb-roster-legends-good-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-legends-good-v1.png', names: ['fingolfin', 'imrahil', 'merry', 'pippin', 'beorn', 'elendil'] },
+  { file: 'nb-roster-legends-evil-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-legends-evil-v1.png', names: ['melkor', 'mumakil', 'smaug', 'ungoliant', 'bolg', 'easterling_warlord'] },
+  { file: 'nb-roster-legends-good-v2.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-legends-good-v2.png', names: ['radagast', 'thranduil', 'celeborn', 'bilbo', 'king_of_the_dead', 'dead_soldier'] },
+  { file: 'nb-roster-legends-evil-v2.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-legends-evil-v2.png', names: ['olog_hai', 'watcher_in_the_water', 'mirkwood_spider', 'harad_chieftain', 'uruk_captain', 'hill_troll'] },
+  { file: 'terrain-objects-v1.png', rows: 2, cols: 3, paintedFile: 'px-terrain-objects-v1.png', noRim: true, names: ['terr_rubble', 'terr_broken_pillar', 'terr_barricade', 'terr_crates', 'terr_spike_line', 'terr_brazier'] },
+  { file: 'terrain-objects-v2.png', rows: 2, cols: 3, paintedFile: 'px-terrain-objects-v2.png', noRim: true, names: ['terr_orc_totem', 'terr_siege_ladder', 'terr_tent', 'terr_cart', 'terr_campfire', 'terr_statue_head'] },
+  { file: 'nb-roster-silmarillion-good-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-silmarillion-good-v1.png', names: ['feanor', 'luthien', 'beren', 'turin', 'beleg', 'huan'] },
+  { file: 'nb-roster-silmarillion-evil-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-silmarillion-evil-v1.png', names: ['glaurung', 'carcharoth', 'gothmog_balrog', 'draugluin', 'thuringwethil', 'boldog'] },
+  { file: 'nb-roster-hobbit-good-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-hobbit-good-v1.png', names: ['thorin', 'tauriel', 'bard', 'dain', 'fili', 'kili'] },
+  { file: 'nb-roster-hobbit-evil-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-hobbit-evil-v1.png', names: ['azog', 'azog_warg_rider', 'necromancer', 'hunter_orc', 'gundabad_orc', 'goblin_mercenary'] },
+  { file: 'nb-roster-exp-good-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-exp-good-v1.png', names: ['halbarad', 'beregond', 'elladan', 'elrohir', 'grimbeorn', 'ghan_buri_ghan'] },
+  { file: 'nb-roster-exp-evil-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-exp-evil-v1.png', names: ['suladan', 'corsair_umbra', 'variag_horseman', 'shagrat', 'gorbag', 'warg_alpha'] },
+  { file: 'nb-roster-hobbit-company-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-hobbit-company-v1.png', names: ['balin', 'dwalin', 'gloin', 'oin', 'nori', 'ori'] },
+  { file: 'nb-roster-hobbit-exp-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-hobbit-exp-v1.png', names: ['dori', 'bifur', 'bofur', 'bombur', 'goat_rider', 'gollum'] },
+  { file: 'nb-roster-elf-exp-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-elf-exp-v1.png', names: ['gil_galad', 'cirdan', 'arwen', 'lindir', 'erestor', 'elf_seer'] },
+  { file: 'nb-roster-elf-exp-v2.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-elf-exp-v2.png', names: ['rumil', 'orophin', 'mirkwood_sentinel', 'noldor_warrior', 'silvan_archer', 'elven_lancer'] },
+  { file: 'nb-roster-mounted-heroes-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-mounted-heroes-v1.png', names: ['imrahil_mounted', 'gandalf_mounted', 'thranduil_mounted', 'aragorn_mounted', 'theoden_mounted', 'blackroot_archer'] },
+  { file: 'nb-roster-mordor-monsters-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-mordor-monsters-v1.png', names: ['half_troll', 'cave_drake', 'bat_swarm', 'muzgur', 'buhrdur', 'mahud_chieftain'] },
+  { file: 'nb-roster-west-heroes-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-west-heroes-v1.png', names: ['eowyn_mounted', 'forlong', 'erkenbrand', 'damrod', 'mablung', 'duinhir'] },
+  { file: 'nb-roster-east-monsters-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-east-monsters-v1.png', names: ['ugluk', 'mauhur', 'vrasku', 'stone_troll', 'werewolf', 'gulavhar'] },
+  { file: 'terrain-objects-v3.png', rows: 2, cols: 3, paintedFile: 'px-terrain-objects-v3.png', noRim: true, names: ['terr_catapult', 'terr_trebuchet', 'terr_ballista', 'terr_grond', 'terr_siege_tower', 'terr_bomb'] },
+  { file: 'nb-eagle-full.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-eagle-full.png', pxOnly: true, names: ['great_eagle'] },
   // standalone full-frame regenerations — overwrite the sheet-cut versions below
   // (px-only: no painted counterparts exist, so the sheet cells cover these ids in --painted mode)
-  { file: 'single-balrog.png', rows: 1, cols: 1, pxOnly: true, names: ['balrog'] },
-  { file: 'single-glorfindel-mounted.png', rows: 1, cols: 1, pxOnly: true, names: ['glorfindel_mounted'] },
-  { file: 'single-elf-bow.png', rows: 1, cols: 1, pxOnly: true, names: ['elf_bow'] },
-  { file: 'single-hobbit-shirriff.png', rows: 1, cols: 1, pxOnly: true, names: ['hobbit_shirriff'] },
+  { file: 'nb-single-balrog.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-balrog.png', pxOnly: true, names: ['balrog'] },
+  { file: 'nb-single-glorfindel-mounted.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-glorfindel-mounted.png', pxOnly: true, names: ['glorfindel_mounted'] },
+  { file: 'nb-single-elf-bow.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-elf-bow.png', pxOnly: true, names: ['elf_bow'] },
+  { file: 'nb-single-hobbit-shirriff.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-hobbit-shirriff.png', pxOnly: true, names: ['hobbit_shirriff'] },
 ];
 
 function idx(x, y, w) { return (y * w + x) << 2; }
@@ -384,7 +384,79 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
   const clip2 = (cr * (clipMul || 2.3)) ** 2;
   const STRONG = 55; // outside the circle only strongly-fg pixels survive (kills wispy blends)
   const keep = new Uint8Array(cw * ch);
-  for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
+  if (noRim) {
+    // Base-less figure art on a flat (possibly vignetted) dark background.
+    // Sobel edges make the walls: the painted vignette/shadow gradient is
+    // flat (|g| ~ 0) while every silhouette edge is sharp. Flood the
+    // background from the cell border through non-wall pixels — everything
+    // unflooded is figure: outline, dark cloaks, interior holes, all of it.
+    const lumAt = (x, y) => {
+      const i = idx(cx0 + x, cy0 + y, W);
+      return (d[i] + d[i + 1] + d[i + 2]) / 3;
+    };
+    const wall = new Uint8Array(cw * ch);
+    for (let y = 1; y < ch - 1; y++) for (let x = 1; x < cw - 1; x++) {
+      const gx = lumAt(x + 1, y - 1) + 2 * lumAt(x + 1, y) + lumAt(x + 1, y + 1)
+               - lumAt(x - 1, y - 1) - 2 * lumAt(x - 1, y) - lumAt(x - 1, y + 1);
+      const gy = lumAt(x - 1, y + 1) + 2 * lumAt(x, y + 1) + lumAt(x + 1, y + 1)
+               - lumAt(x - 1, y - 1) - 2 * lumAt(x, y - 1) - lumAt(x + 1, y - 1);
+      if (Math.hypot(gx, gy) > 28) wall[y * cw + x] = 1;
+    }
+    // dilate walls 1px to close anti-alias pinholes
+    const wall2 = Uint8Array.from(wall);
+    for (let y = 1; y < ch - 1; y++) for (let x = 1; x < cw - 1; x++) {
+      if (!wall[y * cw + x]) continue;
+      for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
+        wall2[(y + dy) * cw + x + dx] = 1;
+      }
+    }
+    const flood = new Uint8Array(cw * ch);
+    const fq = [];
+    const fpush = p => { if (!flood[p] && !wall2[p]) { flood[p] = 1; fq.push(p); } };
+    for (let x = 0; x < cw; x++) { fpush(x); fpush((ch - 1) * cw + x); }
+    for (let y = 0; y < ch; y++) { fpush(y * cw); fpush(y * cw + cw - 1); }
+    while (fq.length) {
+      const u = fq.pop(), ux = u % cw, uy = (u / cw) | 0;
+      for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
+        const nx = ux + dx, ny = uy + dy;
+        if (nx < 0 || nx >= cw || ny < 0 || ny >= ch) continue;
+        fpush(ny * cw + nx);
+      }
+    }
+    for (let p = 0; p < cw * ch; p++) if (!flood[p]) keep[p] = 1;
+    // drop leftover unflooded specks (enclosed noise pockets <60px)
+    const sl = new Int32Array(cw * ch).fill(-1);
+    const sarea = [];
+    for (let p = 0; p < cw * ch; p++) {
+      if (!keep[p] || sl[p] >= 0) continue;
+      const c = sarea.length; sarea.push(0);
+      stack.push(p); sl[p] = c;
+      while (stack.length) {
+        const q = stack.pop(); sarea[c]++;
+        const qx = q % cw, qy = (q / cw) | 0;
+        for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
+          const nx = qx + dx, ny = qy + dy;
+          if (nx < 0 || ny < 0 || nx >= cw || ny >= ch) continue;
+          const np = ny * cw + nx;
+          if (keep[np] && sl[np] < 0) { sl[np] = c; stack.push(np); }
+        }
+      }
+    }
+    // keep only comps that actually carry figure pixels (bright or saturated)
+    // — enclosed vignette pockets have neither
+    const hasFig = sarea.map(() => false);
+    for (let p = 0; p < cw * ch; p++) {
+      const l = sl[p]; if (l < 0) continue;
+      const i = idx(cx0 + p % cw, cy0 + ((p / cw) | 0), W);
+      const r = d[i], g = d[i + 1], b = d[i + 2];
+      const mx = Math.max(r, g, b), mn = Math.min(r, g, b);
+      if ((r + g + b) / 3 > 80 || mx - mn > 45) hasFig[l] = true;
+    }
+    for (let p = 0; p < cw * ch; p++) {
+      const l = sl[p];
+      if (l >= 0 && (sarea[l] < 60 || !hasFig[l])) keep[p] = 0;
+    }
+  } else for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
     const p = y * cw + x, l = lab[p];
     const dx = x - cx, dy = y - cy, dd = dx * dx + dy * dy;
     const anchored = l >= 0 && ((inPix[l] >= 500 && inPix[l] * 5 >= area[l]) || (minD2[l] <= deep2 && inPix[l] >= 150));
@@ -410,8 +482,9 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
   // neighbour-bleed comps again for the inside-keep pass
   const bleedComp = new Uint8Array(nc);
   for (let l = 0; l < nc; l++) if (maxD2[l] > (cr * 1.35) ** 2 && inPix[l] * 5 < area[l]) bleedComp[l] = 1;
-  // also keep interior of circle even if same color as bg
-  for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
+  // also keep interior of circle even if same color as bg — disc sheets only;
+  // base-less art must keep interior gaps transparent
+  if (!noRim) for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
     const p = y * cw + x;
     const l = lab[p];
     const dx = x - cx, dy = y - cy;
@@ -421,9 +494,73 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
     const dx = x - cx, dy = y - cy;
     if (dx * dx + dy * dy <= cr2) fg[y * cw + x] = 1;
   }
+  // ---- no-base mode: remove the circular base entirely -------------------
+  // rimBand: rim arc + fringe + faction-hued/dark spill near the arc -> cut
+  const rimBand = new Uint8Array(cw * ch);
+  if (!noRim && faction) {
+    const isBlue = faction[2] >= faction[0];
+    const nearRim = (x, y, rd) => {
+      for (let dy = -rd; dy <= rd; dy++) for (let dx = -rd; dx <= rd; dx++) {
+        const nx = x + dx, ny = y + dy;
+        if (nx >= 0 && nx < cw && ny >= 0 && ny < ch && rim[ny * cw + nx]) return true;
+      }
+      return false;
+    };
+    const ringIn = cr * 0.86, ringOut = cr * 1.03;
+    for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
+      const p = y * cw + x;
+      const dd = Math.hypot(x - cx, y - cy);
+      const i0 = idx(cx0 + x, cy0 + y, W);
+      const R0 = d[i0], G0 = d[i0 + 1], B0 = d[i0 + 2];
+      const mn = Math.min(R0, G0, B0), mx = Math.max(R0, G0, B0);
+      const hued = (R0 + G0 + B0) / 3 > 40 && mx - mn > 45 && (isBlue ? B0 > R0 + 30 : R0 > B0 + 30);
+      const dark = mx < 70;
+      if (dd >= ringIn && dd <= ringOut && (hued || dark) && nearRim(x, y, 5)) rimBand[p] = 1;
+      if (dd >= ringIn && hued && dd > cr * 0.90 && dd <= ringOut) rimBand[p] = 1;
+      if (dd > ringOut && dd <= cr * 1.15 && hued && nearRim(x, y, 6)) rimBand[p] = 1;
+    }
+    for (let p = 0; p < cw * ch; p++) if (rimBand[p]) keep[p] = 0;
+  }
+  // ground palette: dominant quantized colours of the disc's outer interior
+  // (annulus 0.72–0.94cr) — ground texture only; figure pixels inside the disc
+  // that don't match the palette are kept, palette-matching ones are dropped
+  if (!noRim) {
+    const ann = new Map();
+    let annTotal = 0;
+    for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
+      const p = y * cw + x;
+      if (!keep[p]) continue;
+      const dd = Math.hypot(x - cx, y - cy);
+      if (dd < cr * 0.72 || dd > cr * 0.94) continue;
+      const i0 = idx(cx0 + x, cy0 + y, W);
+      const bin = (d[i0] >> 4) << 8 | (d[i0 + 1] >> 4) << 4 | (d[i0 + 2] >> 4);
+      ann.set(bin, (ann.get(bin) || 0) + 1); annTotal++;
+    }
+    const pal = [];
+    for (const [bin, n] of ann) if (n >= annTotal * 0.015) {
+      pal.push([((bin >> 8) & 15) * 16 + 8, ((bin >> 4) & 15) * 16 + 8, (bin & 15) * 16 + 8]);
+    }
+    if (pal.length && annTotal > 500) {
+      const disc2 = cr2 * 1.0;
+      for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
+        const p = y * cw + x;
+        if (!keep[p]) continue;
+        const dx = x - cx, dy = y - cy;
+        if (dx * dx + dy * dy > disc2) continue;
+        const i0 = idx(cx0 + x, cy0 + y, W);
+        const R0 = d[i0], G0 = d[i0 + 1], B0 = d[i0 + 2];
+        for (const [pr, pg, pb] of pal) {
+          if ((R0 - pr) ** 2 + (G0 - pg) ** 2 + (B0 - pb) ** 2 < 2600) { keep[p] = 0; break; }
+        }
+      }
+    }
+  }
+  // -------------------------------------------------------------------------
   // cut thin scrap bridges: erode keep by 2, relabel, drop islands <150px,
   // dilate survivors back within the original keep (keeps weapon thickness)
-  {
+  // — disc-era machinery; figure-only art needs no anchoring (thin weapon
+  //   tips are legitimate), so skip entirely for noRim
+  if (!noRim) {
     const er = new Uint8Array(cw * ch);
     for (let y = 2; y < ch - 2; y++) for (let x = 2; x < cw - 2; x++) {
       const p = y * cw + x;
@@ -501,7 +638,7 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
   // tangential shadow-halo arcs: dark keep-pixels sweeping 24+ angle bins in the
   // protrusion annulus are painted ground-shadow, not gear — weapons stick out
   // radially over few bins and bright pixels pass untouched
-  if (!clipMul || clipMul > 1.3) {
+  if (!noRim && (!clipMul || clipMul > 1.3)) {
     for (let r = cr * 1.05; r < cr * 1.5; r += 3) {
       let cov = 0, dark = 0;
       for (let a = 0; a < 96; a++) {
@@ -589,70 +726,8 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
   bx1 = Math.min(cw - 1, bx1 + pad); by1 = Math.min(ch - 1, by1 + pad);
   const ow = bx1 - bx0 + 1, oh = by1 - by0 + 1;
   const out = new PNG({ width: ow, height: oh });
-  // game-readability pass: repaint a uniform saturated faction ring over the
-  // whole rim zone — the painted rim is thick and partly occluded by figure
-  // bits, so reach inward far enough to swallow dark inner borders and
-  // rim-hugging figure pixels; lift interior mids/saturation so figures don't
-  // read as dark mush
-  const ringIn = cr * 0.86, ringOut = cr * 1.03;
-  // markers disabled: the game engine draws faction rings at runtime
-  const DRAW_MARKERS = false;
-  // muted faction tone for markers: desaturate toward dark slate so the ring
-  // reads as a base edge, not a neon halo
-  const factionSoft = faction && faction.map(v => Math.round(v * 0.55 + 30));
-  // rim repaint mask: detected rim arc only — 1px edge fringe plus rim-hued
-  // pixels within 3px of the arc. Figure parts crossing or touching the ring
-  // are never in the mask, so the ring always sits visually UNDER the figure
-  const rimBand = new Uint8Array(cw * ch);
-  if (faction) {
-    const isBlue = faction[2] >= faction[0];
-    const nearRim = (x, y, rd) => {
-      for (let dy = -rd; dy <= rd; dy++) for (let dx = -rd; dx <= rd; dx++) {
-        const nx = x + dx, ny = y + dy;
-        if (nx >= 0 && nx < cw && ny >= 0 && ny < ch && rim[ny * cw + nx]) return true;
-      }
-      return false;
-    };
-    for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
-      const p = y * cw + x;
-      const dd = Math.hypot(x - cx, y - cy);
-      if (dd < ringIn || dd > ringOut) continue;
-      const i0 = idx(cx0 + x, cy0 + y, W);
-      const R0 = d[i0], G0 = d[i0 + 1], B0 = d[i0 + 2];
-      const mn = Math.min(R0, G0, B0), mx = Math.max(R0, G0, B0);
-      const hued = (R0 + G0 + B0) / 3 > 40 && mx - mn > 45 && (isBlue ? B0 > R0 + 30 : R0 > B0 + 30);
-      const dark = mx < 70;
-      // only rim-coloured or very dark pixels get erased — figure parts
-      // (weapons, capes) crossing the band are never touched
-      if ((hued || dark) && nearRim(x, y, 5)) rimBand[p] = 1;
-      // undetected arc segments: strongly rim-hued pixels in the outer annulus
-      // are the painted rim — neutralize without needing a detected arc nearby
-      if (hued && dd > cr * 0.90) rimBand[p] = 1;
-    }
-    // rim spill just past the fitted ring: only within a few px of the arc so
-    // figure protrusions (wings, weapons) further out keep their colour
-    for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
-      const p = y * cw + x;
-      const dd = Math.hypot(x - cx, y - cy);
-      if (dd <= ringOut || dd > cr * 1.15) continue;
-      const i0 = idx(cx0 + x, cy0 + y, W);
-      const R0 = d[i0], G0 = d[i0 + 1], B0 = d[i0 + 2];
-      const mn = Math.min(R0, G0, B0), mx = Math.max(R0, G0, B0);
-      const hued = (R0 + G0 + B0) / 3 > 40 && mx - mn > 45 && (isBlue ? B0 > R0 + 30 : R0 > B0 + 30);
-      if (hued && nearRim(x, y, 6)) rimBand[p] = 1;
-    }
-  }
-  // base-edge colour for neutralizing the painted rim: average the disc's
-  // inner-ground band so the rim blends into the base instead of reading as
-  // a faction marker
-  let bR = 0, bG = 0, bB = 0, bN = 0;
-  for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
-    const p = y * cw + x, dd2 = Math.hypot(x - cx, y - cy);
-    if (dd2 < cr * 0.68 || dd2 > cr * 0.82 || alpha[p] < 0.9) continue;
-    const i0 = idx(cx0 + x, cy0 + y, W);
-    bR += d[i0]; bG += d[i0 + 1]; bB += d[i0 + 2]; bN++;
-  }
-  if (bN) { bR /= bN; bG /= bN; bB /= bN; }
+  // figure-only tokens: base and rim were removed from keep already; lift
+  // interior mids/saturation so figures don't read as dark mush
   const lift = v => Math.min(255, Math.round(255 * Math.pow(v / 255, 0.80)));
   for (let y = 0; y < oh; y++) for (let x = 0; x < ow; x++) {
     const gx = bx0 + x, gy = by0 + y;
@@ -660,17 +735,7 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
     const si = idx(cx0 + gx, cy0 + gy, W);
     const di = idx(x, y, ow);
     let R = d[si], G = d[si + 1], B = d[si + 2];
-    const dd = Math.hypot(gx - cx, gy - cy);
-    if (a > 0 && rimBand[gy * cw + gx] && bN) {
-      // erase the rim by transplanting ground texture from radially inward —
-      // a flat fill would read as a ring seam
-      const sx = Math.round(cx + (gx - cx) * 0.80), sy = Math.round(cy + (gy - cy) * 0.80);
-      const sp = sy * cw + sx;
-      if (alpha[sp] > 0.9) {
-        const s2 = idx(cx0 + sx, cy0 + sy, W);
-        R = d[s2]; G = d[s2 + 1]; B = d[s2 + 2];
-      } else { R = Math.round(bR); G = Math.round(bG); B = Math.round(bB); }
-    } else if (a > 0) {
+    if (a > 0) {
       R = lift(R); G = lift(G); B = lift(B);
       const l = 0.299 * R + 0.587 * G + 0.114 * B;
       R = Math.max(0, Math.min(255, Math.round(l + (R - l) * 1.28)));
@@ -681,19 +746,10 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
     // hard-clip the low-alpha fringe: below ~19% opacity it only shows as a
     // grey halo at game size — drop it for a crisp silhouette
     out.data[di + 3] = a * 255 < 48 ? 0 : Math.round(a * 255);
-    // outer marker ring: a continuous faction ring drawn on the background
-    // AROUND the token — unbroken circle, only interrupted where the figure
-    // itself protrudes past the base (reads as marker under figure)
-    if (DRAW_MARKERS && faction && dd >= cr * 1.00 && dd <= cr * 1.09 && a < 0.5) {
-      const t = (dd - cr * 1.00) / (cr * 0.09);
-      const band = 1 - Math.abs(t * 2 - 1); // peak mid-band
-      out.data[di] = factionSoft[0]; out.data[di + 1] = factionSoft[1]; out.data[di + 2] = factionSoft[2];
-      out.data[di + 3] = Math.round(Math.max(a * 255, band * 165));
-    }
   }
   // unify art style across sets: pixelate painted masters to the same chunky
   // 2D look as the pixel sheets (source sheets stay untouched)
-  if (PAINTED) {
+  if (PAINTED && !noRim) {
     const F = 5, pw = Math.max(40, Math.round(ow / F)), ph = Math.max(40, Math.round(oh / F));
     const R = [], G = [], B = [], A = [];
     for (let sy = 0; sy < ph; sy++) for (let sx = 0; sx < pw; sx++) {
@@ -785,7 +841,7 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
     for (let y = 1; y < oh - 1; y++) for (let x = 1; x < ow - 1; x++) {
       const gx = bx0 + x, gy = by0 + y;
       const dd = Math.hypot(gx - cx, gy - cy);
-      if ((dd >= ringIn && rimBand[gy * cw + gx]) || out.data[(y * ow + x) * 4 + 3] < 200) continue;
+      if (out.data[(y * ow + x) * 4 + 3] < 200) continue;
       for (let chn = 0; chn < 3; chn++) {
         let b9 = 0;
         for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++)
@@ -816,7 +872,7 @@ for (const s of sheets) {
     // art in through clean sides (e.g. the ent canopy inside hobbit cells)
     const px0 = c * cw, py0 = r * ch, px1 = px0 + cw, py1 = py0 + ch;
     let pt = 0, pb = 0, pl = 0, pr = 0;
-    if (!(s.noPad && s.noPad.includes(name))) {
+    if (!s.noRim && !(s.noPad && s.noPad.includes(name))) {
       const touch = probeEdges(png, px0, py0, cw, ch);
       const PAD = 96;
       if (touch.t) pt = PAD; if (touch.b) pb = PAD; if (touch.l) pl = PAD; if (touch.r) pr = PAD;

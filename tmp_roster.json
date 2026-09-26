@@ -1,0 +1,2415 @@
+{
+ "out": [
+  {
+   "file": "lotr-tokens-v1.png",
+   "names": [
+    "aragorn",
+    "gandalf",
+    "warrior_minas_tirith",
+    "witchking_foot",
+    "orc_sword",
+    "cave_troll"
+   ]
+  },
+  {
+   "file": "glorfindel-topdown-v2.png",
+   "names": [
+    "glorfindel_foot",
+    "glorfindel_mounted"
+   ]
+  },
+  {
+   "file": "fellbeast-full.png",
+   "names": [
+    "witchking_fellbeast"
+   ]
+  },
+  {
+   "file": "witchking-mounted-topdown-v1.png",
+   "names": [
+    "witchking_mounted"
+   ]
+  },
+  {
+   "file": "roster-enemy-heroes-v1.png",
+   "names": [
+    "witchking_mounted_sheet",
+    "witchking_foot_mace",
+    "nazgul_sword",
+    "saruman",
+    "orc_shaman",
+    "orc_captain"
+   ]
+  },
+  {
+   "file": "roster-enemy-troops-v1.png",
+   "names": [
+    "orc_spearman",
+    "orc_archer",
+    "uruk_swordshield",
+    "morannon_orc",
+    "warg_rider",
+    "haradrim_spearman"
+   ]
+  },
+  {
+   "file": "roster-free-heroes-v1.png",
+   "names": [
+    "legolas",
+    "gimli",
+    "boromir",
+    "eowyn",
+    "frodo",
+    "elrond"
+   ]
+  },
+  {
+   "file": "roster-free-troops-v1.png",
+   "names": [
+    "gondor_archer",
+    "elf_swordsman",
+    "dwarf_guardian",
+    "rohan_royal_guard",
+    "ithilien_ranger",
+    "rohan_rider"
+   ]
+  },
+  {
+   "file": "roster-monsters-v1.png",
+   "names": [
+    "balrog",
+    "mountain_troll",
+    "shelob",
+    "barrow_wight",
+    "moria_goblin",
+    "uruk_berserker"
+   ]
+  },
+  {
+   "file": "roster-sauron-nazgul-v1.png",
+   "names": [
+    "sauron",
+    "nazgul_sword_2",
+    "nazgul_mace",
+    "nazgul_mounted",
+    "morgul_knight",
+    "dwimmerlaik"
+   ]
+  },
+  {
+   "file": "roster-minastirith-variants-v1.png",
+   "names": [
+    "mt_swordshield",
+    "mt_spear",
+    "mt_spearshield",
+    "mt_bowman",
+    "mt_banner",
+    "mt_fountain_guard"
+   ]
+  },
+  {
+   "file": "roster-orc-variants-v1.png",
+   "names": [
+    "orc_sword2",
+    "orc_swordshield",
+    "orc_spear2",
+    "orc_twohanded",
+    "orc_bow",
+    "orc_drummer"
+   ]
+  },
+  {
+   "file": "roster-dwarf-variants-v1.png",
+   "names": [
+    "dwarf_axeshield",
+    "dwarf_2haxe",
+    "dwarf_ranger",
+    "khazad_guard",
+    "iron_guard",
+    "dwarf_banner"
+   ]
+  },
+  {
+   "file": "roster-elf-variants-v1.png",
+   "names": [
+    "elf_swordshield",
+    "elf_spear",
+    "elf_bow",
+    "elf_glaive",
+    "galadhrim_warrior",
+    "elf_knight"
+   ]
+  },
+  {
+   "file": "roster-uruk-variants-v1.png",
+   "names": [
+    "uruk_swordshield2",
+    "uruk_pike",
+    "uruk_crossbow",
+    "uruk_scout",
+    "uruk_berserker2",
+    "uruk_banner"
+   ]
+  },
+  {
+   "file": "roster-haradrim-easterling-v1.png",
+   "names": [
+    "haradrim_spear",
+    "haradrim_bow",
+    "haradrim_priest",
+    "easterling_phalanx",
+    "easterling_swordshield",
+    "easterling_kataphrakt"
+   ]
+  },
+  {
+   "file": "roster-gondor-exp-v1.png",
+   "names": [
+    "dol_amroth_knight",
+    "gondor_knight",
+    "osgiliath_veteran",
+    "lossarnach_axeman",
+    "citadel_guard",
+    "pelennor_militia"
+   ]
+  },
+  {
+   "file": "roster-rohan-exp-v1.png",
+   "names": [
+    "rohan_swordshield",
+    "rohan_spear",
+    "rohan_archer",
+    "eomer",
+    "rohan_outrider",
+    "rohan_banner"
+   ]
+  },
+  {
+   "file": "roster-mordor-elite-v1.png",
+   "names": [
+    "black_numenorean",
+    "black_numenorean_mounted",
+    "orc_tracker",
+    "war_troll",
+    "black_guard",
+    "orc_taskmaster"
+   ]
+  },
+  {
+   "file": "roster-goblin-v1.png",
+   "names": [
+    "goblin_spear",
+    "goblin_shield",
+    "goblin_bow",
+    "goblin_prowler",
+    "goblin_king",
+    "goblin_shaman"
+   ]
+  },
+  {
+   "file": "roster-isengard-exp-v1.png",
+   "names": [
+    "dunlending_warrior",
+    "dunlending_huscarl",
+    "warg",
+    "uruk_sapper",
+    "uruk_scout_archer",
+    "crebain_swarm"
+   ]
+  },
+  {
+   "file": "roster-free-special-v1.png",
+   "names": [
+    "hobbit_shirriff",
+    "hobbit_bounder",
+    "great_eagle",
+    "ent",
+    "beorning",
+    "ranger_north"
+   ]
+  },
+  {
+   "file": "roster-free-heroes-exp-v1.png",
+   "names": [
+    "theoden",
+    "faramir",
+    "haldir",
+    "galadriel",
+    "gamling",
+    "samwise"
+   ]
+  },
+  {
+   "file": "roster-evil-heroes-exp-v1.png",
+   "names": [
+    "mouth_of_sauron",
+    "gothmog",
+    "lurtz",
+    "sharku",
+    "grima",
+    "khamul"
+   ]
+  },
+  {
+   "file": "terrain-natural-v1.png",
+   "names": [
+    "terr_rock_outcrop",
+    "terr_standing_stones",
+    "terr_pine_copse",
+    "terr_oak_tree",
+    "terr_dead_tree",
+    "terr_hedgerow"
+   ]
+  },
+  {
+   "file": "terrain-structures-v1.png",
+   "names": [
+    "terr_ruined_wall",
+    "terr_ruined_tower",
+    "terr_gondor_house",
+    "terr_rohan_hall",
+    "terr_orc_camp",
+    "terr_barrow"
+   ]
+  },
+  {
+   "file": "roster-legends-good-v1.png",
+   "names": [
+    "fingolfin",
+    "imrahil",
+    "merry",
+    "pippin",
+    "beorn",
+    "elendil"
+   ]
+  },
+  {
+   "file": "roster-legends-evil-v1.png",
+   "names": [
+    "melkor",
+    "mumakil",
+    "smaug",
+    "ungoliant",
+    "bolg",
+    "easterling_warlord"
+   ]
+  },
+  {
+   "file": "roster-legends-good-v2.png",
+   "names": [
+    "radagast",
+    "thranduil",
+    "celeborn",
+    "bilbo",
+    "king_of_the_dead",
+    "dead_soldier"
+   ]
+  },
+  {
+   "file": "roster-legends-evil-v2.png",
+   "names": [
+    "olog_hai",
+    "watcher_in_the_water",
+    "mirkwood_spider",
+    "harad_chieftain",
+    "uruk_captain",
+    "hill_troll"
+   ]
+  },
+  {
+   "file": "terrain-objects-v1.png",
+   "names": [
+    "terr_rubble",
+    "terr_broken_pillar",
+    "terr_barricade",
+    "terr_crates",
+    "terr_spike_line",
+    "terr_brazier"
+   ]
+  },
+  {
+   "file": "terrain-objects-v2.png",
+   "names": [
+    "terr_orc_totem",
+    "terr_siege_ladder",
+    "terr_tent",
+    "terr_cart",
+    "terr_campfire",
+    "terr_statue_head"
+   ]
+  },
+  {
+   "file": "roster-silmarillion-good-v1.png",
+   "names": [
+    "feanor",
+    "luthien",
+    "beren",
+    "turin",
+    "beleg",
+    "huan"
+   ]
+  },
+  {
+   "file": "roster-silmarillion-evil-v1.png",
+   "names": [
+    "glaurung",
+    "carcharoth",
+    "gothmog_balrog",
+    "draugluin",
+    "thuringwethil",
+    "boldog"
+   ]
+  },
+  {
+   "file": "roster-hobbit-good-v1.png",
+   "names": [
+    "thorin",
+    "tauriel",
+    "bard",
+    "dain",
+    "fili",
+    "kili"
+   ]
+  },
+  {
+   "file": "roster-hobbit-evil-v1.png",
+   "names": [
+    "azog",
+    "azog_warg_rider",
+    "necromancer",
+    "hunter_orc",
+    "gundabad_orc",
+    "goblin_mercenary"
+   ]
+  },
+  {
+   "file": "roster-exp-good-v1.png",
+   "names": [
+    "halbarad",
+    "beregond",
+    "elladan",
+    "elrohir",
+    "grimbeorn",
+    "ghan_buri_ghan"
+   ]
+  },
+  {
+   "file": "roster-exp-evil-v1.png",
+   "names": [
+    "suladan",
+    "corsair_umbra",
+    "variag_horseman",
+    "shagrat",
+    "gorbag",
+    "warg_alpha"
+   ]
+  },
+  {
+   "file": "roster-hobbit-company-v1.png",
+   "names": [
+    "balin",
+    "dwalin",
+    "gloin",
+    "oin",
+    "nori",
+    "ori"
+   ]
+  },
+  {
+   "file": "roster-hobbit-exp-v1.png",
+   "names": [
+    "dori",
+    "bifur",
+    "bofur",
+    "bombur",
+    "goat_rider",
+    "gollum"
+   ]
+  },
+  {
+   "file": "roster-elf-exp-v1.png",
+   "names": [
+    "gil_galad",
+    "cirdan",
+    "arwen",
+    "lindir",
+    "erestor",
+    "elf_seer"
+   ]
+  },
+  {
+   "file": "roster-elf-exp-v2.png",
+   "names": [
+    "rumil",
+    "orophin",
+    "mirkwood_sentinel",
+    "noldor_warrior",
+    "silvan_archer",
+    "elven_lancer"
+   ]
+  },
+  {
+   "file": "roster-mounted-heroes-v1.png",
+   "names": [
+    "imrahil_mounted",
+    "gandalf_mounted",
+    "thranduil_mounted",
+    "aragorn_mounted",
+    "theoden_mounted",
+    "blackroot_archer"
+   ]
+  },
+  {
+   "file": "roster-mordor-monsters-v1.png",
+   "names": [
+    "half_troll",
+    "cave_drake",
+    "bat_swarm",
+    "muzgur",
+    "buhrdur",
+    "mahud_chieftain"
+   ]
+  },
+  {
+   "file": "roster-west-heroes-v1.png",
+   "names": [
+    "eowyn_mounted",
+    "forlong",
+    "erkenbrand",
+    "damrod",
+    "mablung",
+    "duinhir"
+   ]
+  },
+  {
+   "file": "roster-east-monsters-v1.png",
+   "names": [
+    "ugluk",
+    "mauhur",
+    "vrasku",
+    "stone_troll",
+    "werewolf",
+    "gulavhar"
+   ]
+  },
+  {
+   "file": "terrain-objects-v3.png",
+   "names": [
+    "terr_catapult",
+    "terr_trebuchet",
+    "terr_ballista",
+    "terr_grond",
+    "terr_siege_tower",
+    "terr_bomb"
+   ]
+  },
+  {
+   "file": "eagle-full.png",
+   "names": [
+    "great_eagle"
+   ]
+  },
+  {
+   "file": "single-balrog.png",
+   "names": [
+    "balrog"
+   ]
+  },
+  {
+   "file": "single-glorfindel-mounted.png",
+   "names": [
+    "glorfindel_mounted"
+   ]
+  },
+  {
+   "file": "single-elf-bow.png",
+   "names": [
+    "elf_bow"
+   ]
+  },
+  {
+   "file": "single-hobbit-shirriff.png",
+   "names": [
+    "hobbit_shirriff"
+   ]
+  }
+ ],
+ "meta": {
+  "aragorn": {
+   "en": "Aragorn",
+   "side": "good",
+   "faction": "gondor",
+   "role": "hero",
+   "weapon": "sword"
+  },
+  "gandalf": {
+   "en": "Gandalf the Grey",
+   "side": "good",
+   "faction": "maiar",
+   "role": "hero",
+   "weapon": "staff"
+  },
+  "warrior_minas_tirith": {
+   "en": "Warrior of Minas Tirith",
+   "side": "good",
+   "faction": "gondor",
+   "role": "infantry",
+   "weapon": "sword_shield"
+  },
+  "witchking_foot": {
+   "en": "Witch-king on foot",
+   "side": "evil",
+   "faction": "angmar",
+   "role": "hero",
+   "weapon": "sword"
+  },
+  "orc_sword": {
+   "en": "Mordor Orc, sword",
+   "side": "evil",
+   "faction": "mordor",
+   "role": "infantry",
+   "weapon": "sword"
+  },
+  "cave_troll": {
+   "en": "Cave Troll",
+   "side": "evil",
+   "faction": "moria",
+   "role": "monster",
+   "weapon": "club"
+  },
+  "glorfindel_foot": {
+   "en": "Glorfindel on foot",
+   "side": "good",
+   "faction": "rivendell",
+   "role": "hero",
+   "weapon": "sword"
+  },
+  "glorfindel_mounted": {
+   "en": "Glorfindel mounted",
+   "side": "good",
+   "faction": "rivendell",
+   "role": "cavalry",
+   "weapon": "sword"
+  },
+  "witchking_fellbeast": {
+   "en": "Witch-king on Fell Beast",
+   "side": "evil",
+   "faction": "angmar",
+   "role": "monster",
+   "weapon": "sword"
+  },
+  "witchking_mounted": {
+   "en": "Witch-king mounted",
+   "side": "evil",
+   "faction": "angmar",
+   "role": "cavalry",
+   "weapon": "sword"
+  },
+  "witchking_mounted_sheet": {
+   "en": "Witch-king mounted (alt)",
+   "side": "evil",
+   "faction": "angmar",
+   "role": "cavalry",
+   "weapon": "sword"
+  },
+  "witchking_foot_mace": {
+   "en": "Witch-king with mace",
+   "side": "evil",
+   "faction": "angmar",
+   "role": "hero",
+   "weapon": "mace"
+  },
+  "nazgul_sword": {
+   "en": "Nazgul, sword",
+   "side": "evil",
+   "faction": "angmar",
+   "role": "hero",
+   "weapon": "sword"
+  },
+  "saruman": {
+   "en": "Saruman the White",
+   "side": "evil",
+   "faction": "isengard",
+   "role": "hero",
+   "weapon": "staff"
+  },
+  "orc_shaman": {
+   "en": "Orc Shaman",
+   "side": "evil",
+   "faction": "moria",
+   "role": "support",
+   "weapon": "staff"
+  },
+  "orc_captain": {
+   "en": "Orc Captain",
+   "side": "evil",
+   "faction": "mordor",
+   "role": "hero",
+   "weapon": "sword"
+  },
+  "orc_spearman": {
+   "en": "Orc Spearman",
+   "side": "evil",
+   "faction": "mordor",
+   "role": "infantry",
+   "weapon": "spear"
+  },
+  "orc_archer": {
+   "en": "Orc Archer",
+   "side": "evil",
+   "faction": "mordor",
+   "role": "infantry",
+   "weapon": "bow"
+  },
+  "uruk_swordshield": {
+   "en": "Uruk-hai, sword & shield",
+   "side": "evil",
+   "faction": "isengard",
+   "role": "infantry",
+   "weapon": "sword_shield"
+  },
+  "morannon_orc": {
+   "en": "Morannon Orc",
+   "side": "evil",
+   "faction": "mordor",
+   "role": "infantry",
+   "weapon": "spear_shield"
+  },
+  "warg_rider": {
+   "en": "Warg Rider",
+   "side": "evil",
+   "faction": "mordor",
+   "role": "cavalry",
+   "weapon": "spear"
+  },
+  "haradrim_spearman": {
+   "en": "Haradrim Spearman",
+   "side": "evil",
+   "faction": "harad",
+   "role": "infantry",
+   "weapon": "spear"
+  },
+  "legolas": {
+   "en": "Legolas",
+   "side": "good",
+   "faction": "elf",
+   "role": "hero",
+   "weapon": "bow"
+  },
+  "gimli": {
+   "en": "Gimli",
+   "side": "good",
+   "faction": "dwarf",
+   "role": "hero",
+   "weapon": "axe"
+  },
+  "boromir": {
+   "en": "Boromir",
+   "side": "good",
+   "faction": "gondor",
+   "role": "hero",
+   "weapon": "sword_shield"
+  },
+  "eowyn": {
+   "en": "Eowyn",
+   "side": "good",
+   "faction": "rohan",
+   "role": "hero",
+   "weapon": "sword"
+  },
+  "frodo": {
+   "en": "Frodo",
+   "side": "good",
+   "faction": "shire",
+   "role": "hero",
+   "weapon": "dagger"
+  },
+  "elrond": {
+   "en": "Elrond",
+   "side": "good",
+   "faction": "rivendell",
+   "role": "hero",
+   "weapon": "sword"
+  },
+  "gondor_archer": {
+   "en": "Gondor Archer",
+   "side": "good",
+   "faction": "gondor",
+   "role": "infantry",
+   "weapon": "bow"
+  },
+  "elf_swordsman": {
+   "en": "Elf Swordsman",
+   "side": "good",
+   "faction": "elf",
+   "role": "infantry",
+   "weapon": "sword"
+  },
+  "dwarf_guardian": {
+   "en": "Dwarf Guardian",
+   "side": "good",
+   "faction": "dwarf",
+   "role": "infantry",
+   "weapon": "axe"
+  },
+  "rohan_royal_guard": {
+   "en": "Rohan Royal Guard",
+   "side": "good",
+   "faction": "rohan",
+   "role": "infantry",
+   "weapon": "spear_shield"
+  },
+  "ithilien_ranger": {
+   "en": "Ithilien Ranger",
+   "side": "good",
+   "faction": "gondor",
+   "role": "infantry",
+   "weapon": "bow"
+  },
+  "rohan_rider": {
+   "en": "Rider of Rohan",
+   "side": "good",
+   "faction": "rohan",
+   "role": "cavalry",
+   "weapon": "spear"
+  },
+  "balrog": {
+   "en": "Balrog of Moria",
+   "side": "evil",
+   "faction": "moria",
+   "role": "monster",
+   "weapon": "various"
+  },
+  "mountain_troll": {
+   "en": "Mountain Troll",
+   "side": "evil",
+   "faction": "mordor",
+   "role": "monster",
+   "weapon": "club"
+  },
+  "shelob": {
+   "en": "Shelob",
+   "side": "evil",
+   "faction": "mordor",
+   "role": "monster",
+   "weapon": "various"
+  },
+  "barrow_wight": {
+   "en": "Barrow-wight",
+   "side": "evil",
+   "faction": "angmar",
+   "role": "hero",
+   "weapon": "sword"
+  },
+  "moria_goblin": {
+   "en": "Moria Goblin",
+   "side": "evil",
+   "faction": "moria",
+   "role": "infantry",
+   "weapon": "sword"
+  },
+  "uruk_berserker": {
+   "en": "Uruk-hai Berserker",
+   "side": "evil",
+   "faction": "isengard",
+   "role": "infantry",
+   "weapon": "twohanded"
+  },
+  "sauron": {
+   "en": "Sauron",
+   "side": "evil",
+   "faction": "mordor",
+   "role": "hero",
+   "weapon": "mace"
+  },
+  "nazgul_sword_2": {
+   "en": "Nazgul, sword (v2)",
+   "side": "evil",
+   "faction": "angmar",
+   "role": "hero",
+   "weapon": "sword"
+  },
+  "nazgul_mace": {
+   "en": "Nazgul, mace",
+   "side": "evil",
+   "faction": "angmar",
+   "role": "hero",
+   "weapon": "mace"
+  },
+  "nazgul_mounted": {
+   "en": "Nazgul mounted",
+   "side": "evil",
+   "faction": "angmar",
+   "role": "cavalry",
+   "weapon": "sword"
+  },
+  "morgul_knight": {
+   "en": "Morgul Knight",
+   "side": "evil",
+   "faction": "mordor",
+   "role": "cavalry",
+   "weapon": "lance"
+  },
+  "dwimmerlaik": {
+   "en": "Dwimmerlaik",
+   "side": "evil",
+   "faction": "angmar",
+   "role": "hero",
+   "weapon": "mace"
+  },
+  "mt_swordshield": {
+   "en": "MT sword & shield",
+   "side": "good",
+   "faction": "gondor",
+   "role": "infantry",
+   "weapon": "sword_shield"
+  },
+  "mt_spear": {
+   "en": "MT spear",
+   "side": "good",
+   "faction": "gondor",
+   "role": "infantry",
+   "weapon": "spear"
+  },
+  "mt_spearshield": {
+   "en": "MT spear & shield",
+   "side": "good",
+   "faction": "gondor",
+   "role": "infantry",
+   "weapon": "spear_shield"
+  },
+  "mt_bowman": {
+   "en": "MT bowman",
+   "side": "good",
+   "faction": "gondor",
+   "role": "infantry",
+   "weapon": "bow"
+  },
+  "mt_banner": {
+   "en": "MT banner bearer",
+   "side": "good",
+   "faction": "gondor",
+   "role": "support",
+   "weapon": "banner"
+  },
+  "mt_fountain_guard": {
+   "en": "Fountain Court Guard",
+   "side": "good",
+   "faction": "gondor",
+   "role": "infantry",
+   "weapon": "spear_shield"
+  },
+  "orc_sword2": {
+   "en": "Orc, sword",
+   "side": "evil",
+   "faction": "mordor",
+   "role": "infantry",
+   "weapon": "sword"
+  },
+  "orc_swordshield": {
+   "en": "Orc, sword & shield",
+   "side": "evil",
+   "faction": "mordor",
+   "role": "infantry",
+   "weapon": "sword_shield"
+  },
+  "orc_spear2": {
+   "en": "Orc, spear",
+   "side": "evil",
+   "faction": "mordor",
+   "role": "infantry",
+   "weapon": "spear"
+  },
+  "orc_twohanded": {
+   "en": "Orc, two-handed axe",
+   "side": "evil",
+   "faction": "mordor",
+   "role": "infantry",
+   "weapon": "twohanded"
+  },
+  "orc_bow": {
+   "en": "Orc, bow",
+   "side": "evil",
+   "faction": "mordor",
+   "role": "infantry",
+   "weapon": "bow"
+  },
+  "orc_drummer": {
+   "en": "Orc war drummer",
+   "side": "evil",
+   "faction": "mordor",
+   "role": "support",
+   "weapon": "drum"
+  },
+  "dwarf_axeshield": {
+   "en": "Dwarf, axe & shield",
+   "side": "good",
+   "faction": "dwarf",
+   "role": "infantry",
+   "weapon": "axe"
+  },
+  "dwarf_2haxe": {
+   "en": "Dwarf, two-handed axe",
+   "side": "good",
+   "faction": "dwarf",
+   "role": "infantry",
+   "weapon": "twohanded"
+  },
+  "dwarf_ranger": {
+   "en": "Dwarf Ranger",
+   "side": "good",
+   "faction": "dwarf",
+   "role": "infantry",
+   "weapon": "bow"
+  },
+  "khazad_guard": {
+   "en": "Khazad Guard",
+   "side": "good",
+   "faction": "dwarf",
+   "role": "infantry",
+   "weapon": "axe"
+  },
+  "iron_guard": {
+   "en": "Iron Guard",
+   "side": "good",
+   "faction": "dwarf",
+   "role": "infantry",
+   "weapon": "sword_shield"
+  },
+  "dwarf_banner": {
+   "en": "Dwarf banner bearer",
+   "side": "good",
+   "faction": "dwarf",
+   "role": "support",
+   "weapon": "banner"
+  },
+  "elf_swordshield": {
+   "en": "Elf, sword & shield",
+   "side": "good",
+   "faction": "elf",
+   "role": "infantry",
+   "weapon": "sword_shield"
+  },
+  "elf_spear": {
+   "en": "Elf, spear",
+   "side": "good",
+   "faction": "elf",
+   "role": "infantry",
+   "weapon": "spear"
+  },
+  "elf_bow": {
+   "en": "Elf, bow",
+   "side": "good",
+   "faction": "elf",
+   "role": "infantry",
+   "weapon": "bow"
+  },
+  "elf_glaive": {
+   "en": "Elf, glaive",
+   "side": "good",
+   "faction": "elf",
+   "role": "infantry",
+   "weapon": "twohanded"
+  },
+  "galadhrim_warrior": {
+   "en": "Galadhrim Warrior",
+   "side": "good",
+   "faction": "lothlorien",
+   "role": "infantry",
+   "weapon": "sword"
+  },
+  "elf_knight": {
+   "en": "Elf Knight",
+   "side": "good",
+   "faction": "rivendell",
+   "role": "cavalry",
+   "weapon": "lance"
+  },
+  "uruk_swordshield2": {
+   "en": "Uruk-hai, sword & shield",
+   "side": "evil",
+   "faction": "isengard",
+   "role": "infantry",
+   "weapon": "sword_shield"
+  },
+  "uruk_pike": {
+   "en": "Uruk-hai, pike",
+   "side": "evil",
+   "faction": "isengard",
+   "role": "infantry",
+   "weapon": "pike"
+  },
+  "uruk_crossbow": {
+   "en": "Uruk-hai, crossbow",
+   "side": "evil",
+   "faction": "isengard",
+   "role": "infantry",
+   "weapon": "crossbow"
+  },
+  "uruk_scout": {
+   "en": "Uruk-hai Scout",
+   "side": "evil",
+   "faction": "isengard",
+   "role": "infantry",
+   "weapon": "sword"
+  },
+  "uruk_berserker2": {
+   "en": "Uruk-hai Berserker",
+   "side": "evil",
+   "faction": "isengard",
+   "role": "infantry",
+   "weapon": "twohanded"
+  },
+  "uruk_banner": {
+   "en": "Uruk-hai banner bearer",
+   "side": "evil",
+   "faction": "isengard",
+   "role": "support",
+   "weapon": "banner"
+  },
+  "haradrim_spear": {
+   "en": "Haradrim spearman",
+   "side": "evil",
+   "faction": "harad",
+   "role": "infantry",
+   "weapon": "spear"
+  },
+  "haradrim_bow": {
+   "en": "Haradrim archer",
+   "side": "evil",
+   "faction": "harad",
+   "role": "infantry",
+   "weapon": "bow"
+  },
+  "haradrim_priest": {
+   "en": "Haradrim warrior priest",
+   "side": "evil",
+   "faction": "harad",
+   "role": "support",
+   "weapon": "staff"
+  },
+  "easterling_phalanx": {
+   "en": "Easterling phalangite",
+   "side": "evil",
+   "faction": "easterling",
+   "role": "infantry",
+   "weapon": "pike"
+  },
+  "easterling_swordshield": {
+   "en": "Easterling, sword & shield",
+   "side": "evil",
+   "faction": "easterling",
+   "role": "infantry",
+   "weapon": "sword_shield"
+  },
+  "easterling_kataphrakt": {
+   "en": "Easterling Kataphrakt",
+   "side": "evil",
+   "faction": "easterling",
+   "role": "cavalry",
+   "weapon": "lance"
+  },
+  "dol_amroth_knight": {
+   "en": "Knight of Dol Amroth",
+   "side": "good",
+   "faction": "gondor",
+   "role": "cavalry",
+   "weapon": "lance"
+  },
+  "gondor_knight": {
+   "en": "Knight of Minas Tirith",
+   "side": "good",
+   "faction": "gondor",
+   "role": "cavalry",
+   "weapon": "lance"
+  },
+  "osgiliath_veteran": {
+   "en": "Osgiliath Veteran",
+   "side": "good",
+   "faction": "gondor",
+   "role": "infantry",
+   "weapon": "sword_shield"
+  },
+  "lossarnach_axeman": {
+   "en": "Lossarnach Axeman",
+   "side": "good",
+   "faction": "gondor",
+   "role": "infantry",
+   "weapon": "twohanded"
+  },
+  "citadel_guard": {
+   "en": "Citadel Guard",
+   "side": "good",
+   "faction": "gondor",
+   "role": "infantry",
+   "weapon": "spear_shield"
+  },
+  "pelennor_militia": {
+   "en": "Pelennor Militia",
+   "side": "good",
+   "faction": "gondor",
+   "role": "infantry",
+   "weapon": "spear"
+  },
+  "rohan_swordshield": {
+   "en": "Rohan, sword & shield",
+   "side": "good",
+   "faction": "rohan",
+   "role": "infantry",
+   "weapon": "sword_shield"
+  },
+  "rohan_spear": {
+   "en": "Rohan, spear",
+   "side": "good",
+   "faction": "rohan",
+   "role": "infantry",
+   "weapon": "spear"
+  },
+  "rohan_archer": {
+   "en": "Rohan archer",
+   "side": "good",
+   "faction": "rohan",
+   "role": "infantry",
+   "weapon": "bow"
+  },
+  "eomer": {
+   "en": "Eomer mounted",
+   "side": "good",
+   "faction": "rohan",
+   "role": "hero",
+   "weapon": "sword"
+  },
+  "rohan_outrider": {
+   "en": "Rohan outrider",
+   "side": "good",
+   "faction": "rohan",
+   "role": "cavalry",
+   "weapon": "bow"
+  },
+  "rohan_banner": {
+   "en": "Rohan banner bearer",
+   "side": "good",
+   "faction": "rohan",
+   "role": "support",
+   "weapon": "banner"
+  },
+  "black_numenorean": {
+   "en": "Black Numenorean on foot",
+   "side": "evil",
+   "faction": "mordor",
+   "role": "infantry",
+   "weapon": "sword_shield"
+  },
+  "black_numenorean_mounted": {
+   "en": "Black Numenorean mounted",
+   "side": "evil",
+   "faction": "mordor",
+   "role": "cavalry",
+   "weapon": "lance"
+  },
+  "orc_tracker": {
+   "en": "Orc Tracker",
+   "side": "evil",
+   "faction": "mordor",
+   "role": "infantry",
+   "weapon": "twohanded"
+  },
+  "war_troll": {
+   "en": "Mordor War Troll",
+   "side": "evil",
+   "faction": "mordor",
+   "role": "monster",
+   "weapon": "club"
+  },
+  "black_guard": {
+   "en": "Black Guard of Barad-dur",
+   "side": "evil",
+   "faction": "mordor",
+   "role": "infantry",
+   "weapon": "spear_shield"
+  },
+  "orc_taskmaster": {
+   "en": "Orc Taskmaster",
+   "side": "evil",
+   "faction": "mordor",
+   "role": "support",
+   "weapon": "whip"
+  },
+  "goblin_spear": {
+   "en": "Goblin, spear",
+   "side": "evil",
+   "faction": "moria",
+   "role": "infantry",
+   "weapon": "spear"
+  },
+  "goblin_shield": {
+   "en": "Goblin, shield",
+   "side": "evil",
+   "faction": "moria",
+   "role": "infantry",
+   "weapon": "sword_shield"
+  },
+  "goblin_bow": {
+   "en": "Goblin, bow",
+   "side": "evil",
+   "faction": "moria",
+   "role": "infantry",
+   "weapon": "bow"
+  },
+  "goblin_prowler": {
+   "en": "Goblin Prowler",
+   "side": "evil",
+   "faction": "moria",
+   "role": "infantry",
+   "weapon": "dagger"
+  },
+  "goblin_king": {
+   "en": "Goblin King",
+   "side": "evil",
+   "faction": "moria",
+   "role": "hero",
+   "weapon": "club"
+  },
+  "goblin_shaman": {
+   "en": "Goblin Shaman",
+   "side": "evil",
+   "faction": "moria",
+   "role": "support",
+   "weapon": "staff"
+  },
+  "dunlending_warrior": {
+   "en": "Dunlending Warrior",
+   "side": "evil",
+   "faction": "dunland",
+   "role": "infantry",
+   "weapon": "sword"
+  },
+  "dunlending_huscarl": {
+   "en": "Dunlending Huscarl",
+   "side": "evil",
+   "faction": "dunland",
+   "role": "infantry",
+   "weapon": "twohanded"
+  },
+  "warg": {
+   "en": "Wild Warg",
+   "side": "evil",
+   "faction": "isengard",
+   "role": "monster",
+   "weapon": "none"
+  },
+  "uruk_sapper": {
+   "en": "Uruk-hai Demolition Team",
+   "side": "evil",
+   "faction": "isengard",
+   "role": "infantry",
+   "weapon": "bomb"
+  },
+  "uruk_scout_archer": {
+   "en": "Uruk-hai Scout Archer",
+   "side": "evil",
+   "faction": "isengard",
+   "role": "infantry",
+   "weapon": "bow"
+  },
+  "crebain_swarm": {
+   "en": "Crebain swarm",
+   "side": "evil",
+   "faction": "isengard",
+   "role": "support",
+   "weapon": "none"
+  },
+  "hobbit_shirriff": {
+   "en": "Hobbit Shirriff",
+   "side": "good",
+   "faction": "shire",
+   "role": "infantry",
+   "weapon": "pitchfork"
+  },
+  "hobbit_bounder": {
+   "en": "Hobbit Bounder",
+   "side": "good",
+   "faction": "shire",
+   "role": "infantry",
+   "weapon": "bow"
+  },
+  "great_eagle": {
+   "en": "Great Eagle",
+   "side": "good",
+   "faction": "eagle",
+   "role": "monster",
+   "weapon": "none"
+  },
+  "ent": {
+   "en": "Ent",
+   "side": "good",
+   "faction": "ent",
+   "role": "monster",
+   "weapon": "none"
+  },
+  "beorning": {
+   "en": "Beorning",
+   "side": "good",
+   "faction": "beorning",
+   "role": "hero",
+   "weapon": "axe"
+  },
+  "ranger_north": {
+   "en": "Ranger of the North",
+   "side": "good",
+   "faction": "arnor",
+   "role": "infantry",
+   "weapon": "sword"
+  },
+  "theoden": {
+   "en": "Theoden mounted",
+   "side": "good",
+   "faction": "rohan",
+   "role": "cavalry",
+   "weapon": "sword_shield"
+  },
+  "faramir": {
+   "en": "Faramir",
+   "side": "good",
+   "faction": "gondor",
+   "role": "hero",
+   "weapon": "bow"
+  },
+  "haldir": {
+   "en": "Haldir",
+   "side": "good",
+   "faction": "lothlorien",
+   "role": "hero",
+   "weapon": "twohanded"
+  },
+  "galadriel": {
+   "en": "Galadriel",
+   "side": "good",
+   "faction": "lothlorien",
+   "role": "hero",
+   "weapon": "none"
+  },
+  "gamling": {
+   "en": "Gamling with banner",
+   "side": "good",
+   "faction": "rohan",
+   "role": "hero",
+   "weapon": "banner"
+  },
+  "samwise": {
+   "en": "Samwise Gamgee",
+   "side": "good",
+   "faction": "shire",
+   "role": "hero",
+   "weapon": "dagger"
+  },
+  "mouth_of_sauron": {
+   "en": "Mouth of Sauron",
+   "side": "evil",
+   "faction": "mordor",
+   "role": "cavalry",
+   "weapon": "sword"
+  },
+  "gothmog": {
+   "en": "Gothmog",
+   "side": "evil",
+   "faction": "mordor",
+   "role": "hero",
+   "weapon": "mace"
+  },
+  "lurtz": {
+   "en": "Lurtz",
+   "side": "evil",
+   "faction": "isengard",
+   "role": "hero",
+   "weapon": "bow"
+  },
+  "sharku": {
+   "en": "Sharku on warg",
+   "side": "evil",
+   "faction": "isengard",
+   "role": "cavalry",
+   "weapon": "spear"
+  },
+  "grima": {
+   "en": "Grima Wormtongue",
+   "side": "evil",
+   "faction": "isengard",
+   "role": "hero",
+   "weapon": "dagger"
+  },
+  "khamul": {
+   "en": "Khamul the Easterling",
+   "side": "evil",
+   "faction": "angmar",
+   "role": "hero",
+   "weapon": "mace"
+  },
+  "fingolfin": {
+   "en": "Fingolfin",
+   "side": "good",
+   "faction": "elf",
+   "role": "hero",
+   "weapon": "sword"
+  },
+  "imrahil": {
+   "en": "Imrahil",
+   "side": "good",
+   "faction": "gondor",
+   "role": "hero",
+   "weapon": "lance"
+  },
+  "merry": {
+   "en": "Meriadoc Brandybuck",
+   "side": "good",
+   "faction": "shire",
+   "role": "hero",
+   "weapon": "dagger"
+  },
+  "pippin": {
+   "en": "Peregrin Took",
+   "side": "good",
+   "faction": "shire",
+   "role": "hero",
+   "weapon": "dagger"
+  },
+  "beorn": {
+   "en": "Beorn",
+   "side": "good",
+   "faction": "beorning",
+   "role": "hero",
+   "weapon": "twohanded"
+  },
+  "elendil": {
+   "en": "Elendil",
+   "side": "good",
+   "faction": "arnor",
+   "role": "hero",
+   "weapon": "sword"
+  },
+  "melkor": {
+   "en": "Melkor (Morgoth)",
+   "side": "evil",
+   "faction": "angband",
+   "role": "monster",
+   "weapon": "mace"
+  },
+  "mumakil": {
+   "en": "War Mumak",
+   "side": "evil",
+   "faction": "harad",
+   "role": "monster",
+   "weapon": "none"
+  },
+  "smaug": {
+   "en": "Smaug",
+   "side": "evil",
+   "faction": "erebor",
+   "role": "monster",
+   "weapon": "none"
+  },
+  "ungoliant": {
+   "en": "Ungoliant",
+   "side": "evil",
+   "faction": "angband",
+   "role": "monster",
+   "weapon": "none"
+  },
+  "bolg": {
+   "en": "Bolg",
+   "side": "evil",
+   "faction": "gundabad",
+   "role": "hero",
+   "weapon": "mace"
+  },
+  "easterling_warlord": {
+   "en": "Easterling Warlord",
+   "side": "evil",
+   "faction": "easterling",
+   "role": "hero",
+   "weapon": "pike"
+  },
+  "radagast": {
+   "en": "Radagast the Brown",
+   "side": "good",
+   "faction": "maiar",
+   "role": "hero",
+   "weapon": "staff"
+  },
+  "thranduil": {
+   "en": "Thranduil",
+   "side": "good",
+   "faction": "elf",
+   "role": "hero",
+   "weapon": "sword"
+  },
+  "celeborn": {
+   "en": "Celeborn",
+   "side": "good",
+   "faction": "lothlorien",
+   "role": "hero",
+   "weapon": "spear"
+  },
+  "bilbo": {
+   "en": "Bilbo Baggins",
+   "side": "good",
+   "faction": "shire",
+   "role": "hero",
+   "weapon": "dagger"
+  },
+  "king_of_the_dead": {
+   "en": "King of the Dead",
+   "side": "good",
+   "faction": "dead",
+   "role": "hero",
+   "weapon": "sword"
+  },
+  "dead_soldier": {
+   "en": "Soldier of the Dead",
+   "side": "good",
+   "faction": "dead",
+   "role": "infantry",
+   "weapon": "spear"
+  },
+  "olog_hai": {
+   "en": "Olog-hai",
+   "side": "evil",
+   "faction": "mordor",
+   "role": "monster",
+   "weapon": "mace"
+  },
+  "watcher_in_the_water": {
+   "en": "Watcher in the Water",
+   "side": "evil",
+   "faction": "moria",
+   "role": "monster",
+   "weapon": "none"
+  },
+  "mirkwood_spider": {
+   "en": "Mirkwood Spider",
+   "side": "evil",
+   "faction": "dol_guldur",
+   "role": "monster",
+   "weapon": "none"
+  },
+  "harad_chieftain": {
+   "en": "Haradrim Chieftain",
+   "side": "evil",
+   "faction": "harad",
+   "role": "hero",
+   "weapon": "sword"
+  },
+  "uruk_captain": {
+   "en": "Uruk-hai Captain",
+   "side": "evil",
+   "faction": "isengard",
+   "role": "hero",
+   "weapon": "sword_shield"
+  },
+  "hill_troll": {
+   "en": "Hill Troll",
+   "side": "evil",
+   "faction": "angmar",
+   "role": "monster",
+   "weapon": "club"
+  },
+  "feanor": {
+   "en": "Feanor",
+   "side": "good",
+   "faction": "elf",
+   "role": "hero",
+   "weapon": "sword"
+  },
+  "luthien": {
+   "en": "Luthien",
+   "side": "good",
+   "faction": "doriath",
+   "role": "hero",
+   "weapon": "staff"
+  },
+  "beren": {
+   "en": "Beren",
+   "side": "good",
+   "faction": "men",
+   "role": "hero",
+   "weapon": "sword"
+  },
+  "turin": {
+   "en": "Turin Turambar",
+   "side": "good",
+   "faction": "men",
+   "role": "hero",
+   "weapon": "sword"
+  },
+  "beleg": {
+   "en": "Beleg Strongbow",
+   "side": "good",
+   "faction": "doriath",
+   "role": "hero",
+   "weapon": "bow"
+  },
+  "huan": {
+   "en": "Huan the Hound",
+   "side": "good",
+   "faction": "valinor",
+   "role": "beast",
+   "weapon": "none"
+  },
+  "glaurung": {
+   "en": "Glaurung",
+   "side": "evil",
+   "faction": "angband",
+   "role": "monster",
+   "weapon": "none"
+  },
+  "carcharoth": {
+   "en": "Carcharoth",
+   "side": "evil",
+   "faction": "angband",
+   "role": "monster",
+   "weapon": "none"
+  },
+  "gothmog_balrog": {
+   "en": "Gothmog, Lord of Balrogs",
+   "side": "evil",
+   "faction": "angband",
+   "role": "monster",
+   "weapon": "whip"
+  },
+  "draugluin": {
+   "en": "Draugluin",
+   "side": "evil",
+   "faction": "angband",
+   "role": "monster",
+   "weapon": "none"
+  },
+  "thuringwethil": {
+   "en": "Thuringwethil",
+   "side": "evil",
+   "faction": "angband",
+   "role": "monster",
+   "weapon": "none"
+  },
+  "boldog": {
+   "en": "Boldog",
+   "side": "evil",
+   "faction": "angband",
+   "role": "hero",
+   "weapon": "sword"
+  },
+  "thorin": {
+   "en": "Thorin Oakenshield",
+   "side": "good",
+   "faction": "dwarf",
+   "role": "hero",
+   "weapon": "sword"
+  },
+  "tauriel": {
+   "en": "Tauriel",
+   "side": "good",
+   "faction": "elf",
+   "role": "hero",
+   "weapon": "dagger"
+  },
+  "bard": {
+   "en": "Bard the Bowman",
+   "side": "good",
+   "faction": "men",
+   "role": "hero",
+   "weapon": "bow"
+  },
+  "dain": {
+   "en": "Dain Ironfoot",
+   "side": "good",
+   "faction": "dwarf",
+   "role": "hero",
+   "weapon": "mace"
+  },
+  "fili": {
+   "en": "Fili",
+   "side": "good",
+   "faction": "dwarf",
+   "role": "hero",
+   "weapon": "sword"
+  },
+  "kili": {
+   "en": "Kili",
+   "side": "good",
+   "faction": "dwarf",
+   "role": "hero",
+   "weapon": "bow"
+  },
+  "azog": {
+   "en": "Azog the Defiler",
+   "side": "evil",
+   "faction": "gundabad",
+   "role": "hero",
+   "weapon": "mace"
+  },
+  "azog_warg_rider": {
+   "en": "Azog on white warg",
+   "side": "evil",
+   "faction": "gundabad",
+   "role": "cavalry",
+   "weapon": "mace"
+  },
+  "necromancer": {
+   "en": "The Necromancer",
+   "side": "evil",
+   "faction": "dol_guldur",
+   "role": "hero",
+   "weapon": "staff"
+  },
+  "hunter_orc": {
+   "en": "Hunter Orc",
+   "side": "evil",
+   "faction": "gundabad",
+   "role": "infantry",
+   "weapon": "bow"
+  },
+  "gundabad_orc": {
+   "en": "Gundabad Orc",
+   "side": "evil",
+   "faction": "gundabad",
+   "role": "infantry",
+   "weapon": "sword_shield"
+  },
+  "goblin_mercenary": {
+   "en": "Goblin Mercenary",
+   "side": "evil",
+   "faction": "moria",
+   "role": "infantry",
+   "weapon": "club"
+  },
+  "halbarad": {
+   "en": "Halbarad",
+   "side": "good",
+   "faction": "arnor",
+   "role": "hero",
+   "weapon": "banner"
+  },
+  "beregond": {
+   "en": "Beregond",
+   "side": "good",
+   "faction": "gondor",
+   "role": "hero",
+   "weapon": "sword_shield"
+  },
+  "elladan": {
+   "en": "Elladan",
+   "side": "good",
+   "faction": "rivendell",
+   "role": "hero",
+   "weapon": "sword"
+  },
+  "elrohir": {
+   "en": "Elrohir",
+   "side": "good",
+   "faction": "rivendell",
+   "role": "hero",
+   "weapon": "spear"
+  },
+  "grimbeorn": {
+   "en": "Grimbeorn",
+   "side": "good",
+   "faction": "beorning",
+   "role": "hero",
+   "weapon": "axe"
+  },
+  "ghan_buri_ghan": {
+   "en": "Ghan-buri-Ghan",
+   "side": "good",
+   "faction": "men",
+   "role": "infantry",
+   "weapon": "bow"
+  },
+  "suladan": {
+   "en": "Suladan the Serpent Lord",
+   "side": "evil",
+   "faction": "harad",
+   "role": "hero",
+   "weapon": "spear"
+  },
+  "corsair_umbra": {
+   "en": "Corsair of Umbar",
+   "side": "evil",
+   "faction": "harad",
+   "role": "infantry",
+   "weapon": "sword"
+  },
+  "variag_horseman": {
+   "en": "Variag Horseman",
+   "side": "evil",
+   "faction": "rhun",
+   "role": "cavalry",
+   "weapon": "spear"
+  },
+  "shagrat": {
+   "en": "Shagrat",
+   "side": "evil",
+   "faction": "mordor",
+   "role": "hero",
+   "weapon": "sword_shield"
+  },
+  "gorbag": {
+   "en": "Gorbag",
+   "side": "evil",
+   "faction": "mordor",
+   "role": "hero",
+   "weapon": "sword"
+  },
+  "warg_alpha": {
+   "en": "Warg Alpha",
+   "side": "evil",
+   "faction": "isengard",
+   "role": "beast",
+   "weapon": "none"
+  },
+  "balin": {
+   "en": "Balin",
+   "side": "good",
+   "faction": "dwarf",
+   "role": "hero",
+   "weapon": "sword"
+  },
+  "dwalin": {
+   "en": "Dwalin",
+   "side": "good",
+   "faction": "dwarf",
+   "role": "hero",
+   "weapon": "axe"
+  },
+  "gloin": {
+   "en": "Gloin",
+   "side": "good",
+   "faction": "dwarf",
+   "role": "infantry",
+   "weapon": "axe"
+  },
+  "oin": {
+   "en": "Oin",
+   "side": "good",
+   "faction": "dwarf",
+   "role": "infantry",
+   "weapon": "club"
+  },
+  "nori": {
+   "en": "Nori",
+   "side": "good",
+   "faction": "dwarf",
+   "role": "infantry",
+   "weapon": "sword"
+  },
+  "ori": {
+   "en": "Ori",
+   "side": "good",
+   "faction": "dwarf",
+   "role": "infantry",
+   "weapon": "sword"
+  },
+  "dori": {
+   "en": "Dori",
+   "side": "good",
+   "faction": "dwarf",
+   "role": "infantry",
+   "weapon": "sword"
+  },
+  "bifur": {
+   "en": "Bifur",
+   "side": "good",
+   "faction": "dwarf",
+   "role": "infantry",
+   "weapon": "spear"
+  },
+  "bofur": {
+   "en": "Bofur",
+   "side": "good",
+   "faction": "dwarf",
+   "role": "infantry",
+   "weapon": "club"
+  },
+  "bombur": {
+   "en": "Bombur",
+   "side": "good",
+   "faction": "dwarf",
+   "role": "infantry",
+   "weapon": "club"
+  },
+  "goat_rider": {
+   "en": "Iron Hills Goat Rider",
+   "side": "good",
+   "faction": "dwarf",
+   "role": "cavalry",
+   "weapon": "lance"
+  },
+  "gollum": {
+   "en": "Gollum",
+   "side": "evil",
+   "faction": "moria",
+   "role": "beast",
+   "weapon": "none"
+  },
+  "gil_galad": {
+   "en": "Gil-galad",
+   "side": "good",
+   "faction": "elf",
+   "role": "hero",
+   "weapon": "spear"
+  },
+  "cirdan": {
+   "en": "Cirdan the Shipwright",
+   "side": "good",
+   "faction": "elf",
+   "role": "hero",
+   "weapon": "sword"
+  },
+  "arwen": {
+   "en": "Arwen",
+   "side": "good",
+   "faction": "rivendell",
+   "role": "hero",
+   "weapon": "dagger"
+  },
+  "lindir": {
+   "en": "Lindir",
+   "side": "good",
+   "faction": "rivendell",
+   "role": "hero",
+   "weapon": "sword"
+  },
+  "erestor": {
+   "en": "Erestor",
+   "side": "good",
+   "faction": "rivendell",
+   "role": "hero",
+   "weapon": "sword"
+  },
+  "elf_seer": {
+   "en": "Elf Seer",
+   "side": "good",
+   "faction": "lothlorien",
+   "role": "support",
+   "weapon": "staff"
+  },
+  "rumil": {
+   "en": "Rumil",
+   "side": "good",
+   "faction": "lothlorien",
+   "role": "infantry",
+   "weapon": "bow"
+  },
+  "orophin": {
+   "en": "Orophin",
+   "side": "good",
+   "faction": "lothlorien",
+   "role": "infantry",
+   "weapon": "spear"
+  },
+  "mirkwood_sentinel": {
+   "en": "Mirkwood Sentinel",
+   "side": "good",
+   "faction": "elf",
+   "role": "infantry",
+   "weapon": "pike"
+  },
+  "noldor_warrior": {
+   "en": "Noldor Warrior",
+   "side": "good",
+   "faction": "elf",
+   "role": "infantry",
+   "weapon": "sword_shield"
+  },
+  "silvan_archer": {
+   "en": "Silvan Archer",
+   "side": "good",
+   "faction": "elf",
+   "role": "infantry",
+   "weapon": "bow"
+  },
+  "elven_lancer": {
+   "en": "Elven Lancer",
+   "side": "good",
+   "faction": "rivendell",
+   "role": "cavalry",
+   "weapon": "lance"
+  },
+  "imrahil_mounted": {
+   "en": "Prince Imrahil, mounted",
+   "side": "good",
+   "faction": "gondor",
+   "role": "cavalry",
+   "weapon": "lance"
+  },
+  "gandalf_mounted": {
+   "en": "Gandalf on Shadowfax",
+   "side": "good",
+   "faction": "maiar",
+   "role": "hero",
+   "weapon": "sword"
+  },
+  "thranduil_mounted": {
+   "en": "Thranduil, mounted",
+   "side": "good",
+   "faction": "elf",
+   "role": "hero",
+   "weapon": "sword"
+  },
+  "aragorn_mounted": {
+   "en": "Aragorn, mounted",
+   "side": "good",
+   "faction": "gondor",
+   "role": "hero",
+   "weapon": "sword"
+  },
+  "theoden_mounted": {
+   "en": "Theoden, mounted",
+   "side": "good",
+   "faction": "rohan",
+   "role": "hero",
+   "weapon": "sword"
+  },
+  "blackroot_archer": {
+   "en": "Blackroot Vale Archer",
+   "side": "good",
+   "faction": "gondor",
+   "role": "infantry",
+   "weapon": "bow"
+  },
+  "half_troll": {
+   "en": "Half-Troll of Far Harad",
+   "side": "evil",
+   "faction": "harad",
+   "role": "monster",
+   "weapon": "club"
+  },
+  "cave_drake": {
+   "en": "Cave Drake",
+   "side": "evil",
+   "faction": "moria",
+   "role": "monster",
+   "weapon": "none"
+  },
+  "bat_swarm": {
+   "en": "Bat Swarm",
+   "side": "evil",
+   "faction": "dol_guldur",
+   "role": "monster",
+   "weapon": "none"
+  },
+  "muzgur": {
+   "en": "Muzgur, Morgul Shaman",
+   "side": "evil",
+   "faction": "angmar",
+   "role": "hero",
+   "weapon": "staff"
+  },
+  "buhrdur": {
+   "en": "Buhrdur, Troll Chieftain",
+   "side": "evil",
+   "faction": "angmar",
+   "role": "monster",
+   "weapon": "mace"
+  },
+  "mahud_chieftain": {
+   "en": "Mahud War-Chieftain",
+   "side": "evil",
+   "faction": "harad",
+   "role": "hero",
+   "weapon": "spear"
+  },
+  "eowyn_mounted": {
+   "en": "Eowyn, mounted",
+   "side": "good",
+   "faction": "rohan",
+   "role": "cavalry",
+   "weapon": "sword"
+  },
+  "forlong": {
+   "en": "Forlong the Fat",
+   "side": "good",
+   "faction": "gondor",
+   "role": "hero",
+   "weapon": "axe"
+  },
+  "erkenbrand": {
+   "en": "Erkenbrand",
+   "side": "good",
+   "faction": "rohan",
+   "role": "hero",
+   "weapon": "sword_shield"
+  },
+  "damrod": {
+   "en": "Damrod",
+   "side": "good",
+   "faction": "gondor",
+   "role": "hero",
+   "weapon": "bow"
+  },
+  "mablung": {
+   "en": "Mablung",
+   "side": "good",
+   "faction": "gondor",
+   "role": "hero",
+   "weapon": "sword"
+  },
+  "duinhir": {
+   "en": "Duinhir of Blackroot",
+   "side": "good",
+   "faction": "gondor",
+   "role": "hero",
+   "weapon": "bow"
+  },
+  "ugluk": {
+   "en": "Ugluk",
+   "side": "evil",
+   "faction": "isengard",
+   "role": "hero",
+   "weapon": "sword"
+  },
+  "mauhur": {
+   "en": "Mauhur",
+   "side": "evil",
+   "faction": "isengard",
+   "role": "hero",
+   "weapon": "sword"
+  },
+  "vrasku": {
+   "en": "Vrasku",
+   "side": "evil",
+   "faction": "isengard",
+   "role": "hero",
+   "weapon": "bow"
+  },
+  "stone_troll": {
+   "en": "Stone Troll",
+   "side": "evil",
+   "faction": "angmar",
+   "role": "monster",
+   "weapon": "club"
+  },
+  "werewolf": {
+   "en": "Werewolf",
+   "side": "evil",
+   "faction": "mordor",
+   "role": "beast",
+   "weapon": "none"
+  },
+  "gulavhar": {
+   "en": "Gulavhar, the Vampire",
+   "side": "evil",
+   "faction": "angmar",
+   "role": "monster",
+   "weapon": "none"
+  },
+  "terr_catapult": {
+   "en": "Field catapult",
+   "side": "terrain",
+   "faction": "terrain",
+   "role": "terrain",
+   "weapon": "none"
+  },
+  "terr_trebuchet": {
+   "en": "Trebuchet",
+   "side": "terrain",
+   "faction": "terrain",
+   "role": "terrain",
+   "weapon": "none"
+  },
+  "terr_ballista": {
+   "en": "Ballista",
+   "side": "terrain",
+   "faction": "terrain",
+   "role": "terrain",
+   "weapon": "none"
+  },
+  "terr_grond": {
+   "en": "GROND battering ram",
+   "side": "terrain",
+   "faction": "terrain",
+   "role": "terrain",
+   "weapon": "none"
+  },
+  "terr_siege_tower": {
+   "en": "Siege tower",
+   "side": "terrain",
+   "faction": "terrain",
+   "role": "terrain",
+   "weapon": "none"
+  },
+  "terr_bomb": {
+   "en": "Blasting bomb",
+   "side": "terrain",
+   "faction": "terrain",
+   "role": "terrain",
+   "weapon": "none"
+  },
+  "terr_rubble": {
+   "en": "Rubble pile",
+   "side": "terrain",
+   "faction": "terrain",
+   "role": "terrain",
+   "weapon": "none"
+  },
+  "terr_broken_pillar": {
+   "en": "Broken pillar",
+   "side": "terrain",
+   "faction": "terrain",
+   "role": "terrain",
+   "weapon": "none"
+  },
+  "terr_barricade": {
+   "en": "Wooden barricade",
+   "side": "terrain",
+   "faction": "terrain",
+   "role": "terrain",
+   "weapon": "none"
+  },
+  "terr_crates": {
+   "en": "Supply crates",
+   "side": "terrain",
+   "faction": "terrain",
+   "role": "terrain",
+   "weapon": "none"
+  },
+  "terr_spike_line": {
+   "en": "Stake line",
+   "side": "terrain",
+   "faction": "terrain",
+   "role": "terrain",
+   "weapon": "none"
+  },
+  "terr_brazier": {
+   "en": "Brazier",
+   "side": "terrain",
+   "faction": "terrain",
+   "role": "terrain",
+   "weapon": "none"
+  },
+  "terr_orc_totem": {
+   "en": "Orcish totem",
+   "side": "terrain",
+   "faction": "terrain",
+   "role": "terrain",
+   "weapon": "none"
+  },
+  "terr_siege_ladder": {
+   "en": "Siege ladder",
+   "side": "terrain",
+   "faction": "terrain",
+   "role": "terrain",
+   "weapon": "none"
+  },
+  "terr_tent": {
+   "en": "Campaign tent",
+   "side": "terrain",
+   "faction": "terrain",
+   "role": "terrain",
+   "weapon": "none"
+  },
+  "terr_cart": {
+   "en": "Supply cart",
+   "side": "terrain",
+   "faction": "terrain",
+   "role": "terrain",
+   "weapon": "none"
+  },
+  "terr_campfire": {
+   "en": "Campfire",
+   "side": "terrain",
+   "faction": "terrain",
+   "role": "terrain",
+   "weapon": "none"
+  },
+  "terr_statue_head": {
+   "en": "Toppled statue head",
+   "side": "terrain",
+   "faction": "terrain",
+   "role": "terrain",
+   "weapon": "none"
+  },
+  "terr_rock_outcrop": {
+   "en": "Rock outcrop",
+   "side": "terrain",
+   "faction": "terrain",
+   "role": "terrain",
+   "weapon": "none"
+  },
+  "terr_standing_stones": {
+   "en": "Standing stones",
+   "side": "terrain",
+   "faction": "terrain",
+   "role": "terrain",
+   "weapon": "none"
+  },
+  "terr_pine_copse": {
+   "en": "Pine copse",
+   "side": "terrain",
+   "faction": "terrain",
+   "role": "terrain",
+   "weapon": "none"
+  },
+  "terr_oak_tree": {
+   "en": "Old oak",
+   "side": "terrain",
+   "faction": "terrain",
+   "role": "terrain",
+   "weapon": "none"
+  },
+  "terr_dead_tree": {
+   "en": "Dead tree",
+   "side": "terrain",
+   "faction": "terrain",
+   "role": "terrain",
+   "weapon": "none"
+  },
+  "terr_hedgerow": {
+   "en": "Hedgerow",
+   "side": "terrain",
+   "faction": "terrain",
+   "role": "terrain",
+   "weapon": "none"
+  },
+  "terr_ruined_wall": {
+   "en": "Ruined wall",
+   "side": "terrain",
+   "faction": "terrain",
+   "role": "terrain",
+   "weapon": "none"
+  },
+  "terr_ruined_tower": {
+   "en": "Ruined tower",
+   "side": "terrain",
+   "faction": "terrain",
+   "role": "terrain",
+   "weapon": "none"
+  },
+  "terr_gondor_house": {
+   "en": "Gondor house",
+   "side": "terrain",
+   "faction": "terrain",
+   "role": "terrain",
+   "weapon": "none"
+  },
+  "terr_rohan_hall": {
+   "en": "Rohan mead hall",
+   "side": "terrain",
+   "faction": "terrain",
+   "role": "terrain",
+   "weapon": "none"
+  },
+  "terr_orc_camp": {
+   "en": "Orc camp",
+   "side": "terrain",
+   "faction": "terrain",
+   "role": "terrain",
+   "weapon": "none"
+  },
+  "terr_barrow": {
+   "en": "Burial barrow",
+   "side": "terrain",
+   "faction": "terrain",
+   "role": "terrain",
+   "weapon": "none"
+  }
+ }
+}
