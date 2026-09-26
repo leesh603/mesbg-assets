@@ -58,6 +58,7 @@ const sheets = [
   { file: 'nb-roster-legends-evil-v2.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-legends-evil-v2.png', names: ['olog_hai', 'watcher_in_the_water', 'mirkwood_spider', 'harad_chieftain', 'uruk_captain', 'hill_troll'] },
   { file: 'terrain-objects-v1.png', rows: 2, cols: 3, paintedFile: 'px-terrain-objects-v1.png', noRim: true, names: ['terr_rubble', 'terr_broken_pillar', 'terr_barricade', 'terr_crates', 'terr_spike_line', 'terr_brazier'] },
   { file: 'terrain-objects-v2.png', rows: 2, cols: 3, paintedFile: 'px-terrain-objects-v2.png', noRim: true, names: ['terr_orc_totem', 'terr_siege_ladder', 'terr_tent', 'terr_cart', 'terr_campfire', 'terr_statue_head'] },
+  { file: 'terrain-objects-v4.png', rows: 2, cols: 3, paintedFile: 'px-terrain-objects-v4.png', noRim: true, names: ['terr_ruined_gate', 'terr_wall_segment', 'terr_palisade', 'terr_broken_stairs', 'terr_siege_wreck', 'terr_idol'] },
   { file: 'nb-roster-silmarillion-good-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-silmarillion-good-v1.png', names: ['feanor', 'luthien', 'beren', 'turin', 'beleg', 'huan'] },
   { file: 'nb-roster-silmarillion-evil-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-silmarillion-evil-v1.png', names: ['glaurung', 'carcharoth', 'gothmog_balrog', 'draugluin', 'thuringwethil', 'boldog'] },
   { file: 'nb-roster-hobbit-good-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-hobbit-good-v1.png', names: ['thorin', 'tauriel', 'bard', 'dain', 'fili', 'kili'] },
@@ -73,7 +74,7 @@ const sheets = [
   { file: 'nb-roster-west-heroes-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-west-heroes-v1.png', names: ['eowyn_mounted', 'forlong', 'erkenbrand', 'damrod', 'mablung', 'duinhir'] },
   { file: 'nb-roster-east-monsters-v1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-east-monsters-v1.png', names: ['ugluk', 'mauhur', 'vrasku', 'stone_troll', 'werewolf', 'gulavhar'] },
   { file: 'terrain-objects-v3.png', rows: 2, cols: 3, paintedFile: 'px-terrain-objects-v3.png', noRim: true, names: ['terr_catapult', 'terr_trebuchet', 'terr_ballista', 'terr_grond', 'terr_siege_tower', 'terr_bomb'] },
-  { file: 'nb-eagle-full.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-eagle-full.png', pxOnly: true, names: ['great_eagle'] },
+  { file: 'nb-eagle-full.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-eagle-full.png', names: ['great_eagle'] },
   // standalone full-frame regenerations — overwrite the sheet-cut versions below
   // (px-only: no painted counterparts exist, so the sheet cells cover these ids in --painted mode)
   { file: 'nb-single-balrog.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-balrog.png', names: ['balrog'] },
@@ -85,6 +86,7 @@ const sheets = [
   { file: 'nb-single-eomer.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-eomer.png', names: ['eomer'] },
   { file: 'nb-single-gondor-knight.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-gondor-knight.png', names: ['gondor_knight'] },
   { file: 'nb-single-ancalagon.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-ancalagon.png', names: ['ancalagon'] },
+  { file: 'nb-single-nazgul-fellbeast.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-nazgul-fellbeast.png', names: ['nazgul_fellbeast'] },
 ];
 
 function idx(x, y, w) { return (y * w + x) << 2; }

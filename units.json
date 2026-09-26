@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "count": 294,
+  "count": 301,
   "units": [
     {
       "id": "aragorn",
@@ -3505,6 +3505,90 @@
       "base": "XXL",
       "sheet": "single-ancalagon.png",
       "file": "tokens/ancalagon.png"
+    },
+    {
+      "id": "terr_ruined_gate",
+      "name_ko": "무너진 관문",
+      "name_en": "Ruined gate arch",
+      "side": "terrain",
+      "faction": "terrain",
+      "role": "terrain",
+      "weapon": "none",
+      "base": "",
+      "sheet": "terrain-objects-v4.png",
+      "file": "tokens/terr_ruined_gate.png"
+    },
+    {
+      "id": "terr_wall_segment",
+      "name_ko": "무너진 성벽 구간",
+      "name_en": "Ruined wall segment",
+      "side": "terrain",
+      "faction": "terrain",
+      "role": "terrain",
+      "weapon": "none",
+      "base": "",
+      "sheet": "terrain-objects-v4.png",
+      "file": "tokens/terr_wall_segment.png"
+    },
+    {
+      "id": "terr_palisade",
+      "name_ko": "목책",
+      "name_en": "Wooden palisade",
+      "side": "terrain",
+      "faction": "terrain",
+      "role": "terrain",
+      "weapon": "none",
+      "base": "",
+      "sheet": "terrain-objects-v4.png",
+      "file": "tokens/terr_palisade.png"
+    },
+    {
+      "id": "terr_broken_stairs",
+      "name_ko": "부서진 계단",
+      "name_en": "Broken stairs",
+      "side": "terrain",
+      "faction": "terrain",
+      "role": "terrain",
+      "weapon": "none",
+      "base": "",
+      "sheet": "terrain-objects-v4.png",
+      "file": "tokens/terr_broken_stairs.png"
+    },
+    {
+      "id": "terr_siege_wreck",
+      "name_ko": "공성기 잔해",
+      "name_en": "Wrecked siege engine",
+      "side": "terrain",
+      "faction": "terrain",
+      "role": "terrain",
+      "weapon": "none",
+      "base": "",
+      "sheet": "terrain-objects-v4.png",
+      "file": "tokens/terr_siege_wreck.png"
+    },
+    {
+      "id": "terr_idol",
+      "name_ko": "석상",
+      "name_en": "Buried idol",
+      "side": "terrain",
+      "faction": "terrain",
+      "role": "terrain",
+      "weapon": "none",
+      "base": "",
+      "sheet": "terrain-objects-v4.png",
+      "file": "tokens/terr_idol.png"
+    },
+    {
+      "id": "nazgul_fellbeast",
+      "name_ko": "나즈굴(펠비스트)",
+      "name_en": "Ringwraith on Fell Beast",
+      "side": "evil",
+      "faction": "angmar",
+      "role": "monster",
+      "weapon": "claws",
+      "base": "XXL",
+      "sheet": "single-nazgul-fellbeast.png",
+      "file": "tokens/nazgul_fellbeast.png"
     },
     {
       "id": "aragorn_blackgate",

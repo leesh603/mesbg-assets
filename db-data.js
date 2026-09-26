@@ -399,6 +399,17 @@ module.exports = [
 { sheet: 'single-ancalagon.png', side: 'evil', faction: 'angband', role: 'monster', weapon: 'claws', base: 'XXL', units: [
   ['ancalagon', '앙칼라곤', 'Ancalagon the Black'],
 ]},
+{ sheet: 'terrain-objects-v4.png', side: 'terrain', faction: 'terrain', role: 'terrain', weapon: 'none', units: [
+  ['terr_ruined_gate', '무너진 관문', 'Ruined gate arch'],
+  ['terr_wall_segment', '무너진 성벽 구간', 'Ruined wall segment'],
+  ['terr_palisade', '목책', 'Wooden palisade'],
+  ['terr_broken_stairs', '부서진 계단', 'Broken stairs'],
+  ['terr_siege_wreck', '공성기 잔해', 'Wrecked siege engine'],
+  ['terr_idol', '석상', 'Buried idol'],
+]},
+{ sheet: 'single-nazgul-fellbeast.png', side: 'evil', faction: 'angmar', role: 'monster', weapon: 'claws', base: 'XXL', units: [
+  ['nazgul_fellbeast', '나즈굴(펠비스트)', 'Ringwraith on Fell Beast'],
+]},
 { sheet: 'single-aragorn-blackgate.png', side: 'good', faction: 'gondor', role: 'hero', weapon: 'sword', base: 'L', units: [
   ['aragorn_blackgate', '아라곤(검은문)', 'Aragorn at the Black Gate'],
 ]},

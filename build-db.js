@@ -47,19 +47,35 @@ fs.writeFileSync(path.join(SRC, 'dice.json'), JSON.stringify({ dice }, null, 2))
 // gallery.html — visual check of id <-> image matching
 const groups = {};
 for (const r of rows) { (groups[r.side] ??= []).push(r); }
-const card = r => `<div class="card"><img src="tokens/${r.id}.png" loading="lazy"><div class="id">${r.id}</div><div class="ko">${r.name_ko}</div><div class="meta">${r.faction} · ${r.role} · ${r.weapon} · ${r.base}</div></div>`;
+// Display height maps to base size so relative scale reads at a glance.
+const BASE_H = { S: 56, M: 76, L: 100, XL: 140, XXL: 190 };
+const ROLE_KO = { hero: '영웅', infantry: '보병', cavalry: '기병', monster: '괴물', support: '지원/기수', terrain: '지형지물' };
+const ROLE_ORDER = ['hero', 'infantry', 'cavalry', 'monster', 'support', 'terrain'];
+const card = r => {
+  const h = BASE_H[r.base] || 90;
+  return `<div class="card"><div class="fig" style="height:${h}px"><img src="tokens/${r.id}.png" loading="lazy" style="height:${h}px"></div><div class="id">${r.id}</div><div class="ko">${r.name_ko}</div><div class="meta">${r.faction} · ${r.role} · ${r.weapon} · ${r.base}</div></div>`;
+};
+const roleGrid = list => ROLE_ORDER.filter(ro => list.some(r => r.role === ro)).map(ro =>
+  `<h3>${ROLE_KO[ro] || ro} — ${list.filter(r => r.role === ro).length}</h3><div class="grid">${list.filter(r => r.role === ro).map(card).join('')}</div>`).join('');
+const TABS = [['good', '자유민족'], ['evil', '악의 세력'], ['terrain', '지형지물']].filter(([k]) => groups[k]);
 const html = `<!doctype html><html lang="ko"><head><meta charset="utf-8"><title>에셋 매칭 갤러리</title><style>
 body{background:#14161a;color:#e8e4d8;font-family:system-ui;margin:0;padding:24px}
 h1{font-size:20px}h2{font-size:15px;margin:28px 0 10px;color:#9db4d0;border-bottom:1px solid #333;padding-bottom:6px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
-.card{background:#1e2126;border-radius:10px;padding:10px;text-align:center}
-.card img{width:100%;aspect-ratio:1;object-fit:contain}
-.id{font-size:11px;color:#7fa3cc;word-break:break-all;margin-top:6px}
+h3{font-size:13px;margin:18px 0 8px;color:#c8b890}
+.tabs{display:flex;gap:8px;margin:14px 0 4px;position:sticky;top:0;background:#14161a;padding:8px 0;z-index:10}
+.tabs button{background:#1e2126;border:1px solid #333;color:#e8e4d8;padding:8px 18px;border-radius:8px;cursor:pointer;font-size:14px}
+.tabs button.on{background:#2d4a6b;border-color:#4a7bb5}
+.grid{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end}
+.card{background:#1e2126;border-radius:10px;padding:12px;text-align:center}
+.fig{display:flex;align-items:flex-end;justify-content:center}
+.card img{image-rendering:pixelated;width:auto;object-fit:contain;display:block}
+.id{font-size:11px;color:#7fa3cc;word-break:break-all;margin-top:8px;max-width:170px}
 .ko{font-size:13px;font-weight:600;margin-top:2px}
 .meta{font-size:10px;color:#8a8f98;margin-top:3px}
 </style></head><body>
 <h1>MESBG 에셋 매칭 갤러리 — ${rows.length}종 <button id="vsw" onclick="let p=document.querySelectorAll('img'),pt=document.body.dataset.pt!=='1';document.body.dataset.pt=pt?'1':'0';p.forEach(i=>i.src=i.src.replace(pt?'tokens/':'tokens_painted/',pt?'tokens_painted/':'tokens/'));this.textContent=pt?'보는중: 도색 (클릭→픽셀)':'보는중: 픽셀 (클릭→도색)';" style="font-size:12px;padding:4px 10px;cursor:pointer">보는중: 픽셀 (클릭→도색)</button></h1>
-${['good','evil','terrain'].filter(k=>groups[k]).map(k=>`<h2>${k==='good'?'자유민족 (파랑 림)':k==='evil'?'악의 세력 (빨강 림)':'지형지물'} — ${groups[k].length}</h2><div class="grid">${groups[k].map(card).join('')}</div>`).join('')}
+<div class="tabs">${TABS.map(([k, n], i) => `<button data-t="${k}" class="${i ? '' : 'on'}" onclick="document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('on'));this.classList.add('on');document.querySelectorAll('.tabpane').forEach(p=>p.style.display=p.dataset.t===this.dataset.t?'block':'none')">${n} — ${groups[k].length}</button>`).join('')}</div>
+${TABS.map(([k, n], i) => `<div class="tabpane" data-t="${k}" style="display:${i ? 'none' : 'block'}"><h2>${n} — ${groups[k].length}</h2>${roleGrid(groups[k])}</div>`).join('')}
 </body></html>`;
 fs.writeFileSync(path.join(SRC, 'gallery.html'), html);
 
