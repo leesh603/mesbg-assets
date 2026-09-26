@@ -649,7 +649,14 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate) {
     let R = d[si], G = d[si + 1], B = d[si + 2];
     const dd = Math.hypot(gx - cx, gy - cy);
     if (a > 0 && rimBand[gy * cw + gx] && bN) {
-      R = Math.round(bR); G = Math.round(bG); B = Math.round(bB);
+      // erase the rim by transplanting ground texture from radially inward —
+      // a flat fill would read as a ring seam
+      const sx = Math.round(cx + (gx - cx) * 0.80), sy = Math.round(cy + (gy - cy) * 0.80);
+      const sp = sy * cw + sx;
+      if (alpha[sp] > 0.9) {
+        const s2 = idx(cx0 + sx, cy0 + sy, W);
+        R = d[s2]; G = d[s2 + 1]; B = d[s2 + 2];
+      } else { R = Math.round(bR); G = Math.round(bG); B = Math.round(bB); }
     } else if (a > 0) {
       R = lift(R); G = lift(G); B = lift(B);
       const l = 0.299 * R + 0.587 * G + 0.114 * B;
