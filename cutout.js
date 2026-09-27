@@ -121,6 +121,17 @@ const sheets = [
   { file: 'nb-single-suladan.png', rows: 1, cols: 1, noRim: true, names: ['suladan'] },
   { file: 'nb-single-warrior-mt.png', rows: 1, cols: 1, noRim: true, names: ['warrior_minas_tirith'] },
   { file: 'nb-single-mt-spear.png', rows: 1, cols: 1, noRim: true, names: ['mt_spear'] },
+  // expansion sheets (MESBG army-book gaps) — paintedFile resolves to rs- under RS=1
+  { file: 'nb-exp-gondor-heroes.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-exp-gondor-heroes.png', names: ['anborn', 'hirluin', 'madril', 'irolas', 'hurin', 'cirion'] },
+  { file: 'nb-exp-rohan.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-exp-rohan.png', names: ['theodred', 'hama', 'deorwine', 'grimbold', 'harding', 'rohan_royal_guard_mounted'] },
+  { file: 'nb-exp-numenor-arnor.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-exp-numenor-arnor.png', names: ['arvedui', 'malbeth', 'numenorean_captain', 'numenorean_warrior', 'numenorean_spearman', 'arnor_warrior'] },
+  { file: 'nb-exp-harad.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-exp-harad.png', names: ['hasharin', 'golden_king', 'mahud_beastmaster', 'watcher_karna', 'haradrim_raider', 'mahud_camel_raider'] },
+  { file: 'nb-exp-easterling.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-exp-easterling.png', names: ['amdur', 'dragon_knight', 'easterling_priest', 'easterling_archer', 'variag_warrior', 'khandish_horseman'] },
+  { file: 'nb-exp-dolguldur.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-exp-dolguldur.png', names: ['forsaken', 'castellan', 'dungeon_keeper', 'kardush', 'morgul_stalker', 'numenorean_marshal'] },
+  { file: 'nb-exp-dunland.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-exp-dunland.png', names: ['thrydan', 'gorulf', 'dunlending_berserker', 'dunlending_shaman', 'dunlending_archer', 'ruffian'] },
+  { file: 'nb-exp-misc.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-exp-misc.png', names: ['paladin_took', 'farmer_maggot', 'fredegar', 'durin_vi', 'dead_spearman', 'stone_giant'] },
+  { file: 'nb-exp-wargs.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-exp-wargs.png', names: ['warg_rider', 'warg_rider_spear', 'warg_rider_bow', 'wild_warg', 'wild_warg_alpha', 'gundabad_warg_rider'] },
+  { file: 'nb-single-dead-spear.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-dead-spear.png', names: ['dead_spearman'] },
 ];
 
 function idx(x, y, w) { return (y * w + x) << 2; }
@@ -1004,6 +1015,17 @@ function cutToken(png, cx0, cy0, cw, ch, name, noRim, clipMul, gate, noEdgeDrop,
     }
   }
   if (process.env.DBG) dbgA('after-polish');
+  // magenta despill: chroma-keyed edges keep pink-leaning semi/opaque pixels
+  // (high R+B, low G). Bleach them to luminance so no pink fringe survives.
+  for (let i = 0; i < ow * oh; i++) {
+    const di = i * 4;
+    if (out.data[di + 3] === 0) continue;
+    const r = out.data[di], g = out.data[di + 1], b = out.data[di + 2];
+    if (r > 120 && b > 120 && g < Math.min(r, b) * 0.7) {
+      const lum = 0.299 * r + 0.587 * g + 0.114 * b;
+      out.data[di] = out.data[di + 1] = out.data[di + 2] = lum;
+    }
+  }
   // detail/visibility pass: unsharp mask the opaque interior (skip the repainted
   // ring band and alpha edge) so weapons/armour read crisp at game size
   {

@@ -428,4 +428,75 @@ module.exports = [
 { sheet: 'single-aragorn-blackgate-mounted.png', side: 'good', faction: 'gondor', role: 'hero', weapon: 'sword', base: 'XL', units: [
   ['aragorn_blackgate_mounted', '아라곤(검은문·기마)', 'Aragorn at the Black Gate, mounted'],
 ]},
+
+
+{ sheet: 'exp-gondor-heroes.png', side: 'good', faction: 'gondor', role: 'hero', weapon: 'sword', base: 'L', units: [
+  ['anborn', '안보른', 'Anborn the Ranger', { weapon: 'bow', base: 'M' }],
+  ['hirluin', '히를루인', 'Hirluin the Fair', { weapon: 'sword_shield' }],
+  ['madril', '마드릴', 'Madril, Ranger Lieutenant', { weapon: 'sword', base: 'M' }],
+  ['irolas', '이롤라스', 'Irolas, Guard of the Citadel', { weapon: 'sword_shield' }],
+  ['hurin', '후린', 'Hurin, Warden of the Keys', { weapon: 'mace' }],
+  ['cirion', '키리온', 'Cirion, Captain of Gondor', { weapon: 'sword' }],
+]},
+{ sheet: 'exp-rohan.png', side: 'good', faction: 'rohan', role: 'hero', weapon: 'sword', base: 'M', units: [
+  ['theodred', '테오드레드', 'Theodred, Prince of Rohan'],
+  ['hama', '하마', 'Hama, Doorwarden of Meduseld'],
+  ['deorwine', '데오르바인', 'Deorwine, Chief of the Royal Guard'],
+  ['grimbold', '그림볼드', 'Grimbold of Grimslade'],
+  ['harding', '하딩', 'Harding of the Eastemnet', { weapon: 'bow' }],
+  ['rohan_royal_guard_mounted', '로한 근위기병', 'Rohan Royal Guard, mounted', { role: 'cavalry', weapon: 'spear', base: 'XL' }],
+]},
+{ sheet: 'exp-numenor-arnor.png', side: 'good', faction: 'gondor', role: 'hero', weapon: 'sword', base: 'L', units: [
+  ['arvedui', '아르베두이', 'Arvedui, Last King of Arnor', { faction: 'arnor' }],
+  ['malbeth', '말베스', 'Malbeth the Seer', { faction: 'arnor', role: 'support', weapon: 'staff', base: 'M' }],
+  ['numenorean_captain', '누메노르 대장', 'Numenorean Captain'],
+  ['numenorean_warrior', '누메노르 전사', 'Numenorean Warrior', { role: 'infantry', weapon: 'sword_shield', base: 'M' }],
+  ['numenorean_spearman', '누메노르 창병', 'Numenorean Spearman', { role: 'infantry', weapon: 'spear', base: 'M' }],
+  ['arnor_warrior', '아르노르 전사', 'Warrior of Arnor', { faction: 'arnor', role: 'infantry', weapon: 'sword_shield', base: 'M' }],
+]},
+{ sheet: 'exp-harad.png', side: 'evil', faction: 'harad', role: 'hero', weapon: 'sword', base: 'L', units: [
+  ['hasharin', '하샤린', 'Hasharin of Harad', { weapon: 'dagger', base: 'M' }],
+  ['golden_king', '아브라칸의 황금왕', 'Golden King of Abrakhan'],
+  ['mahud_beastmaster', '마후드 야수조련사', 'Mahud Beastmaster', { weapon: 'whip', base: 'M' }],
+  ['watcher_karna', '카르나의 감시자', 'Watcher of Karna', { role: 'infantry', weapon: 'sword', base: 'M' }],
+  ['haradrim_raider', '하라드림 습격기병', 'Haradrim Raider', { role: 'cavalry', weapon: 'spear', base: 'XL' }],
+  ['mahud_camel_raider', '마후드 낙타기병', 'Mahud Camel Raider', { role: 'cavalry', weapon: 'spear', base: 'XL' }],
+]},
+{ sheet: 'exp-easterling.png', side: 'evil', faction: 'easterling', role: 'hero', weapon: 'sword', base: 'L', units: [
+  ['amdur', '암두르 검의 군주', 'Amdur, Lord of Blades'],
+  ['dragon_knight', '드래곤 기사', 'Dragon Knight of Rhun', { role: 'cavalry', weapon: 'lance', base: 'XL' }],
+  ['easterling_priest', '이스터링 전쟁사제', 'Easterling War Priest', { role: 'support', weapon: 'dagger', base: 'M' }],
+  ['easterling_archer', '이스터링 궁수', 'Easterling Archer', { role: 'infantry', weapon: 'bow', base: 'M' }],
+  ['variag_warrior', '바리악 전사', 'Variag Warrior of Khand', { role: 'infantry', weapon: 'sword_shield', base: 'M' }],
+  ['khandish_horseman', '칸드 기병', 'Khandish Horseman', { role: 'cavalry', weapon: 'sword', base: 'XL' }],
+]},
+{ sheet: 'exp-dolguldur.png', side: 'evil', faction: 'mordor', role: 'hero', weapon: 'sword', base: 'L', units: [
+  ['forsaken', '버려진 자(나즈굴)', 'The Forsaken, Ringwraith', { faction: 'dol_guldur' }],
+  ['castellan', '돌 굴두르 성주', 'Castellan of Dol Guldur', { faction: 'dol_guldur' }],
+  ['dungeon_keeper', '감옥지기', 'Keeper of the Dungeons', { faction: 'dol_guldur', weapon: 'mace' }],
+  ['kardush', '카두쉬 화염술사', 'Kardush the Firecaller', { role: 'support', weapon: 'staff', base: 'S' }],
+  ['morgul_stalker', '모르굴 추적자', 'Morgul Stalker', { role: 'infantry', weapon: 'dagger', base: 'S' }],
+  ['numenorean_marshal', '검은 누메노르 사령관', 'Black Numenorean Marshal', { weapon: 'mace' }],
+]},
+{ sheet: 'exp-dunland.png', side: 'evil', faction: 'dunland', role: 'hero', weapon: 'sword', base: 'L', units: [
+  ['thrydan', '트리단 울프스베인', 'Thrydan Wolfsbane', { weapon: 'twohanded' }],
+  ['gorulf', '고룰프 아이언스킨', 'Gorulf Ironskin', { weapon: 'axe', base: 'M' }],
+  ['dunlending_berserker', '던랜드 광전사', 'Dunlending Berserker', { role: 'infantry', weapon: 'twohanded', base: 'M' }],
+  ['dunlending_shaman', '던랜드 주술사', 'Dunlending Shaman', { role: 'support', weapon: 'staff', base: 'M' }],
+  ['dunlending_archer', '던랜드 궁수', 'Dunlending Archer', { role: 'infantry', weapon: 'bow', base: 'M' }],
+  ['ruffian', '샤키의 불한당', 'Sharkey’s Ruffian', { faction: 'isengard', role: 'infantry', weapon: 'club', base: 'M' }],
+]},
+{ sheet: 'exp-misc.png', side: 'good', faction: 'shire', role: 'hero', weapon: 'sword', base: 'S', units: [
+  ['paladin_took', '팔라딘 툭', 'Paladin Took'],
+  ['farmer_maggot', '농부 매곳', 'Farmer Maggot', { weapon: 'pitchfork' }],
+  ['fredegar', '프레데가르 볼저', 'Fredegar Bolger', { weapon: 'dagger' }],
+  ['durin_vi', '두린 6세', 'Durin VI, King of Khazad-dum', { faction: 'dwarf', weapon: 'mace', base: 'M' }],
+  ['dead_spearman', '죽은자 창병', 'Dead spearman of Dunharrow', { side: 'good', faction: 'dead', role: 'infantry', weapon: 'spear', base: 'M' }],
+  ['stone_giant', '안개산맥 거인', 'Stone Giant of the Misty Mountains', { side: 'evil', faction: 'gundabad', role: 'monster', weapon: 'club', base: 'XXL' }],
+]},
+
+
+{ sheet: 'exp-wargs.png', side: 'evil', faction: 'gundabad', role: 'cavalry', weapon: 'spear', base: 'XL', units: [
+  ['gundabad_warg_rider', '군다바드 와르그 기병', 'Gundabad Warg Rider'],
+]},
 ];
