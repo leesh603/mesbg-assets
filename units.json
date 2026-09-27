@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "count": 404,
+  "count": 424,
   "units": [
     {
       "id": "aragorn",
@@ -6043,36 +6043,6 @@
       "base_mm": "60mm"
     },
     {
-      "id": "suladan",
-      "name_ko": "술라단",
-      "name_en": "Suladan the Serpent Lord",
-      "side": "evil",
-      "faction": "harad",
-      "role": "hero",
-      "weapon": "spear",
-      "base": "L",
-      "sheet": "suladan-fellbeast.png",
-      "file": "tokens/suladan.png",
-      "stats": {
-        "f": 5,
-        "s": 4,
-        "d": 5,
-        "a": 3,
-        "w": 3,
-        "c": 5,
-        "might": 2,
-        "will": 1,
-        "fate": 2,
-        "rules": [
-          "Serpent Lord"
-        ]
-      },
-      "rules": [
-        "Serpent Lord"
-      ],
-      "base_mm": "25mm"
-    },
-    {
       "id": "fellbeast",
       "name_ko": "펠비스트",
       "name_en": "Fell Beast (riderless)",
@@ -6087,83 +6057,6 @@
         "fly",
         "terror"
       ],
-      "base_mm": "60mm"
-    },
-    {
-      "id": "boromir",
-      "name_ko": "보로미르",
-      "name_en": "Boromir",
-      "side": "good",
-      "faction": "gondor",
-      "role": "hero",
-      "weapon": "sword_shield",
-      "base": "L",
-      "sheet": "boromir-elrond.png",
-      "file": "tokens/boromir.png",
-      "stats": {
-        "f": 6,
-        "s": 4,
-        "d": 6,
-        "a": 3,
-        "w": 3,
-        "c": 6,
-        "might": 3,
-        "will": 1,
-        "fate": 2,
-        "rules": [
-          "Horn of Gondor",
-          "Captain of the White Tower"
-        ]
-      },
-      "rules": [
-        "Horn of Gondor",
-        "Captain of the White Tower"
-      ],
-      "base_mm": "25mm"
-    },
-    {
-      "id": "elrond",
-      "name_ko": "엘론드",
-      "name_en": "Elrond",
-      "side": "good",
-      "faction": "rivendell",
-      "role": "hero",
-      "weapon": "sword",
-      "base": "L",
-      "sheet": "boromir-elrond.png",
-      "file": "tokens/elrond.png",
-      "stats": {
-        "f": 6,
-        "s": 4,
-        "d": 6,
-        "a": 3,
-        "w": 3,
-        "c": 7,
-        "might": 2,
-        "will": 10,
-        "fate": 3,
-        "rules": [
-          "Lord of Rivendell",
-          "Vilya"
-        ]
-      },
-      "rules": [
-        "Lord of Rivendell",
-        "Vilya"
-      ],
-      "base_mm": "25mm"
-    },
-    {
-      "id": "ent",
-      "name_ko": "트리비어드",
-      "name_en": "Treebeard",
-      "side": "good",
-      "faction": "ent",
-      "role": "monster",
-      "weapon": "none",
-      "base": "XXL",
-      "sheet": "ents.png",
-      "file": "tokens/ent.png",
       "base_mm": "60mm"
     },
     {
@@ -7998,6 +7891,321 @@
       "sheet": "nb-exp-evil2.png",
       "file": "tokens/yazneg.png",
       "base_mm": "25mm"
+    },
+    {
+      "id": "eorl_the_young",
+      "name_ko": "에오를",
+      "name_en": "Eorl the Young",
+      "side": "good",
+      "faction": "rohan",
+      "role": "hero",
+      "weapon": "spear",
+      "base": "XL",
+      "sheet": "nb-exp-heroes3.png",
+      "file": "tokens/eorl_the_young.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "helm_hammerhand",
+      "name_ko": "헬름 해머핸드",
+      "name_en": "Helm Hammerhand",
+      "side": "good",
+      "faction": "rohan",
+      "role": "hero",
+      "weapon": "twohanded",
+      "base": "L",
+      "sheet": "nb-exp-heroes3.png",
+      "file": "tokens/helm_hammerhand.png",
+      "base_mm": "25mm"
+    },
+    {
+      "id": "tom_bombadil",
+      "name_ko": "톰 봄바딜",
+      "name_en": "Tom Bombadil",
+      "side": "good",
+      "faction": "shire",
+      "role": "hero",
+      "weapon": "none",
+      "base": "M",
+      "sheet": "nb-exp-heroes3.png",
+      "file": "tokens/tom_bombadil.png",
+      "base_mm": "25mm"
+    },
+    {
+      "id": "goldberry",
+      "name_ko": "골드베리",
+      "name_en": "Goldberry",
+      "side": "good",
+      "faction": "shire",
+      "role": "hero",
+      "weapon": "none",
+      "base": "M",
+      "sheet": "nb-exp-heroes3.png",
+      "file": "tokens/goldberry.png",
+      "base_mm": "25mm"
+    },
+    {
+      "id": "dead_rider",
+      "name_ko": "망자 기병",
+      "name_en": "Rider of the Dead",
+      "side": "good",
+      "faction": "dead",
+      "role": "cavalry",
+      "weapon": "spear",
+      "base": "XL",
+      "sheet": "nb-exp-heroes3.png",
+      "file": "tokens/dead_rider.png",
+      "traits": [
+        "terror"
+      ],
+      "base_mm": "40mm"
+    },
+    {
+      "id": "dervorin",
+      "name_ko": "데르보린",
+      "name_en": "Dervorin of Ringlo Vale",
+      "side": "good",
+      "faction": "gondor",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "M",
+      "sheet": "nb-exp-heroes3.png",
+      "file": "tokens/dervorin.png",
+      "base_mm": "25mm"
+    },
+    {
+      "id": "dol_amroth_man_at_arms",
+      "name_ko": "돌 암로스 병사",
+      "name_en": "Man-at-Arms of Dol Amroth",
+      "side": "good",
+      "faction": "gondor",
+      "role": "infantry",
+      "weapon": "spear",
+      "base": "M",
+      "sheet": "nb-exp-troops2.png",
+      "file": "tokens/dol_amroth_man_at_arms.png",
+      "base_mm": "25mm"
+    },
+    {
+      "id": "numenorean_archer",
+      "name_ko": "누메노르 궁병",
+      "name_en": "Numenorean archer",
+      "side": "good",
+      "faction": "numenor",
+      "role": "infantry",
+      "weapon": "bow",
+      "base": "M",
+      "sheet": "nb-exp-troops2.png",
+      "file": "tokens/numenorean_archer.png",
+      "base_mm": "25mm"
+    },
+    {
+      "id": "sons_of_eorl",
+      "name_ko": "에오를의 아들들",
+      "name_en": "Sons of Eorl",
+      "side": "good",
+      "faction": "rohan",
+      "role": "cavalry",
+      "weapon": "spear",
+      "base": "XL",
+      "sheet": "nb-exp-troops2.png",
+      "file": "tokens/sons_of_eorl.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "vault_warden",
+      "name_ko": "철언덕 방벽병",
+      "name_en": "Iron Hills Vault Warden",
+      "side": "good",
+      "faction": "dwarf",
+      "role": "infantry",
+      "weapon": "spear",
+      "base": "M",
+      "sheet": "nb-exp-troops2.png",
+      "file": "tokens/vault_warden.png",
+      "base_mm": "25mm"
+    },
+    {
+      "id": "palace_guard",
+      "name_ko": "궁정 근위병",
+      "name_en": "Mirkwood Palace Guard",
+      "side": "good",
+      "faction": "elf",
+      "role": "infantry",
+      "weapon": "sword",
+      "base": "M",
+      "sheet": "nb-exp-troops2.png",
+      "file": "tokens/palace_guard.png",
+      "base_mm": "25mm"
+    },
+    {
+      "id": "hobbit_militia",
+      "name_ko": "호빗 민병대",
+      "name_en": "Hobbit militia",
+      "side": "good",
+      "faction": "shire",
+      "role": "infantry",
+      "weapon": "club",
+      "base": "S",
+      "sheet": "nb-exp-troops2.png",
+      "file": "tokens/hobbit_militia.png",
+      "base_mm": "25mm"
+    },
+    {
+      "id": "guritz",
+      "name_ko": "구리츠",
+      "name_en": "Guritz",
+      "side": "evil",
+      "faction": "mordor",
+      "role": "hero",
+      "weapon": "twohanded",
+      "base": "M",
+      "sheet": "nb-exp-evil3.png",
+      "file": "tokens/guritz.png",
+      "base_mm": "25mm"
+    },
+    {
+      "id": "targsh",
+      "name_ko": "타르그쉬",
+      "name_en": "Targsh",
+      "side": "evil",
+      "faction": "isengard",
+      "role": "hero",
+      "weapon": "spear",
+      "base": "M",
+      "sheet": "nb-exp-evil3.png",
+      "file": "tokens/targsh.png",
+      "base_mm": "25mm"
+    },
+    {
+      "id": "durburz",
+      "name_ko": "두르부르즈",
+      "name_en": "Durburz, Goblin King of Moria",
+      "side": "evil",
+      "faction": "moria",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "M",
+      "sheet": "nb-exp-evil3.png",
+      "file": "tokens/durburz.png",
+      "base_mm": "25mm"
+    },
+    {
+      "id": "goblin_scribe",
+      "name_ko": "고블린 서기",
+      "name_en": "Goblin scribe",
+      "side": "evil",
+      "faction": "moria",
+      "role": "support",
+      "weapon": "none",
+      "base": "S",
+      "sheet": "nb-exp-evil3.png",
+      "file": "tokens/goblin_scribe.png",
+      "base_mm": "25mm"
+    },
+    {
+      "id": "fimbul",
+      "name_ko": "핌불",
+      "name_en": "Fimbul the Hunter",
+      "side": "evil",
+      "faction": "gundabad",
+      "role": "hero",
+      "weapon": "spear",
+      "base": "M",
+      "sheet": "nb-exp-evil3.png",
+      "file": "tokens/fimbul.png",
+      "base_mm": "25mm"
+    },
+    {
+      "id": "narzug",
+      "name_ko": "나르주그",
+      "name_en": "Narzug",
+      "side": "evil",
+      "faction": "gundabad",
+      "role": "hero",
+      "weapon": "bow",
+      "base": "M",
+      "sheet": "nb-exp-evil3.png",
+      "file": "tokens/narzug.png",
+      "base_mm": "25mm"
+    },
+    {
+      "id": "khandish_chariot",
+      "name_ko": "칸드 전차",
+      "name_en": "Khandish chariot",
+      "side": "evil",
+      "faction": "easterling",
+      "role": "cavalry",
+      "weapon": "bow",
+      "base": "XL",
+      "sheet": "nb-exp-harad2.png",
+      "file": "tokens/khandish_chariot.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "great_beast_gorgoroth",
+      "name_ko": "고르고로스 거수",
+      "name_en": "Great Beast of Gorgoroth",
+      "side": "evil",
+      "faction": "mordor",
+      "role": "monster",
+      "weapon": "none",
+      "base": "XXL",
+      "sheet": "nb-exp-harad2.png",
+      "file": "tokens/great_beast_gorgoroth.png",
+      "base_mm": "60mm"
+    },
+    {
+      "id": "khandish_chieftain",
+      "name_ko": "칸드 족장",
+      "name_en": "Khandish chieftain",
+      "side": "evil",
+      "faction": "easterling",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": "nb-exp-harad2.png",
+      "file": "tokens/khandish_chieftain.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "abrakhan_guard",
+      "name_ko": "아브라칸 근위대",
+      "name_en": "Abrakhan Guard",
+      "side": "evil",
+      "faction": "harad",
+      "role": "infantry",
+      "weapon": "glaive",
+      "base": "M",
+      "sheet": "nb-exp-harad2.png",
+      "file": "tokens/abrakhan_guard.png",
+      "base_mm": "25mm"
+    },
+    {
+      "id": "corsair_bosun",
+      "name_ko": "코르사 갑판장",
+      "name_en": "Corsair boatswain",
+      "side": "evil",
+      "faction": "umbar",
+      "role": "infantry",
+      "weapon": "sword",
+      "base": "M",
+      "sheet": "nb-exp-harad2.png",
+      "file": "tokens/corsair_bosun.png",
+      "base_mm": "25mm"
+    },
+    {
+      "id": "spider_queen",
+      "name_ko": "거미 여왕",
+      "name_en": "Spider Queen of Mirkwood",
+      "side": "evil",
+      "faction": "dol_guldur",
+      "role": "monster",
+      "weapon": "claws",
+      "base": "XL",
+      "sheet": "nb-exp-harad2.png",
+      "file": "tokens/spider_queen.png",
+      "base_mm": "50mm"
     }
   ]
 }

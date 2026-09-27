@@ -298,11 +298,7 @@ terr_broken_stairs,부서진 계단,Broken stairs,terrain,terrain,terrain,none,,
 terr_siege_wreck,공성기 잔해,Wrecked siege engine,terrain,terrain,terrain,none,,,terrain-objects-v4.png,tokens/terr_siege_wreck.png
 terr_idol,석상,Buried idol,terrain,terrain,terrain,none,,,terrain-objects-v4.png,tokens/terr_idol.png
 nazgul_fellbeast,나즈굴(펠비스트),Ringwraith on Fell Beast,evil,angmar,monster,claws,XXL,60mm,single-nazgul-fellbeast.png,tokens/nazgul_fellbeast.png
-suladan,술라단,Suladan the Serpent Lord,evil,harad,hero,spear,L,25mm,suladan-fellbeast.png,tokens/suladan.png
 fellbeast,펠비스트,Fell Beast (riderless),evil,angmar,monster,claws,XXL,60mm,suladan-fellbeast.png,tokens/fellbeast.png
-boromir,보로미르,Boromir,good,gondor,hero,sword_shield,L,25mm,boromir-elrond.png,tokens/boromir.png
-elrond,엘론드,Elrond,good,rivendell,hero,sword,L,25mm,boromir-elrond.png,tokens/elrond.png
-ent,트리비어드,Treebeard,good,ent,monster,none,XXL,60mm,ents.png,tokens/ent.png
 quickbeam,퀵빔,Quickbeam,good,ent,monster,none,XL,50mm,ents.png,tokens/quickbeam.png
 aragorn_blackgate,아라곤(검은문),Aragorn at the Black Gate,good,gondor,hero,sword,L,25mm,single-aragorn-blackgate.png,tokens/aragorn_blackgate.png
 aragorn_blackgate_mounted,아라곤(검은문·기마),"Aragorn at the Black Gate, mounted",good,gondor,hero,sword,XL,40mm,single-aragorn-blackgate-mounted.png,tokens/aragorn_blackgate_mounted.png
@@ -403,3 +399,27 @@ zagdush,자그두쉬,Zagdush,evil,moria,hero,cleaver,M,25mm,nb-exp-evil2.png,tok
 dalamyr,달라미르,"Dalamyr, Fleetmaster of Umbar",evil,umbar,hero,twohanded,M,25mm,nb-exp-evil2.png,tokens/dalamyr.png
 goblin_drummer,고블린 북병,Goblin drummer,evil,moria,support,none,M,25mm,nb-exp-evil2.png,tokens/goblin_drummer.png
 yazneg,야즈네그,Yazneg,evil,gundabad,hero,spear,M,25mm,nb-exp-evil2.png,tokens/yazneg.png
+eorl_the_young,에오를,Eorl the Young,good,rohan,hero,spear,XL,40mm,nb-exp-heroes3.png,tokens/eorl_the_young.png
+helm_hammerhand,헬름 해머핸드,Helm Hammerhand,good,rohan,hero,twohanded,L,25mm,nb-exp-heroes3.png,tokens/helm_hammerhand.png
+tom_bombadil,톰 봄바딜,Tom Bombadil,good,shire,hero,none,M,25mm,nb-exp-heroes3.png,tokens/tom_bombadil.png
+goldberry,골드베리,Goldberry,good,shire,hero,none,M,25mm,nb-exp-heroes3.png,tokens/goldberry.png
+dead_rider,망자 기병,Rider of the Dead,good,dead,cavalry,spear,XL,40mm,nb-exp-heroes3.png,tokens/dead_rider.png
+dervorin,데르보린,Dervorin of Ringlo Vale,good,gondor,hero,sword,M,25mm,nb-exp-heroes3.png,tokens/dervorin.png
+dol_amroth_man_at_arms,돌 암로스 병사,Man-at-Arms of Dol Amroth,good,gondor,infantry,spear,M,25mm,nb-exp-troops2.png,tokens/dol_amroth_man_at_arms.png
+numenorean_archer,누메노르 궁병,Numenorean archer,good,numenor,infantry,bow,M,25mm,nb-exp-troops2.png,tokens/numenorean_archer.png
+sons_of_eorl,에오를의 아들들,Sons of Eorl,good,rohan,cavalry,spear,XL,40mm,nb-exp-troops2.png,tokens/sons_of_eorl.png
+vault_warden,철언덕 방벽병,Iron Hills Vault Warden,good,dwarf,infantry,spear,M,25mm,nb-exp-troops2.png,tokens/vault_warden.png
+palace_guard,궁정 근위병,Mirkwood Palace Guard,good,elf,infantry,sword,M,25mm,nb-exp-troops2.png,tokens/palace_guard.png
+hobbit_militia,호빗 민병대,Hobbit militia,good,shire,infantry,club,S,25mm,nb-exp-troops2.png,tokens/hobbit_militia.png
+guritz,구리츠,Guritz,evil,mordor,hero,twohanded,M,25mm,nb-exp-evil3.png,tokens/guritz.png
+targsh,타르그쉬,Targsh,evil,isengard,hero,spear,M,25mm,nb-exp-evil3.png,tokens/targsh.png
+durburz,두르부르즈,"Durburz, Goblin King of Moria",evil,moria,hero,sword,M,25mm,nb-exp-evil3.png,tokens/durburz.png
+goblin_scribe,고블린 서기,Goblin scribe,evil,moria,support,none,S,25mm,nb-exp-evil3.png,tokens/goblin_scribe.png
+fimbul,핌불,Fimbul the Hunter,evil,gundabad,hero,spear,M,25mm,nb-exp-evil3.png,tokens/fimbul.png
+narzug,나르주그,Narzug,evil,gundabad,hero,bow,M,25mm,nb-exp-evil3.png,tokens/narzug.png
+khandish_chariot,칸드 전차,Khandish chariot,evil,easterling,cavalry,bow,XL,40mm,nb-exp-harad2.png,tokens/khandish_chariot.png
+great_beast_gorgoroth,고르고로스 거수,Great Beast of Gorgoroth,evil,mordor,monster,none,XXL,60mm,nb-exp-harad2.png,tokens/great_beast_gorgoroth.png
+khandish_chieftain,칸드 족장,Khandish chieftain,evil,easterling,hero,sword,XL,40mm,nb-exp-harad2.png,tokens/khandish_chieftain.png
+abrakhan_guard,아브라칸 근위대,Abrakhan Guard,evil,harad,infantry,glaive,M,25mm,nb-exp-harad2.png,tokens/abrakhan_guard.png
+corsair_bosun,코르사 갑판장,Corsair boatswain,evil,umbar,infantry,sword,M,25mm,nb-exp-harad2.png,tokens/corsair_bosun.png
+spider_queen,거미 여왕,Spider Queen of Mirkwood,evil,dol_guldur,monster,claws,XL,50mm,nb-exp-harad2.png,tokens/spider_queen.png

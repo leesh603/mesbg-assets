@@ -411,15 +411,9 @@ module.exports = [
   ['nazgul_fellbeast', '나즈굴(펠비스트)', 'Ringwraith on Fell Beast', { traits: ['fly','terror'] }],
 ]},
 { sheet: 'suladan-fellbeast.png', side: 'evil', faction: 'angmar', role: 'monster', weapon: 'claws', base: 'XXL', units: [
-  ['suladan', '술라단', 'Suladan the Serpent Lord', { faction: 'harad', role: 'hero', weapon: 'spear', base: 'L' }],
   ['fellbeast', '펠비스트', 'Fell Beast (riderless)', { traits: ['fly','terror'], weapon: 'claws' }],
 ]},
-{ sheet: 'boromir-elrond.png', side: 'good', faction: 'gondor', role: 'hero', weapon: 'sword', base: 'L', units: [
-  ['boromir', '보로미르', 'Boromir', { faction: 'gondor', weapon: 'sword_shield' }],
-  ['elrond', '엘론드', 'Elrond', { faction: 'rivendell' }],
-]},
 { sheet: 'ents.png', side: 'good', faction: 'ent', role: 'monster', weapon: 'none', base: 'XXL', units: [
-  ['ent', '트리비어드', 'Treebeard'],
   ['quickbeam', '퀵빔', 'Quickbeam', { base: 'XL' }],
 ]},
 { sheet: 'single-aragorn-blackgate.png', side: 'good', faction: 'gondor', role: 'hero', weapon: 'sword', base: 'L', units: [
@@ -563,5 +557,38 @@ module.exports = [
   ['dalamyr', '달라미르', 'Dalamyr, Fleetmaster of Umbar', { faction: 'umbar', weapon: 'twohanded' }],
   ['goblin_drummer', '고블린 북병', 'Goblin drummer', { faction: 'moria', role: 'support', weapon: 'none' }],
   ['yazneg', '야즈네그', 'Yazneg', { faction: 'gundabad', weapon: 'spear' }],
+]},
+
+{ sheet: 'nb-exp-heroes3.png', side: 'good', role: 'hero', weapon: 'sword', base: 'M', units: [
+  ['eorl_the_young', '에오를', 'Eorl the Young', { faction: 'rohan', weapon: 'spear', base: 'XL' }],
+  ['helm_hammerhand', '헬름 해머핸드', 'Helm Hammerhand', { faction: 'rohan', weapon: 'twohanded', base: 'L' }],
+  ['tom_bombadil', '톰 봄바딜', 'Tom Bombadil', { faction: 'shire', weapon: 'none' }],
+  ['goldberry', '골드베리', 'Goldberry', { faction: 'shire', weapon: 'none' }],
+  ['dead_rider', '망자 기병', 'Rider of the Dead', { faction: 'dead', role: 'cavalry', weapon: 'spear', base: 'XL', traits: ['terror'] }],
+  ['dervorin', '데르보린', 'Dervorin of Ringlo Vale', { faction: 'gondor' }],
+]},
+{ sheet: 'nb-exp-troops2.png', side: 'good', role: 'infantry', weapon: 'spear', base: 'M', units: [
+  ['dol_amroth_man_at_arms', '돌 암로스 병사', 'Man-at-Arms of Dol Amroth', { faction: 'gondor' }],
+  ['numenorean_archer', '누메노르 궁병', 'Numenorean archer', { faction: 'numenor', weapon: 'bow' }],
+  ['sons_of_eorl', '에오를의 아들들', 'Sons of Eorl', { faction: 'rohan', role: 'cavalry', base: 'XL' }],
+  ['vault_warden', '철언덕 방벽병', 'Iron Hills Vault Warden', { faction: 'dwarf' }],
+  ['palace_guard', '궁정 근위병', 'Mirkwood Palace Guard', { faction: 'elf', weapon: 'sword' }],
+  ['hobbit_militia', '호빗 민병대', 'Hobbit militia', { faction: 'shire', weapon: 'club', base: 'S' }],
+]},
+{ sheet: 'nb-exp-evil3.png', side: 'evil', role: 'hero', weapon: 'sword', base: 'M', units: [
+  ['guritz', '구리츠', 'Guritz', { faction: 'mordor', weapon: 'twohanded' }],
+  ['targsh', '타르그쉬', 'Targsh', { faction: 'isengard', weapon: 'spear' }],
+  ['durburz', '두르부르즈', 'Durburz, Goblin King of Moria', { faction: 'moria' }],
+  ['goblin_scribe', '고블린 서기', 'Goblin scribe', { faction: 'moria', role: 'support', weapon: 'none', base: 'S' }],
+  ['fimbul', '핌불', 'Fimbul the Hunter', { faction: 'gundabad', weapon: 'spear' }],
+  ['narzug', '나르주그', 'Narzug', { faction: 'gundabad', weapon: 'bow' }],
+]},
+{ sheet: 'nb-exp-harad2.png', side: 'evil', role: 'cavalry', weapon: 'none', base: 'XL', units: [
+  ['khandish_chariot', '칸드 전차', 'Khandish chariot', { faction: 'easterling', weapon: 'bow' }],
+  ['great_beast_gorgoroth', '고르고로스 거수', 'Great Beast of Gorgoroth', { faction: 'mordor', role: 'monster', base: 'XXL' }],
+  ['khandish_chieftain', '칸드 족장', 'Khandish chieftain', { faction: 'easterling', role: 'hero', weapon: 'sword' }],
+  ['abrakhan_guard', '아브라칸 근위대', 'Abrakhan Guard', { faction: 'harad', role: 'infantry', weapon: 'glaive', base: 'M' }],
+  ['corsair_bosun', '코르사 갑판장', 'Corsair boatswain', { faction: 'umbar', role: 'infantry', weapon: 'sword', base: 'M' }],
+  ['spider_queen', '거미 여왕', 'Spider Queen of Mirkwood', { faction: 'dol_guldur', role: 'monster', weapon: 'claws' }],
 ]},
 ];
