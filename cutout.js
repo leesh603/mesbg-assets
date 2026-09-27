@@ -134,6 +134,8 @@ const sheets = [
   { file: 'nb-exp-dunland.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-exp-dunland.png', names: ['thrydan', 'gorulf', 'dunlending_berserker', 'dunlending_shaman', 'dunlending_archer', 'ruffian'] },
   { file: 'nb-exp-misc.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-exp-misc.png', names: ['paladin_took', 'farmer_maggot', 'fredegar', 'durin_vi', 'dead_spearman', 'stone_giant'] },
   { file: 'nb-exp-wargs.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-exp-wargs.png', names: ['warg_rider', 'warg_rider_spear', 'warg_rider_bow', 'wild_warg', 'wild_warg_alpha', 'gundabad_warg_rider'] },
+  { file: 'nb-exp-heroes2.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-exp-heroes2.png', names: ['arathorn', 'angbor', 'dunhere', 'haleth', 'bandobras', 'gildor'] },
+  { file: 'nb-exp-evil2.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-exp-evil2.png', names: ['grishnakh', 'snaga', 'zagdush', 'dalamyr', 'goblin_drummer', 'yazneg'] },
   { file: 'nb-single-dead-spear.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-dead-spear.png', names: ['dead_spearman'] },
   { file: 'nb-single-blackroot.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-blackroot.png', names: ['blackroot_archer'] },
   { file: 'nb-terrain-fort.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-terrain-fort.png', names: ['terr_stone_barricade', 'terr_spike_barricade', 'terr_orc_barricade', 'terr_sandbag', 'terr_portcullis', 'terr_stone_archway'] },

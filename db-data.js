@@ -547,4 +547,21 @@ module.exports = [
   ['terr_map_table', '지도 탁자', 'Map table', { base: 'L' }],
   ['terr_torch_post', '횃불 기둥', 'Torch post'],
 ]},
+
+{ sheet: 'nb-exp-heroes2.png', side: 'good', role: 'hero', base: 'M', units: [
+  ['arathorn', '아라손', 'Arathorn II', { faction: 'arnor', weapon: 'sword' }],
+  ['angbor', '앵보르 무서운 자', 'Angbor the Fearless', { faction: 'gondor', weapon: 'twohanded' }],
+  ['dunhere', '둔헤레', 'Dunhere', { faction: 'rohan', weapon: 'spear' }],
+  ['haleth', '할레스', 'Haleth son of Hama', { faction: 'rohan', weapon: 'spear' }],
+  ['bandobras', '반도브라스 툭', 'Bandobras "Bullroarer" Took', { faction: 'shire', weapon: 'club', base: 'S' }],
+  ['gildor', '길도르', 'Gildor Inglorion', { faction: 'rivendell', weapon: 'staff' }],
+]},
+{ sheet: 'nb-exp-evil2.png', side: 'evil', role: 'hero', base: 'M', units: [
+  ['grishnakh', '그리쉬나크', 'Grishnakh', { faction: 'mordor', weapon: 'sword' }],
+  ['snaga', '스나가', 'Snaga', { faction: 'isengard', weapon: 'sword', base: 'S' }],
+  ['zagdush', '자그두쉬', 'Zagdush', { faction: 'moria', weapon: 'cleaver' }],
+  ['dalamyr', '달라미르', 'Dalamyr, Fleetmaster of Umbar', { faction: 'umbar', weapon: 'twohanded' }],
+  ['goblin_drummer', '고블린 북병', 'Goblin drummer', { faction: 'moria', role: 'support', weapon: 'none' }],
+  ['yazneg', '야즈네그', 'Yazneg', { faction: 'gundabad', weapon: 'spear' }],
+]},
 ];
