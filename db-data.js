@@ -679,4 +679,6 @@ module.exports = [
     ['dwarf_shieldbearers','드워프 방패 운반병','Dwarf Shieldbearers']] },
   { sheet:'px-nb-exp-wild.png', side:'good', faction:'dwarf', role:'hero', weapon:'mattock', base:'M', traits:[], units:[
     ['iron_hills_captain','아이언 힐즈 대장','Iron Hills Captain']] },
+  { sheet:'px-fix-fingolfin.png', side:'good', faction:'elf', role:'hero', weapon:'sword', base:'XL', traits:[], units:[
+    ['fingolfin_mounted','핑골핀 (기마)','Fingolfin on Rochallor']] },
 ];

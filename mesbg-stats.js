@@ -188,4 +188,5 @@ module.exports = {
   dervorin:           { f: 5, s: 4, d: 5, a: 2, w: 2, c: 5, might: 2, will: 1, fate: 1, rules: ['Lord of Ringlo Vale'] },
   tom_bombadil:       { f: 4, s: 2, d: 8, a: 2, w: 3, c: 8, might: 2, will: 4, fate: 3, rules: ['Master of the Old Forest', 'The Ring Has No Power Over Him'] },
   goldberry:          { f: 3, s: 2, d: 5, a: 1, w: 2, c: 6, might: 1, will: 3, fate: 2, rules: ['River-daughter'] },
+  fingolfin_mounted:  { f: 7, s: 5, d: 6, a: 4, w: 3, c: 7, might: 3, will: 2, fate: 3, rules: ['High King of the Noldor', 'Challenged Morgoth', 'Rochallor'] },
 };
