@@ -84,6 +84,17 @@ try {
       `<div class="card"><div class="fig" style="height:76px"><img src="${r.file}" loading="lazy" style="max-height:76px;max-width:160px;height:auto;width:auto"></div><div class="id">${r.id}</div><div class="ko">${r.name_ko}</div><div class="meta">${r.name_en}</div></div>`).join('') + `</div>`).join('');
   TABS.push(['relics', '유물']);
 } catch (e) { /* no manifest yet */ }
+let mapsHtml = '';
+let mapsCount = 0;
+try {
+  const bgs = fs.readdirSync(path.join(SRC, 'backgrounds')).filter(f => f.endsWith('.png')).sort();
+  mapsCount = bgs.length;
+  mapsHtml = bgs.map(f => {
+    const id = f.replace(/\.png$/, '');
+    return '<div class="card" style="width:330px"><div class="fig" style="height:210px;align-items:center"><img src="backgrounds/' + f + '" loading="lazy" style="max-height:200px;max-width:320px;height:auto;width:auto"></div><div class="id">' + id + '</div></div>';
+  }).join('');
+  TABS.push(['maps', '전장 맵']);
+} catch (e) { /* no backgrounds dir */ }
 const html = `<!doctype html><html lang="ko"><head><meta charset="utf-8"><title>에셋 매칭 갤러리</title><style>
 body{background:#14161a;color:#e8e4d8;font-family:system-ui;margin:0;padding:24px}
 h1{font-size:20px}h2{font-size:15px;margin:28px 0 10px;color:#9db4d0;border-bottom:1px solid #333;padding-bottom:6px}
@@ -100,8 +111,8 @@ h3{font-size:13px;margin:18px 0 8px;color:#c8b890}
 .meta{font-size:10px;color:#8a8f98;margin-top:3px}
 </style></head><body>
 <h1>MESBG 에셋 매칭 갤러리 — ${rows.length}종 <button id="vsw" onclick="let p=document.querySelectorAll('img'),pt=document.body.dataset.pt!=='1';document.body.dataset.pt=pt?'1':'0';p.forEach(i=>i.src=i.src.replace(pt?'tokens/':'tokens_painted/',pt?'tokens_painted/':'tokens/'));this.textContent=pt?'보는중: 도색 (클릭→픽셀)':'보는중: 픽셀 (클릭→도색)';" style="font-size:12px;padding:4px 10px;cursor:pointer">보는중: 픽셀 (클릭→도색)</button></h1>
-<div class="tabs">${TABS.map(([k, n], i) => `<button data-t="${k}" class="${i ? '' : 'on'}" onclick="document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('on'));this.classList.add('on');document.querySelectorAll('.tabpane').forEach(p=>p.style.display=p.dataset.t===this.dataset.t?'block':'none')">${n} — ${k === 'relics' ? relicCount : groups[k].length}</button>`).join('')}</div>
-${TABS.map(([k, n], i) => `<div class="tabpane" data-t="${k}" style="display:${i ? 'none' : 'block'}"><h2>${n} — ${k === 'relics' ? relicCount : groups[k].length}</h2>${k === 'relics' ? relicHtml : roleGrid(groups[k])}</div>`).join('')}
+<div class="tabs">${TABS.map(([k, n], i) => `<button data-t="${k}" class="${i ? '' : 'on'}" onclick="document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('on'));this.classList.add('on');document.querySelectorAll('.tabpane').forEach(p=>p.style.display=p.dataset.t===this.dataset.t?'block':'none')">${n} — ${k === 'relics' ? relicCount : (k === 'maps' ? mapsCount : groups[k].length)}</button>`).join('')}</div>
+${TABS.map(([k, n], i) => `<div class="tabpane" data-t="${k}" style="display:${i ? 'none' : 'block'}"><h2>${n} — ${k === 'relics' ? relicCount : (k === 'maps' ? mapsCount : groups[k].length)}</h2>${k === 'relics' ? relicHtml : (k === 'maps' ? mapsHtml : roleGrid(groups[k]))}</div>`).join('')}
 </body></html>`;
 fs.writeFileSync(path.join(SRC, 'gallery.html'), html);
 
