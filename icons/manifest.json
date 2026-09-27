@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "count": 96,
+  "count": 120,
   "relics": [
     {
       "id": "relic_lembas",
@@ -673,6 +673,174 @@
       "name_en": "Card Draw",
       "tier": "ui",
       "file": "icons/ui_cards.png"
+    },
+    {
+      "id": "abi_fireball",
+      "name_ko": "파이어볼",
+      "name_en": "Fireball",
+      "tier": "ability",
+      "file": "icons/abi_fireball.png"
+    },
+    {
+      "id": "abi_heal",
+      "name_ko": "치유",
+      "name_en": "Heal",
+      "tier": "ability",
+      "file": "icons/abi_heal.png"
+    },
+    {
+      "id": "abi_arrow_rain",
+      "name_ko": "화살비",
+      "name_en": "Arrow Rain",
+      "tier": "ability",
+      "file": "icons/abi_arrow_rain.png"
+    },
+    {
+      "id": "abi_war_cry",
+      "name_ko": "전장의 함성",
+      "name_en": "War Cry",
+      "tier": "ability",
+      "file": "icons/abi_war_cry.png"
+    },
+    {
+      "id": "abi_summon",
+      "name_ko": "소환",
+      "name_en": "Summon",
+      "tier": "ability",
+      "file": "icons/abi_summon.png"
+    },
+    {
+      "id": "abi_thunder",
+      "name_ko": "뇌전",
+      "name_en": "Thunderstorm",
+      "tier": "ability",
+      "file": "icons/abi_thunder.png"
+    },
+    {
+      "id": "proj_arrow",
+      "name_ko": "화살",
+      "name_en": "Arrow",
+      "tier": "projectile",
+      "file": "icons/proj_arrow.png"
+    },
+    {
+      "id": "proj_bolt",
+      "name_ko": "석궁 볼트",
+      "name_en": "Crossbow Bolt",
+      "tier": "projectile",
+      "file": "icons/proj_bolt.png"
+    },
+    {
+      "id": "proj_fireball",
+      "name_ko": "화염구",
+      "name_en": "Fireball",
+      "tier": "projectile",
+      "file": "icons/proj_fireball.png"
+    },
+    {
+      "id": "proj_ice",
+      "name_ko": "얼음 파편",
+      "name_en": "Ice Shard",
+      "tier": "projectile",
+      "file": "icons/proj_ice.png"
+    },
+    {
+      "id": "proj_boulder",
+      "name_ko": "돌덩이",
+      "name_en": "Boulder",
+      "tier": "projectile",
+      "file": "icons/proj_boulder.png"
+    },
+    {
+      "id": "proj_magic",
+      "name_ko": "마법탄",
+      "name_en": "Magic Bolt",
+      "tier": "projectile",
+      "file": "icons/proj_magic.png"
+    },
+    {
+      "id": "trap_spike",
+      "name_ko": "스파이크 함정",
+      "name_en": "Spike Trap",
+      "tier": "trap",
+      "file": "icons/trap_spike.png"
+    },
+    {
+      "id": "trap_bear",
+      "name_ko": "덫",
+      "name_en": "Bear Trap",
+      "tier": "trap",
+      "file": "icons/trap_bear.png"
+    },
+    {
+      "id": "node_portal",
+      "name_ko": "적 소환문",
+      "name_en": "Enemy Portal",
+      "tier": "node",
+      "file": "icons/node_portal.png"
+    },
+    {
+      "id": "node_rally",
+      "name_ko": "집결 깃발",
+      "name_en": "Rally Banner",
+      "tier": "node",
+      "file": "icons/node_rally.png"
+    },
+    {
+      "id": "node_waypoint",
+      "name_ko": "길 표지석",
+      "name_en": "Waypoint",
+      "tier": "node",
+      "file": "icons/node_waypoint.png"
+    },
+    {
+      "id": "node_gate",
+      "name_ko": "수문장 성문",
+      "name_en": "Defense Gate",
+      "tier": "node",
+      "file": "icons/node_gate.png"
+    },
+    {
+      "id": "tile_grass",
+      "name_ko": "풀밭 타일",
+      "name_en": "Grass Tile",
+      "tier": "tile",
+      "file": "icons/tile_grass.png"
+    },
+    {
+      "id": "tile_dirt",
+      "name_ko": "흙길 타일",
+      "name_en": "Dirt Path Tile",
+      "tier": "tile",
+      "file": "icons/tile_dirt.png"
+    },
+    {
+      "id": "tile_stone",
+      "name_ko": "돌바닥 타일",
+      "name_en": "Stone Floor Tile",
+      "tier": "tile",
+      "file": "icons/tile_stone.png"
+    },
+    {
+      "id": "tile_road",
+      "name_ko": "자갈길 타일",
+      "name_en": "Cobblestone Road Tile",
+      "tier": "tile",
+      "file": "icons/tile_road.png"
+    },
+    {
+      "id": "tile_mud",
+      "name_ko": "진흙 타일",
+      "name_en": "Mud Tile",
+      "tier": "tile",
+      "file": "icons/tile_mud.png"
+    },
+    {
+      "id": "tile_snow",
+      "name_ko": "눈밭 타일",
+      "name_en": "Snow Tile",
+      "tier": "tile",
+      "file": "icons/tile_snow.png"
     }
   ]
 }
