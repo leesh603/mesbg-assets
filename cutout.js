@@ -133,6 +133,12 @@ const sheets = [
   { file: 'nb-exp-wargs.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-exp-wargs.png', names: ['warg_rider', 'warg_rider_spear', 'warg_rider_bow', 'wild_warg', 'wild_warg_alpha', 'gundabad_warg_rider'] },
   { file: 'nb-single-dead-spear.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-dead-spear.png', names: ['dead_spearman'] },
   { file: 'nb-single-blackroot.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-blackroot.png', names: ['blackroot_archer'] },
+  { file: 'nb-terrain-fort.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-terrain-fort.png', names: ['terr_stone_barricade', 'terr_spike_barricade', 'terr_orc_barricade', 'terr_sandbag', 'terr_portcullis', 'terr_stone_archway'] },
+  { file: 'nb-terrain-treasure.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-terrain-treasure.png', names: ['terr_chest_open', 'terr_chest_closed', 'terr_gold_pile', 'terr_relic_shrine', 'terr_hoard', 'terr_loot_bag'] },
+  { file: 'nb-terrain-dungeon.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-terrain-dungeon.png', names: ['terr_sarcophagus', 'terr_cage', 'terr_bone_pile', 'terr_chain_post', 'terr_throne', 'terr_altar'] },
+  { file: 'nb-terrain-village.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-terrain-village.png', names: ['terr_well', 'terr_market_stall', 'terr_haystack', 'terr_hay_cart', 'terr_fence_gate', 'terr_beehive'] },
+  { file: 'nb-terrain-wild.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-terrain-wild.png', names: ['terr_boulders', 'terr_mushroom_ring', 'terr_bramble', 'terr_pond', 'terr_waystone', 'terr_fallen_log'] },
+  { file: 'nb-terrain-camp.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-terrain-camp.png', names: ['terr_war_banner', 'terr_weapon_rack', 'terr_anvil', 'terr_ammo_pile', 'terr_map_table', 'terr_torch_post'] },
 ];
 
 function idx(x, y, w) { return (y * w + x) << 2; }
