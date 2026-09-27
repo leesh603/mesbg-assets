@@ -82,16 +82,17 @@ const dispH = r => {
 };
 const ROLE_KO = { hero: '영웅', infantry: '보병', cavalry: '기병', monster: '괴물', bigmonster: '대형괴물', support: '지원/기수', terrain: '지형지물' };
 const ROLE_ORDER = ['hero', 'infantry', 'cavalry', 'monster', 'bigmonster', 'support', 'terrain'];
-// display group: heroes stay under 영웅 even when mounted, beasts under
-// 괴물, XXL monsters under 대형괴물 — 기병 tab shows true cavalry only
+// display group: mounted heroes and XL riders group under 기병, beasts under
+// 괴물, XXL monsters under 대형괴물 — matches how the user browses
 const grp = r => r.role === 'monster' ? (r.base === 'XXL' ? 'bigmonster' : 'monster')
   : r.role === 'beast' ? 'monster'
+  : (r.role === 'cavalry' || (r.base === 'XL' && r.role !== 'monster')) ? 'cavalry'
   : r.role;
 const card = r => {
   const h = dispH(r);
   const st = r.stats ? '<div class="meta" style="color:#d8c98a">F' + r.stats.f + ' S' + r.stats.s + ' D' + r.stats.d + ' A' + r.stats.a + ' W' + r.stats.w + ' C' + r.stats.c + ' · M' + r.stats.might + ' W' + r.stats.will + ' F' + r.stats.fate + '</div>' : '';
   const rl = (r.rules && r.rules.length) ? '<div class="meta" style="color:#9a8ac0">' + r.rules.join(' · ') + '</div>' : '';
-  return `<div class="card"><div class="fig" style="height:${h}px"><img src="tokens/${r.id}.png" loading="lazy" style="max-height:${h}px;max-width:200px;height:auto;width:auto"></div><div class="id">${r.id}</div><div class="ko">${r.name_ko}</div><div class="meta">${r.faction} · ${r.role} · ${r.weapon}${r.base_mm ? " · " + r.base_mm : ""}${(r.traits && r.traits.length) ? " · " + r.traits.join("·") : ""}</div>${st}${rl}</div>`;
+  return `<div class="card"><div class="fig" style="height:${h}px"><img src="tokens/${r.id}.png?v=${Date.now()}" loading="lazy" style="max-height:${h}px;max-width:200px;height:auto;width:auto"></div><div class="id">${r.id}</div><div class="ko">${r.name_ko}</div><div class="meta">${r.faction} · ${r.role} · ${r.weapon}${r.base_mm ? " · " + r.base_mm : ""}${(r.traits && r.traits.length) ? " · " + r.traits.join("·") : ""}</div>${st}${rl}</div>`;
 };
 const roleGrid = list => ROLE_ORDER.filter(ro => list.some(r => grp(r) === ro)).map(ro =>
   `<h3>${ROLE_KO[ro] || ro} — ${list.filter(r => grp(r) === ro).length}</h3><div class="grid">${list.filter(r => grp(r) === ro).map(card).join('')}</div>`).join('');
