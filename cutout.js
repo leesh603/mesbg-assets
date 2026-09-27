@@ -120,6 +120,7 @@ const sheets = [
   { file: 'nb-single-gandalf-grey-mounted.png', rows: 1, cols: 1, noRim: true, names: ['gandalf_mounted'] },
   { file: 'nb-single-suladan.png', rows: 1, cols: 1, noRim: true, names: ['suladan'] },
   { file: 'nb-single-warrior-mt.png', rows: 1, cols: 1, noRim: true, names: ['warrior_minas_tirith'] },
+  { file: 'nb-single-mt-spear.png', rows: 1, cols: 1, noRim: true, names: ['mt_spear'] },
 ];
 
 function idx(x, y, w) { return (y * w + x) << 2; }
