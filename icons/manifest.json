@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "count": 36,
+  "count": 60,
   "relics": [
     {
       "id": "relic_lembas",
@@ -253,6 +253,174 @@
       "name_en": "Ring of Barahir",
       "tier": "unique",
       "file": "icons/relic_ring_barahir.png"
+    },
+    {
+      "id": "status_burn",
+      "name_ko": "화상",
+      "name_en": "Burn",
+      "tier": "status",
+      "file": "icons/status_burn.png"
+    },
+    {
+      "id": "status_poison",
+      "name_ko": "중독",
+      "name_en": "Poison",
+      "tier": "status",
+      "file": "icons/status_poison.png"
+    },
+    {
+      "id": "status_stun",
+      "name_ko": "기절",
+      "name_en": "Stun",
+      "tier": "status",
+      "file": "icons/status_stun.png"
+    },
+    {
+      "id": "status_slow",
+      "name_ko": "빙결/감속",
+      "name_en": "Frost / Slow",
+      "tier": "status",
+      "file": "icons/status_slow.png"
+    },
+    {
+      "id": "status_bleed",
+      "name_ko": "출혈",
+      "name_en": "Bleed",
+      "tier": "status",
+      "file": "icons/status_bleed.png"
+    },
+    {
+      "id": "status_fear",
+      "name_ko": "공포",
+      "name_en": "Fear",
+      "tier": "status",
+      "file": "icons/status_fear.png"
+    },
+    {
+      "id": "status_shield",
+      "name_ko": "방어 강화",
+      "name_en": "Shielded",
+      "tier": "status",
+      "file": "icons/status_shield.png"
+    },
+    {
+      "id": "status_strength",
+      "name_ko": "힘 강화",
+      "name_en": "Strength Up",
+      "tier": "status",
+      "file": "icons/status_strength.png"
+    },
+    {
+      "id": "status_speed",
+      "name_ko": "신속",
+      "name_en": "Haste",
+      "tier": "status",
+      "file": "icons/status_speed.png"
+    },
+    {
+      "id": "status_regen",
+      "name_ko": "재생",
+      "name_en": "Regeneration",
+      "tier": "status",
+      "file": "icons/status_regen.png"
+    },
+    {
+      "id": "status_berserk",
+      "name_ko": "광전사",
+      "name_en": "Berserk",
+      "tier": "status",
+      "file": "icons/status_berserk.png"
+    },
+    {
+      "id": "status_blessing",
+      "name_ko": "축복",
+      "name_en": "Blessing",
+      "tier": "status",
+      "file": "icons/status_blessing.png"
+    },
+    {
+      "id": "res_gold",
+      "name_ko": "골드",
+      "name_en": "Gold",
+      "tier": "resource",
+      "file": "icons/res_gold.png"
+    },
+    {
+      "id": "res_wood",
+      "name_ko": "목재",
+      "name_en": "Wood",
+      "tier": "resource",
+      "file": "icons/res_wood.png"
+    },
+    {
+      "id": "res_food",
+      "name_ko": "식량",
+      "name_en": "Food",
+      "tier": "resource",
+      "file": "icons/res_food.png"
+    },
+    {
+      "id": "res_iron",
+      "name_ko": "철광석",
+      "name_en": "Iron Ore",
+      "tier": "resource",
+      "file": "icons/res_iron.png"
+    },
+    {
+      "id": "res_gem",
+      "name_ko": "보석",
+      "name_en": "Gem",
+      "tier": "resource",
+      "file": "icons/res_gem.png"
+    },
+    {
+      "id": "res_mana",
+      "name_ko": "마나",
+      "name_en": "Mana",
+      "tier": "resource",
+      "file": "icons/res_mana.png"
+    },
+    {
+      "id": "ui_heart",
+      "name_ko": "체력",
+      "name_en": "Health",
+      "tier": "ui",
+      "file": "icons/ui_heart.png"
+    },
+    {
+      "id": "ui_star",
+      "name_ko": "평점/즐겨찾기",
+      "name_en": "Star",
+      "tier": "ui",
+      "file": "icons/ui_star.png"
+    },
+    {
+      "id": "ui_skull",
+      "name_ko": "처치/죽음",
+      "name_en": "Skull",
+      "tier": "ui",
+      "file": "icons/ui_skull.png"
+    },
+    {
+      "id": "ui_swords",
+      "name_ko": "전투",
+      "name_en": "Combat",
+      "tier": "ui",
+      "file": "icons/ui_swords.png"
+    },
+    {
+      "id": "ui_target",
+      "name_ko": "목표",
+      "name_en": "Target",
+      "tier": "ui",
+      "file": "icons/ui_target.png"
+    },
+    {
+      "id": "ui_flag",
+      "name_ko": "깃발/지점",
+      "name_en": "Flag",
+      "tier": "ui",
+      "file": "icons/ui_flag.png"
     }
   ]
 }

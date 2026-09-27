@@ -70,9 +70,9 @@ const card = r => {
 const roleGrid = list => ROLE_ORDER.filter(ro => list.some(r => grp(r) === ro)).map(ro =>
   `<h3>${ROLE_KO[ro] || ro} — ${list.filter(r => grp(r) === ro).length}</h3><div class="grid">${list.filter(r => grp(r) === ro).map(card).join('')}</div>`).join('');
 const TABS = [['good', '자유민족'], ['evil', '악의 세력'], ['terrain', '지형지물']].filter(([k]) => groups[k]);
-const TIER_ORDER = ['normal', 'rare', 'magic', 'unique'];
-const TIER_KO = { normal: '노말', rare: '레어', magic: '매직', unique: '유니크' };
-const TIER_COLOR = { normal: '#9aa0a6', rare: '#5b9bd5', magic: '#a06bd8', unique: '#e0b040' };
+const TIER_ORDER = ['normal', 'rare', 'magic', 'unique', 'status', 'resource', 'ui'];
+const TIER_KO = { normal: '노말', rare: '레어', magic: '매직', unique: '유니크', status: '상태 효과', resource: '자원', ui: 'UI' };
+const TIER_COLOR = { normal: '#9aa0a6', rare: '#5b9bd5', magic: '#a06bd8', unique: '#e0b040', status: '#e07070', resource: '#c9a04a', ui: '#6fd0c8' };
 let relicHtml = '';
 let relicCount = 0;
 try {
