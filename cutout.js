@@ -132,6 +132,7 @@ const sheets = [
   { file: 'nb-exp-misc.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-exp-misc.png', names: ['paladin_took', 'farmer_maggot', 'fredegar', 'durin_vi', 'dead_spearman', 'stone_giant'] },
   { file: 'nb-exp-wargs.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-exp-wargs.png', names: ['warg_rider', 'warg_rider_spear', 'warg_rider_bow', 'wild_warg', 'wild_warg_alpha', 'gundabad_warg_rider'] },
   { file: 'nb-single-dead-spear.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-dead-spear.png', names: ['dead_spearman'] },
+  { file: 'nb-single-blackroot.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-blackroot.png', names: ['blackroot_archer'] },
 ];
 
 function idx(x, y, w) { return (y * w + x) << 2; }
