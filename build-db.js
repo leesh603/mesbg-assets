@@ -77,15 +77,15 @@ const BASE_H = { S: 56, M: 76, L: 100, XL: 140, XXL: 190 };
 const dispH = r => {
   const g = grp(r);
   if (TITAN.has(r.id)) return 220;
-  if ((g === 'hero' || g === 'infantry' || g === 'support') && r.base !== 'XXL') return BASE_H.M;
+  if ((g === 'hero' || g === 'infantry' || g === 'support') && r.base !== 'XXL' && r.base !== 'XL') return BASE_H.M;
   return BASE_H[r.base] || 90;
 };
 const ROLE_KO = { hero: '영웅', infantry: '보병', cavalry: '기병', monster: '괴물', bigmonster: '대형괴물', support: '지원/기수', terrain: '지형지물' };
 const ROLE_ORDER = ['hero', 'infantry', 'cavalry', 'monster', 'bigmonster', 'support', 'terrain'];
-// display group: mounted heroes and XL riders group under 기병, XXL monsters
-// under 대형괴물 — matches how the user browses (by what they see on the map)
+// display group: heroes stay under 영웅 even when mounted, beasts under
+// 괴물, XXL monsters under 대형괴물 — 기병 tab shows true cavalry only
 const grp = r => r.role === 'monster' ? (r.base === 'XXL' ? 'bigmonster' : 'monster')
-  : (r.role === 'cavalry' || (r.base === 'XL' && r.role !== 'monster')) ? 'cavalry'
+  : r.role === 'beast' ? 'monster'
   : r.role;
 const card = r => {
   const h = dispH(r);

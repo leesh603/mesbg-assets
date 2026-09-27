@@ -2,14 +2,14 @@
 aragorn,아라곤,Aragorn,good,gondor,hero,sword,L,25mm,lotr-tokens-v1.png,tokens/aragorn.png
 gandalf,간달프,Gandalf the Grey,good,maiar,hero,staff,L,25mm,lotr-tokens-v1.png,tokens/gandalf.png
 warrior_minas_tirith,미나스 티리스 전사,Warrior of Minas Tirith,good,gondor,infantry,sword_shield,M,25mm,lotr-tokens-v1.png,tokens/warrior_minas_tirith.png
-witchking_foot,마술왕(도보),Witch-king on foot,evil,angmar,hero,sword,L,25mm,lotr-tokens-v1.png,tokens/witchking_foot.png
+witchking_foot,마술왕(두건),Witch-king hooded,evil,angmar,hero,sword,L,25mm,lotr-tokens-v1.png,tokens/witchking_foot.png
 orc_sword,모르도르 오크(검),"Mordor Orc, sword",evil,mordor,infantry,sword,S,25mm,lotr-tokens-v1.png,tokens/orc_sword.png
 cave_troll,동굴 트롤,Cave Troll,evil,moria,monster,club,XXL,60mm,lotr-tokens-v1.png,tokens/cave_troll.png
 glorfindel_foot,글로르핀델(도보),Glorfindel on foot,good,rivendell,hero,sword,L,25mm,glorfindel-topdown-v2.png,tokens/glorfindel_foot.png
 glorfindel_mounted,글로르핀델(기마),Glorfindel mounted,good,rivendell,hero,sword,XL,40mm,glorfindel-topdown-v2.png,tokens/glorfindel_mounted.png
 witchking_fellbeast,마술왕(펠비스트),Witch-king on Fell Beast,evil,angmar,monster,sword,XXL,60mm,fellbeast-topdown-v2.png,tokens/witchking_fellbeast.png
 witchking_mounted,마술왕(기마),Witch-king mounted,evil,angmar,hero,sword,XL,40mm,witchking-mounted-topdown-v1.png,tokens/witchking_mounted.png
-witchking_foot_mace,마술왕(철퇴),Witch-king with mace,evil,angmar,hero,mace,L,25mm,roster-enemy-heroes-v1.png,tokens/witchking_foot_mace.png
+witchking_foot_mace,마술왕(투구),"Witch-king, crowned with mace",evil,angmar,hero,mace,L,25mm,roster-enemy-heroes-v1.png,tokens/witchking_foot_mace.png
 nazgul_sword,나즈굴(검),"Nazgul, sword",evil,angmar,hero,sword,L,25mm,roster-enemy-heroes-v1.png,tokens/nazgul_sword.png
 saruman,사루만,Saruman the White,evil,isengard,hero,staff,L,25mm,roster-enemy-heroes-v1.png,tokens/saruman.png
 orc_shaman,오크 주술사,Orc Shaman,evil,moria,support,staff,S,25mm,roster-enemy-heroes-v1.png,tokens/orc_shaman.png
@@ -116,7 +116,7 @@ great_eagle,대독수리,Great Eagle,good,eagle,monster,none,XL,60mm,roster-free
 ent,엔트,Ent,good,ent,monster,none,XXL,60mm,roster-free-special-v1.png,tokens/ent.png
 beorning,베오르닝 전사,Beorning,good,beorning,hero,axe,L,25mm,roster-free-special-v1.png,tokens/beorning.png
 ranger_north,북부 레인저,Ranger of the North,good,arnor,infantry,sword,M,25mm,roster-free-special-v1.png,tokens/ranger_north.png
-theoden,세오덴(기마),Theoden mounted,good,rohan,cavalry,sword_shield,XL,40mm,roster-free-heroes-exp-v1.png,tokens/theoden.png
+theoden,세오덴(기마),Theoden mounted,good,rohan,hero,sword_shield,XL,40mm,roster-free-heroes-exp-v1.png,tokens/theoden.png
 faramir,파라미르,Faramir,good,gondor,hero,bow,M,25mm,roster-free-heroes-exp-v1.png,tokens/faramir.png
 haldir,할디르,Haldir,good,lothlorien,hero,twohanded,M,25mm,roster-free-heroes-exp-v1.png,tokens/haldir.png
 galadriel,갈라드리엘,Galadriel,good,lothlorien,hero,none,M,25mm,roster-free-heroes-exp-v1.png,tokens/galadriel.png
@@ -212,7 +212,7 @@ mirkwood_sentinel,미르크우드 보초,Mirkwood Sentinel,good,elf,infantry,pik
 noldor_warrior,놀도르 정예병,Noldor Warrior,good,elf,infantry,sword_shield,L,25mm,roster-elf-exp-v2.png,tokens/noldor_warrior.png
 silvan_archer,실반 궁수,Silvan Archer,good,elf,infantry,bow,M,25mm,roster-elf-exp-v2.png,tokens/silvan_archer.png
 elven_lancer,엘프 기창기병,Elven Lancer,good,rivendell,cavalry,lance,XL,40mm,roster-elf-exp-v2.png,tokens/elven_lancer.png
-imrahil_mounted,임라힐(기마),"Prince Imrahil, mounted",good,gondor,cavalry,lance,XL,40mm,roster-mounted-heroes-v1.png,tokens/imrahil_mounted.png
+imrahil_mounted,임라힐(기마),"Prince Imrahil, mounted",good,gondor,hero,lance,XL,40mm,roster-mounted-heroes-v1.png,tokens/imrahil_mounted.png
 gandalf_mounted,간달프(섀도우팩스),Gandalf on Shadowfax,good,maiar,hero,sword,XL,40mm,roster-mounted-heroes-v1.png,tokens/gandalf_mounted.png
 thranduil_mounted,스란두일(기마),"Thranduil, mounted",good,elf,hero,sword,XL,40mm,roster-mounted-heroes-v1.png,tokens/thranduil_mounted.png
 aragorn_mounted,아라곤(기마),"Aragorn, mounted",good,gondor,hero,sword,XL,40mm,roster-mounted-heroes-v1.png,tokens/aragorn_mounted.png
@@ -223,7 +223,7 @@ bat_swarm,박쥐 떼,Bat Swarm,evil,dol_guldur,monster,none,,50mm,roster-mordor-
 muzgur,무즈구르,"Muzgur, Morgul Shaman",evil,angmar,hero,staff,,25mm,roster-mordor-monsters-v1.png,tokens/muzgur.png
 buhrdur,부르두르,"Buhrdur, Troll Chieftain",evil,angmar,monster,mace,XL,60mm,roster-mordor-monsters-v1.png,tokens/buhrdur.png
 mahud_chieftain,마후드 족장,Mahud War-Chieftain,evil,harad,hero,spear,L,25mm,roster-mordor-monsters-v1.png,tokens/mahud_chieftain.png
-eowyn_mounted,에오윈(기마),"Eowyn, mounted",good,rohan,cavalry,sword,XL,40mm,roster-west-heroes-v1.png,tokens/eowyn_mounted.png
+eowyn_mounted,에오윈(기마),"Eowyn, mounted",good,rohan,hero,sword,XL,40mm,roster-west-heroes-v1.png,tokens/eowyn_mounted.png
 forlong,포를롱,Forlong the Fat,good,gondor,hero,axe,L,25mm,roster-west-heroes-v1.png,tokens/forlong.png
 erkenbrand,에르켄브란트,Erkenbrand,good,rohan,hero,sword_shield,L,25mm,roster-west-heroes-v1.png,tokens/erkenbrand.png
 damrod,담로드,Damrod,good,gondor,hero,bow,M,25mm,roster-west-heroes-v1.png,tokens/damrod.png
@@ -275,12 +275,12 @@ isildur,이실두르,Isildur,good,gondor,hero,sword,L,25mm,roster-good-fill-v1.p
 gandalf_white,간달프(백색),Gandalf the White,good,maiar,hero,staff,L,25mm,roster-good-fill-v1.png,tokens/gandalf_white.png
 denethor,데네소르,"Denethor, Steward of Gondor",good,gondor,hero,none,M,25mm,roster-good-fill-v1.png,tokens/denethor.png
 huorn,휘오른,Huorn,good,fangorn,monster,,XL,50mm,roster-good-fill-v1.png,tokens/huorn.png
-boromir_mounted,보로미르(기마),"Boromir, mounted",good,gondor,cavalry,sword_shield,XL,40mm,roster-good-fill-v1.png,tokens/boromir_mounted.png
-elrond_mounted,엘론드(기마),"Elrond, mounted",good,rivendell,cavalry,sword,XL,40mm,roster-good-fill-v1.png,tokens/elrond_mounted.png
-gandalf_white_mounted,간달프 백색(기마),Gandalf the White on Shadowfax,good,maiar,cavalry,staff,XL,40mm,roster-good-fill-v2.png,tokens/gandalf_white_mounted.png
+boromir_mounted,보로미르(기마),"Boromir, mounted",good,gondor,hero,sword_shield,XL,40mm,roster-good-fill-v1.png,tokens/boromir_mounted.png
+elrond_mounted,엘론드(기마),"Elrond, mounted",good,rivendell,hero,sword,XL,40mm,roster-good-fill-v1.png,tokens/elrond_mounted.png
+gandalf_white_mounted,간달프 백색(기마),Gandalf the White on Shadowfax,good,maiar,hero,staff,XL,40mm,roster-good-fill-v2.png,tokens/gandalf_white_mounted.png
 theoden_foot,세오덴(도보),Theoden on foot,good,rohan,hero,sword_shield,L,25mm,roster-good-fill-v2.png,tokens/theoden_foot.png
 dain_boar,다인(맷돼지),Dain Ironfoot on war boar,good,dwarf,cavalry,mace,XL,40mm,roster-good-fill-v2.png,tokens/dain_boar.png
-faramir_mounted,파라미르(기마),"Faramir, mounted",good,gondor,cavalry,sword,XL,40mm,roster-good-fill-v2.png,tokens/faramir_mounted.png
+faramir_mounted,파라미르(기마),"Faramir, mounted",good,gondor,hero,sword,XL,40mm,roster-good-fill-v2.png,tokens/faramir_mounted.png
 eomer_foot,에오메르(도보),Eomer on foot,good,rohan,hero,spear,L,25mm,roster-good-fill-v2.png,tokens/eomer_foot.png
 elfhelm,엘프헬름,Elfhelm of Rohan,good,rohan,hero,sword_shield,L,25mm,roster-good-fill-v2.png,tokens/elfhelm.png
 warg_rider_spear,와르그 기병(창),"Warg Rider, spear",evil,isengard,cavalry,spear,XL,40mm,roster-warg-riders-v1.png,tokens/warg_rider_spear.png
