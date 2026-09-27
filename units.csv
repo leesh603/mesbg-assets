@@ -9,7 +9,6 @@ glorfindel_foot,글로르핀델(도보),Glorfindel on foot,good,rivendell,hero,s
 glorfindel_mounted,글로르핀델(기마),Glorfindel mounted,good,rivendell,hero,sword,XL,40mm,glorfindel-topdown-v2.png,tokens/glorfindel_mounted.png
 witchking_fellbeast,마술왕(펠비스트),Witch-king on Fell Beast,evil,angmar,monster,sword,XXL,60mm,fellbeast-topdown-v2.png,tokens/witchking_fellbeast.png
 witchking_mounted,마술왕(기마),Witch-king mounted,evil,angmar,hero,sword,XL,40mm,witchking-mounted-topdown-v1.png,tokens/witchking_mounted.png
-witchking_mounted_sheet,마술왕(기마·예비),Witch-king mounted (alt),evil,angmar,hero,sword,XL,40mm,roster-enemy-heroes-v1.png,tokens/witchking_mounted_sheet.png
 witchking_foot_mace,마술왕(철퇴),Witch-king with mace,evil,angmar,hero,mace,L,25mm,roster-enemy-heroes-v1.png,tokens/witchking_foot_mace.png
 nazgul_sword,나즈굴(검),"Nazgul, sword",evil,angmar,hero,sword,L,25mm,roster-enemy-heroes-v1.png,tokens/nazgul_sword.png
 saruman,사루만,Saruman the White,evil,isengard,hero,staff,L,25mm,roster-enemy-heroes-v1.png,tokens/saruman.png
@@ -33,7 +32,7 @@ dwarf_guardian,드워프 가디언,Dwarf Guardian,good,dwarf,infantry,axe,M,25mm
 rohan_royal_guard,로한 근위병,Rohan Royal Guard,good,rohan,infantry,spear_shield,M,25mm,roster-free-troops-v1.png,tokens/rohan_royal_guard.png
 ithilien_ranger,이틸리엔 레인저,Ithilien Ranger,good,gondor,infantry,bow,M,25mm,roster-free-troops-v1.png,tokens/ithilien_ranger.png
 rohan_rider,로한 기병,Rider of Rohan,good,rohan,cavalry,spear,XL,40mm,roster-free-troops-v1.png,tokens/rohan_rider.png
-balrog,발록,Balrog of Moria,evil,moria,monster,various,XXL,60mm,roster-monsters-v1.png,tokens/balrog.png
+balrog,발록,Balrog of Moria,evil,moria,monster,various,XXL,100mm,roster-monsters-v1.png,tokens/balrog.png
 mountain_troll,산악 트롤,Mountain Troll,evil,mordor,monster,club,XXL,60mm,roster-monsters-v1.png,tokens/mountain_troll.png
 shelob,셀로브,Shelob,evil,mordor,monster,various,XXL,60mm,roster-monsters-v1.png,tokens/shelob.png
 barrow_wight,고분 망령,Barrow-wight,evil,angmar,hero,sword,M,25mm,roster-monsters-v1.png,tokens/barrow_wight.png
@@ -137,7 +136,7 @@ beorn,베오른,Beorn,good,beorning,hero,twohanded,L,25mm,roster-legends-good-v1
 elendil,엘렌딜,Elendil,good,arnor,hero,sword,L,25mm,roster-legends-good-v1.png,tokens/elendil.png
 melkor,멜코르,Melkor (Morgoth),evil,angband,monster,mace,XXL,60mm,roster-legends-evil-v1.png,tokens/melkor.png
 mumakil,무마킬,War Mumak,evil,harad,monster,none,XXL,100mm,roster-legends-evil-v1.png,tokens/mumakil.png
-smaug,스마우그,Smaug,evil,erebor,monster,none,XXL,100mm,roster-legends-evil-v1.png,tokens/smaug.png
+smaug,스마우그,Smaug,evil,erebor,monster,none,XXL,120mm,roster-legends-evil-v1.png,tokens/smaug.png
 ungoliant,웅골리안트,Ungoliant,evil,angband,monster,none,XXL,60mm,roster-legends-evil-v1.png,tokens/ungoliant.png
 bolg,볼그,Bolg,evil,gundabad,hero,mace,L,25mm,roster-legends-evil-v1.png,tokens/bolg.png
 easterling_warlord,이스터링 장군,Easterling Warlord,evil,easterling,hero,pike,,25mm,roster-legends-evil-v1.png,tokens/easterling_warlord.png
@@ -290,7 +289,7 @@ warg_rider_bow,와르그 기병(활),"Warg Rider, bow",evil,isengard,cavalry,bow
 warg_chieftain,와르그 우두머리 기병,Warg Chieftain,evil,isengard,hero,axe,XL,40mm,roster-warg-riders-v1.png,tokens/warg_chieftain.png
 wild_warg,야생 와르그,Wild Warg,evil,isengard,monster,claws,L,50mm,roster-warg-riders-v1.png,tokens/wild_warg.png
 wild_warg_alpha,와르그 우두머리,Warg Alpha,evil,isengard,monster,claws,XL,50mm,roster-warg-riders-v1.png,tokens/wild_warg_alpha.png
-ancalagon,앙칼라곤,Ancalagon the Black,evil,angband,monster,claws,XXL,60mm,single-ancalagon.png,tokens/ancalagon.png
+ancalagon,앙칼라곤,Ancalagon the Black,evil,angband,monster,claws,XXL,120mm,single-ancalagon.png,tokens/ancalagon.png
 terr_ruined_gate,무너진 관문,Ruined gate arch,terrain,terrain,terrain,none,,,terrain-objects-v4.png,tokens/terr_ruined_gate.png
 terr_wall_segment,무너진 성벽 구간,Ruined wall segment,terrain,terrain,terrain,none,,,terrain-objects-v4.png,tokens/terr_wall_segment.png
 terr_palisade,목책,Wooden palisade,terrain,terrain,terrain,none,,,terrain-objects-v4.png,tokens/terr_palisade.png

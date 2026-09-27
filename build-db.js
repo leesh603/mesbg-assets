@@ -28,11 +28,13 @@ for (const s of sheets) {
   }
 }
 
-// MESBG base sizes: foot 25mm / cavalry 40mm / monster 50mm / big monster 60mm / huge 100mm
-const HUGE = new Set(['mumakil','watcher_in_the_water','smaug','scatha','dragon_lord','durins_bane','durin_bane','gothmog_balrog','ancient_dragon']);
+// MESBG base sizes: foot 25mm / cavalry 40mm / monster 50mm / big monster 60mm / huge 100mm / titan 120mm
+const TITAN = new Set(['smaug','ancalagon']);
+const HUGE = new Set(['mumakil','watcher_in_the_water','scatha','dragon_lord','durins_bane','durin_bane','gothmog_balrog','ancient_dragon','balrog']);
 const BIG = new Set(['ent','fellbeast','witchking_fellbeast','nazgul_fellbeast','great_eagle','troll_cave','troll_mountain','troll_snow','troll_war','troll_drummer','moria_troll','olf_haunt','buhrdur','dwerghammer','mewlip','boat_troll']);
 const baseMM = r => {
   if (r.role === 'terrain') return '';
+  if (TITAN.has(r.id)) return '120mm';
   if (HUGE.has(r.id)) return '100mm';
   if (r.role === 'monster' || r.role === 'beast') {
     if (r.base === 'XXL' || BIG.has(r.id)) return '60mm';
@@ -74,6 +76,7 @@ for (const r of rows) { (groups[r.side] ??= []).push(r); }
 const BASE_H = { S: 56, M: 76, L: 100, XL: 140, XXL: 190 };
 const dispH = r => {
   const g = grp(r);
+  if (TITAN.has(r.id)) return 220;
   if ((g === 'hero' || g === 'infantry' || g === 'support') && r.base !== 'XXL') return BASE_H.M;
   return BASE_H[r.base] || 90;
 };

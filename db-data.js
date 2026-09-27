@@ -22,7 +22,6 @@ module.exports = [
   ['witchking_mounted', '마술왕(기마)', 'Witch-king mounted', { role: 'hero', traits: ['terror'] }],
 ]},
 { sheet: 'roster-enemy-heroes-v1.png', side: 'evil', faction: 'mordor', role: 'hero', weapon: 'sword', units: [
-  ['witchking_mounted_sheet', '마술왕(기마·예비)', 'Witch-king mounted (alt)', { role: 'hero', traits: ['terror'], faction: 'angmar', base: 'XL' }],
   ['witchking_foot_mace', '마술왕(철퇴)', 'Witch-king with mace', { traits: ['terror'], faction: 'angmar', weapon: 'mace', base: 'L' }],
   ['nazgul_sword', '나즈굴(검)', 'Nazgul, sword', { traits: ['terror'], faction: 'angmar', base: 'L' }],
   ['saruman', '사루만', 'Saruman the White', { faction: 'isengard', weapon: 'staff', base: 'L' }],

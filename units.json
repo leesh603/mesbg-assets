@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "count": 473,
+  "count": 472,
   "units": [
     {
       "id": "aragorn",
@@ -278,41 +278,6 @@
         "Terror",
         "The Morgul Lord",
         "Black Breath"
-      ],
-      "base_mm": "40mm"
-    },
-    {
-      "id": "witchking_mounted_sheet",
-      "name_ko": "마술왕(기마·예비)",
-      "name_en": "Witch-king mounted (alt)",
-      "side": "evil",
-      "faction": "angmar",
-      "role": "hero",
-      "weapon": "sword",
-      "base": "XL",
-      "sheet": "roster-enemy-heroes-v1.png",
-      "file": "tokens/witchking_mounted_sheet.png",
-      "traits": [
-        "terror"
-      ],
-      "stats": {
-        "f": 6,
-        "s": 5,
-        "d": 7,
-        "a": 3,
-        "w": 3,
-        "c": 6,
-        "might": 3,
-        "will": 20,
-        "fate": 3,
-        "rules": [
-          "Terror",
-          "The Morgul Lord"
-        ]
-      },
-      "rules": [
-        "Terror",
-        "The Morgul Lord"
       ],
       "base_mm": "40mm"
     },
@@ -850,7 +815,7 @@
         "Terror",
         "Whip of Flame"
       ],
-      "base_mm": "60mm"
+      "base_mm": "100mm"
     },
     {
       "id": "mountain_troll",
@@ -2685,7 +2650,7 @@
       "base": "XXL",
       "sheet": "roster-legends-evil-v1.png",
       "file": "tokens/smaug.png",
-      "base_mm": "100mm"
+      "base_mm": "120mm"
     },
     {
       "id": "ungoliant",
@@ -5924,7 +5889,7 @@
       "base": "XXL",
       "sheet": "single-ancalagon.png",
       "file": "tokens/ancalagon.png",
-      "base_mm": "60mm"
+      "base_mm": "120mm"
     },
     {
       "id": "terr_ruined_gate",
