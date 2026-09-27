@@ -123,6 +123,7 @@ const sheets = [
   { file: 'nb-single-mt-spear.png', rows: 1, cols: 1, noRim: true, names: ['mt_spear'] },
   { file: 'nb-single-bolg.png', rows: 1, cols: 1, noRim: true, names: ['bolg'] },
   { file: 'nb-single-hobbit-archer.png', rows: 1, cols: 1, noRim: true, names: ['hobbit_bounder'] },
+  { file: 'nb-single-rohan-foot.png', rows: 1, cols: 5, noRim: true, names: ['rohan_swordshield', 'rohan_spear', 'rohan_archer', 'rohan_banner', 'rohan_royal_guard'] },
   // expansion sheets (MESBG army-book gaps) — paintedFile resolves to rs- under RS=1
   { file: 'nb-exp-gondor-heroes.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-exp-gondor-heroes.png', names: ['anborn', 'hirluin', 'madril', 'irolas', 'hurin', 'cirion'] },
   { file: 'nb-exp-rohan.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-exp-rohan.png', names: ['theodred', 'hama', 'deorwine', 'grimbold', 'harding', 'rohan_royal_guard_mounted'] },
