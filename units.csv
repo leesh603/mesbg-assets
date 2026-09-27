@@ -6,10 +6,10 @@ witchking_foot,마술왕(도보),Witch-king on foot,evil,angmar,hero,sword,L,25m
 orc_sword,모르도르 오크(검),"Mordor Orc, sword",evil,mordor,infantry,sword,S,25mm,lotr-tokens-v1.png,tokens/orc_sword.png
 cave_troll,동굴 트롤,Cave Troll,evil,moria,monster,club,XXL,60mm,lotr-tokens-v1.png,tokens/cave_troll.png
 glorfindel_foot,글로르핀델(도보),Glorfindel on foot,good,rivendell,hero,sword,L,25mm,glorfindel-topdown-v2.png,tokens/glorfindel_foot.png
-glorfindel_mounted,글로르핀델(기마),Glorfindel mounted,good,rivendell,cavalry,sword,XL,40mm,glorfindel-topdown-v2.png,tokens/glorfindel_mounted.png
+glorfindel_mounted,글로르핀델(기마),Glorfindel mounted,good,rivendell,hero,sword,XL,40mm,glorfindel-topdown-v2.png,tokens/glorfindel_mounted.png
 witchking_fellbeast,마술왕(펠비스트),Witch-king on Fell Beast,evil,angmar,monster,sword,XXL,60mm,fellbeast-topdown-v2.png,tokens/witchking_fellbeast.png
-witchking_mounted,마술왕(기마),Witch-king mounted,evil,angmar,cavalry,sword,XL,40mm,witchking-mounted-topdown-v1.png,tokens/witchking_mounted.png
-witchking_mounted_sheet,마술왕(기마·예비),Witch-king mounted (alt),evil,angmar,cavalry,sword,XL,40mm,roster-enemy-heroes-v1.png,tokens/witchking_mounted_sheet.png
+witchking_mounted,마술왕(기마),Witch-king mounted,evil,angmar,hero,sword,XL,40mm,witchking-mounted-topdown-v1.png,tokens/witchking_mounted.png
+witchking_mounted_sheet,마술왕(기마·예비),Witch-king mounted (alt),evil,angmar,hero,sword,XL,40mm,roster-enemy-heroes-v1.png,tokens/witchking_mounted_sheet.png
 witchking_foot_mace,마술왕(철퇴),Witch-king with mace,evil,angmar,hero,mace,L,25mm,roster-enemy-heroes-v1.png,tokens/witchking_foot_mace.png
 nazgul_sword,나즈굴(검),"Nazgul, sword",evil,angmar,hero,sword,L,25mm,roster-enemy-heroes-v1.png,tokens/nazgul_sword.png
 saruman,사루만,Saruman the White,evil,isengard,hero,staff,L,25mm,roster-enemy-heroes-v1.png,tokens/saruman.png
@@ -42,14 +42,14 @@ uruk_berserker,우르크 광전사,Uruk-hai Berserker,evil,isengard,infantry,two
 sauron,사우론,Sauron,evil,mordor,monster,mace,XXL,60mm,roster-sauron-nazgul-v1.png,tokens/sauron.png
 nazgul_sword_2,나즈굴(검·B),"Nazgul, sword (v2)",evil,angmar,hero,sword,L,25mm,roster-sauron-nazgul-v1.png,tokens/nazgul_sword_2.png
 nazgul_mace,나즈굴(철퇴),"Nazgul, mace",evil,angmar,hero,mace,L,25mm,roster-sauron-nazgul-v1.png,tokens/nazgul_mace.png
-nazgul_mounted,나즈굴(기마),Nazgul mounted,evil,angmar,cavalry,sword,XL,40mm,roster-sauron-nazgul-v1.png,tokens/nazgul_mounted.png
+nazgul_mounted,나즈굴(기마),Nazgul mounted,evil,angmar,hero,sword,XL,40mm,roster-sauron-nazgul-v1.png,tokens/nazgul_mounted.png
 morgul_knight,모르굴 기사,Morgul Knight,evil,mordor,cavalry,lance,XL,40mm,roster-sauron-nazgul-v1.png,tokens/morgul_knight.png
 dwimmerlaik,드위머레이크(갑옷 나즈굴),Dwimmerlaik,evil,angmar,hero,mace,L,25mm,roster-sauron-nazgul-v1.png,tokens/dwimmerlaik.png
 mt_swordshield,미나스 티리스 검방,MT sword & shield,good,gondor,infantry,sword_shield,M,25mm,roster-minastirith-variants-v1.png,tokens/mt_swordshield.png
 mt_spear,미나스 티리스 창병,MT spear,good,gondor,infantry,spear,M,25mm,roster-minastirith-variants-v1.png,tokens/mt_spear.png
 mt_spearshield,미나스 티리스 창방,MT spear & shield,good,gondor,infantry,spear_shield,M,25mm,roster-minastirith-variants-v1.png,tokens/mt_spearshield.png
 mt_bowman,미나스 티리스 궁수,MT bowman,good,gondor,infantry,bow,M,25mm,roster-minastirith-variants-v1.png,tokens/mt_bowman.png
-mt_captain,미나스 티리스 장교,MT shield captain,good,gondor,infantry,,M,25mm,roster-minastirith-variants-v1.png,tokens/mt_captain.png
+mt_captain,미나스 티리스 장교,MT shield captain,good,gondor,hero,,M,25mm,roster-minastirith-variants-v1.png,tokens/mt_captain.png
 mt_fountain_guard,샘물수위병,Fountain Court Guard,good,gondor,infantry,spear_shield,M,25mm,roster-minastirith-variants-v1.png,tokens/mt_fountain_guard.png
 orc_sword2,오크(검),"Orc, sword",evil,mordor,infantry,sword,S,25mm,roster-orc-variants-v1.png,tokens/orc_sword2.png
 orc_swordshield,오크(검방),"Orc, sword & shield",evil,mordor,infantry,sword_shield,S,25mm,roster-orc-variants-v1.png,tokens/orc_swordshield.png
@@ -123,7 +123,7 @@ haldir,할디르,Haldir,good,lothlorien,hero,twohanded,M,25mm,roster-free-heroes
 galadriel,갈라드리엘,Galadriel,good,lothlorien,hero,none,M,25mm,roster-free-heroes-exp-v1.png,tokens/galadriel.png
 gamling,감링(기수),Gamling with banner,good,rohan,hero,banner,M,25mm,roster-free-heroes-exp-v1.png,tokens/gamling.png
 samwise,샘와이즈,Samwise Gamgee,good,shire,hero,dagger,S,25mm,roster-free-heroes-exp-v1.png,tokens/samwise.png
-mouth_of_sauron,사우론의 입(기마),Mouth of Sauron,evil,mordor,cavalry,sword,XL,40mm,roster-evil-heroes-exp-v1.png,tokens/mouth_of_sauron.png
+mouth_of_sauron,사우론의 입(기마),Mouth of Sauron,evil,mordor,hero,sword,XL,40mm,roster-evil-heroes-exp-v1.png,tokens/mouth_of_sauron.png
 gothmog,고스모그,Gothmog,evil,mordor,hero,mace,L,25mm,roster-evil-heroes-exp-v1.png,tokens/gothmog.png
 lurtz,루르츠,Lurtz,evil,isengard,hero,bow,M,25mm,roster-evil-heroes-exp-v1.png,tokens/lurtz.png
 sharku,샤르쿠(와르그),Sharku on warg,evil,isengard,cavalry,spear,XL,40mm,roster-evil-heroes-exp-v1.png,tokens/sharku.png
@@ -319,7 +319,7 @@ grimbold,그림볼드,Grimbold of Grimslade,good,rohan,hero,sword,M,25mm,exp-roh
 harding,하딩,Harding of the Eastemnet,good,rohan,hero,bow,M,25mm,exp-rohan.png,tokens/harding.png
 rohan_royal_guard_mounted,로한 근위기병,"Rohan Royal Guard, mounted",good,rohan,cavalry,spear,XL,40mm,exp-rohan.png,tokens/rohan_royal_guard_mounted.png
 arvedui,아르베두이,"Arvedui, Last King of Arnor",good,arnor,hero,sword,L,25mm,exp-numenor-arnor.png,tokens/arvedui.png
-malbeth,말베스,Malbeth the Seer,good,arnor,support,staff,M,25mm,exp-numenor-arnor.png,tokens/malbeth.png
+malbeth,말베스,Malbeth the Seer,good,arnor,hero,staff,M,25mm,exp-numenor-arnor.png,tokens/malbeth.png
 numenorean_captain,누메노르 대장,Numenorean Captain,good,gondor,hero,sword,L,25mm,exp-numenor-arnor.png,tokens/numenorean_captain.png
 numenorean_warrior,누메노르 전사,Numenorean Warrior,good,gondor,infantry,sword_shield,M,25mm,exp-numenor-arnor.png,tokens/numenorean_warrior.png
 numenorean_spearman,누메노르 창병,Numenorean Spearman,good,gondor,infantry,spear,M,25mm,exp-numenor-arnor.png,tokens/numenorean_spearman.png

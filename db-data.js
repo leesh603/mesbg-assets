@@ -13,16 +13,16 @@ module.exports = [
 ]},
 { sheet: 'glorfindel-topdown-v2.png', side: 'good', faction: 'rivendell', role: 'hero', weapon: 'sword', units: [
   ['glorfindel_foot', '글로르핀델(도보)', 'Glorfindel on foot', { base: 'L' }],
-  ['glorfindel_mounted', '글로르핀델(기마)', 'Glorfindel mounted', { role: 'cavalry', base: 'XL' }],
+  ['glorfindel_mounted', '글로르핀델(기마)', 'Glorfindel mounted', { role: 'hero', base: 'XL' }],
 ]},
 { sheet: 'fellbeast-topdown-v2.png', side: 'evil', faction: 'angmar', role: 'monster', base: 'XXL', units: [
   ['witchking_fellbeast', '마술왕(펠비스트)', 'Witch-king on Fell Beast', { traits: ['fly','terror'], weapon: 'sword' }],
 ]},
 { sheet: 'witchking-mounted-topdown-v1.png', side: 'evil', faction: 'angmar', role: 'cavalry', weapon: 'sword', base: 'XL', units: [
-  ['witchking_mounted', '마술왕(기마)', 'Witch-king mounted', { traits: ['terror'] }],
+  ['witchking_mounted', '마술왕(기마)', 'Witch-king mounted', { role: 'hero', traits: ['terror'] }],
 ]},
 { sheet: 'roster-enemy-heroes-v1.png', side: 'evil', faction: 'mordor', role: 'hero', weapon: 'sword', units: [
-  ['witchking_mounted_sheet', '마술왕(기마·예비)', 'Witch-king mounted (alt)', { traits: ['terror'], faction: 'angmar', role: 'cavalry', base: 'XL' }],
+  ['witchking_mounted_sheet', '마술왕(기마·예비)', 'Witch-king mounted (alt)', { role: 'hero', traits: ['terror'], faction: 'angmar', base: 'XL' }],
   ['witchking_foot_mace', '마술왕(철퇴)', 'Witch-king with mace', { traits: ['terror'], faction: 'angmar', weapon: 'mace', base: 'L' }],
   ['nazgul_sword', '나즈굴(검)', 'Nazgul, sword', { traits: ['terror'], faction: 'angmar', base: 'L' }],
   ['saruman', '사루만', 'Saruman the White', { faction: 'isengard', weapon: 'staff', base: 'L' }],
@@ -65,7 +65,7 @@ module.exports = [
   ['sauron', '사우론', 'Sauron', { traits: ['terror'], faction: 'mordor', role: 'monster', weapon: 'mace', base: 'XXL' }],
   ['nazgul_sword_2', '나즈굴(검·B)', 'Nazgul, sword (v2)', { traits: ['terror'], faction: 'angmar', weapon: 'sword' }],
   ['nazgul_mace', '나즈굴(철퇴)', 'Nazgul, mace', { traits: ['terror'], faction: 'angmar', weapon: 'mace' }],
-  ['nazgul_mounted', '나즈굴(기마)', 'Nazgul mounted', { traits: ['terror'], faction: 'angmar', role: 'cavalry', weapon: 'sword', base: 'XL' }],
+  ['nazgul_mounted', '나즈굴(기마)', 'Nazgul mounted', { role: 'hero', traits: ['terror'], faction: 'angmar', weapon: 'sword', base: 'XL' }],
   ['morgul_knight', '모르굴 기사', 'Morgul Knight', { faction: 'mordor', role: 'cavalry', weapon: 'lance', base: 'XL' }],
   ['dwimmerlaik', '드위머레이크(갑옷 나즈굴)', 'Dwimmerlaik', { faction: 'angmar', weapon: 'mace' }],
 ]},
@@ -74,7 +74,7 @@ module.exports = [
   ['mt_spear', '미나스 티리스 창병', 'MT spear', { weapon: 'spear' }],
   ['mt_spearshield', '미나스 티리스 창방', 'MT spear & shield', { weapon: 'spear_shield' }],
   ['mt_bowman', '미나스 티리스 궁수', 'MT bowman', { weapon: 'bow' }],
-  ['mt_captain', '미나스 티리스 장교', 'MT shield captain'],
+  ['mt_captain', '미나스 티리스 장교', 'MT shield captain', { role: 'hero', }],
   ['mt_fountain_guard', '샘물수위병', 'Fountain Court Guard', { weapon: 'spear_shield' }],
 ]},
 { sheet: 'roster-orc-variants-v1.png', side: 'evil', faction: 'mordor', role: 'infantry', base: 'S', units: [
@@ -174,7 +174,7 @@ module.exports = [
   ['samwise', '샘와이즈', 'Samwise Gamgee', { faction: 'shire', weapon: 'dagger', base: 'S' }],
 ]},
 { sheet: 'roster-evil-heroes-exp-v1.png', side: 'evil', role: 'hero', units: [
-  ['mouth_of_sauron', '사우론의 입(기마)', 'Mouth of Sauron', { faction: 'mordor', role: 'cavalry', weapon: 'sword', base: 'XL' }],
+  ['mouth_of_sauron', '사우론의 입(기마)', 'Mouth of Sauron', { role: 'hero', faction: 'mordor', weapon: 'sword', base: 'XL' }],
   ['gothmog', '고스모그', 'Gothmog', { faction: 'mordor', weapon: 'mace', base: 'L' }],
   ['lurtz', '루르츠', 'Lurtz', { faction: 'isengard', weapon: 'bow', base: 'M' }],
   ['sharku', '샤르쿠(와르그)', 'Sharku on warg', { faction: 'isengard', role: 'cavalry', weapon: 'spear', base: 'XL' }],
@@ -448,7 +448,7 @@ module.exports = [
 ]},
 { sheet: 'exp-numenor-arnor.png', side: 'good', faction: 'gondor', role: 'hero', weapon: 'sword', base: 'L', units: [
   ['arvedui', '아르베두이', 'Arvedui, Last King of Arnor', { faction: 'arnor' }],
-  ['malbeth', '말베스', 'Malbeth the Seer', { faction: 'arnor', role: 'support', weapon: 'staff', base: 'M' }],
+  ['malbeth', '말베스', 'Malbeth the Seer', { role: 'hero', faction: 'arnor', weapon: 'staff', base: 'M' }],
   ['numenorean_captain', '누메노르 대장', 'Numenorean Captain'],
   ['numenorean_warrior', '누메노르 전사', 'Numenorean Warrior', { role: 'infantry', weapon: 'sword_shield', base: 'M' }],
   ['numenorean_spearman', '누메노르 창병', 'Numenorean Spearman', { role: 'infantry', weapon: 'spear', base: 'M' }],
