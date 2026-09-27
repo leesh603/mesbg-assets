@@ -12,7 +12,26 @@
       "weapon": "sword",
       "base": "L",
       "sheet": "lotr-tokens-v1.png",
-      "file": "tokens/aragorn.png"
+      "file": "tokens/aragorn.png",
+      "stats": {
+        "f": 6,
+        "s": 4,
+        "d": 6,
+        "a": 3,
+        "w": 3,
+        "c": 6,
+        "might": 3,
+        "will": 3,
+        "fate": 3,
+        "rules": [
+          "Hero of Legend",
+          "Anduril Flame of the West"
+        ]
+      },
+      "rules": [
+        "Hero of Legend",
+        "Anduril Flame of the West"
+      ]
     },
     {
       "id": "gandalf",
@@ -24,7 +43,26 @@
       "weapon": "staff",
       "base": "L",
       "sheet": "lotr-tokens-v1.png",
-      "file": "tokens/gandalf.png"
+      "file": "tokens/gandalf.png",
+      "stats": {
+        "f": 5,
+        "s": 3,
+        "d": 5,
+        "a": 1,
+        "w": 3,
+        "c": 7,
+        "might": 3,
+        "will": 20,
+        "fate": 3,
+        "rules": [
+          "Istari",
+          "Glamdring"
+        ]
+      },
+      "rules": [
+        "Istari",
+        "Glamdring"
+      ]
     },
     {
       "id": "warrior_minas_tirith",
@@ -48,7 +86,31 @@
       "weapon": "sword",
       "base": "L",
       "sheet": "lotr-tokens-v1.png",
-      "file": "tokens/witchking_foot.png"
+      "file": "tokens/witchking_foot.png",
+      "traits": [
+        "terror"
+      ],
+      "stats": {
+        "f": 6,
+        "s": 5,
+        "d": 7,
+        "a": 3,
+        "w": 3,
+        "c": 6,
+        "might": 3,
+        "will": 20,
+        "fate": 3,
+        "rules": [
+          "Terror",
+          "The Morgul Lord",
+          "Black Breath"
+        ]
+      },
+      "rules": [
+        "Terror",
+        "The Morgul Lord",
+        "Black Breath"
+      ]
     },
     {
       "id": "orc_sword",
@@ -84,7 +146,26 @@
       "weapon": "sword",
       "base": "L",
       "sheet": "glorfindel-topdown-v2.png",
-      "file": "tokens/glorfindel_foot.png"
+      "file": "tokens/glorfindel_foot.png",
+      "stats": {
+        "f": 7,
+        "s": 4,
+        "d": 6,
+        "a": 3,
+        "w": 3,
+        "c": 7,
+        "might": 2,
+        "will": 4,
+        "fate": 3,
+        "rules": [
+          "Glorfindel",
+          "Elf-lord Reborn"
+        ]
+      },
+      "rules": [
+        "Glorfindel",
+        "Elf-lord Reborn"
+      ]
     },
     {
       "id": "glorfindel_mounted",
@@ -96,7 +177,26 @@
       "weapon": "sword",
       "base": "XL",
       "sheet": "glorfindel-topdown-v2.png",
-      "file": "tokens/glorfindel_mounted.png"
+      "file": "tokens/glorfindel_mounted.png",
+      "stats": {
+        "f": 7,
+        "s": 4,
+        "d": 6,
+        "a": 3,
+        "w": 3,
+        "c": 7,
+        "might": 2,
+        "will": 4,
+        "fate": 3,
+        "rules": [
+          "Glorfindel",
+          "Asfaloth"
+        ]
+      },
+      "rules": [
+        "Glorfindel",
+        "Asfaloth"
+      ]
     },
     {
       "id": "witchking_fellbeast",
@@ -108,7 +208,32 @@
       "weapon": "sword",
       "base": "XXL",
       "sheet": "fellbeast-topdown-v2.png",
-      "file": "tokens/witchking_fellbeast.png"
+      "file": "tokens/witchking_fellbeast.png",
+      "traits": [
+        "fly",
+        "terror"
+      ],
+      "stats": {
+        "f": 6,
+        "s": 5,
+        "d": 7,
+        "a": 3,
+        "w": 3,
+        "c": 6,
+        "might": 3,
+        "will": 20,
+        "fate": 3,
+        "rules": [
+          "Terror",
+          "The Morgul Lord",
+          "Fell Beast"
+        ]
+      },
+      "rules": [
+        "Terror",
+        "The Morgul Lord",
+        "Fell Beast"
+      ]
     },
     {
       "id": "witchking_mounted",
@@ -120,7 +245,31 @@
       "weapon": "sword",
       "base": "XL",
       "sheet": "witchking-mounted-topdown-v1.png",
-      "file": "tokens/witchking_mounted.png"
+      "file": "tokens/witchking_mounted.png",
+      "traits": [
+        "terror"
+      ],
+      "stats": {
+        "f": 6,
+        "s": 5,
+        "d": 7,
+        "a": 3,
+        "w": 3,
+        "c": 6,
+        "might": 3,
+        "will": 20,
+        "fate": 3,
+        "rules": [
+          "Terror",
+          "The Morgul Lord",
+          "Black Breath"
+        ]
+      },
+      "rules": [
+        "Terror",
+        "The Morgul Lord",
+        "Black Breath"
+      ]
     },
     {
       "id": "witchking_mounted_sheet",
@@ -132,7 +281,29 @@
       "weapon": "sword",
       "base": "XL",
       "sheet": "roster-enemy-heroes-v1.png",
-      "file": "tokens/witchking_mounted_sheet.png"
+      "file": "tokens/witchking_mounted_sheet.png",
+      "traits": [
+        "terror"
+      ],
+      "stats": {
+        "f": 6,
+        "s": 5,
+        "d": 7,
+        "a": 3,
+        "w": 3,
+        "c": 6,
+        "might": 3,
+        "will": 20,
+        "fate": 3,
+        "rules": [
+          "Terror",
+          "The Morgul Lord"
+        ]
+      },
+      "rules": [
+        "Terror",
+        "The Morgul Lord"
+      ]
     },
     {
       "id": "witchking_foot_mace",
@@ -144,7 +315,31 @@
       "weapon": "mace",
       "base": "L",
       "sheet": "roster-enemy-heroes-v1.png",
-      "file": "tokens/witchking_foot_mace.png"
+      "file": "tokens/witchking_foot_mace.png",
+      "traits": [
+        "terror"
+      ],
+      "stats": {
+        "f": 6,
+        "s": 5,
+        "d": 7,
+        "a": 3,
+        "w": 3,
+        "c": 6,
+        "might": 3,
+        "will": 20,
+        "fate": 3,
+        "rules": [
+          "Terror",
+          "The Morgul Lord",
+          "Mace of the Morgul Vale"
+        ]
+      },
+      "rules": [
+        "Terror",
+        "The Morgul Lord",
+        "Mace of the Morgul Vale"
+      ]
     },
     {
       "id": "nazgul_sword",
@@ -156,7 +351,31 @@
       "weapon": "sword",
       "base": "L",
       "sheet": "roster-enemy-heroes-v1.png",
-      "file": "tokens/nazgul_sword.png"
+      "file": "tokens/nazgul_sword.png",
+      "traits": [
+        "terror"
+      ],
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 6,
+        "a": 2,
+        "w": 2,
+        "c": 5,
+        "might": 2,
+        "will": 8,
+        "fate": 2,
+        "rules": [
+          "Terror",
+          "Ringwraith",
+          "Unseen"
+        ]
+      },
+      "rules": [
+        "Terror",
+        "Ringwraith",
+        "Unseen"
+      ]
     },
     {
       "id": "saruman",
@@ -168,7 +387,26 @@
       "weapon": "staff",
       "base": "L",
       "sheet": "roster-enemy-heroes-v1.png",
-      "file": "tokens/saruman.png"
+      "file": "tokens/saruman.png",
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 5,
+        "a": 1,
+        "w": 3,
+        "c": 6,
+        "might": 3,
+        "will": 12,
+        "fate": 3,
+        "rules": [
+          "Istari",
+          "Voice of Saruman"
+        ]
+      },
+      "rules": [
+        "Istari",
+        "Voice of Saruman"
+      ]
     },
     {
       "id": "orc_shaman",
@@ -192,7 +430,24 @@
       "weapon": "sword",
       "base": "M",
       "sheet": "roster-enemy-heroes-v1.png",
-      "file": "tokens/orc_captain.png"
+      "file": "tokens/orc_captain.png",
+      "stats": {
+        "f": 3,
+        "s": 4,
+        "d": 4,
+        "a": 2,
+        "w": 2,
+        "c": 3,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Orc Captain"
+        ]
+      },
+      "rules": [
+        "Orc Captain"
+      ]
     },
     {
       "id": "orc_spearman",
@@ -276,7 +531,26 @@
       "weapon": "bow",
       "base": "M",
       "sheet": "roster-free-heroes-v1.png",
-      "file": "tokens/legolas.png"
+      "file": "tokens/legolas.png",
+      "stats": {
+        "f": 6,
+        "s": 3,
+        "d": 5,
+        "a": 2,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 1,
+        "fate": 1,
+        "rules": [
+          "Deadly Shot",
+          "Elven Eyesight"
+        ]
+      },
+      "rules": [
+        "Deadly Shot",
+        "Elven Eyesight"
+      ]
     },
     {
       "id": "gimli",
@@ -288,7 +562,26 @@
       "weapon": "axe",
       "base": "M",
       "sheet": "roster-free-heroes-v1.png",
-      "file": "tokens/gimli.png"
+      "file": "tokens/gimli.png",
+      "stats": {
+        "f": 6,
+        "s": 4,
+        "d": 8,
+        "a": 2,
+        "w": 2,
+        "c": 6,
+        "might": 1,
+        "will": 0,
+        "fate": 2,
+        "rules": [
+          "Dwarf",
+          "Champion of Erebor"
+        ]
+      },
+      "rules": [
+        "Dwarf",
+        "Champion of Erebor"
+      ]
     },
     {
       "id": "boromir",
@@ -300,7 +593,26 @@
       "weapon": "sword_shield",
       "base": "L",
       "sheet": "roster-free-heroes-v1.png",
-      "file": "tokens/boromir.png"
+      "file": "tokens/boromir.png",
+      "stats": {
+        "f": 6,
+        "s": 4,
+        "d": 6,
+        "a": 3,
+        "w": 3,
+        "c": 6,
+        "might": 3,
+        "will": 1,
+        "fate": 2,
+        "rules": [
+          "Horn of Gondor",
+          "Captain of the White Tower"
+        ]
+      },
+      "rules": [
+        "Horn of Gondor",
+        "Captain of the White Tower"
+      ]
     },
     {
       "id": "eowyn",
@@ -312,7 +624,26 @@
       "weapon": "sword",
       "base": "M",
       "sheet": "roster-free-heroes-v1.png",
-      "file": "tokens/eowyn.png"
+      "file": "tokens/eowyn.png",
+      "stats": {
+        "f": 4,
+        "s": 3,
+        "d": 4,
+        "a": 2,
+        "w": 2,
+        "c": 6,
+        "might": 2,
+        "will": 1,
+        "fate": 2,
+        "rules": [
+          "Shieldmaiden of Rohan",
+          "I Am No Man"
+        ]
+      },
+      "rules": [
+        "Shieldmaiden of Rohan",
+        "I Am No Man"
+      ]
     },
     {
       "id": "frodo",
@@ -324,7 +655,28 @@
       "weapon": "dagger",
       "base": "S",
       "sheet": "roster-free-heroes-v1.png",
-      "file": "tokens/frodo.png"
+      "file": "tokens/frodo.png",
+      "stats": {
+        "f": 3,
+        "s": 3,
+        "d": 5,
+        "a": 1,
+        "w": 2,
+        "c": 6,
+        "might": 1,
+        "will": 0,
+        "fate": 3,
+        "rules": [
+          "Ring-bearer",
+          "Mithril Shirt",
+          "Sting"
+        ]
+      },
+      "rules": [
+        "Ring-bearer",
+        "Mithril Shirt",
+        "Sting"
+      ]
     },
     {
       "id": "elrond",
@@ -336,7 +688,26 @@
       "weapon": "sword",
       "base": "L",
       "sheet": "roster-free-heroes-v1.png",
-      "file": "tokens/elrond.png"
+      "file": "tokens/elrond.png",
+      "stats": {
+        "f": 6,
+        "s": 4,
+        "d": 6,
+        "a": 3,
+        "w": 3,
+        "c": 7,
+        "might": 2,
+        "will": 10,
+        "fate": 3,
+        "rules": [
+          "Lord of Rivendell",
+          "Vilya"
+        ]
+      },
+      "rules": [
+        "Lord of Rivendell",
+        "Vilya"
+      ]
     },
     {
       "id": "gondor_archer",
@@ -420,7 +791,31 @@
       "weapon": "various",
       "base": "XXL",
       "sheet": "roster-monsters-v1.png",
-      "file": "tokens/balrog.png"
+      "file": "tokens/balrog.png",
+      "traits": [
+        "terror"
+      ],
+      "stats": {
+        "f": 8,
+        "s": 6,
+        "d": 8,
+        "a": 4,
+        "w": 4,
+        "c": 7,
+        "might": 3,
+        "will": 10,
+        "fate": 3,
+        "rules": [
+          "Durin's Bane",
+          "Terror",
+          "Whip of Flame"
+        ]
+      },
+      "rules": [
+        "Durin's Bane",
+        "Terror",
+        "Whip of Flame"
+      ]
     },
     {
       "id": "mountain_troll",
@@ -444,7 +839,10 @@
       "weapon": "various",
       "base": "XXL",
       "sheet": "roster-monsters-v1.png",
-      "file": "tokens/shelob.png"
+      "file": "tokens/shelob.png",
+      "traits": [
+        "terror"
+      ]
     },
     {
       "id": "barrow_wight",
@@ -456,7 +854,29 @@
       "weapon": "sword",
       "base": "M",
       "sheet": "roster-monsters-v1.png",
-      "file": "tokens/barrow_wight.png"
+      "file": "tokens/barrow_wight.png",
+      "traits": [
+        "terror"
+      ],
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 5,
+        "a": 2,
+        "w": 2,
+        "c": 6,
+        "might": 2,
+        "will": 4,
+        "fate": 2,
+        "rules": [
+          "Terror",
+          "Drain Will"
+        ]
+      },
+      "rules": [
+        "Terror",
+        "Drain Will"
+      ]
     },
     {
       "id": "moria_goblin",
@@ -492,7 +912,31 @@
       "weapon": "mace",
       "base": "XXL",
       "sheet": "roster-sauron-nazgul-v1.png",
-      "file": "tokens/sauron.png"
+      "file": "tokens/sauron.png",
+      "traits": [
+        "terror"
+      ],
+      "stats": {
+        "f": 9,
+        "s": 8,
+        "d": 9,
+        "a": 4,
+        "w": 4,
+        "c": 8,
+        "might": 4,
+        "will": 20,
+        "fate": 4,
+        "rules": [
+          "The Dark Lord",
+          "Terror",
+          "Mace of Sauron"
+        ]
+      },
+      "rules": [
+        "The Dark Lord",
+        "Terror",
+        "Mace of Sauron"
+      ]
     },
     {
       "id": "nazgul_sword_2",
@@ -504,7 +948,31 @@
       "weapon": "sword",
       "base": "L",
       "sheet": "roster-sauron-nazgul-v1.png",
-      "file": "tokens/nazgul_sword_2.png"
+      "file": "tokens/nazgul_sword_2.png",
+      "traits": [
+        "terror"
+      ],
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 6,
+        "a": 2,
+        "w": 2,
+        "c": 5,
+        "might": 2,
+        "will": 8,
+        "fate": 2,
+        "rules": [
+          "Terror",
+          "Ringwraith",
+          "Unseen"
+        ]
+      },
+      "rules": [
+        "Terror",
+        "Ringwraith",
+        "Unseen"
+      ]
     },
     {
       "id": "nazgul_mace",
@@ -516,7 +984,31 @@
       "weapon": "mace",
       "base": "L",
       "sheet": "roster-sauron-nazgul-v1.png",
-      "file": "tokens/nazgul_mace.png"
+      "file": "tokens/nazgul_mace.png",
+      "traits": [
+        "terror"
+      ],
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 6,
+        "a": 2,
+        "w": 2,
+        "c": 5,
+        "might": 2,
+        "will": 8,
+        "fate": 2,
+        "rules": [
+          "Terror",
+          "Ringwraith",
+          "Unseen"
+        ]
+      },
+      "rules": [
+        "Terror",
+        "Ringwraith",
+        "Unseen"
+      ]
     },
     {
       "id": "nazgul_mounted",
@@ -528,7 +1020,31 @@
       "weapon": "sword",
       "base": "XL",
       "sheet": "roster-sauron-nazgul-v1.png",
-      "file": "tokens/nazgul_mounted.png"
+      "file": "tokens/nazgul_mounted.png",
+      "traits": [
+        "terror"
+      ],
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 6,
+        "a": 2,
+        "w": 2,
+        "c": 5,
+        "might": 2,
+        "will": 8,
+        "fate": 2,
+        "rules": [
+          "Terror",
+          "Ringwraith",
+          "Unseen"
+        ]
+      },
+      "rules": [
+        "Terror",
+        "Ringwraith",
+        "Unseen"
+      ]
     },
     {
       "id": "morgul_knight",
@@ -552,7 +1068,28 @@
       "weapon": "mace",
       "base": "L",
       "sheet": "roster-sauron-nazgul-v1.png",
-      "file": "tokens/dwimmerlaik.png"
+      "file": "tokens/dwimmerlaik.png",
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 6,
+        "a": 2,
+        "w": 2,
+        "c": 5,
+        "might": 2,
+        "will": 8,
+        "fate": 2,
+        "rules": [
+          "Terror",
+          "Ringwraith",
+          "The Dwimmerlaik"
+        ]
+      },
+      "rules": [
+        "Terror",
+        "Ringwraith",
+        "The Dwimmerlaik"
+      ]
     },
     {
       "id": "mt_swordshield",
@@ -1104,7 +1641,26 @@
       "weapon": "sword",
       "base": "XL",
       "sheet": "roster-rohan-exp-v1.png",
-      "file": "tokens/eomer.png"
+      "file": "tokens/eomer.png",
+      "stats": {
+        "f": 6,
+        "s": 4,
+        "d": 5,
+        "a": 3,
+        "w": 3,
+        "c": 5,
+        "might": 2,
+        "will": 1,
+        "fate": 2,
+        "rules": [
+          "Marshal of the Riddermark",
+          "Guthwine"
+        ]
+      },
+      "rules": [
+        "Marshal of the Riddermark",
+        "Guthwine"
+      ]
     },
     {
       "id": "rohan_outrider",
@@ -1344,7 +1900,10 @@
       "weapon": "none",
       "base": "M",
       "sheet": "roster-isengard-exp-v1.png",
-      "file": "tokens/crebain_swarm.png"
+      "file": "tokens/crebain_swarm.png",
+      "traits": [
+        "fly"
+      ]
     },
     {
       "id": "hobbit_shirriff",
@@ -1380,7 +1939,10 @@
       "weapon": "none",
       "base": "XL",
       "sheet": "roster-free-special-v1.png",
-      "file": "tokens/great_eagle.png"
+      "file": "tokens/great_eagle.png",
+      "traits": [
+        "fly"
+      ]
     },
     {
       "id": "ent",
@@ -1404,7 +1966,24 @@
       "weapon": "axe",
       "base": "L",
       "sheet": "roster-free-special-v1.png",
-      "file": "tokens/beorning.png"
+      "file": "tokens/beorning.png",
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 4,
+        "a": 2,
+        "w": 2,
+        "c": 5,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Beorning"
+        ]
+      },
+      "rules": [
+        "Beorning"
+      ]
     },
     {
       "id": "ranger_north",
@@ -1440,7 +2019,26 @@
       "weapon": "bow",
       "base": "M",
       "sheet": "roster-free-heroes-exp-v1.png",
-      "file": "tokens/faramir.png"
+      "file": "tokens/faramir.png",
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 5,
+        "a": 2,
+        "w": 3,
+        "c": 6,
+        "might": 2,
+        "will": 1,
+        "fate": 2,
+        "rules": [
+          "Captain of the Rangers",
+          "Woodcraft"
+        ]
+      },
+      "rules": [
+        "Captain of the Rangers",
+        "Woodcraft"
+      ]
     },
     {
       "id": "haldir",
@@ -1452,7 +2050,24 @@
       "weapon": "twohanded",
       "base": "M",
       "sheet": "roster-free-heroes-exp-v1.png",
-      "file": "tokens/haldir.png"
+      "file": "tokens/haldir.png",
+      "stats": {
+        "f": 5,
+        "s": 3,
+        "d": 5,
+        "a": 2,
+        "w": 2,
+        "c": 5,
+        "might": 1,
+        "will": 1,
+        "fate": 1,
+        "rules": [
+          "Marchwarden of Lorien"
+        ]
+      },
+      "rules": [
+        "Marchwarden of Lorien"
+      ]
     },
     {
       "id": "galadriel",
@@ -1464,7 +2079,28 @@
       "weapon": "none",
       "base": "M",
       "sheet": "roster-free-heroes-exp-v1.png",
-      "file": "tokens/galadriel.png"
+      "file": "tokens/galadriel.png",
+      "stats": {
+        "f": 6,
+        "s": 3,
+        "d": 4,
+        "a": 1,
+        "w": 3,
+        "c": 8,
+        "might": 2,
+        "will": 12,
+        "fate": 3,
+        "rules": [
+          "Lady of Light",
+          "Nenya",
+          "Mirror of Galadriel"
+        ]
+      },
+      "rules": [
+        "Lady of Light",
+        "Nenya",
+        "Mirror of Galadriel"
+      ]
     },
     {
       "id": "gamling",
@@ -1476,7 +2112,24 @@
       "weapon": "banner",
       "base": "M",
       "sheet": "roster-free-heroes-exp-v1.png",
-      "file": "tokens/gamling.png"
+      "file": "tokens/gamling.png",
+      "stats": {
+        "f": 4,
+        "s": 3,
+        "d": 4,
+        "a": 2,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Royal Standard"
+        ]
+      },
+      "rules": [
+        "Royal Standard"
+      ]
     },
     {
       "id": "samwise",
@@ -1488,7 +2141,26 @@
       "weapon": "dagger",
       "base": "S",
       "sheet": "roster-free-heroes-exp-v1.png",
-      "file": "tokens/samwise.png"
+      "file": "tokens/samwise.png",
+      "stats": {
+        "f": 3,
+        "s": 3,
+        "d": 4,
+        "a": 1,
+        "w": 2,
+        "c": 6,
+        "might": 1,
+        "will": 0,
+        "fate": 2,
+        "rules": [
+          "Fellowship",
+          "Loyal Guardian"
+        ]
+      },
+      "rules": [
+        "Fellowship",
+        "Loyal Guardian"
+      ]
     },
     {
       "id": "mouth_of_sauron",
@@ -1500,7 +2172,26 @@
       "weapon": "sword",
       "base": "XL",
       "sheet": "roster-evil-heroes-exp-v1.png",
-      "file": "tokens/mouth_of_sauron.png"
+      "file": "tokens/mouth_of_sauron.png",
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 5,
+        "a": 2,
+        "w": 3,
+        "c": 5,
+        "might": 2,
+        "will": 4,
+        "fate": 2,
+        "rules": [
+          "Lieutenant of Barad-dur",
+          "Sorcerer"
+        ]
+      },
+      "rules": [
+        "Lieutenant of Barad-dur",
+        "Sorcerer"
+      ]
     },
     {
       "id": "gothmog",
@@ -1512,7 +2203,24 @@
       "weapon": "mace",
       "base": "L",
       "sheet": "roster-evil-heroes-exp-v1.png",
-      "file": "tokens/gothmog.png"
+      "file": "tokens/gothmog.png",
+      "stats": {
+        "f": 4,
+        "s": 4,
+        "d": 4,
+        "a": 2,
+        "w": 2,
+        "c": 4,
+        "might": 2,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Lieutenant of Morgul"
+        ]
+      },
+      "rules": [
+        "Lieutenant of Morgul"
+      ]
     },
     {
       "id": "lurtz",
@@ -1524,7 +2232,24 @@
       "weapon": "bow",
       "base": "M",
       "sheet": "roster-evil-heroes-exp-v1.png",
-      "file": "tokens/lurtz.png"
+      "file": "tokens/lurtz.png",
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 5,
+        "a": 3,
+        "w": 3,
+        "c": 5,
+        "might": 2,
+        "will": 1,
+        "fate": 2,
+        "rules": [
+          "First of the Uruk-hai"
+        ]
+      },
+      "rules": [
+        "First of the Uruk-hai"
+      ]
     },
     {
       "id": "sharku",
@@ -1548,7 +2273,26 @@
       "weapon": "dagger",
       "base": "M",
       "sheet": "roster-evil-heroes-exp-v1.png",
-      "file": "tokens/grima.png"
+      "file": "tokens/grima.png",
+      "stats": {
+        "f": 2,
+        "s": 2,
+        "d": 3,
+        "a": 1,
+        "w": 1,
+        "c": 2,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Wormtongue",
+          "Spy"
+        ]
+      },
+      "rules": [
+        "Wormtongue",
+        "Spy"
+      ]
     },
     {
       "id": "khamul",
@@ -1560,7 +2304,28 @@
       "weapon": "mace",
       "base": "L",
       "sheet": "roster-evil-heroes-exp-v1.png",
-      "file": "tokens/khamul.png"
+      "file": "tokens/khamul.png",
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 6,
+        "a": 2,
+        "w": 2,
+        "c": 5,
+        "might": 2,
+        "will": 8,
+        "fate": 2,
+        "rules": [
+          "Terror",
+          "Ringwraith",
+          "Shadow of the East"
+        ]
+      },
+      "rules": [
+        "Terror",
+        "Ringwraith",
+        "Shadow of the East"
+      ]
     },
     {
       "id": "fingolfin",
@@ -1572,7 +2337,26 @@
       "weapon": "sword",
       "base": "L",
       "sheet": "roster-legends-good-v1.png",
-      "file": "tokens/fingolfin.png"
+      "file": "tokens/fingolfin.png",
+      "stats": {
+        "f": 7,
+        "s": 5,
+        "d": 6,
+        "a": 4,
+        "w": 3,
+        "c": 7,
+        "might": 3,
+        "will": 2,
+        "fate": 3,
+        "rules": [
+          "High King of the Noldor",
+          "Challenged Morgoth"
+        ]
+      },
+      "rules": [
+        "High King of the Noldor",
+        "Challenged Morgoth"
+      ]
     },
     {
       "id": "imrahil",
@@ -1584,7 +2368,26 @@
       "weapon": "lance",
       "base": "M",
       "sheet": "roster-legends-good-v1.png",
-      "file": "tokens/imrahil.png"
+      "file": "tokens/imrahil.png",
+      "stats": {
+        "f": 6,
+        "s": 4,
+        "d": 6,
+        "a": 2,
+        "w": 3,
+        "c": 6,
+        "might": 3,
+        "will": 1,
+        "fate": 2,
+        "rules": [
+          "Prince of Dol Amroth",
+          "Swan Knight"
+        ]
+      },
+      "rules": [
+        "Prince of Dol Amroth",
+        "Swan Knight"
+      ]
     },
     {
       "id": "merry",
@@ -1596,7 +2399,24 @@
       "weapon": "dagger",
       "base": "S",
       "sheet": "roster-legends-good-v1.png",
-      "file": "tokens/merry.png"
+      "file": "tokens/merry.png",
+      "stats": {
+        "f": 3,
+        "s": 3,
+        "d": 4,
+        "a": 1,
+        "w": 2,
+        "c": 5,
+        "might": 1,
+        "will": 0,
+        "fate": 2,
+        "rules": [
+          "Esquire of Rohan"
+        ]
+      },
+      "rules": [
+        "Esquire of Rohan"
+      ]
     },
     {
       "id": "pippin",
@@ -1608,7 +2428,24 @@
       "weapon": "dagger",
       "base": "S",
       "sheet": "roster-legends-good-v1.png",
-      "file": "tokens/pippin.png"
+      "file": "tokens/pippin.png",
+      "stats": {
+        "f": 3,
+        "s": 3,
+        "d": 4,
+        "a": 1,
+        "w": 2,
+        "c": 5,
+        "might": 1,
+        "will": 0,
+        "fate": 2,
+        "rules": [
+          "Guard of the Citadel"
+        ]
+      },
+      "rules": [
+        "Guard of the Citadel"
+      ]
     },
     {
       "id": "beorn",
@@ -1620,7 +2457,26 @@
       "weapon": "twohanded",
       "base": "L",
       "sheet": "roster-legends-good-v1.png",
-      "file": "tokens/beorn.png"
+      "file": "tokens/beorn.png",
+      "stats": {
+        "f": 6,
+        "s": 4,
+        "d": 5,
+        "a": 3,
+        "w": 3,
+        "c": 6,
+        "might": 2,
+        "will": 1,
+        "fate": 3,
+        "rules": [
+          "Skin-changer",
+          "Bear Form"
+        ]
+      },
+      "rules": [
+        "Skin-changer",
+        "Bear Form"
+      ]
     },
     {
       "id": "elendil",
@@ -1632,7 +2488,26 @@
       "weapon": "sword",
       "base": "L",
       "sheet": "roster-legends-good-v1.png",
-      "file": "tokens/elendil.png"
+      "file": "tokens/elendil.png",
+      "stats": {
+        "f": 7,
+        "s": 5,
+        "d": 7,
+        "a": 3,
+        "w": 3,
+        "c": 7,
+        "might": 3,
+        "will": 2,
+        "fate": 3,
+        "rules": [
+          "High King of Arnor",
+          "Narsil"
+        ]
+      },
+      "rules": [
+        "High King of Arnor",
+        "Narsil"
+      ]
     },
     {
       "id": "melkor",
@@ -1656,7 +2531,10 @@
       "weapon": "none",
       "base": "XXL",
       "sheet": "roster-legends-evil-v1.png",
-      "file": "tokens/mumakil.png"
+      "file": "tokens/mumakil.png",
+      "traits": [
+        "terror"
+      ]
     },
     {
       "id": "smaug",
@@ -1692,7 +2570,24 @@
       "weapon": "mace",
       "base": "L",
       "sheet": "roster-legends-evil-v1.png",
-      "file": "tokens/bolg.png"
+      "file": "tokens/bolg.png",
+      "stats": {
+        "f": 6,
+        "s": 5,
+        "d": 6,
+        "a": 3,
+        "w": 3,
+        "c": 5,
+        "might": 2,
+        "will": 1,
+        "fate": 2,
+        "rules": [
+          "Spawn of Azog"
+        ]
+      },
+      "rules": [
+        "Spawn of Azog"
+      ]
     },
     {
       "id": "easterling_warlord",
@@ -1704,7 +2599,24 @@
       "weapon": "pike",
       "base": "",
       "sheet": "roster-legends-evil-v1.png",
-      "file": "tokens/easterling_warlord.png"
+      "file": "tokens/easterling_warlord.png",
+      "stats": {
+        "f": 4,
+        "s": 4,
+        "d": 5,
+        "a": 2,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Easterling Warlord"
+        ]
+      },
+      "rules": [
+        "Easterling Warlord"
+      ]
     },
     {
       "id": "radagast",
@@ -1716,7 +2628,26 @@
       "weapon": "staff",
       "base": "M",
       "sheet": "roster-legends-good-v2.png",
-      "file": "tokens/radagast.png"
+      "file": "tokens/radagast.png",
+      "stats": {
+        "f": 5,
+        "s": 3,
+        "d": 4,
+        "a": 1,
+        "w": 3,
+        "c": 6,
+        "might": 2,
+        "will": 10,
+        "fate": 2,
+        "rules": [
+          "Istari",
+          "Friend of Beasts"
+        ]
+      },
+      "rules": [
+        "Istari",
+        "Friend of Beasts"
+      ]
     },
     {
       "id": "thranduil",
@@ -1728,7 +2659,26 @@
       "weapon": "sword",
       "base": "L",
       "sheet": "roster-legends-good-v2.png",
-      "file": "tokens/thranduil.png"
+      "file": "tokens/thranduil.png",
+      "stats": {
+        "f": 6,
+        "s": 4,
+        "d": 5,
+        "a": 3,
+        "w": 3,
+        "c": 6,
+        "might": 3,
+        "will": 2,
+        "fate": 2,
+        "rules": [
+          "Elvenking",
+          "Circlet of the Elvenking"
+        ]
+      },
+      "rules": [
+        "Elvenking",
+        "Circlet of the Elvenking"
+      ]
     },
     {
       "id": "celeborn",
@@ -1740,7 +2690,24 @@
       "weapon": "spear",
       "base": "M",
       "sheet": "roster-legends-good-v2.png",
-      "file": "tokens/celeborn.png"
+      "file": "tokens/celeborn.png",
+      "stats": {
+        "f": 7,
+        "s": 4,
+        "d": 6,
+        "a": 3,
+        "w": 3,
+        "c": 7,
+        "might": 2,
+        "will": 2,
+        "fate": 3,
+        "rules": [
+          "Lord of Lothlorien"
+        ]
+      },
+      "rules": [
+        "Lord of Lothlorien"
+      ]
     },
     {
       "id": "bilbo",
@@ -1752,7 +2719,26 @@
       "weapon": "dagger",
       "base": "S",
       "sheet": "roster-legends-good-v2.png",
-      "file": "tokens/bilbo.png"
+      "file": "tokens/bilbo.png",
+      "stats": {
+        "f": 3,
+        "s": 3,
+        "d": 4,
+        "a": 1,
+        "w": 2,
+        "c": 5,
+        "might": 1,
+        "will": 0,
+        "fate": 2,
+        "rules": [
+          "Ring-bearer",
+          "Sting"
+        ]
+      },
+      "rules": [
+        "Ring-bearer",
+        "Sting"
+      ]
     },
     {
       "id": "king_of_the_dead",
@@ -1764,7 +2750,29 @@
       "weapon": "sword",
       "base": "L",
       "sheet": "roster-legends-good-v2.png",
-      "file": "tokens/king_of_the_dead.png"
+      "file": "tokens/king_of_the_dead.png",
+      "traits": [
+        "terror"
+      ],
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 6,
+        "a": 2,
+        "w": 3,
+        "c": 6,
+        "might": 2,
+        "will": 4,
+        "fate": 2,
+        "rules": [
+          "Terror",
+          "Oathbreaker King"
+        ]
+      },
+      "rules": [
+        "Terror",
+        "Oathbreaker King"
+      ]
     },
     {
       "id": "dead_soldier",
@@ -1776,7 +2784,10 @@
       "weapon": "spear",
       "base": "M",
       "sheet": "roster-legends-good-v2.png",
-      "file": "tokens/dead_soldier.png"
+      "file": "tokens/dead_soldier.png",
+      "traits": [
+        "terror"
+      ]
     },
     {
       "id": "olog_hai",
@@ -1800,7 +2811,10 @@
       "weapon": "none",
       "base": "XXL",
       "sheet": "roster-legends-evil-v2.png",
-      "file": "tokens/watcher_in_the_water.png"
+      "file": "tokens/watcher_in_the_water.png",
+      "traits": [
+        "terror"
+      ]
     },
     {
       "id": "mirkwood_spider",
@@ -1824,7 +2838,24 @@
       "weapon": "sword",
       "base": "",
       "sheet": "roster-legends-evil-v2.png",
-      "file": "tokens/harad_chieftain.png"
+      "file": "tokens/harad_chieftain.png",
+      "stats": {
+        "f": 4,
+        "s": 4,
+        "d": 4,
+        "a": 2,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Haradrim Chieftain"
+        ]
+      },
+      "rules": [
+        "Haradrim Chieftain"
+      ]
     },
     {
       "id": "uruk_captain",
@@ -1836,7 +2867,24 @@
       "weapon": "sword_shield",
       "base": "L",
       "sheet": "roster-legends-evil-v2.png",
-      "file": "tokens/uruk_captain.png"
+      "file": "tokens/uruk_captain.png",
+      "stats": {
+        "f": 4,
+        "s": 4,
+        "d": 5,
+        "a": 2,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Uruk-hai Captain"
+        ]
+      },
+      "rules": [
+        "Uruk-hai Captain"
+      ]
     },
     {
       "id": "hill_troll",
@@ -1860,7 +2908,26 @@
       "weapon": "sword",
       "base": "L",
       "sheet": "roster-silmarillion-good-v1.png",
-      "file": "tokens/feanor.png"
+      "file": "tokens/feanor.png",
+      "stats": {
+        "f": 8,
+        "s": 5,
+        "d": 6,
+        "a": 4,
+        "w": 3,
+        "c": 7,
+        "might": 3,
+        "will": 3,
+        "fate": 3,
+        "rules": [
+          "Greatest of the Noldor",
+          "Silmarils"
+        ]
+      },
+      "rules": [
+        "Greatest of the Noldor",
+        "Silmarils"
+      ]
     },
     {
       "id": "luthien",
@@ -1872,7 +2939,26 @@
       "weapon": "staff",
       "base": "M",
       "sheet": "roster-silmarillion-good-v1.png",
-      "file": "tokens/luthien.png"
+      "file": "tokens/luthien.png",
+      "stats": {
+        "f": 4,
+        "s": 3,
+        "d": 4,
+        "a": 1,
+        "w": 2,
+        "c": 6,
+        "might": 2,
+        "will": 8,
+        "fate": 3,
+        "rules": [
+          "Enchantress",
+          "Power of Song"
+        ]
+      },
+      "rules": [
+        "Enchantress",
+        "Power of Song"
+      ]
     },
     {
       "id": "beren",
@@ -1884,7 +2970,24 @@
       "weapon": "sword",
       "base": "M",
       "sheet": "roster-silmarillion-good-v1.png",
-      "file": "tokens/beren.png"
+      "file": "tokens/beren.png",
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 5,
+        "a": 2,
+        "w": 3,
+        "c": 6,
+        "might": 2,
+        "will": 1,
+        "fate": 2,
+        "rules": [
+          "The One-handed"
+        ]
+      },
+      "rules": [
+        "The One-handed"
+      ]
     },
     {
       "id": "turin",
@@ -1896,7 +2999,26 @@
       "weapon": "sword",
       "base": "L",
       "sheet": "roster-silmarillion-good-v1.png",
-      "file": "tokens/turin.png"
+      "file": "tokens/turin.png",
+      "stats": {
+        "f": 6,
+        "s": 4,
+        "d": 4,
+        "a": 3,
+        "w": 3,
+        "c": 5,
+        "might": 2,
+        "will": 1,
+        "fate": 2,
+        "rules": [
+          "Gurthang",
+          "Ill-fated"
+        ]
+      },
+      "rules": [
+        "Gurthang",
+        "Ill-fated"
+      ]
     },
     {
       "id": "beleg",
@@ -1908,7 +3030,26 @@
       "weapon": "bow",
       "base": "M",
       "sheet": "roster-silmarillion-good-v1.png",
-      "file": "tokens/beleg.png"
+      "file": "tokens/beleg.png",
+      "stats": {
+        "f": 5,
+        "s": 3,
+        "d": 4,
+        "a": 2,
+        "w": 2,
+        "c": 5,
+        "might": 1,
+        "will": 1,
+        "fate": 1,
+        "rules": [
+          "Belthronding",
+          "Beleg Strongbow"
+        ]
+      },
+      "rules": [
+        "Belthronding",
+        "Beleg Strongbow"
+      ]
     },
     {
       "id": "huan",
@@ -1956,7 +3097,29 @@
       "weapon": "whip",
       "base": "XXL",
       "sheet": "roster-silmarillion-evil-v1.png",
-      "file": "tokens/gothmog_balrog.png"
+      "file": "tokens/gothmog_balrog.png",
+      "traits": [
+        "terror"
+      ],
+      "stats": {
+        "f": 7,
+        "s": 6,
+        "d": 8,
+        "a": 4,
+        "w": 4,
+        "c": 7,
+        "might": 3,
+        "will": 10,
+        "fate": 3,
+        "rules": [
+          "Lord of Balrogs",
+          "Terror"
+        ]
+      },
+      "rules": [
+        "Lord of Balrogs",
+        "Terror"
+      ]
     },
     {
       "id": "draugluin",
@@ -1992,7 +3155,24 @@
       "weapon": "sword",
       "base": "L",
       "sheet": "roster-silmarillion-evil-v1.png",
-      "file": "tokens/boldog.png"
+      "file": "tokens/boldog.png",
+      "stats": {
+        "f": 4,
+        "s": 4,
+        "d": 5,
+        "a": 2,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Orc Hero"
+        ]
+      },
+      "rules": [
+        "Orc Hero"
+      ]
     },
     {
       "id": "thorin",
@@ -2004,7 +3184,26 @@
       "weapon": "sword",
       "base": "L",
       "sheet": "roster-hobbit-good-v1.png",
-      "file": "tokens/thorin.png"
+      "file": "tokens/thorin.png",
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 6,
+        "a": 2,
+        "w": 3,
+        "c": 5,
+        "might": 2,
+        "will": 1,
+        "fate": 2,
+        "rules": [
+          "Oakenshield",
+          "Thorin's Company"
+        ]
+      },
+      "rules": [
+        "Oakenshield",
+        "Thorin's Company"
+      ]
     },
     {
       "id": "tauriel",
@@ -2016,7 +3215,26 @@
       "weapon": "dagger",
       "base": "M",
       "sheet": "roster-hobbit-good-v1.png",
-      "file": "tokens/tauriel.png"
+      "file": "tokens/tauriel.png",
+      "stats": {
+        "f": 5,
+        "s": 3,
+        "d": 4,
+        "a": 2,
+        "w": 2,
+        "c": 5,
+        "might": 1,
+        "will": 1,
+        "fate": 1,
+        "rules": [
+          "Captain of the Guard",
+          "Knives of Tauriel"
+        ]
+      },
+      "rules": [
+        "Captain of the Guard",
+        "Knives of Tauriel"
+      ]
     },
     {
       "id": "bard",
@@ -2028,7 +3246,26 @@
       "weapon": "bow",
       "base": "M",
       "sheet": "roster-hobbit-good-v1.png",
-      "file": "tokens/bard.png"
+      "file": "tokens/bard.png",
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 4,
+        "a": 2,
+        "w": 3,
+        "c": 5,
+        "might": 2,
+        "will": 1,
+        "fate": 1,
+        "rules": [
+          "Dragonslayer",
+          "Black Arrow"
+        ]
+      },
+      "rules": [
+        "Dragonslayer",
+        "Black Arrow"
+      ]
     },
     {
       "id": "dain",
@@ -2040,7 +3277,24 @@
       "weapon": "mace",
       "base": "L",
       "sheet": "roster-hobbit-good-v1.png",
-      "file": "tokens/dain.png"
+      "file": "tokens/dain.png",
+      "stats": {
+        "f": 6,
+        "s": 4,
+        "d": 8,
+        "a": 3,
+        "w": 3,
+        "c": 6,
+        "might": 2,
+        "will": 1,
+        "fate": 2,
+        "rules": [
+          "Lord of the Iron Hills"
+        ]
+      },
+      "rules": [
+        "Lord of the Iron Hills"
+      ]
     },
     {
       "id": "fili",
@@ -2052,7 +3306,24 @@
       "weapon": "sword",
       "base": "M",
       "sheet": "roster-hobbit-good-v1.png",
-      "file": "tokens/fili.png"
+      "file": "tokens/fili.png",
+      "stats": {
+        "f": 4,
+        "s": 4,
+        "d": 5,
+        "a": 2,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 1,
+        "fate": 1,
+        "rules": [
+          "Thorin's Company"
+        ]
+      },
+      "rules": [
+        "Thorin's Company"
+      ]
     },
     {
       "id": "kili",
@@ -2064,7 +3335,24 @@
       "weapon": "bow",
       "base": "M",
       "sheet": "roster-hobbit-good-v1.png",
-      "file": "tokens/kili.png"
+      "file": "tokens/kili.png",
+      "stats": {
+        "f": 4,
+        "s": 4,
+        "d": 5,
+        "a": 2,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 1,
+        "fate": 1,
+        "rules": [
+          "Thorin's Company"
+        ]
+      },
+      "rules": [
+        "Thorin's Company"
+      ]
     },
     {
       "id": "azog",
@@ -2076,7 +3364,26 @@
       "weapon": "mace",
       "base": "L",
       "sheet": "roster-hobbit-evil-v1.png",
-      "file": "tokens/azog.png"
+      "file": "tokens/azog.png",
+      "stats": {
+        "f": 6,
+        "s": 5,
+        "d": 6,
+        "a": 3,
+        "w": 3,
+        "c": 5,
+        "might": 2,
+        "will": 1,
+        "fate": 2,
+        "rules": [
+          "The Defiler",
+          "Pale Orc"
+        ]
+      },
+      "rules": [
+        "The Defiler",
+        "Pale Orc"
+      ]
     },
     {
       "id": "azog_warg_rider",
@@ -2100,7 +3407,28 @@
       "weapon": "staff",
       "base": "L",
       "sheet": "roster-hobbit-evil-v1.png",
-      "file": "tokens/necromancer.png"
+      "file": "tokens/necromancer.png",
+      "stats": {
+        "f": 6,
+        "s": 5,
+        "d": 6,
+        "a": 2,
+        "w": 3,
+        "c": 7,
+        "might": 3,
+        "will": 20,
+        "fate": 3,
+        "rules": [
+          "The Necromancer",
+          "Terror",
+          "Sauron in Disguise"
+        ]
+      },
+      "rules": [
+        "The Necromancer",
+        "Terror",
+        "Sauron in Disguise"
+      ]
     },
     {
       "id": "hunter_orc",
@@ -2148,7 +3476,26 @@
       "weapon": "banner",
       "base": "L",
       "sheet": "roster-exp-good-v1.png",
-      "file": "tokens/halbarad.png"
+      "file": "tokens/halbarad.png",
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 5,
+        "a": 2,
+        "w": 3,
+        "c": 5,
+        "might": 2,
+        "will": 1,
+        "fate": 2,
+        "rules": [
+          "Grey Company",
+          "Standard of Arwen"
+        ]
+      },
+      "rules": [
+        "Grey Company",
+        "Standard of Arwen"
+      ]
     },
     {
       "id": "beregond",
@@ -2160,7 +3507,24 @@
       "weapon": "sword_shield",
       "base": "M",
       "sheet": "roster-exp-good-v1.png",
-      "file": "tokens/beregond.png"
+      "file": "tokens/beregond.png",
+      "stats": {
+        "f": 4,
+        "s": 4,
+        "d": 6,
+        "a": 2,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Guard of the Citadel"
+        ]
+      },
+      "rules": [
+        "Guard of the Citadel"
+      ]
     },
     {
       "id": "elladan",
@@ -2172,7 +3536,26 @@
       "weapon": "sword",
       "base": "M",
       "sheet": "roster-exp-good-v1.png",
-      "file": "tokens/elladan.png"
+      "file": "tokens/elladan.png",
+      "stats": {
+        "f": 6,
+        "s": 4,
+        "d": 5,
+        "a": 2,
+        "w": 3,
+        "c": 6,
+        "might": 2,
+        "will": 1,
+        "fate": 2,
+        "rules": [
+          "Sons of Elrond",
+          "Grey Company"
+        ]
+      },
+      "rules": [
+        "Sons of Elrond",
+        "Grey Company"
+      ]
     },
     {
       "id": "elrohir",
@@ -2184,7 +3567,26 @@
       "weapon": "spear",
       "base": "M",
       "sheet": "roster-exp-good-v1.png",
-      "file": "tokens/elrohir.png"
+      "file": "tokens/elrohir.png",
+      "stats": {
+        "f": 6,
+        "s": 4,
+        "d": 5,
+        "a": 2,
+        "w": 3,
+        "c": 6,
+        "might": 2,
+        "will": 1,
+        "fate": 2,
+        "rules": [
+          "Sons of Elrond",
+          "Grey Company"
+        ]
+      },
+      "rules": [
+        "Sons of Elrond",
+        "Grey Company"
+      ]
     },
     {
       "id": "grimbeorn",
@@ -2196,7 +3598,24 @@
       "weapon": "axe",
       "base": "L",
       "sheet": "roster-exp-good-v1.png",
-      "file": "tokens/grimbeorn.png"
+      "file": "tokens/grimbeorn.png",
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 5,
+        "a": 2,
+        "w": 3,
+        "c": 5,
+        "might": 1,
+        "will": 1,
+        "fate": 1,
+        "rules": [
+          "Beorning Chieftain"
+        ]
+      },
+      "rules": [
+        "Beorning Chieftain"
+      ]
     },
     {
       "id": "ghan_buri_ghan",
@@ -2220,7 +3639,24 @@
       "weapon": "spear",
       "base": "L",
       "sheet": "roster-exp-evil-v1.png",
-      "file": "tokens/suladan.png"
+      "file": "tokens/suladan.png",
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 5,
+        "a": 3,
+        "w": 3,
+        "c": 5,
+        "might": 2,
+        "will": 1,
+        "fate": 2,
+        "rules": [
+          "Serpent Lord"
+        ]
+      },
+      "rules": [
+        "Serpent Lord"
+      ]
     },
     {
       "id": "corsair_umbra",
@@ -2256,7 +3692,24 @@
       "weapon": "sword_shield",
       "base": "L",
       "sheet": "roster-exp-evil-v1.png",
-      "file": "tokens/shagrat.png"
+      "file": "tokens/shagrat.png",
+      "stats": {
+        "f": 4,
+        "s": 4,
+        "d": 4,
+        "a": 2,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Captain of Cirith Ungol"
+        ]
+      },
+      "rules": [
+        "Captain of Cirith Ungol"
+      ]
     },
     {
       "id": "gorbag",
@@ -2268,7 +3721,24 @@
       "weapon": "sword",
       "base": "",
       "sheet": "roster-exp-evil-v1.png",
-      "file": "tokens/gorbag.png"
+      "file": "tokens/gorbag.png",
+      "stats": {
+        "f": 4,
+        "s": 4,
+        "d": 4,
+        "a": 2,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Minas Morgul Garrison"
+        ]
+      },
+      "rules": [
+        "Minas Morgul Garrison"
+      ]
     },
     {
       "id": "warg_alpha",
@@ -2292,7 +3762,26 @@
       "weapon": "sword",
       "base": "M",
       "sheet": "roster-hobbit-company-v1.png",
-      "file": "tokens/balin.png"
+      "file": "tokens/balin.png",
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 6,
+        "a": 2,
+        "w": 3,
+        "c": 5,
+        "might": 1,
+        "will": 1,
+        "fate": 1,
+        "rules": [
+          "Thorin's Company",
+          "Lord of Moria"
+        ]
+      },
+      "rules": [
+        "Thorin's Company",
+        "Lord of Moria"
+      ]
     },
     {
       "id": "dwalin",
@@ -2304,7 +3793,26 @@
       "weapon": "axe",
       "base": "M",
       "sheet": "roster-hobbit-company-v1.png",
-      "file": "tokens/dwalin.png"
+      "file": "tokens/dwalin.png",
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 6,
+        "a": 3,
+        "w": 3,
+        "c": 5,
+        "might": 1,
+        "will": 1,
+        "fate": 1,
+        "rules": [
+          "Thorin's Company",
+          "Dwalin's Axes"
+        ]
+      },
+      "rules": [
+        "Thorin's Company",
+        "Dwalin's Axes"
+      ]
     },
     {
       "id": "gloin",
@@ -2436,7 +3944,26 @@
       "weapon": "spear",
       "base": "L",
       "sheet": "roster-elf-exp-v1.png",
-      "file": "tokens/gil_galad.png"
+      "file": "tokens/gil_galad.png",
+      "stats": {
+        "f": 8,
+        "s": 5,
+        "d": 6,
+        "a": 4,
+        "w": 3,
+        "c": 8,
+        "might": 3,
+        "will": 3,
+        "fate": 3,
+        "rules": [
+          "High King of the Noldor",
+          "Aeglos"
+        ]
+      },
+      "rules": [
+        "High King of the Noldor",
+        "Aeglos"
+      ]
     },
     {
       "id": "cirdan",
@@ -2448,7 +3975,26 @@
       "weapon": "sword",
       "base": "L",
       "sheet": "roster-elf-exp-v1.png",
-      "file": "tokens/cirdan.png"
+      "file": "tokens/cirdan.png",
+      "stats": {
+        "f": 6,
+        "s": 4,
+        "d": 5,
+        "a": 2,
+        "w": 3,
+        "c": 7,
+        "might": 2,
+        "will": 3,
+        "fate": 3,
+        "rules": [
+          "Shipwright",
+          "Narya"
+        ]
+      },
+      "rules": [
+        "Shipwright",
+        "Narya"
+      ]
     },
     {
       "id": "arwen",
@@ -2460,7 +4006,24 @@
       "weapon": "dagger",
       "base": "M",
       "sheet": "roster-elf-exp-v1.png",
-      "file": "tokens/arwen.png"
+      "file": "tokens/arwen.png",
+      "stats": {
+        "f": 4,
+        "s": 3,
+        "d": 4,
+        "a": 1,
+        "w": 2,
+        "c": 5,
+        "might": 1,
+        "will": 1,
+        "fate": 1,
+        "rules": [
+          "Evenstar"
+        ]
+      },
+      "rules": [
+        "Evenstar"
+      ]
     },
     {
       "id": "lindir",
@@ -2472,7 +4035,24 @@
       "weapon": "sword",
       "base": "M",
       "sheet": "roster-elf-exp-v1.png",
-      "file": "tokens/lindir.png"
+      "file": "tokens/lindir.png",
+      "stats": {
+        "f": 4,
+        "s": 3,
+        "d": 4,
+        "a": 1,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Elf of Rivendell"
+        ]
+      },
+      "rules": [
+        "Elf of Rivendell"
+      ]
     },
     {
       "id": "erestor",
@@ -2484,7 +4064,24 @@
       "weapon": "sword",
       "base": "M",
       "sheet": "roster-elf-exp-v1.png",
-      "file": "tokens/erestor.png"
+      "file": "tokens/erestor.png",
+      "stats": {
+        "f": 4,
+        "s": 3,
+        "d": 4,
+        "a": 1,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Elf of Rivendell"
+        ]
+      },
+      "rules": [
+        "Elf of Rivendell"
+      ]
     },
     {
       "id": "elf_seer",
@@ -2508,7 +4105,24 @@
       "weapon": "bow",
       "base": "M",
       "sheet": "roster-elf-exp-v2.png",
-      "file": "tokens/rumil.png"
+      "file": "tokens/rumil.png",
+      "stats": {
+        "f": 5,
+        "s": 3,
+        "d": 4,
+        "a": 2,
+        "w": 2,
+        "c": 5,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Lorien Archer"
+        ]
+      },
+      "rules": [
+        "Lorien Archer"
+      ]
     },
     {
       "id": "orophin",
@@ -2520,7 +4134,24 @@
       "weapon": "spear",
       "base": "M",
       "sheet": "roster-elf-exp-v2.png",
-      "file": "tokens/orophin.png"
+      "file": "tokens/orophin.png",
+      "stats": {
+        "f": 5,
+        "s": 3,
+        "d": 4,
+        "a": 2,
+        "w": 2,
+        "c": 5,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Lorien Archer"
+        ]
+      },
+      "rules": [
+        "Lorien Archer"
+      ]
     },
     {
       "id": "mirkwood_sentinel",
@@ -2592,7 +4223,28 @@
       "weapon": "sword",
       "base": "XL",
       "sheet": "roster-mounted-heroes-v1.png",
-      "file": "tokens/gandalf_mounted.png"
+      "file": "tokens/gandalf_mounted.png",
+      "stats": {
+        "f": 5,
+        "s": 3,
+        "d": 5,
+        "a": 1,
+        "w": 3,
+        "c": 7,
+        "might": 3,
+        "will": 20,
+        "fate": 3,
+        "rules": [
+          "Istari",
+          "Glamdring",
+          "Shadowfax"
+        ]
+      },
+      "rules": [
+        "Istari",
+        "Glamdring",
+        "Shadowfax"
+      ]
     },
     {
       "id": "thranduil_mounted",
@@ -2604,7 +4256,26 @@
       "weapon": "sword",
       "base": "XL",
       "sheet": "roster-mounted-heroes-v1.png",
-      "file": "tokens/thranduil_mounted.png"
+      "file": "tokens/thranduil_mounted.png",
+      "stats": {
+        "f": 6,
+        "s": 4,
+        "d": 5,
+        "a": 3,
+        "w": 3,
+        "c": 6,
+        "might": 3,
+        "will": 2,
+        "fate": 2,
+        "rules": [
+          "Elvenking",
+          "Elk Mount"
+        ]
+      },
+      "rules": [
+        "Elvenking",
+        "Elk Mount"
+      ]
     },
     {
       "id": "aragorn_mounted",
@@ -2616,7 +4287,26 @@
       "weapon": "sword",
       "base": "XL",
       "sheet": "roster-mounted-heroes-v1.png",
-      "file": "tokens/aragorn_mounted.png"
+      "file": "tokens/aragorn_mounted.png",
+      "stats": {
+        "f": 6,
+        "s": 4,
+        "d": 6,
+        "a": 3,
+        "w": 3,
+        "c": 6,
+        "might": 3,
+        "will": 3,
+        "fate": 3,
+        "rules": [
+          "Hero of Legend",
+          "Anduril"
+        ]
+      },
+      "rules": [
+        "Hero of Legend",
+        "Anduril"
+      ]
     },
     {
       "id": "theoden_mounted",
@@ -2628,7 +4318,28 @@
       "weapon": "sword",
       "base": "XL",
       "sheet": "roster-mounted-heroes-v1.png",
-      "file": "tokens/theoden_mounted.png"
+      "file": "tokens/theoden_mounted.png",
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 6,
+        "a": 2,
+        "w": 3,
+        "c": 5,
+        "might": 2,
+        "will": 1,
+        "fate": 2,
+        "rules": [
+          "King of Rohan",
+          "Herugrim",
+          "Snowmane"
+        ]
+      },
+      "rules": [
+        "King of Rohan",
+        "Herugrim",
+        "Snowmane"
+      ]
     },
     {
       "id": "blackroot_archer",
@@ -2676,7 +4387,10 @@
       "weapon": "none",
       "base": "",
       "sheet": "roster-mordor-monsters-v1.png",
-      "file": "tokens/bat_swarm.png"
+      "file": "tokens/bat_swarm.png",
+      "traits": [
+        "fly"
+      ]
     },
     {
       "id": "muzgur",
@@ -2688,7 +4402,28 @@
       "weapon": "staff",
       "base": "",
       "sheet": "roster-mordor-monsters-v1.png",
-      "file": "tokens/muzgur.png"
+      "file": "tokens/muzgur.png",
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 6,
+        "a": 2,
+        "w": 2,
+        "c": 5,
+        "might": 2,
+        "will": 6,
+        "fate": 2,
+        "rules": [
+          "Terror",
+          "Ringwraith",
+          "Muzgur"
+        ]
+      },
+      "rules": [
+        "Terror",
+        "Ringwraith",
+        "Muzgur"
+      ]
     },
     {
       "id": "buhrdur",
@@ -2712,7 +4447,24 @@
       "weapon": "spear",
       "base": "L",
       "sheet": "roster-mordor-monsters-v1.png",
-      "file": "tokens/mahud_chieftain.png"
+      "file": "tokens/mahud_chieftain.png",
+      "stats": {
+        "f": 4,
+        "s": 4,
+        "d": 5,
+        "a": 2,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Mahud Chief"
+        ]
+      },
+      "rules": [
+        "Mahud Chief"
+      ]
     },
     {
       "id": "eowyn_mounted",
@@ -2736,7 +4488,24 @@
       "weapon": "axe",
       "base": "L",
       "sheet": "roster-west-heroes-v1.png",
-      "file": "tokens/forlong.png"
+      "file": "tokens/forlong.png",
+      "stats": {
+        "f": 4,
+        "s": 4,
+        "d": 4,
+        "a": 3,
+        "w": 3,
+        "c": 5,
+        "might": 2,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Lord of Lossarnach"
+        ]
+      },
+      "rules": [
+        "Lord of Lossarnach"
+      ]
     },
     {
       "id": "erkenbrand",
@@ -2748,7 +4517,24 @@
       "weapon": "sword_shield",
       "base": "L",
       "sheet": "roster-west-heroes-v1.png",
-      "file": "tokens/erkenbrand.png"
+      "file": "tokens/erkenbrand.png",
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 5,
+        "a": 3,
+        "w": 3,
+        "c": 5,
+        "might": 2,
+        "will": 1,
+        "fate": 2,
+        "rules": [
+          "Marshal of the West-mark"
+        ]
+      },
+      "rules": [
+        "Marshal of the West-mark"
+      ]
     },
     {
       "id": "damrod",
@@ -2760,7 +4546,24 @@
       "weapon": "bow",
       "base": "M",
       "sheet": "roster-west-heroes-v1.png",
-      "file": "tokens/damrod.png"
+      "file": "tokens/damrod.png",
+      "stats": {
+        "f": 4,
+        "s": 3,
+        "d": 4,
+        "a": 2,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Ithilien Ranger"
+        ]
+      },
+      "rules": [
+        "Ithilien Ranger"
+      ]
     },
     {
       "id": "mablung",
@@ -2772,7 +4575,24 @@
       "weapon": "sword",
       "base": "M",
       "sheet": "roster-west-heroes-v1.png",
-      "file": "tokens/mablung.png"
+      "file": "tokens/mablung.png",
+      "stats": {
+        "f": 4,
+        "s": 3,
+        "d": 4,
+        "a": 2,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Ithilien Ranger"
+        ]
+      },
+      "rules": [
+        "Ithilien Ranger"
+      ]
     },
     {
       "id": "duinhir",
@@ -2784,7 +4604,24 @@
       "weapon": "bow",
       "base": "M",
       "sheet": "roster-west-heroes-v1.png",
-      "file": "tokens/duinhir.png"
+      "file": "tokens/duinhir.png",
+      "stats": {
+        "f": 4,
+        "s": 4,
+        "d": 4,
+        "a": 2,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Lord of Blackroot Vale"
+        ]
+      },
+      "rules": [
+        "Lord of Blackroot Vale"
+      ]
     },
     {
       "id": "ugluk",
@@ -2796,7 +4633,24 @@
       "weapon": "sword",
       "base": "L",
       "sheet": "roster-east-monsters-v1.png",
-      "file": "tokens/ugluk.png"
+      "file": "tokens/ugluk.png",
+      "stats": {
+        "f": 4,
+        "s": 4,
+        "d": 4,
+        "a": 2,
+        "w": 3,
+        "c": 4,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Uruk-hai Scout Captain"
+        ]
+      },
+      "rules": [
+        "Uruk-hai Scout Captain"
+      ]
     },
     {
       "id": "mauhur",
@@ -2808,7 +4662,24 @@
       "weapon": "sword",
       "base": "",
       "sheet": "roster-east-monsters-v1.png",
-      "file": "tokens/mauhur.png"
+      "file": "tokens/mauhur.png",
+      "stats": {
+        "f": 4,
+        "s": 4,
+        "d": 4,
+        "a": 2,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Uruk-hai"
+        ]
+      },
+      "rules": [
+        "Uruk-hai"
+      ]
     },
     {
       "id": "vrasku",
@@ -2820,7 +4691,24 @@
       "weapon": "bow",
       "base": "",
       "sheet": "roster-east-monsters-v1.png",
-      "file": "tokens/vrasku.png"
+      "file": "tokens/vrasku.png",
+      "stats": {
+        "f": 4,
+        "s": 4,
+        "d": 4,
+        "a": 2,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Crossbow Captain"
+        ]
+      },
+      "rules": [
+        "Crossbow Captain"
+      ]
     },
     {
       "id": "stone_troll",
@@ -2844,7 +4732,10 @@
       "weapon": "none",
       "base": "L",
       "sheet": "roster-east-monsters-v1.png",
-      "file": "tokens/werewolf.png"
+      "file": "tokens/werewolf.png",
+      "traits": [
+        "terror"
+      ]
     },
     {
       "id": "gulavhar",
@@ -3228,7 +5119,28 @@
       "weapon": "sword",
       "base": "L",
       "sheet": "roster-nazgul-nine-v1.png",
-      "file": "tokens/dark_marshal.png"
+      "file": "tokens/dark_marshal.png",
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 6,
+        "a": 2,
+        "w": 2,
+        "c": 5,
+        "might": 2,
+        "will": 8,
+        "fate": 2,
+        "rules": [
+          "Terror",
+          "Ringwraith",
+          "The Dark Marshal"
+        ]
+      },
+      "rules": [
+        "Terror",
+        "Ringwraith",
+        "The Dark Marshal"
+      ]
     },
     {
       "id": "shadow_lord",
@@ -3240,7 +5152,31 @@
       "weapon": "sword",
       "base": "L",
       "sheet": "roster-nazgul-nine-v1.png",
-      "file": "tokens/shadow_lord.png"
+      "file": "tokens/shadow_lord.png",
+      "traits": [
+        "terror"
+      ],
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 6,
+        "a": 2,
+        "w": 2,
+        "c": 5,
+        "might": 2,
+        "will": 8,
+        "fate": 2,
+        "rules": [
+          "Terror",
+          "Ringwraith",
+          "The Shadow Lord"
+        ]
+      },
+      "rules": [
+        "Terror",
+        "Ringwraith",
+        "The Shadow Lord"
+      ]
     },
     {
       "id": "betrayer",
@@ -3252,7 +5188,28 @@
       "weapon": "mace",
       "base": "L",
       "sheet": "roster-nazgul-nine-v1.png",
-      "file": "tokens/betrayer.png"
+      "file": "tokens/betrayer.png",
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 6,
+        "a": 2,
+        "w": 2,
+        "c": 5,
+        "might": 2,
+        "will": 8,
+        "fate": 2,
+        "rules": [
+          "Terror",
+          "Ringwraith",
+          "The Betrayer"
+        ]
+      },
+      "rules": [
+        "Terror",
+        "Ringwraith",
+        "The Betrayer"
+      ]
     },
     {
       "id": "tainted",
@@ -3264,7 +5221,28 @@
       "weapon": "dagger",
       "base": "L",
       "sheet": "roster-nazgul-nine-v1.png",
-      "file": "tokens/tainted.png"
+      "file": "tokens/tainted.png",
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 6,
+        "a": 2,
+        "w": 2,
+        "c": 5,
+        "might": 2,
+        "will": 8,
+        "fate": 2,
+        "rules": [
+          "Terror",
+          "Ringwraith",
+          "The Tainted"
+        ]
+      },
+      "rules": [
+        "Terror",
+        "Ringwraith",
+        "The Tainted"
+      ]
     },
     {
       "id": "undying",
@@ -3276,7 +5254,28 @@
       "weapon": "staff",
       "base": "L",
       "sheet": "roster-nazgul-nine-v1.png",
-      "file": "tokens/undying.png"
+      "file": "tokens/undying.png",
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 6,
+        "a": 2,
+        "w": 2,
+        "c": 5,
+        "might": 2,
+        "will": 8,
+        "fate": 2,
+        "rules": [
+          "Terror",
+          "Ringwraith",
+          "The Undying"
+        ]
+      },
+      "rules": [
+        "Terror",
+        "Ringwraith",
+        "The Undying"
+      ]
     },
     {
       "id": "knight_of_umbar",
@@ -3300,7 +5299,26 @@
       "weapon": "sword",
       "base": "L",
       "sheet": "roster-good-fill-v1.png",
-      "file": "tokens/isildur.png"
+      "file": "tokens/isildur.png",
+      "stats": {
+        "f": 6,
+        "s": 4,
+        "d": 6,
+        "a": 3,
+        "w": 3,
+        "c": 5,
+        "might": 3,
+        "will": 1,
+        "fate": 2,
+        "rules": [
+          "Ring-bearer",
+          "Doomed"
+        ]
+      },
+      "rules": [
+        "Ring-bearer",
+        "Doomed"
+      ]
     },
     {
       "id": "gandalf_white",
@@ -3312,7 +5330,28 @@
       "weapon": "staff",
       "base": "L",
       "sheet": "roster-good-fill-v1.png",
-      "file": "tokens/gandalf_white.png"
+      "file": "tokens/gandalf_white.png",
+      "stats": {
+        "f": 5,
+        "s": 3,
+        "d": 6,
+        "a": 1,
+        "w": 3,
+        "c": 7,
+        "might": 3,
+        "will": 20,
+        "fate": 3,
+        "rules": [
+          "Istari",
+          "Glamdring",
+          "The White Rider"
+        ]
+      },
+      "rules": [
+        "Istari",
+        "Glamdring",
+        "The White Rider"
+      ]
     },
     {
       "id": "denethor",
@@ -3324,7 +5363,24 @@
       "weapon": "none",
       "base": "M",
       "sheet": "roster-good-fill-v1.png",
-      "file": "tokens/denethor.png"
+      "file": "tokens/denethor.png",
+      "stats": {
+        "f": 4,
+        "s": 3,
+        "d": 4,
+        "a": 1,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Steward of Gondor"
+        ]
+      },
+      "rules": [
+        "Steward of Gondor"
+      ]
     },
     {
       "id": "huorn",
@@ -3384,7 +5440,26 @@
       "weapon": "sword_shield",
       "base": "L",
       "sheet": "roster-good-fill-v2.png",
-      "file": "tokens/theoden_foot.png"
+      "file": "tokens/theoden_foot.png",
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 6,
+        "a": 2,
+        "w": 3,
+        "c": 5,
+        "might": 2,
+        "will": 1,
+        "fate": 2,
+        "rules": [
+          "King of Rohan",
+          "Herugrim"
+        ]
+      },
+      "rules": [
+        "King of Rohan",
+        "Herugrim"
+      ]
     },
     {
       "id": "dain_boar",
@@ -3420,7 +5495,26 @@
       "weapon": "spear",
       "base": "L",
       "sheet": "roster-good-fill-v2.png",
-      "file": "tokens/eomer_foot.png"
+      "file": "tokens/eomer_foot.png",
+      "stats": {
+        "f": 6,
+        "s": 4,
+        "d": 5,
+        "a": 3,
+        "w": 3,
+        "c": 5,
+        "might": 2,
+        "will": 1,
+        "fate": 2,
+        "rules": [
+          "Marshal of the Riddermark",
+          "Guthwine"
+        ]
+      },
+      "rules": [
+        "Marshal of the Riddermark",
+        "Guthwine"
+      ]
     },
     {
       "id": "elfhelm",
@@ -3432,7 +5526,24 @@
       "weapon": "sword_shield",
       "base": "L",
       "sheet": "roster-good-fill-v2.png",
-      "file": "tokens/elfhelm.png"
+      "file": "tokens/elfhelm.png",
+      "stats": {
+        "f": 4,
+        "s": 4,
+        "d": 4,
+        "a": 2,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Marshal of the East-mark"
+        ]
+      },
+      "rules": [
+        "Marshal of the East-mark"
+      ]
     },
     {
       "id": "warg_rider_spear",
@@ -3468,7 +5579,24 @@
       "weapon": "axe",
       "base": "XL",
       "sheet": "roster-warg-riders-v1.png",
-      "file": "tokens/warg_chieftain.png"
+      "file": "tokens/warg_chieftain.png",
+      "stats": {
+        "f": 4,
+        "s": 4,
+        "d": 4,
+        "a": 2,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Warg-pack Leader"
+        ]
+      },
+      "rules": [
+        "Warg-pack Leader"
+      ]
     },
     {
       "id": "wild_warg",
@@ -3588,7 +5716,32 @@
       "weapon": "claws",
       "base": "XXL",
       "sheet": "single-nazgul-fellbeast.png",
-      "file": "tokens/nazgul_fellbeast.png"
+      "file": "tokens/nazgul_fellbeast.png",
+      "traits": [
+        "fly",
+        "terror"
+      ],
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 6,
+        "a": 2,
+        "w": 2,
+        "c": 5,
+        "might": 2,
+        "will": 8,
+        "fate": 2,
+        "rules": [
+          "Terror",
+          "Ringwraith",
+          "Fell Beast"
+        ]
+      },
+      "rules": [
+        "Terror",
+        "Ringwraith",
+        "Fell Beast"
+      ]
     },
     {
       "id": "suladan",
@@ -3600,7 +5753,24 @@
       "weapon": "spear",
       "base": "L",
       "sheet": "suladan-fellbeast.png",
-      "file": "tokens/suladan.png"
+      "file": "tokens/suladan.png",
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 5,
+        "a": 3,
+        "w": 3,
+        "c": 5,
+        "might": 2,
+        "will": 1,
+        "fate": 2,
+        "rules": [
+          "Serpent Lord"
+        ]
+      },
+      "rules": [
+        "Serpent Lord"
+      ]
     },
     {
       "id": "fellbeast",
@@ -3612,7 +5782,11 @@
       "weapon": "claws",
       "base": "XXL",
       "sheet": "suladan-fellbeast.png",
-      "file": "tokens/fellbeast.png"
+      "file": "tokens/fellbeast.png",
+      "traits": [
+        "fly",
+        "terror"
+      ]
     },
     {
       "id": "boromir",
@@ -3624,7 +5798,26 @@
       "weapon": "sword_shield",
       "base": "L",
       "sheet": "boromir-elrond.png",
-      "file": "tokens/boromir.png"
+      "file": "tokens/boromir.png",
+      "stats": {
+        "f": 6,
+        "s": 4,
+        "d": 6,
+        "a": 3,
+        "w": 3,
+        "c": 6,
+        "might": 3,
+        "will": 1,
+        "fate": 2,
+        "rules": [
+          "Horn of Gondor",
+          "Captain of the White Tower"
+        ]
+      },
+      "rules": [
+        "Horn of Gondor",
+        "Captain of the White Tower"
+      ]
     },
     {
       "id": "elrond",
@@ -3636,7 +5829,26 @@
       "weapon": "sword",
       "base": "L",
       "sheet": "boromir-elrond.png",
-      "file": "tokens/elrond.png"
+      "file": "tokens/elrond.png",
+      "stats": {
+        "f": 6,
+        "s": 4,
+        "d": 6,
+        "a": 3,
+        "w": 3,
+        "c": 7,
+        "might": 2,
+        "will": 10,
+        "fate": 3,
+        "rules": [
+          "Lord of Rivendell",
+          "Vilya"
+        ]
+      },
+      "rules": [
+        "Lord of Rivendell",
+        "Vilya"
+      ]
     },
     {
       "id": "ent",
@@ -3672,7 +5884,28 @@
       "weapon": "sword",
       "base": "L",
       "sheet": "single-aragorn-blackgate.png",
-      "file": "tokens/aragorn_blackgate.png"
+      "file": "tokens/aragorn_blackgate.png",
+      "stats": {
+        "f": 6,
+        "s": 4,
+        "d": 7,
+        "a": 3,
+        "w": 3,
+        "c": 7,
+        "might": 3,
+        "will": 3,
+        "fate": 3,
+        "rules": [
+          "Hero of Legend",
+          "Anduril",
+          "King Elessar"
+        ]
+      },
+      "rules": [
+        "Hero of Legend",
+        "Anduril",
+        "King Elessar"
+      ]
     },
     {
       "id": "aragorn_blackgate_mounted",
@@ -3684,7 +5917,28 @@
       "weapon": "sword",
       "base": "XL",
       "sheet": "single-aragorn-blackgate-mounted.png",
-      "file": "tokens/aragorn_blackgate_mounted.png"
+      "file": "tokens/aragorn_blackgate_mounted.png",
+      "stats": {
+        "f": 6,
+        "s": 4,
+        "d": 7,
+        "a": 3,
+        "w": 3,
+        "c": 7,
+        "might": 3,
+        "will": 3,
+        "fate": 3,
+        "rules": [
+          "Hero of Legend",
+          "Anduril",
+          "King Elessar"
+        ]
+      },
+      "rules": [
+        "Hero of Legend",
+        "Anduril",
+        "King Elessar"
+      ]
     },
     {
       "id": "anborn",
@@ -3696,7 +5950,24 @@
       "weapon": "bow",
       "base": "M",
       "sheet": "exp-gondor-heroes.png",
-      "file": "tokens/anborn.png"
+      "file": "tokens/anborn.png",
+      "stats": {
+        "f": 4,
+        "s": 3,
+        "d": 4,
+        "a": 2,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Ithilien Ranger"
+        ]
+      },
+      "rules": [
+        "Ithilien Ranger"
+      ]
     },
     {
       "id": "hirluin",
@@ -3708,7 +5979,24 @@
       "weapon": "sword_shield",
       "base": "L",
       "sheet": "exp-gondor-heroes.png",
-      "file": "tokens/hirluin.png"
+      "file": "tokens/hirluin.png",
+      "stats": {
+        "f": 4,
+        "s": 4,
+        "d": 4,
+        "a": 2,
+        "w": 2,
+        "c": 5,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Lord of Pinnath Gelin"
+        ]
+      },
+      "rules": [
+        "Lord of Pinnath Gelin"
+      ]
     },
     {
       "id": "madril",
@@ -3720,7 +6008,24 @@
       "weapon": "sword",
       "base": "M",
       "sheet": "exp-gondor-heroes.png",
-      "file": "tokens/madril.png"
+      "file": "tokens/madril.png",
+      "stats": {
+        "f": 4,
+        "s": 3,
+        "d": 4,
+        "a": 2,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Captain of Ithilien Rangers"
+        ]
+      },
+      "rules": [
+        "Captain of Ithilien Rangers"
+      ]
     },
     {
       "id": "irolas",
@@ -3732,7 +6037,24 @@
       "weapon": "sword_shield",
       "base": "L",
       "sheet": "exp-gondor-heroes.png",
-      "file": "tokens/irolas.png"
+      "file": "tokens/irolas.png",
+      "stats": {
+        "f": 4,
+        "s": 4,
+        "d": 5,
+        "a": 2,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Captain of the Guard"
+        ]
+      },
+      "rules": [
+        "Captain of the Guard"
+      ]
     },
     {
       "id": "hurin",
@@ -3744,7 +6066,24 @@
       "weapon": "mace",
       "base": "L",
       "sheet": "exp-gondor-heroes.png",
-      "file": "tokens/hurin.png"
+      "file": "tokens/hurin.png",
+      "stats": {
+        "f": 4,
+        "s": 4,
+        "d": 5,
+        "a": 2,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Warden of the Keys"
+        ]
+      },
+      "rules": [
+        "Warden of the Keys"
+      ]
     },
     {
       "id": "cirion",
@@ -3756,7 +6095,24 @@
       "weapon": "sword",
       "base": "L",
       "sheet": "exp-gondor-heroes.png",
-      "file": "tokens/cirion.png"
+      "file": "tokens/cirion.png",
+      "stats": {
+        "f": 4,
+        "s": 4,
+        "d": 5,
+        "a": 2,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Steward's Heir"
+        ]
+      },
+      "rules": [
+        "Steward's Heir"
+      ]
     },
     {
       "id": "theodred",
@@ -3768,7 +6124,24 @@
       "weapon": "sword",
       "base": "M",
       "sheet": "exp-rohan.png",
-      "file": "tokens/theodred.png"
+      "file": "tokens/theodred.png",
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 5,
+        "a": 2,
+        "w": 3,
+        "c": 5,
+        "might": 2,
+        "will": 1,
+        "fate": 2,
+        "rules": [
+          "Prince of Rohan"
+        ]
+      },
+      "rules": [
+        "Prince of Rohan"
+      ]
     },
     {
       "id": "hama",
@@ -3780,7 +6153,24 @@
       "weapon": "sword",
       "base": "M",
       "sheet": "exp-rohan.png",
-      "file": "tokens/hama.png"
+      "file": "tokens/hama.png",
+      "stats": {
+        "f": 4,
+        "s": 3,
+        "d": 4,
+        "a": 2,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Doorward of Meduseld"
+        ]
+      },
+      "rules": [
+        "Doorward of Meduseld"
+      ]
     },
     {
       "id": "deorwine",
@@ -3792,7 +6182,24 @@
       "weapon": "sword",
       "base": "M",
       "sheet": "exp-rohan.png",
-      "file": "tokens/deorwine.png"
+      "file": "tokens/deorwine.png",
+      "stats": {
+        "f": 4,
+        "s": 4,
+        "d": 5,
+        "a": 3,
+        "w": 3,
+        "c": 5,
+        "might": 2,
+        "will": 0,
+        "fate": 2,
+        "rules": [
+          "Chief of the King's Knights"
+        ]
+      },
+      "rules": [
+        "Chief of the King's Knights"
+      ]
     },
     {
       "id": "grimbold",
@@ -3804,7 +6211,24 @@
       "weapon": "sword",
       "base": "M",
       "sheet": "exp-rohan.png",
-      "file": "tokens/grimbold.png"
+      "file": "tokens/grimbold.png",
+      "stats": {
+        "f": 4,
+        "s": 3,
+        "d": 4,
+        "a": 2,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Marshal of the West-mark"
+        ]
+      },
+      "rules": [
+        "Marshal of the West-mark"
+      ]
     },
     {
       "id": "harding",
@@ -3816,7 +6240,24 @@
       "weapon": "bow",
       "base": "M",
       "sheet": "exp-rohan.png",
-      "file": "tokens/harding.png"
+      "file": "tokens/harding.png",
+      "stats": {
+        "f": 4,
+        "s": 4,
+        "d": 5,
+        "a": 3,
+        "w": 2,
+        "c": 5,
+        "might": 2,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Master of the Harrowfields"
+        ]
+      },
+      "rules": [
+        "Master of the Harrowfields"
+      ]
     },
     {
       "id": "rohan_royal_guard_mounted",
@@ -3840,7 +6281,24 @@
       "weapon": "sword",
       "base": "L",
       "sheet": "exp-numenor-arnor.png",
-      "file": "tokens/arvedui.png"
+      "file": "tokens/arvedui.png",
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 5,
+        "a": 2,
+        "w": 3,
+        "c": 5,
+        "might": 2,
+        "will": 1,
+        "fate": 2,
+        "rules": [
+          "Last King of Arnor"
+        ]
+      },
+      "rules": [
+        "Last King of Arnor"
+      ]
     },
     {
       "id": "malbeth",
@@ -3852,7 +6310,24 @@
       "weapon": "staff",
       "base": "M",
       "sheet": "exp-numenor-arnor.png",
-      "file": "tokens/malbeth.png"
+      "file": "tokens/malbeth.png",
+      "stats": {
+        "f": 4,
+        "s": 3,
+        "d": 4,
+        "a": 1,
+        "w": 2,
+        "c": 6,
+        "might": 1,
+        "will": 3,
+        "fate": 2,
+        "rules": [
+          "The Seer"
+        ]
+      },
+      "rules": [
+        "The Seer"
+      ]
     },
     {
       "id": "numenorean_captain",
@@ -3864,7 +6339,24 @@
       "weapon": "sword",
       "base": "L",
       "sheet": "exp-numenor-arnor.png",
-      "file": "tokens/numenorean_captain.png"
+      "file": "tokens/numenorean_captain.png",
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 6,
+        "a": 2,
+        "w": 2,
+        "c": 5,
+        "might": 1,
+        "will": 1,
+        "fate": 1,
+        "rules": [
+          "Numenorean"
+        ]
+      },
+      "rules": [
+        "Numenorean"
+      ]
     },
     {
       "id": "numenorean_warrior",
@@ -3912,7 +6404,26 @@
       "weapon": "dagger",
       "base": "M",
       "sheet": "exp-harad.png",
-      "file": "tokens/hasharin.png"
+      "file": "tokens/hasharin.png",
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 4,
+        "a": 3,
+        "w": 2,
+        "c": 6,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Assassin",
+          "Poisoned Blades"
+        ]
+      },
+      "rules": [
+        "Assassin",
+        "Poisoned Blades"
+      ]
     },
     {
       "id": "golden_king",
@@ -3924,7 +6435,24 @@
       "weapon": "sword",
       "base": "L",
       "sheet": "exp-harad.png",
-      "file": "tokens/golden_king.png"
+      "file": "tokens/golden_king.png",
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 5,
+        "a": 2,
+        "w": 3,
+        "c": 5,
+        "might": 2,
+        "will": 1,
+        "fate": 1,
+        "rules": [
+          "King of Abrakhan"
+        ]
+      },
+      "rules": [
+        "King of Abrakhan"
+      ]
     },
     {
       "id": "mahud_beastmaster",
@@ -3936,7 +6464,26 @@
       "weapon": "whip",
       "base": "M",
       "sheet": "exp-harad.png",
-      "file": "tokens/mahud_beastmaster.png"
+      "file": "tokens/mahud_beastmaster.png",
+      "stats": {
+        "f": 4,
+        "s": 4,
+        "d": 4,
+        "a": 2,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Beastmaster",
+          "Controls Mumak"
+        ]
+      },
+      "rules": [
+        "Beastmaster",
+        "Controls Mumak"
+      ]
     },
     {
       "id": "watcher_karna",
@@ -3984,7 +6531,24 @@
       "weapon": "sword",
       "base": "L",
       "sheet": "exp-easterling.png",
-      "file": "tokens/amdur.png"
+      "file": "tokens/amdur.png",
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 5,
+        "a": 3,
+        "w": 3,
+        "c": 5,
+        "might": 2,
+        "will": 1,
+        "fate": 2,
+        "rules": [
+          "Lord of Blades"
+        ]
+      },
+      "rules": [
+        "Lord of Blades"
+      ]
     },
     {
       "id": "dragon_knight",
@@ -4056,7 +6620,28 @@
       "weapon": "sword",
       "base": "L",
       "sheet": "exp-dolguldur.png",
-      "file": "tokens/forsaken.png"
+      "file": "tokens/forsaken.png",
+      "stats": {
+        "f": 6,
+        "s": 4,
+        "d": 6,
+        "a": 2,
+        "w": 3,
+        "c": 6,
+        "might": 2,
+        "will": 8,
+        "fate": 2,
+        "rules": [
+          "Terror",
+          "Ringwraith",
+          "The Forsaken"
+        ]
+      },
+      "rules": [
+        "Terror",
+        "Ringwraith",
+        "The Forsaken"
+      ]
     },
     {
       "id": "castellan",
@@ -4068,7 +6653,24 @@
       "weapon": "sword",
       "base": "L",
       "sheet": "exp-dolguldur.png",
-      "file": "tokens/castellan.png"
+      "file": "tokens/castellan.png",
+      "stats": {
+        "f": 4,
+        "s": 4,
+        "d": 5,
+        "a": 2,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Castellan of Dol Guldur"
+        ]
+      },
+      "rules": [
+        "Castellan of Dol Guldur"
+      ]
     },
     {
       "id": "dungeon_keeper",
@@ -4080,7 +6682,24 @@
       "weapon": "mace",
       "base": "L",
       "sheet": "exp-dolguldur.png",
-      "file": "tokens/dungeon_keeper.png"
+      "file": "tokens/dungeon_keeper.png",
+      "stats": {
+        "f": 4,
+        "s": 4,
+        "d": 4,
+        "a": 2,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Keeper of the Dungeons"
+        ]
+      },
+      "rules": [
+        "Keeper of the Dungeons"
+      ]
     },
     {
       "id": "kardush",
@@ -4116,7 +6735,26 @@
       "weapon": "mace",
       "base": "L",
       "sheet": "exp-dolguldur.png",
-      "file": "tokens/numenorean_marshal.png"
+      "file": "tokens/numenorean_marshal.png",
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 6,
+        "a": 2,
+        "w": 3,
+        "c": 5,
+        "might": 2,
+        "will": 1,
+        "fate": 1,
+        "rules": [
+          "Numenorean",
+          "Marshal"
+        ]
+      },
+      "rules": [
+        "Numenorean",
+        "Marshal"
+      ]
     },
     {
       "id": "thrydan",
@@ -4128,7 +6766,24 @@
       "weapon": "twohanded",
       "base": "L",
       "sheet": "exp-dunland.png",
-      "file": "tokens/thrydan.png"
+      "file": "tokens/thrydan.png",
+      "stats": {
+        "f": 5,
+        "s": 4,
+        "d": 4,
+        "a": 3,
+        "w": 3,
+        "c": 5,
+        "might": 2,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Chief of Dunland"
+        ]
+      },
+      "rules": [
+        "Chief of Dunland"
+      ]
     },
     {
       "id": "gorulf",
@@ -4140,7 +6795,24 @@
       "weapon": "axe",
       "base": "M",
       "sheet": "exp-dunland.png",
-      "file": "tokens/gorulf.png"
+      "file": "tokens/gorulf.png",
+      "stats": {
+        "f": 4,
+        "s": 4,
+        "d": 4,
+        "a": 2,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Dunland Champion"
+        ]
+      },
+      "rules": [
+        "Dunland Champion"
+      ]
     },
     {
       "id": "dunlending_berserker",
@@ -4200,7 +6872,24 @@
       "weapon": "sword",
       "base": "S",
       "sheet": "exp-misc.png",
-      "file": "tokens/paladin_took.png"
+      "file": "tokens/paladin_took.png",
+      "stats": {
+        "f": 3,
+        "s": 3,
+        "d": 4,
+        "a": 1,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Thain of the Shire"
+        ]
+      },
+      "rules": [
+        "Thain of the Shire"
+      ]
     },
     {
       "id": "farmer_maggot",
@@ -4212,7 +6901,26 @@
       "weapon": "pitchfork",
       "base": "S",
       "sheet": "exp-misc.png",
-      "file": "tokens/farmer_maggot.png"
+      "file": "tokens/farmer_maggot.png",
+      "stats": {
+        "f": 3,
+        "s": 3,
+        "d": 4,
+        "a": 1,
+        "w": 2,
+        "c": 3,
+        "might": 0,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Farmer",
+          "Dogs"
+        ]
+      },
+      "rules": [
+        "Farmer",
+        "Dogs"
+      ]
     },
     {
       "id": "fredegar",
@@ -4224,7 +6932,24 @@
       "weapon": "dagger",
       "base": "S",
       "sheet": "exp-misc.png",
-      "file": "tokens/fredegar.png"
+      "file": "tokens/fredegar.png",
+      "stats": {
+        "f": 3,
+        "s": 3,
+        "d": 4,
+        "a": 1,
+        "w": 2,
+        "c": 4,
+        "might": 0,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Fatty Bolger"
+        ]
+      },
+      "rules": [
+        "Fatty Bolger"
+      ]
     },
     {
       "id": "durin_vi",
@@ -4236,7 +6961,24 @@
       "weapon": "mace",
       "base": "M",
       "sheet": "exp-misc.png",
-      "file": "tokens/durin_vi.png"
+      "file": "tokens/durin_vi.png",
+      "stats": {
+        "f": 6,
+        "s": 4,
+        "d": 7,
+        "a": 3,
+        "w": 3,
+        "c": 6,
+        "might": 2,
+        "will": 1,
+        "fate": 2,
+        "rules": [
+          "King under the Mountain"
+        ]
+      },
+      "rules": [
+        "King under the Mountain"
+      ]
     },
     {
       "id": "dead_spearman",
@@ -4248,7 +6990,10 @@
       "weapon": "spear",
       "base": "M",
       "sheet": "exp-misc.png",
-      "file": "tokens/dead_spearman.png"
+      "file": "tokens/dead_spearman.png",
+      "traits": [
+        "terror"
+      ]
     },
     {
       "id": "stone_giant",

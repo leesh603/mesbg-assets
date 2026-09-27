@@ -4,12 +4,13 @@ const path = require('path');
 const sheets = require('./db-data.js');
 const SRC = __dirname;
 const TOKENS = path.join(SRC, 'tokens');
+const HERO_STATS = require('./mesbg-stats.js');
 
 const rows = [];
 for (const s of sheets) {
   for (const u of s.units) {
     const [id, ko, en, ov = {}] = u;
-    rows.push({
+    const row = {
       id,
       name_ko: ko,
       name_en: en,
@@ -20,7 +21,10 @@ for (const s of sheets) {
       base: ov.base ?? s.base ?? '',
       sheet: s.sheet,
       file: `tokens/${id}.png`,
-    });
+    };
+    if (ov.traits) row.traits = ov.traits;
+    if (HERO_STATS[id]) { row.stats = HERO_STATS[id]; if (HERO_STATS[id].rules) row.rules = HERO_STATS[id].rules; }
+    rows.push(row);
   }
 }
 
@@ -65,7 +69,9 @@ const grp = r => r.role === 'monster' ? (r.base === 'XXL' ? 'bigmonster' : 'mons
   : r.role;
 const card = r => {
   const h = dispH(r);
-  return `<div class="card"><div class="fig" style="height:${h}px"><img src="tokens/${r.id}.png" loading="lazy" style="max-height:${h}px;max-width:200px;height:auto;width:auto"></div><div class="id">${r.id}</div><div class="ko">${r.name_ko}</div><div class="meta">${r.faction} · ${r.role} · ${r.weapon} · ${r.base}${(r.traits && r.traits.length) ? " · " + r.traits.join("·") : ""}</div></div>`;
+  const st = r.stats ? '<div class="meta" style="color:#d8c98a">F' + r.stats.f + ' S' + r.stats.s + ' D' + r.stats.d + ' A' + r.stats.a + ' W' + r.stats.w + ' C' + r.stats.c + ' · M' + r.stats.might + ' W' + r.stats.will + ' F' + r.stats.fate + '</div>' : '';
+  const rl = (r.rules && r.rules.length) ? '<div class="meta" style="color:#9a8ac0">' + r.rules.join(' · ') + '</div>' : '';
+  return `<div class="card"><div class="fig" style="height:${h}px"><img src="tokens/${r.id}.png" loading="lazy" style="max-height:${h}px;max-width:200px;height:auto;width:auto"></div><div class="id">${r.id}</div><div class="ko">${r.name_ko}</div><div class="meta">${r.faction} · ${r.role} · ${r.weapon} · ${r.base}${(r.traits && r.traits.length) ? " · " + r.traits.join("·") : ""}</div>' + st + '' + rl + '</div>`;
 };
 const roleGrid = list => ROLE_ORDER.filter(ro => list.some(r => grp(r) === ro)).map(ro =>
   `<h3>${ROLE_KO[ro] || ro} — ${list.filter(r => grp(r) === ro).length}</h3><div class="grid">${list.filter(r => grp(r) === ro).map(card).join('')}</div>`).join('');
