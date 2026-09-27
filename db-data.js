@@ -591,4 +591,92 @@ module.exports = [
   ['corsair_bosun', '코르사 갑판장', 'Corsair boatswain', { faction: 'umbar', role: 'infantry', weapon: 'sword', base: 'M' }],
   ['spider_queen', '거미 여왕', 'Spider Queen of Mirkwood', { faction: 'dol_guldur', role: 'monster', weapon: 'claws' }],
 ]},
+
+  // --- 실마릴리온·스토리 확장 (48) ---
+  { sheet:'px-nb-exp-silm1.png', side:'good', faction:'elf', role:'hero', weapon:'sword', base:'M', traits:[], units:[
+    ['turgon','투르곤','Turgon'],
+    ['fingon','핑곤','Fingon'],
+    ['ecthelion','엑텔리온','Ecthelion']] },
+  { sheet:'px-nb-exp-silm1.png', side:'good', faction:'elf', role:'hero', weapon:'sword', base:'M', traits:[], units:[
+    ['finrod_felagund','핀로드 펠라군드','Finrod Felagund']] },
+  { sheet:'px-nb-exp-silm1.png', side:'good', faction:'men', role:'hero', weapon:'sword', base:'M', traits:[], units:[
+    ['tuor','투오르','Tuor'],
+    ['hurin_thalion','후린 탈리온','Hurin Thalion']] },
+  { sheet:'px-nb-exp-silm2.png', side:'good', faction:'elf', role:'hero', weapon:'sword', base:'M', traits:[], units:[
+    ['maedhros','마이드로스','Maedhros'],
+    ['celegorm','켈레고름','Celegorm']] },
+  { sheet:'px-nb-exp-silm2.png', side:'good', faction:'doriath', role:'hero', weapon:'sword', base:'M', traits:[], units:[
+    ['thingol','싱골','Thingol'],
+    ['mablung_sindar','마블룽','Mablung']] },
+  { sheet:'px-nb-exp-silm2.png', side:'good', faction:'maiar', role:'hero', weapon:'staff', base:'M', traits:['terror'], units:[
+    ['melian','멜리안','Melian']] },
+  { sheet:'px-nb-exp-silm2.png', side:'good', faction:'dwarf', role:'hero', weapon:'dagger', base:'S', traits:[], units:[
+    ['mim','밈','Mim the Petty-dwarf']] },
+  { sheet:'px-nb-exp-silm3.png', side:'good', faction:'doriath', role:'infantry', weapon:'sword', base:'M', traits:[], units:[
+    ['doriath_warrior','도리아스 전사','Doriath Warrior']] },
+  { sheet:'px-nb-exp-silm3.png', side:'good', faction:'elf', role:'infantry', weapon:'bow', base:'M', traits:[], units:[
+    ['falathrim_archer','팔라스림 궁수','Falathrim Archer'],
+    ['nargothrond_ranger','나르고스론드 레인저','Nargothrond Ranger']] },
+  { sheet:'px-nb-exp-silm3.png', side:'good', faction:'men', role:'infantry', weapon:'sword', base:'M', traits:[], units:[
+    ['edain_warrior','에다인 전사','Edain Warrior']] },
+  { sheet:'px-nb-exp-silm3.png', side:'good', faction:'elf', role:'infantry', weapon:'spear', base:'M', traits:[], units:[
+    ['gondolin_guard','곤돌린 근위병','Gondolin Guard']] },
+  { sheet:'px-nb-exp-silm3.png', side:'good', faction:'elf', role:'hero', weapon:'sword', base:'M', traits:[], units:[
+    ['mirkwood_captain','미르크우드 대장','Mirkwood Captain']] },
+  { sheet:'px-nb-exp-mordor2.png', side:'evil', faction:'mordor', role:'infantry', weapon:'sword', base:'M', traits:[], units:[
+    ['mordor_uruk','모르도르 우르크','Mordor Uruk']] },
+  { sheet:'px-nb-exp-mordor2.png', side:'evil', faction:'mordor', role:'infantry', weapon:'sword', base:'M', traits:[], units:[
+    ['morgul_orc','모르굴 오크','Morgul Orc']] },
+  { sheet:'px-nb-exp-mordor2.png', side:'evil', faction:'mordor', role:'infantry', weapon:'dagger', base:'S', traits:[], units:[
+    ['morgul_rat','모르굴 추적병','Morgul Rat']] },
+  { sheet:'px-nb-exp-mordor2.png', side:'evil', faction:'mordor', role:'hero', weapon:'sword', base:'M', traits:[], units:[
+    ['ufthak','우프탁','Ufthak'],
+    ['orc_sergeant','오크 하사','Orc Sergeant']] },
+  { sheet:'px-nb-exp-mordor2.png', side:'evil', faction:'dol_guldur', role:'hero', weapon:'sword', base:'M', traits:['terror'], units:[
+    ['ashrak','아슈라크','Ashrak']] },
+  { sheet:'px-nb-exp-wotr.png', side:'evil', faction:'isengard', role:'monster', weapon:'club', base:'XL', traits:[], units:[
+    ['isengard_troll','이센가드 트롤','Isengard Troll']] },
+  { sheet:'px-nb-exp-wotr.png', side:'evil', faction:'dunland', role:'cavalry', weapon:'axe', base:'XL', traits:[], units:[
+    ['dunlending_horseman','던랜드 기병','Dunlending Horseman']] },
+  { sheet:'px-nb-exp-wotr.png', side:'evil', faction:'dunland', role:'hero', weapon:'twohanded', base:'M', traits:[], units:[
+    ['wulf','울프','Wulf']] },
+  { sheet:'px-nb-exp-wotr.png', side:'good', faction:'rohan', role:'hero', weapon:'axe', base:'M', traits:[], units:[
+    ['hera','헤라','Hera'],
+    ['frealaf','프레알라프','Frealaf']] },
+  { sheet:'px-nb-exp-wotr.png', side:'good', faction:'rohan', role:'infantry', weapon:'spear', base:'M', traits:[], units:[
+    ['rohan_yeoman','로한 여맨','Rohan Yeoman']] },
+  { sheet:'px-nb-exp-harad3.png', side:'evil', faction:'harad', role:'infantry', weapon:'glaive', base:'M', traits:[], units:[
+    ['serpent_guard','뱀 근위대','Serpent Guard']] },
+  { sheet:'px-nb-exp-harad3.png', side:'evil', faction:'umbar', role:'infantry', weapon:'crossbow', base:'M', traits:[], units:[
+    ['corsair_crossbowman','코르사 석궁병','Corsair Crossbowman']] },
+  { sheet:'px-nb-exp-harad3.png', side:'evil', faction:'harad', role:'infantry', weapon:'blowpipe', base:'M', traits:[], units:[
+    ['mahud_blowpipe','마후드 취관병','Mahud Blowpipe Warrior']] },
+  { sheet:'px-nb-exp-harad3.png', side:'evil', faction:'easterling', role:'infantry', weapon:'mace', base:'M', traits:[], units:[
+    ['khandish_warrior','칸드 전사','Khandish Warrior']] },
+  { sheet:'px-nb-exp-harad3.png', side:'evil', faction:'easterling', role:'cavalry', weapon:'bow', base:'XL', traits:[], units:[
+    ['easterling_mounted_archer','이스터링 기마궁수','Easterling Mounted Archer']] },
+  { sheet:'px-nb-exp-harad3.png', side:'evil', faction:'harad', role:'hero', weapon:'spear', base:'M', traits:[], units:[
+    ['far_harad_chieftain','먼 하라드 족장','Far Harad Chieftain']] },
+  { sheet:'px-nb-exp-gondor2.png', side:'good', faction:'numenor', role:'cavalry', weapon:'lance', base:'XL', traits:[], units:[
+    ['numenorean_knight','누메노르 기사','Numenorean Knight']] },
+  { sheet:'px-nb-exp-gondor2.png', side:'good', faction:'arnor', role:'infantry', weapon:'bow', base:'M', traits:[], units:[
+    ['arnor_archer','아르노르 궁수','Arnor Archer']] },
+  { sheet:'px-nb-exp-gondor2.png', side:'good', faction:'gondor', role:'hero', weapon:'bow', base:'M', traits:[], units:[
+    ['duilin','두일린','Duilin']] },
+  { sheet:'px-nb-exp-gondor2.png', side:'good', faction:'gondor', role:'hero', weapon:'sword', base:'M', traits:[], units:[
+    ['derufin','데루핀','Derufin'],
+    ['hirgon','히르곤','Hirgon']] },
+  { sheet:'px-nb-exp-gondor2.png', side:'good', faction:'gondor', role:'hero', weapon:'sword', base:'S', traits:[], units:[
+    ['pippin_citadel','성채 근위병 피핀','Pippin, Guard of the Citadel']] },
+  { sheet:'px-nb-exp-wild.png', side:'good', faction:'beorning', role:'monster', weapon:'claws', base:'XL', traits:[], units:[
+    ['beorn_bear','베오른 (곰)','Beorn, Bear Form']] },
+  { sheet:'px-nb-exp-wild.png', side:'good', faction:'eagle', role:'monster', weapon:'talons', base:'XL', traits:['fly'], units:[
+    ['gwaihir','그와이히르','Gwaihir the Windlord']] },
+  { sheet:'px-nb-exp-wild.png', side:'good', faction:'shire', role:'hero', weapon:'umbrella', base:'S', traits:[], units:[
+    ['lobelia','로벨리아','Lobelia Sackville-Baggins'],
+    ['will_whitfoot','윌 휫풋','Will Whitfoot']] },
+  { sheet:'px-nb-exp-wild.png', side:'good', faction:'dwarf', role:'support', weapon:'shield', base:'M', traits:[], units:[
+    ['dwarf_shieldbearers','드워프 방패 운반병','Dwarf Shieldbearers']] },
+  { sheet:'px-nb-exp-wild.png', side:'good', faction:'dwarf', role:'hero', weapon:'mattock', base:'M', traits:[], units:[
+    ['iron_hills_captain','아이언 힐즈 대장','Iron Hills Captain']] },
 ];
