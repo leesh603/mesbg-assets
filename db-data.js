@@ -286,8 +286,8 @@ module.exports = [
   ['elf_seer', '엘프 선견자', 'Elf Seer', { faction: 'lothlorien', role: 'support', weapon: 'staff' }],
 ]},
 { sheet: 'roster-elf-exp-v2.png', side: 'good', role: 'infantry', base: 'M', units: [
-  ['rumil', '루밀', 'Rumil', { faction: 'lothlorien', weapon: 'bow' }],
-  ['orophin', '오로핀', 'Orophin', { faction: 'lothlorien', weapon: 'spear' }],
+  ['rumil', '루밀', 'Rumil', { faction: 'lothlorien', role: 'hero', weapon: 'bow' }],
+  ['orophin', '오로핀', 'Orophin', { faction: 'lothlorien', role: 'hero', weapon: 'spear' }],
   ['mirkwood_sentinel', '미르크우드 보초', 'Mirkwood Sentinel', { faction: 'elf', weapon: 'pike' }],
   ['noldor_warrior', '놀도르 정예병', 'Noldor Warrior', { faction: 'elf', weapon: 'sword_shield', base: 'L' }],
   ['silvan_archer', '실반 궁수', 'Silvan Archer', { faction: 'elf', weapon: 'bow' }],
