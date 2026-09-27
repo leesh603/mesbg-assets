@@ -156,6 +156,13 @@ const sheets = [
   { file: 'nb-terrain-village.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-terrain-village.png', names: ['terr_well', 'terr_market_stall', 'terr_haystack', 'terr_hay_cart', 'terr_fence_gate', 'terr_beehive'] },
   { file: 'nb-terrain-wild.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-terrain-wild.png', names: ['terr_boulders', 'terr_mushroom_ring', 'terr_bramble', 'terr_pond', 'terr_waystone', 'terr_fallen_log'] },
   { file: 'nb-terrain-camp.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-terrain-camp.png', names: ['terr_war_banner', 'terr_weapon_rack', 'terr_anvil', 'terr_ammo_pile', 'terr_map_table', 'terr_torch_post'] },
+  { file: 'nb-regen-silm1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-regen-silm1.png', names: ['fingolfin', 'turgon', 'fingon', 'ecthelion', 'finrod_felagund', 'tuor'] },
+  { file: 'nb-regen-silm2.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-regen-silm2.png', names: ['maedhros', 'celegorm', 'thingol', 'melian', 'mablung_sindar', 'mim'] },
+  { file: 'nb-regen-silm3.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-regen-silm3.png', names: ['doriath_warrior', 'falathrim_archer', 'edain_warrior', 'nargothrond_ranger', 'gondolin_guard', 'mirkwood_captain'] },
+  { file: 'nb-regen-fix1.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-regen-fix1.png', names: ['bolg', 'suladan', 'fingolfin_mounted', 'warg_chieftain', 'mt_spear', 'mouth_of_sauron'] },
+  { file: 'nb-regen-fix2.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-regen-fix2.png', names: ['easterling_swordshield', 'denethor', 'noldor_warrior', 'rumil', 'silvan_archer', 'mirkwood_sentinel'] },
+  { file: 'nb-regen-fix3.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-regen-fix3.png', names: ['orophin', 'dwarf_axeshield', 'black_numenorean', 'hobbit_shirriff', 'aragorn_blackgate', 'warg_chieftain'] },
+  { file: 'nb-regen-fix4.png', rows: 2, cols: 1, noRim: true, paintedFile: 'px-regen-fix4.png', names: ['hurin_thalion', 'blackroot_archer'] },
 ];
 
 function idx(x, y, w) { return (y * w + x) << 2; }
