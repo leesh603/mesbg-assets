@@ -1,0 +1,215 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MESBG TD — 인게임 데모</title><style>
+:root{--gold:#c9a959;--gold2:#efe0ae;--line:#5d5233;--txt:#ece4cd;--dim:#a89d7f;--panel:#1a1d14}
+*{box-sizing:border-box;margin:0;user-select:none}
+body{background:#0f120c;color:var(--txt);font-family:'Malgun Gothic',Georgia,serif;overflow:hidden;height:100vh;display:flex;flex-direction:column}
+#hud{height:44px;background:linear-gradient(180deg,#232718,#161a10);border-bottom:2px solid var(--gold);display:flex;align-items:center;gap:18px;padding:0 16px;font-size:13px;z-index:3;flex:none}
+#hud .res{display:flex;align-items:center;gap:5px}
+#hud .res img{height:20px}
+#hud .res b{color:var(--gold2);font-family:Georgia,serif}
+#hud .sp{flex:1}
+#hud button{background:linear-gradient(180deg,#3d361f,#2a241e);border:1px solid var(--gold);color:var(--gold2);padding:5px 14px;border-radius:4px;cursor:pointer;font-size:12px;font-family:Georgia,serif;letter-spacing:1px}
+#hud button:hover{background:#3d361f}
+#stage{flex:1;position:relative;overflow:hidden}
+#bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#grid{position:absolute;inset:0}
+#ents{position:absolute;inset:0}
+.unit{position:absolute;transform:translate(-50%,-82%);text-align:center;pointer-events:none}
+.unit img{display:block;margin:0 auto;filter:drop-shadow(0 3px 3px rgba(0,0,0,.7))}
+.unit .hp{position:absolute;left:50%;transform:translateX(-50%);height:4px;background:#111;border:1px solid #000;border-radius:2px;overflow:hidden}
+.unit .hp i{display:block;height:100%;background:linear-gradient(90deg,#5da35d,#8fd08f)}
+.unit.foe .hp i{background:linear-gradient(90deg,#a33,#d66)}
+.unit .ring{position:absolute;left:50%;top:86%;transform:translate(-50%,-50%);border-radius:50%;border:2px solid rgba(201,169,89,.5)}
+.unit.foe .ring{border-color:rgba(217,125,125,.6)}
+.unit .st{position:absolute;left:50%;top:-14px;transform:translateX(-50%);display:flex;gap:2px}
+.unit .st img{width:12px;height:12px}
+#hand{height:128px;background:linear-gradient(0deg,#141a10,#1a1d14);border-top:2px solid var(--gold);display:flex;align-items:center;gap:10px;padding:8px 14px;overflow-x:auto;flex:none;z-index:3}
+.hcard{background:linear-gradient(170deg,#232718,#171a10);border:1px solid var(--line);border-radius:8px;width:92px;flex:none;padding:6px 4px 5px;text-align:center;cursor:pointer;position:relative;transition:border-color .15s,transform .1s}
+.hcard:hover{border-color:var(--gold);transform:translateY(-3px)}
+.hcard.sel{border-color:var(--gold);box-shadow:0 0 12px rgba(201,169,89,.5);outline:1px solid var(--gold)}
+.hcard img.tok{height:56px;filter:drop-shadow(0 2px 3px rgba(0,0,0,.7))}
+.hcard .n{font-size:10px;color:var(--txt);font-weight:600;margin-top:2px;line-height:1.2}
+.hcard .c{font-size:10px;color:var(--gold2);font-family:Georgia,serif;margin-top:1px}
+.hcard .st{font-size:8px;color:var(--dim)}
+.hcard .tr{position:absolute;top:3px;right:3px;display:flex;gap:1px}
+.hcard .tr img{width:12px;height:12px}
+.hcard.off{opacity:.4;pointer-events:none}
+#toast{position:absolute;top:52px;left:50%;transform:translateX(-50%);background:rgba(20,18,12,.9);border:1px solid var(--gold);color:var(--gold2);padding:6px 18px;border-radius:4px;font-size:13px;display:none;z-index:5;font-family:Georgia,serif}
+#ov{position:absolute;inset:0;background:rgba(8,10,6,.85);display:none;align-items:center;justify-content:center;z-index:8}
+#ov.open{display:flex}
+#ov .box{border:2px solid var(--gold);background:#15190f;padding:30px 50px;text-align:center;border-radius:10px;font-family:Georgia,serif}
+#ov h2{color:var(--gold2);letter-spacing:3px;margin-bottom:8px}
+#ov p{color:var(--dim);font-size:13px;margin-bottom:14px}
+#ov button{background:linear-gradient(180deg,#3d361f,#2a241e);border:1px solid var(--gold);color:var(--gold2);padding:8px 26px;cursor:pointer;font-size:14px;border-radius:4px;font-family:Georgia,serif}
+.cellhot{position:absolute;border-radius:4px}
+</style></head><body>
+<div id="hud">
+ <div class="res"><img src="icons/res_gold.png"><b id="gold">0</b></div>
+ <div class="res"><img src="icons/ui_heart.png"><b id="lives">0</b></div>
+ <div class="res"><img src="icons/ui_wave.png"><b id="wave">0</b></div>
+ <div class="sp"></div>
+ <button id="spd">1× 속도</button>
+ <button id="start">▶ 웨이브 시작</button>
+ <button onclick="location.href='codex.html'">도감</button>
+</div>
+<div id="stage">
+ <img id="bg" src="backgrounds/bg_pelennor.png">
+ <canvas id="grid"></canvas>
+ <div id="ents"></div>
+ <div id="toast"></div>
+ <div id="ov"><div class="box"><h2 id="ovT"></h2><p id="ovP"></p><button onclick="restart()">다시 시작</button></div></div>
+</div>
+<div id="hand"></div>
+<script>
+// ===== load asset db =====
+let U={};
+fetch('units.json').then(r=>r.json()).then(d=>{d.units.forEach(u=>U[u.id]=u);init()});
+
+// ===== config =====
+const CELL=64, COLS=24, ROWS=14;
+const BASE_PX={'25mm':40,'40mm':58,'50mm':76,'60mm':92,'100mm':120};
+// path waypoints in cell coords (through the field, avoiding obstacle cells)
+const PATH=[[0,7],[6,7],[6,4],[12,4],[12,10],[18,10],[18,6],[23,6]];
+const BLOCKED=new Set(['3,3','4,3','10,8','11,8','15,2','16,2','15,3','20,12','21,12','8,11','9,11']); // rocks/ruins (fly ignores)
+const HAND=[
+ {id:'warrior_minas_tirith',cost:20},{id:'gondor_archer',cost:25},{id:'rohan_royal_guard',cost:25},
+ {id:'gondor_knight',cost:45},{id:'legolas',cost:60},{id:'gimli',cost:55},{id:'boromir',cost:70},
+ {id:'aragorn',cost:80},{id:'gandalf',cost:90}];
+const RANGE={bow:180,crossbow:160,spear:85,sword:70,axe:70,mace:70,staff:150,none:70};
+const WAVES=[
+ ['orc_sword','orc_sword','orc_sword','moria_goblin','moria_goblin'],
+ ['orc_sword','orc_spearman','orc_spearman','moria_goblin','orc_bow','orc_bow'],
+ ['uruk_swordshield','uruk_swordshield','uruk_berserker','orc_archer','warg_rider','warg_rider'],
+ ['uruk_berserker','uruk_pike','easterling_phalanx','warg_rider','orc_drummer','haradrim_bow','crebain_swarm'],
+ ['mountain_troll','uruk_swordshield2','orc_twohanded','warg_rider','crebain_swarm','easterling_kataphrakt'],
+ ['war_troll','mountain_troll','nazgul_mounted','witchking_fellbeast','crebain_swarm','uruk_berserker2'],
+ ['mumakil','witchking_fellbeast','nazgul_fellbeast','war_troll','easterling_kataphrakt','orc_drummer']];
+const EHP={infantry:30,support:25,hero:80,cavalry:55,monster:150,beast:50};
+const EDMG={infantry:8,support:6,hero:22,cavalry:14,monster:30,beast:12};
+const ESCALE=w=>1+(w-1)*0.45;
+
+// ===== state =====
+let gold,lives,wave,defs=[],foes=[],running=false,speed=1,tick=0,sel=null,spawnQ=[],spawnT=0;
+const $=id=>document.getElementById(id);
+const cellPx=()=>({w:$('stage').clientWidth/COLS,h:$('stage').clientHeight/ROWS});
+const px=p=>{const c=cellPx();return{x:p[0]*c.w+c.w/2,y:p[1]*c.h+c.h/2}};
+
+function init(){
+ gold=120;lives=10;wave=0;defs=[];foes=[];running=false;spawnQ=[];
+ $('hand').innerHTML=HAND.map(h=>{const u=U[h.id];if(!u)return '';
+  const tr=(u.traits||[]).map(t=>`<img src="icons/st_${t==='fly'?'hidden':'charge'}.png" title="${t}">`).join('');
+  return `<div class="hcard" data-id="${h.id}" onclick="pick('${h.id}',this)"><div class="tr">${tr}</div>
+   <img class="tok" src="tokens/${h.id}.png"><div class="n">${u.name_ko}</div><div class="c">${h.cost} 골드</div>
+   <div class="st">${u.stats?`F${u.stats.f} A${u.stats.a} D${u.stats.d}`:''} · ${u.base_mm||''}</div></div>`}).join('');
+ drawGrid(); hud(); toast('유닛 카드를 골라 잔디에 배치하세요');
+ $('start').onclick=startWave;
+ $('spd').onclick=()=>{speed=speed===1?2:speed===2?3:1;$('spd').textContent=speed+'× 속도'};
+ requestAnimationFrame(loop);
+}
+function pick(id,el){
+ if(gold<HAND.find(h=>h.id===id).cost){toast('골드 부족');return}
+ sel=id;document.querySelectorAll('.hcard').forEach(c=>c.classList.toggle('sel',c===el));
+}
+$('grid').addEventListener('click',e=>{
+ if(!sel)return;const c=cellPx();const r=$('grid').getBoundingClientRect();
+ const cx=Math.floor((e.clientX-r.left)/c.w),cy=Math.floor((e.clientY-r.top)/c.h);
+ const key=cx+','+cy;
+ if(BLOCKED.has(key)){toast('지형지물 — 배치 불가');return}
+ if(onPath(cx,cy)){toast('적 경로 위엔 배치 불가');return}
+ if(defs.some(d=>d.cx===cx&&d.cy===cy)){toast('이미 점유됨');return}
+ const h=HAND.find(x=>x.id===sel);if(gold<h.cost)return;
+ gold-=h.cost;defs.push(mk(U[sel],cx,cy,true));hud();
+});
+function onPath(x,y){
+ for(let i=0;i<PATH.length-1;i++){const[a,b]=[PATH[i],PATH[i+1]];
+  const dx=b[0]-a[0],dy=b[1]-a[1],L=Math.max(Math.abs(dx),Math.abs(dy));
+  for(let t=0;t<=L;t++)if(Math.round(a[0]+dx*t/L)===x&&Math.round(a[1]+dy*t/L)===y)return true}return false;
+}
+function mk(u,cx,cy,ally){
+ const e=document.createElement('div');e.className='unit '+(ally?'ally':'foe');
+ const sz=BASE_PX[u.base_mm]||40;
+ e.innerHTML=`<div class="ring" style="width:${sz*.9}px;height:${sz*.32}px"></div><img src="tokens/${u.id}.png" style="height:${sz}px"><div class="st"></div><div class="hp" style="width:${sz*.8}px;bottom:${sz*0.88}px"><i></i></div>`;
+ $('ents').appendChild(e);
+ const p=px([cx,cy]);e.style.left=p.x+'px';e.style.top=p.y+'px';
+ const fly=(u.traits||[]).includes('fly'),terror=(u.traits||[]).includes('terror');
+ const o={u,e,cx,cy,x:p.x,y:p.y,hp:ally?(u.stats?u.stats.w*25+40:60):Math.round(EHP[u.role]*ESCALE(wave+1)),maxhp:0,
+  ally,fly,terror,speed:u.role==='cavalry'?1.5:fly?1.6:u.role==='monster'?0.7:1,
+  wp:0,cd:0,dmg:ally?(u.stats?u.stats.a*6+u.stats.s*3:10):Math.round(EDMG[u.role]*ESCALE(wave+1)),
+  rng:ally?(RANGE[u.weapon]||70):60};
+ o.maxhp=o.hp;
+ if(fly||terror){const ic=fly?'abi_summon':'st_charge';o.e.querySelector('.st').innerHTML=(terror?'<img src="icons/st_rout.png" title="terror">':'')+(fly?'<img src="icons/proj_magic.png" title="fly">':'')}
+ return o;
+}
+function startWave(){
+ if(running)return;wave++;running=true;
+ const list=WAVES[(wave-1)%WAVES.length];spawnQ=list.slice();spawnT=0;
+ toast('웨이브 '+wave+' — 적 접근!');hud();
+}
+function loop(){
+ tick++;
+ const c=cellPx();
+ // spawn
+ if(running&&spawnQ.length){spawnT--;if(spawnT<=0){spawnT=45/speed;
+  foes.push(mk(U[spawnQ.shift()],PATH[0][0],PATH[0][1],false));
+  const f=foes[foes.length-1];f.wpi=0;}}
+ // move foes
+ for(const f of foes){
+  if(f.hp<=0)continue;
+  const route=f.fly?[[f.cx,f.cy],[23,6]]:PATH;
+  const tgt=px(route[Math.min(f.wpi+1,route.length-1)]);
+  const dx=tgt.x-f.x,dy=tgt.y-f.y,d=Math.hypot(dx,dy),v=f.speed*0.9*speed;
+  if(d<4){f.wpi++;if(f.wpi>=route.length-1){f.hp=0;f.e.remove();lives--;hud();if(lives<=0)gameover(false);continue}}
+  else{f.x+=dx/d*v;f.y+=dy/d*v;f.e.style.left=f.x+'px';f.e.style.top=f.y+'px'}
+ }
+ // combat: defenders shoot/melee
+ for(const d of defs){
+  if(d.hp<=0){d.e.style.opacity=.25;continue}
+  d.cd-=speed;
+  let best=null,bd=1e9;
+  for(const f of foes){if(f.hp<=0)continue;
+   const dd=Math.hypot(f.x-d.x,f.y-d.y);if(dd<d.rng&&dd<bd){bd=dd;best=f}}
+  if(best&&d.cd<=0){
+   d.cd=45;
+   // MESBG-flavored roll: stats.f vs target defence
+   const fs=d.u.stats?d.u.stats.f:3,fd=best.u.stats?best.u.stats.d:4;
+   const hit=fs>=fd?0.75:0.5;
+   if(Math.random()<hit){best.hp-=d.dmg;flash(best)}
+  }
+ }
+ // monsters/foes attack defenders in reach (adjacent cells)
+ for(const f of foes){
+  if(f.hp<=0)continue;f.cd-=speed;if(f.cd>0)continue;
+  let best=null,bd=1e9;
+  for(const d of defs){if(d.hp<=0)continue;const dd=Math.hypot(f.x-d.x,f.y-d.y);if(dd<f.rng&&dd<bd){bd=dd;best=d}}
+  if(best){f.cd=60;const t=best.u.stats?best.u.stats.d:4,fs=f.u.stats?f.u.stats.f:4;
+   if(Math.random()<(fs>=t?0.7:0.45)){best.hp-=f.dmg;flash(best);if(best.hp<=0)best.e.style.opacity=.3}}
+ }
+ // cleanup dead foes -> gold
+ for(const f of foes)if(f.hp<=0&&!f.paid){f.paid=1;f.e.remove();gold+=Math.round(4*ESCALE(wave));hud()}
+ foes=foes.filter(f=>f.hp>0);
+ if(running&&!spawnQ.length&&foes.every(f=>f.hp<=0)){running=false;
+  if(wave>=WAVES.length)gameover(true);else toast('웨이브 클리어! +'+30+' 골드'),gold+=30,hud()}
+ requestAnimationFrame(loop);
+}
+function flash(f){f.e.style.filter='brightness(2)';setTimeout(()=>f.e.style.filter='',80);
+ f.e.querySelector('.hp i').style.width=Math.max(0,f.hp/f.maxhp*100)+'%'}
+function drawGrid(){
+ const cv=$('grid');cv.width=$('stage').clientWidth;cv.height=$('stage').clientHeight;
+ const g=cv.getContext('2d'),c=cellPx();
+ g.strokeStyle='rgba(201,169,89,.14)';g.lineWidth=1;
+ for(let i=0;i<=COLS;i++){g.beginPath();g.moveTo(i*c.w,0);g.lineTo(i*c.w,cv.height);g.stroke()}
+ for(let j=0;j<=ROWS;j++){g.beginPath();g.moveTo(0,j*c.h);g.lineTo(cv.width,j*c.h);g.stroke()}
+ // path tint
+ g.fillStyle='rgba(120,90,50,.25)';
+ for(let i=0;i<PATH.length-1;i++){const[a,b]=[PATH[i],PATH[i+1]];
+  const dx=b[0]-a[0],dy=b[1]-a[1],L=Math.max(Math.abs(dx),Math.abs(dy));
+  for(let t=0;t<=L;t++)g.fillRect(Math.round(a[0]+dx*t/L)*c.w,Math.round(a[1]+dy*t/L)*c.h,c.w,c.h)}
+ // blocked cells
+ g.fillStyle='rgba(40,40,40,.4)';
+ BLOCKED.forEach(k=>{const[x,y]=k.split(',');g.fillRect(x*c.w,y*c.h,c.w,c.h)});
+}
+function hud(){$('gold').textContent=gold;$('lives').textContent=lives;$('wave').textContent=wave+'/'+WAVES.length}
+function toast(t){const el=$('toast');el.textContent=t;el.style.display='block';clearTimeout(el._t);el._t=setTimeout(()=>el.style.display='none',2200)}
+function gameover(win){running=false;$('ovT').textContent=win?'승리! 펠렌노르를 지켰습니다':'패배… 성문이 함락됐습니다';$('ovP').textContent='도달 웨이브: '+wave;$('ov').classList.add('open')}
+function restart(){defs.forEach(d=>d.e.remove());foes.forEach(f=>f.e.remove());$('ov').classList.remove('open');$('ents').innerHTML='';init()}
+</script></body></html>
