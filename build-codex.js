@@ -11,45 +11,49 @@ const dataJson = JSON.stringify(units).replace(/</g, '\\u003c');
 
 const html = `<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>유닛 도감</title><style>
-:root{--bg:#141210;--panel:#1e1a16;--panel2:#2a241e;--line:#4a3f32;--gold:#c9a959;--gold2:#e8cf8f;--txt:#e6ddc9;--dim:#9a8f7a;--good:#7da7d9;--evil:#d97d7d}
+:root{--bg:#0f120c;--panel:#1a1d14;--panel2:#232718;--line:#5d5233;--gold:#c9a959;--gold2:#efe0ae;--txt:#ece4cd;--dim:#a89d7f;--good:#8fb8d9;--evil:#d98f7d;--leaf:#8fae6e}
 *{box-sizing:border-box;margin:0}
-body{background:radial-gradient(ellipse at 50% -10%,#241f18 0%,var(--bg) 60%);color:var(--txt);font-family:'Malgun Gothic',system-ui,sans-serif;min-height:100vh}
-header{padding:14px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:16px;flex-wrap:wrap;position:sticky;top:0;background:rgba(20,18,16,.92);backdrop-filter:blur(4px);z-index:5}
-header h1{font-size:18px;color:var(--gold2);letter-spacing:2px;text-shadow:0 0 12px rgba(201,169,89,.3)}
+body{background:radial-gradient(ellipse at 50% -5%,#26301b 0%,#141a10 45%,#0f120c 100%);color:var(--txt);font-family:'Malgun Gothic','Apple SD Gothic Neo',Georgia,serif;min-height:100vh}
+header{padding:16px 22px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:18px;flex-wrap:wrap;position:sticky;top:0;background:rgba(15,18,12,.94);backdrop-filter:blur(5px);z-index:5;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+header h1{font-family:Georgia,'Times New Roman',serif;font-size:20px;color:var(--gold2);letter-spacing:3px;text-shadow:0 0 14px rgba(201,169,89,.35);font-variant:small-caps}
+header h1::before{content:'❧ ';color:var(--gold)}
 .filters{display:flex;gap:6px;flex-wrap:wrap}
-.filters button{background:var(--panel);border:1px solid var(--line);color:var(--dim);padding:5px 12px;border-radius:3px;cursor:pointer;font-size:12px}
-.filters button.on{background:var(--gold);color:#1a150f;border-color:var(--gold)}
-.filters input{background:var(--panel);border:1px solid var(--line);color:var(--txt);padding:5px 10px;border-radius:3px;font-size:12px;width:160px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;padding:16px 20px}
-.uc{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:10px 8px 8px;text-align:center;cursor:pointer;transition:border-color .15s,transform .15s}
-.uc:hover{border-color:var(--gold);transform:translateY(-2px)}
+.filters button{background:var(--panel);border:1px solid var(--line);color:var(--dim);padding:6px 14px;border-radius:3px;cursor:pointer;font-size:12px;letter-spacing:.5px;transition:all .15s}
+.filters button:hover{color:var(--gold2);border-color:var(--gold)}
+.filters button.on{background:linear-gradient(180deg,#d4b567,#a98c3f);color:#1a150f;border-color:var(--gold);font-weight:700}
+.filters input{background:var(--panel);border:1px solid var(--line);color:var(--txt);padding:6px 12px;border-radius:3px;font-size:12px;width:170px}
+.filters input:focus{outline:none;border-color:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(135px,1fr));gap:12px;padding:18px 22px}
+.uc{background:linear-gradient(170deg,#20241a,#181b12);border:1px solid var(--line);border-radius:8px;padding:12px 8px 9px;text-align:center;cursor:pointer;transition:border-color .15s,transform .15s,box-shadow .15s;position:relative}
+.uc::before{content:'';position:absolute;inset:3px;border:1px solid rgba(201,169,89,.18);border-radius:5px;pointer-events:none}
+.uc:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.5)}
 .uc .t{height:96px;display:flex;align-items:flex-end;justify-content:center}
-.uc img{max-height:96px;max-width:100px;image-rendering:auto;filter:drop-shadow(0 3px 4px rgba(0,0,0,.6))}
-.uc .n{font-size:12px;color:var(--txt);margin-top:6px;font-weight:600}
+.uc img{max-height:96px;max-width:100px;image-rendering:auto;filter:drop-shadow(0 4px 5px rgba(0,0,0,.7))}
+.uc .n{font-size:12px;color:var(--txt);margin-top:7px;font-weight:600}
 .uc .r{font-size:10px;color:var(--dim);margin-top:2px}
 .uc .dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:4px;vertical-align:1px}
-/* detail card modal */
-.ov{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;align-items:center;justify-content:center;z-index:10;padding:20px}
+.ov{position:fixed;inset:0;background:rgba(8,10,6,.8);display:none;align-items:center;justify-content:center;z-index:10;padding:20px}
 .ov.open{display:flex}
-.card-big{background:linear-gradient(160deg,#2a241e,#1b1713);border:2px solid var(--gold);border-radius:10px;width:340px;max-width:95vw;padding:0 0 14px;box-shadow:0 0 40px rgba(0,0,0,.8);position:relative}
-.card-big .head{background:linear-gradient(90deg,#3a2f22,#2a241e);padding:10px 14px;border-bottom:1px solid var(--gold);border-radius:8px 8px 0 0}
-.card-big .head .nm{font-size:16px;font-weight:700;color:var(--gold2)}
-.card-big .head .en{font-size:11px;color:var(--dim)}
-.card-big .fig{height:150px;display:flex;align-items:flex-end;justify-content:center;padding:8px}
-.card-big .fig img{max-height:150px;filter:drop-shadow(0 5px 8px rgba(0,0,0,.7))}
-.stats{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;padding:10px 14px}
-.stat{background:var(--panel2);border:1px solid var(--line);border-radius:4px;text-align:center;padding:5px 0}
-.stat .k{font-size:9px;color:var(--dim)}
-.stat .v{font-size:14px;font-weight:700;color:var(--gold2)}
-.mwf{display:flex;gap:6px;padding:0 14px 8px;justify-content:center}
-.mwf span{font-size:11px;padding:3px 10px;border-radius:10px;border:1px solid var(--line)}
-.mwf .m{color:#e8cf8f}.mwf .wl{color:#8fb8e8}.mwf .ft{color:#9adc9a}
-.info{padding:6px 14px;font-size:12px;color:var(--dim);line-height:1.6}
-.info b{color:var(--txt)}
-.rules{padding:4px 14px}
-.rule{display:inline-block;font-size:10px;color:#c9b8e8;border:1px solid #5a4a7a;background:#241f33;padding:2px 8px;border-radius:10px;margin:2px}
-.trait{display:inline-block;font-size:10px;color:#e8a87d;border:1px solid #7a5a3a;background:#33281f;padding:2px 8px;border-radius:10px;margin:2px}
-.x{position:absolute;top:6px;right:10px;font-size:20px;color:var(--dim);cursor:pointer;background:none;border:none}
+.card-big{background:linear-gradient(165deg,#252a1c,#15190f 70%);border:2px solid var(--gold);border-radius:10px;width:350px;max-width:95vw;padding:0 0 14px;box-shadow:0 0 50px rgba(0,0,0,.85),inset 0 0 40px rgba(201,169,89,.05);position:relative}
+.card-big::before{content:'';position:absolute;inset:5px;border:1px solid rgba(201,169,89,.35);border-radius:7px;pointer-events:none}
+.card-big .head{background:linear-gradient(90deg,#3d361f,#2a2e1e);background:linear-gradient(90deg,#3d361f,#2a2e1e);padding:12px 16px;border-bottom:1px solid var(--gold);border-radius:8px 8px 0 0}
+.card-big .head .nm{font-family:Georgia,serif;font-size:17px;font-weight:700;color:var(--gold2);letter-spacing:1px}
+.card-big .head .en{font-size:11px;color:var(--dim);font-style:italic}
+.card-big .fig{height:160px;display:flex;align-items:flex-end;justify-content:center;padding:10px;background:radial-gradient(ellipse at center,rgba(201,169,89,.07),transparent 70%)}
+.card-big .fig img{max-height:155px;filter:drop-shadow(0 6px 9px rgba(0,0,0,.8))}
+.stats{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;padding:10px 16px}
+.stat{background:rgba(0,0,0,.35);border:1px solid var(--line);border-radius:4px;text-align:center;padding:6px 0}
+.stat .k{font-size:9px;color:var(--dim);font-family:Georgia,serif}
+.stat .v{font-size:15px;font-weight:700;color:var(--gold2);font-family:Georgia,serif}
+.mwf{display:flex;gap:6px;padding:0 16px 10px;justify-content:center}
+.mwf span{font-size:11px;padding:4px 12px;border-radius:12px;border:1px solid var(--line);font-family:Georgia,serif;letter-spacing:.5px}
+.mwf .m{color:#e8cf8f;border-color:#8a6f3a}.mwf .wl{color:#8fb8e8;border-color:#3a5a8a}.mwf .ft{color:#9adc9a;border-color:#3a8a4a}
+.info{padding:8px 16px;font-size:12px;color:var(--dim);line-height:1.7}
+.info b{color:var(--gold2)}
+.rules{padding:4px 16px}
+.rule{display:inline-block;font-size:10px;color:#c9b8e8;border:1px solid #5a4a7a;background:#221d30;padding:3px 9px;border-radius:10px;margin:2px}
+.trait{display:inline-block;font-size:10px;color:#e8a87d;border:1px solid #7a5a3a;background:#30251c;padding:3px 9px;border-radius:10px;margin:2px}
+.x{position:absolute;top:8px;right:12px;font-size:22px;color:var(--dim);cursor:pointer;background:none;border:none;z-index:2}
 .x:hover{color:var(--gold2)}
 </style></head><body>
 <header><h1>유닛 도감</h1><div class="filters" id="fl">
