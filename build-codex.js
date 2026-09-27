@@ -91,9 +91,9 @@ function openCard(id){
  '<button class="x" onclick="close()">×</button>'+
  '<div class="head"><div class="nm">'+esc(u.name_ko)+'</div><div class="en">'+esc(u.name_en)+' · '+(SK[u.side]||'')+'</div></div>'+
  '<div class="fig"><img src="tokens/'+u.id+'.png"></div>'+
- (s?'<div class="stats">'+[['F','전투'],['S','힘'],['D','방어'],['A','공격'],['W','체력'],['C','용기']].map(([k])=>'<div class="stat"><div class="k">'+k+'</div><div class="v">'+s[k.toLowerCase()==='f'?'f':k.toLowerCase()]+'</div></div>').join('')+'<div class="stat"><div class="k">베이스</div><div class="v" style="font-size:11px">'+esc(u.base)+'</div></div></div>'+
+ (s?'<div class="stats">'+[['F','전투'],['S','힘'],['D','방어'],['A','공격'],['W','체력'],['C','용기']].map(([k])=>'<div class="stat"><div class="k">'+k+'</div><div class="v">'+s[k.toLowerCase()==='f'?'f':k.toLowerCase()]+'</div></div>').join('')+'<div class="stat"><div class="k">베이스</div><div class="v" style="font-size:11px">'+esc(u.base_mm||u.base)+'</div></div></div>'+
  '<div class="mwf"><span class="m">Might '+s.might+'</span><span class="wl">Will '+s.will+'</span><span class="ft">Fate '+s.fate+'</span></div>'
- :'<div class="info" style="text-align:center;padding:14px">병사 유닛 · 베이스 '+esc(u.base)+'</div>')+
+ :'<div class="info" style="text-align:center;padding:14px">병사 유닛 · 베이스 '+esc(u.base_mm||u.base)+'</div>')+
  '<div class="info"><b>'+(RK[u.role]||u.role)+'</b> · '+esc(u.faction)+' · 무기: '+esc(u.weapon)+'</div>'+
  ((u.traits&&u.traits.length?u.traits.map(t=>'<span class="trait">'+esc(t)+'</span>').join(''):'')+(u.rules?u.rules.map(r=>'<span class="rule">'+esc(r)+'</span>').join(''):''))+
  '</div>';

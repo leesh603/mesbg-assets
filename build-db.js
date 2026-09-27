@@ -28,6 +28,23 @@ for (const s of sheets) {
   }
 }
 
+// MESBG base sizes: foot 25mm / cavalry 40mm / monster 50mm / big monster 60mm / huge 100mm
+const HUGE = new Set(['mumakil','watcher_in_the_water','smaug','scatha','dragon_lord','durins_bane','durin_bane','gothmog_balrog','ancient_dragon']);
+const BIG = new Set(['ent','fellbeast','witchking_fellbeast','nazgul_fellbeast','great_eagle','troll_cave','troll_mountain','troll_snow','troll_war','troll_drummer','moria_troll','olf_haunt','buhrdur','dwerghammer','mewlip','boat_troll']);
+const baseMM = r => {
+  if (r.role === 'terrain') return '';
+  if (HUGE.has(r.id)) return '100mm';
+  if (r.role === 'monster' || r.role === 'beast') {
+    if (r.base === 'XXL' || BIG.has(r.id)) return '60mm';
+    if (r.base === 'XL') return '50mm';
+    if (r.base === 'L') return '50mm';
+    return '50mm';
+  }
+  if (r.role === 'cavalry' || r.base === 'XL' || /mounted|warg_rider|chariot|chieftain.*warg/.test(r.id)) return '40mm';
+  return '25mm';
+};
+rows.forEach(r => { r.base_mm = baseMM(r); });
+
 // sanity: every row has a PNG; every PNG has a row
 const pngs = new Set(fs.readdirSync(TOKENS).filter(f => f.endsWith('.png')));
 const ids = new Set(rows.map(r => r.id));
@@ -36,7 +53,7 @@ const missingRow = [...pngs].filter(f => !ids.has(f.replace('.png', ''))).map(f 
 if (missingFile.length) console.log('DB rows without PNG:', missingFile.join(', '));
 if (missingRow.length) console.log('PNGs without DB row:', missingRow.join(', '));
 
-const COLS = ['id', 'name_ko', 'name_en', 'side', 'faction', 'role', 'weapon', 'base', 'sheet', 'file'];
+const COLS = ['id', 'name_ko', 'name_en', 'side', 'faction', 'role', 'weapon', 'base', 'base_mm', 'sheet', 'file'];
 const esc = v => /[",\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v;
 const csv = '﻿' + COLS.join(',') + '\n' + rows.map(r => COLS.map(c => esc(String(r[c]))).join(',')).join('\n') + '\n';
 fs.writeFileSync(path.join(SRC, 'units.csv'), csv);
@@ -71,7 +88,7 @@ const card = r => {
   const h = dispH(r);
   const st = r.stats ? '<div class="meta" style="color:#d8c98a">F' + r.stats.f + ' S' + r.stats.s + ' D' + r.stats.d + ' A' + r.stats.a + ' W' + r.stats.w + ' C' + r.stats.c + ' · M' + r.stats.might + ' W' + r.stats.will + ' F' + r.stats.fate + '</div>' : '';
   const rl = (r.rules && r.rules.length) ? '<div class="meta" style="color:#9a8ac0">' + r.rules.join(' · ') + '</div>' : '';
-  return `<div class="card"><div class="fig" style="height:${h}px"><img src="tokens/${r.id}.png" loading="lazy" style="max-height:${h}px;max-width:200px;height:auto;width:auto"></div><div class="id">${r.id}</div><div class="ko">${r.name_ko}</div><div class="meta">${r.faction} · ${r.role} · ${r.weapon} · ${r.base}${(r.traits && r.traits.length) ? " · " + r.traits.join("·") : ""}</div>${st}${rl}</div>`;
+  return `<div class="card"><div class="fig" style="height:${h}px"><img src="tokens/${r.id}.png" loading="lazy" style="max-height:${h}px;max-width:200px;height:auto;width:auto"></div><div class="id">${r.id}</div><div class="ko">${r.name_ko}</div><div class="meta">${r.faction} · ${r.role} · ${r.weapon}${r.base_mm ? " · " + r.base_mm : ""}${(r.traits && r.traits.length) ? " · " + r.traits.join("·") : ""}</div>${st}${rl}</div>`;
 };
 const roleGrid = list => ROLE_ORDER.filter(ro => list.some(r => grp(r) === ro)).map(ro =>
   `<h3>${ROLE_KO[ro] || ro} — ${list.filter(r => grp(r) === ro).length}</h3><div class="grid">${list.filter(r => grp(r) === ro).map(card).join('')}</div>`).join('');

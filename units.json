@@ -31,7 +31,8 @@
       "rules": [
         "Hero of Legend",
         "Anduril Flame of the West"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "gandalf",
@@ -62,7 +63,8 @@
       "rules": [
         "Istari",
         "Glamdring"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "warrior_minas_tirith",
@@ -74,7 +76,8 @@
       "weapon": "sword_shield",
       "base": "M",
       "sheet": "lotr-tokens-v1.png",
-      "file": "tokens/warrior_minas_tirith.png"
+      "file": "tokens/warrior_minas_tirith.png",
+      "base_mm": "25mm"
     },
     {
       "id": "witchking_foot",
@@ -110,7 +113,8 @@
         "Terror",
         "The Morgul Lord",
         "Black Breath"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "orc_sword",
@@ -122,7 +126,8 @@
       "weapon": "sword",
       "base": "S",
       "sheet": "lotr-tokens-v1.png",
-      "file": "tokens/orc_sword.png"
+      "file": "tokens/orc_sword.png",
+      "base_mm": "25mm"
     },
     {
       "id": "cave_troll",
@@ -134,7 +139,8 @@
       "weapon": "club",
       "base": "XXL",
       "sheet": "lotr-tokens-v1.png",
-      "file": "tokens/cave_troll.png"
+      "file": "tokens/cave_troll.png",
+      "base_mm": "60mm"
     },
     {
       "id": "glorfindel_foot",
@@ -165,7 +171,8 @@
       "rules": [
         "Glorfindel",
         "Elf-lord Reborn"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "glorfindel_mounted",
@@ -196,7 +203,8 @@
       "rules": [
         "Glorfindel",
         "Asfaloth"
-      ]
+      ],
+      "base_mm": "40mm"
     },
     {
       "id": "witchking_fellbeast",
@@ -233,7 +241,8 @@
         "Terror",
         "The Morgul Lord",
         "Fell Beast"
-      ]
+      ],
+      "base_mm": "60mm"
     },
     {
       "id": "witchking_mounted",
@@ -269,7 +278,8 @@
         "Terror",
         "The Morgul Lord",
         "Black Breath"
-      ]
+      ],
+      "base_mm": "40mm"
     },
     {
       "id": "witchking_mounted_sheet",
@@ -303,7 +313,8 @@
       "rules": [
         "Terror",
         "The Morgul Lord"
-      ]
+      ],
+      "base_mm": "40mm"
     },
     {
       "id": "witchking_foot_mace",
@@ -339,7 +350,8 @@
         "Terror",
         "The Morgul Lord",
         "Mace of the Morgul Vale"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "nazgul_sword",
@@ -375,7 +387,8 @@
         "Terror",
         "Ringwraith",
         "Unseen"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "saruman",
@@ -406,7 +419,8 @@
       "rules": [
         "Istari",
         "Voice of Saruman"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "orc_shaman",
@@ -418,7 +432,8 @@
       "weapon": "staff",
       "base": "S",
       "sheet": "roster-enemy-heroes-v1.png",
-      "file": "tokens/orc_shaman.png"
+      "file": "tokens/orc_shaman.png",
+      "base_mm": "25mm"
     },
     {
       "id": "orc_captain",
@@ -447,7 +462,8 @@
       },
       "rules": [
         "Orc Captain"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "orc_spearman",
@@ -459,7 +475,8 @@
       "weapon": "spear",
       "base": "S",
       "sheet": "roster-enemy-troops-v1.png",
-      "file": "tokens/orc_spearman.png"
+      "file": "tokens/orc_spearman.png",
+      "base_mm": "25mm"
     },
     {
       "id": "orc_archer",
@@ -471,7 +488,8 @@
       "weapon": "bow",
       "base": "S",
       "sheet": "roster-enemy-troops-v1.png",
-      "file": "tokens/orc_archer.png"
+      "file": "tokens/orc_archer.png",
+      "base_mm": "25mm"
     },
     {
       "id": "uruk_swordshield",
@@ -483,7 +501,8 @@
       "weapon": "sword_shield",
       "base": "M",
       "sheet": "roster-enemy-troops-v1.png",
-      "file": "tokens/uruk_swordshield.png"
+      "file": "tokens/uruk_swordshield.png",
+      "base_mm": "25mm"
     },
     {
       "id": "morannon_orc",
@@ -495,7 +514,8 @@
       "weapon": "spear_shield",
       "base": "M",
       "sheet": "roster-enemy-troops-v1.png",
-      "file": "tokens/morannon_orc.png"
+      "file": "tokens/morannon_orc.png",
+      "base_mm": "25mm"
     },
     {
       "id": "warg_rider",
@@ -507,7 +527,8 @@
       "weapon": "spear",
       "base": "XL",
       "sheet": "roster-enemy-troops-v1.png",
-      "file": "tokens/warg_rider.png"
+      "file": "tokens/warg_rider.png",
+      "base_mm": "40mm"
     },
     {
       "id": "haradrim_spearman",
@@ -519,7 +540,8 @@
       "weapon": "spear",
       "base": "M",
       "sheet": "roster-enemy-troops-v1.png",
-      "file": "tokens/haradrim_spearman.png"
+      "file": "tokens/haradrim_spearman.png",
+      "base_mm": "25mm"
     },
     {
       "id": "legolas",
@@ -550,7 +572,8 @@
       "rules": [
         "Deadly Shot",
         "Elven Eyesight"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "gimli",
@@ -581,7 +604,8 @@
       "rules": [
         "Dwarf",
         "Champion of Erebor"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "boromir",
@@ -612,7 +636,8 @@
       "rules": [
         "Horn of Gondor",
         "Captain of the White Tower"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "eowyn",
@@ -643,7 +668,8 @@
       "rules": [
         "Shieldmaiden of Rohan",
         "I Am No Man"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "frodo",
@@ -676,7 +702,8 @@
         "Ring-bearer",
         "Mithril Shirt",
         "Sting"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "elrond",
@@ -707,7 +734,8 @@
       "rules": [
         "Lord of Rivendell",
         "Vilya"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "gondor_archer",
@@ -719,7 +747,8 @@
       "weapon": "bow",
       "base": "M",
       "sheet": "roster-free-troops-v1.png",
-      "file": "tokens/gondor_archer.png"
+      "file": "tokens/gondor_archer.png",
+      "base_mm": "25mm"
     },
     {
       "id": "elf_swordsman",
@@ -731,7 +760,8 @@
       "weapon": "sword",
       "base": "M",
       "sheet": "roster-free-troops-v1.png",
-      "file": "tokens/elf_swordsman.png"
+      "file": "tokens/elf_swordsman.png",
+      "base_mm": "25mm"
     },
     {
       "id": "dwarf_guardian",
@@ -743,7 +773,8 @@
       "weapon": "axe",
       "base": "M",
       "sheet": "roster-free-troops-v1.png",
-      "file": "tokens/dwarf_guardian.png"
+      "file": "tokens/dwarf_guardian.png",
+      "base_mm": "25mm"
     },
     {
       "id": "rohan_royal_guard",
@@ -755,7 +786,8 @@
       "weapon": "spear_shield",
       "base": "M",
       "sheet": "roster-free-troops-v1.png",
-      "file": "tokens/rohan_royal_guard.png"
+      "file": "tokens/rohan_royal_guard.png",
+      "base_mm": "25mm"
     },
     {
       "id": "ithilien_ranger",
@@ -767,7 +799,8 @@
       "weapon": "bow",
       "base": "M",
       "sheet": "roster-free-troops-v1.png",
-      "file": "tokens/ithilien_ranger.png"
+      "file": "tokens/ithilien_ranger.png",
+      "base_mm": "25mm"
     },
     {
       "id": "rohan_rider",
@@ -779,7 +812,8 @@
       "weapon": "spear",
       "base": "XL",
       "sheet": "roster-free-troops-v1.png",
-      "file": "tokens/rohan_rider.png"
+      "file": "tokens/rohan_rider.png",
+      "base_mm": "40mm"
     },
     {
       "id": "balrog",
@@ -815,7 +849,8 @@
         "Durin's Bane",
         "Terror",
         "Whip of Flame"
-      ]
+      ],
+      "base_mm": "60mm"
     },
     {
       "id": "mountain_troll",
@@ -827,7 +862,8 @@
       "weapon": "club",
       "base": "XXL",
       "sheet": "roster-monsters-v1.png",
-      "file": "tokens/mountain_troll.png"
+      "file": "tokens/mountain_troll.png",
+      "base_mm": "60mm"
     },
     {
       "id": "shelob",
@@ -842,7 +878,8 @@
       "file": "tokens/shelob.png",
       "traits": [
         "terror"
-      ]
+      ],
+      "base_mm": "60mm"
     },
     {
       "id": "barrow_wight",
@@ -876,7 +913,8 @@
       "rules": [
         "Terror",
         "Drain Will"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "moria_goblin",
@@ -888,7 +926,8 @@
       "weapon": "sword",
       "base": "S",
       "sheet": "roster-monsters-v1.png",
-      "file": "tokens/moria_goblin.png"
+      "file": "tokens/moria_goblin.png",
+      "base_mm": "25mm"
     },
     {
       "id": "uruk_berserker",
@@ -900,7 +939,8 @@
       "weapon": "twohanded",
       "base": "M",
       "sheet": "roster-monsters-v1.png",
-      "file": "tokens/uruk_berserker.png"
+      "file": "tokens/uruk_berserker.png",
+      "base_mm": "25mm"
     },
     {
       "id": "sauron",
@@ -936,7 +976,8 @@
         "The Dark Lord",
         "Terror",
         "Mace of Sauron"
-      ]
+      ],
+      "base_mm": "60mm"
     },
     {
       "id": "nazgul_sword_2",
@@ -972,7 +1013,8 @@
         "Terror",
         "Ringwraith",
         "Unseen"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "nazgul_mace",
@@ -1008,7 +1050,8 @@
         "Terror",
         "Ringwraith",
         "Unseen"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "nazgul_mounted",
@@ -1044,7 +1087,8 @@
         "Terror",
         "Ringwraith",
         "Unseen"
-      ]
+      ],
+      "base_mm": "40mm"
     },
     {
       "id": "morgul_knight",
@@ -1056,7 +1100,8 @@
       "weapon": "lance",
       "base": "XL",
       "sheet": "roster-sauron-nazgul-v1.png",
-      "file": "tokens/morgul_knight.png"
+      "file": "tokens/morgul_knight.png",
+      "base_mm": "40mm"
     },
     {
       "id": "dwimmerlaik",
@@ -1089,7 +1134,8 @@
         "Terror",
         "Ringwraith",
         "The Dwimmerlaik"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "mt_swordshield",
@@ -1101,7 +1147,8 @@
       "weapon": "sword_shield",
       "base": "M",
       "sheet": "roster-minastirith-variants-v1.png",
-      "file": "tokens/mt_swordshield.png"
+      "file": "tokens/mt_swordshield.png",
+      "base_mm": "25mm"
     },
     {
       "id": "mt_spear",
@@ -1113,7 +1160,8 @@
       "weapon": "spear",
       "base": "M",
       "sheet": "roster-minastirith-variants-v1.png",
-      "file": "tokens/mt_spear.png"
+      "file": "tokens/mt_spear.png",
+      "base_mm": "25mm"
     },
     {
       "id": "mt_spearshield",
@@ -1125,7 +1173,8 @@
       "weapon": "spear_shield",
       "base": "M",
       "sheet": "roster-minastirith-variants-v1.png",
-      "file": "tokens/mt_spearshield.png"
+      "file": "tokens/mt_spearshield.png",
+      "base_mm": "25mm"
     },
     {
       "id": "mt_bowman",
@@ -1137,7 +1186,8 @@
       "weapon": "bow",
       "base": "M",
       "sheet": "roster-minastirith-variants-v1.png",
-      "file": "tokens/mt_bowman.png"
+      "file": "tokens/mt_bowman.png",
+      "base_mm": "25mm"
     },
     {
       "id": "mt_captain",
@@ -1149,7 +1199,8 @@
       "weapon": "",
       "base": "M",
       "sheet": "roster-minastirith-variants-v1.png",
-      "file": "tokens/mt_captain.png"
+      "file": "tokens/mt_captain.png",
+      "base_mm": "25mm"
     },
     {
       "id": "mt_fountain_guard",
@@ -1161,7 +1212,8 @@
       "weapon": "spear_shield",
       "base": "M",
       "sheet": "roster-minastirith-variants-v1.png",
-      "file": "tokens/mt_fountain_guard.png"
+      "file": "tokens/mt_fountain_guard.png",
+      "base_mm": "25mm"
     },
     {
       "id": "orc_sword2",
@@ -1173,7 +1225,8 @@
       "weapon": "sword",
       "base": "S",
       "sheet": "roster-orc-variants-v1.png",
-      "file": "tokens/orc_sword2.png"
+      "file": "tokens/orc_sword2.png",
+      "base_mm": "25mm"
     },
     {
       "id": "orc_swordshield",
@@ -1185,7 +1238,8 @@
       "weapon": "sword_shield",
       "base": "S",
       "sheet": "roster-orc-variants-v1.png",
-      "file": "tokens/orc_swordshield.png"
+      "file": "tokens/orc_swordshield.png",
+      "base_mm": "25mm"
     },
     {
       "id": "orc_spear2",
@@ -1197,7 +1251,8 @@
       "weapon": "spear",
       "base": "S",
       "sheet": "roster-orc-variants-v1.png",
-      "file": "tokens/orc_spear2.png"
+      "file": "tokens/orc_spear2.png",
+      "base_mm": "25mm"
     },
     {
       "id": "orc_twohanded",
@@ -1209,7 +1264,8 @@
       "weapon": "twohanded",
       "base": "S",
       "sheet": "roster-orc-variants-v1.png",
-      "file": "tokens/orc_twohanded.png"
+      "file": "tokens/orc_twohanded.png",
+      "base_mm": "25mm"
     },
     {
       "id": "orc_bow",
@@ -1221,7 +1277,8 @@
       "weapon": "bow",
       "base": "S",
       "sheet": "roster-orc-variants-v1.png",
-      "file": "tokens/orc_bow.png"
+      "file": "tokens/orc_bow.png",
+      "base_mm": "25mm"
     },
     {
       "id": "orc_drummer",
@@ -1233,7 +1290,8 @@
       "weapon": "drum",
       "base": "S",
       "sheet": "roster-orc-variants-v1.png",
-      "file": "tokens/orc_drummer.png"
+      "file": "tokens/orc_drummer.png",
+      "base_mm": "25mm"
     },
     {
       "id": "dwarf_axeshield",
@@ -1245,7 +1303,8 @@
       "weapon": "axe",
       "base": "M",
       "sheet": "roster-dwarf-variants-v1.png",
-      "file": "tokens/dwarf_axeshield.png"
+      "file": "tokens/dwarf_axeshield.png",
+      "base_mm": "25mm"
     },
     {
       "id": "dwarf_2haxe",
@@ -1257,7 +1316,8 @@
       "weapon": "twohanded",
       "base": "M",
       "sheet": "roster-dwarf-variants-v1.png",
-      "file": "tokens/dwarf_2haxe.png"
+      "file": "tokens/dwarf_2haxe.png",
+      "base_mm": "25mm"
     },
     {
       "id": "dwarf_ranger",
@@ -1269,7 +1329,8 @@
       "weapon": "bow",
       "base": "M",
       "sheet": "roster-dwarf-variants-v1.png",
-      "file": "tokens/dwarf_ranger.png"
+      "file": "tokens/dwarf_ranger.png",
+      "base_mm": "25mm"
     },
     {
       "id": "khazad_guard",
@@ -1281,7 +1342,8 @@
       "weapon": "axe",
       "base": "M",
       "sheet": "roster-dwarf-variants-v1.png",
-      "file": "tokens/khazad_guard.png"
+      "file": "tokens/khazad_guard.png",
+      "base_mm": "25mm"
     },
     {
       "id": "iron_guard",
@@ -1293,7 +1355,8 @@
       "weapon": "sword_shield",
       "base": "M",
       "sheet": "roster-dwarf-variants-v1.png",
-      "file": "tokens/iron_guard.png"
+      "file": "tokens/iron_guard.png",
+      "base_mm": "25mm"
     },
     {
       "id": "dwarf_banner",
@@ -1305,7 +1368,8 @@
       "weapon": "banner",
       "base": "M",
       "sheet": "roster-dwarf-variants-v1.png",
-      "file": "tokens/dwarf_banner.png"
+      "file": "tokens/dwarf_banner.png",
+      "base_mm": "25mm"
     },
     {
       "id": "elf_swordshield",
@@ -1317,7 +1381,8 @@
       "weapon": "sword_shield",
       "base": "M",
       "sheet": "roster-elf-variants-v1.png",
-      "file": "tokens/elf_swordshield.png"
+      "file": "tokens/elf_swordshield.png",
+      "base_mm": "25mm"
     },
     {
       "id": "elf_spear",
@@ -1329,7 +1394,8 @@
       "weapon": "spear",
       "base": "M",
       "sheet": "roster-elf-variants-v1.png",
-      "file": "tokens/elf_spear.png"
+      "file": "tokens/elf_spear.png",
+      "base_mm": "25mm"
     },
     {
       "id": "elf_bow",
@@ -1341,7 +1407,8 @@
       "weapon": "bow",
       "base": "M",
       "sheet": "roster-elf-variants-v1.png",
-      "file": "tokens/elf_bow.png"
+      "file": "tokens/elf_bow.png",
+      "base_mm": "25mm"
     },
     {
       "id": "elf_glaive",
@@ -1353,7 +1420,8 @@
       "weapon": "twohanded",
       "base": "M",
       "sheet": "roster-elf-variants-v1.png",
-      "file": "tokens/elf_glaive.png"
+      "file": "tokens/elf_glaive.png",
+      "base_mm": "25mm"
     },
     {
       "id": "galadhrim_warrior",
@@ -1365,7 +1433,8 @@
       "weapon": "sword",
       "base": "M",
       "sheet": "roster-elf-variants-v1.png",
-      "file": "tokens/galadhrim_warrior.png"
+      "file": "tokens/galadhrim_warrior.png",
+      "base_mm": "25mm"
     },
     {
       "id": "elf_knight",
@@ -1377,7 +1446,8 @@
       "weapon": "lance",
       "base": "XL",
       "sheet": "roster-elf-variants-v1.png",
-      "file": "tokens/elf_knight.png"
+      "file": "tokens/elf_knight.png",
+      "base_mm": "40mm"
     },
     {
       "id": "uruk_swordshield2",
@@ -1389,7 +1459,8 @@
       "weapon": "sword_shield",
       "base": "M",
       "sheet": "roster-uruk-variants-v1.png",
-      "file": "tokens/uruk_swordshield2.png"
+      "file": "tokens/uruk_swordshield2.png",
+      "base_mm": "25mm"
     },
     {
       "id": "uruk_pike",
@@ -1401,7 +1472,8 @@
       "weapon": "pike",
       "base": "M",
       "sheet": "roster-uruk-variants-v1.png",
-      "file": "tokens/uruk_pike.png"
+      "file": "tokens/uruk_pike.png",
+      "base_mm": "25mm"
     },
     {
       "id": "uruk_crossbow",
@@ -1413,7 +1485,8 @@
       "weapon": "crossbow",
       "base": "M",
       "sheet": "roster-uruk-variants-v1.png",
-      "file": "tokens/uruk_crossbow.png"
+      "file": "tokens/uruk_crossbow.png",
+      "base_mm": "25mm"
     },
     {
       "id": "uruk_scout",
@@ -1425,7 +1498,8 @@
       "weapon": "sword",
       "base": "M",
       "sheet": "roster-uruk-variants-v1.png",
-      "file": "tokens/uruk_scout.png"
+      "file": "tokens/uruk_scout.png",
+      "base_mm": "25mm"
     },
     {
       "id": "uruk_berserker2",
@@ -1437,7 +1511,8 @@
       "weapon": "twohanded",
       "base": "M",
       "sheet": "roster-uruk-variants-v1.png",
-      "file": "tokens/uruk_berserker2.png"
+      "file": "tokens/uruk_berserker2.png",
+      "base_mm": "25mm"
     },
     {
       "id": "uruk_banner",
@@ -1449,7 +1524,8 @@
       "weapon": "banner",
       "base": "M",
       "sheet": "roster-uruk-variants-v1.png",
-      "file": "tokens/uruk_banner.png"
+      "file": "tokens/uruk_banner.png",
+      "base_mm": "25mm"
     },
     {
       "id": "haradrim_spear",
@@ -1461,7 +1537,8 @@
       "weapon": "spear",
       "base": "M",
       "sheet": "roster-haradrim-easterling-v1.png",
-      "file": "tokens/haradrim_spear.png"
+      "file": "tokens/haradrim_spear.png",
+      "base_mm": "25mm"
     },
     {
       "id": "haradrim_bow",
@@ -1473,7 +1550,8 @@
       "weapon": "bow",
       "base": "M",
       "sheet": "roster-haradrim-easterling-v1.png",
-      "file": "tokens/haradrim_bow.png"
+      "file": "tokens/haradrim_bow.png",
+      "base_mm": "25mm"
     },
     {
       "id": "haradrim_priest",
@@ -1485,7 +1563,8 @@
       "weapon": "staff",
       "base": "M",
       "sheet": "roster-haradrim-easterling-v1.png",
-      "file": "tokens/haradrim_priest.png"
+      "file": "tokens/haradrim_priest.png",
+      "base_mm": "25mm"
     },
     {
       "id": "easterling_phalanx",
@@ -1497,7 +1576,8 @@
       "weapon": "pike",
       "base": "M",
       "sheet": "roster-haradrim-easterling-v1.png",
-      "file": "tokens/easterling_phalanx.png"
+      "file": "tokens/easterling_phalanx.png",
+      "base_mm": "25mm"
     },
     {
       "id": "easterling_swordshield",
@@ -1509,7 +1589,8 @@
       "weapon": "sword_shield",
       "base": "M",
       "sheet": "roster-haradrim-easterling-v1.png",
-      "file": "tokens/easterling_swordshield.png"
+      "file": "tokens/easterling_swordshield.png",
+      "base_mm": "25mm"
     },
     {
       "id": "easterling_kataphrakt",
@@ -1521,7 +1602,8 @@
       "weapon": "lance",
       "base": "XL",
       "sheet": "roster-haradrim-easterling-v1.png",
-      "file": "tokens/easterling_kataphrakt.png"
+      "file": "tokens/easterling_kataphrakt.png",
+      "base_mm": "40mm"
     },
     {
       "id": "dol_amroth_knight",
@@ -1533,7 +1615,8 @@
       "weapon": "lance",
       "base": "XL",
       "sheet": "roster-gondor-exp-v1.png",
-      "file": "tokens/dol_amroth_knight.png"
+      "file": "tokens/dol_amroth_knight.png",
+      "base_mm": "40mm"
     },
     {
       "id": "gondor_knight",
@@ -1545,7 +1628,8 @@
       "weapon": "lance",
       "base": "XL",
       "sheet": "roster-gondor-exp-v1.png",
-      "file": "tokens/gondor_knight.png"
+      "file": "tokens/gondor_knight.png",
+      "base_mm": "40mm"
     },
     {
       "id": "osgiliath_veteran",
@@ -1557,7 +1641,8 @@
       "weapon": "sword_shield",
       "base": "M",
       "sheet": "roster-gondor-exp-v1.png",
-      "file": "tokens/osgiliath_veteran.png"
+      "file": "tokens/osgiliath_veteran.png",
+      "base_mm": "25mm"
     },
     {
       "id": "lossarnach_axeman",
@@ -1569,7 +1654,8 @@
       "weapon": "twohanded",
       "base": "M",
       "sheet": "roster-gondor-exp-v1.png",
-      "file": "tokens/lossarnach_axeman.png"
+      "file": "tokens/lossarnach_axeman.png",
+      "base_mm": "25mm"
     },
     {
       "id": "citadel_guard",
@@ -1581,7 +1667,8 @@
       "weapon": "spear_shield",
       "base": "M",
       "sheet": "roster-gondor-exp-v1.png",
-      "file": "tokens/citadel_guard.png"
+      "file": "tokens/citadel_guard.png",
+      "base_mm": "25mm"
     },
     {
       "id": "pelennor_militia",
@@ -1593,7 +1680,8 @@
       "weapon": "spear",
       "base": "M",
       "sheet": "roster-gondor-exp-v1.png",
-      "file": "tokens/pelennor_militia.png"
+      "file": "tokens/pelennor_militia.png",
+      "base_mm": "25mm"
     },
     {
       "id": "rohan_swordshield",
@@ -1605,7 +1693,8 @@
       "weapon": "sword_shield",
       "base": "M",
       "sheet": "roster-rohan-exp-v1.png",
-      "file": "tokens/rohan_swordshield.png"
+      "file": "tokens/rohan_swordshield.png",
+      "base_mm": "25mm"
     },
     {
       "id": "rohan_spear",
@@ -1617,7 +1706,8 @@
       "weapon": "spear",
       "base": "M",
       "sheet": "roster-rohan-exp-v1.png",
-      "file": "tokens/rohan_spear.png"
+      "file": "tokens/rohan_spear.png",
+      "base_mm": "25mm"
     },
     {
       "id": "rohan_archer",
@@ -1629,7 +1719,8 @@
       "weapon": "bow",
       "base": "M",
       "sheet": "roster-rohan-exp-v1.png",
-      "file": "tokens/rohan_archer.png"
+      "file": "tokens/rohan_archer.png",
+      "base_mm": "25mm"
     },
     {
       "id": "eomer",
@@ -1660,7 +1751,8 @@
       "rules": [
         "Marshal of the Riddermark",
         "Guthwine"
-      ]
+      ],
+      "base_mm": "40mm"
     },
     {
       "id": "rohan_outrider",
@@ -1672,7 +1764,8 @@
       "weapon": "bow",
       "base": "XL",
       "sheet": "roster-rohan-exp-v1.png",
-      "file": "tokens/rohan_outrider.png"
+      "file": "tokens/rohan_outrider.png",
+      "base_mm": "40mm"
     },
     {
       "id": "rohan_banner",
@@ -1684,7 +1777,8 @@
       "weapon": "banner",
       "base": "M",
       "sheet": "roster-rohan-exp-v1.png",
-      "file": "tokens/rohan_banner.png"
+      "file": "tokens/rohan_banner.png",
+      "base_mm": "25mm"
     },
     {
       "id": "black_numenorean",
@@ -1696,7 +1790,8 @@
       "weapon": "sword_shield",
       "base": "M",
       "sheet": "roster-mordor-elite-v1.png",
-      "file": "tokens/black_numenorean.png"
+      "file": "tokens/black_numenorean.png",
+      "base_mm": "25mm"
     },
     {
       "id": "black_numenorean_mounted",
@@ -1708,7 +1803,8 @@
       "weapon": "lance",
       "base": "XL",
       "sheet": "roster-mordor-elite-v1.png",
-      "file": "tokens/black_numenorean_mounted.png"
+      "file": "tokens/black_numenorean_mounted.png",
+      "base_mm": "40mm"
     },
     {
       "id": "orc_tracker",
@@ -1720,7 +1816,8 @@
       "weapon": "twohanded",
       "base": "S",
       "sheet": "roster-mordor-elite-v1.png",
-      "file": "tokens/orc_tracker.png"
+      "file": "tokens/orc_tracker.png",
+      "base_mm": "25mm"
     },
     {
       "id": "war_troll",
@@ -1732,7 +1829,8 @@
       "weapon": "club",
       "base": "XXL",
       "sheet": "roster-mordor-elite-v1.png",
-      "file": "tokens/war_troll.png"
+      "file": "tokens/war_troll.png",
+      "base_mm": "60mm"
     },
     {
       "id": "black_guard",
@@ -1744,7 +1842,8 @@
       "weapon": "spear_shield",
       "base": "M",
       "sheet": "roster-mordor-elite-v1.png",
-      "file": "tokens/black_guard.png"
+      "file": "tokens/black_guard.png",
+      "base_mm": "25mm"
     },
     {
       "id": "orc_taskmaster",
@@ -1756,7 +1855,8 @@
       "weapon": "whip",
       "base": "M",
       "sheet": "roster-mordor-elite-v1.png",
-      "file": "tokens/orc_taskmaster.png"
+      "file": "tokens/orc_taskmaster.png",
+      "base_mm": "25mm"
     },
     {
       "id": "goblin_spear",
@@ -1768,7 +1868,8 @@
       "weapon": "spear",
       "base": "S",
       "sheet": "roster-goblin-v1.png",
-      "file": "tokens/goblin_spear.png"
+      "file": "tokens/goblin_spear.png",
+      "base_mm": "25mm"
     },
     {
       "id": "goblin_shield",
@@ -1780,7 +1881,8 @@
       "weapon": "sword_shield",
       "base": "S",
       "sheet": "roster-goblin-v1.png",
-      "file": "tokens/goblin_shield.png"
+      "file": "tokens/goblin_shield.png",
+      "base_mm": "25mm"
     },
     {
       "id": "goblin_bow",
@@ -1792,7 +1894,8 @@
       "weapon": "bow",
       "base": "S",
       "sheet": "roster-goblin-v1.png",
-      "file": "tokens/goblin_bow.png"
+      "file": "tokens/goblin_bow.png",
+      "base_mm": "25mm"
     },
     {
       "id": "goblin_prowler",
@@ -1804,7 +1907,8 @@
       "weapon": "dagger",
       "base": "S",
       "sheet": "roster-goblin-v1.png",
-      "file": "tokens/goblin_prowler.png"
+      "file": "tokens/goblin_prowler.png",
+      "base_mm": "25mm"
     },
     {
       "id": "goblin_king",
@@ -1816,7 +1920,8 @@
       "weapon": "club",
       "base": "L",
       "sheet": "roster-goblin-v1.png",
-      "file": "tokens/goblin_king.png"
+      "file": "tokens/goblin_king.png",
+      "base_mm": "50mm"
     },
     {
       "id": "goblin_shaman",
@@ -1828,7 +1933,8 @@
       "weapon": "staff",
       "base": "S",
       "sheet": "roster-goblin-v1.png",
-      "file": "tokens/goblin_shaman.png"
+      "file": "tokens/goblin_shaman.png",
+      "base_mm": "25mm"
     },
     {
       "id": "dunlending_warrior",
@@ -1840,7 +1946,8 @@
       "weapon": "sword",
       "base": "M",
       "sheet": "roster-isengard-exp-v1.png",
-      "file": "tokens/dunlending_warrior.png"
+      "file": "tokens/dunlending_warrior.png",
+      "base_mm": "25mm"
     },
     {
       "id": "dunlending_huscarl",
@@ -1852,7 +1959,8 @@
       "weapon": "twohanded",
       "base": "M",
       "sheet": "roster-isengard-exp-v1.png",
-      "file": "tokens/dunlending_huscarl.png"
+      "file": "tokens/dunlending_huscarl.png",
+      "base_mm": "25mm"
     },
     {
       "id": "warg",
@@ -1864,7 +1972,8 @@
       "weapon": "none",
       "base": "M",
       "sheet": "roster-isengard-exp-v1.png",
-      "file": "tokens/warg.png"
+      "file": "tokens/warg.png",
+      "base_mm": "50mm"
     },
     {
       "id": "uruk_sapper",
@@ -1876,7 +1985,8 @@
       "weapon": "bomb",
       "base": "M",
       "sheet": "roster-isengard-exp-v1.png",
-      "file": "tokens/uruk_sapper.png"
+      "file": "tokens/uruk_sapper.png",
+      "base_mm": "25mm"
     },
     {
       "id": "uruk_scout_archer",
@@ -1888,7 +1998,8 @@
       "weapon": "bow",
       "base": "M",
       "sheet": "roster-isengard-exp-v1.png",
-      "file": "tokens/uruk_scout_archer.png"
+      "file": "tokens/uruk_scout_archer.png",
+      "base_mm": "25mm"
     },
     {
       "id": "crebain_swarm",
@@ -1903,7 +2014,8 @@
       "file": "tokens/crebain_swarm.png",
       "traits": [
         "fly"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "hobbit_shirriff",
@@ -1915,7 +2027,8 @@
       "weapon": "pitchfork",
       "base": "S",
       "sheet": "roster-free-special-v1.png",
-      "file": "tokens/hobbit_shirriff.png"
+      "file": "tokens/hobbit_shirriff.png",
+      "base_mm": "25mm"
     },
     {
       "id": "hobbit_bounder",
@@ -1927,7 +2040,8 @@
       "weapon": "bow",
       "base": "S",
       "sheet": "roster-free-special-v1.png",
-      "file": "tokens/hobbit_bounder.png"
+      "file": "tokens/hobbit_bounder.png",
+      "base_mm": "25mm"
     },
     {
       "id": "great_eagle",
@@ -1942,7 +2056,8 @@
       "file": "tokens/great_eagle.png",
       "traits": [
         "fly"
-      ]
+      ],
+      "base_mm": "60mm"
     },
     {
       "id": "ent",
@@ -1954,7 +2069,8 @@
       "weapon": "none",
       "base": "XXL",
       "sheet": "roster-free-special-v1.png",
-      "file": "tokens/ent.png"
+      "file": "tokens/ent.png",
+      "base_mm": "60mm"
     },
     {
       "id": "beorning",
@@ -1983,7 +2099,8 @@
       },
       "rules": [
         "Beorning"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "ranger_north",
@@ -1995,7 +2112,8 @@
       "weapon": "sword",
       "base": "M",
       "sheet": "roster-free-special-v1.png",
-      "file": "tokens/ranger_north.png"
+      "file": "tokens/ranger_north.png",
+      "base_mm": "25mm"
     },
     {
       "id": "theoden",
@@ -2007,7 +2125,8 @@
       "weapon": "sword_shield",
       "base": "XL",
       "sheet": "roster-free-heroes-exp-v1.png",
-      "file": "tokens/theoden.png"
+      "file": "tokens/theoden.png",
+      "base_mm": "40mm"
     },
     {
       "id": "faramir",
@@ -2038,7 +2157,8 @@
       "rules": [
         "Captain of the Rangers",
         "Woodcraft"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "haldir",
@@ -2067,7 +2187,8 @@
       },
       "rules": [
         "Marchwarden of Lorien"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "galadriel",
@@ -2100,7 +2221,8 @@
         "Lady of Light",
         "Nenya",
         "Mirror of Galadriel"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "gamling",
@@ -2129,7 +2251,8 @@
       },
       "rules": [
         "Royal Standard"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "samwise",
@@ -2160,7 +2283,8 @@
       "rules": [
         "Fellowship",
         "Loyal Guardian"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "mouth_of_sauron",
@@ -2191,7 +2315,8 @@
       "rules": [
         "Lieutenant of Barad-dur",
         "Sorcerer"
-      ]
+      ],
+      "base_mm": "40mm"
     },
     {
       "id": "gothmog",
@@ -2220,7 +2345,8 @@
       },
       "rules": [
         "Lieutenant of Morgul"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "lurtz",
@@ -2249,7 +2375,8 @@
       },
       "rules": [
         "First of the Uruk-hai"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "sharku",
@@ -2261,7 +2388,8 @@
       "weapon": "spear",
       "base": "XL",
       "sheet": "roster-evil-heroes-exp-v1.png",
-      "file": "tokens/sharku.png"
+      "file": "tokens/sharku.png",
+      "base_mm": "40mm"
     },
     {
       "id": "grima",
@@ -2292,7 +2420,8 @@
       "rules": [
         "Wormtongue",
         "Spy"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "khamul",
@@ -2325,7 +2454,8 @@
         "Terror",
         "Ringwraith",
         "Shadow of the East"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "fingolfin",
@@ -2356,7 +2486,8 @@
       "rules": [
         "High King of the Noldor",
         "Challenged Morgoth"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "imrahil",
@@ -2387,7 +2518,8 @@
       "rules": [
         "Prince of Dol Amroth",
         "Swan Knight"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "merry",
@@ -2416,7 +2548,8 @@
       },
       "rules": [
         "Esquire of Rohan"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "pippin",
@@ -2445,7 +2578,8 @@
       },
       "rules": [
         "Guard of the Citadel"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "beorn",
@@ -2476,7 +2610,8 @@
       "rules": [
         "Skin-changer",
         "Bear Form"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "elendil",
@@ -2507,7 +2642,8 @@
       "rules": [
         "High King of Arnor",
         "Narsil"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "melkor",
@@ -2519,7 +2655,8 @@
       "weapon": "mace",
       "base": "XXL",
       "sheet": "roster-legends-evil-v1.png",
-      "file": "tokens/melkor.png"
+      "file": "tokens/melkor.png",
+      "base_mm": "60mm"
     },
     {
       "id": "mumakil",
@@ -2534,7 +2671,8 @@
       "file": "tokens/mumakil.png",
       "traits": [
         "terror"
-      ]
+      ],
+      "base_mm": "100mm"
     },
     {
       "id": "smaug",
@@ -2546,7 +2684,8 @@
       "weapon": "none",
       "base": "XXL",
       "sheet": "roster-legends-evil-v1.png",
-      "file": "tokens/smaug.png"
+      "file": "tokens/smaug.png",
+      "base_mm": "100mm"
     },
     {
       "id": "ungoliant",
@@ -2558,7 +2697,8 @@
       "weapon": "none",
       "base": "XXL",
       "sheet": "roster-legends-evil-v1.png",
-      "file": "tokens/ungoliant.png"
+      "file": "tokens/ungoliant.png",
+      "base_mm": "60mm"
     },
     {
       "id": "bolg",
@@ -2587,7 +2727,8 @@
       },
       "rules": [
         "Spawn of Azog"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "easterling_warlord",
@@ -2616,7 +2757,8 @@
       },
       "rules": [
         "Easterling Warlord"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "radagast",
@@ -2647,7 +2789,8 @@
       "rules": [
         "Istari",
         "Friend of Beasts"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "thranduil",
@@ -2678,7 +2821,8 @@
       "rules": [
         "Elvenking",
         "Circlet of the Elvenking"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "celeborn",
@@ -2707,7 +2851,8 @@
       },
       "rules": [
         "Lord of Lothlorien"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "bilbo",
@@ -2738,7 +2883,8 @@
       "rules": [
         "Ring-bearer",
         "Sting"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "king_of_the_dead",
@@ -2772,7 +2918,8 @@
       "rules": [
         "Terror",
         "Oathbreaker King"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "dead_soldier",
@@ -2787,7 +2934,8 @@
       "file": "tokens/dead_soldier.png",
       "traits": [
         "terror"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "olog_hai",
@@ -2799,7 +2947,8 @@
       "weapon": "mace",
       "base": "XXL",
       "sheet": "roster-legends-evil-v2.png",
-      "file": "tokens/olog_hai.png"
+      "file": "tokens/olog_hai.png",
+      "base_mm": "60mm"
     },
     {
       "id": "watcher_in_the_water",
@@ -2814,7 +2963,8 @@
       "file": "tokens/watcher_in_the_water.png",
       "traits": [
         "terror"
-      ]
+      ],
+      "base_mm": "100mm"
     },
     {
       "id": "mirkwood_spider",
@@ -2826,7 +2976,8 @@
       "weapon": "none",
       "base": "L",
       "sheet": "roster-legends-evil-v2.png",
-      "file": "tokens/mirkwood_spider.png"
+      "file": "tokens/mirkwood_spider.png",
+      "base_mm": "50mm"
     },
     {
       "id": "harad_chieftain",
@@ -2855,7 +3006,8 @@
       },
       "rules": [
         "Haradrim Chieftain"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "uruk_captain",
@@ -2884,7 +3036,8 @@
       },
       "rules": [
         "Uruk-hai Captain"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "hill_troll",
@@ -2896,7 +3049,8 @@
       "weapon": "club",
       "base": "XL",
       "sheet": "roster-legends-evil-v2.png",
-      "file": "tokens/hill_troll.png"
+      "file": "tokens/hill_troll.png",
+      "base_mm": "50mm"
     },
     {
       "id": "feanor",
@@ -2927,7 +3081,8 @@
       "rules": [
         "Greatest of the Noldor",
         "Silmarils"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "luthien",
@@ -2958,7 +3113,8 @@
       "rules": [
         "Enchantress",
         "Power of Song"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "beren",
@@ -2987,7 +3143,8 @@
       },
       "rules": [
         "The One-handed"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "turin",
@@ -3018,7 +3175,8 @@
       "rules": [
         "Gurthang",
         "Ill-fated"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "beleg",
@@ -3049,7 +3207,8 @@
       "rules": [
         "Belthronding",
         "Beleg Strongbow"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "huan",
@@ -3061,7 +3220,8 @@
       "weapon": "none",
       "base": "L",
       "sheet": "roster-silmarillion-good-v1.png",
-      "file": "tokens/huan.png"
+      "file": "tokens/huan.png",
+      "base_mm": "50mm"
     },
     {
       "id": "glaurung",
@@ -3073,7 +3233,8 @@
       "weapon": "none",
       "base": "XXL",
       "sheet": "roster-silmarillion-evil-v1.png",
-      "file": "tokens/glaurung.png"
+      "file": "tokens/glaurung.png",
+      "base_mm": "60mm"
     },
     {
       "id": "carcharoth",
@@ -3085,7 +3246,8 @@
       "weapon": "none",
       "base": "L",
       "sheet": "roster-silmarillion-evil-v1.png",
-      "file": "tokens/carcharoth.png"
+      "file": "tokens/carcharoth.png",
+      "base_mm": "50mm"
     },
     {
       "id": "gothmog_balrog",
@@ -3119,7 +3281,8 @@
       "rules": [
         "Lord of Balrogs",
         "Terror"
-      ]
+      ],
+      "base_mm": "100mm"
     },
     {
       "id": "draugluin",
@@ -3131,7 +3294,8 @@
       "weapon": "none",
       "base": "L",
       "sheet": "roster-silmarillion-evil-v1.png",
-      "file": "tokens/draugluin.png"
+      "file": "tokens/draugluin.png",
+      "base_mm": "50mm"
     },
     {
       "id": "thuringwethil",
@@ -3143,7 +3307,8 @@
       "weapon": "none",
       "base": "L",
       "sheet": "roster-silmarillion-evil-v1.png",
-      "file": "tokens/thuringwethil.png"
+      "file": "tokens/thuringwethil.png",
+      "base_mm": "50mm"
     },
     {
       "id": "boldog",
@@ -3172,7 +3337,8 @@
       },
       "rules": [
         "Orc Hero"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "thorin",
@@ -3203,7 +3369,8 @@
       "rules": [
         "Oakenshield",
         "Thorin's Company"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "tauriel",
@@ -3234,7 +3401,8 @@
       "rules": [
         "Captain of the Guard",
         "Knives of Tauriel"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "bard",
@@ -3265,7 +3433,8 @@
       "rules": [
         "Dragonslayer",
         "Black Arrow"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "dain",
@@ -3294,7 +3463,8 @@
       },
       "rules": [
         "Lord of the Iron Hills"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "fili",
@@ -3323,7 +3493,8 @@
       },
       "rules": [
         "Thorin's Company"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "kili",
@@ -3352,7 +3523,8 @@
       },
       "rules": [
         "Thorin's Company"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "azog",
@@ -3383,7 +3555,8 @@
       "rules": [
         "The Defiler",
         "Pale Orc"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "azog_warg_rider",
@@ -3395,7 +3568,8 @@
       "weapon": "mace",
       "base": "XL",
       "sheet": "roster-hobbit-evil-v1.png",
-      "file": "tokens/azog_warg_rider.png"
+      "file": "tokens/azog_warg_rider.png",
+      "base_mm": "40mm"
     },
     {
       "id": "necromancer",
@@ -3428,7 +3602,8 @@
         "The Necromancer",
         "Terror",
         "Sauron in Disguise"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "hunter_orc",
@@ -3440,7 +3615,8 @@
       "weapon": "bow",
       "base": "",
       "sheet": "roster-hobbit-evil-v1.png",
-      "file": "tokens/hunter_orc.png"
+      "file": "tokens/hunter_orc.png",
+      "base_mm": "25mm"
     },
     {
       "id": "gundabad_orc",
@@ -3452,7 +3628,8 @@
       "weapon": "sword_shield",
       "base": "",
       "sheet": "roster-hobbit-evil-v1.png",
-      "file": "tokens/gundabad_orc.png"
+      "file": "tokens/gundabad_orc.png",
+      "base_mm": "25mm"
     },
     {
       "id": "goblin_mercenary",
@@ -3464,7 +3641,8 @@
       "weapon": "club",
       "base": "",
       "sheet": "roster-hobbit-evil-v1.png",
-      "file": "tokens/goblin_mercenary.png"
+      "file": "tokens/goblin_mercenary.png",
+      "base_mm": "25mm"
     },
     {
       "id": "halbarad",
@@ -3495,7 +3673,8 @@
       "rules": [
         "Grey Company",
         "Standard of Arwen"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "beregond",
@@ -3524,7 +3703,8 @@
       },
       "rules": [
         "Guard of the Citadel"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "elladan",
@@ -3555,7 +3735,8 @@
       "rules": [
         "Sons of Elrond",
         "Grey Company"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "elrohir",
@@ -3586,7 +3767,8 @@
       "rules": [
         "Sons of Elrond",
         "Grey Company"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "grimbeorn",
@@ -3615,7 +3797,8 @@
       },
       "rules": [
         "Beorning Chieftain"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "ghan_buri_ghan",
@@ -3627,7 +3810,8 @@
       "weapon": "bow",
       "base": "S",
       "sheet": "roster-exp-good-v1.png",
-      "file": "tokens/ghan_buri_ghan.png"
+      "file": "tokens/ghan_buri_ghan.png",
+      "base_mm": "25mm"
     },
     {
       "id": "suladan",
@@ -3656,7 +3840,8 @@
       },
       "rules": [
         "Serpent Lord"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "corsair_umbra",
@@ -3668,7 +3853,8 @@
       "weapon": "sword",
       "base": "",
       "sheet": "roster-exp-evil-v1.png",
-      "file": "tokens/corsair_umbra.png"
+      "file": "tokens/corsair_umbra.png",
+      "base_mm": "25mm"
     },
     {
       "id": "variag_horseman",
@@ -3680,7 +3866,8 @@
       "weapon": "spear",
       "base": "XL",
       "sheet": "roster-exp-evil-v1.png",
-      "file": "tokens/variag_horseman.png"
+      "file": "tokens/variag_horseman.png",
+      "base_mm": "40mm"
     },
     {
       "id": "shagrat",
@@ -3709,7 +3896,8 @@
       },
       "rules": [
         "Captain of Cirith Ungol"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "gorbag",
@@ -3738,7 +3926,8 @@
       },
       "rules": [
         "Minas Morgul Garrison"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "warg_alpha",
@@ -3750,7 +3939,8 @@
       "weapon": "none",
       "base": "XL",
       "sheet": "roster-exp-evil-v1.png",
-      "file": "tokens/warg_alpha.png"
+      "file": "tokens/warg_alpha.png",
+      "base_mm": "50mm"
     },
     {
       "id": "balin",
@@ -3781,7 +3971,8 @@
       "rules": [
         "Thorin's Company",
         "Lord of Moria"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "dwalin",
@@ -3812,7 +4003,8 @@
       "rules": [
         "Thorin's Company",
         "Dwalin's Axes"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "gloin",
@@ -3824,7 +4016,8 @@
       "weapon": "axe",
       "base": "M",
       "sheet": "roster-hobbit-company-v1.png",
-      "file": "tokens/gloin.png"
+      "file": "tokens/gloin.png",
+      "base_mm": "25mm"
     },
     {
       "id": "oin",
@@ -3836,7 +4029,8 @@
       "weapon": "club",
       "base": "M",
       "sheet": "roster-hobbit-company-v1.png",
-      "file": "tokens/oin.png"
+      "file": "tokens/oin.png",
+      "base_mm": "25mm"
     },
     {
       "id": "nori",
@@ -3848,7 +4042,8 @@
       "weapon": "sword",
       "base": "M",
       "sheet": "roster-hobbit-company-v1.png",
-      "file": "tokens/nori.png"
+      "file": "tokens/nori.png",
+      "base_mm": "25mm"
     },
     {
       "id": "ori",
@@ -3860,7 +4055,8 @@
       "weapon": "sword",
       "base": "M",
       "sheet": "roster-hobbit-company-v1.png",
-      "file": "tokens/ori.png"
+      "file": "tokens/ori.png",
+      "base_mm": "25mm"
     },
     {
       "id": "dori",
@@ -3872,7 +4068,8 @@
       "weapon": "sword",
       "base": "M",
       "sheet": "roster-hobbit-exp-v1.png",
-      "file": "tokens/dori.png"
+      "file": "tokens/dori.png",
+      "base_mm": "25mm"
     },
     {
       "id": "bifur",
@@ -3884,7 +4081,8 @@
       "weapon": "spear",
       "base": "M",
       "sheet": "roster-hobbit-exp-v1.png",
-      "file": "tokens/bifur.png"
+      "file": "tokens/bifur.png",
+      "base_mm": "25mm"
     },
     {
       "id": "bofur",
@@ -3896,7 +4094,8 @@
       "weapon": "club",
       "base": "M",
       "sheet": "roster-hobbit-exp-v1.png",
-      "file": "tokens/bofur.png"
+      "file": "tokens/bofur.png",
+      "base_mm": "25mm"
     },
     {
       "id": "bombur",
@@ -3908,7 +4107,8 @@
       "weapon": "club",
       "base": "M",
       "sheet": "roster-hobbit-exp-v1.png",
-      "file": "tokens/bombur.png"
+      "file": "tokens/bombur.png",
+      "base_mm": "25mm"
     },
     {
       "id": "goat_rider",
@@ -3920,7 +4120,8 @@
       "weapon": "lance",
       "base": "XL",
       "sheet": "roster-hobbit-exp-v1.png",
-      "file": "tokens/goat_rider.png"
+      "file": "tokens/goat_rider.png",
+      "base_mm": "40mm"
     },
     {
       "id": "gollum",
@@ -3932,7 +4133,8 @@
       "weapon": "none",
       "base": "M",
       "sheet": "roster-hobbit-exp-v1.png",
-      "file": "tokens/gollum.png"
+      "file": "tokens/gollum.png",
+      "base_mm": "50mm"
     },
     {
       "id": "gil_galad",
@@ -3963,7 +4165,8 @@
       "rules": [
         "High King of the Noldor",
         "Aeglos"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "cirdan",
@@ -3994,7 +4197,8 @@
       "rules": [
         "Shipwright",
         "Narya"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "arwen",
@@ -4023,7 +4227,8 @@
       },
       "rules": [
         "Evenstar"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "lindir",
@@ -4052,7 +4257,8 @@
       },
       "rules": [
         "Elf of Rivendell"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "erestor",
@@ -4081,7 +4287,8 @@
       },
       "rules": [
         "Elf of Rivendell"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "elf_seer",
@@ -4093,7 +4300,8 @@
       "weapon": "staff",
       "base": "M",
       "sheet": "roster-elf-exp-v1.png",
-      "file": "tokens/elf_seer.png"
+      "file": "tokens/elf_seer.png",
+      "base_mm": "25mm"
     },
     {
       "id": "rumil",
@@ -4122,7 +4330,8 @@
       },
       "rules": [
         "Lorien Archer"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "orophin",
@@ -4151,7 +4360,8 @@
       },
       "rules": [
         "Lorien Archer"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "mirkwood_sentinel",
@@ -4163,7 +4373,8 @@
       "weapon": "pike",
       "base": "M",
       "sheet": "roster-elf-exp-v2.png",
-      "file": "tokens/mirkwood_sentinel.png"
+      "file": "tokens/mirkwood_sentinel.png",
+      "base_mm": "25mm"
     },
     {
       "id": "noldor_warrior",
@@ -4175,7 +4386,8 @@
       "weapon": "sword_shield",
       "base": "L",
       "sheet": "roster-elf-exp-v2.png",
-      "file": "tokens/noldor_warrior.png"
+      "file": "tokens/noldor_warrior.png",
+      "base_mm": "25mm"
     },
     {
       "id": "silvan_archer",
@@ -4187,7 +4399,8 @@
       "weapon": "bow",
       "base": "M",
       "sheet": "roster-elf-exp-v2.png",
-      "file": "tokens/silvan_archer.png"
+      "file": "tokens/silvan_archer.png",
+      "base_mm": "25mm"
     },
     {
       "id": "elven_lancer",
@@ -4199,7 +4412,8 @@
       "weapon": "lance",
       "base": "XL",
       "sheet": "roster-elf-exp-v2.png",
-      "file": "tokens/elven_lancer.png"
+      "file": "tokens/elven_lancer.png",
+      "base_mm": "40mm"
     },
     {
       "id": "imrahil_mounted",
@@ -4211,7 +4425,8 @@
       "weapon": "lance",
       "base": "XL",
       "sheet": "roster-mounted-heroes-v1.png",
-      "file": "tokens/imrahil_mounted.png"
+      "file": "tokens/imrahil_mounted.png",
+      "base_mm": "40mm"
     },
     {
       "id": "gandalf_mounted",
@@ -4244,7 +4459,8 @@
         "Istari",
         "Glamdring",
         "Shadowfax"
-      ]
+      ],
+      "base_mm": "40mm"
     },
     {
       "id": "thranduil_mounted",
@@ -4275,7 +4491,8 @@
       "rules": [
         "Elvenking",
         "Elk Mount"
-      ]
+      ],
+      "base_mm": "40mm"
     },
     {
       "id": "aragorn_mounted",
@@ -4306,7 +4523,8 @@
       "rules": [
         "Hero of Legend",
         "Anduril"
-      ]
+      ],
+      "base_mm": "40mm"
     },
     {
       "id": "theoden_mounted",
@@ -4339,7 +4557,8 @@
         "King of Rohan",
         "Herugrim",
         "Snowmane"
-      ]
+      ],
+      "base_mm": "40mm"
     },
     {
       "id": "blackroot_archer",
@@ -4351,7 +4570,8 @@
       "weapon": "bow",
       "base": "M",
       "sheet": "roster-mounted-heroes-v1.png",
-      "file": "tokens/blackroot_archer.png"
+      "file": "tokens/blackroot_archer.png",
+      "base_mm": "25mm"
     },
     {
       "id": "half_troll",
@@ -4363,7 +4583,8 @@
       "weapon": "club",
       "base": "L",
       "sheet": "roster-mordor-monsters-v1.png",
-      "file": "tokens/half_troll.png"
+      "file": "tokens/half_troll.png",
+      "base_mm": "50mm"
     },
     {
       "id": "cave_drake",
@@ -4375,7 +4596,8 @@
       "weapon": "none",
       "base": "XL",
       "sheet": "roster-mordor-monsters-v1.png",
-      "file": "tokens/cave_drake.png"
+      "file": "tokens/cave_drake.png",
+      "base_mm": "50mm"
     },
     {
       "id": "bat_swarm",
@@ -4390,7 +4612,8 @@
       "file": "tokens/bat_swarm.png",
       "traits": [
         "fly"
-      ]
+      ],
+      "base_mm": "50mm"
     },
     {
       "id": "muzgur",
@@ -4423,7 +4646,8 @@
         "Terror",
         "Ringwraith",
         "Muzgur"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "buhrdur",
@@ -4435,7 +4659,8 @@
       "weapon": "mace",
       "base": "XL",
       "sheet": "roster-mordor-monsters-v1.png",
-      "file": "tokens/buhrdur.png"
+      "file": "tokens/buhrdur.png",
+      "base_mm": "60mm"
     },
     {
       "id": "mahud_chieftain",
@@ -4464,7 +4689,8 @@
       },
       "rules": [
         "Mahud Chief"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "eowyn_mounted",
@@ -4476,7 +4702,8 @@
       "weapon": "sword",
       "base": "XL",
       "sheet": "roster-west-heroes-v1.png",
-      "file": "tokens/eowyn_mounted.png"
+      "file": "tokens/eowyn_mounted.png",
+      "base_mm": "40mm"
     },
     {
       "id": "forlong",
@@ -4505,7 +4732,8 @@
       },
       "rules": [
         "Lord of Lossarnach"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "erkenbrand",
@@ -4534,7 +4762,8 @@
       },
       "rules": [
         "Marshal of the West-mark"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "damrod",
@@ -4563,7 +4792,8 @@
       },
       "rules": [
         "Ithilien Ranger"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "mablung",
@@ -4592,7 +4822,8 @@
       },
       "rules": [
         "Ithilien Ranger"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "duinhir",
@@ -4621,7 +4852,8 @@
       },
       "rules": [
         "Lord of Blackroot Vale"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "ugluk",
@@ -4650,7 +4882,8 @@
       },
       "rules": [
         "Uruk-hai Scout Captain"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "mauhur",
@@ -4679,7 +4912,8 @@
       },
       "rules": [
         "Uruk-hai"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "vrasku",
@@ -4708,7 +4942,8 @@
       },
       "rules": [
         "Crossbow Captain"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "stone_troll",
@@ -4720,7 +4955,8 @@
       "weapon": "club",
       "base": "XL",
       "sheet": "roster-east-monsters-v1.png",
-      "file": "tokens/stone_troll.png"
+      "file": "tokens/stone_troll.png",
+      "base_mm": "50mm"
     },
     {
       "id": "werewolf",
@@ -4735,7 +4971,8 @@
       "file": "tokens/werewolf.png",
       "traits": [
         "terror"
-      ]
+      ],
+      "base_mm": "50mm"
     },
     {
       "id": "gulavhar",
@@ -4747,7 +4984,8 @@
       "weapon": "none",
       "base": "XXL",
       "sheet": "roster-east-monsters-v1.png",
-      "file": "tokens/gulavhar.png"
+      "file": "tokens/gulavhar.png",
+      "base_mm": "60mm"
     },
     {
       "id": "terr_catapult",
@@ -4759,7 +4997,8 @@
       "weapon": "none",
       "base": "",
       "sheet": "terrain-objects-v3.png",
-      "file": "tokens/terr_catapult.png"
+      "file": "tokens/terr_catapult.png",
+      "base_mm": ""
     },
     {
       "id": "terr_trebuchet",
@@ -4771,7 +5010,8 @@
       "weapon": "none",
       "base": "",
       "sheet": "terrain-objects-v3.png",
-      "file": "tokens/terr_trebuchet.png"
+      "file": "tokens/terr_trebuchet.png",
+      "base_mm": ""
     },
     {
       "id": "terr_ballista",
@@ -4783,7 +5023,8 @@
       "weapon": "none",
       "base": "",
       "sheet": "terrain-objects-v3.png",
-      "file": "tokens/terr_ballista.png"
+      "file": "tokens/terr_ballista.png",
+      "base_mm": ""
     },
     {
       "id": "terr_grond",
@@ -4795,7 +5036,8 @@
       "weapon": "none",
       "base": "XXL",
       "sheet": "terrain-objects-v3.png",
-      "file": "tokens/terr_grond.png"
+      "file": "tokens/terr_grond.png",
+      "base_mm": ""
     },
     {
       "id": "terr_siege_tower",
@@ -4807,7 +5049,8 @@
       "weapon": "none",
       "base": "L",
       "sheet": "terrain-objects-v3.png",
-      "file": "tokens/terr_siege_tower.png"
+      "file": "tokens/terr_siege_tower.png",
+      "base_mm": ""
     },
     {
       "id": "terr_bomb",
@@ -4819,7 +5062,8 @@
       "weapon": "none",
       "base": "",
       "sheet": "terrain-objects-v3.png",
-      "file": "tokens/terr_bomb.png"
+      "file": "tokens/terr_bomb.png",
+      "base_mm": ""
     },
     {
       "id": "terr_rubble",
@@ -4831,7 +5075,8 @@
       "weapon": "none",
       "base": "M",
       "sheet": "terrain-objects-v1.png",
-      "file": "tokens/terr_rubble.png"
+      "file": "tokens/terr_rubble.png",
+      "base_mm": ""
     },
     {
       "id": "terr_broken_pillar",
@@ -4843,7 +5088,8 @@
       "weapon": "none",
       "base": "M",
       "sheet": "terrain-objects-v1.png",
-      "file": "tokens/terr_broken_pillar.png"
+      "file": "tokens/terr_broken_pillar.png",
+      "base_mm": ""
     },
     {
       "id": "terr_barricade",
@@ -4855,7 +5101,8 @@
       "weapon": "none",
       "base": "M",
       "sheet": "terrain-objects-v1.png",
-      "file": "tokens/terr_barricade.png"
+      "file": "tokens/terr_barricade.png",
+      "base_mm": ""
     },
     {
       "id": "terr_crates",
@@ -4867,7 +5114,8 @@
       "weapon": "none",
       "base": "M",
       "sheet": "terrain-objects-v1.png",
-      "file": "tokens/terr_crates.png"
+      "file": "tokens/terr_crates.png",
+      "base_mm": ""
     },
     {
       "id": "terr_spike_line",
@@ -4879,7 +5127,8 @@
       "weapon": "none",
       "base": "M",
       "sheet": "terrain-objects-v1.png",
-      "file": "tokens/terr_spike_line.png"
+      "file": "tokens/terr_spike_line.png",
+      "base_mm": ""
     },
     {
       "id": "terr_brazier",
@@ -4891,7 +5140,8 @@
       "weapon": "none",
       "base": "M",
       "sheet": "terrain-objects-v1.png",
-      "file": "tokens/terr_brazier.png"
+      "file": "tokens/terr_brazier.png",
+      "base_mm": ""
     },
     {
       "id": "terr_orc_totem",
@@ -4903,7 +5153,8 @@
       "weapon": "none",
       "base": "M",
       "sheet": "terrain-objects-v2.png",
-      "file": "tokens/terr_orc_totem.png"
+      "file": "tokens/terr_orc_totem.png",
+      "base_mm": ""
     },
     {
       "id": "terr_siege_ladder",
@@ -4915,7 +5166,8 @@
       "weapon": "none",
       "base": "M",
       "sheet": "terrain-objects-v2.png",
-      "file": "tokens/terr_siege_ladder.png"
+      "file": "tokens/terr_siege_ladder.png",
+      "base_mm": ""
     },
     {
       "id": "terr_tent",
@@ -4927,7 +5179,8 @@
       "weapon": "none",
       "base": "M",
       "sheet": "terrain-objects-v2.png",
-      "file": "tokens/terr_tent.png"
+      "file": "tokens/terr_tent.png",
+      "base_mm": ""
     },
     {
       "id": "terr_cart",
@@ -4939,7 +5192,8 @@
       "weapon": "none",
       "base": "M",
       "sheet": "terrain-objects-v2.png",
-      "file": "tokens/terr_cart.png"
+      "file": "tokens/terr_cart.png",
+      "base_mm": ""
     },
     {
       "id": "terr_campfire",
@@ -4951,7 +5205,8 @@
       "weapon": "none",
       "base": "M",
       "sheet": "terrain-objects-v2.png",
-      "file": "tokens/terr_campfire.png"
+      "file": "tokens/terr_campfire.png",
+      "base_mm": ""
     },
     {
       "id": "terr_statue_head",
@@ -4963,7 +5218,8 @@
       "weapon": "none",
       "base": "L",
       "sheet": "terrain-objects-v2.png",
-      "file": "tokens/terr_statue_head.png"
+      "file": "tokens/terr_statue_head.png",
+      "base_mm": ""
     },
     {
       "id": "terr_rock_outcrop",
@@ -4975,7 +5231,8 @@
       "weapon": "none",
       "base": "L",
       "sheet": "terrain-natural-v1.png",
-      "file": "tokens/terr_rock_outcrop.png"
+      "file": "tokens/terr_rock_outcrop.png",
+      "base_mm": ""
     },
     {
       "id": "terr_standing_stones",
@@ -4987,7 +5244,8 @@
       "weapon": "none",
       "base": "L",
       "sheet": "terrain-natural-v1.png",
-      "file": "tokens/terr_standing_stones.png"
+      "file": "tokens/terr_standing_stones.png",
+      "base_mm": ""
     },
     {
       "id": "terr_pine_copse",
@@ -4999,7 +5257,8 @@
       "weapon": "none",
       "base": "L",
       "sheet": "terrain-natural-v1.png",
-      "file": "tokens/terr_pine_copse.png"
+      "file": "tokens/terr_pine_copse.png",
+      "base_mm": ""
     },
     {
       "id": "terr_oak_tree",
@@ -5011,7 +5270,8 @@
       "weapon": "none",
       "base": "XL",
       "sheet": "terrain-natural-v1.png",
-      "file": "tokens/terr_oak_tree.png"
+      "file": "tokens/terr_oak_tree.png",
+      "base_mm": ""
     },
     {
       "id": "terr_dead_tree",
@@ -5023,7 +5283,8 @@
       "weapon": "none",
       "base": "L",
       "sheet": "terrain-natural-v1.png",
-      "file": "tokens/terr_dead_tree.png"
+      "file": "tokens/terr_dead_tree.png",
+      "base_mm": ""
     },
     {
       "id": "terr_hedgerow",
@@ -5035,7 +5296,8 @@
       "weapon": "none",
       "base": "L",
       "sheet": "terrain-natural-v1.png",
-      "file": "tokens/terr_hedgerow.png"
+      "file": "tokens/terr_hedgerow.png",
+      "base_mm": ""
     },
     {
       "id": "terr_ruined_wall",
@@ -5047,7 +5309,8 @@
       "weapon": "none",
       "base": "XL",
       "sheet": "terrain-structures-v1.png",
-      "file": "tokens/terr_ruined_wall.png"
+      "file": "tokens/terr_ruined_wall.png",
+      "base_mm": ""
     },
     {
       "id": "terr_ruined_tower",
@@ -5059,7 +5322,8 @@
       "weapon": "none",
       "base": "XL",
       "sheet": "terrain-structures-v1.png",
-      "file": "tokens/terr_ruined_tower.png"
+      "file": "tokens/terr_ruined_tower.png",
+      "base_mm": ""
     },
     {
       "id": "terr_gondor_house",
@@ -5071,7 +5335,8 @@
       "weapon": "none",
       "base": "XL",
       "sheet": "terrain-structures-v1.png",
-      "file": "tokens/terr_gondor_house.png"
+      "file": "tokens/terr_gondor_house.png",
+      "base_mm": ""
     },
     {
       "id": "terr_rohan_hall",
@@ -5083,7 +5348,8 @@
       "weapon": "none",
       "base": "XL",
       "sheet": "terrain-structures-v1.png",
-      "file": "tokens/terr_rohan_hall.png"
+      "file": "tokens/terr_rohan_hall.png",
+      "base_mm": ""
     },
     {
       "id": "terr_orc_camp",
@@ -5095,7 +5361,8 @@
       "weapon": "none",
       "base": "XL",
       "sheet": "terrain-structures-v1.png",
-      "file": "tokens/terr_orc_camp.png"
+      "file": "tokens/terr_orc_camp.png",
+      "base_mm": ""
     },
     {
       "id": "terr_barrow",
@@ -5107,7 +5374,8 @@
       "weapon": "none",
       "base": "XL",
       "sheet": "terrain-structures-v1.png",
-      "file": "tokens/terr_barrow.png"
+      "file": "tokens/terr_barrow.png",
+      "base_mm": ""
     },
     {
       "id": "dark_marshal",
@@ -5140,7 +5408,8 @@
         "Terror",
         "Ringwraith",
         "The Dark Marshal"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "shadow_lord",
@@ -5176,7 +5445,8 @@
         "Terror",
         "Ringwraith",
         "The Shadow Lord"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "betrayer",
@@ -5209,7 +5479,8 @@
         "Terror",
         "Ringwraith",
         "The Betrayer"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "tainted",
@@ -5242,7 +5513,8 @@
         "Terror",
         "Ringwraith",
         "The Tainted"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "undying",
@@ -5275,7 +5547,8 @@
         "Terror",
         "Ringwraith",
         "The Undying"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "knight_of_umbar",
@@ -5287,7 +5560,8 @@
       "weapon": "spear",
       "base": "L",
       "sheet": "roster-nazgul-nine-v1.png",
-      "file": "tokens/knight_of_umbar.png"
+      "file": "tokens/knight_of_umbar.png",
+      "base_mm": "25mm"
     },
     {
       "id": "isildur",
@@ -5318,7 +5592,8 @@
       "rules": [
         "Ring-bearer",
         "Doomed"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "gandalf_white",
@@ -5351,7 +5626,8 @@
         "Istari",
         "Glamdring",
         "The White Rider"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "denethor",
@@ -5380,7 +5656,8 @@
       },
       "rules": [
         "Steward of Gondor"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "huorn",
@@ -5392,7 +5669,8 @@
       "weapon": "",
       "base": "XL",
       "sheet": "roster-good-fill-v1.png",
-      "file": "tokens/huorn.png"
+      "file": "tokens/huorn.png",
+      "base_mm": "50mm"
     },
     {
       "id": "boromir_mounted",
@@ -5404,7 +5682,8 @@
       "weapon": "sword_shield",
       "base": "XL",
       "sheet": "roster-good-fill-v1.png",
-      "file": "tokens/boromir_mounted.png"
+      "file": "tokens/boromir_mounted.png",
+      "base_mm": "40mm"
     },
     {
       "id": "elrond_mounted",
@@ -5416,7 +5695,8 @@
       "weapon": "sword",
       "base": "XL",
       "sheet": "roster-good-fill-v1.png",
-      "file": "tokens/elrond_mounted.png"
+      "file": "tokens/elrond_mounted.png",
+      "base_mm": "40mm"
     },
     {
       "id": "gandalf_white_mounted",
@@ -5428,7 +5708,8 @@
       "weapon": "staff",
       "base": "XL",
       "sheet": "roster-good-fill-v2.png",
-      "file": "tokens/gandalf_white_mounted.png"
+      "file": "tokens/gandalf_white_mounted.png",
+      "base_mm": "40mm"
     },
     {
       "id": "theoden_foot",
@@ -5459,7 +5740,8 @@
       "rules": [
         "King of Rohan",
         "Herugrim"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "dain_boar",
@@ -5471,7 +5753,8 @@
       "weapon": "mace",
       "base": "XL",
       "sheet": "roster-good-fill-v2.png",
-      "file": "tokens/dain_boar.png"
+      "file": "tokens/dain_boar.png",
+      "base_mm": "40mm"
     },
     {
       "id": "faramir_mounted",
@@ -5483,7 +5766,8 @@
       "weapon": "sword",
       "base": "XL",
       "sheet": "roster-good-fill-v2.png",
-      "file": "tokens/faramir_mounted.png"
+      "file": "tokens/faramir_mounted.png",
+      "base_mm": "40mm"
     },
     {
       "id": "eomer_foot",
@@ -5514,7 +5798,8 @@
       "rules": [
         "Marshal of the Riddermark",
         "Guthwine"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "elfhelm",
@@ -5543,7 +5828,8 @@
       },
       "rules": [
         "Marshal of the East-mark"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "warg_rider_spear",
@@ -5555,7 +5841,8 @@
       "weapon": "spear",
       "base": "XL",
       "sheet": "roster-warg-riders-v1.png",
-      "file": "tokens/warg_rider_spear.png"
+      "file": "tokens/warg_rider_spear.png",
+      "base_mm": "40mm"
     },
     {
       "id": "warg_rider_bow",
@@ -5567,7 +5854,8 @@
       "weapon": "bow",
       "base": "XL",
       "sheet": "roster-warg-riders-v1.png",
-      "file": "tokens/warg_rider_bow.png"
+      "file": "tokens/warg_rider_bow.png",
+      "base_mm": "40mm"
     },
     {
       "id": "warg_chieftain",
@@ -5596,7 +5884,8 @@
       },
       "rules": [
         "Warg-pack Leader"
-      ]
+      ],
+      "base_mm": "40mm"
     },
     {
       "id": "wild_warg",
@@ -5608,7 +5897,8 @@
       "weapon": "claws",
       "base": "L",
       "sheet": "roster-warg-riders-v1.png",
-      "file": "tokens/wild_warg.png"
+      "file": "tokens/wild_warg.png",
+      "base_mm": "50mm"
     },
     {
       "id": "wild_warg_alpha",
@@ -5620,7 +5910,8 @@
       "weapon": "claws",
       "base": "XL",
       "sheet": "roster-warg-riders-v1.png",
-      "file": "tokens/wild_warg_alpha.png"
+      "file": "tokens/wild_warg_alpha.png",
+      "base_mm": "50mm"
     },
     {
       "id": "ancalagon",
@@ -5632,7 +5923,8 @@
       "weapon": "claws",
       "base": "XXL",
       "sheet": "single-ancalagon.png",
-      "file": "tokens/ancalagon.png"
+      "file": "tokens/ancalagon.png",
+      "base_mm": "60mm"
     },
     {
       "id": "terr_ruined_gate",
@@ -5644,7 +5936,8 @@
       "weapon": "none",
       "base": "",
       "sheet": "terrain-objects-v4.png",
-      "file": "tokens/terr_ruined_gate.png"
+      "file": "tokens/terr_ruined_gate.png",
+      "base_mm": ""
     },
     {
       "id": "terr_wall_segment",
@@ -5656,7 +5949,8 @@
       "weapon": "none",
       "base": "",
       "sheet": "terrain-objects-v4.png",
-      "file": "tokens/terr_wall_segment.png"
+      "file": "tokens/terr_wall_segment.png",
+      "base_mm": ""
     },
     {
       "id": "terr_palisade",
@@ -5668,7 +5962,8 @@
       "weapon": "none",
       "base": "",
       "sheet": "terrain-objects-v4.png",
-      "file": "tokens/terr_palisade.png"
+      "file": "tokens/terr_palisade.png",
+      "base_mm": ""
     },
     {
       "id": "terr_broken_stairs",
@@ -5680,7 +5975,8 @@
       "weapon": "none",
       "base": "",
       "sheet": "terrain-objects-v4.png",
-      "file": "tokens/terr_broken_stairs.png"
+      "file": "tokens/terr_broken_stairs.png",
+      "base_mm": ""
     },
     {
       "id": "terr_siege_wreck",
@@ -5692,7 +5988,8 @@
       "weapon": "none",
       "base": "",
       "sheet": "terrain-objects-v4.png",
-      "file": "tokens/terr_siege_wreck.png"
+      "file": "tokens/terr_siege_wreck.png",
+      "base_mm": ""
     },
     {
       "id": "terr_idol",
@@ -5704,7 +6001,8 @@
       "weapon": "none",
       "base": "",
       "sheet": "terrain-objects-v4.png",
-      "file": "tokens/terr_idol.png"
+      "file": "tokens/terr_idol.png",
+      "base_mm": ""
     },
     {
       "id": "nazgul_fellbeast",
@@ -5741,7 +6039,8 @@
         "Terror",
         "Ringwraith",
         "Fell Beast"
-      ]
+      ],
+      "base_mm": "60mm"
     },
     {
       "id": "suladan",
@@ -5770,7 +6069,8 @@
       },
       "rules": [
         "Serpent Lord"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "fellbeast",
@@ -5786,7 +6086,8 @@
       "traits": [
         "fly",
         "terror"
-      ]
+      ],
+      "base_mm": "60mm"
     },
     {
       "id": "boromir",
@@ -5817,7 +6118,8 @@
       "rules": [
         "Horn of Gondor",
         "Captain of the White Tower"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "elrond",
@@ -5848,7 +6150,8 @@
       "rules": [
         "Lord of Rivendell",
         "Vilya"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "ent",
@@ -5860,7 +6163,8 @@
       "weapon": "none",
       "base": "XXL",
       "sheet": "ents.png",
-      "file": "tokens/ent.png"
+      "file": "tokens/ent.png",
+      "base_mm": "60mm"
     },
     {
       "id": "quickbeam",
@@ -5872,7 +6176,8 @@
       "weapon": "none",
       "base": "XL",
       "sheet": "ents.png",
-      "file": "tokens/quickbeam.png"
+      "file": "tokens/quickbeam.png",
+      "base_mm": "50mm"
     },
     {
       "id": "aragorn_blackgate",
@@ -5905,7 +6210,8 @@
         "Hero of Legend",
         "Anduril",
         "King Elessar"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "aragorn_blackgate_mounted",
@@ -5938,7 +6244,8 @@
         "Hero of Legend",
         "Anduril",
         "King Elessar"
-      ]
+      ],
+      "base_mm": "40mm"
     },
     {
       "id": "anborn",
@@ -5967,7 +6274,8 @@
       },
       "rules": [
         "Ithilien Ranger"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "hirluin",
@@ -5996,7 +6304,8 @@
       },
       "rules": [
         "Lord of Pinnath Gelin"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "madril",
@@ -6025,7 +6334,8 @@
       },
       "rules": [
         "Captain of Ithilien Rangers"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "irolas",
@@ -6054,7 +6364,8 @@
       },
       "rules": [
         "Captain of the Guard"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "hurin",
@@ -6083,7 +6394,8 @@
       },
       "rules": [
         "Warden of the Keys"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "cirion",
@@ -6112,7 +6424,8 @@
       },
       "rules": [
         "Steward's Heir"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "theodred",
@@ -6141,7 +6454,8 @@
       },
       "rules": [
         "Prince of Rohan"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "hama",
@@ -6170,7 +6484,8 @@
       },
       "rules": [
         "Doorward of Meduseld"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "deorwine",
@@ -6199,7 +6514,8 @@
       },
       "rules": [
         "Chief of the King's Knights"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "grimbold",
@@ -6228,7 +6544,8 @@
       },
       "rules": [
         "Marshal of the West-mark"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "harding",
@@ -6257,7 +6574,8 @@
       },
       "rules": [
         "Master of the Harrowfields"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "rohan_royal_guard_mounted",
@@ -6269,7 +6587,8 @@
       "weapon": "spear",
       "base": "XL",
       "sheet": "exp-rohan.png",
-      "file": "tokens/rohan_royal_guard_mounted.png"
+      "file": "tokens/rohan_royal_guard_mounted.png",
+      "base_mm": "40mm"
     },
     {
       "id": "arvedui",
@@ -6298,7 +6617,8 @@
       },
       "rules": [
         "Last King of Arnor"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "malbeth",
@@ -6327,7 +6647,8 @@
       },
       "rules": [
         "The Seer"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "numenorean_captain",
@@ -6356,7 +6677,8 @@
       },
       "rules": [
         "Numenorean"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "numenorean_warrior",
@@ -6368,7 +6690,8 @@
       "weapon": "sword_shield",
       "base": "M",
       "sheet": "exp-numenor-arnor.png",
-      "file": "tokens/numenorean_warrior.png"
+      "file": "tokens/numenorean_warrior.png",
+      "base_mm": "25mm"
     },
     {
       "id": "numenorean_spearman",
@@ -6380,7 +6703,8 @@
       "weapon": "spear",
       "base": "M",
       "sheet": "exp-numenor-arnor.png",
-      "file": "tokens/numenorean_spearman.png"
+      "file": "tokens/numenorean_spearman.png",
+      "base_mm": "25mm"
     },
     {
       "id": "arnor_warrior",
@@ -6392,7 +6716,8 @@
       "weapon": "sword_shield",
       "base": "M",
       "sheet": "exp-numenor-arnor.png",
-      "file": "tokens/arnor_warrior.png"
+      "file": "tokens/arnor_warrior.png",
+      "base_mm": "25mm"
     },
     {
       "id": "hasharin",
@@ -6423,7 +6748,8 @@
       "rules": [
         "Assassin",
         "Poisoned Blades"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "golden_king",
@@ -6452,7 +6778,8 @@
       },
       "rules": [
         "King of Abrakhan"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "mahud_beastmaster",
@@ -6483,7 +6810,8 @@
       "rules": [
         "Beastmaster",
         "Controls Mumak"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "watcher_karna",
@@ -6495,7 +6823,8 @@
       "weapon": "sword",
       "base": "M",
       "sheet": "exp-harad.png",
-      "file": "tokens/watcher_karna.png"
+      "file": "tokens/watcher_karna.png",
+      "base_mm": "25mm"
     },
     {
       "id": "haradrim_raider",
@@ -6507,7 +6836,8 @@
       "weapon": "spear",
       "base": "XL",
       "sheet": "exp-harad.png",
-      "file": "tokens/haradrim_raider.png"
+      "file": "tokens/haradrim_raider.png",
+      "base_mm": "40mm"
     },
     {
       "id": "mahud_camel_raider",
@@ -6519,7 +6849,8 @@
       "weapon": "spear",
       "base": "XL",
       "sheet": "exp-harad.png",
-      "file": "tokens/mahud_camel_raider.png"
+      "file": "tokens/mahud_camel_raider.png",
+      "base_mm": "40mm"
     },
     {
       "id": "amdur",
@@ -6548,7 +6879,8 @@
       },
       "rules": [
         "Lord of Blades"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "dragon_knight",
@@ -6560,7 +6892,8 @@
       "weapon": "lance",
       "base": "XL",
       "sheet": "exp-easterling.png",
-      "file": "tokens/dragon_knight.png"
+      "file": "tokens/dragon_knight.png",
+      "base_mm": "40mm"
     },
     {
       "id": "easterling_priest",
@@ -6572,7 +6905,8 @@
       "weapon": "dagger",
       "base": "M",
       "sheet": "exp-easterling.png",
-      "file": "tokens/easterling_priest.png"
+      "file": "tokens/easterling_priest.png",
+      "base_mm": "25mm"
     },
     {
       "id": "easterling_archer",
@@ -6584,7 +6918,8 @@
       "weapon": "bow",
       "base": "M",
       "sheet": "exp-easterling.png",
-      "file": "tokens/easterling_archer.png"
+      "file": "tokens/easterling_archer.png",
+      "base_mm": "25mm"
     },
     {
       "id": "variag_warrior",
@@ -6596,7 +6931,8 @@
       "weapon": "sword_shield",
       "base": "M",
       "sheet": "exp-easterling.png",
-      "file": "tokens/variag_warrior.png"
+      "file": "tokens/variag_warrior.png",
+      "base_mm": "25mm"
     },
     {
       "id": "khandish_horseman",
@@ -6608,7 +6944,8 @@
       "weapon": "sword",
       "base": "XL",
       "sheet": "exp-easterling.png",
-      "file": "tokens/khandish_horseman.png"
+      "file": "tokens/khandish_horseman.png",
+      "base_mm": "40mm"
     },
     {
       "id": "forsaken",
@@ -6641,7 +6978,8 @@
         "Terror",
         "Ringwraith",
         "The Forsaken"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "castellan",
@@ -6670,7 +7008,8 @@
       },
       "rules": [
         "Castellan of Dol Guldur"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "dungeon_keeper",
@@ -6699,7 +7038,8 @@
       },
       "rules": [
         "Keeper of the Dungeons"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "kardush",
@@ -6711,7 +7051,8 @@
       "weapon": "staff",
       "base": "S",
       "sheet": "exp-dolguldur.png",
-      "file": "tokens/kardush.png"
+      "file": "tokens/kardush.png",
+      "base_mm": "25mm"
     },
     {
       "id": "morgul_stalker",
@@ -6723,7 +7064,8 @@
       "weapon": "dagger",
       "base": "S",
       "sheet": "exp-dolguldur.png",
-      "file": "tokens/morgul_stalker.png"
+      "file": "tokens/morgul_stalker.png",
+      "base_mm": "25mm"
     },
     {
       "id": "numenorean_marshal",
@@ -6754,7 +7096,8 @@
       "rules": [
         "Numenorean",
         "Marshal"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "thrydan",
@@ -6783,7 +7126,8 @@
       },
       "rules": [
         "Chief of Dunland"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "gorulf",
@@ -6812,7 +7156,8 @@
       },
       "rules": [
         "Dunland Champion"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "dunlending_berserker",
@@ -6824,7 +7169,8 @@
       "weapon": "twohanded",
       "base": "M",
       "sheet": "exp-dunland.png",
-      "file": "tokens/dunlending_berserker.png"
+      "file": "tokens/dunlending_berserker.png",
+      "base_mm": "25mm"
     },
     {
       "id": "dunlending_shaman",
@@ -6836,7 +7182,8 @@
       "weapon": "staff",
       "base": "M",
       "sheet": "exp-dunland.png",
-      "file": "tokens/dunlending_shaman.png"
+      "file": "tokens/dunlending_shaman.png",
+      "base_mm": "25mm"
     },
     {
       "id": "dunlending_archer",
@@ -6848,7 +7195,8 @@
       "weapon": "bow",
       "base": "M",
       "sheet": "exp-dunland.png",
-      "file": "tokens/dunlending_archer.png"
+      "file": "tokens/dunlending_archer.png",
+      "base_mm": "25mm"
     },
     {
       "id": "ruffian",
@@ -6860,7 +7208,8 @@
       "weapon": "club",
       "base": "M",
       "sheet": "exp-dunland.png",
-      "file": "tokens/ruffian.png"
+      "file": "tokens/ruffian.png",
+      "base_mm": "25mm"
     },
     {
       "id": "paladin_took",
@@ -6889,7 +7238,8 @@
       },
       "rules": [
         "Thain of the Shire"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "farmer_maggot",
@@ -6920,7 +7270,8 @@
       "rules": [
         "Farmer",
         "Dogs"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "fredegar",
@@ -6949,7 +7300,8 @@
       },
       "rules": [
         "Fatty Bolger"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "durin_vi",
@@ -6978,7 +7330,8 @@
       },
       "rules": [
         "King under the Mountain"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "dead_spearman",
@@ -6993,7 +7346,8 @@
       "file": "tokens/dead_spearman.png",
       "traits": [
         "terror"
-      ]
+      ],
+      "base_mm": "25mm"
     },
     {
       "id": "stone_giant",
@@ -7005,7 +7359,8 @@
       "weapon": "club",
       "base": "XXL",
       "sheet": "exp-misc.png",
-      "file": "tokens/stone_giant.png"
+      "file": "tokens/stone_giant.png",
+      "base_mm": "60mm"
     },
     {
       "id": "gundabad_warg_rider",
@@ -7017,7 +7372,8 @@
       "weapon": "spear",
       "base": "XL",
       "sheet": "exp-wargs.png",
-      "file": "tokens/gundabad_warg_rider.png"
+      "file": "tokens/gundabad_warg_rider.png",
+      "base_mm": "40mm"
     },
     {
       "id": "terr_stone_barricade",
@@ -7029,7 +7385,8 @@
       "weapon": "none",
       "base": "L",
       "sheet": "terrain-fort.png",
-      "file": "tokens/terr_stone_barricade.png"
+      "file": "tokens/terr_stone_barricade.png",
+      "base_mm": ""
     },
     {
       "id": "terr_spike_barricade",
@@ -7041,7 +7398,8 @@
       "weapon": "none",
       "base": "L",
       "sheet": "terrain-fort.png",
-      "file": "tokens/terr_spike_barricade.png"
+      "file": "tokens/terr_spike_barricade.png",
+      "base_mm": ""
     },
     {
       "id": "terr_orc_barricade",
@@ -7053,7 +7411,8 @@
       "weapon": "none",
       "base": "L",
       "sheet": "terrain-fort.png",
-      "file": "tokens/terr_orc_barricade.png"
+      "file": "tokens/terr_orc_barricade.png",
+      "base_mm": ""
     },
     {
       "id": "terr_sandbag",
@@ -7065,7 +7424,8 @@
       "weapon": "none",
       "base": "L",
       "sheet": "terrain-fort.png",
-      "file": "tokens/terr_sandbag.png"
+      "file": "tokens/terr_sandbag.png",
+      "base_mm": ""
     },
     {
       "id": "terr_portcullis",
@@ -7077,7 +7437,8 @@
       "weapon": "none",
       "base": "L",
       "sheet": "terrain-fort.png",
-      "file": "tokens/terr_portcullis.png"
+      "file": "tokens/terr_portcullis.png",
+      "base_mm": ""
     },
     {
       "id": "terr_stone_archway",
@@ -7089,7 +7450,8 @@
       "weapon": "none",
       "base": "L",
       "sheet": "terrain-fort.png",
-      "file": "tokens/terr_stone_archway.png"
+      "file": "tokens/terr_stone_archway.png",
+      "base_mm": ""
     },
     {
       "id": "terr_chest_open",
@@ -7101,7 +7463,8 @@
       "weapon": "none",
       "base": "M",
       "sheet": "terrain-treasure.png",
-      "file": "tokens/terr_chest_open.png"
+      "file": "tokens/terr_chest_open.png",
+      "base_mm": ""
     },
     {
       "id": "terr_chest_closed",
@@ -7113,7 +7476,8 @@
       "weapon": "none",
       "base": "M",
       "sheet": "terrain-treasure.png",
-      "file": "tokens/terr_chest_closed.png"
+      "file": "tokens/terr_chest_closed.png",
+      "base_mm": ""
     },
     {
       "id": "terr_gold_pile",
@@ -7125,7 +7489,8 @@
       "weapon": "none",
       "base": "M",
       "sheet": "terrain-treasure.png",
-      "file": "tokens/terr_gold_pile.png"
+      "file": "tokens/terr_gold_pile.png",
+      "base_mm": ""
     },
     {
       "id": "terr_relic_shrine",
@@ -7137,7 +7502,8 @@
       "weapon": "none",
       "base": "L",
       "sheet": "terrain-treasure.png",
-      "file": "tokens/terr_relic_shrine.png"
+      "file": "tokens/terr_relic_shrine.png",
+      "base_mm": ""
     },
     {
       "id": "terr_hoard",
@@ -7149,7 +7515,8 @@
       "weapon": "none",
       "base": "L",
       "sheet": "terrain-treasure.png",
-      "file": "tokens/terr_hoard.png"
+      "file": "tokens/terr_hoard.png",
+      "base_mm": ""
     },
     {
       "id": "terr_loot_bag",
@@ -7161,7 +7528,8 @@
       "weapon": "none",
       "base": "M",
       "sheet": "terrain-treasure.png",
-      "file": "tokens/terr_loot_bag.png"
+      "file": "tokens/terr_loot_bag.png",
+      "base_mm": ""
     },
     {
       "id": "terr_sarcophagus",
@@ -7173,7 +7541,8 @@
       "weapon": "none",
       "base": "L",
       "sheet": "terrain-dungeon.png",
-      "file": "tokens/terr_sarcophagus.png"
+      "file": "tokens/terr_sarcophagus.png",
+      "base_mm": ""
     },
     {
       "id": "terr_cage",
@@ -7185,7 +7554,8 @@
       "weapon": "none",
       "base": "L",
       "sheet": "terrain-dungeon.png",
-      "file": "tokens/terr_cage.png"
+      "file": "tokens/terr_cage.png",
+      "base_mm": ""
     },
     {
       "id": "terr_bone_pile",
@@ -7197,7 +7567,8 @@
       "weapon": "none",
       "base": "M",
       "sheet": "terrain-dungeon.png",
-      "file": "tokens/terr_bone_pile.png"
+      "file": "tokens/terr_bone_pile.png",
+      "base_mm": ""
     },
     {
       "id": "terr_chain_post",
@@ -7209,7 +7580,8 @@
       "weapon": "none",
       "base": "M",
       "sheet": "terrain-dungeon.png",
-      "file": "tokens/terr_chain_post.png"
+      "file": "tokens/terr_chain_post.png",
+      "base_mm": ""
     },
     {
       "id": "terr_throne",
@@ -7221,7 +7593,8 @@
       "weapon": "none",
       "base": "L",
       "sheet": "terrain-dungeon.png",
-      "file": "tokens/terr_throne.png"
+      "file": "tokens/terr_throne.png",
+      "base_mm": ""
     },
     {
       "id": "terr_altar",
@@ -7233,7 +7606,8 @@
       "weapon": "none",
       "base": "L",
       "sheet": "terrain-dungeon.png",
-      "file": "tokens/terr_altar.png"
+      "file": "tokens/terr_altar.png",
+      "base_mm": ""
     },
     {
       "id": "terr_well",
@@ -7245,7 +7619,8 @@
       "weapon": "none",
       "base": "M",
       "sheet": "terrain-village.png",
-      "file": "tokens/terr_well.png"
+      "file": "tokens/terr_well.png",
+      "base_mm": ""
     },
     {
       "id": "terr_market_stall",
@@ -7257,7 +7632,8 @@
       "weapon": "none",
       "base": "L",
       "sheet": "terrain-village.png",
-      "file": "tokens/terr_market_stall.png"
+      "file": "tokens/terr_market_stall.png",
+      "base_mm": ""
     },
     {
       "id": "terr_haystack",
@@ -7269,7 +7645,8 @@
       "weapon": "none",
       "base": "M",
       "sheet": "terrain-village.png",
-      "file": "tokens/terr_haystack.png"
+      "file": "tokens/terr_haystack.png",
+      "base_mm": ""
     },
     {
       "id": "terr_hay_cart",
@@ -7281,7 +7658,8 @@
       "weapon": "none",
       "base": "M",
       "sheet": "terrain-village.png",
-      "file": "tokens/terr_hay_cart.png"
+      "file": "tokens/terr_hay_cart.png",
+      "base_mm": ""
     },
     {
       "id": "terr_fence_gate",
@@ -7293,7 +7671,8 @@
       "weapon": "none",
       "base": "M",
       "sheet": "terrain-village.png",
-      "file": "tokens/terr_fence_gate.png"
+      "file": "tokens/terr_fence_gate.png",
+      "base_mm": ""
     },
     {
       "id": "terr_beehive",
@@ -7305,7 +7684,8 @@
       "weapon": "none",
       "base": "M",
       "sheet": "terrain-village.png",
-      "file": "tokens/terr_beehive.png"
+      "file": "tokens/terr_beehive.png",
+      "base_mm": ""
     },
     {
       "id": "terr_boulders",
@@ -7317,7 +7697,8 @@
       "weapon": "none",
       "base": "L",
       "sheet": "terrain-wild.png",
-      "file": "tokens/terr_boulders.png"
+      "file": "tokens/terr_boulders.png",
+      "base_mm": ""
     },
     {
       "id": "terr_mushroom_ring",
@@ -7329,7 +7710,8 @@
       "weapon": "none",
       "base": "L",
       "sheet": "terrain-wild.png",
-      "file": "tokens/terr_mushroom_ring.png"
+      "file": "tokens/terr_mushroom_ring.png",
+      "base_mm": ""
     },
     {
       "id": "terr_bramble",
@@ -7341,7 +7723,8 @@
       "weapon": "none",
       "base": "L",
       "sheet": "terrain-wild.png",
-      "file": "tokens/terr_bramble.png"
+      "file": "tokens/terr_bramble.png",
+      "base_mm": ""
     },
     {
       "id": "terr_pond",
@@ -7353,7 +7736,8 @@
       "weapon": "none",
       "base": "L",
       "sheet": "terrain-wild.png",
-      "file": "tokens/terr_pond.png"
+      "file": "tokens/terr_pond.png",
+      "base_mm": ""
     },
     {
       "id": "terr_waystone",
@@ -7365,7 +7749,8 @@
       "weapon": "none",
       "base": "L",
       "sheet": "terrain-wild.png",
-      "file": "tokens/terr_waystone.png"
+      "file": "tokens/terr_waystone.png",
+      "base_mm": ""
     },
     {
       "id": "terr_fallen_log",
@@ -7377,7 +7762,8 @@
       "weapon": "none",
       "base": "L",
       "sheet": "terrain-wild.png",
-      "file": "tokens/terr_fallen_log.png"
+      "file": "tokens/terr_fallen_log.png",
+      "base_mm": ""
     },
     {
       "id": "terr_war_banner",
@@ -7389,7 +7775,8 @@
       "weapon": "none",
       "base": "M",
       "sheet": "terrain-camp.png",
-      "file": "tokens/terr_war_banner.png"
+      "file": "tokens/terr_war_banner.png",
+      "base_mm": ""
     },
     {
       "id": "terr_weapon_rack",
@@ -7401,7 +7788,8 @@
       "weapon": "none",
       "base": "M",
       "sheet": "terrain-camp.png",
-      "file": "tokens/terr_weapon_rack.png"
+      "file": "tokens/terr_weapon_rack.png",
+      "base_mm": ""
     },
     {
       "id": "terr_anvil",
@@ -7413,7 +7801,8 @@
       "weapon": "none",
       "base": "L",
       "sheet": "terrain-camp.png",
-      "file": "tokens/terr_anvil.png"
+      "file": "tokens/terr_anvil.png",
+      "base_mm": ""
     },
     {
       "id": "terr_ammo_pile",
@@ -7425,7 +7814,8 @@
       "weapon": "none",
       "base": "M",
       "sheet": "terrain-camp.png",
-      "file": "tokens/terr_ammo_pile.png"
+      "file": "tokens/terr_ammo_pile.png",
+      "base_mm": ""
     },
     {
       "id": "terr_map_table",
@@ -7437,7 +7827,8 @@
       "weapon": "none",
       "base": "L",
       "sheet": "terrain-camp.png",
-      "file": "tokens/terr_map_table.png"
+      "file": "tokens/terr_map_table.png",
+      "base_mm": ""
     },
     {
       "id": "terr_torch_post",
@@ -7449,7 +7840,8 @@
       "weapon": "none",
       "base": "M",
       "sheet": "terrain-camp.png",
-      "file": "tokens/terr_torch_post.png"
+      "file": "tokens/terr_torch_post.png",
+      "base_mm": ""
     }
   ]
 }
