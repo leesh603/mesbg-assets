@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "count": 120,
+  "count": 126,
   "relics": [
     {
       "id": "relic_lembas",
@@ -841,6 +841,48 @@
       "name_en": "Snow Tile",
       "tier": "tile",
       "file": "icons/tile_snow.png"
+    },
+    {
+      "id": "st_charge",
+      "name_ko": "돌격",
+      "name_en": "Charge",
+      "tier": "status",
+      "file": "icons/st_charge.png"
+    },
+    {
+      "id": "st_defend",
+      "name_ko": "방어 태세",
+      "name_en": "Defend",
+      "tier": "status",
+      "file": "icons/st_defend.png"
+    },
+    {
+      "id": "st_marked",
+      "name_ko": "조준됨",
+      "name_en": "Marked",
+      "tier": "status",
+      "file": "icons/st_marked.png"
+    },
+    {
+      "id": "st_hidden",
+      "name_ko": "은신",
+      "name_en": "Hidden",
+      "tier": "status",
+      "file": "icons/st_hidden.png"
+    },
+    {
+      "id": "st_engaged",
+      "name_ko": "교전 중",
+      "name_en": "Engaged",
+      "tier": "status",
+      "file": "icons/st_engaged.png"
+    },
+    {
+      "id": "st_rout",
+      "name_ko": "패주",
+      "name_en": "Rout",
+      "tier": "status",
+      "file": "icons/st_rout.png"
     }
   ]
 }
