@@ -102,19 +102,23 @@ try {
   TABS.push(['maps', '전장 맵']);
 } catch (e) { /* no backgrounds dir */ }
 const html = `<!doctype html><html lang="ko"><head><meta charset="utf-8"><title>에셋 매칭 갤러리</title><style>
-body{background:#14161a;color:#e8e4d8;font-family:system-ui;margin:0;padding:24px}
-h1{font-size:20px}h2{font-size:15px;margin:28px 0 10px;color:#9db4d0;border-bottom:1px solid #333;padding-bottom:6px}
-h3{font-size:13px;margin:18px 0 8px;color:#c8b890}
-.tabs{display:flex;gap:8px;margin:14px 0 4px;position:sticky;top:0;background:#14161a;padding:8px 0;z-index:10}
-.tabs button{background:#1e2126;border:1px solid #333;color:#e8e4d8;padding:8px 18px;border-radius:8px;cursor:pointer;font-size:14px}
-.tabs button.on{background:#2d4a6b;border-color:#4a7bb5}
+:root{--bg:#141210;--panel:#1e1a16;--panel2:#2a241e;--line:#4a3f32;--gold:#c9a959;--gold2:#e8cf8f;--txt:#e6ddc9;--dim:#9a8f7a}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--txt);font-family:'Malgun Gothic',system-ui;margin:0;padding:24px}
+h1{font-size:20px;color:var(--gold2);letter-spacing:1px}
+h2{font-size:15px;margin:28px 0 10px;color:var(--gold);border-bottom:1px solid var(--line);padding-bottom:6px}
+h3{font-size:13px;margin:18px 0 8px;color:var(--gold2)}
+.tabs{display:flex;gap:8px;margin:14px 0 4px;position:sticky;top:0;background:var(--bg);padding:8px 0;z-index:10;flex-wrap:wrap}
+.tabs button{background:var(--panel);border:1px solid var(--line);color:var(--dim);padding:8px 18px;border-radius:6px;cursor:pointer;font-size:13px}
+.tabs button.on{background:var(--gold);color:#1a150f;border-color:var(--gold);font-weight:700}
 .grid{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end}
-.card{background:#1e2126;border-radius:10px;padding:12px;text-align:center}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px;text-align:center;transition:border-color .15s}
+.card:hover{border-color:var(--gold)}
 .fig{display:flex;align-items:flex-end;justify-content:center}
-.card img{image-rendering:pixelated;width:auto;object-fit:contain;display:block}
+.card img{image-rendering:auto;width:auto;object-fit:contain;display:block;filter:drop-shadow(0 3px 4px rgba(0,0,0,.6))}
 .id{font-size:11px;color:#7fa3cc;word-break:break-all;margin-top:8px;max-width:170px}
-.ko{font-size:13px;font-weight:600;margin-top:2px}
-.meta{font-size:10px;color:#8a8f98;margin-top:3px}
+.ko{font-size:13px;font-weight:600;margin-top:2px;color:var(--txt)}
+.meta{font-size:10px;color:var(--dim);margin-top:3px}
 </style></head><body>
 <h1>MESBG 에셋 매칭 갤러리 — ${rows.length}종 <button id="vsw" onclick="let p=document.querySelectorAll('img'),pt=document.body.dataset.pt!=='1';document.body.dataset.pt=pt?'1':'0';p.forEach(i=>i.src=i.src.replace(pt?'tokens/':'tokens_painted/',pt?'tokens_painted/':'tokens/'));this.textContent=pt?'보는중: 도색 (클릭→픽셀)':'보는중: 픽셀 (클릭→도색)';" style="font-size:12px;padding:4px 10px;cursor:pointer">보는중: 픽셀 (클릭→도색)</button></h1>
 <div class="tabs">${TABS.map(([k, n], i) => `<button data-t="${k}" class="${i ? '' : 'on'}" onclick="document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('on'));this.classList.add('on');document.querySelectorAll('.tabpane').forEach(p=>p.style.display=p.dataset.t===this.dataset.t?'block':'none')">${n} — ${k === 'relics' ? relicCount : (k === 'maps' ? mapsCount : groups[k].length)}</button>`).join('')}</div>

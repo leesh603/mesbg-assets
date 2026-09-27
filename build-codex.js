@@ -13,9 +13,9 @@ const html = `<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta n
 <title>유닛 도감</title><style>
 :root{--bg:#141210;--panel:#1e1a16;--panel2:#2a241e;--line:#4a3f32;--gold:#c9a959;--gold2:#e8cf8f;--txt:#e6ddc9;--dim:#9a8f7a;--good:#7da7d9;--evil:#d97d7d}
 *{box-sizing:border-box;margin:0}
-body{background:var(--bg);color:var(--txt);font-family:'Malgun Gothic',system-ui,sans-serif;min-height:100vh}
-header{padding:14px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:16px;flex-wrap:wrap;position:sticky;top:0;background:var(--bg);z-index:5}
-header h1{font-size:18px;color:var(--gold2);letter-spacing:1px}
+body{background:radial-gradient(ellipse at 50% -10%,#241f18 0%,var(--bg) 60%);color:var(--txt);font-family:'Malgun Gothic',system-ui,sans-serif;min-height:100vh}
+header{padding:14px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:16px;flex-wrap:wrap;position:sticky;top:0;background:rgba(20,18,16,.92);backdrop-filter:blur(4px);z-index:5}
+header h1{font-size:18px;color:var(--gold2);letter-spacing:2px;text-shadow:0 0 12px rgba(201,169,89,.3)}
 .filters{display:flex;gap:6px;flex-wrap:wrap}
 .filters button{background:var(--panel);border:1px solid var(--line);color:var(--dim);padding:5px 12px;border-radius:3px;cursor:pointer;font-size:12px}
 .filters button.on{background:var(--gold);color:#1a150f;border-color:var(--gold)}
