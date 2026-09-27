@@ -297,7 +297,6 @@ module.exports = [
   ['gandalf_mounted', '간달프(섀도우팩스)', 'Gandalf on Shadowfax', { faction: 'maiar', role: 'hero', weapon: 'sword' }],
   ['thranduil_mounted', '스란두일(기마)', 'Thranduil, mounted', { faction: 'elf', role: 'hero', weapon: 'sword' }],
   ['aragorn_mounted', '아라곤(기마)', 'Aragorn, mounted', { faction: 'gondor', role: 'hero', weapon: 'sword' }],
-  ['theoden_mounted', '테오덴(기마)', 'Theoden, mounted', { faction: 'rohan', role: 'hero', weapon: 'sword' }],
   ['blackroot_archer', '검은뿌리골 궁수', 'Blackroot Vale Archer', { faction: 'gondor', role: 'infantry', weapon: 'bow', base: 'M' }],
 ]},
 { sheet: 'roster-mordor-monsters-v1.png', side: 'evil', units: [
