@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "count": 72,
+  "count": 96,
   "relics": [
     {
       "id": "relic_lembas",
@@ -505,6 +505,174 @@
       "name_en": "Locked",
       "tier": "ui",
       "file": "icons/ui_lock.png"
+    },
+    {
+      "id": "tower_arrow",
+      "name_ko": "궁수 탑",
+      "name_en": "Arrow Tower",
+      "tier": "tower",
+      "file": "icons/tower_arrow.png"
+    },
+    {
+      "id": "tower_ballista",
+      "name_ko": "발리스타",
+      "name_en": "Ballista",
+      "tier": "tower",
+      "file": "icons/tower_ballista.png"
+    },
+    {
+      "id": "tower_cannon",
+      "name_ko": "대포 탑",
+      "name_en": "Cannon Tower",
+      "tier": "tower",
+      "file": "icons/tower_cannon.png"
+    },
+    {
+      "id": "tower_mage",
+      "name_ko": "마법 탑",
+      "name_en": "Mage Tower",
+      "tier": "tower",
+      "file": "icons/tower_mage.png"
+    },
+    {
+      "id": "tower_frost",
+      "name_ko": "빙결 탑",
+      "name_en": "Frost Tower",
+      "tier": "tower",
+      "file": "icons/tower_frost.png"
+    },
+    {
+      "id": "tower_goldmine",
+      "name_ko": "금광",
+      "name_en": "Gold Mine",
+      "tier": "tower",
+      "file": "icons/tower_goldmine.png"
+    },
+    {
+      "id": "node_battle",
+      "name_ko": "전투 노드",
+      "name_en": "Battle Node",
+      "tier": "node",
+      "file": "icons/node_battle.png"
+    },
+    {
+      "id": "node_stairs",
+      "name_ko": "계단 노드",
+      "name_en": "Stairs Node",
+      "tier": "node",
+      "file": "icons/node_stairs.png"
+    },
+    {
+      "id": "node_treasure",
+      "name_ko": "보물 노드",
+      "name_en": "Treasure Node",
+      "tier": "node",
+      "file": "icons/node_treasure.png"
+    },
+    {
+      "id": "node_shop",
+      "name_ko": "상점 노드",
+      "name_en": "Shop Node",
+      "tier": "node",
+      "file": "icons/node_shop.png"
+    },
+    {
+      "id": "node_rest",
+      "name_ko": "야영지 노드",
+      "name_en": "Rest Node",
+      "tier": "node",
+      "file": "icons/node_rest.png"
+    },
+    {
+      "id": "node_event",
+      "name_ko": "이벤트 노드",
+      "name_en": "Event Node",
+      "tier": "node",
+      "file": "icons/node_event.png"
+    },
+    {
+      "id": "ui_pause",
+      "name_ko": "일시정지",
+      "name_en": "Pause",
+      "tier": "ui",
+      "file": "icons/ui_pause.png"
+    },
+    {
+      "id": "ui_ff",
+      "name_ko": "배속",
+      "name_en": "Fast Forward",
+      "tier": "ui",
+      "file": "icons/ui_ff.png"
+    },
+    {
+      "id": "trophy_bronze",
+      "name_ko": "동 트로피",
+      "name_en": "Bronze Trophy",
+      "tier": "ui",
+      "file": "icons/trophy_bronze.png"
+    },
+    {
+      "id": "trophy_silver",
+      "name_ko": "은 트로피",
+      "name_en": "Silver Trophy",
+      "tier": "ui",
+      "file": "icons/trophy_silver.png"
+    },
+    {
+      "id": "trophy_gold",
+      "name_ko": "금 트로피",
+      "name_en": "Gold Trophy",
+      "tier": "ui",
+      "file": "icons/trophy_gold.png"
+    },
+    {
+      "id": "ui_sound",
+      "name_ko": "소리",
+      "name_en": "Sound",
+      "tier": "ui",
+      "file": "icons/ui_sound.png"
+    },
+    {
+      "id": "ui_heal",
+      "name_ko": "회복 물약",
+      "name_en": "Heal Potion",
+      "tier": "ui",
+      "file": "icons/ui_heal.png"
+    },
+    {
+      "id": "ui_revive",
+      "name_ko": "부활",
+      "name_en": "Revive",
+      "tier": "ui",
+      "file": "icons/ui_revive.png"
+    },
+    {
+      "id": "ui_upgrade",
+      "name_ko": "업그레이드",
+      "name_en": "Upgrade",
+      "tier": "ui",
+      "file": "icons/ui_upgrade.png"
+    },
+    {
+      "id": "ui_sell",
+      "name_ko": "판매",
+      "name_en": "Sell",
+      "tier": "ui",
+      "file": "icons/ui_sell.png"
+    },
+    {
+      "id": "ui_move",
+      "name_ko": "이동",
+      "name_en": "Move",
+      "tier": "ui",
+      "file": "icons/ui_move.png"
+    },
+    {
+      "id": "ui_cards",
+      "name_ko": "카드 뽑기",
+      "name_en": "Card Draw",
+      "tier": "ui",
+      "file": "icons/ui_cards.png"
     }
   ]
 }
