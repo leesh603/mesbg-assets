@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "count": 60,
+  "count": 72,
   "relics": [
     {
       "id": "relic_lembas",
@@ -421,6 +421,90 @@
       "name_en": "Flag",
       "tier": "ui",
       "file": "icons/ui_flag.png"
+    },
+    {
+      "id": "ui_levelup",
+      "name_ko": "레벨업",
+      "name_en": "Level Up",
+      "tier": "ui",
+      "file": "icons/ui_levelup.png"
+    },
+    {
+      "id": "ui_xp",
+      "name_ko": "경험치",
+      "name_en": "Experience",
+      "tier": "ui",
+      "file": "icons/ui_xp.png"
+    },
+    {
+      "id": "ui_cooldown",
+      "name_ko": "쿨다운",
+      "name_en": "Cooldown",
+      "tier": "ui",
+      "file": "icons/ui_cooldown.png"
+    },
+    {
+      "id": "ui_warning",
+      "name_ko": "경고",
+      "name_en": "Warning",
+      "tier": "ui",
+      "file": "icons/ui_warning.png"
+    },
+    {
+      "id": "ui_victory",
+      "name_ko": "승리",
+      "name_en": "Victory",
+      "tier": "ui",
+      "file": "icons/ui_victory.png"
+    },
+    {
+      "id": "ui_defeat",
+      "name_ko": "패배",
+      "name_en": "Defeat",
+      "tier": "ui",
+      "file": "icons/ui_defeat.png"
+    },
+    {
+      "id": "ui_wave",
+      "name_ko": "웨이브",
+      "name_en": "Wave",
+      "tier": "ui",
+      "file": "icons/ui_wave.png"
+    },
+    {
+      "id": "ui_map",
+      "name_ko": "지도",
+      "name_en": "Map",
+      "tier": "ui",
+      "file": "icons/ui_map.png"
+    },
+    {
+      "id": "ui_gear",
+      "name_ko": "설정",
+      "name_en": "Settings",
+      "tier": "ui",
+      "file": "icons/ui_gear.png"
+    },
+    {
+      "id": "ui_play",
+      "name_ko": "시작",
+      "name_en": "Play",
+      "tier": "ui",
+      "file": "icons/ui_play.png"
+    },
+    {
+      "id": "ui_info",
+      "name_ko": "정보",
+      "name_en": "Info",
+      "tier": "ui",
+      "file": "icons/ui_info.png"
+    },
+    {
+      "id": "ui_lock",
+      "name_ko": "잠금",
+      "name_en": "Locked",
+      "tier": "ui",
+      "file": "icons/ui_lock.png"
     }
   ]
 }
