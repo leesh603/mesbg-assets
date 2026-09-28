@@ -29,7 +29,7 @@ for (const s of sheets) {
 }
 
 // MESBG base sizes: foot 25mm / cavalry 40mm / monster 50mm / big monster 60mm / huge 100mm / titan 120mm
-const TITAN = new Set(['smaug','ancalagon']);
+const TITAN = new Set(['smaug','ancalagon','glaurung']);
 const HUGE = new Set(['mumakil','watcher_in_the_water','scatha','dragon_lord','durins_bane','durin_bane','gothmog_balrog','ancient_dragon','balrog']);
 const BIG = new Set(['ent','fellbeast','witchking_fellbeast','nazgul_fellbeast','great_eagle','troll_cave','troll_mountain','troll_snow','troll_war','troll_drummer','moria_troll','olf_haunt','buhrdur','dwerghammer','mewlip','boat_troll']);
 const baseMM = r => {
