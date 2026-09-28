@@ -239,6 +239,7 @@ module.exports = [
 { sheet: 'roster-hobbit-evil-v1.png', side: 'evil', units: [
   ['azog', '아조그', 'Azog the Defiler', { faction: 'gundabad', role: 'hero', weapon: 'mace', base: 'XL' }],
   ['azog_warg_rider', '아조그(흰 와르그)', 'Azog on white warg', { faction: 'gundabad', role: 'cavalry', weapon: 'mace', base: 'XL' }],
+  ['azog_foot', '아조그(도보)', 'Azog the Defiler on foot', { faction: 'gundabad', role: 'hero', weapon: 'mace', base: 'L' }],
   ['necromancer', '네크로맨서', 'The Necromancer', { faction: 'dol_guldur', role: 'hero', weapon: 'staff', base: 'L' }],
   ['hunter_orc', '헌터 오크', 'Hunter Orc', { faction: 'gundabad', role: 'infantry', weapon: 'bow' }],
   ['gundabad_orc', '군다바드 오크', 'Gundabad Orc', { faction: 'gundabad', role: 'infantry', weapon: 'sword_shield' }],

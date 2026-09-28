@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "count": 471,
+  "count": 472,
   "units": [
     {
       "id": "aragorn",
@@ -3661,6 +3661,19 @@
       "sheet": "roster-hobbit-evil-v1.png",
       "file": "tokens/azog_warg_rider.png",
       "base_mm": "40mm"
+    },
+    {
+      "id": "azog_foot",
+      "name_ko": "아조그(도보)",
+      "name_en": "Azog the Defiler on foot",
+      "side": "evil",
+      "faction": "gundabad",
+      "role": "hero",
+      "weapon": "mace",
+      "base": "L",
+      "sheet": "roster-hobbit-evil-v1.png",
+      "file": "tokens/azog_foot.png",
+      "base_mm": "25mm"
     },
     {
       "id": "necromancer",
