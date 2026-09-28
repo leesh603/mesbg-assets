@@ -154,22 +154,22 @@
       "sheet": "glorfindel-topdown-v2.png",
       "file": "tokens/glorfindel_foot.png",
       "stats": {
-        "f": 7,
+        "f": 9,
         "s": 4,
         "d": 6,
         "a": 3,
         "w": 3,
-        "c": 7,
-        "might": 2,
+        "c": 8,
+        "might": 3,
         "will": 4,
         "fate": 3,
         "rules": [
-          "Glorfindel",
+          "Balrog-slayer",
           "Elf-lord Reborn"
         ]
       },
       "rules": [
-        "Glorfindel",
+        "Balrog-slayer",
         "Elf-lord Reborn"
       ],
       "base_mm": "25mm"
@@ -186,22 +186,22 @@
       "sheet": "glorfindel-topdown-v2.png",
       "file": "tokens/glorfindel_mounted.png",
       "stats": {
-        "f": 7,
+        "f": 9,
         "s": 4,
         "d": 6,
         "a": 3,
-        "w": 3,
-        "c": 7,
-        "might": 2,
+        "w": 4,
+        "c": 8,
+        "might": 3,
         "will": 4,
         "fate": 3,
         "rules": [
-          "Glorfindel",
+          "Balrog-slayer",
           "Asfaloth"
         ]
       },
       "rules": [
-        "Glorfindel",
+        "Balrog-slayer",
         "Asfaloth"
       ],
       "base_mm": "40mm"
@@ -2434,23 +2434,23 @@
       "sheet": "roster-legends-good-v1.png",
       "file": "tokens/fingolfin.png",
       "stats": {
-        "f": 7,
+        "f": 9,
         "s": 5,
-        "d": 6,
+        "d": 7,
         "a": 4,
-        "w": 3,
-        "c": 7,
-        "might": 3,
-        "will": 2,
+        "w": 4,
+        "c": 9,
+        "might": 4,
+        "will": 3,
         "fate": 3,
         "rules": [
           "High King of the Noldor",
-          "Challenged Morgoth"
+          "Wounded Morgoth Seven Times"
         ]
       },
       "rules": [
         "High King of the Noldor",
-        "Challenged Morgoth"
+        "Wounded Morgoth Seven Times"
       ],
       "base_mm": "25mm"
     },
@@ -2590,7 +2590,7 @@
       "sheet": "roster-legends-good-v1.png",
       "file": "tokens/elendil.png",
       "stats": {
-        "f": 7,
+        "f": 8,
         "s": 5,
         "d": 7,
         "a": 3,
@@ -2650,6 +2650,27 @@
       "base": "XXL",
       "sheet": "roster-legends-evil-v1.png",
       "file": "tokens/smaug.png",
+      "stats": {
+        "f": 8,
+        "s": 8,
+        "d": 8,
+        "a": 5,
+        "w": 10,
+        "c": 8,
+        "might": 0,
+        "will": 0,
+        "fate": 0,
+        "rules": [
+          "Chiefest of Calamities",
+          "Terror",
+          "Golden Armour"
+        ]
+      },
+      "rules": [
+        "Chiefest of Calamities",
+        "Terror",
+        "Golden Armour"
+      ],
       "base_mm": "120mm"
     },
     {
@@ -2663,6 +2684,27 @@
       "base": "XXL",
       "sheet": "roster-legends-evil-v1.png",
       "file": "tokens/ungoliant.png",
+      "stats": {
+        "f": 9,
+        "s": 8,
+        "d": 8,
+        "a": 6,
+        "w": 12,
+        "c": 9,
+        "might": 0,
+        "will": 0,
+        "fate": 0,
+        "rules": [
+          "Devoured the Two Trees",
+          "Unlight",
+          "Terror"
+        ]
+      },
+      "rules": [
+        "Devoured the Two Trees",
+        "Unlight",
+        "Terror"
+      ],
       "base_mm": "60mm"
     },
     {
@@ -2769,12 +2811,12 @@
       "sheet": "roster-legends-good-v2.png",
       "file": "tokens/thranduil.png",
       "stats": {
-        "f": 6,
+        "f": 7,
         "s": 4,
         "d": 5,
         "a": 3,
         "w": 3,
-        "c": 6,
+        "c": 7,
         "might": 3,
         "will": 2,
         "fate": 2,
@@ -3029,12 +3071,12 @@
       "sheet": "roster-silmarillion-good-v1.png",
       "file": "tokens/feanor.png",
       "stats": {
-        "f": 8,
+        "f": 9,
         "s": 5,
         "d": 6,
         "a": 4,
         "w": 3,
-        "c": 7,
+        "c": 8,
         "might": 3,
         "will": 3,
         "fate": 3,
@@ -3062,22 +3104,24 @@
       "file": "tokens/luthien.png",
       "stats": {
         "f": 4,
-        "s": 3,
-        "d": 4,
+        "s": 2,
+        "d": 5,
         "a": 1,
         "w": 2,
-        "c": 6,
-        "might": 2,
-        "will": 8,
+        "c": 7,
+        "might": 3,
+        "will": 12,
         "fate": 3,
         "rules": [
           "Enchantress",
-          "Power of Song"
+          "Power of Song",
+          "Lulled Morgoth"
         ]
       },
       "rules": [
         "Enchantress",
-        "Power of Song"
+        "Power of Song",
+        "Lulled Morgoth"
       ],
       "base_mm": "25mm"
     },
@@ -3093,15 +3137,15 @@
       "sheet": "roster-silmarillion-good-v1.png",
       "file": "tokens/beren.png",
       "stats": {
-        "f": 5,
+        "f": 6,
         "s": 4,
         "d": 5,
         "a": 2,
         "w": 3,
-        "c": 6,
+        "c": 7,
         "might": 2,
         "will": 1,
-        "fate": 2,
+        "fate": 3,
         "rules": [
           "The One-handed"
         ]
@@ -3123,22 +3167,24 @@
       "sheet": "roster-silmarillion-good-v1.png",
       "file": "tokens/turin.png",
       "stats": {
-        "f": 6,
-        "s": 4,
-        "d": 4,
+        "f": 8,
+        "s": 5,
+        "d": 5,
         "a": 3,
         "w": 3,
-        "c": 5,
-        "might": 2,
-        "will": 1,
+        "c": 7,
+        "might": 3,
+        "will": 2,
         "fate": 2,
         "rules": [
           "Gurthang",
+          "Bane of Glaurung",
           "Ill-fated"
         ]
       },
       "rules": [
         "Gurthang",
+        "Bane of Glaurung",
         "Ill-fated"
       ],
       "base_mm": "25mm"
@@ -3155,23 +3201,23 @@
       "sheet": "roster-silmarillion-good-v1.png",
       "file": "tokens/beleg.png",
       "stats": {
-        "f": 5,
-        "s": 3,
+        "f": 6,
+        "s": 4,
         "d": 4,
         "a": 2,
         "w": 2,
-        "c": 5,
-        "might": 1,
-        "will": 1,
-        "fate": 1,
+        "c": 6,
+        "might": 2,
+        "will": 2,
+        "fate": 2,
         "rules": [
           "Belthronding",
-          "Beleg Strongbow"
+          "Greatest Archer"
         ]
       },
       "rules": [
         "Belthronding",
-        "Beleg Strongbow"
+        "Greatest Archer"
       ],
       "base_mm": "25mm"
     },
@@ -3199,6 +3245,27 @@
       "base": "XXL",
       "sheet": "roster-silmarillion-evil-v1.png",
       "file": "tokens/glaurung.png",
+      "stats": {
+        "f": 9,
+        "s": 8,
+        "d": 9,
+        "a": 5,
+        "w": 10,
+        "c": 8,
+        "might": 0,
+        "will": 0,
+        "fate": 0,
+        "rules": [
+          "Father of Dragons",
+          "Terror",
+          "Hypnotic Gaze"
+        ]
+      },
+      "rules": [
+        "Father of Dragons",
+        "Terror",
+        "Hypnotic Gaze"
+      ],
       "base_mm": "120mm"
     },
     {
@@ -3212,6 +3279,25 @@
       "base": "L",
       "sheet": "roster-silmarillion-evil-v1.png",
       "file": "tokens/carcharoth.png",
+      "stats": {
+        "f": 8,
+        "s": 7,
+        "d": 6,
+        "a": 3,
+        "w": 6,
+        "c": 6,
+        "might": 0,
+        "will": 0,
+        "fate": 0,
+        "rules": [
+          "Wolf of Angband",
+          "Silmaril-maddened"
+        ]
+      },
+      "rules": [
+        "Wolf of Angband",
+        "Silmaril-maddened"
+      ],
       "base_mm": "50mm"
     },
     {
@@ -3229,23 +3315,25 @@
         "terror"
       ],
       "stats": {
-        "f": 7,
-        "s": 6,
-        "d": 8,
+        "f": 9,
+        "s": 8,
+        "d": 7,
         "a": 4,
-        "w": 4,
-        "c": 7,
+        "w": 9,
+        "c": 8,
         "might": 3,
         "will": 10,
         "fate": 3,
         "rules": [
           "Lord of Balrogs",
-          "Terror"
+          "Terror",
+          "Slew Feanor and Ecthelion"
         ]
       },
       "rules": [
         "Lord of Balrogs",
-        "Terror"
+        "Terror",
+        "Slew Feanor and Ecthelion"
       ],
       "base_mm": "100mm"
     },
@@ -3260,6 +3348,23 @@
       "base": "L",
       "sheet": "roster-silmarillion-evil-v1.png",
       "file": "tokens/draugluin.png",
+      "stats": {
+        "f": 7,
+        "s": 6,
+        "d": 6,
+        "a": 3,
+        "w": 5,
+        "c": 6,
+        "might": 0,
+        "will": 0,
+        "fate": 0,
+        "rules": [
+          "Sire of Werewolves"
+        ]
+      },
+      "rules": [
+        "Sire of Werewolves"
+      ],
       "base_mm": "50mm"
     },
     {
@@ -3273,6 +3378,25 @@
       "base": "L",
       "sheet": "roster-silmarillion-evil-v1.png",
       "file": "tokens/thuringwethil.png",
+      "stats": {
+        "f": 6,
+        "s": 4,
+        "d": 6,
+        "a": 3,
+        "w": 5,
+        "c": 6,
+        "might": 0,
+        "will": 0,
+        "fate": 0,
+        "rules": [
+          "Bat-herald of Sauron",
+          "Terror"
+        ]
+      },
+      "rules": [
+        "Bat-herald of Sauron",
+        "Terror"
+      ],
       "base_mm": "50mm"
     },
     {
@@ -3287,20 +3411,22 @@
       "sheet": "roster-silmarillion-evil-v1.png",
       "file": "tokens/boldog.png",
       "stats": {
-        "f": 4,
-        "s": 4,
-        "d": 5,
-        "a": 2,
-        "w": 2,
-        "c": 4,
-        "might": 1,
-        "will": 0,
-        "fate": 1,
+        "f": 7,
+        "s": 5,
+        "d": 6,
+        "a": 3,
+        "w": 3,
+        "c": 5,
+        "might": 3,
+        "will": 3,
+        "fate": 3,
         "rules": [
+          "Orc-form Maia",
           "Orc Hero"
         ]
       },
       "rules": [
+        "Orc-form Maia",
         "Orc Hero"
       ],
       "base_mm": "25mm"
@@ -3549,13 +3675,13 @@
       "file": "tokens/necromancer.png",
       "stats": {
         "f": 6,
-        "s": 5,
+        "s": 4,
         "d": 6,
         "a": 2,
         "w": 3,
         "c": 7,
-        "might": 3,
-        "will": 20,
+        "might": 2,
+        "will": 12,
         "fate": 3,
         "rules": [
           "The Necromancer",
@@ -3686,7 +3812,7 @@
         "f": 6,
         "s": 4,
         "d": 5,
-        "a": 2,
+        "a": 3,
         "w": 3,
         "c": 6,
         "might": 2,
@@ -3718,7 +3844,7 @@
         "f": 6,
         "s": 4,
         "d": 5,
-        "a": 2,
+        "a": 3,
         "w": 3,
         "c": 6,
         "might": 2,
@@ -4113,8 +4239,8 @@
       "sheet": "roster-elf-exp-v1.png",
       "file": "tokens/gil_galad.png",
       "stats": {
-        "f": 8,
-        "s": 5,
+        "f": 9,
+        "s": 6,
         "d": 6,
         "a": 4,
         "w": 3,
@@ -4123,12 +4249,12 @@
         "will": 3,
         "fate": 3,
         "rules": [
-          "High King of the Noldor",
+          "Last High King",
           "Aeglos"
         ]
       },
       "rules": [
-        "High King of the Noldor",
+        "Last High King",
         "Aeglos"
       ],
       "base_mm": "25mm"
@@ -4145,23 +4271,25 @@
       "sheet": "roster-elf-exp-v1.png",
       "file": "tokens/cirdan.png",
       "stats": {
-        "f": 6,
+        "f": 7,
         "s": 4,
         "d": 5,
         "a": 2,
         "w": 3,
         "c": 7,
         "might": 2,
-        "will": 3,
+        "will": 9,
         "fate": 3,
         "rules": [
           "Shipwright",
-          "Narya"
+          "Narya",
+          "Foreseeing"
         ]
       },
       "rules": [
         "Shipwright",
-        "Narya"
+        "Narya",
+        "Foreseeing"
       ],
       "base_mm": "25mm"
     },
@@ -4182,10 +4310,10 @@
         "d": 4,
         "a": 1,
         "w": 2,
-        "c": 5,
+        "c": 6,
         "might": 1,
-        "will": 1,
-        "fate": 1,
+        "will": 6,
+        "fate": 3,
         "rules": [
           "Evenstar"
         ]
@@ -4439,12 +4567,12 @@
       "sheet": "roster-mounted-heroes-v1.png",
       "file": "tokens/thranduil_mounted.png",
       "stats": {
-        "f": 6,
+        "f": 7,
         "s": 4,
         "d": 5,
         "a": 3,
         "w": 3,
-        "c": 6,
+        "c": 7,
         "might": 3,
         "will": 2,
         "fate": 2,
@@ -4738,21 +4866,21 @@
       "sheet": "roster-west-heroes-v1.png",
       "file": "tokens/mablung.png",
       "stats": {
-        "f": 4,
-        "s": 3,
+        "f": 6,
+        "s": 4,
         "d": 4,
         "a": 2,
         "w": 2,
-        "c": 4,
-        "might": 1,
-        "will": 0,
-        "fate": 1,
+        "c": 6,
+        "might": 2,
+        "will": 2,
+        "fate": 2,
         "rules": [
-          "Ithilien Ranger"
+          "Chief of the March-wardens"
         ]
       },
       "rules": [
-        "Ithilien Ranger"
+        "Chief of the March-wardens"
       ],
       "base_mm": "25mm"
     },
@@ -5506,23 +5634,23 @@
       "sheet": "roster-good-fill-v1.png",
       "file": "tokens/isildur.png",
       "stats": {
-        "f": 6,
+        "f": 7,
         "s": 4,
         "d": 6,
         "a": 3,
         "w": 3,
-        "c": 5,
+        "c": 8,
         "might": 3,
         "will": 1,
         "fate": 2,
         "rules": [
           "Ring-bearer",
-          "Doomed"
+          "Cut the Ring"
         ]
       },
       "rules": [
         "Ring-bearer",
-        "Doomed"
+        "Cut the Ring"
       ],
       "base_mm": "25mm"
     },
@@ -5855,6 +5983,25 @@
       "base": "XXL",
       "sheet": "single-ancalagon.png",
       "file": "tokens/ancalagon.png",
+      "stats": {
+        "f": 10,
+        "s": 9,
+        "d": 8,
+        "a": 6,
+        "w": 12,
+        "c": 9,
+        "might": 0,
+        "will": 0,
+        "fate": 0,
+        "rules": [
+          "Mightiest Winged Dragon",
+          "Terror"
+        ]
+      },
+      "rules": [
+        "Mightiest Winged Dragon",
+        "Terror"
+      ],
       "base_mm": "120mm"
     },
     {
@@ -7899,23 +8046,25 @@
       "sheet": "nb-exp-heroes3.png",
       "file": "tokens/tom_bombadil.png",
       "stats": {
-        "f": 4,
-        "s": 2,
-        "d": 8,
+        "f": 6,
+        "s": 4,
+        "d": 7,
         "a": 2,
-        "w": 3,
-        "c": 8,
+        "w": 5,
+        "c": 10,
         "might": 2,
-        "will": 4,
+        "will": 6,
         "fate": 3,
         "rules": [
           "Master of the Old Forest",
-          "The Ring Has No Power Over Him"
+          "The Ring Has No Power Over Him",
+          "Eldest"
         ]
       },
       "rules": [
         "Master of the Old Forest",
-        "The Ring Has No Power Over Him"
+        "The Ring Has No Power Over Him",
+        "Eldest"
       ],
       "base_mm": "25mm"
     },
@@ -7935,11 +8084,11 @@
         "s": 2,
         "d": 5,
         "a": 1,
-        "w": 2,
-        "c": 6,
+        "w": 3,
+        "c": 9,
         "might": 1,
-        "will": 3,
-        "fate": 2,
+        "will": 5,
+        "fate": 3,
         "rules": [
           "River-daughter"
         ]
@@ -8343,15 +8492,15 @@
       "sheet": "px-nb-exp-silm1.png",
       "file": "tokens/turgon.png",
       "stats": {
-        "f": 7,
+        "f": 8,
         "s": 5,
-        "d": 7,
-        "a": 3,
+        "d": 6,
+        "a": 4,
         "w": 3,
-        "c": 7,
+        "c": 8,
         "might": 3,
         "will": 3,
-        "fate": 2,
+        "fate": 3,
         "rules": [
           "King of Gondolin",
           "Glamdring"
@@ -8376,20 +8525,22 @@
       "file": "tokens/fingon.png",
       "stats": {
         "f": 7,
-        "s": 5,
+        "s": 4,
         "d": 6,
         "a": 3,
         "w": 3,
         "c": 7,
         "might": 3,
         "will": 2,
-        "fate": 2,
+        "fate": 3,
         "rules": [
-          "Valour of the Noldor"
+          "Valour of the Noldor",
+          "Rescued Maedhros"
         ]
       },
       "rules": [
-        "Valour of the Noldor"
+        "Valour of the Noldor",
+        "Rescued Maedhros"
       ],
       "base_mm": "25mm"
     },
@@ -8405,15 +8556,15 @@
       "sheet": "px-nb-exp-silm1.png",
       "file": "tokens/ecthelion.png",
       "stats": {
-        "f": 7,
+        "f": 8,
         "s": 4,
         "d": 6,
         "a": 3,
         "w": 3,
-        "c": 7,
+        "c": 8,
         "might": 3,
         "will": 2,
-        "fate": 2,
+        "fate": 3,
         "rules": [
           "Lord of the Fountain",
           "Bane of Gothmog"
@@ -8437,23 +8588,25 @@
       "sheet": "px-nb-exp-silm1.png",
       "file": "tokens/finrod_felagund.png",
       "stats": {
-        "f": 6,
+        "f": 7,
         "s": 4,
-        "d": 6,
+        "d": 5,
         "a": 3,
         "w": 3,
-        "c": 7,
+        "c": 8,
         "might": 3,
-        "will": 3,
-        "fate": 2,
+        "will": 4,
+        "fate": 3,
         "rules": [
           "Felagund",
-          "Ring of Barahir"
+          "Ring of Barahir",
+          "Song-duel with Sauron"
         ]
       },
       "rules": [
         "Felagund",
-        "Ring of Barahir"
+        "Ring of Barahir",
+        "Song-duel with Sauron"
       ],
       "base_mm": "25mm"
     },
@@ -8469,12 +8622,12 @@
       "sheet": "px-nb-exp-silm1.png",
       "file": "tokens/tuor.png",
       "stats": {
-        "f": 6,
+        "f": 7,
         "s": 5,
-        "d": 6,
+        "d": 5,
         "a": 3,
         "w": 3,
-        "c": 6,
+        "c": 7,
         "might": 3,
         "will": 2,
         "fate": 3,
@@ -8499,23 +8652,25 @@
       "sheet": "px-nb-exp-silm1.png",
       "file": "tokens/hurin_thalion.png",
       "stats": {
-        "f": 6,
+        "f": 7,
         "s": 5,
-        "d": 6,
+        "d": 5,
         "a": 4,
         "w": 3,
         "c": 7,
-        "might": 2,
+        "might": 3,
         "will": 2,
-        "fate": 2,
+        "fate": 3,
         "rules": [
           "Last Stand of Dor-lomin",
-          "Unyielding"
+          "Unyielding",
+          "Greatest Warrior of Men"
         ]
       },
       "rules": [
         "Last Stand of Dor-lomin",
-        "Unyielding"
+        "Unyielding",
+        "Greatest Warrior of Men"
       ],
       "base_mm": "25mm"
     },
@@ -8531,23 +8686,23 @@
       "sheet": "px-nb-exp-silm2.png",
       "file": "tokens/maedhros.png",
       "stats": {
-        "f": 7,
+        "f": 8,
         "s": 5,
         "d": 6,
-        "a": 3,
+        "a": 4,
         "w": 3,
-        "c": 6,
+        "c": 7,
         "might": 3,
         "will": 2,
-        "fate": 2,
+        "fate": 3,
         "rules": [
-          "Oath of Feanor",
-          "One-handed"
+          "Eldest Son of Feanor",
+          "Strife with Angband"
         ]
       },
       "rules": [
-        "Oath of Feanor",
-        "One-handed"
+        "Eldest Son of Feanor",
+        "Strife with Angband"
       ],
       "base_mm": "25mm"
     },
@@ -8564,14 +8719,14 @@
       "file": "tokens/celegorm.png",
       "stats": {
         "f": 7,
-        "s": 5,
-        "d": 6,
+        "s": 4,
+        "d": 5,
         "a": 3,
         "w": 3,
         "c": 6,
-        "might": 3,
+        "might": 2,
         "will": 2,
-        "fate": 1,
+        "fate": 2,
         "rules": [
           "Oath of Feanor",
           "Master of Hounds"
@@ -8596,14 +8751,14 @@
       "file": "tokens/thingol.png",
       "stats": {
         "f": 7,
-        "s": 5,
-        "d": 7,
+        "s": 4,
+        "d": 6,
         "a": 3,
         "w": 3,
-        "c": 7,
+        "c": 8,
         "might": 3,
         "will": 3,
-        "fate": 2,
+        "fate": 3,
         "rules": [
           "Elu Thingol",
           "King of Doriath"
@@ -9452,24 +9607,24 @@
       "sheet": "px-fix-fingolfin.png",
       "file": "tokens/fingolfin_mounted.png",
       "stats": {
-        "f": 7,
+        "f": 9,
         "s": 5,
         "d": 6,
         "a": 4,
-        "w": 3,
-        "c": 7,
-        "might": 3,
-        "will": 2,
+        "w": 4,
+        "c": 9,
+        "might": 4,
+        "will": 3,
         "fate": 3,
         "rules": [
           "High King of the Noldor",
-          "Challenged Morgoth",
+          "Wounded Morgoth Seven Times",
           "Rochallor"
         ]
       },
       "rules": [
         "High King of the Noldor",
-        "Challenged Morgoth",
+        "Wounded Morgoth Seven Times",
         "Rochallor"
       ],
       "base_mm": "40mm"
