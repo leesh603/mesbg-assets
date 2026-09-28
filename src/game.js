@@ -1,4 +1,3 @@
-
 /* MESBG Endless campaign extension. Original battle engine remains underneath.
  * Asset source: leesh603/mesbg-assets @ 2c33279. Game rules are adapted house rules.
  */
