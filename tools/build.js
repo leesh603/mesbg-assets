@@ -23,5 +23,6 @@ if (a < 0 || b < 0 || b < a) {
 
 const out = html.slice(0, a + BEGIN.length) + '\n' + src.replace(/^\n+|\s+$/g, '') + '\n' + html.slice(b);
 fs.writeFileSync(HTML, out);
-fs.writeFileSync(path.join(ROOT, 'index.html'), out);
-console.log('built', (out.length / 1048576).toFixed(1) + 'MB → LAST-WAR-BAND_v1.9.html + index.html');
+console.log('built', (out.length / 1048576).toFixed(1) + 'MB → LAST-WAR-BAND_v1.9.html');
+// index.html is the lite build (external assets under assets/mesbg/) — GitHub Pages serves it.
+require('./externalize.js');

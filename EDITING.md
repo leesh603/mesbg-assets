@@ -6,10 +6,12 @@
 
 수정 흐름:
 1. `src/game.js`를 수정 (또는 AI에게 수정 요청 후 파일 교체)
-2. `node tools/build.js` 실행 → `LAST-WAR-BAND_v1.9.html` + `index.html` 자동 생성
+2. `node tools/build.js` 실행 → `LAST-WAR-BAND_v1.9.html`(풀패키지) + `index.html`(라이트) + `assets/mesbg/` 자동 생성
 3. 커밋·푸시 → GitHub Pages(https://leesh603.github.io/mesbg-assets/)에 자동 배포
 
-`LAST-WAR-BAND_v1.9.html` = 게임 전체가 담긴 단일 HTML (~53MB, 빌드 결과물). 직접 고치지 말 것 — `src/game.js`를 고치고 다시 빌드.
+두 결과물의 차이:
+- **`index.html`** (~2MB) = 배포용 라이트 빌드. 에셋을 `assets/mesbg/` 외부 파일에서 불러와서 로딩이 빠름. `tools/externalize.js`가 생성 — **반드시 `assets/` 폴더와 같이 커밋할 것**. file:// 로 직접 열면 에셋 로딩이 안 됨(서버 필요)
+- **`LAST-WAR-BAND_v1.9.html`** (~58MB) = 게임 전체가 담긴 단일 HTML (오프라인/다운로드용). 직접 고치지 말 것 — `src/game.js`를 고치고 다시 빌드.
 
 - HTML 앞부분은 base64 인코딩 이미지 에셋 — **절대 손대지 말 것**
 - HTML에서 `src/game.js`에 해당하는 구간은 `/*__LWB_SRC_BEGIN__*/` ~ `/*__LWB_SRC_END__*/` 마커 사이

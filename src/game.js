@@ -123,7 +123,7 @@ Ae=[{id:"warrior_minas_tirith",name_ko:"미나스 티리스 전사",name_en:"War
 }
 class Ve extends Ot.Scene {
     constructor() { super("battle"); lt(this, "b"); lt(this, "soundFX"); lt(this, "asset"); lt(this, "onPoint"); lt(this, "onUnit"); lt(this, "onDrop"); lt(this, "tokens", new Map); lt(this, "rings"); lt(this, "terrainLayer"); lt(this, "labels"); lt(this, "dragStart"); lt(this, "dragUnit", ""); lt(this, "busy", !1); lt(this, "focusedUid", ""); lt(this, "preview"); lt(this, "previewPlan"); lt(this, "previewAt", 0); }
-    preload() { this.load.image("gate-art", this.asset("backgrounds/gate-v2.png")); for (const b of this.b.meta.values())
+    preload() { this.load.maxParallelDownloads = 64; this.load.image("gate-art", this.asset("backgrounds/gate-v2.png")); for (const b of this.b.meta.values())
         this.load.image(b.id, this.asset(b.file)); }
     create() { this.drawMap(), this.terrainLayer = this.add.container(0, 0), this.rings = this.add.graphics().setDepth(3), this.labels = this.add.container(0, 0).setDepth(8), this.cameras.main.setBounds(0, 0, pt.width, pt.height), this.cameras.main.setZoom(this.scale.width < 850 ? .85 : 1), this.cameras.main.centerOn(1165, 720), this.input.addPointer(1), this.input.on("pointerdown", b => { this.dragStart = { x: b.worldX, y: b.worldY }; const H = this.hit({ x: b.worldX, y: b.worldY }); this.dragUnit = (H == null ? void 0 : H.uid) || ""; }), this.input.on("pointerup", b => { if (this.busy)
         return; const H = { x: b.worldX, y: b.worldY }; if (!this.dragUnit && this.dragStart && Math.hypot(b.x - b.downX, b.y - b.downY) > 10) {
@@ -333,7 +333,7 @@ else if (Z.phase === "shoot") {
     const b = Z.validTargets(Y).sort((H, K) => H.currentWounds - K.currentWounds || H.stats.defence - K.stats.defence || ht(H, Mt.objective) - ht(K, Mt.objective))[0];
     (!b || !Z.shoot(Y.uid, b.uid)) && Z.wait(Y.uid);
 } }
-const Ut = Z => { var Y; return ((Y = window.__MESBG_ASSETS__) == null ? void 0 : Y[Z]) || `./assets/mesbg/${Z}`; }, pe = document.createElement("style");
+const __ASSET_SET__ = new Set([...Object.keys(window.__MESBG_ASSETS__ || {}), ...(window.__MESBG_ASSET_KEYS__ || [])]), __assetOk = Z => __ASSET_SET__.has(Z), Ut = Z => { var Y; return ((Y = window.__MESBG_ASSETS__) == null ? void 0 : Y[Z]) || `./assets/mesbg/${Z}`; }, pe = document.createElement("style");
 pe.textContent = `@font-face{font-family:Pretendard;src:url('${Ut("fonts/PretendardVariable.woff2")}') format('woff2');font-weight:100 900;font-display:swap}`;
 document.head.append(pe);
 document.addEventListener("visibilitychange", () => { const Z = document.hidden; wt.__resumeOnShow = Z ? wt.music && !wt.music.paused : !1, Z && wt.music && wt.music.pause(), Z || !wt.__resumeOnShow || wt.muted || wt.music && wt.music.play().catch(() => { }), wt.context && (Z ? wt.context.state === "running" && wt.context.suspend() : wt.context.state === "suspended" && wt.context.resume().catch(() => { })); });
@@ -574,7 +574,7 @@ q.meta = new Map(window.CAMPAIGN_META.filter(u => zt[u.id] || u.side === 'terrai
 q.meta.set('morgoth', { id: 'morgoth', name_ko: '모르고스', name_en: 'Morgoth', side: 'evil', faction: 'mordor', role: 'monster', weapon: 'mace', base: 'XXL', file: 'tokens/morgoth.png' });
 // Check the exact metadata and asset availability before preload.
 for (const [id, u] of q.meta)
-    if (!window.__MESBG_ASSETS__[u.file])
+    if (!__assetOk(u.file))
         q.meta.delete(id);
 // Faction circular bases drawn under every token (asset pack bases/ directory).
 const BASE_FACTION = { gondor: 'gondor', mordor: 'mordor', moria: 'moria', angmar: 'angmar', isengard: 'isengard', rohan: 'rohan', dwarf: 'dwarf', rivendell: 'rivendell', harad: 'harad', dol_guldur: 'dol_guldur', dead: 'dead', lothlorien: 'lorien', elf: 'lorien', lorien: 'lorien', erebor: 'dwarf', arnor: 'gondor', shire: 'gondor', men: 'gondor', doriath: 'lorien', valinor: 'rivendell', eagle: 'gondor', ent: 'lorien', beorning: 'rohan', gundabad: 'moria', angband: 'mordor', easterling: 'harad', rhun: 'harad', dunland: 'isengard', maiar: 'rivendell' };
@@ -1927,7 +1927,8 @@ Ve.prototype.update = function (time) { if (!this.tokens || this.busy)
     const c = this.tokens.get(u.uid), s = c?.getByName('token');
     if (!s || !s.getData('baseSX'))
         continue;
-    const meta = this.b.meta.get(u.id), kind = window.TokenIdle.classify(u.id, meta), m = window.TokenIdle.sample(kind, time, u.uid);
+    let kind = c.getData('ik'); if (kind === undefined) { kind = window.TokenIdle.classify(u.id, this.b.meta.get(u.id)); c.setData('ik', kind); }
+    const m = window.TokenIdle.sample(kind, time, u.uid);
     s.setScale(s.getData('baseSX') * m.sx, s.getData('baseSY') * m.sy);
     { const _c = s.getData('cxy') || { x: 0, y: 0 }; s.setPosition(m.dx * u.radius * 2 + _c.x, m.dy * u.radius * 2 + _c.y); }
 } };
@@ -2510,18 +2511,25 @@ Ve.prototype.drawRings=function(){
     if(this.objectiveLabel){this.objectiveLabel.setFontSize(12).setResolution(UX.dpr).setScale(1/UX.zoom).setVisible(this.b.phase!=='menu'&&UX.zoom>=.4&&!!this.objectiveLabel.text)}
     updateWorldUI();
 };
+let __wuiSig='';
 function updateWorldUI(){
     if(!UX.ready||!Tt.actionRing)return;
-    const u=actionableUnit(),g=Tt.actionRing;g.clear();const tag=ut('active-tag'),out=ut('offscreen-unit');
-    if(!u||inputBlocked()||At||!['preparation','move','shoot'].includes(q.phase)){tag.classList.add('hidden');out.classList.add('hidden');return;}
+    const u=actionableUnit(),g=Tt.actionRing;
+    const tag=ut('active-tag'),out=ut('offscreen-unit');
+    if(!u||inputBlocked()||At||!['preparation','move','shoot'].includes(q.phase)){if(__wuiSig!=='hidden'){__wuiSig='hidden';g.clear();tag.classList.add('hidden');out.classList.add('hidden');}return;}
     const token=Tt.tokens.get(u.uid),p=screenAt(token?.x??u.x,token?.y??u.y),r=u.radius*1.23+5/UX.zoom;
+    const on=p.x>16&&p.x<UX.width-16&&p.y>45&&p.y<UX.height-48;
+    const text=shortName(u)+' · '+(q.phase==='preparation'?'배치':q.phase==='move'?'이동 차례':'사격 차례');
+    const left=Math.max(82,Math.min(UX.width-82,p.x))|0,top=Math.max(48,p.y-r*UX.zoom-11)|0;
+    const sig=u.uid+'|'+(token?.x??u.x).toFixed(1)+'|'+(token?.y??u.y).toFixed(1)+'|'+UX.zoom+'|'+r.toFixed(1)+'|'+on+'|'+text+'|'+left+'|'+top;
+    if(__wuiSig===sig)return;__wuiSig=sig;
     const x=token?.x??u.x,y=token?.y??u.y;
+    g.clear();
     g.lineStyle(5/UX.zoom,0x171b17,.95);g.strokeCircle(x,y,r);g.lineStyle(2.5/UX.zoom,0xefdc9a,1);g.strokeCircle(x,y,r);
     // Direction chevron provides a shape cue in addition to red.
     g.fillStyle(0xf4e4b9,1);g.fillTriangle(x-4/UX.zoom,y-r-7/UX.zoom,x+4/UX.zoom,y-r-7/UX.zoom,x,y-r-2/UX.zoom);
-    const on=p.x>16&&p.x<UX.width-16&&p.y>45&&p.y<UX.height-48;
     tag.classList.toggle('hidden',!on);out.classList.toggle('hidden',on);
-    if(on){tag.textContent=shortName(u)+' · '+(q.phase==='preparation'?'배치':q.phase==='move'?'이동 차례':'사격 차례');tag.style.left=Math.max(82,Math.min(UX.width-82,p.x))+'px';tag.style.top=Math.max(48,p.y-r*UX.zoom-11)+'px';}
+    if(on){tag.textContent=text;tag.style.left=left+'px';tag.style.top=top+'px';}
 }
 const clarityUpdate=Ve.prototype.update;
 Ve.prototype.update=function(t){if(!UX.reduced)clarityUpdate.call(this,t);updateWorldUI();};
@@ -2641,7 +2649,7 @@ const customSkills=new Map();
 function registerUnit(def){
     if(UX.ready)throw Error('registerUnit must run before game preload; edit data/unit-catalog.json and rebuild.');
     if(!def?.id||!def.meta||!def.profile||!['good','evil'].includes(def.meta.side))throw Error('Unit needs id, metadata, side and profile');
-    if(!window.__MESBG_ASSETS__[def.meta.file])throw Error('Missing embedded unit art: '+def.meta.file);
+    if(!__assetOk(def.meta.file))throw Error('Missing unit art: '+def.meta.file);
     const p={...structuredClone(Ft),...structuredClone(def.profile)};
     if(!Array.isArray(p.traits)||!['move','fight','strength','defence','attacks','wounds','courage','shootValue','shootRange','might','will','fate'].every(k=>Number.isFinite(p[k])&&p[k]>=0)||p.wounds<1||p.attacks<1)throw Error('Invalid unit profile: '+def.id);
     if(!Number.isFinite(def.meta.baseMm)||def.meta.baseMm<=0)throw Error('Explicit physical baseMm required: '+def.id);
@@ -3262,7 +3270,7 @@ ut("overview").onclick = () => Tt.overview();
 ut("focus").onclick = () => Tt.focus();
 const re = ut("minimap");
 re.onpointerdown = Z => { const Y = re.getBoundingClientRect(); Tt.center((Z.clientX - Y.left) / Y.width * pt.width, (Z.clientY - Y.top) / Y.height * pt.height); };
-function xe() { var $; const Z = ut("minimap"), Y = Z.getContext("2d"), b = Z.width / pt.width, H = Z.height / pt.height; Y.clearRect(0, 0, Z.width, Z.height), Y.fillStyle = "#263a37", Y.fillRect(0, 0, Z.width, Z.height); for (const p of q.terrain.filter(S => S.active))
+function xe() { var $; const Z = ut("minimap"); if (document.hidden || !Z.offsetParent) return; const Y = Z.getContext("2d"), b = Z.width / pt.width, H = Z.height / pt.height; Y.clearRect(0, 0, Z.width, Z.height), Y.fillStyle = "#263a37", Y.fillRect(0, 0, Z.width, Z.height); for (const p of q.terrain.filter(S => S.active))
     Y.fillStyle = p.kind === "block" ? "#8c9480" : "#b6a27b", Y.fillRect((p.x - p.w / 2) * b, (p.y - p.h / 2) * H, p.w * b, p.h * H); for (const p of q.alive())
     Y.fillStyle = p.side === "good" ? "#b9e8f6" : "#ee9879", Y.beginPath(), Y.arc(p.x * b, p.y * H, p.traits.includes("hero") ? 3.3 : 2.3, 0, 7), Y.fill(), p.uid === (q.activeMoverUid || q.selected) && (Y.strokeStyle = "#f17b70", Y.lineWidth = 2, Y.beginPath(), Y.arc(p.x * b, p.y * H, 6, 0, 7), Y.stroke()); const K = ($ = Tt.cameras) == null ? void 0 : $.main; K && (Y.strokeStyle = "#f0d89b", Y.lineWidth = 1, Y.strokeRect(K.worldView.x * b, K.worldView.y * H, K.worldView.width * b, K.worldView.height * H)); }
 setInterval(xe, 200);
