@@ -680,4 +680,39 @@ module.exports = [
     ['iron_hills_captain','아이언 힐즈 대장','Iron Hills Captain']] },
   { sheet:'px-fix-fingolfin.png', side:'good', faction:'elf', role:'hero', weapon:'sword', base:'XL', traits:[], units:[
     ['fingolfin_mounted','핑골핀 (기마)','Fingolfin on Rochallor']] },
+
+  // --- 추가 명물 유닛 (20) ---
+  { sheet:null, side:'good', faction:'maiar', role:'hero', weapon:'staff', base:'L', traits:[], units:[
+    ['pallando','팔란도','Pallando the Blue'],
+    ['alatar','알라타르','Alatar the Blue']] },
+  { sheet:null, side:'evil', faction:'mordor', role:'hero', weapon:'staff', base:'L', traits:[], units:[
+    ['annatar','안나타르','Annatar, Lord of Gifts']] },
+  { sheet:null, side:'evil', faction:'mordor', role:'monster', weapon:'claws', base:'XL', traits:['terror'], units:[
+    ['sauron_wolf','사우론 (늑대)','Sauron, wolf form']] },
+  { sheet:null, side:'good', faction:'eagle', role:'monster', weapon:'talons', base:'XL', traits:['fly'], units:[
+    ['landroval','란드로발','Landroval'],
+    ['meneldor','메넬도르','Meneldor']] },
+  { sheet:null, side:'good', faction:'ent', role:'monster', weapon:'club', base:'XL', traits:[], units:[
+    ['leaflock','리플락','Leaflock'],
+    ['beechbone','비치본','Beechbone']] },
+  { sheet:null, side:'good', faction:'dwarf', role:'hero', weapon:'axe', base:'L', traits:[], units:[
+    ['azaghal','아자갈','Azaghal, Lord of Belegost'],
+    ['nain','나인','Nain of the Iron Hills']] },
+  { sheet:null, side:'good', faction:'elf', role:'hero', weapon:'sword', base:'L', traits:[], units:[
+    ['maglor','마글로르','Maglor'],
+    ['gwindor','그윈도르','Gwindor of Nargothrond'],
+    ['celebrimbor','켈레브림보르','Celebrimbor']] },
+  { sheet:null, side:'good', faction:'doriath', role:'hero', weapon:'staff', base:'L', traits:[], units:[
+    ['daeron','다에론','Daeron the Minstrel']] },
+  { sheet:null, side:'good', faction:'gondor', role:'hero', weapon:'sword', base:'L', traits:[], units:[
+    ['earnur','에아르누르','Earnur, King of Gondor']] },
+  { sheet:null, side:'evil', faction:'umbar', role:'hero', weapon:'sword', base:'L', traits:[], units:[
+    ['sangarunya','상가루냐','Sangarunya, Corsair Captain']] },
+  { sheet:null, side:'good', faction:'men', role:'hero', weapon:'twohanded', base:'L', traits:[], units:[
+    ['huor','후오르','Huor son of Galdor'],
+    ['barahir','바라히르','Barahir of Ladros']] },
+  { sheet:null, side:'good', faction:'numenor', role:'hero', weapon:'sword', base:'L', traits:[], units:[
+    ['elendur','엘렌두르','Elendur, heir of Isildur']] },
+  { sheet:null, side:'evil', faction:'numenor', role:'hero', weapon:'sword', base:'L', traits:[], units:[
+    ['arpharazon','아르파라존','Ar-Pharazon the Golden']] },
 ];
