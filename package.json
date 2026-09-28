@@ -1,5 +1,9 @@
 {
   "dependencies": {
     "pngjs": "^7.0.0"
+  },
+  "scripts": {
+    "build:game": "python3 scripts/build-upgrade.py",
+    "test": "node --test tests/*.test.cjs"
   }
 }

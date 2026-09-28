@@ -1,0 +1,39 @@
+name: Recover LAST WAR BAND build
+
+on:
+  push:
+    branches:
+      - recovery/last-war-band-tactical-upgrade-v2
+    paths:
+      - .github/workflows/recover-last-war-band.yml
+
+permissions:
+  contents: write
+
+jobs:
+  build-test-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout recovery branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build standalone game
+        run: python3 scripts/build-upgrade.py
+
+      - name: Run automated tests
+        run: npm test
+
+      - name: Commit generated HTML
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add LAST-WAR-BAND_v1.9.html
+          if git diff --cached --quiet; then
+            echo "No generated HTML changes"
+            exit 0
+          fi
+          git commit -m "Build recovered LAST WAR BAND v1.9"
+          git push origin HEAD:${GITHUB_REF_NAME}
