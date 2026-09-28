@@ -158,6 +158,12 @@ P.start = function (mode) {
     this.totalKills = 0;
     this.mithrilSpent = false;
     this.recruited = [];
+    this.campDraft = null;
+    this.priorityForce = null;
+    this.bonusCP = 0;
+    this.nextRoundBuffs = [];
+    this.horses = 0;
+    this.initialDraft = false;
     this.best = this.readBest();
     this.mission = 'defense';
     this.capture = 0;
@@ -321,13 +327,11 @@ P.spawnEnemies = function (ids) {
             this.delayed.push(id);
             continue;
         }
-        const tier = Math.floor((this.wave - 1) / 10);
-        u.baseStats.fight = Math.min(10, u.baseStats.fight + Math.floor(tier / 2));
-        u.baseStats.strength = Math.min(9, u.baseStats.strength + Math.floor(tier / 3));
-        u.baseStats.wounds += tier;
+        // Composition carries the difficulty. Late veterans gain bounded skill, not endless HP.
+        const tier = Math.min(2, Math.floor(Math.max(0, this.wave - 1) / 20));
+        u.baseStats.fight = Math.min(10, u.baseStats.fight + tier);
+        u.baseStats.strength = Math.min(9, u.baseStats.strength + (tier === 2 ? 1 : 0));
         u.currentWounds = u.baseStats.wounds;
-        if (tier > 2)
-            u.baseStats.attacks += Math.floor(tier / 3);
         this.refreshUnit(u);
     }
 };
@@ -484,6 +488,7 @@ P.finishWave = function () {
     this.campStep = 'event';
     this.rollCampEvent();
     this.chosenRelic = '';
+    this.campDraft = null;
     this.rerolls = 0;
     this.warnings = [];
     for (const u of this.alive('good')) {
@@ -615,6 +620,7 @@ P.chooseEvent = function (i) {
         op.fx(this);
     this.emit('CampEvent', `${this.campEvent.title} — ${op.label}`);
     this.campEvent = null;
+    this.campDraft = null;
     this.campStep = 'recruit';
     this.save();
     return true;
@@ -644,28 +650,53 @@ P.reroll = function () { const cost = 10 + this.rerolls * 5; if (this.phase !== 
     return false; this.gold -= cost; this.rerolls++; this.initialDraft ? this.rollInitialRecruits() : this.rollRecruits(); this.save(); return true; };
 P.expand = function () { const cost = 45 + this.capacityBought * 25; if (this.phase !== 'reward' || this.gold < cost || this.capacity() >= 30)
     return false; this.gold -= cost; this.capacityBought++; this.save(); return true; };
+function relicFamily(id) {
+    if(['horseshoe','eohere_horn','rohan_standard'].includes(id))return '기병';
+    if(['quiver','arrow','elven_feather','elf_bow','cloak'].includes(id))return '사격';
+    if(['banner','westfold_shield','dwarf_axe','ithilien_blade','durin_axe'].includes(id))return '전열';
+    if(['horn','phial','narsil','silmaril','vilya','warbanner','anduril_hilt'].includes(id))return '영웅';
+    if(['lembas','mithril','narya','nenya','second_breakfast','athelas','pipeweed'].includes(id))return '생존';
+    return '원정';
+}
 P.rollRelics = function () {
     const pool = CX.relics.filter(r => r.rarity !== 3 || !this.rank(r.id));
-    const weighted = pool.map(r => ({ id: r.id, k: -Math.log(Math.max(.00001, this.rng())) / [1, .75, .42, Math.min(.32, .035 + this.wave * .015)][r.rarity] }));
-    this.relicChoices = weighted.sort((a, b) => a.k - b.k).slice(0, 3).map(x => x.id);
+    const weighted = pool.map(r => ({ id: r.id, family: relicFamily(r.id), k: -Math.log(Math.max(.00001, this.rng())) / [1, .75, .42, Math.min(.32, .035 + this.wave * .015)][r.rarity] }));
+    weighted.sort((a, b) => a.k - b.k);
+    const picks = [], families = new Set();
+    for (const r of weighted) if (!families.has(r.family)) { picks.push(r.id); families.add(r.family); if(picks.length===3)break; }
+    for (const r of weighted) if(picks.length<3&&!picks.includes(r.id))picks.push(r.id);
+    this.relicChoices = picks;
 };
 P.chooseRelic = function (id) {
     if (this.phase !== 'reward' || this.campStep !== 'relic' || !this.relicChoices.includes(id) || this.chosenRelic)
         return false;
     this.relics[id] = (this.relics[id] || 0) + 1;
     this.chosenRelic = id;
+    this.campDraft = null;
     this.campStep = 'ready';
     for (const u of this.alive())
         this.refreshUnit(u);
     this.save();
     return true;
 };
+P.selectCampChoice = function (key) {
+    if (this.phase !== 'reward') return false;
+    const step = this.campStep;
+    if (step === 'event' ? !this.campEvent?.options[Number(key)] : step === 'relic' ? !this.relicChoices.includes(key) : true) return false;
+    this.campDraft = this.campDraft?.step === step && this.campDraft.key === key ? null : {step, key};
+    this.save(); return true;
+};
+P.confirmCampChoice = function () {
+    const d = this.campDraft;
+    if (!d || d.step !== this.campStep || this.phase !== 'reward') return false;
+    return d.step === 'event' ? this.chooseEvent(Number(d.key)) : this.chooseRelic(d.key);
+};
 P.leaveCamp = function () { if (this.phase !== 'reward' || this.campStep !== 'ready')
     return false; this.units = this.units.filter(u => u.side === 'good' && u.alive && !u.temporary); this.prepareStage(); this.save(); return true; };
 P.save = function () {
     if (!['reward', 'preparation'].includes(this.phase))
         return;
-    const keys = ['gold', 'relics', 'capacityBought', 'totalKills', 'mithrilSpent', 'wave', 'cleared', 'units', 'counter', 'mode', 'best', 'campStep', 'campEvent', 'nextRoundBuffs', 'recruitOffers', 'relicChoices', 'chosenRelic', 'rerolls', 'lastGold', 'recruitDraft', 'initialDraft', 'horses'];
+    const keys = ['gold', 'relics', 'capacityBought', 'totalKills', 'mithrilSpent', 'wave', 'cleared', 'units', 'counter', 'mode', 'best', 'campStep', 'campEvent', 'nextRoundBuffs', 'recruitOffers', 'relicChoices', 'chosenRelic', 'rerolls', 'lastGold', 'recruitDraft', 'initialDraft', 'horses', 'campDraft', 'priorityForce', 'bonusCP'];
     const state = { version: CX.version };
     for (const k of keys)
         state[k] = this[k];
@@ -879,7 +910,7 @@ P.heroic = function (uid, key) {
         strike: () => { u.roundBuff.fight = (u.roundBuff.fight || 0) + 1; },
         defence: () => { u.roundBuff.defence = (u.roundBuff.defence || 0) + 2; },
         shoot: () => { u.shotsLeft = (u.shotsLeft || 0) + 1; u.precise = true; },
-        move: () => { u.roundBuff.move = (u.roundBuff.move || 0) + 90; u.movementSpent = Math.max(0, (u.movementSpent || 0) - 90); },
+        move: () => { u.roundBuff.move = (u.roundBuff.move || 0) + 90; }, // remaining() already includes the added move.
     };
     if (!T[key])
         return false;
@@ -1472,16 +1503,16 @@ Ve.prototype.drawRings = function () {
                 this._rangeStamp=stamp;
             }
             const points=this._rangePoints,z=UX.zoom||1;
-            // Soft feathered contour with a quiet fill.
-            g.fillStyle(0x9aa977,.29);g.fillPoints(points,true);
-            g.lineStyle(7/z,0x8fbfb2,.10);g.strokePoints(points,true);
-            g.lineStyle(2.6/z,0x8fbfb2,.18);g.strokePoints(points,true);
-            g.lineStyle(2/z,0xe4ddb2,.95);g.strokePoints(points,true);
+            // Two-tone boundary survives both light stone and dark ground.
+            g.fillStyle(0x91ad9c,.18);g.fillPoints(points,true);
+            g.lineStyle(5/z,0x15231d,.85);g.strokePoints(points,true);
+            g.lineStyle(2/z,0xc2decc,1);g.strokePoints(points,true);
             for(let i=0;i<points.length;i+=8){const p=points[i],a=i*Math.PI/48;g.lineStyle(1/z,0xe3d4a3,.45);g.lineBetween(p.x,p.y,p.x-Math.cos(a)*7/z,p.y-Math.sin(a)*7/z);}
             for(const t of b.terrain.filter(t=>t.active&&ht(t,u)<r+Math.max(t.w,t.h))){
                 const jump=t.kind==='cover'&&t.h<=70&&t.w<=230;
-                g.lineStyle(1.2/z,jump?0xd6ba77:0xb77c68,.5);
-                g.strokeRoundedRect(t.x-t.w/2,t.y-t.h/2,t.w,t.h,6);
+                g.lineStyle(1.5/z,jump?0xd6ba77:0xce9987,.9);
+                g.strokeRect(t.x-t.w/2,t.y-t.h/2,t.w,t.h);
+                if(!jump){g.lineStyle(1/z,0xce9987,.48);for(let x=t.x-t.w/2;x<t.x+t.w/2;x+=18/z){const d=Math.min(14/z,t.x+t.w/2-x,t.h);g.lineBetween(x,t.y-t.h/2+d,x+d,t.y-t.h/2);}}
             }
             for(const foe of b.alive(Ht(u.side)).filter(v=>ht(v,u)<=r+u.radius+v.radius+UNIT_RULES.chargeTolerance)){
                 const plan=chargePlan(u,foe,b.alive(),b.terrain,r);if(!plan)continue;
@@ -1502,10 +1533,10 @@ Ve.prototype.drawRings = function () {
             }
         }
         if (b.phase === 'shoot' && u.stats.shootRange) {
-            g.lineStyle(2, 0xcfc28f, .6);
+            g.lineStyle(2/(UX.zoom||1), 0xcfc28f, .8);
             g.strokeCircle(u.x, u.y, u.stats.shootRange);
             for (const v of b.validTargets(u)) {
-                g.lineStyle(4, 0xe49f64, 1);
+                g.lineStyle(2/(UX.zoom||1), 0xe49f64, 1);
                 g.strokeCircle(v.x, v.y, v.radius + 10);
             }
         }
@@ -1620,24 +1651,24 @@ Yt = function () {
     const u = q.unit(q.selected);
     if (u) {
         const meta = q.meta.get(u.id);
-        ut('unit').innerHTML = `<div class="unit-head">${unitImage(u.id)}<div><strong>${esc(u.name)}</strong><small>${u.side === 'good' ? '아군' : '적군'} · ${isHeroUnit(u.id)?`<span class="unit-tier tier-${heroGrade(u.id)}" style="display:inline;margin:0">${tierLabel(u.id)}</span>`:(CX.roleNames[meta.role]||meta.role)}</small><small>${q.engaged(u) ? '교전 중' : u.acted ? '행동 완료' : '행동 가능'}</small></div></div><div class="movement-readout"><b>${(q.remaining(u) / 45).toFixed(1)}″</b> / ${(u.stats.move / 45).toFixed(1)}″ 이동 <span>사용 ${(u.movementSpent / 45).toFixed(1)}″</span></div><div class="stats"><span>결투<b>${u.stats.fight}</b></span><span>힘<b>${u.stats.strength}</b></span><span>Defense<b>${u.stats.defence}</b></span><span>Attack<b>${u.stats.attacks}</b></span><span>용기<b>${u.stats.courage}</b></span></div>${u.stats.wounds > 1 ? `<div class="wound-readout">WOUNDS <b>${u.currentWounds} / ${u.stats.wounds}</b><progress max="${u.stats.wounds}" value="${u.currentWounds}"></progress></div>` : ''}${u.traits.includes('hero') ? `<div class="resources"><span>Might <b>${u.resources.might}</b></span><span>Will <b>${u.resources.will}</b></span><span>Fate <b>${u.resources.fate}</b></span></div>` : ''}<div class="traits">${u.traits.includes('mounted') ? '기병 · 돌격 +1 결투, 보병 넘어뜨리기' : u.traits.includes('spear') ? '창 지원 · 접촉하지 않아도 앞 병사의 결투에 참여' : u.stats.shootRange ? `사거리 ${(u.stats.shootRange / 45).toFixed(1)}″ · 명중 ${u.stats.shootValue}+` : u.traits.includes('terror') ? '공포 · 돌격하는 적에게 Courage 검사' : '검과 방패 · 전열 유지'}</div>`;
+        ut('unit').innerHTML = `<div class="unit-head">${unitImage(u.id)}<div><strong>${esc(u.name)}</strong><small>${u.side === 'good' ? '아군' : '적군'} · ${isHeroUnit(u.id)?`<span class="unit-tier tier-${heroGrade(u.id)}" style="display:inline;margin:0">${tierLabel(u.id)}</span>`:(CX.roleNames[meta.role]||meta.role)}</small><small>${q.engaged(u) ? '교전 중' : u.acted ? '행동 완료' : '행동 가능'}</small></div></div><div class="movement-readout"><b>${(q.remaining(u) / 45).toFixed(1)}″</b> / ${(u.stats.move / 45).toFixed(1)}″ 이동 <span>사용 ${(u.movementSpent / 45).toFixed(1)}″</span></div><div class="stats"><span>Fight<b>${u.stats.fight}</b></span><span>힘<b>${u.stats.strength}</b></span><span>Defense<b>${u.stats.defence}</b></span><span>Attack<b>${u.stats.attacks}</b></span><span>용기<b>${u.stats.courage}</b></span></div>${u.stats.wounds > 0 ? `<div class="wound-readout">HP <b>${u.currentWounds} / ${u.stats.wounds}</b><progress max="${u.stats.wounds}" value="${u.currentWounds}"></progress></div>` : ''}${u.traits.includes('hero') ? `<div class="resources"><span>Might <b>${u.resources.might}</b></span><span>Will <b>${u.resources.will}</b></span><span>Fate <b>${u.resources.fate}</b></span></div>` : ''}<div class="traits">${u.traits.includes('mounted') ? '기병 · 돌격 +1 결투, 보병 넘어뜨리기' : u.traits.includes('spear') ? '창 지원 · 후열에서 아군 베이스 접촉' : u.stats.shootRange ? `사거리 ${(u.stats.shootRange / 45).toFixed(1)}″ · 명중 ${u.stats.shootValue}+` : u.traits.includes('terror') ? '공포 · 돌격하는 적에게 Courage 검사' : '검과 방패 · 전열 유지'}</div>`;
         if (CX.skills[u.id]) {
             const skill = CX.skills[u.id], reason = q.mode === 'ai' && u.side === 'evil' ? 'AI가 조작하는 영웅입니다' : q.skillReason(u);
             ut('commands').insertAdjacentHTML('afterbegin', `<button class="hero-skill" id="hero-skill" ${At || reason ? 'disabled' : ''} title="${esc(reason || skill[3])}">${unitImage(u.id)}<span><b>${skill[0]}</b><small>${skill[3]}</small><em>${reason || `${skill[2]} ${skill[1] === 'will' ? 'Will' : 'Might'}`}</em></span></button>`);
-            ut('hero-skill').onclick = () => Rt(() => q.skill(u.uid));
+            ut('hero-skill').onclick = () => {setSheet(false);setIntent({kind:'skill',uid:u.uid,label:skill[0],detail:skill[3]+' · '+skill[2]+' '+skill[1]});};
         }
     }
     if (u && u.side === 'good' && u.traits.includes('hero') && (u.resources.might || 0) > 0 && !At && (q.phase === 'move' || q.phase === 'fight' || q.phase === 'shoot')) {
         const _ha = [['strike', '선공돌격', '결투 +1'], ['defence', '강철수비', '방어 +2'], ['shoot', '연속사격', '사격 +1회'], ['move', '영웅의 질주', '이동 +2인치']].filter(([k]) => !(u.heroics || {})[k] && (k !== 'shoot' || u.stats.shootRange));
         if (_ha.length) {
             ut('commands').insertAdjacentHTML('beforeend', '<div class="heroic-row" style="display:flex;gap:6px;flex-wrap:wrap;margin-top:7px">' + _ha.map(([k, l, d]) => '<button class="heroic-btn" data-heroic="' + k + '" title="' + d + ' · Might 1 소모" style="flex:1;min-width:70px;background:#2d2417;border:1px solid #8f7540;border-radius:7px;padding:5px 3px;color:#e8d5a8;font:600 12px Pretendard,ui-sans-serif;cursor:pointer">' + l + '<small style="display:block;font-weight:400;color:#b9a077">' + d + '</small></button>').join('') + '</div>');
-            document.querySelectorAll('.heroic-btn').forEach(b => b.onclick = () => { q.heroic(u.uid, b.dataset.heroic); Yt(); });
+            document.querySelectorAll('.heroic-btn').forEach(b => b.onclick = () => {setSheet(false);setIntent({kind:'heroic',uid:u.uid,key:b.dataset.heroic,label:b.firstChild.textContent,detail:b.title});});
         }
     }
     const inv = ut('relic-inventory');
-    inv.innerHTML = Object.entries(q.relics || {}).map(([id, rank]) => { const r = CX.relics.find(r => r.id === id); return `<button class="owned-relic rarity-${r.rarity}" type="button" data-owned-relic="${id}" aria-label="${esc(r.name)} · ${rank}중첩 · ${esc(r.text)}">${relicIcon(r, 32)}<small>${rank}</small></button>`; }).join('') || '<span class="mini">첫 승리 후 유물을 얻습니다.</span>';
+    inv.innerHTML = Object.entries(q.relics || {}).map(([id, rank]) => { const r = CX.relics.find(r => r.id === id); return `<button class="owned-relic rarity-${r.rarity}" type="button" data-owned-relic="${id}" aria-label="${esc(r.name)} · ${rank}중첩 · ${esc(r.text)}">${relicIcon(r, 32)}<small>${rank}</small></button>`; }).join('') || '<span class="mini">유물 없음</span>';
     if (q.phase === 'preparation')
-        ut('turn-indicator').innerHTML = '<span>배치 단계</span><strong>다음 임무에 맞춰 전열을 정하세요</strong>';
+        ut('turn-indicator').innerHTML = '<span>배치 단계</span><strong>출전 준비</strong>';
     const turn = q.unit(q.activeMoverUid || q.selected);
     if (turn && ['move', 'shoot'].includes(q.phase))
         ut('turn-indicator').innerHTML = `<span>${q.mode === 'ai' && q.side === 'evil' ? '상대가 행동 중' : '현재 선택'}</span><strong>${esc(turn.name)}</strong><small>${q.phase === 'move' ? (q.remaining(turn) / 45).toFixed(1) + '″ 남음' : '사격 단계'}</small>`;
@@ -1658,7 +1689,7 @@ Qe = function () {
             canResume = !!localStorage.getItem('mesbg-endless-save');
         }
         catch { }
-        box.innerHTML = `<div class="modal campaign-menu"><div class="eyebrow">MIDDLE-EARTH · ENDLESS TACTICAL DEFENSE</div><div class="intro-layout"><div><h1>서녘의<br>마지막 전열</h1><div class="subtitle">THE LAST WAR BAND</div><p>영웅과 병사를 골라 원정대를 꾸리세요.<br>살아남은 이들을 이끌고, 동료를 영입하고,<br>중간계의 유물로 다음 전투를 준비하세요.</p></div><div class="hero-tokens">${unitImage('aragorn')}${unitImage('rohan_rider')}</div></div><div class="menu-buttons"><button id="start-ai" class="primary">새 원정 · VS AI →</button>${canResume ? '<button id="resume" class="secondary">정비 지점부터 계속</button>' : ''}<button id="start-hotseat" class="secondary">2인 번갈아 플레이</button><button id="rank-btn" class="secondary">명예의 전당</button></div><div class="menu-notes"><span>끝없는 스테이지</span><span>영입 · 유물 · 전술</span><span>최고 기록 ${q.readBest()} STAGE</span></div><p class="mini">MESBG에서 영감을 받은 간소화 전술 규칙 · 원정은 정비 지점에서 자동 저장됩니다.</p></div>`;
+        box.innerHTML = `<div class="modal campaign-menu"><div class="eyebrow">MIDDLE-EARTH · ENDLESS TACTICAL DEFENSE</div><div class="intro-layout"><div><h1>서녘의<br>마지막 전열</h1><div class="subtitle">THE LAST WAR BAND</div><p>중간계의 끝없는 전쟁</p></div><div class="hero-tokens">${unitImage('aragorn')}${unitImage('rohan_rider')}</div></div><div class="menu-buttons"><button id="start-ai" class="primary">새 원정</button>${canResume ? '<button id="resume" class="secondary">원정 계속</button>' : ''}<button id="start-hotseat" class="secondary">2인 번갈아 플레이</button><button id="rank-btn" class="secondary">명예의 전당</button></div><div class="menu-notes"><span>최고 기록 ${q.readBest()} STAGE</span></div><p class="mini">정비 단계 자동 저장 · MESBG 기반 하우스 룰</p></div>`;
         ut('start-ai').onclick = () => Rt(() => q.start('ai'));
         ut('start-hotseat').onclick = () => Rt(() => q.start('hotseat'));
         if (canResume)
@@ -1674,12 +1705,12 @@ Qe = function () {
             body = `<p>금화 <b>${q.gold}</b> · 부대 ${q.permanent().length}/${q.capacity()}. 원하는 동료를 영입하거나 금화를 아끼세요.</p><div class="recruit-cards">${q.recruitOffers.map((o, i) => { const m = q.meta.get(o.id), p = zt[o.id], cost = q.price(o.id), full = q.permanent().length >= q.capacity(); return `<button class="recruit-card tier-${heroGrade(o.id)} ${o.bought ? 'purchased' : ''}" data-recruit="${i}" ${o.bought || q.gold < cost || full ? 'disabled' : ''}>${unitImage(o.id)}<span class="recruit-grade">${tierLabel(o.id)}</span><b>${esc(m.name_ko)}</b><small>${CX.roleNames[m.role] || m.role}</small><p>${p.traits.includes('spear') ? '후열 창 지원' : p.traits.includes('mounted') ? '빠른 돌격과 우회' : p.shootRange ? '원거리 사격' : p.defence >= 7 ? '단단한 전열' : '근접 전투'}${CX.skills[o.id] ? '<br>' + CX.skills[o.id][0] : ''}</p><em>${o.bought ? '합류 완료' : full ? '부대 정원 초과' : cost + ' 금화'}</em></button>`; }).join('')}</div><div class="camp-actions"><button id="reroll" class="secondary" ${q.gold < 10 + q.rerolls * 5 ? 'disabled' : ''}>후보 교체 · ${10 + q.rerolls * 5} 금화</button><button id="expand" class="secondary" ${q.gold < 45 + q.capacityBought * 25 || q.capacity() >= 30 ? 'disabled' : ''}>정원 +2 · ${45 + q.capacityBought * 25} 금화</button><button id="to-relic" class="primary">영입 완료 · 유물 선택 →</button></div>`;
         if (step === 'event') { const ev = q.campEvent; body = ev ? `<p>${esc(ev.text)}</p><div class="reward-cards">${ev.options.map((o, i) => `<button class="reward rarity-common" data-evopt="${i}"><b>${esc(o.label)}</b><p>${esc(o.sub)}</p></button>`).join('')}</div>` : ''; }
         if (step === 'relic')
-            body = `<p>세 가지 유물 중 하나를 선택하세요. 효과는 원정 내내 유지됩니다.</p><div class="reward-cards">${q.relicChoices.map(id => { const r = CX.relics.find(r => r.id === id); return `<button class="reward rarity-${r.rarity}" data-relic="${id}">${relicIcon(r, 88)}<small>${CX.rarityNames[r.rarity]}${q.rank(id) ? ' · ' + (q.rank(id) + 1) + '중첩' : ''}</small><b>${r.name}</b><p>${r.text}</p></button>`; }).join('')}</div>`;
+            body = `<div class="reward-cards">${q.relicChoices.map(id => { const r = CX.relics.find(r => r.id === id); return `<button class="reward rarity-${r.rarity}" data-relic="${id}">${relicIcon(r, 88)}<small>${CX.rarityNames[r.rarity]} · ${relicFamily(id)}${q.rank(id) ? ' · ' + (q.rank(id) + 1) + '중첩' : ''}</small><b>${r.name}</b><p>${r.text}</p></button>`; }).join('')}</div>`;
         if (step === 'ready') {
             const next = q.stageInfo(q.wave + 1);
             body = `<p>동료 ${q.permanent().length}명 · 유물 ${Object.keys(q.relics).length}종 · 남은 금화 ${q.gold}</p><div class="next-stage"><span>다음 전장</span><h3>${CX.mapNames[next.map]} · ${CX.missionNames[next.mission]}</h3><p>${q.rank('palantir') ? Object.entries(next.ids.reduce((a, id) => (a[id] = (a[id] || 0) + 1, a), {})).map(([id, n]) => q.meta.get(id).name_ko + ' ×' + n).join(' · ') : next.boss ? '정찰 보고 · ' + q.meta.get(next.boss).name_ko + ' 출현' : '정찰 보고 · 적 ' + next.ids.length + '기 접근'}</p></div><div class="camp-roster">${q.permanent().map(u => `<span title="${u.name}">${unitImage(u.id)}<small>${u.currentWounds}/${u.stats.wounds}</small></span>`).join('')}</div><button id="leave-camp" class="primary">부대 정비 · 배치 화면으로 →</button>`;
         }
-        box.innerHTML = `<div class="modal camp"><div class="eyebrow">STAGE ${q.wave} CLEARED · +${q.lastGold} GOLD</div><h2>살아남은 이들과 함께.</h2><div class="camp-steps">${steps.map((s, i) => `<span class="${step === s ? 'current' : ''}">${i + 1}. ${['전장 이벤트', '동료 영입', '유물 선택', '다음 전투'][i]}</span>`).join('')}</div>${body}</div>`;
+        box.innerHTML = `<div class="modal camp"><div class="eyebrow">STAGE ${q.wave} CLEARED · +${q.lastGold} GOLD</div><h2>${step==='event'?(q.campEvent?.title||'야영지'):step==='relic'?'유물 선택':'출전 준비'}</h2><div class="camp-steps">${steps.map((s, i) => `<span class="${step === s ? 'current' : ''}">${i + 1}. ${['전장 이벤트', '동료 영입', '유물 선택', '다음 전투'][i]}</span>`).join('')}</div>${body}</div>`;
         box.querySelectorAll('[data-recruit]').forEach(el => el.onclick = () => { q.recruit(Number(el.dataset.recruit)); wt.play('reward_select'); Yt(); });
         if (ut('reroll'))
             ut('reroll').onclick = () => { q.reroll(); Yt(); };
@@ -1687,8 +1718,8 @@ Qe = function () {
             ut('expand').onclick = () => { q.expand(); Yt(); };
         if (ut('to-relic'))
             ut('to-relic').onclick = () => { q.campStep = 'relic'; q.save(); Yt(); };
-        box.querySelectorAll('[data-evopt]').forEach(el => el.onclick = () => { q.chooseEvent(Number(el.dataset.evopt)); wt.play('reward_select'); Yt(); });
-        box.querySelectorAll('[data-relic]').forEach(el => el.onclick = () => { q.chooseRelic(el.dataset.relic); wt.play('reward_select'); Yt(); });
+        box.querySelectorAll('[data-evopt]').forEach(el => el.onclick = () => { q.selectCampChoice(el.dataset.evopt); wt.play('ui_select'); Yt(); });
+        box.querySelectorAll('[data-relic]').forEach(el => el.onclick = () => { q.selectCampChoice(el.dataset.relic); wt.play('ui_select'); Yt(); });
         if (ut('leave-camp'))
             ut('leave-camp').onclick = () => Rt(() => q.leaveCamp());
         return;
@@ -1720,7 +1751,7 @@ ut('wait').onclick = () => { const u = q.unit(q.activeMoverUid || q.selected); i
     Xt('아직 행동할 수 있습니다. 종료하려면 한 번 더 누르세요.');
     return;
 } waitConfirm = ''; Rt(() => q.wait(u.uid)); };
-document.addEventListener('keydown', e => { if (e.target.matches('input,select') || At || Qt)
+document.addEventListener('keydown', e => { if (e.target.matches('input,select,textarea') || e.target.closest('button,[contenteditable]') || At || Qt || inputBlocked())
     return; if (e.key === 'Tab') {
     e.preventDefault();
     const list = q.eligible('good');
@@ -1732,10 +1763,8 @@ document.addEventListener('keydown', e => { if (e.target.matches('input,select')
     Tt.focus(); if (e.key.toLowerCase() === 'q' || e.key.toLowerCase() === 'e')
     Rt(() => q.rotate(q.selected, e.key.toLowerCase() === 'q' ? -45 : 45)); if (e.code === 'Space') {
     e.preventDefault();
-    if (q.phase === 'fight' || q.phase === 'preparation')
-        ut('action').click();
-    else
-        ut('wait').click();
+    if(e.target.closest('button,[contenteditable]')||inputBlocked())return;
+    ut('dock-primary').click();
 } });
 // One persistent info panel for hover, keyboard focus and touch taps.
 const relicInfo=document.createElement('div');relicInfo.id='relic-info';relicInfo.className='hidden';relicInfo.setAttribute('role','tooltip');Ke.append(relicInfo);
@@ -1845,16 +1874,16 @@ ut('help').onclick = () => { if (At)
  * world pixels are intentionally separate; only this adapter moves camera.
  * No network dependencies. Native Pointer Events own all field gestures.
  * -------------------------------------------------------------------- */
-const UX = {version:'1.4.0-mobile', dpr:1, zoom:.7, width:1, height:1, ready:false,
+const UX = {version:'1.9-hud-polish', dpr:1, zoom:.7, width:1, height:1, ready:false,
     cameraMode:'tactical', pointers:new Map(), gesture:null, stage:null, rosterKey:'', reduced:matchMedia('(prefers-reduced-motion: reduce)').matches};
 const mobileLayout = () => matchMedia('(max-width:900px)').matches || document.body.classList.contains('force-mobile');
 const touchLayout = () => matchMedia('(pointer:coarse)').matches || mobileLayout();
 const icon = (body) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${body}</svg>`;
 const crossIcon = icon('<path d="M8 3H3v5m13-5h5v5M3 16v5h5m8 0h5v-5"/><circle cx="12" cy="12" r="4"/>');
 const tree = '<svg viewBox="0 0 48 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M24 49V14M24 37L12 29l-6-1m18 2L35 21l6-2M24 23l-8-6-2-7M24 31l-12-9-6-1M24 40l11-7 7-1M24 21l7-8 1-5M24 47l-10 7h20l-10-7M12 29l-3-7M35 21l1-7M35 33l3-7M16 17l-7-3M31 13l7-3"/><path d="m24 2 1.3 3.1 3.4.3-2.5 2.2.7 3.3L24 9.1 21.1 11l.7-3.4-2.5-2.2 3.4-.3z" fill="currentColor" stroke="none"/><path d="M7 57h34M13 60h22" opacity=".7"/><circle cx="6" cy="11" r="1"/><circle cx="42" cy="11" r="1"/><circle cx="3" cy="18" r="1"/><circle cx="45" cy="18" r="1"/></svg>';
-document.title = '서녘의 마지막 전열 · 모바일 조작 개선 1.4';
+document.title = 'LAST WAR BAND · 서녘의 마지막 전열';
 document.querySelector('meta[name="theme-color"]').content='#14212b';
-document.querySelector('.sigil').innerHTML = tree;
+document.querySelector('.sigil').innerHTML = '<img src="'+Ut('dice-faces/minastirith-emblem.png')+'" alt="곤도르">';
 document.querySelector('.brand').innerHTML='<small>THE LAST WAR BAND</small><strong>서녘의 마지막 전열</strong>';
 [...document.querySelectorAll('.metric small')].forEach((e,i)=>e.textContent=['공세','라운드','지휘력','금화','원정대'][i]);
 document.querySelector('.top').insertAdjacentHTML('beforeend',`<button id="settings-toggle" class="iconbtn" aria-label="진행 속도·자동·음향 설정" aria-expanded="false">${icon('<path d="M4 6h16M4 12h16M4 18h16"/><circle cx="9" cy="6" r="2" fill="#18232c"/><circle cx="16" cy="12" r="2" fill="#18232c"/><circle cx="8" cy="18" r="2" fill="#18232c"/>')}</button>`);
@@ -1868,14 +1897,14 @@ ut('focus').innerHTML=crossIcon+'<span>현재 병사</span>';ut('focus').classLi
 ut('zoomout').setAttribute('aria-label','전장 축소');ut('zoomin').setAttribute('aria-label','전장 확대');
 field.append(ut('overview'));ut('overview').classList.add('hidden');ut('overview').style.cssText='position:absolute;bottom:64px;left:164px;z-index:9;background:#14202cee';
 ut('minimap').setAttribute('aria-label','전술 지도. 위치를 누르면 해당 지역으로 이동');
-const dock=document.createElement('div');dock.id='command-dock';dock.innerHTML=`<div class="dock-main"><img class="dock-portrait" id="dock-portrait" alt=""><div class="dock-text"><span class="dock-eyebrow" id="dock-eyebrow">원정대 지휘</span><strong id="dock-name">병사를 선택하세요</strong><div class="dock-status" id="dock-status"></div></div><button id="dock-primary" class="dock-primary" disabled>전투 시작</button></div><div class="dock-sub"><div class="roster-strip" id="roster-strip" aria-label="원정대 병사 선택"></div><div class="roster-tools"><button id="next-unit" class="secondary" title="다음 행동 가능 병사" aria-label="다음 행동 가능 병사">다음</button><button id="dock-detail" class="secondary" aria-controls="battle-sheet" aria-expanded="false">명령 ⌃</button></div></div>`;
+const dock=document.createElement('div');dock.id='command-dock';dock.innerHTML=`<div class="dock-main"><img class="dock-portrait" id="dock-portrait" alt=""><div class="dock-text"><span class="dock-eyebrow" id="dock-eyebrow">원정대 지휘</span><strong id="dock-name">병사를 선택하세요</strong><div class="dock-status" id="dock-status"></div></div><button id="dock-primary" class="dock-primary" disabled>전투 시작</button></div><div id="dock-vitals" aria-label="선택 병사 능력치"></div><div class="dock-sub"><div class="roster-strip" id="roster-strip" aria-label="원정대 병사 선택"></div><div class="roster-tools"><button id="next-unit" class="secondary" title="다음 행동 가능 병사" aria-label="다음 행동 가능 병사">다음</button><button id="dock-detail" class="secondary" aria-controls="battle-sheet" aria-expanded="false">명령 ⌃</button></div></div>`;
 document.querySelector('.battle-column').insertBefore(dock,document.querySelector('.hint'));
 document.querySelector('.hint b').textContent='야전 지침';
 const aside=document.querySelector('.aside');aside.id='battle-sheet';aside.setAttribute('aria-label','병사 상세 및 지휘 명령');
 Ke.insertAdjacentHTML('beforeend','<button id="sheet-backdrop" tabindex="-1" aria-label="명령 패널 닫기"></button>');
 const sec=aside.querySelectorAll('.section-label');if(sec[0])sec[0].textContent='전장 임무';if(sec[1])sec[1].textContent='선택한 병사';if(sec[2])sec[2].textContent='지휘 명령';
 ut('sheet-toggle').textContent='원정대 · 지휘 명령';
-function setSheet(open){aside.classList.toggle('open',open);ut('sheet-backdrop').classList.toggle('open',open);ut('dock-detail').setAttribute('aria-expanded',String(open));if(mobileLayout()){aside.inert=!open;aside.setAttribute('aria-hidden',String(!open))}if(open)aside.scrollTop=0;}
+function setSheet(open){aside.classList.toggle('open',open);ut('sheet-backdrop').classList.toggle('open',open);ut('dock-detail').setAttribute('aria-expanded',String(open));aside.inert=!open;aside.setAttribute('aria-hidden',String(!open));if(open)aside.scrollTop=0;}
 setSheet(false);
 ut('sheet-toggle').onclick=()=>setSheet(false);ut('sheet-backdrop').onclick=()=>setSheet(false);ut('dock-detail').onclick=()=>setSheet(!aside.classList.contains('open'));
 ut('settings-toggle').onclick=()=>{const a=document.querySelector('.top-actions'),on=!a.classList.contains('open');a.classList.toggle('open',on);ut('settings-toggle').setAttribute('aria-expanded',String(on));};
@@ -1924,7 +1953,7 @@ function installFieldInput(scene){
     },{passive:false});
     canvas.addEventListener('pointermove',e=>{
         if(!UX.pointers.has(e.pointerId)){
-            if(e.pointerType!=='mouse'||At||inputBlocked())return;
+            if(e.pointerType!=='mouse'||At||UX.intent||inputBlocked())return;
             const p=point(e),wp=worldAt(p.x,p.y),u=actionableUnit();
             if(u&&q.phase==='move'&&performance.now()-(UX.previewAt||0)>100){UX.previewAt=performance.now();scene.preview=wp;scene.previewPlan=ve(u,wp,q.alive(),q.terrain,q.remaining(u));const foe=scene.hit(wp);scene.chargeTarget=foe&&foe.side!==u.side?{u:foe,plan:ve(u,ue(u,foe),q.alive(),q.terrain,q.remaining(u),{chargeTarget:foe})}:null;scene.drawRings();}
             return;
@@ -1943,7 +1972,7 @@ function installFieldInput(scene){
         scene.dragUnit='';scene.preview=undefined;scene.previewPlan=null;scene.chargeTarget=null;
         if(!cancel&&!At&&!inputBlocked()&&g){const pos=worldAt(p.x,p.y);
             if(g.mode==='tap'){const hit=scene.hit(pos);if(hit)scene.onUnit(hit.uid);else scene.onPoint(pos);}
-            else if(g.mode==='unit-drag')scene.onDrop(g.hit,pos);
+            else if(g.mode==='unit-drag'){const u=q.unit(g.hit);if(u?.side===q.side){Zt(u.uid);if(q.selected===u.uid)planIntent(pos,scene.hit(pos)?.side!==u.side?scene.hit(pos):null);}}
         }
         scene.drawRings();
     };
@@ -2006,7 +2035,7 @@ function updateWorldUI(){
     if(!u||inputBlocked()||At||!['preparation','move','shoot'].includes(q.phase)){tag.classList.add('hidden');out.classList.add('hidden');return;}
     const token=Tt.tokens.get(u.uid),p=screenAt(token?.x??u.x,token?.y??u.y),r=u.radius*1.23+5/UX.zoom;
     const x=token?.x??u.x,y=token?.y??u.y;
-    g.lineStyle(5/UX.zoom,0x351923,.84);g.strokeCircle(x,y,r);g.lineStyle(2.5/UX.zoom,0xf0746c,1);g.strokeCircle(x,y,r);
+    g.lineStyle(5/UX.zoom,0x171b17,.95);g.strokeCircle(x,y,r);g.lineStyle(2.5/UX.zoom,0xefdc9a,1);g.strokeCircle(x,y,r);
     // Direction chevron provides a shape cue in addition to red.
     g.fillStyle(0xf4e4b9,1);g.fillTriangle(x-4/UX.zoom,y-r-7/UX.zoom,x+4/UX.zoom,y-r-7/UX.zoom,x,y-r-2/UX.zoom);
     const on=p.x>16&&p.x<UX.width-16&&p.y>45&&p.y<UX.height-48;
@@ -2028,7 +2057,7 @@ function resizeBattle(force=false){
     const center=UX.ready?cameraCenter():{x:1165,y:650},z=UX.zoom;
     resetGestures();UX.width=w;UX.height=h;UX.dpr=dpr;
     if(UX.ready){const scale=Tt.scale;scale.zoom=1/dpr;scale._resetZoom=true;scale.resize(Math.round(w*dpr),Math.round(h*dpr));Tt.game.canvas.style.width=w+'px';Tt.game.canvas.style.height=h+'px';scale.refresh();Tt.cameras.main.setSize(Math.round(w*dpr),Math.round(h*dpr));setCamera(center.x,center.y,UX.cameraMode==='overview'?fitZoom():z);}
-    if(!mobileLayout()){aside.inert=false;aside.removeAttribute('aria-hidden');setSheet(false)}else{aside.inert=!aside.classList.contains('open');aside.setAttribute('aria-hidden',String(!aside.classList.contains('open')))}
+    aside.inert=!aside.classList.contains('open');aside.setAttribute('aria-hidden',String(aside.inert));
 }
 let resizeFrame=0;
 function queueResize(){cancelAnimationFrame(resizeFrame);resizeFrame=requestAnimationFrame(()=>resizeBattle())}
@@ -2039,7 +2068,7 @@ const pendingFonts=document.fonts.load('16px Pretendard');pendingFonts.then(()=>
 function nextUnit(){if(At||Qt)return;const list=q.phase==='preparation'?q.alive('good'):q.eligible(q.side);if(!list.length||q.mode==='ai'&&q.side==='evil')return;const i=list.findIndex(u=>u.uid===q.selected);Zt(list[(i+1)%list.length].uid);Tt.focus()}
 ut('next-unit').onclick=nextUnit;
 function renderDock(){
-    const active=actionableUnit(),selected=q.unit(q.selected),u=active||(selected?.alive?selected:null),busy=At||q.mode==='ai'&&q.side==='evil'&&['move','shoot'].includes(q.phase);
+    const active=actionableUnit(),selected=q.unit(q.selected),u=selected?.alive?selected:active,busy=At||q.mode==='ai'&&q.side==='evil'&&['move','shoot'].includes(q.phase);
     const phase=q.phase;
     const steps=[['preparation','배치'],['move','이동 · 돌격'],['shoot','사격'],['fight','근접전']];
     ut('phases').innerHTML=steps.map(([id,label],i)=>`<span class="phase ${phase===id?'active':''}" ${phase===id?'aria-current="step"':''}><i>${String(i+1).padStart(2,'0')}</i>${label}</span>`).join('')+`<span class="turn">${phase==='preparation'?'출전 준비':At?'행동 처리 중':phase==='fight'?'교전 판정':q.side==='good'?'아군 차례':'적군 차례'}</span>`;
@@ -2053,13 +2082,13 @@ function renderDock(){
     if (_info && _info.boss)
         _chips += '<span class="hud-mod" style="border-color:#e08a5aaa;color:#ffb08a">보스 · ' + esc(q.meta.get(_info.boss).name_ko) + '</span>';
     ut('ux-place').innerHTML = esc(place) + _chips;
-    ut('wave').textContent=(q.wave||1)+' / '+(Math.floor((Math.max(1,q.wave)-1)/5)*5+5);
+    ut('wave').textContent=String(phase==='preparation'?q.wave+1:q.wave||1).padStart(2,'0');
     const rules={defense:`라운드 끝 · 구역에 적 ${q.breachCount}기면 패배`,annihilation:'남은 적을 모두 격파',hold:`거점 우세 ${q.capture||0}/3 라운드`,survive:`생존 ${q.round||0}/5 라운드`,breakthrough:'아군 2기를 남쪽 돌파선으로',rescue:q.rescued?`구출 후 생존 ${q.capture||0}/3`:'포로 구역 확보 후 3라운드 생존',commander:'보스를 처치하면 승리'};
     ut('ux-mission').innerHTML=`<em>${CX.missionNames[q.mission]||'원정 준비'}</em>${esc(rules[q.mission]||'병사를 선택해 전열을 정하세요')}`;
     const image=ut('dock-portrait');if(u){const src=Ut(q.meta.get(u.id).file);if(image.getAttribute('src')!==src)image.src=src;image.classList.remove('hidden')}else image.classList.add('hidden');
-    ut('dock-eyebrow').textContent=phase==='preparation'?'전열 배치':At?'행동 처리 중':active?'지금 조작할 병사':busy?'상대의 차례':phase==='fight'?'근접전 판정':'원정대 지휘';
+    ut('dock-eyebrow').textContent=phase==='preparation'?'전열 배치':At?'행동 처리 중':active?'선택 병사':busy?'상대의 차례':phase==='fight'?'근접전 판정':'원정대 지휘';
     ut('dock-name').textContent=u?shortName(u):phase==='fight'?(q.fightQueue.length?'교전 중인 전열':'다음 라운드 준비'):'병사를 선택하세요';
-    ut('dock-status').innerHTML=phase==='preparation'?'선택 후 빈 땅을 눌러 배치':u&&phase==='move'?`이동 <b>${(q.remaining(u)/45).toFixed(1)}″</b> · ${q.engaged(u)?'교전 중':u.acted?'이동 완료':'밝은 범위 안으로'}`:u&&phase==='shoot'?`사거리 <b>${(u.stats.shootRange/45).toFixed(0)}″</b> · 주황 고리 적을 선택`:phase==='fight'?`남은 교전 <b>${q.fightQueue.length}</b>곳`:'원정대를 정비하세요';
+    ut('dock-status').textContent=u?(q.engaged(u)?'교전 중':u.acted?'행동 완료':phase==='preparation'?'배치':q.canAct(u)?'행동 가능':'대기'):phase==='fight'?'남은 교전 '+q.fightQueue.length:'원정 정비';
     const primary=ut('dock-primary');primary.classList.remove('confirm');
     if(phase==='preparation')primary.textContent='전투 시작 →';else if(phase==='fight')primary.textContent=q.fightQueue.length?'교전 해결 →':'라운드 종료';else primary.textContent=busy?'상대 행동 중':phase==='move'?'이동 종료':'사격 대기';
     primary.disabled=At||AUTO||busy||!['preparation','move','shoot','fight'].includes(phase)||(['move','shoot'].includes(phase)&&!active);
@@ -2086,7 +2115,7 @@ Ve.prototype.play=async function(event){await clarityPlay.call(this,event);if(ev
 const claritySchedule=me;me=function(){if(document.hidden){clearTimeout(Jt);return;}claritySchedule();};
 // Switching units no longer schedules a late re-selection behind a later turn.
 Zt=function(uid){const u=q.unit(uid);if(!u?.alive||At||Qt)return;if(q.phase==='move'&&q.activeMoverUid&&uid!==q.activeMoverUid){if(u.side===q.side)Rt(()=>{q.wait(q.activeMoverUid);q.selected=uid});else Xt('이동 중인 병사의 이동을 먼저 종료하세요.');return;}Tt.preview=undefined;Tt.previewPlan=null;Tt.chargeTarget=null;q.selected=uid;wt.play('ui_select');Yt();};
-const helpHandler=ut('help').onclick;ut('help').onclick=()=>{setSheet(false);helpHandler();const entries=ut('overlay').querySelectorAll('.help-list p');if(entries[5])entries[5].innerHTML='<b>모바일 조작 · 상태 표시</b><br>병사 탭 → 목적지 탭. 한 손가락 드래그는 카메라 이동, 두 손가락은 확대·축소입니다. 드래그 후 놓아도 이동 명령은 나가지 않습니다. 빨간 고리와 화살표는 현재 행동 병사, 회색 병사는 현재 단계의 행동 완료입니다. 전사자는 전장에서 사라집니다. 하단 명령에서 능력과 상세 수치를 확인하세요.';};
+const helpHandler=ut('help').onclick;ut('help').onclick=()=>{setSheet(false);helpHandler();const entries=ut('overlay').querySelectorAll('.help-list p');if(entries[5])entries[5].innerHTML='<b>모바일 조작 · 상태 표시</b><br>병사 탭 → 목적지 탭. 한 손가락 드래그는 카메라 이동, 두 손가락은 확대·축소입니다. 드래그 후 놓아도 이동 명령은 나가지 않습니다. 금색 고리와 화살표는 현재 행동 병사, 회색 병사는 현재 단계의 행동 완료입니다. 전사자는 전장에서 사라집니다. 하단 명령에서 능력과 상세 수치를 확인하세요.';};
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){setSheet(false);document.querySelector('.top-actions').classList.remove('open');ut('settings-toggle').setAttribute('aria-expanded','false');if(Qt)ut('close-help')?.click();}});
 window.MESBG.ui={version:UX.version,state:UX,resize:()=>resizeBattle(true),worldToScreen:screenAt,screenToWorld:worldAt,focus:()=>Tt.focus(),setCamera,active:()=>actionableUnit()?.uid||'',openSheet:setSheet,update:()=>Yt()};
 
@@ -2105,7 +2134,8 @@ function estimatePoints(p) {
 const UnitCatalog={};
 for(const [id,meta] of q.meta){if(!zt[id]||meta.side==='terrain')continue;
     const profile=structuredClone(zt[id]),points=estimatePoints(profile);
-    meta.baseMm=meta.baseMm||(id==='morgoth'?132*2/UNIT_RULES.worldPerMm:($t[meta.base]||38)*2/UNIT_RULES.worldPerMm);if(profile.traits.includes('mounted'))meta.baseMm=Math.max(meta.baseMm,50);
+    if(id==='cave_troll')meta.baseMm=60; // units.json physical footprint, independent of token art size
+    meta.baseMm=meta.baseMm||(id==='morgoth'?132*2/UNIT_RULES.worldPerMm:($t[meta.base]||38)*2/UNIT_RULES.worldPerMm);if(profile.traits.includes('mounted'))meta.baseMm=Math.max(meta.baseMm,40);
     UnitCatalog[id]={id,enabled:true,meta:structuredClone(meta),profile,points,
         recruitCost:Math.max(30,Math.round(points*.8/5)*5),rarity:heroGrade(id,points,meta.role),
         unlockWave:profile.traits.includes('hero')?2:0,uniqueKey:profile.traits.includes('hero')?id.replace(/_(mounted|foot)$/,''):null,
@@ -2118,7 +2148,10 @@ P.rollRecruits=function(){
     const owned=new Set(this.permanent().map(u=>UnitCatalog[u.id]?.uniqueKey).filter(Boolean));
     const base=Object.values(UnitCatalog).filter(d=>d.enabled&&this.meta.has(d.id)&&(d.meta.side==='good'||this.relics.darkpact&&d.meta.side==='evil'));
     const heroes=base.filter(d=>isH(d)&&this.wave>=(d.unlockWave||0)&&!owned.has(d.uniqueKey||d.id)).map(d=>({id:d.id,r:this.rng()})).sort((a,b)=>a.r-b.r).slice(0,3);
-    const troops=base.filter(d=>d.recruitable&&!isH(d)).map(d=>({id:d.id,r:this.rng()})).sort((a,b)=>a.r-b.r).slice(0,7);
+    const candidates=base.filter(d=>d.recruitable&&!isH(d)).map(d=>({id:d.id,r:this.rng(),role:d.profile.traits.includes('mounted')?'cavalry':d.profile.shootRange?'archer':d.profile.traits.includes('spear')?'support':'infantry'})).sort((a,b)=>a.r-b.r);
+    const troops=[];
+    for(const role of ['infantry','support','archer','cavalry']){const d=candidates.find(d=>d.role===role);if(d)troops.push(d);}
+    for(const d of candidates)if(troops.length<7&&!troops.includes(d))troops.push(d);
     this.recruitOffers=[...heroes,...troops].map(d=>({id:d.id,bought:false}));
 };
 // Explicit registration happens before Phaser preload, so missing art can never silently enter recruitment.
@@ -2133,7 +2166,7 @@ function registerUnit(def){
     if(def.skill&&!customSkills.has(def.id))throw Error('A new skill requires a registered handler: '+def.id);
     const points=def.points??estimatePoints(p),cost=def.recruitCost??Math.max(30,Math.round(points*.8/5)*5);
     if(!Number.isInteger(points)||points<=0||!Number.isInteger(cost)||cost<0)throw Error('Invalid points/cost');
-    const meta={...def.meta,id:def.id};if(p.traits.includes('mounted'))meta.baseMm=Math.max(meta.baseMm||0,50);
+    const meta={...def.meta,id:def.id};if(p.traits.includes('mounted'))meta.baseMm=Math.max(meta.baseMm||0,40);
     zt[def.id]=p;q.meta.set(def.id,meta);
     UnitCatalog[def.id]={...def,meta,profile:p,points,recruitCost:cost,enabled:def.enabled!==false,rarity:isHeroUnit(def.id,def.meta.role)?heroGrade(def.id,points,'hero'):(def.rarity||'normal'),unlockWave:def.unlockWave??2};
     if(def.skill){const k=def.skill;CX.skills[def.id]=[k.name,k.resource,k.cost,k.description];}
@@ -2206,7 +2239,7 @@ if(!document.getElementById('tier-css')){const _st=document.createElement('style
 function renderRecruitDraft(){
     const selected=q.recruitDraft||[],sum=selected.reduce((n,i)=>n+q.price(q.recruitOffers[i].id),0),capacity=q.capacity()-q.permanent().length-selected.length;
     const box=ut('overlay');
-    box.innerHTML=`<div class="modal camp"><div class="eyebrow">${q.initialDraft ? '출정 · 원정대 편성' : 'STAGE ' + q.wave + ' · 원정대 정비'}</div><h2>${q.initialDraft ? '600 금화로 원정대를 꾸리세요 · 영웅은 1기까지' : '동료를 선택하세요'}</h2><p class="recruit-summary">보유 <b>${q.gold}</b> · 선택 비용 <b>${sum}</b> · 남은 금화 <b>${q.gold-sum}</b><br>선택 ${selected.length}명 · 남은 정원 ${capacity}명</p><p class="draft-help">카드를 다시 누르면 선택 취소. 아래에서 확정하면 합류합니다.</p><div class="recruit-cards">${q.recruitOffers.map((o,i)=>{const d=UnitCatalog[o.id],m=q.meta.get(o.id),p=zt[o.id],on=selected.includes(i),cost=q.price(o.id),disabled=o.bought||!on&&(cost>q.gold-sum||capacity<=0);return `<button type="button" class="recruit-card tier-${d.rarity} ${on?'is-picked':''}" data-draft="${i}" aria-pressed="${on}" ${disabled?'disabled':''}><span class="pick-mark">${on?'✓ 선택됨 · 탭하여 취소':'＋'}</span>${unitImage(o.id)}<span class="recruit-grade">${tierLabel(o.id)}</span><b>${esc(m.name_ko)}</b><small>${d.points} pt · ${CX.roleNames[m.role]||m.role}</small><p>Attack ${p.attacks} · Defense ${p.defence}<br>${esc(CX.skills[o.id]?.[0]||'전열을 지킬 동료')}</p><em>${o.bought?'합류 완료':cost+' 금화'}</em></button>`}).join('')}</div>${(()=>{const ms=q.alive('good').map(u=>q.mountVariant(u)&&{u,v:q.mountVariant(u)}).filter(Boolean);return ms.length||q.horses>0?'<div class="mount-head">군마 — 구입 후 기마를 줄 도보 영웅을 지정하세요</div><div class="mount-row" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:9px;margin-bottom:10px">'+`<button class="recruit-card mount-card" id="mount-buy" ${q.gold<40?'disabled':''}><b>군마 구입</b><small>보유 ${q.horses||0}필</small><p>도보 영웅이 말에 올라 이동력·돌격·베이스 강화</p><em>40 금화</em></button>`+ms.map(({u,v})=>`<button class="recruit-card mount-card" data-mount="${u.uid}" ${q.horses>0?'':'disabled'}>${unitImage(v.id)}<b>기마 지정 · ${esc(v.meta.name_ko)}</b><small>${esc(u.name)}</small><p>이동 ${u.stats.move}→${v.profile.move} · 기병 특성</p><em>군마 1필 소비</em></button>`).join('')+'</div>':''})()}<div class="camp-secondary"><button id="draft-clear" ${selected.length?'':'disabled'}>선택 취소</button><button id="draft-reroll" ${q.gold<10+q.rerolls*5?'disabled':''}>후보 교체 · ${10+q.rerolls*5}</button><button id="draft-expand" ${q.gold<45+q.capacityBought*25||q.capacity()>=30?'disabled':''}>정원 +2 · ${45+q.capacityBought*25}</button></div><div class="camp-confirm"><span>${selected.length?selected.length+'명 · '+sum+' 금화':'영입 없이 금화 보관'}</span><button id="draft-confirm" class="primary">${selected.length?'영입 확정':'영입 건너뛰기'} →</button></div></div>`;
+    box.innerHTML=`<div class="modal camp"><div class="eyebrow">${q.initialDraft ? '출정 · 원정대 편성' : 'STAGE ' + q.wave + ' · 원정대 정비'}</div><h2>${q.initialDraft ? '원정대 편성' : '동료 영입'}</h2><p class="recruit-summary">보유 <b>${q.gold}</b> · 선택 비용 <b>${sum}</b> · 남은 금화 <b>${q.gold-sum}</b><br>선택 ${selected.length}명 · 남은 정원 ${capacity}명</p>${q.initialDraft?'<p class="draft-help">영웅 최대 1기 · 600 금화</p>':''}<div class="recruit-cards">${q.recruitOffers.map((o,i)=>{const d=UnitCatalog[o.id],m=q.meta.get(o.id),p=zt[o.id],on=selected.includes(i),cost=q.price(o.id),disabled=o.bought||!on&&(cost>q.gold-sum||capacity<=0);return `<button type="button" class="recruit-card tier-${d.rarity} ${on?'is-picked':''}" data-draft="${i}" aria-pressed="${on}" ${disabled?'disabled':''}><span class="pick-mark">${on?'선택됨':'영입 후보'}</span>${unitImage(o.id)}<span class="recruit-grade">${tierLabel(o.id)}</span><b>${esc(m.name_ko)}</b><small>${d.points} pt · ${CX.roleNames[m.role]||m.role}</small><p>Attack ${p.attacks} · Defense ${p.defence}<br>${esc(CX.skills[o.id]?.[0]||'전열')}</p><em>${o.bought?'합류 완료':cost+' 금화'}</em></button>`}).join('')}</div>${(()=>{const ms=q.alive('good').map(u=>q.mountVariant(u)&&{u,v:q.mountVariant(u)}).filter(Boolean);return ms.length||q.horses>0?'<div class="mount-head">군마</div><div class="mount-row" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:9px;margin-bottom:10px">'+`<button class="recruit-card mount-card" id="mount-buy" ${q.gold<40?'disabled':''}><b>군마 구입</b><small>보유 ${q.horses||0}필</small><p>이동력 · 기병 돌격</p><em>40 금화</em></button>`+ms.map(({u,v})=>`<button class="recruit-card mount-card" data-mount="${u.uid}" ${q.horses>0?'':'disabled'}>${unitImage(v.id)}<b>기마 지정 · ${esc(v.meta.name_ko)}</b><small>${esc(u.name)}</small><p>이동 ${u.stats.move}→${v.profile.move} · 기병 특성</p><em>군마 1필 소비</em></button>`).join('')+'</div>':''})()}<div class="camp-secondary"><button id="draft-clear" ${selected.length?'':'disabled'}>선택 취소</button><button id="draft-reroll" ${q.gold<10+q.rerolls*5?'disabled':''}>후보 교체 · ${10+q.rerolls*5}</button><button id="draft-expand" ${q.gold<45+q.capacityBought*25||q.capacity()>=30?'disabled':''}>정원 +2 · ${45+q.capacityBought*25}</button></div><div class="camp-confirm"><span>${selected.length?selected.length+'명 · '+sum+' 금화':'영입 없이 금화 보관'}</span><button id="draft-confirm" class="primary">${selected.length?'영입 확정':'영입 건너뛰기'} →</button></div></div>`;
     box.querySelectorAll('[data-draft]').forEach(el=>el.onclick=()=>{if(q.toggleRecruit(Number(el.dataset.draft)))wt.play('ui_select');Yt();});
     ut('draft-clear').onclick=()=>{q.recruitDraft=[];q.save();Yt();};
     ut('draft-reroll').onclick=()=>{q.reroll();Yt();};ut('draft-expand').onclick=()=>{q.expand();Yt();};
@@ -2244,23 +2277,25 @@ function planIntent(point,foe){const u=actionableUnit();if(!u||At||AUTO)return;
         setIntent({kind:foe?'charge':'move',uid:u.uid,target:foe?.uid,to:plan.to,plan});return;}
     if(q.phase==='shoot'&&foe){if(!q.validTargets(u).includes(foe)){Xt('사거리 또는 사선을 확인하세요.');return;}setIntent({kind:'shoot',uid:u.uid,target:foe.uid,to:{x:foe.x,y:foe.y}});}
 }
-const directPoint=Tt.onPoint,directUnit=Tt.onUnit;
-Tt.onPoint=p=>touchLayout()?planIntent(p):directPoint(p);
-Tt.onUnit=uid=>{const v=q.unit(uid),u=actionableUnit();if(touchLayout()&&u&&v&&v.side!==u.side&&['move','shoot'].includes(q.phase))planIntent(v,v);else{clearIntent();directUnit(uid);}};
+const directUnit=Tt.onUnit;
+Tt.onPoint=p=>planIntent(p);
+Tt.onUnit=uid=>{const v=q.unit(uid),u=actionableUnit();if(u&&v&&v.side!==u.side&&['move','shoot'].includes(q.phase))planIntent(v,v);else{clearIntent();directUnit(uid);}};
 Zt=function(uid){const u=q.unit(uid);if(!u?.alive||At||Qt||AUTO)return;
     if(q.phase==='move'&&q.activeMoverUid&&uid!==q.activeMoverUid){if(u.side===q.side)setIntent({kind:'switch',uid:q.activeMoverUid,target:uid});else Xt('현재 병사의 이동을 먼저 종료하세요.');return;}
     clearIntent();q.selected=uid;wt.play('ui_select');Yt();};
 ut('dock-primary').insertAdjacentHTML('beforebegin','<button type="button" id="intent-cancel" class="hidden" aria-label="명령 취소">취소</button>');
 ut('intent-cancel').onclick=()=>{clearIntent();renderDock();Tt.drawRings();};
 const baseDock=renderDock;
-renderDock=function(){baseDock();const p=UX.intent,b=ut('dock-primary');ut('intent-cancel').classList.toggle('hidden',!p);
-    if(p&&!At){b.disabled=false;b.classList.add('confirm');b.textContent=({move:'이동 확정',charge:'돌격 확정',shoot:'사격 확정',deploy:'배치 확정',switch:'종료 후 선택'})[p.kind];ut('dock-status').textContent=p.kind==='switch'?'현재 병사의 이동 종료 후 선택':p.plan?`${(p.plan.distance/45).toFixed(1)}″ · 확정 전 취소 가능`:'확정 전 취소 가능';}
+renderDock=function(){baseDock();renderUnitVitals();const p=UX.intent,b=ut('dock-primary');ut('intent-cancel').classList.toggle('hidden',!p);
+    if(p&&!At){b.disabled=false;b.classList.add('confirm');b.textContent=({move:'이동 확정',charge:'돌격 확정',shoot:'사격 확정',deploy:'배치 확정',switch:'병사 변경',skill:'능력 확정',heroic:'능력 확정'})[p.kind];ut('dock-status').textContent=(p.detail?p.label+' · '+p.detail:'')||(p.kind==='switch'?'남은 이동 종료':p.plan?(p.plan.distance/45).toFixed(1)+'″ · 잔여 '+Math.max(0,(q.remaining(q.unit(p.uid))-p.plan.distance)/45).toFixed(1)+'″':p.kind==='shoot'?'대상 · '+q.unit(p.target).name:'배치 지점 선택');}
     ut('hint').textContent=touchLayout()?'병사 → 목적지 → 확정 · 드래그: 화면 이동 · 두 손가락: 확대':'클릭 이동 · 드래그 시점 이동 · 휠 확대';
 };
 const defaultPrimary=ut('dock-primary').onclick;
 ut('dock-primary').onclick=()=>{const p=UX.intent;if(!p){defaultPrimary();return;}if(At||Qt)return;clearIntent();setSheet(false);Rt(()=>{
     let ok=false;if(p.kind==='move')ok=q.move(p.uid,p.to);if(p.kind==='charge')ok=q.charge(p.uid,p.target);if(p.kind==='shoot')ok=q.shoot(p.uid,p.target);if(p.kind==='deploy')ok=q.deploy(p.uid,p.to);
     if(p.kind==='switch'){ok=q.wait(p.uid);if(ok)q.selected=p.target;}
+    if(p.kind==='skill')ok=q.skill(p.uid);
+    if(p.kind==='heroic')ok=q.heroic(p.uid,p.key);
     if(!ok)Xt('명령을 실행하지 못했습니다. 위치와 차례를 다시 확인하세요.');
 });};
 const actionBeforeV14=Rt;
@@ -2284,7 +2319,7 @@ Yt=function(){const key=q.phase+'/'+q.campStep,modal=ut('overlay').querySelector
     uiPhase=key;uiActive=active?.uid||'';renderDock();
 };
 const phaseHelp=ut('help').onclick;
-ut('help').onclick=()=>{clearIntent();phaseHelp();const ps=ut('overlay').querySelectorAll('.help-list p');if(ps[0])ps[0].innerHTML='<b>모바일 이동</b><br>병사 선택 → 목적지 선택 → 하단 확정. 확정 전에는 취소하거나 다른 목적지를 선택할 수 있습니다. 한 손가락 드래그는 화면 이동, 두 손가락은 확대·축소입니다.';if(ps[3])ps[3].innerHTML='<b>동료 영입</b><br>카드를 탭해 선택하고 다시 탭해 취소합니다. 영입 확정을 눌러야 금화가 차감되고 합류합니다. 포인트는 이 게임의 원정 밸런스 수치입니다.';};
+ut('help').onclick=()=>{clearIntent();phaseHelp();const ps=ut('overlay').querySelectorAll('.help-list p');if(ps[0])ps[0].innerHTML='<b>이동과 명령</b><br>병사 선택 → 목적지 선택 → 하단 확정. 확정 전에는 취소하거나 다른 목적지를 선택할 수 있습니다. 한 손가락 드래그는 화면 이동, 두 손가락은 확대·축소입니다.';if(ps[3])ps[3].innerHTML='<b>동료 영입</b><br>카드를 탭해 선택하고 다시 탭해 취소합니다. 영입 확정을 눌러야 금화가 차감되고 합류합니다. 포인트는 이 게임의 원정 밸런스 수치입니다.';};
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&UX.intent){clearIntent();renderDock();Tt.drawRings();}});
 
 // Existing seven effect assets are routed by action and weapon, never by sprite silhouette.
@@ -2311,6 +2346,7 @@ Ve.prototype.combat=async function(result){
         this.tween(ring,{scale:ring.scaleX*(hit.killed?3.4:2.4),alpha:0},hit.killed?340:230).then(()=>ring.destroy());
         this.soundFX.play(type==='shoot'?'arrow_release':hit.wound?'sword_flesh':'sword_shield');
         const sx=sprite.getData('baseSX')||sprite.scaleX,sy=sprite.getData('baseSY')||sprite.scaleY,duration=qt>=20?18:Math.max(160,300/qt),start=performance.now();
+        const center=sprite.getData('cxy')||{x:0,y:0};
         const lunge=type==='shoot'?5:type==='thrust'?18:type==='pounce'?15:type==='cast'?-6:13;
         await new Promise(resolve=>{const frame=()=>{if(!fx.scene){resolve();return;}
             const t=Math.min(1,(performance.now()-start)/duration),sw=Math.sin(t*Math.PI);
@@ -2320,14 +2356,14 @@ Ve.prototype.combat=async function(result){
             else if(type==='pounce'){const bump=1+sw*.3;fx.setDisplaySize(size*bump,size*bump).setAlpha(sw).setRotation(angle-.4+t*.9).setPosition(v.x-Math.cos(angle+1.57)*10*t,v.y-Math.sin(angle+1.57)*10*t);}
             else if(type==='cast'){const bump=.7+t*.8;fx.setDisplaySize(size*bump,size*bump).setAlpha(sw).setPosition(v.x,v.y-14*t);}
             else{const bump=1.5-t*.5;fx.setDisplaySize(size*bump,size*bump).setAlpha(sw);}
-            if(!UX.reduced&&type!=='cast')sprite.setPosition(Math.cos(angle)*sw*lunge,Math.sin(angle)*sw*lunge);
+            if(!UX.reduced&&type!=='cast')sprite.setPosition(center.x+Math.cos(angle)*sw*lunge,center.y+Math.sin(angle)*sw*lunge);
             if(t<1)requestAnimationFrame(frame);else resolve();};frame();});
-        fx.destroy();sprite.setScale(sx,sy).setPosition(0,0);
+        fx.destroy();sprite.setScale(sx,sy).setPosition(center.x,center.y);
         if(hit.wound||hit.killed){
-            burst(v.x,v.y,hit.killed?0xd8452c:0xe8b090,hit.killed?16:9,hit.killed?1.6:1);
+            burst(v.x,v.y,hit.killed?0xd8452c:0xe8b090,UX.reduced?0:hit.killed?6:3,1);
             if(vsprite){vsprite.setTintFill(0xd8452c);this.time.delayedCall(130,()=>vsprite.scene&&vsprite.clearTint());}
-        }else burst(v.x,v.y,0xffdca0,7,.8);
-        if(heavy||hit.killed)cam&&cam.shake(80,heavy?.0045:.003);
+        }else if(!UX.reduced)burst(v.x,v.y,0xffdca0,2,.6);
+        if(!UX.reduced&&heavy&&hit.wound)cam&&cam.shake(55,.0012);
         if(hit.killed&&vsprite)await this.tween(vsprite,{angle:vsprite.angle+78,alpha:.25,y:vsprite.y+7},230);
         const label=this.add.text(v.x,v.y-v.radius-15,hit.prevented||(hit.wound?'−1':'Defense'),{fontFamily:'Pretendard',fontSize:'15px',color:hit.wound?'#ffc4ab':'#e8dfc5',stroke:'#141a17',strokeThickness:3}).setOrigin(.5).setResolution(UX.dpr).setScale(1/UX.zoom).setDepth(15);
         this.tween(label,{y:label.y-24,alpha:0},480).then(()=>label.destroy());if(hit.killed)vc&&vc.setVisible(false);
@@ -2368,12 +2404,14 @@ P.stageInfo=function(n){
     const info=__origStageInfo.call(this,n);
     const theme=(window.MESBG_STAGE_THEME||{})[info.map];
     if(!theme)return info;
-    const count=Math.min(24,4+Math.floor(n*1.15));
+    const count=Math.min(24,4+Math.floor(n*.85));
     const pick=(pool,i)=>pool&&pool.length?pool[(n*7+i*5+(i>>2))%pool.length]:null;
     const ids=[];
     for(let i=0;i<count;i++){
         const r=(n*13+i*17)%20;
         let id=r<10?pick(theme.foot,i):r<15?pick(theme.spec,i):r<17?(pick(theme.cav,i)||pick(theme.elite,i)):r<19?pick(theme.elite,i):pick(theme.monster,i);
+        if (n < 4 && id && zt[id]?.traits.includes('monster') || n < 3 && id && zt[id]?.traits.includes('mounted')) id=pick(theme.foot,i);
+        if(n>=3 && i%5===3){const spear=(theme.spec||[]).find(k=>/spear|pike/.test(this.meta.get(k)?.weapon||''));if(spear)id=spear;}
         ids.push(id||pick(theme.foot,i));
     }
     if(n>3)ids.push(pick(theme.hero,n)||'orc_captain');
@@ -2509,7 +2547,7 @@ He = function (b) {
         const near = foes.filter(v => ht(u, v) <= u.stats.move + u.radius + v.radius + 20);
         const canShoot = role === 'archer' && foes.some(v => ht(u, v) <= (u.stats.shootRange || 0) && _t(u, v, b.terrain) === 'clear');
         if (role !== 'support' && !b.engaged(u) && (role !== 'archer' || !canShoot || near.length)) {
-            const value = v => ht(u, v) + (role === 'cavalry' ? (v.traits.includes('mounted') ? 130 : v.stats.shootRange ? -100 : 0) : 0) + (role === 'hero' ? b.alive(u.side).filter(f => Vt(f, v)).length * -90 : 0);
+            const value = v => ht(u, v) + (role === 'cavalry' ? (v.traits.includes('mounted') ? 130 : v.stats.shootRange ? -100 : 0) : 0) + (role === 'hero' ? b.alive(u.side).filter(f => Vt(f, v)).length * -90 : 0) - Math.min(2, v.stats.wounds-v.currentWounds)*35 + (v.stats.fight>u.stats.fight+2?65:0);
             for (const foe of foes.sort((a, c) => value(a) - value(c)).slice(0, 5))
                 if (b.charge(u.uid, foe.uid)) return;
         }
@@ -2573,6 +2611,12 @@ P.resume = function () {
         this.mapIndex = this.current.map;
         this.mission = this.current.mission;
     }
+    // JSON cannot preserve event callbacks; restore from the canonical event definition.
+    if (this.campStep === 'event') {
+        this.campEvent = LWB_EVENTS.find(e => e.id === this.campEvent?.id) || null;
+        if (!this.campEvent) this.rollCampEvent();
+    }
+    this.campDraft = this.campDraft?.step === this.campStep ? this.campDraft : null;
     for (const u of this.units) {
         u.supportSpent = false;
         const m = this.meta.get(u.id);
@@ -2621,8 +2665,8 @@ function renderTacticalHUD() {
     }
     const u = actionableUnit();
     ut('tactical-legend').classList.toggle('hidden', q.phase !== 'move' || !u || inputBlocked());
-    if (u && !UX.intent && q.phase === 'move')
-        ut('dock-status').innerHTML = __lwbRoleNames[window.LWBTactics.role(u, metaFor)] + ' · 이동 <b>' + (q.remaining(u) / 45).toFixed(1) + ' / ' + (u.stats.move / 45).toFixed(1) + '″</b>' + (q.engaged(u) ? ' · 교전' : u.stats.shootRange && u.movementSpent * 2 > u.stats.move ? ' · 사격 불가' : '');
+    if (u && !UX.intent && q.phase === 'move' && u.uid===q.selected)
+        ut('dock-status').textContent = q.engaged(u)?'교전 중':u.stats.shootRange&&u.movementSpent*2>u.stats.move?'사격 불가 · 반 이동 초과':'이동 · 돌격';
     if (u) ut('dock-portrait').alt = u.name;
     const next = document.querySelector('.next-stage');
     if (next && !next.querySelector('.scout-roles')) {
@@ -2631,7 +2675,7 @@ function renderTacticalHUD() {
     }
 }
 const __lwbR = Yt;
-Yt = function () { __lwbR(); renderTacticalHUD(); };
+Yt = function () { __lwbR(); renderTacticalHUD(); renderPolishedHUD(); };
 const __lwbRG = Ve.prototype.drawRings;
 Ve.prototype.drawRings = function () {
     __lwbRG.call(this);
@@ -2644,6 +2688,89 @@ Ve.prototype.drawRings = function () {
 };
 window.MESBG.tactics = { supportFor, role: u => window.LWBTactics.role(u, metaFor), previewGroup, version: '2.0-merge' };
 window.__LWB = { be: (...a) => be(...a), He: (...a) => He(...a), metaFor, supportFor };
+
+// Product HUD: one command surface, restrained materials, contextual detail.
+function renderUnitVitals() {
+    const el=ut('dock-vitals');if(!el)return;
+    const u=q.unit(q.selected)||actionableUnit();
+    if(!u?.alive){el.textContent='';return;}
+    const pair=(label,value)=>'<span>'+label+' <b>'+value+'</b></span>';
+    let html=pair('HP',u.currentWounds+'/'+u.stats.wounds)+pair('MOVE',(q.remaining(u)/45).toFixed(1)+'/'+(u.stats.move/45).toFixed(0)+'″')
+        +pair('Attack',u.stats.attacks)+pair('Defense',u.stats.defence)+pair('Fight',u.stats.fight);
+    if(u.traits.includes('hero'))html+='<span class="vital-resources" title="Might / Will / Fate">'+pair('Might',u.resources.might)+pair('Will',u.resources.will)+pair('Fate',u.resources.fate)+'</span>';
+    if(el.dataset.unit!==html){el.dataset.unit=html;el.innerHTML=html;}
+}
+function renderPolishedHUD() {
+    document.body.dataset.phase=q.phase;
+    renderUnitVitals();
+    const u=q.unit(q.selected),status=ut('dock-status');
+    if(u?.alive&&!UX.intent){
+        const tags=[];
+        if(u.side!==q.side&&q.phase!=='preparation')tags.push(u.side==='good'?'아군':'적군');
+        if(q.engaged(u))tags.push('교전');
+        if(u.prone)tags.push('넘어짐');
+        if(u.protected)tags.push('보호');
+        if(u.supportSpent)tags.push('지원 완료');
+        if(u.charged)tags.push('돌격');
+        if(u.acted)tags.push('행동 완료');
+        if(q.phase==='shoot'&&u.stats.shootRange)tags.push('사거리 '+(u.stats.shootRange/45).toFixed(1)+'″ · 대상 '+q.validTargets(u).length);
+        for(const [k,v] of Object.entries(u.roundBuff||{})){const name={fight:'Fight',attacks:'Attack',defence:'Defense',move:'MOVE',courage:'용기'}[k];if(name&&v)tags.push(name+' '+(v>0?'+':'')+(k==='move'?(v/45).toFixed(1)+'″':v));}
+        if(tags.length)status.textContent=tags.join(' · ');
+        status.title=status.textContent;
+    }
+    if(!Qt&&q.phase==='reward'&&['event','relic'].includes(q.campStep)){
+        const modal=ut('overlay').querySelector('.modal'),draft=q.campDraft;
+        const buttons=modal.querySelectorAll('[data-relic],[data-evopt]');
+        let selected='';
+        for(const b of buttons){const key=b.dataset.relic??b.dataset.evopt,on=draft?.step===q.campStep&&draft.key===key;b.classList.toggle('is-picked',on);b.setAttribute('aria-pressed',String(on));if(on)selected=b.querySelector('b').textContent;}
+        if(!modal.querySelector('#camp-choice-confirm'))modal.insertAdjacentHTML('beforeend','<div class="camp-confirm"><span id="camp-choice-summary"></span><button id="camp-choice-cancel" class="secondary">취소</button><button id="camp-choice-confirm" class="primary">선택 확정</button></div>');
+        ut('camp-choice-summary').textContent=selected||'선택 대기';
+        ut('camp-choice-confirm').disabled=!selected;ut('camp-choice-cancel').disabled=!selected;
+        ut('camp-choice-cancel').onclick=()=>{q.campDraft=null;q.save();Yt();};
+        ut('camp-choice-confirm').onclick=()=>{if(q.confirmCampChoice())wt.play('reward_select');Yt();};
+    }
+    // Current selection is represented in the dock; detailed skill prose belongs in tooltips.
+    const skill=ut('hero-skill');if(skill){const small=skill.querySelector('small');if(small)skill.title=small.textContent+' · '+skill.title;}
+    const close=ut('sheet-toggle');close.textContent='명령 닫기';close.setAttribute('aria-label','병사 상세와 명령 닫기');
+}
+document.body.classList.add('lwb-polished');
+ut('dock-detail').textContent='명령';
+ut('dock-primary').setAttribute('aria-label','현재 명령 확정 또는 단계 진행');
+ut('dock-status').setAttribute('aria-live','polite');
+ut('phases').setAttribute('aria-label','전투 단계');
+ut('tactical-legend').innerHTML='<span class="legend-move">이동</span><span class="legend-charge">돌격</span><span class="legend-block">장애물</span>';
+const polishStyle=document.createElement('style');polishStyle.id='lwb-product-hud';
+polishStyle.textContent=[
+'body.lwb-polished{--paper:#eee6d2;--muted:#b8b6a7;--panel:#202721;--line:#555d4b;background:#151b17;color:var(--paper)}',
+'body.lwb-polished button,body.lwb-polished select{border-radius:2px!important;text-shadow:none;touch-action:manipulation}body.lwb-polished button:focus-visible{outline:2px solid #efdc9a!important;outline-offset:3px}body.lwb-polished button:disabled{opacity:.42}',
+'body.lwb-polished #app .top{background:#1b231e!important;border-bottom:1px solid #545c4a;box-shadow:none;height:54px;min-height:54px}body.lwb-polished .brand strong{font-size:15px;letter-spacing:.02em}body.lwb-polished .sigil img{width:32px;height:32px;object-fit:contain}',
+'body.lwb-polished .top-actions{gap:5px}body.lwb-polished #speed-toggle{display:none}body.lwb-polished .metric{border:0;padding-left:10px}body.lwb-polished .metric small{font-size:10px}body.lwb-polished .metric strong{font-size:15px;font-variant-numeric:tabular-nums}',
+'body.lwb-polished #app .layout{position:relative;overflow:hidden}body.lwb-polished #app .battle-column{padding-bottom:0;min-width:0}body.lwb-polished #app .hint,body.lwb-polished #app .footer{display:none!important}',
+'body.lwb-polished #battle-sheet{position:absolute!important;left:auto!important;right:0!important;top:0!important;bottom:0!important;width:min(340px,94%)!important;max-height:100%!important;padding:0 18px 18px!important;background:#202821!important;border:0;border-left:1px solid #84744f;box-shadow:none!important;display:block!important;z-index:32;transform:translateX(105%)!important;visibility:hidden;transition:transform .16s ease,visibility .16s}',
+'body.lwb-polished #battle-sheet.open{transform:translateX(0)!important;visibility:visible}body.lwb-polished #sheet-toggle{display:block!important;position:sticky;top:0;margin:0 -18px 14px;width:calc(100% + 36px);height:48px;background:#283228;border:0;border-bottom:1px solid #545e4c;font-size:13px;color:#f0e6c8;z-index:2}',
+'body.lwb-polished #sheet-backdrop{position:absolute!important;inset:0!important;z-index:31;background:#070d0990;border:0;display:none!important}body.lwb-polished #sheet-backdrop.open{display:block!important}',
+'body.lwb-polished .unit-card{background:none!important;border:0!important;padding:0!important;box-shadow:none!important}body.lwb-polished .unit-head img{filter:none;width:66px;height:74px}body.lwb-polished .unit-head strong{font-size:16px}body.lwb-polished .unit-head small{font-size:12px}',
+'body.lwb-polished .objective{padding-bottom:12px;margin-bottom:16px}body.lwb-polished .objective h3{font-size:18px}body.lwb-polished .objective p{font-size:12px}body.lwb-polished .stats span,body.lwb-polished .resources{font-size:12px}body.lwb-polished .stats b{font-size:17px}',
+'body.lwb-polished .hero-skill{background:#303b2d;border:1px solid #8d8059;border-radius:2px;min-height:48px}body.lwb-polished .hero-skill small{display:none}body.lwb-polished .heroic-btn{border-radius:2px!important;min-height:44px;background:#293329!important}body.lwb-polished .command{min-height:44px;border-width:0 0 1px;background:none!important}body.lwb-polished .command b{font-size:13px}',
+'body.lwb-polished #app .phases{display:flex!important;background:#1c251e!important;min-height:30px;gap:14px;padding:0 16px;border-bottom:1px solid #4d5746}body.lwb-polished .phase{background:none!important;border:0;border-radius:0!important;padding:7px 0;font-size:11px;color:#a9b2a2}body.lwb-polished .phase.active{color:#f1dda4;box-shadow:inset 0 -2px #d7be80}body.lwb-polished .phase i{display:none}body.lwb-polished .turn{margin-left:auto;font-size:11px}',
+'body.lwb-polished #command-dock{display:flex!important;flex-direction:column!important;gap:5px!important;min-height:0!important;padding:8px 16px calc(7px + env(safe-area-inset-bottom))!important;background:#1d261f!important;border-top:1px solid #8a7b53;box-shadow:none!important}',
+'body.lwb-polished .dock-main{display:flex!important;height:48px!important;gap:10px!important;width:100%}body.lwb-polished .dock-portrait{width:42px!important;height:46px!important;object-fit:contain;border:0!important;background:none!important}body.lwb-polished .dock-eyebrow{display:none!important}body.lwb-polished .dock-text{flex:1;min-width:0}body.lwb-polished .dock-text strong{font-size:17px!important;line-height:22px!important;color:#f3e7c4}body.lwb-polished .dock-status{font-size:12px!important;line-height:17px!important;color:#c7cebb;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}',
+'body.lwb-polished #dock-primary{background:#d7c38d!important;color:#1c271d!important;border:1px solid #e1d3ab;box-shadow:none!important;min-width:112px!important;min-height:44px!important;font-size:13px!important;padding:8px 12px!important}body.lwb-polished #dock-primary.confirm{background:#eddaa2!important;color:#17251b!important;border-color:#f8ebc1!important}body.lwb-polished #intent-cancel{background:#2a342b!important;min-width:44px;min-height:44px}',
+'body.lwb-polished #dock-vitals{display:flex;flex-wrap:wrap;row-gap:2px;column-gap:16px;align-items:center;min-height:23px;overflow-x:auto;white-space:nowrap;scrollbar-width:none;font-size:11px;color:#b3bdad;font-variant-numeric:tabular-nums}body.lwb-polished #dock-vitals b{font-size:13px;color:#f1e5c3;margin-left:3px}body.lwb-polished .vital-resources{display:flex;gap:10px;border-left:1px solid #59634c;padding-left:12px}',
+'body.lwb-polished .dock-sub{display:flex!important;width:100%!important;max-width:none!important;height:44px!important;min-height:44px!important;gap:10px!important}body.lwb-polished .roster-strip{height:44px!important;min-height:44px!important}body.lwb-polished .roster-unit{border:0!important;border-bottom:2px solid transparent!important;border-radius:0!important;background:none!important;box-shadow:none!important;width:44px!important;min-width:44px!important;height:44px!important;min-height:44px!important}body.lwb-polished .roster-unit img{width:40px!important;height:40px!important}body.lwb-polished .roster-unit.is-selected{border-bottom-color:#efdc9a!important;background:#c8bc8325!important}body.lwb-polished .roster-unit.is-active{box-shadow:inset 0 1px #efdc9a!important}body.lwb-polished .roster-tools button{min-width:44px;min-height:44px;padding:5px 9px}',
+'body.lwb-polished .battle-info{top:9px!important;left:12px!important;max-width:calc(100% - 80px);gap:3px!important}body.lwb-polished .battle-info .place{font-size:12px!important;color:#f0e7ce;text-shadow:0 1px 3px #000}body.lwb-polished .battle-info .mission{font-size:12px!important;background:#1b281fe8!important;border:0!important;border-left:2px solid #bbae79!important;border-radius:0!important;padding:5px 8px!important;line-height:17px!important}body.lwb-polished .hud-mod{border:0!important;border-radius:0!important;background:#18251de8!important}',
+'body.lwb-polished .active-tag{background:#e6d398!important;color:#18271b!important;border:1px solid #233520!important;border-radius:1px!important;box-shadow:none!important;font-size:11px!important;padding:3px 6px!important}body.lwb-polished .field-actions button,body.lwb-polished #map-toggle{border-radius:2px!important;box-shadow:none!important;background:#1c2a20ef!important;min-height:44px}',
+'body.lwb-polished #fight-preview{position:absolute;right:12px;left:auto;top:70px;max-width:min(340px,65%);z-index:11;background:#1c271fee;border:0;border-left:2px solid #c9b77e;padding:7px 9px;color:#eee5c9}body.lwb-polished .fight-preview-title{font-size:12px;margin-bottom:5px}body.lwb-polished .fight-preview-units{display:flex;gap:3px;overflow-x:auto;max-height:88px}body.lwb-polished .fight-member{flex:0 0 58px;display:grid;justify-items:center;border:0;border-bottom:2px solid #b3c5b1;background:none;color:#eee6d2;padding:3px;min-height:44px}body.lwb-polished .fight-member.evil{border-color:#ce947d}body.lwb-polished .fight-member img{width:36px;height:36px;object-fit:contain}body.lwb-polished .fight-member span{max-width:56px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:10px}body.lwb-polished .fight-member small{font-size:10px;color:#ddc58b}',
+'body.lwb-polished #tactical-legend{position:absolute;left:64px;bottom:12px;z-index:9;pointer-events:none;display:flex;gap:10px;background:#1a261ee8;padding:5px 7px;font-size:10px;color:#eee5cc}body.lwb-polished #tactical-legend span:before{content:"";display:inline-block;width:9px;height:9px;margin-right:4px;border:1px solid #c2decc}body.lwb-polished #tactical-legend .legend-charge:before{border:2px dashed #e0ac7d;border-radius:50%}body.lwb-polished #tactical-legend .legend-block:before{border-color:#ce9987;background:repeating-linear-gradient(135deg,transparent 0 3px,#ce9987 3px 4px)}',
+'body.lwb-polished .overlay{background:#0c1512e8!important;backdrop-filter:none!important}body.lwb-polished .modal{border-radius:2px!important;background:#202920!important;border:1px solid #887b58!important;box-shadow:none!important;padding:28px!important;max-width:960px;overscroll-behavior:contain;scroll-padding-bottom:80px}body.lwb-polished .modal h1{color:#f1e7cc;font-family:Georgia,serif;font-weight:500;letter-spacing:-.025em}body.lwb-polished .modal h2{font-size:25px!important}body.lwb-polished .modal p{color:#c3c7b6}body.lwb-polished .eyebrow{font-size:10px;letter-spacing:.12em;color:#bdae7c}body.lwb-polished .hero-tokens img{filter:none!important}body.lwb-polished .menu-buttons button{min-height:48px}body.lwb-polished .menu-notes{border:0;padding-top:0;margin-top:16px}',
+'body.lwb-polished .recruit-card{border-radius:0!important;border-width:0 0 2px!important;background:#283228!important;box-shadow:none!important;min-height:180px!important}body.lwb-polished .recruit-card:before{display:none!important}body.lwb-polished .recruit-card.is-picked,body.lwb-polished .reward.is-picked{outline:2px solid #ecdaa2!important;outline-offset:-2px;background:#354431!important}body.lwb-polished .recruit-card img{filter:none!important}body.lwb-polished .pick-mark{font-size:10px}body.lwb-polished .recruit-cards{gap:8px!important}body.lwb-polished .reward{border-radius:0!important;background:#283228!important;border-width:0 0 3px!important;box-shadow:none!important}body.lwb-polished .reward b{font-size:17px}body.lwb-polished .reward p{font-size:13px;line-height:1.6}body.lwb-polished .camp-steps{font-size:12px;gap:16px}body.lwb-polished .camp-confirm{position:sticky;bottom:-28px;display:flex;align-items:center;gap:8px;background:#202920!important;border-top:1px solid #797354;padding:12px 0 calc(12px + env(safe-area-inset-bottom));z-index:3}body.lwb-polished .camp-confirm span{flex:1;min-width:0;font-size:12px}body.lwb-polished .camp-confirm button{min-height:44px}',
+'body.lwb-polished #relic-info{border-radius:2px;background:#1d2a20;box-shadow:none}body.lwb-polished .dice-panel{border-radius:2px!important;background:#202a21f5!important;box-shadow:none!important}body.lwb-polished .hidden{display:none!important}',
+'@media(max-width:900px){body.lwb-polished #app .top{height:48px!important;min-height:48px!important;max-height:48px!important}body.lwb-polished .brand strong{max-width:102px;font-size:12px!important}body.lwb-polished #app .phases{min-height:28px;gap:12px;padding:0 8px}body.lwb-polished .phase{font-size:10px;padding:6px 0}body.lwb-polished .turn{font-size:10px}body.lwb-polished #command-dock{padding:5px 8px calc(5px + env(safe-area-inset-bottom))!important;gap:3px!important}body.lwb-polished .dock-main{height:44px!important;gap:6px!important}body.lwb-polished .dock-text strong{font-size:14px!important;line-height:18px!important}body.lwb-polished .dock-status{font-size:11px!important}body.lwb-polished .dock-portrait{width:32px!important;height:40px!important}body.lwb-polished #dock-primary{min-width:92px!important;font-size:12px!important;padding:6px 8px!important}body.lwb-polished #dock-vitals{gap:11px;font-size:10px;min-height:24px}body.lwb-polished #dock-vitals b{font-size:12px;margin-left:2px}body.lwb-polished .vital-resources{gap:7px;padding-left:8px}body.lwb-polished .modal{padding:18px 12px!important;max-height:calc(var(--app-h) - 16px)!important}body.lwb-polished .camp-confirm{bottom:-18px}body.lwb-polished #fight-preview{top:70px;right:8px;max-width:calc(100% - 76px);padding:5px 7px}body.lwb-polished .fight-member img{width:28px;height:28px}body.lwb-polished #tactical-legend{left:12px;bottom:60px;gap:6px;font-size:9px;padding:3px}body.lwb-polished .field-actions{gap:3px!important}body.lwb-polished .field-actions .focus-control span{display:none!important}}',
+'@media(max-width:375px){body.lwb-polished .dock-portrait{display:none!important}body.lwb-polished #dock-vitals{gap:9px}body.lwb-polished #tactical-legend{display:none!important}}',
+'@media(max-height:510px) and (orientation:landscape){body.lwb-polished #command-dock{display:grid!important;grid-template-columns:minmax(250px,1fr) minmax(180px,.7fr);gap:2px 12px!important}body.lwb-polished .dock-main{grid-column:1;grid-row:1}body.lwb-polished #dock-vitals{grid-column:1/3;grid-row:2}body.lwb-polished .dock-sub{grid-column:2;grid-row:1}body.lwb-polished #app .top{height:40px!important;min-height:40px!important;max-height:40px!important}body.lwb-polished #app .phases{min-height:24px}body.lwb-polished .phase{padding:4px 0}body.lwb-polished #fight-preview{top:42px;max-width:280px}body.lwb-polished .fight-member{grid-template-columns:28px 1fr;flex-basis:84px}body.lwb-polished .fight-member img{grid-row:1/3}body.lwb-polished .fight-member span{max-width:48px}}',
+'@media(prefers-reduced-motion:reduce){body.lwb-polished *,body.lwb-polished *:before,body.lwb-polished *:after{transition:none!important;animation:none!important}}'
+].join('\n');
+document.head.appendChild(polishStyle);
 
 const clarityGame = new Ot.Game({ type: Ot.AUTO, parent: "game", width: Math.max(1,Math.round(document.querySelector('#game').clientWidth)), height: Math.max(1,Math.round(document.querySelector('#game').clientHeight)), backgroundColor: "#293038", scale: { mode: Ot.Scale.NONE, autoCenter: Ot.Scale.NO_CENTER, autoRound: false }, scene: [Tt], render: { antialias: true, antialiasGL: true, pixelArt: false, roundPixels: false, powerPreference: "low-power" }, fps: {target:60}, audio: {noAudio:true} });
 Yt();

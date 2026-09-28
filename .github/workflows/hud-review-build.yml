@@ -1,0 +1,32 @@
+name: Build HUD review branch
+on:
+  push:
+    branches: [feat/tactical-hud-polish-20260928]
+    paths: [src/game.js, tests/**, .github/workflows/hud-review-build.yml]
+permissions:
+  contents: write
+jobs:
+  build:
+    if: github.ref == 'refs/heads/feat/tactical-hud-polish-20260928'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/tactical-hud-polish-20260928
+          fetch-depth: 1
+      - name: Build and verify original assets
+        run: |
+          git fetch origin main:refs/remotes/origin/main
+          node --check src/game.js
+          node tools/build.js
+          node --test tests/*.test.cjs
+          test "$(git hash-object LAST-WAR-BAND_v1.9.html)" = 7166e570d0943839842ffacfbdd4b6c811902148
+          cmp LAST-WAR-BAND_v1.9.html index.html
+      - name: Commit generated HTML only to review branch
+        run: |
+          test "$(git branch --show-current)" = feat/tactical-hud-polish-20260928
+          git add LAST-WAR-BAND_v1.9.html index.html
+          if git diff --cached --quiet; then exit 0; fi
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'build: synchronize standalone HUD review artifacts'
+          git push origin HEAD:refs/heads/feat/tactical-hud-polish-20260928
