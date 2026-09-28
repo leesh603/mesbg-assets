@@ -287,10 +287,10 @@ class Ve extends Ot.Scene {
 const Ye = Object.fromEntries(["dice_roll", "base_slide", "base_contact", "sword_swing", "sword_armor", "sword_shield", "sword_flesh", "arrow_release", "arrow_fly", "arrow_impact", "push", "death", "ui_select", "reward_select"].map(Z => [Z, { file: `audio/${Z}.wav`, volume: Z === "dice_roll" ? .5 : .75 }]));
 class We {
     constructor() { lt(this, "context"); lt(this, "muted", !1); lt(this, "sfxVolume", .7); lt(this, "musicVolume", .35); lt(this, "music"); lt(this, "buffers", new Map); lt(this, "asset", Y => Y); }
-    async unlock() { this.context ?? (this.context = new AudioContext), await this.context.resume(), this.music || (this.music = new Audio(this.asset("audio/gate-of-the-west.mp3")), this.music.loop = !0), this.music.volume = this.muted ? 0 : this.musicVolume, this.music.play().catch(() => { }); }
+    async unlock() { this.context ?? (this.context = new AudioContext), document.hidden || await this.context.resume(), this.music || (this.music = new Audio(this.asset("audio/gate-of-the-west.mp3")), this.music.loop = !0), this.music.volume = this.muted ? 0 : this.musicVolume, document.hidden || this.music.play().catch(() => { }); }
     setVolumes(Y, b) { this.sfxVolume = Y, this.musicVolume = b, this.music && (this.music.volume = this.muted ? 0 : b); }
     toggle() { this.muted = !this.muted, this.music && (this.music.volume = this.muted ? 0 : this.musicVolume); }
-    async play(Y) { if (this.muted)
+    async play(Y) { if (this.muted || document.hidden)
         return; const b = Ye[Y]; if (b)
         try {
             this.context ?? (this.context = new AudioContext), this.context.state === "suspended" && await this.context.resume();
@@ -336,6 +336,7 @@ else if (Z.phase === "shoot") {
 const Ut = Z => { var Y; return ((Y = window.__MESBG_ASSETS__) == null ? void 0 : Y[Z]) || `./assets/mesbg/${Z}`; }, pe = document.createElement("style");
 pe.textContent = `@font-face{font-family:Pretendard;src:url('${Ut("fonts/PretendardVariable.woff2")}') format('woff2');font-weight:100 900;font-display:swap}`;
 document.head.append(pe);
+document.addEventListener("visibilitychange", () => { const Z = document.hidden; wt.__resumeOnShow = Z ? wt.music && !wt.music.paused : !1, Z && wt.music && wt.music.pause(), Z || !wt.__resumeOnShow || wt.muted || wt.music && wt.music.play().catch(() => { }), wt.context && (Z ? wt.context.state === "running" && wt.context.suspend() : wt.context.state === "suspended" && wt.context.resume().catch(() => { })); });
 const q = new ze(Me.units), wt = new We, Tt = new Ve;
 Tt.b = q;
 Tt.soundFX = wt;
