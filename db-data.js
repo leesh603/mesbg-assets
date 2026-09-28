@@ -715,4 +715,13 @@ module.exports = [
     ['elendur','엘렌두르','Elendur, heir of Isildur']] },
   { sheet:null, side:'evil', faction:'numenor', role:'hero', weapon:'sword', base:'L', traits:[], units:[
     ['arpharazon','아르파라존','Ar-Pharazon the Golden']] },
+
+  // --- 세계관 명물 조형물 (5) ---
+  { sheet:null, side:'terrain', faction:'terrain', role:'terrain', weapon:'none', base:'L', traits:[], units:[
+    ['terr_palantir','팔란티르','Palantir seeing-stone',{ base:'M' }],
+    ['terr_white_tree','흰나무 묘목','Sapling of the White Tree']] },
+  { sheet:null, side:'terrain', faction:'terrain', role:'terrain', weapon:'none', base:'XL', traits:[], units:[
+    ['terr_argonath','아르고나스','Argonath, Pillar of Kings',{ base:'XXL' }],
+    ['terr_osgiliath_dome','오스길리아스 돔','Ruined dome of Osgiliath'],
+    ['terr_mumak_skull','무마킬 해골','Mumak skull']] },
 ];

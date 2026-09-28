@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "count": 492,
+  "count": 497,
   "units": [
     {
       "id": "aragorn",
@@ -9901,6 +9901,71 @@
       "sheet": null,
       "file": "tokens/arpharazon.png",
       "base_mm": "25mm"
+    },
+    {
+      "id": "terr_palantir",
+      "name_ko": "팔란티르",
+      "name_en": "Palantir seeing-stone",
+      "side": "terrain",
+      "faction": "terrain",
+      "role": "terrain",
+      "weapon": "none",
+      "base": "M",
+      "sheet": null,
+      "file": "tokens/terr_palantir.png",
+      "base_mm": ""
+    },
+    {
+      "id": "terr_white_tree",
+      "name_ko": "흰나무 묘목",
+      "name_en": "Sapling of the White Tree",
+      "side": "terrain",
+      "faction": "terrain",
+      "role": "terrain",
+      "weapon": "none",
+      "base": "L",
+      "sheet": null,
+      "file": "tokens/terr_white_tree.png",
+      "base_mm": ""
+    },
+    {
+      "id": "terr_argonath",
+      "name_ko": "아르고나스",
+      "name_en": "Argonath, Pillar of Kings",
+      "side": "terrain",
+      "faction": "terrain",
+      "role": "terrain",
+      "weapon": "none",
+      "base": "XXL",
+      "sheet": null,
+      "file": "tokens/terr_argonath.png",
+      "base_mm": ""
+    },
+    {
+      "id": "terr_osgiliath_dome",
+      "name_ko": "오스길리아스 돔",
+      "name_en": "Ruined dome of Osgiliath",
+      "side": "terrain",
+      "faction": "terrain",
+      "role": "terrain",
+      "weapon": "none",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/terr_osgiliath_dome.png",
+      "base_mm": ""
+    },
+    {
+      "id": "terr_mumak_skull",
+      "name_ko": "무마킬 해골",
+      "name_en": "Mumak skull",
+      "side": "terrain",
+      "faction": "terrain",
+      "role": "terrain",
+      "weapon": "none",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/terr_mumak_skull.png",
+      "base_mm": ""
     }
   ]
 }
