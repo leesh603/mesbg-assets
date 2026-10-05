@@ -6,20 +6,20 @@
 
 수정 흐름:
 1. `src/game.js`를 수정 (또는 AI에게 수정 요청 후 파일 교체)
-2. `node tools/build.js` 실행 → `LAST-WAR-BAND_v1.9.html`(풀패키지) + `index.html`(라이트) + `assets/mesbg/` 자동 생성
+2. `node tools/build.js` 실행 → `index.html`에 소스 반영 + `LAST-WAR-BAND_v1.9.html`(오프라인 풀패키지) 로컬 생성
 3. 커밋·푸시 → GitHub Pages(https://leesh603.github.io/mesbg-assets/)에 자동 배포
 
 두 결과물의 차이:
-- **`index.html`** (~2MB) = 배포용 라이트 빌드. 에셋을 `assets/mesbg/` 외부 파일에서 불러와서 로딩이 빠름. `tools/externalize.js`가 생성 — **반드시 `assets/` 폴더와 같이 커밋할 것**. file:// 로 직접 열면 에셋 로딩이 안 됨(서버 필요)
-- **`LAST-WAR-BAND_v1.9.html`** (~58MB) = 게임 전체가 담긴 단일 HTML (오프라인/다운로드용). 직접 고치지 말 것 — `src/game.js`를 고치고 다시 빌드.
+- **`index.html`** (~2MB) = 배포용 라이트 빌드이자 **원본 문서**. 에셋을 `assets/mesbg/` 외부 파일에서 불러와서 로딩이 빠름 — **반드시 `assets/` 폴더와 같이 커밋할 것**. file:// 로 직접 열면 에셋 로딩이 안 됨(서버 필요)
+- **`LAST-WAR-BAND_v1.9.html`** (~114MB) = 게임 전체가 담긴 단일 HTML (오프라인/다운로드용). **GitHub 100MB 한도 때문에 git에는 커밋하지 않음(.gitignore)** — 빌드하면 로컬에 생성되고, 온라인 게임은 `index.html` + `assets/mesbg/`로만 동작한다. 직접 고치지 말 것 — `src/game.js`를 고치고 다시 빌드.
 
 - HTML 앞부분은 base64 인코딩 이미지 에셋 — **절대 손대지 말 것**
 - HTML에서 `src/game.js`에 해당하는 구간은 `/*__LWB_SRC_BEGIN__*/` ~ `/*__LWB_SRC_END__*/` 마커 사이
 - HTML을 직접 수정해서 `src/game.js`와 어긋났으면 `node tools/extract_src.js`로 다시 추출
 
-## UI 스타일(CSS) 수정 — HTML 직접 수정 가능 영역
+## UI 스타일(CSS) 수정 — index.html 직접 수정 가능 영역
 
-`LAST-WAR-BAND_v1.9.html`에서 `/*__LWB_SRC_END__*/` 마커(~9912행) **이후**에 나오는 `<style>` 블록들은 빌드로 덮어쓰이지 않는다 — **여기만 HTML을 직접 고쳐도 된다**. HUD/패널/버튼의 색·크기·레이아웃 같은 순수 스타일 변경은 이 구간의 CSS를 수정하면 된다.
+`index.html`에서 `/*__LWB_SRC_END__*/` 마커 **이후**에 나오는 `<style>` 블록들은 빌드로 덮어쓰이지 않는다 — **여기만 HTML을 직접 고쳐도 된다**. HUD/패널/버튼의 색·크기·레이아웃 같은 순수 스타일 변경은 이 구간의 CSS를 수정하면 된다. (index.html이 원본 문서라 새 클론에서도 바로 편집 가능)
 
 - 스타일만 바꾼 경우: HTML만 커밋해도 되지만, 관례적으로 `node tools/build.js` 후 커밋하면 항상 일관됨
 - UI 동작·화면 문자열·DOM 생성 코드는 `src/game.js`에 있다 — CSS가 아닌 변경은 src/game.js를 수정 후 빌드
@@ -40,8 +40,8 @@ mesbg-assets 리포에서 LAST WAR BAND 게임의 UI/HUD를 개선한다.
 [절대 규칙]
 - 작업 전 EDITING.md를 읽는다.
 - 코드 로직·UI 동작·화면 문자열은 src/game.js 만 수정한다.
-- LAST-WAR-BAND_v1.9.html의 __LWB_SRC_BEGIN__/__LWB_SRC_END__ 마커 사이는 빌드 산출물이라 절대 손대지 않는다.
-- CSS는 LAST-WAR-BAND_v1.9.html 안 __LWB_SRC_END__ 이후의 <style> 블록들을 수정한다.
+- index.html의 __LWB_SRC_BEGIN__/__LWB_SRC_END__ 마커 사이는 빌드 산출물이라 절대 손대지 않는다.
+- CSS는 index.html 안 __LWB_SRC_END__ 이후의 <style> 블록들을 수정한다.
 - 지금 잘 돌아가는 시스템은 건드리지 말고 최소한의 수정만 한다. 새 버전이 더 나쁘면 적용하지 않고 기존 상태를 유지한다.
 
 [할 일]
