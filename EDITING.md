@@ -17,6 +17,42 @@
 - HTML에서 `src/game.js`에 해당하는 구간은 `/*__LWB_SRC_BEGIN__*/` ~ `/*__LWB_SRC_END__*/` 마커 사이
 - HTML을 직접 수정해서 `src/game.js`와 어긋났으면 `node tools/extract_src.js`로 다시 추출
 
+## UI 스타일(CSS) 수정 — HTML 직접 수정 가능 영역
+
+`LAST-WAR-BAND_v1.9.html`에서 `/*__LWB_SRC_END__*/` 마커(~9912행) **이후**에 나오는 `<style>` 블록들은 빌드로 덮어쓰이지 않는다 — **여기만 HTML을 직접 고쳐도 된다**. HUD/패널/버튼의 색·크기·레이아웃 같은 순수 스타일 변경은 이 구간의 CSS를 수정하면 된다.
+
+- 스타일만 바꾼 경우: HTML만 커밋해도 되지만, 관례적으로 `node tools/build.js` 후 커밋하면 항상 일관됨
+- UI 동작·화면 문자열·DOM 생성 코드는 `src/game.js`에 있다 — CSS가 아닌 변경은 src/game.js를 수정 후 빌드
+
+## Claude Code / Cursor 같은 에이전트에 맡기기
+
+```
+git clone https://github.com/leesh603/mesbg-assets.git
+cd mesbg-assets
+npm install sharp
+```
+
+에이전트에게 붙여넣을 프롬프트 (그대로 복사):
+
+```
+mesbg-assets 리포에서 LAST WAR BAND 게임의 UI/HUD를 개선한다.
+
+[절대 규칙]
+- 작업 전 EDITING.md를 읽는다.
+- 코드 로직·UI 동작·화면 문자열은 src/game.js 만 수정한다.
+- LAST-WAR-BAND_v1.9.html의 __LWB_SRC_BEGIN__/__LWB_SRC_END__ 마커 사이는 빌드 산출물이라 절대 손대지 않는다.
+- CSS는 LAST-WAR-BAND_v1.9.html 안 __LWB_SRC_END__ 이후의 <style> 블록들을 수정한다.
+- 지금 잘 돌아가는 시스템은 건드리지 말고 최소한의 수정만 한다. 새 버전이 더 나쁘면 적용하지 않고 기존 상태를 유지한다.
+
+[할 일]
+(여기에 원하는 작업 작성. 예: 모바일 HUD 크기 조정 / 하단 명령 패널 재구성 / 유닛 카드 디자인 개선)
+
+[완료 후]
+- node tools/build.js 실행해 빌드한다.
+- git add -A && git commit -m "UI update" && git push origin main
+- push하면 https://leesh603.github.io/mesbg-assets/ 에 자동 배포된다.
+```
+
 ## 수정 시 핵심 규칙
 
 1. **문자열 치환으로 수정** — 정규식/전체 재작성 금지. 고유한 앵커 문자열을 찾아 `replace` 방식으로 바꾼다
@@ -74,5 +110,6 @@ MESBG.render()                        // 화면 갱신
 
 ## 배포
 
-- 리포에 커밋만으로는 라이브 반영 안 됨 — 별도 정적 호스팅 배포 필요
-- 현재 라이브: https://c--users-administrator-mesbg-d-ggxmnwtm.devinapps.com
+- `git push origin main` 만으로 자동 배포 — GitHub Pages가 main 브랜치를 서빙
+- 라이브: https://leesh603.github.io/mesbg-assets/ (푸시 후 반영까지 ~1-5분)
+- 구 주소(https://c--users-administrator-mesbg-d-ggxmnwtm.devinapps.com)는 수동 배포라 갱신 안 됨
