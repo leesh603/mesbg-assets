@@ -7231,8 +7231,8 @@ const MAP_TINT = {};
 // Per-map impassable zones (rects are x,y center-top-left style {x,y,w,h,z}; merged into terrain each stage).
 // z:'cliff' blocks every non-flyer; z:'mountain' also opens for units with the 'mountain' trait.
 const MAP_ZONES = {
-    // 미나스 티리스: 도시 외곽 성벽·중간 단층·시타델 + 배후 산봉우리. 중앙 성문 통로·성문 앞 평원 전부 개방.
-    minas_tirith: [{ x: 500, y: 560, w: 590, h: 270, z: 'cliff' }, { x: 1240, y: 560, w: 590, h: 270, z: 'cliff' }, { x: 690, y: 300, w: 400, h: 260, z: 'cliff' }, { x: 1240, y: 300, w: 400, h: 260, z: 'cliff' }, { x: 980, y: 0, w: 370, h: 180, z: 'cliff' }, { x: 0, y: 0, w: 460, h: 115, z: 'mountain' }, { x: 1870, y: 0, w: 460, h: 115, z: 'mountain' }],
+    // 미나스 티리스: 성+성벽은 상단 뒷배경, 성문 앞 평원 전부 개방. 중앙 성문 통로 유지.
+    minas_tirith: [{ x: 577, y: 0, w: 1183, h: 213, z: 'cliff' }, { x: 455, y: 213, w: 675, h: 199, z: 'cliff' }, { x: 1206, y: 213, w: 660, h: 199, z: 'cliff' }],
     // 헬름스딥: 배후 산맥·협곡 양벽·디핑 성벽(성문 개방) + 하단 개울(길목 여울 개방).
     helms_deep: [{ x: 0, y: 0, w: 2330, h: 172, z: 'mountain' }, { x: 0, y: 172, w: 230, h: 1130, z: 'mountain' }, { x: 2100, y: 172, w: 230, h: 1130, z: 'mountain' }, { x: 260, y: 272, w: 843, h: 231, z: 'cliff' }, { x: 1210, y: 272, w: 875, h: 231, z: 'cliff' }, { x: 0, y: 1350, w: 1100, h: 106, z: 'cliff' }, { x: 1210, y: 1350, w: 1120, h: 106, z: 'cliff' }],
     // 모리아: 카자드둠 협곡, 다리(중앙)만 통과.
