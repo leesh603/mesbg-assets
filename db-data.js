@@ -66,7 +66,8 @@ module.exports = [
   ['nazgul_mace', '나즈굴(철퇴)', 'Nazgul, mace', { traits: ['terror'], faction: 'angmar', weapon: 'mace' }],
   ['nazgul_mounted', '나즈굴(기마)', 'Nazgul mounted', { role: 'hero', traits: ['terror'], faction: 'angmar', weapon: 'sword', base: 'XL' }],
   ['morgul_knight', '모르굴 기사', 'Morgul Knight', { faction: 'mordor', role: 'cavalry', weapon: 'lance', base: 'XL' }],
-  ['dwimmerlaik', '드위머레이크(갑옷 나즈굴)', 'Dwimmerlaik', { faction: 'angmar', weapon: 'mace' }],
+  ['dwimmerlaik', '드위머레이크(갑옷 나즈굴)', 'Dwimmerlaik', { faction: 'angmar', weapon: 'twohanded', base: 'L' }],
+  ['witchking_spear', '마술왕(창)', 'Witch-king, crowned with spear', { traits: ['terror'], faction: 'angmar', weapon: 'twohanded', base: 'L' }],
 ]},
 { sheet: 'roster-minastirith-variants-v1.png', side: 'good', faction: 'gondor', role: 'infantry', base: 'M', units: [
   ['mt_swordshield', '미나스 티리스 검방', 'MT sword & shield', { weapon: 'sword_shield' }],
