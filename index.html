@@ -10148,4 +10148,93 @@ body.force-mobile .modal .reward p{grid-column:2!important;font-size:11.5px!impo
   body.force-mobile #app{width:min(430px,96vw);height:min(92vh,930px);margin:calc((100vh - min(92vh,930px))/2) auto;border:1px solid #4a5240;border-radius:22px;overflow:hidden;box-shadow:0 0 0 6px #141810,0 30px 90px rgba(0,0,0,.65);transform:translateZ(0)}
   body.force-mobile .modal{max-height:88%}
 }
+</style><style id="ui-polish">
+/* LAST WAR BAND — UI polish layer (2026-10).
+   Surface-only: colour, corners, depth, press feedback. No size/layout changes,
+   so the map viewport and the Phaser canvas keep their exact dimensions.
+   Overrides the runtime 'lwb-product-hud' sheet via the `html body.lwb-polished #app` prefix.
+   To revert: delete this whole <style id="ui-polish"> block. */
+html body.lwb-polished{--ui-gold:#e6c77e;--ui-gold-hi:#f8e6ae;--ui-gold-lo:#a8843e;--ui-gold-line:rgba(230,199,126,.32);--ui-panel:#1d251e;--ui-panel-hi:#283327;--ui-glass:rgba(17,25,19,.86)}
+
+/* ── Top bar ─────────────────────────────────────── */
+html body.lwb-polished #app .top{background:linear-gradient(180deg,#263122 0%,#171e18 100%)!important;border-bottom:1px solid var(--ui-gold-line)!important}
+html body.lwb-polished #app .brand strong{background:linear-gradient(180deg,#fff2c9 10%,#d8b467 90%);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800;letter-spacing:.03em}
+html body.lwb-polished #app .metric small{color:#a8ab92;letter-spacing:.06em}
+html body.lwb-polished #app .metric strong{color:var(--ui-gold-hi);font-weight:800;text-shadow:0 0 10px rgba(240,200,110,.25)}
+html body.lwb-polished #app #settings-toggle{background:transparent!important;border-color:transparent!important;border-radius:12px!important}
+
+/* ── Phase tabs ──────────────────────────────────── */
+html body.lwb-polished #app .phases{background:linear-gradient(180deg,#1a221b,#151b16)!important;border-bottom:1px solid rgba(230,199,126,.14)!important}
+html body.lwb-polished #app .phase{transition:color .2s ease}
+html body.lwb-polished #app .phase.active{color:var(--ui-gold-hi)!important;font-weight:700;box-shadow:inset 0 -2px 0 var(--ui-gold)!important;text-shadow:0 0 10px rgba(240,205,120,.5)}
+html body.lwb-polished #app .turn{color:var(--ui-gold)!important;font-weight:700}
+
+/* ── Map overlays ────────────────────────────────── */
+html body.lwb-polished #app .battle-info .place{font-weight:800;letter-spacing:.04em;text-shadow:0 1px 2px #000,0 0 8px rgba(0,0,0,.7)!important}
+html body.lwb-polished #app .battle-info .mission{background:var(--ui-glass)!important;border:1px solid var(--ui-gold-line)!important;border-left:3px solid var(--ui-gold)!important;border-radius:8px!important;box-shadow:0 4px 14px rgba(0,0,0,.45)}
+html body.lwb-polished #app .battle-info .mission em{color:var(--ui-gold-hi)}
+html body.lwb-polished #app .active-tag{background:linear-gradient(180deg,#f7e3a7,#d9b764)!important;color:#1f1a0c!important;border:1px solid #fbecc0!important;border-radius:999px!important;font-weight:700;box-shadow:0 3px 10px rgba(0,0,0,.5)!important}
+html body.lwb-polished #app .field-actions button,html body.lwb-polished #app #map-toggle{background:var(--ui-glass)!important;border:1px solid var(--ui-gold-line)!important;border-radius:12px!important;color:#f0e4c0!important;box-shadow:0 4px 12px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.06)!important}
+html body.lwb-polished #app #fight-preview{border-radius:10px;border:1px solid var(--ui-gold-line);border-left:3px solid var(--ui-gold);box-shadow:0 6px 18px rgba(0,0,0,.5)}
+html body.lwb-polished #app #tactical-legend{border-radius:8px}
+
+/* ── Command dock ────────────────────────────────── */
+html body.lwb-polished #app #command-dock{background:linear-gradient(180deg,#232d22 0%,#161c17 100%)!important;border-top:1px solid transparent!important;box-shadow:0 -8px 22px rgba(0,0,0,.45)!important}
+html body.lwb-polished #app #command-dock:before{content:"";position:absolute;left:0;right:0;top:-1px;height:1px;pointer-events:none;background:linear-gradient(90deg,transparent,var(--ui-gold-lo) 15%,var(--ui-gold-hi) 50%,var(--ui-gold-lo) 85%,transparent)}
+html body.lwb-polished #app .dock-portrait{border-radius:8px!important;background:radial-gradient(circle at 50% 40%,rgba(240,205,120,.22),rgba(0,0,0,.25) 75%)!important;box-shadow:inset 0 0 0 1px var(--ui-gold-line)}
+html body.lwb-polished #app .dock-text strong{color:#f8ecc8!important;font-weight:800}
+html body.lwb-polished #app #dock-vitals{color:#9fa992}
+html body.lwb-polished #app #dock-vitals b{color:var(--ui-gold-hi)!important;font-weight:800}
+html body.lwb-polished #app .vital-resources{border-left-color:var(--ui-gold-line)!important}
+
+/* primary CTA — gold bevel */
+html body.lwb-polished #app #dock-primary,html body.lwb-polished #app .menu-buttons .primary,html body.lwb-polished #app .camp-confirm .primary,html body.lwb-polished #app #action.primary{background:linear-gradient(180deg,#f8e6aa 0%,#ddbd6d 55%,#b98f3c 100%)!important;color:#1e190b!important;border:1px solid #fcecba!important;border-radius:10px!important;font-weight:800!important;letter-spacing:.02em;box-shadow:0 2px 0 #6f5420,0 6px 14px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.65)!important;transition:transform .08s ease,box-shadow .08s ease,filter .12s ease!important}
+html body.lwb-polished #app #dock-primary:not(:disabled):active,html body.lwb-polished #app .menu-buttons .primary:active,html body.lwb-polished #app .camp-confirm .primary:not(:disabled):active,html body.lwb-polished #app #action.primary:not(:disabled):active{transform:translateY(2px);box-shadow:0 0 0 #6f5420,0 2px 6px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.5)!important;filter:brightness(.96)}
+html body.lwb-polished #app #dock-primary.confirm{animation:uiConfirmGlow 1.6s ease-in-out infinite}
+@keyframes uiConfirmGlow{0%,100%{box-shadow:0 2px 0 #6f5420,0 6px 14px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.65),0 0 0 0 rgba(248,224,150,0)}50%{box-shadow:0 2px 0 #6f5420,0 6px 14px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.65),0 0 14px 2px rgba(248,224,150,.55)}}
+
+/* secondary buttons */
+html body.lwb-polished #app .roster-tools button,html body.lwb-polished #app .menu-buttons .secondary,html body.lwb-polished #app #intent-cancel{background:linear-gradient(180deg,#2e3a2c,#1e271e)!important;color:#efe4c3!important;border:1px solid var(--ui-gold-line)!important;border-radius:10px!important;font-weight:700;box-shadow:0 2px 0 #0c110d,inset 0 1px 0 rgba(255,255,255,.07)!important;transition:transform .08s ease,box-shadow .08s ease!important}
+html body.lwb-polished #app .roster-tools button:not(:disabled):active,html body.lwb-polished #app .menu-buttons .secondary:active,html body.lwb-polished #app #intent-cancel:active{transform:translateY(2px);box-shadow:0 0 0 #0c110d,inset 0 1px 0 rgba(255,255,255,.05)!important}
+
+/* roster — rounded portrait tiles with tier rings */
+html body.lwb-polished #app .roster-unit{border:0!important;border-radius:10px!important;background:radial-gradient(circle at 50% 38%,rgba(255,255,255,.07),rgba(0,0,0,.28) 80%)!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)!important;transition:transform .08s ease,box-shadow .15s ease,opacity .15s!important}
+html body.lwb-polished #app .roster-unit.tier-legendary{box-shadow:inset 0 0 0 1px rgba(240,200,110,.6)!important}
+html body.lwb-polished #app .roster-unit.tier-epic{box-shadow:inset 0 0 0 1px rgba(196,160,232,.55)!important}
+html body.lwb-polished #app .roster-unit.tier-rare{box-shadow:inset 0 0 0 1px rgba(130,172,214,.55)!important}
+html body.lwb-polished #app .roster-unit.tier-elite{box-shadow:inset 0 0 0 1px rgba(160,184,140,.55)!important}
+html body.lwb-polished #app .roster-unit.is-spent{opacity:.5}
+html body.lwb-polished #app .roster-unit.is-active{box-shadow:inset 0 0 0 1px rgba(240,200,110,.6),inset 0 -3px 0 var(--ui-gold)!important}
+html body.lwb-polished #app .roster-unit.is-selected{background:radial-gradient(circle at 50% 40%,rgba(240,205,120,.3),rgba(42,35,16,.6) 80%)!important;box-shadow:inset 0 0 0 2px var(--ui-gold),0 0 12px rgba(240,200,110,.45)!important;opacity:1}
+html body.lwb-polished #app .roster-unit:not(:disabled):active{transform:scale(.94)}
+
+/* ── Command sheet ───────────────────────────────── */
+html body.lwb-polished #app #battle-sheet{background:linear-gradient(180deg,#222b22,#181f19)!important;border-left:1px solid var(--ui-gold-line)!important;box-shadow:-14px 0 30px rgba(0,0,0,.5)!important}
+html body.lwb-polished #app #sheet-toggle{background:linear-gradient(180deg,#2c372a,#222b21)!important;border-bottom:1px solid var(--ui-gold-line)!important;color:var(--ui-gold-hi)!important;font-weight:700}
+html body.lwb-polished #app #sheet-toggle:after{content:'×'!important;font-size:18px!important;margin-left:6px;color:#d9d3bb}
+html body.lwb-polished #app .movement-readout{border-radius:10px}
+html body.lwb-polished #app .hero-skill{background:linear-gradient(135deg,#34402f,#252f24)!important;border:1px solid rgba(230,199,126,.45)!important;border-radius:12px!important;box-shadow:0 4px 12px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.06)}
+html body.lwb-polished #app .heroic-btn{border-radius:10px!important}
+html body.lwb-polished #app .command{border-radius:8px!important;transition:background .12s ease}
+html body.lwb-polished #app .command:not(:disabled):active{background:rgba(230,199,126,.1)!important}
+html body.lwb-polished #app .command em{color:var(--ui-gold)}
+
+/* ── Modals (title, camp, rewards) ───────────────── */
+html body.lwb-polished #app .overlay{background:radial-gradient(120% 80% at 50% 20%,rgba(20,30,22,.9),rgba(6,10,7,.96))!important}
+html body.lwb-polished #app .modal{background:linear-gradient(180deg,#252f24 0%,#1b221c 60%,#171d18 100%)!important;border:1px solid rgba(230,199,126,.42)!important;border-radius:16px!important;box-shadow:0 0 0 1px rgba(0,0,0,.6),0 24px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.06)!important}
+html body.lwb-polished #app .modal .eyebrow{color:var(--ui-gold)!important}
+html body.lwb-polished #app .campaign-menu h1{color:#f6e4ae!important;text-shadow:0 2px 0 rgba(0,0,0,.45),0 0 26px rgba(232,192,104,.28)}
+html body.lwb-polished #app .campaign-menu .subtitle{color:var(--ui-gold)!important}
+html body.lwb-polished #app .menu-buttons button{border-radius:12px!important}
+html body.lwb-polished #app .recruit-card,html body.lwb-polished #app .reward{border-radius:12px!important;background:linear-gradient(180deg,#2b362a,#212a21)!important;box-shadow:0 4px 12px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.05)!important;transition:transform .08s ease,box-shadow .15s ease!important}
+html body.lwb-polished #app .recruit-card.tier-legendary{background:linear-gradient(180deg,#3a3221,#222a20)!important}
+html body.lwb-polished #app .recruit-card.tier-epic{background:linear-gradient(180deg,#322b3e,#222a24)!important}
+html body.lwb-polished #app .recruit-card.tier-rare{background:linear-gradient(180deg,#26323d,#212a24)!important}
+html body.lwb-polished #app .recruit-card.is-picked,html body.lwb-polished #app .reward.is-picked{outline:2px solid var(--ui-gold)!important;outline-offset:-2px;background:linear-gradient(180deg,#3c4a33,#2a3526)!important;box-shadow:0 0 16px rgba(240,200,110,.35),0 4px 12px rgba(0,0,0,.35)!important}
+html body.lwb-polished #app .recruit-card:not(:disabled):active,html body.lwb-polished #app .reward:active{transform:scale(.97)}
+html body.lwb-polished #app .recruit-card em{color:var(--ui-gold-hi)!important;font-weight:800}
+html body.lwb-polished #app .camp-confirm{background:linear-gradient(180deg,rgba(23,29,24,.96),#171d18)!important;border-top:1px solid var(--ui-gold-line)!important}
+html body.lwb-polished #app .dice-panel,html body.lwb-polished #app #relic-info{border-radius:12px!important}
+
+@media(prefers-reduced-motion:reduce){html body.lwb-polished #app #dock-primary.confirm{animation:none}}
 </style></head><body><div id="app"></div></body></html>
