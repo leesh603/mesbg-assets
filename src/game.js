@@ -599,22 +599,38 @@ const MAP_TINT = {};
 // Per-map impassable zones (rects are x,y center-top-left style {x,y,w,h,z}; merged into terrain each stage).
 // z:'cliff' blocks every non-flyer; z:'mountain' also opens for units with the 'mountain' trait.
 const MAP_ZONES = {
-    minas_tirith: [{ x: 400, y: 560, w: 650, h: 170, z: 'cliff' }, { x: 1280, y: 560, w: 650, h: 170, z: 'cliff' }, { x: 560, y: 430, w: 490, h: 140, z: 'cliff' }, { x: 1280, y: 430, w: 490, h: 140, z: 'cliff' }, { x: 700, y: 300, w: 350, h: 140, z: 'cliff' }, { x: 1280, y: 300, w: 350, h: 140, z: 'cliff' }, { x: 820, y: 170, w: 230, h: 140, z: 'cliff' }, { x: 1280, y: 170, w: 230, h: 140, z: 'cliff' }, { x: 920, y: 60, w: 130, h: 120, z: 'cliff' }, { x: 1280, y: 60, w: 130, h: 120, z: 'cliff' }],
-    helms_deep: [{ x: 0, y: 0, w: 330, h: 1456, z: 'cliff' }, { x: 2000, y: 0, w: 330, h: 1456, z: 'cliff' }, { x: 330, y: 0, w: 720, h: 420, z: 'cliff' }, { x: 1280, y: 0, w: 720, h: 420, z: 'cliff' }, { x: 0, y: 1360, w: 1120, h: 96, z: 'cliff' }, { x: 1220, y: 1360, w: 1110, h: 96, z: 'cliff' }],
-    moria: [{ x: 0, y: 540, w: 1110, h: 360, z: 'cliff' }, { x: 1250, y: 540, w: 1080, h: 360, z: 'cliff' }],
-    black_gate: [{ x: 0, y: 0, w: 960, h: 400, z: 'mountain' }, { x: 1370, y: 0, w: 960, h: 400, z: 'mountain' }, { x: 960, y: 0, w: 140, h: 380, z: 'cliff' }, { x: 1230, y: 0, w: 140, h: 380, z: 'cliff' }, { x: 0, y: 1160, w: 300, h: 296, z: 'mountain' }, { x: 2030, y: 1160, w: 300, h: 296, z: 'mountain' }],
-    edoras: [{ x: 0, y: 0, w: 360, h: 340, z: 'mountain' }, { x: 1970, y: 0, w: 360, h: 340, z: 'mountain' }, { x: 0, y: 1120, w: 340, h: 336, z: 'mountain' }, { x: 1990, y: 1120, w: 340, h: 336, z: 'mountain' }, { x: 0, y: 1330, w: 1130, h: 126, z: 'cliff' }, { x: 1200, y: 1330, w: 1130, h: 126, z: 'cliff' }],
-    fangorn: [{ x: 1330, y: 230, w: 480, h: 230, z: 'mountain' }],
-    gorgoroth: [{ x: 1700, y: 0, w: 630, h: 330, z: 'mountain' }, { x: 0, y: 0, w: 460, h: 380, z: 'mountain' }, { x: 0, y: 520, w: 700, h: 130, z: 'cliff' }, { x: 1500, y: 560, w: 600, h: 150, z: 'cliff' }, { x: 0, y: 1240, w: 800, h: 216, z: 'cliff' }, { x: 1520, y: 1260, w: 810, h: 196, z: 'cliff' }, { x: 1050, y: 0, w: 200, h: 160, z: 'cliff' }],
-    isengard: [{ x: 560, y: 300, w: 320, h: 300, z: 'cliff' }, { x: 1450, y: 300, w: 320, h: 300, z: 'cliff' }, { x: 560, y: 860, w: 320, h: 300, z: 'cliff' }, { x: 1450, y: 860, w: 320, h: 300, z: 'cliff' }, { x: 1140, y: 420, w: 60, h: 150, z: 'cliff' }, { x: 1050, y: 560, w: 230, h: 220, z: 'mountain' }],
-    amon_sul: [{ x: 720, y: 560, w: 330, h: 400, z: 'mountain' }, { x: 1330, y: 560, w: 320, h: 400, z: 'mountain' }, { x: 980, y: 960, w: 400, h: 160, z: 'mountain' }],
-    osgiliath: [{ x: 1240, y: 0, w: 1090, h: 620, z: 'cliff' }, { x: 0, y: 700, w: 1240, h: 756, z: 'cliff' }],
-    rivendell: [{ x: 0, y: 0, w: 2330, h: 60, z: 'cliff' }, { x: 820, y: 560, w: 240, h: 896, z: 'cliff' }, { x: 1270, y: 560, w: 240, h: 896, z: 'cliff' }, { x: 1060, y: 1050, w: 210, h: 406, z: 'cliff' }, { x: 0, y: 500, w: 300, h: 560, z: 'cliff' }, { x: 2000, y: 600, w: 330, h: 500, z: 'cliff' }],
-    lothlorien: [{ x: 2050, y: 0, w: 280, h: 1180, z: 'cliff' }, { x: 1450, y: 1180, w: 880, h: 276, z: 'cliff' }],
-    erebor: [{ x: 0, y: 0, w: 2330, h: 240, z: 'mountain' }, { x: 1050, y: 240, w: 230, h: 420, z: 'cliff' }, { x: 1050, y: 700, w: 230, h: 200, z: 'cliff' }, { x: 1050, y: 1030, w: 230, h: 170, z: 'cliff' }, { x: 900, y: 1200, w: 560, h: 256, z: 'cliff' }],
-    pelennor: [{ x: 0, y: 0, w: 1100, h: 170, z: 'cliff' }, { x: 1230, y: 0, w: 1100, h: 170, z: 'cliff' }, { x: 0, y: 1140, w: 400, h: 316, z: 'mountain' }],
-    dead_marshes: [{ x: 240, y: 150, w: 840, h: 560, z: 'cliff' }, { x: 1520, y: 200, w: 720, h: 560, z: 'cliff' }, { x: 120, y: 850, w: 820, h: 500, z: 'cliff' }, { x: 1300, y: 850, w: 880, h: 500, z: 'cliff' }],
-    dunharrow: [{ x: 0, y: 0, w: 520, h: 400, z: 'mountain' }, { x: 1450, y: 380, w: 880, h: 480, z: 'cliff' }, { x: 0, y: 500, w: 520, h: 500, z: 'mountain' }]
+    // 미나스 티리스: 도시 외곽 성벽·중간 단층·시타델 + 배후 산봉우리. 중앙 성문 통로·성문 앞 평원 전부 개방.
+    minas_tirith: [{ x: 500, y: 560, w: 590, h: 270, z: 'cliff' }, { x: 1240, y: 560, w: 590, h: 270, z: 'cliff' }, { x: 690, y: 300, w: 400, h: 260, z: 'cliff' }, { x: 1240, y: 300, w: 400, h: 260, z: 'cliff' }, { x: 980, y: 0, w: 370, h: 180, z: 'cliff' }, { x: 0, y: 0, w: 460, h: 115, z: 'mountain' }, { x: 1870, y: 0, w: 460, h: 115, z: 'mountain' }],
+    // 헬름스딥: 배후 산맥·협곡 양벽·디핑 성벽(성문 개방) + 하단 개울(길목 여울 개방).
+    helms_deep: [{ x: 0, y: 0, w: 2330, h: 172, z: 'mountain' }, { x: 0, y: 172, w: 230, h: 1130, z: 'mountain' }, { x: 2100, y: 172, w: 230, h: 1130, z: 'mountain' }, { x: 260, y: 272, w: 843, h: 231, z: 'cliff' }, { x: 1210, y: 272, w: 875, h: 231, z: 'cliff' }, { x: 0, y: 1350, w: 1100, h: 106, z: 'cliff' }, { x: 1210, y: 1350, w: 1120, h: 106, z: 'cliff' }],
+    // 모리아: 카자드둠 협곡, 다리(중앙)만 통과.
+    moria: [{ x: 0, y: 530, w: 1090, h: 335, z: 'cliff' }, { x: 1195, y: 530, w: 1135, h: 335, z: 'cliff' }],
+    // 검은 문: 모란논 산맥 + 성벽(문 통로 개방) + 전장 양끝 산등.
+    black_gate: [{ x: 0, y: 0, w: 827, h: 290, z: 'mountain' }, { x: 1500, y: 0, w: 830, h: 290, z: 'mountain' }, { x: 827, y: 72, w: 291, h: 218, z: 'cliff' }, { x: 1210, y: 72, w: 290, h: 218, z: 'cliff' }, { x: 0, y: 1060, w: 310, h: 396, z: 'mountain' }, { x: 2020, y: 1205, w: 310, h: 251, z: 'mountain' }],
+    // 에도라스: 사면 산봉우리 + 하단 개울(중앙 다리) + 목책 링(남북문 개방) + 메두셀드 홀.
+    edoras: [{ x: 0, y: 0, w: 185, h: 143, z: 'mountain' }, { x: 2145, y: 0, w: 185, h: 143, z: 'mountain' }, { x: 0, y: 1293, w: 185, h: 163, z: 'mountain' }, { x: 2145, y: 1264, w: 185, h: 192, z: 'mountain' }, { x: 0, y: 1150, w: 1090, h: 172, z: 'cliff' }, { x: 1210, y: 1150, w: 1120, h: 172, z: 'cliff' }, { x: 340, y: 125, w: 740, h: 62, z: 'cliff' }, { x: 1250, y: 125, w: 740, h: 62, z: 'cliff' }, { x: 340, y: 172, w: 104, h: 862, z: 'cliff' }, { x: 1886, y: 172, w: 107, h: 948, z: 'cliff' }, { x: 340, y: 1000, w: 730, h: 120, z: 'cliff' }, { x: 1200, y: 1000, w: 670, h: 120, z: 'cliff' }, { x: 950, y: 230, w: 430, h: 230, z: 'cliff' }],
+    // 판고른: 강 4구간(두 여울 개방) + 중앙 바위 언덕(산악 특성 통과).
+    fangorn: [{ x: 735, y: 0, w: 245, h: 373, z: 'cliff' }, { x: 766, y: 575, w: 340, h: 290, z: 'cliff' }, { x: 920, y: 865, w: 90, h: 250, z: 'cliff' }, { x: 1225, y: 865, w: 195, h: 250, z: 'cliff' }, { x: 1420, y: 1115, w: 910, h: 341, z: 'cliff' }, { x: 1230, y: 400, w: 610, h: 400, z: 'mountain' }],
+    // 고르고로스: 화산·흑탑·바위 콘 + 용암 줄기들.
+    gorgoroth: [{ x: 1770, y: 0, w: 560, h: 280, z: 'mountain' }, { x: 0, y: 0, w: 200, h: 370, z: 'cliff' }, { x: 185, y: 0, w: 275, h: 115, z: 'mountain' }, { x: 185, y: 100, w: 800, h: 120, z: 'cliff' }, { x: 0, y: 560, w: 245, h: 115, z: 'cliff' }, { x: 1255, y: 660, w: 460, h: 115, z: 'cliff' }, { x: 1655, y: 575, w: 450, h: 230, z: 'cliff' }, { x: 2105, y: 775, w: 225, h: 115, z: 'cliff' }, { x: 0, y: 1260, w: 735, h: 196, z: 'cliff' }, { x: 1840, y: 975, w: 300, h: 230, z: 'cliff' }, { x: 2020, y: 1205, w: 310, h: 251, z: 'cliff' }, { x: 820, y: 510, w: 230, h: 160, z: 'mountain' }, { x: 1318, y: 272, w: 92, h: 130, z: 'mountain' }],
+    // 이센가드: 원형 성벽(남북문 개방) + 오르상크 언덕(산악) + 4개 공사 구덩이.
+    isengard: [{ x: 820, y: 55, w: 250, h: 170, z: 'cliff' }, { x: 1260, y: 55, w: 240, h: 170, z: 'cliff' }, { x: 275, y: 172, w: 310, h: 375, z: 'cliff' }, { x: 1747, y: 172, w: 310, h: 375, z: 'cliff' }, { x: 275, y: 718, w: 400, h: 402, z: 'cliff' }, { x: 1714, y: 718, w: 300, h: 402, z: 'cliff' }, { x: 300, y: 1120, w: 770, h: 200, z: 'cliff' }, { x: 1260, y: 1120, w: 770, h: 200, z: 'cliff' }, { x: 980, y: 330, w: 370, h: 480, z: 'mountain' }, { x: 705, y: 258, w: 305, h: 172, z: 'cliff' }, { x: 1318, y: 172, w: 396, h: 258, z: 'cliff' }, { x: 521, y: 733, w: 399, h: 243, z: 'cliff' }, { x: 1318, y: 890, w: 396, h: 202, z: 'cliff' }],
+    // 아몬 술: 웅덩이 4곳 + 산비탈 바위 3곳(산악 통과). 나선 길·정상 전부 개방.
+    amon_sul: [{ x: 170, y: 160, w: 415, h: 260, z: 'cliff' }, { x: 2005, y: 820, w: 275, h: 160, z: 'cliff' }, { x: 170, y: 1220, w: 335, h: 175, z: 'cliff' }, { x: 1655, y: 1190, w: 430, h: 175, z: 'cliff' }, { x: 1320, y: 950, w: 540, h: 400, z: 'mountain' }, { x: 460, y: 400, w: 290, h: 350, z: 'mountain' }, { x: 1590, y: 400, w: 280, h: 230, z: 'mountain' }],
+    // 오스길리아스: 안두인 강 대각선(무너진 다리 구간 개방).
+    osgiliath: [{ x: 1470, y: 0, w: 860, h: 460, z: 'cliff' }, { x: 490, y: 460, w: 430, h: 575, z: 'cliff' }, { x: 1350, y: 460, w: 180, h: 340, z: 'cliff' }, { x: 400, y: 1035, w: 490, h: 200, z: 'cliff' }, { x: 0, y: 1180, w: 400, h: 276, z: 'cliff' }],
+    // 리븐델: 상단 폭포수 + 다리 아래 협곡·하단 수로 + 양측 폭포. 다리·돌다리 여울 개방.
+    rivendell: [{ x: 980, y: 0, w: 340, h: 230, z: 'cliff' }, { x: 920, y: 575, w: 505, h: 515, z: 'cliff' }, { x: 1010, y: 1205, w: 490, h: 251, z: 'cliff' }, { x: 60, y: 660, w: 215, h: 430, z: 'cliff' }, { x: 1655, y: 545, w: 150, h: 565, z: 'cliff' }],
+    // 로스로리엔: 우측·하단 강(가장자리) + 좌하단 연못.
+    lothlorien: [{ x: 1970, y: 0, w: 360, h: 600, z: 'cliff' }, { x: 1900, y: 600, w: 430, h: 400, z: 'cliff' }, { x: 1320, y: 1050, w: 1010, h: 406, z: 'cliff' }, { x: 0, y: 1092, w: 368, h: 364, z: 'cliff' }],
+    // 에레보르: 외로운 산 정상부·성문 양옥 + 중앙 강(다리 개방) + 하단 호수.
+    erebor: [{ x: 0, y: 0, w: 2330, h: 230, z: 'mountain' }, { x: 800, y: 230, w: 330, h: 200, z: 'cliff' }, { x: 1270, y: 230, w: 263, h: 200, z: 'cliff' }, { x: 0, y: 488, w: 245, h: 230, z: 'mountain' }, { x: 1073, y: 530, w: 214, h: 375, z: 'cliff' }, { x: 1040, y: 970, w: 300, h: 180, z: 'cliff' }, { x: 550, y: 1150, w: 1780, h: 306, z: 'cliff' }],
+    // 펠레노르: 외성 성벽 전면(대성문 개방) + 좌하단 연못·우하단 개울.
+    pelennor: [{ x: 0, y: 0, w: 1100, h: 215, z: 'cliff' }, { x: 1200, y: 0, w: 1130, h: 215, z: 'cliff' }, { x: 138, y: 1278, w: 153, h: 130, z: 'cliff' }, { x: 2025, y: 1205, w: 305, h: 251, z: 'cliff' }],
+    // 죽은 늪: 물웅덩이 7곳만 봉쇄(안개낀 마른 땅은 전부 개방).
+    dead_marshes: [{ x: 340, y: 160, w: 458, h: 242, z: 'cliff' }, { x: 920, y: 57, w: 490, h: 143, z: 'cliff' }, { x: 1747, y: 230, w: 552, h: 258, z: 'cliff' }, { x: 122, y: 575, w: 460, h: 373, z: 'cliff' }, { x: 1380, y: 661, w: 583, h: 373, z: 'cliff' }, { x: 92, y: 1063, w: 674, h: 287, z: 'cliff' }, { x: 1318, y: 1120, w: 583, h: 259, z: 'cliff' }],
+    // 던하로우: 좌상 설봉·우상 봉우리 + 우측 절벽면·하단 벼랑 밑 숲.
+    dunharrow: [{ x: 0, y: 0, w: 889, h: 460, z: 'mountain' }, { x: 2114, y: 0, w: 216, h: 115, z: 'mountain' }, { x: 1320, y: 490, w: 1010, h: 966, z: 'cliff' }, { x: 0, y: 1150, w: 368, h: 306, z: 'cliff' }]
 };
 // True when unit Z may pass through terrain entry t (flyers ignore all terrain; mountain-dwellers ignore 'mountain' zones).
 function zoneOpen(Z, t) { return !t.active || !!Z && (Z.traits.includes('flying') || t.z === 'mountain' && Z.traits.includes('mountain')); }
