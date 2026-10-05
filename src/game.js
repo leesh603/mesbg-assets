@@ -123,7 +123,7 @@ Ae=[{id:"warrior_minas_tirith",name_ko:"미나스 티리스 전사",name_en:"War
 }
 class Ve extends Ot.Scene {
     constructor() { super("battle"); lt(this, "b"); lt(this, "soundFX"); lt(this, "asset"); lt(this, "onPoint"); lt(this, "onUnit"); lt(this, "onDrop"); lt(this, "tokens", new Map); lt(this, "rings"); lt(this, "terrainLayer"); lt(this, "labels"); lt(this, "dragStart"); lt(this, "dragUnit", ""); lt(this, "busy", !1); lt(this, "focusedUid", ""); lt(this, "preview"); lt(this, "previewPlan"); lt(this, "previewAt", 0); }
-    preload() { this.load.maxParallelDownloads = 64; this.load.image("gate-art", this.asset("backgrounds/gate-v2.png")); for (const b of this.b.meta.values())
+    preload() { this.load.maxParallelDownloads = 64; this.load.image("gate-art", this.asset("maps/minas_tirith.jpg")); for (const b of this.b.meta.values())
         this.load.image(b.id, this.asset(b.file)); }
     create() { this.drawMap(), this.terrainLayer = this.add.container(0, 0), this.rings = this.add.graphics().setDepth(3), this.labels = this.add.container(0, 0).setDepth(8), this.cameras.main.setBounds(0, 0, pt.width, pt.height), this.cameras.main.setZoom(this.scale.width < 850 ? .85 : 1), this.cameras.main.centerOn(1165, 720), this.input.addPointer(1), this.input.on("pointerdown", b => { this.dragStart = { x: b.worldX, y: b.worldY }; const H = this.hit({ x: b.worldX, y: b.worldY }); this.dragUnit = (H == null ? void 0 : H.uid) || ""; }), this.input.on("pointerup", b => { if (this.busy)
         return; const H = { x: b.worldX, y: b.worldY }; if (!this.dragUnit && this.dragStart && Math.hypot(b.x - b.downX, b.y - b.downY) > 10) {
@@ -581,7 +581,7 @@ const BASE_FACTION = { gondor: 'gondor', mordor: 'mordor', moria: 'moria', angma
 const baseFile = u => { const f = BASE_FACTION[u.faction] || (u.side === 'evil' ? 'mordor' : 'gondor'); const s = ['S', 'M', 'L', 'XL', 'XXL'].includes(u.base) ? u.base : 'M'; return `bases/base_${f}_${s}.png`; };
 // High-quality painted maps for the stages that have them; other stages keep the asset-pack backdrops.
 const MAP_HQ = { minas_tirith: 'gate-art', osgiliath: 'map-hq-osgiliath', gorgoroth: 'map-hq-gorgoroth', edoras: 'map-hq-edoras', amon_sul: 'map-hq-amon_sul', helms_deep: 'map-hq-helms_deep', fangorn: 'map-hq-fangorn', moria: 'map-hq-moria', isengard: 'map-hq-isengard', black_gate: 'map-hq-black_gate' };
-const MAP_TINT = { gorgoroth: 0xd6ccbe, edoras: 0xf3eedd, amon_sul: 0xf3eedd };
+const MAP_TINT = {};
 // Spear-support predicate, shared by the fight solver and the HUD link lines.
 function supportAlly(u) { const all = q.alive(); if (!u.alive || !u.traits.includes('spear') || all.some(v => Vt(u, v)))
     return null; return all.filter(v => v !== u && v.side === u.side && all.some(f => f.side !== u.side && Vt(v, f)) && ht(u, v) <= u.radius + v.radius + 48).sort((a, b2) => ht(u, a) - ht(u, b2))[0] || null; }
@@ -1804,7 +1804,7 @@ Ve.prototype.preload = function () {
     oldPreload.call(this);
     for (const name of CX.maps)
         this.load.image('map-' + name, this.asset('backgrounds/bg_' + name + '.png'));
-    for (const name of ['slash', 'thrust', 'smash', 'shoot', 'cast', 'pounce', 'rally', 'clash', 'prone', 'terror', 'charge', 'halfmove'])
+    for (const name of ['slash', 'thrust', 'smash', 'shoot', 'cast', 'pounce', 'rally', 'blood', 'clash', 'prone', 'terror', 'charge', 'halfmove'])
         this.load.image('fx-' + name, this.asset('effects/fx_' + name + '.png'));
     for (const [id, u] of q.meta)
         if (u.side !== 'terrain')
@@ -1812,7 +1812,7 @@ Ve.prototype.preload = function () {
     this.load.image('map-hq-osgiliath', this.asset('maps/ruins.jpg'));
     this.load.image('map-hq-gorgoroth', this.asset('maps/mordor.jpg'));
     this.load.image('map-hq-edoras', this.asset('maps/plains.jpg'));
-    this.load.image('map-hq-amon_sul', this.asset('maps/plains.jpg'));
+    this.load.image('map-hq-amon_sul', this.asset('maps/amon_sul.jpg'));
     for (const n of ['helms_deep', 'fangorn', 'moria', 'isengard', 'black_gate']) this.load.image('map-hq-' + n, this.asset('maps/' + n + '.jpg'));
 };
 Ve.prototype.drawMap = function () { this.backdrop = this.add.image(pt.width / 2, pt.height / 2, 'map-minas_tirith').setDisplaySize(pt.width, pt.height).setTint(0xb6b5a4); this.boundary = this.add.graphics().setDepth(2); this.objectiveLabel = this.add.text(0, 0, '', { fontFamily: 'Pretendard', fontSize: '22px', color: '#e7ddbd', backgroundColor: '#20231de6', padding: { x: 10, y: 6 } }).setOrigin(.5).setDepth(4); };
@@ -2820,6 +2820,7 @@ Ve.prototype.combat=async function(result){
     if(this.textures&&!this.textures.exists('fx-spark')){const g0=this.add.graphics();g0.fillStyle(0xffffff,1);g0.fillCircle(4,4,3.4);g0.generateTexture('fx-spark',8,8);g0.destroy();}
     if(this.textures&&!this.textures.exists('fx-flash')){const f0=this.add.graphics();for(let r=30;r>0;r-=6)f0.fillStyle(0xffffff,.14+r/30*.5).fillCircle(32,32,r);f0.generateTexture('fx-flash',64,64);f0.destroy();}
     if(this.textures&&!this.textures.exists('fx-ring')){const r0=this.add.graphics();r0.lineStyle(7,0xffffff,.9);r0.strokeCircle(48,48,42);r0.generateTexture('fx-ring',96,96);r0.destroy();}
+    if(this.textures)for(const n of['slash','thrust','smash','shoot','cast','pounce','rally','blood'])this.textures.get('fx-'+n).setFilter(Phaser.Textures.FilterMode.NEAREST);
     for(const K of result.trappedUnits||[]){const $=this.b.unit(K);if(!$)continue;const p=this.add.text($.x,$.y-$.radius-25,'포위 · 추가 타격',{fontFamily:'Pretendard',fontSize:'16px',color:'#ffdb9c',backgroundColor:'#5d241cee',padding:{x:8,y:5}}).setOrigin(.5).setDepth(20);this.time.delayedCall(1500,()=>p.destroy());}
     for(const K of result.knockedDownUnits||[]){const $=this.b.unit(K);if(!$)continue;const p=this.add.text($.x,$.y-$.radius-45,'기병 충격 · 넘어짐',{fontFamily:'Pretendard',fontSize:'17px',color:'#f9edba',backgroundColor:'#31504cf0',padding:{x:8,y:5}}).setOrigin(.5).setDepth(21);this.time.delayedCall(1400,()=>p.destroy());}
     const burst=(x,y,color,n,spd)=>{for(let i=0;i<n;i++){const a=Math.random()*6.2832,d=(16+Math.random()*34)*spd,p=this.add.image(x,y,'fx-spark').setDepth(15).setTint(color).setScale(.5+Math.random()*.9).setAlpha(.95);this.tween(p,{x:x+Math.cos(a)*d,y:y+Math.sin(a)*d,alpha:0,scale:.08},200+Math.random()*160).then(()=>p.destroy());}};
@@ -2829,7 +2830,7 @@ Ve.prototype.combat=async function(result){
         const type=effectType(u,result.kind),angle=Math.atan2(v.y-u.y,v.x-u.x),size=Math.max(v.radius*3.1,90/UX.zoom);
         const heavy=type==='smash'||type==='cast'||!!u.traits.includes('monster')||!!u.traits.includes('boss');
         const fx=this.add.image(type==='shoot'?u.x:v.x,type==='shoot'?u.y:v.y,'fx-'+type).setDepth(14).setDisplaySize(size,size).setRotation(type==='smash'||type==='cast'?0:angle);
-        if(type==='cast')fx.setTint(0xbfd9ff);else if(type==='smash')fx.setTint(0xe8c9a0);
+
         const flash=this.add.image(v.x,v.y,'fx-flash').setDepth(15).setBlendMode(Phaser.BlendModes.ADD).setScale(hit.wound||hit.killed?v.radius*4/64:v.radius*2.4/64).setAlpha(hit.wound||hit.killed?.95:.55);
         this.tween(flash,{alpha:0,scale:flash.scaleX*.25},150).then(()=>flash.destroy());
         const ring=this.add.image(v.x,v.y,'fx-ring').setDepth(14).setTint(heavy?0xffd9a0:0xfff4dc).setScale(v.radius*1.4/96).setAlpha(.8);
@@ -2850,6 +2851,8 @@ Ve.prototype.combat=async function(result){
             if(t<1)requestAnimationFrame(frame);else resolve();};frame();});
         fx.destroy();sprite.setScale(sx,sy).setPosition(center.x,center.y);
         if(hit.wound||hit.killed){
+            const bl=this.add.image(v.x,v.y,'fx-blood').setDepth(13).setRotation(Math.random()*6.28).setDisplaySize(v.radius*(hit.killed?3.4:2.3),v.radius*(hit.killed?3.4:2.3));
+            this.tween(bl,{alpha:0},hit.killed?700:420).then(()=>bl.destroy());
             burst(v.x,v.y,hit.killed?0xd8452c:0xe8b090,UX.reduced?0:hit.killed?6:3,1);
             if(vsprite){vsprite.setTintFill(0xd8452c);this.time.delayedCall(130,()=>vsprite.scene&&vsprite.clearTint());}
         }else if(!UX.reduced)burst(v.x,v.y,0xffdca0,2,.6);
