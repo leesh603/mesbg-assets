@@ -2204,7 +2204,7 @@ Qe = function () {
             canResume = !!localStorage.getItem('mesbg-endless-save');
         }
         catch { }
-        box.innerHTML = `<div class="modal campaign-menu"><div class="eyebrow">MIDDLE-EARTH · ENDLESS TACTICAL DEFENSE</div><div class="intro-layout"><div><h1>서녘의<br>마지막 전열</h1><div class="subtitle">THE LAST WAR BAND</div><p>중간계의 끝없는 전쟁</p></div><div class="hero-tokens">${unitImage('aragorn')}${unitImage('rohan_rider')}</div></div><div class="menu-buttons"><button id="start-ai" class="primary">새 원정</button>${canResume ? '<button id="resume" class="secondary">원정 계속</button>' : ''}<button id="start-hotseat" class="secondary">2인 번갈아 플레이</button><button id="rank-btn" class="secondary">명예의 전당</button></div><div class="menu-notes"><span>최고 기록 ${q.readBest()} STAGE</span></div><p class="mini">정비 단계 자동 저장 · MESBG 기반 하우스 룰</p></div>`;
+        box.innerHTML = `<div class="modal campaign-menu"><div class="eyebrow">MIDDLE-EARTH · ENDLESS TACTICAL DEFENSE</div><div class="intro-layout"><div><h1>서녘의<br>마지막&nbsp;전열</h1><div class="subtitle">THE LAST WAR BAND</div><p>중간계의 끝없는 전쟁</p></div><div class="hero-tokens">${unitImage('aragorn')}${unitImage('rohan_rider')}</div></div><div class="menu-buttons"><button id="start-ai" class="primary">새 원정</button>${canResume ? '<button id="resume" class="secondary">원정 계속</button>' : ''}<button id="start-hotseat" class="secondary">2인 번갈아 플레이</button><button id="rank-btn" class="secondary">명예의 전당</button></div><div class="menu-notes"><span>최고 기록 ${q.readBest()} STAGE</span></div><p class="mini">정비 단계 자동 저장 · MESBG 기반 하우스 룰</p></div>`;
         ut('start-ai').onclick = () => Rt(() => q.start('ai'));
         ut('start-hotseat').onclick = () => Rt(() => q.start('hotseat'));
         if (canResume)
