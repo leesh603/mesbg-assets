@@ -9215,7 +9215,7 @@ function renderDock(){
     if(signature!==UX.rosterKey){UX.rosterKey=signature;ut('roster-strip').innerHTML=team.map(v=>`<button class="roster-unit tier-${heroGrade(v.id)}" type="button" data-unit="${v.uid}" aria-label="${esc(v.name)} 선택"><img src="${Ut(q.meta.get(v.id).file)}" alt=""></button>`).join('');
         ut('roster-strip').querySelectorAll('[data-unit]').forEach(btn=>btn.onclick=()=>{if(At||Qt)return;Zt(btn.dataset.unit);const v=q.unit(btn.dataset.unit);if(v?.alive){const p=screenAt(v.x,v.y);if(p.x<40||p.x>UX.width-40||p.y<48||p.y>UX.height-48)setCamera(v.x,v.y,UX.cameraMode==='overview'?.78:UX.zoom,'manual')}});
     }
-    for(const btn of ut('roster-strip').children){const v=q.unit(btn.dataset.unit);const spent=v.acted&&['move','shoot'].includes(phase);btn.classList.toggle('is-active',v.uid===active?.uid);btn.classList.toggle('is-selected',v.uid===q.selected);btn.classList.toggle('is-spent',spent);btn.setAttribute('aria-pressed',String(v.uid===q.selected));btn.title=v.name+' · '+(v.uid===active?.uid?'현재 행동':spent?'행동 완료':'선택');btn.disabled=At;}
+    for(const btn of ut('roster-strip').children){const v=q.unit(btn.dataset.unit);const spent=v.acted&&['move','shoot'].includes(phase);btn.classList.toggle('is-active',v.uid===active?.uid);btn.classList.toggle('is-selected',v.uid===q.selected);btn.classList.toggle('is-spent',spent);btn.style.setProperty('--hp',String(Math.max(0,Math.min(1,v.currentWounds/Math.max(1,v.stats.wounds)))));btn.setAttribute('aria-pressed',String(v.uid===q.selected));btn.title=v.name+' · '+(v.uid===active?.uid?'현재 행동':spent?'행동 완료':'선택');btn.disabled=At;}
     ut('next-unit').disabled=At||AUTO||q.mode==='ai'&&q.side==='evil'||!['preparation','move','shoot'].includes(phase);
     ut('hint').textContent=touchLayout()?'병사 탭 → 목적지 탭 · 한 손가락: 시점 이동 · 두 손가락: 확대 / 축소':'병사 클릭 → 목적지 클릭 · 빈 땅 드래그: 시점 이동 · 휠: 확대 · Q/E: 방향 전환';
     updateWorldUI();
@@ -9816,14 +9816,16 @@ function renderUnitVitals() {
     const el=ut('dock-vitals');if(!el)return;
     const u=q.unit(q.selected)||actionableUnit();
     if(!u?.alive){el.textContent='';return;}
-    const pair=(label,value)=>'<span>'+label+' <b>'+value+'</b></span>';
-    let html=pair('HP',u.currentWounds+'/'+u.stats.wounds)+pair('MOVE',(q.remaining(u)/45).toFixed(1)+'/'+(u.stats.move/45).toFixed(0)+'″')
-        +pair('Attack',u.stats.attacks)+pair('Defense',u.stats.defence)+pair('Fight',u.stats.fight);
-    if(u.traits.includes('hero'))html+='<span class="vital-resources" title="Might / Will / Fate">'+pair('Might',u.resources.might)+pair('Will',u.resources.will)+pair('Fate',u.resources.fate)+'</span>';
+    const pair=(cls,tip,value)=>'<span class="v '+cls+'" title="'+tip+'"><i aria-hidden="true"></i><b>'+value+'</b></span>';
+    const hpR=Math.max(0,Math.min(1,u.currentWounds/Math.max(1,u.stats.wounds)));
+    let html='<span class="v v-hp'+(hpR<=.34?' low':'')+'" title="체력 '+u.currentWounds+'/'+u.stats.wounds+'"><i aria-hidden="true"></i><b>'+u.currentWounds+'/'+u.stats.wounds+'</b><em class="v-bar"><s style="width:'+Math.round(hpR*100)+'%"></s></em></span>'
+        +pair('v-move','이동력 (남은/최대, 인치)',(q.remaining(u)/45).toFixed(1)+'<small>/'+(u.stats.move/45).toFixed(0)+'″</small>')
+        +pair('v-atk','공격 횟수 (Attack)',u.stats.attacks)+pair('v-def','방어 (Defense)',u.stats.defence)+pair('v-fight','결투 (Fight)',u.stats.fight);
+    if(u.traits.includes('hero'))html+='<span class="vital-resources" title="Might / Will / Fate">'+pair('v-might','위력 (Might)',u.resources.might)+pair('v-will','의지 (Will)',u.resources.will)+pair('v-fate','운명 (Fate)',u.resources.fate)+'</span>';
     if(el.dataset.unit!==html){el.dataset.unit=html;el.innerHTML=html;}
 }
 function renderPolishedHUD() {
-    document.body.dataset.phase=q.phase;
+    document.body.dataset.phase=q.phase;document.body.dataset.side=q.side||'';
     renderUnitVitals();
     const u=q.unit(q.selected),status=ut('dock-status');
     if(u?.alive&&!UX.intent){
@@ -9856,6 +9858,7 @@ function renderPolishedHUD() {
     const close=ut('sheet-toggle');close.textContent='명령 닫기';close.setAttribute('aria-label','병사 상세와 명령 닫기');
 }
 document.body.classList.add('lwb-polished');
+try{document.documentElement.style.setProperty('--ui-title-art','url("'+Ut('backgrounds/bg_black_gate.png')+'")');}catch(e){}
 ut('dock-detail').textContent='명령';
 ut('dock-primary').setAttribute('aria-label','현재 명령 확정 또는 단계 진행');
 ut('dock-status').setAttribute('aria-live','polite');
@@ -10143,93 +10146,329 @@ body.force-mobile .modal .reward p{grid-column:2!important;font-size:11.5px!impo
   body.force-mobile #app{width:min(430px,96vw);height:min(92vh,930px);margin:calc((100vh - min(92vh,930px))/2) auto;border:1px solid #4a5240;border-radius:22px;overflow:hidden;box-shadow:0 0 0 6px #141810,0 30px 90px rgba(0,0,0,.65);transform:translateZ(0)}
   body.force-mobile .modal{max-height:88%}
 }
-</style><style id="ui-polish">
-/* LAST WAR BAND — UI polish layer (2026-10).
-   Surface-only: colour, corners, depth, press feedback. No size/layout changes,
-   so the map viewport and the Phaser canvas keep their exact dimensions.
-   Overrides the runtime 'lwb-product-hud' sheet via the `html body.lwb-polished #app` prefix.
-   To revert: delete this whole <style id="ui-polish"> block. */
-html body.lwb-polished{--ui-gold:#e6c77e;--ui-gold-hi:#f8e6ae;--ui-gold-lo:#a8843e;--ui-gold-line:rgba(230,199,126,.32);--ui-panel:#1d251e;--ui-panel-hi:#283327;--ui-glass:rgba(17,25,19,.86)}
+</style><style id="ui-v2">
+/* LAST WAR BAND — UI v2 (2026-10): modern mobile-game HUD.
+   Layer order: base CSS → runtime 'lwb-product-hud' → this block (wins via `html body.lwb-polished #app` prefix).
+   Pairs with display hooks in src/game.js (vitals chip markup, roster --hp, body[data-side], --ui-title-art).
+   To revert the look: delete this <style id="ui-v2"> block and rebuild. */
+html body.lwb-polished{
+ --g:#e9c97e;--g-hi:#fbe8b0;--g-lo:#a7823b;--g-line:rgba(233,201,126,.34);
+ --ink:#0b100d;--bg0:#0f1511;--bg1:#18201a;--bg2:#212b22;--bg3:#2b372b;
+ --ally:#58c9a5;--ally-d:#1c4a3d;--foe:#e8705e;--foe-d:#4e1f1a;
+ --hp:#7fd36b;--hp-low:#f06a50;
+ --glass:rgba(13,19,15,.86);
+ --r-s:8px;--r-m:12px;--r-l:16px;
+ --sh-1:0 4px 12px rgba(0,0,0,.45);--sh-2:0 10px 28px rgba(0,0,0,.55);
+ --bevel:inset 0 1px 0 rgba(255,255,255,.08),inset 0 -1px 0 rgba(0,0,0,.35);
+ --i-heart:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21l-1.4-1.3C5.4 15 2 11.9 2 8.1 2 5 4.4 2.6 7.5 2.6c1.7 0 3.4.8 4.5 2.1 1.1-1.3 2.8-2.1 4.5-2.1C19.6 2.6 22 5 22 8.1c0 3.8-3.4 6.9-8.6 11.6z'/%3E%3C/svg%3E");
+ --i-move:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 5.5l8 6.5-8 6.5zM12 5.5l8 6.5-8 6.5z'/%3E%3C/svg%3E");
+ --i-sword:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M14.5 2.5H21.5V9.5L11.6 19.4 13 20.8 11.6 22.2 9.4 20 6.2 23.2 4.8 21.8 8 18.6 5.8 16.4 7.2 15 8.6 16.4z'/%3E%3C/svg%3E");
+ --i-shield:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2l8.5 3.2v6.2c0 5.1-3.6 9.5-8.5 10.9-4.9-1.4-8.5-5.8-8.5-10.9V5.2z'/%3E%3C/svg%3E");
+ --i-fight:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='M4 4l12.5 12.5M20 4L7.5 16.5M13.5 19l5.5-5.5M10.5 19L5 13.5M17.5 17.5l3 3M6.5 17.5l-3 3'/%3E%3C/svg%3E");
+ --i-coin:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill-rule='evenodd' d='M12 2.5a9.5 9.5 0 110 19 9.5 9.5 0 010-19zm0 4a5.5 5.5 0 100 11 5.5 5.5 0 000-11zm0 2.5l3 3-3 3-3-3z'/%3E%3C/svg%3E");
+ --i-cp:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 2h2v20H5zM8 3h11l-2.5 4.5L19 12H8z'/%3E%3C/svg%3E");
+ --i-band:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 11.5a4 4 0 100-8 4 4 0 000 8zM1.5 21c0-4.1 3.4-7.5 7.5-7.5s7.5 3.4 7.5 7.5zM17 11a3.2 3.2 0 100-6.4 3.2 3.2 0 000 6.4zM17.6 13.1c2.8.3 4.9 2.7 4.9 5.6V21h-4.3c0-2.9-1.1-5.6-3-7.5.7-.3 1.5-.4 2.4-.4z'/%3E%3C/svg%3E");
+ --i-next:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 5l10 7-10 7zM16 5h3.2v14H16z'/%3E%3C/svg%3E");
+ --i-list:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 4.5h3v3H3zM8.5 4.8h12.5v2.4H8.5zM3 10.5h3v3H3zM8.5 10.8h12.5v2.4H8.5zM3 16.5h3v3H3zM8.5 16.8h12.5v2.4H8.5z'/%3E%3C/svg%3E");
+ --i-check:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E");
+}
+html body.lwb-polished,html body.lwb-polished #app{background:var(--bg0)!important}
+html body.lwb-polished #app button{-webkit-tap-highlight-color:transparent}
 
-/* ── Top bar ─────────────────────────────────────── */
-html body.lwb-polished #app .top{background:linear-gradient(180deg,#263122 0%,#171e18 100%)!important;border-bottom:1px solid var(--ui-gold-line)!important}
-html body.lwb-polished #app .brand strong{background:linear-gradient(180deg,#fff2c9 10%,#d8b467 90%);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800;letter-spacing:.03em}
-html body.lwb-polished #app .metric small{color:#a8ab92;letter-spacing:.06em}
-html body.lwb-polished #app .metric strong{color:var(--ui-gold-hi);font-weight:800;text-shadow:0 0 10px rgba(240,200,110,.25)}
-html body.lwb-polished #app #settings-toggle{background:transparent!important;border-color:transparent!important;border-radius:12px!important}
+/* ═══ TOP BAR ═══════════════════════════════════════════ */
+html body.lwb-polished #app .top{background:linear-gradient(180deg,#1f2a20 0%,#121812 100%)!important;border-bottom:0!important;box-shadow:0 1px 0 var(--g-line),0 6px 16px rgba(0,0,0,.4)!important;gap:8px!important;padding:0 8px 0 10px!important}
+html body.lwb-polished #app .sigil{display:flex!important;align-items:center;justify-content:center;flex:0 0 34px;width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 50% 35%,#3a4632,#141a14 75%);box-shadow:0 0 0 1.5px var(--g-lo),0 0 0 3px rgba(0,0,0,.6),0 0 12px rgba(233,201,126,.25)}
+html body.lwb-polished #app .sigil img{width:24px!important;height:24px!important;object-fit:contain}
+html body.lwb-polished #app .runmeta{flex:1 1 auto;min-width:0;display:flex!important;align-items:center;gap:6px!important}
+html body.lwb-polished #app .metric{display:flex!important;flex-direction:row!important;align-items:center;gap:5px;border:0!important;padding:0!important;margin:0!important;min-width:0}
+html body.lwb-polished #app .metric small{font-size:9px!important;color:#9aa38d!important;letter-spacing:.04em;line-height:1;text-transform:none}
+html body.lwb-polished #app .metric strong{font-size:13px!important;line-height:1;color:#f4ead0!important;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
+/* stage badge */
+html body.lwb-polished #app .metric:has(#wave){flex:0 0 auto;white-space:nowrap;flex-direction:column!important;align-items:center;justify-content:center;gap:1px;min-width:40px;height:34px;padding:0 6px!important;border-radius:9px;background:linear-gradient(180deg,#3b3220,#211c12);box-shadow:inset 0 0 0 1px var(--g-lo),var(--sh-1)}
+html body.lwb-polished #app .metric:has(#wave) small{font-size:8px!important;color:var(--g)!important;letter-spacing:.08em}
+html body.lwb-polished #app .metric:has(#wave) strong{font-size:15px!important;color:var(--g-hi)!important}
+/* round / phase text */
+html body.lwb-polished #app .metric:has(#round){flex:1 1 auto;flex-direction:column!important;align-items:flex-start;gap:3px;overflow:hidden}
+html body.lwb-polished #app .metric:has(#round) strong{font-size:12px!important;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+/* resource chips */
+html body.lwb-polished #app .metric:has(#cp),html body.lwb-polished #app .metric:has(#gold-count),html body.lwb-polished #app .metric:has(#roster-count){display:flex!important;flex:0 0 auto;height:26px;padding:0 8px 0 4px!important;border-radius:999px;background:linear-gradient(180deg,#0b100c,#161e17);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),inset 0 2px 4px rgba(0,0,0,.6)}
+html body.lwb-polished #app .metric:has(#cp) small,html body.lwb-polished #app .metric:has(#gold-count) small,html body.lwb-polished #app .metric:has(#roster-count) small{width:18px;height:18px;flex:0 0 18px;font-size:0!important;border-radius:50%;-webkit-mask:none;mask:none}
+html body.lwb-polished #app .metric:has(#gold-count) small{background:radial-gradient(circle at 35% 30%,#fff3c4,#e2b24c 55%,#94661d);box-shadow:0 0 6px rgba(240,190,80,.5)}
+html body.lwb-polished #app .metric:has(#gold-count) small:before{content:"";display:block;width:100%;height:100%;background:#7a5212;-webkit-mask:var(--i-coin) center/12px no-repeat;mask:var(--i-coin) center/12px no-repeat;opacity:.65}
+html body.lwb-polished #app .metric:has(#cp) small{background:radial-gradient(circle at 35% 30%,#d8f3ff,#59a6d6 55%,#24577e);box-shadow:0 0 6px rgba(90,170,220,.5)}
+html body.lwb-polished #app .metric:has(#cp) small:before{content:"";display:block;width:100%;height:100%;background:#0d2c44;-webkit-mask:var(--i-cp) center/11px no-repeat;mask:var(--i-cp) center/11px no-repeat}
+html body.lwb-polished #app .metric:has(#roster-count) small{background:radial-gradient(circle at 35% 30%,#d9ffe9,#5cc69a 55%,#1f6a4c);box-shadow:0 0 6px rgba(90,200,150,.45)}
+html body.lwb-polished #app .metric:has(#roster-count) small:before{content:"";display:block;width:100%;height:100%;background:#0d3324;-webkit-mask:var(--i-band) center/12px no-repeat;mask:var(--i-band) center/12px no-repeat}
+html body.lwb-polished #app #cp{color:#bfe6ff!important}
+html body.lwb-polished #app #gold-count{color:var(--g-hi)!important}
+html body.lwb-polished #app #settings-toggle{flex:0 0 38px;width:38px!important;height:38px!important;min-height:38px!important;padding:0!important;border-radius:11px!important;background:linear-gradient(180deg,#2b3629,#1a221a)!important;border:1px solid var(--g-line)!important;box-shadow:var(--sh-1),var(--bevel)!important;color:#f1e4bd!important}
+html body.lwb-polished #app .top-actions{background:linear-gradient(180deg,#232d22,#171e18)!important;border:1px solid var(--g-line)!important;border-radius:var(--r-m)!important;box-shadow:var(--sh-2)!important;padding:8px!important;gap:6px!important}
+html body.lwb-polished #app .top-actions .iconbtn,html body.lwb-polished #app .top-actions select{border-radius:9px!important;background:#2a3428!important;border:1px solid rgba(255,255,255,.1)!important;min-height:38px;color:#efe4c3!important}
+@media(max-width:900px){
+ html body.lwb-polished #app .brand{display:none!important}
+}
+@media(max-width:430px){
+ html body.lwb-polished #app .sigil{display:none!important}
+ html body.lwb-polished #app .metric:has(#round){min-width:52px}
+}
+@media(max-width:380px){
+ html body.lwb-polished #app .top{gap:5px!important;padding:0 6px!important}
+ html body.lwb-polished #app .runmeta{gap:4px!important}
+ html body.lwb-polished #app .metric:has(#round) small{display:none}
+ html body.lwb-polished #app .metric:has(#cp),html body.lwb-polished #app .metric:has(#gold-count),html body.lwb-polished #app .metric:has(#roster-count){padding:0 6px 0 3px!important;gap:3px}
+ html body.lwb-polished #app .metric:has(#cp) small,html body.lwb-polished #app .metric:has(#gold-count) small,html body.lwb-polished #app .metric:has(#roster-count) small{width:16px;height:16px;flex-basis:16px}
+ html body.lwb-polished #app .metric:has(#wave){min-width:34px;padding:0 4px!important}
+ html body.lwb-polished #app .metric strong{font-size:12px!important}
+}
 
-/* ── Phase tabs ──────────────────────────────────── */
-html body.lwb-polished #app .phases{background:linear-gradient(180deg,#1a221b,#151b16)!important;border-bottom:1px solid rgba(230,199,126,.14)!important}
-html body.lwb-polished #app .phase{transition:color .2s ease}
-html body.lwb-polished #app .phase.active{color:var(--ui-gold-hi)!important;font-weight:700;box-shadow:inset 0 -2px 0 var(--ui-gold)!important;text-shadow:0 0 10px rgba(240,205,120,.5)}
-html body.lwb-polished #app .turn{color:var(--ui-gold)!important;font-weight:700}
+/* ═══ PHASE STEPPER ═════════════════════════════════════ */
+html body.lwb-polished #app .phases{position:relative;z-index:2;background:linear-gradient(180deg,#141b15,#101511)!important;border-bottom:1px solid rgba(255,255,255,.05)!important;gap:4px!important;padding:5px 8px!important;min-height:36px!important;align-items:center;box-shadow:0 4px 10px rgba(0,0,0,.35)}
+html body.lwb-polished #app .phase{position:relative;display:flex!important;align-items:center;gap:5px;padding:0 9px 0 5px!important;height:24px;border-radius:999px!important;font-size:11px!important;font-weight:600;color:#7e8875!important;background:rgba(255,255,255,.03)!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.05)!important;white-space:nowrap;counter-increment:ph;transition:background .2s,color .2s}
+html body.lwb-polished #app .phases{counter-reset:ph}
+html body.lwb-polished #app .phase:before{content:counter(ph);display:inline-grid;place-items:center;width:15px;height:15px;border-radius:50%;font-size:9px;font-weight:800;background:#263024;color:#8f9a84}
+html body.lwb-polished #app .phase.active{color:#1d180a!important;background:linear-gradient(180deg,var(--g-hi),var(--g) 60%,#c9a24f)!important;box-shadow:0 0 0 1px #fff1c4,0 0 14px rgba(240,200,110,.45)!important;text-shadow:none!important}
+html body.lwb-polished #app .phase.active:before{background:#1d180a;color:var(--g-hi)}
+html body.lwb-polished #app .phase:has(~ .phase.active){color:#b9c3aa!important}
+html body.lwb-polished #app .phase:has(~ .phase.active):before{content:"✓";background:var(--ally);color:#0c2a20}
+html body.lwb-polished #app .turn{margin-left:auto!important;height:24px;display:flex!important;align-items:center;padding:0 10px!important;border-radius:999px;font-size:11px!important;font-weight:800;color:#d9f5ea!important;background:linear-gradient(180deg,#2a6b57,var(--ally-d));box-shadow:inset 0 0 0 1px rgba(120,230,190,.45),0 0 10px rgba(80,200,160,.25);white-space:nowrap}
+html body.lwb-polished[data-side="evil"] #app .turn{color:#ffe2dc!important;background:linear-gradient(180deg,#8a3226,var(--foe-d));box-shadow:inset 0 0 0 1px rgba(255,140,120,.5),0 0 12px rgba(232,112,94,.35)}
+html body.lwb-polished[data-phase="preparation"] #app .turn,html body.lwb-polished[data-phase="fight"] #app .turn{color:#1d180a!important;background:linear-gradient(180deg,var(--g-hi),var(--g));box-shadow:0 0 10px rgba(240,200,110,.35)}
+html body.lwb-polished #app .turn.busy{animation:uiPulse 1.2s ease-in-out infinite}
+@keyframes uiPulse{50%{opacity:.6}}
+@media(max-width:380px){html body.lwb-polished #app .phase{padding:0 7px 0 4px!important;font-size:10px!important}html body.lwb-polished #app .phase:before{display:none}}
 
-/* ── Map overlays ────────────────────────────────── */
-html body.lwb-polished #app .battle-info .place{font-weight:800;letter-spacing:.04em;text-shadow:0 1px 2px #000,0 0 8px rgba(0,0,0,.7)!important}
-html body.lwb-polished #app .battle-info .mission{background:var(--ui-glass)!important;border:1px solid var(--ui-gold-line)!important;border-left:3px solid var(--ui-gold)!important;border-radius:8px!important;box-shadow:0 4px 14px rgba(0,0,0,.45)}
-html body.lwb-polished #app .battle-info .mission em{color:var(--ui-gold-hi)}
-html body.lwb-polished #app .active-tag{background:linear-gradient(180deg,#f7e3a7,#d9b764)!important;color:#1f1a0c!important;border:1px solid #fbecc0!important;border-radius:999px!important;font-weight:700;box-shadow:0 3px 10px rgba(0,0,0,.5)!important}
-html body.lwb-polished #app .field-actions button,html body.lwb-polished #app #map-toggle{background:var(--ui-glass)!important;border:1px solid var(--ui-gold-line)!important;border-radius:12px!important;color:#f0e4c0!important;box-shadow:0 4px 12px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.06)!important}
-html body.lwb-polished #app #fight-preview{border-radius:10px;border:1px solid var(--ui-gold-line);border-left:3px solid var(--ui-gold);box-shadow:0 6px 18px rgba(0,0,0,.5)}
-html body.lwb-polished #app #tactical-legend{border-radius:8px}
+/* ═══ MAP OVERLAYS ══════════════════════════════════════ */
+html body.lwb-polished #app .battle-info{top:8px!important;left:8px!important;gap:4px!important}
+html body.lwb-polished #app .battle-info .place{display:inline-flex!important;align-self:flex-start;align-items:center;gap:6px;font-size:11px!important;font-weight:800;letter-spacing:.05em;color:var(--g-hi)!important;background:var(--glass);padding:4px 10px 4px 8px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--g-line),var(--sh-1);text-shadow:none!important}
+html body.lwb-polished #app .battle-info .mission{background:var(--glass)!important;border:0!important;border-radius:var(--r-m)!important;padding:7px 11px!important;font-size:12px!important;color:#e8e2cf!important;box-shadow:inset 3px 0 0 var(--foe),inset 0 0 0 1px rgba(255,255,255,.08),var(--sh-1)!important}
+html body.lwb-polished #app .battle-info .mission em{font-style:normal;font-weight:800;color:#ffb7a8!important;margin-right:4px}
+html body.lwb-polished #app .active-tag{background:linear-gradient(180deg,var(--g-hi),#d6b25f)!important;color:#1d180a!important;border:0!important;border-radius:999px!important;font-weight:800!important;padding:4px 10px!important;box-shadow:0 0 0 1.5px #1d180a,0 4px 12px rgba(0,0,0,.55)!important}
+/* right-side control rail */
+html body.lwb-polished #app .field-actions{top:auto!important;left:auto!important;right:8px!important;bottom:10px!important;flex-direction:column-reverse!important;gap:6px!important}
+html body.lwb-polished #app .field-actions button,html body.lwb-polished #app #map-toggle{width:44px!important;min-width:44px!important;height:44px!important;min-height:44px!important;padding:0!important;display:grid!important;place-items:center;border-radius:14px!important;background:linear-gradient(180deg,rgba(40,52,40,.94),rgba(16,22,17,.94))!important;border:1px solid var(--g-line)!important;color:#f3e7c2!important;font-size:20px!important;font-weight:700;box-shadow:var(--sh-1),var(--bevel)!important;transition:transform .08s}
+html body.lwb-polished #app #map-toggle{top:auto!important;left:auto!important;right:8px!important;bottom:166px!important}
+html body.lwb-polished #app .field-actions button:active,html body.lwb-polished #app #map-toggle:active{transform:scale(.92)}
+html body.lwb-polished #app .field-actions .focus-control span,html body.lwb-polished #app #map-toggle span{display:none!important}
+html body.lwb-polished #app #minimap{left:auto!important;right:60px!important;bottom:166px!important;border-radius:var(--r-m);border:1px solid var(--g-line)!important;box-shadow:var(--sh-2)}
+/* engagement card — docks to bottom of the map, never over the mission banner */
+html body.lwb-polished #app #fight-preview{top:auto!important;bottom:10px!important;left:8px!important;right:60px!important;max-width:460px!important;padding:8px 10px!important;border:0!important;border-radius:var(--r-m)!important;background:var(--glass)!important;box-shadow:inset 0 0 0 1px var(--g-line),var(--sh-2)!important}
+html body.lwb-polished #app .fight-preview-title{font-size:11px!important;font-weight:800;color:var(--g-hi);letter-spacing:.02em;margin-bottom:6px!important}
+html body.lwb-polished #app .fight-member{border:0!important;border-radius:10px;background:linear-gradient(180deg,rgba(88,201,165,.16),rgba(88,201,165,.04))!important;box-shadow:inset 0 -2px 0 var(--ally)}
+html body.lwb-polished #app .fight-member.evil{background:linear-gradient(180deg,rgba(232,112,94,.18),rgba(232,112,94,.04))!important;box-shadow:inset 0 -2px 0 var(--foe)}
+html body.lwb-polished #app #tactical-legend{top:auto!important;bottom:10px!important;left:8px!important;border-radius:999px!important;background:var(--glass)!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);padding:5px 10px!important}
+html body.lwb-polished #app #fight-preview:not(.hidden) ~ #tactical-legend{display:none!important}
+/* dice — centre-stage popup */
+html body.lwb-polished #app #dice{top:42%!important;left:50%!important;right:auto!important;transform:translate(-50%,-50%)!important;min-width:250px;max-width:calc(100% - 24px);padding:14px 16px!important;border:0!important;border-radius:var(--r-l)!important;background:linear-gradient(180deg,rgba(36,46,36,.97),rgba(14,20,15,.97))!important;box-shadow:0 0 0 1px var(--g-lo),0 0 0 4px rgba(0,0,0,.55),0 0 30px rgba(233,201,126,.25),var(--sh-2)!important;z-index:30!important;animation:uiPop .18s ease-out}
+@keyframes uiPop{from{transform:translate(-50%,-50%) scale(.85);opacity:0}}
+html body.lwb-polished #app #dice .dice-title{font-size:13px!important;font-weight:800;color:var(--g-hi)!important;text-align:center;letter-spacing:.02em;margin-bottom:10px}
+html body.lwb-polished #app #dice .dice-row{gap:8px!important;padding:6px 8px;border-radius:10px;background:rgba(88,201,165,.08);margin:4px 0}
+html body.lwb-polished #app #dice .dice-row:nth-of-type(3),html body.lwb-polished #app #dice .dice-row + .dice-row{background:rgba(232,112,94,.1)}
+html body.lwb-polished #app #dice .dice-row > span:first-child{font-size:11px;font-weight:800;min-width:42px}
+html body.lwb-polished #app #dice img{width:30px!important;height:30px!important;border-radius:6px;filter:drop-shadow(0 2px 3px rgba(0,0,0,.6))}
+html body.lwb-polished #app #dice .dice-detail{font-size:12px!important;color:#e9e1c8!important;text-align:center;margin-top:8px}
+html body.lwb-polished #app #toast{border-radius:999px!important;background:var(--glass)!important;border:0!important;box-shadow:inset 0 0 0 1px var(--g-line),var(--sh-2)!important;padding:9px 16px!important;font-weight:700}
 
-/* ── Command dock ────────────────────────────────── */
-html body.lwb-polished #app #command-dock{background:linear-gradient(180deg,#232d22 0%,#161c17 100%)!important;border-top:1px solid transparent!important;box-shadow:0 -8px 22px rgba(0,0,0,.45)!important}
-html body.lwb-polished #app #command-dock:before{content:"";position:absolute;left:0;right:0;top:-1px;height:1px;pointer-events:none;background:linear-gradient(90deg,transparent,var(--ui-gold-lo) 15%,var(--ui-gold-hi) 50%,var(--ui-gold-lo) 85%,transparent)}
-html body.lwb-polished #app .dock-portrait{border-radius:8px!important;background:radial-gradient(circle at 50% 40%,rgba(240,205,120,.22),rgba(0,0,0,.25) 75%)!important;box-shadow:inset 0 0 0 1px var(--ui-gold-line)}
-html body.lwb-polished #app .dock-text strong{color:#f8ecc8!important;font-weight:800}
-html body.lwb-polished #app #dock-vitals{color:#9fa992}
-html body.lwb-polished #app #dock-vitals b{color:var(--ui-gold-hi)!important;font-weight:800}
-html body.lwb-polished #app .vital-resources{border-left-color:var(--ui-gold-line)!important}
+/* ═══ COMMAND DOCK ══════════════════════════════════════ */
+html body.lwb-polished #app #command-dock{display:grid!important;grid-template-columns:52px minmax(0,1fr) auto;grid-template-rows:52px 30px 50px;gap:6px 10px!important;padding:10px 10px calc(8px + env(safe-area-inset-bottom))!important;background:linear-gradient(180deg,#1e281f 0%,#121812 100%)!important;border-top:0!important;box-shadow:0 -1px 0 var(--g-line),0 -12px 26px rgba(0,0,0,.5)!important}
+html body.lwb-polished #app #command-dock:before{content:"";position:absolute;left:0;right:0;top:-1px;height:1px;pointer-events:none;background:linear-gradient(90deg,transparent,var(--g-lo) 18%,var(--g-hi) 50%,var(--g-lo) 82%,transparent)}
+html body.lwb-polished #app .dock-main{display:contents!important}
+html body.lwb-polished #app .dock-portrait{grid-column:1;grid-row:1;display:block!important;width:52px!important;height:52px!important;padding:3px;object-fit:contain;border-radius:14px!important;background:radial-gradient(circle at 50% 30%,#45533f,#151b15 78%)!important;box-shadow:0 0 0 1.5px var(--g),0 0 0 3.5px rgba(0,0,0,.6),0 0 14px rgba(233,201,126,.3)!important;image-rendering:auto}
+html body.lwb-polished #app .dock-text{grid-column:2;grid-row:1;align-self:center;min-width:0}
+html body.lwb-polished #app .dock-text strong{display:block;font-size:17px!important;line-height:21px!important;font-weight:800;color:#fbf0d0!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 1px 0 #000}
+html body.lwb-polished #app .dock-status{display:inline-block!important;max-width:100%;margin-top:3px;padding:1px 8px!important;border-radius:999px;font-size:11px!important;line-height:17px!important;font-weight:600;color:#cfe9db!important;background:rgba(88,201,165,.14);box-shadow:inset 0 0 0 1px rgba(88,201,165,.3)}
+html body.lwb-polished #app #dock-primary{grid-column:3;grid-row:1;align-self:stretch;min-width:116px!important;height:auto!important;min-height:52px!important;padding:0 16px!important;font-size:15px!important}
+html body.lwb-polished #app #intent-cancel{grid-column:3;grid-row:1;justify-self:start;transform:translateX(calc(-100% - 6px));align-self:stretch;height:auto!important;min-height:52px!important;width:44px}
+/* vitals: icon chips */
+html body.lwb-polished #app #dock-vitals{grid-column:1 / -1;grid-row:2;display:flex!important;flex-wrap:nowrap!important;align-items:center;gap:4px!important;min-height:30px!important;height:30px;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;font-size:12px!important}html body.lwb-polished #app #dock-vitals::-webkit-scrollbar{display:none}
+html body.lwb-polished #app #dock-vitals .v{position:relative;display:inline-flex;align-items:center;gap:4px;height:28px;padding:0 7px 0 5px;border-radius:9px;background:linear-gradient(180deg,#0c110d,#171f18);box-shadow:inset 0 0 0 1px rgba(255,255,255,.07),inset 0 2px 4px rgba(0,0,0,.5);white-space:nowrap;flex:0 0 auto}
+html body.lwb-polished #app #dock-vitals .v i{width:14px;height:14px;flex:0 0 14px;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+html body.lwb-polished #app #dock-vitals .v b{margin:0!important;font-size:13px!important;font-weight:800;color:#fbf0d0!important;font-variant-numeric:tabular-nums}
+html body.lwb-polished #app #dock-vitals .v b small{font-size:10px;font-weight:600;color:#9aa38d;margin-left:1px}
+html body.lwb-polished #app #dock-vitals .v-hp{color:#ff8b7a;padding-bottom:3px}
+html body.lwb-polished #app #dock-vitals .v-hp i{-webkit-mask-image:var(--i-heart);mask-image:var(--i-heart)}
+html body.lwb-polished #app #dock-vitals .v-bar{position:absolute;left:6px;right:6px;bottom:3px;height:3px;border-radius:2px;background:rgba(0,0,0,.6);overflow:hidden}
+html body.lwb-polished #app #dock-vitals .v-bar s{display:block;height:100%;background:linear-gradient(90deg,#4fbf5c,var(--hp));border-radius:2px}
+html body.lwb-polished #app #dock-vitals .v-hp.low .v-bar s{background:linear-gradient(90deg,#c43a2a,var(--hp-low))}
+html body.lwb-polished #app #dock-vitals .v-move{color:#8fd2ff}
+html body.lwb-polished #app #dock-vitals .v-move i{-webkit-mask-image:var(--i-move);mask-image:var(--i-move)}
+html body.lwb-polished #app #dock-vitals .v-atk{color:#ffb36b}
+html body.lwb-polished #app #dock-vitals .v-atk i{-webkit-mask-image:var(--i-sword);mask-image:var(--i-sword)}
+html body.lwb-polished #app #dock-vitals .v-def{color:#a9c4d8}
+html body.lwb-polished #app #dock-vitals .v-def i{-webkit-mask-image:var(--i-shield);mask-image:var(--i-shield)}
+html body.lwb-polished #app #dock-vitals .v-fight{color:#f0d27a}
+html body.lwb-polished #app #dock-vitals .v-fight i{-webkit-mask-image:var(--i-fight);mask-image:var(--i-fight)}
+html body.lwb-polished #app #dock-vitals .vital-resources{display:flex!important;gap:4px!important;margin-left:auto;padding:0!important;border:0!important;flex:0 0 auto}
+html body.lwb-polished #app #dock-vitals .vital-resources .v{padding:0 6px 0 4px;gap:3px}
+html body.lwb-polished #app #dock-vitals .vital-resources .v i{display:grid;place-items:center;width:14px;height:14px;flex-basis:14px;border-radius:4px;-webkit-mask:none;mask:none;font-style:normal;font-size:9px;font-weight:900;color:#10140f;line-height:14px;text-align:center}
+html body.lwb-polished #app #dock-vitals .v-might i{background:#ff9a6b}
+html body.lwb-polished #app #dock-vitals .v-might i:after{content:"M"}
+html body.lwb-polished #app #dock-vitals .v-will i{background:#9cc2ff}
+html body.lwb-polished #app #dock-vitals .v-will i:after{content:"W"}
+html body.lwb-polished #app #dock-vitals .v-fate i{background:#f2d377}
+html body.lwb-polished #app #dock-vitals .v-fate i:after{content:"F"}
+/* roster + tools */
+html body.lwb-polished #app .dock-sub{grid-column:1 / -1;grid-row:3;display:flex!important;align-items:center;gap:8px!important;height:50px!important;min-height:50px!important}
+html body.lwb-polished #app .roster-strip{flex:1 1 auto;min-width:0;display:flex!important;gap:6px!important;height:50px!important;min-height:50px!important;align-items:center;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;padding:0 2px}
+html body.lwb-polished #app .roster-strip::-webkit-scrollbar{display:none}
+html body.lwb-polished #app .roster-unit{position:relative;flex:0 0 46px;width:46px!important;min-width:46px!important;height:46px!important;min-height:46px!important;padding:2px!important;border:0!important;border-radius:12px!important;background:radial-gradient(circle at 50% 32%,#3a4736,#141a14 80%)!important;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.12),0 2px 6px rgba(0,0,0,.45)!important;overflow:hidden;transition:transform .08s ease,box-shadow .15s ease,opacity .15s,filter .15s!important}
+html body.lwb-polished #app .roster-unit img{width:40px!important;height:40px!important;object-fit:contain;display:block;margin:0 auto}
+html body.lwb-polished #app .roster-unit:after{content:"";position:absolute;left:6px;right:6px;bottom:4px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--hp) calc(var(--hp,1) * 100%),rgba(0,0,0,.7) 0);box-shadow:0 0 0 1px rgba(0,0,0,.55)}
+html body.lwb-polished #app .roster-unit.tier-legendary{box-shadow:inset 0 0 0 1.5px #e9c070,0 0 8px rgba(233,192,112,.35),0 2px 6px rgba(0,0,0,.45)!important}
+html body.lwb-polished #app .roster-unit.tier-epic{box-shadow:inset 0 0 0 1.5px #c3a0ea,0 2px 6px rgba(0,0,0,.45)!important}
+html body.lwb-polished #app .roster-unit.tier-rare{box-shadow:inset 0 0 0 1.5px #7fb0de,0 2px 6px rgba(0,0,0,.45)!important}
+html body.lwb-polished #app .roster-unit.tier-elite{box-shadow:inset 0 0 0 1.5px #9fbd88,0 2px 6px rgba(0,0,0,.45)!important}
+html body.lwb-polished #app .roster-unit.is-spent{filter:grayscale(.85) brightness(.7)}
+html body.lwb-polished #app .roster-unit.is-spent:before{content:"";position:absolute;right:3px;top:3px;width:13px;height:13px;border-radius:50%;background:var(--ally);-webkit-mask:var(--i-check) center/9px no-repeat,linear-gradient(#000,#000);-webkit-mask-composite:xor;mask:var(--i-check) center/9px no-repeat exclude,linear-gradient(#000,#000);z-index:2}
+html body.lwb-polished #app .roster-unit.is-active{box-shadow:inset 0 0 0 2px var(--ally),0 0 10px rgba(88,201,165,.45)!important}
+html body.lwb-polished #app .roster-unit.is-selected{transform:translateY(-2px);background:radial-gradient(circle at 50% 32%,#6a5a2e,#211b0e 80%)!important;box-shadow:inset 0 0 0 2px var(--g-hi),0 0 0 1px #000,0 0 16px rgba(240,200,110,.6)!important;filter:none}
+html body.lwb-polished #app .roster-unit:not(:disabled):active{transform:scale(.92)}
+html body.lwb-polished #app .roster-tools{display:flex!important;gap:6px!important;flex:0 0 auto}
+html body.lwb-polished #app .roster-tools button{position:relative;width:50px!important;min-width:50px!important;height:50px!important;min-height:50px!important;padding:22px 0 0!important;display:block!important;font-size:10px!important;font-weight:800;line-height:1;text-align:center}
+html body.lwb-polished #app .roster-tools button:before{content:"";position:absolute;left:50%;top:8px;width:18px;height:18px;margin-left:-9px;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+html body.lwb-polished #app #next-unit:before{-webkit-mask-image:var(--i-next);mask-image:var(--i-next)}
+html body.lwb-polished #app #dock-detail:before{-webkit-mask-image:var(--i-list);mask-image:var(--i-list)}
 
-/* primary CTA — gold bevel */
-html body.lwb-polished #app #dock-primary,html body.lwb-polished #app .menu-buttons .primary,html body.lwb-polished #app .camp-confirm .primary,html body.lwb-polished #app #action.primary{background:linear-gradient(180deg,#f8e6aa 0%,#ddbd6d 55%,#b98f3c 100%)!important;color:#1e190b!important;border:1px solid #fcecba!important;border-radius:10px!important;font-weight:800!important;letter-spacing:.02em;box-shadow:0 2px 0 #6f5420,0 6px 14px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.65)!important;transition:transform .08s ease,box-shadow .08s ease,filter .12s ease!important}
-html body.lwb-polished #app #dock-primary:not(:disabled):active,html body.lwb-polished #app .menu-buttons .primary:active,html body.lwb-polished #app .camp-confirm .primary:not(:disabled):active,html body.lwb-polished #app #action.primary:not(:disabled):active{transform:translateY(2px);box-shadow:0 0 0 #6f5420,0 2px 6px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.5)!important;filter:brightness(.96)}
-html body.lwb-polished #app #dock-primary.confirm{animation:uiConfirmGlow 1.6s ease-in-out infinite}
-@keyframes uiConfirmGlow{0%,100%{box-shadow:0 2px 0 #6f5420,0 6px 14px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.65),0 0 0 0 rgba(248,224,150,0)}50%{box-shadow:0 2px 0 #6f5420,0 6px 14px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.65),0 0 14px 2px rgba(248,224,150,.55)}}
+/* ═══ BUTTON SYSTEM ═════════════════════════════════════ */
+html body.lwb-polished #app #dock-primary,html body.lwb-polished #app .modal .primary,html body.lwb-polished #app #action.primary{background:linear-gradient(180deg,#fff0bf 0%,#efcd7a 40%,#c99a42 100%)!important;color:#1f1708!important;border:0!important;border-radius:14px!important;font-weight:900!important;letter-spacing:.01em;text-shadow:0 1px 0 rgba(255,255,255,.45)!important;box-shadow:0 0 0 1.5px #5a4217,0 3px 0 #5a4217,0 8px 18px rgba(0,0,0,.5),inset 0 2px 0 rgba(255,255,255,.7),inset 0 -3px 0 rgba(120,80,20,.35)!important;transition:transform .07s ease,box-shadow .07s ease,filter .12s!important}
+html body.lwb-polished #app #dock-primary:not(:disabled):active,html body.lwb-polished #app .modal .primary:not(:disabled):active,html body.lwb-polished #app #action.primary:not(:disabled):active{transform:translateY(3px);box-shadow:0 0 0 1.5px #5a4217,0 0 0 #5a4217,0 3px 8px rgba(0,0,0,.5),inset 0 2px 0 rgba(255,255,255,.55),inset 0 -2px 0 rgba(120,80,20,.3)!important}
+html body.lwb-polished #app #dock-primary:disabled,html body.lwb-polished #app .modal .primary:disabled{background:linear-gradient(180deg,#2c352a,#1b221b)!important;color:#8e977f!important;text-shadow:none!important;box-shadow:0 0 0 1px rgba(0,0,0,.7),inset 0 0 0 1px rgba(233,201,126,.18),inset 0 1px 0 rgba(255,255,255,.05)!important;filter:none;opacity:1!important}
+html body.lwb-polished #app #dock-primary.confirm{animation:uiGlow 1.4s ease-in-out infinite}
+@keyframes uiGlow{50%{filter:brightness(1.12);box-shadow:0 0 0 1.5px #5a4217,0 3px 0 #5a4217,0 8px 18px rgba(0,0,0,.5),inset 0 2px 0 rgba(255,255,255,.7),0 0 22px 4px rgba(255,220,130,.55)}}
+html body.lwb-polished #app .roster-tools button,html body.lwb-polished #app .modal .secondary,html body.lwb-polished #app #intent-cancel,html body.lwb-polished #app .camp-actions .secondary{background:linear-gradient(180deg,#34422f,#1d261c)!important;color:#f1e6c4!important;border:0!important;border-radius:14px!important;font-weight:800;box-shadow:0 0 0 1px rgba(0,0,0,.7),0 3px 0 #090d0a,0 6px 12px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.1),inset 0 0 0 1px var(--g-line)!important;transition:transform .07s ease,box-shadow .07s ease!important}
+html body.lwb-polished #app .roster-tools button:not(:disabled):active,html body.lwb-polished #app .modal .secondary:not(:disabled):active,html body.lwb-polished #app #intent-cancel:active{transform:translateY(3px);box-shadow:0 0 0 1px rgba(0,0,0,.7),0 0 0 #090d0a,0 2px 6px rgba(0,0,0,.4),inset 0 0 0 1px var(--g-line)!important}
 
-/* secondary buttons */
-html body.lwb-polished #app .roster-tools button,html body.lwb-polished #app .menu-buttons .secondary,html body.lwb-polished #app #intent-cancel{background:linear-gradient(180deg,#2e3a2c,#1e271e)!important;color:#efe4c3!important;border:1px solid var(--ui-gold-line)!important;border-radius:10px!important;font-weight:700;box-shadow:0 2px 0 #0c110d,inset 0 1px 0 rgba(255,255,255,.07)!important;transition:transform .08s ease,box-shadow .08s ease!important}
-html body.lwb-polished #app .roster-tools button:not(:disabled):active,html body.lwb-polished #app .menu-buttons .secondary:active,html body.lwb-polished #app #intent-cancel:active{transform:translateY(2px);box-shadow:0 0 0 #0c110d,inset 0 1px 0 rgba(255,255,255,.05)!important}
+/* ═══ COMMAND SHEET ═════════════════════════════════════ */
+html body.lwb-polished #app #battle-sheet{background:linear-gradient(180deg,#1f281f,#121812)!important;border-left:0!important;border-radius:20px 0 0 20px;box-shadow:-1px 0 0 var(--g-line),-18px 0 40px rgba(0,0,0,.6)!important}
+html body.lwb-polished #app #sheet-toggle{display:flex!important;align-items:center;justify-content:space-between;padding:0 18px!important;height:52px!important;background:linear-gradient(180deg,#2a3528,#1d261d)!important;border-bottom:1px solid var(--g-line)!important;color:var(--g-hi)!important;font-size:14px!important;font-weight:800;letter-spacing:.02em;border-radius:20px 0 0 0}
+html body.lwb-polished #app #sheet-toggle:after{content:"✕"!important;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.07);color:#e6dfc8!important;font-size:13px!important;letter-spacing:0}
+html body.lwb-polished #app #battle-sheet .section-label{font-size:10px!important;font-weight:800;letter-spacing:.12em;color:var(--g)!important}
+html body.lwb-polished #app #battle-sheet .objective{padding:12px 14px!important;border:0!important;border-radius:var(--r-m);background:rgba(232,112,94,.08);box-shadow:inset 3px 0 0 var(--foe)}
+html body.lwb-polished #app .unit-head img{border-radius:14px;background:radial-gradient(circle at 50% 30%,#45533f,#151b15 78%);box-shadow:0 0 0 1.5px var(--g),0 0 14px rgba(233,201,126,.25)}
+html body.lwb-polished #app .movement-readout{border-radius:var(--r-m)!important;background:linear-gradient(180deg,#0c110d,#171f18)!important;box-shadow:inset 0 0 0 1px rgba(143,210,255,.25)!important}
+html body.lwb-polished #app .movement-readout b{color:#8fd2ff!important}
+html body.lwb-polished #app #battle-sheet .stats{display:grid!important;grid-template-columns:repeat(5,1fr);gap:6px!important;border:0!important}
+html body.lwb-polished #app #battle-sheet .stats span{display:flex!important;flex-direction:column;align-items:center;gap:3px;padding:7px 2px!important;border-radius:10px;background:linear-gradient(180deg,#0c110d,#171f18);box-shadow:inset 0 0 0 1px rgba(255,255,255,.07);font-size:10px!important;color:#9aa38d!important;text-align:center}
+html body.lwb-polished #app #battle-sheet .stats b{font-size:18px!important;color:#fbf0d0!important}
+html body.lwb-polished #app .wound-readout progress{height:6px;border-radius:3px;overflow:hidden;accent-color:var(--hp)}
+html body.lwb-polished #app .hero-skill{background:linear-gradient(135deg,#3f3a22,#232b20)!important;border:0!important;border-radius:var(--r-l)!important;box-shadow:inset 0 0 0 1.5px var(--g-lo),0 6px 16px rgba(0,0,0,.4)!important}
+html body.lwb-polished #app .hero-skill:not(:disabled){box-shadow:inset 0 0 0 1.5px var(--g),0 0 16px rgba(233,201,126,.3),0 6px 16px rgba(0,0,0,.4)!important}
+html body.lwb-polished #app .command{margin-top:6px;padding:0 14px!important;border:0!important;border-radius:var(--r-m)!important;background:linear-gradient(180deg,#263125,#1a221a)!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.07)!important}
+html body.lwb-polished #app .command em{font-style:normal;font-weight:800;padding:2px 8px;border-radius:999px;color:#bfe6ff!important;background:rgba(89,166,214,.18)}
 
-/* roster — rounded portrait tiles with tier rings */
-html body.lwb-polished #app .roster-unit{border:0!important;border-radius:10px!important;background:radial-gradient(circle at 50% 38%,rgba(255,255,255,.07),rgba(0,0,0,.28) 80%)!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)!important;transition:transform .08s ease,box-shadow .15s ease,opacity .15s!important}
-html body.lwb-polished #app .roster-unit.tier-legendary{box-shadow:inset 0 0 0 1px rgba(240,200,110,.6)!important}
-html body.lwb-polished #app .roster-unit.tier-epic{box-shadow:inset 0 0 0 1px rgba(196,160,232,.55)!important}
-html body.lwb-polished #app .roster-unit.tier-rare{box-shadow:inset 0 0 0 1px rgba(130,172,214,.55)!important}
-html body.lwb-polished #app .roster-unit.tier-elite{box-shadow:inset 0 0 0 1px rgba(160,184,140,.55)!important}
-html body.lwb-polished #app .roster-unit.is-spent{opacity:.5}
-html body.lwb-polished #app .roster-unit.is-active{box-shadow:inset 0 0 0 1px rgba(240,200,110,.6),inset 0 -3px 0 var(--ui-gold)!important}
-html body.lwb-polished #app .roster-unit.is-selected{background:radial-gradient(circle at 50% 40%,rgba(240,205,120,.3),rgba(42,35,16,.6) 80%)!important;box-shadow:inset 0 0 0 2px var(--ui-gold),0 0 12px rgba(240,200,110,.45)!important;opacity:1}
-html body.lwb-polished #app .roster-unit:not(:disabled):active{transform:scale(.94)}
+/* ═══ MODALS ════════════════════════════════════════════ */
+html body.lwb-polished #app .overlay{background:radial-gradient(130% 90% at 50% 15%,rgba(18,28,20,.9),rgba(5,8,6,.97))!important}
+html body.lwb-polished #app .modal{background:linear-gradient(180deg,#222c22 0%,#161d17 70%)!important;border:0!important;border-radius:20px!important;box-shadow:0 0 0 1px var(--g-line),0 0 0 4px rgba(0,0,0,.5),0 30px 70px rgba(0,0,0,.65),inset 0 1px 0 rgba(255,255,255,.07)!important}
+html body.lwb-polished #app .modal .eyebrow{display:inline-block;font-size:10px!important;font-weight:800;letter-spacing:.14em;color:var(--g)!important}
+html body.lwb-polished #app .modal h2{font-weight:900!important;color:#fbf0d0!important;letter-spacing:-.01em}
+html body.lwb-polished #app .modal .primary,html body.lwb-polished #app .modal .secondary{min-height:50px}
+html body.lwb-polished #app .modal h1{font-family:Pretendard,sans-serif!important;font-weight:900!important;letter-spacing:-.03em!important;color:#fff1c9!important;text-shadow:0 2px 0 #4a3510,0 0 24px rgba(240,190,90,.3)}
+html body.lwb-polished #app #leave-camp{width:100%}
 
-/* ── Command sheet ───────────────────────────────── */
-html body.lwb-polished #app #battle-sheet{background:linear-gradient(180deg,#222b22,#181f19)!important;border-left:1px solid var(--ui-gold-line)!important;box-shadow:-14px 0 30px rgba(0,0,0,.5)!important}
-html body.lwb-polished #app #sheet-toggle{background:linear-gradient(180deg,#2c372a,#222b21)!important;border-bottom:1px solid var(--ui-gold-line)!important;color:var(--ui-gold-hi)!important;font-weight:700}
-html body.lwb-polished #app #sheet-toggle:after{content:'×'!important;font-size:18px!important;margin-left:6px;color:#d9d3bb}
-html body.lwb-polished #app .movement-readout{border-radius:10px}
-html body.lwb-polished #app .hero-skill{background:linear-gradient(135deg,#34402f,#252f24)!important;border:1px solid rgba(230,199,126,.45)!important;border-radius:12px!important;box-shadow:0 4px 12px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.06)}
-html body.lwb-polished #app .heroic-btn{border-radius:10px!important}
-html body.lwb-polished #app .command{border-radius:8px!important;transition:background .12s ease}
-html body.lwb-polished #app .command:not(:disabled):active{background:rgba(230,199,126,.1)!important}
-html body.lwb-polished #app .command em{color:var(--ui-gold)}
+/* — title: full-screen key art — */
+html body.lwb-polished #app .overlay:has(.campaign-menu){padding:0!important;background:linear-gradient(180deg,rgba(5,8,6,.35) 0%,rgba(5,8,6,.15) 30%,rgba(5,8,6,.85) 62%,#050806 100%),var(--ui-title-art,none) center 20%/cover no-repeat,#0a0e0b!important}
+html body.lwb-polished #app .campaign-menu{width:100%!important;max-width:520px!important;min-height:100%;max-height:none!important;display:flex;flex-direction:column;justify-content:flex-end;padding:28px 22px calc(26px + env(safe-area-inset-bottom))!important;background:none!important;box-shadow:none!important;border-radius:0!important}
+html body.lwb-polished #app .campaign-menu .eyebrow{align-self:center;padding:5px 12px;border-radius:999px;background:rgba(0,0,0,.45);box-shadow:inset 0 0 0 1px var(--g-line)}
+html body.lwb-polished #app .campaign-menu .intro-layout{text-align:center;margin:14px 0 22px}
+html body.lwb-polished #app .campaign-menu h1{font-size:46px!important;line-height:1.08!important;font-weight:900!important;font-family:Pretendard,sans-serif!important;letter-spacing:-.03em!important;color:#fff1c9!important;text-shadow:0 2px 0 #4a3510,0 4px 0 #1d1406,0 0 30px rgba(240,190,90,.45),0 10px 30px rgba(0,0,0,.8)!important;margin:6px 0 10px!important}
+html body.lwb-polished #app .campaign-menu .subtitle{font-size:12px!important;font-weight:800;letter-spacing:.42em!important;color:var(--g)!important}
+html body.lwb-polished #app .campaign-menu .intro-layout p{color:#d9d2bb!important;margin-top:10px}
+html body.lwb-polished #app .campaign-menu .menu-buttons{display:flex!important;flex-direction:column;gap:12px!important}
+html body.lwb-polished #app .campaign-menu .menu-buttons button{min-height:56px!important;font-size:16px!important}
+html body.lwb-polished #app .campaign-menu .menu-buttons .primary{font-size:19px!important;min-height:62px!important}
+html body.lwb-polished #app .campaign-menu .menu-notes,html body.lwb-polished #app .campaign-menu > .mini{text-align:center;color:#a9ad98!important;font-size:12px!important}
+html body.lwb-polished #app .campaign-menu .menu-notes{display:flex!important;justify-content:center;gap:8px;flex-wrap:wrap}html body.lwb-polished #app .campaign-menu .menu-notes span{display:inline-block;padding:4px 12px;border-radius:999px;background:rgba(0,0,0,.4);color:var(--g-hi);font-weight:700}
 
-/* ── Modals (title, camp, rewards) ───────────────── */
-html body.lwb-polished #app .overlay{background:radial-gradient(120% 80% at 50% 20%,rgba(20,30,22,.9),rgba(6,10,7,.96))!important}
-html body.lwb-polished #app .modal{background:linear-gradient(180deg,#252f24 0%,#1b221c 60%,#171d18 100%)!important;border:1px solid rgba(230,199,126,.42)!important;border-radius:16px!important;box-shadow:0 0 0 1px rgba(0,0,0,.6),0 24px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.06)!important}
-html body.lwb-polished #app .modal .eyebrow{color:var(--ui-gold)!important}
-html body.lwb-polished #app .campaign-menu h1{color:#f6e4ae!important;text-shadow:0 2px 0 rgba(0,0,0,.45),0 0 26px rgba(232,192,104,.28)}
-html body.lwb-polished #app .campaign-menu .subtitle{color:var(--ui-gold)!important}
-html body.lwb-polished #app .menu-buttons button{border-radius:12px!important}
-html body.lwb-polished #app .recruit-card,html body.lwb-polished #app .reward{border-radius:12px!important;background:linear-gradient(180deg,#2b362a,#212a21)!important;box-shadow:0 4px 12px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.05)!important;transition:transform .08s ease,box-shadow .15s ease!important}
-html body.lwb-polished #app .recruit-card.tier-legendary{background:linear-gradient(180deg,#3a3221,#222a20)!important}
-html body.lwb-polished #app .recruit-card.tier-epic{background:linear-gradient(180deg,#322b3e,#222a24)!important}
-html body.lwb-polished #app .recruit-card.tier-rare{background:linear-gradient(180deg,#26323d,#212a24)!important}
-html body.lwb-polished #app .recruit-card.is-picked,html body.lwb-polished #app .reward.is-picked{outline:2px solid var(--ui-gold)!important;outline-offset:-2px;background:linear-gradient(180deg,#3c4a33,#2a3526)!important;box-shadow:0 0 16px rgba(240,200,110,.35),0 4px 12px rgba(0,0,0,.35)!important}
-html body.lwb-polished #app .recruit-card:not(:disabled):active,html body.lwb-polished #app .reward:active{transform:scale(.97)}
-html body.lwb-polished #app .recruit-card em{color:var(--ui-gold-hi)!important;font-weight:800}
-html body.lwb-polished #app .camp-confirm{background:linear-gradient(180deg,rgba(23,29,24,.96),#171d18)!important;border-top:1px solid var(--ui-gold-line)!important}
-html body.lwb-polished #app .dice-panel,html body.lwb-polished #app #relic-info{border-radius:12px!important}
+/* — camp (event / recruit / relic / ready) — */
+html body.lwb-polished #app .modal.camp .eyebrow{padding:5px 12px;border-radius:999px;background:linear-gradient(180deg,#3b3220,#211c12);box-shadow:inset 0 0 0 1px var(--g-lo);color:var(--g-hi)!important}
+html body.lwb-polished #app .camp-steps{display:flex!important;gap:4px!important;margin:12px 0 14px!important;padding:0!important;border:0!important}
+html body.lwb-polished #app .camp-steps span{flex:1 1 0;min-width:0;padding:6px 2px;border-radius:999px;text-align:center;font-size:10px!important;font-weight:700;color:#7e8875;background:rgba(255,255,255,.04);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+html body.lwb-polished #app .camp-steps span:has(~ .current){color:#cfe9db;background:rgba(88,201,165,.15)}
+html body.lwb-polished #app .camp-steps span.current{color:#1d180a!important;background:linear-gradient(180deg,var(--g-hi),var(--g))!important;box-shadow:0 0 12px rgba(240,200,110,.35)}
+html body.lwb-polished #app .reward-cards{display:grid!important;grid-template-columns:1fr!important;gap:10px!important}
+html body.lwb-polished #app .reward{display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:center;gap:4px;text-align:left!important;min-height:72px;padding:14px 16px!important;border:0!important;border-radius:var(--r-l)!important;background:linear-gradient(180deg,#2a3529,#1c241c)!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 4px 12px rgba(0,0,0,.35)!important;transition:transform .08s,box-shadow .15s!important}
+html body.lwb-polished #app .reward b{display:block;width:100%;font-size:16px!important;font-weight:800;color:#fbf0d0;white-space:normal;word-break:keep-all}
+html body.lwb-polished #app .reward p{margin:0!important;width:100%;font-size:12.5px!important;color:#b9bfa9!important;word-break:keep-all}
+html body.lwb-polished #app .reward small{font-size:10px;font-weight:800;letter-spacing:.06em;color:var(--g)}
+html body.lwb-polished #app .reward:has(img,svg,canvas){display:grid!important;grid-template-columns:64px 1fr;grid-auto-rows:auto;column-gap:14px;row-gap:2px;align-items:center}
+html body.lwb-polished #app .reward:has(img,svg,canvas) > :first-child{grid-row:1 / span 3;width:64px!important;height:64px!important;object-fit:contain;border-radius:12px}
+html body.lwb-polished #app .reward.rarity-rare{box-shadow:inset 0 0 0 1.5px #7fb0de,0 4px 12px rgba(0,0,0,.35)!important}
+html body.lwb-polished #app .reward.rarity-epic,html body.lwb-polished #app .reward.rarity-unique{box-shadow:inset 0 0 0 1.5px #c3a0ea,0 4px 12px rgba(0,0,0,.35)!important}
+html body.lwb-polished #app .reward.rarity-legendary{box-shadow:inset 0 0 0 1.5px #e9c070,0 0 14px rgba(233,192,112,.3)!important}
+html body.lwb-polished #app .reward.is-picked{outline:0!important;background:linear-gradient(180deg,#4a4426,#2a2a1a)!important;box-shadow:inset 0 0 0 2px var(--g-hi),0 0 20px rgba(240,200,110,.45)!important}
+html body.lwb-polished #app .reward:active{transform:scale(.98)}
+html body.lwb-polished #app .camp-confirm{gap:8px!important;background:linear-gradient(180deg,rgba(22,29,23,0),#161d17 30%)!important;border-top:0!important;padding-top:20px!important}
+html body.lwb-polished #app .camp-confirm span{font-weight:700;color:var(--g-hi)!important}
+html body.lwb-polished #app .camp-confirm button{min-height:50px!important;padding:0 18px!important}
+html body.lwb-polished #app .camp-actions{display:flex!important;flex-wrap:wrap;gap:8px!important}
+html body.lwb-polished #app .camp-actions .primary{flex:1 1 100%}
+html body.lwb-polished #app .next-stage{padding:14px 16px;border-radius:var(--r-l);background:linear-gradient(180deg,rgba(232,112,94,.12),rgba(232,112,94,.03));box-shadow:inset 0 0 0 1px rgba(232,112,94,.35);margin:10px 0}
+html body.lwb-polished #app .next-stage span{font-size:10px;font-weight:800;letter-spacing:.12em;color:#ffb7a8}
+html body.lwb-polished #app .camp-roster{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 14px}
+html body.lwb-polished #app .camp-roster > span{position:relative;display:grid;place-items:center;width:52px;height:58px;border-radius:12px;background:radial-gradient(circle at 50% 30%,#3a4736,#141a14 80%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
+html body.lwb-polished #app .camp-roster img{width:40px;height:40px;object-fit:contain}
+html body.lwb-polished #app .camp-roster small{font-size:10px;font-weight:800;color:#c6f0b9}
 
-@media(prefers-reduced-motion:reduce){html body.lwb-polished #app #dock-primary.confirm{animation:none}}
+/* — recruit cards — */
+html body.lwb-polished #app .recruit-cards{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))!important;gap:10px!important}
+html body.lwb-polished #app .recruit-card{position:relative;display:flex!important;flex-direction:column;align-items:center;gap:3px;padding:26px 8px 12px!important;border:0!important;border-radius:var(--r-l)!important;background:linear-gradient(180deg,#2b3729 0%,#1b231b 100%)!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.1),0 6px 14px rgba(0,0,0,.4)!important;overflow:hidden;transition:transform .08s,box-shadow .15s!important}
+html body.lwb-polished #app .recruit-card img{width:72px!important;height:72px!important;object-fit:contain;filter:drop-shadow(0 4px 6px rgba(0,0,0,.6))!important;margin:4px 0 2px}
+html body.lwb-polished #app .recruit-card:after{content:"";position:absolute;left:50%;top:22px;width:86px;height:86px;margin-left:-43px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.1),transparent 70%);pointer-events:none}
+html body.lwb-polished #app .recruit-card.tier-legendary{background:linear-gradient(180deg,#4a3c1e 0%,#1f1f15 100%)!important;box-shadow:inset 0 0 0 1.5px #e9c070,0 0 16px rgba(233,192,112,.25),0 6px 14px rgba(0,0,0,.4)!important}
+html body.lwb-polished #app .recruit-card.tier-legendary:after{background:radial-gradient(circle,rgba(255,210,120,.3),transparent 70%)}
+html body.lwb-polished #app .recruit-card.tier-epic{background:linear-gradient(180deg,#3a2f4c 0%,#1d1d22 100%)!important;box-shadow:inset 0 0 0 1.5px #c3a0ea,0 6px 14px rgba(0,0,0,.4)!important}
+html body.lwb-polished #app .recruit-card.tier-epic:after{background:radial-gradient(circle,rgba(200,160,240,.28),transparent 70%)}
+html body.lwb-polished #app .recruit-card.tier-rare{background:linear-gradient(180deg,#263a4c 0%,#19202a 100%)!important;box-shadow:inset 0 0 0 1.5px #7fb0de,0 6px 14px rgba(0,0,0,.4)!important}
+html body.lwb-polished #app .recruit-card.tier-rare:after{background:radial-gradient(circle,rgba(130,180,230,.26),transparent 70%)}
+html body.lwb-polished #app .recruit-card.tier-elite{box-shadow:inset 0 0 0 1.5px #9fbd88,0 6px 14px rgba(0,0,0,.4)!important}
+html body.lwb-polished #app .recruit-card .pick-mark{position:absolute;top:0;left:0;right:0;padding:4px 0!important;font-size:10px!important;font-weight:800;letter-spacing:.06em;color:#a9ad98;background:rgba(0,0,0,.3)}
+html body.lwb-polished #app .recruit-card .recruit-grade{font-size:10px!important;font-weight:800;letter-spacing:.04em}
+html body.lwb-polished #app .recruit-card b{font-size:15px!important;font-weight:900;color:#fbf0d0!important;word-break:keep-all;text-align:center;line-height:1.25}
+html body.lwb-polished #app .recruit-card small{font-size:11px!important;color:#a9ad98!important}
+html body.lwb-polished #app .recruit-card p{font-size:11.5px!important;line-height:1.45!important;color:#cfd2c1!important;margin:2px 0 4px!important;text-align:center;word-break:keep-all}
+html body.lwb-polished #app .recruit-card em{display:inline-flex;align-items:center;gap:5px;margin-top:auto;padding:4px 12px 4px 6px;border-radius:999px;font-style:normal;font-size:13px!important;font-weight:900;color:var(--g-hi)!important;background:rgba(0,0,0,.45);box-shadow:inset 0 0 0 1px var(--g-line)}
+html body.lwb-polished #app .recruit-card em:before{content:"";width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff3c4,#e2b24c 55%,#94661d)}
+html body.lwb-polished #app .recruit-card.is-picked{outline:0!important;transform:translateY(-2px);box-shadow:inset 0 0 0 2.5px var(--g-hi),0 0 22px rgba(240,200,110,.55),0 8px 16px rgba(0,0,0,.45)!important}
+html body.lwb-polished #app .recruit-card.is-picked .pick-mark{color:#1d180a;background:linear-gradient(180deg,var(--g-hi),var(--g))}
+html body.lwb-polished #app .recruit-card:not(:disabled):active{transform:scale(.96)}
+html body.lwb-polished #app .recruit-card:disabled{filter:grayscale(.6) brightness(.7);opacity:1!important}
+html body.lwb-polished #app .recruit-summary b,html body.lwb-polished #app .modal p b{color:var(--g-hi)}
+
+/* ═══ LANDSCAPE PHONES ══════════════════════════════════ */
+@media(max-height:520px) and (orientation:landscape){
+ html body.lwb-polished #app #command-dock{grid-template-columns:44px minmax(110px,.8fr) minmax(0,1.6fr) auto;grid-template-rows:44px 44px;gap:5px 8px!important;padding:6px 10px calc(5px + env(safe-area-inset-bottom))!important}
+ html body.lwb-polished #app .dock-portrait{width:44px!important;height:44px!important;border-radius:12px!important}
+ html body.lwb-polished #app .dock-text strong{font-size:14px!important;line-height:18px!important}
+ html body.lwb-polished #app .dock-status{font-size:10px!important}
+ html body.lwb-polished #app #dock-vitals{grid-column:3;grid-row:1;align-self:center}
+ html body.lwb-polished #app #dock-primary{grid-column:4;grid-row:1;min-height:44px!important;font-size:13px!important}
+ html body.lwb-polished #app #intent-cancel{grid-column:4;min-height:44px!important}
+ html body.lwb-polished #app .dock-sub{grid-column:1 / -1;grid-row:2;height:44px!important;min-height:44px!important}
+ html body.lwb-polished #app .roster-strip{height:44px!important;min-height:44px!important}
+ html body.lwb-polished #app .roster-unit{flex-basis:42px;width:42px!important;min-width:42px!important;height:42px!important;min-height:42px!important}
+ html body.lwb-polished #app .roster-unit img{width:36px!important;height:36px!important}
+ html body.lwb-polished #app .roster-tools button{width:44px!important;min-width:44px!important;height:42px!important;min-height:42px!important;padding-top:20px!important;font-size:9px!important}
+ html body.lwb-polished #app .roster-tools button:before{top:6px;width:16px;height:16px;margin-left:-8px}
+ html body.lwb-polished #app #map-toggle{bottom:10px!important;right:158px!important}
+ html body.lwb-polished #app .field-actions{flex-direction:row-reverse!important}
+ html body.lwb-polished #app #fight-preview{bottom:62px!important;right:8px!important}
+ html body.lwb-polished #app .phases{min-height:30px!important;padding:3px 8px!important}
+ html body.lwb-polished #app .phase{height:22px}
+ html body.lwb-polished #app .campaign-menu{justify-content:center}
+ html body.lwb-polished #app .campaign-menu h1{font-size:34px!important}
+}
+
+/* ═══ WIDE SCREENS ══════════════════════════════════════ */
+@media(min-width:901px){
+ html body.lwb-polished:not(.force-mobile) #app #command-dock{grid-template-columns:56px minmax(180px,280px) minmax(0,1fr) auto auto;grid-template-rows:56px;padding:10px 16px!important}
+ html body.lwb-polished:not(.force-mobile) #app .dock-portrait{width:56px!important;height:56px!important}
+ html body.lwb-polished:not(.force-mobile) #app #dock-vitals{grid-column:3;grid-row:1;align-self:center}
+ html body.lwb-polished:not(.force-mobile) #app .dock-sub{grid-column:4;grid-row:1;height:56px!important}
+ html body.lwb-polished:not(.force-mobile) #app #dock-primary{grid-column:5;grid-row:1;min-height:56px!important}
+ html body.lwb-polished:not(.force-mobile) #app #intent-cancel{grid-column:5}
+ html body.lwb-polished:not(.force-mobile) #app .roster-strip{max-width:46vw}
+ html body.lwb-polished:not(.force-mobile) #app #map-toggle{bottom:10px!important;right:158px!important}
+ html body.lwb-polished:not(.force-mobile) #app .field-actions{flex-direction:row-reverse!important}
+ html body.lwb-polished:not(.force-mobile) #app #fight-preview{bottom:62px!important;right:auto!important}
+}
+@media(prefers-reduced-motion:reduce){html body.lwb-polished #app *{animation:none!important;transition:none!important}}
 </style></head><body><div id="app"></div></body></html>

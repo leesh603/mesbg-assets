@@ -2583,7 +2583,7 @@ function renderDock(){
     if(signature!==UX.rosterKey){UX.rosterKey=signature;ut('roster-strip').innerHTML=team.map(v=>`<button class="roster-unit tier-${heroGrade(v.id)}" type="button" data-unit="${v.uid}" aria-label="${esc(v.name)} 선택"><img src="${Ut(q.meta.get(v.id).file)}" alt=""></button>`).join('');
         ut('roster-strip').querySelectorAll('[data-unit]').forEach(btn=>btn.onclick=()=>{if(At||Qt)return;Zt(btn.dataset.unit);const v=q.unit(btn.dataset.unit);if(v?.alive){const p=screenAt(v.x,v.y);if(p.x<40||p.x>UX.width-40||p.y<48||p.y>UX.height-48)setCamera(v.x,v.y,UX.cameraMode==='overview'?.78:UX.zoom,'manual')}});
     }
-    for(const btn of ut('roster-strip').children){const v=q.unit(btn.dataset.unit);const spent=v.acted&&['move','shoot'].includes(phase);btn.classList.toggle('is-active',v.uid===active?.uid);btn.classList.toggle('is-selected',v.uid===q.selected);btn.classList.toggle('is-spent',spent);btn.setAttribute('aria-pressed',String(v.uid===q.selected));btn.title=v.name+' · '+(v.uid===active?.uid?'현재 행동':spent?'행동 완료':'선택');btn.disabled=At;}
+    for(const btn of ut('roster-strip').children){const v=q.unit(btn.dataset.unit);const spent=v.acted&&['move','shoot'].includes(phase);btn.classList.toggle('is-active',v.uid===active?.uid);btn.classList.toggle('is-selected',v.uid===q.selected);btn.classList.toggle('is-spent',spent);btn.style.setProperty('--hp',String(Math.max(0,Math.min(1,v.currentWounds/Math.max(1,v.stats.wounds)))));btn.setAttribute('aria-pressed',String(v.uid===q.selected));btn.title=v.name+' · '+(v.uid===active?.uid?'현재 행동':spent?'행동 완료':'선택');btn.disabled=At;}
     ut('next-unit').disabled=At||AUTO||q.mode==='ai'&&q.side==='evil'||!['preparation','move','shoot'].includes(phase);
     ut('hint').textContent=touchLayout()?'병사 탭 → 목적지 탭 · 한 손가락: 시점 이동 · 두 손가락: 확대 / 축소':'병사 클릭 → 목적지 클릭 · 빈 땅 드래그: 시점 이동 · 휠: 확대 · Q/E: 방향 전환';
     updateWorldUI();
@@ -3184,14 +3184,16 @@ function renderUnitVitals() {
     const el=ut('dock-vitals');if(!el)return;
     const u=q.unit(q.selected)||actionableUnit();
     if(!u?.alive){el.textContent='';return;}
-    const pair=(label,value)=>'<span>'+label+' <b>'+value+'</b></span>';
-    let html=pair('HP',u.currentWounds+'/'+u.stats.wounds)+pair('MOVE',(q.remaining(u)/45).toFixed(1)+'/'+(u.stats.move/45).toFixed(0)+'″')
-        +pair('Attack',u.stats.attacks)+pair('Defense',u.stats.defence)+pair('Fight',u.stats.fight);
-    if(u.traits.includes('hero'))html+='<span class="vital-resources" title="Might / Will / Fate">'+pair('Might',u.resources.might)+pair('Will',u.resources.will)+pair('Fate',u.resources.fate)+'</span>';
+    const pair=(cls,tip,value)=>'<span class="v '+cls+'" title="'+tip+'"><i aria-hidden="true"></i><b>'+value+'</b></span>';
+    const hpR=Math.max(0,Math.min(1,u.currentWounds/Math.max(1,u.stats.wounds)));
+    let html='<span class="v v-hp'+(hpR<=.34?' low':'')+'" title="체력 '+u.currentWounds+'/'+u.stats.wounds+'"><i aria-hidden="true"></i><b>'+u.currentWounds+'/'+u.stats.wounds+'</b><em class="v-bar"><s style="width:'+Math.round(hpR*100)+'%"></s></em></span>'
+        +pair('v-move','이동력 (남은/최대, 인치)',(q.remaining(u)/45).toFixed(1)+'<small>/'+(u.stats.move/45).toFixed(0)+'″</small>')
+        +pair('v-atk','공격 횟수 (Attack)',u.stats.attacks)+pair('v-def','방어 (Defense)',u.stats.defence)+pair('v-fight','결투 (Fight)',u.stats.fight);
+    if(u.traits.includes('hero'))html+='<span class="vital-resources" title="Might / Will / Fate">'+pair('v-might','위력 (Might)',u.resources.might)+pair('v-will','의지 (Will)',u.resources.will)+pair('v-fate','운명 (Fate)',u.resources.fate)+'</span>';
     if(el.dataset.unit!==html){el.dataset.unit=html;el.innerHTML=html;}
 }
 function renderPolishedHUD() {
-    document.body.dataset.phase=q.phase;
+    document.body.dataset.phase=q.phase;document.body.dataset.side=q.side||'';
     renderUnitVitals();
     const u=q.unit(q.selected),status=ut('dock-status');
     if(u?.alive&&!UX.intent){
@@ -3224,6 +3226,7 @@ function renderPolishedHUD() {
     const close=ut('sheet-toggle');close.textContent='명령 닫기';close.setAttribute('aria-label','병사 상세와 명령 닫기');
 }
 document.body.classList.add('lwb-polished');
+try{document.documentElement.style.setProperty('--ui-title-art','url("'+Ut('backgrounds/bg_black_gate.png')+'")');}catch(e){}
 ut('dock-detail').textContent='명령';
 ut('dock-primary').setAttribute('aria-label','현재 명령 확정 또는 단계 진행');
 ut('dock-status').setAttribute('aria-live','polite');
