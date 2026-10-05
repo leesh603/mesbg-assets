@@ -123,7 +123,7 @@ Ae=[{id:"warrior_minas_tirith",name_ko:"미나스 티리스 전사",name_en:"War
 }
 class Ve extends Ot.Scene {
     constructor() { super("battle"); lt(this, "b"); lt(this, "soundFX"); lt(this, "asset"); lt(this, "onPoint"); lt(this, "onUnit"); lt(this, "onDrop"); lt(this, "tokens", new Map); lt(this, "rings"); lt(this, "terrainLayer"); lt(this, "labels"); lt(this, "dragStart"); lt(this, "dragUnit", ""); lt(this, "busy", !1); lt(this, "focusedUid", ""); lt(this, "preview"); lt(this, "previewPlan"); lt(this, "previewAt", 0); }
-    preload() { this.load.maxParallelDownloads = 64; this.load.image("gate-art", this.asset("maps/minas_tirith.jpg")); for (const b of this.b.meta.values())
+    preload() { this.load.maxParallelDownloads = 64; this.load.image("gate-art", this.asset("backgrounds/bg_minas_tirith.png")); for (const b of this.b.meta.values())
         this.load.image(b.id, this.asset(b.file)); }
     create() { this.drawMap(), this.terrainLayer = this.add.container(0, 0), this.rings = this.add.graphics().setDepth(3), this.labels = this.add.container(0, 0).setDepth(8), this.cameras.main.setBounds(0, 0, pt.width, pt.height), this.cameras.main.setZoom(this.scale.width < 850 ? .85 : 1), this.cameras.main.centerOn(1165, 720), this.input.addPointer(1), this.input.on("pointerdown", b => { this.dragStart = { x: b.worldX, y: b.worldY }; const H = this.hit({ x: b.worldX, y: b.worldY }); this.dragUnit = (H == null ? void 0 : H.uid) || ""; }), this.input.on("pointerup", b => { if (this.busy)
         return; const H = { x: b.worldX, y: b.worldY }; if (!this.dragUnit && this.dragStart && Math.hypot(b.x - b.downX, b.y - b.downY) > 10) {
@@ -485,8 +485,8 @@ document.fonts.load("16px Pretendard"); /* MESBG Endless campaign extension. Ori
  */
 const CX = {
     version: 1, inches: 45,
-    maps: ['minas_tirith', 'osgiliath', 'amon_sul', 'helms_deep', 'fangorn', 'edoras', 'moria', 'isengard', 'black_gate', 'gorgoroth'],
-    mapNames: ['미나스 티리스', '오스길리아스', '아몬 술', '헬름 협곡', '팡고른', '에도라스', '모리아', '아이센가드', '검은 문', '고르고로스'],
+    maps: ['minas_tirith', 'osgiliath', 'amon_sul', 'helms_deep', 'fangorn', 'edoras', 'moria', 'isengard', 'black_gate', 'gorgoroth', 'rivendell', 'lothlorien', 'pelennor', 'dead_marshes', 'dunharrow', 'erebor'],
+    mapNames: ['미나스 티리스', '오스길리아스', '아몬 술', '헬름 협곡', '팡고른', '에도라스', '모리아', '아이센가드', '검은 문', '고르고로스', '리븐델', '로스로리엔', '펠렌노르', '죽은 늪', '던하로우', '에레보르'],
     missionNames: { annihilation: '적 전멸', defense: '방어선 수호', hold: '거점 확보', survive: '포위망 생존', breakthrough: '전선 돌파', commander: '지휘관 처치', rescue: '포로 구출' },
     roleNames: { infantry: '보병', hero: '영웅', cavalry: '기병', monster: '괴수', support: '지원', beast: '야수' },
     rarityNames: ['NORMAL', 'MAGIC', 'RARE', 'UNIQUE'],
@@ -580,7 +580,7 @@ for (const [id, u] of q.meta)
 const BASE_FACTION = { gondor: 'gondor', mordor: 'mordor', moria: 'moria', angmar: 'angmar', isengard: 'isengard', rohan: 'rohan', dwarf: 'dwarf', rivendell: 'rivendell', harad: 'harad', dol_guldur: 'dol_guldur', dead: 'dead', lothlorien: 'lorien', elf: 'lorien', lorien: 'lorien', erebor: 'dwarf', arnor: 'gondor', shire: 'gondor', men: 'gondor', doriath: 'lorien', valinor: 'rivendell', eagle: 'gondor', ent: 'lorien', beorning: 'rohan', gundabad: 'moria', angband: 'mordor', easterling: 'harad', rhun: 'harad', dunland: 'isengard', maiar: 'rivendell' };
 const baseFile = u => { const f = BASE_FACTION[u.faction] || (u.side === 'evil' ? 'mordor' : 'gondor'); const s = ['S', 'M', 'L', 'XL', 'XXL'].includes(u.base) ? u.base : 'M'; return `bases/base_${f}_${s}.png`; };
 // High-quality painted maps for the stages that have them; other stages keep the asset-pack backdrops.
-const MAP_HQ = { minas_tirith: 'gate-art', osgiliath: 'map-hq-osgiliath', gorgoroth: 'map-hq-gorgoroth', edoras: 'map-hq-edoras', amon_sul: 'map-hq-amon_sul', helms_deep: 'map-hq-helms_deep', fangorn: 'map-hq-fangorn', moria: 'map-hq-moria', isengard: 'map-hq-isengard', black_gate: 'map-hq-black_gate' };
+const MAP_HQ = {};
 const MAP_TINT = {};
 // Spear-support predicate, shared by the fight solver and the HUD link lines.
 function supportAlly(u) { const all = q.alive(); if (!u.alive || !u.traits.includes('spear') || all.some(v => Vt(u, v)))
@@ -1809,11 +1809,6 @@ Ve.prototype.preload = function () {
     for (const [id, u] of q.meta)
         if (u.side !== 'terrain')
             this.load.image('base-' + id, this.asset(baseFile(u)));
-    this.load.image('map-hq-osgiliath', this.asset('maps/ruins.jpg'));
-    this.load.image('map-hq-gorgoroth', this.asset('maps/mordor.jpg'));
-    this.load.image('map-hq-edoras', this.asset('maps/plains.jpg'));
-    this.load.image('map-hq-amon_sul', this.asset('maps/amon_sul.jpg'));
-    for (const n of ['helms_deep', 'fangorn', 'moria', 'isengard', 'black_gate']) this.load.image('map-hq-' + n, this.asset('maps/' + n + '.jpg'));
 };
 Ve.prototype.drawMap = function () { this.backdrop = this.add.image(pt.width / 2, pt.height / 2, 'map-minas_tirith').setDisplaySize(pt.width, pt.height).setTint(0xb6b5a4); this.boundary = this.add.graphics().setDepth(2); this.objectiveLabel = this.add.text(0, 0, '', { fontFamily: 'Pretendard', fontSize: '22px', color: '#e7ddbd', backgroundColor: '#20231de6', padding: { x: 10, y: 6 } }).setOrigin(.5).setDepth(4); };
 // Selection prefers the active unit, then the moving side, then the nearest base within reach.
