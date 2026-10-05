@@ -6755,7 +6755,7 @@ Ae=[{id:"warrior_minas_tirith",name_ko:"미나스 티리스 전사",name_en:"War
 }
 class Ve extends Ot.Scene {
     constructor() { super("battle"); lt(this, "b"); lt(this, "soundFX"); lt(this, "asset"); lt(this, "onPoint"); lt(this, "onUnit"); lt(this, "onDrop"); lt(this, "tokens", new Map); lt(this, "rings"); lt(this, "terrainLayer"); lt(this, "labels"); lt(this, "dragStart"); lt(this, "dragUnit", ""); lt(this, "busy", !1); lt(this, "focusedUid", ""); lt(this, "preview"); lt(this, "previewPlan"); lt(this, "previewAt", 0); }
-    preload() { this.load.maxParallelDownloads = 64; this.load.image("gate-art", this.asset("backgrounds/bg_minas_gate.png")); for (const b of this.b.meta.values())
+    preload() { this.load.maxParallelDownloads = 64; this.load.image("gate-art", this.asset("backgrounds/bg_minas_gate.png?v=p2")); for (const b of this.b.meta.values())
         this.load.image(b.id, this.asset(b.file)); }
     create() { this.drawMap(), this.terrainLayer = this.add.container(0, 0), this.rings = this.add.graphics().setDepth(3), this.labels = this.add.container(0, 0).setDepth(8), this.cameras.main.setBounds(0, 0, pt.width, pt.height), this.cameras.main.setZoom(this.scale.width < 850 ? .85 : 1), this.cameras.main.centerOn(1165, 720), this.input.addPointer(1), this.input.on("pointerdown", b => { this.dragStart = { x: b.worldX, y: b.worldY }; const H = this.hit({ x: b.worldX, y: b.worldY }); this.dragUnit = (H == null ? void 0 : H.uid) || ""; }), this.input.on("pointerup", b => { if (this.busy)
         return; const H = { x: b.worldX, y: b.worldY }; if (!this.dragUnit && this.dragStart && Math.hypot(b.x - b.downX, b.y - b.downY) > 10) {
@@ -8489,7 +8489,7 @@ const oldPreload = Ve.prototype.preload, oldCreate = Ve.prototype.create, oldSyn
 Ve.prototype.preload = function () {
     oldPreload.call(this);
     for (const name of CX.maps)
-        this.load.image('map-' + name, this.asset('backgrounds/' + (name === 'minas_tirith' ? 'bg_minas_gate' : 'bg_' + name) + '.png'));
+        this.load.image('map-' + name, this.asset('backgrounds/' + (name === 'minas_tirith' ? 'bg_minas_gate' : 'bg_' + name) + '.png?v=p2'));
     for (const name of ['slash', 'thrust', 'smash', 'shoot', 'cast', 'pounce', 'rally', 'blood', 'clash', 'prone', 'terror', 'charge', 'halfmove'])
         this.load.image('fx-' + name, this.asset('effects/fx_' + name + '.png'));
     for (const [id, u] of q.meta)
