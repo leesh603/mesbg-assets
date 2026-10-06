@@ -717,6 +717,36 @@ module.exports = [
   { sheet:null, side:'evil', faction:'numenor', role:'hero', weapon:'sword', base:'L', traits:[], units:[
     ['arpharazon','아르파라존','Ar-Pharazon the Golden']] },
 
+  // --- 신규 영웅/유닛 (16) ---
+  { sheet:null, side:'good', faction:'numenor', role:'hero', weapon:'sword', base:'L', traits:[], units:[
+    ['anarion','아나리온','Anarion, son of Elendil']] },
+  { sheet:null, side:'good', faction:'elf', role:'hero', weapon:'sword', base:'L', traits:[], units:[
+    ['earendil','에아렌딜','Earendil the Mariner'],
+    ['maeglin','매글린','Maeglin of Gondolin'],
+    ['eol','에올','Eol the Dark Elf'],
+    ['galdor','갈도르','Galdor of the Grey Havens']] },
+  { sheet:null, side:'good', faction:'dwarf', role:'hero', weapon:'hammer', base:'L', traits:[], units:[
+    ['thrain','스라인','Thrain, son of Thror',{ base:'GS' }],
+    ['thror','스로르','Thror, King of Erebor',{ base:'GS' }]] },
+  { sheet:null, side:'evil', faction:'moria', role:'hero', weapon:'twohanded', base:'L', traits:[], units:[
+    ['golfimbul','골핌불','Golfimbul of Mount Gram']] },
+  { sheet:null, side:'good', faction:'rohan', role:'hero', weapon:'lance', base:'XL', traits:['mounted'], units:[
+    ['eomund','에오문드','Eomund, Marshal of the Riddermark']] },
+  { sheet:null, side:'good', faction:'rohan', role:'soldier', weapon:'spear', base:'M', traits:[], units:[
+    ['guthlaf','구슬라프','Guthlaf, banner-bearer of Rohan']] },
+  { sheet:null, side:'good', faction:'gondor', role:'soldier', weapon:'spear', base:'M', traits:[], units:[
+    ['ingold','잉골드','Ingold, gate-guard of Minas Tirith']] },
+  { sheet:null, side:'evil', faction:'umbar', role:'hero', weapon:'sword', base:'L', traits:[], units:[
+    ['corsair_captain','움바 선장','Corsair Captain of Umbar']] },
+  { sheet:null, side:'good', faction:'bree', role:'civil', weapon:'none', base:'M', traits:[], units:[
+    ['butterbur','버터버','Barliman Butterbur, innkeeper']] },
+  { sheet:null, side:'evil', faction:'bree', role:'civil', weapon:'club', base:'M', traits:[], units:[
+    ['bill_ferny','빌 페르니','Bill Ferny of Bree']] },
+  { sheet:null, side:'evil', faction:'dragon', role:'monster', weapon:'none', base:'XXL', traits:[], units:[
+    ['scatha','스카사','Scatha the Worm']] },
+  { sheet:null, side:'good', faction:'rohan', role:'beast', weapon:'bite', base:'GS', traits:[], units:[
+    ['war_hound','전투견','War Hound of Rohan']] },
+
   // --- 세계관 명물 조형물 (5) ---
   { sheet:null, side:'terrain', faction:'terrain', role:'terrain', weapon:'none', base:'L', traits:[], units:[
     ['terr_palantir','팔란티르','Palantir seeing-stone',{ base:'M' }],
