@@ -3882,6 +3882,9 @@ function renderUnitVitals() {
 }
 function renderPolishedHUD() {
     document.body.dataset.phase=q.phase;document.body.dataset.side=q.side||'';
+    {const wm=ut('wave')?.parentElement;if(wm)wm.dataset.round=['move','shoot','fight'].includes(q.phase)&&q.round?'R'+q.round:'';
+     const bi=document.querySelector('#app .battle-info'),em=ut('ux-mission')?.querySelector('em');
+     if(bi){const k=q.phase+'|'+q.round+'|'+q.wave+'|'+(em?.textContent||'');if(bi._k!==k){bi._k=k;bi.classList.add('mission-open');clearTimeout(bi._t);bi._t=setTimeout(()=>bi.classList.remove('mission-open'),4500);}}}
     renderUnitVitals();
     const u=q.unit(q.selected),status=ut('dock-status');
     if(u?.alive&&!UX.intent){
@@ -3914,6 +3917,15 @@ function renderPolishedHUD() {
     const close=ut('sheet-toggle');close.textContent='명령 닫기';close.setAttribute('aria-label','병사 상세와 명령 닫기');
 }
 document.body.classList.add('lwb-polished');
+// UI v3 layout (presentation only): one top bar, one control rail, battle log inside the field, collapsible mission banner.
+(function(){
+    const rm=document.querySelector('#app .runmeta'),ph=ut('phases');if(rm&&ph)rm.after(ph);
+    const fa=document.querySelector('#app .field-actions');
+    if(fa){for(const id of ['map-toggle','battle-log-toggle']){const el=ut(id);if(el)fa.appendChild(el);}}
+    const field=document.querySelector('#app .field'),lg=ut('battle-log');if(field&&lg)field.appendChild(lg);
+    const bi=document.querySelector('#app .battle-info');
+    if(bi)bi.addEventListener('click',()=>{clearTimeout(bi._t);bi.classList.toggle('mission-open');});
+})();
 try{document.documentElement.style.setProperty('--ui-title-art','url("'+Ut('backgrounds/bg_black_gate.png')+'")');}catch(e){}
 ut('dock-detail').textContent='명령';
 ut('dock-primary').setAttribute('aria-label','현재 명령 확정 또는 단계 진행');
