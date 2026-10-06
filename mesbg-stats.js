@@ -83,7 +83,6 @@ module.exports = {
 
   // ===== Rohan =====
   theoden_foot:       { f: 5, s: 4, d: 6, a: 2, w: 3, c: 5, might: 2, will: 1, fate: 2, rules: ['King of Rohan', 'Herugrim'] },
-  theoden_mounted:    { f: 5, s: 4, d: 6, a: 2, w: 3, c: 5, might: 2, will: 1, fate: 2, rules: ['King of Rohan', 'Herugrim', 'Snowmane'] },
   theodred:           { f: 5, s: 4, d: 5, a: 2, w: 3, c: 5, might: 2, will: 1, fate: 2, rules: ['Prince of Rohan'] },
   eomer:              { f: 6, s: 4, d: 5, a: 3, w: 3, c: 5, might: 2, will: 1, fate: 2, rules: ['Marshal of the Riddermark', 'Guthwine'] },
   eomer_foot:         { f: 6, s: 4, d: 5, a: 3, w: 3, c: 5, might: 2, will: 1, fate: 2, rules: ['Marshal of the Riddermark', 'Guthwine'] },
