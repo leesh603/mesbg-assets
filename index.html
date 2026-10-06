@@ -9961,7 +9961,7 @@ const kindOf=u=>u.traits.includes('flying')?'fly':u.traits.includes('mounted')||
 const easeIO=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
 const now=()=>performance.now();
 // world-facing request: +1 look right, -1 look left
-function face(scene,uid,dir){const c=scene.tokens&&scene.tokens.get(uid);if(!c||!dir)return;if(c.getData('mvFaceT')!==dir)c.setData('mvFaceT',dir);}
+function face(scene,uid,dir){/* no mirroring: quarter-view art always keeps its painted, camera-facing pose */}
 function faceToward(scene,uid,x){const u=scene.b.unit(uid);if(!u)return;const dx=x-u.x;if(Math.abs(dx)>Math.max(6,u.radius*.25))face(scene,uid,Math.sign(dx));}
 window.MESBG&&(window.MESBG.faceToward=(a,b)=>{const v=Tt.b.unit(b);v&&faceToward(Tt,a,v.x);});
 Ve.prototype.mvFaceToward=function(uid,x){faceToward(this,uid,x);};
@@ -9970,18 +9970,13 @@ Ve.prototype.update=function(time){
     if(this.tokens){
         const t=now(),calm=UX.reduced,busy=this.busy;
         // idle: every unit glances toward its nearest foe
-        if(!busy&&t-lastAuto>260){lastAuto=t;const all=this.b.alive();
-            for(const u of all){if(u.escaped)continue;let best=null,bd=1e9;for(const v of all){if(v.side===u.side)continue;const d=(v.x-u.x)**2+(v.y-u.y)**2;if(d<bd){bd=d;best=v;}}if(best)faceToward(this,u.uid,best.x);}}
         // a small "ready" hop when a unit becomes the one to act
         const act=actionableUnit?.()?.uid||'';if(act!==lastActive){lastActive=act;const c=act&&this.tokens.get(act);if(c&&!calm)c.setData('mvHop',t);}
         for(const u of this.b.alive()){
             const c=this.tokens.get(u.uid),s=c&&c.getByName('token');
             if(!s||!s.getData('baseSX')||s.getData('fxLock'))continue;
             // turning: |cos| squash through zero, mirror at the midpoint
-            const ad=artDir(this,u.id);let f=c.getData('mvFace');if(f===undefined){f=c.getData('mvFaceT')||ad;c.setData('mvFace',f);}
-            const ft=c.getData('mvFaceT')||f;let turnK=1;
-            if(ft!==f){let ts=c.getData('mvTurnAt');if(!ts){ts=t;c.setData('mvTurnAt',ts);}const k=calm?1:Math.min(1,(t-ts)/200);turnK=Math.max(.3,Math.abs(Math.cos(k*Math.PI)));if(k>=.5){s.setFlipX(ft!==ad);}if(k>=1){c.setData('mvFace',ft);c.setData('mvTurnAt',0);f=ft;turnK=1;}}
-            else s.setFlipX(f!==ad);
+            const turnK=1;if(s.flipX)s.setFlipX(false);
             // idle breathing (kept from TokenIdle) — frozen positionally while the battle is resolving
             let m={sx:1,sy:1,dx:0,dy:0};if(!calm){let kind=c.getData('ik');if(kind===undefined){kind=window.TokenIdle.classify(u.id,this.b.meta.get(u.id));c.setData('ik',kind);}m=window.TokenIdle.sample(kind,time,u.uid);}
             let oy=0,sx=1,sy=1,ang=0;
@@ -9991,7 +9986,6 @@ Ve.prototype.update=function(time){
                 else{oy=-bob*R*(mv.kind==='cav'?.13:mv.kind==='heavy'?.06:.1)*mv.vel;sy=1-(1-bob)*.05*mv.vel;sx=1+(1-bob)*.03*mv.vel;ang=mv.dir*(mv.kind==='cav'?3.5:4.5)*mv.vel+Math.sin(ph)*(mv.kind==='heavy'?2:1.2)*mv.vel;}}
             const land=c.getData('mvLand');if(land&&!calm){const k=(t-land)/200;if(k<1){const w=Math.sin(k*Math.PI);sy*=1-.075*w;sx*=1+.05*w;}else c.setData('mvLand',0);}
             const hop=c.getData('mvHop');if(hop&&!calm){const k=(t-hop)/300;if(k<1){const w=Math.sin(k*Math.PI);oy-=w*u.radius*.16;sy*=1+.05*w;sx*=1-.03*w;}else c.setData('mvHop',0);}
-            if(ft!==f&&!calm){const k=Math.min(1,(t-(c.getData('mvTurnAt')||t))/200);oy-=Math.sin(k*Math.PI)*u.radius*.05;}
             s.setScale(s.getData('baseSX')*m.sx*sx*turnK,s.getData('baseSY')*m.sy*sy);
             s.setAngle(ang);
             if(!busy||mv){const cc=s.getData('cxy')||{x:0,y:0};s.setPosition((busy?0:m.dx*u.radius*2)+cc.x,(busy?0:m.dy*u.radius*2)+cc.y+oy);}
@@ -10024,6 +10018,14 @@ async function glide(scene,e,yield_){
     c.setData('mvMove',null);
     if(!yield_&&!UX.reduced)c.setData('mvLand',now());
 }
+// Outlines sit on the ground with the base, never across the painted figure:
+// the team rim goes under the sprite inside each token, and the active-unit ring drops below the token layer.
+const mvSync=Ve.prototype.sync;
+Ve.prototype.sync=function(){
+    mvSync.apply(this,arguments);
+    if(this.tokens)for(const c of this.tokens.values()){const rim=c.getByName('rim'),tok=c.getByName('token');if(rim&&tok&&c.getIndex(rim)>c.getIndex(tok)){c.remove(rim,false);c.addAt(rim,c.getIndex(tok));}}
+    if(this.actionRing&&this.actionRing.depth!==4.5)this.actionRing.setDepth(4.5);
+};
 const mvPrevPlay=Ve.prototype.play;
 Ve.prototype.play=async function(event){
     if(!window._lwbFx&&qt<20&&this.tokens){
