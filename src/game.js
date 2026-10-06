@@ -3436,6 +3436,79 @@ Ve.prototype.combat=async function(result){
 };
 })();
 
+// ---- Dice panel v2 (presentation only): tumbling dice that land one by one, then the result is called out —
+// highest die and winning side for fights/priority, pass/fail per die for shots. Values come from the event untouched.
+(function(){
+const SIDE_KO={good:'곤도르',evil:'모르도르'};
+const faceSrc=(side,v)=>{const f=side==='good'?'minastirith':'mordor',set=Fe.dice.find(o=>o.faction===f);return Ut(set.faces[Math.max(1,Math.min(6,v|0))]);};
+const sleep=ms=>new Promise(r=>setTimeout(r,Math.max(0,ms)));
+function describe(e){
+    if(e.type==='PriorityRolled')return{kind:'priority',badge:'우선권',sub:e.ties?'동점 재굴림':'높은 쪽이 먼저 행동',rows:[{side:'good',dice:[e.good]},{side:'evil',dice:[e.evil]}],winner:q.priority,chips:[(q.priority==='good'?'곤도르':'모르도르')+' 선공']};
+    if(!e.result)return null;
+    const S=e.result;
+    if(S.kind==='shot'){
+        const t=S.strikeResults[0]||{},a=q.unit(t.attacker),side=a?.side||(S.diceResults.good.length?'good':'evil'),raw=S.diceResults[side]||[];
+        const dice=raw.map((v,i)=>{const last=i===raw.length-1&&raw.length>1,ic=(t.interceptions||[])[i-1];
+            if(i===0)return{v,cap:'명중 '+t.hitNeeded+'+',ok:t.hit>=t.hitNeeded};
+            if(last)return{v,cap:'상처 '+t.needed+'+',ok:!!t.wound};
+            return{v,cap:'사선 4+',ok:!!ic?.passed};});
+        const chips=[t.hit>=t.hitNeeded?'명중':'빗나감'];
+        for(const ic of t.interceptions||[])chips.push(ic.passed?'사선 통과':'아군 오사');
+        if(t.hit>=t.hitNeeded)chips.push(t.killed?'격파':t.wound?'상처':'상처 실패');
+        if(t.friendlyFire)chips.push('아군 피격');
+        return{kind:'shot',badge:'사격',sub:(a?.name||SIDE_KO[side])+' → '+(q.unit(t.target)?.name||'대상'),rows:[{side,dice}],winner:null,chips,good:!!t.wound};
+    }
+    const chips=[(S.winnerSide==='good'?'곤도르':'모르도르')+' 결투 승리'];
+    if(S.knockedDownUnits?.length)chips.push('기병 충격 '+S.knockedDownUnits.length+'명');
+    chips.push(S.trappedUnits?.length?'포위 '+S.trappedUnits.length+'명 · 추가 타격':'밀림 판정');
+    chips.push('부상 '+(S.wounds?.length||0));
+    const who=(S.participants||[]).map(id=>q.unit(id)?.name).filter(Boolean),sup=(S.supports||[]).map(id=>q.unit(id)?.name).filter(Boolean);
+    const note=(who.length?'참여 '+who.join(' · '):'')+(sup.length?'  ·  창 지원 '+sup.join(' · '):'')+(S.fightValues?'  ·  결투 '+(S.fightValues.good??'—')+' / '+(S.fightValues.evil??'—'):'');
+    return{kind:'fight',badge:'결투',sub:'최고값 비교',rows:[{side:'good',dice:S.diceResults.good.map(v=>({v}))},{side:'evil',dice:S.diceResults.evil.map(v=>({v}))}],winner:S.winnerSide,chips,note};
+}
+$e=async function(e){
+    if(qt>=20)return;
+    const d=describe(e);if(!d)return;
+    const K=ut('dice'),calm=UX.reduced,sp=Math.max(1,qt);
+    for(const r of d.rows)r.dice=r.dice.map(x=>typeof x==='number'?{v:x}:x);
+    const rowHTML=r=>'<div class="dice-row dv-row side-'+r.side+'"><span class="dv-side">'+SIDE_KO[r.side]+'</span><div class="dv-dice">'+
+        (r.dice.length?r.dice.map((x,i)=>'<span class="dv-die'+(calm?'':' rolling')+'" style="--i:'+i+';--spin:'+(i%2?-1:1)+'"><img src="'+faceSrc(r.side,1+Math.floor(Math.random()*6))+'" alt=""><em>'+(x.cap||'')+'</em></span>').join(''):'<span class="dv-none">—</span>')+
+        '</div><small class="dv-max">'+(r.dice.length?'':'—')+'</small></div>';
+    K.className='dice-panel dv2 kind-'+d.kind;
+    K.innerHTML='<div class="dice-title"><b class="dv-badge">'+d.badge+'</b><span>'+d.sub+'</span></div>'+d.rows.map(rowHTML).join('')+'<div class="dice-detail dv-detail"></div>';
+    K.classList.remove('hidden');
+    wt.play('dice_roll');
+    // tumble: faces flicker while each die is airborne, then dice land one after another
+    const dies=d.rows.map((r,ri)=>[...K.querySelectorAll('.dv-row')[ri].querySelectorAll('.dv-die')]);
+    const all=[];dies.forEach((list,ri)=>list.forEach((el,i)=>all.push({el,side:d.rows[ri].side,x:d.rows[ri].dice[i],land:(calm?60:220)+Math.min(i,5)*40+ri*30})));
+    const t0=performance.now(),end=Math.max(0,...all.map(a=>a.land));
+    let landed=0;
+    while(landed<all.length){
+        const now=(performance.now()-t0)*sp;
+        for(const a of all){
+            if(a.done)continue;
+            const img=a.el.querySelector('img');
+            if(now>=a.land){a.done=true;landed++;img.src=faceSrc(a.side,a.x.v);a.el.classList.remove('rolling');a.el.classList.add('landed');}
+            else if(!calm)img.src=faceSrc(a.side,1+Math.floor(Math.random()*6));
+        }
+        if(landed<all.length)await sleep(55/sp);
+        if(!calm&&now>end*.55&&!K.dataset.second){K.dataset.second='1';wt.play('dice_roll');}
+    }
+    delete K.dataset.second;
+    await sleep(80/sp);
+    // call out the result
+    d.rows.forEach((r,ri)=>{
+        const row=K.querySelectorAll('.dv-row')[ri],els=dies[ri];
+        if(d.kind==='shot'){r.dice.forEach((x,i)=>els[i].classList.add(x.ok?'pass':'fail'));}
+        else if(r.dice.length){const m=Math.max(...r.dice.map(x=>x.v)),top=r.dice.findIndex(x=>x.v===m);els[top]?.classList.add('dv-top');els.forEach((el,i)=>i!==top&&el.classList.add('dim'));row.querySelector('.dv-max').textContent=m;}
+        if(d.winner)row.classList.add(d.winner===r.side?'winner':'loser');
+    });
+    if(d.kind==='shot')K.classList.add(d.good?'res-good':'res-bad');
+    K.querySelector('.dv-detail').innerHTML=d.chips.map((c,i)=>'<span class="dv-chip'+(i===0?' lead':'')+'">'+c+'</span>').join('')+(d.note?'<p class="dv-note">'+d.note+'</p>':'');
+    await sleep((d.kind==='fight'?540:d.kind==='shot'?500:420)/sp);
+};
+})();
+
 // The older play wrapper handles HeroSkill; its asset is changed to cast/rally below.
 const effectPlay=Ve.prototype.play;
 Ve.prototype.play=async function(event){if(event.type==='CommandUsed'){const u=this.b.unit(event.uid||this.b.selected);if(u){const fx=this.add.image(u.x,u.y,'fx-rally').setDepth(13).setDisplaySize(140,140);await this.tween(fx,{displayWidth:230,displayHeight:230,alpha:0},350);fx.destroy();}}return effectPlay.call(this,event);};
