@@ -3310,6 +3310,99 @@ Ve.prototype.combat=async function(result){
     await Promise.all(result.pushVectors.map(p=>{const c=this.tokens.get(p.uid);return c?this.tween(c,{x:p.to.x,y:p.to.y},180):Promise.resolve();}));
 };
 
+// ---- Motion v2 (presentation only) ----
+// Quarter-view figures are painted facing the camera, so they must never be spun around: they stay upright and
+// "turn" by mirroring left/right with a quick squash. Units look toward the nearest foe, face each other in combat,
+// and walk along their path with ease-in/out, a footstep bob, a forward lean and a soft landing.
+// Unit positions, facing used by the rules (u.angle) and all results are untouched.
+(function(){
+const ART=new Map();
+function artDir(scene,key){
+    if(ART.has(key))return ART.get(key);
+    let d=1;
+    try{const img=scene.textures.get(key).getSourceImage(),w=48,h=Math.max(1,Math.round(48*img.height/img.width)),cv=document.createElement('canvas');cv.width=w;cv.height=h;
+        const x=cv.getContext('2d',{willReadFrequently:true});x.drawImage(img,0,0,w,h);const px=x.getImageData(0,0,w,h).data;let s=0,sx=0,x0=w,x1=0;
+        for(let yy=0;yy<h;yy++)for(let xx=0;xx<w;xx++){const a=px[(yy*w+xx)*4+3];if(a>40){s+=a;sx+=a*xx;if(xx<x0)x0=xx;if(xx>x1)x1=xx;}}
+        if(s){const m=sx/s,c=(x0+x1)/2;d=m<c-w*.015?-1:1;}}catch(e){}
+    ART.set(key,d);return d;
+}
+const kindOf=u=>u.traits.includes('flying')?'fly':u.traits.includes('mounted')||u.traits.includes('beast')?'cav':u.traits.includes('monster')?'heavy':'foot';
+const easeIO=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+const now=()=>performance.now();
+// world-facing request: +1 look right, -1 look left
+function face(scene,uid,dir){const c=scene.tokens&&scene.tokens.get(uid);if(!c||!dir)return;if(c.getData('mvFaceT')!==dir)c.setData('mvFaceT',dir);}
+function faceToward(scene,uid,x){const u=scene.b.unit(uid);if(!u)return;const dx=x-u.x;if(Math.abs(dx)>Math.max(6,u.radius*.25))face(scene,uid,Math.sign(dx));}
+window.MESBG&&(window.MESBG.faceToward=(a,b)=>{const v=Tt.b.unit(b);v&&faceToward(Tt,a,v.x);});
+Ve.prototype.mvFaceToward=function(uid,x){faceToward(this,uid,x);};
+let lastAuto=0,lastActive='';
+Ve.prototype.update=function(time){
+    if(this.tokens){
+        const t=now(),calm=UX.reduced,busy=this.busy;
+        // idle: every unit glances toward its nearest foe
+        if(!busy&&t-lastAuto>260){lastAuto=t;const all=this.b.alive();
+            for(const u of all){if(u.escaped)continue;let best=null,bd=1e9;for(const v of all){if(v.side===u.side)continue;const d=(v.x-u.x)**2+(v.y-u.y)**2;if(d<bd){bd=d;best=v;}}if(best)faceToward(this,u.uid,best.x);}}
+        // a small "ready" hop when a unit becomes the one to act
+        const act=actionableUnit?.()?.uid||'';if(act!==lastActive){lastActive=act;const c=act&&this.tokens.get(act);if(c&&!calm)c.setData('mvHop',t);}
+        for(const u of this.b.alive()){
+            const c=this.tokens.get(u.uid),s=c&&c.getByName('token');
+            if(!s||!s.getData('baseSX')||s.getData('fxLock'))continue;
+            // turning: |cos| squash through zero, mirror at the midpoint
+            const ad=artDir(this,u.id);let f=c.getData('mvFace');if(f===undefined){f=c.getData('mvFaceT')||ad;c.setData('mvFace',f);}
+            const ft=c.getData('mvFaceT')||f;let turnK=1;
+            if(ft!==f){let ts=c.getData('mvTurnAt');if(!ts){ts=t;c.setData('mvTurnAt',ts);}const k=calm?1:Math.min(1,(t-ts)/200);turnK=Math.max(.3,Math.abs(Math.cos(k*Math.PI)));if(k>=.5){s.setFlipX(ft!==ad);}if(k>=1){c.setData('mvFace',ft);c.setData('mvTurnAt',0);f=ft;turnK=1;}}
+            else s.setFlipX(f!==ad);
+            // idle breathing (kept from TokenIdle) — frozen positionally while the battle is resolving
+            let m={sx:1,sy:1,dx:0,dy:0};if(!calm){let kind=c.getData('ik');if(kind===undefined){kind=window.TokenIdle.classify(u.id,this.b.meta.get(u.id));c.setData('ik',kind);}m=window.TokenIdle.sample(kind,time,u.uid);}
+            let oy=0,sx=1,sy=1,ang=0;
+            const mv=c.getData('mvMove');
+            if(mv&&!calm){const R=u.radius,ph=mv.dist/mv.step*Math.PI,bob=Math.abs(Math.sin(ph));
+                if(mv.kind==='fly'){oy=-R*.16-Math.sin(ph*.5)*R*.04;ang=mv.dir*7*mv.vel;}
+                else{oy=-bob*R*(mv.kind==='cav'?.13:mv.kind==='heavy'?.06:.1)*mv.vel;sy=1-(1-bob)*.05*mv.vel;sx=1+(1-bob)*.03*mv.vel;ang=mv.dir*(mv.kind==='cav'?3.5:4.5)*mv.vel+Math.sin(ph)*(mv.kind==='heavy'?2:1.2)*mv.vel;}}
+            const land=c.getData('mvLand');if(land&&!calm){const k=(t-land)/200;if(k<1){const w=Math.sin(k*Math.PI);sy*=1-.075*w;sx*=1+.05*w;}else c.setData('mvLand',0);}
+            const hop=c.getData('mvHop');if(hop&&!calm){const k=(t-hop)/300;if(k<1){const w=Math.sin(k*Math.PI);oy-=w*u.radius*.16;sy*=1+.05*w;sx*=1-.03*w;}else c.setData('mvHop',0);}
+            if(ft!==f&&!calm){const k=Math.min(1,(t-(c.getData('mvTurnAt')||t))/200);oy-=Math.sin(k*Math.PI)*u.radius*.05;}
+            s.setScale(s.getData('baseSX')*m.sx*sx*turnK,s.getData('baseSY')*m.sy*sy);
+            s.setAngle(ang);
+            if(!busy||mv){const cc=s.getData('cxy')||{x:0,y:0};s.setPosition((busy?0:m.dx*u.radius*2)+cc.x,(busy?0:m.dy*u.radius*2)+cc.y+oy);}
+        }
+    }
+    updateWorldUI();
+};
+async function glide(scene,e,yield_){
+    const c=scene.tokens.get(e.uid),u=scene.b.unit(e.uid);if(!c||!u)return;
+    const pts=(e.path&&e.path.length>1?e.path:[e.from,e.to]).map(p=>({x:p.x,y:p.y}));
+    const seg=[];let L=0;for(let i=1;i<pts.length;i++){const d=Math.hypot(pts[i].x-pts[i-1].x,pts[i].y-pts[i-1].y);seg.push(d);L+=d;}
+    c.setPosition(pts[0].x,pts[0].y);
+    if(L<1){c.setPosition(pts.at(-1).x,pts.at(-1).y);return;}
+    const sp=Math.max(1,Math.min(qt,5)),kind=kindOf(u);
+    const pace=kind==='cav'?1.35:kind==='fly'?1.2:kind==='heavy'?.8:1;
+    const dur=yield_?Math.max(140,Math.min(260,L*1.2))/sp:Math.max(240,Math.min(950,180+L*.95/pace))/sp;
+    if(!yield_)scene.soundFX.play('base_slide');
+    const mv={dist:0,step:kind==='cav'?78:kind==='heavy'?70:kind==='fly'?120:48,kind,dir:0,vel:0};
+    c.setData('mvMove',yield_?null:mv);
+    const at=d=>{let a=0;for(let i=0;i<seg.length;i++){if(a+seg[i]>=d||i===seg.length-1){const k=seg[i]?Math.min(1,(d-a)/seg[i]):1;return{x:pts[i].x+(pts[i+1].x-pts[i].x)*k,y:pts[i].y+(pts[i+1].y-pts[i].y)*k,i};}a+=seg[i];}return{...pts.at(-1),i:seg.length-1};};
+    const st=now();let prev=0;
+    await new Promise(res=>{const fr=()=>{if(!c.scene){res();return;}
+        const t=Math.min(1,(now()-st)/dur),k=yield_?1-Math.pow(1-t,3):easeIO(t),d=k*L,p=at(d);
+        c.setPosition(p.x,p.y);
+        const sx=pts[p.i+1].x-pts[p.i].x;
+        if(!yield_){mv.dist=d;mv.vel=Math.min(1,Math.abs(d-prev)/Math.max(.001,L/ (dur/16.7))*1.6);if(Math.abs(sx)>4){mv.dir=Math.sign(sx);face(scene,e.uid,mv.dir);}}
+        prev=d;
+        if(t<1)requestAnimationFrame(fr);else res();};fr();});
+    c.setPosition(pts.at(-1).x,pts.at(-1).y);
+    c.setData('mvMove',null);
+    if(!yield_&&!UX.reduced)c.setData('mvLand',now());
+}
+const mvPrevPlay=Ve.prototype.play;
+Ve.prototype.play=async function(event){
+    if(!window._lwbFx&&qt<20&&this.tokens){
+        if(event.type==='UnitMoved'){await glide(this,event,false);return;}
+        if(event.type==='UnitYielded'){await glide(this,event,true);return;}
+        if(event.type==='ChargeConnected'){const u=this.b.unit(event.uid);if(u){let best=null,bd=1e9;for(const v of this.b.alive()){if(v.side===u.side)continue;const d=Math.hypot(v.x-u.x,v.y-u.y);if(d<bd){bd=d;best=v;}}if(best){faceToward(this,u.uid,best.x);faceToward(this,best.uid,u.x);}}}
+    }
+    return mvPrevPlay.call(this,event);
+};
+})();
 // ---- Combat FX v2 (presentation only): anticipation → strike trail → impact (hit-stop, flash, shockwave,
 // directional sparks, shake) → large readable result popup. Combat results are computed elsewhere; this only draws them.
 (function(){
@@ -3345,6 +3438,7 @@ Ve.prototype.combat=async function(result){
         const u=this.b.unit(hit.attacker),v=this.b.unit(hit.target),ac=this.tokens.get(u?.uid),vc=this.tokens.get(v?.uid),sprite=ac?.getByName('token'),vsprite=vc?.getByName('token');
         if(!u||!v||!sprite)continue;
         idx++;
+        this.mvFaceToward&&(this.mvFaceToward(u.uid,v.x),this.mvFaceToward(v.uid,u.x));
         const type=effectType(u,result.kind),angle=Math.atan2(v.y-u.y,v.x-u.x),col=FXC[u.side]||FXC.good;
         const heavy=type==='smash'||type==='cast'||u.traits.includes('monster')||u.traits.includes('boss');
         const wound=!!(hit.wound||hit.killed),kill=!!hit.killed,R=v.radius,W=Math.max(9,R*.32);
@@ -3431,7 +3525,7 @@ Ve.prototype.combat=async function(result){
         if(kill&&vsprite){
             this.soundFX.play('death');
             if(!calm)for(let i=0;i<(fast?0:7);i++){const a=Math.random()*6.283,d=R*(.6+Math.random()*.9),pf=this.add.image(v.x,v.y,'fx2-dust').setDepth(12).setScale(R*.05).setAlpha(.9);this.tween(pf,{x:v.x+Math.cos(a)*d,y:v.y+Math.sin(a)*d*.7,scale:R*.09,alpha:0},520).then(()=>pf.destroy());}
-            vsprite.setTintFill(0xffffff);
+            vsprite.setTintFill(0xffffff);vsprite.setData('fxLock',1);
             await this.tween(vsprite,{angle:vsprite.angle+(angle>-1.57&&angle<1.57?70:-70),alpha:0,scaleX:vsprite.scaleX*.82,scaleY:vsprite.scaleY*.82,x:vsprite.x+Math.cos(angle)*R*.35,y:vsprite.y+Math.sin(angle)*R*.35+6},fast?30:220);
             vsprite.clearTint();vc&&vc.setVisible(false);
         }
