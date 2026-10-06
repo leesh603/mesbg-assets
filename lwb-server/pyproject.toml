@@ -1,0 +1,8 @@
+[project]
+name = "lwb-server"
+version = "0.1.0"
+description = "LAST WAR BAND cloud save + leaderboard API"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+]
