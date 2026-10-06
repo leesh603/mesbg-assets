@@ -6785,8 +6785,7 @@ class Ve extends Ot.Scene {
                 this.terrainLayer.add(this.add.image(H.x, H.y, 'terr_barricade').setDisplaySize(H.w + 34, 116).setAlpha(.97));
             else if (H.z) {
                 const K = this.add.graphics(), x = H.x - H.w / 2, y = H.y - H.h / 2, c = H.z === 'hill' ? 0xc9b06a : H.z === 'mountain' ? 0x9c8a5f : 0x7f9ab3;
-                K.fillStyle(H.z === 'hill' ? 0x4a3d20 : H.z === 'mountain' ? 0x2e281d : 0x141c26, H.z === 'hill' ? .2 : .15), K.fillRoundedRect(x, y, H.w, H.h, 10);
-                K.lineStyle(1.5, c, .35), K.strokeRoundedRect(x + 2, y + 2, H.w - 4, H.h - 4, 9);
+                if (H.z === 'hill') { K.fillStyle(0x4a3d20, .16), K.fillRoundedRect(x, y, H.w, H.h, 24); K.lineStyle(1.5, c, .28), K.strokeRoundedRect(x + 2, y + 2, H.w - 4, H.h - 4, 22); }
                 this.terrainLayer.add(K);
             }
             else if(this.textures.exists(H.id))
@@ -8943,28 +8942,36 @@ Ve.prototype.drawRings = function () {
             const stamp=[u.uid,u.x,u.y,r,...b.alive().map(v=>`${v.uid}:${v.x},${v.y}`),...b.terrain.map(t=>`${t.id}:${t.active}`)].join('|');
             if(this._rangeStamp!==stamp){
                 const obstacles=b.terrain.filter(t=>t.active&&!(t.kind==='cover'&&t.h<=70&&t.w<=230)),enemies=b.alive().filter(v=>v.side!==u.side||v.uid===u.uid);
-                this._rangePoints=[];
-                for(let i=0;i<96;i++){
-                    const a=i*Math.PI/48;let last={x:u.x,y:u.y};
-                    for(let distance=12;distance<=r+12;distance+=12){const d=Math.min(distance,r),p={x:u.x+Math.cos(a)*d,y:u.y+Math.sin(a)*d};
-                        if(!Et(u,p,enemies,obstacles))break;
-                        if(Et(u,p,enemies,b.terrain))last=p;
+                // Dense rays + bisection put the edge exactly on walls/zone borders (no staircase),
+                // then single-ray spikes are trimmed and the outline is rounded with Chaikin (draw only).
+                const N=144,STEP=11,R=new Array(N);
+                const at=(a,d)=>({x:u.x+Math.cos(a)*d,y:u.y+Math.sin(a)*d});
+                const stopOk=p=>Et(u,p,enemies,obstacles)&&Et(u,p,enemies,b.terrain);
+                for(let i=0;i<N;i++){
+                    const a=i*Math.PI*2/N;let last=0,hit=0;
+                    for(let distance=STEP;distance<=r+STEP;distance+=STEP){const d=Math.min(distance,r),p=at(a,d);
+                        if(!Et(u,p,enemies,obstacles)){if(!hit)hit=d;break;}
+                        if(Et(u,p,enemies,b.terrain)){last=d;hit=0;}else if(!hit)hit=d;
                         if(d===r)break;
                     }
-                    this._rangePoints.push(last);
+                    if(hit&&hit>last){let lo=last,hi=hit;for(let k=0;k<4;k++){const mid=(lo+hi)/2;if(stopOk(at(a,mid)))lo=mid;else hi=mid;}last=lo;}
+                    R[i]=last;
                 }
+                for(let i=0;i<N;i++){const p=R[(i+N-1)%N],n=R[(i+1)%N];if(R[i]>Math.max(p,n)+20)R[i]=Math.max(p,n);}
+                let pts=R.map((d,i)=>at(i*Math.PI*2/N,d));
+                for(let it=0;it<2;it++){const out=[];for(let i=0;i<pts.length;i++){const A=pts[i],B=pts[(i+1)%pts.length];out.push({x:A.x*.75+B.x*.25,y:A.y*.75+B.y*.25},{x:A.x*.25+B.x*.75,y:A.y*.25+B.y*.75});}pts=out;}
+                this._rangePoints=pts;
                 this._rangeStamp=stamp;
             }
             const points=this._rangePoints,z=UX.zoom||1;
             // Two-tone boundary survives both light stone and dark ground.
-            g.fillStyle(MOVE,.17);g.fillPoints(points,true);
-            g.lineStyle(16/z,MOVE,.16);g.strokePoints(points,true);
-            g.lineStyle(7/z,MOVE,.22);g.strokePoints(points,true);
-            duo(2.6/z,MOVE_HI,1,()=>g.strokePoints(points,true));
-            for(const t of b.terrain.filter(t=>t.active&&ht(t,u)<r+Math.max(t.w,t.h))){
+            g.fillStyle(MOVE,.15);g.fillPoints(points,true);
+            g.lineStyle(12/z,MOVE,.14);g.strokePoints(points,true);
+            g.lineStyle(5.5/z,INK,.45);g.strokePoints(points,true);
+            g.lineStyle(2.4/z,MOVE_HI,1);g.strokePoints(points,true);
+            for(const t of b.terrain.filter(t=>t.active&&!t.z&&ht(t,u)<r+Math.max(t.w,t.h))){
                 const jump=t.kind==='cover'&&t.h<=70&&t.w<=230;
-                duo(1.8/z,jump?GOLD:FOE_HI,.9,()=>g.strokeRect(t.x-t.w/2,t.y-t.h/2,t.w,t.h));
-                if(!jump){g.lineStyle(1.2/z,FOE_HI,.5);for(let x=t.x-t.w/2;x<t.x+t.w/2;x+=18/z){const d=Math.min(14/z,t.x+t.w/2-x,t.h);g.lineBetween(x,t.y-t.h/2+d,x+d,t.y-t.h/2);}}
+                g.lineStyle(1.4/z,jump?GOLD:FOE_HI,jump?.7:.45);g.strokeRoundedRect(t.x-t.w/2,t.y-t.h/2,t.w,t.h,Math.min(10,t.h/3,t.w/3));
             }
             for(const foe of b.alive(Ht(u.side)).filter(v=>ht(v,u)<=r+u.radius+v.radius+UNIT_RULES.chargeTolerance)){
                 const plan=chargePlan(u,foe,b.alive(),b.terrain,r);if(!plan)continue;
