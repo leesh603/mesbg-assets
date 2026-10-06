@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "count": 514,
+  "count": 523,
   "units": [
     {
       "id": "aragorn",
@@ -10190,6 +10190,123 @@
       "sheet": null,
       "file": "tokens/terr_mumak_skull.png",
       "base_mm": ""
+    },
+    {
+      "id": "galadhrim_knight",
+      "name_ko": "갈라드림 기사",
+      "name_en": "Galadhrim Knight",
+      "side": "good",
+      "faction": "lothlorien",
+      "role": "cavalry",
+      "weapon": "lance",
+      "base": "XL",
+      "sheet": "px-nb-roster-varied-v1.png",
+      "file": "tokens/galadhrim_knight.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "mahud_raider",
+      "name_ko": "마후드 약탈자",
+      "name_en": "Mahud Raider",
+      "side": "evil",
+      "faction": "harad",
+      "role": "infantry",
+      "weapon": "club",
+      "base": "M",
+      "sheet": "px-nb-roster-varied-v1.png",
+      "file": "tokens/mahud_raider.png",
+      "base_mm": "25mm"
+    },
+    {
+      "id": "camel_rider",
+      "name_ko": "낙타 기병",
+      "name_en": "Camel Rider",
+      "side": "evil",
+      "faction": "harad",
+      "role": "cavalry",
+      "weapon": "spear",
+      "base": "XL",
+      "sheet": "px-nb-roster-varied-v1.png",
+      "file": "tokens/camel_rider.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "dale_warrior",
+      "name_ko": "데일 전사",
+      "name_en": "Warrior of Dale",
+      "side": "good",
+      "faction": "men",
+      "role": "infantry",
+      "weapon": "sword_shield",
+      "base": "M",
+      "sheet": "px-nb-roster-varied-v2.png",
+      "file": "tokens/dale_warrior.png",
+      "base_mm": "25mm"
+    },
+    {
+      "id": "esgaroth_archer",
+      "name_ko": "에스가로스 궁수",
+      "name_en": "Esgaroth Archer",
+      "side": "good",
+      "faction": "men",
+      "role": "infantry",
+      "weapon": "bow",
+      "base": "M",
+      "sheet": "px-nb-roster-varied-v2.png",
+      "file": "tokens/esgaroth_archer.png",
+      "base_mm": "25mm"
+    },
+    {
+      "id": "thorondor",
+      "name_ko": "소론도르",
+      "name_en": "Thorondor, King of Eagles",
+      "side": "good",
+      "faction": "eagle",
+      "role": "monster",
+      "weapon": "talons",
+      "base": "XXL",
+      "sheet": "px-nb-roster-varied-v2.png",
+      "file": "tokens/thorondor.png",
+      "base_mm": "60mm"
+    },
+    {
+      "id": "rhosgobel_rabbit",
+      "name_ko": "로스고벨 토끼썰매",
+      "name_en": "Rhosgobel Rabbits",
+      "side": "good",
+      "faction": "maiar",
+      "role": "beast",
+      "weapon": "none",
+      "base": "L",
+      "sheet": "px-nb-roster-varied-v2.png",
+      "file": "tokens/rhosgobel_rabbit.png",
+      "base_mm": "50mm"
+    },
+    {
+      "id": "morgul_duellist",
+      "name_ko": "모르굴 결투사",
+      "name_en": "Morgul Duellist",
+      "side": "evil",
+      "faction": "mordor",
+      "role": "infantry",
+      "weapon": "sword",
+      "base": "M",
+      "sheet": "px-nb-roster-varied-v2.png",
+      "file": "tokens/morgul_duellist.png",
+      "base_mm": "25mm"
+    },
+    {
+      "id": "troll_shaman",
+      "name_ko": "트롤 주술사",
+      "name_en": "Troll Shaman",
+      "side": "evil",
+      "faction": "mordor",
+      "role": "monster",
+      "weapon": "staff",
+      "base": "L",
+      "sheet": "px-nb-roster-varied-v2.png",
+      "file": "tokens/troll_shaman.png",
+      "base_mm": "50mm"
     }
   ]
 }

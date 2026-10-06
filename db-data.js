@@ -755,4 +755,24 @@ module.exports = [
     ['terr_argonath','아르고나스','Argonath, Pillar of Kings',{ base:'XXL' }],
     ['terr_osgiliath_dome','오스길리아스 돔','Ruined dome of Osgiliath'],
     ['terr_mumak_skull','무마킬 해골','Mumak skull']] },
+
+  // --- roster-varied 배치: 누락 유닛 9종 ---
+  { sheet:'px-nb-roster-varied-v1.png', side:'good', faction:'lothlorien', role:'cavalry', weapon:'lance', base:'XL', traits:[], units:[
+    ['galadhrim_knight','갈라드림 기사','Galadhrim Knight']] },
+  { sheet:'px-nb-roster-varied-v1.png', side:'evil', faction:'harad', role:'infantry', weapon:'club', base:'M', traits:[], units:[
+    ['mahud_raider','마후드 약탈자','Mahud Raider']] },
+  { sheet:'px-nb-roster-varied-v1.png', side:'evil', faction:'harad', role:'cavalry', weapon:'spear', base:'XL', traits:[], units:[
+    ['camel_rider','낙타 기병','Camel Rider']] },
+  { sheet:'px-nb-roster-varied-v2.png', side:'good', faction:'men', role:'infantry', weapon:'sword_shield', base:'M', traits:[], units:[
+    ['dale_warrior','데일 전사','Warrior of Dale']] },
+  { sheet:'px-nb-roster-varied-v2.png', side:'good', faction:'men', role:'infantry', weapon:'bow', base:'M', traits:[], units:[
+    ['esgaroth_archer','에스가로스 궁수','Esgaroth Archer']] },
+  { sheet:'px-nb-roster-varied-v2.png', side:'good', faction:'eagle', role:'monster', weapon:'talons', base:'XXL', traits:['fly'], units:[
+    ['thorondor','소론도르','Thorondor, King of Eagles']] },
+  { sheet:'px-nb-roster-varied-v2.png', side:'good', faction:'maiar', role:'beast', weapon:'none', base:'L', traits:[], units:[
+    ['rhosgobel_rabbit','로스고벨 토끼썰매','Rhosgobel Rabbits']] },
+  { sheet:'px-nb-roster-varied-v2.png', side:'evil', faction:'mordor', role:'infantry', weapon:'sword', base:'M', traits:[], units:[
+    ['morgul_duellist','모르굴 결투사','Morgul Duellist']] },
+  { sheet:'px-nb-roster-varied-v2.png', side:'evil', faction:'mordor', role:'monster', weapon:'staff', base:'L', traits:[], units:[
+    ['troll_shaman','트롤 주술사','Troll Shaman']] },
 ];

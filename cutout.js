@@ -163,6 +163,10 @@ const sheets = [
   { file: 'nb-regen-fix2.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-regen-fix2.png', names: ['easterling_swordshield', 'denethor', 'noldor_warrior', 'rumil', 'silvan_archer', 'mirkwood_sentinel'] },
   { file: 'nb-regen-fix3.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-regen-fix3.png', names: ['orophin', 'dwarf_axeshield', 'black_numenorean', 'hobbit_shirriff', 'aragorn_blackgate', 'warg_chieftain'] },
   { file: 'nb-regen-fix4.png', rows: 2, cols: 1, noRim: true, paintedFile: 'px-regen-fix4.png', names: ['hurin_thalion', 'blackroot_archer'] },
+  { file: 'nb-roster-varied-v1.png', rows: 1, cols: 3, noRim: true, paintedFile: 'px-nb-roster-varied-v1.png', names: ['galadhrim_knight', 'mahud_raider', 'camel_rider'] },
+  { file: 'nb-roster-varied-v2.png', rows: 2, cols: 3, noRim: true, paintedFile: 'px-nb-roster-varied-v2.png', names: ['dale_warrior', 'esgaroth_archer', 'thorondor', 'rhosgobel_rabbit', 'morgul_duellist', 'troll_shaman'] },
+  { file: 'px-single-witchking-spear.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-single-witchking-spear.png', names: ['witchking_spear'] },
+  { file: 'px-single-azog-foot.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-single-azog-foot.png', names: ['azog_foot'] },
 ];
 
 function idx(x, y, w) { return (y * w + x) << 2; }
