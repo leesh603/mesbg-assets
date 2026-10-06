@@ -84,7 +84,7 @@ Ae=[{id:"warrior_minas_tirith",name_ko:"미나스 티리스 전사",name_en:"War
     } this.checkRun(); }
     applyCombat(Y) { for (const b of Y.strikeResults) {
         const H = this.unit(b.target), K = this.unit(b.attacker);
-        b.wound && (H.currentWounds--, K.side !== H.side && (K.dmgDealt = (K.dmgDealt || 0) + 1), H.id === "glorfindel_mounted" && this.dismount(H), this.emit("UnitWounded", void 0, { uid: H.uid })), b.killed && (H.alive = !1, K.side !== H.side && (K.kills++, K.veteranXP += 2), H.side === "good" && this.fallen && this.fallen.push({ id: H.id, uid: H.uid, kills: H.kills, wave: this.wave, name: H.name }), this.emit("UnitKilled", void 0, { uid: H.uid }));
+        b.wound && (H.currentWounds--, K.side !== H.side && (K.dmgDealt = (K.dmgDealt || 0) + 1), H.id === "glorfindel_mounted" && this.dismount(H), this.emit("UnitWounded", void 0, { uid: H.uid })), b.killed && (H.alive = !1, K.side !== H.side && (K.kills++, K.veteranXP += 2), K.side === 'good' && H.traits.includes('hero') && (this.cp = Math.min(pt.maxCP, this.cp + 2), this.emit('Event', '영웅 처치 · 지휘력 +2 CP')), H.side === "good" && this.fallen && this.fallen.push({ id: H.id, uid: H.uid, kills: H.kills, wave: this.wave, name: H.name }), this.emit("UnitKilled", void 0, { uid: H.uid }));
     } for (const b of Y.pushVectors) {
         const H = this.unit(b.uid);
         Object.assign(H, b.to), this.emit("UnitPushed", void 0, { uid: H.uid });
@@ -223,11 +223,16 @@ class Ve extends Ot.Scene {
         }
         p.traits.includes("hero") && this.labels.add(this.add.text(p.x, p.y - p.radius - 24, `✦ ${p.currentWounds}/${p.stats.wounds}`, { fontFamily: "Pretendard", fontSize: "16px", color: "#fff0c0", backgroundColor: "#1b2a2ce8", stroke: "#2a1b18", strokeThickness: 2, padding: { x: 6, y: 3 } }).setOrigin(.5));
     }
+    if (b.banter && Date.now() < b.banter.until) {
+        const _bu = b.unit(b.banter.uid);
+        if (_bu && _bu.alive)
+            this.labels.add(this.add.text(_bu.x, _bu.y - _bu.radius - 18, b.banter.text, { fontFamily: "Pretendard", fontSize: "14px", color: "#f3e8c8", backgroundColor: "#242c20e0", padding: { x: 8, y: 4 } }).setOrigin(.5));
+    }
     for (const d of (b.devices || [])) {
         if (!d.armed) continue;
-        this.rings.lineStyle(2, d.type === 'ballista' ? 0xc9a03f : 0xd4502a, .85);
-        this.rings.strokeCircle(d.x, d.y, d.trigger * .35);
-        this.labels.add(this.add.text(d.x, d.y - 16, d.type === 'ballista' ? '\u2699 투석기' : '\u{1F525} 불통', { fontFamily: "Pretendard", fontSize: "15px", color: "#ffd98a", backgroundColor: "#1b2218d0", padding: { x: 6, y: 3 } }).setOrigin(.5));
+        this.rings.lineStyle(2, d.type === 'barrel' ? 0x8a3a20 : d.type === 'ballista' ? 0xc9a03f : 0xd4502a, .85);
+        this.rings.strokeCircle(d.x, d.y, d.type === 'barrel' ? 34 : d.trigger * .35);
+        this.labels.add(this.add.text(d.x, d.y - 16, d.type === 'ballista' ? '\u2699 투석기' : d.type === 'barrel' ? '\u{1F4A3} 화약통' : '\u{1F525} 불통', { fontFamily: "Pretendard", fontSize: "15px", color: "#ffd98a", backgroundColor: "#1b2218d0", padding: { x: 6, y: 3 } }).setOrigin(.5));
     }
     const K = b.unit(b.selected), $ = b.unit(b.activeMoverUid) || (K && b.canAct(K) ? K : b.eligible()[0]); if ($ != null && $.alive && ["move", "shoot", "preparation"].includes(b.phase) && (this.rings.lineStyle(5, 16769698, 1), this.rings.strokeCircle($.x, $.y, $.radius + 18), this.rings.lineStyle(2, 16773823, .96), this.rings.strokeCircle($.x, $.y, $.radius + 23), this.labels.add(this.add.text($.x, $.y - $.radius - 69, "▼ 현재 행동", { fontFamily: "Pretendard", fontSize: "18px", color: "#17282b", backgroundColor: "#f3d494", padding: { x: 10, y: 4 } }).setOrigin(.5))), b.phase === "fight")
         for (const p of b.fightQueue) {
@@ -991,7 +996,9 @@ P.endRound = function () {
         return;
     }
     if (this.mission === 'hold') {
-        this.capture = allies.length > foes.length ? this.capture + 1 : Math.max(0, this.capture - 1);
+        const _capUp = allies.length > foes.length;
+        this.capture = _capUp ? this.capture + 1 : Math.max(0, this.capture - 1);
+        if (_capUp) this.bonusCP += 1;
         if (this.capture >= 3) {
             this.finishWave();
             return;
@@ -1080,6 +1087,36 @@ P.rollRecruits = function () {
     let pool = CX.recruits.filter(id => this.meta.has(id) && (!zt[id].traits.includes('hero') || this.wave >= 2 && !this.permanent().some(u => u.id === id)));
     this.recruitOffers = pool.map(id => ({ id, r: this.rng() + (zt[id].traits.includes('hero') ? .28 : 0) })).sort((a, b) => a.r - b.r).slice(0, 4).map(x => ({ id: x.id, bought: false }));
 };
+const LWB_EQUIP = [
+    { id: 'whetstone', label: '전투검', cost: 35, fx: u => u.stats.fight += 1 },
+    { id: 'plate', label: '판금갑옷', cost: 40, fx: u => u.stats.defence += 1 },
+    { id: 'hunting_bow', label: '사냥활', cost: 30, fx: u => { if (!u.stats.shootRange) { u.stats.shootRange = 600; u.stats.shootValue = Math.max(u.stats.shootValue, 4); } } },
+    { id: 'war_banner_eq', label: '전투 기', cost: 25, fx: u => u.stats.courage += 1 },
+    { id: 'salve', label: '치유 연고', cost: 20, once: true, fx: u => u.currentWounds = Math.min(u.stats.wounds, u.currentWounds + 1) }
+];
+P.buyEquip = function (i, uid) {
+    if (this.phase !== 'reward' || this.campStep !== 'recruit')
+        return false;
+    const a = LWB_EQUIP[i], u = this.unit(uid);
+    if (!a || !u || u.side !== 'good' || this.gold < a.cost)
+        return false;
+    u.equipment = u.equipment || [];
+    if (a.once) {
+        if (u.currentWounds >= u.stats.wounds)
+            return false;
+        a.fx(u);
+        this.gold -= a.cost;
+        this.save();
+        return true;
+    }
+    if (u.equipment.length >= 2 || u.equipment.includes(a.id))
+        return false;
+    u.equipment.push(a.id);
+    this.gold -= a.cost;
+    this.refreshUnit(u);
+    this.save();
+    return true;
+};
 const TRAP_PACKS = [
     { label: '화살 투석기', cost: 55, type: 'ballista' },
     { label: '불통', cost: 40, type: 'firepot' }
@@ -1099,13 +1136,17 @@ P.checkTraps = function (u) {
     for (const d of this.devices || []) {
         if (!d.armed || ht(u, d) > d.trigger)
             continue;
+        if (!d.neutral && u.side !== 'evil')
+            continue;
         d.armed = false;
         const ag = this.alive('good').filter(v => v.traits.includes('hero'))[0] || this.alive('good')[0] || u;
-        const hits = d.type === 'ballista'
-            ? this.alive('evil').filter(v => ht(v, d) <= d.radius).sort((a, b) => ht(a, d) - ht(b, d)).slice(0, 3)
-            : this.alive('evil').filter(v => ht(v, d) <= d.radius);
+        const hits = d.type === 'barrel'
+            ? this.alive().filter(v => ht(v, d) <= d.radius)
+            : d.type === 'ballista'
+                ? this.alive('evil').filter(v => ht(v, d) <= d.radius).sort((a, b) => ht(a, d) - ht(b, d)).slice(0, 3)
+                : this.alive('evil').filter(v => ht(v, d) <= d.radius);
         hits.forEach(v => this.inflict(ag, v, 1));
-        this.emit('Trap', (d.type === 'ballista' ? '투석기 발사' : '불통 폭발') + ' · 적 ' + hits.length + '기 타격', { at: d });
+        this.emit('Trap', (d.type === 'ballista' ? '투석기 발사' : d.type === 'barrel' ? '화약통 폭발' : '불통 폭발') + ' · ' + hits.length + '기 타격', { at: d });
     }
 };
 const ALLY_PACKS = [
@@ -1133,6 +1174,18 @@ P.buyAlly = function (i) {
     this.save();
     return true;
 };
+const LWB_PAIRS = [
+    ['aragorn', 'legolas', '레골라스, 오늘도 내 곁에 있어 다행이다.'],
+    ['gimli', 'legolas', '여전히 내가 앞서 있다, 엘프!'],
+    ['frodo', 'samwise', '괜찮아, 샘. 조금만 더 가면 돼.'],
+    ['merry', 'pippin', '메리, 우리가 어깨를 나란히 하는 날이 왔군.'],
+    ['eowyn', 'merry', '함께 가자, 메리. 겁내지 말고.'],
+    ['aragorn', 'boromir', '곤도르는 네가 있어 강하다, 보로미르.'],
+    ['theoden_mounted', 'eowyn', '에오윈, 네 심장만큼 용감한 이는 없다.'],
+    ['gandalf', 'aragorn', '서녘의 왕이여, 희망을 놓지 마라.'],
+    ['haldir', 'legolas', '로리엔의 활이 서녘과 함께한다.'],
+    ['faramir', 'boromir', '형, 곤도르를 위해.']
+];
 const LWB_ACH = [
     ['veteran', '전장의 베테랑', '한 유닛이 10처치'],
     ['survivor', '불굴의 생존자', '부상 3회를 견딘 유닛'],
@@ -1380,7 +1433,7 @@ P.retryStage = function () {
     return true;
 };
 P._saveState = function () {
-    const keys = ['gold', 'relics', 'capacityBought', 'totalKills', 'mithrilSpent', 'wave', 'cleared', 'units', 'counter', 'mode', 'best', 'campStep', 'campEvent', 'nextRoundBuffs', 'recruitOffers', 'relicChoices', 'chosenRelic', 'rerolls', 'lastGold', 'recruitDraft', 'initialDraft', 'horses', 'campDraft', 'priorityForce', 'bonusCP', 'fallen', 'difficulty', 'armyName', 'allyBought', 'dailySeed', 'devices'];
+    const keys = ['gold', 'relics', 'capacityBought', 'totalKills', 'mithrilSpent', 'wave', 'cleared', 'units', 'counter', 'mode', 'best', 'campStep', 'campEvent', 'nextRoundBuffs', 'recruitOffers', 'relicChoices', 'chosenRelic', 'rerolls', 'lastGold', 'recruitDraft', 'initialDraft', 'horses', 'campDraft', 'priorityForce', 'bonusCP', 'fallen', 'difficulty', 'armyName', 'allyBought', 'dailySeed', 'devices', 'weeklySeed'];
     const state = { version: CX.version };
     for (const k of keys)
         state[k] = this[k];
@@ -1442,6 +1495,7 @@ const oldEndRun = P.endRun;
 P.endRun = function (won, msg) { oldEndRun.call(this, won, msg); if (won) this.checkAchievements(); try {
     localStorage.removeItem('mesbg-endless-save');
     if (this.dailySeed) try { const k = 'mesbg-daily-' + this.dailySeed; if ((this.wave || 0) > (Number(localStorage.getItem(k)) || 0)) localStorage.setItem(k, String(this.wave)); } catch (e) { }
+    if (this.weeklySeed) try { const k = 'mesbg-weekly-' + this.weeklySeed; if ((this.wave || 0) > (Number(localStorage.getItem(k)) || 0)) localStorage.setItem(k, String(this.wave)); } catch (e) { }
 }
 catch { } };
 P.resumeSlot = function (n) {
@@ -1858,8 +1912,18 @@ P.shoot = function (uid, target) { const u = this.unit(uid); const multi = u?.pr
 // Enemy movement evaluates role, engagement, objectives and ranged spacing.
 const __lwbFA = P.finishActivation;
 P.finishActivation = function (u) {
-    if (u && u.side === 'evil' && (this.devices || []).some(d => d.armed))
+    if (u && (this.devices || []).some(d => d.armed && (u.side === 'evil' || d.type === 'barrel')))
         this.checkTraps(u);
+    if (u && u.side === 'good' && u.traits.includes('hero') && this.rng() < 0.1) {
+        const pr = LWB_PAIRS.find(w => w[0] === u.id || w[1] === u.id);
+        if (pr) {
+            const other = this.alive('good').find(v => v !== u && v.id === (pr[0] === u.id ? pr[1] : pr[0]) && ht(u, v) <= 340);
+            if (other) {
+                this.banter = { uid: u.uid, text: pr[2], until: Date.now() + 3800 };
+                this.emit('Event', u.name + ' — ' + pr[2]);
+            }
+        }
+    }
     return __lwbFA.call(this, u);
 };
 be = function (b, u) {
@@ -1964,8 +2028,23 @@ P.refreshUnit=function(u){
     if(u.traits.includes('mounted'))u.stats.fight+=this.rank('rohan_standard');
     if(u.id==='aragorn')u.stats.attacks+=this.rank('anduril_hilt');
 };
+const __lwbRU2=P.refreshUnit;
+P.refreshUnit=function(u){
+    __lwbRU2.call(this,u);
+    if(this.weeklySeed&&this.weeklySeed%4===2)u.stats.shootRange=0;
+    if(this.weeklySeed&&this.weeklySeed%4===3&&u.side==='good')u.stats.fight+=1;
+    for(const e of u.equipment||[]){const d=LWB_EQUIP.find(x=>x.id===e);d&&!d.once&&d.fx(u);}
+};
 const relicRound=P.beginRound;
-P.beginRound=function(){relicRound.call(this);if(['move','shoot'].includes(this.phase))this.cp+=this.rank('pipeweed');};
+P.beginRound=function(){relicRound.call(this);if(['move','shoot'].includes(this.phase))this.cp+=this.rank('pipeweed');
+    this._roundSnap={units:structuredClone(this.units),cp:this.cp,side:this.side,phase:this.phase,round:this.round,selected:this.selected,capture:this.capture,devices:structuredClone(this.devices||[]),fightQueue:[]};};
+P.undoRound=function(){
+    const s=this._roundSnap;
+    if(!s||!['move','shoot','fight'].includes(this.phase))return false;
+    Object.assign(this,{units:structuredClone(s.units),cp:s.cp,side:s.side,phase:s.phase,round:s.round,selected:s.selected,capture:s.capture,devices:structuredClone(s.devices||[]),fightQueue:[],activeMoverUid:''});
+    this.emit('Event','지휘부가 직전 라운드 지점으로 되돌립니다.');
+    return true;
+};
 const relicWave=P.startWave;
 P.startWave=function(){
     relicWave.call(this);
@@ -2365,6 +2444,7 @@ Ve.prototype.play = async function (e) { if (e.type === 'HeroSkill') {
 // UI helpers use the same images as the battlefield and inventory.
 function esc(s) { return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const PATCH_NOTES = [
+    ['v1.11', ['유닛 카드에 상성 힌트 표시 (기병·창·사격 등)', '진행 속도 + ↺ 직전 라운드 되돌리기', '영웅 장비 상점: 전투검·판금갑옷·사냥활·전투기·치유연고', '전장에 중립 화약통 — 어느 쪽이든 근접하면 폭발', '야영지에서 다음 전투 적 편성·진입 방향 정찰 보고', '유명 조합 영웅이 나란히 서면 가끔 대사', '이번 주 원정 모드 — 주마다 다른 규칙 + 주간 최고 기록', '영웅 처치 +2 CP · 거점 점령 진행 시 다음 라운드 +1 CP']],
     ['v1.10', ['동맹 지원병이 스스로 진형을 잡고 행동합니다 (플레이어 조작 불필요)', '같은 진영 아군이 근접하면 결투 +1 (전우 유대)', '야영지 함정: 투석기 · 불통 — 다음 전투에서 자동 발동', '발로그 공포 강화: 근처 아군 결투 -1, 공포 검사 더 어려움', '패배 시 금화 60으로 같은 스테이지 재도전', '업적 시스템 — 명예의 전당에 배지 표시', '결과 화면에 기록 공유 코드']],
 ['v1.9', ['고지 사격 보너스 + 날씨(비·밤·안개) 명중 영향','부상 시스템 + 야영지 약제사','동맹 지원: 다음 전투 한정 소환병 구입','오늘의 도전: 매일 같은 시드 원정','결과 화면 전투 기록 + 부대명·영웅 별칭','발라의 은총: 전사한 영웅을 부활시키는 야영지 이벤트','자동 진행 중 화면 터치로 일시정지','AI 개선: 갇힌 적이 목표로 우회, 궁수는 근접 시 후퇴','전투 기록 패널: 좌하단 기록 버튼으로 최근 30건 열람','영웅 58명 고유 능력 추가','명예록: 전사한 영웅을 캠프·결과 화면에 기록','난이도 선택: 쉬움/보통/어려움 — 적 수·보상 조절','영입 필터 탭: 등급·전투 유형별 보기']],
 ['v1.8', ['저장 슬롯 3개 + 자동 저장','보스 등장 배너','모바일 핀치 줌·카메라 자동 이동','신규 명령: 강행군·결집·응급 치료','유물 아이콘 34종 실물 아트']],
@@ -2470,7 +2550,7 @@ Yt = function () {
     const u = q.unit(q.selected);
     if (u) {
         const meta = q.meta.get(u.id);
-        ut('unit').innerHTML = `<div class="unit-head">${unitImage(u.id)}<div><strong>${esc(u.name)}</strong><small>${u.side === 'good' ? '아군' : '적군'} · ${isHeroUnit(u.id)?`<span class="unit-tier tier-${heroGrade(u.id)}" style="display:inline;margin:0">${tierLabel(u.id)}</span>`:(CX.roleNames[meta.role]||meta.role)}</small><small>${q.engaged(u) ? '교전 중' : u.acted ? '행동 완료' : '행동 가능'}</small></div></div><div class="movement-readout"><b>${(q.remaining(u) / 45).toFixed(1)}″</b> / ${(u.stats.move / 45).toFixed(1)}″ 이동 <span>사용 ${(u.movementSpent / 45).toFixed(1)}″</span></div><div class="stats"><span>Fight<b>${u.stats.fight}</b></span><span>힘<b>${u.stats.strength}</b></span><span>Defense<b>${u.stats.defence}</b></span><span>Attack<b>${u.stats.attacks}</b></span><span>용기<b>${u.stats.courage}</b></span></div>${u.stats.wounds > 0 ? `<div class="wound-readout">HP <b>${u.currentWounds} / ${u.stats.wounds}</b><progress max="${u.stats.wounds}" value="${u.currentWounds}"></progress></div>` : ''}${u.traits.includes('hero') ? `<div class="resources"><span>Might <b>${u.resources.might}</b></span><span>Will <b>${u.resources.will}</b></span><span>Fate <b>${u.resources.fate}</b></span></div>` : ''}<div class="traits">${u.traits.includes('flying') ? '비행 · 절벽·낭떠러지 위를 지남' : u.traits.includes('mountain') ? '산악 거주자 · 산 지형 통과' : u.traits.includes('mounted') ? '기병 · 돌격 +1 결투, 보병 넘어뜨리기' : u.traits.includes('spear') ? '창 지원 · 후열에서 아군 베이스 접촉' : u.stats.shootRange ? `사거리 ${(u.stats.shootRange / 45).toFixed(1)}″ · 명중 ${u.stats.shootValue}+` : u.traits.includes('terror') ? '공포 · 돌격하는 적에게 Courage 검사' : '검과 방패 · 전열 유지'}</div>`;
+        ut('unit').innerHTML = `<div class="unit-head">${unitImage(u.id)}<div><strong>${esc(u.name)}</strong><small>${u.side === 'good' ? '아군' : '적군'} · ${isHeroUnit(u.id)?`<span class="unit-tier tier-${heroGrade(u.id)}" style="display:inline;margin:0">${tierLabel(u.id)}</span>`:(CX.roleNames[meta.role]||meta.role)}</small><small>${q.engaged(u) ? '교전 중' : u.acted ? '행동 완료' : '행동 가능'}</small></div></div><div class="movement-readout"><b>${(q.remaining(u) / 45).toFixed(1)}″</b> / ${(u.stats.move / 45).toFixed(1)}″ 이동 <span>사용 ${(u.movementSpent / 45).toFixed(1)}″</span></div><div class="stats"><span>Fight<b>${u.stats.fight}</b></span><span>힘<b>${u.stats.strength}</b></span><span>Defense<b>${u.stats.defence}</b></span><span>Attack<b>${u.stats.attacks}</b></span><span>용기<b>${u.stats.courage}</b></span></div>${u.stats.wounds > 0 ? `<div class="wound-readout">HP <b>${u.currentWounds} / ${u.stats.wounds}</b><progress max="${u.stats.wounds}" value="${u.currentWounds}"></progress></div>` : ''}${u.traits.includes('hero') ? `<div class="resources"><span>Might <b>${u.resources.might}</b></span><span>Will <b>${u.resources.will}</b></span><span>Fate <b>${u.resources.fate}</b></span></div>` : ''}<div class="traits">${u.traits.includes('flying') ? '비행 · 절벽·낭떠러지 위를 지남' : u.traits.includes('mountain') ? '산악 거주자 · 산 지형 통과' : u.traits.includes('mounted') ? '기병 · 돌격 +1 결투, 보병 넘어뜨리기' : u.traits.includes('spear') ? '창 지원 · 후열에서 아군 베이스 접촉' : u.stats.shootRange ? `사거리 ${(u.stats.shootRange / 45).toFixed(1)}″ · 명중 ${u.stats.shootValue}+` : u.traits.includes('terror') ? '공포 · 돌격하는 적에게 Courage 검사' : '검과 방패 · 전열 유지'}</div><div class="traits" style="margin-top:2px;opacity:.85">${(() => { if (!u.stats) return ''; if (u.side === 'good' && q.bonded && q.bonded(u)) return '유대 · 결투 +1 활성'; const w = (q.meta.get(u.id) || {}).weapon || ''; if (u.stats.shootRange) return '상성 · 원거리 선제 / 근접에 무방비'; if (u.traits.includes('monster')) return '상성 · 소형 보병 압도 / 포위·사격에 취약'; if (u.traits.includes('mounted')) return '상성 · 보병 돌격 강함 / 창병 지원에 취약'; if (u.traits.includes('spear') || /spear|pike/.test(w)) return '상성 · 후열 지원으로 돌격에 강함'; if (u.traits.includes('flying')) return '상성 · 지형 무시 / 방어 취약'; if (u.traits.includes('hero')) return '상성 · 지휘·영웅 결투'; return '상성 · 전열 유지, 창 지원과 함께'; })()}</div>`;
         if (CX.skills[u.id]) {
             const skill = CX.skills[u.id], reason = q.mode === 'ai' && u.side === 'evil' ? 'AI가 조작하는 영웅입니다' : q.skillReason(u);
             ut('commands').insertAdjacentHTML('afterbegin', `<button class="hero-skill" id="hero-skill" ${At || reason ? 'disabled' : ''} title="${esc(reason || skill[3])}">${unitImage(u.id)}<span><b>${skill[0]}</b><small>${skill[3]}</small><em>${reason || `${skill[2]} ${skill[1] === 'will' ? 'Will' : 'Might'}`}</em></span></button>`);
@@ -2508,14 +2588,15 @@ Qe = function () {
             canResume = !!localStorage.getItem('mesbg-endless-save');
         }
         catch { }
-        box.innerHTML = `<div class="modal campaign-menu"><div class="eyebrow">MIDDLE-EARTH · ENDLESS TACTICAL DEFENSE</div><div class="intro-layout"><div><h1>서녘의<br>마지막&nbsp;전열</h1><div class="subtitle">THE LAST WAR BAND</div><p>중간계의 끝없는 전쟁</p></div><div class="hero-tokens">${unitImage('aragorn')}${unitImage('rohan_rider')}</div></div><div class="diff-row"><span class="mini">난이도</span>${[['easy','쉬움'],['normal','보통'],['hard','어려움']].map(([d,label]) => `<button class="diff-btn ${q.difficulty === d ? 'active' : ''}" data-diff="${d}">${label}</button>`).join('')}</div><div class="menu-buttons"><button id="start-ai" class="primary">새 원정</button>${canResume ? '<button id="resume" class="secondary">원정 계속</button>' : ''}${[1, 2, 3].map(n => { const s = q.slotInfo(n); return `<button class="secondary slot-btn" ${s ? `data-slot="${n}"` : 'disabled'}>슬롯 ${n}${s ? ` · STAGE ${s.wave} · 병력 ${s.count}` : ' · 비어 있음'}</button>`; }).join('')}<button id="start-hotseat" class="secondary">2인 번갈아 플레이</button><button id="rank-btn" class="secondary">명예의 전당</button><button id="daily" class="secondary">오늘의 도전${(() => { const d = new Date(), k = 'mesbg-daily-' + d.getFullYear() + String(d.getMonth() + 1).padStart(2, '0') + String(d.getDate()).padStart(2, '0'); const b = Number(localStorage.getItem(k)) || 0; return b ? ` · STAGE ${b}` : ''; })()}</button><button id="patch-notes" class="secondary">최근 변경</button></div><div class="menu-notes"><span>최고 기록 ${q.readBest()} STAGE</span></div><p class="mini">정비 단계 자동 저장 · MESBG 기반 하우스 룰</p></div>`;
-        ut('start-ai').onclick = () => Rt(() => { q.dailySeed = 0; q.start('ai'); });
-        ut('start-hotseat').onclick = () => Rt(() => { q.dailySeed = 0; q.start('hotseat'); });
+        box.innerHTML = `<div class="modal campaign-menu"><div class="eyebrow">MIDDLE-EARTH · ENDLESS TACTICAL DEFENSE</div><div class="intro-layout"><div><h1>서녘의<br>마지막&nbsp;전열</h1><div class="subtitle">THE LAST WAR BAND</div><p>중간계의 끝없는 전쟁</p></div><div class="hero-tokens">${unitImage('aragorn')}${unitImage('rohan_rider')}</div></div><div class="diff-row"><span class="mini">난이도</span>${[['easy','쉬움'],['normal','보통'],['hard','어려움']].map(([d,label]) => `<button class="diff-btn ${q.difficulty === d ? 'active' : ''}" data-diff="${d}">${label}</button>`).join('')}</div><div class="menu-buttons"><button id="start-ai" class="primary">새 원정</button>${canResume ? '<button id="resume" class="secondary">원정 계속</button>' : ''}${[1, 2, 3].map(n => { const s = q.slotInfo(n); return `<button class="secondary slot-btn" ${s ? `data-slot="${n}"` : 'disabled'}>슬롯 ${n}${s ? ` · STAGE ${s.wave} · 병력 ${s.count}` : ' · 비어 있음'}</button>`; }).join('')}<button id="start-hotseat" class="secondary">2인 번갈아 플레이</button><button id="rank-btn" class="secondary">명예의 전당</button><button id="daily" class="secondary">오늘의 도전${(() => { const d = new Date(), k = 'mesbg-daily-' + d.getFullYear() + String(d.getMonth() + 1).padStart(2, '0') + String(d.getDate()).padStart(2, '0'); const b = Number(localStorage.getItem(k)) || 0; return b ? ` · STAGE ${b}` : ''; })()}</button><button id="weekly" class="secondary">이번 주 원정${(() => { const w = Math.floor(Date.now() / 6048e5), b = Number(localStorage.getItem('mesbg-weekly-' + w)) || 0; return ' · ' + ['대군', '보스 러시', '근접전', '베테랑'][w % 4] + (b ? ' · 최고 S' + b : ''); })()}</button><button id="patch-notes" class="secondary">최근 변경</button></div><div class="menu-notes"><span>최고 기록 ${q.readBest()} STAGE</span></div><p class="mini">정비 단계 자동 저장 · MESBG 기반 하우스 룰</p></div>`;
+        ut('start-ai').onclick = () => Rt(() => { q.dailySeed = 0; q.weeklySeed = 0; q.start('ai'); });
+        ut('start-hotseat').onclick = () => Rt(() => { q.dailySeed = 0; q.weeklySeed = 0; q.start('hotseat'); });
         box.querySelectorAll('[data-diff]').forEach(el => el.onclick = () => { q.difficulty = el.dataset.diff; Yt(); });
         if (canResume)
             ut('resume').onclick = () => Rt(() => { if (!q.resume())
                 Xt('저장된 원정을 불러올 수 없습니다.'); });
         ut('daily').onclick = () => Rt(() => { const d = new Date(); q.dailySeed = d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate(); q.start('ai'); Xt('오늘의 도전 — 모든 플레이어가 같은 편성과 보상을 받습니다'); });
+        ut('weekly').onclick = () => Rt(() => { const w = Math.floor(Date.now() / 6048e5); q.weeklySeed = w; q.start('ai'); Xt('이번 주 원정 — 규칙: ' + ['적 대군 (+40%)', '보스 러시 (3스테이지마다 보스)', '근접전 (사격 불가)', '베테랑 (아군 결투 +1)'][w % 4]); });
         ut('patch-notes').onclick = () => { const pn = document.createElement('div'); pn.id = 'patch-pop'; pn.innerHTML = '<div class="patch-inner"><div class="eyebrow">PATCH NOTES</div><h2>최근 변경 사항</h2>' + PATCH_NOTES.map(([v, items]) => `<b>${v}</b><ul>${items.map(i => `<li>${i}</li>`).join('')}</ul>`).join('') + '<button id="patch-close" class="primary">닫기</button></div>'; document.body.appendChild(pn); pn.onclick = e => { if (e.target === pn || e.target.id === 'patch-close') pn.remove(); }; };
         box.querySelectorAll('[data-slot]').forEach(el => el.onclick = () => Rt(() => { if (!q.resumeSlot(el.dataset.slot))
             Xt('슬롯을 불러올 수 없습니다.'); }));
@@ -2526,13 +2607,13 @@ Qe = function () {
         const step = q.campStep;
         let body = '';
         if (step === 'recruit')
-            body = `<p>금화 <b>${q.gold}</b> · 부대 ${q.permanent().length}/${q.capacity()}. 원하는 동료를 영입하거나 금화를 아끼세요.</p>${(() => { const typ = id => { const s = zt[id]; return s.traits.includes('monster') ? 'monster' : s.traits.includes('spear') ? 'spear' : s.traits.includes('mounted') ? 'mounted' : s.shootRange ? 'shooter' : s.defence >= 7 ? 'tank' : 'melee'; }; const typKo = { monster: '괴수', spear: '창 지원', mounted: '기병', shooter: '사격', tank: '전열', melee: '근접' }; const grades = [...new Set(q.recruitOffers.map(o => heroGrade(o.id)))]; const types = [...new Set(q.recruitOffers.map(o => typ(o.id)))]; return '<div class="rtabs"><button class="rtab active" data-rfilter="all">전체</button>' + grades.map(g => `<button class="rtab" data-rfilter="grade:${g}">${({ normal: '일반', elite: '정예', rare: '희귀 영웅', epic: '영웅', legendary: '전설' })[g]}</button>`).join('') + types.map(t => `<button class="rtab" data-rfilter="type:${t}">${typKo[t]}</button>`).join('') + '</div>'; })()}<div class="recruit-cards">${q.recruitOffers.map((o, i) => { const m = q.meta.get(o.id), p = zt[o.id], cost = q.price(o.id), full = q.permanent().length >= q.capacity(); const _typ = p.traits.includes('monster') ? 'monster' : p.traits.includes('spear') ? 'spear' : p.traits.includes('mounted') ? 'mounted' : p.shootRange ? 'shooter' : p.defence >= 7 ? 'tank' : 'melee'; return `<button class="recruit-card tier-${heroGrade(o.id)} ${o.bought ? 'purchased' : ''}" data-grade="${heroGrade(o.id)}" data-type="${_typ}" data-recruit="${i}" ${o.bought || q.gold < cost || full ? 'disabled' : ''}>${unitImage(o.id)}<span class="recruit-grade">${tierLabel(o.id)}</span><b>${esc(m.name_ko)}</b><small>${CX.roleNames[m.role] || m.role}</small><p>${p.traits.includes('spear') ? '후열 창 지원' : p.traits.includes('mounted') ? '빠른 돌격과 우회' : p.shootRange ? '원거리 사격' : p.defence >= 7 ? '단단한 전열' : '근접 전투'}${CX.skills[o.id] ? '<br>' + CX.skills[o.id][0] : ''}</p><em>${o.bought ? '합류 완료' : full ? '부대 정원 초과' : cost + ' 금화'}</em></button>`; }).join('')}</div><div class="ally-row"><b class="mini">동맹 지원 · 다음 전투에만 합류</b>${ALLY_PACKS.map((a, i) => `<button class="secondary mini" data-ally="${i}" ${q.gold < a.cost || q.allyBought ? 'disabled' : ''}>${a.label} · ${a.cost}금</button>`).join('')}</div><div class="ally-row"><b class="mini">지형 장치 · 다음 전투에 1회 발동</b>${TRAP_PACKS.map((a, i) => `<button class="secondary mini" data-trap="${i}" ${q.gold < a.cost ? 'disabled' : ''}>${a.label} · ${a.cost}금</button>`).join('')}</div><div class="camp-actions"><button id="reroll" class="secondary" ${q.gold < 10 + q.rerolls * 5 ? 'disabled' : ''}>후보 교체 · ${10 + q.rerolls * 5} 금화</button><button id="expand" class="secondary" ${q.gold < 45 + q.capacityBought * 25 || q.capacity() >= 30 ? 'disabled' : ''}>정원 +2 · ${45 + q.capacityBought * 25} 금화</button><button id="to-relic" class="primary">영입 완료 · 유물 선택 →</button></div>`;
+            body = `<p>금화 <b>${q.gold}</b> · 부대 ${q.permanent().length}/${q.capacity()}. 원하는 동료를 영입하거나 금화를 아끼세요.</p>${(() => { const typ = id => { const s = zt[id]; return s.traits.includes('monster') ? 'monster' : s.traits.includes('spear') ? 'spear' : s.traits.includes('mounted') ? 'mounted' : s.shootRange ? 'shooter' : s.defence >= 7 ? 'tank' : 'melee'; }; const typKo = { monster: '괴수', spear: '창 지원', mounted: '기병', shooter: '사격', tank: '전열', melee: '근접' }; const grades = [...new Set(q.recruitOffers.map(o => heroGrade(o.id)))]; const types = [...new Set(q.recruitOffers.map(o => typ(o.id)))]; return '<div class="rtabs"><button class="rtab active" data-rfilter="all">전체</button>' + grades.map(g => `<button class="rtab" data-rfilter="grade:${g}">${({ normal: '일반', elite: '정예', rare: '희귀 영웅', epic: '영웅', legendary: '전설' })[g]}</button>`).join('') + types.map(t => `<button class="rtab" data-rfilter="type:${t}">${typKo[t]}</button>`).join('') + '</div>'; })()}<div class="recruit-cards">${q.recruitOffers.map((o, i) => { const m = q.meta.get(o.id), p = zt[o.id], cost = q.price(o.id), full = q.permanent().length >= q.capacity(); const _typ = p.traits.includes('monster') ? 'monster' : p.traits.includes('spear') ? 'spear' : p.traits.includes('mounted') ? 'mounted' : p.shootRange ? 'shooter' : p.defence >= 7 ? 'tank' : 'melee'; return `<button class="recruit-card tier-${heroGrade(o.id)} ${o.bought ? 'purchased' : ''}" data-grade="${heroGrade(o.id)}" data-type="${_typ}" data-recruit="${i}" ${o.bought || q.gold < cost || full ? 'disabled' : ''}>${unitImage(o.id)}<span class="recruit-grade">${tierLabel(o.id)}</span><b>${esc(m.name_ko)}</b><small>${CX.roleNames[m.role] || m.role}</small><p>${p.traits.includes('spear') ? '후열 창 지원' : p.traits.includes('mounted') ? '빠른 돌격과 우회' : p.shootRange ? '원거리 사격' : p.defence >= 7 ? '단단한 전열' : '근접 전투'}${CX.skills[o.id] ? '<br>' + CX.skills[o.id][0] : ''}</p><em>${o.bought ? '합류 완료' : full ? '부대 정원 초과' : cost + ' 금화'}</em></button>`; }).join('')}</div><div class="ally-row"><b class="mini">동맹 지원 · 다음 전투에만 합류</b>${ALLY_PACKS.map((a, i) => `<button class="secondary mini" data-ally="${i}" ${q.gold < a.cost || q.allyBought ? 'disabled' : ''}>${a.label} · ${a.cost}금</button>`).join('')}</div><div class="ally-row"><b class="mini">지형 장치 · 다음 전투에 1회 발동</b>${TRAP_PACKS.map((a, i) => `<button class="secondary mini" data-trap="${i}" ${q.gold < a.cost ? 'disabled' : ''}>${a.label} · ${a.cost}금</button>`).join('')}</div><div class="ally-row"><b class="mini">장비 상점 · 영구 장착 (유닛당 2개)</b><select id="equip-target" class="secondary mini">${q.permanent().map(u => `<option value="${u.uid}">${esc(u.name)}</option>`).join('')}</select>${LWB_EQUIP.map((a, i) => `<button class="secondary mini" data-equip="${i}" ${q.gold < a.cost ? 'disabled' : ''}>${a.label} · ${a.cost}금</button>`).join('')}</div><div class="camp-actions"><button id="reroll" class="secondary" ${q.gold < 10 + q.rerolls * 5 ? 'disabled' : ''}>후보 교체 · ${10 + q.rerolls * 5} 금화</button><button id="expand" class="secondary" ${q.gold < 45 + q.capacityBought * 25 || q.capacity() >= 30 ? 'disabled' : ''}>정원 +2 · ${45 + q.capacityBought * 25} 금화</button><button id="to-relic" class="primary">영입 완료 · 유물 선택 →</button></div>`;
         if (step === 'event') { const ev = q.campEvent; body = ev ? `<p>${esc(ev.text)}</p><div class="reward-cards">${ev.options.map((o, i) => `<button class="reward rarity-common" data-evopt="${i}"><b>${esc(o.label)}</b><p>${esc(o.sub)}</p></button>`).join('')}</div>` : ''; }
         if (step === 'relic')
             body = `<div class="reward-cards">${q.relicChoices.map(id => { const r = CX.relics.find(r => r.id === id); return `<button class="reward rarity-${r.rarity}" data-relic="${id}">${relicIcon(r, 88)}<small>${CX.rarityNames[r.rarity]} · ${relicFamily(id)}${q.rank(id) ? ' · ' + (q.rank(id) + 1) + '중첩' : ''}</small><b>${r.name}</b><p>${r.text}</p></button>`; }).join('')}</div>`;
         if (step === 'ready') {
             const next = q.stageInfo(q.wave + 1);
-            body = `<p>동료 ${q.permanent().length}명 · 유물 ${Object.keys(q.relics).length}종 · 남은 금화 ${q.gold}</p><div class="next-stage"><span>다음 전장</span><h3>${CX.mapNames[next.map]} · ${CX.missionNames[next.mission]}</h3><p>${q.rank('palantir') ? Object.entries(next.ids.reduce((a, id) => (a[id] = (a[id] || 0) + 1, a), {})).map(([id, n]) => q.meta.get(id).name_ko + ' ×' + n).join(' · ') : next.boss ? '정찰 보고 · ' + q.meta.get(next.boss).name_ko + ' 출현' : '정찰 보고 · 적 ' + next.ids.length + '기 접근'}</p></div><div class="army-name-row"><input id="army-name" maxlength="20" placeholder="부대 이름 (예: 서녘의 전열)" value="${esc(q.armyName || '')}"></div><div class="camp-roster">${q.permanent().map(u => `<span title="${u.name} · 클릭하면 별칭" data-rename="${u.uid}">${unitImage(u.id)}<small>${u.currentWounds}/${u.stats.wounds}${u.injury ? ' · 부상' : ''}</small></span>`).join('')}</div>${q.fallen && q.fallen.length ? `<div class="honor-roll"><div class="section-label">명예록 · 전사한 영웅</div>${q.fallen.map(f => `<span class="honor-entry">${unitImage(f.id)}<small>${f.name || f.uid.toUpperCase()} · ${f.kills}처치 · S${f.wave}</small></span>`).join('')}</div>` : ''}<div class="save-slots">수동 저장: ${[1, 2, 3].map(n => `<button class="secondary mini" data-saveslot="${n}">슬롯 ${n}</button>`).join('')}</div><button id="leave-camp" class="primary">부대 정비 · 배치 화면으로 →</button>`;
+            body = `<p>동료 ${q.permanent().length}명 · 유물 ${Object.keys(q.relics).length}종 · 남은 금화 ${q.gold}</p><div class="next-stage"><span>다음 전장</span><h3>${CX.mapNames[next.map]} · ${CX.missionNames[next.mission]}</h3><p>${(() => { const g = Object.entries(next.ids.reduce((a, id) => (a[id] = (a[id] || 0) + 1, a), {})).map(([id, nn]) => (q.meta.get(id) || {}).name_ko ? q.meta.get(id).name_ko + ' ×' + nn : '').filter(Boolean); return '정찰 보고 · ' + g.slice(0, 5).join(' · ') + (g.length > 5 ? ' 외 ' + (g.length - 5) + '종' : '') + ' · ' + (next.modifier === 'ambush' ? '측면 기습' : '남쪽 진입') + (next.boss ? ' · ⚠ ' + q.meta.get(next.boss).name_ko + ' 출현' : '') + (q.weeklySeed ? ' · 주간 규칙: ' + ['대군', '보스 러시', '근접전', '베테랑'][q.weeklySeed % 4] : ''); })()}</p></div><div class="army-name-row"><input id="army-name" maxlength="20" placeholder="부대 이름 (예: 서녘의 전열)" value="${esc(q.armyName || '')}"></div><div class="camp-roster">${q.permanent().map(u => `<span title="${u.name} · 클릭하면 별칭" data-rename="${u.uid}">${unitImage(u.id)}<small>${u.currentWounds}/${u.stats.wounds}${u.injury ? ' · 부상' : ''}</small></span>`).join('')}</div>${q.fallen && q.fallen.length ? `<div class="honor-roll"><div class="section-label">명예록 · 전사한 영웅</div>${q.fallen.map(f => `<span class="honor-entry">${unitImage(f.id)}<small>${f.name || f.uid.toUpperCase()} · ${f.kills}처치 · S${f.wave}</small></span>`).join('')}</div>` : ''}<div class="save-slots">수동 저장: ${[1, 2, 3].map(n => `<button class="secondary mini" data-saveslot="${n}">슬롯 ${n}</button>`).join('')}</div><button id="leave-camp" class="primary">부대 정비 · 배치 화면으로 →</button>`;
         }
         box.innerHTML = `<div class="modal camp"><div class="eyebrow">STAGE ${q.wave} CLEARED · +${q.lastGold} GOLD</div><h2>${step==='event'?(q.campEvent?.title||'야영지'):step==='relic'?'유물 선택':'출전 준비'}</h2><div class="camp-steps">${steps.map((s, i) => `<span class="${step === s ? 'current' : ''}">${i + 1}. ${['전장 이벤트', '동료 영입', '유물 선택', '다음 전투'][i]}</span>`).join('')}</div>${body}</div>`;
         box.querySelectorAll('[data-recruit]').forEach(el => el.onclick = () => { q.recruit(Number(el.dataset.recruit)); wt.play('reward_select'); Yt(); });
@@ -2540,6 +2621,7 @@ Qe = function () {
          box.querySelectorAll('[data-rename]').forEach(el => el.onclick = () => { const u = q.unit(el.dataset.rename); if (!u) return; const v = window.prompt('영웅 별칭 (비우면 원래 이름)', u.name); if (v !== null) { u.name = v.trim() || q.meta.get(u.id).name_ko; q.save(); Yt(); } });
          box.querySelectorAll('[data-ally]').forEach(el => el.onclick = () => Rt(() => { q.buyAlly(Number(el.dataset.ally)) ? Xt('동맹이 합류했습니다. 다음 전투 한정.') : Xt('금화가 부족합니다.'); }));
         box.querySelectorAll('[data-trap]').forEach(el => el.onclick = () => Rt(() => { q.buyTrap(Number(el.dataset.trap)) ? Xt('함정을 설치했습니다. 다음 전투에서 자동 발동합니다.') : Xt('금화가 부족합니다.'); }));
+        box.querySelectorAll('[data-equip]').forEach(el => el.onclick = () => Rt(() => { const t = (document.getElementById('equip-target') || {}).value; q.buyEquip(Number(el.dataset.equip), t) ? (Xt('장비를 장착했습니다.'), Yt()) : Xt('장착할 수 없습니다 — 금화·슬롯·상처를 확인하세요.'); }));
          box.querySelectorAll('[data-rfilter]').forEach(el => el.onclick = () => { box.querySelectorAll('[data-rfilter]').forEach(x => x.classList.toggle('active', x === el)); const f = el.dataset.rfilter; box.querySelectorAll('[data-recruit]').forEach(c => c.classList.toggle('hidden', f !== 'all' && !(f === 'grade:' + c.dataset.grade || f === 'type:' + c.dataset.type))); });
         if (ut('reroll'))
             ut('reroll').onclick = () => { q.reroll(); Yt(); };
@@ -2554,8 +2636,8 @@ Qe = function () {
         box.querySelectorAll('[data-saveslot]').forEach(el => el.onclick = () => { if (q.saveSlot(el.dataset.saveslot)) { Xt(`슬롯 ${el.dataset.saveslot}에 저장했습니다.`); wt.play('ui_select'); } else Xt('지금은 저장할 수 없습니다.'); });
         return;
     }
-    box.innerHTML = `<div class="modal"><div class="eyebrow">THE LAST WAR BAND · 원정 종료</div><h1>전열은<br>무너졌지만.</h1><p>${esc(q.log[0] || '원정대가 쓰러졌습니다.')}<br>${q.armyName ? esc(q.armyName) + ' · ' : ''}클리어 ${q.cleared || 0} 스테이지 · 처치 ${q.totalKills || 0} · 최고 기록 ${q.readBest()}${q.dailySeed ? ' · 오늘의 도전' : ''}</p><div class="stat-block"><b class="mini">전투 기록</b>${q.units.filter(u => u.side === 'good' && !u.temporary).sort((a, b) => (b.kills - a.kills) || ((b.dmgDealt || 0) - (a.dmgDealt || 0))).map(u => `<span class="stat-row ${u.alive ? '' : 'dead'}"><b>${esc(u.name)}</b><small>처치 ${u.kills} · 피해 ${u.dmgDealt || 0} · ${u.alive ? '생존' : '전사'}</small></span>`).join('')}</div><div class="result-relics">${Object.keys(q.relics).map(id => relicIcon(CX.relics.find(r => r.id === id), 56)).join('')}</div><div class="rank-row"><input id="rank-nick" maxlength="16" placeholder="닉네임 (최대 16자)"><button id="rank-submit" class="secondary">랭킹 등록</button></div><div id="rank-status" class="mini"></div><div id="rank-board-result"></div><p class="mini">기록 코드: <b class="gold">LWB-${q.wave}-${q.totalKills || 0}-${(q.difficulty || 'n')[0].toUpperCase()}${q.dailySeed ? 'D' : ''}</b></p><div class="menu-buttons">${q.result === 'defeat' && q._retrySnapshot ? `<button id="retry" class="secondary" ${q._retrySnapshot.gold < 60 ? 'disabled' : ''}>이 스테이지 재도전 · 금화 −60</button>` : ''}<button id="share-code" class="secondary">기록 코드 복사</button><button id="restart" class="primary">새로운 원정 →</button><button id="to-menu" class="secondary">메인 메뉴</button></div></div>`;
-    ut('restart').onclick = () => Rt(() => { q.dailySeed = 0; q.start(q.mode); });
+    box.innerHTML = `<div class="modal"><div class="eyebrow">THE LAST WAR BAND · 원정 종료</div><h1>전열은<br>무너졌지만.</h1><p>${esc(q.log[0] || '원정대가 쓰러졌습니다.')}<br>${q.armyName ? esc(q.armyName) + ' · ' : ''}클리어 ${q.cleared || 0} 스테이지 · 처치 ${q.totalKills || 0} · 최고 기록 ${q.readBest()}${q.dailySeed ? ' · 오늘의 도전' : ''}${q.weeklySeed ? ' · 이번 주 원정' : ''}</p><div class="stat-block"><b class="mini">전투 기록</b>${q.units.filter(u => u.side === 'good' && !u.temporary).sort((a, b) => (b.kills - a.kills) || ((b.dmgDealt || 0) - (a.dmgDealt || 0))).map(u => `<span class="stat-row ${u.alive ? '' : 'dead'}"><b>${esc(u.name)}</b><small>처치 ${u.kills} · 피해 ${u.dmgDealt || 0} · ${u.alive ? '생존' : '전사'}</small></span>`).join('')}</div><div class="result-relics">${Object.keys(q.relics).map(id => relicIcon(CX.relics.find(r => r.id === id), 56)).join('')}</div><div class="rank-row"><input id="rank-nick" maxlength="16" placeholder="닉네임 (최대 16자)"><button id="rank-submit" class="secondary">랭킹 등록</button></div><div id="rank-status" class="mini"></div><div id="rank-board-result"></div><p class="mini">기록 코드: <b class="gold">LWB-${q.wave}-${q.totalKills || 0}-${(q.difficulty || 'n')[0].toUpperCase()}${q.dailySeed ? 'D' : ''}</b></p><div class="menu-buttons">${q.result === 'defeat' && q._retrySnapshot ? `<button id="retry" class="secondary" ${q._retrySnapshot.gold < 60 ? 'disabled' : ''}>이 스테이지 재도전 · 금화 −60</button>` : ''}<button id="share-code" class="secondary">기록 코드 복사</button><button id="restart" class="primary">새로운 원정 →</button><button id="to-menu" class="secondary">메인 메뉴</button></div></div>`;
+    ut('restart').onclick = () => Rt(() => { q.dailySeed = 0; q.weeklySeed = 0; q.start(q.mode); });
     ut('to-menu').onclick = () => { q.phase = 'menu'; Yt(); };
     if (ut('retry')) ut('retry').onclick = () => Rt(() => { q.retryStage() ? Yt() : Xt('재도전할 수 없습니다.'); });
     if (ut('share-code')) ut('share-code').onclick = () => { const c = 'LWB-' + q.wave + '-' + (q.totalKills || 0) + '-' + (q.difficulty || 'n')[0].toUpperCase() + (q.dailySeed ? 'D' : ''); const done = () => Xt('기록 코드를 복사했습니다: ' + c); (navigator.clipboard?.writeText(c) || Promise.reject()).then(done).catch(() => window.prompt('코드를 복사하세요', c)); };
@@ -2571,8 +2653,9 @@ $e = async function (e) { if (qt >= 20)
 document.querySelector('.brand').innerHTML = '<small>MIDDLE-EARTH · TACTICAL DEFENSE</small><strong>서녘의 마지막 전열</strong>';
 document.querySelector('.sigil').innerHTML = `<img src="${Ut('dice-faces/minastirith-emblem.png')}" alt="곤도르">`;
 document.querySelector('.runmeta').insertAdjacentHTML('beforeend', '<div class="metric"><small>GOLD</small><strong id="gold-count">35</strong></div><div class="metric"><small>WARBAND</small><strong id="roster-count">6/8</strong></div>');
-document.querySelector('.top-actions').insertAdjacentHTML('afterbegin', '<select id="speed" aria-label="진행 속도"><option value="1">보통</option><option value="3">빠르게</option><option value="30">즉시</option></select>');
+document.querySelector('.top-actions').insertAdjacentHTML('afterbegin', '<select id="speed" aria-label="진행 속도"><option value="1">보통</option><option value="3">빠르게</option><option value="30">즉시</option></select><button class="iconbtn" id="undo" title="직전 라운드로 되돌리기" style="margin-left:4px">↺</button>');
 ut('speed').onchange = () => { qt = Number(ut('speed').value); me(); };
+ut('undo').onclick = () => { clearTimeout(Jt); Rt(() => { q.undoRound() ? (Xt('직전 라운드로 되돌렸습니다.'), Yt()) : Xt('되돌릴 수 있는 이전 라운드가 없습니다.'); }); };
 document.querySelector('.aside').insertAdjacentHTML('beforeend', '<section class="inventory"><div class="section-label">원정대의 유물</div><div id="relic-inventory"></div></section>');
 document.querySelector('.footer').innerHTML = '<span>THE LAST WAR BAND · ENDLESS 1.0</span><span>Q/E 방향 · Tab 다음 병사 · F 선택 중심 · Space 행동 종료</span>';
 document.title = '서녘의 마지막 전열 · MESBG Endless';
@@ -3433,6 +3516,24 @@ P.stageInfo = function (n) {
     info.scouting = Object.entries(counts).map(([r, n]) => __lwbRoleNames[r] + ' ' + n).join(' · ');
     return info;
 };
+const __lwbSI2 = P.stageInfo;
+P.stageInfo = function (n) {
+    const info = __lwbSI2.call(this, n);
+    if (this.weeklySeed) {
+        const r = this.weeklySeed % 4;
+        if (r === 0)
+            info.ids = info.ids.concat(info.ids.slice(0, Math.max(1, Math.ceil(info.ids.length * .4))));
+        if (r === 1 && n % 3 === 0 && !info.boss) {
+            const pool = ['cave_troll', 'witchking_fellbeast', 'balrog', 'sauron', 'morgoth'];
+            info.boss = pool[Math.floor(n / 3) % pool.length];
+            info.mission = 'commander';
+            info.ids.push(info.boss);
+        }
+        if (r === 2)
+            info.ids = info.ids.map(id => zt[id] && zt[id].shootRange ? 'orc_sword' : id);
+    }
+    return info;
+};
 const __lwbPS = P.prepareStage;
 P.prepareStage = function () {
     __lwbPS.call(this);
@@ -3453,6 +3554,11 @@ P.prepareStage = function () {
         d.x = _tp[i % _tp.length][0];
         d.y = _tp[i % _tp.length][1];
         d.armed = true;
+    }
+    const _hz = [[760, 560], [1570, 560], [1165, 720], [520, 780], [1810, 780]];
+    for (let i = 0; i < 1 + (this.wave % 2); i++) {
+        const [hx, hy] = _hz[(this.wave * 2 + i) % _hz.length];
+        this.devices.push({ type: 'barrel', neutral: true, armed: true, x: hx, y: hy, trigger: 55, radius: 140 });
     }
 };
 const __lwbSV = P.save;
