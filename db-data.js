@@ -670,8 +670,8 @@ module.exports = [
     ['pippin_citadel','성채 근위병 피핀','Pippin, Guard of the Citadel']] },
   { sheet:'px-nb-exp-wild.png', side:'good', faction:'beorning', role:'monster', weapon:'claws', base:'XL', traits:[], units:[
     ['beorn_bear','베오른 (곰)','Beorn, Bear Form']] },
-  { sheet:'px-nb-exp-wild.png', side:'good', faction:'eagle', role:'monster', weapon:'talons', base:'XL', traits:['fly'], units:[
-    ['gwaihir','그와이히르','Gwaihir the Windlord']] },
+  { sheet:'px-nb-exp-wild.png', side:'good', faction:'eagle', role:'hero', weapon:'talons', base:'XL', traits:['hero','fly'], units:[
+    {['gwaihir','그와이히르','Gwaihir the Windlord']] }},
   { sheet:'px-nb-exp-wild.png', side:'good', faction:'shire', role:'hero', weapon:'umbrella', base:'S', traits:[], units:[
     ['lobelia','로벨리아','Lobelia Sackville-Baggins'],
     ['will_whitfoot','윌 휫풋','Will Whitfoot']] },
