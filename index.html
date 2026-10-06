@@ -11086,4 +11086,19 @@ html body.lwb-polished #app .recruit-summary b,html body.lwb-polished #app .moda
  html body.lwb-polished:not(.force-mobile) #app #fight-preview{bottom:62px!important;right:auto!important}
 }
 @media(prefers-reduced-motion:reduce){html body.lwb-polished #app *{animation:none!important;transition:none!important}}
+/* ═══ v1.10+ additions: battle-log toggle & longer title menu ═══ */
+html body.lwb-polished #battle-log-toggle{left:8px!important;bottom:calc(218px + env(safe-area-inset-bottom))!important;width:44px!important;min-width:44px!important;height:44px!important;min-height:44px!important;padding:0!important;border-radius:14px!important;background:linear-gradient(180deg,rgba(40,52,40,.94),rgba(16,22,17,.94))!important;border:1px solid var(--g-line)!important;color:#f3e7c2!important;font-size:11px!important;font-weight:800;box-shadow:var(--sh-1),var(--bevel)!important}
+html body.lwb-polished #battle-log{left:8px!important;bottom:calc(268px + env(safe-area-inset-bottom))!important;max-height:min(44dvh,calc(100dvh - 380px))!important;border:0!important;border-radius:var(--r-m)!important;background:var(--glass)!important;box-shadow:inset 0 0 0 1px var(--g-line),var(--sh-2)!important;font-size:12px!important;color:#d9dcc9!important;backdrop-filter:blur(4px)}
+html body.lwb-polished #battle-log .log-title{color:var(--g)!important;font-weight:800}
+html body.lwb-polished:has(#app .overlay:not(.hidden)) #battle-log-toggle,html body.lwb-polished:has(#app .overlay:not(.hidden)) #battle-log{display:none!important}
+@media(max-height:520px) and (orientation:landscape){html body.lwb-polished #battle-log-toggle{bottom:calc(154px + env(safe-area-inset-bottom))!important}html body.lwb-polished #battle-log{bottom:calc(204px + env(safe-area-inset-bottom))!important;max-height:calc(100dvh - 260px)!important}}
+@media(min-width:901px){html body.lwb-polished:not(.force-mobile) #battle-log-toggle{bottom:120px!important}html body.lwb-polished:not(.force-mobile) #battle-log{bottom:170px!important}}
+html body.lwb-polished #app .overlay:has(.campaign-menu){align-items:flex-start!important}
+html body.lwb-polished #app .campaign-menu{min-height:100%;height:auto}
+html body.lwb-polished #app .campaign-menu .menu-buttons{gap:8px!important}
+html body.lwb-polished #app .campaign-menu .menu-buttons .secondary{min-height:48px!important;font-size:15px!important}
+html body.lwb-polished #app .campaign-menu .menu-buttons .secondary:disabled{background:rgba(0,0,0,.35)!important;color:#7f8774!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.07)!important;font-weight:600}
+html body.lwb-polished #app .campaign-menu .diff-row{justify-content:center;gap:6px!important;margin:0 0 14px!important;color:#a9ad98;font-size:12px}
+html body.lwb-polished #app .diff-btn{min-height:34px;padding:0 16px!important;border:0!important;border-radius:999px!important;background:rgba(0,0,0,.45)!important;color:#d9d3bb!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)!important;font-weight:700}
+html body.lwb-polished #app .diff-btn.active{background:linear-gradient(180deg,var(--g-hi),var(--g))!important;color:#1d180a!important;box-shadow:0 0 12px rgba(240,200,110,.35)!important}
 </style></head><body><div id="app"></div></body></html>
