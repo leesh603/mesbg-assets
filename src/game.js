@@ -3256,7 +3256,7 @@ Yt=function(){const key=q.phase+'/'+q.campStep,modal=ut('overlay').querySelector
     renderBeforeV14();if(!Qt&&q.phase==='reward'&&q.campStep==='recruit')renderRecruitDraft();
     const nextModal=ut('overlay').querySelector('.modal');if(nextModal)nextModal.scrollTop=scroll;ut('roster-strip').scrollLeft=strip;
     const active=actionableUnit();if(UX.ready&&active&&active.uid!==uiActive&&!At&&!UX.gesture&&q.side==='good'){
-        const pos=screenAt(active.x,active.y);if(pos.x<50||pos.x>UX.width-50||pos.y<80||pos.y>UX.height-72)setCamera(active.x,active.y,UX.zoom,'tactical');
+        const pos=screenAt(active.x,active.y);if(!window.__smartCam&&(pos.x<50||pos.x>UX.width-50||pos.y<80||pos.y>UX.height-72))setCamera(active.x,active.y,UX.zoom,'tactical');
         const btn=ut('roster-strip').querySelector(`[data-unit="${active.uid}"]`);if(btn){const left=btn.offsetLeft,stripEl=ut('roster-strip');if(left<stripEl.scrollLeft||left+btn.offsetWidth>stripEl.scrollLeft+stripEl.clientWidth)stripEl.scrollLeft=Math.max(0,left-stripEl.clientWidth/2+btn.offsetWidth/2);}}
     uiPhase=key;uiActive=active?.uid||'';renderDock();
 };
@@ -3613,6 +3613,125 @@ $e=async function(e){
     K.querySelector('.dv-detail').innerHTML=d.chips.map((c,i)=>'<span class="dv-chip'+(i===0?' lead':'')+'">'+c+'</span>').join('')+(d.note?'<p class="dv-note">'+d.note+'</p>':'');
     await sleep((d.kind==='fight'?540:d.kind==='shot'?500:420)/sp);
 };
+})();
+
+// ---- Smart camera (presentation only) ----
+// One zoom can't show both "the whole fight" and "readable figures". Instead the camera frames what matters right now —
+// the unit about to act and the foes it can reach, an enemy's move from start to finish, the units in a fight — with a
+// legibility floor so figures never shrink below a tappable size. It only moves when the subject isn't already in view,
+// eases instead of jumping, and backs off while the player is panning/zooming by hand. Units outside the view are
+// marked on the screen edge (tap to look).
+(function(){
+window.__smartCam=true;
+let tok=0,lastManual=0;
+const rawSet=setCamera;
+setCamera=function(x,y,z,mode){if(mode==='manual'){lastManual=performance.now();tok++;}return rawSet(x,y,z,mode);};
+const portrait=()=>UX.width<600&&UX.height>UX.width*1.1;
+const safe=()=>portrait()?{t:54,r:58,b:18,l:14}:UX.height<360?{t:44,r:16,b:22,l:12}:{t:54,r:18,b:62,l:14};
+function zLimits(){const mob=mobileLayout(),fit=Math.max(.12,fitZoom());const lo=Math.max(fit,(mob?21:17)/38);return[lo,Math.max(lo,mob?.8:.86)];}
+function view(cx,cy,z){const s=safe();return{x0:cx-(UX.width/2-s.l)/z,x1:cx+(UX.width/2-s.r)/z,y0:cy-(UX.height/2-s.t)/z,y1:cy+(UX.height/2-s.b)/z};}
+const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+function camTo(x,y,z,ms){
+    const id=++tok,c=cameraCenter(),z0=UX.zoom,st=performance.now();
+    if(ms<=16||UX.reduced){rawSet(x,y,z,'auto');return Promise.resolve();}
+    return new Promise(res=>{const fr=()=>{if(id!==tok){res();return;}const k=ease(Math.min(1,(performance.now()-st)/ms));
+        const zz=z0+(z-z0)*k;rawSet(c.x+(x-c.x)*k,c.y+(y-c.y)*k,zz,'auto');if(k<1)requestAnimationFrame(fr);else res();};fr();});
+}
+// boxes: [{x,y,r}] — the first one is the subject that must stay in view if not everything fits
+function frame(boxes,{ms=420,force=false}={}){
+    if(!UX.ready||!boxes.length)return Promise.resolve(false);
+    boxes=boxes.filter(b=>b&&isFinite(b.x)&&isFinite(b.y));if(!boxes.length)return Promise.resolve(false);
+    const s=safe(),sw=Math.max(80,UX.width-s.l-s.r),sh=Math.max(80,UX.height-s.t-s.b),pad=34;
+    let x0=Infinity,y0=Infinity,x1=-Infinity,y1=-Infinity;for(const b of boxes){const r=(b.r||0)+pad;x0=Math.min(x0,b.x-r);x1=Math.max(x1,b.x+r);y0=Math.min(y0,b.y-r-24);y1=Math.max(y1,b.y+r);}
+    const [lo,hi]=zLimits(),cur=UX.zoom,c=cameraCenter();
+    const fits=z=>(x1-x0)*z<=sw&&(y1-y0)*z<=sh;
+    const inView=(z,cx,cy)=>{const v=view(cx,cy,z);return x0>=v.x0&&x1<=v.x1&&y0>=v.y0&&y1<=v.y1;};
+    // already showing everything at a comfortable zoom → leave the camera alone
+    if(!force&&cur>=lo-.001&&inView(cur,c.x,c.y))return Promise.resolve(false);
+    let z=Math.max(lo,Math.min(Math.max(hi,Math.min(cur,1.2)),Math.min(sw/(x1-x0),sh/(y1-y0))));
+    if(fits(cur)&&cur>=lo&&cur<=hi&&Math.abs(z-cur)/cur<.14)z=cur; // prefer a pan over a small zoom change
+    // centre of the safe area (HUD-free part of the map)
+    const offX=(s.l-s.r)/2/z,offY=(s.t-s.b)/2/z;
+    let cx=(x0+x1)/2-offX,cy=(y0+y1)/2-offY;
+    if(!fits(z)){const p=boxes[0],m=(p.r||0)+60,v=view(cx,cy,z);
+        if(p.x-m<v.x0)cx+=p.x-m-v.x0;if(p.x+m>v.x1)cx+=p.x+m-v.x1;if(p.y-m-24<v.y0)cy+=p.y-m-24-v.y0;if(p.y+m>v.y1)cy+=p.y+m-v.y1;}
+    if(!force&&Math.abs(z-cur)<.01){const v=view(c.x,c.y,cur),v2=view(cx,cy,z);if(Math.hypot(cx-c.x,cy-c.y)*cur<18)return Promise.resolve(false);}
+    const sp=Math.max(1,Math.min(qt,5));
+    return camTo(cx,cy,z,Math.max(180,ms/sp)).then(()=>true);
+}
+const box=u=>u&&{x:u.x,y:u.y,r:u.radius};
+// subjects for the unit about to act
+function turnBoxes(u){
+    const out=[box(u)],foes=q.alive(Ht(u.side));
+    let near=[];
+    if(q.phase==='shoot'&&u.stats.shootRange)near=q.validTargets(u);
+    else if(q.phase==='move'){const reach=q.remaining(u)+u.radius*2+(UNIT_RULES.chargeTolerance||0)+60;near=foes.filter(v=>Math.hypot(v.x-u.x,v.y-u.y)<=reach+v.radius);}
+    near.sort((a,b)=>Math.hypot(a.x-u.x,a.y-u.y)-Math.hypot(b.x-u.x,b.y-u.y));
+    for(const v of near.slice(0,3))out.push(box(v));
+    if(q.phase==='move'&&near.length===0){const r=Math.min(q.remaining(u),200);out.push({x:u.x,y:u.y,r:r*.6});}
+    return out;
+}
+let lastTurnUid='',turnTimer=0;
+function onTurnUnit(){
+    const u=actionableUnit();const uid=u?.uid||'';
+    if(uid===lastTurnUid)return;
+    if(!u){lastTurnUid='';return;}
+    if(At||UX.gesture||!['move','shoot'].includes(q.phase)||!UX.ready)return; // retry next frame once the action has resolved
+    lastTurnUid=uid;
+    const manual=performance.now()-lastManual<6000;
+    clearTimeout(turnTimer);turnTimer=setTimeout(()=>{if(!At&&actionableUnit()?.uid===uid)frame(manual?[box(u)]:turnBoxes(u));},60);
+}
+// enemy / auto moves: show the move from start to finish; own moves only if the destination is off-screen
+const scPlay=Ve.prototype.play;
+Ve.prototype.play=async function(event){
+    if(UX.ready&&qt<20&&!window._lwbFx&&event.type==='UnitMoved'){
+        const u=this.b.unit(event.uid);
+        if(u){const own=!AUTO&&!(q.mode==='ai'&&u.side==='evil');const recentManual=performance.now()-lastManual<2500;
+            const pts=[{x:event.to.x,y:event.to.y,r:u.radius}];if(!own)pts.push({x:event.from.x,y:event.from.y,r:u.radius});
+            if(!(own&&recentManual))await frame(pts,{ms:own?320:380});}
+    }
+    return scPlay.call(this,event);
+};
+// fights and shots: bring everyone involved into view before the dice
+const scDice=$e;
+$e=async function(e){
+    if(UX.ready&&qt<20&&e&&e.result&&performance.now()-lastManual>1200){
+        const r=e.result,ids=new Set([...(r.participants||[]),...(r.strikeResults||[]).flatMap(h=>[h.attacker,h.target])]);
+        const units=[...ids].map(id=>q.unit(id)).filter(Boolean);
+        if(units.length){const lead=q.unit(r.strikeResults?.[0]?.attacker)||units[0];await frame([box(lead),...units.filter(v=>v!==lead).map(box)],{ms:340});}
+    }
+    return scDice(e);
+};
+// ---- off-screen markers ----
+const field=document.querySelector('#app .field');
+const layer=document.createElement('div');layer.id='offscreen-marks';field&&field.appendChild(layer);
+const pool=[];let lastMarks=0,markSig='';
+function marks(){
+    const t=performance.now();if(t-lastMarks<140)return;lastMarks=t;
+    const show=UX.ready&&['preparation','move','shoot','fight'].includes(q.phase)&&ut('overlay').classList.contains('hidden');
+    if(!show){if(markSig!==''){markSig='';layer.innerHTML='';pool.length=0;}return;}
+    const s=safe(),W=UX.width,H=UX.height,cx=(s.l+W-s.r)/2,cy=(s.t+H-s.b)/2,inset=16;
+    const L=s.l+inset,R=W-s.r-inset,T=s.t+inset,B=H-s.b-inset;
+    const buckets=new Map();
+    for(const u of q.alive()){if(u.escaped)continue;const p=screenAt(u.x,u.y),rr=u.radius*UX.zoom*.6;
+        if(p.x>=s.l-rr&&p.x<=W-s.r+rr&&p.y>=s.t-rr&&p.y<=H-s.b+rr)continue;
+        const dx=p.x-cx,dy=p.y-cy;let k=Infinity;if(dx)k=Math.min(k,(dx>0?R-cx:L-cx)/dx);if(dy)k=Math.min(k,(dy>0?B-cy:T-cy)/dy);
+        const ex=cx+dx*k,ey=cy+dy*k,key=u.side+'|'+((Math.round(Math.atan2(dy,dx)/(Math.PI/4))+8)%8);
+        const bk=buckets.get(key)||{side:u.side,x:0,y:0,n:0,ang:Math.atan2(dy,dx),near:u,nd:Infinity};bk.x+=ex;bk.y+=ey;bk.n++;const d=Math.hypot(dx,dy);if(d<bk.nd){bk.nd=d;bk.near=u;}buckets.set(key,bk);}
+    const list=[...buckets.values()];
+    const sig=list.map(b=>b.side+(b.x/b.n|0)+','+(b.y/b.n|0)+'x'+b.n).join(';');if(sig===markSig)return;markSig=sig;
+    while(pool.length<list.length){const el=document.createElement('button');el.type='button';el.className='os-mark';el.innerHTML='<i></i><b></b>';layer.appendChild(el);pool.push(el);}
+    pool.forEach((el,i)=>{const b=list[i];if(!b){el.style.display='none';return;}
+        el.style.display='';el.className='os-mark '+(b.side==='good'?'ally':'foe');
+        el.style.transform='translate('+(b.x/b.n-15)+'px,'+(b.y/b.n-15)+'px)';
+        el.querySelector('i').style.transform='rotate('+(b.ang*180/Math.PI)+'deg)';
+        el.querySelector('b').textContent=b.n>1?b.n:'';
+        el.title=(b.side==='good'?'아군 ':'적 ')+b.n+'명 · 탭하면 이동';
+        el.onclick=()=>{const u=b.near;if(u?.alive){lastManual=performance.now();frame([box(u)],{ms:360,force:true});}};});
+}
+const scUpdate=Ve.prototype.update;
+Ve.prototype.update=function(time){scUpdate.call(this,time);if(UX.ready){onTurnUnit();marks();}};
+window.MESBG&&(window.MESBG.camera={frame,camTo,limits:zLimits});
 })();
 
 // The older play wrapper handles HeroSkill; its asset is changed to cast/rally below.
