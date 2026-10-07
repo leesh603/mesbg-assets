@@ -13,7 +13,7 @@ module.exports = [
 ]},
 { sheet: 'glorfindel-topdown-v2.png', side: 'good', faction: 'rivendell', role: 'hero', weapon: 'sword', units: [
   ['glorfindel_foot', '글로르핀델(도보)', 'Glorfindel on foot', { base: 'L' }],
-  ['glorfindel_mounted', '글로르핀델(기마)', 'Glorfindel mounted', { role: 'hero', base: 'XL' }],
+  ['glorfindel_mounted', '글로르핀델(기마)', 'Glorfindel mounted', { role: 'hero', base: 'XL', artScale: 1.11 }],
 ]},
 { sheet: 'fellbeast-topdown-v2.png', side: 'evil', faction: 'angmar', role: 'monster', base: 'XXL', units: [
   ['witchking_fellbeast', '마술왕(펠비스트)', 'Witch-king on Fell Beast', { traits: ['fly','terror'], weapon: 'sword' }],
@@ -33,7 +33,7 @@ module.exports = [
   ['orc_archer', '오크 궁수', 'Orc Archer', { weapon: 'bow' }],
   ['uruk_swordshield', '우르크하이 검방', 'Uruk-hai, sword & shield', { faction: 'isengard', weapon: 'sword_shield', base: 'M' }],
   ['morannon_orc', '모라논 오크', 'Morannon Orc', { weapon: 'spear_shield', base: 'M' }],
-  ['warg_rider', '와르그 기병', 'Warg Rider', { role: 'cavalry', weapon: 'spear', base: 'XL' }],
+  ['warg_rider', '와르그 기병', 'Warg Rider', { role: 'cavalry', weapon: 'spear', base: 'XL', artScale: 1.3 }],
   ['haradrim_spearman', '하라드림 창병', 'Haradrim Spearman', { faction: 'harad', weapon: 'spear', base: 'M' }],
 ]},
 { sheet: 'roster-free-heroes-v1.png', side: 'good', role: 'hero', weapon: 'sword', units: [
@@ -50,7 +50,7 @@ module.exports = [
   ['dwarf_guardian', '드워프 가디언', 'Dwarf Guardian', { faction: 'dwarf', weapon: 'axe' }],
   ['rohan_royal_guard', '로한 근위병', 'Rohan Royal Guard', { faction: 'rohan', weapon: 'spear_shield' }],
   ['ithilien_ranger', '이틸리엔 레인저', 'Ithilien Ranger', { faction: 'gondor', weapon: 'bow' }],
-  ['rohan_rider', '로한 기병', 'Rider of Rohan', { faction: 'rohan', role: 'cavalry', weapon: 'spear', base: 'XL' }],
+  ['rohan_rider', '로한 기병', 'Rider of Rohan', { faction: 'rohan', role: 'cavalry', weapon: 'spear', base: 'XL', artScale: 1.1 }],
 ]},
 { sheet: 'roster-monsters-v1.png', side: 'evil', role: 'monster', base: 'XXL', weapon: 'various', units: [
   ['balrog', '발록', 'Balrog of Moria', { traits: ['terror'], faction: 'moria' }],
@@ -166,7 +166,7 @@ module.exports = [
   ['ranger_north', '북부 레인저', 'Ranger of the North', { faction: 'arnor', role: 'infantry', weapon: 'sword' }],
 ]},
 { sheet: 'roster-free-heroes-exp-v1.png', side: 'good', role: 'hero', base: 'M', units: [
-  ['theoden', '세오덴(기마)', 'Theoden mounted', { faction: 'rohan', role: 'hero', weapon: 'sword_shield', base: 'XL' }],
+  ['theoden', '세오덴(기마)', 'Theoden mounted', { faction: 'rohan', role: 'hero', weapon: 'sword_shield', base: 'XL', artScale: 1.44 }],
   ['faramir', '파라미르', 'Faramir', { faction: 'gondor', weapon: 'bow' }],
   ['haldir', '할디르', 'Haldir', { faction: 'lothlorien', weapon: 'twohanded' }],
   ['galadriel', '갈라드리엘', 'Galadriel', { faction: 'lothlorien', weapon: 'none' }],
