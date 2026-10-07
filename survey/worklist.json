@@ -1,0 +1,1442 @@
+[
+ {
+  "id": "aragorn",
+  "refs": [
+   "boromir",
+   "hirluin",
+   "gondor_knight"
+  ],
+  "desc": "Aragorn: dark green hooded ranger cloak, brown hair, leather straps, longsword held low.",
+  "h": 360,
+  "file": "tokens/aragorn.png",
+  "base": "L",
+  "arch": "hero"
+ },
+ {
+  "id": "gandalf",
+  "refs": [
+   "radagast",
+   "saruman",
+   "mouth_of_sauron"
+  ],
+  "desc": "Gandalf the Grey: long grey robes, pointed grey wizard hat, wooden staff, grey beard.",
+  "h": 360,
+  "file": "tokens/gandalf.png",
+  "base": "L",
+  "arch": "robe"
+ },
+ {
+  "id": "warrior_minas_tirith",
+  "refs": [
+   "boromir",
+   "hirluin",
+   "gondor_knight"
+  ],
+  "desc": "Gondor soldier: silver steel helm, black-and-silver plate, shield bearing the White Tree, sword.",
+  "h": 350,
+  "file": "tokens/warrior_minas_tirith.png",
+  "base": "M",
+  "arch": "hero"
+ },
+ {
+  "id": "witchking_foot",
+  "refs": [
+   "nazgul_sword",
+   "mt_spear",
+   "gothmog"
+  ],
+  "desc": "Witch-king on foot: tall hooded black wraith-lord, ragged dark mantle, iron crown under hood, longsword.",
+  "h": 360,
+  "file": "tokens/witchking_foot.png",
+  "base": "L",
+  "arch": "arm_dark"
+ },
+ {
+  "id": "orc_sword",
+  "refs": [
+   "orc_sword2",
+   "hunter_orc",
+   "moria_goblin"
+  ],
+  "desc": "Mordor orc soldier: hunched, crude black iron plates, reddish-brown skin, scimitar.",
+  "h": 320,
+  "file": "tokens/orc_sword.png",
+  "base": "S",
+  "arch": "orc"
+ },
+ {
+  "id": "cave_troll",
+  "refs": [
+   "war_troll",
+   "mountain_troll",
+   "balrog"
+  ],
+  "desc": "Cave troll: massive grey-green muscular troll, tiny head between shoulders, wooden club.",
+  "h": 570,
+  "file": "tokens/cave_troll.png",
+  "base": "XXL",
+  "arch": "monster"
+ },
+ {
+  "id": "glorfindel_foot",
+  "refs": [
+   "legolas",
+   "anborn",
+   "gildor"
+  ],
+  "desc": "Glorfindel: elf lord, long golden hair, white-silver plate armor, sky-blue cloak, slender sword.",
+  "h": 360,
+  "file": "tokens/glorfindel_foot.png",
+  "base": "L",
+  "arch": "elf"
+ },
+ {
+  "id": "glorfindel_mounted",
+  "refs": [
+   "rohan_royal_guard",
+   "gondor_knight",
+   "elf_knight"
+  ],
+  "desc": "Glorfindel mounted: elf lord with golden hair, white-silver armor and blue cloak, riding a white horse.",
+  "h": 490,
+  "file": "tokens/glorfindel_mounted.png",
+  "base": "XL",
+  "arch": "cav"
+ },
+ {
+  "id": "witchking_fellbeast",
+  "refs": [
+   "great_eagle",
+   "crebain_swarm",
+   "bat_swarm"
+  ],
+  "desc": "Witch-king on fell beast: black-robed crowned rider on a huge winged leathery black wyvern, wings spread.",
+  "h": 570,
+  "file": "tokens/witchking_fellbeast.png",
+  "base": "XXL",
+  "arch": "flyer"
+ },
+ {
+  "id": "witchking_mounted",
+  "refs": [
+   "nazgul_sword",
+   "mt_spear",
+   "gothmog"
+  ],
+  "desc": "Witch-king mounted: black hooded wraith in dark armor riding an armored black horse.",
+  "h": 490,
+  "file": "tokens/witchking_mounted.png",
+  "base": "XL",
+  "arch": "arm_dark"
+ },
+ {
+  "id": "ancalagon",
+  "refs": [
+   "glaurung",
+   "smaug",
+   "cave_drake"
+  ],
+  "desc": "Ancalagon the Black: colossal black dragon, wings spread wide, ember-red belly scales.",
+  "h": 660,
+  "file": "tokens/ancalagon.png",
+  "base": "XXL",
+  "arch": "dragon"
+ },
+ {
+  "id": "nazgul_fellbeast",
+  "refs": [
+   "great_eagle",
+   "crebain_swarm",
+   "bat_swarm"
+  ],
+  "desc": "Ringwraith on fell beast: hooded black rider on a winged leathery wyvern with spread wings.",
+  "h": 570,
+  "file": "tokens/nazgul_fellbeast.png",
+  "base": "XXL",
+  "arch": "flyer"
+ },
+ {
+  "id": "fellbeast",
+  "refs": [
+   "great_eagle",
+   "crebain_swarm",
+   "bat_swarm"
+  ],
+  "desc": "Fell beast: huge winged leathery dark wyvern, long neck and tail, wings spread.",
+  "h": 570,
+  "file": "tokens/fellbeast.png",
+  "base": "XXL",
+  "arch": "flyer"
+ },
+ {
+  "id": "quickbeam",
+  "refs": [
+   "ent",
+   "huorn"
+  ],
+  "desc": "Quickbeam: tall rowan-tree ent, green leafed crown, bark skin, long branch arms.",
+  "h": 490,
+  "file": "tokens/quickbeam.png",
+  "base": "XL",
+  "arch": "ent"
+ },
+ {
+  "id": "turgon",
+  "refs": [
+   "legolas",
+   "anborn",
+   "gildor"
+  ],
+  "desc": "Turgon, King of Gondolin: white-and-silver elven plate, long dark hair, sword.",
+  "h": 350,
+  "file": "tokens/turgon.png",
+  "base": "M",
+  "arch": "elf"
+ },
+ {
+  "id": "fingon",
+  "refs": [
+   "legolas",
+   "anborn",
+   "gildor"
+  ],
+  "desc": "Fingon: elven warrior prince, silver chainmail, blue cloak, long dark hair, sword.",
+  "h": 350,
+  "file": "tokens/fingon.png",
+  "base": "M",
+  "arch": "elf"
+ },
+ {
+  "id": "ecthelion",
+  "refs": [
+   "legolas",
+   "anborn",
+   "gildor"
+  ],
+  "desc": "Ecthelion of the Fountain: ornate silver elven armor, blue accents, sword.",
+  "h": 350,
+  "file": "tokens/ecthelion.png",
+  "base": "M",
+  "arch": "elf"
+ },
+ {
+  "id": "finrod_felagund",
+  "refs": [
+   "legolas",
+   "anborn",
+   "gildor"
+  ],
+  "desc": "Finrod Felagund: golden-haired elf king, green-and-silver armor, sword.",
+  "h": 350,
+  "file": "tokens/finrod_felagund.png",
+  "base": "M",
+  "arch": "elf"
+ },
+ {
+  "id": "tuor",
+  "refs": [
+   "legolas",
+   "anborn",
+   "gildor"
+  ],
+  "desc": "Tuor: mortal hero in elven gear, winged helm, shield, axe.",
+  "h": 350,
+  "file": "tokens/tuor.png",
+  "base": "M",
+  "arch": "elf"
+ },
+ {
+  "id": "hurin_thalion",
+  "refs": [
+   "boromir",
+   "hirluin",
+   "gondor_knight"
+  ],
+  "desc": "Hurin: rugged human warrior, fur cloak, heavy sword.",
+  "h": 350,
+  "file": "tokens/hurin_thalion.png",
+  "base": "M",
+  "arch": "hero"
+ },
+ {
+  "id": "maedhros",
+  "refs": [
+   "legolas",
+   "anborn",
+   "gildor"
+  ],
+  "desc": "Maedhros: tall elf lord, copper-red hair, silver armor, sword.",
+  "h": 350,
+  "file": "tokens/maedhros.png",
+  "base": "M",
+  "arch": "elf"
+ },
+ {
+  "id": "celegorm",
+  "refs": [
+   "legolas",
+   "anborn",
+   "gildor"
+  ],
+  "desc": "Celegorm the Fair: elf hunter-lord, green-and-silver armor, spear.",
+  "h": 350,
+  "file": "tokens/celegorm.png",
+  "base": "M",
+  "arch": "elf"
+ },
+ {
+  "id": "thingol",
+  "refs": [
+   "legolas",
+   "anborn",
+   "gildor"
+  ],
+  "desc": "Thingol, King of Doriath: tall silver-haired elf king, grey-and-silver robes, sword.",
+  "h": 350,
+  "file": "tokens/thingol.png",
+  "base": "M",
+  "arch": "elf"
+ },
+ {
+  "id": "mablung_sindar",
+  "refs": [
+   "legolas",
+   "anborn",
+   "gildor"
+  ],
+  "desc": "Mablung: sindar elf captain, green-brown ranger gear, sword.",
+  "h": 350,
+  "file": "tokens/mablung_sindar.png",
+  "base": "M",
+  "arch": "elf"
+ },
+ {
+  "id": "melian",
+  "refs": [
+   "radagast",
+   "saruman",
+   "mouth_of_sauron"
+  ],
+  "desc": "Melian the Maia: elven queen, flowing grey-silver gown, circlet, staff.",
+  "h": 350,
+  "file": "tokens/melian.png",
+  "base": "M",
+  "arch": "robe"
+ },
+ {
+  "id": "mim",
+  "refs": [
+   "gimli",
+   "dwarf_guardian",
+   "dwarf_axeshield"
+  ],
+  "desc": "Mim the petty-dwarf: tiny grizzled old dwarf, hooded brown cloak, dagger.",
+  "h": 320,
+  "file": "tokens/mim.png",
+  "base": "S",
+  "arch": "dwarf"
+ },
+ {
+  "id": "doriath_warrior",
+  "refs": [
+   "legolas",
+   "anborn",
+   "gildor"
+  ],
+  "desc": "Doriath elf warrior: grey-green cloak, leaf-shaped sword, light armor.",
+  "h": 350,
+  "file": "tokens/doriath_warrior.png",
+  "base": "M",
+  "arch": "elf"
+ },
+ {
+  "id": "falathrim_archer",
+  "refs": [
+   "legolas",
+   "anborn",
+   "gildor"
+  ],
+  "desc": "Falathrim elf archer: sea-grey tunic, longbow.",
+  "h": 350,
+  "file": "tokens/falathrim_archer.png",
+  "base": "M",
+  "arch": "elf"
+ },
+ {
+  "id": "nargothrond_ranger",
+  "refs": [
+   "legolas",
+   "anborn",
+   "gildor"
+  ],
+  "desc": "Nargothrond elf ranger: hooded green cloak, bow.",
+  "h": 350,
+  "file": "tokens/nargothrond_ranger.png",
+  "base": "M",
+  "arch": "elf"
+ },
+ {
+  "id": "edain_warrior",
+  "refs": [
+   "boromir",
+   "hirluin",
+   "gondor_knight"
+  ],
+  "desc": "Edain warrior: first-age man, fur-and-leather armor, sword.",
+  "h": 350,
+  "file": "tokens/edain_warrior.png",
+  "base": "M",
+  "arch": "hero"
+ },
+ {
+  "id": "gondolin_guard",
+  "refs": [
+   "legolas",
+   "anborn",
+   "gildor"
+  ],
+  "desc": "Gondolin guard: ornate white-and-silver elven plate, tall spear.",
+  "h": 350,
+  "file": "tokens/gondolin_guard.png",
+  "base": "M",
+  "arch": "elf"
+ },
+ {
+  "id": "mirkwood_captain",
+  "refs": [
+   "legolas",
+   "anborn",
+   "gildor"
+  ],
+  "desc": "Mirkwood elf captain: green-grey forest armor, sword.",
+  "h": 350,
+  "file": "tokens/mirkwood_captain.png",
+  "base": "M",
+  "arch": "elf"
+ },
+ {
+  "id": "mordor_uruk",
+  "refs": [
+   "orc_sword2",
+   "hunter_orc",
+   "moria_goblin"
+  ],
+  "desc": "Mordor uruk: large black-breed orc, heavy dark iron armor, broad sword.",
+  "h": 350,
+  "file": "tokens/mordor_uruk.png",
+  "base": "M",
+  "arch": "orc"
+ },
+ {
+  "id": "morgul_orc",
+  "refs": [
+   "orc_sword2",
+   "hunter_orc",
+   "moria_goblin"
+  ],
+  "desc": "Morgul orc: lean orc in dark leather, greenish skin, curved blade.",
+  "h": 350,
+  "file": "tokens/morgul_orc.png",
+  "base": "M",
+  "arch": "orc"
+ },
+ {
+  "id": "morgul_rat",
+  "refs": [
+   "orc_sword2",
+   "hunter_orc",
+   "moria_goblin"
+  ],
+  "desc": "Morgul rat-orc: small scrawny rat-faced orc, rags, dagger.",
+  "h": 320,
+  "file": "tokens/morgul_rat.png",
+  "base": "S",
+  "arch": "orc"
+ },
+ {
+  "id": "ufthak",
+  "refs": [
+   "orc_sword2",
+   "hunter_orc",
+   "moria_goblin"
+  ],
+  "desc": "Ufthak: burly orc of Cirith Ungol, dark armor, wide blade.",
+  "h": 350,
+  "file": "tokens/ufthak.png",
+  "base": "M",
+  "arch": "orc"
+ },
+ {
+  "id": "orc_sergeant",
+  "refs": [
+   "orc_sword2",
+   "hunter_orc",
+   "moria_goblin"
+  ],
+  "desc": "Orc sergeant: whip-wielding orc officer, dark leather and iron, whip.",
+  "h": 350,
+  "file": "tokens/orc_sergeant.png",
+  "base": "M",
+  "arch": "orc"
+ },
+ {
+  "id": "ashrak",
+  "refs": [
+   "orc_sword2",
+   "hunter_orc",
+   "moria_goblin"
+  ],
+  "desc": "Ashrak: spider-emblem orc champion, dark segmented armor, twin blades.",
+  "h": 350,
+  "file": "tokens/ashrak.png",
+  "base": "M",
+  "arch": "orc"
+ },
+ {
+  "id": "isengard_troll",
+  "refs": [
+   "war_troll",
+   "mountain_troll",
+   "balrog"
+  ],
+  "desc": "Isengard troll: huge grey troll in iron-banded harness, club.",
+  "h": 490,
+  "file": "tokens/isengard_troll.png",
+  "base": "XL",
+  "arch": "monster"
+ },
+ {
+  "id": "dunlending_horseman",
+  "refs": [
+   "rohan_royal_guard",
+   "gondor_knight",
+   "elf_knight"
+  ],
+  "desc": "Dunlending horseman: wild dark-haired rider on a shaggy pony, axe and hide shield.",
+  "h": 490,
+  "file": "tokens/dunlending_horseman.png",
+  "base": "XL",
+  "arch": "cav"
+ },
+ {
+  "id": "wulf",
+  "refs": [
+   "nazgul_sword",
+   "mt_spear",
+   "gothmog"
+  ],
+  "desc": "Wulf of Dunland: wild hillman chief, dark furs and iron, great two-handed sword.",
+  "h": 350,
+  "file": "tokens/wulf.png",
+  "base": "M",
+  "arch": "arm_dark"
+ },
+ {
+  "id": "hera",
+  "refs": [
+   "boromir",
+   "hirluin",
+   "gondor_knight"
+  ],
+  "desc": "Hera of Rohan: shieldmaiden, blonde braids, mail and green cloak, axe.",
+  "h": 350,
+  "file": "tokens/hera.png",
+  "base": "M",
+  "arch": "hero"
+ },
+ {
+  "id": "frealaf",
+  "refs": [
+   "boromir",
+   "hirluin",
+   "gondor_knight"
+  ],
+  "desc": "Frealaf of Rohan: young lord, mail shirt, green cloak, axe.",
+  "h": 350,
+  "file": "tokens/frealaf.png",
+  "base": "M",
+  "arch": "hero"
+ },
+ {
+  "id": "rohan_yeoman",
+  "refs": [
+   "boromir",
+   "hirluin",
+   "gondor_knight"
+  ],
+  "desc": "Rohan yeoman: mail shirt, green cloak, spear and round shield.",
+  "h": 350,
+  "file": "tokens/rohan_yeoman.png",
+  "base": "M",
+  "arch": "hero"
+ },
+ {
+  "id": "serpent_guard",
+  "refs": [
+   "nazgul_sword",
+   "mt_spear",
+   "gothmog"
+  ],
+  "desc": "Serpent Guard of Harad: crimson-and-gold armor, serpent mask helm, glaive.",
+  "h": 350,
+  "file": "tokens/serpent_guard.png",
+  "base": "M",
+  "arch": "arm_dark"
+ },
+ {
+  "id": "corsair_crossbowman",
+  "refs": [
+   "nazgul_sword",
+   "mt_spear",
+   "gothmog"
+  ],
+  "desc": "Umbar corsair crossbowman: dark leather, crimson sash, heavy crossbow.",
+  "h": 350,
+  "file": "tokens/corsair_crossbowman.png",
+  "base": "M",
+  "arch": "arm_dark"
+ },
+ {
+  "id": "mahud_blowpipe",
+  "refs": [
+   "nazgul_sword",
+   "mt_spear",
+   "gothmog"
+  ],
+  "desc": "Mahud blowpipe warrior: scarred face, bone ornaments, blowpipe.",
+  "h": 350,
+  "file": "tokens/mahud_blowpipe.png",
+  "base": "M",
+  "arch": "arm_dark"
+ },
+ {
+  "id": "khandish_warrior",
+  "refs": [
+   "nazgul_sword",
+   "mt_spear",
+   "gothmog"
+  ],
+  "desc": "Khandish warrior: bronze lamellar, fur mantle, mace.",
+  "h": 350,
+  "file": "tokens/khandish_warrior.png",
+  "base": "M",
+  "arch": "arm_dark"
+ },
+ {
+  "id": "easterling_mounted_archer",
+  "refs": [
+   "rohan_royal_guard",
+   "gondor_knight",
+   "elf_knight"
+  ],
+  "desc": "Easterling mounted archer: bronze-armored rider on dark horse, bow.",
+  "h": 490,
+  "file": "tokens/easterling_mounted_archer.png",
+  "base": "XL",
+  "arch": "cav"
+ },
+ {
+  "id": "far_harad_chieftain",
+  "refs": [
+   "nazgul_sword",
+   "mt_spear",
+   "gothmog"
+  ],
+  "desc": "Far Harad chieftain: tall dark warrior, feathered headdress, spear.",
+  "h": 350,
+  "file": "tokens/far_harad_chieftain.png",
+  "base": "M",
+  "arch": "arm_dark"
+ },
+ {
+  "id": "numenorean_knight",
+  "refs": [
+   "rohan_royal_guard",
+   "gondor_knight",
+   "elf_knight"
+  ],
+  "desc": "Numenorean knight: full silver-and-black plate on armored black horse, long lance.",
+  "h": 490,
+  "file": "tokens/numenorean_knight.png",
+  "base": "XL",
+  "arch": "cav"
+ },
+ {
+  "id": "arnor_archer",
+  "refs": [
+   "boromir",
+   "hirluin",
+   "gondor_knight"
+  ],
+  "desc": "Arnor archer: grey-green cloak, leather armor, longbow.",
+  "h": 350,
+  "file": "tokens/arnor_archer.png",
+  "base": "M",
+  "arch": "hero"
+ },
+ {
+  "id": "duilin",
+  "refs": [
+   "boromir",
+   "hirluin",
+   "gondor_knight"
+  ],
+  "desc": "Duilin of Gondor: citadel guard, silver helm, bow.",
+  "h": 350,
+  "file": "tokens/duilin.png",
+  "base": "M",
+  "arch": "hero"
+ },
+ {
+  "id": "derufin",
+  "refs": [
+   "boromir",
+   "hirluin",
+   "gondor_knight"
+  ],
+  "desc": "Derufin of Gondor: nimble soldier, dark armor, twin daggers.",
+  "h": 350,
+  "file": "tokens/derufin.png",
+  "base": "M",
+  "arch": "hero"
+ },
+ {
+  "id": "hirgon",
+  "refs": [
+   "boromir",
+   "hirluin",
+   "gondor_knight"
+  ],
+  "desc": "Hirgon: Gondor errand-rider, green-and-silver, sword.",
+  "h": 350,
+  "file": "tokens/hirgon.png",
+  "base": "M",
+  "arch": "hero"
+ },
+ {
+  "id": "pippin_citadel",
+  "refs": [
+   "frodo",
+   "samwise",
+   "merry"
+  ],
+  "desc": "Pippin in citadel guard kit: small hobbit in silver Gondor helmet and black-silver tabard, sword.",
+  "h": 320,
+  "file": "tokens/pippin_citadel.png",
+  "base": "S",
+  "arch": "hobbit"
+ },
+ {
+  "id": "beorn_bear",
+  "refs": [
+   "war_troll",
+   "mountain_troll",
+   "balrog"
+  ],
+  "desc": "Beorn in bear form: huge black-brown grizzly bear rearing up.",
+  "h": 490,
+  "file": "tokens/beorn_bear.png",
+  "base": "XL",
+  "arch": "monster"
+ },
+ {
+  "id": "gwaihir",
+  "refs": [
+   "great_eagle",
+   "crebain_swarm",
+   "bat_swarm"
+  ],
+  "desc": "Gwaihir the Windlord: giant eagle, golden-brown feathers, wings spread.",
+  "h": 490,
+  "file": "tokens/gwaihir.png",
+  "base": "XL",
+  "arch": "flyer"
+ },
+ {
+  "id": "lobelia",
+  "refs": [
+   "frodo",
+   "samwise",
+   "merry"
+  ],
+  "desc": "Lobelia Sackville-Baggins: stout old hobbit lady, green dress, umbrella.",
+  "h": 320,
+  "file": "tokens/lobelia.png",
+  "base": "S",
+  "arch": "hobbit"
+ },
+ {
+  "id": "will_whitfoot",
+  "refs": [
+   "frodo",
+   "samwise",
+   "merry"
+  ],
+  "desc": "Will Whitfoot: portly hobbit mayor, brown waistcoat, umbrella.",
+  "h": 320,
+  "file": "tokens/will_whitfoot.png",
+  "base": "S",
+  "arch": "hobbit"
+ },
+ {
+  "id": "dwarf_shieldbearers",
+  "refs": [
+   "gimli",
+   "dwarf_guardian",
+   "dwarf_axeshield"
+  ],
+  "desc": "Two dwarf shieldbearers carrying an oak shield palanquin - render as one stout dwarf holding a big oval shield.",
+  "h": 340,
+  "file": "tokens/dwarf_shieldbearers.png",
+  "base": "M",
+  "arch": "dwarf"
+ },
+ {
+  "id": "iron_hills_captain",
+  "refs": [
+   "gimli",
+   "dwarf_guardian",
+   "dwarf_axeshield"
+  ],
+  "desc": "Iron Hills dwarf captain: dark iron plate, forked beard, mattock hammer.",
+  "h": 340,
+  "file": "tokens/iron_hills_captain.png",
+  "base": "M",
+  "arch": "dwarf"
+ },
+ {
+  "id": "fingolfin_mounted",
+  "refs": [
+   "rohan_royal_guard",
+   "gondor_knight",
+   "elf_knight"
+  ],
+  "desc": "Fingolfin on Rochallor: high elf king in blue-silver armor riding a white horse, sword raised.",
+  "h": 490,
+  "file": "tokens/fingolfin_mounted.png",
+  "base": "XL",
+  "arch": "cav"
+ },
+ {
+  "id": "galadhrim_knight",
+  "refs": [
+   "rohan_royal_guard",
+   "gondor_knight",
+   "elf_knight"
+  ],
+  "desc": "Galadhrim knight: silver-grey elven rider on grey horse, spear.",
+  "h": 490,
+  "file": "tokens/galadhrim_knight.png",
+  "base": "XL",
+  "arch": "cav"
+ },
+ {
+  "id": "mahud_raider",
+  "refs": [
+   "nazgul_sword",
+   "mt_spear",
+   "gothmog"
+  ],
+  "desc": "Mahud raider: dark wiry raider, feathered hair, club.",
+  "h": 350,
+  "file": "tokens/mahud_raider.png",
+  "base": "M",
+  "arch": "arm_dark"
+ },
+ {
+  "id": "camel_rider",
+  "refs": [
+   "rohan_royal_guard",
+   "gondor_knight",
+   "elf_knight"
+  ],
+  "desc": "Mahud camel rider: dark raider with spear riding a saddled camel.",
+  "h": 490,
+  "file": "tokens/camel_rider.png",
+  "base": "XL",
+  "arch": "cav"
+ },
+ {
+  "id": "dale_warrior",
+  "refs": [
+   "boromir",
+   "hirluin",
+   "gondor_knight"
+  ],
+  "desc": "Warrior of Dale: blue-and-grey tunic, shield, sword.",
+  "h": 350,
+  "file": "tokens/dale_warrior.png",
+  "base": "M",
+  "arch": "hero"
+ },
+ {
+  "id": "esgaroth_archer",
+  "refs": [
+   "boromir",
+   "hirluin",
+   "gondor_knight"
+  ],
+  "desc": "Esgaroth archer: laketown bowman, grey cloak, longbow.",
+  "h": 350,
+  "file": "tokens/esgaroth_archer.png",
+  "base": "M",
+  "arch": "hero"
+ },
+ {
+  "id": "thorondor",
+  "refs": [
+   "great_eagle",
+   "crebain_swarm",
+   "bat_swarm"
+  ],
+  "desc": "Thorondor, King of Eagles: colossal golden eagle, wings spread wide.",
+  "h": 570,
+  "file": "tokens/thorondor.png",
+  "base": "XXL",
+  "arch": "flyer"
+ },
+ {
+  "id": "rhosgobel_rabbit",
+  "refs": [
+   "warg",
+   "werewolf",
+   "huan"
+  ],
+  "desc": "Rhosgobel rabbit-sled: two big grey rabbits harnessed side by side pulling a small sled.",
+  "h": 490,
+  "file": "tokens/rhosgobel_rabbit.png",
+  "base": "L",
+  "arch": "beast"
+ },
+ {
+  "id": "morgul_duellist",
+  "refs": [
+   "orc_sword2",
+   "hunter_orc",
+   "moria_goblin"
+  ],
+  "desc": "Morgul duellist: lithe orc blade-master, dark leather, thin duelling sword.",
+  "h": 350,
+  "file": "tokens/morgul_duellist.png",
+  "base": "M",
+  "arch": "orc"
+ },
+ {
+  "id": "troll_shaman",
+  "refs": [
+   "war_troll",
+   "mountain_troll",
+   "balrog"
+  ],
+  "desc": "Troll shaman: hulking troll with bone fetishes and gnarled staff.",
+  "h": 490,
+  "file": "tokens/troll_shaman.png",
+  "base": "L",
+  "arch": "monster"
+ },
+ {
+  "id": "pallando",
+  "refs": [
+   "radagast",
+   "saruman",
+   "mouth_of_sauron"
+  ],
+  "desc": "Pallando the Blue: wizard in deep blue robes, pointed hat, staff.",
+  "h": 360,
+  "file": "tokens/pallando.png",
+  "base": "L",
+  "arch": "robe"
+ },
+ {
+  "id": "alatar",
+  "refs": [
+   "radagast",
+   "saruman",
+   "mouth_of_sauron"
+  ],
+  "desc": "Alatar the Blue: wizard in blue robes, pointed hat, staff.",
+  "h": 360,
+  "file": "tokens/alatar.png",
+  "base": "L",
+  "arch": "robe"
+ },
+ {
+  "id": "annatar",
+  "refs": [
+   "legolas",
+   "anborn",
+   "gildor"
+  ],
+  "desc": "Annatar, Lord of Gifts: fair radiant elf-like form, golden-white robes, circlet.",
+  "h": 360,
+  "file": "tokens/annatar.png",
+  "base": "L",
+  "arch": "elf"
+ },
+ {
+  "id": "sauron_wolf",
+  "refs": [
+   "warg",
+   "werewolf",
+   "huan"
+  ],
+  "desc": "Sauron in wolf form: huge black wolf, hackles raised, red eyes.",
+  "h": 490,
+  "file": "tokens/sauron_wolf.png",
+  "base": "XL",
+  "arch": "beast"
+ },
+ {
+  "id": "landroval",
+  "refs": [
+   "great_eagle",
+   "crebain_swarm",
+   "bat_swarm"
+  ],
+  "desc": "Landroval: giant eagle, dark brown plumage, wings spread.",
+  "h": 490,
+  "file": "tokens/landroval.png",
+  "base": "XL",
+  "arch": "flyer"
+ },
+ {
+  "id": "meneldor",
+  "refs": [
+   "great_eagle",
+   "crebain_swarm",
+   "bat_swarm"
+  ],
+  "desc": "Meneldor: giant eagle, grey-brown plumage, wings spread.",
+  "h": 490,
+  "file": "tokens/meneldor.png",
+  "base": "XL",
+  "arch": "flyer"
+ },
+ {
+  "id": "leaflock",
+  "refs": [
+   "ent",
+   "huorn"
+  ],
+  "desc": "Leaflock: ancient ent, dense green leaf canopy, gnarled bark limbs.",
+  "h": 490,
+  "file": "tokens/leaflock.png",
+  "base": "XL",
+  "arch": "ent"
+ },
+ {
+  "id": "beechbone",
+  "refs": [
+   "ent",
+   "huorn"
+  ],
+  "desc": "Beechbone: pale-barked ent, grey-smooth trunk, sparse leaves.",
+  "h": 490,
+  "file": "tokens/beechbone.png",
+  "base": "XL",
+  "arch": "ent"
+ },
+ {
+  "id": "azaghal",
+  "refs": [
+   "gimli",
+   "dwarf_guardian",
+   "dwarf_axeshield"
+  ],
+  "desc": "Azaghal of Belegost: dwarf king, heavy iron plate, great axe.",
+  "h": 340,
+  "file": "tokens/azaghal.png",
+  "base": "L",
+  "arch": "dwarf"
+ },
+ {
+  "id": "nain",
+  "refs": [
+   "gimli",
+   "dwarf_guardian",
+   "dwarf_axeshield"
+  ],
+  "desc": "Nain of the Iron Hills: grizzled dwarf lord, iron armor, axe.",
+  "h": 340,
+  "file": "tokens/nain.png",
+  "base": "L",
+  "arch": "dwarf"
+ },
+ {
+  "id": "maglor",
+  "refs": [
+   "legolas",
+   "anborn",
+   "gildor"
+  ],
+  "desc": "Maglor: tall elf harper-lord, dark hair, grey cloak, sword.",
+  "h": 360,
+  "file": "tokens/maglor.png",
+  "base": "L",
+  "arch": "elf"
+ },
+ {
+  "id": "gwindor",
+  "refs": [
+   "legolas",
+   "anborn",
+   "gildor"
+  ],
+  "desc": "Gwindor of Nargothrond: scarred elf noble, dark green cloak, sword.",
+  "h": 360,
+  "file": "tokens/gwindor.png",
+  "base": "L",
+  "arch": "elf"
+ },
+ {
+  "id": "celebrimbor",
+  "refs": [
+   "legolas",
+   "anborn",
+   "gildor"
+  ],
+  "desc": "Celebrimbor: elf smith-lord, dark tunic, forge-hammer.",
+  "h": 360,
+  "file": "tokens/celebrimbor.png",
+  "base": "L",
+  "arch": "elf"
+ },
+ {
+  "id": "daeron",
+  "refs": [
+   "radagast",
+   "saruman",
+   "mouth_of_sauron"
+  ],
+  "desc": "Daeron the Minstrel: dark-haired elf minstrel, grey robes, staff.",
+  "h": 360,
+  "file": "tokens/daeron.png",
+  "base": "L",
+  "arch": "robe"
+ },
+ {
+  "id": "earnur",
+  "refs": [
+   "boromir",
+   "hirluin",
+   "gondor_knight"
+  ],
+  "desc": "Earnur, King of Gondor: silver-black plate, winged crown-helm, sword.",
+  "h": 360,
+  "file": "tokens/earnur.png",
+  "base": "L",
+  "arch": "hero"
+ },
+ {
+  "id": "sangarunya",
+  "refs": [
+   "nazgul_sword",
+   "mt_spear",
+   "gothmog"
+  ],
+  "desc": "Sangarunya, Corsair Captain: dark leather corsair captain, crimson sash, curved sabre.",
+  "h": 360,
+  "file": "tokens/sangarunya.png",
+  "base": "L",
+  "arch": "arm_dark"
+ },
+ {
+  "id": "huor",
+  "refs": [
+   "boromir",
+   "hirluin",
+   "gondor_knight"
+  ],
+  "desc": "Huor: tall yellow-haired man of the Edain, heavy two-handed sword.",
+  "h": 360,
+  "file": "tokens/huor.png",
+  "base": "L",
+  "arch": "hero"
+ },
+ {
+  "id": "barahir",
+  "refs": [
+   "boromir",
+   "hirluin",
+   "gondor_knight"
+  ],
+  "desc": "Barahir of Ladros: outlaw lord, green-brown cloak, great sword.",
+  "h": 360,
+  "file": "tokens/barahir.png",
+  "base": "L",
+  "arch": "hero"
+ },
+ {
+  "id": "elendur",
+  "refs": [
+   "boromir",
+   "hirluin",
+   "gondor_knight"
+  ],
+  "desc": "Elendur: Numenorean prince, silver-black armor, sword.",
+  "h": 360,
+  "file": "tokens/elendur.png",
+  "base": "L",
+  "arch": "hero"
+ },
+ {
+  "id": "arpharazon",
+  "refs": [
+   "boromir",
+   "hirluin",
+   "gondor_knight"
+  ],
+  "desc": "Ar-Pharazon the Golden: golden-armored king, ornate gold plate, sword.",
+  "h": 360,
+  "file": "tokens/arpharazon.png",
+  "base": "L",
+  "arch": "hero"
+ },
+ {
+  "id": "anarion",
+  "refs": [
+   "boromir",
+   "hirluin",
+   "gondor_knight"
+  ],
+  "desc": "Anarion: Numenorean prince, silver-black plate, tall helm, sword.",
+  "h": 360,
+  "file": "tokens/anarion.png",
+  "base": "L",
+  "arch": "hero"
+ },
+ {
+  "id": "earendil",
+  "refs": [
+   "legolas",
+   "anborn",
+   "gildor"
+  ],
+  "desc": "Earendil: half-elven mariner, silver-white armor, deep blue cloak, star-jewel circlet.",
+  "h": 360,
+  "file": "tokens/earendil.png",
+  "base": "L",
+  "arch": "elf"
+ },
+ {
+  "id": "maeglin",
+  "refs": [
+   "legolas",
+   "anborn",
+   "gildor"
+  ],
+  "desc": "Maeglin: dark-haired elf of Gondolin, black-silver armor, sword.",
+  "h": 360,
+  "file": "tokens/maeglin.png",
+  "base": "L",
+  "arch": "elf"
+ },
+ {
+  "id": "eol",
+  "refs": [
+   "legolas",
+   "anborn",
+   "gildor"
+  ],
+  "desc": "Eol the Dark Elf: dark armor, black cloak, sword.",
+  "h": 360,
+  "file": "tokens/eol.png",
+  "base": "L",
+  "arch": "elf"
+ },
+ {
+  "id": "galdor",
+  "refs": [
+   "legolas",
+   "anborn",
+   "gildor"
+  ],
+  "desc": "Galdor of the Grey Havens: tall elf, sea-grey robes, staff.",
+  "h": 360,
+  "file": "tokens/galdor.png",
+  "base": "L",
+  "arch": "elf"
+ },
+ {
+  "id": "thrain",
+  "refs": [
+   "gimli",
+   "dwarf_guardian",
+   "dwarf_axeshield"
+  ],
+  "desc": "Thrain, son of Thror: dwarf king, blue-silver armor, warhammer.",
+  "h": 340,
+  "file": "tokens/thrain.png",
+  "base": "GS",
+  "arch": "dwarf"
+ },
+ {
+  "id": "thror",
+  "refs": [
+   "gimli",
+   "dwarf_guardian",
+   "dwarf_axeshield"
+  ],
+  "desc": "Thror, King of Erebor: old dwarf king, ornate armor, warhammer.",
+  "h": 340,
+  "file": "tokens/thror.png",
+  "base": "GS",
+  "arch": "dwarf"
+ },
+ {
+  "id": "golfimbul",
+  "refs": [
+   "orc_sword2",
+   "hunter_orc",
+   "moria_goblin"
+  ],
+  "desc": "Golfimbul of Mount Gram: huge goblin chief, dark armor, great two-handed club.",
+  "h": 360,
+  "file": "tokens/golfimbul.png",
+  "base": "L",
+  "arch": "orc"
+ },
+ {
+  "id": "eomund",
+  "refs": [
+   "rohan_royal_guard",
+   "gondor_knight",
+   "elf_knight"
+  ],
+  "desc": "Eomund, Marshal of the Riddermark: Rohan marshal on grey horse, spear.",
+  "h": 490,
+  "file": "tokens/eomund.png",
+  "base": "XL",
+  "arch": "cav"
+ },
+ {
+  "id": "guthlaf",
+  "refs": [
+   "boromir",
+   "hirluin",
+   "gondor_knight"
+  ],
+  "desc": "Guthlaf: Rohan banner-bearer, mail, green cloak, banner and spear.",
+  "h": 350,
+  "file": "tokens/guthlaf.png",
+  "base": "M",
+  "arch": "hero"
+ },
+ {
+  "id": "ingold",
+  "refs": [
+   "boromir",
+   "hirluin",
+   "gondor_knight"
+  ],
+  "desc": "Ingold: Gondor gate-guard, silver helm, spear and shield.",
+  "h": 350,
+  "file": "tokens/ingold.png",
+  "base": "M",
+  "arch": "hero"
+ },
+ {
+  "id": "corsair_captain",
+  "refs": [
+   "nazgul_sword",
+   "mt_spear",
+   "gothmog"
+  ],
+  "desc": "Corsair Captain of Umbar: dark leather and scale, crimson cloak, sabre.",
+  "h": 360,
+  "file": "tokens/corsair_captain.png",
+  "base": "L",
+  "arch": "arm_dark"
+ },
+ {
+  "id": "butterbur",
+  "refs": [
+   "frodo",
+   "samwise",
+   "merry"
+  ],
+  "desc": "Barliman Butterbur: fat balding innkeeper, white shirt, brown apron, beer mug.",
+  "h": 320,
+  "file": "tokens/butterbur.png",
+  "base": "M",
+  "arch": "hobbit"
+ },
+ {
+  "id": "bill_ferny",
+  "refs": [
+   "frodo",
+   "samwise",
+   "merry"
+  ],
+  "desc": "Bill Ferny: weaselly man of Bree, dark cloak, cudgel.",
+  "h": 320,
+  "file": "tokens/bill_ferny.png",
+  "base": "M",
+  "arch": "hobbit"
+ },
+ {
+  "id": "scatha",
+  "refs": [
+   "glaurung",
+   "smaug",
+   "cave_drake"
+  ],
+  "desc": "Scatha the Worm: long grey-gold wingless dragon, coiled serpent body.",
+  "h": 640,
+  "file": "tokens/scatha.png",
+  "base": "XXL",
+  "arch": "dragon"
+ },
+ {
+  "id": "war_hound",
+  "refs": [
+   "warg",
+   "werewolf",
+   "huan"
+  ],
+  "desc": "Rohan war hound: big grey-muzzled mastiff, spiked collar.",
+  "h": 490,
+  "file": "tokens/war_hound.png",
+  "base": "GS",
+  "arch": "beast"
+ },
+ {
+  "id": "hobbit_militia",
+  "refs": [
+   "frodo",
+   "samwise",
+   "merry"
+  ],
+  "desc": "Hobbit militia: stout hobbit, green cloak, feathered hat, staff-sling.",
+  "h": 320,
+  "file": "tokens/hobbit_militia.png",
+  "base": "S",
+  "arch": "hobbit"
+ },
+ {
+  "id": "tom_bombadil",
+  "refs": [
+   "frodo",
+   "samwise",
+   "merry"
+  ],
+  "desc": "Tom Bombadil: merry stout man, bright blue coat, yellow boots, pointed hat with feather.",
+  "h": 320,
+  "file": "tokens/tom_bombadil.png",
+  "base": "M",
+  "arch": "hobbit"
+ },
+ {
+  "id": "goldberry",
+  "refs": [
+   "frodo",
+   "samwise",
+   "merry"
+  ],
+  "desc": "Goldberry: river-daughter, long blonde hair, green gown with water-lilies.",
+  "h": 320,
+  "file": "tokens/goldberry.png",
+  "base": "M",
+  "arch": "hobbit"
+ }
+]

@@ -349,7 +349,7 @@ else if (Z.phase === "shoot") {
     const b = Z.validTargets(Y).sort((H, K) => H.currentWounds - K.currentWounds || H.stats.defence - K.stats.defence || ht(H, Mt.objective) - ht(K, Mt.objective))[0];
     (!b || !Z.shoot(Y.uid, b.uid)) && Z.wait(Y.uid);
 } }
-const __ASSET_SET__ = new Set([...Object.keys(window.__MESBG_ASSETS__ || {}), ...(window.__MESBG_ASSET_KEYS__ || [])]), __assetOk = Z => __ASSET_SET__.has(Z), Ut = Z => { var Y; return ((Y = window.__MESBG_ASSETS__) == null ? void 0 : Y[Z]) || `./assets/mesbg/${Z}`; }, pe = document.createElement("style");
+const __ASSET_SET__ = new Set([...Object.keys(window.__MESBG_ASSETS__ || {}), ...(window.__MESBG_ASSET_KEYS__ || [])]), __assetOk = Z => __ASSET_SET__.has(Z), Ut = Z => { var Y; return ((Y = window.__MESBG_ASSETS__) == null ? void 0 : Y[Z]) || `./assets/mesbg/${Z}${Z.includes('?') ? '' : '?v=a1'}`; }, pe = document.createElement("style");
 pe.textContent = `@font-face{font-family:Pretendard;src:url('${Ut("fonts/PretendardVariable.woff2")}') format('woff2');font-weight:100 900;font-display:swap}`;
 document.head.append(pe);
 (function(){const go=()=>{const seen=new Set(),pool=[];for(const m of window.CAMPAIGN_META||[]){if(m&&m.side==='good'&&m.file&&!seen.has(m.file)){seen.add(m.file);pool.push(m.file);}}let i=0;const step=()=>{for(let k=0;k<6&&i<pool.length;k++){const im=new Image();im.src=Ut(pool[i++]);}if(i<pool.length)setTimeout(step,320);};setTimeout(step,1500);};if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();})();

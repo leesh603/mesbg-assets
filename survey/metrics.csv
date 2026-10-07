@@ -1,0 +1,524 @@
+id,name_ko,sheet,role,base,file,exists,img_w,img_h,cw,ch,alpha,colors,head_ratio
+aragorn,아라곤,lotr-tokens-v1.png,hero,L,tokens/aragorn.png,1,310,387,288,360,0.547,3078,1.48
+gandalf,간달프,lotr-tokens-v1.png,hero,L,tokens/gandalf.png,1,318,373,300,356,0.601,2751,1.2
+warrior_minas_tirith,미나스 티리스 전사,lotr-tokens-v1.png,infantry,M,tokens/warrior_minas_tirith.png,1,307,375,288,356,0.561,2347,1.41
+witchking_foot,마술왕(두건),lotr-tokens-v1.png,hero,L,tokens/witchking_foot.png,1,239,360,236,360,0.645,1399,1.23
+orc_sword,모르도르 오크(검),lotr-tokens-v1.png,infantry,S,tokens/orc_sword.png,1,311,374,292,356,0.582,2930,1.5
+cave_troll,동굴 트롤,lotr-tokens-v1.png,monster,XXL,tokens/cave_troll.png,1,539,600,512,576,0.635,6784,
+glorfindel_foot,글로르핀델(도보),glorfindel-topdown-v2.png,hero,L,tokens/glorfindel_foot.png,1,257,360,256,360,0.616,2792,1.34
+glorfindel_mounted,글로르핀델(기마),glorfindel-topdown-v2.png,hero,XL,tokens/glorfindel_mounted.png,1,350,493,348,492,0.645,5000,1.36
+witchking_fellbeast,마술왕(펠비스트),fellbeast-topdown-v2.png,monster,XXL,tokens/witchking_fellbeast.png,1,464,570,464,568,0.483,5282,
+witchking_mounted,마술왕(기마),witchking-mounted-topdown-v1.png,hero,XL,tokens/witchking_mounted.png,1,339,491,336,488,0.582,2290,1.28
+witchking_foot_mace,마술왕(투구),roster-enemy-heroes-v1.png,hero,L,tokens/witchking_foot_mace.png,1,262,360,260,360,0.579,1494,1.24
+nazgul_sword,나즈굴(검),roster-enemy-heroes-v1.png,hero,L,tokens/nazgul_sword.png,1,234,360,232,360,0.597,1200,1.21
+saruman,사루만,roster-enemy-heroes-v1.png,hero,L,tokens/saruman.png,1,255,381,236,364,0.602,2723,1.21
+orc_shaman,오크 주술사,roster-enemy-heroes-v1.png,support,S,tokens/orc_shaman.png,1,249,334,232,320,0.551,2317,1.25
+orc_captain,오크 대장,roster-enemy-heroes-v1.png,hero,M,tokens/orc_captain.png,1,289,372,272,356,0.598,2841,1.57
+orc_spearman,오크 창병,roster-enemy-troops-v1.png,infantry,S,tokens/orc_spearman.png,1,250,369,236,352,0.488,1984,1.42
+orc_archer,오크 궁수,roster-enemy-troops-v1.png,infantry,S,tokens/orc_archer.png,1,311,373,292,356,0.524,2753,1.26
+uruk_swordshield,우르크하이 검방,roster-enemy-troops-v1.png,infantry,M,tokens/uruk_swordshield.png,1,390,379,372,360,0.591,3596,1.41
+morannon_orc,모라논 오크,roster-enemy-troops-v1.png,infantry,M,tokens/morannon_orc.png,1,247,366,228,352,0.524,1969,1.43
+warg_rider,와르그 기병,roster-enemy-troops-v1.png,cavalry,XL,tokens/warg_rider.png,1,264,490,264,488,0.602,3371,
+haradrim_spearman,하라드림 창병,roster-enemy-troops-v1.png,infantry,M,tokens/haradrim_spearman.png,1,255,366,236,352,0.586,2600,1.27
+legolas,레골라스,roster-free-heroes-v1.png,hero,M,tokens/legolas.png,1,319,372,300,356,0.56,2943,1.25
+gimli,김리,roster-free-heroes-v1.png,hero,M,tokens/gimli.png,1,296,336,280,320,0.64,3005,1.19
+boromir,보로미르,roster-free-heroes-v1.png,hero,L,tokens/boromir.png,1,338,372,328,364,0.55,2371,1.33
+eowyn,에오윈,roster-free-heroes-v1.png,hero,M,tokens/eowyn.png,1,358,372,340,356,0.581,3579,1.25
+frodo,프로도,roster-free-heroes-v1.png,hero,S,tokens/frodo.png,1,331,328,304,308,0.579,2572,1.22
+elrond,엘론드,roster-free-heroes-v1.png,hero,L,tokens/elrond.png,1,347,372,336,364,0.587,3633,1.47
+gondor_archer,곤도르 궁수,roster-free-troops-v1.png,infantry,M,tokens/gondor_archer.png,1,312,372,296,356,0.619,2336,1.25
+elf_swordsman,엘프 검사,roster-free-troops-v1.png,infantry,M,tokens/elf_swordsman.png,1,287,372,268,356,0.593,3189,1.34
+dwarf_guardian,드워프 가디언,roster-free-troops-v1.png,infantry,M,tokens/dwarf_guardian.png,1,390,339,372,320,0.671,3408,1.13
+rohan_royal_guard,로한 근위병,roster-free-troops-v1.png,infantry,M,tokens/rohan_royal_guard.png,1,269,350,268,348,0.625,3038,1.21
+ithilien_ranger,이틸리엔 레인저,roster-free-troops-v1.png,infantry,M,tokens/ithilien_ranger.png,1,292,379,276,360,0.597,3080,1.36
+rohan_rider,로한 기병,roster-free-troops-v1.png,cavalry,XL,tokens/rohan_rider.png,1,304,490,304,488,0.539,3010,
+balrog,발록,roster-monsters-v1.png,monster,XXL,tokens/balrog.png,1,582,570,580,568,0.693,10673,
+mountain_troll,산악 트롤,roster-monsters-v1.png,monster,XXL,tokens/mountain_troll.png,1,583,601,556,576,0.604,8447,
+shelob,셀로브,roster-monsters-v1.png,monster,XXL,tokens/shelob.png,1,616,601,592,576,0.621,7274,
+barrow_wight,고분 망령,roster-monsters-v1.png,hero,M,tokens/barrow_wight.png,1,288,368,272,356,0.555,2871,1.53
+moria_goblin,모리아 고블린,roster-monsters-v1.png,infantry,S,tokens/moria_goblin.png,1,313,338,296,320,0.544,2269,1.59
+uruk_berserker,우르크 광전사,roster-monsters-v1.png,infantry,M,tokens/uruk_berserker.png,1,306,370,288,352,0.509,2748,1.48
+sauron,사우론,roster-sauron-nazgul-v1.png,monster,XXL,tokens/sauron.png,1,384,601,360,576,0.608,5699,
+nazgul_sword_2,나즈굴(검·B),roster-sauron-nazgul-v1.png,hero,L,tokens/nazgul_sword_2.png,1,267,360,264,360,0.558,1339,1.22
+nazgul_mace,나즈굴(철퇴),roster-sauron-nazgul-v1.png,hero,L,tokens/nazgul_mace.png,1,293,360,292,360,0.568,1247,1.27
+nazgul_mounted,나즈굴(기마),roster-sauron-nazgul-v1.png,hero,XL,tokens/nazgul_mounted.png,1,297,491,296,488,0.643,1265,1.21
+morgul_knight,모르굴 기사,roster-sauron-nazgul-v1.png,cavalry,XL,tokens/morgul_knight.png,1,277,490,276,488,0.627,1195,
+dwimmerlaik,드위머레이크(갑옷 나즈굴),roster-sauron-nazgul-v1.png,hero,L,tokens/dwimmerlaik.png,1,398,360,396,360,0.535,1963,1.33
+witchking_spear,마술왕(창),roster-sauron-nazgul-v1.png,hero,L,tokens/witchking_spear.png,1,308,360,308,360,0.477,1332,1.55
+mt_swordshield,미나스 티리스 검방,roster-minastirith-variants-v1.png,infantry,M,tokens/mt_swordshield.png,1,316,373,300,356,0.533,2243,1.53
+mt_spear,미나스 티리스 창병,roster-minastirith-variants-v1.png,infantry,M,tokens/mt_spear.png,1,232,352,232,352,0.581,1497,1.37
+mt_spearshield,미나스 티리스 창방,roster-minastirith-variants-v1.png,infantry,M,tokens/mt_spearshield.png,1,287,352,284,352,0.647,1908,1.23
+mt_bowman,미나스 티리스 궁수,roster-minastirith-variants-v1.png,infantry,M,tokens/mt_bowman.png,1,425,377,400,352,0.56,3143,1.1
+mt_captain,미나스 티리스 장교,roster-minastirith-variants-v1.png,hero,M,tokens/mt_captain.png,1,330,368,312,356,0.551,2392,1.28
+mt_fountain_guard,샘물수위병,roster-minastirith-variants-v1.png,infantry,M,tokens/mt_fountain_guard.png,1,296,366,280,352,0.502,1904,1.41
+orc_sword2,오크(검),roster-orc-variants-v1.png,infantry,S,tokens/orc_sword2.png,1,364,376,344,356,0.562,3225,1.62
+orc_swordshield,오크(검방),roster-orc-variants-v1.png,infantry,S,tokens/orc_swordshield.png,1,397,375,380,356,0.591,3698,1.46
+orc_spear2,오크(창),roster-orc-variants-v1.png,infantry,S,tokens/orc_spear2.png,1,240,369,228,360,0.466,1917,1.71
+orc_twohanded,오크(양손도끼),roster-orc-variants-v1.png,infantry,S,tokens/orc_twohanded.png,1,387,371,368,352,0.488,3072,1.5
+orc_bow,오크(활),roster-orc-variants-v1.png,infantry,S,tokens/orc_bow.png,1,333,370,316,356,0.555,2939,1.45
+orc_drummer,오크 전쟁북,roster-orc-variants-v1.png,support,S,tokens/orc_drummer.png,1,327,371,308,352,0.61,3530,1.71
+dwarf_axeshield,드워프 도끼방,roster-dwarf-variants-v1.png,infantry,M,tokens/dwarf_axeshield.png,1,332,317,332,316,0.615,3092,1.3
+dwarf_2haxe,드워프 양손도끼,roster-dwarf-variants-v1.png,infantry,M,tokens/dwarf_2haxe.png,1,440,340,428,324,0.597,4289,1.58
+dwarf_ranger,드워프 레인저,roster-dwarf-variants-v1.png,infantry,M,tokens/dwarf_ranger.png,1,317,337,300,320,0.599,2958,1.29
+khazad_guard,카자드 근위병,roster-dwarf-variants-v1.png,infantry,M,tokens/khazad_guard.png,1,281,332,264,320,0.593,2810,1.19
+iron_guard,아이언 가드,roster-dwarf-variants-v1.png,infantry,M,tokens/iron_guard.png,1,322,337,304,320,0.589,3228,1.42
+dwarf_banner,드워프 기수,roster-dwarf-variants-v1.png,support,M,tokens/dwarf_banner.png,1,279,331,268,320,0.518,2402,1.26
+elf_swordshield,엘프 검방,roster-elf-variants-v1.png,infantry,M,tokens/elf_swordshield.png,1,325,376,300,356,0.523,2851,1.44
+elf_spear,엘프 창병,roster-elf-variants-v1.png,infantry,M,tokens/elf_spear.png,1,278,350,276,348,0.744,3416,1.12
+elf_bow,엘프 궁수,roster-elf-variants-v1.png,infantry,M,tokens/elf_bow.png,1,326,360,316,356,0.446,2815,1.58
+elf_glaive,엘프 글레이브,roster-elf-variants-v1.png,infantry,M,tokens/elf_glaive.png,1,277,350,276,348,0.522,2557,1.67
+galadhrim_warrior,갈라드림 전사,roster-elf-variants-v1.png,infantry,M,tokens/galadhrim_warrior.png,1,283,375,264,356,0.525,2626,1.61
+elf_knight,엘프 기마기사,roster-elf-variants-v1.png,cavalry,XL,tokens/elf_knight.png,1,327,520,300,496,0.536,4047,
+uruk_swordshield2,우르크하이 검방,roster-uruk-variants-v1.png,infantry,M,tokens/uruk_swordshield2.png,1,428,377,404,352,0.657,4033,1.23
+uruk_pike,우르크하이 파이크,roster-uruk-variants-v1.png,infantry,M,tokens/uruk_pike.png,1,246,370,228,352,0.5,1967,1.22
+uruk_crossbow,우르크하이 석궁,roster-uruk-variants-v1.png,infantry,M,tokens/uruk_crossbow.png,1,324,365,308,348,0.63,3072,
+uruk_scout,우르크하이 스카웃,roster-uruk-variants-v1.png,infantry,M,tokens/uruk_scout.png,1,344,376,324,356,0.586,3072,1.36
+uruk_berserker2,우르크하이 광전사,roster-uruk-variants-v1.png,infantry,M,tokens/uruk_berserker2.png,1,216,365,208,352,0.549,2053,1.73
+uruk_banner,우르크하이 기수,roster-uruk-variants-v1.png,support,M,tokens/uruk_banner.png,1,304,367,296,356,0.46,2097,1.35
+haradrim_spear,하라드림 창병,roster-haradrim-easterling-v1.png,infantry,M,tokens/haradrim_spear.png,1,241,368,232,356,0.517,2557,1.66
+haradrim_bow,하라드림 궁수,roster-haradrim-easterling-v1.png,infantry,M,tokens/haradrim_bow.png,1,328,368,312,356,0.443,2878,1.35
+haradrim_priest,하라드림 전사제,roster-haradrim-easterling-v1.png,support,M,tokens/haradrim_priest.png,1,271,367,260,356,0.524,2868,1.21
+easterling_phalanx,이스터링 방진병,roster-haradrim-easterling-v1.png,infantry,M,tokens/easterling_phalanx.png,1,265,365,256,356,0.367,2021,1.76
+easterling_swordshield,이스터링 검방,roster-haradrim-easterling-v1.png,infantry,M,tokens/easterling_swordshield.png,1,309,350,308,348,0.618,3359,1.35
+easterling_kataphrakt,이스터링 중기병,roster-haradrim-easterling-v1.png,cavalry,XL,tokens/easterling_kataphrakt.png,1,362,510,344,492,0.493,4590,
+dol_amroth_knight,돌 암로스 백조기사,roster-gondor-exp-v1.png,cavalry,XL,tokens/dol_amroth_knight.png,1,283,514,264,496,0.626,4006,
+gondor_knight,곤도르 기병,roster-gondor-exp-v1.png,cavalry,XL,tokens/gondor_knight.png,1,241,505,232,496,0.593,2689,
+osgiliath_veteran,오스길리아스 베테랑,roster-gondor-exp-v1.png,infantry,M,tokens/osgiliath_veteran.png,1,301,375,280,356,0.589,2551,1.37
+lossarnach_axeman,로사르나흐 도끼병,roster-gondor-exp-v1.png,infantry,M,tokens/lossarnach_axeman.png,1,232,371,216,352,0.591,2204,1.78
+citadel_guard,성채근위병,roster-gondor-exp-v1.png,infantry,M,tokens/citadel_guard.png,1,228,350,228,348,0.722,2276,1.08
+pelennor_militia,펠렌노르 민병,roster-gondor-exp-v1.png,infantry,M,tokens/pelennor_militia.png,1,229,350,228,348,0.637,2059,1.17
+rohan_swordshield,로한 검방,roster-rohan-exp-v1.png,infantry,M,tokens/rohan_swordshield.png,1,361,350,360,348,0.637,3085,1.31
+rohan_spear,로한 창병,roster-rohan-exp-v1.png,infantry,M,tokens/rohan_spear.png,1,305,350,304,348,0.554,2494,1.34
+rohan_archer,로한 궁수,roster-rohan-exp-v1.png,infantry,M,tokens/rohan_archer.png,1,347,350,344,348,0.581,2345,1.31
+eomer,에오메르(기마),roster-rohan-exp-v1.png,hero,XL,tokens/eomer.png,1,336,490,336,488,0.529,3808,1.52
+rohan_outrider,로한 기마궁수,roster-rohan-exp-v1.png,cavalry,XL,tokens/rohan_outrider.png,1,304,490,304,488,0.577,2693,
+rohan_banner,로한 기수,roster-rohan-exp-v1.png,support,M,tokens/rohan_banner.png,1,243,350,240,348,0.591,2129,1.15
+black_numenorean,검은 누메노르인(도보),roster-mordor-elite-v1.png,infantry,M,tokens/black_numenorean.png,1,297,350,296,348,0.649,1714,1.34
+black_numenorean_mounted,검은 누메노르인(기마),roster-mordor-elite-v1.png,cavalry,XL,tokens/black_numenorean_mounted.png,1,318,510,300,492,0.564,4100,
+orc_tracker,오크 추적자,roster-mordor-elite-v1.png,infantry,S,tokens/orc_tracker.png,1,337,370,320,356,0.484,3252,1.73
+war_troll,전쟁 트롤,roster-mordor-elite-v1.png,monster,XXL,tokens/war_troll.png,1,465,591,448,572,0.567,7455,
+black_guard,바라드두르 흑근위,roster-mordor-elite-v1.png,infantry,M,tokens/black_guard.png,1,208,365,200,356,0.55,1866,1.2
+orc_taskmaster,오크 두목,roster-mordor-elite-v1.png,support,M,tokens/orc_taskmaster.png,1,263,365,252,356,0.484,2384,1.93
+goblin_spear,고블린 창병,roster-goblin-v1.png,infantry,S,tokens/goblin_spear.png,1,301,315,300,312,0.475,1660,1.42
+goblin_shield,고블린 방패병,roster-goblin-v1.png,infantry,S,tokens/goblin_shield.png,1,324,315,324,312,0.645,2473,1.32
+goblin_bow,고블린 궁수,roster-goblin-v1.png,infantry,S,tokens/goblin_bow.png,1,271,336,252,320,0.519,2119,1.31
+goblin_prowler,고블린 프라울러,roster-goblin-v1.png,infantry,S,tokens/goblin_prowler.png,1,326,341,304,324,0.613,2746,1.39
+goblin_king,고블린 왕,roster-goblin-v1.png,monster,L,tokens/goblin_king.png,1,459,423,444,404,0.66,6293,
+goblin_shaman,고블린 샤먼,roster-goblin-v1.png,support,S,tokens/goblin_shaman.png,1,303,332,284,320,0.583,2709,1.26
+dunlending_warrior,던랜딩 전사,roster-isengard-exp-v1.png,infantry,M,tokens/dunlending_warrior.png,1,335,372,316,356,0.522,2871,1.31
+dunlending_huscarl,던랜딩 허스칼,roster-isengard-exp-v1.png,infantry,M,tokens/dunlending_huscarl.png,1,265,370,248,352,0.597,2798,1.38
+warg,야생 와르그,roster-isengard-exp-v1.png,monster,M,tokens/warg.png,1,285,463,268,444,0.572,3025,
+uruk_sapper,우르크 폭파반,roster-isengard-exp-v1.png,infantry,M,tokens/uruk_sapper.png,1,403,372,384,356,0.5,3334,1.41
+uruk_scout_archer,우르크 스카웃 궁수,roster-isengard-exp-v1.png,infantry,M,tokens/uruk_scout_archer.png,1,283,370,264,352,0.517,2371,1.56
+crebain_swarm,크레반 까마귀 떼,roster-isengard-exp-v1.png,support,M,tokens/crebain_swarm.png,1,362,369,348,352,0.551,1866,1.22
+hobbit_shirriff,호빗 민병,roster-free-special-v1.png,infantry,S,tokens/hobbit_shirriff.png,1,253,300,252,300,0.688,2400,1.23
+hobbit_bounder,호빗 궁수,roster-free-special-v1.png,infantry,S,tokens/hobbit_bounder.png,1,254,300,252,300,0.637,2614,1.43
+great_eagle,대독수리,roster-free-special-v1.png,monster,XL,tokens/great_eagle.png,1,530,490,528,488,0.546,1714,
+ent,엔트,roster-free-special-v1.png,monster,XXL,tokens/ent.png,1,551,588,536,576,0.594,9086,
+beorning,베오르닝 전사,roster-free-special-v1.png,hero,L,tokens/beorning.png,1,300,378,288,364,0.656,3449,1.31
+ranger_north,북부 레인저,roster-free-special-v1.png,infantry,M,tokens/ranger_north.png,1,298,366,280,352,0.59,2851,1.38
+theoden,세오덴(기마),roster-free-heroes-exp-v1.png,hero,XL,tokens/theoden.png,1,195,490,192,488,0.524,2756,1.19
+faramir,파라미르,roster-free-heroes-exp-v1.png,hero,M,tokens/faramir.png,1,360,373,344,356,0.607,3535,1.23
+haldir,할디르,roster-free-heroes-exp-v1.png,hero,M,tokens/haldir.png,1,316,372,300,356,0.591,3402,1.34
+galadriel,갈라드리엘,roster-free-heroes-exp-v1.png,hero,M,tokens/galadriel.png,1,315,371,296,352,0.568,3319,1.31
+gamling,감링(기수),roster-free-heroes-exp-v1.png,hero,M,tokens/gamling.png,1,315,371,296,352,0.575,3216,1.39
+samwise,샘와이즈,roster-free-heroes-exp-v1.png,hero,S,tokens/samwise.png,1,288,326,264,304,0.579,2492,1.28
+mouth_of_sauron,사우론의 입(기마),roster-evil-heroes-exp-v1.png,hero,XL,tokens/mouth_of_sauron.png,1,262,350,260,348,0.65,1715,1.36
+gothmog,고스모그,roster-evil-heroes-exp-v1.png,hero,L,tokens/gothmog.png,1,342,381,324,364,0.587,3300,1.5
+lurtz,루르츠,roster-evil-heroes-exp-v1.png,hero,M,tokens/lurtz.png,1,350,371,332,352,0.537,2841,1.44
+sharku,샤르쿠(와르그),roster-evil-heroes-exp-v1.png,cavalry,XL,tokens/sharku.png,1,426,518,400,492,0.55,5092,
+grima,그리마 웜텅,roster-evil-heroes-exp-v1.png,hero,M,tokens/grima.png,1,342,378,316,352,0.605,2642,1.32
+khamul,카물,roster-evil-heroes-exp-v1.png,hero,L,tokens/khamul.png,1,213,360,212,360,0.641,1639,1.26
+fingolfin,핑골핀,roster-legends-good-v1.png,hero,L,tokens/fingolfin.png,1,290,350,288,348,0.665,3072,1.26
+imrahil,임라힐,roster-legends-good-v1.png,hero,M,tokens/imrahil.png,1,295,369,276,352,0.55,2962,1.31
+merry,메리아독,roster-legends-good-v1.png,hero,S,tokens/merry.png,1,285,325,268,308,0.586,2517,1.33
+pippin,피핀,roster-legends-good-v1.png,hero,S,tokens/pippin.png,1,269,321,252,304,0.559,1840,1.39
+beorn,베오른,roster-legends-good-v1.png,hero,L,tokens/beorn.png,1,291,377,280,368,0.691,3568,1.15
+elendil,엘렌딜,roster-legends-good-v1.png,hero,L,tokens/elendil.png,1,289,376,272,364,0.591,2355,1.37
+melkor,멜코르,roster-legends-evil-v1.png,monster,XXL,tokens/melkor.png,1,561,582,552,572,0.567,7283,
+mumakil,무마킬,roster-legends-evil-v1.png,monster,XXL,tokens/mumakil.png,1,358,596,332,576,0.676,6959,
+smaug,스마우그,roster-legends-evil-v1.png,monster,XXL,tokens/smaug.png,1,1320,1320,1320,1320,0.638,40146,
+ungoliant,웅골리안트,roster-legends-evil-v1.png,monster,XXL,tokens/ungoliant.png,1,577,598,552,572,0.61,6306,
+bolg,볼그,roster-legends-evil-v1.png,hero,L,tokens/bolg.png,1,311,360,308,360,0.718,2914,1.26
+easterling_warlord,이스터링 장군,roster-legends-evil-v1.png,hero,,tokens/easterling_warlord.png,1,263,368,244,356,0.498,2463,1.46
+radagast,라다가스트,roster-legends-good-v2.png,hero,M,tokens/radagast.png,1,344,371,328,352,0.599,3545,1.21
+thranduil,트란두일,roster-legends-good-v2.png,hero,L,tokens/thranduil.png,1,360,381,344,364,0.585,3511,1.18
+celeborn,켈레보른,roster-legends-good-v2.png,hero,M,tokens/celeborn.png,1,305,369,288,352,0.528,2969,1.44
+bilbo,빌보,roster-legends-good-v2.png,hero,S,tokens/bilbo.png,1,343,326,324,308,0.55,2730,1.2
+king_of_the_dead,망자의 왕,roster-legends-good-v2.png,hero,L,tokens/king_of_the_dead.png,1,303,378,288,364,0.551,3065,1.31
+dead_soldier,망자 병사,roster-legends-good-v2.png,infantry,M,tokens/dead_soldier.png,1,288,371,272,352,0.59,3027,1.44
+olog_hai,올로그하이,roster-legends-evil-v2.png,monster,XXL,tokens/olog_hai.png,1,581,600,556,576,0.637,7996,
+watcher_in_the_water,물 속의 감시자,roster-legends-evil-v2.png,monster,XXL,tokens/watcher_in_the_water.png,1,601,598,576,572,0.709,9183,
+mirkwood_spider,미르크우드 거미,roster-legends-evil-v2.png,monster,L,tokens/mirkwood_spider.png,1,417,403,400,384,0.62,3748,
+harad_chieftain,하라드 족장,roster-legends-evil-v2.png,hero,,tokens/harad_chieftain.png,1,323,367,304,352,0.542,3101,1.34
+uruk_captain,우룩하이 대장,roster-legends-evil-v2.png,hero,L,tokens/uruk_captain.png,1,355,381,336,364,0.58,3372,1.48
+hill_troll,언덕 트롤,roster-legends-evil-v2.png,monster,XL,tokens/hill_troll.png,1,476,518,452,492,0.617,6709,
+feanor,페아노르,roster-silmarillion-good-v1.png,hero,L,tokens/feanor.png,1,379,380,360,364,0.485,3464,1.41
+luthien,루시엔,roster-silmarillion-good-v1.png,hero,M,tokens/luthien.png,1,360,373,344,356,0.593,3861,1.22
+beren,베렌,roster-silmarillion-good-v1.png,hero,M,tokens/beren.png,1,393,376,376,360,0.528,3523,1.34
+turin,투린,roster-silmarillion-good-v1.png,hero,L,tokens/turin.png,1,347,379,328,360,0.462,2424,1.35
+beleg,벨레그,roster-silmarillion-good-v1.png,hero,M,tokens/beleg.png,1,356,368,340,356,0.47,3032,1.27
+huan,훈,roster-silmarillion-good-v1.png,beast,L,tokens/huan.png,1,208,462,192,444,0.616,2758,
+glaurung,글라우룽,roster-silmarillion-evil-v1.png,monster,XXL,tokens/glaurung.png,1,259,660,256,660,0.587,5154,
+carcharoth,카르하로스,roster-silmarillion-evil-v1.png,monster,L,tokens/carcharoth.png,1,253,462,236,444,0.668,2898,
+gothmog_balrog,고스모그(발록 군주),roster-silmarillion-evil-v1.png,monster,XXL,tokens/gothmog_balrog.png,1,594,593,572,572,0.612,8903,
+draugluin,드라우글루인,roster-silmarillion-evil-v1.png,monster,L,tokens/draugluin.png,1,359,466,340,448,0.597,4066,
+thuringwethil,수링웨실,roster-silmarillion-evil-v1.png,monster,L,tokens/thuringwethil.png,1,631,447,608,424,0.58,6225,
+boldog,볼독,roster-silmarillion-evil-v1.png,hero,L,tokens/boldog.png,1,306,381,288,364,0.532,2257,1.62
+thorin,토린 오큰실드,roster-hobbit-good-v1.png,hero,L,tokens/thorin.png,1,383,336,364,320,0.588,3563,1.22
+tauriel,타우리엘,roster-hobbit-good-v1.png,hero,M,tokens/tauriel.png,1,381,373,364,356,0.511,3227,1.27
+bard,바드,roster-hobbit-good-v1.png,hero,M,tokens/bard.png,1,434,372,416,356,0.499,3232,1.29
+dain,데인,roster-hobbit-good-v1.png,hero,L,tokens/dain.png,1,390,333,372,320,0.634,3998,1.17
+fili,필리,roster-hobbit-good-v1.png,hero,M,tokens/fili.png,1,401,337,384,320,0.53,3151,1.24
+kili,킬리,roster-hobbit-good-v1.png,hero,M,tokens/kili.png,1,365,336,348,320,0.536,2958,1.29
+azog,아조그,roster-hobbit-evil-v1.png,hero,XL,tokens/azog.png,1,350,491,348,488,0.742,5365,1.3
+azog_warg_rider,아조그(흰 와르그),roster-hobbit-evil-v1.png,cavalry,XL,tokens/azog_warg_rider.png,1,348,490,348,488,0.74,5300,
+azog_foot,아조그(도보),roster-hobbit-evil-v1.png,hero,L,tokens/azog_foot.png,1,327,360,324,360,0.719,3508,1.33
+necromancer,네크로맨서,roster-hobbit-evil-v1.png,hero,L,tokens/necromancer.png,1,346,379,328,360,0.633,3062,
+hunter_orc,헌터 오크,roster-hobbit-evil-v1.png,infantry,,tokens/hunter_orc.png,1,276,371,260,352,0.54,2290,1.35
+gundabad_orc,군다바드 오크,roster-hobbit-evil-v1.png,infantry,,tokens/gundabad_orc.png,1,372,372,356,356,0.563,3196,1.41
+goblin_mercenary,고블린 용병,roster-hobbit-evil-v1.png,infantry,,tokens/goblin_mercenary.png,1,308,339,292,320,0.534,2242,1.43
+halbarad,할바라드,roster-exp-good-v1.png,hero,L,tokens/halbarad.png,1,279,350,276,348,0.61,2398,1.4
+beregond,베레곤드,roster-exp-good-v1.png,hero,M,tokens/beregond.png,1,329,375,312,356,0.596,2131,1.37
+elladan,엘라단,roster-exp-good-v1.png,hero,M,tokens/elladan.png,1,296,374,280,356,0.572,2146,1.38
+elrohir,엘로히르,roster-exp-good-v1.png,hero,M,tokens/elrohir.png,1,259,350,256,348,0.631,2535,1.3
+grimbeorn,그림베오른,roster-exp-good-v1.png,hero,L,tokens/grimbeorn.png,1,321,379,304,360,0.655,3570,1.31
+ghan_buri_ghan,간부리간,roster-exp-good-v1.png,infantry,S,tokens/ghan_buri_ghan.png,1,239,366,220,352,0.612,2596,1.45
+suladan,술라단,roster-exp-evil-v1.png,hero,L,tokens/suladan.png,1,275,360,272,360,0.645,3484,1.37
+corsair_umbra,움바르 해적,roster-exp-evil-v1.png,infantry,,tokens/corsair_umbra.png,1,345,367,328,348,0.613,3408,1.26
+variag_horseman,바리악 기수,roster-exp-evil-v1.png,cavalry,XL,tokens/variag_horseman.png,1,391,512,376,496,0.489,4359,
+shagrat,샤그랏,roster-exp-evil-v1.png,hero,L,tokens/shagrat.png,1,395,381,376,364,0.549,3735,1.37
+gorbag,고르바그,roster-exp-evil-v1.png,hero,,tokens/gorbag.png,1,382,372,364,356,0.606,3449,1.18
+warg_alpha,와르그 우두머리,roster-exp-evil-v1.png,beast,XL,tokens/warg_alpha.png,1,310,492,292,480,0.605,3370,
+balin,발린,roster-hobbit-company-v1.png,hero,M,tokens/balin.png,1,312,335,296,316,0.598,2995,1.4
+dwalin,드왈린,roster-hobbit-company-v1.png,hero,M,tokens/dwalin.png,1,403,337,384,320,0.613,3699,1.16
+gloin,글로인,roster-hobbit-company-v1.png,infantry,M,tokens/gloin.png,1,399,337,380,320,0.623,3863,1.14
+oin,오인,roster-hobbit-company-v1.png,infantry,M,tokens/oin.png,1,305,335,288,316,0.612,2921,1.39
+nori,노리,roster-hobbit-company-v1.png,infantry,M,tokens/nori.png,1,361,337,344,320,0.612,3382,1.17
+ori,오리,roster-hobbit-company-v1.png,infantry,M,tokens/ori.png,1,337,337,320,320,0.611,3301,1.26
+dori,도리,roster-hobbit-exp-v1.png,infantry,M,tokens/dori.png,1,361,337,344,320,0.537,3066,1.37
+bifur,비푸르,roster-hobbit-exp-v1.png,infantry,M,tokens/bifur.png,1,273,337,256,320,0.519,2192,
+bofur,보푸르,roster-hobbit-exp-v1.png,infantry,M,tokens/bofur.png,1,378,340,360,324,0.546,3280,1.42
+bombur,봄부르,roster-hobbit-exp-v1.png,infantry,M,tokens/bombur.png,1,315,336,296,320,0.635,3361,1.22
+goat_rider,산양 기수,roster-hobbit-exp-v1.png,cavalry,XL,tokens/goat_rider.png,1,328,519,304,492,0.6,4818,
+gollum,골룸,roster-hobbit-exp-v1.png,beast,M,tokens/gollum.png,1,277,326,260,308,0.589,2210,
+gil_galad,길갈라드,roster-elf-exp-v1.png,hero,L,tokens/gil_galad.png,1,291,370,272,352,0.53,2701,1.32
+cirdan,키르단,roster-elf-exp-v1.png,hero,L,tokens/cirdan.png,1,318,373,300,356,0.585,3367,1.37
+arwen,아르웬,roster-elf-exp-v1.png,hero,M,tokens/arwen.png,1,320,373,304,356,0.624,3697,1.23
+lindir,린디르,roster-elf-exp-v1.png,hero,M,tokens/lindir.png,1,297,371,280,352,0.555,2776,1.39
+erestor,에레스토르,roster-elf-exp-v1.png,hero,M,tokens/erestor.png,1,300,373,284,356,0.608,3434,1.31
+elf_seer,엘프 선견자,roster-elf-exp-v1.png,support,M,tokens/elf_seer.png,1,312,367,296,352,0.614,3411,1.25
+rumil,루밀,roster-elf-exp-v2.png,hero,M,tokens/rumil.png,1,288,350,288,348,0.696,2580,1.18
+orophin,오로핀,roster-elf-exp-v2.png,hero,M,tokens/orophin.png,1,273,350,272,348,0.668,2636,1.25
+mirkwood_sentinel,미르크우드 보초,roster-elf-exp-v2.png,infantry,M,tokens/mirkwood_sentinel.png,1,272,350,272,348,0.643,2829,1.28
+noldor_warrior,놀도르 정예병,roster-elf-exp-v2.png,infantry,L,tokens/noldor_warrior.png,1,316,360,316,360,0.676,4114,1.29
+silvan_archer,실반 궁수,roster-elf-exp-v2.png,infantry,M,tokens/silvan_archer.png,1,303,350,300,348,0.63,2919,1.3
+elven_lancer,엘프 기창기병,roster-elf-exp-v2.png,cavalry,XL,tokens/elven_lancer.png,1,226,509,208,492,0.504,3154,
+imrahil_mounted,임라힐(기마),roster-mounted-heroes-v1.png,hero,XL,tokens/imrahil_mounted.png,1,246,510,232,492,0.558,3548,1.33
+gandalf_mounted,간달프(섀도우팩스),roster-mounted-heroes-v1.png,hero,XL,tokens/gandalf_mounted.png,1,292,493,292,492,0.629,3389,1.39
+thranduil_mounted,스란두일(기마),roster-mounted-heroes-v1.png,hero,XL,tokens/thranduil_mounted.png,1,319,510,300,492,0.564,4222,1.81
+aragorn_mounted,아라곤(기마),roster-mounted-heroes-v1.png,hero,XL,tokens/aragorn_mounted.png,1,267,512,248,496,0.572,3950,1.54
+blackroot_archer,검은뿌리골 궁수,roster-mounted-heroes-v1.png,infantry,M,tokens/blackroot_archer.png,1,286,350,284,348,0.673,2205,1.28
+half_troll,하프 트롤,roster-mordor-monsters-v1.png,monster,L,tokens/half_troll.png,1,369,467,356,448,0.608,4807,
+cave_drake,동굴 드레이크,roster-mordor-monsters-v1.png,monster,XL,tokens/cave_drake.png,1,282,515,264,496,0.593,3162,
+bat_swarm,박쥐 떼,roster-mordor-monsters-v1.png,monster,,tokens/bat_swarm.png,1,308,371,296,352,0.705,2941,
+muzgur,무즈구르,roster-mordor-monsters-v1.png,hero,,tokens/muzgur.png,1,308,376,292,364,0.564,2787,1.19
+buhrdur,부르두르,roster-mordor-monsters-v1.png,monster,XL,tokens/buhrdur.png,1,411,517,392,492,0.601,5897,
+mahud_chieftain,마후드 족장,roster-mordor-monsters-v1.png,hero,L,tokens/mahud_chieftain.png,1,233,381,216,364,0.551,2300,1.64
+eowyn_mounted,에오윈(기마),roster-west-heroes-v1.png,hero,XL,tokens/eowyn_mounted.png,1,280,490,280,488,0.585,3289,1.29
+forlong,포를롱,roster-west-heroes-v1.png,hero,L,tokens/forlong.png,1,260,379,244,360,0.625,2666,1.37
+erkenbrand,에르켄브란트,roster-west-heroes-v1.png,hero,L,tokens/erkenbrand.png,1,277,360,276,360,0.647,3107,1.22
+damrod,담로드,roster-west-heroes-v1.png,hero,M,tokens/damrod.png,1,238,367,228,356,0.62,2459,1.39
+mablung,마블룽,roster-west-heroes-v1.png,hero,M,tokens/mablung.png,1,219,366,208,356,0.577,2216,1.46
+duinhir,두인히르,roster-west-heroes-v1.png,hero,M,tokens/duinhir.png,1,197,365,188,356,0.632,1961,1.44
+ugluk,우글룩,roster-east-monsters-v1.png,hero,L,tokens/ugluk.png,1,246,368,244,368,0.557,2423,1.56
+mauhur,마우후르,roster-east-monsters-v1.png,hero,,tokens/mauhur.png,1,326,371,308,352,0.505,2521,1.35
+vrasku,브라스쿠,roster-east-monsters-v1.png,hero,,tokens/vrasku.png,1,310,370,292,352,0.439,2049,1.38
+stone_troll,돌 트롤,roster-east-monsters-v1.png,monster,XL,tokens/stone_troll.png,1,461,511,444,492,0.573,6026,
+werewolf,웨어울프,roster-east-monsters-v1.png,beast,L,tokens/werewolf.png,1,316,462,300,444,0.547,3603,
+gulavhar,굴라브하르,roster-east-monsters-v1.png,monster,XXL,tokens/gulavhar.png,1,655,603,628,576,0.592,9247,
+terr_catapult,투석기,terrain-objects-v3.png,terrain,,tokens/terr_catapult.png,1,319,468,300,452,0.59,3456,
+terr_trebuchet,트레뷰셋,terrain-objects-v3.png,terrain,,tokens/terr_trebuchet.png,1,340,473,324,456,0.604,4058,
+terr_ballista,발리스타,terrain-objects-v3.png,terrain,,tokens/terr_ballista.png,1,410,457,392,440,0.539,3865,
+terr_grond,그론드,terrain-objects-v3.png,terrain,XXL,tokens/terr_grond.png,1,319,508,300,492,0.692,4780,
+terr_siege_tower,공성 탑,terrain-objects-v3.png,terrain,L,tokens/terr_siege_tower.png,1,314,490,312,488,0.746,4809,
+terr_bomb,폭파탄,terrain-objects-v3.png,terrain,,tokens/terr_bomb.png,1,278,350,276,348,0.704,2682,
+terr_rubble,돌무더기,terrain-objects-v1.png,terrain,M,tokens/terr_rubble.png,1,462,465,444,448,0.675,6845,
+terr_broken_pillar,부러진 기둥,terrain-objects-v1.png,terrain,M,tokens/terr_broken_pillar.png,1,474,494,456,476,0.583,6556,
+terr_barricade,목재 방벽,terrain-objects-v1.png,terrain,M,tokens/terr_barricade.png,1,491,434,472,416,0.68,6660,
+terr_crates,보급 상자,terrain-objects-v1.png,terrain,M,tokens/terr_crates.png,1,471,467,452,448,0.7,7408,
+terr_spike_line,대기병 말뚝,terrain-objects-v1.png,terrain,M,tokens/terr_spike_line.png,1,521,376,504,360,0.674,6179,
+terr_brazier,화로,terrain-objects-v1.png,terrain,M,tokens/terr_brazier.png,1,409,468,392,452,0.627,5798,
+terr_orc_totem,오크 전리품 토템,terrain-objects-v2.png,terrain,M,tokens/terr_orc_totem.png,1,406,504,388,488,0.693,6280,
+terr_siege_ladder,공성 사다리,terrain-objects-v2.png,terrain,M,tokens/terr_siege_ladder.png,1,472,494,456,476,0.638,6774,
+terr_tent,야영 텐트,terrain-objects-v2.png,terrain,M,tokens/terr_tent.png,1,461,452,444,436,0.704,6978,
+terr_cart,짐수레,terrain-objects-v2.png,terrain,M,tokens/terr_cart.png,1,474,478,456,460,0.686,7034,
+terr_campfire,모닥불,terrain-objects-v2.png,terrain,M,tokens/terr_campfire.png,1,457,478,440,460,0.661,6709,
+terr_statue_head,무너진 왕 석상,terrain-objects-v2.png,terrain,L,tokens/terr_statue_head.png,1,491,483,472,464,0.667,6933,
+terr_rock_outcrop,바위 지형,terrain-natural-v1.png,terrain,L,tokens/terr_rock_outcrop.png,1,473,484,456,468,0.702,7397,
+terr_standing_stones,입석,terrain-natural-v1.png,terrain,L,tokens/terr_standing_stones.png,1,479,504,460,488,0.686,7707,
+terr_pine_copse,소나무 숲,terrain-natural-v1.png,terrain,L,tokens/terr_pine_copse.png,1,479,510,460,492,0.706,8021,
+terr_oak_tree,참나무,terrain-natural-v1.png,terrain,XL,tokens/terr_oak_tree.png,1,482,489,464,476,0.725,8647,
+terr_dead_tree,고목,terrain-natural-v1.png,terrain,L,tokens/terr_dead_tree.png,1,491,495,472,480,0.731,7349,
+terr_hedgerow,울타리 덤불,terrain-natural-v1.png,terrain,L,tokens/terr_hedgerow.png,1,490,484,472,468,0.718,7967,
+terr_ruined_wall,무너진 성벽,terrain-structures-v1.png,terrain,XL,tokens/terr_ruined_wall.png,1,490,481,472,464,0.705,8158,
+terr_ruined_tower,폐탑,terrain-structures-v1.png,terrain,XL,tokens/terr_ruined_tower.png,1,466,476,448,460,0.714,7454,
+terr_gondor_house,곤도르 가옥,terrain-structures-v1.png,terrain,XL,tokens/terr_gondor_house.png,1,489,482,472,464,0.72,8035,
+terr_rohan_hall,로한 회관,terrain-structures-v1.png,terrain,XL,tokens/terr_rohan_hall.png,1,495,482,476,468,0.754,8929,
+terr_orc_camp,오크 야영지,terrain-structures-v1.png,terrain,XL,tokens/terr_orc_camp.png,1,505,508,488,492,0.728,9511,
+terr_barrow,고분,terrain-structures-v1.png,terrain,XL,tokens/terr_barrow.png,1,495,504,476,488,0.725,9401,
+dark_marshal,어둠의 장군,roster-nazgul-nine-v1.png,hero,L,tokens/dark_marshal.png,1,278,380,260,364,0.556,2214,1.44
+shadow_lord,그림자 군주,roster-nazgul-nine-v1.png,hero,L,tokens/shadow_lord.png,1,312,379,296,360,0.598,2913,1.28
+betrayer,배신자,roster-nazgul-nine-v1.png,hero,L,tokens/betrayer.png,1,329,381,312,364,0.575,2902,1.2
+tainted,타락한 자,roster-nazgul-nine-v1.png,hero,L,tokens/tainted.png,1,303,381,284,364,0.572,2694,1.28
+undying,죽지 않는 자,roster-nazgul-nine-v1.png,hero,L,tokens/undying.png,1,289,376,272,364,0.549,2475,1.26
+knight_of_umbar,움바르의 기사,roster-nazgul-nine-v1.png,hero,L,tokens/knight_of_umbar.png,1,338,379,320,360,0.502,2747,1.21
+isildur,이실두르,roster-good-fill-v1.png,hero,L,tokens/isildur.png,1,337,379,320,360,0.559,2685,1.35
+gandalf_white,간달프(백색),roster-good-fill-v1.png,hero,L,tokens/gandalf_white.png,1,258,360,256,360,0.666,2542,1.1
+denethor,데네소르,roster-good-fill-v1.png,hero,M,tokens/denethor.png,1,295,350,292,348,0.663,2592,1.25
+huorn,휘오른,roster-good-fill-v1.png,monster,XL,tokens/huorn.png,1,356,507,348,496,0.693,6416,
+boromir_mounted,보로미르(기마),roster-good-fill-v1.png,hero,XL,tokens/boromir_mounted.png,1,254,350,252,348,0.544,2206,1.73
+elrond_mounted,엘론드(기마),roster-good-fill-v1.png,hero,XL,tokens/elrond_mounted.png,1,321,491,320,488,0.556,3973,1.66
+gandalf_white_mounted,간달프 백색(기마),roster-good-fill-v2.png,hero,XL,tokens/gandalf_white_mounted.png,1,263,491,260,488,0.651,2574,1.27
+theoden_foot,세오덴(도보),roster-good-fill-v2.png,hero,L,tokens/theoden_foot.png,1,237,360,236,360,0.485,2339,1.18
+dain_boar,다인(맷돼지),roster-good-fill-v2.png,cavalry,XL,tokens/dain_boar.png,1,408,515,392,496,0.606,5893,
+faramir_mounted,파라미르(기마),roster-good-fill-v2.png,hero,XL,tokens/faramir_mounted.png,1,414,514,392,492,0.554,4883,1.54
+eomer_foot,에오메르(도보),roster-good-fill-v2.png,hero,L,tokens/eomer_foot.png,1,250,373,240,364,0.555,2548,1.52
+elfhelm,엘프헬름,roster-good-fill-v2.png,hero,L,tokens/elfhelm.png,1,300,377,284,364,0.56,3128,1.56
+warg_rider_spear,와르그 기병(창),roster-warg-riders-v1.png,cavalry,XL,tokens/warg_rider_spear.png,1,370,490,368,488,0.547,3872,
+warg_rider_bow,와르그 기병(활),roster-warg-riders-v1.png,cavalry,XL,tokens/warg_rider_bow.png,1,261,490,260,488,0.664,3288,
+warg_chieftain,와르그 우두머리 기병,roster-warg-riders-v1.png,hero,XL,tokens/warg_chieftain.png,1,309,491,308,488,0.619,3530,
+wild_warg,야생 와르그,roster-warg-riders-v1.png,monster,L,tokens/wild_warg.png,1,493,492,216,444,0.229,1882,
+wild_warg_alpha,와르그 우두머리,roster-warg-riders-v1.png,monster,XL,tokens/wild_warg_alpha.png,1,491,490,284,456,0.297,2411,
+ancalagon,앙칼라곤,single-ancalagon.png,monster,XXL,tokens/ancalagon.png,1,2552,2640,2552,2636,0.57,-1,
+terr_ruined_gate,무너진 관문,terrain-objects-v4.png,terrain,,tokens/terr_ruined_gate.png,1,459,436,440,420,0.545,4481,
+terr_wall_segment,무너진 성벽 구간,terrain-objects-v4.png,terrain,,tokens/terr_wall_segment.png,1,503,486,484,468,0.41,4588,
+terr_palisade,목책,terrain-objects-v4.png,terrain,,tokens/terr_palisade.png,1,470,339,452,320,0.706,4866,
+terr_broken_stairs,부서진 계단,terrain-objects-v4.png,terrain,,tokens/terr_broken_stairs.png,1,457,482,440,468,0.677,6675,
+terr_siege_wreck,공성기 잔해,terrain-objects-v4.png,terrain,,tokens/terr_siege_wreck.png,1,448,457,432,440,0.644,5338,
+terr_idol,석상,terrain-objects-v4.png,terrain,,tokens/terr_idol.png,1,274,360,272,360,0.701,2150,
+nazgul_fellbeast,나즈굴(펠비스트),single-nazgul-fellbeast.png,monster,XXL,tokens/nazgul_fellbeast.png,1,457,570,456,568,0.478,4881,
+fellbeast,펠비스트,suladan-fellbeast.png,monster,XXL,tokens/fellbeast.png,1,402,588,388,576,0.487,4808,
+quickbeam,퀵빔,ents.png,monster,XL,tokens/quickbeam.png,1,459,506,448,496,0.507,5400,
+aragorn_blackgate,아라곤(검은문),single-aragorn-blackgate.png,hero,L,tokens/aragorn_blackgate.png,1,279,360,276,360,0.572,2649,1.3
+aragorn_blackgate_mounted,아라곤(검은문·기마),single-aragorn-blackgate-mounted.png,hero,XL,tokens/aragorn_blackgate_mounted.png,1,249,491,248,488,0.595,3468,1.27
+anborn,안보른,exp-gondor-heroes.png,hero,M,tokens/anborn.png,1,309,350,308,348,0.687,3008,1.32
+hirluin,히를루인,exp-gondor-heroes.png,hero,L,tokens/hirluin.png,1,336,360,336,360,0.711,4267,1.26
+madril,마드릴,exp-gondor-heroes.png,hero,M,tokens/madril.png,1,292,350,292,348,0.66,2934,1.4
+irolas,이롤라스,exp-gondor-heroes.png,hero,L,tokens/irolas.png,1,276,360,276,360,0.635,2966,1.29
+hurin,후린,exp-gondor-heroes.png,hero,L,tokens/hurin.png,1,293,360,292,360,0.684,2804,1.28
+cirion,키리온,exp-gondor-heroes.png,hero,L,tokens/cirion.png,1,319,360,316,360,0.721,3716,1.24
+theodred,테오드레드,exp-rohan.png,hero,M,tokens/theodred.png,1,317,350,316,348,0.654,3399,1.37
+hama,하마,exp-rohan.png,hero,M,tokens/hama.png,1,284,350,284,348,0.695,3168,1.25
+deorwine,데오르바인,exp-rohan.png,hero,M,tokens/deorwine.png,1,303,350,300,348,0.677,3188,1.3
+grimbold,그림볼드,exp-rohan.png,hero,M,tokens/grimbold.png,1,353,350,352,348,0.677,3778,1.28
+harding,하딩,exp-rohan.png,hero,M,tokens/harding.png,1,313,350,312,348,0.705,3600,1.32
+rohan_royal_guard_mounted,로한 근위기병,exp-rohan.png,cavalry,XL,tokens/rohan_royal_guard_mounted.png,1,267,490,264,488,0.515,3114,
+arvedui,아르베두이,exp-numenor-arnor.png,hero,L,tokens/arvedui.png,1,311,360,308,360,0.681,3634,1.33
+malbeth,말베스,exp-numenor-arnor.png,hero,M,tokens/malbeth.png,1,307,350,304,348,0.72,3005,1.19
+numenorean_captain,누메노르 대장,exp-numenor-arnor.png,hero,L,tokens/numenorean_captain.png,1,280,360,280,360,0.644,2860,1.38
+numenorean_warrior,누메노르 전사,exp-numenor-arnor.png,infantry,M,tokens/numenorean_warrior.png,1,290,350,288,348,0.659,2474,1.35
+numenorean_spearman,누메노르 창병,exp-numenor-arnor.png,infantry,M,tokens/numenorean_spearman.png,1,242,350,240,348,0.618,2308,1.51
+arnor_warrior,아르노르 전사,exp-numenor-arnor.png,infantry,M,tokens/arnor_warrior.png,1,298,350,296,348,0.688,3029,1.3
+hasharin,하샤린,exp-harad.png,hero,M,tokens/hasharin.png,1,280,350,280,348,0.685,3177,1.27
+golden_king,아브라칸의 황금왕,exp-harad.png,hero,L,tokens/golden_king.png,1,299,360,296,360,0.666,3689,1.28
+mahud_beastmaster,마후드 야수조련사,exp-harad.png,hero,M,tokens/mahud_beastmaster.png,1,287,350,284,348,0.747,3182,1.18
+watcher_karna,카르나의 감시자,exp-harad.png,infantry,M,tokens/watcher_karna.png,1,253,350,252,348,0.716,2767,1.18
+haradrim_raider,하라드림 습격기병,exp-harad.png,cavalry,XL,tokens/haradrim_raider.png,1,222,490,220,488,0.615,3405,
+mahud_camel_raider,마후드 낙타기병,exp-harad.png,cavalry,XL,tokens/mahud_camel_raider.png,1,180,350,180,348,0.55,1864,
+amdur,암두르 검의 군주,exp-easterling.png,hero,L,tokens/amdur.png,1,325,360,324,360,0.648,2855,1.34
+dragon_knight,드래곤 기사,exp-easterling.png,cavalry,XL,tokens/dragon_knight.png,1,332,490,332,488,0.588,2902,
+easterling_priest,이스터링 전쟁사제,exp-easterling.png,support,M,tokens/easterling_priest.png,1,283,350,280,348,0.632,3474,1.28
+easterling_archer,이스터링 궁수,exp-easterling.png,infantry,M,tokens/easterling_archer.png,1,263,350,260,348,0.66,2655,1.36
+variag_warrior,바리악 전사,exp-easterling.png,infantry,M,tokens/variag_warrior.png,1,332,350,332,348,0.674,3660,1.37
+khandish_horseman,칸드 기병,exp-easterling.png,cavalry,XL,tokens/khandish_horseman.png,1,275,490,272,488,0.556,3917,
+forsaken,버려진 자(나즈굴),exp-dolguldur.png,hero,L,tokens/forsaken.png,1,297,360,296,360,0.615,1568,1.29
+castellan,돌 굴두르 성주,exp-dolguldur.png,hero,L,tokens/castellan.png,1,327,360,324,360,0.673,2218,1.21
+dungeon_keeper,감옥지기,exp-dolguldur.png,hero,L,tokens/dungeon_keeper.png,1,331,360,328,360,0.681,3153,1.44
+kardush,카두쉬 화염술사,exp-dolguldur.png,support,S,tokens/kardush.png,1,313,350,312,348,0.666,3223,1.35
+morgul_stalker,모르굴 추적자,exp-dolguldur.png,infantry,S,tokens/morgul_stalker.png,1,308,350,308,348,0.614,2339,1.34
+numenorean_marshal,검은 누메노르 사령관,exp-dolguldur.png,hero,L,tokens/numenorean_marshal.png,1,311,360,308,360,0.706,2066,1.14
+thrydan,트리단 울프스베인,exp-dunland.png,hero,L,tokens/thrydan.png,1,373,377,364,368,0.649,5345,1.18
+gorulf,고룰프 아이언스킨,exp-dunland.png,hero,M,tokens/gorulf.png,1,336,369,320,352,0.615,4293,1.27
+dunlending_berserker,던랜드 광전사,exp-dunland.png,infantry,M,tokens/dunlending_berserker.png,1,307,350,304,348,0.741,3763,
+dunlending_shaman,던랜드 주술사,exp-dunland.png,support,M,tokens/dunlending_shaman.png,1,293,350,292,348,0.729,3200,
+dunlending_archer,던랜드 궁수,exp-dunland.png,infantry,M,tokens/dunlending_archer.png,1,266,350,264,348,0.691,3119,1.34
+ruffian,샤키의 불한당,exp-dunland.png,infantry,M,tokens/ruffian.png,1,277,350,276,348,0.701,3032,1.34
+paladin_took,팔라딘 툭,exp-misc.png,hero,S,tokens/paladin_took.png,1,291,300,288,300,0.718,2711,1.23
+farmer_maggot,농부 매곳,exp-misc.png,hero,S,tokens/farmer_maggot.png,1,263,300,260,300,0.682,2618,1.27
+fredegar,프레데가르 볼저,exp-misc.png,hero,S,tokens/fredegar.png,1,290,300,288,300,0.729,2807,1.19
+durin_vi,두린 6세,exp-misc.png,hero,M,tokens/durin_vi.png,1,345,315,344,312,0.674,3500,1.28
+dead_spearman,죽은자 창병,exp-misc.png,infantry,M,tokens/dead_spearman.png,1,250,350,248,348,0.605,2863,1.5
+stone_giant,안개산맥 거인,exp-misc.png,monster,XXL,tokens/stone_giant.png,1,475,468,472,468,0.749,3556,
+gundabad_warg_rider,군다바드 와르그 기병,exp-wargs.png,cavalry,XL,tokens/gundabad_warg_rider.png,1,284,490,284,488,0.665,3542,
+terr_stone_barricade,석재 바리케이드,terrain-fort.png,terrain,L,tokens/terr_stone_barricade.png,1,473,341,448,316,0.795,6996,
+terr_spike_barricade,말뚝 바리케이드,terrain-fort.png,terrain,L,tokens/terr_spike_barricade.png,1,459,396,432,372,0.621,6167,
+terr_orc_barricade,오크 바리케이드,terrain-fort.png,terrain,L,tokens/terr_orc_barricade.png,1,591,360,588,360,0.619,5099,
+terr_sandbag,모래주머니 진지,terrain-fort.png,terrain,L,tokens/terr_sandbag.png,1,478,365,452,340,0.684,6194,
+terr_portcullis,철창 성문,terrain-fort.png,terrain,L,tokens/terr_portcullis.png,1,504,413,480,388,0.777,7467,
+terr_stone_archway,석조 아치,terrain-fort.png,terrain,L,tokens/terr_stone_archway.png,1,467,413,440,388,0.508,5431,
+terr_chest_open,열린 보물상자,terrain-treasure.png,terrain,M,tokens/terr_chest_open.png,1,274,350,272,348,0.827,4075,
+terr_chest_closed,보물상자,terrain-treasure.png,terrain,M,tokens/terr_chest_closed.png,1,456,350,456,348,0.972,5349,
+terr_gold_pile,금화 더미,terrain-treasure.png,terrain,M,tokens/terr_gold_pile.png,1,468,399,444,372,0.645,6592,
+terr_relic_shrine,유물 제단,terrain-treasure.png,terrain,L,tokens/terr_relic_shrine.png,1,416,464,392,440,0.761,8689,
+terr_hoard,보물 소굴,terrain-treasure.png,terrain,L,tokens/terr_hoard.png,1,517,445,492,420,0.625,7932,
+terr_loot_bag,전리품 가방,terrain-treasure.png,terrain,M,tokens/terr_loot_bag.png,1,444,442,420,416,0.663,7412,
+terr_sarcophagus,석관,terrain-dungeon.png,terrain,L,tokens/terr_sarcophagus.png,1,175,360,172,360,0.943,3005,
+terr_cage,철창 우리,terrain-dungeon.png,terrain,L,tokens/terr_cage.png,1,393,480,368,456,0.831,8411,
+terr_bone_pile,뼈더미,terrain-dungeon.png,terrain,M,tokens/terr_bone_pile.png,1,456,436,432,412,0.667,7793,
+terr_chain_post,족쇄 기둥,terrain-dungeon.png,terrain,M,tokens/terr_chain_post.png,1,355,350,352,348,0.583,3751,
+terr_throne,석조 왕좌,terrain-dungeon.png,terrain,L,tokens/terr_throne.png,1,247,360,244,360,0.918,3567,
+terr_altar,제단,terrain-dungeon.png,terrain,L,tokens/terr_altar.png,1,452,456,428,432,0.698,8117,
+terr_well,우물,terrain-village.png,terrain,M,tokens/terr_well.png,1,461,437,436,412,0.669,7669,
+terr_market_stall,장터 노점,terrain-village.png,terrain,L,tokens/terr_market_stall.png,1,532,490,532,488,0.837,8975,
+terr_haystack,건초더미,terrain-village.png,terrain,M,tokens/terr_haystack.png,1,426,423,400,396,0.603,6389,
+terr_hay_cart,건초 수레,terrain-village.png,terrain,M,tokens/terr_hay_cart.png,1,249,360,248,360,0.616,2881,
+terr_fence_gate,울타리 문,terrain-village.png,terrain,M,tokens/terr_fence_gate.png,1,1321,360,1320,360,0.746,8614,
+terr_beehive,벌통,terrain-village.png,terrain,M,tokens/terr_beehive.png,1,532,532,384,344,0.328,5637,
+terr_boulders,이끼 바위,terrain-wild.png,terrain,L,tokens/terr_boulders.png,1,465,422,440,396,0.654,7481,
+terr_mushroom_ring,버섯 고리,terrain-wild.png,terrain,L,tokens/terr_mushroom_ring.png,1,454,429,428,404,0.648,7408,
+terr_bramble,가시덤불,terrain-wild.png,terrain,L,tokens/terr_bramble.png,1,464,448,440,424,0.658,7784,
+terr_pond,연못,terrain-wild.png,terrain,L,tokens/terr_pond.png,1,473,455,448,428,0.695,8732,
+terr_waystone,룬 이정석,terrain-wild.png,terrain,L,tokens/terr_waystone.png,1,368,465,344,440,0.572,5855,
+terr_fallen_log,쓰러진 통나무,terrain-wild.png,terrain,L,tokens/terr_fallen_log.png,1,471,423,444,396,0.55,6436,
+terr_war_banner,전쟁기,terrain-camp.png,terrain,M,tokens/terr_war_banner.png,1,274,360,272,360,0.398,1888,
+terr_weapon_rack,무기 거치대,terrain-camp.png,terrain,M,tokens/terr_weapon_rack.png,1,442,360,440,360,0.679,3193,
+terr_anvil,대장간 모루,terrain-camp.png,terrain,L,tokens/terr_anvil.png,1,443,444,416,420,0.576,6202,
+terr_ammo_pile,화살 보급더미,terrain-camp.png,terrain,M,tokens/terr_ammo_pile.png,1,417,460,400,444,0.636,7195,
+terr_map_table,지도 탁자,terrain-camp.png,terrain,L,tokens/terr_map_table.png,1,478,432,460,416,0.732,8924,
+terr_torch_post,횃불 기둥,terrain-camp.png,terrain,M,tokens/terr_torch_post.png,1,140,350,140,348,0.703,1865,
+arathorn,아라손,nb-exp-heroes2.png,hero,M,tokens/arathorn.png,1,316,350,316,348,0.679,3036,1.32
+angbor,앵보르 무서운 자,nb-exp-heroes2.png,hero,M,tokens/angbor.png,1,291,350,288,348,0.673,2882,1.2
+dunhere,둔헤레,nb-exp-heroes2.png,hero,M,tokens/dunhere.png,1,297,350,296,348,0.656,3085,1.4
+haleth,할레스,nb-exp-heroes2.png,hero,M,tokens/haleth.png,1,306,350,304,348,0.736,3189,1.26
+bandobras,반도브라스 툭,nb-exp-heroes2.png,hero,S,tokens/bandobras.png,1,279,300,276,300,0.671,2468,1.29
+gildor,길도르,nb-exp-heroes2.png,hero,M,tokens/gildor.png,1,285,350,284,348,0.669,3368,1.27
+grishnakh,그리쉬나크,nb-exp-evil2.png,hero,M,tokens/grishnakh.png,1,312,350,312,348,0.646,3169,1.43
+snaga,스나가,nb-exp-evil2.png,hero,S,tokens/snaga.png,1,288,321,288,320,0.734,2934,1.29
+zagdush,자그두쉬,nb-exp-evil2.png,hero,M,tokens/zagdush.png,1,287,315,284,312,0.748,3271,1.15
+dalamyr,달라미르,nb-exp-evil2.png,hero,M,tokens/dalamyr.png,1,297,350,296,348,0.703,3873,1.21
+goblin_drummer,고블린 북병,nb-exp-evil2.png,support,M,tokens/goblin_drummer.png,1,267,315,264,312,0.718,3089,1.28
+yazneg,야즈네그,nb-exp-evil2.png,hero,M,tokens/yazneg.png,1,294,350,292,348,0.749,3817,1.19
+eorl_the_young,에오를,nb-exp-heroes3.png,hero,XL,tokens/eorl_the_young.png,1,313,490,312,488,0.56,3966,1.62
+helm_hammerhand,헬름 해머핸드,nb-exp-heroes3.png,hero,L,tokens/helm_hammerhand.png,1,336,360,336,360,0.671,3287,1.28
+tom_bombadil,톰 봄바딜,nb-exp-heroes3.png,hero,M,tokens/tom_bombadil.png,1,225,300,224,300,0.657,2272,1.29
+goldberry,골드베리,nb-exp-heroes3.png,hero,M,tokens/goldberry.png,1,183,300,180,300,0.802,2419,
+dead_rider,망자 기병,nb-exp-heroes3.png,cavalry,XL,tokens/dead_rider.png,1,297,490,296,488,0.651,3426,
+dervorin,데르보린,nb-exp-heroes3.png,hero,M,tokens/dervorin.png,1,323,350,320,348,0.661,3275,1.28
+dol_amroth_man_at_arms,돌 암로스 병사,nb-exp-troops2.png,infantry,M,tokens/dol_amroth_man_at_arms.png,1,278,350,276,348,0.649,2922,1.41
+numenorean_archer,누메노르 궁병,nb-exp-troops2.png,infantry,M,tokens/numenorean_archer.png,1,290,350,288,348,0.735,2878,1.21
+sons_of_eorl,에오를의 아들들,nb-exp-troops2.png,cavalry,XL,tokens/sons_of_eorl.png,1,349,490,348,488,0.534,4144,
+vault_warden,철언덕 방벽병,nb-exp-troops2.png,infantry,M,tokens/vault_warden.png,1,299,315,296,312,0.679,3126,1.31
+palace_guard,궁정 근위병,nb-exp-troops2.png,infantry,M,tokens/palace_guard.png,1,270,350,268,348,0.694,2999,1.26
+hobbit_militia,호빗 민병대,nb-exp-troops2.png,infantry,S,tokens/hobbit_militia.png,1,249,300,248,300,0.722,2474,1.15
+guritz,구리츠,nb-exp-evil3.png,hero,M,tokens/guritz.png,1,318,350,316,348,0.646,2671,1.32
+targsh,타르그쉬,nb-exp-evil3.png,hero,M,tokens/targsh.png,1,332,350,332,348,0.646,2911,1.33
+durburz,두르부르즈,nb-exp-evil3.png,hero,M,tokens/durburz.png,1,284,315,284,312,0.679,2995,1.22
+goblin_scribe,고블린 서기,nb-exp-evil3.png,support,S,tokens/goblin_scribe.png,1,255,315,252,312,0.642,2296,1.29
+fimbul,핌불,nb-exp-evil3.png,hero,M,tokens/fimbul.png,1,276,350,276,348,0.66,3109,1.3
+narzug,나르주그,nb-exp-evil3.png,hero,M,tokens/narzug.png,1,291,350,288,348,0.607,2696,1.3
+khandish_chariot,칸드 전차,nb-exp-harad2.png,cavalry,XL,tokens/khandish_chariot.png,1,366,490,364,488,0.796,5540,
+great_beast_gorgoroth,고르고로스 거수,nb-exp-harad2.png,monster,XXL,tokens/great_beast_gorgoroth.png,1,511,510,416,488,0.511,5344,
+khandish_chieftain,칸드 족장,nb-exp-harad2.png,hero,XL,tokens/khandish_chieftain.png,1,333,491,332,488,0.544,4057,1.35
+abrakhan_guard,아브라칸 근위대,nb-exp-harad2.png,infantry,M,tokens/abrakhan_guard.png,1,223,350,220,348,0.672,2608,1.26
+corsair_bosun,코르사 갑판장,nb-exp-harad2.png,infantry,M,tokens/corsair_bosun.png,1,318,350,316,348,0.666,3289,1.21
+spider_queen,거미 여왕,nb-exp-harad2.png,monster,XL,tokens/spider_queen.png,1,488,485,488,484,0.708,5079,
+turgon,투르곤,px-nb-exp-silm1.png,hero,M,tokens/turgon.png,1,256,350,256,348,0.669,2943,1.24
+fingon,핑곤,px-nb-exp-silm1.png,hero,M,tokens/fingon.png,1,315,350,312,348,0.664,3358,1.32
+ecthelion,엑텔리온,px-nb-exp-silm1.png,hero,M,tokens/ecthelion.png,1,321,350,320,348,0.675,3579,1.36
+finrod_felagund,핀로드 펠라군드,px-nb-exp-silm1.png,hero,M,tokens/finrod_felagund.png,1,315,350,312,348,0.68,3535,1.3
+tuor,투오르,px-nb-exp-silm1.png,hero,M,tokens/tuor.png,1,288,350,288,348,0.722,3218,1.14
+hurin_thalion,후린 탈리온,px-nb-exp-silm1.png,hero,M,tokens/hurin_thalion.png,1,304,350,304,348,0.657,2861,1.32
+maedhros,마이드로스,px-nb-exp-silm2.png,hero,M,tokens/maedhros.png,1,247,350,244,348,0.55,2443,1.72
+celegorm,켈레고름,px-nb-exp-silm2.png,hero,M,tokens/celegorm.png,1,250,350,248,348,0.595,2856,1.43
+thingol,싱골,px-nb-exp-silm2.png,hero,M,tokens/thingol.png,1,248,350,248,348,0.655,1791,1.3
+mablung_sindar,마블룽,px-nb-exp-silm2.png,hero,M,tokens/mablung_sindar.png,1,238,350,236,348,0.636,2725,1.43
+melian,멜리안,px-nb-exp-silm2.png,hero,M,tokens/melian.png,1,244,350,244,348,0.678,2992,1.18
+mim,밈,px-nb-exp-silm2.png,hero,S,tokens/mim.png,1,262,315,260,312,0.666,2690,1.31
+doriath_warrior,도리아스 전사,px-nb-exp-silm3.png,infantry,M,tokens/doriath_warrior.png,1,322,350,320,348,0.665,3347,1.3
+falathrim_archer,팔라스림 궁수,px-nb-exp-silm3.png,infantry,M,tokens/falathrim_archer.png,1,285,350,284,348,0.731,3497,1.24
+nargothrond_ranger,나르고스론드 레인저,px-nb-exp-silm3.png,infantry,M,tokens/nargothrond_ranger.png,1,295,350,292,348,0.689,3499,1.28
+edain_warrior,에다인 전사,px-nb-exp-silm3.png,infantry,M,tokens/edain_warrior.png,1,325,350,324,348,0.687,3722,1.25
+gondolin_guard,곤돌린 근위병,px-nb-exp-silm3.png,infantry,M,tokens/gondolin_guard.png,1,299,350,296,348,0.696,3449,1.24
+mirkwood_captain,미르크우드 대장,px-nb-exp-silm3.png,hero,M,tokens/mirkwood_captain.png,1,303,350,300,348,0.653,3470,1.26
+mordor_uruk,모르도르 우르크,px-nb-exp-mordor2.png,infantry,M,tokens/mordor_uruk.png,1,315,350,312,348,0.634,2084,1.37
+morgul_orc,모르굴 오크,px-nb-exp-mordor2.png,infantry,M,tokens/morgul_orc.png,1,299,350,296,348,0.615,2645,1.34
+morgul_rat,모르굴 추적병,px-nb-exp-mordor2.png,infantry,S,tokens/morgul_rat.png,1,275,350,272,348,0.625,2269,1.26
+ufthak,우프탁,px-nb-exp-mordor2.png,hero,M,tokens/ufthak.png,1,321,350,320,348,0.662,2517,1.33
+orc_sergeant,오크 하사,px-nb-exp-mordor2.png,hero,M,tokens/orc_sergeant.png,1,308,350,308,348,0.577,2521,1.28
+ashrak,아슈라크,px-nb-exp-mordor2.png,hero,M,tokens/ashrak.png,1,300,350,300,348,0.607,1878,1.4
+isengard_troll,이센가드 트롤,px-nb-exp-wotr.png,monster,XL,tokens/isengard_troll.png,1,449,490,448,488,0.677,3973,
+dunlending_horseman,던랜드 기병,px-nb-exp-wotr.png,cavalry,XL,tokens/dunlending_horseman.png,1,298,490,296,488,0.515,3562,
+wulf,울프,px-nb-exp-wotr.png,hero,M,tokens/wulf.png,1,318,350,316,348,0.692,3546,1.3
+hera,헤라,px-nb-exp-wotr.png,hero,M,tokens/hera.png,1,252,350,252,348,0.625,2858,1.45
+frealaf,프레알라프,px-nb-exp-wotr.png,hero,M,tokens/frealaf.png,1,262,350,260,348,0.641,2925,1.38
+rohan_yeoman,로한 여맨,px-nb-exp-wotr.png,infantry,M,tokens/rohan_yeoman.png,1,287,350,284,348,0.701,3247,1.38
+serpent_guard,뱀 근위대,px-nb-exp-harad3.png,infantry,M,tokens/serpent_guard.png,1,256,350,256,348,0.63,3012,1.27
+corsair_crossbowman,코르사 석궁병,px-nb-exp-harad3.png,infantry,M,tokens/corsair_crossbowman.png,1,275,350,272,348,0.673,3040,1.18
+mahud_blowpipe,마후드 취관병,px-nb-exp-harad3.png,infantry,M,tokens/mahud_blowpipe.png,1,250,350,248,348,0.627,2835,1.47
+khandish_warrior,칸드 전사,px-nb-exp-harad3.png,infantry,M,tokens/khandish_warrior.png,1,301,350,300,348,0.65,3557,1.25
+easterling_mounted_archer,이스터링 기마궁수,px-nb-exp-harad3.png,cavalry,XL,tokens/easterling_mounted_archer.png,1,246,490,244,488,0.638,3424,
+far_harad_chieftain,먼 하라드 족장,px-nb-exp-harad3.png,hero,M,tokens/far_harad_chieftain.png,1,270,350,268,348,0.68,3003,1.34
+numenorean_knight,누메노르 기사,px-nb-exp-gondor2.png,cavalry,XL,tokens/numenorean_knight.png,1,339,490,336,488,0.456,3484,
+arnor_archer,아르노르 궁수,px-nb-exp-gondor2.png,infantry,M,tokens/arnor_archer.png,1,271,350,268,348,0.714,2739,1.24
+duilin,두일린,px-nb-exp-gondor2.png,hero,M,tokens/duilin.png,1,256,350,256,348,0.694,2703,1.32
+derufin,데루핀,px-nb-exp-gondor2.png,hero,M,tokens/derufin.png,1,292,350,292,348,0.695,1423,1.26
+hirgon,히르곤,px-nb-exp-gondor2.png,hero,M,tokens/hirgon.png,1,263,350,260,348,0.643,2442,1.32
+pippin_citadel,성채 근위병 피핀,px-nb-exp-gondor2.png,hero,S,tokens/pippin_citadel.png,1,284,350,284,348,0.694,1868,1.24
+beorn_bear,베오른 (곰),px-nb-exp-wild.png,monster,XL,tokens/beorn_bear.png,1,517,570,516,568,0.675,3086,
+gwaihir,그와이히르,px-nb-exp-wild.png,hero,XL,tokens/gwaihir.png,1,505,490,504,488,0.524,4719,1.74
+lobelia,로벨리아,px-nb-exp-wild.png,hero,S,tokens/lobelia.png,1,247,300,244,300,0.71,2861,1.23
+will_whitfoot,윌 휫풋,px-nb-exp-wild.png,hero,S,tokens/will_whitfoot.png,1,282,300,280,300,0.73,3199,1.21
+dwarf_shieldbearers,드워프 방패 운반병,px-nb-exp-wild.png,support,M,tokens/dwarf_shieldbearers.png,1,299,315,296,312,0.774,3666,1.12
+iron_hills_captain,아이언 힐즈 대장,px-nb-exp-wild.png,hero,M,tokens/iron_hills_captain.png,1,276,315,276,312,0.705,3050,1.18
+fingolfin_mounted,핑골핀 (기마),px-fix-fingolfin.png,hero,XL,tokens/fingolfin_mounted.png,1,325,491,324,488,0.569,4364,1.5
+pallando,팔란도,,hero,L,tokens/pallando.png,1,280,360,280,360,0.65,3049,1.2
+alatar,알라타르,,hero,L,tokens/alatar.png,1,308,360,308,360,0.609,2828,1.21
+annatar,안나타르,,hero,L,tokens/annatar.png,1,254,360,252,360,0.655,3399,1.22
+sauron_wolf,사우론 (늑대),,monster,XL,tokens/sauron_wolf.png,1,351,442,348,440,0.608,2241,
+landroval,란드로발,,monster,XL,tokens/landroval.png,1,504,490,504,488,0.541,3799,
+meneldor,메넬도르,,monster,XL,tokens/meneldor.png,1,503,490,500,488,0.565,4151,
+leaflock,리플락,,monster,XL,tokens/leaflock.png,1,421,490,420,488,0.567,5244,
+beechbone,비치본,,monster,XL,tokens/beechbone.png,1,373,490,372,488,0.523,3859,
+azaghal,아자갈,,hero,L,tokens/azaghal.png,1,339,316,336,316,0.646,3615,
+nain,나인,,hero,L,tokens/nain.png,1,335,316,332,316,0.69,3673,1.07
+maglor,마글로르,,hero,L,tokens/maglor.png,1,267,360,264,360,0.648,3071,1.22
+gwindor,그윈도르,,hero,L,tokens/gwindor.png,1,301,360,300,360,0.673,3098,1.25
+celebrimbor,켈레브림보르,,hero,L,tokens/celebrimbor.png,1,319,360,316,360,0.612,3907,1.14
+daeron,다에론,,hero,L,tokens/daeron.png,1,224,360,224,360,0.686,2940,1.15
+earnur,에아르누르,,hero,L,tokens/earnur.png,1,303,360,300,360,0.629,2312,1.16
+sangarunya,상가루냐,,hero,L,tokens/sangarunya.png,1,296,360,296,360,0.682,2899,1.25
+huor,후오르,,hero,L,tokens/huor.png,1,266,360,264,360,0.69,3077,1.22
+barahir,바라히르,,hero,L,tokens/barahir.png,1,264,360,264,360,0.636,2307,1.39
+elendur,엘렌두르,,hero,L,tokens/elendur.png,1,255,360,252,360,0.62,2794,1.19
+arpharazon,아르파라존,,hero,L,tokens/arpharazon.png,1,305,360,304,360,0.646,3326,1.26
+anarion,아나리온,,hero,L,tokens/anarion.png,1,338,360,336,360,0.467,2675,1.27
+earendil,에아렌딜,,hero,L,tokens/earendil.png,1,407,360,404,360,0.583,4383,1.29
+maeglin,매글린,,hero,L,tokens/maeglin.png,1,393,360,392,360,0.536,2704,1.25
+eol,에올,,hero,L,tokens/eol.png,1,349,360,348,360,0.53,1853,1.29
+galdor,갈도르,,hero,L,tokens/galdor.png,1,320,360,320,360,0.532,3077,1.22
+thrain,스라인,,hero,GS,tokens/thrain.png,1,299,315,296,312,0.675,3113,1.27
+thror,스로르,,hero,GS,tokens/thror.png,1,300,315,300,312,0.701,3435,1.17
+golfimbul,골핌불,,hero,L,tokens/golfimbul.png,1,359,360,356,360,0.553,2949,1.29
+eomund,에오문드,,hero,XL,tokens/eomund.png,1,310,490,308,488,0.493,3280,1.38
+guthlaf,구슬라프,,soldier,M,tokens/guthlaf.png,1,259,350,256,348,0.634,2719,
+ingold,잉골드,,soldier,M,tokens/ingold.png,1,369,350,368,348,0.562,2550,1.37
+corsair_captain,움바 선장,,hero,L,tokens/corsair_captain.png,1,309,360,308,360,0.532,2625,1.23
+butterbur,버터버,,civil,M,tokens/butterbur.png,1,376,350,376,348,0.631,3594,1.32
+bill_ferny,빌 페르니,,civil,M,tokens/bill_ferny.png,1,311,350,308,348,0.555,2516,1.34
+scatha,스카사,,monster,XXL,tokens/scatha.png,1,408,570,408,568,0.58,4367,
+war_hound,전투견,,beast,GS,tokens/war_hound.png,1,227,315,224,312,0.591,1998,
+terr_palantir,팔란티르,,terrain,M,tokens/terr_palantir.png,1,280,350,280,348,0.52,2409,
+terr_white_tree,흰나무 묘목,,terrain,L,tokens/terr_white_tree.png,1,320,360,320,360,0.682,4355,
+terr_argonath,아르고나스,,terrain,XXL,tokens/terr_argonath.png,1,435,570,432,568,0.593,6827,
+terr_osgiliath_dome,오스길리아스 돔,,terrain,XL,tokens/terr_osgiliath_dome.png,1,515,490,512,488,0.766,8890,
+terr_mumak_skull,무마킬 해골,,terrain,XL,tokens/terr_mumak_skull.png,1,531,490,528,488,0.589,6222,
+galadhrim_knight,갈라드림 기사,px-nb-roster-varied-v1.png,cavalry,XL,tokens/galadhrim_knight.png,1,266,502,240,476,0.48,3321,
+mahud_raider,마후드 약탈자,px-nb-roster-varied-v1.png,infantry,M,tokens/mahud_raider.png,1,353,450,328,424,0.476,3732,1.5
+camel_rider,낙타 기병,px-nb-roster-varied-v1.png,cavalry,XL,tokens/camel_rider.png,1,263,494,236,472,0.587,4056,
+dale_warrior,데일 전사,px-nb-roster-varied-v2.png,infantry,M,tokens/dale_warrior.png,1,347,380,320,356,0.472,3151,1.34
+esgaroth_archer,에스가로스 궁수,px-nb-roster-varied-v2.png,infantry,M,tokens/esgaroth_archer.png,1,314,386,288,360,0.56,3469,1.26
+thorondor,소론도르,px-nb-roster-varied-v2.png,monster,XXL,tokens/thorondor.png,1,603,378,576,352,0.508,5881,
+rhosgobel_rabbit,로스고벨 토끼썰매,px-nb-roster-varied-v2.png,beast,L,tokens/rhosgobel_rabbit.png,1,382,465,356,440,0.645,5836,
+morgul_duellist,모르굴 결투사,px-nb-roster-varied-v2.png,infantry,M,tokens/morgul_duellist.png,1,363,456,336,432,0.404,2874,1.51
+troll_shaman,트롤 주술사,px-nb-roster-varied-v2.png,monster,L,tokens/troll_shaman.png,1,533,561,508,536,0.562,8061,
