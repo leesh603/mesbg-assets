@@ -23,7 +23,7 @@
 
 ## 픽셀 UI 자원
 
-- 로고: `assets/mesbg/ui/logo.png` (도트 그림, 화면에서 2배 확대). `python3 tools/make_logo.py <galmuri/dist 경로>`로 다시 그린다.
+- 로고: `assets/mesbg/ui/logo.png` (도트 그림, 화면에서 2배 확대). `python3 tools/make_logo.py <google/fonts 저장소 경로>`로 다시 만든다 (블랙레터·Cinzel Decorative로 그린 뒤 도트로 변환, playwright 필요).
 - 글꼴: 갈무리 픽셀 폰트(SIL OFL, https://github.com/quiple/galmuri)를 `assets/mesbg/fonts/galmuri/`에 서브셋으로 넣었다. 게임에 새 한글 문자열을 많이 추가했다면 `python3 tools/make_ui_fonts.py <galmuri/dist 경로>`로 다시 만든다. 크기는 원래 격자에 맞춰 10px(Galmuri9)·12px(Galmuri11)·15px(Galmuri14)·24px(Galmuri11 Bold)만 쓴다.
 - 테두리: 버튼·패널·카드의 도트 테두리는 `tools/make_pixel_frames.py`가 만드는 CSS 변수(`--pf-*`)다. 출력을 index.html `ui-pixel` 스타일 맨 앞 `:root{...}`에 붙인다.
 
