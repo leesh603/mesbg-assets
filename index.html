@@ -9433,11 +9433,24 @@ document.querySelector('.top-actions').insertAdjacentHTML('afterbegin', '<button
   ut('auto').onclick = () => { AUTO = !AUTO; q._autoCampNote = 0; ut('auto').classList.toggle('on', AUTO); ut('auto').textContent = AUTO ? '자동 중' : '자동'; Xt(AUTO ? '자동 진행 시작 — 아군 턴도 AI가 맡습니다. 보상 화면에서는 멈춥니다.' : '자동 진행 해제'); me(); };
 window.MESBG.auto = v => { if (v !== undefined && v !== AUTO)
     ut('auto').click(); return AUTO; };
-// 자동 진행 중 플레이어가 전장이나 조종 패널을 직접 누르면 자동 해제. 정비 화면(#overlay)과 상단 버튼(.top-actions)은 자동 유지.
-document.addEventListener('pointerdown', e => { if (!AUTO)
-    return; if (e.target.closest('.top-actions,#overlay'))
-    return; if (e.target.closest('.battle-column,.aside'))
-    ut('auto').click(); }, true);
+// 자동 진행 중: 전장(#game)을 짧게 탭해야만 자동 해제. 카메라 드래그·핀치·미니맵·줌·패널·정비 화면·상단 버튼은 자동 유지.
+let _autoTapPt = null;
+document.addEventListener('pointerdown', e => {
+    if (!AUTO) { _autoTapPt = null; return; }
+    if (e.target.closest('.top-actions,#overlay'))
+        return;
+    if (!_autoTapPt && e.target.closest('#game'))
+        _autoTapPt = { id: e.pointerId, x: e.clientX, y: e.clientY };
+}, true);
+document.addEventListener('pointerup', e => {
+    if (!AUTO || !_autoTapPt || e.pointerId !== _autoTapPt.id)
+        return;
+    const dx = e.clientX - _autoTapPt.x, dy = e.clientY - _autoTapPt.y;
+    _autoTapPt = null;
+    if (dx * dx + dy * dy < 100)
+        ut('auto').click();
+}, true);
+document.addEventListener('pointercancel', () => { _autoTapPt = null; }, true);
 // Collapsible battle panel on small screens.
 document.querySelector('.aside').insertAdjacentHTML('afterbegin', '<button id="sheet-toggle" type="button">전투 패널</button>');
 ut('sheet-toggle').onclick = () => { const a = document.querySelector('.aside'); a.classList.toggle('open'); if (a.classList.contains('open'))
