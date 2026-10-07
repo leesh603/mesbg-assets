@@ -10949,7 +10949,7 @@ document.head.appendChild(polishStyle);
 // Pixel UI fonts (Galmuri, SIL OFL 1.1) — registered through Ut() so the offline bundle embeds them too.
 (function(){try{if(document.getElementById('lwb-fonts'))return;const st=document.createElement('style');st.id='lwb-fonts';
 const ff=(fam,file,w)=>"@font-face{font-family:'"+fam+"';src:url('"+Ut('fonts/galmuri/'+file+'.woff')+"') format('woff');font-weight:"+w+";font-display:swap}";
-st.textContent=ff('Galmuri11','Galmuri11',400)+ff('Galmuri11','Galmuri11-Bold',700)+ff('Galmuri9','Galmuri9',400)+ff('Galmuri14','Galmuri14',400);document.head.appendChild(st);}catch(e){}})();
+st.textContent=ff('Galmuri11','Galmuri11',400)+ff('Galmuri11','Galmuri11-Bold',700)+ff('Galmuri9','Galmuri9',400)+ff('Galmuri14','Galmuri14',400)+":root{--ui-bg:url('"+Ut('ui/title-bg.jpg')+"')}";document.head.appendChild(st);}catch(e){}})();
 // Title shows real loader progress; the battlefield is veiled until its textures are in; DOM portraits shimmer until loaded.
 (function(){
 const st={p:0,done:false};
@@ -11543,6 +11543,51 @@ html body.lwb-polished #app .field-veil b,html body.lwb-polished #app .boot-load
 html body.lwb-polished #app .field-veil span{font:var(--f-m);color:var(--gold)}
 html body.lwb-polished.assets-ready #app .field-veil{display:none}
 html body.lwb-polished:not(.assets-ready) #app .u-actions{pointer-events:none;opacity:.55}
+/* recruit screen — same dusk painting and bronze/gold pixel trim as the title */
+html body.lwb-polished #app .overlay:has(.recruit-cards){background:linear-gradient(180deg,rgba(8,5,12,.72),rgba(8,5,12,.86)),var(--ui-bg) center 40%/cover no-repeat,#08050c!important}
+html body.lwb-polished #app .modal.camp:has(.recruit-cards){--ink:#0a0604;border:0!important;border-image:none!important;border-radius:0!important;padding:16px 14px 0!important;
+ background:linear-gradient(180deg,rgba(18,12,22,.1) 0,rgba(18,12,22,.5) 120px,rgba(16,11,18,.94) 260px),var(--ui-bg) center -150px/100% auto no-repeat,#120c14!important;box-shadow:0 0 0 2px #0a0604,0 0 0 4px #c9a24e,0 0 0 6px #2a1a08,0 16px 40px rgba(0,0,0,.6)!important;font-synthesis:none}
+html body.lwb-polished #app .camp:has(.recruit-cards) > .eyebrow{display:inline-block!important;margin:0 0 4px!important;padding:0!important;border:0!important;background:none!important;box-shadow:none!important;font:10px Galmuri9,sans-serif!important;letter-spacing:.12em;color:#c9a24e!important;text-shadow:0 2px 0 #000}
+html body.lwb-polished #app .camp:has(.recruit-cards) > .eyebrow::before{content:"◆ "}
+html body.lwb-polished #app .camp:has(.recruit-cards) > h2{margin:0 0 10px!important;font:700 24px Galmuri11,sans-serif!important;letter-spacing:.04em;color:#f6dc9c!important;
+ text-shadow:0 2px 0 #2a1600,2px 0 0 #2a1600,-2px 0 0 #2a1600,0 -2px 0 #2a1600,0 4px 0 rgba(0,0,0,.6),0 0 14px rgba(255,190,90,.35)!important}
+html body.lwb-polished #app .camp:has(.recruit-cards) .recruit-summary{margin:0 0 8px!important;padding:8px 10px!important;font:12px/20px Galmuri11,sans-serif!important;color:#d8cfbd!important;background:rgba(0,0,0,.45);box-shadow:inset 0 0 0 2px #2a1a08,inset 0 0 0 3px rgba(201,162,78,.35)}
+html body.lwb-polished #app .camp:has(.recruit-cards) .recruit-summary b{color:#ffd98a!important;font-weight:700}
+html body.lwb-polished #app .camp:has(.recruit-cards) .draft-help{margin:0 0 10px!important;font:10px Galmuri9,sans-serif!important;color:#a99f8c!important}
+html body.lwb-polished #app .camp:has(.recruit-cards) .recruit-cards{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important;padding:4px 4px 8px}
+/* card */
+html body.lwb-polished #app .camp .recruit-card{gap:0!important;padding:8px 6px 10px!important;border:0!important;border-radius:0!important;
+ background:linear-gradient(180deg,color-mix(in srgb,var(--rc) 14%,#1c1622) 0,#141019 62%)!important;
+ box-shadow:0 0 0 2px #0a0604,inset 0 0 0 2px color-mix(in srgb,var(--rc) 70%,#000),inset 0 0 0 4px #0a0604,inset 0 2px 0 4px color-mix(in srgb,var(--rc) 25%,transparent)!important;font-synthesis:none}
+html body.lwb-polished #app .camp .recruit-card.tier-normal{box-shadow:0 0 0 2px #0a0604,inset 0 0 0 2px #4a4252,inset 0 0 0 4px #0a0604!important}
+html body.lwb-polished #app .camp .recruit-card:not(.is-picked) .pick-mark{display:none!important}
+html body.lwb-polished #app .camp .recruit-card.is-picked{transform:translateY(-3px);box-shadow:0 0 0 2px #0a0604,0 0 0 4px #ffd98a,0 0 0 6px #0a0604,0 0 18px rgba(255,200,90,.45),inset 0 0 0 2px color-mix(in srgb,var(--rc) 70%,#000),inset 0 0 0 4px #0a0604!important}
+html body.lwb-polished #app .camp .recruit-card.is-picked .pick-mark{display:block!important;position:absolute;top:6px;right:6px;left:auto!important;z-index:2;padding:2px 6px!important;font:700 10px Galmuri9,sans-serif!important;color:#2a1600!important;background:#ffd98a!important;box-shadow:0 0 0 2px #0a0604}
+html body.lwb-polished #app .camp .recruit-card.is-picked .pick-mark::before{content:"✓ "}
+html body.lwb-polished #app .camp .recruit-card[disabled]:not(.is-picked){filter:saturate(.35) brightness(.7)}
+html body.lwb-polished #app .camp .recruit-card img{width:72px!important;height:72px!important;margin:4px auto 6px!important;image-rendering:pixelated}
+html body.lwb-polished #app .camp .recruit-grade{align-self:center!important;margin:0 0 6px!important;padding:1px 8px!important;font:700 10px Galmuri9,sans-serif!important;letter-spacing:.06em;color:#120a05!important;background:var(--rc)!important;
+ box-shadow:0 0 0 2px #0a0604,inset 0 -2px 0 var(--rcd)!important}
+html body.lwb-polished #app .camp .recruit-card b{font:700 12px Galmuri11,sans-serif!important;color:#f4ecd8!important;text-shadow:0 2px 0 #000!important}
+html body.lwb-polished #app .camp .recruit-card:not(.tier-normal) b{color:color-mix(in srgb,var(--rc) 35%,#fff)!important}
+html body.lwb-polished #app .camp .recruit-card small{margin-top:2px;font:10px Galmuri9,sans-serif!important;color:#a99f8c!important}
+html body.lwb-polished #app .camp .recruit-card p{margin:6px 0 8px!important;font:10px/16px Galmuri9,sans-serif!important;color:#d8cfbd!important}
+html body.lwb-polished #app .camp .recruit-card em{margin-top:auto;padding:3px 10px!important;font:700 12px Galmuri11,sans-serif!important;font-style:normal!important;color:#ffd98a!important;background:#0a0604!important;box-shadow:inset 0 0 0 2px #3a2814!important;border-radius:0!important}
+html body.lwb-polished #app .camp .recruit-card em::before{content:"";display:inline-block;width:8px;height:8px;margin-right:5px;vertical-align:0;background:#ffd24a;box-shadow:inset -2px -2px 0 #b8801c,inset 2px 2px 0 #fff1a8}
+/* buttons */
+html body.lwb-polished #app .camp:has(.recruit-cards) .camp-secondary{gap:10px!important;margin:6px 4px 4px!important}
+html body.lwb-polished #app .camp:has(.recruit-cards) .camp-secondary button{flex:1 1 0;min-height:36px!important;padding:0 4px!important;border:0!important;border-image:none!important;border-radius:0!important;white-space:nowrap;
+ font:12px Galmuri11,sans-serif!important;color:#f6e4b8!important;text-shadow:0 2px 0 #000!important;
+ background:linear-gradient(180deg,#5a4126 0,#33240f 55%,#22180a 100%)!important;box-shadow:inset 0 2px 0 #9a7a48,inset 0 -2px 0 #120a04,0 0 0 2px #0a0604,0 0 0 4px #8a6a32!important}
+html body.lwb-polished #app .camp:has(.recruit-cards) .camp-secondary button[disabled]{filter:grayscale(1) brightness(.6)}
+html body.lwb-polished #app .camp:has(.recruit-cards) .camp-confirm{margin:12px -14px 0!important;padding:10px 14px calc(12px + env(safe-area-inset-bottom))!important;border:0!important;
+ background:linear-gradient(180deg,#22180f,#120c08)!important;box-shadow:inset 0 2px 0 #c9a24e,inset 0 4px 0 #2a1a08!important}
+html body.lwb-polished #app .camp:has(.recruit-cards) .camp-confirm span{font:12px Galmuri11,sans-serif!important;color:#e6dac2!important}
+html body.lwb-polished #app .camp:has(.recruit-cards) #draft-confirm{min-height:40px!important;padding:0 16px!important;border:0!important;border-image:none!important;border-radius:0!important;
+ font:700 12px Galmuri11,sans-serif!important;letter-spacing:.06em;color:#2a1600!important;text-shadow:0 1px 0 rgba(255,240,190,.6)!important;
+ background:linear-gradient(180deg,#fff0b8 0,#f2d58a 30%,#c9973a 100%)!important;box-shadow:inset 0 -3px 0 #8a5e16,0 0 0 2px #0a0604,0 0 0 4px #ffe6a0,0 0 14px rgba(255,200,90,.45)!important}
+html body.lwb-polished #app .camp:has(.recruit-cards) #draft-confirm[disabled]{filter:grayscale(.8) brightness(.6);box-shadow:inset 0 -3px 0 #4a3a20,0 0 0 2px #0a0604!important}
+html body.lwb-polished #app .camp:has(.recruit-cards) .mount-head{font:700 12px Galmuri11,sans-serif!important;color:#f6dc9c!important}
 @keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 /* portraits shimmer until their image has loaded */
 html body.lwb-polished #app .recruit-card img:not(.ld),html body.lwb-polished #app .reward img:not(.ld),html body.lwb-polished #app .camp-roster img:not(.ld),html body.lwb-polished #app .honor-entry img:not(.ld){background:repeating-linear-gradient(45deg,#2a3228 0 4px,#222a21 4px 8px);animation:imgWait .8s steps(2) infinite alternate}
