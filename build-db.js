@@ -86,7 +86,6 @@ const dispWH = r => {
     return [Math.round(dia * t), Math.round(dia)];
   } catch (e) { return [Math.round(dia * 0.7), Math.round(dia)]; }
 };
-const FIG_H = Math.min(340, Math.max(...rows.map(r => dispWH(r)[1]))) + 8;
 const ROLE_KO = { hero: '영웅', infantry: '보병', cavalry: '기병', monster: '괴물', bigmonster: '대형괴물', support: '지원/기수', terrain: '지형지물' };
 const ROLE_ORDER = ['hero', 'infantry', 'cavalry', 'monster', 'bigmonster', 'support', 'terrain'];
 // display group: mounted heroes and XL riders group under 기병, beasts under
@@ -95,12 +94,17 @@ const grp = r => r.role === 'monster' ? (r.base === 'XXL' ? 'bigmonster' : 'mons
   : r.role === 'beast' ? 'monster'
   : (r.role === 'cavalry' || (r.base === 'XL' && r.role !== 'monster')) ? 'cavalry'
   : r.role;
-const CARD_H = FIG_H + 116;
+// fig area height per display group — uniform box within each section, no
+// giant empty space above small sprites
+const FIG_H = {};
+for (const r of rows) { const g = grp(r); FIG_H[g] = Math.max(FIG_H[g] || 0, dispWH(r)[1]); }
+for (const g in FIG_H) FIG_H[g] = Math.min(340, FIG_H[g]) + 8;
 const card = r => {
   const [w, h] = dispWH(r);
+  const fh = FIG_H[grp(r)];
   const st = r.stats ? '<div class="meta" style="color:#d8c98a">F' + r.stats.f + ' S' + r.stats.s + ' D' + r.stats.d + ' A' + r.stats.a + ' W' + r.stats.w + ' C' + r.stats.c + ' · M' + r.stats.might + ' W' + r.stats.will + ' F' + r.stats.fate + '</div>' : '';
   const rl = (r.rules && r.rules.length) ? '<div class="meta" style="color:#9a8ac0">' + r.rules.join(' · ') + '</div>' : '';
-  return `<div class="card" style="width:205px;height:${CARD_H}px;overflow:hidden"><div class="fig" style="height:${FIG_H}px"><img src="tokens/${r.id}.png?v=${Date.now()}" loading="lazy" style="height:${h}px;width:${w}px;max-height:${FIG_H}px;max-width:190px;object-fit:contain"></div><div class="id">${r.id}</div><div class="ko">${r.name_ko}</div><div class="meta">${r.faction} · ${r.role} · ${r.weapon}${r.base_mm ? " · " + r.base_mm : ""}${(r.traits && r.traits.length) ? " · " + r.traits.join("·") : ""}</div>${st}${rl}</div>`;
+  return `<div class="card" style="width:205px;height:${fh + 116}px;overflow:hidden"><div class="fig" style="height:${fh}px"><img src="tokens/${r.id}.png?v=${Date.now()}" loading="lazy" style="height:${h}px;width:${w}px;max-height:${fh}px;max-width:190px;object-fit:contain"></div><div class="id">${r.id}</div><div class="ko">${r.name_ko}</div><div class="meta">${r.faction} · ${r.role} · ${r.weapon}${r.base_mm ? " · " + r.base_mm : ""}${(r.traits && r.traits.length) ? " · " + r.traits.join("·") : ""}</div>${st}${rl}</div>`;
 };
 const roleGrid = list => ROLE_ORDER.filter(ro => list.some(r => grp(r) === ro)).map(ro =>
   `<h3>${ROLE_KO[ro] || ro} — ${list.filter(r => grp(r) === ro).length}</h3><div class="grid">${list.filter(r => grp(r) === ro).map(card).join('')}</div>`).join('');
