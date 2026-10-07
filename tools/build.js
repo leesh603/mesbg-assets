@@ -1,6 +1,6 @@
 // tools/build.js — splice src/game.js into index.html between the
 // /*__LWB_SRC_BEGIN__*/ ... /*__LWB_SRC_END__*/ markers, then rebuild the
-// self-contained LAST-WAR-BAND_v1.9.html (offline bundle, not committed —
+// self-contained MIDDLE-EARTH-WARBANDS_v1.9.html (offline bundle, not committed —
 // it exceeds GitHub's 100MB file limit).
 //
 // index.html is the source of truth: it holds all markup, CSS, engine code
@@ -12,7 +12,7 @@ const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
 const INDEX = path.join(ROOT, 'index.html');
-const FAT = path.join(ROOT, 'LAST-WAR-BAND_v1.9.html');
+const FAT = path.join(ROOT, 'MIDDLE-EARTH-WARBANDS_v1.9.html');
 const SRC = path.join(ROOT, 'src', 'game.js');
 const AROOT = path.join(ROOT, 'assets', 'mesbg');
 const BEGIN = '/*__LWB_SRC_BEGIN__*/';
@@ -52,4 +52,4 @@ let count = 0;
 const fat = html.replace(STUB, () => 'window.__MESBG_ASSETS__=' + JSON.stringify(map) + ';');
 if (fat === html) { console.error('asset stub not found in index.html'); process.exit(1); }
 fs.writeFileSync(FAT, fat);
-console.log(`built offline bundle (${count} assets embedded) → LAST-WAR-BAND_v1.9.html`, (fat.length / 1048576).toFixed(1) + 'MB');
+console.log(`built offline bundle (${count} assets embedded) → MIDDLE-EARTH-WARBANDS_v1.9.html`, (fat.length / 1048576).toFixed(1) + 'MB');
