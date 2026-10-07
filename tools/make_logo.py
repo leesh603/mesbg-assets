@@ -39,7 +39,7 @@ def line(font, text, size, tracking, x0, baseline, anchor='middle'):
 _, a0, b0 = line(BL, 'Middle-earth', 100, 0, 0, 0)
 SZ = 100 * (W - 28) / (b0 - a0)          # fit the blackletter line to the card width
 L1, a1, b1 = line(BL, 'Middle-earth', SZ, 0, W / 2, 112)
-L2, a2, b2 = line(CD, 'WARBANDS', 40, 4, b1 - 10, 172, anchor='end')
+L2, a2, b2 = line(CD, 'WARBANDS', 40, 4, W / 2, 172)
 
 svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W*SCALE}" height="{H*SCALE}">
 <defs>
