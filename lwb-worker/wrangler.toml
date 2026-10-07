@@ -1,0 +1,10 @@
+name = "lwb-server"
+main = "src/index.js"
+compatibility_date = "2026-10-07"
+workers_dev = true
+account_id = "73f4dec1744f4b78ab7903ebec49e75a"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "lwb"
+database_id = "35decbba-ba01-4d9d-812a-8b9b832acb4f"
