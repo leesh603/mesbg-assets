@@ -35,25 +35,24 @@ def frame(rings, face, rivet=None, notch=True):
     return 'url("data:image/svg+xml,' + quote(svg, safe=':/=" ') .replace('"', "'") + '")'
 
 
-INK = '#120a05'
+INK = '#0a0c12'
 F = {
- # panels and sheets: dark iron with a gold trim
- 'panel':   frame([(INK, INK), ('#e8bd63', '#8f5f22'), ('#3a2716', '#24170d')], '#1c1611', rivet='#fff0b0'),
- # inset wells (HUD chips, stat cells)
- 'inset':   frame([(INK, INK), ('#070503', '#4a3a28')], '#15100c', notch=False),   # 2 rings: slice 4 = whole trim
+ # panels and sheets: slate with a steel trim
+ 'panel':   frame([(INK, INK), ('#c9d3e2', '#3e4a5e'), ('#2a3346', '#151a24')], '#171d29', rivet='#ffffff'),
+ # inset wells (HUD chips, stat cells) — 2 rings so slice 4 covers the whole trim
+ 'inset':   frame([(INK, INK), ('#05070a', '#36415a')], '#10141c', notch=False),
  # buttons
- 'gold':    frame([(INK, INK), ('#fff1b8', '#8a5a1c'), ('#f6d27a', '#b98330')], '#e3ad4f'),
- 'goldDn':  frame([(INK, INK), ('#8a5a1c', '#f3c96c'), ('#c08a36', '#e6b55a')], '#d39d42'),
- 'iron':    frame([(INK, INK), ('#8a7c66', '#2a231b'), ('#5a4f40', '#3a3228')], '#463d32'),
- 'ironDn':  frame([(INK, INK), ('#2a231b', '#7a6d59'), ('#3a3228', '#4e4538')], '#3c342b'),
- 'red':     frame([(INK, INK), ('#f08a70', '#5c160f'), ('#c4483a', '#8a2b1f')], '#a83728'),
- # cards by rarity
- 'card':    frame([(INK, INK), ('#a8865a', '#5a4428'), ('#2e241a', '#1c160f')], '#221b14'),
- 'cardLeg': frame([(INK, INK), ('#ffe08a', '#a8701f'), ('#4a3517', '#2a1d0c')], '#2b2114', rivet='#ffffff'),
- 'cardEpi': frame([(INK, INK), ('#d6b2f4', '#5c3a85'), ('#33243f', '#1f1628')], '#241b2b', rivet='#f3e6ff'),
- 'cardRar': frame([(INK, INK), ('#a9d2f5', '#355f8a'), ('#1f2e3d', '#141e28')], '#18212b', rivet='#e6f4ff'),
- 'cardEli': frame([(INK, INK), ('#bfe0a0', '#4a6b35'), ('#25321d', '#182113')], '#1c2418'),
- 'cardSel': frame([(INK, INK), ('#fff6c8', '#c4892c'), ('#f0c560', '#a8701f')], '#33281a', rivet='#ffffff'),
+ 'gold':    frame([(INK, INK), ('#fff3b0', '#8a5a0c'), ('#ffd966', '#c08a1e')], '#f2c14e'),
+ 'goldDn':  frame([(INK, INK), ('#8a5a0c', '#ffe27a'), ('#c08a1e', '#f5c95a')], '#e2b043'),
+ 'iron':    frame([(INK, INK), ('#9aa8c0', '#1c2230'), ('#56627a', '#2c3445')], '#3a4458'),
+ 'ironDn':  frame([(INK, INK), ('#1c2230', '#8796b0'), ('#2c3445', '#4a556b')], '#333c4e'),
+ 'red':     frame([(INK, INK), ('#ff8f75', '#5c160f'), ('#d64a36', '#8a2b1f')], '#b33a2a'),
+ # cards by rarity: grey · green · blue · purple · orange
+ 'card':    frame([(INK, INK), ('#b9c2cc', '#4a525c'), ('#2a3140', '#161b25')], '#1a202b'),
+ 'cardEli': frame([(INK, INK), ('#b4ff9c', '#1f7a2a'), ('#2a5a33', '#12221a')], '#152218', rivet='#e8ffe0'),
+ 'cardRar': frame([(INK, INK), ('#b0dcff', '#1d5ab8'), ('#24447a', '#111d30')], '#121b2c', rivet='#ffffff'),
+ 'cardEpi': frame([(INK, INK), ('#ecbfff', '#6a22b8'), ('#4d2a78', '#1d1230')], '#1c1430', rivet='#ffffff'),
+ 'cardLeg': frame([(INK, INK), ('#fff08a', '#c25e05'), ('#a8560a', '#4a2706')], '#2a1a0a', rivet='#ffffff'),
 }
 print(':root{')
 for k, v in F.items():
