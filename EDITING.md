@@ -21,6 +21,10 @@
 
 화면 UI(영입 카드·하단 패널·정비창)는 `assets/mesbg/thumbs/*.webp`(높이 160px 경량 이미지)를 쓴다. 전장은 원본 `tokens/*.png`를 그대로 쓴다. 유닛 그림을 추가·교체하면 `python3 tools/make_thumbs.py`로 썸네일을 다시 만들고 함께 커밋할 것 (썸네일이 없으면 원본으로 자동 대체되지만 로딩이 느려진다).
 
+## 타이틀 로고
+
+타이틀 로고는 `assets/mesbg/ui/logo.svg`(글자를 도형으로 바꾼 SVG, 폰트 불필요)다. 고치려면 `tools/make_logo.py`를 수정해 다시 생성한다 (Noto Serif CJK KR Black + Cinzel 필요, 사용법은 스크립트 첫머리 참고). UI 글꼴은 전부 Pretendard(`assets/mesbg/fonts/`)를 쓴다.
+
 ## UI 스타일(CSS) 수정 — index.html 직접 수정 가능 영역
 
 `index.html`에서 `/*__LWB_SRC_END__*/` 마커 **이후**에 나오는 `<style>` 블록들은 빌드로 덮어쓰이지 않는다 — **여기만 HTML을 직접 고쳐도 된다**. HUD/패널/버튼의 색·크기·레이아웃 같은 순수 스타일 변경은 이 구간의 CSS를 수정하면 된다. (index.html이 원본 문서라 새 클론에서도 바로 편집 가능)
