@@ -104,7 +104,7 @@ const card = r => {
   const fh = FIG_H[grp(r)];
   const st = r.stats ? '<div class="meta" style="color:#d8c98a">F' + r.stats.f + ' S' + r.stats.s + ' D' + r.stats.d + ' A' + r.stats.a + ' W' + r.stats.w + ' C' + r.stats.c + ' · M' + r.stats.might + ' W' + r.stats.will + ' F' + r.stats.fate + '</div>' : '';
   const rl = (r.rules && r.rules.length) ? '<div class="meta" style="color:#9a8ac0">' + r.rules.join(' · ') + '</div>' : '';
-  return `<div class="card" style="width:205px;height:${fh + 116}px;overflow:hidden"><div class="fig" style="height:${fh}px"><img src="tokens/${r.id}.png?v=${Date.now()}" loading="lazy" style="height:${h}px;width:${w}px;max-height:${fh}px;max-width:190px;object-fit:contain"></div><div class="id">${r.id}</div><div class="ko">${r.name_ko}</div><div class="meta">${r.faction} · ${r.role} · ${r.weapon}${r.base_mm ? " · " + r.base_mm : ""}${(r.traits && r.traits.length) ? " · " + r.traits.join("·") : ""}</div>${st}${rl}</div>`;
+  return `<div class="card ucard" style="height:${fh + 116}px"><div class="fig fh-${grp(r)}"><img src="tokens/${r.id}.png?v=${Date.now()}" loading="lazy" style="--h:${h}px;--w:${w}px"></div><div class="id">${r.id}</div><div class="ko">${r.name_ko}</div><div class="meta">${r.faction} · ${r.role} · ${r.weapon}${r.base_mm ? " · " + r.base_mm : ""}${(r.traits && r.traits.length) ? " · " + r.traits.join("·") : ""}</div>${st}${rl}</div>`;
 };
 const roleGrid = list => ROLE_ORDER.filter(ro => list.some(r => grp(r) === ro)).map(ro =>
   `<h3>${ROLE_KO[ro] || ro} — ${list.filter(r => grp(r) === ro).length}</h3><div class="grid">${list.filter(r => grp(r) === ro).map(card).join('')}</div>`).join('');
@@ -149,6 +149,14 @@ h3{font-family:Georgia,serif;font-size:13px;margin:18px 0 8px;color:var(--gold2)
 .card:hover{border-color:var(--gold);box-shadow:0 6px 16px rgba(0,0,0,.5)}
 .card::before{content:'';position:absolute;inset:3px;border:1px solid rgba(201,169,89,.15);border-radius:5px;pointer-events:none}
 .fig{display:flex;align-items:flex-end;justify-content:center}
+${Object.entries(FIG_H).map(([g, v]) => `.fh-${g}{height:${v}px}`).join('\n')}
+.ucard{width:205px;overflow:hidden}
+.fig img{height:var(--h);width:var(--w);max-width:100%;object-fit:contain}
+@media (max-width:760px){
+${Object.entries(FIG_H).map(([g, v]) => `.fh-${g}{height:${Math.round(v * 1.9)}px}`).join('\n')}
+.fig img{height:calc(var(--h) * 1.9);width:calc(var(--w) * 1.9)}
+.ucard{width:auto;flex:1 1 46%}
+}
 .card img{image-rendering:auto;width:auto;object-fit:contain;display:block;filter:drop-shadow(0 3px 4px rgba(0,0,0,.6))}
 .id{font-size:11px;color:#7fa3cc;word-break:break-all;margin-top:8px;max-width:170px}
 .ko{font-size:13px;font-weight:600;margin-top:2px;color:var(--txt)}
