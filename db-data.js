@@ -33,7 +33,7 @@ module.exports = [
   ['orc_archer', '오크 궁수', 'Orc Archer', { weapon: 'bow' }],
   ['uruk_swordshield', '우르크하이 검방', 'Uruk-hai, sword & shield', { faction: 'isengard', weapon: 'sword_shield', base: 'M' }],
   ['morannon_orc', '모라논 오크', 'Morannon Orc', { weapon: 'spear_shield', base: 'M' }],
-  ['warg_rider', '와르그 기병', 'Warg Rider', { role: 'cavalry', weapon: 'spear', base: 'XL', artScale: 1.6 }],
+  ['warg_rider', '와르그 기병', 'Warg Rider', { role: 'cavalry', weapon: 'spear', base: 'XL', artScale: 1.3 }],
   ['haradrim_spearman', '하라드림 창병', 'Haradrim Spearman', { faction: 'harad', weapon: 'spear', base: 'M' }],
 ]},
 { sheet: 'roster-free-heroes-v1.png', side: 'good', role: 'hero', weapon: 'sword', units: [
@@ -50,7 +50,7 @@ module.exports = [
   ['dwarf_guardian', '드워프 가디언', 'Dwarf Guardian', { faction: 'dwarf', weapon: 'axe' }],
   ['rohan_royal_guard', '로한 근위병', 'Rohan Royal Guard', { faction: 'rohan', weapon: 'spear_shield' }],
   ['ithilien_ranger', '이틸리엔 레인저', 'Ithilien Ranger', { faction: 'gondor', weapon: 'bow' }],
-  ['rohan_rider', '로한 기병', 'Rider of Rohan', { faction: 'rohan', role: 'cavalry', weapon: 'spear', base: 'XL', artScale: 1.25 }],
+  ['rohan_rider', '로한 기병', 'Rider of Rohan', { faction: 'rohan', role: 'cavalry', weapon: 'spear', base: 'XL', artScale: 1.1 }],
 ]},
 { sheet: 'roster-monsters-v1.png', side: 'evil', role: 'monster', base: 'XXL', weapon: 'various', units: [
   ['balrog', '발록', 'Balrog of Moria', { traits: ['terror'], faction: 'moria' }],
