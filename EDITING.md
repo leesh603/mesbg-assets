@@ -17,6 +17,13 @@
 - HTML에서 `src/game.js`에 해당하는 구간은 `/*__LWB_SRC_BEGIN__*/` ~ `/*__LWB_SRC_END__*/` 마커 사이
 - HTML을 직접 수정해서 `src/game.js`와 어긋났으면 `node tools/extract_src.js`로 다시 추출
 
+## 타이틀 로고·초상화·글꼴 자원
+
+- 타이틀 로고: `assets/mesbg/ui/logo.png` (도트 그림, 화면에서 2배 확대). `python3 tools/make_logo.py <google/fonts 저장소 경로>`로 다시 만든다 (블랙레터·Cinzel Decorative로 그린 뒤 도트로 변환, playwright 필요).
+- 초상화 썸네일: 화면 UI(영입 카드·하단 패널·정비창)는 `assets/mesbg/thumbs/*.webp`(높이 160px)를 쓴다. 유닛 그림을 추가·교체하면 `python3 tools/make_thumbs.py`로 다시 만들고 함께 커밋한다 (없으면 원본으로 자동 대체되지만 로딩이 느려진다).
+- 픽셀 글꼴: 타이틀은 갈무리(SIL OFL, https://github.com/quiple/galmuri) 서브셋 `assets/mesbg/fonts/galmuri/`를 쓴다. `python3 tools/make_ui_fonts.py <galmuri/dist 경로>`로 다시 만든다.
+- 타이틀·로딩·등급 색 CSS는 index.html의 `<style id="ui-extras">`에 있다.
+
 ## UI 스타일(CSS) 수정 — index.html 직접 수정 가능 영역
 
 `index.html`에서 `/*__LWB_SRC_END__*/` 마커 **이후**에 나오는 `<style>` 블록들은 빌드로 덮어쓰이지 않는다 — **여기만 HTML을 직접 고쳐도 된다**. HUD/패널/버튼의 색·크기·레이아웃 같은 순수 스타일 변경은 이 구간의 CSS를 수정하면 된다. (index.html이 원본 문서라 새 클론에서도 바로 편집 가능)
