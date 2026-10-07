@@ -9765,16 +9765,25 @@ for(const [id,meta] of q.meta){if(!zt[id]||meta.side==='terrain')continue;
     meta.baseMm=meta.baseMm||(id==='morgoth'?132*2/UNIT_RULES.worldPerMm:($t[meta.base]||38)*2/UNIT_RULES.worldPerMm);if(profile.traits.includes('mounted'))meta.baseMm=Math.max(meta.baseMm,40);
     UnitCatalog[id]={id,enabled:true,meta:structuredClone(meta),profile,points,
         recruitCost:Math.max(30,Math.round(points*.8/5)*5),rarity:heroGrade(id,points,meta.role),
-        unlockWave:profile.traits.includes('hero')?2:0,uniqueKey:profile.traits.includes('hero')?id.replace(/_(mounted|foot)$/,''):null,
+        unlockWave:profile.traits.includes('hero')?2:0,uniqueKey:profile.traits.includes('hero')?id.replace(/(_(foot_mace|mounted_sheet|mounted|foot|fellbeast|dismounted|sheet))+$/,''):null,
         recruitable:CX.recruits.includes(id),skill:CX.skills[id]||null};
 }
 P.price=function(id){return UnitCatalog[id]?.recruitCost??30;};
+P.ownedUniqueKeys=function(){
+    const owned=new Set(this.permanent().concat(this.alive('good')).map(u=>UnitCatalog[u.id]?.uniqueKey).filter(Boolean));
+    for(const f of (this.fallen||[])){const k=UnitCatalog[f.id]?.uniqueKey;if(k)owned.add(k);}
+    return owned;
+};
+P.sanitizeRecruitOffers=function(){
+    const owned=this.ownedUniqueKeys();
+    for(const o of (this.recruitOffers||[])){const k=UnitCatalog[o.id]?.uniqueKey;if(k&&owned.has(k))o.bought=true;}
+    this.recruitDraft=(this.recruitDraft||[]).filter(i=>this.recruitOffers?.[i]&&!this.recruitOffers[i].bought);
+};
 P.rollRecruits=function(){
     this.recruitDraft=[];
     const isH=d=>(d.profile.traits||[]).includes('hero')||d.meta.role==='hero';
-    const owned=new Set(this.permanent().concat(this.alive('good')).map(u=>UnitCatalog[u.id]?.uniqueKey).filter(Boolean));
     // 영웅은 유니크 — 전사한 영웅도 영입 후보에서 제외 (발라의 은총 부활로만 복귀)
-    for(const f of (this.fallen||[])){const k=UnitCatalog[f.id]?.uniqueKey;if(k)owned.add(k);}
+    const owned=this.ownedUniqueKeys();
     const base=Object.values(UnitCatalog).filter(d=>d.enabled&&this.meta.has(d.id)&&(d.meta.side==='good'||this.relics.darkpact&&d.meta.side==='evil'));
     const heroes=base.filter(d=>isH(d)&&this.wave>=(d.unlockWave||0)&&!owned.has(d.uniqueKey||d.id)&&(!SILMARIL_HEROES.has(d.uniqueKey||d.id)||this.rank("silmaril"))).map(d=>({id:d.id,r:this.rng()})).sort((a,b)=>a.r-b.r).slice(0,2);
     const candidates=base.filter(d=>d.recruitable&&!isH(d)).map(d=>({id:d.id,r:this.rng(),role:d.profile.traits.includes('mounted')?'cavalry':d.profile.shootRange?'archer':d.profile.traits.includes('spear')?'support':'infantry'})).sort((a,b)=>a.r-b.r);
@@ -9799,6 +9808,7 @@ function registerUnit(def){
     const meta={...def.meta,id:def.id};if(p.traits.includes('mounted'))meta.baseMm=Math.max(meta.baseMm||0,40);
     zt[def.id]=p;q.meta.set(def.id,meta);
     UnitCatalog[def.id]={...def,meta,profile:p,points,recruitCost:cost,enabled:def.enabled!==false,rarity:isHeroUnit(def.id,def.meta.role)?heroGrade(def.id,points,'hero'):(def.rarity||'normal'),unlockWave:def.unlockWave??2};
+    UnitCatalog[def.id].uniqueKey=def.uniqueKey??(p.traits.includes('hero')?def.id.replace(/(_(foot_mace|mounted_sheet|mounted|foot|fellbeast|dismounted|sheet))+$/,''):null);
     if(def.skill){const k=def.skill;CX.skills[def.id]=[k.name,k.resource,k.cost,k.description];}
     if(def.recruitable&&!CX.recruits.includes(def.id))CX.recruits.push(def.id);
     return UnitCatalog[def.id];
@@ -9809,7 +9819,7 @@ const catalogSkill=P.skill;
 P.skill=function(uid){const u=this.unit(uid),handler=u&&customSkills.get(u.id);if(!handler)return catalogSkill.call(this,uid);if(!u.alive||this.skillReason(u))return false;
     const [name,resource,cost]=CX.skills[u.id];u.resources[resource]-=cost;u.skillRound=true;handler({battle:this,unit:u});this.emit('HeroSkill',u.name+' · '+name,{uid});return true;};
 const catalogResume=P.resume;
-P.resume=function(){if(!catalogResume.call(this))return false;for(const u of this.units){const d=UnitCatalog[u.id];if(d){u.points=d.points;u.radius=(d.meta.baseMm||25)*UNIT_RULES.worldPerMm/2;}}this.recruitDraft=(this.recruitDraft||[]).filter(i=>this.recruitOffers?.[i]&&!this.recruitOffers[i].bought);return true;};
+P.resume=function(){if(!catalogResume.call(this))return false;for(const u of this.units){const d=UnitCatalog[u.id];if(d){u.points=d.points;u.radius=(d.meta.baseMm||25)*UNIT_RULES.worldPerMm/2;}}this.sanitizeRecruitOffers();return true;};
 P.toggleRecruit=function(index){
     if(this.phase!=='reward'||this.campStep!=='recruit')return false;
     const o=this.recruitOffers[index];if(!o||o.bought)return false;
@@ -9887,6 +9897,7 @@ P.assignMount=function(uid,vid){
 };
 if(!document.getElementById('tier-css')){const _st=document.createElement('style');_st.id='tier-css';_st.textContent='.recruit-card.tier-legendary{background:linear-gradient(145deg,#342d22,#172b34 66%,#302719)!important;border:2px solid #e1bb6c!important;box-shadow:inset 0 0 0 1px #ffdc864d,0 0 17px #e9b7544d!important}.recruit-card.tier-legendary:before{content:"✦";position:absolute;right:9px;top:5px;color:#ffdd8e;font-size:21px;text-shadow:0 0 12px #f3b249}.recruit-card.tier-legendary .recruit-grade{color:#ffda88}.recruit-card.tier-epic{background:linear-gradient(145deg,#29233c,#1b2e35)!important;border:2px solid #bd9cdb!important;box-shadow:inset 0 0 0 1px #d9bdf44d!important}.recruit-card.tier-epic .recruit-grade{color:#e0c5ff}.recruit-card.tier-rare{background:#243140!important;border:1px solid #81a8d0!important}.recruit-card.tier-rare .recruit-grade{color:#b6d6f4}.recruit-card.tier-elite{background:#263330!important;border:1px solid #9aad88!important}.recruit-card.tier-elite .recruit-grade{color:#bdd8a9}.recruit-card.tier-normal{border:1px solid #747c74!important}.recruit-card.tier-normal .recruit-grade{color:#d0d4c8}';document.head.appendChild(_st);}
 function renderRecruitDraft(){
+    q.sanitizeRecruitOffers();
     const selected=q.recruitDraft||[],sum=selected.reduce((n,i)=>n+q.price(q.recruitOffers[i].id),0),capacity=q.capacity()-q.permanent().length-selected.length;
     const box=ut('overlay');
     box.innerHTML=`<div class="modal camp"><div class="eyebrow">${q.initialDraft ? '출정 · 원정대 편성' : 'STAGE ' + q.wave + ' · 원정대 정비'}</div><h2>${q.initialDraft ? '원정대 편성' : '동료 영입'}</h2><p class="recruit-summary">보유 <b>${q.gold}</b> · 선택 비용 <b>${sum}</b> · 남은 금화 <b>${q.gold-sum}</b><br>선택 ${selected.length}명 · 남은 정원 ${capacity}명</p>${q.initialDraft?'<p class="draft-help">영웅 최대 1기 · 600 금화</p>':''}<div class="recruit-cards">${q.recruitOffers.map((o,i)=>{const d=UnitCatalog[o.id],m=q.meta.get(o.id),p=zt[o.id],on=selected.includes(i),cost=q.price(o.id),disabled=o.bought||!on&&(cost>q.gold-sum||capacity<=0);return `<button type="button" class="recruit-card tier-${d.rarity} ${on?'is-picked':''}" data-draft="${i}" aria-pressed="${on}" ${disabled?'disabled':''}><span class="pick-mark">${on?'선택됨':'영입 후보'}</span>${unitImage(o.id)}<span class="recruit-grade">${isHeroUnit(o.id)?tierLabel(o.id):({normal:'일반',elite:'정예',rare:'희귀',epic:'영웅급',legendary:'전설'})[d.rarity]||tierLabel(o.id)}</span><b>${esc(m.name_ko)}</b><small>${d.points} pt · ${CX.roleNames[m.role]||m.role}</small><p>Attack ${p.attacks} · Defense ${p.defence}<br>${esc(CX.skills[o.id]?.[0]||'전열')}</p><em>${o.bought?'합류 완료':cost+' 금화'}</em></button>`}).join('')}</div>${(()=>{const ms=q.alive('good').map(u=>({u,vs:q.mountOptions(u)})).filter(x=>x.vs.length);return ms.length||q.horses>0?'<div class="mount-head">군마 · 탈것</div><div class="mount-row" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:9px;margin-bottom:10px">'+`<button class="recruit-card mount-card" id="mount-buy" ${q.gold<40?'disabled':''}><b>군마 구입</b><small>보유 ${q.horses||0}필</small><p>이동력 · 기병 돌격</p><em>40 금화</em></button>`+ms.map(({u,vs})=>vs.map(v=>v.profile.traits.includes('mounted')?`<button class="recruit-card mount-card" data-mount="${u.uid}|${v.id}" ${q.horses>0?'':'disabled'}>${unitImage(v.id)}<b>기마 지정 · ${esc(v.meta.name_ko)}</b><small>${esc(u.name)}</small><p>이동 ${u.stats.move}→${v.profile.move} · 기병 특성</p><em>군마 1필 소비</em></button>`:`<button class="recruit-card mount-card" data-buymount="${u.uid}|${v.id}" ${q.gold>=q.specialMountCost(u,v)?'':'disabled'}>${unitImage(v.id)}<b>탈것 고용 · ${esc(v.meta.name_ko)}</b><small>${esc(u.name)}</small><p>이동 ${u.stats.move}→${v.profile.move} · 비행</p><em>${q.specialMountCost(u,v)} 금화</em></button>`).join('')).join('')+'</div>':''})()}<div class="camp-secondary"><button id="draft-clear" ${selected.length?'':'disabled'}>선택 취소</button><button id="draft-reroll" ${q.gold<10+q.rerolls*5?'disabled':''}>후보 교체 · ${10+q.rerolls*5}</button><button id="draft-expand" ${q.gold<45+q.capacityBought*25||q.capacity()>=30?'disabled':''}>정원 +2 · ${45+q.capacityBought*25}</button></div><div class="camp-confirm"><span>${selected.length?selected.length+'명 · '+sum+' 금화':(q.initialDraft?'병사를 선택해 출정하세요':'영입 없이 금화 보관')}</span><button id="draft-confirm" class="primary" ${q.initialDraft&&!selected.length?'disabled':''}>${selected.length?'영입 확정':(q.initialDraft?'1명 이상 선택 후 출정':'영입 건너뛰기')} →</button></div></div>`;
