@@ -355,7 +355,7 @@ const Th = Z => { const m = /^tokens\/(.+)\.png/.exec(Z || ''); return m ? Ut('t
 pe.textContent = `@font-face{font-family:Pretendard;src:url('${Ut("fonts/PretendardVariable.woff2")}') format('woff2');font-weight:100 900;font-display:swap}`;
 document.head.append(pe);
 (function(){const go=()=>{const seen=new Set(),pool=[];for(const m of window.CAMPAIGN_META||[]){if(m&&m.side==='good'&&m.file&&!seen.has(m.file)){seen.add(m.file);pool.push(m.file);}}let i=0;const step=()=>{for(let k=0;k<24&&i<pool.length;k++){const im=new Image();im.fetchPriority='high';im.src=Th(pool[i++]);}if(i<pool.length)setTimeout(step,60);};step();};if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();})();
-document.addEventListener("visibilitychange", () => { const Z = document.hidden; wt.__resumeOnShow = Z ? wt.music && !wt.music.paused : !1, Z && wt.music && wt.music.pause(), Z || !wt.__resumeOnShow || wt.muted || wt.music && wt.music.play().catch(() => { }), wt.context && (Z ? wt.context.state === "running" && wt.context.suspend() : wt.context.state === "suspended" && wt.context.resume().catch(() => { })); });
+document.addEventListener("visibilitychange", () => { const Z = document.hidden; Z ? (wt.__resumeOnShow = !!(wt.music && !wt.music.paused), wt.music && wt.music.pause()) : (wt.__resumeOnShow && !wt.muted && wt.music && wt.music.play().catch(() => { }), wt.__resumeOnShow = !1); wt.context && (Z ? wt.context.state === "running" && wt.context.suspend() : wt.context.state === "suspended" && wt.context.resume().catch(() => { })); });
 const q = new ze(Me.units), wt = new We, Tt = new Ve;
 Tt.b = q;
 Tt.soundFX = wt;
@@ -456,7 +456,12 @@ else
     else
         p = `${S.winnerSide === "good" ? "곤도르" : "모르도르"} 결투 승리 · ${S.knockedDownUnits.length ? `기병 충격 ${S.knockedDownUnits.length}명 · ` : ""}${S.trappedUnits.length ? `포위 ${S.trappedUnits.length}명 · 추가 타격` : "밀림 판정"} · 부상 ${S.wounds.length}`;
 } K.innerHTML = `<div class="dice-title">${H}</div>${$("good", Y)}${$("evil", b)}<div class="dice-detail">${p}</div>`, await ne(500 / qt); }
-const ne = Z => new Promise(Y => setTimeout(Y, Z));
+const ne = Z => new Promise(Y => {
+    const go = () => setTimeout(Y, Z);
+    if (!document.hidden) { go(); return; }
+    const onVis = () => { if (!document.hidden) { document.removeEventListener('visibilitychange', onVis); go(); } };
+    document.addEventListener('visibilitychange', onVis);
+});
 async function Rt(Z) { if (At)
     return; wt.unlock(), clearTimeout(Jt), At = !0, Tt.busy = !0, Z(); const Y = q.drain(); ut("hint").textContent = "행동을 처리하고 있습니다…", ut("action").disabled = !0, ut("wait").disabled = !0; try {
     for (const b of Y)
