@@ -71,16 +71,22 @@ fs.writeFileSync(path.join(SRC, 'dice.json'), JSON.stringify({ dice }, null, 2))
 // gallery.html — visual check of id <-> image matching
 const groups = {};
 for (const r of rows) { (groups[r.side] ??= []).push(r); }
-// Display height by MESBG base convention: all foot units (heroes, infantry,
-// support) share one display size like the real 25mm base; only cavalry and
-// monsters step up. bigmonster keeps its own size.
-const BASE_H = { S: 56, M: 76, L: 100, XL: 140, XXL: 190 };
-const dispH = r => {
-  const g = grp(r);
-  if (TITAN.has(r.id)) return 220;
-  if ((g === 'hero' || g === 'infantry' || g === 'support') && r.base !== 'XXL' && r.base !== 'XL') return BASE_H.M;
-  return BASE_H[r.base] || 90;
+// Display size = actual in-game token size. Engine: whole file maps to token
+// diameter = artScale * 2 * radius = baseMm * 3.04 * artScale (radius = baseMm*(76/25)/2).
+// Wide files (w>h) are scaled by width in-game, so display height = diameter/t.
+const pngDim = f => { const b = fs.readFileSync(f); return [b.readUInt32BE(16), b.readUInt32BE(20)]; };
+const dispWH = r => {
+  if (r.role === 'terrain') return [140, 76];
+  const mm = parseInt(r.base_mm) || 25;
+  const dia = mm * 3.04 * (r.artScale || 1);
+  try {
+    const [w, h] = pngDim(path.join(TOKENS, r.id + '.png'));
+    const t = w / h;
+    if (t > 1) return [Math.round(dia), Math.round(dia / t)];
+    return [Math.round(dia * t), Math.round(dia)];
+  } catch (e) { return [Math.round(dia * 0.7), Math.round(dia)]; }
 };
+const FIG_H = Math.min(340, Math.max(...rows.map(r => dispWH(r)[1]))) + 8;
 const ROLE_KO = { hero: '영웅', infantry: '보병', cavalry: '기병', monster: '괴물', bigmonster: '대형괴물', support: '지원/기수', terrain: '지형지물' };
 const ROLE_ORDER = ['hero', 'infantry', 'cavalry', 'monster', 'bigmonster', 'support', 'terrain'];
 // display group: mounted heroes and XL riders group under 기병, beasts under
@@ -89,11 +95,12 @@ const grp = r => r.role === 'monster' ? (r.base === 'XXL' ? 'bigmonster' : 'mons
   : r.role === 'beast' ? 'monster'
   : (r.role === 'cavalry' || (r.base === 'XL' && r.role !== 'monster')) ? 'cavalry'
   : r.role;
+const CARD_H = FIG_H + 116;
 const card = r => {
-  const h = dispH(r);
+  const [w, h] = dispWH(r);
   const st = r.stats ? '<div class="meta" style="color:#d8c98a">F' + r.stats.f + ' S' + r.stats.s + ' D' + r.stats.d + ' A' + r.stats.a + ' W' + r.stats.w + ' C' + r.stats.c + ' · M' + r.stats.might + ' W' + r.stats.will + ' F' + r.stats.fate + '</div>' : '';
   const rl = (r.rules && r.rules.length) ? '<div class="meta" style="color:#9a8ac0">' + r.rules.join(' · ') + '</div>' : '';
-  return `<div class="card"><div class="fig" style="height:${h}px"><img src="tokens/${r.id}.png?v=${Date.now()}" loading="lazy" style="max-height:${h}px;max-width:200px;height:auto;width:auto"></div><div class="id">${r.id}</div><div class="ko">${r.name_ko}</div><div class="meta">${r.faction} · ${r.role} · ${r.weapon}${r.base_mm ? " · " + r.base_mm : ""}${(r.traits && r.traits.length) ? " · " + r.traits.join("·") : ""}</div>${st}${rl}</div>`;
+  return `<div class="card" style="width:205px;height:${CARD_H}px;overflow:hidden"><div class="fig" style="height:${FIG_H}px"><img src="tokens/${r.id}.png?v=${Date.now()}" loading="lazy" style="height:${h}px;width:${w}px;max-height:${FIG_H}px;max-width:190px;object-fit:contain"></div><div class="id">${r.id}</div><div class="ko">${r.name_ko}</div><div class="meta">${r.faction} · ${r.role} · ${r.weapon}${r.base_mm ? " · " + r.base_mm : ""}${(r.traits && r.traits.length) ? " · " + r.traits.join("·") : ""}</div>${st}${rl}</div>`;
 };
 const roleGrid = list => ROLE_ORDER.filter(ro => list.some(r => grp(r) === ro)).map(ro =>
   `<h3>${ROLE_KO[ro] || ro} — ${list.filter(r => grp(r) === ro).length}</h3><div class="grid">${list.filter(r => grp(r) === ro).map(card).join('')}</div>`).join('');
@@ -134,7 +141,7 @@ h3{font-family:Georgia,serif;font-size:13px;margin:18px 0 8px;color:var(--gold2)
 .tabs button{background:var(--panel);border:1px solid var(--line);color:var(--dim);padding:8px 18px;border-radius:6px;cursor:pointer;font-size:13px}
 .tabs button.on{background:var(--gold);color:#1a150f;border-color:var(--gold);font-weight:700}
 .grid{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end}
-.card{background:linear-gradient(170deg,#20241a,#181b12);border:1px solid var(--line);border-radius:8px;padding:12px;text-align:center;transition:border-color .15s;position:relative}
+.card{background:linear-gradient(170deg,#20241a,#181b12);border:1px solid var(--line);border-radius:8px;padding:12px;text-align:center;transition:border-color .15s;position:relative;flex:none}
 .card:hover{border-color:var(--gold);box-shadow:0 6px 16px rgba(0,0,0,.5)}
 .card::before{content:'';position:absolute;inset:3px;border:1px solid rgba(201,169,89,.15);border-radius:5px;pointer-events:none}
 .fig{display:flex;align-items:flex-end;justify-content:center}
