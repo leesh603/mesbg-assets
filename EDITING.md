@@ -23,7 +23,7 @@
 
 ## 타이틀 로고
 
-타이틀 로고는 `assets/mesbg/ui/logo.svg`(글자를 도형으로 바꾼 SVG, 폰트 불필요)다. 고치려면 `tools/make_logo.py`를 수정해 다시 생성한다 (Noto Serif CJK KR Black + Cinzel 필요, 사용법은 스크립트 첫머리 참고). UI 글꼴은 전부 Pretendard(`assets/mesbg/fonts/`)를 쓴다.
+타이틀 로고는 `assets/mesbg/ui/logo.svg`(글자를 도형으로 바꾼 SVG, 폰트 불필요)다. 고치려면 `tools/make_logo.py`를 수정해 다시 생성한다 (google/fonts 저장소의 Cinzel·나눔명조 ExtraBold 필요, 사용법은 스크립트 첫머리 참고). UI 글꼴은 전부 Pretendard(`assets/mesbg/fonts/`)를 쓴다.
 
 ## UI 스타일(CSS) 수정 — index.html 직접 수정 가능 영역
 
