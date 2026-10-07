@@ -4317,7 +4317,7 @@ document.head.appendChild(polishStyle);
 // Pixel UI fonts (Galmuri, SIL OFL 1.1) — registered through Ut() so the offline bundle embeds them too.
 (function(){try{if(document.getElementById('lwb-fonts'))return;const st=document.createElement('style');st.id='lwb-fonts';
 const ff=(fam,file,w)=>"@font-face{font-family:'"+fam+"';src:url('"+Ut('fonts/galmuri/'+file+'.woff')+"') format('woff');font-weight:"+w+";font-display:swap}";
-st.textContent=ff('Galmuri11','Galmuri11',400)+ff('Galmuri11','Galmuri11-Bold',700)+ff('Galmuri9','Galmuri9',400)+ff('Galmuri14','Galmuri14',400);document.head.appendChild(st);}catch(e){}})();
+st.textContent=ff('Galmuri11','Galmuri11',400)+ff('Galmuri11','Galmuri11-Bold',700)+ff('Galmuri9','Galmuri9',400)+ff('Galmuri14','Galmuri14',400)+":root{--ui-bg:url('"+Ut('ui/title-bg.jpg')+"')}";document.head.appendChild(st);}catch(e){}})();
 // Title shows real loader progress; the battlefield is veiled until its textures are in; DOM portraits shimmer until loaded.
 (function(){
 const st={p:0,done:false};
