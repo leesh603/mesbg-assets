@@ -7883,7 +7883,7 @@ const LWB_EVENTS = [
         { label: '기도를 올린다', sub: '다음 전투 첫 라운드 우선권 확보', fx: q => q.priorityForce = 'good' },
         { label: '무시하고 행군한다', sub: '금화 +15', fx: q => q.gold += 15 }] },
     { id: 'mithril', title: '미스릴 파편', text: '쓰러진 기사의 갑옷 속에서 빛나는 금속 조각이 발견됩니다.', options: [
-        { label: '유물로 벼려낸다', sub: '무작위 유물 1개 획득', fx: q => { const r = CX.relics[Math.floor(q.rng() * CX.relics.length)]; if (r) q.relics[r.id] = (q.relics[r.id] || 0) + 1; return r ? `유물 ${r.name} 획득` : '유물 없음'; } },
+        { label: '유물로 벼려낸다', sub: '무작위 유물 1개 획득', fx: q => { const r = CX.relics[Math.floor(q.rng() * CX.relics.length)]; if (r) q.relics[r.id] = (q.relics[r.id] || 0) + 1; return r ? `유물 획득: ${r.name}(${CX.rarityNames[r.rarity]}) — ${r.text}` : '유물 없음'; } },
         { label: '상인에게 판다', sub: '금화 +45', fx: q => q.gold += 45 }] },
     { id: 'rider', title: '부상당한 기수', text: '로한 기수가 쓰러진 채 발견됩니다. 다음 전투에 대한 소식을 알고 있습니다.', options: [
         { label: '치료해준다', sub: '금화 −20 · 다음 라운드 CP +2', fx: q => { q.gold = Math.max(0, q.gold - 20); q.bonusCP += 2; } },
