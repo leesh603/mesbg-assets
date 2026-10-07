@@ -9420,7 +9420,7 @@ me = function () {
 };
 document.querySelector('.top-actions').insertAdjacentHTML('afterbegin', '<button class="iconbtn" id="auto" title="AI가 아군 턴도 진행합니다. 전투·배치·교전을 자동으로 넘깁니다">자동</button>');
 document.querySelector('.top-actions').insertAdjacentHTML('afterbegin', '<button class="iconbtn" id="view-mode" title="PC에서도 모바일 화면(세로 레이아웃 · 하단 전투 패널)으로 봅니다">모바일 보기</button>');
-  if(localStorage.getItem('lwb-view')==='mobile')document.body.classList.add('force-mobile');
+  if(localStorage.getItem('lwb-view')!=='pc')document.body.classList.add('force-mobile');
   const syncViewBtn=()=>{const on=document.body.classList.contains('force-mobile');ut('view-mode').textContent=on?'PC 보기':'모바일 보기';ut('view-mode').classList.toggle('on',on)};
   syncViewBtn();
   ut('view-mode').onclick=()=>{const on=document.body.classList.toggle('force-mobile');localStorage.setItem('lwb-view',on?'mobile':'pc');syncViewBtn();setSheet(false);resizeBattle(true);Xt(on?'모바일 화면으로 표시합니다':'PC 화면으로 표시합니다')};
@@ -9590,7 +9590,7 @@ Ve.prototype.sync=function(){
     }
     if(this.b.phase==='menu'){UX.stage=null;return;}
     const stage=(this.b.phase==='preparation'?this.b.wave+1:this.b.wave)+'/'+(this.b.mapIndex||0);
-    if(stage!==UX.stage&&['preparation','move','shoot','fight'].includes(this.b.phase)){UX.stage=stage;const team=this.b.alive('good');const x=team.length?team.reduce((n,u)=>n+u.x,0)/team.length:1165;const z=mobileLayout()?.78:.82;const y=this.b.mission==='defense'?(mobileLayout()&&innerHeight>innerWidth?600-Math.min(78,UX.height*.16)/z:590):690;setCamera(x,y,z,'tactical')}
+    if(stage!==UX.stage&&['preparation','move','shoot','fight'].includes(this.b.phase)){UX.stage=stage;const team=this.b.alive('good');const x=team.length?team.reduce((n,u)=>n+u.x,0)/team.length:1165;const z=mobileLayout()?Math.max(.55,Math.min(.8,UX.height/(pt.height*.72))):.82;const y=this.b.mission==='defense'?(mobileLayout()&&innerHeight>innerWidth?600-Math.min(78,UX.height*.16)/z:590):690;setCamera(x,y,z,'tactical')}
     updateWorldUI();
 };
 const clarityRings=Ve.prototype.drawRings;
@@ -10190,78 +10190,6 @@ Ve.prototype.combat=async function(result){
 };
 })();
 
-// ---- Dice panel v2 (presentation only): tumbling dice that land one by one, then the result is called out —
-// highest die and winning side for fights/priority, pass/fail per die for shots. Values come from the event untouched.
-(function(){
-const SIDE_KO={good:'곤도르',evil:'모르도르'};
-const faceSrc=(side,v)=>{const f=side==='good'?'minastirith':'mordor',set=Fe.dice.find(o=>o.faction===f);return Ut(set.faces[Math.max(1,Math.min(6,v|0))]);};
-const sleep=ms=>new Promise(r=>setTimeout(r,Math.max(0,ms)));
-function describe(e){
-    if(e.type==='PriorityRolled')return{kind:'priority',badge:'우선권',sub:e.ties?'동점 재굴림':'높은 쪽이 먼저 행동',rows:[{side:'good',dice:[e.good]},{side:'evil',dice:[e.evil]}],winner:q.priority,chips:[(q.priority==='good'?'곤도르':'모르도르')+' 선공']};
-    if(!e.result)return null;
-    const S=e.result;
-    if(S.kind==='shot'){
-        const t=S.strikeResults[0]||{},a=q.unit(t.attacker),side=a?.side||(S.diceResults.good.length?'good':'evil'),raw=S.diceResults[side]||[];
-        const dice=raw.map((v,i)=>{const last=i===raw.length-1&&raw.length>1,ic=(t.interceptions||[])[i-1];
-            if(i===0)return{v,cap:'명중 '+t.hitNeeded+'+',ok:t.hit>=t.hitNeeded};
-            if(last)return{v,cap:'상처 '+t.needed+'+',ok:!!t.wound};
-            return{v,cap:'사선 4+',ok:!!ic?.passed};});
-        const chips=[t.hit>=t.hitNeeded?'명중':'빗나감'];
-        for(const ic of t.interceptions||[])chips.push(ic.passed?'사선 통과':'아군 오사');
-        if(t.hit>=t.hitNeeded)chips.push(t.killed?'격파':t.wound?'상처':'상처 실패');
-        if(t.friendlyFire)chips.push('아군 피격');
-        return{kind:'shot',badge:'사격',sub:(a?.name||SIDE_KO[side])+' → '+(q.unit(t.target)?.name||'대상'),rows:[{side,dice}],winner:null,chips,good:!!t.wound};
-    }
-    const chips=[(S.winnerSide==='good'?'곤도르':'모르도르')+' 결투 승리'];
-    if(S.knockedDownUnits?.length)chips.push('기병 충격 '+S.knockedDownUnits.length+'명');
-    chips.push(S.trappedUnits?.length?'포위 '+S.trappedUnits.length+'명 · 추가 타격':'밀림 판정');
-    chips.push('부상 '+(S.wounds?.length||0));
-    const who=(S.participants||[]).map(id=>q.unit(id)?.name).filter(Boolean),sup=(S.supports||[]).map(id=>q.unit(id)?.name).filter(Boolean);
-    const note=(who.length?'참여 '+who.join(' · '):'')+(sup.length?'  ·  창 지원 '+sup.join(' · '):'')+(S.fightValues?'  ·  결투 '+(S.fightValues.good??'—')+' / '+(S.fightValues.evil??'—'):'');
-    return{kind:'fight',badge:'결투',sub:'최고값 비교',rows:[{side:'good',dice:S.diceResults.good.map(v=>({v}))},{side:'evil',dice:S.diceResults.evil.map(v=>({v}))}],winner:S.winnerSide,chips,note};
-}
-$e=async function(e){
-    if(qt>=20)return;
-    const d=describe(e);if(!d)return;
-    const K=ut('dice'),calm=UX.reduced,sp=Math.max(1,qt);
-    for(const r of d.rows)r.dice=r.dice.map(x=>typeof x==='number'?{v:x}:x);
-    const rowHTML=r=>'<div class="dice-row dv-row side-'+r.side+'"><span class="dv-side">'+SIDE_KO[r.side]+'</span><div class="dv-dice">'+
-        (r.dice.length?r.dice.map((x,i)=>'<span class="dv-die'+(calm?'':' rolling')+'" style="--i:'+i+';--spin:'+(i%2?-1:1)+'"><img src="'+faceSrc(r.side,1+Math.floor(Math.random()*6))+'" alt=""><em>'+(x.cap||'')+'</em></span>').join(''):'<span class="dv-none">—</span>')+
-        '</div><small class="dv-max">'+(r.dice.length?'':'—')+'</small></div>';
-    K.className='dice-panel dv2 kind-'+d.kind;
-    K.innerHTML='<div class="dice-title"><b class="dv-badge">'+d.badge+'</b><span>'+d.sub+'</span></div>'+d.rows.map(rowHTML).join('')+'<div class="dice-detail dv-detail"></div>';
-    K.classList.remove('hidden');
-    wt.play('dice_roll');
-    // tumble: faces flicker while each die is airborne, then dice land one after another
-    const dies=d.rows.map((r,ri)=>[...K.querySelectorAll('.dv-row')[ri].querySelectorAll('.dv-die')]);
-    const all=[];dies.forEach((list,ri)=>list.forEach((el,i)=>all.push({el,side:d.rows[ri].side,x:d.rows[ri].dice[i],land:(calm?60:220)+Math.min(i,5)*40+ri*30})));
-    const t0=performance.now(),end=Math.max(0,...all.map(a=>a.land));
-    let landed=0;
-    while(landed<all.length){
-        const now=(performance.now()-t0)*sp;
-        for(const a of all){
-            if(a.done)continue;
-            const img=a.el.querySelector('img');
-            if(now>=a.land){a.done=true;landed++;img.src=faceSrc(a.side,a.x.v);a.el.classList.remove('rolling');a.el.classList.add('landed');}
-            else if(!calm)img.src=faceSrc(a.side,1+Math.floor(Math.random()*6));
-        }
-        if(landed<all.length)await sleep(55/sp);
-        if(!calm&&now>end*.55&&!K.dataset.second){K.dataset.second='1';wt.play('dice_roll');}
-    }
-    delete K.dataset.second;
-    await sleep(80/sp);
-    // call out the result
-    d.rows.forEach((r,ri)=>{
-        const row=K.querySelectorAll('.dv-row')[ri],els=dies[ri];
-        if(d.kind==='shot'){r.dice.forEach((x,i)=>els[i].classList.add(x.ok?'pass':'fail'));}
-        else if(r.dice.length){const m=Math.max(...r.dice.map(x=>x.v)),top=r.dice.findIndex(x=>x.v===m);els[top]?.classList.add('dv-top');els.forEach((el,i)=>i!==top&&el.classList.add('dim'));row.querySelector('.dv-max').textContent=m;}
-        if(d.winner)row.classList.add(d.winner===r.side?'winner':'loser');
-    });
-    if(d.kind==='shot')K.classList.add(d.good?'res-good':'res-bad');
-    K.querySelector('.dv-detail').innerHTML=d.chips.map((c,i)=>'<span class="dv-chip'+(i===0?' lead':'')+'">'+c+'</span>').join('')+(d.note?'<p class="dv-note">'+d.note+'</p>':'');
-    await sleep((d.kind==='fight'?540:d.kind==='shot'?500:420)/sp);
-};
-})();
 
 // ---- Off-screen unit markers (no automatic camera movement) ----
 // Units outside the view are marked on the screen edge; the camera only moves when the player taps a marker.
@@ -10662,39 +10590,11 @@ window.MESBG.tactics = { supportFor, role: u => window.LWBTactics.role(u, metaFo
 window.__LWB = { be: (...a) => be(...a), He: (...a) => He(...a), metaFor, supportFor };
 
 // Product HUD: one command surface, restrained materials, contextual detail.
-function renderUnitVitals() {
-    const el=ut('dock-vitals');if(!el)return;
-    const u=q.unit(q.selected)||actionableUnit();
-    if(!u?.alive){el.textContent='';return;}
-    const pair=(cls,tip,value)=>'<span class="v '+cls+'" title="'+tip+'"><i aria-hidden="true"></i><b>'+value+'</b></span>';
-    const hpR=Math.max(0,Math.min(1,u.currentWounds/Math.max(1,u.stats.wounds)));
-    let html='<span class="v v-hp'+(hpR<=.34?' low':'')+'" title="체력 '+u.currentWounds+'/'+u.stats.wounds+'"><i aria-hidden="true"></i><b>'+u.currentWounds+'/'+u.stats.wounds+'</b><em class="v-bar"><s style="width:'+Math.round(hpR*100)+'%"></s></em></span>'
-        +pair('v-move','이동력 (남은/최대, 인치)',(q.remaining(u)/45).toFixed(1)+'<small>/'+(u.stats.move/45).toFixed(0)+'″</small>')
-        +pair('v-atk','공격 횟수 (Attack)',u.stats.attacks)+pair('v-def','방어 (Defense)',u.stats.defence)+pair('v-fight','결투 (Fight)',u.stats.fight);
-    if(u.traits.includes('hero'))html+='<span class="vital-resources" title="Might / Will / Fate">'+pair('v-might','위력 (Might)',u.resources.might)+pair('v-will','의지 (Will)',u.resources.will)+pair('v-fate','운명 (Fate)',u.resources.fate)+'</span>';
-    if(el.dataset.unit!==html){el.dataset.unit=html;el.innerHTML=html;}
-}
 function renderPolishedHUD() {
     document.body.dataset.phase=q.phase;document.body.dataset.side=q.side||'';
     {const wm=ut('wave')?.parentElement;if(wm)wm.dataset.round=['move','shoot','fight'].includes(q.phase)&&q.round?'R'+q.round:'';
-     const bi=document.querySelector('#app .battle-info'),em=ut('ux-mission')?.querySelector('em');
-     if(bi){const k=q.phase+'|'+q.round+'|'+q.wave+'|'+(em?.textContent||'');if(bi._k!==k){bi._k=k;bi.classList.add('mission-open');clearTimeout(bi._t);bi._t=setTimeout(()=>bi.classList.remove('mission-open'),4500);}}}
+     const hm=document.querySelector('#hud-mission .hm-line'),em=ut('ux-mission')?.querySelector('em');if(hm)hm.textContent=em?.textContent||'원정 준비';}
     renderUnitVitals();
-    const u=q.unit(q.selected),status=ut('dock-status');
-    if(u?.alive&&!UX.intent){
-        const tags=[];
-        if(u.side!==q.side&&q.phase!=='preparation')tags.push(u.side==='good'?'아군':'적군');
-        if(q.engaged(u))tags.push('교전');
-        if(u.prone)tags.push('넘어짐');
-        if(u.protected)tags.push('보호');
-        if(u.supportSpent)tags.push('지원 완료');
-        if(u.charged)tags.push('돌격');
-        if(u.acted)tags.push('행동 완료');
-        if(q.phase==='shoot'&&u.stats.shootRange)tags.push('사거리 '+(u.stats.shootRange/45).toFixed(1)+'″ · 대상 '+q.validTargets(u).length);
-        for(const [k,v] of Object.entries(u.roundBuff||{})){const name={fight:'Fight',attacks:'Attack',defence:'Defense',move:'MOVE',courage:'용기'}[k];if(name&&v)tags.push(name+' '+(v>0?'+':'')+(k==='move'?(v/45).toFixed(1)+'″':v));}
-        if(tags.length)status.textContent=tags.join(' · ');
-        status.title=status.textContent;
-    }
     if(!Qt&&q.phase==='reward'&&['event','relic'].includes(q.campStep)){
         const modal=ut('overlay').querySelector('.modal'),draft=q.campDraft;
         const buttons=modal.querySelectorAll('[data-relic],[data-evopt]');
@@ -10708,17 +10608,287 @@ function renderPolishedHUD() {
     }
     // Current selection is represented in the dock; detailed skill prose belongs in tooltips.
     const skill=ut('hero-skill');if(skill){const small=skill.querySelector('small');if(small)skill.title=small.textContent+' · '+skill.title;}
-    const close=ut('sheet-toggle');close.textContent='명령 닫기';close.setAttribute('aria-label','병사 상세와 명령 닫기');
 }
 document.body.classList.add('lwb-polished');
-// UI v3 layout (presentation only): one top bar, one control rail, battle log inside the field, collapsible mission banner.
+// ==== Mobile portrait UX v4 — core: pixel status icons + MESBG unit states (all mapped 1:1 to real game state) ====
+const PX_PAL={k:'#0b0d0c',w:'#f4ecd6',g:'#f2c75a',y:'#c99a4a',s:'#dfe6ea',h:'#c9973f',o:'#f0a860',r:'#e0604c',c:'#8fc8f0',t:'#7fd3b0',p:'#b98ee0',e:'#7c8478'};
+const PX_ICONS={
+ // 기병 돌격 — double chevron
+ charge:{bg:'#2d3a24',rows:['kkkkkkkkkkkkkkkk','kbbbbbbbbbbbbbbk','kbbbbbbbbbbbbbbk','kbbgbbbbgbbbbbbk','kbbggbbbggbbbbbk','kbbbggbbbggbbbbk','kbbbbggbbbggbbbk','kbbbbbggbbbggbbk','kbbbbbggbbbggbbk','kbbbbggbbbggbbbk','kbbbggbbbggbbbbk','kbbggbbbggbbbbbk','kbbgbbbbgbbbbbbk','kbbbbbbbbbbbbbbk','kbbbbbbbbbbbbbbk','kkkkkkkkkkkkkkkk']},
+ // 교전 중 — crossed swords
+ engaged:{bg:'#3a2618',rows:['kkkkkkkkkkkkkkkk','kbbbbbbbbbbbbbbk','kbsbbbbbbbbbbsbk','kbbsbbbbbbbbsbbk','kbbbsbbbbbbsbbbk','kbbbbsbbbbsbbbbk','kbbbbbsbbsbbbbbk','kbbbbbbssbbbbbbk','kbbbbbbssbbbbbbk','kbbbbbsbbsbbbbbk','kbbhbsbbbbsbhbbk','kbbbhbbbbbbhbbbk','kbbhbhbbbbhbhbbk','kbhbbbbbbbbbbhbk','kbbbbbbbbbbbbbbk','kkkkkkkkkkkkkkkk']},
+ // 넘어짐 — figure lying on the ground
+ prone:{bg:'#3a2a18',rows:['kkkkkkkkkkkkkkkk','kbbbbbbbbbbbbbbk','kbbbbbbbbbbbbbbk','kbbbbbbbbbbbbbbk','kbbbbbbbbbbbbbbk','kbbbbbbbbbbbbbbk','kbbbbbbbbbbbbbbk','kbbbbbbbbbbboobk','kbooobbbbbbboobk','kbbooooooooooobk','kbooobbbbbbbbbbk','kbbbbbbbbbbbbbbk','kbeeeeeeeeeeeebk','kbbbbbbbbbbbbbbk','kbbbbbbbbbbbbbbk','kkkkkkkkkkkkkkkk']},
+ // 이동력 감소 — boot + down arrow
+ slowed:{bg:'#1e2a3a',rows:['kkkkkkkkkkkkkkkk','kbbbbbbbbbbbbbbk','kbbcccbbbbbwbbbk','kbbcccbbbbbwbbbk','kbbcccbbbbbwbbbk','kbbcccbbbbbwbbbk','kbbcccbbbbbwbbbk','kbbcccbbbwwwwwbk','kbbccccbbbwwwbbk','kbbcccccbbbwbbbk','kbbccccccbbbbbbk','kbbccccccbbbbbbk','kbbbbbbbbbbbbbbk','kbbbbbbbbbbbbbbk','kbbbbbbbbbbbbbbk','kkkkkkkkkkkkkkkk']},
+ // 공포 — skull
+ terror:{bg:'#2a1a3a',rows:['kkkkkkkkkkkkkkkk','kbbbbbbbbbbbbbbk','kbbbbwwwwwwbbbbk','kbbbwwwwwwwwbbbk','kbbwwwwwwwwwwbbk','kbbwwwwwwwwwwbbk','kbbwkkwwwwkkwbbk','kbbwkkwwwwkkwbbk','kbbwwwwkkwwwwbbk','kbbbwwwkkwwwbbbk','kbbbbwwwwwwbbbbk','kbbbbwkwkwkbbbbk','kbbbbwwwwwwbbbbk','kbbbbbbbbbbbbbbk','kbbbbbbbbbbbbbbk','kkkkkkkkkkkkkkkk']},
+ // 전열 붕괴 — cracked shield
+ broken:{bg:'#3a1414',rows:['kkkkkkkkkkkkkkkk','kbbbbbbbbbbbbbbk','kbbrrrrrrrrrrbbk','kbbrrrrrkrrrrbbk','kbbrrrrrkrrrrbbk','kbbrrrrkrrrrrbbk','kbbrrrrkrrrrrbbk','kbbrrrrrkkrrrbbk','kbbbrrrrrkrrbbbk','kbbbrrrrkrrrbbbk','kbbbbrrrkrrbbbbk','kbbbbbrrrrbbbbbk','kbbbbbbrrbbbbbbk','kbbbbbbbbbbbbbbk','kbbbbbbbbbbbbbbk','kkkkkkkkkkkkkkkk']},
+ // 반 이상 이동 — 사격 불가 (bow + cross)
+ noshoot:{bg:'#2a2418',rows:['kkkkkkkkkkkkkkkk','kbbbbbbbbbbbbbbk','kbbbbyybbbbbbbbk','kbrbbbyybbbbrbbk','kbbrbbbyybbrbbbk','kbbbrbbbywrbbbbk','kbbbbrbbyrbbbbbk','kbbbbbrbrwbbbbbk','kbbbbbbrywbbbbbk','kbbbbbrbyrbbbbbk','kbbbbrbbywbrbbbk','kbbbrbbyybbbrbbk','kbbrbbyybbbbbrbk','kbbbbyybbbbbbbbk','kbbbbbbbbbbbbbbk','kkkkkkkkkkkkkkkk']},
+ // 전열 유지 — shield
+ hold:{bg:'#1a2a24',rows:['kkkkkkkkkkkkkkkk','kbbbbbbbbbbbbbbk','kbbttttttttttbbk','kbbtttttwttttbbk','kbbtttttwttttbbk','kbbttwwwwwwwtbbk','kbbtttttwttttbbk','kbbtttttwttttbbk','kbbbttttwtttbbbk','kbbbtttttttbbbbk','kbbbbttttttbbbbk','kbbbbbttttbbbbbk','kbbbbbbttbbbbbbk','kbbbbbbbbbbbbbbk','kbbbbbbbbbbbbbbk','kkkkkkkkkkkkkkkk']},
+ // 정밀 사격 — crosshair
+ aim:{bg:'#2a2414',rows:['kkkkkkkkkkkkkkkk','kbbbbbbgbbbbbbbk','kbbbbbbgbbbbbbbk','kbbbbggggggbbbbk','kbbbgbbgbbbgbbbk','kbbgbbbbbbbbgbbk','kbbgbbbbbbbbgbbk','kggggbbbwbbggggk','kbbgbbbbbbbbgbbk','kbbgbbbbbbbbgbbk','kbbbgbbgbbbgbbbk','kbbbbggggggbbbbk','kbbbbbbgbbbbbbbk','kbbbbbbgbbbbbbbk','kbbbbbbbbbbbbbbk','kkkkkkkkkkkkkkkk']},
+ // UI glyphs
+ sword:{bg:null,rows:['.......kk.','......kwwk','.....kwwk.','....kwwk..','.k.kwwk...','.kgkwk....','..kgk.....','.kgkgk....','kgk..k....','kk........']},
+ flag:{bg:null,rows:['kk......','kgkkkk..','kggggk..','kgggggk.','kggggk..','kgkkkk..','kg......','kk......']},
+ heart:{bg:null,rows:['.kk.kk..','krrkrrk.','krrrrrk.','krrrrrk.','.krrrk..','..krk...','...k....','........']}
+};
+const PX_URL={};
+function pxIcon(id){
+    if(PX_URL[id])return PX_URL[id];
+    const d=PX_ICONS[id];if(!d)return '';
+    const h=d.rows.length,w=d.rows[0].length,c=document.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d');
+    for(let j=0;j<h;j++)for(let i=0;i<w;i++){const ch=d.rows[j][i];if(ch==='.')continue;x.fillStyle=ch==='b'?d.bg:(PX_PAL[ch]||'#f0f');x.fillRect(i,j,1,1);}
+    return PX_URL[id]=c.toDataURL();
+}
+// Every entry reads a real field of the unit / battle — no invented buffs.
+const UNIT_STATE_DEFS={
+    charge:{label:'기병 돌격',desc:'이번 돌격에 기병 보너스 적용',test:u=>!!u.charged},
+    engaged:{label:'교전 중',desc:'적과 베이스가 맞닿아 있음',test:u=>q.engaged(u)},
+    terror:{label:'공포',desc:'공포 검사 실패 — 이번 라운드 돌격 불가',test:u=>!!u.feared},
+    prone:{label:'넘어짐',desc:'기병 충격으로 넘어진 상태',test:u=>!!u.prone},
+    broken:{label:'전열 붕괴',desc:'병력 절반 이하 — 매 라운드 용기 판정',test:u=>{const b=q.waveStartCounts?.[u.side];return !!b&&q.alive(u.side).length<=b/2;}},
+    slowed:{label:'이동력 감소',desc:'이번 라운드 이동력이 줄어듦',test:u=>(u.roundBuff?.move||0)<0},
+    noshoot:{label:'반 이상 이동',desc:'이동력 절반 넘게 이동 — 이번 턴 사격 불가',test:u=>u.stats.shootRange>0&&['move','shoot'].includes(q.phase)&&u.movementSpent*2>u.stats.move},
+    hold:{label:'전열 유지',desc:'전열 유지 명령 적용 중',test:u=>!!u.hold},
+    aim:{label:'정밀 사격',desc:'정밀 사격 명령 적용 중',test:u=>!!u.aim}
+};
+const UNIT_STATE_ORDER=['charge','engaged','terror','prone','broken','slowed','noshoot','hold','aim'];
+function unitStates(u){if(!u?.alive)return[];const out=[];for(const id of UNIT_STATE_ORDER){try{if(UNIT_STATE_DEFS[id].test(u))out.push(id);}catch(e){}}return out;}
+window.MESBG&&(window.MESBG.unitStates=u=>unitStates(typeof u==='string'?q.unit(u):u));
+// ==== Mobile portrait UX v4 — screen structure ====
+// Thin top HUD · battlefield · compact unit panel + contextual actions · bottom sheet for details.
+// The previous HUD pieces (phase stepper row, camera buttons, minimap button, legend, roster strip, right drawer)
+// are removed from the battle screen rather than restyled.
 (function(){
-    const rm=document.querySelector('#app .runmeta'),ph=ut('phases');if(rm&&ph)rm.after(ph);
-    const fa=document.querySelector('#app .field-actions');
-    if(fa){for(const id of ['map-toggle','battle-log-toggle']){const el=ut(id);if(el)fa.appendChild(el);}}
-    const field=document.querySelector('#app .field'),lg=ut('battle-log');if(field&&lg)field.appendChild(lg);
-    const bi=document.querySelector('#app .battle-info');
-    if(bi)bi.addEventListener('click',()=>{clearTimeout(bi._t);bi.classList.toggle('mission-open');});
+window.__muxPrimary=ut('dock-primary').onclick;
+const $=id=>document.getElementById(id);
+const field=document.querySelector('#app .field'),top=document.querySelector('#app .top'),dock=$('command-dock'),sheet=$('battle-sheet');
+// --- top HUD: [공세·라운드] [임무] [CP] [≡]
+const hud=document.createElement('div');hud.id='hud-mission';hud.setAttribute('role','button');hud.tabIndex=0;
+hud.innerHTML='<div class="hm-line"></div><div class="hm-more"></div>';
+top.querySelector('.runmeta').after(hud);
+const hmMore=hud.querySelector('.hm-more');
+hmMore.appendChild($('ux-mission'));hmMore.appendChild($('ux-place'));
+hud.onclick=()=>hud.classList.toggle('open');
+document.addEventListener('pointerdown',e=>{if(!hud.contains(e.target))hud.classList.remove('open');});
+// --- menu (≡): overview + battle log live here instead of on the battlefield
+const menu=document.querySelector('#app .top-actions');
+menu.insertAdjacentHTML('afterbegin','<button class="iconbtn" id="menu-overview" type="button">전장 전체 보기</button>');
+const logBtn=$('battle-log-toggle');if(logBtn){logBtn.textContent='전투 기록';menu.insertBefore(logBtn,$('menu-overview').nextSibling);}
+let overviewBack=null;
+$('menu-overview').onclick=()=>{if(overviewBack){setCamera(overviewBack.x,overviewBack.y,overviewBack.z,'manual');overviewBack=null;$('menu-overview').textContent='전장 전체 보기';}
+    else{const c=cameraCenter();overviewBack={x:c.x,y:c.y,z:UX.zoom};Tt.overview();$('menu-overview').textContent='원래 시점으로';}
+    menu.classList.remove('open');};
+// --- bottom: unit panel + action bar
+dock.innerHTML='';
+dock.insertAdjacentHTML('beforeend',
+ '<div class="u-panel" id="u-panel" role="button" tabindex="0" aria-label="병사 상세 보기">'+
+   '<img id="dock-portrait" class="dock-portrait" alt="">'+
+   '<div class="u-id"><strong id="dock-name"></strong><div class="u-hp" id="u-hp"></div><div class="u-states" id="u-states"></div></div>'+
+   '<div class="u-stats" id="u-stats"></div>'+
+   '<div class="u-res" id="u-res"></div>'+
+   '<span class="u-grab" aria-hidden="true"></span>'+
+ '</div>'+
+ '<div class="u-actions">'+
+   '<span class="act-phase" id="act-phase"></span>'+
+   '<button type="button" class="act-btn" id="act-end">턴 종료</button>'+
+   '<span class="act-gap"></span>'+
+   '<button type="button" class="act-btn" id="act-ability">능력</button>'+
+   '<button type="button" class="act-btn" id="act-shoot">사격</button>'+
+   '<button type="button" id="intent-cancel" class="hidden act-btn" aria-label="명령 취소">취소</button>'+
+   '<button type="button" id="dock-primary" class="dock-primary"></button>'+
+ '</div>'+
+ '<div class="u-tip hidden" id="u-tip"></div>'+
+ // legacy nodes other code still writes to; kept off-screen
+ '<div class="mux-legacy" hidden><span id="dock-eyebrow"></span><div id="dock-status"></div><div id="dock-vitals"></div><div id="roster-strip"></div><button id="next-unit"></button><button id="dock-detail"></button></div>');
+// re-wire handlers that were bound to the old nodes
+ut('intent-cancel').onclick=()=>{clearIntent();renderDock();Tt.drawRings();};
+ut('dock-primary').onclick=window.__muxPrimary;
+// --- bottom sheet: unit details, abilities & commands
+sheet.classList.add('mux-sheet');
+const sh=$('sheet-toggle');sh.textContent='';sh.setAttribute('aria-label','상세 닫기');sh.innerHTML='<span class="grab"></span>';
+const stSec=document.createElement('section');stSec.id='sheet-unit-extra';stSec.innerHTML='<div class="section-label">상태</div><div id="sheet-states"></div><div class="section-label">장비</div><div id="sheet-equip"></div>';
+const unitSec=$('unit')?.closest('section');if(unitSec)unitSec.after(stSec);
+const openSheet=on=>{setSheet(on);if(on)sheet.scrollTop=0;};
+const panel=$('u-panel');
+panel.addEventListener('click',e=>{if(e.target.closest('.u-st'))return;if(!At)openSheet(true);});
+let swy=null;panel.addEventListener('pointerdown',e=>{swy=e.clientY;});
+panel.addEventListener('pointermove',e=>{if(swy!==null&&e.clientY-swy<-28){swy=null;if(!At)openSheet(true);}});
+panel.addEventListener('pointerup',()=>{swy=null;});
+let sdy=null;sheet.addEventListener('pointerdown',e=>{if(sheet.scrollTop<=0)sdy=e.clientY;});
+sheet.addEventListener('pointermove',e=>{if(sdy!==null&&e.clientY-sdy>48){sdy=null;openSheet(false);}});
+sheet.addEventListener('pointerup',()=>{sdy=null;});
+// --- status icon tooltips (tap)
+const tip=$('u-tip');let tipT=0;
+dock.addEventListener('click',e=>{const b=e.target.closest('.u-st');if(!b)return;e.stopPropagation();const d=UNIT_STATE_DEFS[b.dataset.st];if(!d)return;
+    tip.innerHTML='<img src="'+pxIcon(b.dataset.st)+'" alt=""><b>'+d.label+'</b><span>'+d.desc+'</span>';tip.classList.remove('hidden');clearTimeout(tipT);tipT=setTimeout(()=>tip.classList.add('hidden'),2600);});
+// --- combat forecast (vs) panel on the battlefield
+const vs=document.createElement('div');vs.id='vs-panel';vs.className='hidden';field.appendChild(vs);
+window.__muxEls={hud,vs,tip};
+})();
+
+// Unit panel: portrait · name · HP · F S D A · Might/Will/Fate pips · state icons
+function renderUnitVitals(){
+    const u=q.unit(q.selected)||actionableUnit();
+    const name=ut('dock-name'),hp=ut('u-hp'),st=ut('u-stats'),rs=ut('u-res'),ss=ut('u-states'),img=ut('dock-portrait'),panel=ut('u-panel');
+    if(!name)return;
+    if(!u?.alive||['menu','reward','result'].includes(q.phase)){panel.classList.add('empty');name.textContent=q.phase==='fight'?(q.fightQueue.length?'교전 판정':'다음 라운드 준비'):'병사를 선택하세요';hp.innerHTML='';st.innerHTML='';rs.innerHTML='';ss.innerHTML='';img.classList.add('hidden');return;}
+    panel.classList.remove('empty');panel.classList.toggle('foe',u.side!==(q.mode==='ai'?'good':q.side));
+    const src=Ut(q.meta.get(u.id).file);if(img.getAttribute('src')!==src)img.src=src;img.classList.remove('hidden');
+    name.textContent=shortName(u);
+    const w=u.stats.wounds,c=Math.max(0,u.currentWounds),r=Math.max(0,Math.min(1,c/Math.max(1,w)));
+    hp.innerHTML='<img class="px" src="'+pxIcon('heart')+'" alt=""><b>'+c+'<small>/'+w+'</small></b><span class="hpbar'+(r<=.34?' low':'')+'"><i style="width:'+Math.round(r*100)+'%"></i></span><span class="mv">이동 '+(q.remaining(u)/45).toFixed(1)+'″</span>';
+    const S=u.stats;st.innerHTML=[['F',S.fight,'결투'],['S',S.strength,'힘'],['D',S.defence,'방어'],['A',S.attacks,'공격 횟수']].map(([k,v,t])=>'<span title="'+t+'"><i>'+k+'</i><b>'+v+'</b></span>').join('');
+    if(u.traits.includes('hero')||S.might||S.will||S.fate){const pip=(k,n,m)=>{let h='';for(let i=0;i<Math.max(m,n);i++)h+='<i class="'+(i<n?'on':'')+'"></i>';return '<span class="res-'+k+'"><em>'+k.toUpperCase()[0]+'</em>'+h+'</span>';};
+        const R=u.resources||{};rs.innerHTML=pip('might',R.might||0,S.might||0)+pip('will',R.will||0,S.will||0)+pip('fate',R.fate||0,S.fate||0);rs.classList.remove('hidden');}
+    else{rs.innerHTML='';rs.classList.add('hidden');}
+    const states=unitStates(u);
+    ss.innerHTML=states.slice(0,5).map(id=>'<button type="button" class="u-st" data-st="'+id+'" title="'+UNIT_STATE_DEFS[id].label+'"><img src="'+pxIcon(id)+'" alt="'+UNIT_STATE_DEFS[id].label+'"></button>').join('');
+    // bottom sheet extras
+    const sl=ut('sheet-states');if(sl)sl.innerHTML=states.length?states.map(id=>'<div class="sheet-st"><img src="'+pxIcon(id)+'" alt=""><b>'+UNIT_STATE_DEFS[id].label+'</b><span>'+UNIT_STATE_DEFS[id].desc+'</span></div>').join(''):'<p class="mini">특별한 상태 없음</p>';
+    const eq=ut('sheet-equip');if(eq){const list=(u.equipment||[]).map(id=>(typeof LWB_EQUIP!=='undefined'&&LWB_EQUIP.find(x=>x.id===id))||null).filter(Boolean);eq.innerHTML=list.length?list.map(d=>'<div class="sheet-eq"><b>'+esc(d.label||d.id)+'</b>'+(d.desc?'<span>'+esc(d.desc)+'</span>':'')+'</div>').join(''):'<p class="mini">장비 없음</p>';}
+}
+
+// Action bar: only what the current phase / unit allows
+function muxActions(){
+    const ph=ut('act-phase'),endB=ut('act-end'),abB=ut('act-ability'),shB=ut('act-shoot'),prim=ut('dock-primary');if(!ph)return;
+    const phase=q.phase,mine=!AUTO&&!(q.mode==='ai'&&q.side==='evil'),u=q.unit(q.selected),act=actionableUnit();
+    const sideKo=q.side==='good'?'아군':'적군',phKo={preparation:'배치',move:'이동',shoot:'사격',fight:'근접전'}[phase]||'';
+    ph.textContent=phase==='preparation'?'배치':phase==='fight'?'근접전':phKo?sideKo+' · '+phKo:'';
+    ph.className='act-phase '+(phase==='fight'||phase==='preparation'?'neutral':q.side==='good'?'ally':'foe');
+    const turnPhase=['move','shoot'].includes(phase)&&mine&&!At&&q.eligible(q.side).length>0;
+    endB.classList.toggle('hidden',!turnPhase);if(!turnPhase){endB.classList.remove('confirm');endB.textContent='턴 종료';}
+    const own=u&&u.alive&&u.side===q.side&&mine&&['move','shoot'].includes(phase);
+    const heroReady=own&&!At&&(()=>{const hs=ut('hero-skill');if(hs&&!hs.disabled&&hs.offsetParent!==null)return true;return [...document.querySelectorAll('#commands .heroic-btn')].some(b=>!b.disabled);})();
+    abB.classList.toggle('hidden',!heroReady||!!UX.intent);
+    const canShoot=own&&phase==='shoot'&&!UX.intent&&q.canAct(u)&&u.stats.shootRange>0&&q.validTargets(u).length>0;
+    shB.classList.toggle('hidden',!canShoot);
+    if(phase==='shoot'&&!UX.intent&&prim.textContent==='사격 대기')prim.textContent='대기';
+}
+// Turn end: the same as pressing "wait" for every unit that still has to act this phase (no rule change)
+(function(){
+    const endB=ut('act-end');let armT=0;
+    endB.onclick=()=>{if(At||Qt||!['move','shoot'].includes(q.phase))return;
+        if(!endB.classList.contains('confirm')){endB.classList.add('confirm');endB.textContent='종료?';clearTimeout(armT);armT=setTimeout(()=>{endB.classList.remove('confirm');endB.textContent='턴 종료';},2600);return;}
+        clearTimeout(armT);endB.classList.remove('confirm');endB.textContent='턴 종료';clearIntent();
+        Rt(()=>{const side=q.side,ph=q.phase;for(let n=0;n<80&&q.side===side&&q.phase===ph;n++){const m=q.unit(q.activeMoverUid);const id=m&&q.canAct(m)?m.uid:q.eligible(side)[0]?.uid;if(!id||!q.wait(id))break;}});};
+    ut('act-ability').onclick=()=>{if(At)return;setSheet(true);const cb=document.querySelector('#battle-sheet .control-block');const sh=ut('battle-sheet');if(cb&&sh)sh.scrollTop=cb.offsetTop-8;};
+    ut('act-shoot').onclick=()=>{const u=q.unit(q.selected);if(!u||At)return;const t=q.validTargets(u).sort((a,b)=>Math.hypot(a.x-u.x,a.y-u.y)-Math.hypot(b.x-u.x,b.y-u.y))[0];if(t)planIntent(t,t);};
+})();
+// Tap the same destination / target again to confirm (the confirm button keeps working too)
+(function(){
+    const prevPoint=Tt.onPoint,prevUnit=Tt.onUnit;
+    Tt.onPoint=p=>{const it=UX.intent;if(it&&!At&&['move','deploy'].includes(it.kind)&&it.to){const u=q.unit(it.uid),r=Math.max(26,(u?.radius||30)*.9);if(Math.hypot(p.x-it.to.x,p.y-it.to.y)<=r){ut('dock-primary').click();return;}}prevPoint(p);};
+    Tt.onUnit=uid=>{const it=UX.intent;if(it&&!At&&['charge','shoot'].includes(it.kind)&&it.target===uid){ut('dock-primary').click();return;}prevUnit(uid);};
+})();
+// Combat forecast: attacker vs target with the numbers a player actually weighs
+function renderVs(){
+    const vs=ut('vs-panel');if(!vs)return;const it=UX.intent;
+    if(!it||At||!['charge','shoot'].includes(it.kind)){vs.classList.add('hidden');vs.dataset.k='';return;}
+    const a=q.unit(it.uid),t=q.unit(it.target);if(!a||!t){vs.classList.add('hidden');return;}
+    const shot=it.kind==='shoot';
+    const willCharge=!shot&&a.traits.includes('mounted')&&(a.movementSpent+(it.plan?.distance||0))>a.radius;
+    const card=(u,side,extra)=>{const w=u.stats.wounds,c=Math.max(0,u.currentWounds),r=c/Math.max(1,w);const sts=unitStates(u).concat(extra||[]).filter((v,i,arr)=>arr.indexOf(v)===i).slice(0,3);
+        const nums=shot?(side==='a'?'<span><i>명중</i><b>'+u.stats.shootValue+'+</b></span><span><i>S</i><b>'+u.stats.strength+'</b></span>':'<span><i>D</i><b>'+u.stats.defence+'</b></span><span><i>F</i><b>'+u.stats.fight+'</b></span>')
+            :'<span><i>F</i><b>'+u.stats.fight+'</b></span><span><i>A</i><b>'+u.stats.attacks+'</b></span>';
+        return '<div class="vs-u vs-'+side+(u.side==='good'?' ally':' foe')+'"><img class="vs-pt" src="'+Ut(q.meta.get(u.id).file)+'" alt=""><div class="vs-tx"><strong>'+esc(shortName(u))+'</strong><div class="vs-hp"><span class="hpbar'+(r<=.34?' low':'')+'"><i style="width:'+Math.round(r*100)+'%"></i></span><b>'+c+'/'+w+'</b></div><div class="vs-n">'+nums+'</div><div class="vs-st">'+sts.map(id=>'<img src="'+pxIcon(id)+'" alt="'+UNIT_STATE_DEFS[id].label+'" title="'+UNIT_STATE_DEFS[id].label+'">').join('')+'</div></div></div>';};
+    const k=[it.kind,a.uid,t.uid,a.currentWounds,t.currentWounds,willCharge].join('|');if(vs.dataset.k===k){vs.classList.remove('hidden');return;}vs.dataset.k=k;
+    vs.className=(shot?'shot':'melee');
+    vs.innerHTML=card(a,'a',willCharge?['charge']:[])+'<div class="vs-mid"><img class="px" src="'+pxIcon(shot?'aim':'sword')+'" alt=""><b>'+(shot?'사격':willCharge?'기병 돌격':'돌격')+'</b><small>다시 탭 · 확정</small></div>'+card(t,'b');
+}
+const muxDock=renderDock;
+renderDock=function(){muxDock();try{renderUnitVitals();muxActions();renderVs();for(const el of [document.querySelector('#app .layout'),document.querySelector('#app .battle-column'),ut('app')])if(el&&(el.scrollTop||el.scrollLeft)){el.scrollTop=0;el.scrollLeft=0;}}catch(e){console.error('[mux]',e);}};
+// ==== Mobile portrait UX v4 — battlefield feedback ====
+// (a) up to 3 pixel state icons under each token, constant on-screen size
+// (b) prone units visibly lie down (sprite tilts; base and rules untouched)
+(function(){
+function pxTex(id){const k='px-'+id;if(Tt.textures.exists(k))return k;const d=PX_ICONS[id];if(!d)return null;
+    const c=document.createElement('canvas');c.width=d.rows[0].length;c.height=d.rows.length;const x=c.getContext('2d');
+    for(let j=0;j<c.height;j++)for(let i=0;i<c.width;i++){const ch=d.rows[j][i];if(ch==='.')continue;x.fillStyle=ch==='b'?d.bg:(PX_PAL[ch]||'#f0f');x.fillRect(i,j,1,1);}
+    Tt.textures.addCanvas(k,c);try{Tt.textures.get(k).setFilter(Phaser.Textures.FilterMode.NEAREST);}catch(e){}return k;}
+const LEGACY=['clash','prone','terror','charge','halfmove'];
+let lastZ=0;
+function iconRow(scene,u,c){
+    let row=c.getByName('st-row');if(!row){row=scene.add.container(0,0).setName('st-row');c.add(row);}
+    const states=(u.alive&&!u.escaped&&scene.b.phase!=='menu')?unitStates(u).slice(0,3):[];
+    const sig=states.join(',');
+    if(row.getData('sig')!==sig){row.removeAll(true);row.setData('sig',sig);
+        states.forEach((id,i)=>{const k=pxTex(id);if(k)row.add(scene.add.image((i-(states.length-1)/2)*17,0,k).setOrigin(.5));});}
+    const z=UX.zoom||1;row.setScale(1/z);row.setPosition(0,u.radius+6/z);
+    return row;
+}
+const fxSync=Ve.prototype.sync;
+Ve.prototype.sync=function(){
+    fxSync.apply(this,arguments);if(!this.tokens||!UX.ready)return;
+    for(const [uid,c] of this.tokens){const u=this.b.unit(uid);if(!u)continue;
+        for(const nm of LEGACY){const el=c.getByName(nm);if(el)el.setVisible(false);}
+        iconRow(this,u,c);}
+    lastZ=UX.zoom;
+};
+const fxUpdate=Ve.prototype.update;
+Ve.prototype.update=function(t){
+    fxUpdate.call(this,t);if(!this.tokens||!UX.ready)return;
+    const zChanged=Math.abs((UX.zoom||1)-lastZ)>1e-4;
+    for(const [uid,c] of this.tokens){const u=this.b.unit(uid);if(!u?.alive)continue;
+        if(zChanged){const row=c.getByName('st-row');if(row){const z=UX.zoom||1;row.setScale(1/z);row.setPosition(0,u.radius+6/z);}}
+        const s=c.getByName('token');if(!s||s.getData('fxLock'))continue;
+        if(u.prone){s.setAngle(s.flipX?-72:72);s.setScale(s.scaleX,s.scaleY*.9);s.setAlpha(.92);}else if(s.alpha<.99&&!s.getData('fxLock'))s.setAlpha(1);
+    }
+    if(zChanged)lastZ=UX.zoom;
+};
+})();
+
+// ==== Compact dice result (replaces the large dice panel) ====
+// A slim strip at the top of the battlefield: who vs who, the deciding dice, the outcome. Tap it to see every die.
+(function(){
+const SIDE_KO={good:'곤도르',evil:'모르도르'};
+const face=(side,v)=>{const f=side==='good'?'minastirith':'mordor',set=Fe.dice.find(o=>o.faction===f);return Ut(set.faces[Math.max(1,Math.min(6,v|0))]);};
+const sleep=ms=>new Promise(r=>setTimeout(r,Math.max(0,ms)));
+const lead=(ids,side)=>ids.map(id=>q.unit(id)).filter(u=>u&&u.side===side).sort((a,b)=>(b.traits.includes('hero')-a.traits.includes('hero'))||(b.stats.fight-a.stats.fight))[0];
+const isBoss=u=>!!u&&(u.traits.includes('boss')||u.traits.includes('monster')&&u.traits.includes('hero'));
+const box=ut('dice');let hold=0;
+box.addEventListener('click',()=>{box.classList.toggle('open');hold+=1800;});
+$e=async function(e){
+    if(qt>=20)return;
+    let L,R,ld=[],rd=[],res='',sub='',special=false,detail='',kind='';
+    if(e.type==='PriorityRolled'){kind='prio';L={name:'곤도르',side:'good'};R={name:'모르도르',side:'evil'};ld=[e.good];rd=[e.evil];res=(q.priority==='good'?'곤도르':'모르도르')+' 선공';sub=e.ties?'동점 재굴림':'우선권';}
+    else if(e.result&&e.result.kind==='shot'){kind='shot';const S=e.result,t=S.strikeResults[0]||{},a=q.unit(t.attacker),v=q.unit(t.target),side=a?.side||'good',raw=S.diceResults[side]||[];
+        L={name:a?shortName(a):SIDE_KO[side],side};R={name:v?shortName(v):'대상',side:v?.side||(side==='good'?'evil':'good')};
+        ld=[raw[0]];rd=raw.length>1?[raw[raw.length-1]]:[];
+        res=t.hit<t.hitNeeded?'빗나감':t.killed?'격파':t.wound?'상처':'막음';
+        if((t.interceptions||[]).some(i=>!i.passed))res='아군 오사';
+        sub='명중 '+t.hitNeeded+'+'+(rd.length?' · 상처 '+t.needed+'+':'');special=isBoss(v)||isBoss(a);
+        detail=raw.map((d,i)=>'<img src="'+face(side,d)+'" alt="'+d+'">').join('');}
+    else if(e.result){kind='fight';const S=e.result,ids=S.participants||[];const g=lead(ids,'good'),b=lead(ids,'evil');
+        L={name:g?shortName(g):'곤도르',side:'good'};R={name:b?shortName(b):'모르도르',side:'evil'};
+        ld=S.diceResults.good||[];rd=S.diceResults.evil||[];const w=S.winnerSide==='good'?L.name:R.name;
+        res=w+' 승리';sub=(S.wounds?.length?'부상 '+S.wounds.length:'')+(S.trappedUnits?.length?(S.wounds?.length?' · ':'')+'포위':'');
+        special=(isBoss(g)||isBoss(b))||ids.some(id=>q.unit(id)?.charged);
+        detail='<div><span class="dx-side good">곤도르</span>'+ld.map(d=>'<img src="'+face('good',d)+'" alt="'+d+'">').join('')+'</div><div><span class="dx-side evil">모르도르</span>'+rd.map(d=>'<img src="'+face('evil',d)+'" alt="'+d+'">').join('')+'</div>'+(S.fightValues?'<div class="dx-fv">결투 '+S.fightValues.good+' / '+S.fightValues.evil+'</div>':'');
+        if(S.winnerSide)e.__w=S.winnerSide;}
+    else return;
+    const sp=Math.max(1,qt),best=a=>a.length?Math.max(...a):0;
+    const dieHTML=(side,v,id)=>'<span class="dx-die" id="'+id+'"><img src="'+face(side,v||1+Math.floor(Math.random()*6))+'" alt=""></span>';
+    box.className='dice-panel dx kind-'+kind+(special?' special':'');
+    box.innerHTML='<div class="dx-row"><span class="dx-n l '+L.side+'">'+esc(L.name)+'</span>'+dieHTML(L.side,0,'dx-l')+'<img class="dx-vs px" src="'+pxIcon(kind==='shot'?'aim':'sword')+'" alt="">'+(kind==='shot'&&!rd.length?'':dieHTML(kind==='shot'?L.side:R.side,0,'dx-r'))+'<span class="dx-n r '+R.side+'">'+esc(R.name)+'</span></div><div class="dx-res"><b></b><small></small></div>'+(detail?'<div class="dx-detail">'+detail+'</div>':'');
+    box.classList.remove('hidden');hold=0;
+    wt.play('dice_roll');
+    const lEl=box.querySelector('#dx-l img'),rEl=box.querySelector('#dx-r img');
+    const rollSide=kind==='shot'?L.side:R.side;
+    if(!UX.reduced){const t0=performance.now();while(performance.now()-t0<240/sp){lEl&&(lEl.src=face(L.side,1+Math.floor(Math.random()*6)));rEl&&(rEl.src=face(kind==='shot'?L.side:R.side,1+Math.floor(Math.random()*6)));await sleep(45/sp);}}
+    lEl&&(lEl.src=face(L.side,best(ld)||ld[0]));rEl&&(rEl.src=face(kind==='shot'?L.side:R.side,best(rd)||rd[0]));
+    box.querySelectorAll('.dx-die').forEach(x=>x.classList.add('landed'));
+    if(kind==='fight'||kind==='prio'){const lw=(kind==='prio'?q.priority:e.__w)==='good';box.querySelector(lw?'#dx-l':'#dx-r')?.classList.add('win');box.querySelector(lw?'.dx-n.l':'.dx-n.r')?.classList.add('win');}
+    if(kind==='shot'){const t=e.result.strikeResults[0]||{};box.querySelector('#dx-l')?.classList.add(t.hit>=t.hitNeeded?'win':'lose');box.querySelector('#dx-r')?.classList.add(t.wound?'win':'lose');}
+    box.querySelector('.dx-res b').textContent=res;box.querySelector('.dx-res small').textContent=sub;
+    let wait=({fight:520,shot:460,prio:380})[kind]+(special?260:0);
+    const t1=performance.now();while(performance.now()-t1<(wait+hold)/sp)await sleep(40);
+    box.classList.remove('open');
+};
 })();
 try{document.documentElement.style.setProperty('--ui-title-art','url("'+Ut('backgrounds/bg_black_gate.png')+'")');}catch(e){}
 ut('dock-detail').textContent='명령';
@@ -11008,565 +11178,275 @@ body.force-mobile .modal .reward p{grid-column:2!important;font-size:11.5px!impo
   body.force-mobile #app{width:min(430px,96vw);height:min(92vh,930px);margin:calc((100vh - min(92vh,930px))/2) auto;border:1px solid #4a5240;border-radius:22px;overflow:hidden;box-shadow:0 0 0 6px #141810,0 30px 90px rgba(0,0,0,.65);transform:translateZ(0)}
   body.force-mobile .modal{max-height:88%}
 }
-</style><style id="ui-v2">
-/* LAST WAR BAND — UI v2 (2026-10): modern mobile-game HUD.
-   Layer order: base CSS → runtime 'lwb-product-hud' → this block (wins via `html body.lwb-polished #app` prefix).
-   Pairs with display hooks in src/game.js (vitals chip markup, roster --hp, body[data-side], --ui-title-art).
-   To revert the look: delete this <style id="ui-v2"> block and rebuild. */
+</style><style id="ui-mobile">
+/* LAST WAR BAND — mobile portrait UI (v4).
+   One stylesheet for the battle screen and menus. Pixel-miniature look: hard dark outlines, small radii,
+   flat metal/parchment tones, no glows. Pairs with the "Mobile portrait UX v4" modules in src/game.js. */
 html body.lwb-polished{
- --g:#e9c97e;--g-hi:#fbe8b0;--g-lo:#a7823b;--g-line:rgba(233,201,126,.34);
- --ink:#0b100d;--bg0:#0f1511;--bg1:#18201a;--bg2:#212b22;--bg3:#2b372b;
- --ally:#58c9a5;--ally-d:#1c4a3d;--foe:#e8705e;--foe-d:#4e1f1a;
- --hp:#7fd36b;--hp-low:#f06a50;
- --glass:rgba(13,19,15,.86);
- --r-s:8px;--r-m:12px;--r-l:16px;
- --sh-1:0 4px 12px rgba(0,0,0,.45);--sh-2:0 10px 28px rgba(0,0,0,.55);
- --bevel:inset 0 1px 0 rgba(255,255,255,.08),inset 0 -1px 0 rgba(0,0,0,.35);
- --i-heart:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21l-1.4-1.3C5.4 15 2 11.9 2 8.1 2 5 4.4 2.6 7.5 2.6c1.7 0 3.4.8 4.5 2.1 1.1-1.3 2.8-2.1 4.5-2.1C19.6 2.6 22 5 22 8.1c0 3.8-3.4 6.9-8.6 11.6z'/%3E%3C/svg%3E");
- --i-move:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 5.5l8 6.5-8 6.5zM12 5.5l8 6.5-8 6.5z'/%3E%3C/svg%3E");
- --i-sword:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M14.5 2.5H21.5V9.5L11.6 19.4 13 20.8 11.6 22.2 9.4 20 6.2 23.2 4.8 21.8 8 18.6 5.8 16.4 7.2 15 8.6 16.4z'/%3E%3C/svg%3E");
- --i-shield:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2l8.5 3.2v6.2c0 5.1-3.6 9.5-8.5 10.9-4.9-1.4-8.5-5.8-8.5-10.9V5.2z'/%3E%3C/svg%3E");
- --i-fight:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='M4 4l12.5 12.5M20 4L7.5 16.5M13.5 19l5.5-5.5M10.5 19L5 13.5M17.5 17.5l3 3M6.5 17.5l-3 3'/%3E%3C/svg%3E");
- --i-coin:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill-rule='evenodd' d='M12 2.5a9.5 9.5 0 110 19 9.5 9.5 0 010-19zm0 4a5.5 5.5 0 100 11 5.5 5.5 0 000-11zm0 2.5l3 3-3 3-3-3z'/%3E%3C/svg%3E");
- --i-cp:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 2h2v20H5zM8 3h11l-2.5 4.5L19 12H8z'/%3E%3C/svg%3E");
- --i-band:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 11.5a4 4 0 100-8 4 4 0 000 8zM1.5 21c0-4.1 3.4-7.5 7.5-7.5s7.5 3.4 7.5 7.5zM17 11a3.2 3.2 0 100-6.4 3.2 3.2 0 000 6.4zM17.6 13.1c2.8.3 4.9 2.7 4.9 5.6V21h-4.3c0-2.9-1.1-5.6-3-7.5.7-.3 1.5-.4 2.4-.4z'/%3E%3C/svg%3E");
- --i-next:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 5l10 7-10 7zM16 5h3.2v14H16z'/%3E%3C/svg%3E");
- --i-list:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 4.5h3v3H3zM8.5 4.8h12.5v2.4H8.5zM3 10.5h3v3H3zM8.5 10.8h12.5v2.4H8.5zM3 16.5h3v3H3zM8.5 16.8h12.5v2.4H8.5z'/%3E%3C/svg%3E");
- --i-check:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E");
+ --ink:#0b0d0c;--bg:#121712;--panel:#1b211b;--panel2:#252d24;--panel3:#2f392d;
+ --metal-hi:#f6dc94;--metal:#d9ac52;--metal-lo:#8f6526;--parch:#e9dcb8;
+ --text:#efe6cc;--muted:#a7ab98;--ally:#5fc9a3;--ally-d:#1f4d3e;--foe:#e5664f;--foe-d:#552018;--hp:#7fd36b;--hp-low:#ef5a43;
+ --frame:inset 0 0 0 1px rgba(217,172,82,.38),inset 0 2px 0 rgba(255,255,255,.05);
+ --r:3px;--safe-t:env(safe-area-inset-top,0px);--safe-b:env(safe-area-inset-bottom,0px);
 }
-html body.lwb-polished,html body.lwb-polished #app{background:var(--bg0)!important}
-html body.lwb-polished #app button{-webkit-tap-highlight-color:transparent}
+html body.lwb-polished,html body.lwb-polished #app{background:var(--bg)!important;color:var(--text)}
+html body.lwb-polished #app button{-webkit-tap-highlight-color:transparent;font-family:Pretendard,sans-serif;touch-action:manipulation}
+html body.lwb-polished #app img.px,html body.lwb-polished #app .u-st img,html body.lwb-polished #app .vs-st img,html body.lwb-polished #app .sheet-st img,html body.lwb-polished #app .u-tip img{image-rendering:pixelated}
+html body.lwb-polished #app .hidden{display:none!important}
 
-/* ═══ TOP BAR ═══════════════════════════════════════════ */
-html body.lwb-polished #app .top{background:linear-gradient(180deg,#1f2a20 0%,#121812 100%)!important;border-bottom:0!important;box-shadow:0 1px 0 var(--g-line),0 6px 16px rgba(0,0,0,.4)!important;gap:8px!important;padding:0 8px 0 10px!important}
-html body.lwb-polished #app .sigil{display:flex!important;align-items:center;justify-content:center;flex:0 0 34px;width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 50% 35%,#3a4632,#141a14 75%);box-shadow:0 0 0 1.5px var(--g-lo),0 0 0 3px rgba(0,0,0,.6),0 0 12px rgba(233,201,126,.25)}
-html body.lwb-polished #app .sigil img{width:24px!important;height:24px!important;object-fit:contain}
-html body.lwb-polished #app .runmeta{flex:1 1 auto;min-width:0;display:flex!important;align-items:center;gap:6px!important}
-html body.lwb-polished #app .metric{display:flex!important;flex-direction:row!important;align-items:center;gap:5px;border:0!important;padding:0!important;margin:0!important;min-width:0}
-html body.lwb-polished #app .metric small{font-size:9px!important;color:#9aa38d!important;letter-spacing:.04em;line-height:1;text-transform:none}
-html body.lwb-polished #app .metric strong{font-size:13px!important;line-height:1;color:#f4ead0!important;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
-/* stage badge */
-html body.lwb-polished #app .metric:has(#wave){flex:0 0 auto;white-space:nowrap;flex-direction:column!important;align-items:center;justify-content:center;gap:1px;min-width:40px;height:34px;padding:0 6px!important;border-radius:9px;background:linear-gradient(180deg,#3b3220,#211c12);box-shadow:inset 0 0 0 1px var(--g-lo),var(--sh-1)}
-html body.lwb-polished #app .metric:has(#wave) small{font-size:8px!important;color:var(--g)!important;letter-spacing:.08em}
-html body.lwb-polished #app .metric:has(#wave) strong{font-size:15px!important;color:var(--g-hi)!important}
-/* round / phase text */
-html body.lwb-polished #app .metric:has(#round){flex:1 1 auto;flex-direction:column!important;align-items:flex-start;gap:3px;overflow:hidden}
-html body.lwb-polished #app .metric:has(#round) strong{font-size:12px!important;max-width:100%;overflow:hidden;text-overflow:ellipsis}
-/* resource chips */
-html body.lwb-polished #app .metric:has(#cp),html body.lwb-polished #app .metric:has(#gold-count),html body.lwb-polished #app .metric:has(#roster-count){display:flex!important;flex:0 0 auto;height:26px;padding:0 8px 0 4px!important;border-radius:999px;background:linear-gradient(180deg,#0b100c,#161e17);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),inset 0 2px 4px rgba(0,0,0,.6)}
-html body.lwb-polished #app .metric:has(#cp) small,html body.lwb-polished #app .metric:has(#gold-count) small,html body.lwb-polished #app .metric:has(#roster-count) small{width:18px;height:18px;flex:0 0 18px;font-size:0!important;border-radius:50%;-webkit-mask:none;mask:none}
-html body.lwb-polished #app .metric:has(#gold-count) small{background:radial-gradient(circle at 35% 30%,#fff3c4,#e2b24c 55%,#94661d);box-shadow:0 0 6px rgba(240,190,80,.5)}
-html body.lwb-polished #app .metric:has(#gold-count) small:before{content:"";display:block;width:100%;height:100%;background:#7a5212;-webkit-mask:var(--i-coin) center/12px no-repeat;mask:var(--i-coin) center/12px no-repeat;opacity:.65}
-html body.lwb-polished #app .metric:has(#cp) small{background:radial-gradient(circle at 35% 30%,#d8f3ff,#59a6d6 55%,#24577e);box-shadow:0 0 6px rgba(90,170,220,.5)}
-html body.lwb-polished #app .metric:has(#cp) small:before{content:"";display:block;width:100%;height:100%;background:#0d2c44;-webkit-mask:var(--i-cp) center/11px no-repeat;mask:var(--i-cp) center/11px no-repeat}
-html body.lwb-polished #app .metric:has(#roster-count) small{background:radial-gradient(circle at 35% 30%,#d9ffe9,#5cc69a 55%,#1f6a4c);box-shadow:0 0 6px rgba(90,200,150,.45)}
-html body.lwb-polished #app .metric:has(#roster-count) small:before{content:"";display:block;width:100%;height:100%;background:#0d3324;-webkit-mask:var(--i-band) center/12px no-repeat;mask:var(--i-band) center/12px no-repeat}
-html body.lwb-polished #app #cp{color:#bfe6ff!important}
-html body.lwb-polished #app #gold-count{color:var(--g-hi)!important}
-html body.lwb-polished #app #settings-toggle{flex:0 0 38px;width:38px!important;height:38px!important;min-height:38px!important;padding:0!important;border-radius:11px!important;background:linear-gradient(180deg,#2b3629,#1a221a)!important;border:1px solid var(--g-line)!important;box-shadow:var(--sh-1),var(--bevel)!important;color:#f1e4bd!important}
-html body.lwb-polished #app .top-actions{background:linear-gradient(180deg,#232d22,#171e18)!important;border:1px solid var(--g-line)!important;border-radius:var(--r-m)!important;box-shadow:var(--sh-2)!important;padding:8px!important;gap:6px!important}
-html body.lwb-polished #app .top-actions .iconbtn,html body.lwb-polished #app .top-actions select{border-radius:9px!important;background:#2a3428!important;border:1px solid rgba(255,255,255,.1)!important;min-height:38px;color:#efe4c3!important}
-@media(max-width:900px){
- html body.lwb-polished #app .brand{display:none!important}
-}
-@media(max-width:430px){
- html body.lwb-polished #app .sigil{display:none!important}
- html body.lwb-polished #app .metric:has(#round){min-width:52px}
-}
-@media(max-width:380px){
- html body.lwb-polished #app .top{gap:5px!important;padding:0 6px!important}
- html body.lwb-polished #app .runmeta{gap:4px!important}
- html body.lwb-polished #app .metric:has(#round) small{display:none}
- html body.lwb-polished #app .metric:has(#cp),html body.lwb-polished #app .metric:has(#gold-count),html body.lwb-polished #app .metric:has(#roster-count){padding:0 6px 0 3px!important;gap:3px}
- html body.lwb-polished #app .metric:has(#cp) small,html body.lwb-polished #app .metric:has(#gold-count) small,html body.lwb-polished #app .metric:has(#roster-count) small{width:16px;height:16px;flex-basis:16px}
- html body.lwb-polished #app .metric:has(#wave){min-width:34px;padding:0 4px!important}
- html body.lwb-polished #app .metric strong{font-size:12px!important}
-}
+/* ── buttons: pixel bevel, no glow ─────────────────────────────────────────── */
+html body.lwb-polished #app .primary,html body.lwb-polished #app #dock-primary{background:var(--metal)!important;color:#1d1608!important;border:2px solid var(--ink)!important;border-radius:var(--r)!important;font-weight:900!important;letter-spacing:.01em;text-shadow:0 1px 0 rgba(255,240,200,.5)!important;box-shadow:inset 0 2px 0 var(--metal-hi),inset 0 -3px 0 var(--metal-lo)!important;filter:none!important;transition:transform .06s!important;animation:none!important}
+html body.lwb-polished #app .secondary,html body.lwb-polished #app .act-btn,html body.lwb-polished #app .iconbtn{background:var(--panel3)!important;color:var(--text)!important;border:2px solid var(--ink)!important;border-radius:var(--r)!important;font-weight:800!important;box-shadow:inset 0 2px 0 #44523f,inset 0 -3px 0 #161c16!important;filter:none!important}
+html body.lwb-polished #app .primary:not(:disabled):active,html body.lwb-polished #app #dock-primary:not(:disabled):active,html body.lwb-polished #app .secondary:not(:disabled):active,html body.lwb-polished #app .act-btn:not(:disabled):active{transform:translateY(1px)}
+html body.lwb-polished #app .primary:disabled,html body.lwb-polished #app #dock-primary:disabled{background:#3a3f36!important;color:#8b9081!important;text-shadow:none!important;box-shadow:inset 0 2px 0 #4a5045,inset 0 -3px 0 #23271f!important;opacity:1!important}
+html body.lwb-polished #app #dock-primary.confirm{background:#e8c56a!important;box-shadow:inset 0 2px 0 #fff0b8,inset 0 -3px 0 var(--metal-lo),0 0 0 2px var(--metal-hi)!important}
 
-/* ═══ PHASE STEPPER ═════════════════════════════════════ */
-html body.lwb-polished #app .phases{position:relative;z-index:2;background:linear-gradient(180deg,#141b15,#101511)!important;border-bottom:1px solid rgba(255,255,255,.05)!important;gap:4px!important;padding:5px 8px!important;min-height:36px!important;align-items:center;box-shadow:0 4px 10px rgba(0,0,0,.35)}
-html body.lwb-polished #app .phase{position:relative;display:flex!important;align-items:center;gap:5px;padding:0 9px 0 5px!important;height:24px;border-radius:999px!important;font-size:11px!important;font-weight:600;color:#7e8875!important;background:rgba(255,255,255,.03)!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.05)!important;white-space:nowrap;counter-increment:ph;transition:background .2s,color .2s}
-html body.lwb-polished #app .phases{counter-reset:ph}
-html body.lwb-polished #app .phase:before{content:counter(ph);display:inline-grid;place-items:center;width:15px;height:15px;border-radius:50%;font-size:9px;font-weight:800;background:#263024;color:#8f9a84}
-html body.lwb-polished #app .phase.active{color:#1d180a!important;background:linear-gradient(180deg,var(--g-hi),var(--g) 60%,#c9a24f)!important;box-shadow:0 0 0 1px #fff1c4,0 0 14px rgba(240,200,110,.45)!important;text-shadow:none!important}
-html body.lwb-polished #app .phase.active:before{background:#1d180a;color:var(--g-hi)}
-html body.lwb-polished #app .phase:has(~ .phase.active){color:#b9c3aa!important}
-html body.lwb-polished #app .phase:has(~ .phase.active):before{content:"✓";background:var(--ally);color:#0c2a20}
-html body.lwb-polished #app .turn{margin-left:auto!important;height:24px;display:flex!important;align-items:center;padding:0 10px!important;border-radius:999px;font-size:11px!important;font-weight:800;color:#d9f5ea!important;background:linear-gradient(180deg,#2a6b57,var(--ally-d));box-shadow:inset 0 0 0 1px rgba(120,230,190,.45),0 0 10px rgba(80,200,160,.25);white-space:nowrap}
-html body.lwb-polished[data-side="evil"] #app .turn{color:#ffe2dc!important;background:linear-gradient(180deg,#8a3226,var(--foe-d));box-shadow:inset 0 0 0 1px rgba(255,140,120,.5),0 0 12px rgba(232,112,94,.35)}
-html body.lwb-polished[data-phase="preparation"] #app .turn,html body.lwb-polished[data-phase="fight"] #app .turn{color:#1d180a!important;background:linear-gradient(180deg,var(--g-hi),var(--g));box-shadow:0 0 10px rgba(240,200,110,.35)}
-html body.lwb-polished #app .turn.busy{animation:uiPulse 1.2s ease-in-out infinite}
-@keyframes uiPulse{50%{opacity:.6}}
-@media(max-width:380px){html body.lwb-polished #app .phase{padding:0 7px 0 4px!important;font-size:10px!important}html body.lwb-polished #app .phase:before{display:none}}
-
-/* ═══ MAP OVERLAYS ══════════════════════════════════════ */
-html body.lwb-polished #app .battle-info{top:8px!important;left:8px!important;gap:4px!important}
-html body.lwb-polished #app .battle-info .place{display:inline-flex!important;align-self:flex-start;align-items:center;gap:6px;font-size:11px!important;font-weight:800;letter-spacing:.05em;color:var(--g-hi)!important;background:var(--glass);padding:4px 10px 4px 8px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--g-line),var(--sh-1);text-shadow:none!important}
-html body.lwb-polished #app .battle-info .mission{background:var(--glass)!important;border:0!important;border-radius:var(--r-m)!important;padding:7px 11px!important;font-size:12px!important;color:#e8e2cf!important;box-shadow:inset 3px 0 0 var(--foe),inset 0 0 0 1px rgba(255,255,255,.08),var(--sh-1)!important}
-html body.lwb-polished #app .battle-info .mission em{font-style:normal;font-weight:800;color:#ffb7a8!important;margin-right:4px}
-html body.lwb-polished #app .active-tag{background:linear-gradient(180deg,var(--g-hi),#d6b25f)!important;color:#1d180a!important;border:0!important;border-radius:999px!important;font-weight:800!important;padding:4px 10px!important;box-shadow:0 0 0 1.5px #1d180a,0 4px 12px rgba(0,0,0,.55)!important}
-/* right-side control rail */
-html body.lwb-polished #app .field-actions{top:auto!important;left:auto!important;right:8px!important;bottom:10px!important;flex-direction:column-reverse!important;gap:6px!important}
-html body.lwb-polished #app .field-actions button,html body.lwb-polished #app #map-toggle{width:44px!important;min-width:44px!important;height:44px!important;min-height:44px!important;padding:0!important;display:grid!important;place-items:center;border-radius:14px!important;background:linear-gradient(180deg,rgba(40,52,40,.94),rgba(16,22,17,.94))!important;border:1px solid var(--g-line)!important;color:#f3e7c2!important;font-size:20px!important;font-weight:700;box-shadow:var(--sh-1),var(--bevel)!important;transition:transform .08s}
-html body.lwb-polished #app #map-toggle{top:auto!important;left:auto!important;right:8px!important;bottom:166px!important}
-html body.lwb-polished #app .field-actions button:active,html body.lwb-polished #app #map-toggle:active{transform:scale(.92)}
-html body.lwb-polished #app .field-actions .focus-control span,html body.lwb-polished #app #map-toggle span{display:none!important}
-html body.lwb-polished #app #minimap{left:auto!important;right:60px!important;bottom:166px!important;border-radius:var(--r-m);border:1px solid var(--g-line)!important;box-shadow:var(--sh-2)}
-/* engagement card — docks to bottom of the map, never over the mission banner */
-html body.lwb-polished #app #fight-preview{top:auto!important;bottom:10px!important;left:8px!important;right:60px!important;max-width:460px!important;padding:8px 10px!important;border:0!important;border-radius:var(--r-m)!important;background:var(--glass)!important;box-shadow:inset 0 0 0 1px var(--g-line),var(--sh-2)!important}
-html body.lwb-polished #app .fight-preview-title{font-size:11px!important;font-weight:800;color:var(--g-hi);letter-spacing:.02em;margin-bottom:6px!important}
-html body.lwb-polished #app .fight-member{border:0!important;border-radius:10px;background:linear-gradient(180deg,rgba(88,201,165,.16),rgba(88,201,165,.04))!important;box-shadow:inset 0 -2px 0 var(--ally)}
-html body.lwb-polished #app .fight-member.evil{background:linear-gradient(180deg,rgba(232,112,94,.18),rgba(232,112,94,.04))!important;box-shadow:inset 0 -2px 0 var(--foe)}
-html body.lwb-polished #app #tactical-legend{top:auto!important;bottom:10px!important;left:8px!important;border-radius:999px!important;background:var(--glass)!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);padding:5px 10px!important}
-html body.lwb-polished #app #fight-preview:not(.hidden) ~ #tactical-legend{display:none!important}
-/* dice — centre-stage popup */
-html body.lwb-polished #app #dice{top:42%!important;left:50%!important;right:auto!important;transform:translate(-50%,-50%)!important;min-width:250px;max-width:calc(100% - 24px);padding:14px 16px!important;border:0!important;border-radius:var(--r-l)!important;background:linear-gradient(180deg,rgba(36,46,36,.97),rgba(14,20,15,.97))!important;box-shadow:0 0 0 1px var(--g-lo),0 0 0 4px rgba(0,0,0,.55),0 0 30px rgba(233,201,126,.25),var(--sh-2)!important;z-index:30!important;animation:uiPop .18s ease-out}
-@keyframes uiPop{from{transform:translate(-50%,-50%) scale(.85);opacity:0}}
-html body.lwb-polished #app #dice .dice-title{font-size:13px!important;font-weight:800;color:var(--g-hi)!important;text-align:center;letter-spacing:.02em;margin-bottom:10px}
-html body.lwb-polished #app #dice .dice-row{gap:8px!important;padding:6px 8px;border-radius:10px;background:rgba(88,201,165,.08);margin:4px 0}
-html body.lwb-polished #app #dice .dice-row:nth-of-type(3),html body.lwb-polished #app #dice .dice-row + .dice-row{background:rgba(232,112,94,.1)}
-html body.lwb-polished #app #dice .dice-row > span:first-child{font-size:11px;font-weight:800;min-width:42px}
-html body.lwb-polished #app #dice img{width:30px!important;height:30px!important;border-radius:6px;filter:drop-shadow(0 2px 3px rgba(0,0,0,.6))}
-html body.lwb-polished #app #dice .dice-detail{font-size:12px!important;color:#e9e1c8!important;text-align:center;margin-top:8px}
-html body.lwb-polished #app #toast{border-radius:999px!important;background:var(--glass)!important;border:0!important;box-shadow:inset 0 0 0 1px var(--g-line),var(--sh-2)!important;padding:9px 16px!important;font-weight:700}
-
-/* ═══ COMMAND DOCK ══════════════════════════════════════ */
-html body.lwb-polished #app #command-dock{display:grid!important;grid-template-columns:52px minmax(0,1fr) auto;grid-template-rows:52px 30px 50px;gap:6px 10px!important;padding:10px 10px calc(8px + env(safe-area-inset-bottom))!important;background:linear-gradient(180deg,#1e281f 0%,#121812 100%)!important;border-top:0!important;box-shadow:0 -1px 0 var(--g-line),0 -12px 26px rgba(0,0,0,.5)!important}
-html body.lwb-polished #app #command-dock:before{content:"";position:absolute;left:0;right:0;top:-1px;height:1px;pointer-events:none;background:linear-gradient(90deg,transparent,var(--g-lo) 18%,var(--g-hi) 50%,var(--g-lo) 82%,transparent)}
-html body.lwb-polished #app .dock-main{display:contents!important}
-html body.lwb-polished #app .dock-portrait{grid-column:1;grid-row:1;display:block!important;width:52px!important;height:52px!important;padding:3px;object-fit:contain;border-radius:14px!important;background:radial-gradient(circle at 50% 30%,#45533f,#151b15 78%)!important;box-shadow:0 0 0 1.5px var(--g),0 0 0 3.5px rgba(0,0,0,.6),0 0 14px rgba(233,201,126,.3)!important;image-rendering:auto}
-html body.lwb-polished #app .dock-text{grid-column:2;grid-row:1;align-self:center;min-width:0}
-html body.lwb-polished #app .dock-text strong{display:block;font-size:17px!important;line-height:21px!important;font-weight:800;color:#fbf0d0!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 1px 0 #000}
-html body.lwb-polished #app .dock-status{display:inline-block!important;max-width:100%;margin-top:3px;padding:1px 8px!important;border-radius:999px;font-size:11px!important;line-height:17px!important;font-weight:600;color:#cfe9db!important;background:rgba(88,201,165,.14);box-shadow:inset 0 0 0 1px rgba(88,201,165,.3)}
-html body.lwb-polished #app #dock-primary{grid-column:3;grid-row:1;align-self:stretch;min-width:116px!important;height:auto!important;min-height:52px!important;padding:0 16px!important;font-size:15px!important}
-html body.lwb-polished #app #intent-cancel{grid-column:3;grid-row:1;justify-self:start;transform:translateX(calc(-100% - 6px));align-self:stretch;height:auto!important;min-height:52px!important;width:44px}
-/* vitals: icon chips */
-html body.lwb-polished #app #dock-vitals{grid-column:1 / -1;grid-row:2;display:flex!important;flex-wrap:nowrap!important;align-items:center;gap:4px!important;min-height:30px!important;height:30px;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;font-size:12px!important}html body.lwb-polished #app #dock-vitals::-webkit-scrollbar{display:none}
-html body.lwb-polished #app #dock-vitals .v{position:relative;display:inline-flex;align-items:center;gap:4px;height:28px;padding:0 7px 0 5px;border-radius:9px;background:linear-gradient(180deg,#0c110d,#171f18);box-shadow:inset 0 0 0 1px rgba(255,255,255,.07),inset 0 2px 4px rgba(0,0,0,.5);white-space:nowrap;flex:0 0 auto}
-html body.lwb-polished #app #dock-vitals .v i{width:14px;height:14px;flex:0 0 14px;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
-html body.lwb-polished #app #dock-vitals .v b{margin:0!important;font-size:13px!important;font-weight:800;color:#fbf0d0!important;font-variant-numeric:tabular-nums}
-html body.lwb-polished #app #dock-vitals .v b small{font-size:10px;font-weight:600;color:#9aa38d;margin-left:1px}
-html body.lwb-polished #app #dock-vitals .v-hp{color:#ff8b7a;padding-bottom:3px}
-html body.lwb-polished #app #dock-vitals .v-hp i{-webkit-mask-image:var(--i-heart);mask-image:var(--i-heart)}
-html body.lwb-polished #app #dock-vitals .v-bar{position:absolute;left:6px;right:6px;bottom:3px;height:3px;border-radius:2px;background:rgba(0,0,0,.6);overflow:hidden}
-html body.lwb-polished #app #dock-vitals .v-bar s{display:block;height:100%;background:linear-gradient(90deg,#4fbf5c,var(--hp));border-radius:2px}
-html body.lwb-polished #app #dock-vitals .v-hp.low .v-bar s{background:linear-gradient(90deg,#c43a2a,var(--hp-low))}
-html body.lwb-polished #app #dock-vitals .v-move{color:#8fd2ff}
-html body.lwb-polished #app #dock-vitals .v-move i{-webkit-mask-image:var(--i-move);mask-image:var(--i-move)}
-html body.lwb-polished #app #dock-vitals .v-atk{color:#ffb36b}
-html body.lwb-polished #app #dock-vitals .v-atk i{-webkit-mask-image:var(--i-sword);mask-image:var(--i-sword)}
-html body.lwb-polished #app #dock-vitals .v-def{color:#a9c4d8}
-html body.lwb-polished #app #dock-vitals .v-def i{-webkit-mask-image:var(--i-shield);mask-image:var(--i-shield)}
-html body.lwb-polished #app #dock-vitals .v-fight{color:#f0d27a}
-html body.lwb-polished #app #dock-vitals .v-fight i{-webkit-mask-image:var(--i-fight);mask-image:var(--i-fight)}
-html body.lwb-polished #app #dock-vitals .vital-resources{display:flex!important;gap:4px!important;margin-left:auto;padding:0!important;border:0!important;flex:0 0 auto}
-html body.lwb-polished #app #dock-vitals .vital-resources .v{padding:0 6px 0 4px;gap:3px}
-html body.lwb-polished #app #dock-vitals .vital-resources .v i{display:grid;place-items:center;width:14px;height:14px;flex-basis:14px;border-radius:4px;-webkit-mask:none;mask:none;font-style:normal;font-size:9px;font-weight:900;color:#10140f;line-height:14px;text-align:center}
-html body.lwb-polished #app #dock-vitals .v-might i{background:#ff9a6b}
-html body.lwb-polished #app #dock-vitals .v-might i:after{content:"M"}
-html body.lwb-polished #app #dock-vitals .v-will i{background:#9cc2ff}
-html body.lwb-polished #app #dock-vitals .v-will i:after{content:"W"}
-html body.lwb-polished #app #dock-vitals .v-fate i{background:#f2d377}
-html body.lwb-polished #app #dock-vitals .v-fate i:after{content:"F"}
-/* roster + tools */
-html body.lwb-polished #app .dock-sub{grid-column:1 / -1;grid-row:3;display:flex!important;align-items:center;gap:8px!important;height:50px!important;min-height:50px!important}
-html body.lwb-polished #app .roster-strip{flex:1 1 auto;min-width:0;display:flex!important;gap:6px!important;height:50px!important;min-height:50px!important;align-items:center;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;padding:0 2px}
-html body.lwb-polished #app .roster-strip::-webkit-scrollbar{display:none}
-html body.lwb-polished #app .roster-unit{position:relative;flex:0 0 46px;width:46px!important;min-width:46px!important;height:46px!important;min-height:46px!important;padding:2px!important;border:0!important;border-radius:12px!important;background:radial-gradient(circle at 50% 32%,#3a4736,#141a14 80%)!important;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.12),0 2px 6px rgba(0,0,0,.45)!important;overflow:hidden;transition:transform .08s ease,box-shadow .15s ease,opacity .15s,filter .15s!important}
-html body.lwb-polished #app .roster-unit img{width:40px!important;height:40px!important;object-fit:contain;display:block;margin:0 auto}
-html body.lwb-polished #app .roster-unit:after{content:"";position:absolute;left:6px;right:6px;bottom:4px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--hp) calc(var(--hp,1) * 100%),rgba(0,0,0,.7) 0);box-shadow:0 0 0 1px rgba(0,0,0,.55)}
-html body.lwb-polished #app .roster-unit.tier-legendary{box-shadow:inset 0 0 0 1.5px #e9c070,0 0 8px rgba(233,192,112,.35),0 2px 6px rgba(0,0,0,.45)!important}
-html body.lwb-polished #app .roster-unit.tier-epic{box-shadow:inset 0 0 0 1.5px #c3a0ea,0 2px 6px rgba(0,0,0,.45)!important}
-html body.lwb-polished #app .roster-unit.tier-rare{box-shadow:inset 0 0 0 1.5px #7fb0de,0 2px 6px rgba(0,0,0,.45)!important}
-html body.lwb-polished #app .roster-unit.tier-elite{box-shadow:inset 0 0 0 1.5px #9fbd88,0 2px 6px rgba(0,0,0,.45)!important}
-html body.lwb-polished #app .roster-unit.is-spent{filter:grayscale(.85) brightness(.7)}
-html body.lwb-polished #app .roster-unit.is-spent:before{content:"";position:absolute;right:3px;top:3px;width:13px;height:13px;border-radius:50%;background:var(--ally);-webkit-mask:var(--i-check) center/9px no-repeat,linear-gradient(#000,#000);-webkit-mask-composite:xor;mask:var(--i-check) center/9px no-repeat exclude,linear-gradient(#000,#000);z-index:2}
-html body.lwb-polished #app .roster-unit.is-active{box-shadow:inset 0 0 0 2px var(--ally),0 0 10px rgba(88,201,165,.45)!important}
-html body.lwb-polished #app .roster-unit.is-selected{transform:translateY(-2px);background:radial-gradient(circle at 50% 32%,#6a5a2e,#211b0e 80%)!important;box-shadow:inset 0 0 0 2px var(--g-hi),0 0 0 1px #000,0 0 16px rgba(240,200,110,.6)!important;filter:none}
-html body.lwb-polished #app .roster-unit:not(:disabled):active{transform:scale(.92)}
-html body.lwb-polished #app .roster-tools{display:flex!important;gap:6px!important;flex:0 0 auto}
-html body.lwb-polished #app .roster-tools button{position:relative;width:50px!important;min-width:50px!important;height:50px!important;min-height:50px!important;padding:22px 0 0!important;display:block!important;font-size:10px!important;font-weight:800;line-height:1;text-align:center}
-html body.lwb-polished #app .roster-tools button:before{content:"";position:absolute;left:50%;top:8px;width:18px;height:18px;margin-left:-9px;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
-html body.lwb-polished #app #next-unit:before{-webkit-mask-image:var(--i-next);mask-image:var(--i-next)}
-html body.lwb-polished #app #dock-detail:before{-webkit-mask-image:var(--i-list);mask-image:var(--i-list)}
-
-/* ═══ BUTTON SYSTEM ═════════════════════════════════════ */
-html body.lwb-polished #app #dock-primary,html body.lwb-polished #app .modal .primary,html body.lwb-polished #app #action.primary{background:linear-gradient(180deg,#fff0bf 0%,#efcd7a 40%,#c99a42 100%)!important;color:#1f1708!important;border:0!important;border-radius:14px!important;font-weight:900!important;letter-spacing:.01em;text-shadow:0 1px 0 rgba(255,255,255,.45)!important;box-shadow:0 0 0 1.5px #5a4217,0 3px 0 #5a4217,0 8px 18px rgba(0,0,0,.5),inset 0 2px 0 rgba(255,255,255,.7),inset 0 -3px 0 rgba(120,80,20,.35)!important;transition:transform .07s ease,box-shadow .07s ease,filter .12s!important}
-html body.lwb-polished #app #dock-primary:not(:disabled):active,html body.lwb-polished #app .modal .primary:not(:disabled):active,html body.lwb-polished #app #action.primary:not(:disabled):active{transform:translateY(3px);box-shadow:0 0 0 1.5px #5a4217,0 0 0 #5a4217,0 3px 8px rgba(0,0,0,.5),inset 0 2px 0 rgba(255,255,255,.55),inset 0 -2px 0 rgba(120,80,20,.3)!important}
-html body.lwb-polished #app #dock-primary:disabled,html body.lwb-polished #app .modal .primary:disabled{background:linear-gradient(180deg,#2c352a,#1b221b)!important;color:#8e977f!important;text-shadow:none!important;box-shadow:0 0 0 1px rgba(0,0,0,.7),inset 0 0 0 1px rgba(233,201,126,.18),inset 0 1px 0 rgba(255,255,255,.05)!important;filter:none;opacity:1!important}
-html body.lwb-polished #app #dock-primary.confirm{animation:uiGlow 1.4s ease-in-out infinite}
-@keyframes uiGlow{50%{filter:brightness(1.12);box-shadow:0 0 0 1.5px #5a4217,0 3px 0 #5a4217,0 8px 18px rgba(0,0,0,.5),inset 0 2px 0 rgba(255,255,255,.7),0 0 22px 4px rgba(255,220,130,.55)}}
-html body.lwb-polished #app .roster-tools button,html body.lwb-polished #app .modal .secondary,html body.lwb-polished #app #intent-cancel,html body.lwb-polished #app .camp-actions .secondary{background:linear-gradient(180deg,#34422f,#1d261c)!important;color:#f1e6c4!important;border:0!important;border-radius:14px!important;font-weight:800;box-shadow:0 0 0 1px rgba(0,0,0,.7),0 3px 0 #090d0a,0 6px 12px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.1),inset 0 0 0 1px var(--g-line)!important;transition:transform .07s ease,box-shadow .07s ease!important}
-html body.lwb-polished #app .roster-tools button:not(:disabled):active,html body.lwb-polished #app .modal .secondary:not(:disabled):active,html body.lwb-polished #app #intent-cancel:active{transform:translateY(3px);box-shadow:0 0 0 1px rgba(0,0,0,.7),0 0 0 #090d0a,0 2px 6px rgba(0,0,0,.4),inset 0 0 0 1px var(--g-line)!important}
-
-/* ═══ COMMAND SHEET ═════════════════════════════════════ */
-html body.lwb-polished #app #battle-sheet{background:linear-gradient(180deg,#1f281f,#121812)!important;border-left:0!important;border-radius:20px 0 0 20px;box-shadow:-1px 0 0 var(--g-line),-18px 0 40px rgba(0,0,0,.6)!important}
-html body.lwb-polished #app #sheet-toggle{display:flex!important;align-items:center;justify-content:space-between;padding:0 18px!important;height:52px!important;background:linear-gradient(180deg,#2a3528,#1d261d)!important;border-bottom:1px solid var(--g-line)!important;color:var(--g-hi)!important;font-size:14px!important;font-weight:800;letter-spacing:.02em;border-radius:20px 0 0 0}
-html body.lwb-polished #app #sheet-toggle:after{content:"✕"!important;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.07);color:#e6dfc8!important;font-size:13px!important;letter-spacing:0}
-html body.lwb-polished #app #battle-sheet .section-label{font-size:10px!important;font-weight:800;letter-spacing:.12em;color:var(--g)!important}
-html body.lwb-polished #app #battle-sheet .objective{padding:12px 14px!important;border:0!important;border-radius:var(--r-m);background:rgba(232,112,94,.08);box-shadow:inset 3px 0 0 var(--foe)}
-html body.lwb-polished #app .unit-head img{border-radius:14px;background:radial-gradient(circle at 50% 30%,#45533f,#151b15 78%);box-shadow:0 0 0 1.5px var(--g),0 0 14px rgba(233,201,126,.25)}
-html body.lwb-polished #app .movement-readout{border-radius:var(--r-m)!important;background:linear-gradient(180deg,#0c110d,#171f18)!important;box-shadow:inset 0 0 0 1px rgba(143,210,255,.25)!important}
-html body.lwb-polished #app .movement-readout b{color:#8fd2ff!important}
-html body.lwb-polished #app #battle-sheet .stats{display:grid!important;grid-template-columns:repeat(5,1fr);gap:6px!important;border:0!important}
-html body.lwb-polished #app #battle-sheet .stats span{display:flex!important;flex-direction:column;align-items:center;gap:3px;padding:7px 2px!important;border-radius:10px;background:linear-gradient(180deg,#0c110d,#171f18);box-shadow:inset 0 0 0 1px rgba(255,255,255,.07);font-size:10px!important;color:#9aa38d!important;text-align:center}
-html body.lwb-polished #app #battle-sheet .stats b{font-size:18px!important;color:#fbf0d0!important}
-html body.lwb-polished #app .wound-readout progress{height:6px;border-radius:3px;overflow:hidden;accent-color:var(--hp)}
-html body.lwb-polished #app .hero-skill{background:linear-gradient(135deg,#3f3a22,#232b20)!important;border:0!important;border-radius:var(--r-l)!important;box-shadow:inset 0 0 0 1.5px var(--g-lo),0 6px 16px rgba(0,0,0,.4)!important}
-html body.lwb-polished #app .hero-skill:not(:disabled){box-shadow:inset 0 0 0 1.5px var(--g),0 0 16px rgba(233,201,126,.3),0 6px 16px rgba(0,0,0,.4)!important}
-html body.lwb-polished #app .command{margin-top:6px;padding:0 14px!important;border:0!important;border-radius:var(--r-m)!important;background:linear-gradient(180deg,#263125,#1a221a)!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.07)!important}
-html body.lwb-polished #app .command em{font-style:normal;font-weight:800;padding:2px 8px;border-radius:999px;color:#bfe6ff!important;background:rgba(89,166,214,.18)}
-
-/* ═══ MODALS ════════════════════════════════════════════ */
-html body.lwb-polished #app .overlay{background:radial-gradient(130% 90% at 50% 15%,rgba(18,28,20,.9),rgba(5,8,6,.97))!important}
-html body.lwb-polished #app .modal{background:linear-gradient(180deg,#222c22 0%,#161d17 70%)!important;border:0!important;border-radius:20px!important;box-shadow:0 0 0 1px var(--g-line),0 0 0 4px rgba(0,0,0,.5),0 30px 70px rgba(0,0,0,.65),inset 0 1px 0 rgba(255,255,255,.07)!important}
-html body.lwb-polished #app .modal .eyebrow{display:inline-block;font-size:10px!important;font-weight:800;letter-spacing:.14em;color:var(--g)!important}
-html body.lwb-polished #app .modal h2{font-weight:900!important;color:#fbf0d0!important;letter-spacing:-.01em}
-html body.lwb-polished #app .modal .primary,html body.lwb-polished #app .modal .secondary{min-height:50px}
-html body.lwb-polished #app .modal h1{font-family:Pretendard,sans-serif!important;font-weight:900!important;letter-spacing:-.03em!important;color:#fff1c9!important;text-shadow:0 2px 0 #4a3510,0 0 24px rgba(240,190,90,.3)}
-html body.lwb-polished #app #leave-camp{width:100%}
-
-/* — title: full-screen key art — */
-html body.lwb-polished #app .overlay:has(.campaign-menu){padding:0!important;background:linear-gradient(180deg,rgba(5,8,6,.35) 0%,rgba(5,8,6,.15) 30%,rgba(5,8,6,.85) 62%,#050806 100%),var(--ui-title-art,none) center 20%/cover no-repeat,#0a0e0b!important}
-html body.lwb-polished #app .campaign-menu{width:100%!important;max-width:520px!important;min-height:100%;max-height:none!important;display:flex;flex-direction:column;justify-content:flex-end;padding:28px 22px calc(26px + env(safe-area-inset-bottom))!important;background:none!important;box-shadow:none!important;border-radius:0!important}
-html body.lwb-polished #app .campaign-menu .eyebrow{align-self:center;padding:5px 12px;border-radius:999px;background:rgba(0,0,0,.45);box-shadow:inset 0 0 0 1px var(--g-line)}
-html body.lwb-polished #app .campaign-menu .intro-layout{text-align:center;margin:14px 0 22px}
-html body.lwb-polished #app .campaign-menu h1{font-size:46px!important;line-height:1.08!important;font-weight:900!important;font-family:Pretendard,sans-serif!important;letter-spacing:-.03em!important;color:#fff1c9!important;text-shadow:0 2px 0 #4a3510,0 4px 0 #1d1406,0 0 30px rgba(240,190,90,.45),0 10px 30px rgba(0,0,0,.8)!important;margin:6px 0 10px!important}
-html body.lwb-polished #app .campaign-menu .subtitle{font-size:12px!important;font-weight:800;letter-spacing:.42em!important;color:var(--g)!important}
-html body.lwb-polished #app .campaign-menu .intro-layout p{color:#d9d2bb!important;margin-top:10px}
-html body.lwb-polished #app .campaign-menu .menu-buttons{display:flex!important;flex-direction:column;gap:12px!important}
-html body.lwb-polished #app .campaign-menu .menu-buttons button{min-height:56px!important;font-size:16px!important}
-html body.lwb-polished #app .campaign-menu .menu-buttons .primary{font-size:19px!important;min-height:62px!important}
-html body.lwb-polished #app .campaign-menu .menu-notes,html body.lwb-polished #app .campaign-menu > .mini{text-align:center;color:#a9ad98!important;font-size:12px!important}
-html body.lwb-polished #app .campaign-menu .menu-notes{display:flex!important;justify-content:center;gap:8px;flex-wrap:wrap}html body.lwb-polished #app .campaign-menu .menu-notes span{display:inline-block;padding:4px 12px;border-radius:999px;background:rgba(0,0,0,.4);color:var(--g-hi);font-weight:700}
-
-/* — camp (event / recruit / relic / ready) — */
-html body.lwb-polished #app .modal.camp .eyebrow{padding:5px 12px;border-radius:999px;background:linear-gradient(180deg,#3b3220,#211c12);box-shadow:inset 0 0 0 1px var(--g-lo);color:var(--g-hi)!important}
-html body.lwb-polished #app .camp-steps{display:flex!important;gap:4px!important;margin:12px 0 14px!important;padding:0!important;border:0!important}
-html body.lwb-polished #app .camp-steps span{flex:1 1 0;min-width:0;padding:6px 2px;border-radius:999px;text-align:center;font-size:10px!important;font-weight:700;color:#7e8875;background:rgba(255,255,255,.04);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-html body.lwb-polished #app .camp-steps span:has(~ .current){color:#cfe9db;background:rgba(88,201,165,.15)}
-html body.lwb-polished #app .camp-steps span.current{color:#1d180a!important;background:linear-gradient(180deg,var(--g-hi),var(--g))!important;box-shadow:0 0 12px rgba(240,200,110,.35)}
-html body.lwb-polished #app .reward-cards{display:grid!important;grid-template-columns:1fr!important;gap:10px!important}
-html body.lwb-polished #app .reward{display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:center;gap:4px;text-align:left!important;min-height:72px;padding:14px 16px!important;border:0!important;border-radius:var(--r-l)!important;background:linear-gradient(180deg,#2a3529,#1c241c)!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 4px 12px rgba(0,0,0,.35)!important;transition:transform .08s,box-shadow .15s!important}
-html body.lwb-polished #app .reward b{display:block;width:100%;font-size:16px!important;font-weight:800;color:#fbf0d0;white-space:normal;word-break:keep-all}
-html body.lwb-polished #app .reward p{margin:0!important;width:100%;font-size:12.5px!important;color:#b9bfa9!important;word-break:keep-all}
-html body.lwb-polished #app .reward small{font-size:10px;font-weight:800;letter-spacing:.06em;color:var(--g)}
-html body.lwb-polished #app .reward:has(img,svg,canvas){display:grid!important;grid-template-columns:64px 1fr;grid-auto-rows:auto;column-gap:14px;row-gap:2px;align-items:center}
-html body.lwb-polished #app .reward:has(img,svg,canvas) > :first-child{grid-row:1 / span 3;width:64px!important;height:64px!important;object-fit:contain;border-radius:12px}
-html body.lwb-polished #app .reward.rarity-rare{box-shadow:inset 0 0 0 1.5px #7fb0de,0 4px 12px rgba(0,0,0,.35)!important}
-html body.lwb-polished #app .reward.rarity-epic,html body.lwb-polished #app .reward.rarity-unique{box-shadow:inset 0 0 0 1.5px #c3a0ea,0 4px 12px rgba(0,0,0,.35)!important}
-html body.lwb-polished #app .reward.rarity-legendary{box-shadow:inset 0 0 0 1.5px #e9c070,0 0 14px rgba(233,192,112,.3)!important}
-html body.lwb-polished #app .reward.is-picked{outline:0!important;background:linear-gradient(180deg,#4a4426,#2a2a1a)!important;box-shadow:inset 0 0 0 2px var(--g-hi),0 0 20px rgba(240,200,110,.45)!important}
-html body.lwb-polished #app .reward:active{transform:scale(.98)}
-html body.lwb-polished #app .camp-confirm{gap:8px!important;background:linear-gradient(180deg,rgba(22,29,23,0),#161d17 30%)!important;border-top:0!important;padding-top:20px!important}
-html body.lwb-polished #app .camp-confirm span{font-weight:700;color:var(--g-hi)!important}
-html body.lwb-polished #app .camp-confirm button{min-height:50px!important;padding:0 18px!important}
-html body.lwb-polished #app .camp-actions{display:flex!important;flex-wrap:wrap;gap:8px!important}
-html body.lwb-polished #app .camp-actions .primary{flex:1 1 100%}
-html body.lwb-polished #app .next-stage{padding:14px 16px;border-radius:var(--r-l);background:linear-gradient(180deg,rgba(232,112,94,.12),rgba(232,112,94,.03));box-shadow:inset 0 0 0 1px rgba(232,112,94,.35);margin:10px 0}
-html body.lwb-polished #app .next-stage span{font-size:10px;font-weight:800;letter-spacing:.12em;color:#ffb7a8}
-html body.lwb-polished #app .camp-roster{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 14px}
-html body.lwb-polished #app .camp-roster > span{position:relative;display:grid;place-items:center;width:52px;height:58px;border-radius:12px;background:radial-gradient(circle at 50% 30%,#3a4736,#141a14 80%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
-html body.lwb-polished #app .camp-roster img{width:40px;height:40px;object-fit:contain}
-html body.lwb-polished #app .camp-roster small{font-size:10px;font-weight:800;color:#c6f0b9}
-
-/* — recruit cards — */
-html body.lwb-polished #app .recruit-cards{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))!important;gap:10px!important}
-html body.lwb-polished #app .recruit-card{position:relative;display:flex!important;flex-direction:column;align-items:center;gap:3px;padding:26px 8px 12px!important;border:0!important;border-radius:var(--r-l)!important;background:linear-gradient(180deg,#2b3729 0%,#1b231b 100%)!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.1),0 6px 14px rgba(0,0,0,.4)!important;overflow:hidden;transition:transform .08s,box-shadow .15s!important}
-html body.lwb-polished #app .recruit-card img{width:72px!important;height:72px!important;object-fit:contain;filter:drop-shadow(0 4px 6px rgba(0,0,0,.6))!important;margin:4px 0 2px}
-html body.lwb-polished #app .recruit-card:after{content:"";position:absolute;left:50%;top:22px;width:86px;height:86px;margin-left:-43px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.1),transparent 70%);pointer-events:none}
-html body.lwb-polished #app .recruit-card.tier-legendary{background:linear-gradient(180deg,#4a3c1e 0%,#1f1f15 100%)!important;box-shadow:inset 0 0 0 1.5px #e9c070,0 0 16px rgba(233,192,112,.25),0 6px 14px rgba(0,0,0,.4)!important}
-html body.lwb-polished #app .recruit-card.tier-legendary:after{background:radial-gradient(circle,rgba(255,210,120,.3),transparent 70%)}
-html body.lwb-polished #app .recruit-card.tier-epic{background:linear-gradient(180deg,#3a2f4c 0%,#1d1d22 100%)!important;box-shadow:inset 0 0 0 1.5px #c3a0ea,0 6px 14px rgba(0,0,0,.4)!important}
-html body.lwb-polished #app .recruit-card.tier-epic:after{background:radial-gradient(circle,rgba(200,160,240,.28),transparent 70%)}
-html body.lwb-polished #app .recruit-card.tier-rare{background:linear-gradient(180deg,#263a4c 0%,#19202a 100%)!important;box-shadow:inset 0 0 0 1.5px #7fb0de,0 6px 14px rgba(0,0,0,.4)!important}
-html body.lwb-polished #app .recruit-card.tier-rare:after{background:radial-gradient(circle,rgba(130,180,230,.26),transparent 70%)}
-html body.lwb-polished #app .recruit-card.tier-elite{box-shadow:inset 0 0 0 1.5px #9fbd88,0 6px 14px rgba(0,0,0,.4)!important}
-html body.lwb-polished #app .recruit-card .pick-mark{position:absolute;top:0;left:0;right:0;padding:4px 0!important;font-size:10px!important;font-weight:800;letter-spacing:.06em;color:#a9ad98;background:rgba(0,0,0,.3)}
-html body.lwb-polished #app .recruit-card .recruit-grade{font-size:10px!important;font-weight:800;letter-spacing:.04em}
-html body.lwb-polished #app .recruit-card b{font-size:15px!important;font-weight:900;color:#fbf0d0!important;word-break:keep-all;text-align:center;line-height:1.25}
-html body.lwb-polished #app .recruit-card small{font-size:11px!important;color:#a9ad98!important}
-html body.lwb-polished #app .recruit-card p{font-size:11.5px!important;line-height:1.45!important;color:#cfd2c1!important;margin:2px 0 4px!important;text-align:center;word-break:keep-all}
-html body.lwb-polished #app .recruit-card em{display:inline-flex;align-items:center;gap:5px;margin-top:auto;padding:4px 12px 4px 6px;border-radius:999px;font-style:normal;font-size:13px!important;font-weight:900;color:var(--g-hi)!important;background:rgba(0,0,0,.45);box-shadow:inset 0 0 0 1px var(--g-line)}
-html body.lwb-polished #app .recruit-card em:before{content:"";width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff3c4,#e2b24c 55%,#94661d)}
-html body.lwb-polished #app .recruit-card.is-picked{outline:0!important;transform:translateY(-2px);box-shadow:inset 0 0 0 2.5px var(--g-hi),0 0 22px rgba(240,200,110,.55),0 8px 16px rgba(0,0,0,.45)!important}
-html body.lwb-polished #app .recruit-card.is-picked .pick-mark{color:#1d180a;background:linear-gradient(180deg,var(--g-hi),var(--g))}
-html body.lwb-polished #app .recruit-card:not(:disabled):active{transform:scale(.96)}
-html body.lwb-polished #app .recruit-card:disabled{filter:grayscale(.6) brightness(.7);opacity:1!important}
-html body.lwb-polished #app .recruit-summary b,html body.lwb-polished #app .modal p b{color:var(--g-hi)}
-
-/* ═══ LANDSCAPE PHONES ══════════════════════════════════ */
-@media(max-height:520px) and (orientation:landscape){
- html body.lwb-polished #app #command-dock{grid-template-columns:44px minmax(110px,.8fr) minmax(0,1.6fr) auto;grid-template-rows:44px 44px;gap:5px 8px!important;padding:6px 10px calc(5px + env(safe-area-inset-bottom))!important}
- html body.lwb-polished #app .dock-portrait{width:44px!important;height:44px!important;border-radius:12px!important}
- html body.lwb-polished #app .dock-text strong{font-size:14px!important;line-height:18px!important}
- html body.lwb-polished #app .dock-status{font-size:10px!important}
- html body.lwb-polished #app #dock-vitals{grid-column:3;grid-row:1;align-self:center}
- html body.lwb-polished #app #dock-primary{grid-column:4;grid-row:1;min-height:44px!important;font-size:13px!important}
- html body.lwb-polished #app #intent-cancel{grid-column:4;min-height:44px!important}
- html body.lwb-polished #app .dock-sub{grid-column:1 / -1;grid-row:2;height:44px!important;min-height:44px!important}
- html body.lwb-polished #app .roster-strip{height:44px!important;min-height:44px!important}
- html body.lwb-polished #app .roster-unit{flex-basis:42px;width:42px!important;min-width:42px!important;height:42px!important;min-height:42px!important}
- html body.lwb-polished #app .roster-unit img{width:36px!important;height:36px!important}
- html body.lwb-polished #app .roster-tools button{width:44px!important;min-width:44px!important;height:42px!important;min-height:42px!important;padding-top:20px!important;font-size:9px!important}
- html body.lwb-polished #app .roster-tools button:before{top:6px;width:16px;height:16px;margin-left:-8px}
- html body.lwb-polished #app #map-toggle{bottom:10px!important;right:158px!important}
- html body.lwb-polished #app .field-actions{flex-direction:row-reverse!important}
- html body.lwb-polished #app #fight-preview{bottom:62px!important;right:8px!important}
- html body.lwb-polished #app .phases{min-height:30px!important;padding:3px 8px!important}
- html body.lwb-polished #app .phase{height:22px}
- html body.lwb-polished #app .campaign-menu{justify-content:center}
- html body.lwb-polished #app .campaign-menu h1{font-size:34px!important}
-}
-
-/* ═══ WIDE SCREENS ══════════════════════════════════════ */
-@media(min-width:901px){
- html body.lwb-polished:not(.force-mobile) #app #command-dock{grid-template-columns:56px minmax(180px,280px) minmax(0,1fr) auto auto;grid-template-rows:56px;padding:10px 16px!important}
- html body.lwb-polished:not(.force-mobile) #app .dock-portrait{width:56px!important;height:56px!important}
- html body.lwb-polished:not(.force-mobile) #app #dock-vitals{grid-column:3;grid-row:1;align-self:center}
- html body.lwb-polished:not(.force-mobile) #app .dock-sub{grid-column:4;grid-row:1;height:56px!important}
- html body.lwb-polished:not(.force-mobile) #app #dock-primary{grid-column:5;grid-row:1;min-height:56px!important}
- html body.lwb-polished:not(.force-mobile) #app #intent-cancel{grid-column:5}
- html body.lwb-polished:not(.force-mobile) #app .roster-strip{max-width:46vw}
- html body.lwb-polished:not(.force-mobile) #app #map-toggle{bottom:10px!important;right:158px!important}
- html body.lwb-polished:not(.force-mobile) #app .field-actions{flex-direction:row-reverse!important}
- html body.lwb-polished:not(.force-mobile) #app #fight-preview{bottom:62px!important;right:auto!important}
-}
-@media(prefers-reduced-motion:reduce){html body.lwb-polished #app *{animation:none!important;transition:none!important}}
-/* ═══ v1.10+ additions: battle-log toggle & longer title menu ═══ */
-html body.lwb-polished #battle-log-toggle{left:8px!important;bottom:calc(218px + env(safe-area-inset-bottom))!important;width:44px!important;min-width:44px!important;height:44px!important;min-height:44px!important;padding:0!important;border-radius:14px!important;background:linear-gradient(180deg,rgba(40,52,40,.94),rgba(16,22,17,.94))!important;border:1px solid var(--g-line)!important;color:#f3e7c2!important;font-size:11px!important;font-weight:800;box-shadow:var(--sh-1),var(--bevel)!important}
-html body.lwb-polished #battle-log{left:8px!important;bottom:calc(268px + env(safe-area-inset-bottom))!important;max-height:min(44dvh,calc(100dvh - 380px))!important;border:0!important;border-radius:var(--r-m)!important;background:var(--glass)!important;box-shadow:inset 0 0 0 1px var(--g-line),var(--sh-2)!important;font-size:12px!important;color:#d9dcc9!important;backdrop-filter:blur(4px)}
-html body.lwb-polished #battle-log .log-title{color:var(--g)!important;font-weight:800}
-html body.lwb-polished:has(#app .overlay:not(.hidden)) #battle-log-toggle,html body.lwb-polished:has(#app .overlay:not(.hidden)) #battle-log{display:none!important}
-@media(max-height:520px) and (orientation:landscape){html body.lwb-polished #battle-log-toggle{left:auto!important;right:208px!important;bottom:calc(120px + env(safe-area-inset-bottom))!important}html body.lwb-polished #battle-log{bottom:calc(204px + env(safe-area-inset-bottom))!important;max-height:calc(100dvh - 260px)!important}}
-@media(min-width:901px){html body.lwb-polished:not(.force-mobile) #battle-log-toggle{bottom:120px!important}html body.lwb-polished:not(.force-mobile) #battle-log{bottom:170px!important}}
-html body.lwb-polished #app .overlay:has(.campaign-menu){align-items:flex-start!important}
-html body.lwb-polished #app .campaign-menu{min-height:100%;height:auto}
-html body.lwb-polished #app .campaign-menu .menu-buttons{gap:8px!important}
-html body.lwb-polished #app .campaign-menu .menu-buttons .secondary{min-height:48px!important;font-size:15px!important}
-html body.lwb-polished #app .campaign-menu .menu-buttons .secondary:disabled{background:rgba(0,0,0,.35)!important;color:#7f8774!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.07)!important;font-weight:600}
-html body.lwb-polished #app .campaign-menu .diff-row{justify-content:center;gap:6px!important;margin:0 0 14px!important;color:#a9ad98;font-size:12px}
-html body.lwb-polished #app .diff-btn{min-height:34px;padding:0 16px!important;border:0!important;border-radius:999px!important;background:rgba(0,0,0,.45)!important;color:#d9d3bb!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)!important;font-weight:700}
-html body.lwb-polished #app .diff-btn.active{background:linear-gradient(180deg,var(--g-hi),var(--g))!important;color:#1d180a!important;box-shadow:0 0 12px rgba(240,200,110,.35)!important}
-
-/* ═══ Dice panel v2 ═══ */
-html body.lwb-polished #app #dice.dv2{min-width:268px;padding:12px 14px 12px!important}
-html body.lwb-polished #app #dice.dv2 .dice-title{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:10px;font-size:12px!important;color:#cfd2c1!important;font-weight:600}
-html body.lwb-polished #app #dice.dv2 .dv-badge{padding:3px 11px;border-radius:999px;font-size:12px;font-weight:900;letter-spacing:.04em;color:#1d180a;background:linear-gradient(180deg,var(--g-hi),var(--g));box-shadow:0 0 12px rgba(240,200,110,.35)}
-html body.lwb-polished #app #dice.dv2.kind-shot .dv-badge{color:#2b0d06;background:linear-gradient(180deg,#ffc2a8,#ff8a6e)}
-html body.lwb-polished #app #dice.dv2.kind-priority .dv-badge{color:#08202a;background:linear-gradient(180deg,#c9efff,#7fc9ee)}
-html body.lwb-polished #app #dice.dv2 .dv-row{display:flex!important;align-items:center;gap:10px!important;margin:6px 0!important;padding:8px 10px!important;border-radius:12px;background:rgba(88,201,165,.09)!important;box-shadow:inset 3px 0 0 var(--ally);transition:background .25s,box-shadow .25s,opacity .25s}
-html body.lwb-polished #app #dice.dv2 .dv-row.side-evil{background:rgba(232,112,94,.1)!important;box-shadow:inset 3px 0 0 var(--foe)}
-html body.lwb-polished #app #dice.dv2 .dv-side{flex:0 0 52px;font-size:12px!important;font-weight:900;color:#9ff0cf}
-html body.lwb-polished #app #dice.dv2 .side-evil .dv-side{color:#ffa898}
-html body.lwb-polished #app #dice.dv2 .dv-dice{flex:1 1 auto;display:flex;flex-wrap:wrap;gap:7px;min-height:38px;align-items:center}
-html body.lwb-polished #app #dice.dv2 .dv-die{position:relative;display:inline-flex;flex-direction:column;align-items:center;gap:3px;transition:opacity .2s,filter .2s}
-html body.lwb-polished #app #dice.dv2 .dv-die img{width:34px!important;height:34px!important;border-radius:7px;filter:drop-shadow(0 3px 3px rgba(0,0,0,.6))!important}
-html body.lwb-polished #app #dice.dv2 .dv-die em{font-style:normal;font-size:10px;font-weight:800;color:#cfd2c1;white-space:nowrap}
-html body.lwb-polished #app #dice.dv2 .dv-die em:empty{display:none}
-html body.lwb-polished #app #dice.dv2 .dv-die.rolling img{animation:dvTumble .32s linear infinite;animation-delay:calc(var(--i) * -70ms)}
-html body.lwb-polished #app #dice.dv2 .dv-die.landed img{animation:dvLand .26s cubic-bezier(.2,1.6,.4,1)}
-@keyframes dvTumble{0%{transform:translateY(0) rotate(0) scale(.92)}25%{transform:translateY(-9px) rotate(calc(var(--spin) * 95deg)) scale(1.04)}50%{transform:translateY(-3px) rotate(calc(var(--spin) * 185deg)) scale(.96)}75%{transform:translateY(-10px) rotate(calc(var(--spin) * 275deg)) scale(1.05)}100%{transform:translateY(0) rotate(calc(var(--spin) * 360deg)) scale(.92)}}
-@keyframes dvLand{0%{transform:translateY(-8px) scale(1.25)}60%{transform:translateY(1px) scale(.94)}100%{transform:none}}
-html body.lwb-polished #app #dice.dv2 .dv-die.dv-top img{box-shadow:0 0 0 2px var(--g-hi),0 0 16px 3px rgba(255,214,110,.75);animation:dvPop .3s ease-out}
-html body.lwb-polished #app #dice.dv2 .dv-die.dim{opacity:.38;filter:saturate(.4)}
-html body.lwb-polished #app #dice.dv2 .dv-die.pass img{box-shadow:0 0 0 2px #7fd36b,0 0 14px 2px rgba(127,211,107,.6);animation:dvPop .3s ease-out}
-html body.lwb-polished #app #dice.dv2 .dv-die.pass em{color:#b8f2a8}
-html body.lwb-polished #app #dice.dv2 .dv-die.fail{opacity:.72}
-html body.lwb-polished #app #dice.dv2 .dv-die.fail img{box-shadow:0 0 0 2px #ff6a50}
-html body.lwb-polished #app #dice.dv2 .dv-die.fail em{color:#ffa898}
-html body.lwb-polished #app #dice.dv2 .dv-die.fail:after,html body.lwb-polished #app #dice.dv2 .dv-die.pass:after{position:absolute;top:-6px;right:-6px;display:grid;place-items:center;width:16px;height:16px;border-radius:50%;font-size:10px;font-weight:900;line-height:1;color:#fff;box-shadow:0 0 0 2px #10160f}html body.lwb-polished #app #dice.dv2 .dv-die.fail:after{content:"✕";background:#e8503c}html body.lwb-polished #app #dice.dv2 .dv-die.pass:after{content:"✓";background:#4fae5c}
-@keyframes dvPop{0%{transform:scale(1)}45%{transform:scale(1.3)}100%{transform:scale(1)}}
-html body.lwb-polished #app #dice.dv2 .dv-max{flex:0 0 auto;min-width:30px;text-align:center;font-size:20px!important;font-weight:900;color:#e9e1c8!important;font-variant-numeric:tabular-nums}
-html body.lwb-polished #app #dice.dv2 .dv-row.winner{background:linear-gradient(90deg,rgba(255,214,110,.22),rgba(255,214,110,.06))!important;box-shadow:inset 3px 0 0 var(--g-hi),inset 0 0 0 1px rgba(255,214,110,.45)}
-html body.lwb-polished #app #dice.dv2 .dv-row.winner .dv-max{color:var(--g-hi)!important;font-size:24px!important;text-shadow:0 0 12px rgba(255,200,90,.7)}
-html body.lwb-polished #app #dice.dv2 .dv-row.winner:after{content:"승";display:grid;place-items:center;width:24px;height:24px;border-radius:50%;font-size:12px;font-weight:900;color:#1d180a;background:linear-gradient(180deg,var(--g-hi),var(--g));box-shadow:0 0 10px rgba(255,214,110,.6);animation:dvPop .3s ease-out}
-html body.lwb-polished #app #dice.dv2 .dv-row.loser{opacity:.62}
-html body.lwb-polished #app #dice.dv2 .dv-detail{display:flex;flex-wrap:wrap;justify-content:center;gap:5px;margin-top:10px!important;min-height:22px}
-html body.lwb-polished #app #dice.dv2 .dv-chip{padding:3px 9px;border-radius:999px;font-size:11px;font-weight:700;color:#e3ddc8;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);animation:dvFade .25s ease-out both}
-html body.lwb-polished #app #dice.dv2 .dv-chip.lead{color:#1d180a;background:linear-gradient(180deg,var(--g-hi),var(--g));font-weight:900}
-html body.lwb-polished #app #dice.dv2.res-bad .dv-chip.lead{color:#fff;background:linear-gradient(180deg,#8a8f84,#5d6259)}
-html body.lwb-polished #app #dice.dv2 .dv-note{width:100%;margin:4px 0 0!important;text-align:center;font-size:10.5px!important;line-height:1.5;color:#a9ad98!important}
-@keyframes dvFade{from{opacity:0;transform:translateY(4px)}}
-html body.lwb-polished #app #dice.dv2 .dv-row{flex-wrap:nowrap!important;justify-content:flex-start!important;max-width:none!important;width:100%}
-html body.lwb-polished #app #dice.dv2 .dv-row span,html body.lwb-polished #app #dice.dv2 .dv-row small{width:auto;background:none;padding:0;border-radius:0;box-shadow:none}
-html body.lwb-polished #app #dice.dv2 .dv-row .dv-side{flex:0 0 50px;width:50px}
-html body.lwb-polished #app #dice.dv2 .dv-dice{flex-wrap:nowrap;gap:6px;min-width:0}
-html body.lwb-polished #app #dice.dv2 .dv-die img{box-shadow:none;border:0}
-html body.lwb-polished #app #dice.dv2 .dv-dice:has(.dv-die:nth-child(5)) .dv-die img{width:28px!important;height:28px!important}
-html body.lwb-polished #app #dice.dv2 .dv-dice:has(.dv-die:nth-child(7)) .dv-die img{width:23px!important;height:23px!important}
-html body.lwb-polished #app #dice.dv2 .dv-dice:has(.dv-die:nth-child(5)){gap:4px}
-html body.lwb-polished #app #dice.dv2 .dv-row .dv-max{margin-left:auto;padding:0 2px;background:none!important}
-html body.lwb-polished #app #dice.dv2 .dv-row.winner:after{flex:0 0 24px}
-html body.lwb-polished #app #dice.dv2 .dv-die.dv-top img{box-shadow:0 0 0 2px var(--g-hi),0 0 16px 3px rgba(255,214,110,.75)!important}
-html body.lwb-polished #app #dice.dv2 .dv-die.pass img{box-shadow:0 0 0 2px #7fd36b,0 0 14px 2px rgba(127,211,107,.6)!important}
-html body.lwb-polished #app #dice.dv2 .dv-die.fail img{box-shadow:0 0 0 2px #ff6a50!important}
-html body.lwb-polished #app #dice.dv2{width:min(330px,calc(100% - 24px))}
-@media(max-height:520px) and (orientation:landscape){
- html body.lwb-polished #app #dice.dv2{top:50%!important;padding:7px 10px!important;width:min(360px,calc(100% - 24px))}
- html body.lwb-polished #app #dice.dv2 .dice-title{margin-bottom:4px}
- html body.lwb-polished #app #dice.dv2 .dv-row{margin:3px 0!important;padding:4px 8px!important}
- html body.lwb-polished #app #dice.dv2 .dv-dice{min-height:28px}
- html body.lwb-polished #app #dice.dv2 .dv-die img{width:26px!important;height:26px!important}
- html body.lwb-polished #app #dice.dv2 .dv-max{font-size:17px!important}
- html body.lwb-polished #app #dice.dv2 .dv-row.winner .dv-max{font-size:19px!important}
- html body.lwb-polished #app #dice.dv2 .dv-detail{margin-top:5px!important}
- html body.lwb-polished #app #dice.dv2 .dv-note{display:none}
-}
-
-/* ═══════════ UI v3 LAYOUT — declutter (base = phone portrait; landscape & PC override below) ═══════════ */
-/* ── one top bar: [stage+round] [phase stepper] [resources] [⚙] ── */
+/* ── top HUD: one thin bar ─────────────────────────────────────────────────── */
+html body.lwb-polished #app .top{position:relative;z-index:40;display:flex!important;align-items:center!important;gap:6px!important;height:calc(44px + var(--safe-t))!important;min-height:calc(44px + var(--safe-t))!important;max-height:none!important;padding:var(--safe-t) 6px 0 6px!important;background:var(--panel)!important;border-bottom:2px solid var(--ink)!important;box-shadow:0 1px 0 rgba(217,172,82,.3)!important}
+html body.lwb-polished #app .top .sigil,html body.lwb-polished #app .top .brand,html body.lwb-polished #app .phases,html body.lwb-polished #app .top .metric:has(#round),html body.lwb-polished #app .top .metric:has(#gold-count),html body.lwb-polished #app .top .metric:has(#roster-count){display:none!important}
 html body.lwb-polished #app .runmeta{display:contents!important}
-html body.lwb-polished #app .top{display:flex!important;align-items:center!important;gap:6px!important;padding:0 6px 0 8px!important}
-html body.lwb-polished #app .top .sigil{order:0}
-html body.lwb-polished #app .top .brand{order:1}
-html body.lwb-polished #app .top .metric:has(#wave){order:2;position:relative;overflow:visible}
-html body.lwb-polished #app .top .metric:has(#round){display:none!important}
-html body.lwb-polished #app .top .phases{order:4}
-html body.lwb-polished #app .top .metric:has(#cp){order:6}
-html body.lwb-polished #app .top .metric:has(#gold-count){order:7}
-html body.lwb-polished #app .top .metric:has(#roster-count){order:8}
-html body.lwb-polished #app .top #settings-toggle{order:10;flex:0 0 36px;width:36px!important;height:36px!important;min-height:36px!important}
-html body.lwb-polished #app .metric:has(#wave)::after{content:attr(data-round);position:absolute;right:-7px;bottom:-6px;padding:1px 5px;border-radius:999px;font-size:9px;font-weight:900;line-height:13px;color:var(--g-hi);background:#15110a;box-shadow:0 0 0 1px var(--g-lo)}
-html body.lwb-polished #app .metric[data-round=""]::after,html body.lwb-polished #app .metric:not([data-round])::after{display:none}
-html body.lwb-polished #app .top .metric:has(#cp),html body.lwb-polished #app .top .metric:has(#gold-count),html body.lwb-polished #app .top .metric:has(#roster-count){height:26px;padding:0 7px 0 3px!important;gap:4px}
-html body.lwb-polished:is([data-phase="move"],[data-phase="shoot"],[data-phase="fight"]) #app .top .metric:has(#roster-count){display:none!important}
-/* stepper lives in the top bar now — compact: only the current step is labelled */
-html body.lwb-polished #app .top .phases{flex:1 1 auto;min-width:0;display:flex!important;align-items:center;justify-content:center;gap:3px!important;height:auto!important;min-height:0!important;padding:0!important;margin:0!important;background:none!important;border:0!important;box-shadow:none!important;overflow:hidden}
-html body.lwb-polished #app .top .phase{flex:0 0 auto;width:18px;height:18px!important;padding:0!important;justify-content:center;gap:0!important;font-size:0!important;background:none!important;box-shadow:none!important}
-html body.lwb-polished #app .top .phase:before{width:16px;height:16px;font-size:9px;background:#252e23;color:#7f8975}
-html body.lwb-polished #app .top .phase:has(~ .phase.active):before{content:"✓";background:var(--ally);color:#0c2a20}
-html body.lwb-polished #app .top .phase.active{flex:0 1 auto;min-width:0;width:auto;height:26px!important;padding:0 10px 0 4px!important;gap:5px!important;font-size:11.5px!important;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-html body.lwb-polished #app .top .phase.active:before{width:18px;height:18px;font-size:10px;flex:0 0 18px}
-html body.lwb-polished:is([data-phase="move"],[data-phase="shoot"])[data-side="evil"] #app .top .phase.active{color:#fff!important;background:linear-gradient(180deg,#f08a72,#c2412c)!important;box-shadow:0 0 0 1px #ffb8a6,0 0 14px rgba(232,112,94,.55)!important}
-html body.lwb-polished:is([data-phase="move"],[data-phase="shoot"])[data-side="evil"] #app .top .phase.active:before{background:#3a0f08;color:#ffd2c6}
-html body.lwb-polished #app .top .phases:has(.turn.busy) .phase.active{animation:uiPulse 1.1s ease-in-out infinite}
-html body.lwb-polished #app .top .turn{display:none!important}
-/* a thin side-coloured line under the bar says whose turn it is without another badge */
-html body.lwb-polished #app .top{box-shadow:0 1px 0 var(--g-line),0 6px 16px rgba(0,0,0,.4)!important}
-html body.lwb-polished:is([data-phase="move"],[data-phase="shoot"])[data-side="evil"] #app .top{box-shadow:0 2px 0 rgba(232,112,94,.85),0 6px 18px rgba(160,40,20,.35)!important}
+html body.lwb-polished #app .top .metric{display:flex!important;align-items:center;gap:4px;padding:0!important;margin:0!important;border:0!important;min-width:0}
+html body.lwb-polished #app .top .metric:has(#wave){order:1;flex:0 0 auto;position:relative;flex-direction:column!important;justify-content:center;gap:0;height:32px;min-width:38px;padding:0 6px!important;background:#2a2416;border:2px solid var(--ink)!important;border-radius:var(--r);box-shadow:var(--frame)}
+html body.lwb-polished #app .top .metric:has(#wave) small{font-size:8px!important;line-height:1;color:var(--metal)!important;letter-spacing:.06em}
+html body.lwb-polished #app .top .metric:has(#wave) strong{font-size:14px!important;line-height:1.05;color:var(--metal-hi)!important;font-weight:900}
+html body.lwb-polished #app .top .metric:has(#wave)::after{content:attr(data-round);position:absolute;right:-9px;bottom:-5px;padding:0 3px;font-size:9px;font-weight:900;line-height:13px;color:var(--metal-hi);background:var(--ink);border:1px solid var(--metal-lo);border-radius:2px}
+html body.lwb-polished #app .top .metric[data-round=""]::after,html body.lwb-polished #app .top .metric:not([data-round])::after{display:none}
+html body.lwb-polished #app #hud-mission{order:2;flex:1 1 auto;min-width:0;position:relative;height:32px;display:flex;align-items:center;margin-left:8px;padding:0 22px 0 9px;background:var(--panel2);border:2px solid var(--ink);border-radius:var(--r);box-shadow:inset 3px 0 0 var(--foe),var(--frame);cursor:pointer}
+html body.lwb-polished #app #hud-mission .hm-line{font-size:13px;font-weight:800;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+html body.lwb-polished #app #hud-mission::after{content:"";position:absolute;right:8px;top:50%;margin-top:-2px;border:4px solid transparent;border-top:5px solid var(--muted);border-bottom:0}
+html body.lwb-polished #app #hud-mission .hm-more{display:none;position:absolute;left:-2px;right:-2px;top:calc(100% + 4px);z-index:45;padding:9px 10px;background:var(--panel);border:2px solid var(--ink);border-radius:var(--r);box-shadow:var(--frame),0 6px 0 rgba(0,0,0,.35)}
+html body.lwb-polished #app #hud-mission.open .hm-more{display:block}
+html body.lwb-polished #app #hud-mission .mission{display:block!important;background:none!important;border:0!important;box-shadow:none!important;padding:0!important;font-size:12.5px!important;line-height:1.55!important;color:var(--text)!important;white-space:normal!important}
+html body.lwb-polished #app #hud-mission .mission em{display:block;font-style:normal;font-weight:900;color:#ffb3a3;margin-bottom:2px}
+html body.lwb-polished #app #hud-mission .place{display:flex!important;flex-wrap:wrap;gap:4px;margin-top:6px;font-size:11px!important;color:var(--muted)!important;background:none!important;box-shadow:none!important;padding:0!important}
+html body.lwb-polished #app #hud-mission .hud-mod{border:1px solid currentColor!important;border-radius:2px!important;background:none!important;padding:1px 5px!important;font-size:10.5px!important}
+html body.lwb-polished #app .top .metric:has(#cp){order:3;flex:0 0 auto;height:32px;padding:0 8px 0 5px!important;background:var(--panel2);border:2px solid var(--ink)!important;border-radius:var(--r);box-shadow:var(--frame)}
+html body.lwb-polished #app .top .metric:has(#cp) small{font-size:0!important;width:14px;height:14px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'%3E%3Cpath fill='%230b0d0c' d='M0 0h2v8H0zM2 1h4v1H2zM6 2h1v1H6zM5 3h1v1H5zM2 4h4v1H2z'/%3E%3Cpath fill='%23f2c75a' d='M1 1h1v6H1zM2 2h4v2H2z'/%3E%3C/svg%3E") center/contain no-repeat;image-rendering:pixelated}
+html body.lwb-polished #app .top .metric:has(#cp) strong{font-size:13px!important;font-weight:900;color:var(--metal-hi)!important;white-space:nowrap}
+html body.lwb-polished #app .top #settings-toggle{order:4;flex:0 0 34px;width:34px!important;height:32px!important;min-height:32px!important;padding:0!important}
+html body.lwb-polished #app .top-actions{top:calc(48px + var(--safe-t))!important;right:6px!important;padding:6px!important;gap:5px!important;background:var(--panel)!important;border:2px solid var(--ink)!important;border-radius:var(--r)!important;box-shadow:var(--frame),0 6px 0 rgba(0,0,0,.35)!important}
+html body.lwb-polished #app .top-actions .iconbtn,html body.lwb-polished #app .top-actions select{min-height:38px!important;font-size:12px!important}
+html body.lwb-polished #app .top-actions #battle-log-toggle{position:static!important;inset:auto!important;width:auto!important;height:auto!important}
 
-/* ── map overlays: fewer, smaller, quieter ── */
-html body.lwb-polished #app .battle-info{max-width:calc(100% - 70px)!important}
-html body.lwb-polished #app .battle-info .place{display:none!important}
-html body.lwb-polished #app .battle-info .mission{pointer-events:auto;cursor:pointer;max-width:100%;transition:padding .15s}
-html body.lwb-polished #app .battle-info:not(.mission-open) .mission{font-size:0!important;padding:5px 10px!important;white-space:nowrap}
-html body.lwb-polished #app .battle-info:not(.mission-open) .mission em{font-size:12px;margin:0!important}
-html body.lwb-polished #app .battle-info:not(.mission-open) .mission::after{content:"ⓘ";margin-left:6px;font-size:11px;color:#bfc4b2;vertical-align:1px}
-html body.lwb-polished #app #tactical-legend{display:none!important}
-/* control rail: one column, bottom-right — focus · map · log (zoom = pinch on touch) */
-html body.lwb-polished #app .field-actions{display:flex!important;flex-direction:column-reverse!important;align-items:center;gap:6px!important;top:auto!important;left:auto!important;right:8px!important;bottom:10px!important;z-index:12}
-html body.lwb-polished #app .field-actions #map-toggle,html body.lwb-polished #app .field-actions #battle-log-toggle{position:static!important;inset:auto!important;transform:none!important;margin:0!important}
-html body.lwb-polished #app .field-actions button{width:40px!important;min-width:40px!important;height:40px!important;min-height:40px!important;border-radius:13px!important;font-size:18px!important;background:rgba(14,20,15,.72)!important;backdrop-filter:blur(3px)}
-html body.lwb-polished #app .field-actions #battle-log-toggle{font-size:10.5px!important;font-weight:800;letter-spacing:-.02em}
-@media(pointer:coarse){html body.lwb-polished #app .field-actions #zoomin,html body.lwb-polished #app .field-actions #zoomout{display:none!important}}
-html body.lwb-polished #app #minimap{right:56px!important;bottom:10px!important;left:auto!important}
-html body.lwb-polished #app #fight-preview{right:56px!important;left:8px!important;bottom:10px!important}
-/* battle log now lives inside the map, next to its button */
-html body.lwb-polished #app .field #battle-log{position:absolute!important;left:auto!important;right:56px!important;top:auto!important;bottom:10px!important;width:min(380px,calc(100% - 72px))!important;max-height:calc(100% - 80px)!important;z-index:13!important}
-
-/* ── command dock, phone portrait: 3 compact rows, no boxed chips ── */
-html body.lwb-polished #app #command-dock{grid-template-columns:48px minmax(0,1fr) auto!important;grid-template-rows:48px 24px 46px!important;gap:4px 10px!important;padding:8px 10px calc(7px + env(safe-area-inset-bottom))!important}
-html body.lwb-polished #app .dock-portrait{width:48px!important;height:48px!important;border-radius:13px!important}
-html body.lwb-polished #app .dock-text strong{font-size:16px!important;line-height:20px!important}
-html body.lwb-polished #app .dock-status{display:block!important;margin-top:1px!important;padding:0!important;background:none!important;box-shadow:none!important;color:#9fbfae!important;font-size:11.5px!important;font-weight:600;line-height:16px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-html body.lwb-polished #app #dock-primary{min-height:48px!important;min-width:108px!important;font-size:14.5px!important;padding:0 14px!important}
-html body.lwb-polished #app #intent-cancel{min-height:48px!important}
-html body.lwb-polished #app #dock-vitals{height:24px!important;min-height:24px!important;gap:12px!important;padding-left:2px}
-html body.lwb-polished #app #dock-vitals .v{height:24px;padding:0!important;gap:4px;background:none!important;box-shadow:none!important}
-html body.lwb-polished #app #dock-vitals .v-bar{left:19px;right:0;bottom:0}
-html body.lwb-polished #app #dock-vitals .v-hp{padding-bottom:0!important}
-html body.lwb-polished #app #dock-vitals .vital-resources{gap:10px!important}
-html body.lwb-polished #app #dock-vitals .vital-resources .v{padding:0!important}
-html body.lwb-polished #app .dock-sub{height:46px!important;min-height:46px!important}
-html body.lwb-polished #app .roster-strip{height:46px!important;min-height:46px!important}
-html body.lwb-polished #app .roster-unit{flex-basis:44px;width:44px!important;min-width:44px!important;height:44px!important;min-height:44px!important}
-html body.lwb-polished #app .roster-unit img{width:38px!important;height:38px!important}
-html body.lwb-polished #app .roster-tools button{width:46px!important;min-width:46px!important;height:44px!important;min-height:44px!important;padding-top:20px!important}
-html body.lwb-polished #app .roster-tools button:before{top:7px}
-
-/* ── phone landscape & PC: one-line top bar with full step labels, 2-line wide dock ── */
-@media (max-height:520px) and (orientation:landscape){
- html body.lwb-polished #app .top{height:40px!important;min-height:40px!important;max-height:40px!important}
- html body.lwb-polished #app .top .metric:has(#wave){height:30px}
- html body.lwb-polished #app .top #settings-toggle{flex-basis:32px;width:32px!important;height:32px!important;min-height:32px!important}
-}
-@media (max-height:520px) and (orientation:landscape),(min-width:901px){
- html body.lwb-polished:not(.force-mobile) #app .top .phases{gap:4px!important}
- html body.lwb-polished:not(.force-mobile) #app .top .phase{width:auto;height:24px!important;padding:0 9px 0 4px!important;gap:5px!important;font-size:11px!important;background:rgba(255,255,255,.035)!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.05)!important}
- html body.lwb-polished:not(.force-mobile) #app .top .phase.active{height:26px!important;background:linear-gradient(180deg,var(--g-hi),var(--g) 60%,#c9a24f)!important;box-shadow:0 0 0 1px #fff1c4,0 0 14px rgba(240,200,110,.45)!important}
- html body.lwb-polished:not(.force-mobile) #app .top .turn{display:flex!important;margin-left:10px!important}
- html body.lwb-polished:not(.force-mobile) #app #command-dock{grid-template-columns:48px max-content minmax(0,1fr) auto!important;grid-template-rows:24px 24px!important;gap:2px 14px!important;padding:7px 12px calc(6px + env(safe-area-inset-bottom))!important}
- html body.lwb-polished:not(.force-mobile) #app .dock-portrait{grid-column:1;grid-row:1 / 3;width:48px!important;height:48px!important}
- html body.lwb-polished:not(.force-mobile) #app .dock-text{grid-column:2;grid-row:1;display:flex!important;align-items:center;gap:8px;min-width:0;max-width:340px}
- html body.lwb-polished:not(.force-mobile) #app .dock-text strong{font-size:15px!important;line-height:20px!important}
- html body.lwb-polished:not(.force-mobile) #app .dock-status{margin:0!important;font-size:11px!important}
- html body.lwb-polished:not(.force-mobile) #app #dock-vitals{grid-column:2;grid-row:2;align-self:center;overflow:visible}
- html body.lwb-polished:not(.force-mobile) #app #dock-vitals .vital-resources{margin-left:4px!important}
- html body.lwb-polished:not(.force-mobile) #app .dock-sub{grid-column:3;grid-row:1 / 3;justify-self:end;align-self:center;height:48px!important;min-height:48px!important;min-width:0;max-width:100%}
- html body.lwb-polished:not(.force-mobile) #app .roster-strip{height:48px!important;min-height:48px!important}
- html body.lwb-polished:not(.force-mobile) #app #dock-primary{grid-column:4;grid-row:1 / 3;min-height:48px!important;min-width:128px!important}
- html body.lwb-polished:not(.force-mobile) #app #intent-cancel{grid-column:4;grid-row:1 / 3}
- html body.lwb-polished:not(.force-mobile) #app .field-actions{flex-direction:row-reverse!important}
- html body.lwb-polished:not(.force-mobile) #app #fight-preview{right:auto!important;bottom:10px!important;max-width:min(460px,calc(100% - 260px))!important}
- html body.lwb-polished:not(.force-mobile) #app .field #battle-log{right:8px!important;bottom:60px!important}
- html body.lwb-polished:not(.force-mobile) #app #minimap{right:8px!important;bottom:60px!important}
-}
-@media (min-width:901px){
- html body.lwb-polished:not(.force-mobile) #app .top{height:52px!important;min-height:52px!important;padding:0 12px!important;gap:10px!important}
- html body.lwb-polished:not(.force-mobile) #app .top .brand{display:block!important;margin-right:6px}
- html body.lwb-polished:not(.force-mobile) #app .battle-info .place{display:inline-flex!important}
- html body.lwb-polished:not(.force-mobile) #app .battle-info .mission{font-size:12px!important;padding:7px 11px!important;white-space:normal}
- html body.lwb-polished:not(.force-mobile) #app .battle-info .mission em{font-size:inherit}
- html body.lwb-polished:not(.force-mobile) #app .battle-info .mission::after{display:none}
- html body.lwb-polished:not(.force-mobile) #app #tactical-legend:not(.hidden){display:flex!important}
- html body.lwb-polished:not(.force-mobile) #app #command-dock{grid-template-rows:26px 26px!important;padding:9px 16px!important}
- html body.lwb-polished:not(.force-mobile) #app .dock-portrait{width:54px!important;height:54px!important}
- html body.lwb-polished:not(.force-mobile) #app #command-dock{grid-template-columns:54px max-content minmax(0,1fr) auto!important}
- html body.lwb-polished:not(.force-mobile) #app .dock-text strong{font-size:17px!important}
- html body.lwb-polished:not(.force-mobile) #app #dock-primary{min-height:54px!important;min-width:150px!important;font-size:16px!important}
- html body.lwb-polished:not(.force-mobile) #app .field-actions button{width:42px!important;min-width:42px!important;height:42px!important;min-height:42px!important}
-}
-/* fixes */
-html body.lwb-polished #app .top .phase.active{color:#1d180a!important;background:linear-gradient(180deg,var(--g-hi),var(--g) 60%,#c9a24f)!important;box-shadow:0 0 0 1px #fff1c4,0 0 12px rgba(240,200,110,.45)!important}
-html body.lwb-polished #app .top .phase.active:before{background:#1d180a;color:var(--g-hi)}
-@media (max-height:520px) and (orientation:landscape),(min-width:901px){
- html body.lwb-polished:not(.force-mobile) #app .dock-sub{width:auto!important;max-width:100%!important;justify-self:end!important}
- html body.lwb-polished:not(.force-mobile) #app .roster-strip{flex:0 1 auto!important;justify-content:flex-end}
-}
-@media (max-height:520px) and (orientation:landscape){
- html body.lwb-polished #app #dock-vitals{gap:9px!important}
- html body.lwb-polished #app #dock-vitals .v-move b small{display:none}
- html body.lwb-polished #app .roster-tools button{width:42px!important;min-width:42px!important}
- html body.lwb-polished #app #dock-primary{min-width:112px!important}
-}
-html body.lwb-polished #app .top .phases{justify-content:flex-start!important;padding-left:4px!important}
-html body.lwb-polished #app .top .metric:has(#wave){margin-right:4px!important}
-@media (max-height:520px) and (orientation:landscape),(min-width:901px){html body.lwb-polished:not(.force-mobile) #app .top .phases{justify-content:center!important}}
-html body.lwb-polished #app .top .phase.active{flex:0 0 auto!important}
-html body.lwb-polished #app .top .metric:has(#wave){flex:0 0 auto!important}
-@media(max-width:380px){
- html body.lwb-polished #app .top .phase:before{display:inline-grid!important;width:14px;height:14px;font-size:8px}
- html body.lwb-polished #app .top .phase{width:15px}
- html body.lwb-polished #app .top .phase.active{padding:0 8px 0 3px!important;font-size:11px!important}
- html body.lwb-polished #app .top .phase.active:before{width:16px;height:16px;flex-basis:16px}
-}
-html body.lwb-polished #app .metric:has(#wave)::after{right:-17px!important;bottom:-2px!important}
-html body.lwb-polished #app .top .metric[data-round^="R"]:has(#wave){margin-right:14px!important}
-/* off-screen unit markers */
+/* ── battlefield: only what helps reading the fight ───────────────────────── */
+html body.lwb-polished #app .battle-info,html body.lwb-polished #app #tactical-legend,html body.lwb-polished #app .field-actions,html body.lwb-polished #app #map-toggle,html body.lwb-polished #app #minimap,html body.lwb-polished #app #overview,html body.lwb-polished #app #turn-indicator,html body.lwb-polished #app .map-label,html body.lwb-polished #app #fight-preview,html body.lwb-polished #app .zoom,html body.lwb-polished #app .hint,html body.lwb-polished #app .footer{display:none!important}
+html body.lwb-polished #app .active-tag{background:var(--metal)!important;color:#1d1608!important;border:2px solid var(--ink)!important;border-radius:2px!important;font-size:11px!important;font-weight:900!important;padding:1px 6px!important;box-shadow:inset 0 1px 0 var(--metal-hi)!important}
+html body.lwb-polished #app #offscreen-unit{border-radius:var(--r)!important;font-size:11px!important;padding:4px 8px!important}
+html body.lwb-polished #app #toast{top:8px!important;bottom:auto!important;border-radius:var(--r)!important;background:var(--panel)!important;border:2px solid var(--ink)!important;box-shadow:var(--frame)!important;padding:7px 12px!important;font-size:12.5px!important;font-weight:700;color:var(--text)!important}
 html body.lwb-polished #app #offscreen-marks{position:absolute;inset:0;pointer-events:none;z-index:7}
-html body.lwb-polished #app .os-mark{position:absolute!important;left:0;top:0;width:30px!important;height:30px!important;min-width:30px!important;min-height:30px!important;padding:0!important;margin:0!important;border:0!important;border-radius:50%!important;pointer-events:auto;cursor:pointer;background:rgba(10,16,12,.78);box-shadow:inset 0 0 0 2px var(--ally),0 2px 8px rgba(0,0,0,.5);transition:transform .14s linear,opacity .2s;display:grid;place-items:center}
-html body.lwb-polished #app .os-mark.foe{box-shadow:inset 0 0 0 2px var(--foe),0 2px 8px rgba(0,0,0,.5)}
+html body.lwb-polished #app .os-mark{position:absolute!important;left:0;top:0;width:28px!important;height:28px!important;min-width:28px!important;min-height:28px!important;padding:0!important;margin:0!important;border:2px solid var(--ink)!important;border-radius:2px!important;pointer-events:auto;cursor:pointer;background:var(--ally-d)!important;box-shadow:inset 0 0 0 1px var(--ally)!important;display:grid;place-items:center;transition:transform .14s linear}
+html body.lwb-polished #app .os-mark.foe{background:var(--foe-d)!important;box-shadow:inset 0 0 0 1px var(--foe)!important}
 html body.lwb-polished #app .os-mark i{position:absolute;inset:0;display:block}
-html body.lwb-polished #app .os-mark i:after{content:"";position:absolute;right:-5px;top:50%;margin-top:-5px;border:5px solid transparent;border-left:7px solid var(--ally);border-right:0}
+html body.lwb-polished #app .os-mark i:after{content:"";position:absolute;right:-7px;top:50%;margin-top:-4px;border:4px solid transparent;border-left:5px solid var(--ally);border-right:0}
 html body.lwb-polished #app .os-mark.foe i:after{border-left-color:var(--foe)}
-html body.lwb-polished #app .os-mark b{position:relative;font-size:11px;font-weight:900;color:#e9f7f0;line-height:1}
-html body.lwb-polished #app .os-mark b:empty:before{content:"";display:block;width:9px;height:9px;border-radius:50%;background:var(--ally)}
-html body.lwb-polished #app .os-mark.foe b{color:#ffd9d1}
+html body.lwb-polished #app .os-mark b{position:relative;font-size:11px;font-weight:900;color:#fff}
+html body.lwb-polished #app .os-mark b:empty:before{content:"";display:block;width:6px;height:6px;background:var(--ally)}
 html body.lwb-polished #app .os-mark.foe b:empty:before{background:var(--foe)}
-html body.lwb-polished #app .os-mark:active{filter:brightness(1.3)}
-/* big monitors: scale the chrome so it doesn't shrink into the corners */
-@media (min-width:1600px) and (min-height:860px){
- html body.lwb-polished:not(.force-mobile) #app .top,html body.lwb-polished:not(.force-mobile) #app #command-dock,html body.lwb-polished:not(.force-mobile) #app .battle-info,html body.lwb-polished:not(.force-mobile) #app .field-actions,html body.lwb-polished:not(.force-mobile) #app #fight-preview,html body.lwb-polished:not(.force-mobile) #app #dice,html body.lwb-polished:not(.force-mobile) #app .field #battle-log{zoom:1.2}
-}
+html body.lwb-polished #app .field #battle-log{position:absolute!important;left:6px!important;right:6px!important;top:6px!important;bottom:auto!important;width:auto!important;max-height:55%!important;z-index:30!important;background:var(--panel)!important;border:2px solid var(--ink)!important;border-radius:var(--r)!important;box-shadow:var(--frame)!important;font-size:12px!important;color:var(--text)!important}
+
+/* combat forecast */
+html body.lwb-polished #app #vs-panel{position:absolute;top:6px;left:6px;right:6px;z-index:20;display:grid;grid-template-columns:1fr 70px 1fr;align-items:stretch;gap:0;background:var(--panel);border:2px solid var(--ink);border-radius:var(--r);box-shadow:var(--frame),0 4px 0 rgba(0,0,0,.3);pointer-events:none}
+html body.lwb-polished #app #vs-panel.hidden{display:none!important}
+html body.lwb-polished #app .vs-u{display:flex;gap:6px;align-items:center;padding:6px;min-width:0}
+html body.lwb-polished #app .vs-u.vs-b{flex-direction:row-reverse;text-align:right}
+html body.lwb-polished #app .vs-u.ally{box-shadow:inset 0 3px 0 var(--ally)}
+html body.lwb-polished #app .vs-u.foe{box-shadow:inset 0 3px 0 var(--foe)}
+html body.lwb-polished #app .vs-pt{width:38px;height:38px;flex:0 0 38px;object-fit:contain;image-rendering:pixelated;background:var(--panel2);border:2px solid var(--ink);border-radius:2px}
+html body.lwb-polished #app .vs-tx{min-width:0;display:flex;flex-direction:column;gap:2px}
+html body.lwb-polished #app .vs-tx strong{font-size:12px;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+html body.lwb-polished #app .vs-hp{display:flex;align-items:center;gap:4px;font-size:11px;font-weight:800}
+html body.lwb-polished #app .vs-b .vs-hp{flex-direction:row-reverse}
+html body.lwb-polished #app .vs-n{display:flex;gap:4px;font-size:11px}
+html body.lwb-polished #app .vs-b .vs-n,html body.lwb-polished #app .vs-b .vs-st{justify-content:flex-end}
+html body.lwb-polished #app .vs-n span{display:inline-flex;align-items:center;gap:2px;padding:0 4px;background:var(--ink);border-radius:2px}
+html body.lwb-polished #app .vs-n i{font-style:normal;font-size:9px;font-weight:900;color:var(--muted)}
+html body.lwb-polished #app .vs-n b{font-weight:900;color:var(--metal-hi)}
+html body.lwb-polished #app .vs-st{display:flex;gap:2px;min-height:14px}
+html body.lwb-polished #app .vs-st img{width:14px;height:14px}
+html body.lwb-polished #app .vs-mid{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:var(--panel2);border-left:2px solid var(--ink);border-right:2px solid var(--ink);text-align:center}
+html body.lwb-polished #app .vs-mid img{width:22px;height:22px}
+html body.lwb-polished #app .vs-mid b{font-size:11px;font-weight:900;color:var(--metal-hi);line-height:1.1}
+html body.lwb-polished #app .vs-mid small{font-size:8.5px;line-height:1.15;color:var(--muted)}
+html body.lwb-polished #app .hpbar{position:relative;display:inline-block;width:46px;height:6px;background:#2a1714;border:1px solid var(--ink)}
+html body.lwb-polished #app .hpbar i{position:absolute;left:0;top:0;bottom:0;background:var(--hp)}
+html body.lwb-polished #app .hpbar.low i{background:var(--hp-low)}
+
+/* compact dice result */
+html body.lwb-polished #app #dice.dx{position:absolute!important;top:6px!important;left:50%!important;right:auto!important;bottom:auto!important;transform:translateX(-50%)!important;width:min(360px,calc(100% - 12px))!important;min-width:0!important;max-width:none!important;padding:6px 8px!important;z-index:22!important;background:var(--panel)!important;border:2px solid var(--ink)!important;border-radius:var(--r)!important;box-shadow:var(--frame),0 4px 0 rgba(0,0,0,.3)!important;pointer-events:auto;animation:none!important}
+html body.lwb-polished #app #dice.dx.special{box-shadow:inset 0 0 0 2px var(--metal),0 4px 0 rgba(0,0,0,.3)!important}
+html body.lwb-polished #app .dx-row{display:grid;grid-template-columns:1fr auto auto auto 1fr;align-items:center;gap:6px}
+html body.lwb-polished #app .dx-n{font-size:12px;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--muted)}
+html body.lwb-polished #app .dx-n.l{text-align:right}
+html body.lwb-polished #app .dx-n.good{color:#a9e8d0}
+html body.lwb-polished #app .dx-n.evil{color:#ffb3a3}
+html body.lwb-polished #app .dx-n.win{color:var(--metal-hi)}
+html body.lwb-polished #app .dx-die{display:inline-grid;place-items:center;width:30px;height:30px;border:2px solid var(--ink);border-radius:2px;background:var(--panel2)}
+html body.lwb-polished #app .dx-die img{width:26px;height:26px;image-rendering:pixelated;border-radius:2px}
+html body.lwb-polished #app .dx-die.landed{animation:dxLand .16s steps(3)}
+html body.lwb-polished #app .dx-die.win{background:var(--metal);box-shadow:inset 0 0 0 1px var(--metal-hi)}
+html body.lwb-polished #app .dx-die.lose{opacity:.55}
+@keyframes dxLand{0%{transform:translateY(-4px)}100%{transform:none}}
+html body.lwb-polished #app .dx-vs{width:16px;height:16px}
+html body.lwb-polished #app .dx-res{display:flex;justify-content:center;align-items:baseline;gap:6px;margin-top:3px;line-height:1.2}
+html body.lwb-polished #app .dx-res b{font-size:12.5px;font-weight:900;color:var(--metal-hi)}
+html body.lwb-polished #app .dx-res small{font-size:10.5px;color:var(--muted)}
+html body.lwb-polished #app .dx-detail{display:none;margin-top:5px;padding-top:5px;border-top:1px solid rgba(255,255,255,.08);font-size:11px;color:var(--muted)}
+html body.lwb-polished #app #dice.open .dx-detail{display:block}
+html body.lwb-polished #app .dx-detail div{display:flex;align-items:center;gap:3px;margin:2px 0}
+html body.lwb-polished #app .dx-detail img{width:20px;height:20px;image-rendering:pixelated}
+html body.lwb-polished #app .dx-side{min-width:50px;font-weight:800}
+
+/* ── bottom: unit panel + actions ─────────────────────────────────────────── */
+html body.lwb-polished #app #command-dock{display:flex!important;flex-direction:column!important;gap:5px!important;grid-template-columns:none!important;grid-template-rows:none!important;min-height:0!important;height:auto!important;padding:6px 6px calc(6px + var(--safe-b))!important;background:var(--panel)!important;border-top:2px solid var(--ink)!important;box-shadow:0 -1px 0 rgba(217,172,82,.3)!important}
+html body.lwb-polished #app #command-dock:before{display:none!important}
+html body.lwb-polished #app .mux-legacy{display:none!important}
+html body.lwb-polished #app .u-panel{position:relative;display:grid;grid-template-columns:60px minmax(0,1fr) auto auto;align-items:center;gap:8px;min-height:66px;padding:5px 8px 5px 5px;background:var(--panel2);border:2px solid var(--ink);border-radius:var(--r);box-shadow:var(--frame);cursor:pointer}
+html body.lwb-polished #app .u-panel.foe{box-shadow:inset 3px 0 0 var(--foe),var(--frame)}
+html body.lwb-polished #app .u-panel.empty{grid-template-columns:1fr;min-height:44px}
+html body.lwb-polished #app .u-panel .dock-portrait{width:60px!important;height:60px!important;padding:2px;object-fit:contain;image-rendering:pixelated;background:#141914!important;border:2px solid var(--ink)!important;border-radius:2px!important;box-shadow:inset 0 0 0 1px var(--metal-lo)!important}
+html body.lwb-polished #app .u-id{min-width:0;display:flex;flex-direction:column;gap:3px}
+html body.lwb-polished #app .u-id strong{font-size:15px;font-weight:900;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text)}
+html body.lwb-polished #app .u-hp{display:flex;align-items:center;gap:5px;font-size:12px}
+html body.lwb-polished #app .u-hp img{width:12px;height:12px}
+html body.lwb-polished #app .u-hp b{font-weight:900;color:var(--text)}
+html body.lwb-polished #app .u-hp b small{font-size:10px;color:var(--muted)}
+html body.lwb-polished #app .u-hp .hpbar{width:40px}
+html body.lwb-polished #app .u-hp .mv{font-size:10.5px;color:#9fd2ef;white-space:nowrap}
+html body.lwb-polished #app .u-states{display:flex;gap:3px;min-height:20px}
+html body.lwb-polished #app .u-st{width:20px!important;height:20px!important;min-width:20px!important;min-height:20px!important;padding:0!important;margin:0!important;border:0!important;background:none!important;box-shadow:none!important}
+html body.lwb-polished #app .u-st img{width:20px;height:20px;display:block}
+html body.lwb-polished #app .u-stats{display:grid;grid-template-columns:repeat(2,34px);gap:3px}
+html body.lwb-polished #app .u-stats span{display:flex;align-items:center;justify-content:space-between;height:22px;padding:0 4px;background:var(--ink);border-radius:2px}
+html body.lwb-polished #app .u-stats i{font-style:normal;font-size:9px;font-weight:900;color:var(--muted)}
+html body.lwb-polished #app .u-stats b{font-size:13px;font-weight:900;color:var(--text)}
+html body.lwb-polished #app .u-res{display:flex;flex-direction:column;gap:3px}
+html body.lwb-polished #app .u-res span{display:flex;align-items:center;gap:2px;height:14px}
+html body.lwb-polished #app .u-res em{font-style:normal;font-size:9px;font-weight:900;width:10px;color:var(--muted)}
+html body.lwb-polished #app .u-res i{display:block;width:6px;height:6px;background:#2a2e27;border:1px solid var(--ink)}
+html body.lwb-polished #app .u-res .res-might i.on{background:#ff9a6b}
+html body.lwb-polished #app .u-res .res-will i.on{background:#9cc2ff}
+html body.lwb-polished #app .u-res .res-fate i.on{background:#f2d377}
+html body.lwb-polished #app .u-grab{position:absolute;left:50%;top:2px;width:26px;height:3px;margin-left:-13px;background:rgba(255,255,255,.14)}
+html body.lwb-polished #app .u-actions{display:flex;align-items:center;gap:5px;min-height:46px}
+html body.lwb-polished #app .act-phase{flex:0 0 auto;display:inline-flex;align-items:center;height:26px;padding:0 7px;font-size:11px;font-weight:900;border:2px solid var(--ink);border-radius:2px;white-space:nowrap}
+html body.lwb-polished #app .act-phase.ally{background:var(--ally-d);color:#bff2df;box-shadow:inset 0 0 0 1px var(--ally)}
+html body.lwb-polished #app .act-phase.foe{background:var(--foe-d);color:#ffd2c8;box-shadow:inset 0 0 0 1px var(--foe)}
+html body.lwb-polished #app .act-phase.neutral{background:#2a2416;color:var(--metal-hi);box-shadow:inset 0 0 0 1px var(--metal-lo)}
+html body.lwb-polished #app .act-gap{flex:1 1 auto}
+html body.lwb-polished #app .act-btn{height:44px;min-height:44px!important;padding:0 11px!important;font-size:13px!important}
+html body.lwb-polished #app #act-end.confirm{background:var(--foe-d)!important;color:#ffd2c8!important;box-shadow:inset 0 0 0 1px var(--foe)!important}
+html body.lwb-polished #app #dock-primary{flex:0 0 auto;height:46px;min-height:46px!important;min-width:112px!important;padding:0 14px!important;font-size:14.5px!important}
+html body.lwb-polished #app #intent-cancel{transform:none!important;width:auto!important}
+html body.lwb-polished #app .u-tip{position:absolute;left:6px;right:6px;bottom:calc(100% + 6px);display:flex;align-items:center;gap:7px;padding:7px 9px;background:var(--panel);border:2px solid var(--ink);border-radius:var(--r);box-shadow:var(--frame);z-index:25;font-size:12px}
+html body.lwb-polished #app .u-tip img{width:24px;height:24px}
+html body.lwb-polished #app .u-tip b{font-weight:900;color:var(--metal-hi);white-space:nowrap}
+html body.lwb-polished #app .u-tip span{color:var(--text)}
+html body.lwb-polished #app #command-dock{position:relative}
+
+/* ── bottom sheet (details, abilities, commands) ──────────────────────────── */
+html body.lwb-polished #app #battle-sheet{position:absolute!important;left:0!important;right:0!important;top:auto!important;bottom:0!important;width:auto!important;height:min(72%,620px)!important;max-height:none!important;padding:0 12px calc(14px + var(--safe-b))!important;overflow-y:auto;background:var(--panel)!important;border:0!important;border-top:2px solid var(--ink)!important;border-radius:6px 6px 0 0!important;box-shadow:0 -1px 0 rgba(217,172,82,.35),0 -8px 0 rgba(0,0,0,.25)!important;transform:translateY(104%)!important;visibility:hidden;transition:transform .18s ease-out,visibility .18s!important;z-index:35!important}
+html body.lwb-polished #app #battle-sheet.open{transform:none!important;visibility:visible}
+html body.lwb-polished #app #sheet-backdrop{position:absolute!important;inset:0!important;z-index:34!important;background:rgba(5,8,6,.5)!important;border:0!important}
+html body.lwb-polished #app #sheet-toggle{position:sticky!important;top:0;display:flex!important;align-items:center;justify-content:center;width:calc(100% + 24px)!important;height:26px!important;min-height:26px!important;margin:0 -12px 6px!important;padding:0!important;background:var(--panel)!important;border:0!important;box-shadow:none!important;z-index:3}
+html body.lwb-polished #app #sheet-toggle:after{display:none!important;content:none!important}
+html body.lwb-polished #app #sheet-toggle .grab{display:block;width:40px;height:4px;background:var(--muted);opacity:.6}
+html body.lwb-polished #app #battle-sheet section{margin:0 0 12px!important;padding:0!important;border:0!important}
+html body.lwb-polished #app #battle-sheet .section-label{margin:0 0 6px!important;font-size:10px!important;font-weight:900;letter-spacing:.12em;color:var(--metal)!important}
+html body.lwb-polished #app #battle-sheet .objective{order:9}
+html body.lwb-polished #app .sheet-st,html body.lwb-polished #app .sheet-eq{display:grid;grid-template-columns:22px auto 1fr;align-items:center;gap:7px;padding:5px 7px;margin-bottom:4px;background:var(--panel2);border:2px solid var(--ink);border-radius:2px;font-size:12px}
+html body.lwb-polished #app .sheet-eq{grid-template-columns:auto 1fr}
+html body.lwb-polished #app .sheet-st img{width:22px;height:22px}
+html body.lwb-polished #app .sheet-st b,html body.lwb-polished #app .sheet-eq b{font-weight:900;color:var(--metal-hi);white-space:nowrap}
+html body.lwb-polished #app .sheet-st span,html body.lwb-polished #app .sheet-eq span{color:var(--muted)}
+html body.lwb-polished #app .unit-card{background:none!important;border:0!important;padding:0!important;box-shadow:none!important}
+html body.lwb-polished #app .unit-head img{width:56px!important;height:56px!important;object-fit:contain;image-rendering:pixelated;background:#141914;border:2px solid var(--ink);border-radius:2px}
+html body.lwb-polished #app #battle-sheet .stats{display:grid!important;grid-template-columns:repeat(3,1fr);gap:4px!important;border:0!important}
+html body.lwb-polished #app #battle-sheet .stats span{display:flex!important;justify-content:space-between;align-items:center;padding:4px 7px!important;background:var(--ink);border-radius:2px;font-size:11px!important;color:var(--muted)!important}
+html body.lwb-polished #app #battle-sheet .stats b{font-size:14px!important;color:var(--text)!important}
+html body.lwb-polished #app .movement-readout,html body.lwb-polished #app .resources,html body.lwb-polished #app .wound-readout{border-radius:2px!important}
+html body.lwb-polished #app .traits{font-size:12px!important;color:var(--muted)!important}
+html body.lwb-polished #app .hero-skill{background:#2a2416!important;border:2px solid var(--ink)!important;border-radius:var(--r)!important;box-shadow:inset 0 0 0 1px var(--metal-lo)!important;min-height:48px}
+html body.lwb-polished #app .command,html body.lwb-polished #app .heroic-btn{margin-top:4px;padding:0 10px!important;min-height:42px;background:var(--panel2)!important;border:2px solid var(--ink)!important;border-radius:var(--r)!important;box-shadow:inset 0 2px 0 #3a4637!important}
+html body.lwb-polished #app .command em{font-style:normal;font-weight:900;color:#bfe6ff!important}
+html body.lwb-polished #app #battle-sheet #action,html body.lwb-polished #app #battle-sheet #wait{display:none!important}
+
+/* ── menus & camp: same pixel frames ──────────────────────────────────────── */
+html body.lwb-polished #app .overlay{background:rgba(6,9,7,.92)!important;backdrop-filter:none!important}
+html body.lwb-polished #app .modal{background:var(--panel)!important;border:2px solid var(--ink)!important;border-radius:4px!important;box-shadow:var(--frame),0 0 0 1px rgba(217,172,82,.2),0 10px 0 rgba(0,0,0,.35)!important;padding:16px 14px calc(16px + var(--safe-b))!important}
+html body.lwb-polished #app .modal .eyebrow{display:inline-block;padding:2px 7px;font-size:10px!important;font-weight:900;letter-spacing:.12em;color:var(--metal-hi)!important;background:#2a2416;border:1px solid var(--metal-lo);border-radius:2px}
+html body.lwb-polished #app .modal h1,html body.lwb-polished #app .modal h2{font-family:Pretendard,sans-serif!important;font-weight:900!important;color:var(--parch)!important;letter-spacing:-.01em;text-shadow:0 2px 0 rgba(0,0,0,.6)}
+html body.lwb-polished #app .modal p{color:#c9c8b6}
+html body.lwb-polished #app .modal p b{color:var(--metal-hi)}
+html body.lwb-polished #app .modal .primary,html body.lwb-polished #app .modal .secondary{min-height:46px}
+/* title */
+html body.lwb-polished #app .overlay:has(.campaign-menu){padding:0!important;align-items:flex-start!important;background:linear-gradient(180deg,rgba(6,9,7,.35) 0%,rgba(6,9,7,.15) 28%,rgba(6,9,7,.88) 58%,#060907 100%),var(--ui-title-art,none) center 20%/cover no-repeat,#0a0e0b!important}
+html body.lwb-polished #app .campaign-menu{width:100%!important;max-width:520px!important;min-height:100%;max-height:none!important;display:flex;flex-direction:column;justify-content:flex-end;padding:calc(24px + var(--safe-t)) 18px calc(22px + var(--safe-b))!important;background:none!important;border:0!important;box-shadow:none!important}
+html body.lwb-polished #app .campaign-menu .eyebrow{align-self:center}
+html body.lwb-polished #app .campaign-menu .intro-layout{text-align:center;margin:12px 0 16px}
+html body.lwb-polished #app .campaign-menu h1{font-size:42px!important;line-height:1.08!important;color:#fff0c8!important;text-shadow:0 3px 0 #3a2a0e,0 6px 0 rgba(0,0,0,.6)!important;margin:6px 0 8px!important}
+html body.lwb-polished #app .campaign-menu .subtitle{font-size:11px!important;font-weight:900;letter-spacing:.4em!important;color:var(--metal)!important}
+html body.lwb-polished #app .campaign-menu .menu-buttons{display:flex!important;flex-direction:column;gap:7px!important}
+html body.lwb-polished #app .campaign-menu .menu-buttons .primary{min-height:56px!important;font-size:18px!important}
+html body.lwb-polished #app .campaign-menu .menu-buttons .secondary{min-height:46px!important;font-size:14.5px!important}
+html body.lwb-polished #app .campaign-menu .menu-buttons .secondary:disabled{background:rgba(0,0,0,.35)!important;color:#7f8774!important;box-shadow:none!important}
+html body.lwb-polished #app .campaign-menu .diff-row{justify-content:center;margin:0 0 12px!important;color:var(--muted)}
+html body.lwb-polished #app .diff-btn{min-height:32px;padding:0 14px!important;border:2px solid var(--ink)!important;border-radius:2px!important;background:var(--panel2)!important;color:var(--text)!important;font-weight:800}
+html body.lwb-polished #app .diff-btn.active{background:var(--metal)!important;color:#1d1608!important}
+html body.lwb-polished #app .campaign-menu .menu-notes,html body.lwb-polished #app .campaign-menu > .mini{text-align:center;color:var(--muted)!important;font-size:12px!important}
+/* camp */
+html body.lwb-polished #app .camp-steps{display:flex!important;gap:3px!important;margin:10px 0 12px!important}
+html body.lwb-polished #app .camp-steps span{flex:1 1 0;min-width:0;padding:5px 2px;text-align:center;font-size:10px!important;font-weight:800;color:var(--muted);background:var(--panel2);border:2px solid var(--ink);border-radius:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+html body.lwb-polished #app .camp-steps span.current{color:#1d1608!important;background:var(--metal)!important}
+html body.lwb-polished #app .reward-cards{display:grid!important;grid-template-columns:1fr!important;gap:8px!important}
+html body.lwb-polished #app .reward{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:3px;text-align:left!important;min-height:64px;padding:11px 12px!important;background:var(--panel2)!important;border:2px solid var(--ink)!important;border-radius:var(--r)!important;box-shadow:var(--frame)!important}
+html body.lwb-polished #app .reward b{display:block;width:100%;font-size:15px!important;font-weight:900;color:var(--parch);word-break:keep-all;white-space:normal}
+html body.lwb-polished #app .reward p{margin:0!important;width:100%;font-size:12.5px!important;color:var(--muted)!important;word-break:keep-all}
+html body.lwb-polished #app .reward:has(img,svg,canvas){display:grid!important;grid-template-columns:56px 1fr;column-gap:12px;align-items:center}
+html body.lwb-polished #app .reward:has(img,svg,canvas) > :first-child{grid-row:1 / span 3;width:56px!important;height:56px!important;object-fit:contain;image-rendering:pixelated}
+html body.lwb-polished #app .reward.is-picked{outline:0!important;background:#3a3420!important;box-shadow:inset 0 0 0 2px var(--metal)!important}
+html body.lwb-polished #app .camp-confirm{gap:6px!important;background:var(--panel)!important;border-top:2px solid var(--ink)!important;padding-top:10px!important}
+html body.lwb-polished #app .camp-confirm span{font-weight:800;color:var(--metal-hi)!important}
+html body.lwb-polished #app .camp-actions{display:flex!important;flex-wrap:wrap;gap:6px!important}
+html body.lwb-polished #app .camp-actions .primary{flex:1 1 100%}
+html body.lwb-polished #app .next-stage{padding:10px 12px;background:var(--panel2);border:2px solid var(--ink);border-radius:var(--r);box-shadow:inset 3px 0 0 var(--foe)}
+html body.lwb-polished #app .camp-roster{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0 12px}
+html body.lwb-polished #app .camp-roster > span{display:grid;place-items:center;width:50px;height:56px;background:var(--panel2);border:2px solid var(--ink);border-radius:2px}
+html body.lwb-polished #app .camp-roster img{width:40px;height:40px;object-fit:contain;image-rendering:pixelated}
+html body.lwb-polished #app #leave-camp{width:100%}
+/* recruit cards */
+html body.lwb-polished #app .recruit-cards{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))!important;gap:8px!important}
+html body.lwb-polished #app .recruit-card{position:relative;display:flex!important;flex-direction:column;align-items:center;gap:2px;padding:24px 8px 10px!important;background:var(--panel2)!important;border:2px solid var(--ink)!important;border-radius:var(--r)!important;box-shadow:var(--frame)!important;overflow:hidden}
+html body.lwb-polished #app .recruit-card:before,html body.lwb-polished #app .recruit-card:after{display:none!important}
+html body.lwb-polished #app .recruit-card img{width:68px!important;height:68px!important;object-fit:contain;image-rendering:pixelated;filter:none!important;margin:2px 0}
+html body.lwb-polished #app .recruit-card.tier-legendary{box-shadow:inset 0 0 0 2px #e9c070!important;background:#2e281a!important}
+html body.lwb-polished #app .recruit-card.tier-epic{box-shadow:inset 0 0 0 2px #b994e0!important;background:#282436!important}
+html body.lwb-polished #app .recruit-card.tier-rare{box-shadow:inset 0 0 0 2px #7fb0de!important;background:#1f2a35!important}
+html body.lwb-polished #app .recruit-card.tier-elite{box-shadow:inset 0 0 0 2px #9fbd88!important}
+html body.lwb-polished #app .recruit-card .pick-mark{position:absolute;top:0;left:0;right:0;padding:3px 0!important;font-size:10px!important;font-weight:900;color:var(--muted);background:var(--ink)}
+html body.lwb-polished #app .recruit-card b{font-size:14.5px!important;font-weight:900;color:var(--parch)!important;text-align:center;word-break:keep-all;line-height:1.25}
+html body.lwb-polished #app .recruit-card small{font-size:11px!important;color:var(--muted)!important}
+html body.lwb-polished #app .recruit-card p{font-size:11.5px!important;line-height:1.4!important;color:#cfd2c1!important;margin:2px 0 4px!important;text-align:center;word-break:keep-all}
+html body.lwb-polished #app .recruit-card em{margin-top:auto;padding:2px 9px;font-style:normal;font-size:12.5px!important;font-weight:900;color:var(--metal-hi)!important;background:var(--ink);border-radius:2px}
+html body.lwb-polished #app .recruit-card.is-picked{outline:0!important;background:#3a3420!important;box-shadow:inset 0 0 0 3px var(--metal-hi)!important}
+html body.lwb-polished #app .recruit-card.is-picked .pick-mark{color:#1d1608;background:var(--metal)}
+html body.lwb-polished #app .recruit-card:disabled{filter:grayscale(.6) brightness(.7);opacity:1!important}
+html body.lwb-polished .rank-modal .modal{border-radius:4px!important}
+html body.lwb-polished #app .top .metric:has(#cp){flex-direction:row!important}
+html body.lwb-polished #app .top .metric:has(#cp) small{flex:0 0 14px;margin:0!important}
+html body.lwb-polished #app #battle-sheet{display:flex!important;flex-direction:column}
+html body.lwb-polished #app #battle-sheet > *{flex:0 0 auto}
+html body.lwb-polished #app #battle-sheet > #sheet-toggle{order:0}
+html body.lwb-polished #app #battle-sheet > section:has(#unit){order:1}
+html body.lwb-polished #app #battle-sheet > #sheet-unit-extra{order:2}
+html body.lwb-polished #app #battle-sheet > .control-block{order:3}
+html body.lwb-polished #app #battle-sheet > .objective{order:4}
+html body.lwb-polished #app #battle-sheet > .log{order:5}
+html body.lwb-polished #app #battle-sheet > .inventory{order:6}
+html body.lwb-polished #app #battle-sheet > *:not(#sheet-toggle):not(section){order:7}
+html body.lwb-polished #app,html body.lwb-polished #app .layout,html body.lwb-polished #app .battle-column{overflow:clip!important}
+html body.lwb-polished #app .u-hp{min-width:0;overflow:hidden}
+html body.lwb-polished #app .u-hp .hpbar{flex:0 0 auto}
+html body.lwb-polished #app .u-hp .mv{min-width:0;overflow:hidden;text-overflow:ellipsis}
+@media(max-width:375px){html body.lwb-polished #app .u-panel{grid-template-columns:48px minmax(0,1fr) auto auto;gap:6px}html body.lwb-polished #app .u-panel .dock-portrait{display:block!important;width:48px!important;height:48px!important}html body.lwb-polished #app .u-hp .hpbar{width:30px}}
+@media(prefers-reduced-motion:reduce){html body.lwb-polished #app *{animation:none!important;transition:none!important}}
 </style></head><body><div id="app"></div></body></html>
