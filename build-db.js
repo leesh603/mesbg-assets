@@ -23,6 +23,7 @@ for (const s of sheets) {
       file: `tokens/${id}.png`,
     };
     if (ov.traits) row.traits = ov.traits;
+    if (ov.artScale) row.artScale = ov.artScale;
     if (HERO_STATS[id]) { row.stats = HERO_STATS[id]; if (HERO_STATS[id].rules) row.rules = HERO_STATS[id].rules; }
     rows.push(row);
   }
