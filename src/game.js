@@ -349,7 +349,7 @@ else if (Z.phase === "shoot") {
     const b = Z.validTargets(Y).sort((H, K) => H.currentWounds - K.currentWounds || H.stats.defence - K.stats.defence || ht(H, Mt.objective) - ht(K, Mt.objective))[0];
     (!b || !Z.shoot(Y.uid, b.uid)) && Z.wait(Y.uid);
 } }
-const __ASSET_SET__ = new Set([...Object.keys(window.__MESBG_ASSETS__ || {}), ...(window.__MESBG_ASSET_KEYS__ || [])]), __assetOk = Z => __ASSET_SET__.has(Z), Ut = Z => { var Y; return ((Y = window.__MESBG_ASSETS__) == null ? void 0 : Y[Z]) || `./assets/mesbg/${Z}${Z.includes('?') ? '' : '?v=a1'}`; }, pe = document.createElement("style");
+const __ASSET_SET__ = new Set([...Object.keys(window.__MESBG_ASSETS__ || {}), ...(window.__MESBG_ASSET_KEYS__ || [])]), __assetOk = Z => __ASSET_SET__.has(Z), Ut = Z => { var Y; return ((Y = window.__MESBG_ASSETS__) == null ? void 0 : Y[Z]) || `./assets/mesbg/${Z}${Z.includes('?') ? '' : '?v=a2'}`; }, pe = document.createElement("style");
 // Small WebP portraits for DOM UI (cards, panels). Full PNGs stay for the battlefield. Regenerate with tools/make_thumbs.py.
 const Th = Z => { const m = /^tokens\/(.+)\.png/.exec(Z || ''); return m ? Ut('thumbs/' + m[1] + '.webp') : Ut(Z); }, ThFallback = 'this.onerror=null;this.src=this.dataset.full';
 pe.textContent = `@font-face{font-family:Pretendard;src:url('${Ut("fonts/PretendardVariable.woff2")}') format('woff2');font-weight:100 900;font-display:swap}`;
@@ -2154,8 +2154,10 @@ Ve.prototype.hit=function(p){
 const oldPreload = Ve.prototype.preload, oldCreate = Ve.prototype.create, oldSync = Ve.prototype.sync;
 Ve.prototype.preload = function () {
     oldPreload.call(this);
-    for (const name of CX.maps)
+    {
+        const name = CX.maps[visualMapIdx(q.mapIndex)];
         this.load.image('map-' + name, this.asset('backgrounds/' + (name === 'minas_tirith' ? 'bg_minas_gate' : 'bg_' + name) + '.png?v=p2'));
+    }
     for (const name of ['slash', 'thrust', 'smash', 'shoot', 'cast', 'pounce', 'rally', 'blood', 'clash', 'prone', 'terror', 'charge', 'halfmove'])
         this.load.image('fx-' + name, this.asset('effects/fx_' + name + '.png'));
     for (const [id, u] of q.meta)
@@ -2217,7 +2219,18 @@ Ve.prototype.sync = function () {
     if (!this.backdrop)
         return;
     const name = CX.maps[visualMapIdx(this.b.mapIndex)];
-    this.backdrop.setTexture(MAP_HQ[name] || 'map-' + name).setTint(MAP_TINT[name] || (MAP_HQ[name] ? 0xffffff : 0xb6b5a4)).setDisplaySize(pt.width, pt.height);
+    const mapKey = MAP_HQ[name] || 'map-' + name;
+    if (!this.textures.exists(mapKey)) {
+        // 지연 로드: 스테이지 전환 때만 필요한 배경을 받는다 (preload에서 전부 받지 않음).
+        const file = 'backgrounds/' + (name === 'minas_tirith' ? 'bg_minas_gate' : 'bg_' + name) + '.png?v=p2';
+        if (this._mapLoading !== mapKey) {
+            this._mapLoading = mapKey;
+            this.load.image(mapKey, this.asset(file));
+            this.load.once('complete', () => { this._mapLoading = null; if (this.backdrop) this.backdrop.setTexture(mapKey).setDisplaySize(pt.width, pt.height); });
+            this.load.start();
+        }
+    } else
+        this.backdrop.setTexture(mapKey).setTint(MAP_TINT[name] || (MAP_HQ[name] ? 0xffffff : 0xb6b5a4)).setDisplaySize(pt.width, pt.height);
     this.boundary.clear();
     // Soft stepped fog margins remain outside the legal base-center boundary.
     for (let i = 0; i < 5; i++) {
