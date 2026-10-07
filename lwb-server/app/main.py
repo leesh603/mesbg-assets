@@ -60,7 +60,8 @@ class ScoreIn(BaseModel):
     gold: int = Field(default=0, ge=0)
 
 
-app = FastAPI(title="LAST WAR BAND save server")
+app = FastAPI()
+app.title = "LAST WAR BAND save server"
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
