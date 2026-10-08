@@ -9449,9 +9449,10 @@ He=function(b){
         const dest=be(b,u);
         if(!dest||!b.move(u.uid,dest))b.wait(u.uid);
     }else if(b.phase==='shoot'){
-        const target=b.validTargets(u).sort((a,c)=>
-            (c.currentWounds===1?2:0)-(a.currentWounds===1?2:0)||
-            (c.traits.includes('hero')?1:0)-(a.traits.includes('hero')?1:0)||ht(u,a)-ht(u,c))[0];
+        const _hill=b.terrain.some(t=>t.z==='hill'&&t.active&&le(u,t,0)),_wx=b.current?b.current.modifier:'',_wpen=['rain','dark','fog'].includes(_wx)?1:0;
+        const _hn=t=>Math.min(6,u.stats.shootValue+(u.moved?pt.movePenalty:0)+(_t(u,t,b.terrain)==='cover'?1:0)-(_hill?1:0)+_wpen);
+        const _sc=t=>-_hn(t)*10+(t.currentWounds===1?18:0)+(t.traits.includes('hero')?8:0)+(t.currentWounds===2?6:0)-ht(u,t)*.01;
+        const target=b.validTargets(u).sort((a,c)=>_sc(c)-_sc(a))[0];
         if(!target||!b.shoot(u.uid,target.uid))b.wait(u.uid);
     }
 };
