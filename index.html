@@ -6671,7 +6671,7 @@ Ae=[{id:"warrior_minas_tirith",name_ko:"미나스 티리스 전사",name_en:"War
                     v.alive = false, this.emit("UnitKilled", `${v.name} · 전열 붕괴 — 도주`, { uid: v.uid });
     }
     let Y = Lt(this.rng), b = Lt(this.rng), H = 0; for (; Y === b && H < 100;)
-        H++, Y = Lt(this.rng), b = Lt(this.rng); this.priority = Y >= b ? "good" : "evil", this.priorityForce && (this.priority = this.side = this.priorityForce, this.priorityForce = ""), this.nextRoundBuffs && (this.nextRoundBuffs.forEach(rb => this.alive(rb.side || "good").forEach(u => (u.roundBuff[rb.stat] = (u.roundBuff[rb.stat] || 0) + rb.n, this.refreshUnit(u)))), this.nextRoundBuffs = null), this.side = this.priority, this.phase = "move", this.emit("RoundStarted", `라운드 ${this.round} · ${this.priority === "good" ? "곤도르" : "모르도르"} 우선권`), this.emit("PriorityRolled", void 0, { good: Y, evil: b, ties: H }), this.autoSelect(); }
+        H++, Y = Lt(this.rng), b = Lt(this.rng); this.priority = Y >= b ? "good" : "evil", this.priorityForce && (this.priority = this.side = this.priorityForce, this.priorityForce = ""), this.nextRoundBuffs && (this.nextRoundBuffs.forEach(rb => this.alive(rb.side || "good").forEach(u => (!rb.trait || u.traits.includes(rb.trait)) && (u.roundBuff[rb.stat] = (u.roundBuff[rb.stat] || 0) + rb.n, this.refreshUnit(u)))), this.nextRoundBuffs = null), this.side = this.priority, this.phase = "move", this.emit("RoundStarted", `라운드 ${this.round} · ${this.priority === "good" ? "곤도르" : "모르도르"} 우선권`), this.emit("PriorityRolled", void 0, { good: Y, evil: b, ties: H }), this.autoSelect(); }
     remaining(Y) { return Math.max(0, Y.stats.move - Y.movementSpent); }
     eligible(Y = this.side) { return this.alive(Y).filter(b => !b.acted && (!this.activeMoverUid || this.phase !== "move" || Y !== this.side || b.uid === this.activeMoverUid) && (this.phase === "move" || this.phase === "shoot" && b.stats.shootRange > 0 && !this.engaged(b) && b.movementSpent * 2 <= b.stats.move)); }
     engaged(Y) { return this.alive().some(b => Vt(Y, b)); }
@@ -8207,6 +8207,30 @@ const LWB_EVENTS = [
     { id: 'barrow_blade', title: '무덤의 칼', text: '흙무덤 틈에서 청동빛 옛 칼이 반쯤 드러났습니다. 손에 쥐면 차가운 힘이 전해집니다.', options: [
         { label: '뽑아 쓴다', sub: '무작위 아군 Attack +1 · 용기 −1 (영구)', fx: q => { const u = q.alive('good').filter(x => (x.stats.attacks || 1) < 4); const t = u[Math.floor(q.rng() * u.length)]; if (t) { t.baseStats.attacks = (t.baseStats.attacks || 1) + 1; t.baseStats.courage = Math.max(0, (t.baseStats.courage || 0) - 1); q.refreshUnit(t); } return t ? `${t.name} Attack +1 · 용기 −1` : '대상 없음'; } },
         { label: '제자리에 둔다', sub: '금화 +25', fx: q => q.gold += 25 }] }
+    ,{ id: 'eagle_eyrie', title: '독수리의 둥지', text: '절벽 위 거대한 둥지에서 바람의 왕족이 아래를 내려다봅니다. 높은 곳의 눈은 모든 길을 압니다.', options: [
+        { label: '정찰을 부탁한다', sub: '다음 전투 첫 라운드 적 전원 이동 −1″ (매복 노출)', fx: q => (q.nextRoundBuffs = q.nextRoundBuffs || []).push({ stat: 'move', n: -45, side: 'evil' }) },
+        { label: '어깨 빌려 멀리 본다', sub: '다음 전투 첫 라운드 아군 전원 이동 +1″', fx: q => (q.nextRoundBuffs = q.nextRoundBuffs || []).push({ stat: 'move', n: 45 }) }] },
+    { id: 'dwarf_vault', title: '버려진 드워프 금고', text: '산허리 눈에 덮인 문틈 아래 룬 금고가 반쯤 열려 있습니다. 드워프는 떠났고 보물은 남았습니다.', options: [
+        { label: '열어 본다', sub: '행운 시험 · 금화 +60 또는 무작위 아군 상처 +1', fx: q => { if (q.rng() < 0.6) { q.gold += 60; return '금고 개방 — 금화 +60'; } const u = q.alive('good'); const t = u[Math.floor(q.rng() * u.length)]; if (t) t.currentWounds = Math.min(t.stats.wounds, t.currentWounds + 1); return t ? `함정 작동 — ${t.name} 상처 +1` : '함정 — 피해 없음'; } },
+        { label: '무게만 확인한다', sub: '금화 +15', fx: q => q.gold += 15 }] },
+    { id: 'rohirrim_horn', title: '로한의 전쟁 뿔', text: '언덕 너머 기마대의 뿔소리가 울립니다. 로히림이 전투를 앞두고 서로의 용기를 북돋습니다.', options: [
+        { label: '함께 울린다', sub: '다음 전투 첫 라운드 아군 기병 결투 +1', fx: q => (q.nextRoundBuffs = q.nextRoundBuffs || []).push({ stat: 'fight', n: 1, side: 'good', trait: 'mounted' }) },
+        { label: '말을 쉬게 한다', sub: '무작위 아군 완치', fx: q => { const u = q.alive('good'); const t = u[Math.floor(q.rng() * u.length)]; if (t) t.currentWounds = t.stats.wounds; return t ? `${t.name} 완치` : '대상 없음'; } }] },
+    { id: 'forgotten_shrine', title: '잊힌 제단', text: '덩굴에 파묻힌 돌제단, 아직 물이 마르지 않았습니다. 무엇을 섬기던 자리인지는 아무도 모릅니다.', options: [
+        { label: '제물을 바친다', sub: '금화 −20 · 무작위 영웅 Might·Will +1 (영구)', fx: q => { q.gold = Math.max(0, q.gold - 20); const u = q.alive('good').filter(x => x.traits.includes('hero')); const t = u[Math.floor(q.rng() * u.length)]; if (t) { t.baseStats.might = (t.baseStats.might || 0) + 1; t.baseStats.will = (t.baseStats.will || 0) + 1; q.refreshUnit(t); } return t ? `${t.name} Might·Will +1` : '영웅 없음'; } },
+        { label: '제단물로 손을 씻는다', sub: '무작위 아군 상처 1 회복', fx: q => { const u = q.alive('good').filter(x => x.currentWounds < x.stats.wounds); const t = u[Math.floor(q.rng() * u.length)]; if (t) t.currentWounds += 1; return t ? `${t.name} 상처 1 회복` : '모두 온전함'; } }] },
+    { id: 'wargs_hunt', title: '와르그의 사냥', text: '어둠 속에서 노란 눈동자 수십 개가 부대를 에워쌉니다. 살쾡이보다 큰 늑대들이 울부짖습니다.', options: [
+        { label: '불로 몰아낸다', sub: '무작위 아군 상처 +1', fx: q => { const u = q.alive('good'); const t = u[Math.floor(q.rng() * u.length)]; if (t) t.currentWounds = Math.min(t.stats.wounds, t.currentWounds + 1); return t ? `${t.name} 상처 +1` : '피해 없음'; } },
+        { label: '미끼를 던지고 도망친다', sub: '금화 −15', fx: q => q.gold = Math.max(0, q.gold - 15) }] },
+    { id: 'beacon_relief', title: '신호등의 지원군', text: '산꼭대기 불빛이 응답했습니다 — 곤도르 전령이 무기와 약초를 전달합니다.', options: [
+        { label: '무기를 받는다', sub: '무작위 아군 힘 +1 (영구)', fx: q => { const u = q.alive('good'); const t = u[Math.floor(q.rng() * u.length)]; if (t) { t.baseStats.strength = (t.baseStats.strength || 0) + 1; q.refreshUnit(t); } return t ? `${t.name} 힘 +1` : '대상 없음'; } },
+        { label: '약초를 받는다', sub: '상처 입은 아군 1명 완치', fx: q => { const u = q.alive('good').filter(x => x.currentWounds < x.stats.wounds); const t = u[Math.floor(q.rng() * u.length)]; if (t) t.currentWounds = t.stats.wounds; return t ? `${t.name} 완치` : '모두 온전함'; } }] },
+    { id: 'ranger_way', title: '레인저의 옛길', text: '이실리엔 순찰자들이 쓰던 은밀한 길을 발견했습니다. 발소리 없는 자들의 길은 가장 빠릅니다.', options: [
+        { label: '길을 따라간다', sub: '다음 전투 첫 라운드 아군 전원 이동 +1″ · 적 전원 용기 −1', fx: q => (q.nextRoundBuffs = q.nextRoundBuffs || []).push({ stat: 'move', n: 45 }, { stat: 'courage', n: -1, side: 'evil' }) },
+        { label: '숨어서 지나간다', sub: '다음 전투 첫 라운드 적 전원 이동 −1″', fx: q => (q.nextRoundBuffs = q.nextRoundBuffs || []).push({ stat: 'move', n: -45, side: 'evil' }) }] },
+    { id: 'storm_watch', title: '폭풍 전야', text: '검은 구름이 머리 위로 모입니다. 폭풍은 적에게도 아군에게도 공평하게 불리합니다.', options: [
+        { label: '폭풍 속을 걷는다', sub: '다음 전투 양측 전원 이동 −1″ · 금화 +20', fx: q => { q.gold += 20; (q.nextRoundBuffs = q.nextRoundBuffs || []).push({ stat: 'move', n: -45 }, { stat: 'move', n: -45, side: 'evil' }); } },
+        { label: '비를 피해 늦어진다', sub: '다음 전투 첫 라운드 아군 전원 이동 −2″', fx: q => (q.nextRoundBuffs = q.nextRoundBuffs || []).push({ stat: 'move', n: -90 }) }] }
 ];
 P.rollCampEvent = function () {
     this.rng || (this.rng = Ne(Date.now()));
