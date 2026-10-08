@@ -7784,6 +7784,10 @@ const CHALLENGES = [
     { id: 'supplies', label: '보급 차단', text: '첫 라운드 아군 용기 −1', gold: 25 },
     { id: 'doubt', label: '사기 저하', text: '첫 라운드 아군 결투 −1', gold: 30 },
     { id: 'fog', label: '짙은 안개', text: '첫 라운드 아군 이동 −1인치', gold: 20 },
+    { id: 'veteran_foe', label: '노련한 적', text: '첫 라운드 적 전원 결투 +1', gold: 30 },
+    { id: 'dark_blades', label: '검은 칼날', text: '첫 라운드 적 전원 Attack +1', gold: 35 },
+    { id: 'dark_horde', label: '어둠의 무리', text: '적 +2기 & 엘리트 +1기', gold: 35 },
+    { id: 'tired_line', label: '지친 전열', text: '첫 라운드 아군 전원 이동·결투 −1', gold: 40 },
 ];
 P._trkKill = function (k, v) {
     if (k.side === 'good' && v.side === 'evil') {
@@ -7819,9 +7823,11 @@ P.startWave = function () {
     if (this.current.modifier === 'ambush')
         this.alive('evil').forEach((u, i) => { u.x = i % 2 ? 260 + (i % 4) * 140 : 1960 - (i % 4) * 140; u.y = 560 + Math.floor(i / 8) * 160; });
     this.commander = this.alive('evil').find(u => u.id === this.current.boss)?.uid || this.alive('evil').filter(u => u.traits.includes('hero')).at(-1)?.uid;
+    if (this.challenge === 'dark_horde')
+        this.spawnEnemies((this.wave > 8 ? ['uruk_berserker', 'warg_rider'] : this.wave > 4 ? ['uruk_berserker', 'orc_sword'] : ['orc_sword', 'moria_goblin']).filter(id => this.meta.has(id)));
     if (this.challenge === 'reinforce' || this.challenge === 'onslaught')
         this.spawnEnemies((this.wave > 8 ? ['uruk_berserker', 'warg_rider', 'orc_sword', 'moria_goblin'] : this.wave > 4 ? ['uruk_berserker', 'orc_sword', 'moria_goblin', 'orc_archer'] : ['orc_sword', 'moria_goblin', 'orc_sword', 'orc_archer']).filter(id => this.meta.has(id)));
-    let _eliteN = Math.min(6, 1 + Math.floor(this.wave / 4)) + (this.difficulty === 'hard' ? 1 : 0) + (this.challenge === 'elite' || this.challenge === 'onslaught' ? 2 : 0);
+    let _eliteN = Math.min(6, 1 + Math.floor(this.wave / 4)) + (this.difficulty === 'hard' ? 1 : 0) + (this.challenge === 'elite' || this.challenge === 'onslaught' ? 2 : 0) + (this.challenge === 'dark_horde' ? 1 : 0);
     const _ecands = this.alive('evil').filter(u => !u.traits.includes('hero'));
     for (let i = 0; i < _eliteN && _ecands.length; i++) {
         const u = _ecands.splice(Math.floor(this.rng() * _ecands.length), 1)[0];
@@ -7831,6 +7837,9 @@ P.startWave = function () {
     if (this.challenge === 'supplies') (this.nextRoundBuffs = this.nextRoundBuffs || []).push({ stat: 'courage', n: -1, side: 'good' });
     if (this.challenge === 'doubt') (this.nextRoundBuffs = this.nextRoundBuffs || []).push({ stat: 'fight', n: -1, side: 'good' });
     if (this.challenge === 'fog') (this.nextRoundBuffs = this.nextRoundBuffs || []).push({ stat: 'move', n: -45, side: 'good' });
+    if (this.challenge === 'veteran_foe') (this.nextRoundBuffs = this.nextRoundBuffs || []).push({ stat: 'fight', n: 1, side: 'evil' });
+    if (this.challenge === 'dark_blades') (this.nextRoundBuffs = this.nextRoundBuffs || []).push({ stat: 'attacks', n: 1, side: 'evil' });
+    if (this.challenge === 'tired_line') (this.nextRoundBuffs = this.nextRoundBuffs || []).push({ stat: 'move', n: -45, side: 'good' }, { stat: 'fight', n: -1, side: 'good' });
     this.eliteKills = 0;
     this.stageDeaths = 0; this.stageHeroKills = 0; this.stageShootKills = 0; this.stageChargeKills = 0; this.stageKills = 0; this.stageCavKills = 0; this.stageMonsterKills = 0; this.stageHeroSlayer = 0; this.stageEliteKills = 0;
     const _bp = BONUS_OBJECTIVES.filter(o => !o.cond || o.cond(this));
