@@ -3517,16 +3517,21 @@ P.sanitizeRecruitOffers=function(){
     for(const o of (this.recruitOffers||[])){const k=UnitCatalog[o.id]?.uniqueKey;if(k&&owned.has(k))o.bought=true;}
     this.recruitDraft=(this.recruitDraft||[]).filter(i=>this.recruitOffers?.[i]&&!this.recruitOffers[i].bought);
 };
+const FACTION_BY_MAP={minas_tirith:['gondor','minastirith'],osgiliath:['gondor','minastirith'],pelennor:['gondor','minastirith'],amon_sul:['arnor','bree'],helms_deep:['rohan'],edoras:['rohan'],dunharrow:['rohan'],fangorn:['rohan','elf'],moria:['dwarf','erebor'],erebor:['dwarf','erebor'],isengard:['rohan','gondor'],black_gate:['gondor','numenor'],gorgoroth:['gondor','numenor'],rivendell:['rivendell','elf'],lothlorien:['lothlorien','elf'],dead_marshes:['gondor','arnor']};
 P.rollRecruits=function(){
     this.recruitDraft=[];
     const isH=d=>(d.profile.traits||[]).includes('hero')||d.meta.role==='hero';
     // 영웅은 유니크 — 전사한 영웅도 영입 후보에서 제외 (발라의 은총 부활로만 복귀)
     const owned=this.ownedUniqueKeys();
     const base=Object.values(UnitCatalog).filter(d=>d.enabled&&this.meta.has(d.id)&&(d.meta.side==='good'||this.relics.darkpact&&d.meta.side==='evil'));
-    const heroes=base.filter(d=>isH(d)&&this.wave>=(d.unlockWave||0)&&!owned.has(d.uniqueKey||d.id)&&(!SILMARIL_HEROES.has(d.uniqueKey||d.id)||this.rank("silmaril"))).map(d=>({id:d.id,r:this.rng()})).sort((a,b)=>a.r-b.r).slice(0,2);
-    const candidates=base.filter(d=>d.recruitable&&!isH(d)).map(d=>({id:d.id,r:this.rng(),role:d.profile.traits.includes('mounted')?'cavalry':d.profile.shootRange?'archer':d.profile.traits.includes('spear')?'support':'infantry'})).sort((a,b)=>a.r-b.r);
+    // 지역 파벌 가중치 — 그 땅의 군대가 영입 후보에 우선 등장 (로한 땅엔 로한군 등)
+    const _facs=(FACTION_BY_MAP[CX.maps[visualMapIdx(this.mapIndex)]]||[]);
+    const _isfac=d=>_facs.includes(d.meta.faction);
+    const heroPool=base.filter(d=>isH(d)&&this.wave>=(d.unlockWave||0)&&!owned.has(d.uniqueKey||d.id)&&(!SILMARIL_HEROES.has(d.uniqueKey||d.id)||this.rank("silmaril"))).map(d=>({id:d.id,r:this.rng()})).sort((a,b)=>a.r-b.r);
+    const heroes=heroPool.filter(d=>_isfac(UnitCatalog[d.id])).slice(0,1).concat(heroPool.filter(d=>!_isfac(UnitCatalog[d.id]))).slice(0,2);
+    const candidates=base.filter(d=>d.recruitable&&!isH(d)).map(d=>({id:d.id,r:this.rng(),fac:_isfac(d),role:d.profile.traits.includes('mounted')?'cavalry':d.profile.shootRange?'archer':d.profile.traits.includes('spear')?'support':'infantry'})).sort((a,b)=>(b.fac-a.fac)||(a.r-b.r));
     const troops=[];
-    for(const role of ['infantry','support','archer','cavalry']){const d=candidates.find(d=>d.role===role);if(d)troops.push(d);}
+    for(const role of ['infantry','support','archer','cavalry']){const d=candidates.find(d=>d.role===role&&d.fac)||candidates.find(d=>d.role===role);if(d)troops.push(d);}
     for(const d of candidates)if(troops.length<4&&!troops.includes(d))troops.push(d);
     this.recruitOffers=[...heroes,...troops].map(d=>({id:d.id,bought:false}));
 };
