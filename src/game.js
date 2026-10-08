@@ -1176,7 +1176,7 @@ P.finishWave = function () {
     if (this.phase === 'reward' || this.phase === 'result')
         return;
     this.cleared = this.wave;
-    const bounty = Math.round((60 + this.wave * 8 + this.rank('palantir') * 10 + this.rank('numenor_map') * 10) * (this.difficulty === 'easy' ? 1.2 : this.difficulty === 'hard' ? 1.5 : 1));
+    const bounty = Math.round((60 + this.wave * 8 + this.rank('palantir') * 10 + this.rank('numenor_map') * 10 + this.rank('steward_ledger') * 15) * (this.difficulty === 'easy' ? 1.2 : this.difficulty === 'hard' ? 1.5 : 1) * (1 + .5 * this.rank('nauglamir')));
     if (this.bonusObjective && this.bonusObjective.test(this)) {
         this.gold += this.bonusObjective.gold;
         this.lastGold = bounty + this.bonusObjective.gold;
@@ -1538,20 +1538,20 @@ P.reroll = function () { const cost = 10 + this.rerolls * 5; if (this.phase !== 
 P.expand = function () { const cost = 45 + this.capacityBought * 25; if (this.phase !== 'reward' || this.gold < cost || this.capacity() >= 30)
     return false; this.gold -= cost; this.capacityBought++; this.save(); return true; };
 function relicFamily(id) {
-    if(['horseshoe','eohere_horn','rohan_standard'].includes(id))return '기병';
-    if(['quiver','arrow','elven_feather','elf_bow','cloak'].includes(id))return '사격';
-    if(['banner','westfold_shield','dwarf_axe','ithilien_blade','durin_axe'].includes(id))return '전열';
-    if(['horn','phial','narsil','silmaril','vilya','warbanner','anduril_hilt'].includes(id))return '영웅';
-    if(['lembas','mithril','narya','nenya','second_breakfast','athelas','pipeweed'].includes(id))return '생존';
+    if(['horseshoe','eohere_horn','rohan_standard','rohan_shield','rohan_lance','shadowfax'].includes(id))return '기병';
+    if(['quiver','arrow','elven_feather','elf_bow','cloak','haradrim_bow','ranger_cloak'].includes(id))return '사격';
+    if(['banner','westfold_shield','dwarf_axe','ithilien_blade','durin_axe','morannon_pike','gondor_tabard','mithril_mail','sting'].includes(id))return '전열';
+    if(['horn','phial','narsil','silmaril','vilya','warbanner','anduril_hilt','barahir_ring','elessar','evenstar'].includes(id))return '영웅';
+    if(['lembas','mithril','narya','nenya','second_breakfast','athelas','pipeweed','miruvor'].includes(id))return '생존';
     return '원정';
 }
 P.rollRelics = function () {
     const pool = CX.relics.filter(r => r.rarity !== 3 || !this.rank(r.id));
     const weighted = pool.map(r => ({ id: r.id, family: relicFamily(r.id), k: -Math.log(Math.max(.00001, this.rng())) / [1, .75, .42, Math.min(.32, .035 + this.wave * .015)][r.rarity] }));
     weighted.sort((a, b) => a.k - b.k);
-    const picks = [], families = new Set();
-    for (const r of weighted) if (!families.has(r.family)) { picks.push(r.id); families.add(r.family); if(picks.length===3)break; }
-    for (const r of weighted) if(picks.length<3&&!picks.includes(r.id))picks.push(r.id);
+    const picks = [], families = new Set(), N=3+this.rank('keys_erebor');
+    for (const r of weighted) if (!families.has(r.family)) { picks.push(r.id); families.add(r.family); if(picks.length===N)break; }
+    for (const r of weighted) if(picks.length<N&&!picks.includes(r.id))picks.push(r.id);
     this.relicChoices = picks;
 };
 P.chooseRelic = function (id) {
@@ -2186,6 +2186,23 @@ P.move=function(uid,to,charge){
     return moved;
 };
 CX.relics.push(...[
+    ['rohan_shield','로한 기병 방패',1,'기병의 Defense +1. 중첩마다 +1.',0],
+    ['rohan_lance','로한 기수 투창',1,'기병의 Attack +1. 중첩마다 +1.',0],
+    ['haradrim_bow','하라드 장궁',1,'궁수의 힘 +1. 중첩마다 +1.',0],
+    ['ranger_cloak','북부 순찰자 망토',1,'레인저의 Defense +1. 중첩마다 +1.',0],
+    ['morannon_pike','모란논 장창',1,'창 지원 아군의 Attack +1. 중첩마다 +1.',0],
+    ['gondor_tabard','곤도르 전투복',0,'곤도르 아군의 결투 +1. 중첩마다 +1.',0],
+    ['mithril_mail','미스릴 쇠사슬',2,'드워프의 Defense +1. 중첩마다 +1.',0],
+    ['barahir_ring','바라히르의 반지',2,'모든 영웅의 Fate 상한 +1. 중첩마다 +1.',0],
+    ['elessar','엘렛사르',3,'스테이지 시작 시 모든 영웅의 Will 1 회복.',0],
+    ['evenstar','아렌델 저녁별',3,'스테이지 시작 시 모든 영웅의 Might 1 회복.',0],
+    ['sting','스팅',3,'Attack이 1인 비영웅 아군의 Attack +1.',0],
+    ['shadowfax','섀도팩스의 제갈',3,'기병의 Attack +1 · 이동 +1인치.',0],
+    ['nauglamir','나우글라미르',3,'스테이지 보상 금화 ×1.5. 중첩마다 +25%.',0],
+    ['miruvor','미루보르',2,'스테이지 시작 시 무작위 부상 아군의 상처 2 회복. 중첩마다 +1.',0],
+    ['keys_erebor','에레보르의 열쇠',2,'유물 선택지가 4개로 증가. 중첩마다 +1.',0],
+    ['steward_ledger','집정관의 장부',1,'스테이지 보상 금화 +15. 중첩마다 +15.',0],
+    ['scouts_mark','북녘 정찰 표지',0,'스테이지 시작 시 금화 +5. 중첩마다 +5.',0],
     ['pipeweed','샤이어의 담뱃잎',1,'매 라운드 지휘력 +1. 중첩마다 +1.',1],
     ['athelas','아셀라스 잎',2,'전투 시작 시 가장 상처 입은 아군의 상처를 1 회복. 중첩마다 +1.',0],
     ['dwarf_axe','두린의 도끼날',1,'드워프의 힘 +1. 중첩마다 +1.',14],
@@ -2206,6 +2223,14 @@ P.refreshUnit=function(u){
     if(/shield/.test(this.meta.get(u.id)?.weapon||''))u.stats.defence+=this.rank('westfold_shield');
     if(u.traits.includes('mounted'))u.stats.fight+=this.rank('rohan_standard');
     if(u.id==='aragorn')u.stats.attacks+=this.rank('anduril_hilt');
+    if(u.traits.includes('mounted')){u.stats.defence+=this.rank('rohan_shield');u.stats.attacks+=this.rank('rohan_lance');if(this.rank('shadowfax')){u.stats.attacks+=this.rank('shadowfax');u.stats.move+=45*this.rank('shadowfax');}}
+    if(u.stats.shootRange)u.stats.strength+=this.rank('haradrim_bow');
+    if(u.traits.includes('ranger'))u.stats.defence+=this.rank('ranger_cloak');
+    if(u.traits.includes('spear'))u.stats.attacks+=this.rank('morannon_pike');
+    if(u.traits.includes('gondor'))u.stats.fight+=this.rank('gondor_tabard');
+    if(u.traits.includes('dwarf'))u.stats.defence+=this.rank('mithril_mail');
+    if(u.traits.includes('hero')&&this.rank('barahir_ring')){u.stats.fate=(u.stats.fate||0)+this.rank('barahir_ring');if(!u._barahirFate){u._barahirFate=1;u.resources&&(u.resources.fate=(u.resources.fate||0)+this.rank('barahir_ring'));}}
+    if(!u.traits.includes('hero')&&(u.baseStats.attacks||1)===1&&this.rank('sting'))u.stats.attacks+=1;
 };
 const __lwbRU2=P.refreshUnit;
 P.refreshUnit=function(u){
@@ -2234,6 +2259,9 @@ P.startWave=function(){
         patient.currentWounds=Math.min(patient.stats.wounds,patient.currentWounds+this.rank('athelas'));
         this.emit('Relic','아셀라스 · '+patient.name+' 회복');
     }
+    if(this.rank('scouts_mark'))this.gold+=5*this.rank('scouts_mark');
+    if(this.rank('miruvor')){const w=this.alive('good').filter(u=>u.currentWounds<u.stats.wounds),t=w[Math.floor(this.rng()*w.length)];if(t){t.currentWounds=Math.min(t.stats.wounds,t.currentWounds+2*this.rank('miruvor'));this.emit('Relic','미루보르 · '+t.name+' 회복');}}
+    if(this.rank('elessar')||this.rank('evenstar'))for(const u of this.alive('good')){if(!u.traits.includes('hero'))continue;if(this.rank('elessar'))u.resources.will=Math.min((u.baseStats.will||0)+this.rank('elessar'),(u.resources.will||0)+1);if(this.rank('evenstar'))u.resources.might=Math.min((u.baseStats.might||0)+this.rank('evenstar'),(u.resources.might||0)+1);}
 };
 // The player AI looks for an attack first and only moves if that improves an attack.
 be=function(b,u){
@@ -2734,7 +2762,7 @@ barahir:['바라히르의 맹세','might',1,'이번 라운드 Defense +2.',{self
 elendur:['이실두르의 장자','might',1,'이번 라운드 Attack +1, 결투 +1.',{self:{attacks:1,fight:1}}]
 });
  }
-const RELIC_ICON_FILE={lembas:'relic_lembas',cloak:'relic_elven_cloak',horn:'relic_rohan_horn',horseshoe:'relic_horseshoe',phial:'relic_phial_galadriel',mithril:'relic_mithril_shirt',cart:'relic_wagon',palantir:'relic_palantir',banner:'relic_gondor_banner',arrow:'relic_red_arrow',silmaril:'relic_silmaril',narya:'relic_narya',nenya:'relic_nenya',vilya:'relic_vilya',narsil:'relic_anduril',quiver:'relic_quiver',darkpact:'relic_one_ring',warbanner:'relic_warbanner',durin_axe:'relic_durin_axe',eagle_feather:'relic_eagle_feather',second_breakfast:'res_food',crown_west:'relic_winged_crown',eohere_horn:'relic_eohere_horn',elven_feather:'relic_elven_feather',numenor_map:'relic_map_scroll',pipeweed:'relic_pipeweed',athelas:'relic_athelas',dwarf_axe:'relic_durin_axe',elf_bow:'relic_elf_bow',ithilien_blade:'relic_barrow_blade',westfold_shield:'relic_rohan_shield',rohan_standard:'relic_warbanner',elven_rope:'relic_elven_rope',anduril_hilt:'relic_anduril'};
+const RELIC_ICON_FILE={lembas:'relic_lembas',cloak:'relic_elven_cloak',horn:'relic_rohan_horn',horseshoe:'relic_horseshoe',phial:'relic_phial_galadriel',mithril:'relic_mithril_shirt',cart:'relic_wagon',palantir:'relic_palantir',banner:'relic_gondor_banner',arrow:'relic_red_arrow',silmaril:'relic_silmaril',narya:'relic_narya',nenya:'relic_nenya',vilya:'relic_vilya',narsil:'relic_anduril',quiver:'relic_quiver',darkpact:'relic_one_ring',warbanner:'relic_warbanner',durin_axe:'relic_durin_axe',eagle_feather:'relic_eagle_feather',second_breakfast:'res_food',crown_west:'relic_winged_crown',eohere_horn:'relic_eohere_horn',elven_feather:'relic_elven_feather',numenor_map:'relic_map_scroll',pipeweed:'relic_pipeweed',athelas:'relic_athelas',dwarf_axe:'relic_durin_axe',elf_bow:'relic_elf_bow',ithilien_blade:'relic_barrow_blade',westfold_shield:'relic_rohan_shield',rohan_standard:'relic_warbanner',elven_rope:'relic_elven_rope',anduril_hilt:'relic_anduril',barahir_ring:'relic_ring_barahir',rohan_shield:'relic_rohan_knight'};
 function relicIcon(r,size=72){
     const f='relics/icons/'+(RELIC_ICON_FILE[r.id]||'relic_'+r.id)+'.png';
     return `<span class="relic-icon" style="width:${size}px;height:${size}px;display:inline-flex;align-items:center;justify-content:center;background:rgba(18,24,17,.55);border:1px solid #6b6f52;border-radius:3px;color:#e6d3a0;font-size:${Math.round(size*.4)}px" aria-hidden="true"><img src="${Ut(f)}" alt="" style="width:92%;height:92%;object-fit:contain" onerror="this.remove();this.parentElement.textContent='✦'"></span>`;
