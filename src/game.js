@@ -1883,7 +1883,7 @@ const LWB_EVENTS = [
         { label: '물자를 산다', sub: '금화 −25 · 금화 상점 장비 1개 무료', fx: q => { const a = LWB_EQUIP[Math.floor(q.rng()*LWB_EQUIP.length)]; const u = q.alive('good')[Math.floor(q.rng()*q.alive('good').length)]; if(u&&a){u.equipment=u.equipment||[];if(u.equipment.length<2&&!u.equipment.includes(a.id)){u.equipment.push(a.id);q.refreshUnit(u);return `${u.name} · ${a.label||a.id} 획득`;}} return '장비 없음'; } },
         { label: '길 안내를 받는다', sub: '다음 전투 적 기습 무효', fx: q => { q.noAmbushNext = true; return '정찰 보고 · 기습 무효'; } }] },
     { id: 'dwarf_pact', title: '드워프 용병단', text: '철언덕 용병들이 계약을 제안합니다.', options: [
-        { label: '고용한다', sub: '금화 −60 · 다음 전투 아군 전원 방어 +1', fx: q => { q.gold=Math.max(0,q.gold-60); q.nextRoundBuffs=(q.nextRoundBuffs||[]).concat([{side:'good',stats:{defence:1}}]); return '드워프 용병 고용 · 다음 전투 전열 방어 +1'; } },
+        { label: '고용한다', sub: '금화 −60 · 다음 전투 아군 전원 방어 +1', fx: q => { q.gold=Math.max(0,q.gold-60); q.nextRoundBuffs=(q.nextRoundBuffs||[]).concat([{stat:'defence',n:1,side:'good'}]); return '드워프 용병 고용 · 다음 전투 전열 방어 +1'; } },
         { label: '거절한다', sub: '금화 +10 (그들이 팁을 둠)', fx: q => { q.gold+=10; } }] },
     { id: 'palantir_dream', title: '팔란티르의 꿈', text: '한 병사가 악몽에 시달립니다. 꿈속에서 적의 진형을 보았다고 합니다.', options: [
         { label: '믿는다', sub: '다음 전투 우선권 확보 · 그 병사 용기 −1', fx: q => { q.priorityForce='good'; const u=q.alive('good')[Math.floor(q.rng()*q.alive('good').length)]; if(u){u.baseStats.courage=Math.max(1,(u.baseStats.courage||0)-1);q.refreshUnit(u);} return '선제 정보 획득 · 대가로 용기 −1'; } },
