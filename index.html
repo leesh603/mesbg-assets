@@ -7842,6 +7842,8 @@ P.startWave = function () {
     this.units = this.units.filter(u => u.side === 'good' && u.alive && !u.temporary);
     this.delayed = [];
     this.spawnEnemies(this.current.ids);
+    const _er = Object.entries(this.current.ids.reduce((a, id) => (a[id] = (a[id] || 0) + 1, a), {})).map(([id, n]) => { const m = this.meta.get(id) || {}; return m.name_ko ? m.name_ko + (n > 1 ? ' ×' + n : '') : ''; }).filter(Boolean);
+    this.emit('EnemyRoster', '적 편성 — ' + _er.join(', ') + (this.current.boss && this.meta.get(this.current.boss) ? ' · ⚠ ' + this.meta.get(this.current.boss).name_ko + ' 출현' : ''));
     if (this.current.modifier === 'ambush')
         this.alive('evil').forEach((u, i) => { u.x = i % 2 ? 260 + (i % 4) * 140 : 1960 - (i % 4) * 140; u.y = 560 + Math.floor(i / 8) * 160; });
     this.commander = this.alive('evil').find(u => u.id === this.current.boss)?.uid || this.alive('evil').filter(u => u.traits.includes('hero')).at(-1)?.uid;
