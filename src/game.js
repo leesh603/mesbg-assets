@@ -1855,7 +1855,16 @@ const LWB_EVENTS = [
         { label: '주머니를 뒤진다', sub: '금화 +20', fx: q => { q.gold += 20; return '녹슨 금화를 챙겼습니다 · 금화 +20'; } }] },
     { id: 'eagle_omen', title: '독수리의 조짐', text: '해질녘 하늘을 거대한 독수리가 날아 지나갑니다. 병사들이 침묵 속에 그림자를 올려다봅니다.', options: [
         { label: '조짐을 따른다', sub: '다음 전투 첫 라운드 CP +2', fx: q => { q.bonusCP += 2; return '상서로운 조짐 · 다음 전투 첫 라운드 CP +2'; } },
-        { label: '경계를 강화한다', sub: '다음 전투 적 기습 무효', fx: q => { q.noAmbushNext = true; return '경계 강화 · 다음 전투 기습 무효'; } }] },
+        { label: '경계를 강화한다', sub: '다음 전투 적 기습 무효', fx: q => { q.noAmbushNext = true; return '경계 강화 · 다음 전투 기습 무효'; } }] },    { id: 'rohan_caravan', title: '로한 상인 행렬', text: '에도라스로 향하던 상인 행렬이 야영지에 들릅니다.', options: [
+        { label: '말을 한 필 산다', sub: '금화 −40 · 무작위 도보 영웅 기마 획득', fx: q => { q.horses = (q.horses||0)+1; return '말 획득 · 정비 시 기마 전환 가능'; } },
+        { label: '물자를 산다', sub: '금화 −25 · 금화 상점 장비 1개 무료', fx: q => { const a = LWB_EQUIP[Math.floor(q.rng()*LWB_EQUIP.length)]; const u = q.alive('good')[Math.floor(q.rng()*q.alive('good').length)]; if(u&&a){u.equipment=u.equipment||[];if(u.equipment.length<2&&!u.equipment.includes(a.id)){u.equipment.push(a.id);q.refreshUnit(u);return `${u.name} · ${a.label||a.id} 획득`;}} return '장비 없음'; } },
+        { label: '길 안내를 받는다', sub: '다음 전투 적 기습 무효', fx: q => { q.noAmbushNext = true; return '정찰 보고 · 기습 무효'; } }] },
+    { id: 'dwarf_pact', title: '드워프 용병단', text: '철언덕 용병들이 계약을 제안합니다.', options: [
+        { label: '고용한다', sub: '금화 −60 · 다음 전투 아군 전원 방어 +1', fx: q => { q.gold=Math.max(0,q.gold-60); q.nextRoundBuffs=(q.nextRoundBuffs||[]).concat([{side:'good',stats:{defence:1}}]); return '드워프 용병 고용 · 다음 전투 전열 방어 +1'; } },
+        { label: '거절한다', sub: '금화 +10 (그들이 팁을 둠)', fx: q => { q.gold+=10; } }] },
+    { id: 'palantir_dream', title: '팔란티르의 꿈', text: '한 병사가 악몽에 시달립니다. 꿈속에서 적의 진형을 보았다고 합니다.', options: [
+        { label: '믿는다', sub: '다음 전투 우선권 확보 · 그 병사 용기 −1', fx: q => { q.priorityForce='good'; const u=q.alive('good')[Math.floor(q.rng()*q.alive('good').length)]; if(u){u.baseStats.courage=Math.max(1,(u.baseStats.courage||0)-1);q.refreshUnit(u);} return '선제 정보 획득 · 대가로 용기 −1'; } },
+        { label: '꿈을 무시한다', sub: '아무 일도 없다', fx: q => {} }] },
 ];
 P.rollCampEvent = function () {
     this.rng || (this.rng = Ne(Date.now()));
