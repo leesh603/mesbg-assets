@@ -8520,6 +8520,15 @@ const LWB_EVENTS = [
     { id: 'palantir_dream', title: '팔란티르의 꿈', text: '한 병사가 악몽에 시달립니다. 꿈속에서 적의 진형을 보았다고 합니다.', options: [
         { label: '믿는다', sub: '다음 전투 우선권 확보 · 그 병사 용기 −1', fx: q => { q.priorityForce='good'; const u=q.alive('good')[Math.floor(q.rng()*q.alive('good').length)]; if(u){u.baseStats.courage=Math.max(1,(u.baseStats.courage||0)-1);q.refreshUnit(u);} return '선제 정보 획득 · 대가로 용기 −1'; } },
         { label: '꿈을 무시한다', sub: '아무 일도 없다', fx: q => {} }] },
+    { id: 'broken_cart', title: '전복된 마차', text: '길 한가운데 상인의 마차가 뒤집혀 있습니다. 짐이 흩어져 있습니다.', options: [
+        { label: '짐을 주워준다', sub: '금화 +30 (사례금)', fx: q => { q.gold += 30; return '상인의 사례 · 금화 +30'; } },
+        { label: '품을 판다', sub: '무작위 아군 1기 부상', fx: q => { const u=q.alive('good')[Math.floor(q.rng()*q.alive('good').length)]; if(u&&!u.injury){u.injury='leg';q.refreshUnit(u);return `${u.name} 부상 (다리)`;} return '다친 이 없음'; } }] },
+    { id: 'dwarf_market', title: '난쟁이 상회', text: '에레보르 상인들이 무기와 갑주를 펼쳐 보입니다.', options: [
+        { label: '판금을 산다', sub: '금화 −35 · 무작위 아군 방어 +1 (영구)', fx: q => { if(q.gold<35)return '금화 부족'; q.gold-=35; const u=q.alive('good')[Math.floor(q.rng()*q.alive('good').length)]; if(u){u.baseStats.defence+=1;q.refreshUnit(u);return `${u.name} 방어 +1`;} return '대상 없음'; } },
+        { label: '수리를 맡긴다', sub: '금화 −20 · 부상 1기 해제', fx: q => { if(q.gold<20)return '금화 부족'; const u=q.alive('good').find(x=>x.injury); if(!u)return '부상자 없음'; q.gold-=20; u.injury=null;q.refreshUnit(u); return `${u.name} 부상 해제`; } }] },
+    { id: 'old_watchtower', title: '폐허의 보초탑', text: '무너진 감시탑이 적의 동향을 엿보기에 좋은 위치입니다.', options: [
+        { label: '올라가 살핀다', sub: '다음 전투 적 기습 무효', fx: q => { q.noAmbushNext=true; return '적진 관측 · 기습 무효'; } },
+        { label: '탑 안을 뒤진다', sub: '무작위 유물 1개 획득', fx: q => { const r=CX.relics[Math.floor(q.rng()*CX.relics.length)]; if(r)q.relics[r.id]=(q.relics[r.id]||0)+1; return r?`유물 획득: ${r.name}`:'유물 없음'; } }] },
 ];
 P.rollCampEvent = function () {
     this.rng || (this.rng = Ne(Date.now()));
