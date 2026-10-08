@@ -7596,8 +7596,10 @@ P.refreshUnit = function (u) {
         const _uf = (this.meta.get(u.id) || {}).faction;
         if (_uf === 'dwarf' || _uf === 'erebor')
             u.stats.fight += this.rank('erebor_crown');
-        if (u.stats.shootRange)
+        if (u.stats.shootRange) {
             u.stats.move += 45 * this.rank('dunedain_star');
+            u.stats.shootValue = Math.max(2, u.stats.shootValue - this.rank('ranger_hood'));
+        }
         if (u.traits.includes('hero'))
             u.stats.wounds += this.rank('troll_heart');
         if (u.stats.shootRange)
@@ -8088,6 +8090,11 @@ P.finishWave = function () {
         this.gold += eg;
         this.lastGold += eg;
         this.campResult = (this.campResult ? this.campResult + ' · ' : '') + `엘리트 ${this.eliteKills}기 처치 → 금화 +${eg}`;
+    }
+    if (this.rank('mithril_ore')) {
+        const mg = 10 * this.rank('mithril_ore');
+        this.gold += mg;
+        this.campResult = (this.campResult ? this.campResult + ' · ' : '') + `미스릴 원석 → 금화 +${mg}`;
     }
     if (this.rank('bounty_list') && this.stageKills) {
         const bg = this.stageKills * 2 * this.rank('bounty_list');
@@ -9291,7 +9298,10 @@ CX.relics.push(...[
     ['erebor_crown','에레보르의 군왕관',2,'난쟁이·에레보르 계열 아군 결투 +1.',0],
     ['dunedain_star','두네다인의 별표',0,'궁수의 이동 +1인치. 중첩마다 +1인치.',0],
     ['troll_heart','트롤의 심장',2,'영웅의 체력 +1. 중첩마다 +1.',0],
-    ['morgul_thorn','모르굴의 가시',1,'적 영웅 처치 시 다음 전투 CP +1.',0]
+    ['morgul_thorn','모르굴의 가시',1,'적 영웅 처치 시 다음 전투 CP +1.',0],
+    ['ranger_hood','레인저의 두건',0,'궁수의 명중 −1. 중첩마다 −1.',0],
+    ['mithril_ore','미스릴 원석',1,'스테이지 보상 금화 +10. 중첩마다 +10.',0],
+    ['beorn_mead','베오른의 꿀주',1,'스테이지 시작 시 무작위 아군 1기 상처 1 회복.',0]
 ].map(([id,name,rarity,text,icon])=>({id,name,rarity,text,icon})));
 const relicRefresh=P.refreshUnit;
 P.refreshUnit=function(u){
@@ -9352,6 +9362,7 @@ P.startWave=function(){
     }
     if(this.rank('scouts_mark'))this.gold+=5*this.rank('scouts_mark');
     if(this.rank('miruvor')){const w=this.alive('good').filter(u=>u.currentWounds<u.stats.wounds),t=w[Math.floor(this.rng()*w.length)];if(t){t.currentWounds=Math.min(t.stats.wounds,t.currentWounds+2*this.rank('miruvor'));this.emit('Relic','미루보르 · '+t.name+' 회복');}}
+    if(this.rank('beorn_mead')){const w=this.alive('good').filter(u=>u.currentWounds<u.stats.wounds),t=w[Math.floor(this.rng()*w.length)];if(t){t.currentWounds=Math.min(t.stats.wounds,t.currentWounds+this.rank('beorn_mead'));this.emit('Relic','베오른의 꿀주 · '+t.name+' 회복');}}
     if(this.rank('elessar')||this.rank('evenstar'))for(const u of this.alive('good')){if(!u.traits.includes('hero'))continue;if(this.rank('elessar'))u.resources.will=Math.min((u.baseStats.will||0)+this.rank('elessar'),(u.resources.will||0)+1);if(this.rank('evenstar'))u.resources.might=Math.min((u.baseStats.might||0)+this.rank('evenstar'),(u.resources.might||0)+1);}
 };
 // The player AI looks for an attack first and only moves if that improves an attack.
