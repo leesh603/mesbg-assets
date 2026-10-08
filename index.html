@@ -8686,6 +8686,24 @@ P.retryStage = function () {
     this.emit('Preparation', '재도전 — 같은 스테이지를 다시 준비합니다. (금화 −60)');
     return true;
 };
+P.retreatStage = function () {
+    const s = this._retrySnapshot;
+    if (!s || !['preparation', 'move', 'shoot', 'fight'].includes(this.phase) || s.gold < 40)
+        return false;
+    Object.assign(this, { wave: s.wave, cleared: s.cleared, gold: Math.max(0, s.gold - 40), relics: structuredClone(s.relics), fallen: structuredClone(s.fallen), units: structuredClone(s.units), devices: structuredClone(s.devices) });
+    this.result = '';
+    this.round = 0;
+    this.capture = 0;
+    this.selected = '';
+    this.events = [];
+    this.fightQueue = [];
+    this.nextRoundBuffs = [];
+    this.roundBuffs = [];
+    this.prepareStage();
+    this.save();
+    this.emit('Preparation', '후퇴 — 스테이지 처음 상태로 돌아갑니다. (금화 −40)');
+    return true;
+};
 P._saveState = function () {
     const keys = ['gold', 'relics', 'capacityBought', 'totalKills', 'mithrilSpent', 'wave', 'cleared', 'units', 'counter', 'mode', 'best', 'campStep', 'campEvent', 'nextRoundBuffs', 'recruitOffers', 'relicChoices', 'chosenRelic', 'rerolls', 'lastGold', 'recruitDraft', 'initialDraft', 'horses', 'campDraft', 'campResult', 'eventOutcome', 'priorityForce', 'bonusCP', 'fallen', 'difficulty', 'armyName', 'allyBought', 'dailySeed', 'devices', 'weeklySeed', 'bonusId', 'nextRelicRare', 'noAmbushNext', 'stageDeaths', 'stageHeroKills', 'stageShootKills', 'stageChargeKills', 'stageCavKills', 'stageMonsterKills', 'stageHeroSlayer', 'stageEliteKills', 'stageKills', 'challenge', 'eliteKills'];
     const state = { version: CX.version };
@@ -10171,6 +10189,24 @@ me = function () {
     }
 };
 document.querySelector('.top-actions').insertAdjacentHTML('afterbegin', '<button class="iconbtn" id="auto" title="AI가 아군 턴도 진행합니다. 전투·배치·교전을 자동으로 넘깁니다">자동</button>');
+document.querySelector('.top-actions').insertAdjacentHTML('afterbegin', '<button class="iconbtn" id="retreat" title="전투를 포기하고 스테이지 처음으로 돌아갑니다 (금화 -40)">후퇴</button>');
+{
+    let _rc = 0, _rt = null;
+    const _syncRetreat = () => { const b = ut('retreat'); if (b) { const on = q && ['preparation', 'move', 'shoot', 'fight'].includes(q.phase) && q.mode === 'ai' && q.side === 'good' && (q._retrySnapshot || {}).gold >= 40 && !AUTO && !AUTO_STEP; b.classList.toggle('hidden', !on); if (!on && _rc) { _rc = 0; b.textContent = '후퇴'; } } };
+    const _origYt = Yt; Yt = function () { _origYt(); _syncRetreat(); };
+    ut('retreat').onclick = () => {
+        if (At || !_rc) {
+            if (At) return;
+            _rc = 1;
+            const b = ut('retreat'); b.textContent = '후퇴 확인 · 금화 -40';
+            clearTimeout(_rt); _rt = setTimeout(() => { _rc = 0; if (ut('retreat')) ut('retreat').textContent = '후퇴'; }, 3200);
+            return;
+        }
+        _rc = 0; clearTimeout(_rt);
+        ut('retreat').textContent = '후퇴';
+        Rt(() => { q.retreatStage() ? Yt() : Xt('후퇴할 수 없습니다.'); });
+    };
+}
 document.querySelector('.top-actions').insertAdjacentHTML('afterbegin', '<button class="iconbtn" id="view-mode" title="PC에서도 모바일 화면(세로 레이아웃 · 하단 전투 패널)으로 봅니다">모바일 보기</button>');
   if(localStorage.getItem('lwb-view')!=='pc')document.body.classList.add('force-mobile');
   const syncViewBtn=()=>{const on=document.body.classList.contains('force-mobile');ut('view-mode').textContent=on?'PC 보기':'모바일 보기';ut('view-mode').classList.toggle('on',on)};
