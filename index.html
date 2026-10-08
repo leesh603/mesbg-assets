@@ -9243,8 +9243,8 @@ P.refreshUnit=function(u){
 const __lwbRU2=P.refreshUnit;
 P.refreshUnit=function(u){
     __lwbRU2.call(this,u);
-    if(this.weeklySeed&&this.weeklySeed%4===2)u.stats.shootRange=0;
-    if(this.weeklySeed&&this.weeklySeed%4===3&&u.side==='good')u.stats.fight+=1;
+    if(this.weeklySeed&&this.weeklySeed%12===2)u.stats.shootRange=0;
+    if(this.weeklySeed&&this.weeklySeed%12===3&&u.side==='good')u.stats.fight+=1;
     if(this.weeklySeed&&this.weeklySeed%12===4&&u.traits.includes('mounted'))u.stats.fight+=1;
     if(this.weeklySeed&&this.weeklySeed%12===5&&u.side==='evil')u.stats.courage+=1;
     if(this.weeklySeed&&this.weeklySeed%12===6)u.stats.defence+=1;
