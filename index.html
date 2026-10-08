@@ -7812,6 +7812,7 @@ P.startWave = function () {
     this.round = 0;
     this.capture = 0;
     this.current = this.stageInfo(this.wave);
+    if (this.noAmbushNext) { this.noAmbushNext = false; if (this.current.modifier === 'ambush') this.current.modifier = 'clear'; }
     this.units = this.units.filter(u => u.side === 'good' && u.alive && !u.temporary);
     this.delayed = [];
     this.spawnEnemies(this.current.ids);
@@ -8437,7 +8438,19 @@ const LWB_EVENTS = [
         { label: '예물로 감사한다', sub: '금화 −15 · 무작위 아군 용기 +1 영구', fx: q => { if (q.gold < 15) return '금화가 부족합니다'; q.gold -= 15; const w = q.permanent(); const t = w[Math.floor(q.rng() * w.length)]; if (t) { t.baseStats.courage = (t.baseStats.courage || 0) + 1; q.refreshUnit(t); return t.name + '의 용기 +1 영구'; } return '영향 없음'; } }] },
     { id: 'storm_watch', title: '폭풍 전야', text: '검은 구름이 머리 위로 모입니다. 폭풍은 적에게도 아군에게도 공평하게 불리합니다.', options: [
         { label: '폭풍 속을 걷는다', sub: '다음 전투 양측 전원 이동 −1″ · 금화 +20', fx: q => { q.gold += 20; (q.nextRoundBuffs = q.nextRoundBuffs || []).push({ stat: 'move', n: -45 }, { stat: 'move', n: -45, side: 'evil' }); } },
-        { label: '비를 피해 늦어진다', sub: '다음 전투 첫 라운드 아군 전원 이동 −2″', fx: q => (q.nextRoundBuffs = q.nextRoundBuffs || []).push({ stat: 'move', n: -90 }) }] }
+        { label: '비를 피해 늦어진다', sub: '다음 전투 첫 라운드 아군 전원 이동 −2″', fx: q => (q.nextRoundBuffs = q.nextRoundBuffs || []).push({ stat: 'move', n: -90 }) }] },
+    { id: 'beorn_guest', title: '베오른의 손님', text: '넓은 오두막에서 거대한 인물이 양떼 꿀빵을 나눕니다. "내 안에서 밤을 지새우든, 들판에서 자든."', options: [
+        { label: '오두막에서 쉰다', sub: '아군 전원 완치', fx: q => { q.alive('good').forEach(u => u.currentWounds = u.stats.wounds); return '따뜻한 벽난로 옆 — 전원 완치'; } },
+        { label: '짐을 나눠준다', sub: '금화 +30', fx: q => { q.gold += 30; return '베오른이 밀가루와 치즈를 실어줬습니다 · 금화 +30'; } }] },
+    { id: 'numenor_ruin', title: '누메노르의 잔해', text: '검은 현무암 기둥 아래, 왕들의 별이 새겨진 석판이 있습니다. 촉촉한 곳에 묻힌 유물의 기운이 남아 있습니다.', options: [
+        { label: '석판을 읽는다', sub: '무작위 영웅 Will +1 (영구)', fx: q => { const h = q.permanent().filter(u => u.traits.includes('hero')); const t = h[Math.floor(q.rng() * h.length)]; if (t) { t.baseStats.will = (t.baseStats.will || 0) + 1; q.refreshUnit(t); } return t ? t.name + ' Will +1' : '영웅이 없습니다'; } },
+        { label: '유물 조각을 챙긴다', sub: '다음 유물 선택지에서 희귀 이상 1개 확정', fx: q => { q.nextRelicRare = true; return '다음 유물 선택에 희귀 이상 보장'; } }] },
+    { id: 'goblin_scout', title: '고블린 정찰병', text: '덤불 속에서 고블린 하나가 부대를 지켜보다 걸렸습니다. 발이 묶인 채 찍찍거립니다.', options: [
+        { label: '위치를 심문한다', sub: '다음 전투 적 전원 용기 −1', fx: q => { (q.nextRoundBuffs = q.nextRoundBuffs || []).push({ stat: 'courage', n: -1, side: 'evil' }); return '고블린이 불었습니다'; } },
+        { label: '주머니를 뒤진다', sub: '금화 +20', fx: q => { q.gold += 20; return '녹슨 금화를 챙겼습니다 · 금화 +20'; } }] },
+    { id: 'eagle_omen', title: '독수리의 조짐', text: '해질녘 하늘을 거대한 독수리가 날아 지나갑니다. 병사들이 침묵 속에 그림자를 올려다봅니다.', options: [
+        { label: '조짐을 따른다', sub: '다음 전투 첫 라운드 CP +2', fx: q => { q.bonusCP += 2; return '상서로운 조짐 · 다음 전투 첫 라운드 CP +2'; } },
+        { label: '경계를 강화한다', sub: '다음 전투 적 기습 무효', fx: q => { q.noAmbushNext = true; return '경계 강화 · 다음 전투 기습 무효'; } }] },
 ];
 P.rollCampEvent = function () {
     this.rng || (this.rng = Ne(Date.now()));
@@ -8505,6 +8518,11 @@ P.rollRelics = function () {
     const picks = [], families = new Set(), N=3+this.rank('keys_erebor');
     for (const r of weighted) if (!families.has(r.family)) { picks.push(r.id); families.add(r.family); if(picks.length===N)break; }
     for (const r of weighted) if(picks.length<N&&!picks.includes(r.id))picks.push(r.id);
+    if (this.nextRelicRare) {
+        this.nextRelicRare = false;
+        const _rr = weighted.find(r => CX.relics.find(x => x.id === r.id).rarity >= 1 && !picks.includes(r.id));
+        if (_rr) picks[0] = _rr.id;
+    }
     this.relicChoices = picks;
 };
 P.chooseRelic = function (id) {
@@ -8551,7 +8569,7 @@ P.retryStage = function () {
     return true;
 };
 P._saveState = function () {
-    const keys = ['gold', 'relics', 'capacityBought', 'totalKills', 'mithrilSpent', 'wave', 'cleared', 'units', 'counter', 'mode', 'best', 'campStep', 'campEvent', 'nextRoundBuffs', 'recruitOffers', 'relicChoices', 'chosenRelic', 'rerolls', 'lastGold', 'recruitDraft', 'initialDraft', 'horses', 'campDraft', 'campResult', 'eventOutcome', 'priorityForce', 'bonusCP', 'fallen', 'difficulty', 'armyName', 'allyBought', 'dailySeed', 'devices', 'weeklySeed', 'bonusId', 'stageDeaths', 'stageHeroKills', 'stageShootKills', 'stageChargeKills', 'stageCavKills', 'stageMonsterKills', 'stageHeroSlayer', 'stageEliteKills', 'stageKills', 'challenge', 'eliteKills'];
+    const keys = ['gold', 'relics', 'capacityBought', 'totalKills', 'mithrilSpent', 'wave', 'cleared', 'units', 'counter', 'mode', 'best', 'campStep', 'campEvent', 'nextRoundBuffs', 'recruitOffers', 'relicChoices', 'chosenRelic', 'rerolls', 'lastGold', 'recruitDraft', 'initialDraft', 'horses', 'campDraft', 'campResult', 'eventOutcome', 'priorityForce', 'bonusCP', 'fallen', 'difficulty', 'armyName', 'allyBought', 'dailySeed', 'devices', 'weeklySeed', 'bonusId', 'nextRelicRare', 'noAmbushNext', 'stageDeaths', 'stageHeroKills', 'stageShootKills', 'stageChargeKills', 'stageCavKills', 'stageMonsterKills', 'stageHeroSlayer', 'stageEliteKills', 'stageKills', 'challenge', 'eliteKills'];
     const state = { version: CX.version };
     for (const k of keys)
         state[k] = this[k];
