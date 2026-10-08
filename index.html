@@ -6716,12 +6716,12 @@ Ae=[{id:"warrior_minas_tirith",name_ko:"미나스 티리스 전사",name_en:"War
     } this.checkRun(); }
     applyCombat(Y) { for (const b of Y.strikeResults) {
         const H = this.unit(b.target), K = this.unit(b.attacker);
-        b.wound && (H.currentWounds--, K.side !== H.side && (K.dmgDealt = (K.dmgDealt || 0) + 1), H.id === "glorfindel_mounted" && this.dismount(H), this.emit("UnitWounded", void 0, { uid: H.uid })), b.killed && (H.alive = !1, K.side !== H.side && (K.kills++, K.veteranXP += 2, this._trkKill && this._trkKill(K, H)), K.side === 'good' && H.traits.includes('hero') && (this.cp = Math.min(pt.maxCP, this.cp + 2), this.emit('Event', '영웅 처치 · 지휘력 +2 CP')), H.side === "good" && this.fallen && this.fallen.push({ id: H.id, uid: H.uid, kills: H.kills, wave: this.wave, name: H.name }), this.emit("UnitKilled", void 0, { uid: H.uid }));
+        b.wound && (H.currentWounds--, K.side !== H.side && (K.dmgDealt = (K.dmgDealt || 0) + 1), this.meta.has(H.id.replace(/_mounted$/, "_foot")) && this.dismount(H), this.emit("UnitWounded", void 0, { uid: H.uid })), b.killed && (H.alive = !1, K.side !== H.side && (K.kills++, K.veteranXP += 2, this._trkKill && this._trkKill(K, H)), K.side === 'good' && H.traits.includes('hero') && (this.cp = Math.min(pt.maxCP, this.cp + 2), this.emit('Event', '영웅 처치 · 지휘력 +2 CP')), H.side === "good" && this.fallen && this.fallen.push({ id: H.id, uid: H.uid, kills: H.kills, wave: this.wave, name: H.name }), this.emit("UnitKilled", void 0, { uid: H.uid }));
     } for (const b of Y.pushVectors) {
         const H = this.unit(b.uid);
         Object.assign(H, b.to), this.emit("UnitPushed", void 0, { uid: H.uid });
     } }
-    dismount(Y) { Y.id = "glorfindel_foot", Y.name = this.meta.get(Y.id).name_ko, Y.stats = structuredClone(zt[Y.id]), Y.radius = $t[this.meta.get(Y.id).base], Y.traits = Y.traits.filter(b => b !== "mounted"), Y.traits.includes("dismounted") || Y.traits.push("dismounted"), Y.currentWounds = Math.min(Y.currentWounds, Y.stats.wounds), this.emit("UnitDismounted", "글로르핀델이 낙마했습니다. 도보로 전투를 계속합니다.", { uid: Y.uid }); }
+    dismount(Y) { const fid = Y.id.replace(/_mounted$/, "_foot"); if (!this.meta.has(fid)) return; Y.id = fid, Y.name = this.meta.get(Y.id).name_ko, Y.stats = structuredClone(zt[Y.id]), Y.radius = $t[this.meta.get(Y.id).base], Y.traits = Y.traits.filter(b => b !== "mounted"), Y.traits.includes("dismounted") || Y.traits.push("dismounted"), Y.currentWounds = Math.min(Y.currentWounds, Y.stats.wounds), this.emit("UnitDismounted", `${Y.name} 낙마했습니다. 도보로 전투를 계속합니다.`, { uid: Y.uid }); }
     endRound() { const Y = Mt.objective, b = this.alive("evil").filter(H => ht(H, Y) <= Y.radius).length; if (this.emit("RoundEnded", `성문 점유 ${b}/${this.breachCount}`), b >= this.breachCount) {
         this.endRun(!1, "적이 성문 방어선을 돌파했습니다.");
         return;
