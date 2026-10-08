@@ -3541,7 +3541,8 @@ document.querySelector('.top-actions').insertAdjacentHTML('afterbegin', '<button
   window._lwbFx = localStorage.getItem('lwb_fx') === '0'; const _fxb = ut('fx-toggle');
   const _fxr = () => { _fxb.textContent = window._lwbFx ? '연출 OFF' : '연출'; _fxb.style.opacity = window._lwbFx ? .55 : 1; };
   _fxr(); _fxb.onclick = () => { window._lwbFx = !window._lwbFx; localStorage.setItem('lwb_fx', window._lwbFx ? '0' : '1'); _fxr(); };
-  let _spd = 1; ut('speed-toggle').onclick = () => { _spd = _spd >= 4 ? 1 : _spd * 2; qt = _spd; ut('speed-toggle').textContent = _spd + '×'; if (window.MESBG && MESBG.scene) { MESBG.scene.tweens.timeScale = _spd; MESBG.scene.time.timeScale = _spd; } };
+  let _spd = Math.max(1, Math.min(4, parseInt(localStorage.getItem('lwb_speed') || '1') || 1)); if (_spd > 1) { qt = _spd; ut('speed-toggle').textContent = _spd + '×'; }
+  ut('speed-toggle').onclick = () => { _spd = _spd >= 4 ? 1 : _spd * 2; qt = _spd; ut('speed-toggle').textContent = _spd + '×'; localStorage.setItem('lwb_speed', String(_spd)); if (window.MESBG && MESBG.scene) { MESBG.scene.tweens.timeScale = _spd; MESBG.scene.time.timeScale = _spd; } };
   ut('auto').onclick = () => { AUTO = !AUTO; q._autoCampNote = 0; ut('auto').classList.toggle('on', AUTO); ut('auto').textContent = AUTO ? '자동 중' : '자동'; Xt(AUTO ? '자동 진행 시작 — 아군 턴도 AI가 맡습니다. 보상 화면에서는 멈춥니다.' : '자동 진행 해제'); me(); };
   ut('step-auto').onclick = () => {
     if (AUTO || At || !(q.mode === 'ai' && q.side === 'good' && ['move', 'shoot'].includes(q.phase)))
