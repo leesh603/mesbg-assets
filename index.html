@@ -6894,10 +6894,10 @@ class Ve extends Ot.Scene {
         }
     } b.type === "ChargeConnected" && this.soundFX.play("base_contact"), b.result && await this.combat(b.result); }
     async combat(b) { for (const K of b.trappedUnits) {
-        const $ = this.b.unit(K), p = this.add.text($.x, $.y - $.radius - 25, "포위 · 추가 타격", { fontFamily: "Pretendard", fontSize: "16px", color: "#ffdb9c", backgroundColor: "#5d241cee", padding: { x: 8, y: 5 } }).setOrigin(.5).setDepth(20);
+        const $ = this.b.unit(K), p = this.add.text($.x, $.y - $.radius - 25, "포위 · 추가 타격", { fontFamily: "Pretendard", fontSize: "11px", color: "#ffdb9c", backgroundColor: "#5d241cee", padding: { x: 5, y: 3 } }).setOrigin(.5).setDepth(20);
         this.time.delayedCall(1500, () => p.destroy());
     } for (const K of b.knockedDownUnits) {
-        const $ = this.b.unit(K), p = this.add.text($.x, $.y - $.radius - 45, "기병 충격 · 넘어짐", { fontFamily: "Pretendard", fontSize: "17px", color: "#f9edba", backgroundColor: "#31504cf0", padding: { x: 8, y: 5 } }).setOrigin(.5).setDepth(21);
+        const $ = this.b.unit(K), p = this.add.text($.x, $.y - $.radius - 45, "기병 충격 · 넘어짐", { fontFamily: "Pretendard", fontSize: "12px", color: "#f9edba", backgroundColor: "#31504cf0", padding: { x: 5, y: 3 } }).setOrigin(.5).setDepth(21);
         this.time.delayedCall(1400, () => p.destroy());
     } const H = K => { var $; return (($ = b.pushVectors.find(p => p.uid === K)) == null ? void 0 : $.from) || this.b.unit(K); }; for (const K of b.strikeResults) {
         const $ = H(K.attacker), p = H(K.target), S = this.tokens.get(K.attacker), t = this.tokens.get(K.target);
@@ -6922,12 +6922,12 @@ class Ve extends Ot.Scene {
             this.tween(n, { x: p.x + (Math.random() - .5) * 48, y: p.y + (Math.random() - .5) * 48, alpha: 0 }, 240).then(() => n.destroy());
         }
         // Camera shake disabled in the clarity build.
-        const o = this.add.text(p.x, p.y - 25, K.wound ? "−1" : "Defense", { fontFamily: "Pretendard", fontSize: "19px", color: K.wound ? "#ffd0ab" : "#fff1bf", stroke: "#17211d", strokeThickness: 3 }).setOrigin(.5).setDepth(13);
-        this.tween(o, { y: p.y - 55, alpha: 0 }, 550).then(() => o.destroy()); if (K.killed) { const _ku = this.b.unit(K.target), _kl = _ku && _ku.elite ? "엘리트 처치 +8금" : "처치!", _kt = this.add.text(p.x, p.y - 50, _kl, { fontFamily: "Pretendard", fontSize: "16px", color: "#ffe9a8", stroke: "#17211d", strokeThickness: 3 }).setOrigin(.5).setDepth(14); this.tween(_kt, { y: p.y - 82, alpha: 0 }, 800).then(() => _kt.destroy()); } K.killed ? (this.soundFX.play("death"), await this.tween(t, { alpha: .2, angle: 12 }, 120)) : await this.tween(t, { x: p.x + 3, y: p.y + 2 }, 70);
+        const o = this.add.text(p.x, p.y - 25, K.wound ? "−1" : "Defense", { fontFamily: "Pretendard", fontSize: "14px", color: K.wound ? "#ffd0ab" : "#fff1bf", stroke: "#17211d", strokeThickness: 2 }).setOrigin(.5).setDepth(13);
+        this.tween(o, { y: p.y - 55, alpha: 0 }, 550).then(() => o.destroy()); if (K.killed) { const _ku = this.b.unit(K.target), _kl = _ku && _ku.elite ? "엘리트 처치 +8금" : "처치!", _kt = this.add.text(p.x, p.y - 48, _kl, { fontFamily: "Pretendard", fontSize: "12px", color: "#ffe9a8", stroke: "#17211d", strokeThickness: 2 }).setOrigin(.5).setDepth(14); this.tween(_kt, { y: p.y - 74, alpha: 0 }, 750).then(() => _kt.destroy()); } K.killed ? (this.soundFX.play("death"), await this.tween(t, { alpha: .2, angle: 12 }, 120)) : await this.tween(t, { x: p.x + 3, y: p.y + 2 }, 70);
     } for (const K of b.participants) {
         const $ = this.b.unit(K), p = this.tokens.get(K);
         if (($ == null ? void 0 : $.id) === "glorfindel_foot" && (p == null ? void 0 : p.getData("assetId")) === "glorfindel_mounted") {
-            const S = this.add.text($.x, $.y - 65, "낙마 → 도보 전환", { fontFamily: "Pretendard", fontSize: "19px", color: "#fff0b8", backgroundColor: "#24382cee", padding: { x: 10, y: 7 } }).setOrigin(.5).setDepth(30);
+            const S = this.add.text($.x, $.y - 65, "낙마 → 도보 전환", { fontFamily: "Pretendard", fontSize: "12px", color: "#fff0b8", backgroundColor: "#24382cee", padding: { x: 6, y: 4 } }).setOrigin(.5).setDepth(30);
             this.time.delayedCall(1600, () => S.destroy());
         }
     } await Promise.all(b.pushVectors.map(async (K) => { const $ = this.tokens.get(K.uid); $ && (this.soundFX.play("push"), await this.tween($, { x: K.to.x, y: K.to.y }, 200)); })); }
