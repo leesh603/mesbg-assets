@@ -30,6 +30,21 @@ if (a < 0 || b < 0 || b < a) {
   process.exit(1);
 }
 html = html.slice(0, a + BEGIN.length) + '\n' + src.replace(/^\n+|\s+$/g, '') + '\n' + html.slice(b);
+// keep the served asset key list in sync with files on disk — a unit whose
+// token isn't listed fails the boot-time "Missing unit art" check.
+const _keys = [];
+(function _walk(dir) {
+  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    const p = path.join(dir, e.name);
+    e.isDirectory() ? _walk(p) : _keys.push(path.relative(AROOT, p).split(path.sep).join('/'));
+  }
+})(AROOT);
+_keys.sort();
+{
+  const m = html.match(STUB);
+  if (m) html = html.slice(0, m.index) + 'window.__MESBG_ASSETS__={};window.__MESBG_ASSET_KEYS__=' + JSON.stringify(_keys) + ';' + html.slice(m.index + m[0].length);
+  console.log('asset keys synced:', _keys.length);
+}
 fs.writeFileSync(INDEX, html);
 console.log('spliced src/game.js → index.html', (html.length / 1048576).toFixed(2) + 'MB');
 
