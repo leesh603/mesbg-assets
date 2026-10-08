@@ -937,6 +937,10 @@ const BONUS_OBJECTIVES = [
     { id: 'volley', text: '사격으로 4기 처치', gold: 20, cond: q => q.alive('good').some(u => u.stats.shootRange), test: q => (q.stageShootKills || 0) >= 4 },
     { id: 'rout', text: '적 8기 이상 처치', gold: 20, cond: q => q.alive('evil').length >= 8, test: q => (q.stageKills || 0) >= 8 },
     { id: 'linehold', text: '성문 무접근 — 목표 구역에 적 0기로 마무리', gold: 20, cond: q => q.mission === 'defense', test: q => !q.alive('evil').some(u => ht(u, Mt.objective) <= Mt.objective.radius) },
+    { id: 'charge', text: '돌격으로 3기 처치', gold: 20, test: q => (q.stageChargeKills || 0) >= 3 },
+    { id: 'cavalry', text: '기병으로 3기 처치', gold: 20, cond: q => q.alive('good').some(u => u.traits.includes('mounted')), test: q => (q.stageCavKills || 0) >= 3 },
+    { id: 'monster', text: '몬스터 처치', gold: 15, cond: q => q.alive('evil').some(u => u.traits.includes('monster')), test: q => (q.stageMonsterKills || 0) >= 1 },
+    { id: 'hero_slayer', text: '영웅이 4기 처치', gold: 25, cond: q => q.alive('good').some(u => u.traits.includes('hero')), test: q => (q.stageHeroSlayer || 0) >= 4 },
 ];
 const CHALLENGES = [
     { id: 'reinforce', label: '증원 경보', text: '적 +4기 추가', gold: 30 },
@@ -953,6 +957,9 @@ P._trkKill = function (k, v) {
         if (k.stats.shootRange) this.stageShootKills = (this.stageShootKills || 0) + 1;
         if (k.charged) this.stageChargeKills = (this.stageChargeKills || 0) + 1;
         if (v.elite) this.eliteKills = (this.eliteKills || 0) + 1;
+        if (k.traits.includes('mounted')) this.stageCavKills = (this.stageCavKills || 0) + 1;
+        if (v.traits.includes('monster')) this.stageMonsterKills = (this.stageMonsterKills || 0) + 1;
+        if (k.traits.includes('hero')) this.stageHeroSlayer = (this.stageHeroSlayer || 0) + 1;
         k._stageKills = (k._stageKills || 0) + 1;
         [3, 5, 8].includes(k._stageKills) && this.emit('Event', `⚔ ${k.name} 연속 처치 ×${k._stageKills}`);
     }
@@ -984,7 +991,7 @@ P.startWave = function () {
     if (this.challenge === 'doubt') (this.nextRoundBuffs = this.nextRoundBuffs || []).push({ stat: 'fight', n: -1, side: 'good' });
     if (this.challenge === 'fog') (this.nextRoundBuffs = this.nextRoundBuffs || []).push({ stat: 'move', n: -45, side: 'good' });
     this.eliteKills = 0;
-    this.stageDeaths = 0; this.stageHeroKills = 0; this.stageShootKills = 0; this.stageChargeKills = 0; this.stageKills = 0;
+    this.stageDeaths = 0; this.stageHeroKills = 0; this.stageShootKills = 0; this.stageChargeKills = 0; this.stageKills = 0; this.stageCavKills = 0; this.stageMonsterKills = 0; this.stageHeroSlayer = 0;
     const _bp = BONUS_OBJECTIVES.filter(o => !o.cond || o.cond(this));
     this.bonusObjective = _bp.length ? _bp[Math.floor(this.rng() * _bp.length)] : null;
     this.bonusId = this.bonusObjective?.id || '';
@@ -1635,7 +1642,7 @@ P.retryStage = function () {
     return true;
 };
 P._saveState = function () {
-    const keys = ['gold', 'relics', 'capacityBought', 'totalKills', 'mithrilSpent', 'wave', 'cleared', 'units', 'counter', 'mode', 'best', 'campStep', 'campEvent', 'nextRoundBuffs', 'recruitOffers', 'relicChoices', 'chosenRelic', 'rerolls', 'lastGold', 'recruitDraft', 'initialDraft', 'horses', 'campDraft', 'campResult', 'eventOutcome', 'priorityForce', 'bonusCP', 'fallen', 'difficulty', 'armyName', 'allyBought', 'dailySeed', 'devices', 'weeklySeed', 'bonusId', 'stageDeaths', 'stageHeroKills', 'stageShootKills', 'stageChargeKills', 'stageKills', 'challenge', 'eliteKills'];
+    const keys = ['gold', 'relics', 'capacityBought', 'totalKills', 'mithrilSpent', 'wave', 'cleared', 'units', 'counter', 'mode', 'best', 'campStep', 'campEvent', 'nextRoundBuffs', 'recruitOffers', 'relicChoices', 'chosenRelic', 'rerolls', 'lastGold', 'recruitDraft', 'initialDraft', 'horses', 'campDraft', 'campResult', 'eventOutcome', 'priorityForce', 'bonusCP', 'fallen', 'difficulty', 'armyName', 'allyBought', 'dailySeed', 'devices', 'weeklySeed', 'bonusId', 'stageDeaths', 'stageHeroKills', 'stageShootKills', 'stageChargeKills', 'stageCavKills', 'stageMonsterKills', 'stageHeroSlayer', 'stageKills', 'challenge', 'eliteKills'];
     const state = { version: CX.version };
     for (const k of keys)
         state[k] = this[k];
