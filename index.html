@@ -8054,6 +8054,12 @@ P.finishWave = function () {
         this.lastGold += eg;
         this.campResult = (this.campResult ? this.campResult + ' · ' : '') + `엘리트 ${this.eliteKills}기 처치 → 금화 +${eg}`;
     }
+    if (this.rank('bounty_list') && this.stageKills) {
+        const bg = this.stageKills * 2 * this.rank('bounty_list');
+        this.gold += bg;
+        this.lastGold += bg;
+        this.campResult = (this.campResult ? this.campResult + ' · ' : '') + `현상금 목록 — 처치 ${this.stageKills}기 → 금화 +${bg}`;
+    }
     if (this.challenge) {
         const ch = CHALLENGES.find(c => c.id === this.challenge);
         if (ch) {
@@ -9154,7 +9160,8 @@ CX.relics.push(...[
     ['anduril_hilt','안두릴의 칼자루',3,'아라곤의 Attack 횟수 +1. 원정 중 한 번만 획득.',10],
     ['alliance_standard','동맹의 표준',2,'파벌 결속 발동 조건이 4기 → 3기로 완화.',0],
     ['fellowship_flag','이종연합의 깃발',3,'파벌이 6종 이상 모이면 전원 용기 +1.',0],
-    ['edain_banner','에다인의 대기',1,'인간 계열(곤도르·로한·누메노르·데일·호숫골·브리·봉기령·샤이어·로바니온) 아군의 힘 +1.',0]
+    ['edain_banner','에다인의 대기',1,'인간 계열(곤도르·로한·누메노르·데일·호숫골·브리·봉기령·샤이어·로바니온) 아군의 힘 +1.',0],
+    ['bounty_list','현상금 목록',1,'스테이지 처치당 금화 +2. 중첩마다 +2.',0]
 ].map(([id,name,rarity,text,icon])=>({id,name,rarity,text,icon})));
 const relicRefresh=P.refreshUnit;
 P.refreshUnit=function(u){
