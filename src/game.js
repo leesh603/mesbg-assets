@@ -671,20 +671,80 @@ const MAP_ZONES = {
     dunharrow: [{ x: 0, y: 0, w: 889, h: 460, z: 'mountain' }, { x: 2114, y: 0, w: 216, h: 115, z: 'mountain' }, { x: 1320, y: 490, w: 1010, h: 966, z: 'cliff' }, { x: 0, y: 1150, w: 368, h: 306, z: 'cliff' }]
 };
 // True when unit Z may pass through terrain entry t (flyers ignore all terrain; mountain-dwellers ignore 'mountain' zones).
-// 같은 지역도 웨이브마다 다른 배치: 3가지 변형을 (wave-1)%5%3 으로 순환.
+// 같은 지역도 웨이브마다 다른 하위 전장: 각 지역 3개의 손수 설계 레이아웃을 (wave-1)%5%3으로 순환.
+// 항목: [x,y,w,h,z] (x,y=좌상단) — z: 'cliff'(통과불가) 'mountain'(산악특성만) 'hill'(고지, 통과가능).
+const MAP_ZONE_SETS = {
+minas_tirith: [ null,
+    [[554,0,576,122,'cliff'],[1200,0,574,122,'cliff'],[700,240,220,80,'cliff'],[1410,240,220,80,'cliff'],[230,620,240,150,'hill'],[1860,700,240,150,'hill'],[1000,900,330,110,'hill']],
+    [[400,300,260,160,'hill'],[1670,280,260,160,'hill'],[1160,760,300,120,'hill'],[0,1180,240,180,'cliff'],[2090,1150,240,180,'cliff']] ],
+helms_deep: [ null,
+    [[0,0,2330,172,'mountain'],[0,172,380,1130,'mountain'],[1950,172,380,1130,'mountain'],[760,400,300,180,'cliff'],[1270,700,300,180,'cliff'],[0,1350,900,106,'cliff'],[1400,1350,930,106,'cliff']],
+    [[0,640,720,120,'cliff'],[960,640,450,120,'cliff'],[1650,640,680,120,'cliff'],[200,120,400,150,'hill'],[1700,140,400,150,'hill'],[0,1180,500,140,'cliff'],[1830,1180,500,140,'cliff']] ],
+moria: [ null,
+    [[560,240,180,180,'cliff'],[1090,240,180,180,'cliff'],[1620,240,180,180,'cliff'],[560,760,180,180,'cliff'],[1090,760,180,180,'cliff'],[1620,760,180,180,'cliff'],[1090,1220,180,180,'cliff']],
+    [[0,420,700,200,'cliff'],[900,620,700,200,'cliff'],[1800,420,530,200,'cliff'],[0,980,500,180,'cliff'],[700,1100,600,180,'cliff'],[1500,1000,830,200,'cliff']] ],
+black_gate: [ null,
+    [[0,0,700,320,'mountain'],[1630,0,700,320,'mountain'],[0,500,260,460,'mountain'],[2070,560,260,460,'mountain'],[900,700,530,140,'cliff'],[0,1150,400,306,'mountain'],[1930,1150,400,306,'mountain']],
+    [[400,300,700,120,'cliff'],[1230,300,700,120,'cliff'],[0,700,500,120,'cliff'],[700,900,500,120,'cliff'],[1330,700,500,120,'cliff'],[1830,900,500,120,'cliff']] ],
+edoras: [ null,
+    [[340,300,700,70,'cliff'],[1290,300,700,70,'cliff'],[200,700,180,400,'hill'],[1950,700,180,400,'hill'],[600,1150,500,70,'cliff'],[1230,1150,500,70,'cliff']],
+    [[900,150,530,180,'cliff'],[150,450,260,150,'hill'],[1920,450,260,150,'hill'],[450,1000,300,150,'cliff'],[1580,1000,300,150,'cliff']] ],
+fangorn: [ null,
+    [[300,200,300,240,'cliff'],[1030,160,300,240,'cliff'],[1760,200,300,240,'cliff'],[560,700,280,220,'cliff'],[1500,700,280,220,'cliff'],[300,1150,300,240,'cliff'],[1030,1180,300,240,'cliff'],[1760,1150,300,240,'cliff']],
+    [[0,0,760,700,'cliff'],[0,800,560,656,'cliff'],[1400,300,240,150,'hill'],[1300,900,400,180,'hill'],[1900,1200,300,150,'cliff']] ],
+gorgoroth: [ null,
+    [[0,400,600,110,'cliff'],[800,560,500,110,'cliff'],[1500,440,830,110,'cliff'],[0,900,450,110,'cliff'],[650,1020,560,110,'cliff'],[1450,900,880,110,'cliff'],[1770,0,560,280,'mountain']],
+    [[400,350,230,160,'mountain'],[1300,300,230,160,'mountain'],[900,800,230,160,'mountain'],[1900,700,230,160,'mountain'],[150,1150,230,160,'mountain'],[1770,0,560,280,'mountain']] ],
+isengard: [ null,
+    [[300,250,360,240,'cliff'],[1660,250,360,240,'cliff'],[980,500,370,240,'cliff'],[300,900,360,240,'cliff'],[1660,900,360,240,'cliff'],[980,1220,370,180,'cliff']],
+    [[0,560,700,130,'cliff'],[1630,560,700,130,'cliff'],[800,200,300,150,'cliff'],[1230,200,300,150,'cliff'],[800,1100,300,150,'cliff'],[1230,1100,300,150,'cliff']] ],
+amon_sul: [ null,
+    [[300,250,300,170,'hill'],[1600,200,300,170,'hill'],[900,550,330,170,'hill'],[400,900,300,170,'hill'],[1700,1000,300,170,'hill'],[1100,1250,300,150,'hill']],
+    [[450,250,260,180,'cliff'],[1620,250,260,180,'cliff'],[1030,600,260,180,'cliff'],[450,950,260,180,'cliff'],[1620,950,260,180,'cliff'],[100,1300,300,150,'cliff']] ],
+osgiliath: [ null,
+    [[560,300,240,170,'cliff'],[1530,300,240,170,'cliff'],[260,700,240,170,'cliff'],[1830,700,240,170,'cliff'],[1030,1100,240,170,'cliff'],[1470,0,860,460,'cliff']],
+    [[0,300,530,140,'cliff'],[800,300,530,140,'cliff'],[1600,300,730,140,'cliff'],[300,800,430,140,'cliff'],[1000,800,430,140,'cliff'],[1700,800,630,140,'cliff'],[0,1250,400,206,'cliff']] ],
+rivendell: [ null,
+    [[0,480,760,140,'cliff'],[1570,480,760,140,'cliff'],[980,900,370,140,'cliff'],[100,120,330,160,'hill'],[1900,120,330,160,'hill']],
+    [[300,250,280,190,'cliff'],[1750,250,280,190,'cliff'],[1030,600,270,190,'cliff'],[300,1050,280,190,'cliff'],[1750,1050,280,190,'cliff']] ],
+lothlorien: [ null,
+    [[300,200,340,220,'cliff'],[1690,200,340,220,'cliff'],[1000,550,330,220,'cliff'],[300,900,340,220,'cliff'],[1690,900,340,220,'cliff'],[1000,1250,330,180,'cliff']],
+    [[1970,0,360,500,'cliff'],[150,300,340,180,'hill'],[900,700,340,180,'hill'],[1500,1150,400,180,'cliff'],[150,1100,400,200,'cliff']] ],
+erebor: [ null,
+    [[0,0,2330,230,'mountain'],[0,230,500,400,'mountain'],[1830,230,500,400,'mountain'],[800,600,330,160,'hill'],[1300,600,330,160,'hill'],[550,1150,1780,306,'cliff']],
+    [[0,0,2330,230,'mountain'],[700,300,300,170,'cliff'],[1330,300,300,170,'cliff'],[0,900,700,556,'cliff'],[800,1100,300,150,'cliff'],[1500,1000,830,456,'cliff']] ],
+pelennor: [ null,
+    [[0,0,1100,215,'cliff'],[1200,0,1130,215,'cliff'],[300,500,600,70,'cliff'],[1430,500,600,70,'cliff'],[300,900,600,70,'cliff'],[1430,900,600,70,'cliff'],[1100,1150,130,150,'cliff']],
+    [[0,0,1100,215,'cliff'],[1200,0,1130,215,'cliff'],[1900,300,430,600,'cliff'],[400,700,300,150,'hill'],[1200,1100,400,180,'cliff']] ],
+dead_marshes: [ null,
+    [[250,150,380,200,'cliff'],[1000,120,380,180,'cliff'],[1700,150,380,200,'cliff'],[120,600,380,240,'cliff'],[900,600,380,240,'cliff'],[1700,600,380,240,'cliff'],[250,1050,400,240,'cliff'],[1400,1050,500,240,'cliff']],
+    [[340,200,400,220,'cliff'],[1600,300,400,220,'cliff'],[900,700,300,150,'hill'],[300,1100,400,200,'cliff'],[1600,1100,400,200,'cliff']] ],
+dunharrow: [ null,
+    [[0,0,889,460,'mountain'],[1100,300,500,200,'cliff'],[1800,300,530,200,'cliff'],[400,700,500,180,'cliff'],[1100,900,400,180,'cliff'],[0,1150,368,306,'cliff']],
+    [[0,0,889,460,'mountain'],[1400,200,300,170,'hill'],[700,800,300,170,'hill'],[1500,900,300,170,'hill'],[1320,1200,1010,256,'cliff']] ]
+};
+// 하위 전장 표시명 — 맵 라벨에 '지역 · 전장'으로 표기.
+const MAP_ZONE_NAMES = {
+minas_tirith:['성벽 아래','성문 앞','펠렌노르 평원'], helms_deep:['성벽 앞','협곡 입구','개울 하류'],
+moria:['카자드둠 다리','기둥의 전당','깊은 계단'], black_gate:['모란논 정면','북쪽 설원','폐허 참호선'],
+edoras:['목책 앞','평원 들판','메두셀드 외곽'], fangorn:['강과 여울','깊은 숲','숲 가장자리'],
+gorgoroth:['화산 아래','용암 절벽','재의 평원'], isengard:['오르상크 링','공사 구덩이','물길 플랜트'],
+amon_sul:['순찰탑','둥근 고개','무너진 돌무덤'], osgiliath:['강과 다리','폐허 광장','강변 수풀'],
+rivendell:['협곡 다리','폭포 계곡','숲속 정원'], lothlorien:['강가','말론 숲','물가 초원'],
+erebor:['성문 앞','외로운 산 비탈','호수 건너'], pelennor:['외성벽','들판 농장','강변 초지'],
+dead_marshes:['죽음의 늪','밀집 웅덩이','마른 갈대밭'], dunharrow:['산 입구','영혼의 길','풀밭 고원'] };
+function mapVariant(wave) { return ((wave - 1) % 5) % 3; }
 function mapZones(key, wave) {
-    const base = MAP_ZONES[key] || [];
-    const v = ((wave - 1) % 5) % 3;
-    if (v === 0) return base;
-    if (v === 1) return base.map(z => ({ ...z, x: 2330 - z.x - z.w }));
-    return base.map((z, i) => ({ ...z, x: Math.max(0, Math.min(2330 - z.w, z.x + (i % 2 ? 190 : -190))), y: Math.max(0, Math.min(1456 - z.h, z.y + (i % 3 ? 95 : -95))) }));
+    const sets = MAP_ZONE_SETS[key];
+    const v = mapVariant(wave);
+    if (sets && sets[v]) return sets[v].map(z => ({ x: z[0], y: z[1], w: z[2], h: z[3], z: z[4] }));
+    return MAP_ZONES[key] || [];
 }
 function mapProps(key, wave) {
     const base = MAP_PROPS[key] || [];
-    const v = ((wave - 1) % 5) % 3;
+    const v = mapVariant(wave);
     if (v === 0) return base;
-    if (v === 1) return base.map(p => [p[0], 2330 - p[1], p[2], p[3], p[4]]);
-    return base.map((p, i) => [p[0], Math.max(60, Math.min(2270, p[1] + (i % 2 ? 170 : -170))), Math.max(60, Math.min(1400, p[2] + (i % 3 ? 85 : -85))), p[3], p[4]]);
+    return base.filter((p, i) => i % 3 === v - 1);
 }
 function zoneOpen(Z, t) { return !t.active || t.z === 'hill' || !!Z && (Z.traits.includes('flying') || t.z === 'mountain' && Z.traits.includes('mountain')); }
 // Spear-support predicate, shared by the fight solver and the HUD link lines.
@@ -2912,7 +2972,8 @@ Yt = function () {
     document.querySelector('.objective h3').textContent = CX.missionNames[q.mission] || '원정대';
     const info = q.phase === 'preparation' ? q.next : q.current;
     const mod = { clear: '맑음', rain: '폭우 · 사거리 감소', dark: '어둠 · 사거리 감소', reinforce: '적 증원 · 3라운드마다', warg: '와르그 사냥대', ambush: '기습 · 측면 포위', cavalry: '기병 돌격', swarm: '고블린 떼', snow: '눈보라 · 사거리↓ 이동↓', eclipse: '일식 · 용기↓', mud: '진창 · 보병 이동↓' };
-    document.querySelector('.map-label').innerHTML = `<b>${CX.mapNames[visualMapIdx(q.mapIndex)]}</b>${mod[info?.modifier || 'clear']}`;
+    const _zn=MAP_ZONE_NAMES[CX.maps[visualMapIdx(q.mapIndex)]],_zv=mapVariant(q.wave||1);
+    document.querySelector('.map-label').innerHTML = `<b>${CX.mapNames[visualMapIdx(q.mapIndex)]}${_zn?.[_zv]?' · '+_zn[_zv]:''}</b>${mod[info?.modifier || 'clear']}`;
     ut('action').textContent = q.phase === 'preparation' ? `스테이지 ${q.wave + 1} 출전 →` : q.phase === 'fight' ? q.fightQueue.length ? `교전 해결 · ${q.fightQueue.length}곳` : '라운드 종료 →' : '전투 진행 중';
     ut('hint').textContent = At ? '행동 처리 중…' : q.phase === 'preparation' ? '병사 선택 → 배치할 곳 클릭 · 빈 땅 드래그: 카메라 · 휠: 확대' : q.phase === 'move' ? '밝은 영역: 이동 범위 · 경로 표시로 실제 거리 확인 · 적 클릭: 돌격 · Q/E: 방향 전환' : q.phase === 'shoot' ? '테두리 표시된 적을 클릭해 사격 · 선택 병사 대기로 다음 병사' : q.phase === 'fight' ? '연결된 교전을 함께 해결합니다. 창병은 뒤에서 지원합니다.' : '다음 전투를 준비하세요.';
     const u = q.unit(q.selected);
