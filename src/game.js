@@ -3538,10 +3538,11 @@ function renderDock(){
     const _info = q.phase === 'preparation' ? q.next : q.current;
     const _mod = (_info && _info.modifier) || 'clear';
     const _MN = { rain: '폭우 · 사거리↓ 명중↓', dark: '어둠 · 사거리↓ 명중↓', fog: '안개 · 사거리↓↓ 명중↓', reinforce: '적 증원', warg: '와르그 사냥대', ambush: '기습 포위', cavalry: '기병 돌격', swarm: '고블린 떼', snow: '눈보라 · 사거리↓ 이동↓', eclipse: '일식 · 용기↓', mud: '진창 · 보병 이동↓' };
-    const _MC = { rain: '#8fb8e8', dark: '#a89ae0', fog: '#b8c4c0', reinforce: '#e09a6a', warg: '#d4b45a', ambush: '#e06a6a', cavalry: '#8fc48f', swarm: '#c4b05a' };
+    const _MC = { rain: '#8fb8e8', dark: '#a89ae0', fog: '#b8c4c0', reinforce: '#e09a6a', warg: '#d4b45a', ambush: '#e06a6a', cavalry: '#8fc48f', swarm: '#c4b05a', snow: '#cfe4f5', eclipse: '#b094d8', mud: '#a88a5a' };
     let _chips = _MN[_mod] ? '<span class="hud-mod" style="border-color:' + _MC[_mod] + 'aa;color:' + _MC[_mod] + '">' + _MN[_mod] + '</span>' : '';
     if (_info && _info.boss)
         _chips += '<span class="hud-mod" style="border-color:#e08a5aaa;color:#ffb08a">보스 · ' + esc(q.meta.get(_info.boss).name_ko) + '</span>';
+    if (q.weeklySeed) { const _wk = ['적 대군', '보스 러시', '근접전', '베테랑', '기병 전성', '모르도르의 광기', '강철의 전장', '궁술 경연', '긴 밤', '비열한 날', '강행군', '피의 전장'][q.weeklySeed % 12]; _chips += '<span class="hud-mod" style="border-color:#c9a84caa;color:#e8d08a">주간 · ' + _wk + '</span>'; }
     ut('ux-place').innerHTML = esc(place) + _chips;
     ut('wave').textContent=String(phase==='preparation'?q.wave+1:q.wave||1).padStart(2,'0');
     const rules={defense:`라운드 끝 · 구역에 적 ${q.breachCount}기면 패배`,annihilation:'남은 적을 모두 격파',hold:`거점 우세 ${q.capture||0}/3 라운드`,survive:`생존 ${q.round||0}/5 라운드`,breakthrough:'아군 2기를 남쪽 돌파선으로',rescue:q.rescued?`구출 후 생존 ${q.capture||0}/3`:'포로 구역 확보 후 3라운드 생존',commander:'보스를 처치하면 승리'};
