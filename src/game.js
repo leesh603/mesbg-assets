@@ -1397,7 +1397,7 @@ P.chooseEvent = function (i) {
     if (!op)
         return false;
     const result = op.fx ? op.fx(this) : '';
-    this.campResult = `${this.campEvent.title} — ${op.label}` + (result ? ` → ${result}` : '');
+    this.campResult = `${this.campEvent.title} — ${op.label}` + (result ? ` → ${result}` : ' → 선택 완료');
     this.emit('CampEvent', this.campResult);
     this.campEvent = null;
     this.campDraft = null;
@@ -1452,6 +1452,9 @@ P.chooseRelic = function (id) {
         return false;
     this.relics[id] = (this.relics[id] || 0) + 1;
     this.chosenRelic = id;
+    const r = CX.relics.find(x => x.id === id);
+    if (r)
+        this.campResult = (this.campResult ? this.campResult + ' · ' : '') + `유물 획득: ${r.name} — ${r.text}`;
     this.campDraft = null;
     this.campStep = 'ready';
     for (const u of this.alive())
