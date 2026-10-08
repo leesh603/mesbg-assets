@@ -302,10 +302,13 @@ class Ve extends Ot.Scene {
 }
 const Ye = Object.fromEntries(["dice_roll", "base_slide", "base_contact", "sword_swing", "sword_armor", "sword_shield", "sword_flesh", "arrow_release", "arrow_fly", "arrow_impact", "push", "death", "ui_select", "reward_select"].map(Z => [Z, { file: `audio/${Z}.wav`, volume: Z === "dice_roll" ? .5 : .75 }]));
 class We {
-    constructor() { lt(this, "context"); lt(this, "muted", !1); lt(this, "sfxVolume", .7); lt(this, "musicVolume", .35); lt(this, "music"); lt(this, "buffers", new Map); lt(this, "asset", Y => Y); }
-    async unlock() { this.context ?? (this.context = new AudioContext), document.hidden || await this.context.resume(), this.music || (this.music = new Audio(this.asset("audio/gate-of-the-west.mp3")), this.music.loop = !0), this.music.volume = this.muted ? 0 : this.musicVolume, document.hidden || this.music.play().catch(() => { }); }
-    setVolumes(Y, b) { this.sfxVolume = Y, this.musicVolume = b, this.music && (this.music.volume = this.muted ? 0 : b); }
-    toggle() { this.muted = !this.muted, this.music && (this.music.volume = this.muted ? 0 : this.musicVolume); }
+    constructor() { lt(this, "context"); lt(this, "muted", !1); lt(this, "sfxVolume", .7); lt(this, "musicVolume", .35); lt(this, "music"); lt(this, "buffers", new Map); lt(this, "asset", Y => Y); lt(this, "mood", 1); }
+    _effVol(b = this.musicVolume) { return b * (this.mood === 0 ? .45 : 1); }
+    setMood(Y) { if (this.mood === Y) return; this.mood = Y, this.music && (this.music.playbackRate = Y === 2 ? 1.05 : 1, this.music.volume = this.muted ? 0 : this._effVol()); }
+    fanfare(Y = true) { if (this.muted || !this.context || document.hidden) return; const b = this.context, H = b.currentTime, K = Y ? [[261.6, 0, .16], [329.6, .15, .16], [392, .3, .18], [523.3, .5, .55]] : [[220, 0, .3], [174.6, .28, .62]]; for (const [$, p, S] of K) { const t = b.createOscillator(), f = b.createGain(), c = b.createBiquadFilter(); t.type = "sawtooth", t.frequency.value = $, c.type = "lowpass", c.frequency.value = 1300, f.gain.setValueAtTime(0, H + p), f.gain.linearRampToValueAtTime(this.sfxVolume * .4, H + p + .04), f.gain.setValueAtTime(this.sfxVolume * .4, Math.max(0, H + p + S - .05)), f.gain.linearRampToValueAtTime(0, H + p + S), t.connect(c), c.connect(f), f.connect(b.destination), t.start(H + p), t.stop(H + p + S + .05); } }
+    async unlock() { this.context ?? (this.context = new AudioContext), document.hidden || await this.context.resume(), this.music || (this.music = new Audio(this.asset("audio/gate-of-the-west.mp3")), this.music.loop = !0), this.music.volume = this.muted ? 0 : this._effVol(), document.hidden || this.music.play().catch(() => { }); }
+    setVolumes(Y, b) { this.sfxVolume = Y, this.musicVolume = b, this.music && (this.music.volume = this.muted ? 0 : this._effVol(b)); }
+    toggle() { this.muted = !this.muted, this.music && (this.music.volume = this.muted ? 0 : this._effVol()); }
     async play(Y) { if (this.muted || document.hidden)
         return; const b = Ye[Y]; if (b)
         try {
@@ -486,7 +489,7 @@ Tt.onUnit = Z => { if (At)
     q.phase === "move" ? Rt(() => { q.charge(b.uid, Z) || Xt("돌격할 수 없습니다. 남은 이동력과 우회 경로를 확인하세요."); }) : q.phase === "shoot" && Rt(() => { q.shoot(b.uid, Z) || Xt(_t(b, Y, q.terrain) === "blocked" ? "지형이 시야를 막고 있습니다." : "사거리 밖이거나 아군이 사선을 막고 있습니다. 곤도르는 교전 중인 대상도 사격할 수 없습니다."); });
     return;
 } Zt(Z); };
-function ge(Z, Y = q.selected) { At || !Y || (q.phase === "preparation" ? Rt(() => { q.deploy(Y, Z) || Xt("푸른 배치 구역 안의 빈 공간에 배치하세요."); }) : q.phase === "move" && !(q.mode === "ai" && q.side === "evil") && Rt(() => { q.move(Y, Z) || Xt("이동할 경로가 없습니다. 민트색 범위에서 착지점을 바꾸거나 병력을 먼저 비켜주세요."); })); }
+function ge(Z, Y = q.selected) { At || !Y || (q.phase === "preparation" ? Rt(() => { if (q.deploy(Y, Z)) { const _n = q.alive('good').find(u => u.x < 0); if (_n) q.selected = _n.uid; } else Xt("푸른 배치 구역 안의 빈 공간에 배치하세요."); }) : q.phase === "move" && !(q.mode === "ai" && q.side === "evil") && Rt(() => { q.move(Y, Z) || Xt("이동할 경로가 없습니다. 민트색 범위에서 착지점을 바꾸거나 병력을 먼저 비켜주세요."); })); }
 Tt.onPoint = Z => ge(Z);
 Tt.onDrop = (Z, Y) => { const b = q.unit(Z); if (b && b.side === (q.phase === "preparation" ? "good" : q.side)) {
     if (q.phase === "move" && q.activeMoverUid && Z !== q.activeMoverUid) {
@@ -935,6 +938,8 @@ P._trkKill = function (k, v) {
         if (k.stats.shootRange) this.stageShootKills = (this.stageShootKills || 0) + 1;
         if (k.charged) this.stageChargeKills = (this.stageChargeKills || 0) + 1;
         if (v.elite) this.eliteKills = (this.eliteKills || 0) + 1;
+        k._stageKills = (k._stageKills || 0) + 1;
+        [3, 5, 8].includes(k._stageKills) && this.emit('Event', `⚔ ${k.name} 연속 처치 ×${k._stageKills}`);
     }
     if (v.side === 'good') this.stageDeaths = (this.stageDeaths || 0) + 1;
 };
@@ -972,6 +977,7 @@ P.startWave = function () {
             u.resources[k] = Math.min(u.baseStats[k] + s, u.resources[k] + 1 + s);
         u.stageShots = 0;
         u.stageStrikes = 0;
+        u._stageKills = 0;
         if (this.rank('second_breakfast'))
             u.currentWounds = Math.min(u.stats.wounds, u.currentWounds + this.rank('second_breakfast'));
     }
@@ -1184,7 +1190,14 @@ P.finishWave = function () {
         }
         this.challenge = '';
     }
+    const _ramp = this.alive('good').filter(u => (u._stageKills || 0) >= 4);
+    if (_ramp.length) {
+        const rg = _ramp.length * 8;
+        this.gold += rg; this.lastGold += rg;
+        this.campResult = (this.campResult ? this.campResult + ' · ' : '') + `광전사 — ${_ramp.map(u => u.name).join(', ')} → 금화 +${rg}`;
+    }
     this.phase = 'reward';
+    typeof wt !== 'undefined' && wt.fanfare && wt.fanfare(true);
     this.campStep = 'event';
     this.rollCampEvent();
     this.chosenRelic = '';
@@ -1632,7 +1645,7 @@ P.resume=function(){
     return true;
 };
 const oldEndRun = P.endRun;
-P.endRun = function (won, msg) { oldEndRun.call(this, won, msg); if (won) this.checkAchievements(); try {
+P.endRun = function (won, msg) { oldEndRun.call(this, won, msg); if (typeof wt !== 'undefined' && wt.fanfare) wt.fanfare(won); if (won) this.checkAchievements(); try {
     localStorage.removeItem('mesbg-endless-save');
     if (this.dailySeed) try { const k = 'mesbg-daily-' + this.dailySeed; if ((this.wave || 0) > (Number(localStorage.getItem(k)) || 0)) localStorage.setItem(k, String(this.wave)); } catch (e) { }
     if (this.weeklySeed) try { const k = 'mesbg-weekly-' + this.weeklySeed; if ((this.wave || 0) > (Number(localStorage.getItem(k)) || 0)) localStorage.setItem(k, String(this.wave)); } catch (e) { }
@@ -3045,7 +3058,7 @@ ut('focus').innerHTML=crossIcon+'<span>현재 병사</span>';ut('focus').classLi
 ut('zoomout').setAttribute('aria-label','전장 축소');ut('zoomin').setAttribute('aria-label','전장 확대');
 field.append(ut('overview'));ut('overview').classList.add('hidden');ut('overview').style.cssText='position:absolute;bottom:64px;left:164px;z-index:9;background:#14202cee';
 ut('minimap').setAttribute('aria-label','전술 지도. 위치를 누르면 해당 지역으로 이동');
-const dock=document.createElement('div');dock.id='command-dock';dock.innerHTML=`<div class="dock-main"><img class="dock-portrait" id="dock-portrait" alt=""><div class="dock-text"><span class="dock-eyebrow" id="dock-eyebrow">원정대 지휘</span><strong id="dock-name">병사를 선택하세요</strong><div class="dock-status" id="dock-status"></div></div><button id="dock-primary" class="dock-primary" disabled>전투 시작</button></div><div id="dock-vitals" aria-label="선택 병사 능력치"></div><div class="dock-sub"><div class="roster-strip" id="roster-strip" aria-label="원정대 병사 선택"></div><div class="roster-tools"><button id="next-unit" class="secondary" title="다음 행동 가능 병사" aria-label="다음 행동 가능 병사">다음</button><button id="dock-detail" class="secondary" aria-controls="battle-sheet" aria-expanded="false">명령 ⌃</button></div></div>`;
+const dock=document.createElement('div');dock.id='command-dock';dock.innerHTML=`<div class="dock-main"><img class="dock-portrait" id="dock-portrait" alt=""><div class="dock-text"><span class="dock-eyebrow" id="dock-eyebrow">원정대 지휘</span><strong id="dock-name">병사를 선택하세요</strong><div class="dock-status" id="dock-status"></div></div><button id="dock-primary" class="dock-primary" disabled>전투 시작</button></div><div id="dock-vitals" aria-label="선택 병사 능력치"></div><div class="dock-sub"><div class="roster-strip" id="roster-strip" aria-label="원정대 병사 선택"></div><div class="roster-tools"><button id="next-unit" class="secondary" title="다음 행동 가능 병사" aria-label="다음 행동 가능 병사">다음</button><button id="speed-quick" class="secondary" title="재생 속도" aria-label="재생 속도">×1</button><button id="dock-detail" class="secondary" aria-controls="battle-sheet" aria-expanded="false">명령 ⌃</button></div></div>`;
 document.querySelector('.battle-column').insertBefore(dock,document.querySelector('.hint'));
 document.querySelector('.hint b').textContent='야전 지침';
 const aside=document.querySelector('.aside');aside.id='battle-sheet';aside.setAttribute('aria-label','병사 상세 및 지휘 명령');
@@ -3239,7 +3252,10 @@ window.addEventListener('resize',viewportHeight,{passive:true});window.visualVie
 const pendingFonts=document.fonts.load('16px Pretendard');pendingFonts.then(()=>{if(UX.ready){for(const text of Tt.labels.list)text.updateText?.();Tt.objectiveLabel?.updateText();Tt.drawRings()}}).catch(()=>{});
 function nextUnit(){if(At||Qt)return;const list=q.phase==='preparation'?q.alive('good'):q.eligible(q.side);if(!list.length||q.mode==='ai'&&q.side==='evil')return;const i=list.findIndex(u=>u.uid===q.selected);Zt(list[(i+1)%list.length].uid);Tt.focus()}
 ut('next-unit').onclick=nextUnit;
+ut('speed-quick').onclick=()=>{ut('speed-toggle').click();ut('speed-quick').textContent='×'+qt;};
 function renderDock(){
+    wt.setMood(['menu','reward','result'].includes(q.phase)?0:q.current&&q.current.boss?2:1);
+    const _sq=ut('speed-quick');if(_sq)_sq.textContent='×'+qt;
     const active=actionableUnit(),selected=q.unit(q.selected),u=selected?.alive?selected:active,busy=At||q.mode==='ai'&&q.side==='evil'&&['move','shoot'].includes(q.phase);
     const phase=q.phase;
     const steps=[['preparation','배치'],['move','이동 · 돌격'],['shoot','사격'],['fight','근접전']];
@@ -3510,7 +3526,7 @@ renderDock=function(){baseDock();renderUnitVitals();const p=UX.intent,b=ut('dock
 };
 const defaultPrimary=ut('dock-primary').onclick;
 ut('dock-primary').onclick=()=>{const p=UX.intent;if(!p){defaultPrimary();return;}if(At||Qt)return;clearIntent();setSheet(false);Rt(()=>{
-    let ok=false;if(p.kind==='move')ok=q.move(p.uid,p.to);if(p.kind==='charge')ok=q.charge(p.uid,p.target);if(p.kind==='shoot')ok=q.shoot(p.uid,p.target);if(p.kind==='deploy')ok=q.deploy(p.uid,p.to);
+    let ok=false;if(p.kind==='move')ok=q.move(p.uid,p.to);if(p.kind==='charge')ok=q.charge(p.uid,p.target);if(p.kind==='shoot')ok=q.shoot(p.uid,p.target);if(p.kind==='deploy'){ok=q.deploy(p.uid,p.to);if(ok){const _n=q.alive('good').find(u=>u.x<0);if(_n)q.selected=_n.uid;}}
     if(p.kind==='switch'){ok=q.wait(p.uid);if(ok)q.selected=p.target;}
     if(p.kind==='skill')ok=q.skill(p.uid);
     if(p.kind==='heroic')ok=q.heroic(p.uid,p.key);
