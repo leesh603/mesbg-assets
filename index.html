@@ -8913,6 +8913,10 @@ P.refreshUnit=function(u){
     __lwbRU2.call(this,u);
     if(this.weeklySeed&&this.weeklySeed%4===2)u.stats.shootRange=0;
     if(this.weeklySeed&&this.weeklySeed%4===3&&u.side==='good')u.stats.fight+=1;
+    if(this.weeklySeed&&this.weeklySeed%8===4&&u.traits.includes('mounted'))u.stats.fight+=1;
+    if(this.weeklySeed&&this.weeklySeed%8===5&&u.side==='evil')u.stats.courage+=1;
+    if(this.weeklySeed&&this.weeklySeed%8===6)u.stats.defence+=1;
+    if(this.weeklySeed&&this.weeklySeed%8===7&&u.stats.shootRange)u.stats.shootRange=Math.round(u.stats.shootRange*1.5);
     for(const e of u.equipment||[]){const d=LWB_EQUIP.find(x=>x.id===e);d&&!d.once&&d.fx(u);}
 };
 const relicRound=P.beginRound;
@@ -9525,7 +9529,7 @@ Qe = function () {
             ut('resume').onclick = () => Rt(() => { if (!q.resume())
                 Xt('저장된 원정을 불러올 수 없습니다.'); });
         ut('daily').onclick = () => Rt(() => { const d = new Date(); q.dailySeed = d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate(); q.start('ai'); Xt('오늘의 도전 — 모든 플레이어가 같은 편성과 보상을 받습니다'); });
-        ut('weekly').onclick = () => Rt(() => { const w = Math.floor(Date.now() / 6048e5); q.weeklySeed = w; q.start('ai'); Xt('이번 주 원정 — 규칙: ' + ['적 대군 (+40%)', '보스 러시 (3스테이지마다 보스)', '근접전 (사격 불가)', '베테랑 (아군 결투 +1)'][w % 4]); });
+        ut('weekly').onclick = () => Rt(() => { const w = Math.floor(Date.now() / 6048e5); q.weeklySeed = w; q.start('ai'); Xt('이번 주 원정 — 규칙: ' + ['적 대군 (+40%)', '보스 러시 (3스테이지마다 보스)', '근접전 (사격 불가)', '베테랑 (아군 결투 +1)', '기병 전성 (기병 결투 +1)', '모르도르의 광기 (적 용기 +1)', '강철의 전장 (전원 방어 +1)', '궁술 경연 (사거리 +50%)'][w % 8]); });
         ut('patch-notes').onclick = () => { const pn = document.createElement('div'); pn.id = 'patch-pop'; pn.innerHTML = '<div class="patch-inner"><div class="eyebrow">PATCH NOTES</div><h2>최근 변경 사항</h2>' + (window.__PATCH_NOTES || []).map(([v, items]) => `<b>${v}</b><ul>${items.map(i => `<li>${i}</li>`).join('')}</ul>`).join('') + '<button id="patch-close" class="primary">닫기</button></div>'; document.body.appendChild(pn); pn.onclick = e => { if (e.target === pn || e.target.id === 'patch-close') pn.remove(); }; };
         if (ut('cloud-load'))
             ut('cloud-load').onclick = async () => { const id = (ut('cloud-id').value || '').trim(), pw = ut('cloud-pw').value || ''; if (!id || !pw) { Xt('아이디와 비번을 입력하세요.'); return; } if (!LWB_API) { Xt('서버가 연결되지 않았습니다.'); return; } try { const r = await fetch(LWB_API + '/save/' + encodeURIComponent(id) + '/load', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ pw }) }); const d = r.ok ? await r.json() : null; if (d && d.data) { localStorage.setItem('mesbg-endless-save', JSON.stringify(d.data)); if (!q.resume()) Xt('불러온 기록을 재개할 수 없습니다.'); ut('cloud-msg').textContent = '불러왔습니다.'; } else ut('cloud-msg').textContent = r.status === 403 ? '비번이 다릅니다.' : r.status === 404 ? '저장된 기록이 없습니다.' : '불러오기 실패 ' + r.status; } catch (e) { ut('cloud-msg').textContent = '서버 연결 실패'; } };
@@ -10825,7 +10829,7 @@ const __lwbSI2 = P.stageInfo;
 P.stageInfo = function (n) {
     const info = __lwbSI2.call(this, n);
     if (this.weeklySeed) {
-        const r = this.weeklySeed % 4;
+        const r = this.weeklySeed % 8;
         if (r === 0)
             info.ids = info.ids.concat(info.ids.slice(0, Math.max(1, Math.ceil(info.ids.length * .4))));
         if (r === 1 && n % 3 === 0 && !info.boss) {
