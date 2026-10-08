@@ -8089,6 +8089,7 @@ P.finishWave = function () {
     else
         this.lastGold = bounty;
     this.gold += bounty;
+    this.campResult = `스테이지 ${this.wave} 수비 보상 → 금화 +${bounty}` + (this.campResult ? ' · ' + this.campResult : '');
     if (this.eliteKills) {
         const eg = this.eliteKills * 8;
         this.gold += eg;
