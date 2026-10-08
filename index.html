@@ -6989,7 +6989,7 @@ else if (Z.phase === "shoot") {
     const b = Z.validTargets(Y).sort((H, K) => H.currentWounds - K.currentWounds || H.stats.defence - K.stats.defence || ht(H, Mt.objective) - ht(K, Mt.objective))[0];
     (!b || !Z.shoot(Y.uid, b.uid)) && Z.wait(Y.uid);
 } }
-const __ASSET_SET__ = new Set([...Object.keys(window.__MESBG_ASSETS__ || {}), ...(window.__MESBG_ASSET_KEYS__ || [])]), __assetOk = Z => __ASSET_SET__.has(Z), Ut = Z => { var Y; return ((Y = window.__MESBG_ASSETS__) == null ? void 0 : Y[Z]) || `./assets/mesbg/${Z}${Z.includes('?') ? '' : '?v=a4'}`; }, pe = document.createElement("style");
+const __ASSET_SET__ = new Set([...Object.keys(window.__MESBG_ASSETS__ || {}), ...(window.__MESBG_ASSET_KEYS__ || [])]), __assetOk = Z => __ASSET_SET__.has(Z), Ut = Z => { var Y; return ((Y = window.__MESBG_ASSETS__) == null ? void 0 : Y[Z]) || `./assets/mesbg/${Z}${Z.includes('?') ? '' : '?v=a5'}`; }, pe = document.createElement("style");
 // Small WebP portraits for DOM UI (cards, panels). Full PNGs stay for the battlefield. Regenerate with tools/make_thumbs.py.
 const Th = Z => { const m = /^tokens\/(.+)\.png/.exec(Z || ''); return m ? Ut('thumbs/' + m[1] + '.webp') : Ut(Z); }, ThFallback = 'this.onerror=null;this.src=this.dataset.full';
 pe.textContent = `@font-face{font-family:Pretendard;src:url('${Ut("fonts/PretendardVariable.woff2")}') format('woff2');font-weight:100 900;font-display:swap}`;
