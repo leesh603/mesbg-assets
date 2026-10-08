@@ -7590,6 +7590,12 @@ P.refreshUnit = function (u) {
         u.stats.courage += this.rank('crown_west');
         if (u.traits.includes('mounted'))
             u.stats.fight += this.rank('eohere_horn');
+        u.stats.courage += Math.min(2, Math.floor((this.fallen || []).length / 2)) * this.rank('oath_dead');
+        if (u.stats.shootRange)
+            u.stats.strength += this.rank('harad_dart');
+        const _uf = (this.meta.get(u.id) || {}).faction;
+        if (_uf === 'dwarf' || _uf === 'erebor')
+            u.stats.fight += this.rank('erebor_crown');
         if (u.stats.shootRange)
             u.stats.shootValue = Math.max(2, u.stats.shootValue - this.rank('elven_feather'));
         for (const b of this.factionBonds())
@@ -9246,7 +9252,10 @@ CX.relics.push(...[
     ['siege_wright','공성 기술자',0,'지형 장치 가격 −25%. 중첩마다 추가 −25%.',0],
     ['white_pact','백색 조약',1,'동맹 지원팩 가격 −25%. 중첩마다 추가 −25%.',0],
     ['master_flame','에레보르의 명장 불꽃',1,'장비 상점 가격 −25%. 중첩마다 추가 −25%.',0],
-    ['lords_letter','군주의 추천서',0,'영입 후보 교체 비용 절반.',0]
+    ['lords_letter','군주의 추천서',0,'영입 후보 교체 비용 절반.',0],
+    ['oath_dead','망자의 맹세',1,'전사한 영웅 2기당 아군 용기 +1 (최대 +2).',0],
+    ['harad_dart','하라드림 독 화살',0,'궁수의 힘 +1. 중첩마다 +1.',0],
+    ['erebor_crown','에레보르의 군왕관',2,'난쟁이·에레보르 계열 아군 결투 +1.',0]
 ].map(([id,name,rarity,text,icon])=>({id,name,rarity,text,icon})));
 const relicRefresh=P.refreshUnit;
 P.refreshUnit=function(u){
