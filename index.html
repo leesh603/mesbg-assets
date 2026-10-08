@@ -10276,7 +10276,8 @@ function renderDock(){
     const steps=[['preparation','배치'],['move','이동 · 돌격'],['shoot','사격'],['fight','근접전']];
     ut('phases').innerHTML=steps.map(([id,label],i)=>`<span class="phase ${phase===id?'active':''}" ${phase===id?'aria-current="step"':''}><i>${String(i+1).padStart(2,'0')}</i>${label}</span>`).join('')+`<span class="turn">${phase==='preparation'?'출전 준비':At?'행동 처리 중':phase==='fight'?'교전 판정':q.side==='good'?'아군 차례':'적군 차례'}</span>`;
     ut('cp').textContent=q.cp+' CP';ut('round').textContent=(q.round||'—')+' · '+({preparation:'배치',move:'이동',shoot:'사격',fight:'근접'}[phase]||'정비');
-    const place=CX.mapNames[visualMapIdx(q.mapIndex)];
+    const _mk=CX.maps[visualMapIdx(q.mapIndex)],_zn=(MAP_ZONE_NAMES[_mk]||[])[mapVariant(q.wave||1)];
+    const place=CX.mapNames[visualMapIdx(q.mapIndex)]+(_zn?' · '+_zn:'');
     const _info = q.phase === 'preparation' ? q.next : q.current;
     const _mod = (_info && _info.modifier) || 'clear';
     const _MN = { rain: '폭우 · 사거리↓ 명중↓', dark: '어둠 · 사거리↓ 명중↓', fog: '안개 · 사거리↓↓ 명중↓', reinforce: '적 증원', warg: '와르그 사냥대', ambush: '기습 포위', cavalry: '기병 돌격', swarm: '고블린 떼', snow: '눈보라 · 사거리↓ 이동↓', eclipse: '일식 · 용기↓', mud: '진창 · 보병 이동↓' };
