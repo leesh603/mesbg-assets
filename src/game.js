@@ -671,6 +671,21 @@ const MAP_ZONES = {
     dunharrow: [{ x: 0, y: 0, w: 889, h: 460, z: 'mountain' }, { x: 2114, y: 0, w: 216, h: 115, z: 'mountain' }, { x: 1320, y: 490, w: 1010, h: 966, z: 'cliff' }, { x: 0, y: 1150, w: 368, h: 306, z: 'cliff' }]
 };
 // True when unit Z may pass through terrain entry t (flyers ignore all terrain; mountain-dwellers ignore 'mountain' zones).
+// 같은 지역도 웨이브마다 다른 배치: 3가지 변형을 (wave-1)%5%3 으로 순환.
+function mapZones(key, wave) {
+    const base = MAP_ZONES[key] || [];
+    const v = ((wave - 1) % 5) % 3;
+    if (v === 0) return base;
+    if (v === 1) return base.map(z => ({ ...z, x: 2330 - z.x - z.w }));
+    return base.map((z, i) => ({ ...z, x: Math.max(0, Math.min(2330 - z.w, z.x + (i % 2 ? 190 : -190))), y: Math.max(0, Math.min(1456 - z.h, z.y + (i % 3 ? 95 : -95))) }));
+}
+function mapProps(key, wave) {
+    const base = MAP_PROPS[key] || [];
+    const v = ((wave - 1) % 5) % 3;
+    if (v === 0) return base;
+    if (v === 1) return base.map(p => [p[0], 2330 - p[1], p[2], p[3], p[4]]);
+    return base.map((p, i) => [p[0], Math.max(60, Math.min(2270, p[1] + (i % 2 ? 170 : -170))), Math.max(60, Math.min(1400, p[2] + (i % 3 ? 85 : -85))), p[3], p[4]]);
+}
 function zoneOpen(Z, t) { return !t.active || t.z === 'hill' || !!Z && (Z.traits.includes('flying') || t.z === 'mountain' && Z.traits.includes('mountain')); }
 // Spear-support predicate, shared by the fight solver and the HUD link lines.
 function supportAlly(u) { const all = q.alive(); if (!u.alive || !u.traits.includes('spear') || all.some(v => Vt(u, v)))
@@ -905,9 +920,10 @@ const MAP_PROPS = {
     dead_marshes: [['terr_bone_pile', 1180, 1400, 100, 70], ['terr_dead_tree', 2200, 760, 90, 110], ['terr_mushroom_ring', 140, 1400, 90, 70], ['terr_sarcophagus', 2240, 300, 100, 80]],
     dunharrow: [['terr_standing_stones', 160, 700, 130, 100], ['terr_dead_tree', 2100, 300, 90, 110], ['terr_palisade', 150, 1400, 140, 60], ['terr_torch_post', 2000, 1240, 60, 90]],
 };
-    for (const [i, z] of (MAP_ZONES[CX.maps[visualMapIdx(this.mapIndex)]] || []).entries())
+    const _mapKey = CX.maps[visualMapIdx(this.mapIndex)];
+    for (const [i, z] of mapZones(_mapKey, this.wave || 1).entries())
         this.terrain.push({ id: 'zone-' + i, x: z.x + z.w / 2, y: z.y + z.h / 2, w: z.w, h: z.h, kind: 'block', z: z.z, active: true });
-    for (const p of (MAP_PROPS[CX.maps[visualMapIdx(this.mapIndex)]] || []))
+    for (const p of mapProps(_mapKey, this.wave || 1))
         this.terrain.push({ id: p[0], x: p[1], y: p[2], w: p[3], h: p[4], kind: 'cover', active: true });
     for (const t of this.terrain)
         if (t.id.startsWith('barricade'))
