@@ -160,7 +160,7 @@ class Ve extends Ot.Scene {
             else if(this.textures.exists(H.id))
                 this.terrainLayer.add(this.add.image(H.x, H.y, H.id).setDisplaySize(H.w + 24, H.h + 22)); for (const D of (this.b.devices || []))
         if (D.armed) {
-            const K2 = D.type === 'ballista' ? 'terr_ballista' : D.type === 'barrel' ? 'terr_bomb' : 'terr_brazier';
+            const K2 = { ballista: 'terr_ballista', scorpion: 'terr_trebuchet', barrel: 'terr_bomb', oil: 'terr_brazier', firepot: 'terr_brazier' }[D.type] || 'terr_brazier';
             this.textures.exists(K2) && this.terrainLayer.add(this.add.image(D.x, D.y, K2).setDisplaySize(D.type === 'ballista' ? 130 : 76, D.type === 'ballista' ? 130 : 76));
         } for (const H of this.b.units) {
         let K = this.tokens.get(H.uid);
@@ -1512,7 +1512,8 @@ P.buyTrap = function (i) {
     const a = TRAP_PACKS[i];
     if (!a || this.gold < a.cost)
         return false;
-    (this.devices = this.devices || []).push({ type: a.type, armed: true, x: 0, y: 0, trigger: a.type === 'ballista' ? 420 : 140, radius: a.type === 'ballista' ? 260 : 150 });
+    const _r = { ballista: [420, 260], scorpion: [420, 300], firepot: [140, 150], oil: [180, 200], barrel: [140, 160] }[a.type] || [140, 150];
+    (this.devices = this.devices || []).push({ type: a.type, armed: true, x: 0, y: 0, trigger: _r[0], radius: _r[1] });
     this.gold -= a.cost;
     this.save();
     return true;
