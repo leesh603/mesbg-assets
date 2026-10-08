@@ -8248,7 +8248,8 @@ const ALLY_PACKS = [
     { label: '철언덕 방벽병', cost: 55, ids: ['vault_warden'] },
     { label: '에오를의 아들들', cost: 85, ids: ['sons_of_eorl'] },
     { label: '망자 기병', cost: 120, ids: ['dead_rider'] },
-    { label: '곤도르 기사', cost: 65, ids: ['gondor_knight'] }
+    { label: '곤도르 기사', cost: 65, ids: ['gondor_knight'] },
+    { label: '로한 근위기병', cost: 75, ids: ['rohan_royal_guard_mounted'] }
 ];
 P.buyAlly = function (i) {
     if (this.phase !== 'reward' || this.campStep !== 'recruit' || this.allyBought)
@@ -8306,7 +8307,9 @@ const LWB_ACH = [
     ['promoted', '베테랑 승급', '병사가 베테랑으로 승급'],
     ['elite_bane', '엘리트 파괴자', '엘리트 적 5기 처치'],
     ['warlord', '대군주', '부대 12기 이상으로 원정'],
-    ['relic_master', '유물 달인', '유물 12종 보유']
+    ['relic_master', '유물 달인', '유물 12종 보유'],
+    ['veteran_host', '백전 노장', '베테랑 5기 보유'],
+    ['long_march', '먼 길을 온 자', '스테이지 20 도달']
 ];
 P.achievements = function () { try {
     return JSON.parse(localStorage.getItem('mesbg-achievements')) || {};
@@ -8358,6 +8361,10 @@ P.checkAchievements = function () {
         this.unlockAch('warlord');
     if (Object.keys(this.relics || {}).length >= 12)
         this.unlockAch('relic_master');
+    if (us.filter(u => (u.traits || []).includes('veteran')).length >= 5)
+        this.unlockAch('veteran_host');
+    if (this.wave >= 20)
+        this.unlockAch('long_march');
 };
 const LWB_EVENTS = [
     { id: 'refugees', title: '피난민 행렬', text: '곤도르 피난민 행렬이 성문을 지나치려 몰려듭니다.', options: [
@@ -8552,6 +8559,12 @@ const LWB_EVENTS = [
     { id: 'old_watchtower', title: '폐허의 보초탑', text: '무너진 감시탑이 적의 동향을 엿보기에 좋은 위치입니다.', options: [
         { label: '올라가 살핀다', sub: '다음 전투 적 기습 무효', fx: q => { q.noAmbushNext=true; return '적진 관측 · 기습 무효'; } },
         { label: '탑 안을 뒤진다', sub: '무작위 유물 1개 획득', fx: q => { const r=CX.relics[Math.floor(q.rng()*CX.relics.length)]; if(r)q.relics[r.id]=(q.relics[r.id]||0)+1; return r?`유물 획득: ${r.name}`:'유물 없음'; } }] },
+    { id: 'warg_track', title: '와르그의 발자국', text: '캠프 주변에 커다란 발굽 자국이 남아 있습니다. 추적자를 내보낼 수 있습니다.', options: [
+        { label: '끝까지 추적한다', sub: '금화 +35 · 무작위 아군 상처 1', fx: q => { q.gold+=35; const u=q.alive('good')[Math.floor(q.rng()*q.alive('good').length)]; if(u){u.currentWounds=Math.max(0,u.currentWounds-1);return `${u.name} 와르그 사냥 성공 · 상처 1`;} return '금화 +35'; } },
+        { label: '경계를 강화한다', sub: '다음 전투 적 용기 −1', fx: q => { (q.nextRoundBuffs=q.nextRoundBuffs||[]).push({stat:'courage',n:-1,side:'evil'}); return '경계 강화 · 적 용기 −1'; } }] },
+    { id: 'lost_supply', title: '버려진 보급 수레', text: '길가에 주인 없는 곤도르 보급 수레가 서 있습니다.', options: [
+        { label: '식량을 챙긴다', sub: '무작위 부상 아군 1기 완치', fx: q => { const w=q.alive('good').filter(u=>u.injury),t=w[Math.floor(q.rng()*w.length)]; if(!t)return '부상자 없음'; t.injury=null;q.refreshUnit(t); return `${t.name} 완치`; } },
+        { label: '마차를 개조한다', sub: '스테이지마다 대독수리 지원 유물 획득 시도', fx: q => { q.gold+=20; return '부품 회수 · 금화 +20'; } }] },
 ];
 P.rollCampEvent = function () {
     this.rng || (this.rng = Ne(Date.now()));
