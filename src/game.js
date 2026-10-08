@@ -752,6 +752,24 @@ function mapZones(key, wave) {
     if (sets && sets[v]) return sets[v].map(z => ({ x: z[0], y: z[1], w: z[2], h: z[3], z: z[4] }));
     return MAP_ZONES[key] || [];
 }
+const MAP_PROPS = {
+    minas_tirith: [['terr_white_tree', 110, 170, 90, 110], ['terr_gondor_house', 2210, 480, 120, 100], ['terr_brazier', 2210, 760, 60, 70], ['terr_statue_head', 120, 1240, 110, 90]],
+    helms_deep: [['terr_palisade', 110, 700, 140, 60], ['terr_dead_tree', 2220, 760, 90, 110], ['terr_ballista', 2220, 1180, 110, 90]],
+    moria: [['terr_broken_pillar', 150, 300, 80, 110], ['terr_bone_pile', 2180, 320, 100, 70], ['terr_rubble', 2180, 1180, 120, 80], ['terr_cage', 150, 1240, 90, 90]],
+    black_gate: [['terr_grond', 160, 760, 160, 100], ['terr_catapult', 2160, 540, 130, 100], ['terr_orc_totem', 120, 1180, 70, 100], ['terr_siege_tower', 2160, 1240, 140, 130]],
+    edoras: [['terr_rohan_hall', 2160, 560, 200, 150], ['terr_hay_cart', 150, 1080, 110, 80], ['terr_market_stall', 2200, 940, 110, 90], ['terr_palisade', 150, 240, 140, 60]],
+    fangorn: [['terr_oak_tree', 140, 330, 110, 130], ['terr_pine_copse', 2200, 300, 130, 110], ['terr_fallen_log', 150, 1240, 120, 60], ['terr_mushroom_ring', 2200, 1200, 90, 70], ['terr_bramble', 600, 1400, 130, 60]],
+    gorgoroth: [['terr_orc_totem', 150, 760, 70, 100], ['terr_bone_pile', 2200, 560, 100, 70], ['terr_mumak_skull', 120, 1240, 120, 80], ['terr_rubble', 2240, 1240, 110, 80]],
+    isengard: [['terr_anvil', 160, 600, 90, 80], ['terr_orc_camp', 2170, 620, 130, 110], ['terr_bomb', 160, 1240, 80, 80], ['terr_palisade', 2160, 1240, 140, 60]],
+    amon_sul: [['terr_broken_stairs', 150, 560, 110, 90], ['terr_standing_stones', 2180, 300, 130, 100], ['terr_barrow', 2200, 1240, 120, 90], ['terr_waystone', 140, 1400, 70, 90]],
+    osgiliath: [['terr_osgiliath_dome', 200, 140, 220, 170], ['terr_argonath', 2150, 140, 160, 130], ['terr_statue_head', 150, 1240, 110, 90], ['terr_broken_pillar', 2180, 980, 80, 110]],
+    rivendell: [['terr_relic_shrine', 150, 300, 100, 110], ['terr_oak_tree', 2200, 300, 110, 130], ['terr_pond', 160, 1240, 130, 90], ['terr_well', 2200, 1240, 90, 80]],
+    lothlorien: [['terr_oak_tree', 150, 240, 110, 130], ['terr_pine_copse', 150, 600, 130, 110], ['terr_relic_shrine', 1200, 140, 100, 110], ['terr_mushroom_ring', 900, 1400, 90, 70]],
+    erebor: [['terr_hoard', 160, 700, 140, 100], ['terr_gold_pile', 2180, 560, 110, 80], ['terr_anvil', 2180, 980, 90, 80], ['terr_bone_pile', 150, 1240, 100, 70]],
+    pelennor: [['terr_hay_cart', 160, 480, 110, 80], ['terr_haystack', 2200, 540, 100, 90], ['terr_fence_gate', 140, 1000, 120, 50], ['terr_hedgerow', 2200, 1240, 130, 60], ['terr_grond', 1100, 1420, 160, 100]],
+    dead_marshes: [['terr_bone_pile', 1180, 1400, 100, 70], ['terr_dead_tree', 2200, 760, 90, 110], ['terr_mushroom_ring', 140, 1400, 90, 70], ['terr_sarcophagus', 2240, 300, 100, 80]],
+    dunharrow: [['terr_standing_stones', 160, 700, 130, 100], ['terr_dead_tree', 2100, 300, 90, 110], ['terr_palisade', 150, 1400, 140, 60], ['terr_torch_post', 2000, 1240, 60, 90]],
+};
 const MAP_PROP_SETS = {
     minas_tirith: [null,
         // 성문 앞 — 포트큘리스·석상·전투 잔해
@@ -1083,24 +1101,6 @@ P.prepareStage = function () {
     this.escaped = [];
     this.warnings = [];
     this.terrain = structuredClone(ee).filter(t => !t.id.startsWith('wall') || this.mapIndex === 0);
-const MAP_PROPS = {
-    minas_tirith: [['terr_white_tree', 110, 170, 90, 110], ['terr_gondor_house', 2210, 480, 120, 100], ['terr_brazier', 2210, 760, 60, 70], ['terr_statue_head', 120, 1240, 110, 90]],
-    helms_deep: [['terr_palisade', 110, 700, 140, 60], ['terr_dead_tree', 2220, 760, 90, 110], ['terr_ballista', 2220, 1180, 110, 90]],
-    moria: [['terr_broken_pillar', 150, 300, 80, 110], ['terr_bone_pile', 2180, 320, 100, 70], ['terr_rubble', 2180, 1180, 120, 80], ['terr_cage', 150, 1240, 90, 90]],
-    black_gate: [['terr_grond', 160, 760, 160, 100], ['terr_catapult', 2160, 540, 130, 100], ['terr_orc_totem', 120, 1180, 70, 100], ['terr_siege_tower', 2160, 1240, 140, 130]],
-    edoras: [['terr_rohan_hall', 2160, 560, 200, 150], ['terr_hay_cart', 150, 1080, 110, 80], ['terr_market_stall', 2200, 940, 110, 90], ['terr_palisade', 150, 240, 140, 60]],
-    fangorn: [['terr_oak_tree', 140, 330, 110, 130], ['terr_pine_copse', 2200, 300, 130, 110], ['terr_fallen_log', 150, 1240, 120, 60], ['terr_mushroom_ring', 2200, 1200, 90, 70], ['terr_bramble', 600, 1400, 130, 60]],
-    gorgoroth: [['terr_orc_totem', 150, 760, 70, 100], ['terr_bone_pile', 2200, 560, 100, 70], ['terr_mumak_skull', 120, 1240, 120, 80], ['terr_rubble', 2240, 1240, 110, 80]],
-    isengard: [['terr_anvil', 160, 600, 90, 80], ['terr_orc_camp', 2170, 620, 130, 110], ['terr_bomb', 160, 1240, 80, 80], ['terr_palisade', 2160, 1240, 140, 60]],
-    amon_sul: [['terr_broken_stairs', 150, 560, 110, 90], ['terr_standing_stones', 2180, 300, 130, 100], ['terr_barrow', 2200, 1240, 120, 90], ['terr_waystone', 140, 1400, 70, 90]],
-    osgiliath: [['terr_osgiliath_dome', 200, 140, 220, 170], ['terr_argonath', 2150, 140, 160, 130], ['terr_statue_head', 150, 1240, 110, 90], ['terr_broken_pillar', 2180, 980, 80, 110]],
-    rivendell: [['terr_relic_shrine', 150, 300, 100, 110], ['terr_oak_tree', 2200, 300, 110, 130], ['terr_pond', 160, 1240, 130, 90], ['terr_well', 2200, 1240, 90, 80]],
-    lothlorien: [['terr_oak_tree', 150, 240, 110, 130], ['terr_pine_copse', 150, 600, 130, 110], ['terr_relic_shrine', 1200, 140, 100, 110], ['terr_mushroom_ring', 900, 1400, 90, 70]],
-    erebor: [['terr_hoard', 160, 700, 140, 100], ['terr_gold_pile', 2180, 560, 110, 80], ['terr_anvil', 2180, 980, 90, 80], ['terr_bone_pile', 150, 1240, 100, 70]],
-    pelennor: [['terr_hay_cart', 160, 480, 110, 80], ['terr_haystack', 2200, 540, 100, 90], ['terr_fence_gate', 140, 1000, 120, 50], ['terr_hedgerow', 2200, 1240, 130, 60], ['terr_grond', 1100, 1420, 160, 100]],
-    dead_marshes: [['terr_bone_pile', 1180, 1400, 100, 70], ['terr_dead_tree', 2200, 760, 90, 110], ['terr_mushroom_ring', 140, 1400, 90, 70], ['terr_sarcophagus', 2240, 300, 100, 80]],
-    dunharrow: [['terr_standing_stones', 160, 700, 130, 100], ['terr_dead_tree', 2100, 300, 90, 110], ['terr_palisade', 150, 1400, 140, 60], ['terr_torch_post', 2000, 1240, 60, 90]],
-};
     const _mapKey = CX.maps[visualMapIdx(this.mapIndex)];
     for (const [i, z] of mapZones(_mapKey, this.wave || 1).entries())
         this.terrain.push({ id: 'zone-' + i, x: z.x + z.w / 2, y: z.y + z.h / 2, w: z.w, h: z.h, kind: 'block', z: z.z, active: true });
