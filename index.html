@@ -7798,6 +7798,10 @@ P._trkKill = function (k, v) {
         if (k.traits.includes('hero')) this.stageHeroSlayer = (this.stageHeroSlayer || 0) + 1;
         k._stageKills = (k._stageKills || 0) + 1;
         [3, 5, 8].includes(k._stageKills) && this.emit('Event', `⚔ ${k.name} 연속 처치 ×${k._stageKills}`);
+        if (!k.traits.includes('hero') && !k.traits.includes('veteran') && (k.veteranXP || 0) >= 6) {
+            k.traits.push('veteran'); k.baseStats.fight = (k.baseStats.fight || 0) + 1; k.baseStats.defence = (k.baseStats.defence || 0) + 1; this.refreshUnit(k);
+            this.emit('Event', `★ ${k.name} 베테랑 승급 · 결투 +1 Defense +1`);
+        }
     }
     if (v.side === 'good') this.stageDeaths = (this.stageDeaths || 0) + 1;
 };
