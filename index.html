@@ -7805,6 +7805,7 @@ P._trkKill = function (k, v) {
         if (!k.traits.includes('hero') && !k.traits.includes('veteran') && (k.veteranXP || 0) >= 6) {
             k.traits.push('veteran'); k.baseStats.fight = (k.baseStats.fight || 0) + 1; k.baseStats.defence = (k.baseStats.defence || 0) + 1; this.refreshUnit(k);
             this.emit('Event', `★ ${k.name} 베테랑 승급 · 결투 +1 Defense +1`);
+            this.unlockAch('promoted');
         }
     }
     if (v.side === 'good') this.stageDeaths = (this.stageDeaths || 0) + 1;
@@ -8253,7 +8254,8 @@ const LWB_ACH = [
     ['slayer', '학살자', '원정 통산 100처치'],
     ['bondmaster', '파벌 결속', '파벌 결속 발동 (같은 파벌 아군 4기 이상)'],
     ['trapper', '함정 장인', '지형 장치 설치'],
-    ['monster_hunter', '몬스터 사냥꾼', '몬스터 3기 처치']
+    ['monster_hunter', '몬스터 사냥꾼', '몬스터 3기 처치'],
+    ['promoted', '베테랑 승급', '병사가 베테랑으로 승급']
 ];
 P.achievements = function () { try {
     return JSON.parse(localStorage.getItem('mesbg-achievements')) || {};
