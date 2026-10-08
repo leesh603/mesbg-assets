@@ -1536,7 +1536,8 @@ const TRAP_PACKS = [
     { label: '불통', cost: 40, type: 'firepot' },
     { label: '연발 투석기 · 5기 타격', cost: 95, type: 'scorpion' },
     { label: '기름 통 · 광역 2피해', cost: 70, type: 'oil' },
-    { label: '화약통 · 아군도 피해', cost: 35, type: 'barrel' }
+    { label: '화약통 · 아군도 피해', cost: 35, type: 'barrel' },
+    { label: '가시 함정 · 2기 이동 붙들기', cost: 60, type: 'spike' }
 ];
 P.dc = function (base, relicId) { const r = this.rank ? this.rank(relicId) : 0; return r ? Math.max(5, Math.round(base * (1 - 0.25 * r))) : base; };
 P.buyTrap = function (i) {
@@ -1545,7 +1546,7 @@ P.buyTrap = function (i) {
     const a = TRAP_PACKS[i];
     if (!a || this.gold < this.dc(a.cost, 'siege_wright'))
         return false;
-    const _r = { ballista: [420, 260], scorpion: [420, 300], firepot: [140, 150], oil: [180, 200], barrel: [140, 160] }[a.type] || [140, 150];
+    const _r = { ballista: [420, 260], scorpion: [420, 300], firepot: [140, 150], oil: [180, 200], barrel: [140, 160], spike: [160, 140] }[a.type] || [140, 150];
     (this.devices = this.devices || []).push({ type: a.type, armed: true, x: 0, y: 0, trigger: _r[0], radius: _r[1] });
     this.gold -= this.dc(a.cost, 'siege_wright');
     this.save();
@@ -1565,9 +1566,11 @@ P.checkTraps = function (u) {
                 ? this.alive('evil').filter(v => ht(v, d) <= d.radius).sort((a, b) => ht(a, d) - ht(b, d)).slice(0, 3)
                 : d.type === 'scorpion'
                     ? this.alive('evil').filter(v => ht(v, d) <= d.radius).sort((a, b) => ht(a, d) - ht(b, d)).slice(0, 5)
-                    : this.alive('evil').filter(v => ht(v, d) <= d.radius);
-        hits.forEach(v => this.inflict(ag, v, d.type === 'oil' ? 2 : 1));
-        this.emit('Trap', (d.type === 'ballista' ? '투석기 발사' : d.type === 'scorpion' ? '연발 투석기 발사' : d.type === 'barrel' ? '화약통 폭발' : d.type === 'oil' ? '기름 화염' : '불통 폭발') + ' · ' + hits.length + '기 타격', { at: d });
+                    : d.type === 'spike'
+                        ? this.alive('evil').filter(v => ht(v, d) <= d.radius).sort((a, b) => ht(a, d) - ht(b, d)).slice(0, 2)
+                        : this.alive('evil').filter(v => ht(v, d) <= d.radius);
+        hits.forEach(v => { this.inflict(ag, v, d.type === 'oil' ? 2 : 1); if (d.type === 'spike' && v.alive) v.roundBuff = { ...(v.roundBuff || {}), move: (v.roundBuff.move || 0) - 90 }; });
+        this.emit('Trap', (d.type === 'ballista' ? '투석기 발사' : d.type === 'scorpion' ? '연발 투석기 발사' : d.type === 'barrel' ? '화약통 폭발' : d.type === 'oil' ? '기름 화염' : d.type === 'spike' ? '가시 함정 발동 · 이동 둔화' : '불통 폭발') + ' · ' + hits.length + '기 타격', { at: d });
     }
 };
 const ALLY_PACKS = [
