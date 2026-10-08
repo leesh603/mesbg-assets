@@ -8138,7 +8138,10 @@ const LWB_EQUIP = [
     { id: 'pike', label: '날카로운 창', cost: 40, fx: u => u.stats.strength += 1 },
     { id: 'ranger_boots', label: '순찰자 장화 · 이동+1″', cost: 35, fx: u => u.stats.move += 45 },
     { id: 'war_horn', label: '전쟁 뿔피리', cost: 30, fx: u => u.stats.courage += 2 },
-    { id: 'drill', label: '전투 훈련 · XP+2', cost: 25, once: true, fx: u => u.veteranXP = (u.veteranXP || 0) + 2 }
+    { id: 'drill', label: '전투 훈련 · XP+2', cost: 25, once: true, fx: u => u.veteranXP = (u.veteranXP || 0) + 2 },
+    { id: 'bandage', label: '전장 붕대 · 부상 해제', cost: 30, once: true, needsInjury: true, fx: u => { u.injury = null; } },
+    { id: 'gondor_shield', label: '곤도르 방패 · 방어+1 용기+1', cost: 55, fx: u => { u.stats.defence += 1; u.stats.courage += 1; } },
+    { id: 'war_gauntlets', label: '전투 건틀릿 · Attack+1', cost: 85, fx: u => u.stats.attacks += 1 }
 ];
 P.buyEquip = function (i, uid) {
     if (this.phase !== 'reward' || this.campStep !== 'recruit')
@@ -8149,6 +8152,8 @@ P.buyEquip = function (i, uid) {
     u.equipment = u.equipment || [];
     if (a.once) {
         if (a.needsWound && u.currentWounds >= u.stats.wounds)
+            return false;
+        if (a.needsInjury && !u.injury)
             return false;
         a.fx(u);
         this.gold -= this.dc(a.cost, 'master_flame');
