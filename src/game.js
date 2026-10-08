@@ -209,8 +209,12 @@ class Ve extends Ot.Scene {
         }
         if (b.phase === "shoot" && H.stats.shootRange) {
             this.rings.lineStyle(3, 16769437, .8), this.rings.strokeCircle(H.x, H.y, H.stats.shootRange);
-            for (const p of b.validTargets(H))
+            const _hill = b.terrain.some(t => t.z === 'hill' && t.active && le(H, t, 0)), _wx = b.current ? b.current.modifier : '', _wpen = ["rain", "dark", "fog"].includes(_wx) ? 1 : 0;
+            for (const p of b.validTargets(H)) {
                 this.rings.lineStyle(3, 16751989, 1), this.rings.strokeCircle(p.x, p.y, p.radius + 8);
+                const hitN = Math.min(6, H.stats.shootValue + (H.moved ? pt.movePenalty : 0) + (_t(H, p, b.terrain) === 'cover' ? 1 : 0) - (_hill ? 1 : 0) + _wpen), wN = oe(H.stats.strength, p.stats.defence);
+                this.labels.add(this.add.text(p.x, p.y - p.radius - 16, `명중 ${hitN}+ · 상처 ${wN}+`, { fontFamily: "Pretendard", fontSize: "14px", color: "#ffe6b0", backgroundColor: "#1c2a24e0", padding: { x: 6, y: 3 } }).setOrigin(.5));
+            }
         }
     } for (const p of b.alive()) {
         p.hold && (this.rings.lineStyle(3, 9362410, .8), this.rings.strokeCircle(p.x, p.y, p.radius + 2)), p.acted && ["move", "shoot"].includes(b.phase) && this.labels.add(this.add.text(p.x + p.radius - 3, p.y - p.radius, "✓", { fontFamily: "Pretendard", fontSize: "17px", color: "#fff1bc", stroke: "#121b1c", strokeThickness: 3 }));
