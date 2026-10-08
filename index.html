@@ -7612,6 +7612,9 @@ P.startWave = function () {
         u.elite = true; u.stats.fight++; u.stats.defence++; u.stats.wounds++; u.currentWounds++;
     }
     if (_eliteN) this.emit('Event', `⚠ 엘리트 ${_eliteN}기 발견 — 처치 시 각 +8금`);
+    if (this.challenge === 'supplies') (this.nextRoundBuffs = this.nextRoundBuffs || []).push({ stat: 'courage', n: -1, side: 'good' });
+    if (this.challenge === 'doubt') (this.nextRoundBuffs = this.nextRoundBuffs || []).push({ stat: 'fight', n: -1, side: 'good' });
+    if (this.challenge === 'fog') (this.nextRoundBuffs = this.nextRoundBuffs || []).push({ stat: 'move', n: -45, side: 'good' });
     this.eliteKills = 0;
     this.stageDeaths = 0; this.stageHeroKills = 0; this.stageShootKills = 0; this.stageChargeKills = 0; this.stageKills = 0;
     const _bp = BONUS_OBJECTIVES.filter(o => !o.cond || o.cond(this));
@@ -9544,7 +9547,7 @@ Qe = function () {
          box.querySelectorAll('[data-rename]').forEach(el => el.onclick = () => { const u = q.unit(el.dataset.rename); if (!u) return; const v = window.prompt('영웅 별칭 (비우면 원래 이름)', u.name); if (v !== null) { u.name = v.trim() || q.meta.get(u.id).name_ko; q.save(); Yt(); } });
          box.querySelectorAll('[data-ally]').forEach(el => el.onclick = () => Rt(() => { q.buyAlly(Number(el.dataset.ally)) ? Xt('동맹이 합류했습니다. 다음 전투 한정.') : Xt('금화가 부족합니다.'); }));
         box.querySelectorAll('[data-trap]').forEach(el => el.onclick = () => Rt(() => { q.buyTrap(Number(el.dataset.trap)) ? Xt('함정을 설치했습니다. 다음 전투에서 자동 발동합니다.') : Xt('금화가 부족합니다.'); }));
-        box.querySelectorAll('[data-challenge]').forEach(el => el.onclick = () => { q.challenge = el.dataset.challenge || ''; if(q.challenge==='supplies')(q.nextRoundBuffs=q.nextRoundBuffs||[]).push({stat:'courage',n:-1,side:'good'}); if(q.challenge==='doubt')(q.nextRoundBuffs=q.nextRoundBuffs||[]).push({stat:'fight',n:-1,side:'good'}); if(q.challenge==='fog')(q.nextRoundBuffs=q.nextRoundBuffs||[]).push({stat:'move',n:-45,side:'good'}); q.save(); Yt(); });
+        box.querySelectorAll('[data-challenge]').forEach(el => el.onclick = () => { q.challenge = el.dataset.challenge || ''; q.save(); Yt(); });
         box.querySelectorAll('[data-equip]').forEach(el => el.onclick = () => Rt(() => { const t = (document.getElementById('equip-target') || {}).value; q.buyEquip(Number(el.dataset.equip), t) ? (Xt('장비를 장착했습니다.'), Yt()) : Xt('장착할 수 없습니다 — 금화·슬롯·상처를 확인하세요.'); }));
          box.querySelectorAll('[data-rfilter]').forEach(el => el.onclick = () => { box.querySelectorAll('[data-rfilter]').forEach(x => x.classList.toggle('active', x === el)); const f = el.dataset.rfilter; box.querySelectorAll('[data-recruit]').forEach(c => c.classList.toggle('hidden', f !== 'all' && !(f === 'grade:' + c.dataset.grade || f === 'type:' + c.dataset.type))); });
         if (ut('reroll'))
