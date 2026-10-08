@@ -1481,12 +1481,13 @@ const LWB_EQUIP = [
     { id: 'plate', label: '판금갑옷', cost: 40, fx: u => u.stats.defence += 1 },
     { id: 'hunting_bow', label: '사냥활', cost: 30, fx: u => { if (!u.stats.shootRange) { u.stats.shootRange = 600; u.stats.shootValue = Math.max(u.stats.shootValue, 4); } } },
     { id: 'war_banner_eq', label: '전투 기', cost: 25, fx: u => u.stats.courage += 1 },
-    { id: 'salve', label: '치유 연고', cost: 20, once: true, fx: u => u.currentWounds = Math.min(u.stats.wounds, u.currentWounds + 1) },
+    { id: 'salve', label: '치유 연고', cost: 20, once: true, needsWound: true, fx: u => u.currentWounds = Math.min(u.stats.wounds, u.currentWounds + 1) },
     { id: 'tower_shield', label: '탑방패 · 방어+1 이동−1″', cost: 45, fx: u => { u.stats.defence += 1; u.stats.move = Math.max(90, u.stats.move - 45); } },
     { id: 'mithril_helm', label: '미스릴 투구', cost: 70, fx: u => u.stats.defence += 2 },
     { id: 'pike', label: '날카로운 창', cost: 40, fx: u => u.stats.strength += 1 },
     { id: 'ranger_boots', label: '순찰자 장화 · 이동+1″', cost: 35, fx: u => u.stats.move += 45 },
-    { id: 'war_horn', label: '전쟁 뿔피리', cost: 30, fx: u => u.stats.courage += 2 }
+    { id: 'war_horn', label: '전쟁 뿔피리', cost: 30, fx: u => u.stats.courage += 2 },
+    { id: 'drill', label: '전투 훈련 · XP+2', cost: 25, once: true, fx: u => u.veteranXP = (u.veteranXP || 0) + 2 }
 ];
 P.buyEquip = function (i, uid) {
     if (this.phase !== 'reward' || this.campStep !== 'recruit')
@@ -1496,7 +1497,7 @@ P.buyEquip = function (i, uid) {
         return false;
     u.equipment = u.equipment || [];
     if (a.once) {
-        if (u.currentWounds >= u.stats.wounds)
+        if (a.needsWound && u.currentWounds >= u.stats.wounds)
             return false;
         a.fx(u);
         this.gold -= a.cost;
