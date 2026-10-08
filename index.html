@@ -7597,6 +7597,10 @@ P.refreshUnit = function (u) {
         if (_uf === 'dwarf' || _uf === 'erebor')
             u.stats.fight += this.rank('erebor_crown');
         if (u.stats.shootRange)
+            u.stats.move += 45 * this.rank('dunedain_star');
+        if (u.traits.includes('hero'))
+            u.stats.wounds += this.rank('troll_heart');
+        if (u.stats.shootRange)
             u.stats.shootValue = Math.max(2, u.stats.shootValue - this.rank('elven_feather'));
         for (const b of this.factionBonds())
             if ((this.meta.get(u.id) || {}).faction === b.faction)
@@ -7802,6 +7806,7 @@ P._trkKill = function (k, v) {
         this.stageKills = (this.stageKills || 0) + 1;
         if (v.traits.includes('hero')) this.stageHeroKills = (this.stageHeroKills || 0) + 1;
         if (k.stats.shootRange) this.stageShootKills = (this.stageShootKills || 0) + 1;
+        if (v.traits.includes('hero') && this.rank && this.rank('morgul_thorn')) { this.bonusCP = (this.bonusCP || 0) + 1; this.emit('Event', '모르굴의 가시 · 다음 전투 CP +1'); }
         if (k.charged) this.stageChargeKills = (this.stageChargeKills || 0) + 1;
         if (v.elite) this.eliteKills = (this.eliteKills || 0) + 1;
         if (k.traits.includes('mounted')) this.stageCavKills = (this.stageCavKills || 0) + 1;
@@ -9272,7 +9277,10 @@ CX.relics.push(...[
     ['lords_letter','군주의 추천서',0,'영입 후보 교체 비용 절반.',0],
     ['oath_dead','망자의 맹세',1,'전사한 영웅 2기당 아군 용기 +1 (최대 +2).',0],
     ['harad_dart','하라드림 독 화살',0,'궁수의 힘 +1. 중첩마다 +1.',0],
-    ['erebor_crown','에레보르의 군왕관',2,'난쟁이·에레보르 계열 아군 결투 +1.',0]
+    ['erebor_crown','에레보르의 군왕관',2,'난쟁이·에레보르 계열 아군 결투 +1.',0],
+    ['dunedain_star','두네다인의 별표',0,'궁수의 이동 +1인치. 중첩마다 +1인치.',0],
+    ['troll_heart','트롤의 심장',2,'영웅의 체력 +1. 중첩마다 +1.',0],
+    ['morgul_thorn','모르굴의 가시',1,'적 영웅 처치 시 다음 전투 CP +1.',0]
 ].map(([id,name,rarity,text,icon])=>({id,name,rarity,text,icon})));
 const relicRefresh=P.refreshUnit;
 P.refreshUnit=function(u){
