@@ -7367,6 +7367,13 @@ rivendell:['협곡 다리','폭포 계곡','숲속 정원'], lothlorien:['강가
 erebor:['성문 앞','외로운 산 비탈','호수 건너'], pelennor:['외성벽','들판 농장','강변 초지'],
 dead_marshes:['죽음의 늪','밀집 웅덩이','마른 갈대밭'], dunharrow:['산 입구','영혼의 길','풀밭 고원'] };
 function mapVariant(wave) { return ((wave - 1) % 5) % 3; }
+// 변형 배경 색조: 기본 / 황혼(웜) / 새벽(쿨) — MAP_TINT에 곱연산으로 블렌드.
+function variantTint(base, v) {
+    const t = [0xffffff, 0xffddaa, 0xc4d8ff][v] || 0xffffff;
+    if (t === 0xffffff) return base;
+    const r = (base >> 16 & 255) * (t >> 16 & 255) / 255 | 0, g = (base >> 8 & 255) * (t >> 8 & 255) / 255 | 0, b = (base & 255) * (t & 255) / 255 | 0;
+    return (r << 16) | (g << 8) | b;
+}
 function mapZones(key, wave) {
     const sets = MAP_ZONE_SETS[key];
     const v = mapVariant(wave);
@@ -9251,11 +9258,11 @@ Ve.prototype.sync = function () {
         if (this._mapLoading !== mapKey) {
             this._mapLoading = mapKey;
             this.load.image(mapKey, this.asset(file));
-            this.load.once('complete', () => { this._mapLoading = null; if (this.backdrop) this.backdrop.setTexture(mapKey).setDisplaySize(pt.width, pt.height); });
+            this.load.once('complete', () => { this._mapLoading = null; if (this.backdrop) this.backdrop.setTexture(mapKey).setTint(variantTint(MAP_TINT[name] || (MAP_HQ[name] ? 0xffffff : 0xb6b5a4), mapVariant(this.b.wave||1))).setDisplaySize(pt.width, pt.height); });
             this.load.start();
         }
     } else
-        this.backdrop.setTexture(mapKey).setTint(MAP_TINT[name] || (MAP_HQ[name] ? 0xffffff : 0xb6b5a4)).setDisplaySize(pt.width, pt.height);
+        this.backdrop.setTexture(mapKey).setTint(variantTint(MAP_TINT[name] || (MAP_HQ[name] ? 0xffffff : 0xb6b5a4), mapVariant(this.b.wave||1))).setDisplaySize(pt.width, pt.height);
     this.boundary.clear();
     // Soft stepped fog margins remain outside the legal base-center boundary.
     for (let i = 0; i < 5; i++) {
