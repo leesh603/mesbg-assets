@@ -6662,7 +6662,7 @@ Ae=[{id:"warrior_minas_tirith",name_ko:"미나스 티리스 전사",name_en:"War
                 break;
         } }); }
     beginRound() { if (this.checkRun())
-        return; this.round++, this.activeMoverUid = "", this.round === 2 && this.delayed.length && (this.spawnEnemies(this.delayed), this.delayed = [], this.emit("ReinforcementsArrived", "지연된 오크 증원이 도착했습니다.")), this.cp = Math.min(pt.maxCP, this.cp + pt.cpPerRound + this.bonusCP + (this.relicSets && this.relicSets().some(s => s.family === '원정' && s.active) ? 1 : 0)), this.bonusCP = 0; for (const K of this.alive())
+        return; this.round++, this.activeMoverUid = "", this.emit("Round", "── 라운드 " + this.round + " ──"), this.round === 2 && this.delayed.length && (this.spawnEnemies(this.delayed), this.delayed = [], this.emit("ReinforcementsArrived", "지연된 오크 증원이 도착했습니다.")), this.cp = Math.min(pt.maxCP, this.cp + pt.cpPerRound + this.bonusCP + (this.relicSets && this.relicSets().some(s => s.family === '원정' && s.active) ? 1 : 0)), this.bonusCP = 0; for (const K of this.alive())
         K.acted = !1, K.moved = !1, K.movementSpent = 0, K.charged = !1, K.prone = !1, K.feared = !1, K.hold = !1, K.aim = !1, K.oncePerRunAbilities = K.oncePerRunAbilities.filter($ => $ !== "aim-used"); for (const mc of ["good", "evil"]) {
         const mcBase = this.waveStartCounts ? this.waveStartCounts[mc] : 0;
         if (mcBase && this.alive(mc).length <= mcBase / 2)
