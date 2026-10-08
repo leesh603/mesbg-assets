@@ -4477,7 +4477,7 @@ P.stageInfo = function (n) {
         if (r === 0)
             info.ids = info.ids.concat(info.ids.slice(0, Math.max(1, Math.ceil(info.ids.length * .4))));
         if (r === 1 && n % 3 === 0 && !info.boss) {
-            const pool = ['cave_troll', 'witchking_fellbeast', 'balrog', 'sauron', 'morgoth'];
+            const pool = ['cave_troll', 'scatha', 'witchking_fellbeast', 'khamul', 'stone_giant', 'balrog', 'ungoliant', 'sauron', 'ancalagon', 'morgoth'];
             info.boss = pool[Math.floor(n / 3) % pool.length];
             info.mission = 'commander';
             info.ids.push(info.boss);
