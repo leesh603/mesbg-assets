@@ -1625,7 +1625,10 @@ const LWB_ACH = [
     ['bondmaster', '파벌 결속', '파벌 결속 발동 (같은 파벌 아군 4기 이상)'],
     ['trapper', '함정 장인', '지형 장치 설치'],
     ['monster_hunter', '몬스터 사냥꾼', '몬스터 3기 처치'],
-    ['promoted', '베테랑 승급', '병사가 베테랑으로 승급']
+    ['promoted', '베테랑 승급', '병사가 베테랑으로 승급'],
+    ['elite_bane', '엘리트 파괴자', '엘리트 적 5기 처치'],
+    ['warlord', '대군주', '부대 12기 이상으로 원정'],
+    ['relic_master', '유물 달인', '유물 12종 보유']
 ];
 P.achievements = function () { try {
     return JSON.parse(localStorage.getItem('mesbg-achievements')) || {};
@@ -1671,6 +1674,12 @@ P.checkAchievements = function () {
         this.unlockAch('trapper');
     if ((this.stageMonsterKills || 0) >= 3)
         this.unlockAch('monster_hunter');
+    if ((this.eliteKills || 0) >= 5)
+        this.unlockAch('elite_bane');
+    if (us.length >= 12)
+        this.unlockAch('warlord');
+    if (Object.keys(this.relics || {}).length >= 12)
+        this.unlockAch('relic_master');
 };
 const LWB_EVENTS = [
     { id: 'refugees', title: '피난민 행렬', text: '곤도르 피난민 행렬이 성문을 지나치려 몰려듭니다.', options: [
