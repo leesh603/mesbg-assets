@@ -1616,7 +1616,12 @@ const LWB_ACH = [
     ['wave10', '장거리 원정', 'STAGE 10 도달'],
     ['hoard', '전리품 수집가', '금화 500 보유'],
     ['flawless', '무결의 방어', '전사자 없이 스테이지 클리어'],
-    ['daily', '일일 도전자', '오늘의 도전 클리어']
+    ['daily', '일일 도전자', '오늘의 도전 클리어'],
+    ['collector', '유물 수집가', '유물 6종 보유'],
+    ['slayer', '학살자', '원정 통산 100처치'],
+    ['bondmaster', '파벌 결속', '파벌 결속 발동 (같은 파벌 아군 4기 이상)'],
+    ['trapper', '함정 장인', '지형 장치 설치'],
+    ['monster_hunter', '몬스터 사냥꾼', '몬스터 3기 처치']
 ];
 P.achievements = function () { try {
     return JSON.parse(localStorage.getItem('mesbg-achievements')) || {};
@@ -1652,6 +1657,16 @@ P.checkAchievements = function () {
         this.unlockAch('boss');
     if (!(this.fallen || []).some(f => f.wave === this.wave))
         this.unlockAch('flawless');
+    if (Object.keys(this.relics || {}).length >= 6)
+        this.unlockAch('collector');
+    if ((this.totalKills || 0) >= 100)
+        this.unlockAch('slayer');
+    if ((this.factionBonds ? this.factionBonds() : []).length >= 1)
+        this.unlockAch('bondmaster');
+    if ((this.devices || []).length)
+        this.unlockAch('trapper');
+    if ((this.stageMonsterKills || 0) >= 3)
+        this.unlockAch('monster_hunter');
 };
 const LWB_EVENTS = [
     { id: 'refugees', title: '피난민 행렬', text: '곤도르 피난민 행렬이 성문을 지나치려 몰려듭니다.', options: [
