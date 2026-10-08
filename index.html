@@ -7383,84 +7383,84 @@ function mapZones(key, wave) {
 const MAP_PROP_SETS = {
     minas_tirith: [null,
         // 성문 앞 — 포트큘리스·석상·전투 잔해
-        [['terr_portcullis', 1165, 130, 180, 90], ['terr_ruined_gate', 130, 480, 140, 100], ['terr_siege_wreck', 2210, 900, 140, 90], ['terr_war_banner', 150, 1180, 60, 110], ['terr_rubble', 1050, 1410, 120, 60]],
+        [['terr_portcullis', 1165, 130, 180, 90], ['terr_siege_ladder', 2190, 1180, 90, 130],, ['terr_ruined_gate', 130, 480, 140, 100], ['terr_siege_wreck', 2210, 900, 140, 90], ['terr_war_banner', 150, 1180, 60, 110], ['terr_rubble', 1050, 1410, 120, 60]],
         // 펠렌노르 평원 — 농장·밀짚·울타리
         [['terr_haystack', 160, 480, 100, 90], ['terr_fence_gate', 2200, 700, 120, 50], ['terr_hay_cart', 150, 1240, 110, 80], ['terr_hedgerow', 2190, 1400, 140, 60]]],
     helms_deep: [null,
         // 협곡 입구 — 암석·바리케이드
-        [['terr_rock_outcrop', 140, 300, 140, 100], ['terr_spike_barricade', 2200, 400, 120, 70], ['terr_boulders', 150, 1240, 130, 80], ['terr_dead_tree', 2230, 1180, 90, 110]],
+        [['terr_rock_outcrop', 140, 300, 140, 100], ['terr_spike_barricade', 2200, 400, 120, 70], ['terr_wall_segment', 1160, 1400, 160, 90],, ['terr_boulders', 150, 1240, 130, 80], ['terr_dead_tree', 2230, 1180, 90, 110]],
         // 개울 하류 — 공성 잔해·사지
-        [['terr_siege_wreck', 200, 700, 140, 90], ['terr_bone_pile', 2180, 620, 100, 70], ['terr_ruined_wall', 1160, 130, 180, 80], ['terr_torch_post', 2200, 1240, 60, 90]]],
+        [['terr_siege_wreck', 200, 700, 140, 90], ['terr_siege_ladder', 2100, 300, 90, 130],, ['terr_bone_pile', 2180, 620, 100, 70], ['terr_ruined_wall', 1160, 130, 180, 80], ['terr_torch_post', 2200, 1240, 60, 90]]],
     moria: [null,
         // 기둥의 전당 — 부러진 기둥 행렬
-        [['terr_broken_pillar', 300, 260, 80, 110], ['terr_broken_pillar', 2040, 260, 80, 110], ['terr_stone_archway', 1160, 140, 160, 100], ['terr_bone_pile', 130, 1300, 100, 70], ['terr_chain_post', 2200, 1300, 70, 90]],
+        [['terr_broken_pillar', 300, 260, 80, 110], ['terr_loot_bag', 1160, 700, 70, 60],, ['terr_broken_pillar', 2040, 260, 80, 110], ['terr_stone_archway', 1160, 140, 160, 100], ['terr_bone_pile', 130, 1300, 100, 70], ['terr_chain_post', 2200, 1300, 70, 90]],
         // 깊은 계단 — 석관·폐허
-        [['terr_broken_stairs', 150, 560, 110, 90], ['terr_sarcophagus', 2180, 340, 100, 80], ['terr_bramble', 2180, 1240, 120, 60], ['terr_rubble', 160, 1240, 120, 80], ['terr_waystone', 1160, 1420, 70, 90]]],
+        [['terr_broken_stairs', 150, 560, 110, 90], ['terr_cage', 2040, 1180, 90, 90],, ['terr_sarcophagus', 2180, 340, 100, 80], ['terr_bramble', 2180, 1240, 120, 60], ['terr_rubble', 160, 1240, 120, 80], ['terr_waystone', 1160, 1420, 70, 90]]],
     black_gate: [null,
         // 북쪽 설원 — 바위·뼈대
-        [['terr_boulders', 140, 300, 130, 80], ['terr_mumak_skull', 2210, 420, 120, 80], ['terr_orc_barricade', 150, 1180, 130, 80], ['terr_dead_tree', 2210, 1240, 90, 110]],
+        [['terr_boulders', 140, 300, 130, 80], ['terr_tent', 150, 1240, 120, 90],, ['terr_mumak_skull', 2210, 420, 120, 80], ['terr_orc_barricade', 150, 1180, 130, 80], ['terr_dead_tree', 2210, 1240, 90, 110]],
         // 폐허 참호선 — 모래주머니·가시
-        [['terr_sandbag', 160, 480, 130, 70], ['terr_spike_line', 2200, 760, 130, 70], ['terr_orc_totem', 140, 1240, 70, 100], ['terr_trebuchet', 2150, 1300, 130, 110]]],
+        [['terr_sandbag', 160, 480, 130, 70], ['terr_wall_segment', 1100, 150, 160, 90],, ['terr_spike_line', 2200, 760, 130, 70], ['terr_orc_totem', 140, 1240, 70, 100], ['terr_trebuchet', 2150, 1300, 130, 110]]],
     edoras: [null,
         // 평원 들판 — 건초·목책
-        [['terr_haystack', 140, 300, 100, 90], ['terr_hay_cart', 2200, 480, 110, 80], ['terr_fence_gate', 150, 1400, 120, 50], ['terr_hedgerow', 2200, 1240, 140, 60]],
+        [['terr_haystack', 140, 300, 100, 90], ['terr_tent', 2150, 1200, 120, 90],, ['terr_hay_cart', 2200, 480, 110, 80], ['terr_fence_gate', 150, 1400, 120, 50], ['terr_hedgerow', 2200, 1240, 140, 60]],
         // 메두셀드 외곽 — 전당·기마대
         [['terr_war_banner', 2200, 300, 60, 110], ['terr_weapon_rack', 150, 700, 90, 80], ['terr_cart', 160, 1240, 110, 80], ['terr_torch_post', 2150, 1180, 60, 90]]],
     fangorn: [null,
         // 깊은 숲 — 거목·가시덤불
-        [['terr_oak_tree', 150, 560, 110, 130], ['terr_pine_copse', 2200, 620, 130, 110], ['terr_bramble', 150, 900, 130, 60], ['terr_dead_tree', 2200, 980, 90, 110], ['terr_beehive', 1160, 140, 90, 80]],
+        [['terr_oak_tree', 150, 560, 110, 130], ['terr_campfire', 1160, 730, 70, 70],, ['terr_pine_copse', 2200, 620, 130, 110], ['terr_bramble', 150, 900, 130, 60], ['terr_dead_tree', 2200, 980, 90, 110], ['terr_beehive', 1160, 140, 90, 80]],
         // 숲 가장자리 — 통나무·버섯
-        [['terr_fallen_log', 160, 420, 120, 60], ['terr_mushroom_ring', 2200, 480, 90, 70], ['terr_oak_tree', 140, 1300, 110, 130], ['terr_bramble', 2180, 1380, 130, 60]]],
+        [['terr_fallen_log', 160, 420, 120, 60], ['terr_campfire', 140, 900, 70, 70],, ['terr_mushroom_ring', 2200, 480, 90, 70], ['terr_oak_tree', 140, 1300, 110, 130], ['terr_bramble', 2180, 1380, 130, 60]]],
     gorgoroth: [null,
         // 용암 절벽 — 암석·화로
-        [['terr_rock_outcrop', 140, 300, 140, 100], ['terr_brazier', 2200, 560, 60, 70], ['terr_boulders', 150, 1180, 130, 80], ['terr_orc_totem', 2210, 1240, 70, 100]],
+        [['terr_rock_outcrop', 140, 300, 140, 100], ['terr_brazier', 2200, 560, 60, 70], ['terr_orc_camp', 1160, 130, 130, 110],, ['terr_boulders', 150, 1180, 130, 80], ['terr_orc_totem', 2210, 1240, 70, 100]],
         // 재의 평원 — 공성 잔해·우상
-        [['terr_idol', 2200, 300, 80, 110], ['terr_siege_wreck', 160, 620, 140, 90], ['terr_bone_pile', 2150, 1300, 100, 70], ['terr_mumak_skull', 140, 1240, 120, 80]]],
+        [['terr_idol', 2200, 300, 80, 110], ['terr_tent', 140, 900, 120, 90],, ['terr_siege_wreck', 160, 620, 140, 90], ['terr_bone_pile', 2150, 1300, 100, 70], ['terr_mumak_skull', 140, 1240, 120, 80]]],
     isengard: [null,
         // 공사 구덩이 — 가마·폭탄·목재
-        [['terr_fallen_log', 150, 300, 120, 60], ['terr_ammo_pile', 2200, 420, 100, 80], ['terr_crates', 160, 1240, 100, 80], ['terr_orc_barricade', 2180, 1400, 130, 80]],
+        [['terr_fallen_log', 150, 300, 120, 60], ['terr_map_table', 1160, 1420, 120, 80],, ['terr_ammo_pile', 2200, 420, 100, 80], ['terr_crates', 160, 1240, 100, 80], ['terr_orc_barricade', 2180, 1400, 130, 80]],
         // 물길 플랜트 — 방벽·포로 우리
-        [['terr_cage', 150, 620, 90, 90], ['terr_stone_barricade', 2200, 760, 130, 70], ['terr_anvil', 140, 1400, 90, 80], ['terr_torch_post', 2150, 1300, 60, 90]]],
+        [['terr_cage', 150, 620, 90, 90], ['terr_orc_camp', 140, 1180, 130, 110],, ['terr_stone_barricade', 2200, 760, 130, 70], ['terr_anvil', 140, 1400, 90, 80], ['terr_torch_post', 2150, 1300, 60, 90]]],
     amon_sul: [null,
         // 둥근 고개 — 스탠딩 스톤 원
-        [['terr_standing_stones', 1165, 300, 130, 100], ['terr_standing_stones', 150, 1240, 130, 100], ['terr_waystone', 2200, 760, 70, 90], ['terr_boulders', 140, 400, 130, 80]],
+        [['terr_standing_stones', 1165, 300, 130, 100], ['terr_ruined_tower', 2150, 1240, 120, 140],, ['terr_standing_stones', 150, 1240, 130, 100], ['terr_waystone', 2200, 760, 70, 90], ['terr_boulders', 140, 400, 130, 80]],
         // 무너진 돌무덤 — 고분·석관
-        [['terr_barrow', 140, 700, 120, 90], ['terr_sarcophagus', 2200, 620, 100, 80], ['terr_broken_stairs', 160, 1400, 110, 90], ['terr_dead_tree', 2210, 1180, 90, 110]]],
+        [['terr_barrow', 140, 700, 120, 90], ['terr_ruined_tower', 2100, 1400, 120, 140],, ['terr_sarcophagus', 2200, 620, 100, 80], ['terr_broken_stairs', 160, 1400, 110, 90], ['terr_dead_tree', 2210, 1180, 90, 110]]],
     osgiliath: [null,
         // 폐허 광장 — 잔해·기둥·동상
-        [['terr_broken_pillar', 300, 900, 80, 110], ['terr_ruined_wall', 1900, 900, 180, 80], ['terr_statue_head', 1160, 1400, 110, 90], ['terr_rubble', 300, 1300, 120, 80], ['terr_stone_archway', 1160, 120, 160, 100]],
+        [['terr_broken_pillar', 300, 900, 80, 110], ['terr_throne', 1160, 150, 100, 110],, ['terr_ruined_wall', 1900, 900, 180, 80], ['terr_statue_head', 1160, 1400, 110, 90], ['terr_rubble', 300, 1300, 120, 80], ['terr_stone_archway', 1160, 120, 160, 100]],
         // 강변 수풀 — 덤불·연못·난간
-        [['terr_bramble', 140, 480, 130, 60], ['terr_pond', 2200, 560, 130, 90], ['terr_hedgerow', 150, 1240, 140, 60], ['terr_broken_pillar', 2190, 1300, 80, 110]]],
+        [['terr_bramble', 140, 480, 130, 60], ['terr_loot_bag', 150, 1400, 70, 60],, ['terr_pond', 2200, 560, 130, 90], ['terr_hedgerow', 150, 1240, 140, 60], ['terr_broken_pillar', 2190, 1300, 80, 110]]],
     rivendell: [null,
         // 폭포 계곡 — 연못·우물
-        [['terr_pond', 2200, 620, 130, 90], ['terr_well', 150, 700, 90, 80], ['terr_oak_tree', 140, 1300, 110, 130], ['terr_mushroom_ring', 2200, 1380, 90, 70]],
+        [['terr_pond', 2200, 620, 130, 90], ['terr_palantir', 150, 480, 70, 90],, ['terr_well', 150, 700, 90, 80], ['terr_oak_tree', 140, 1300, 110, 130], ['terr_mushroom_ring', 2200, 1380, 90, 70]],
         // 숲속 정원 — 제단·정자
-        [['terr_relic_shrine', 2200, 300, 100, 110], ['terr_stone_archway', 150, 480, 160, 100], ['terr_oak_tree', 2200, 1240, 110, 130], ['terr_waystone', 140, 1400, 70, 90]]],
+        [['terr_relic_shrine', 2200, 300, 100, 110], ['terr_altar', 140, 1180, 90, 80],, ['terr_stone_archway', 150, 480, 160, 100], ['terr_oak_tree', 2200, 1240, 110, 130], ['terr_waystone', 140, 1400, 70, 90]]],
     lothlorien: [null,
         // 말론 숲 — 거목·버섯
-        [['terr_oak_tree', 2200, 480, 110, 130], ['terr_pine_copse', 150, 1180, 130, 110], ['terr_mushroom_ring', 2180, 1300, 90, 70], ['terr_beehive', 140, 700, 90, 80]],
+        [['terr_oak_tree', 2200, 480, 110, 130], ['terr_altar', 140, 1300, 90, 80],, ['terr_pine_copse', 150, 1180, 130, 110], ['terr_mushroom_ring', 2180, 1300, 90, 70], ['terr_beehive', 140, 700, 90, 80]],
         // 물가 초원 — 연못·덤불
         [['terr_pond', 150, 560, 130, 90], ['terr_bramble', 2200, 900, 130, 60], ['terr_oak_tree', 140, 1240, 110, 130], ['terr_waystone', 2210, 1400, 70, 90]]],
     erebor: [null,
         // 외로운 산 비탈 — 바위·보물
-        [['terr_rock_outcrop', 150, 300, 140, 100], ['terr_gold_pile', 2200, 480, 110, 80], ['terr_boulders', 2180, 1240, 130, 80], ['terr_chest_open', 150, 1400, 90, 70]],
+        [['terr_rock_outcrop', 150, 300, 140, 100], ['terr_gold_pile', 2200, 480, 110, 80], ['terr_throne', 1160, 130, 100, 110],, ['terr_boulders', 2180, 1240, 130, 80], ['terr_chest_open', 150, 1400, 90, 70]],
         // 호수 건너 — 연못·작업대
-        [['terr_pond', 1160, 1400, 150, 80], ['terr_anvil', 140, 620, 90, 80], ['terr_crates', 2200, 700, 100, 80], ['terr_bone_pile', 140, 1240, 100, 70]]],
+        [['terr_pond', 1160, 1400, 150, 80], ['terr_chest_closed', 140, 1180, 90, 70],, ['terr_anvil', 140, 620, 90, 80], ['terr_crates', 2200, 700, 100, 80], ['terr_bone_pile', 140, 1240, 100, 70]]],
     pelennor: [null,
         // 들판 농장 — 농기구·울타리
-        [['terr_cart', 2200, 300, 110, 80], ['terr_fence_gate', 160, 700, 120, 50], ['terr_haystack', 2150, 1300, 100, 90], ['terr_market_stall', 140, 1400, 110, 90]],
+        [['terr_cart', 2200, 300, 110, 80], ['terr_map_table', 150, 1240, 120, 80],, ['terr_fence_gate', 160, 700, 120, 50], ['terr_haystack', 2150, 1300, 100, 90], ['terr_market_stall', 140, 1400, 110, 90]],
         // 강변 초지 — 울타리·수풀
-        [['terr_hedgerow', 140, 480, 140, 60], ['terr_bramble', 2200, 620, 130, 60], ['terr_waystone', 150, 1300, 70, 90], ['terr_dead_tree', 2210, 1400, 90, 110]]],
+        [['terr_hedgerow', 140, 480, 140, 60], ['terr_campfire', 2200, 1180, 70, 70],, ['terr_bramble', 2200, 620, 130, 60], ['terr_waystone', 150, 1300, 70, 90], ['terr_dead_tree', 2210, 1400, 90, 110]]],
     dead_marshes: [null,
         // 밀집 웅덩이 — 연못·석관
-        [['terr_pond', 300, 480, 130, 90], ['terr_pond', 1900, 900, 130, 90], ['terr_sarcophagus', 140, 1240, 100, 80], ['terr_bone_pile', 2200, 1300, 100, 70]],
+        [['terr_pond', 300, 480, 130, 90], ['terr_altar', 150, 1180, 90, 80],, ['terr_pond', 1900, 900, 130, 90], ['terr_sarcophagus', 140, 1240, 100, 80], ['terr_bone_pile', 2200, 1300, 100, 70]],
         // 마른 갈대밭 — 덤불·고목
-        [['terr_bramble', 150, 400, 130, 60], ['terr_dead_tree', 2200, 300, 90, 110], ['terr_dead_tree', 140, 1180, 90, 110], ['terr_mushroom_ring', 2210, 1380, 90, 70]]],
+        [['terr_bramble', 150, 400, 130, 60], ['terr_loot_bag', 2180, 1180, 70, 60],, ['terr_dead_tree', 2200, 300, 90, 110], ['terr_dead_tree', 140, 1180, 90, 110], ['terr_mushroom_ring', 2210, 1380, 90, 70]]],
     dunharrow: [null,
         // 영혼의 길 — 스탠딩 스톤 행렬
-        [['terr_standing_stones', 900, 200, 130, 100], ['terr_standing_stones', 1400, 1300, 130, 100], ['terr_waystone', 150, 400, 70, 90], ['terr_torch_post', 2200, 700, 60, 90]],
+        [['terr_standing_stones', 900, 200, 130, 100], ['terr_altar', 150, 900, 90, 80],, ['terr_standing_stones', 1400, 1300, 130, 100], ['terr_waystone', 150, 400, 70, 90], ['terr_torch_post', 2200, 700, 60, 90]],
         // 풀밭 고원 — 초원 소품
-        [['terr_boulders', 2200, 400, 130, 80], ['terr_bramble', 140, 1000, 130, 60], ['terr_standing_stones', 2210, 1240, 130, 100], ['terr_torch_post', 150, 1400, 60, 90]]],
+        [['terr_boulders', 2200, 400, 130, 80], ['terr_chest_closed', 140, 620, 90, 70],, ['terr_bramble', 140, 1000, 130, 60], ['terr_standing_stones', 2210, 1240, 130, 100], ['terr_torch_post', 150, 1400, 60, 90]]],
 };
 function mapProps(key, wave) {
     const v = mapVariant(wave);
