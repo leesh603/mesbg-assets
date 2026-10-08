@@ -10332,6 +10332,7 @@ function renderDock(){
     if (_info && _info.boss)
         _chips += '<span class="hud-mod" style="border-color:#e08a5aaa;color:#ffb08a">보스 · ' + esc(q.meta.get(_info.boss).name_ko) + '</span>';
     if (q.weeklySeed) { const _wk = ['적 대군', '보스 러시', '근접전', '베테랑', '기병 전성', '모르도르의 광기', '강철의 전장', '궁술 경연', '긴 밤', '비열한 날', '강행군', '피의 전장'][q.weeklySeed % 12]; _chips += '<span class="hud-mod" style="border-color:#c9a84caa;color:#e8d08a">주간 · ' + _wk + '</span>'; }
+    if (q.challenge) { const _chl = (CHALLENGES.find(c=>c.id===q.challenge)||{}).label || q.challenge; _chips += '<span class="hud-mod" style="border-color:#b8452faa;color:#e8a88a">의뢰 · ' + _chl + '</span>'; }
     ut('ux-place').innerHTML = esc(place) + _chips;
     ut('wave').textContent=String(phase==='preparation'?q.wave+1:q.wave||1).padStart(2,'0');
     const rules={defense:`라운드 끝 · 구역에 적 ${q.breachCount}기면 패배`,annihilation:'남은 적을 모두 격파',hold:`거점 우세 ${q.capture||0}/3 라운드`,survive:`생존 ${q.round||0}/5 라운드`,breakthrough:'아군 2기를 남쪽 돌파선으로',rescue:q.rescued?`구출 후 생존 ${q.capture||0}/3`:'포로 구역 확보 후 3라운드 생존',commander:'보스를 처치하면 승리'};
