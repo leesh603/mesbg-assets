@@ -7685,7 +7685,7 @@ P.stageInfo = function (n) {
         ids.push(n > 8 ? 'saruman' : 'orc_captain');
     else if (n > 3)
         ids.push('orc_captain');
-    let modifier = n < 4 ? 'clear' : ['clear', 'rain', 'dark', 'reinforce', 'warg', 'ambush', 'cavalry', 'swarm', 'snow', 'eclipse', 'mud'][n % 11];
+    let modifier = n < 4 ? 'clear' : ['clear', 'rain', 'dark', 'reinforce', 'warg', 'ambush', 'cavalry', 'swarm', 'snow', 'eclipse', 'mud', 'gale', 'frost'][n % 13];
     if (modifier === 'clear' && n > 6 && n % 4 === 1)
         modifier = 'fog';
     if (modifier === 'warg')
@@ -7950,6 +7950,13 @@ P.beginRound = function () {
     if (_wm === 'eclipse')
         for (const u of this.alive())
             u.stats.courage = Math.max(1, u.stats.courage - 1);
+    if (_wm === 'gale')
+        for (const u of this.alive())
+            if (u.stats.shootRange)
+                u.stats.shootValue = Math.min(6, u.stats.shootValue + 1);
+    if (_wm === 'frost')
+        for (const u of this.alive())
+            u.stats.strength = Math.max(1, u.stats.strength - 1);
     if (this.current?.modifier === 'reinforce' && this.round % 3 === 0 && this.alive('evil').length < 26)
         this.spawnEnemies(['orc_sword', 'orc_archer']);
     if (this.delayed.length) {
@@ -9875,7 +9882,7 @@ Yt = function () {
     ut('objective').innerHTML = objectiveText();
     document.querySelector('.objective h3').textContent = CX.missionNames[q.mission] || '원정대';
     const info = q.phase === 'preparation' ? q.next : q.current;
-    const mod = { clear: '맑음', rain: '폭우 · 사거리 감소', dark: '어둠 · 사거리 감소', reinforce: '적 증원 · 3라운드마다', warg: '와르그 사냥대', ambush: '기습 · 측면 포위', cavalry: '기병 돌격', swarm: '고블린 떼', snow: '눈보라 · 사거리↓ 이동↓', eclipse: '일식 · 용기↓', mud: '진창 · 보병 이동↓' };
+    const mod = { clear: '맑음', rain: '폭우 · 사거리 감소', dark: '어둠 · 사거리 감소', reinforce: '적 증원 · 3라운드마다', warg: '와르그 사냥대', ambush: '기습 · 측면 포위', cavalry: '기병 돌격', swarm: '고블린 떼', snow: '눈보라 · 사거리↓ 이동↓', eclipse: '일식 · 용기↓', mud: '진창 · 보병 이동↓', gale: '강풍 · 궁수 명중↓', frost: '서리 · 힘↓' };
     const _zn=MAP_ZONE_NAMES[CX.maps[visualMapIdx(q.mapIndex)]],_zv=mapVariant(q.wave||1);
     document.querySelector('.map-label').innerHTML = `<b>${CX.mapNames[visualMapIdx(q.mapIndex)]}${_zn?.[_zv]?' · '+_zn[_zv]:''}</b>${mod[info?.modifier || 'clear']}`;
     ut('action').textContent = q.phase === 'preparation' ? `스테이지 ${q.wave + 1} 출전 →` : q.phase === 'fight' ? q.fightQueue.length ? `교전 해결 · ${q.fightQueue.length}곳` : '라운드 종료 →' : '전투 진행 중';
@@ -10409,7 +10416,7 @@ function renderDock(){
     const place=CX.mapNames[visualMapIdx(q.mapIndex)]+(_zn?' · '+_zn:'');
     const _info = q.phase === 'preparation' ? q.next : q.current;
     const _mod = (_info && _info.modifier) || 'clear';
-    const _MN = { rain: '폭우 · 사거리↓ 명중↓', dark: '어둠 · 사거리↓ 명중↓', fog: '안개 · 사거리↓↓ 명중↓', reinforce: '적 증원', warg: '와르그 사냥대', ambush: '기습 포위', cavalry: '기병 돌격', swarm: '고블린 떼', snow: '눈보라 · 사거리↓ 이동↓', eclipse: '일식 · 용기↓', mud: '진창 · 보병 이동↓' };
+    const _MN = { rain: '폭우 · 사거리↓ 명중↓', dark: '어둠 · 사거리↓ 명중↓', fog: '안개 · 사거리↓↓ 명중↓', reinforce: '적 증원', warg: '와르그 사냥대', ambush: '기습 포위', cavalry: '기병 돌격', swarm: '고블린 떼', snow: '눈보라 · 사거리↓ 이동↓', eclipse: '일식 · 용기↓', mud: '진창 · 보병 이동↓', gale: '강풍 · 궁수 명중↓', frost: '서리 · 힘↓' };
     const _MC = { rain: '#8fb8e8', dark: '#a89ae0', fog: '#b8c4c0', reinforce: '#e09a6a', warg: '#d4b45a', ambush: '#e06a6a', cavalry: '#8fc48f', swarm: '#c4b05a', snow: '#cfe4f5', eclipse: '#b094d8', mud: '#a88a5a' };
     let _chips = _MN[_mod] ? '<span class="hud-mod" style="border-color:' + _MC[_mod] + 'aa;color:' + _MC[_mod] + '">' + _MN[_mod] + '</span>' : '';
     if (_info && _info.boss)
