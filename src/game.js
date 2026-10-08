@@ -334,7 +334,7 @@ function be(Z, Y) { if (Z.engaged(Y) || Z.remaining(Y) < 12)
 function He(Z) { const Y = Z.eligible()[0]; if (!Y) {
     Z.advance();
     return;
-} if (Z.phase === "move") {
+} if (UX.ready && !UX.reduced && (Z.mode === 'ai' && Z.side === 'evil' || AUTO)) { const _p = screenAt(Y.x, Y.y); (_p.x < 60 || _p.x > UX.width - 60 || _p.y < 70 || _p.y > UX.height - 70) && panTo(Y.x, Y.y, UX.zoom, Math.max(120, 340 / qt)); } if (Z.phase === "move") {
     const __sk = CX.skills[Y.id];
     if (__sk && !Z.skillReason(Y)) {
         const __fx = __sk[4], __foeIds = ["sauron", "witchking_fellbeast", "witchking_foot", "witchking_foot_mace", "witchking_mounted", "saruman", "boromir", "grima", "barrow_wight", "mouth_of_sauron", "necromancer", "king_of_the_dead", "melkor", "luthien", "nazgul_sword", "nazgul_sword_2", "nazgul_mace", "nazgul_mounted", "dwimmerlaik", "khamul", "muzgur", "gandalf", "gandalf_mounted"];
@@ -3076,12 +3076,25 @@ function setCamera(x,y,z=UX.zoom,mode=UX.cameraMode){
     c.panEffect.reset();c.shakeEffect.reset();c.setZoom(UX.zoom*UX.dpr).centerOn(x,y);c.preRender();
     Tt.drawRings();updateWorldUI();
 }
+// panTo: 유닛 추적·턴 전환용 부드러운 카메라 이동. 수동 팬·핀치는 setCamera 그대로 둡니다.
+function panTo(x,y,z=UX.zoom,ms=320){
+    if(!UX.ready)return;
+    if(UX.reduced||ms<=0){setCamera(x,y,z,'tactical');return;}
+    UX.zoom=Ot.Math.Clamp(z,Math.max(.12,fitZoom()),1.65);UX.cameraMode='tactical';
+    const halfW=UX.width/(2*UX.zoom),halfH=UX.height/(2*UX.zoom);
+    x=halfW>=pt.width/2?pt.width/2:Ot.Math.Clamp(x,halfW,pt.width-halfW);
+    y=halfH>=pt.height/2?pt.height/2:Ot.Math.Clamp(y,halfH,pt.height-halfH);
+    const c=Tt.cameras.main;c.panEffect.reset();c.shakeEffect.reset();
+    c.pan(x,y,ms,'Sine.easeInOut',true);
+    if(Math.abs(c.zoom-UX.zoom*UX.dpr)>.001)c.zoomTo(UX.zoom*UX.dpr,ms);
+    Tt.drawRings();updateWorldUI();
+}
 function worldAt(x,y){const c=cameraCenter();return{x:c.x+(x-UX.width/2)/UX.zoom,y:c.y+(y-UX.height/2)/UX.zoom}}
 function screenAt(x,y){const c=cameraCenter();return{x:(x-c.x)*UX.zoom+UX.width/2,y:(y-c.y)*UX.zoom+UX.height/2}}
 function zoomAt(z,x=UX.width/2,y=UX.height/2){const p=worldAt(x,y);z=Ot.Math.Clamp(z,Math.max(.12,fitZoom()),1.65);setCamera(p.x-(x-UX.width/2)/z,p.y-(y-UX.height/2)/z,z,'manual');}
 Ve.prototype.zoom=function(delta){zoomAt(UX.zoom*(delta>0?1.2:1/1.2));};
 Ve.prototype.overview=function(){setCamera(pt.width/2,pt.height/2,fitZoom(),'overview')};
-Ve.prototype.focus=function(){const u=actionableUnit()||this.b.unit(this.b.selected);if(u?.alive){setCamera(u.x,u.y,UX.cameraMode==='overview'?(mobileLayout()?.78:.82):UX.zoom,'manual')}};
+Ve.prototype.focus=function(){const u=actionableUnit()||this.b.unit(this.b.selected);if(u?.alive){panTo(u.x,u.y,UX.cameraMode==='overview'?(mobileLayout()?.78:.82):UX.zoom,320)}};
 Ve.prototype.center=function(x,y){setCamera(x,y,UX.zoom,'manual')};
 ut('offscreen-unit').onclick=()=>Tt.focus();
 function resetGestures(){for(const id of UX.pointers.keys()){try{Tt.game.canvas.releasePointerCapture(id)}catch{}}UX.pointers.clear();UX.gesture=null;Tt.dragStart=undefined;Tt.dragUnit='';Tt.preview=undefined;Tt.previewPlan=null;Tt.chargeTarget=null;}
@@ -3162,7 +3175,7 @@ Ve.prototype.sync=function(){
     }
     if(this.b.phase==='menu'){UX.stage=null;return;}
     const stage=(this.b.phase==='preparation'?this.b.wave+1:this.b.wave)+'/'+(this.b.mapIndex||0);
-    if(stage!==UX.stage&&['preparation','move','shoot','fight'].includes(this.b.phase)){UX.stage=stage;const team=this.b.alive('good');const x=team.length?team.reduce((n,u)=>n+u.x,0)/team.length:1165;const z=mobileLayout()?Math.max(.55,Math.min(.8,UX.height/(pt.height*.72))):.82;const y=this.b.mission==='defense'?(mobileLayout()&&innerHeight>innerWidth?600-Math.min(78,UX.height*.16)/z:590):690;setCamera(x,y,z,'tactical')}
+    if(stage!==UX.stage&&['preparation','move','shoot','fight'].includes(this.b.phase)){UX.stage=stage;const team=this.b.alive(['move','shoot'].includes(this.b.phase)?this.b.side:'good');const x=team.length?team.reduce((n,u)=>n+u.x,0)/team.length:1165;const z=mobileLayout()?Math.max(.55,Math.min(.8,UX.height/(pt.height*.72))):.82;const y=this.b.mission==='defense'?(mobileLayout()&&innerHeight>innerWidth?600-Math.min(78,UX.height*.16)/z:590):690;panTo(x,y,z,430)}
     updateWorldUI();
 };
 const clarityRings=Ve.prototype.drawRings;
@@ -3256,7 +3269,7 @@ function renderDock(){
     const team=q.phase==='preparation'||q.mode==='ai'?q.alive('good'):q.alive(q.side);
     const signature=team.map(v=>[v.uid,v.id].join(':')).join('|');
     if(signature!==UX.rosterKey){UX.rosterKey=signature;ut('roster-strip').innerHTML=team.map(v=>`<button class="roster-unit tier-${heroGrade(v.id)}" type="button" data-unit="${v.uid}" aria-label="${esc(v.name)} 선택"><img src="${Ut(q.meta.get(v.id).file)}" alt=""></button>`).join('');
-        ut('roster-strip').querySelectorAll('[data-unit]').forEach(btn=>btn.onclick=()=>{if(At||Qt)return;Zt(btn.dataset.unit);const v=q.unit(btn.dataset.unit);if(v?.alive){const p=screenAt(v.x,v.y);if(p.x<40||p.x>UX.width-40||p.y<48||p.y>UX.height-48)setCamera(v.x,v.y,UX.cameraMode==='overview'?.78:UX.zoom,'manual')}});
+        ut('roster-strip').querySelectorAll('[data-unit]').forEach(btn=>btn.onclick=()=>{if(At||Qt)return;Zt(btn.dataset.unit);const v=q.unit(btn.dataset.unit);if(v?.alive){const p=screenAt(v.x,v.y);if(p.x<40||p.x>UX.width-40||p.y<48||p.y>UX.height-48)panTo(v.x,v.y,UX.cameraMode==='overview'?.78:UX.zoom,280)}});
     }
     for(const btn of ut('roster-strip').children){const v=q.unit(btn.dataset.unit);const spent=v.acted&&['move','shoot'].includes(phase);btn.classList.toggle('is-active',v.uid===active?.uid);btn.classList.toggle('is-selected',v.uid===q.selected);btn.classList.toggle('is-spent',spent);btn.style.setProperty('--hp',String(Math.max(0,Math.min(1,v.currentWounds/Math.max(1,v.stats.wounds)))));btn.setAttribute('aria-pressed',String(v.uid===q.selected));btn.title=v.name+' · '+(v.uid===active?.uid?'현재 행동':spent?'행동 완료':'선택');btn.disabled=At;}
     ut('next-unit').disabled=At||AUTO||q.mode==='ai'&&q.side==='evil'||!['preparation','move','shoot'].includes(phase);
@@ -3519,7 +3532,7 @@ Yt=function(){const key=q.phase+'/'+q.campStep,modal=ut('overlay').querySelector
     renderBeforeV14();if(!Qt&&q.phase==='reward'&&q.campStep==='recruit')renderRecruitDraft();
     const nextModal=ut('overlay').querySelector('.modal');if(nextModal)nextModal.scrollTop=scroll;ut('roster-strip').scrollLeft=strip;
     const active=actionableUnit();if(UX.ready&&active&&active.uid!==uiActive&&!At&&!UX.gesture&&q.side==='good'){
-        const pos=screenAt(active.x,active.y);if(pos.x<50||pos.x>UX.width-50||pos.y<80||pos.y>UX.height-72)setCamera(active.x,active.y,UX.zoom,'tactical');
+        const pos=screenAt(active.x,active.y);if(pos.x<50||pos.x>UX.width-50||pos.y<80||pos.y>UX.height-72)panTo(active.x,active.y,UX.zoom,260);
         const btn=ut('roster-strip').querySelector(`[data-unit="${active.uid}"]`);if(btn){const left=btn.offsetLeft,stripEl=ut('roster-strip');if(left<stripEl.scrollLeft||left+btn.offsetWidth>stripEl.scrollLeft+stripEl.clientWidth)stripEl.scrollLeft=Math.max(0,left-stripEl.clientWidth/2+btn.offsetWidth/2);}}
     uiPhase=key;uiActive=active?.uid||'';renderDock();
 };
@@ -4562,7 +4575,7 @@ Yt();
 ut("overview").onclick = () => Tt.overview();
 ut("focus").onclick = () => Tt.focus();
 const re = ut("minimap");
-re.onpointerdown = Z => { const Y = re.getBoundingClientRect(); Tt.center((Z.clientX - Y.left) / Y.width * pt.width, (Z.clientY - Y.top) / Y.height * pt.height); };
+re.onpointerdown = Z => { const Y = re.getBoundingClientRect(); panTo((Z.clientX - Y.left) / Y.width * pt.width, (Z.clientY - Y.top) / Y.height * pt.height, UX.zoom, 300); };
 function xe() { var $; const Z = ut("minimap"); if (document.hidden || !Z.offsetParent) return; const Y = Z.getContext("2d"), b = Z.width / pt.width, H = Z.height / pt.height; Y.clearRect(0, 0, Z.width, Z.height), Y.fillStyle = "#263a37", Y.fillRect(0, 0, Z.width, Z.height); for (const p of q.terrain.filter(S => S.active))
     Y.fillStyle = p.kind === "block" ? "#8c9480" : "#b6a27b", Y.fillRect((p.x - p.w / 2) * b, (p.y - p.h / 2) * H, p.w * b, p.h * H); for (const p of q.alive())
     Y.fillStyle = p.side === "good" ? "#b9e8f6" : "#ee9879", Y.beginPath(), Y.arc(p.x * b, p.y * H, p.traits.includes("hero") ? 3.3 : 2.3, 0, 7), Y.fill(), p.uid === (q.activeMoverUid || q.selected) && (Y.strokeStyle = "#f17b70", Y.lineWidth = 2, Y.beginPath(), Y.arc(p.x * b, p.y * H, 6, 0, 7), Y.stroke()); const K = ($ = Tt.cameras) == null ? void 0 : $.main; K && (Y.strokeStyle = "#f0d89b", Y.lineWidth = 1, Y.strokeRect(K.worldView.x * b, K.worldView.y * H, K.worldView.width * b, K.worldView.height * H)); }
