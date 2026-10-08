@@ -124,7 +124,7 @@ Ae=[{id:"warrior_minas_tirith",name_ko:"미나스 티리스 전사",name_en:"War
 class Ve extends Ot.Scene {
     constructor() { super("battle"); lt(this, "b"); lt(this, "soundFX"); lt(this, "asset"); lt(this, "onPoint"); lt(this, "onUnit"); lt(this, "onDrop"); lt(this, "tokens", new Map); lt(this, "rings"); lt(this, "terrainLayer"); lt(this, "labels"); lt(this, "dragStart"); lt(this, "dragUnit", ""); lt(this, "busy", !1); lt(this, "focusedUid", ""); lt(this, "preview"); lt(this, "previewPlan"); lt(this, "previewAt", 0); }
     preload() { this.load.maxParallelDownloads = 8; this.load.image("gate-art", this.asset("backgrounds/bg_minas_gate.png?v=p2")); this.load.image("terr_barricade", this.asset("tokens/terr_barricade.png?v=p2")); this.load.image("terr_bomb", this.asset("tokens/terr_bomb.png?v=p2")), this.load.image("terr_ballista", this.asset("tokens/terr_ballista.png?v=p2")), this.load.image("terr_brazier", this.asset("tokens/terr_brazier.png?v=p2")); for (const b of this.b.meta.values())
-        this.load.image(b.id, this.asset(b.file)); }
+        if (b.side === 'terrain' && b.file) this.load.image(b.id, this.asset(b.file)); }
     create() { this.drawMap(), this.terrainLayer = this.add.container(0, 0), this.rings = this.add.graphics().setDepth(3), this.labels = this.add.container(0, 0).setDepth(8), this.cameras.main.setBounds(0, 0, pt.width, pt.height), this.cameras.main.setZoom(this.scale.width < 850 ? .85 : 1), this.cameras.main.centerOn(1165, 720), this.input.addPointer(1), this.input.on("pointerdown", b => { this.dragStart = { x: b.worldX, y: b.worldY }; const H = this.hit({ x: b.worldX, y: b.worldY }); this.dragUnit = (H == null ? void 0 : H.uid) || ""; }), this.input.on("pointerup", b => { if (this.busy)
         return; const H = { x: b.worldX, y: b.worldY }; if (!this.dragUnit && this.dragStart && Math.hypot(b.x - b.downX, b.y - b.downY) > 10) {
         this.dragStart = void 0;
@@ -165,7 +165,7 @@ class Ve extends Ot.Scene {
         let K = this.tokens.get(H.uid);
         if (!H.alive || H.escaped) { if (K && !this.busy) { K.destroy(); this.tokens.delete(H.uid); } continue; }
         if (K && K.getData("assetId") !== H.id && (K.destroy(), this.tokens.delete(H.uid), K = void 0), !K) {
-            const p = this.add.ellipse(3, 6, H.radius * 2.15, H.radius * 1.6, 594704, .5), S = this.textures.get(H.id).getSourceImage(), t = S.width / S.height, f = (H.artScale || 1) * Math.min(H.radius * 2.15, H.radius * 2 * Math.min(t, 1 / t)), c = this.add.image(0, 0, H.id).setDisplaySize(f * (t > 1 ? t : 1), f * (t > 1 ? 1 : 1 / t)).setName("token"), o = this.add.circle(0, 0, H.radius).setStrokeStyle(H.traits.includes("hero") ? 3 : 2, H.side === "good" ? 10276837 : 15242357, .9).setName("rim"), r = this.add.text(0, H.radius + 8, H.traits.includes("hero") ? H.name : H.uid.toUpperCase(), { fontFamily: "Pretendard", fontSize: "12px", color: H.side === "good" ? "#e1eff0" : "#f0c4ae", backgroundColor: "#172223bb", padding: { x: 3, y: 2 } }).setOrigin(.5).setName("label");
+            const p = this.add.ellipse(3, 6, H.radius * 2.15, H.radius * 1.6, 594704, .5), _tid = this.textures.exists(H.id) ? H.id : this._wantTex(H.id), S = this.textures.get(_tid).getSourceImage(), t = S.width / S.height, f = (H.artScale || 1) * Math.min(H.radius * 2.15, H.radius * 2 * Math.min(t, 1 / t)), c = this.add.image(0, 0, _tid).setDisplaySize(f * (t > 1 ? t : 1), f * (t > 1 ? 1 : 1 / t)).setName("token"), o = this.add.circle(0, 0, H.radius).setStrokeStyle(H.traits.includes("hero") ? 3 : 2, H.side === "good" ? 10276837 : 15242357, .9).setName("rim"), r = this.add.text(0, H.radius + 8, H.traits.includes("hero") ? H.name : H.uid.toUpperCase(), { fontFamily: "Pretendard", fontSize: "12px", color: H.side === "good" ? "#e1eff0" : "#f0c4ae", backgroundColor: "#172223bb", padding: { x: 3, y: 2 } }).setOrigin(.5).setName("label");
             const m = this.add.image(0, -H.radius - 14, 'fx-clash').setName("clash").setVisible(!1), m2 = this.add.image(0, -H.radius - 14, 'fx-prone').setName("prone").setVisible(!1), m3 = this.add.image(0, -H.radius - 14, 'fx-terror').setName("terror").setVisible(!1), m4 = this.add.image(0, -H.radius - 14, 'fx-charge').setName("charge").setVisible(!1), m5 = this.add.image(0, -H.radius - 14, 'fx-halfmove').setName("halfmove").setVisible(!1);
             K = this.add.container(H.x, H.y, [p, c, o, r, m, m2, m3, m4, m5]).setDepth(5), K.setData("assetId", H.id), this.tokens.set(H.uid, K);
         }
@@ -357,7 +357,7 @@ const __ASSET_SET__ = new Set([...Object.keys(window.__MESBG_ASSETS__ || {}), ..
 const Th = Z => { const m = /^tokens\/(.+)\.png/.exec(Z || ''); return m ? Ut('thumbs/' + m[1] + '.webp') : Ut(Z); }, ThFallback = 'this.onerror=null;this.src=this.dataset.full';
 pe.textContent = `@font-face{font-family:Pretendard;src:url('${Ut("fonts/PretendardVariable.woff2")}') format('woff2');font-weight:100 900;font-display:swap}`;
 document.head.append(pe);
-(function(){const go=()=>{const seen=new Set(),pool=[];for(const m of window.CAMPAIGN_META||[]){if(m&&m.side==='good'&&m.file&&!seen.has(m.file)){seen.add(m.file);pool.push(m.file);}}let i=0;const step=()=>{for(let k=0;k<24&&i<pool.length;k++){const im=new Image();im.fetchPriority='high';im.src=Th(pool[i++]);}if(i<pool.length)setTimeout(step,60);};step();};if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();})();
+(function(){const go=()=>{const seen=new Set(),pool=[];for(const m of window.CAMPAIGN_META||[]){if(m&&m.side==='good'&&m.file&&!seen.has(m.file)){seen.add(m.file);pool.push(m.file);}}let i=0;const step=()=>{for(let k=0;k<24&&i<pool.length;k++){const im=new Image();im.fetchPriority='low';im.src=Th(pool[i++]);}if(i<pool.length)setTimeout(step,60);};step();};const _boot=()=>{if(document.body.classList.contains('assets-ready'))return go();const mo=new MutationObserver(()=>{if(document.body.classList.contains('assets-ready')){mo.disconnect();go();}});mo.observe(document.body,{attributeFilter:['class']});setTimeout(go,9000);};if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',_boot);else _boot();})();
 document.addEventListener("visibilitychange", () => { const Z = document.hidden; Z ? (wt.__resumeOnShow = !!(wt.music && !wt.music.paused), wt.music && wt.music.pause()) : (wt.__resumeOnShow && !wt.muted && wt.music && wt.music.play().catch(() => { }), wt.__resumeOnShow = !1); wt.context && (Z ? wt.context.state === "running" && wt.context.suspend() : wt.context.state === "suspended" && wt.context.resume().catch(() => { })); });
 const q = new ze(Me.units), wt = new We, Tt = new Ve;
 Tt.b = q;
@@ -2314,9 +2314,25 @@ Ve.prototype.preload = function () {
     }
     for (const name of ['slash', 'thrust', 'smash', 'shoot', 'cast', 'pounce', 'rally', 'blood', 'clash', 'prone', 'terror', 'charge', 'halfmove'])
         this.load.image('fx-' + name, this.asset('effects/fx_' + name + '.png'));
-    for (const [id, u] of q.meta)
-        if (u.side !== 'terrain')
-            this.load.image('base-' + id, this.asset(baseFile(u)));
+    // 베이스 링은 53개 고유 파일만 받는다 (유닛당 1건씩 큐잉하던 것을 중복 제거).
+    { const _bf = new Set(); for (const [, u] of q.meta) if (u.side !== 'terrain') _bf.add(baseFile(u)); for (const f of _bf) this.load.image('basefile:' + f, this.asset(f)); }
+};
+// 지연 로드: 전장에 스폰된 유닛의 토큰만 받는다 — 부팅 프리로드에 전체 로스터를 받지 않음.
+Ve.prototype._wantTex = function (id) {
+    const m = q.meta.get(id); if (!m || !m.file) return 'unit-pending';
+    (this._texQ ||= new Set());
+    if (!this._texQ.has(id)) {
+        this._texQ.add(id);
+        this.load.image(id, this.asset(m.file));
+        this.load.once('filecomplete-image-' + id, () => {
+            this._texQ.delete(id);
+            for (const u of this.b.units) { const c = this.tokens.get(u.uid); if (c && c.getData('assetId') === id) { c.destroy(); this.tokens.delete(u.uid); } }
+            this.sync();
+        });
+        this.load.start();
+    }
+    if (!this.textures.exists('unit-pending')) { const g0 = this.add.graphics(); g0.fillStyle(0x3a4438, 1); g0.fillCircle(32, 32, 30); g0.lineStyle(3, 0x9aa38a, .8); g0.strokeCircle(32, 32, 27); g0.generateTexture('unit-pending', 64, 64); g0.destroy(); }
+    return 'unit-pending';
 };
 Ve.prototype.drawMap = function () { this.backdrop = this.add.image(pt.width / 2, pt.height / 2, 'map-minas_tirith').setDisplaySize(pt.width, pt.height).setTint(0xb6b5a4); this.boundary = this.add.graphics().setDepth(2); this.objectiveLabel = this.add.text(0, 0, '', { fontFamily: 'Pretendard', fontSize: '22px', color: '#e7ddbd', backgroundColor: '#20231de6', padding: { x: 10, y: 6 } }).setOrigin(.5).setDepth(4); };
 // Selection prefers the active unit, then the moving side, then the nearest base within reach.
@@ -2409,7 +2425,7 @@ Ve.prototype.sync = function () {
             sprite.setData('cxy', __figCenterPx(this.textures.get(u.id).getSourceImage(), sprite.displayWidth, sprite.displayHeight));
         }
         if (!c.getByName('base')) {
-            const key = 'base-' + u.id, base = this.textures.exists(key) ? this.add.image(0, 0, key).setDisplaySize(u.radius * 2.45, u.radius * 2.45).setName('base') : this.add.ellipse(0, 1, u.radius * 2.3, u.radius * 1.75, u.side === 'good' ? 0x87897a : 0x3a332c, .97).setStrokeStyle(2, u.side === 'good' ? 0xc9c4a8 : 0x6b4a3c).setName('base');
+            const _bm = q.meta.get(u.id), key = _bm ? 'basefile:' + baseFile(_bm) : 'basefile:bases/base_gondor_M.png', base = this.textures.exists(key) ? this.add.image(0, 0, key).setDisplaySize(u.radius * 2.45, u.radius * 2.45).setName('base') : this.add.ellipse(0, 1, u.radius * 2.3, u.radius * 1.75, u.side === 'good' ? 0x87897a : 0x3a332c, .97).setStrokeStyle(2, u.side === 'good' ? 0xc9c4a8 : 0x6b4a3c).setName('base');
             c.addAt(base, 1);
         }
         sprite.setAlpha(1); // Spent units use the cached grayscale texture in the clarity adapter.
@@ -2633,6 +2649,7 @@ Ve.prototype.play = async function (e) { if (e.type === 'HeroSkill') {
 } return oldPlay.call(this, e); };
 // UI helpers use the same images as the battlefield and inventory.
 const PATCH_NOTES = [
+    ['v1.13', ['전장 로딩 대폭 단축 — 부팅 시 필요한 에셋만 받고 유닛 토큰은 등장할 때 지연 로드', 'BGM 다이나믹 — 메뉴·야영지에서 잦아들고 보스전에서 고조', '승리·패배 팡파레', '도크에 배속 퀵버튼 (×1/×2/×4)', '킬스트릭 표시 + 광전사 금화 보상', '유닛 배치 후 다음 미배치 병사 자동 선택', '스테이지 전환·교전 추적 시 부드러운 카메라 이동', '도전 의뢰 — 강한 적 대신 금화 추가', '엘리트 적 표식 + 처치 보상']],
     ['v1.12', ['타이틀 화면 개편', '영입·패널 초상화가 바로 뜨도록 경량 이미지와 로딩 표시 추가', '영웅·유물 등급 색 구분 강화']],
     ['v1.11', ['유닛 카드에 상성 힌트 표시 (기병·창·사격 등)', '진행 속도 + ↺ 직전 라운드 되돌리기', '영웅 장비 상점: 전투검·판금갑옷·사냥활·전투기·치유연고', '전장에 중립 화약통 — 어느 쪽이든 근접하면 폭발', '야영지에서 다음 전투 적 편성·진입 방향 정찰 보고', '유명 조합 영웅이 나란히 서면 가끔 대사', '이번 주 원정 모드 — 주마다 다른 규칙 + 주간 최고 기록', '영웅 처치 +2 CP · 거점 점령 진행 시 다음 라운드 +1 CP']],
     ['v1.10', ['동맹 지원병이 스스로 진형을 잡고 행동합니다 (플레이어 조작 불필요)', '같은 진영 아군이 근접하면 결투 +1 (전우 유대)', '야영지 함정: 투석기 · 불통 — 다음 전투에서 자동 발동', '발로그 공포 강화: 근처 아군 결투 -1, 공포 검사 더 어려움', '패배 시 금화 60으로 같은 스테이지 재도전', '업적 시스템 — 명예의 전당에 배지 표시', '결과 화면에 기록 공유 코드']],
@@ -2780,7 +2797,7 @@ Qe = function () {
             canResume = !!localStorage.getItem('mesbg-endless-save');
         }
         catch { }
-        box.innerHTML = `<div class="modal campaign-menu t-title" style="--title-bg:url('${Ut('ui/title-bg.jpg')}')"><div class="t-ver">Ver 1.12<br>난이도 : ${({easy:'쉬움',normal:'보통',hard:'어려움'})[q.difficulty || 'normal']}</div><div class="intro-layout"><h1 class="logo"><img src="${Ut('ui/logo.png')}" width="424" height="140" alt="Middle-earth Warbands · 미들어스 워밴드"></h1><svg class="t-fili" viewBox="0 0 380 40" fill="none" stroke="#cfd3dc" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M190 8 C170 30 140 4 120 18 C104 30 86 10 70 20 C58 28 46 18 40 26"/><path d="M190 8 C210 30 240 4 260 18 C276 30 294 10 310 20 C322 28 334 18 340 26"/><path d="M120 18 C116 8 128 4 130 12"/><path d="M260 18 C264 8 252 4 250 12"/><path d="M70 20 C64 12 74 6 78 12"/><path d="M310 20 C316 12 306 6 302 12"/><path d="M184 6 L190 0 L196 6 L190 14 Z" fill="#e8e2d0"/></svg><div class="logo-ko">미들어스 워밴드</div></div><button id="start-ai" class="t-touch"><svg viewBox="0 0 56 16" aria-hidden="true"><path d="M0 8h34M38 8l6-6 6 6-6 6z M50 8h6" stroke="currentColor" stroke-width="2" fill="none"/></svg><span>TOUCH</span><svg viewBox="0 0 56 16" aria-hidden="true"><path d="M0 8h34M38 8l6-6 6 6-6 6z M50 8h6" stroke="currentColor" stroke-width="2" fill="none"/></svg></button>${canResume ? '<button id="resume" class="t-resume">원정 계속하기</button>' : ''}<p class="t-tip">♪ 소리를 켜면 중간계의 전장을 더 생생하게 즐길 수 있습니다.</p><div id="boot-load" class="boot-load" aria-live="polite"><i><b></b></i><span>전장 준비 중</span></div><div class="t-btns"><button id="daily" class="t-btn">오늘의 도전</button><button id="rank-btn" class="t-btn">명예의 전당</button><button id="t-menu-open" class="t-btn">메뉴</button></div><div class="menu-notes"><span>최고 기록 ${q.readBest()}스테이지 · 정비 때 자동 저장</span></div><div id="t-menu" class="t-menu hidden"><div class="t-sheet"><div class="t-sheet-title">메뉴</div><nav class="menu-buttons to-menu">${[1, 2, 3].map(n => { const s = q.slotInfo(n); return s ? `<button class="to-item slot-btn" data-slot="${n}">슬롯 ${n} 이어하기<small>${s.wave}스테이지 · ${s.count}명</small></button>` : ''; }).join('')}<button id="weekly" class="to-item">이번 주 원정<small>${['대군', '보스 러시', '근접전', '베테랑'][Math.floor(Date.now() / 6048e5) % 4]}</small></button><button id="start-hotseat" class="to-item">2인 번갈아<small>한 기기로 대전</small></button><button id="patch-notes" class="to-item">최근 변경</button><div class="diff-row" role="group" aria-label="난이도"><span>난이도</span>${[['easy','쉬움'],['normal','보통'],['hard','어려움']].map(([d,label]) => `<button class="diff-btn ${(q.difficulty || 'normal') === d ? 'active' : ''}" data-diff="${d}">${label}</button>`).join('')}</div></nav>${LWB_API ? '<details class="cloud-box"><summary>다른 기기의 원정 불러오기</summary><div class="save-slots cloud-save"><input id="cloud-id" maxlength="24" placeholder="아이디"><input id="cloud-pw" type="password" maxlength="24" placeholder="비번"><button class="secondary mini" id="cloud-load">불러오기</button><span id="cloud-msg" class="mini"></span></div></details>' : ''}<button class="t-close">닫기</button></div></div></div>`;
+        box.innerHTML = `<div class="modal campaign-menu t-title" style="--title-bg:url('${Ut('ui/title-bg.jpg')}')"><div class="t-ver">Ver 1.13<br>난이도 : ${({easy:'쉬움',normal:'보통',hard:'어려움'})[q.difficulty || 'normal']}</div><div class="intro-layout"><h1 class="logo"><img src="${Ut('ui/logo.png')}" width="424" height="140" alt="Middle-earth Warbands · 미들어스 워밴드"></h1><svg class="t-fili" viewBox="0 0 380 40" fill="none" stroke="#cfd3dc" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M190 8 C170 30 140 4 120 18 C104 30 86 10 70 20 C58 28 46 18 40 26"/><path d="M190 8 C210 30 240 4 260 18 C276 30 294 10 310 20 C322 28 334 18 340 26"/><path d="M120 18 C116 8 128 4 130 12"/><path d="M260 18 C264 8 252 4 250 12"/><path d="M70 20 C64 12 74 6 78 12"/><path d="M310 20 C316 12 306 6 302 12"/><path d="M184 6 L190 0 L196 6 L190 14 Z" fill="#e8e2d0"/></svg><div class="logo-ko">미들어스 워밴드</div></div><button id="start-ai" class="t-touch"><svg viewBox="0 0 56 16" aria-hidden="true"><path d="M0 8h34M38 8l6-6 6 6-6 6z M50 8h6" stroke="currentColor" stroke-width="2" fill="none"/></svg><span>TOUCH</span><svg viewBox="0 0 56 16" aria-hidden="true"><path d="M0 8h34M38 8l6-6 6 6-6 6z M50 8h6" stroke="currentColor" stroke-width="2" fill="none"/></svg></button>${canResume ? '<button id="resume" class="t-resume">원정 계속하기</button>' : ''}<p class="t-tip">♪ 소리를 켜면 중간계의 전장을 더 생생하게 즐길 수 있습니다.</p><div id="boot-load" class="boot-load" aria-live="polite"><i><b></b></i><span>전장 준비 중</span></div><div class="t-btns"><button id="daily" class="t-btn">오늘의 도전</button><button id="rank-btn" class="t-btn">명예의 전당</button><button id="t-menu-open" class="t-btn">메뉴</button></div><div class="menu-notes"><span>최고 기록 ${q.readBest()}스테이지 · 정비 때 자동 저장</span></div><div id="t-menu" class="t-menu hidden"><div class="t-sheet"><div class="t-sheet-title">메뉴</div><nav class="menu-buttons to-menu">${[1, 2, 3].map(n => { const s = q.slotInfo(n); return s ? `<button class="to-item slot-btn" data-slot="${n}">슬롯 ${n} 이어하기<small>${s.wave}스테이지 · ${s.count}명</small></button>` : ''; }).join('')}<button id="weekly" class="to-item">이번 주 원정<small>${['대군', '보스 러시', '근접전', '베테랑'][Math.floor(Date.now() / 6048e5) % 4]}</small></button><button id="start-hotseat" class="to-item">2인 번갈아<small>한 기기로 대전</small></button><button id="patch-notes" class="to-item">최근 변경</button><div class="diff-row" role="group" aria-label="난이도"><span>난이도</span>${[['easy','쉬움'],['normal','보통'],['hard','어려움']].map(([d,label]) => `<button class="diff-btn ${(q.difficulty || 'normal') === d ? 'active' : ''}" data-diff="${d}">${label}</button>`).join('')}</div></nav>${LWB_API ? '<details class="cloud-box"><summary>다른 기기의 원정 불러오기</summary><div class="save-slots cloud-save"><input id="cloud-id" maxlength="24" placeholder="아이디"><input id="cloud-pw" type="password" maxlength="24" placeholder="비번"><button class="secondary mini" id="cloud-load">불러오기</button><span id="cloud-msg" class="mini"></span></div></details>' : ''}<button class="t-close">닫기</button></div></div></div>`;
         { const tm = ut('t-menu'), show = v => { window.__tMenu = v; tm.classList.toggle('hidden', !v); }; show(!!window.__tMenu); ut('t-menu-open').onclick = () => show(true); tm.querySelector('.t-close').onclick = () => show(false); tm.onclick = e => { if (e.target === tm) show(false); }; tm.querySelectorAll('.to-item').forEach(b => b.addEventListener('click', () => { window.__tMenu = false; })); }
         ut('start-ai').onclick = () => Rt(() => { q.dailySeed = 0; q.weeklySeed = 0; q.start('ai'); });
         ut('start-hotseat').onclick = () => Rt(() => { q.dailySeed = 0; q.weeklySeed = 0; q.start('hotseat'); });
@@ -3158,7 +3175,7 @@ function installFieldInput(scene){
     window.addEventListener('blur',resetGestures);document.addEventListener('visibilitychange',()=>{resetGestures();if(document.hidden)clearTimeout(Jt);else me()});
 }
 // Grayscale copies are cached once per original token. Alpha is unchanged.
-function grayTexture(id){const key='__spent_'+id;if(Tt.textures.exists(key))return key;
+function grayTexture(id){const key='__spent_'+id;if(Tt.textures.exists(key))return key;if(!Tt.textures.exists(id))return'unit-pending';
     const source=Tt.textures.get(id).getSourceImage(),c=document.createElement('canvas');c.width=source.width;c.height=source.height;
     const ctx=c.getContext('2d',{willReadFrequently:true});ctx.drawImage(source,0,0);
     try{const im=ctx.getImageData(0,0,c.width,c.height),p=im.data;for(let i=0;i<p.length;i+=4){if(!p[i+3])continue;const g=.2126*p[i]+.7152*p[i+1]+.0722*p[i+2];p[i]=p[i]*.13+g*.75;p[i+1]=p[i+1]*.13+g*.77;p[i+2]=p[i+2]*.13+g*.80;}ctx.putImageData(im,0,0);Tt.textures.addCanvas(key,c);return key;}catch{return id;}
@@ -3182,7 +3199,7 @@ Ve.prototype.sync=function(){
     }
     for(const [uid,c] of this.tokens){const u=this.b.unit(uid);if(!u?.alive||u.escaped){removeCasualty(uid);continue;}
         c.setAlpha(1).setVisible(this.b.phase!=='menu');const s=c.getByName('token'),spent=u.acted&&['move','shoot'].includes(this.b.phase);
-        s.setAlpha(1).setTexture(spent?grayTexture(u.id):u.id).clearTint();c.setData('spent',spent);
+        s.setAlpha(1).setTexture(spent?grayTexture(u.id):(Tt.textures.exists(u.id)?u.id:s.texture.key)).clearTint();c.setData('spent',spent);
         c.getByName('label')?.setVisible(false);const base=c.getByName('base');if(base){base.setAlpha(1);if(base.setTint)spent?base.setTint(0xb1b8bb):base.clearTint();}
         c.getByName('rim')?.setStrokeStyle((u.traits.includes('hero')?3:2.2)/UX.zoom,spent?0x7d8478:u.traits.includes('hero')?0xe9c97e:u.side==='good'?0x58c9a5:0xe8705e,spent?.7:1);
     }
