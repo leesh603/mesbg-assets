@@ -785,6 +785,18 @@ const FACTION_BONDS = {
     mordor: ['공포의 물결 · 용기 +1', u => { u.stats.courage += 1; }],
     angmar: ['마술의 서약 · 용기 +1', u => { u.stats.courage += 1; }],
     isengard: ['광기의 충성 · 용기 +1', u => { u.stats.courage += 1; }],
+    numenor: ['왕족의 핏줄 · 결투 +1', u => { u.stats.fight += 1; }],
+    laketown: ['검은 화살 · 사격 명중 +1', u => { if (u.stats.shootRange) u.stats.shootValue = Math.max(2, u.stats.shootValue - 1); }],
+    dale: ['북부 무역상 · 용기 +1', u => { u.stats.courage += 1; }],
+    bree: ['여관의 동지애 · 용기 +1', u => { u.stats.courage += 1; }],
+    fangorn: ['나무의 인내 · 체력 +1', u => { u.stats.wounds += 1; }],
+    rhovanion: ['산림 정찰 · 이동 +1인치', u => { u.stats.move += 45; }],
+    fiefdoms: ['곤도르의 외곽 · Defence +1', u => { u.stats.defence += 1; }],
+    harad: ['남방 전사 · 결투 +1', u => { u.stats.fight += 1; }],
+    umbar: ['해적의 강인함 · 용기 +1', u => { u.stats.courage += 1; }],
+    khand: ['바리아그 · 결투 +1', u => { u.stats.fight += 1; }],
+    dunland: ['혐오의 분노 · 힘 +1', u => { u.stats.strength += 1; }],
+    deeping: ['충심의 결의 · 용기 +1', u => { u.stats.courage += 1; }],
 };
 P.factionBonds = function () {
     const counts = {};
