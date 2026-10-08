@@ -8119,6 +8119,36 @@ const LWB_EVENTS = [
     { id: 'grima', title: '회색 속삭임', text: '캠프 경계에서 의심의 속삭임이 들립니다 — "우리는 이미 졌다." 사기가 흔들립니다.', options: [
         { label: '속삭임을 끊는다', sub: '금화 −10', fx: q => q.gold = Math.max(0, q.gold - 10) },
         { label: '무시한다', sub: '무작위 영웅 용기 −1 (영구)', fx: q => { const hs = q.alive('good').filter(u => u.traits.includes('hero')); const t = hs[Math.floor(q.rng() * hs.length)]; if (t) { t.baseStats.courage = Math.max(0, (t.baseStats.courage || 0) - 1); q.refreshUnit(t); } return t ? `${t.name} 용기 −1` : '영웅 없음'; } }] }
+    ,{ id: 'dwarven_smith', title: '드워프 대장장이', text: '길 위의 임시 대장간에서 드워프 장인이 갑주를 손보며 투덜댑니다 — "보자, 이걸로는 오크도 못 막겠군."', options: [
+        { label: '갑주를 맡긴다', sub: '금화 −15 · 무작위 아군 방어 +1 (영구)', fx: q => { q.gold = Math.max(0, q.gold - 15); const u = q.alive('good'); const t = u[Math.floor(q.rng() * u.length)]; if (t) { t.baseStats.defence = (t.baseStats.defence || 0) + 1; q.refreshUnit(t); } return (t ? `${t.name} 방어 +1` : '대상 없음') + ' · 금화 −15'; } },
+        { label: '소매만 두드린다', sub: '금화 +5', fx: q => q.gold += 5 }] },
+    { id: 'uruk_prisoner', title: '우루크 포로', text: '경계병이 우루크 정찰병 한 마리를 묶어 끌고 왔습니다. 녀석은 적의 진형을 알고 있습니다.', options: [
+        { label: '심문한다', sub: '다음 전투 첫 라운드 우선권 확보', fx: q => q.priorityForce = 'good' },
+        { label: '그 자리에서 처형한다', sub: '금화 +10', fx: q => q.gold += 10 }] },
+    { id: 'shelob_lair', title: '쉘롭의 동굴', text: '검은 굴 입구에 끈적한 거미줄과… 병사들의 말린 유품이 보입니다. 안에는 전리품이 있을 수도.', options: [
+        { label: '조심스레 들어간다', sub: '행운 시험 · 금화 +60 또는 무작위 아군 상처 +1', fx: q => { if (q.rng() < 0.55) { q.gold += 60; return '성공 — 금화 +60'; } const u = q.alive('good'); const t = u[Math.floor(q.rng() * u.length)]; if (t) t.currentWounds = Math.min(t.stats.wounds, t.currentWounds + 1); return t ? `쉘롭의 독 — ${t.name} 상처 +1` : '쉘롭의 독 — 피해 없음'; } },
+        { label: '멀리 우회한다', sub: '아무 일도 없다', fx: q => { } }] },
+    { id: 'haradrim_spy', title: '하라드림 첩자', text: '붉은 천을 두른 첩자가 캠프를 살피다 붙잡혔습니다. 그는 동쪽 군대의 사기가 떨어진다고 속삭입니다.', options: [
+        { label: '정보를 캐낸다', sub: '금화 −10 · 다음 전투 첫 라운드 적 전원 용기 −1', fx: q => { q.gold = Math.max(0, q.gold - 10); (q.nextRoundBuffs = q.nextRoundBuffs || []).push({ stat: 'courage', n: -1, side: 'evil' }); } },
+        { label: '놓아준다', sub: '금화 +15', fx: q => q.gold += 15 }] },
+    { id: 'beorn_feast', title: '베오른의 식탁', text: '커다란 꿀단지와 치즈가 쌓인 식탁 — 거대한 주인이 이방인들을 묵묵히 대접합니다.', options: [
+        { label: '배불리 먹는다', sub: '금화 −12 · 상처 입은 아군 전원 상처 1 회복', fx: q => { q.gold = Math.max(0, q.gold - 12); q.alive('good').forEach(u => u.currentWounds = Math.min(u.stats.wounds, u.currentWounds + 1)); } },
+        { label: '꿀 선물을 받는다', sub: '무작위 아군 힘 +1 (영구)', fx: q => { const u = q.alive('good'); const t = u[Math.floor(q.rng() * u.length)]; if (t) { t.baseStats.strength = (t.baseStats.strength || 0) + 1; q.refreshUnit(t); } return t ? `${t.name} 힘 +1` : '대상 없음'; } }] },
+    { id: 'elven_harp', title: '밤의 엘프 하프', text: '어둠 너머에서 가녀린 하프 소리가 들립니다 — 사라진 시대의 노래가 병사들의 눈물을 적십니다.', options: [
+        { label: '끝까지 듣는다', sub: '무작위 영웅 Might +1 (영구)', fx: q => { const hs = q.alive('good').filter(u => u.traits.includes('hero')); const t = hs[Math.floor(q.rng() * hs.length)]; if (t) { t.baseStats.might = (t.baseStats.might || 0) + 1; t.resources.might = (t.resources.might || 0) + 1; } return t ? `${t.name} Might +1` : '영웅 없음'; } },
+        { label: '조용히 자리를 뜬다', sub: '금화 +10', fx: q => q.gold += 10 }] },
+    { id: 'rohan_oath', title: '로한 기사의 맹세', text: '로한의 기수들이 칼 위에 손을 얹고 맹세합니다 — "세오덴 왕의 이름으로, 내일의 전장은 우리의 것."', options: [
+        { label: '맹세에 호응한다', sub: '다음 전투 첫 라운드 아군 전원 결투 +1', fx: q => (q.nextRoundBuffs = q.nextRoundBuffs || []).push({ stat: 'fight', n: 1, side: 'good' }) },
+        { label: '공물을 받는다', sub: '금화 +15', fx: q => q.gold += 15 }] },
+    { id: 'morgul_fog', title: '모르굴 안개', text: '죽은 도시에서 넘어온 창백한 안개가 캠프를 감쌉니다. 안쪽에서 속삭임이 들립니다.', options: [
+        { label: '안개를 뚫고 진군한다', sub: '다음 전투 첫 라운드 적 전원 용기 −1', fx: q => (q.nextRoundBuffs = q.nextRoundBuffs || []).push({ stat: 'courage', n: -1, side: 'evil' }) },
+        { label: '밤새 경계 근무한다', sub: '무작위 아군 용기 −1 (영구) · 금화 +20', fx: q => { const u = q.alive('good'); const t = u[Math.floor(q.rng() * u.length)]; if (t) { t.baseStats.courage = Math.max(0, (t.baseStats.courage || 0) - 1); q.refreshUnit(t); } q.gold += 20; return (t ? `${t.name} 용기 −1` : '피해 없음') + ' · 금화 +20'; } }] },
+    { id: 'gondor_signal', title: '곤도르의 신호등', text: '멀리 봉우리 위로 신호 불꽃이 이어집니다 — 지원군을 부르는 옛 신호. 응답할 수 있습니다.', options: [
+        { label: '응답한다', sub: '금화 −15 · 다음 전투 CP +3', fx: q => { q.gold = Math.max(0, q.gold - 15); q.bonusCP = (q.bonusCP || 0) + 3; } },
+        { label: '불을 끄고 지나간다', sub: '금화 +10', fx: q => q.gold += 10 }] },
+    { id: 'barrow_blade', title: '무덤의 칼', text: '흙무덤 틈에서 청동빛 옛 칼이 반쯤 드러났습니다. 손에 쥐면 차가운 힘이 전해집니다.', options: [
+        { label: '뽑아 쓴다', sub: '무작위 아군 Attack +1 · 용기 −1 (영구)', fx: q => { const u = q.alive('good').filter(x => (x.stats.attacks || 1) < 4); const t = u[Math.floor(q.rng() * u.length)]; if (t) { t.baseStats.attacks = (t.baseStats.attacks || 1) + 1; t.baseStats.courage = Math.max(0, (t.baseStats.courage || 0) - 1); q.refreshUnit(t); } return t ? `${t.name} Attack +1 · 용기 −1` : '대상 없음'; } },
+        { label: '제자리에 둔다', sub: '금화 +25', fx: q => q.gold += 25 }] }
 ];
 P.rollCampEvent = function () {
     this.rng || (this.rng = Ne(Date.now()));
