@@ -8131,38 +8131,42 @@ P.buyEquip = function (i, uid) {
     if (this.phase !== 'reward' || this.campStep !== 'recruit')
         return false;
     const a = LWB_EQUIP[i], u = this.unit(uid);
-    if (!a || !u || u.side !== 'good' || this.gold < a.cost)
+    if (!a || !u || u.side !== 'good' || this.gold < this.dc(a.cost, 'master_flame'))
         return false;
     u.equipment = u.equipment || [];
     if (a.once) {
         if (a.needsWound && u.currentWounds >= u.stats.wounds)
             return false;
         a.fx(u);
-        this.gold -= a.cost;
+        this.gold -= this.dc(a.cost, 'master_flame');
         this.save();
         return true;
     }
     if (u.equipment.length >= 2 || u.equipment.includes(a.id))
         return false;
     u.equipment.push(a.id);
-    this.gold -= a.cost;
+    this.gold -= this.dc(a.cost, 'master_flame');
     this.refreshUnit(u);
     this.save();
     return true;
 };
 const TRAP_PACKS = [
     { label: '화살 투석기', cost: 55, type: 'ballista' },
-    { label: '불통', cost: 40, type: 'firepot' }
+    { label: '불통', cost: 40, type: 'firepot' },
+    { label: '연발 투석기 · 5기 타격', cost: 95, type: 'scorpion' },
+    { label: '기름 통 · 광역 2피해', cost: 70, type: 'oil' },
+    { label: '화약통 · 아군도 피해', cost: 35, type: 'barrel' }
 ];
+P.dc = function (base, relicId) { const r = this.rank ? this.rank(relicId) : 0; return r ? Math.max(5, Math.round(base * (1 - 0.25 * r))) : base; };
 P.buyTrap = function (i) {
     if (this.phase !== 'reward' || this.campStep !== 'recruit')
         return false;
     const a = TRAP_PACKS[i];
-    if (!a || this.gold < a.cost)
+    if (!a || this.gold < this.dc(a.cost, 'siege_wright'))
         return false;
     const _r = { ballista: [420, 260], scorpion: [420, 300], firepot: [140, 150], oil: [180, 200], barrel: [140, 160] }[a.type] || [140, 150];
     (this.devices = this.devices || []).push({ type: a.type, armed: true, x: 0, y: 0, trigger: _r[0], radius: _r[1] });
-    this.gold -= a.cost;
+    this.gold -= this.dc(a.cost, 'siege_wright');
     this.save();
     return true;
 };
@@ -8178,9 +8182,11 @@ P.checkTraps = function (u) {
             ? this.alive().filter(v => ht(v, d) <= d.radius)
             : d.type === 'ballista'
                 ? this.alive('evil').filter(v => ht(v, d) <= d.radius).sort((a, b) => ht(a, d) - ht(b, d)).slice(0, 3)
-                : this.alive('evil').filter(v => ht(v, d) <= d.radius);
-        hits.forEach(v => this.inflict(ag, v, 1));
-        this.emit('Trap', (d.type === 'ballista' ? '투석기 발사' : d.type === 'barrel' ? '화약통 폭발' : '불통 폭발') + ' · ' + hits.length + '기 타격', { at: d });
+                : d.type === 'scorpion'
+                    ? this.alive('evil').filter(v => ht(v, d) <= d.radius).sort((a, b) => ht(a, d) - ht(b, d)).slice(0, 5)
+                    : this.alive('evil').filter(v => ht(v, d) <= d.radius);
+        hits.forEach(v => this.inflict(ag, v, d.type === 'oil' ? 2 : 1));
+        this.emit('Trap', (d.type === 'ballista' ? '투석기 발사' : d.type === 'scorpion' ? '연발 투석기 발사' : d.type === 'barrel' ? '화약통 폭발' : d.type === 'oil' ? '기름 화염' : '불통 폭발') + ' · ' + hits.length + '기 타격', { at: d });
     }
 };
 const ALLY_PACKS = [
@@ -8197,7 +8203,7 @@ P.buyAlly = function (i) {
     if (this.phase !== 'reward' || this.campStep !== 'recruit' || this.allyBought)
         return false;
     const a = ALLY_PACKS[i];
-    if (!a || this.gold < a.cost)
+    if (!a || this.gold < this.dc(a.cost, 'white_pact'))
         return false;
     for (const id of a.ids) {
         if (!this.meta.has(id))
@@ -8207,7 +8213,7 @@ P.buyAlly = function (i) {
         u.autoAlly = true;
         this.placeInDeployment(u);
     }
-    this.gold -= a.cost;
+    this.gold -= this.dc(a.cost, 'white_pact');
     this.allyBought = true;
     this.save();
     return true;
@@ -9161,7 +9167,10 @@ CX.relics.push(...[
     ['alliance_standard','동맹의 표준',2,'파벌 결속 발동 조건이 4기 → 3기로 완화.',0],
     ['fellowship_flag','이종연합의 깃발',3,'파벌이 6종 이상 모이면 전원 용기 +1.',0],
     ['edain_banner','에다인의 대기',1,'인간 계열(곤도르·로한·누메노르·데일·호숫골·브리·봉기령·샤이어·로바니온) 아군의 힘 +1.',0],
-    ['bounty_list','현상금 목록',1,'스테이지 처치당 금화 +2. 중첩마다 +2.',0]
+    ['bounty_list','현상금 목록',1,'스테이지 처치당 금화 +2. 중첩마다 +2.',0],
+    ['siege_wright','공성 기술자',0,'지형 장치 가격 −25%. 중첩마다 추가 −25%.',0],
+    ['white_pact','백색 조약',1,'동맹 지원팩 가격 −25%. 중첩마다 추가 −25%.',0],
+    ['master_flame','에레보르의 명장 불꽃',1,'장비 상점 가격 −25%. 중첩마다 추가 −25%.',0]
 ].map(([id,name,rarity,text,icon])=>({id,name,rarity,text,icon})));
 const relicRefresh=P.refreshUnit;
 P.refreshUnit=function(u){
@@ -9824,7 +9833,7 @@ Qe = function () {
         const step = q.campStep;
         let body = '';
         if (step === 'recruit')
-            body = `<p>금화 <b>${q.gold}</b> · 부대 ${q.permanent().length}/${q.capacity()}. 원하는 동료를 영입하거나 금화를 아끼세요.</p>${(() => { const typ = id => { const s = zt[id]; return s.traits.includes('monster') ? 'monster' : s.traits.includes('spear') ? 'spear' : s.traits.includes('mounted') ? 'mounted' : s.shootRange ? 'shooter' : s.defence >= 7 ? 'tank' : 'melee'; }; const typKo = { monster: '괴수', spear: '창 지원', mounted: '기병', shooter: '사격', tank: '전열', melee: '근접' }; const grades = [...new Set(q.recruitOffers.map(o => heroGrade(o.id)))]; const types = [...new Set(q.recruitOffers.map(o => typ(o.id)))]; return '<div class="rtabs"><button class="rtab active" data-rfilter="all">전체</button>' + grades.map(g => `<button class="rtab" data-rfilter="grade:${g}">${({ normal: '일반', elite: '정예', rare: '희귀 영웅', epic: '영웅', legendary: '전설' })[g]}</button>`).join('') + types.map(t => `<button class="rtab" data-rfilter="type:${t}">${typKo[t]}</button>`).join('') + '</div>'; })()}<div class="recruit-cards">${q.recruitOffers.map((o, i) => { const m = q.meta.get(o.id), p = zt[o.id], cost = q.price(o.id), full = q.permanent().length >= q.capacity(); const _typ = p.traits.includes('monster') ? 'monster' : p.traits.includes('spear') ? 'spear' : p.traits.includes('mounted') ? 'mounted' : p.shootRange ? 'shooter' : p.defence >= 7 ? 'tank' : 'melee'; return `<button class="recruit-card tier-${heroGrade(o.id)} ${o.bought ? 'purchased' : ''}" data-grade="${heroGrade(o.id)}" data-type="${_typ}" data-recruit="${i}" ${o.bought || q.gold < cost || full ? 'disabled' : ''}>${unitImage(o.id)}<span class="recruit-grade">${tierLabel(o.id)}</span><b>${esc(m.name_ko)}</b><small>${CX.roleNames[m.role] || m.role}</small><small class="recruit-stats">F${p.fight} S${p.strength} D${p.defence} A${p.attacks} W${p.wounds} C${p.courage}${p.shootRange ? ' · 사격 ' + p.shootValue + '+' : ''}</small><p>${p.traits.includes('spear') ? '후열 창 지원' : p.traits.includes('mounted') ? '빠른 돌격과 우회' : p.shootRange ? '원거리 사격' : p.defence >= 7 ? '단단한 전열' : '근접 전투'}${CX.skills[o.id] ? '<br>' + CX.skills[o.id][0] : ''}</p><em>${o.bought ? '합류 완료' : full ? '부대 정원 초과' : cost + ' 금화'}</em></button>`; }).join('')}</div><div class="ally-row"><b class="mini">동맹 지원 · 다음 전투에만 합류</b>${ALLY_PACKS.map((a, i) => `<button class="secondary mini" data-ally="${i}" ${q.gold < a.cost || q.allyBought ? 'disabled' : ''}>${a.label} · ${a.cost}금</button>`).join('')}</div><div class="ally-row"><b class="mini">지형 장치 · 다음 전투에 1회 발동</b>${TRAP_PACKS.map((a, i) => `<button class="secondary mini" data-trap="${i}" ${q.gold < a.cost ? 'disabled' : ''}>${a.label} · ${a.cost}금</button>`).join('')}</div><div class="ally-row"><b class="mini">장비 상점 · 영구 장착 (유닛당 2개)</b><select id="equip-target" class="secondary mini">${q.permanent().map(u => `<option value="${u.uid}">${esc(u.name)}</option>`).join('')}</select>${LWB_EQUIP.map((a, i) => `<button class="secondary mini" data-equip="${i}" ${q.gold < a.cost ? 'disabled' : ''}>${a.label} · ${a.cost}금</button>`).join('')}</div><div class="camp-actions"><button id="reroll" class="secondary" ${q.gold < 10 + q.rerolls * 5 ? 'disabled' : ''}>후보 교체 · ${10 + q.rerolls * 5} 금화</button><button id="expand" class="secondary" ${q.gold < 45 + q.capacityBought * 25 || q.capacity() >= 30 ? 'disabled' : ''}>정원 +2 · ${45 + q.capacityBought * 25} 금화</button><button id="to-relic" class="primary">영입 완료 · 유물 선택 →</button></div>`;
+            body = `<p>금화 <b>${q.gold}</b> · 부대 ${q.permanent().length}/${q.capacity()}. 원하는 동료를 영입하거나 금화를 아끼세요.</p>${(() => { const typ = id => { const s = zt[id]; return s.traits.includes('monster') ? 'monster' : s.traits.includes('spear') ? 'spear' : s.traits.includes('mounted') ? 'mounted' : s.shootRange ? 'shooter' : s.defence >= 7 ? 'tank' : 'melee'; }; const typKo = { monster: '괴수', spear: '창 지원', mounted: '기병', shooter: '사격', tank: '전열', melee: '근접' }; const grades = [...new Set(q.recruitOffers.map(o => heroGrade(o.id)))]; const types = [...new Set(q.recruitOffers.map(o => typ(o.id)))]; return '<div class="rtabs"><button class="rtab active" data-rfilter="all">전체</button>' + grades.map(g => `<button class="rtab" data-rfilter="grade:${g}">${({ normal: '일반', elite: '정예', rare: '희귀 영웅', epic: '영웅', legendary: '전설' })[g]}</button>`).join('') + types.map(t => `<button class="rtab" data-rfilter="type:${t}">${typKo[t]}</button>`).join('') + '</div>'; })()}<div class="recruit-cards">${q.recruitOffers.map((o, i) => { const m = q.meta.get(o.id), p = zt[o.id], cost = q.price(o.id), full = q.permanent().length >= q.capacity(); const _typ = p.traits.includes('monster') ? 'monster' : p.traits.includes('spear') ? 'spear' : p.traits.includes('mounted') ? 'mounted' : p.shootRange ? 'shooter' : p.defence >= 7 ? 'tank' : 'melee'; return `<button class="recruit-card tier-${heroGrade(o.id)} ${o.bought ? 'purchased' : ''}" data-grade="${heroGrade(o.id)}" data-type="${_typ}" data-recruit="${i}" ${o.bought || q.gold < cost || full ? 'disabled' : ''}>${unitImage(o.id)}<span class="recruit-grade">${tierLabel(o.id)}</span><b>${esc(m.name_ko)}</b><small>${CX.roleNames[m.role] || m.role}</small><small class="recruit-stats">F${p.fight} S${p.strength} D${p.defence} A${p.attacks} W${p.wounds} C${p.courage}${p.shootRange ? ' · 사격 ' + p.shootValue + '+' : ''}</small><p>${p.traits.includes('spear') ? '후열 창 지원' : p.traits.includes('mounted') ? '빠른 돌격과 우회' : p.shootRange ? '원거리 사격' : p.defence >= 7 ? '단단한 전열' : '근접 전투'}${CX.skills[o.id] ? '<br>' + CX.skills[o.id][0] : ''}</p><em>${o.bought ? '합류 완료' : full ? '부대 정원 초과' : cost + ' 금화'}</em></button>`; }).join('')}</div><div class="ally-row"><b class="mini">동맹 지원 · 다음 전투에만 합류</b>${ALLY_PACKS.map((a, i) => `<button class="secondary mini" data-ally="${i}" ${q.gold < q.dc(a.cost,'white_pact') || q.allyBought ? 'disabled' : ''}>${a.label} · ${q.dc(a.cost,'white_pact')}금</button>`).join('')}</div><div class="ally-row"><b class="mini">지형 장치 · 다음 전투에 1회 발동</b>${TRAP_PACKS.map((a, i) => `<button class="secondary mini" data-trap="${i}" ${q.gold < q.dc(a.cost,'siege_wright') ? 'disabled' : ''}>${a.label} · ${q.dc(a.cost,'siege_wright')}금</button>`).join('')}</div><div class="ally-row"><b class="mini">장비 상점 · 영구 장착 (유닛당 2개)</b><select id="equip-target" class="secondary mini">${q.permanent().map(u => `<option value="${u.uid}">${esc(u.name)}</option>`).join('')}</select>${LWB_EQUIP.map((a, i) => `<button class="secondary mini" data-equip="${i}" ${q.gold < q.dc(a.cost,'master_flame') ? 'disabled' : ''}>${a.label} · ${q.dc(a.cost,'master_flame')}금</button>`).join('')}</div><div class="camp-actions"><button id="reroll" class="secondary" ${q.gold < 10 + q.rerolls * 5 ? 'disabled' : ''}>후보 교체 · ${10 + q.rerolls * 5} 금화</button><button id="expand" class="secondary" ${q.gold < 45 + q.capacityBought * 25 || q.capacity() >= 30 ? 'disabled' : ''}>정원 +2 · ${45 + q.capacityBought * 25} 금화</button><button id="to-relic" class="primary">영입 완료 · 유물 선택 →</button></div>`;
         if (step === 'event') { const oc = q.eventOutcome, ev = q.campEvent; body = oc ? `<div class="event-outcome">${(oc.relics || []).length ? `<div class="gain-row">${oc.relics.map(id => { const rr = CX.relics.find(x => x.id === id); return rr ? `<div class="gain-card rarity-${rr.rarity}"><span class="gain-label">유물 획득</span>${relicIcon(rr, 96)}<b>${esc(rr.name)}</b><small>${CX.rarityNames[rr.rarity]} · ${relicFamily(rr.id)}</small><p>${esc(rr.text)}</p></div>` : ''; }).join('')}</div>` : ''}<p class="event-result">${esc(oc.title)} — ${esc(oc.label)} → ${esc(oc.result)}</p><button id="ev-next" class="primary">동료 영입으로 →</button></div>` : (ev ? `<p>${esc(ev.text)}</p><div class="reward-cards">${ev.options.map((o, i) => `<button class="reward rarity-common" data-evopt="${i}"><b>${esc(o.label)}</b><p>${esc(o.sub)}</p></button>`).join('')}</div>` : ''); }
         if (step === 'relic')
             body = setProgressLine() + `<div class="reward-cards">${q.relicChoices.map(id => { const r = CX.relics.find(r => r.id === id); return `<button class="reward rarity-${r.rarity}" data-relic="${id}">${relicIcon(r, 88)}<small>${CX.rarityNames[r.rarity]} · ${relicFamily(id)}${q.rank(id) ? ' · ' + (q.rank(id) + 1) + '중첩' : ''}</small><b>${r.name}</b><p>${r.text}</p></button>`; }).join('')}</div>`;
