@@ -2809,8 +2809,10 @@ He=function(b){
     if(b.phase==='move'){
         const _st=u.side==='good'?(u.stance||'auto'):'auto';
         if(!u.stats.shootRange&&!b.engaged(u)&&_st!=='rear'&&!(_st==='defense'&&b.alive(Ht(u.side)).every(f=>ht(u,f)>260))){
-            const foes=b.alive(Ht(u.side)).sort((a,c)=>ht(u,a)-ht(u,c));
-            for(const foe of foes.slice(0,4)){if(b.charge(u.uid,foe.uid))return;}
+            const foes=b.alive(Ht(u.side)).sort((a,c)=>ht(u,a)-ht(u,c)).slice(0,5);
+            const scored=foes.map(f=>({f,s:(f.currentWounds===1?30:0)+(f.stats.shootRange?18:0)+Math.max(0,6-f.stats.defence)*3-ht(u,f)*.04}));
+            scored.sort((a,c)=>c.s-a.s);
+            for(const {f:foe} of scored){if(b.charge(u.uid,foe.uid))return;}
         }
         const dest=be(b,u);
         if(!dest||!b.move(u.uid,dest))b.wait(u.uid);
