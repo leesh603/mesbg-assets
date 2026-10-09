@@ -2646,7 +2646,7 @@ Object.assign(CX.skills, {
 CX.spells = Object.assign(CX.spells || {}, {
     gandalf: [['빛의 폭발', 1, '주술 폭발 — 가장 가까운 적 넉백·상처 1', { push: 90, strike: { r: 480, n: 1, dmg: 1 } }], ['너는 지나가지 못한다', 1, '근접 적 상처 1·용기 −2', { strike: { r: 240, n: 1, dmg: 1 }, foe: { r: 240, stats: { courage: -2 } } }], ['명령', 1, '6″ 아군 용기 +2', { ally: { r: 300, stats: { courage: 2 } } }]],
     saruman: [['쿠루니르의 목소리', 1, '12″ 내 적 용기 −3', { foe: { r: 540, stats: { courage: -3 } } }], ['주술사의 폭풍', 2, '적 1기 넉백·상처 1', { push: 135, strike: { r: 480, n: 1, dmg: 1 } }]],
-    sauron: [['사우론의 눈', 1, '9″ 내 적 공포·용기 −2', { foe: { r: 430, stats: { courage: -2 } }, fear: { r: 430 } }], ['그림자 손길', 2, '9″ 내 가장 가까운 적 상처 2', { strike: { r: 430, n: 1, dmg: 2 } }]],
+    sauron: [['사우론의 눈', 1, '9″ 내 적 공포·용기 −2', { foe: { r: 430, stats: { courage: -2 } }, fear: { r: 430 } }], ['파멸의 화염', 2, '9″ 내 적 3기 화염 상처 1', { strike: { r: 430, n: 3, dmg: 1 } }], ['그림자 손길', 2, '9″ 내 가장 가까운 적 상처 2', { strike: { r: 430, n: 1, dmg: 2 } }]],
     witchking_fellbeast: [['검은 숨결', 1, '7″ 내 적 결투 −1·공포', { foe: { r: 320, stats: { fight: -1 } }, fear: { r: 320 } }], ['몽글의 외침', 1, '7″ 내 적 용기 −2', { foe: { r: 320, stats: { courage: -2 } } }]],
     elrond: [['브루이넨의 격류', 2, '적 2기 넉백', { push: 180, strike: { r: 560, n: 2, dmg: 0 } }], ['리븐델의 치유', 1, '6″ 아군 상처 1 회복', { heal: { r: 300, n: 1 } }]],
     galadriel: [['가라앉는 빛', 1, '9″ 내 적 사격 명중 −1', { foe: { r: 430, stats: { shootValue: -1 } } }], ['네냐의 장막', 2, '6″ 아군 보호·방어 +1', { ally: { r: 300, stats: { defence: 1 }, protect: 1 } }]],
@@ -2743,6 +2743,21 @@ P.castSpell = function (uid, idx) {
     this.emit('Spell', `${u.name} · ${sp[0]}`);
     this.checkRun();
     return true;
+};
+P.autoSpell = function (u) {
+    const S = CX.spells[u.id] || [];
+    if (!u || !u.alive || !S.length || u.spellRound || (u.resources.will || 0) < 1)
+        return false;
+    const foes = this.alive(Ht(u.side)).filter(v => ht(v, u) <= 640), friends = this.alive(u.side).filter(v => ht(v, u) <= 360);
+    for (let i = 0; i < S.length; i++) {
+        const sp = S[i], fxd = sp[2] || {};
+        if ((u.resources.will || 0) < sp[1]) continue;
+        const offensive = fxd.strike || fxd.push || fxd.fear || fxd.foe || fxd.foeStrongest;
+        if (offensive && foes.length) { if (this.castSpell(u.uid, i)) return true; }
+        else if (fxd.heal && friends.some(v => v.currentWounds < v.stats.wounds)) { if (this.castSpell(u.uid, i)) return true; }
+        else if (!offensive && fxd.ally && foes.length && foes.some(v => ht(v, u) <= 420)) { if (this.castSpell(u.uid, i)) return true; }
+    }
+    return false;
 };
 P.skill = function (uid) {
     const u = this.unit(uid);
@@ -3245,6 +3260,7 @@ He=function(b){
 };
 function HeAct(b,u){
     if(CX.skills[u.id]&&!b.skillReason(u)&&!b.engaged(u))b.skill(u.uid);
+    b.autoSpell(u);
     if(b.phase==='move'){
         const _st=u.side==='good'?(u.stance||'auto'):'auto';
         if(!u.stats.shootRange&&!b.engaged(u)&&_st!=='rear'&&!(_st==='defense'&&b.alive(Ht(u.side)).every(f=>ht(u,f)>260))){
@@ -5175,6 +5191,7 @@ He = function (b) {
         u = _pool.sort((a, c) => order[window.LWBTactics.role(a, id => b.meta.get(id))] - order[window.LWBTactics.role(c, id => b.meta.get(id))])[0];
     if (!u) { if (b.side === 'good' && !AUTO && _cand.length) return; b.advance(); return; }
     if (CX.skills[u.id] && !b.skillReason(u) && !b.engaged(u)) b.skill(u.uid);
+    b.autoSpell(u);
     if (!b.canAct(u)) return;
     const role = window.LWBTactics.role(u, id => b.meta.get(id));
     if (b.phase === 'move') {
