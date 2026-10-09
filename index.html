@@ -11253,6 +11253,39 @@ Ve.prototype.play=async function(event){
         if(event.type==='UnitMoved'){await glide(this,event,false);return;}
         if(event.type==='UnitYielded'){await glide(this,event,true);return;}
         if(event.type==='ChargeConnected'){const u=this.b.unit(event.uid);if(u){let best=null,bd=1e9;for(const v of this.b.alive()){if(v.side===u.side)continue;const d=Math.hypot(v.x-u.x,v.y-u.y);if(d<bd){bd=d;best=v;}}if(best){faceToward(this,u.uid,best.x);faceToward(this,best.uid,u.x);}}}
+        // ---- 연출 강화: 보스 기술·페이즈·경고·처치 이펙트 (표현 전용, 결과는 로직에서 이미 결정됨)
+        const FXV=this,ADDB=Phaser.BlendModes.ADD,camV=FXV.cameras&&FXV.cameras.main;
+        if(FXV.textures&&!FXV.textures.exists('fx2-ring')){
+            let g=FXV.add.graphics();g.fillStyle(0xffffff,1);g.fillRoundedRect(0,1,28,6,3);g.generateTexture('fx2-streak',28,8);g.destroy();
+            g=FXV.add.graphics();for(let r=32;r>0;r-=2)g.fillStyle(0xffffff,.03+Math.pow(1-r/32,2)*.5).fillCircle(32,32,r);g.generateTexture('fx2-glow',64,64);g.destroy();
+            g=FXV.add.graphics();g.lineStyle(6,0xffffff,1);g.strokeCircle(64,64,58);g.lineStyle(2,0xffffff,.55);g.strokeCircle(64,64,47);g.generateTexture('fx2-ring',128,128);g.destroy();
+        }
+        const vfxShake=(dur,mag)=>{if(camV&&camV.shake)camV.shake(dur,mag);};
+        const vfxRing=(x,y,col,R,ms)=>{const r=FXV.add.image(x,y,'fx2-ring').setDepth(17).setBlendMode(ADDB).setTint(col).setScale(R/64*.35);FXV.tween(r,{scale:R/64*1.6,alpha:0},ms||380).then(()=>r.destroy());};
+        const vfxGlow=(x,y,col,R,ms)=>{const g=FXV.add.image(x,y,'fx2-glow').setDepth(16).setBlendMode(ADDB).setTint(col).setScale(R/32*.4);FXV.tween(g,{scale:R/32*1.5,alpha:0},ms||420).then(()=>g.destroy());};
+        const vfxBurst=(x,y,col,n)=>{for(let i=0;i<n;i++){const a=Math.random()*6.28,d=20+Math.random()*70,p=FXV.add.image(x,y,'fx2-streak').setDepth(18).setBlendMode(ADDB).setTint(col).setRotation(a).setAlpha(1).setScale(.6+Math.random()*.7);FXV.tween(p,{x:x+Math.cos(a)*d,y:y+Math.sin(a)*d,alpha:0,scaleX:.05},280+Math.random()*180).then(()=>p.destroy());}};
+        const vfxLabel=(x,y,text,col)=>{const z=1/(UX.zoom||1),t=FXV.add.text(x,y,text,{fontFamily:'Pretendard, sans-serif',fontSize:'24px',fontStyle:'900',color:col||'#ffd66b',stroke:'#120b04',strokeThickness:6}).setOrigin(.5).setResolution(UX.dpr).setScale(.4*z).setDepth(25);FXV.tween(t,{scale:1.1*z},90).then(()=>FXV.tween(t,{y:t.y-40*z,alpha:0},520)).then(()=>t.destroy());};
+        if(event.type==='BossImpact'){
+            const at=event.at||(event.uid&&this.b.unit(event.uid));if(at){
+                vfxGlow(at.x,at.y,0xff5a3c,150,480);vfxRing(at.x,at.y,0xffb46a,160,420);vfxBurst(at.x,at.y,0xffc39c,14);vfxShake(260,.012);
+                if(event.message)vfxLabel(at.x,at.y-60,event.message.split('—')[0].trim(),'#ff9a6b');
+                await new Promise(r=>this.time.delayedCall(180,r));return;}
+        }
+        if(event.type==='BossPhase'){
+            const u=this.b.alive('evil').find(v=>v.traits.includes('boss'))||{x:1165,y:728};
+            vfxGlow(u.x,u.y,0xb44dff,220,700);vfxRing(u.x,u.y,0xb44dff,240,600);vfxBurst(u.x,u.y,0xda8cff,22);vfxShake(500,.02);
+            if(event.message)vfxLabel(u.x,u.y-80,'격노','#e0aaff');
+            await new Promise(r=>this.time.delayedCall(320,r));return;
+        }
+        if(event.type==='BossWarning'){vfxShake(300,.008);if(event.message)vfxLabel(1165,500,'⚠ '+event.message.slice(0,22),'#ff7060');}
+        if(event.type==='UnitKilled'&&event.uid){
+            const c=this.tokens.get(event.uid),x=c?c.x:event.x,y=c?c.y:event.y;
+            if(x!==undefined){vfxGlow(x,y,0xff4040,110,420);vfxRing(x,y,0xffd0b0,120,360);vfxBurst(x,y,0xc23a2e,12);vfxShake(160,.007);}
+        }
+        if(event.type==='Saved'&&event.uid){
+            const c=this.tokens.get(event.uid);if(c){vfxGlow(c.x,c.y,0xffd66b,110,420);vfxRing(c.x,c.y,0xffe8a0,110,360);if(event.message)vfxLabel(c.x,c.y-50,'막힘','#ffe8a0');}
+        }
+        if(event.type==='WaveStarted'&&event.message){vfxLabel(1165,460,event.message.split('·')[0].trim(),'#cfe3ff');vfxGlow(1165,460,0x7fb0ff,260,600);}
     }
     return mvPrevPlay.call(this,event);
 };
