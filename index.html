@@ -11456,6 +11456,7 @@ Ve.prototype.play=async function(event){
             let g=FXV.add.graphics();g.fillStyle(0xffffff,1);g.fillRoundedRect(0,1,28,6,3);g.generateTexture('fx2-streak',28,8);g.destroy();
             g=FXV.add.graphics();for(let r=32;r>0;r-=2)g.fillStyle(0xffffff,.03+Math.pow(1-r/32,2)*.5).fillCircle(32,32,r);g.generateTexture('fx2-glow',64,64);g.destroy();
             g=FXV.add.graphics();g.lineStyle(6,0xffffff,1);g.strokeCircle(64,64,58);g.lineStyle(2,0xffffff,.55);g.strokeCircle(64,64,47);g.generateTexture('fx2-ring',128,128);g.destroy();
+            g=FXV.add.graphics();for(let r=16;r>0;r-=2)g.fillStyle(0xd7cfbd,.05+(1-r/16)*.16).fillCircle(16,16,r);g.generateTexture('fx2-dust',32,32);g.destroy();
         }
         const vfxShake=(dur,mag)=>{if(camV&&camV.shake)camV.shake(dur,mag);};
         const vfxRing=(x,y,col,R,ms)=>{const r=FXV.add.image(x,y,'fx2-ring').setDepth(17).setBlendMode(ADDB).setTint(col).setScale(R/64*.35);FXV.tween(r,{scale:R/64*1.6,alpha:0},ms||380).then(()=>r.destroy());};
@@ -11608,7 +11609,7 @@ Ve.prototype.combat=async function(result){
         tg.destroy();sprite.setPosition(center.x,center.y);if(vsprite&&vcenter&&!kill)vsprite.setPosition(vcenter.x,vcenter.y);
         if(kill&&vsprite){
             this.soundFX.play('death');
-            if(!calm)for(let i=0;i<(fast?0:7);i++){const a=Math.random()*6.283,d=R*(.6+Math.random()*.9),pf=this.add.image(v.x,v.y,'fx2-dust').setDepth(12).setScale(R*.05).setAlpha(.9);this.tween(pf,{x:v.x+Math.cos(a)*d,y:v.y+Math.sin(a)*d*.7,scale:R*.09,alpha:0},520).then(()=>pf.destroy());}
+            if(!calm&&this.textures.exists('fx2-dust'))for(let i=0;i<(fast?0:7);i++){const a=Math.random()*6.283,d=R*(.6+Math.random()*.9),pf=this.add.image(v.x,v.y,'fx2-dust').setDepth(12).setScale(R*.05).setAlpha(.9);this.tween(pf,{x:v.x+Math.cos(a)*d,y:v.y+Math.sin(a)*d*.7,scale:R*.09,alpha:0},520).then(()=>pf.destroy());}
             vsprite.setTintFill(0xffffff);vsprite.setData('fxLock',1);
             await this.tween(vsprite,{angle:vsprite.angle+(angle>-1.57&&angle<1.57?70:-70),alpha:0,scaleX:vsprite.scaleX*.82,scaleY:vsprite.scaleY*.82,x:vsprite.x+Math.cos(angle)*R*.35,y:vsprite.y+Math.sin(angle)*R*.35+6},fast?30:220);
             vsprite.clearTint();vc&&vc.setVisible(false);
