@@ -1580,6 +1580,7 @@ P.beginRound = function () {
         u.heroicCombat = false;
         u.heroicDef = false;
         u.mightReroll = false;
+        u.spellRound = false;
         u.heroics = {};
         u.skillRound = false;
         u.nenyaUsed = false;
@@ -2641,6 +2642,27 @@ Object.assign(CX.skills, {
     knight_of_umbar: ['움바르의 기수', 'might', 1, '이번 라운드 이동 +90, 결투 +1.', { self: { move: 90, fight: 1 } }],
     warg_chieftain: ['워그 우두머리', 'might', 1, '6인치 내 기병 이동 +90.', { ally: { r: 360, trait: 'mounted', stats: { move: 90 } } }]
 });
+// MESBG Will 주문 (마법사 전용)
+CX.spells = Object.assign(CX.spells || {}, {
+    gandalf: [['빛의 폭발', 1, '주술 폭발 — 가장 가까운 적 넉백·상처 1', { push: 90, strike: { r: 480, n: 1, dmg: 1 } }], ['너는 지나가지 못한다', 1, '근접 적 상처 1·용기 −2', { strike: { r: 240, n: 1, dmg: 1 }, foe: { r: 240, stats: { courage: -2 } } }], ['명령', 1, '6″ 아군 용기 +2', { ally: { r: 300, stats: { courage: 2 } } }]],
+    saruman: [['쿠루니르의 목소리', 1, '12″ 내 적 용기 −3', { foe: { r: 540, stats: { courage: -3 } } }], ['주술사의 폭풍', 2, '적 1기 넉백·상처 1', { push: 135, strike: { r: 480, n: 1, dmg: 1 } }]],
+    sauron: [['사우론의 눈', 1, '9″ 내 적 공포·용기 −2', { foe: { r: 430, stats: { courage: -2 } }, fear: { r: 430 } }], ['그림자 손길', 2, '9″ 내 가장 가까운 적 상처 2', { strike: { r: 430, n: 1, dmg: 2 } }]],
+    witchking_fellbeast: [['검은 숨결', 1, '7″ 내 적 결투 −1·공포', { foe: { r: 320, stats: { fight: -1 } }, fear: { r: 320 } }], ['몽글의 외침', 1, '7″ 내 적 용기 −2', { foe: { r: 320, stats: { courage: -2 } } }]],
+    elrond: [['브루이넨의 격류', 2, '적 2기 넉백', { push: 180, strike: { r: 560, n: 2, dmg: 0 } }], ['리븐델의 치유', 1, '6″ 아군 상처 1 회복', { heal: { r: 300, n: 1 } }]],
+    galadriel: [['가라앉는 빛', 1, '9″ 내 적 사격 명중 −1', { foe: { r: 430, stats: { shootValue: -1 } } }], ['네냐의 장막', 2, '6″ 아군 보호·방어 +1', { ally: { r: 300, stats: { defence: 1 }, protect: 1 } }]],
+    luthien: [['자장가', 1, '9″ 내 적 이동 −2″', { foe: { r: 430, stats: { move: -90 } } }], ['위로의 노래', 1, '6″ 아군 상처 1 회복', { heal: { r: 300, n: 1 } }]],
+    morgoth: [['발라의 저주', 2, '최강 적 Attack −1·결투 −2', { foeStrongest: { attacks: -1, fight: -2 } }], ['공포의 주인', 1, '9″ 내 적 공포', { fear: { r: 430 } }]],
+    gothmog_balrog: [['화염 채찍', 1, '10″ 내 적 상처 1', { strike: { r: 500, n: 1, dmg: 1 } }], ['불꽃 장막', 1, '7″ 내 적 결투 −1', { foe: { r: 320, stats: { fight: -1 } } }]],
+    glorfindel: [['빛의 형상', 1, '6″ 아군 결투 +1', { ally: { r: 300, stats: { fight: 1 } } }], ['정화의 빛', 2, '적 1기 상처 1·주변 공포', { strike: { r: 430, n: 1, dmg: 1 }, fear: { r: 430 } }]],
+    aragorn_blackgate: [['왕의 명령', 1, '6″ 아군 용기 +2', { ally: { r: 300, stats: { courage: 2 } } }]]
+});
+CX.spells.gandalf_white = CX.spells.gandalf;
+CX.spells.gandalf_white_mounted = CX.spells.gandalf;
+CX.spells.witchking_mounted = CX.spells.witchking_fellbeast;
+CX.spells.witchking_mounted_sheet = CX.spells.witchking_fellbeast;
+CX.spells.elrond_mounted = CX.spells.elrond;
+CX.spells.glorfindel_foot = CX.spells.glorfindel;
+CX.spells.glorfindel_mounted = CX.spells.glorfindel;
 CX.skills.fingolfin_mounted = CX.skills.fingolfin;
 CX.skills.boromir_mounted = CX.skills.boromir;
 CX.skills.eowyn_mounted = CX.skills.eowyn;
@@ -2698,6 +2720,28 @@ P.heroic = function (uid, key) {
     const N = { strike: '영웅적 일격', combat: '영웅의 전투', defence: '영웅적 수비', shoot: '영웅적 사격', move: '영웅적 진군', might: '운명의 일격' };
     this.emit('Heroic', u.name + ' — 영웅 행동 · ' + N[key]);
     this.save();
+    return true;
+};
+P.castSpell = function (uid, idx) {
+    const u = this.unit(uid), sp = (CX.spells[u.id] || [])[idx | 0];
+    if (!u || !u.alive || !sp || u.spellRound || (u.resources.will || 0) < sp[1])
+        return false;
+    u.resources.will -= sp[1];
+    u.spellRound = true;
+    const fxd = sp[2] || {}, near = this.alive(u.side).filter(v => ht(v, u) <= 360), foes = this.alive(Ht(u.side)).filter(v => ht(v, u) <= 620);
+    const buff = (v, k, n) => { v.roundBuff[k] = (v.roundBuff[k] || 0) + n; this.refreshUnit(v); };
+    const sb = (t, o) => { for (const k in o) buff(t, k, o[k]); };
+    const inR = (l, r) => l.filter(t => ht(t, u) <= r);
+    if (fxd.self) sb(u, fxd.self);
+    if (fxd.ally) inR(near, fxd.ally.r || 360).filter(t => !fxd.ally.trait || t.traits.includes(fxd.ally.trait)).forEach(t => { sb(t, fxd.ally.stats || {}); if (fxd.ally.protect) t.protected = !0; });
+    if (fxd.foe) inR(foes, fxd.foe.r || 450).forEach(t => sb(t, fxd.foe.stats || {}));
+    if (fxd.foeStrongest) { const t = foes.sort((a, b) => b.stats.attacks - a.stats.attacks)[0]; if (t) sb(t, fxd.foeStrongest); }
+    if (fxd.heal) inR(near, fxd.heal.r || 360).filter(t => t.currentWounds < t.stats.wounds).sort((a, b) => (b.stats.wounds - b.currentWounds) - (a.stats.wounds - a.currentWounds)).slice(0, fxd.heal.n || 1).forEach(t => t.currentWounds++);
+    if (fxd.strike) inR(foes, fxd.strike.r || 450).slice(0, fxd.strike.n || 1).forEach(t => fxd.strike.dmg && this.inflict(u, t, fxd.strike.dmg));
+    if (fxd.fear) inR(foes, fxd.fear.r || 450).forEach(t => { t.feared = !0; });
+    if (fxd.push) { const t = foes.sort((a, b) => ht(a, u) - ht(b, u))[0]; if (t) { const ps = De(t, [u], this.alive(), this.terrain, fxd.push); Object.assign(t, ps.to); } }
+    this.emit('Spell', `${u.name} · ${sp[0]}`);
+    this.checkRun();
     return true;
 };
 P.skill = function (uid) {
@@ -3754,6 +3798,10 @@ Yt = function () {
             document.querySelectorAll('.heroic-btn').forEach(b => b.onclick = () => {setSheet(false);setIntent({kind:'heroic',uid:u.uid,key:b.dataset.heroic,label:b.firstChild.textContent,detail:b.title});});
         }
     }
+    if (u && u.side === 'good' && CX.spells && CX.spells[u.id] && ['move', 'shoot', 'fight'].includes(q.phase)) {
+        ut('commands').insertAdjacentHTML('beforeend', '<div class="spell-row" style="display:flex;gap:6px;flex-wrap:wrap;margin-top:5px">' + CX.spells[u.id].map((sp, i) => '<button class="spell-btn" data-spell="' + i + '" ' + (At || u.spellRound || (u.resources.will || 0) < sp[1] ? 'disabled' : '') + ' title="' + esc(sp[0] + ' — ' + sp[2]) + '" style="flex:1;min-width:90px;background:#1d2233;border:1px solid #5f6a8f;border-radius:7px;padding:5px 3px;color:#c9d5f2;font:600 12px Pretendard,ui-sans-serif;cursor:pointer">✦ ' + sp[0] + '<small style="display:block;font-weight:400;color:#8f9ab9">' + sp[1] + ' Will</small></button>').join('') + '</div>');
+        document.querySelectorAll('.spell-btn').forEach(b => b.onclick = () => {const sp = CX.spells[u.id][+b.dataset.spell]; setSheet(false); setIntent({ kind: 'spell', uid: u.uid, key: +b.dataset.spell, label: '✦ ' + sp[0], detail: sp[2] + ' · ' + sp[1] + ' Will' }); });
+    }
     const inv = ut('relic-inventory');
     inv.innerHTML = Object.entries(q.relics || {}).map(([id, rank]) => { const r = CX.relics.find(r => r.id === id); return `<button class="owned-relic rarity-${r.rarity}" type="button" data-owned-relic="${id}" aria-label="${esc(r.name)} · ${rank}중첩 · ${esc(r.text)}">${relicIcon(r, 32)}<small>${rank}</small></button>`; }).join('') || '<span class="mini">유물 없음</span>';
     if (q.phase === 'preparation')
@@ -4567,7 +4615,7 @@ ut('dock-primary').insertAdjacentHTML('beforebegin','<button type="button" id="i
 ut('intent-cancel').onclick=()=>{clearIntent();renderDock();Tt.drawRings();};
 const baseDock=renderDock;
 renderDock=function(){baseDock();renderUnitVitals();const p=UX.intent,b=ut('dock-primary');ut('intent-cancel').classList.toggle('hidden',!p);
-    if(p&&!At){b.disabled=false;b.classList.add('confirm');b.textContent=({move:'이동 확정',charge:'돌격 확정',shoot:'사격 확정',deploy:'배치 확정',switch:'병사 변경',skill:'능력 확정',heroic:'능력 확정'})[p.kind];ut('dock-status').textContent=(p.detail?p.label+' · '+p.detail:'')||(p.kind==='switch'?'남은 이동 종료':p.plan?(p.plan.distance/45).toFixed(1)+'″ · 잔여 '+Math.max(0,(q.remaining(q.unit(p.uid))-p.plan.distance)/45).toFixed(1)+'″':p.kind==='shoot'?'대상 · '+q.unit(p.target).name:'배치 지점 선택');}
+    if(p&&!At){b.disabled=false;b.classList.add('confirm');b.textContent=({move:'이동 확정',charge:'돌격 확정',shoot:'사격 확정',deploy:'배치 확정',switch:'병사 변경',skill:'능력 확정',heroic:'능력 확정',spell:'주문 확정'})[p.kind];ut('dock-status').textContent=(p.detail?p.label+' · '+p.detail:'')||(p.kind==='switch'?'남은 이동 종료':p.plan?(p.plan.distance/45).toFixed(1)+'″ · 잔여 '+Math.max(0,(q.remaining(q.unit(p.uid))-p.plan.distance)/45).toFixed(1)+'″':p.kind==='shoot'?'대상 · '+q.unit(p.target).name:'배치 지점 선택');}
     ut('hint').textContent=touchLayout()?'병사 → 목적지 → 확정 · 드래그: 화면 이동 · 두 손가락: 확대':'클릭 이동 · 드래그 시점 이동 · 휠 확대';
 };
 const defaultPrimary=ut('dock-primary').onclick;
@@ -4576,6 +4624,7 @@ ut('dock-primary').onclick=()=>{const p=UX.intent;if(!p){defaultPrimary();return
     if(p.kind==='switch'){ok=q.wait(p.uid);if(ok)q.selected=p.target;}
     if(p.kind==='skill')ok=q.skill(p.uid);
     if(p.kind==='heroic')ok=q.heroic(p.uid,p.key);
+    if(p.kind==='spell')ok=q.castSpell(p.uid,p.key);
     if(!ok)Xt('명령을 실행하지 못했습니다. 위치와 차례를 다시 확인하세요.');
 });};
 const actionBeforeV14=Rt;
