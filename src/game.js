@@ -1075,7 +1075,7 @@ catch {
     return 0;
 } };
 P.stageInfo = function (n) {
-    let boss = n % 25 === 0 ? 'morgoth' : n % 20 === 0 ? 'sauron' : n % 15 === 0 ? 'balrog' : n % 10 === 0 ? 'witchking_fellbeast' : n % 5 === 0 ? 'cave_troll' : null;
+    let boss = n % 25 === 0 ? 'morgoth' : n % 20 === 0 ? 'sauron' : n % 15 === 0 ? 'ungoliant' : n % 10 === 0 ? 'balrog' : n % 5 === 0 ? 'witchking_fellbeast' : null;
     const missions = ['defense', 'annihilation', 'hold', 'survive', 'commander', 'breakthrough', 'rescue'];
     const mission = boss ? 'commander' : missions[(n - 1) % missions.length];
     const ids = [];
@@ -3314,15 +3314,29 @@ function relicIcon(r,size=72){
 }
 function unitImage(id) { const f = q.meta.get(id).file; return `<img src="${Th(f)}" data-full="${Ut(f)}" onerror="${ThFallback}" decoding="async" fetchpriority="high" alt="${esc(q.meta.get(id).name_ko)}">`; }
 let __bossStyle = false;
+const BOSS_INTRO = {
+    witchking_fellbeast: { tag: '앙마르의 마술사왕', line: '펠비스트의 울음이 하늘을 가른다 — 무덤의 왕이 내려온다.', accent: '#9db6d9', glow: 'rgba(120,160,220,.55)', cls: 'bi-frost' },
+    balrog: { tag: '두린의 파멸', line: '깊은 곳의 불길이 깨어났다 — 채찍과 화염의 그림자.', accent: '#ff8a4a', glow: 'rgba(255,90,30,.6)', cls: 'bi-fire' },
+    ungoliant: { tag: '빛을 삼키는 자', line: '어둠이 스스로 기어온다 — 웅골리안트가 배고프다.', accent: '#a883d8', glow: 'rgba(140,90,220,.55)', cls: 'bi-void' },
+    sauron: { tag: '어둠의 군주', line: '눈이 너를 보고 있다 — 사우론이 직접 전장에 섰다.', accent: '#e8b23c', glow: 'rgba(235,120,25,.65)', cls: 'bi-eye' },
+    morgoth: { tag: '세계의 첫 어둠', line: '발라조차 두려워한 이름 — 모르고스, 암흑의 적.', accent: '#d84343', glow: 'rgba(200,30,30,.6)', cls: 'bi-doom' },
+};
 function bossIntro(id) {
-    if (!__bossStyle) { const st = document.createElement('style'); st.textContent = `#boss-intro{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;background:radial-gradient(ellipse at center,rgba(26,9,6,.9),rgba(0,0,0,.97));z-index:70;animation:bossFade .45s ease}#boss-intro h2{font-size:clamp(30px,7vw,62px);color:#ffb08a;letter-spacing:.1em;margin:0;text-shadow:0 0 34px rgba(240,60,30,.8);font-family:'Noto Serif KR',serif}#boss-intro .boss-tag{color:#e8d7c0;letter-spacing:.34em;font-size:12px}#boss-intro img{width:min(34vh,270px);height:auto;filter:drop-shadow(0 14px 34px rgba(0,0,0,.85))}#boss-intro p{color:#c9b9a6;max-width:76%;text-align:center;margin:0;font-size:15px}@keyframes bossFade{from{opacity:0}to{opacity:1}}`; document.head.appendChild(st); __bossStyle = true; }
+    if (!__bossStyle) { const st = document.createElement('style'); st.textContent = `#boss-intro{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;background:radial-gradient(ellipse at center,rgba(26,9,6,.9),rgba(0,0,0,.97));z-index:70;animation:bossFade .45s ease}#boss-intro h2{font-size:clamp(30px,7vw,62px);letter-spacing:.1em;margin:0;font-family:'Noto Serif KR',serif}#boss-intro .boss-tag{color:#e8d7c0;letter-spacing:.34em;font-size:12px}#boss-intro img{width:min(34vh,270px);height:auto;filter:drop-shadow(0 14px 34px rgba(0,0,0,.85))}#boss-intro p{color:#c9b9a6;max-width:76%;text-align:center;margin:0;font-size:15px}@keyframes bossFade{from{opacity:0}to{opacity:1}}@keyframes biRise{from{transform:translateY(46px) scale(.82);opacity:0}to{transform:none;opacity:1}}#boss-intro .boss-art{animation:biRise .8s cubic-bezier(.16,.8,.3,1)}
+#boss-intro.bi-frost{background:radial-gradient(ellipse at center,rgba(10,18,34,.92),rgba(0,0,0,.97))}#boss-intro.bi-frost img{animation:biRise .8s ease,biDrift 3.2s ease-in-out .8s infinite}@keyframes biDrift{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+#boss-intro.bi-fire{background:radial-gradient(ellipse at center,rgba(52,14,4,.93),rgba(0,0,0,.97))}#boss-intro.bi-fire img{animation:biRise .7s ease,biFlicker .28s ease-in-out .7s infinite alternate}@keyframes biFlicker{from{filter:drop-shadow(0 14px 34px rgba(0,0,0,.85)) brightness(1)}to{filter:drop-shadow(0 10px 42px rgba(255,90,20,.5)) brightness(1.14)}}
+#boss-intro.bi-void{background:radial-gradient(ellipse at center,rgba(20,8,34,.94),rgba(0,0,0,.985))}#boss-intro.bi-void img{animation:biRise .9s ease,biPulse 2.1s ease-in-out .9s infinite}@keyframes biPulse{0%,100%{opacity:1}50%{opacity:.72}}
+#boss-intro.bi-eye{background:radial-gradient(ellipse at center,rgba(48,20,2,.93),rgba(0,0,0,.97))}#boss-intro.bi-eye img{animation:biRise .75s ease,biGlare 1.6s ease-in-out .75s infinite}@keyframes biGlare{0%,100%{filter:drop-shadow(0 14px 34px rgba(0,0,0,.85))}50%{filter:drop-shadow(0 0 46px rgba(255,170,40,.55))}}
+#boss-intro.bi-doom{background:radial-gradient(ellipse at center,rgba(30,4,4,.95),rgba(0,0,0,.985));animation:bossFade .45s ease,biShake .5s linear .5s 2}@keyframes biShake{0%,100%{transform:none}20%{transform:translate(-7px,3px)}40%{transform:translate(6px,-4px)}60%{transform:translate(-5px,-3px)}80%{transform:translate(5px,4px)}}#boss-intro.bi-doom img{width:min(40vh,320px)}
+`; document.head.appendChild(st); __bossStyle = true; }
     const old = document.getElementById('boss-intro'); old && old.remove();
     const meta = q.meta.get(id); if (!meta) return;
-    const el = document.createElement('div'); el.id = 'boss-intro';
-    el.innerHTML = `<div class="boss-tag">WARNING · 적장 출현</div><h2>${esc(meta.name_ko)}</h2>${unitImage(id)}<p>보스를 처치하면 이 전투에서 승리합니다.</p>`;
+    const cfg = BOSS_INTRO[id] || { tag: '적장 출현', line: '보스를 처치하면 이 전투에서 승리합니다.', accent: '#ffb08a', glow: 'rgba(240,60,30,.8)', cls: '' };
+    const el = document.createElement('div'); el.id = 'boss-intro'; el.className = cfg.cls;
+    el.innerHTML = `<div class="boss-tag">WARNING · ${esc(cfg.tag)}</div><h2 style="color:${cfg.accent};text-shadow:0 0 34px ${cfg.glow}">${esc(meta.name_ko)}</h2><div class="boss-art">${unitImage(id)}</div><p>${esc(cfg.line)}</p>`;
     el.onclick = () => el.remove();
     document.body.appendChild(el);
-    setTimeout(() => el.remove(), 3400);
+    setTimeout(() => el.remove(), cfg.cls === 'bi-doom' ? 4200 : 3400);
 }
 function objectiveText() {
     if (q.phase === 'menu')
