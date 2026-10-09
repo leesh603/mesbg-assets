@@ -8506,7 +8506,7 @@ const LWB_EQUIP = [
     { id: 'war_gauntlets', label: '전투 건틀릿 · Attack+1', cost: 85, fx: u => u.stats.attacks += 1 }
 ];
 P.buyEquip = function (i, uid) {
-    if (this.phase !== 'reward' || this.campStep !== 'recruit')
+    if (this.phase !== 'reward' || !['recruit', 'shop'].includes(this.campStep))
         return false;
     const a = LWB_EQUIP[i], u = this.unit(uid);
     if (!a || !u || u.side !== 'good' || this.gold < this.dc(a.cost, 'master_flame'))
@@ -8540,7 +8540,7 @@ const TRAP_PACKS = [
 ];
 P.dc = function (base, relicId) { const r = this.rank ? this.rank(relicId) : 0; return r ? Math.max(5, Math.round(base * (1 - 0.25 * r))) : base; };
 P.buyTrap = function (i) {
-    if (this.phase !== 'reward' || this.campStep !== 'recruit')
+    if (this.phase !== 'reward' || !['recruit', 'shop'].includes(this.campStep))
         return false;
     const a = TRAP_PACKS[i];
     if (!a || this.gold < this.dc(a.cost, 'siege_wright'))
@@ -8585,7 +8585,7 @@ const ALLY_PACKS = [
     { label: '로한 근위기병', cost: 75, ids: ['rohan_royal_guard_mounted'] }
 ];
 P.buyAlly = function (i) {
-    if (this.phase !== 'reward' || this.campStep !== 'recruit' || this.allyBought)
+    if (this.phase !== 'reward' || !['recruit', 'shop'].includes(this.campStep) || this.allyBought)
         return false;
     const a = ALLY_PACKS[i];
     if (!a || this.gold < this.dc(a.cost, 'white_pact'))
@@ -10494,11 +10494,14 @@ Qe = function () {
         return;
     }
     if (q.phase === 'reward') {
-        const steps = ['event', 'recruit', 'relic', 'ready'];
+        const steps = ['event', 'recruit', 'shop', 'relic', 'ready'];
         const step = q.campStep;
         let body = '';
         if (step === 'recruit')
             body = `<p>금화 <b>${q.gold}</b> · 부대 ${q.permanent().length}/${q.capacity()}. 원하는 동료를 영입하거나 금화를 아끼세요.</p>${(() => { const typ = id => { const s = zt[id]; return s.traits.includes('monster') ? 'monster' : s.traits.includes('spear') ? 'spear' : s.traits.includes('mounted') ? 'mounted' : s.shootRange ? 'shooter' : s.defence >= 7 ? 'tank' : 'melee'; }; const typKo = { monster: '괴수', spear: '창 지원', mounted: '기병', shooter: '사격', tank: '전열', melee: '근접' }; const grades = [...new Set(q.recruitOffers.map(o => heroGrade(o.id)))]; const types = [...new Set(q.recruitOffers.map(o => typ(o.id)))]; return '<div class="rtabs"><button class="rtab active" data-rfilter="all">전체</button>' + grades.map(g => `<button class="rtab" data-rfilter="grade:${g}">${({ normal: '일반', elite: '정예', rare: '희귀 영웅', epic: '영웅', legendary: '전설' })[g]}</button>`).join('') + types.map(t => `<button class="rtab" data-rfilter="type:${t}">${typKo[t]}</button>`).join('') + '</div>'; })()}<div class="recruit-cards">${q.recruitOffers.map((o, i) => { const m = q.meta.get(o.id), p = zt[o.id], cost = q.price(o.id), full = q.permanent().length >= q.capacity(); const _typ = p.traits.includes('monster') ? 'monster' : p.traits.includes('spear') ? 'spear' : p.traits.includes('mounted') ? 'mounted' : p.shootRange ? 'shooter' : p.defence >= 7 ? 'tank' : 'melee'; return `<button class="recruit-card tier-${heroGrade(o.id)} ${o.bought ? 'purchased' : ''}" data-grade="${heroGrade(o.id)}" data-type="${_typ}" data-recruit="${i}" ${o.bought || q.gold < cost || full ? 'disabled' : ''}>${unitImage(o.id)}<span class="recruit-grade">${tierLabel(o.id)}</span><b>${esc(m.name_ko)}</b><small>${CX.roleNames[m.role] || m.role}</small><small class="recruit-stats">F${p.fight} S${p.strength} D${p.defence} A${p.attacks} W${p.wounds} C${p.courage}${p.shootRange ? ' · 사격 ' + p.shootValue + '+' : ''}</small><p>${p.traits.includes('spear') ? '후열 창 지원' : p.traits.includes('mounted') ? '빠른 돌격과 우회' : p.shootRange ? '원거리 사격' : p.defence >= 7 ? '단단한 전열' : '근접 전투'}${CX.skills[o.id] ? '<br>' + CX.skills[o.id][0] : ''}</p><em>${o.bought ? '합류 완료' : full ? '부대 정원 초과' : cost + ' 금화'}</em></button>`; }).join('')}</div><div class="ally-row"><b class="mini">동맹 지원 · 다음 전투에만 합류</b>${ALLY_PACKS.map((a, i) => `<button class="secondary mini" data-ally="${i}" ${q.gold < q.dc(a.cost,'white_pact') || q.allyBought ? 'disabled' : ''}>${a.label} · ${q.dc(a.cost,'white_pact')}금</button>`).join('')}</div><div class="ally-row"><b class="mini">지형 장치 · 다음 전투에 1회 발동</b>${TRAP_PACKS.map((a, i) => `<button class="secondary mini" data-trap="${i}" ${q.gold < q.dc(a.cost,'siege_wright') ? 'disabled' : ''}>${a.label} · ${q.dc(a.cost,'siege_wright')}금</button>`).join('')}</div><div class="ally-row"><b class="mini">장비 상점 · 영구 장착 (유닛당 2개)</b><select id="equip-target" class="secondary mini">${q.permanent().map(u => `<option value="${u.uid}">${esc(u.name)}</option>`).join('')}</select>${LWB_EQUIP.map((a, i) => `<button class="secondary mini" data-equip="${i}" ${q.gold < q.dc(a.cost,'master_flame') ? 'disabled' : ''}>${a.label} · ${q.dc(a.cost,'master_flame')}금</button>`).join('')}</div><div class="camp-actions"><button id="reroll" class="secondary" ${q.gold < q.rerollCost() ? 'disabled' : ''}>후보 교체 · ${q.rerollCost()} 금화</button><button id="expand" class="secondary" ${q.gold < 45 + q.capacityBought * 25 || q.capacity() >= 30 ? 'disabled' : ''}>정원 +2 · ${45 + q.capacityBought * 25} 금화</button><button id="heal-injury" class="secondary" ${q.gold < 20 || !q.permanent().some(u=>u.injury) ? 'disabled' : ''}>약초 치료 · 20 금화</button><button id="to-relic" class="primary">영입 완료 · 유물 선택 →</button></div>`;
+        if (step === 'shop') {
+            body = `<p>금화 <b>${q.gold}</b> · 유닛을 골라 장비를 장착하거나 다음 전투를 위한 지원·함정을 사세요.</p><div class="ally-row"><b class="mini">동맹 지원 · 다음 전투에만 합류</b>${ALLY_PACKS.map((a, i) => `<button class="secondary mini" data-ally="${i}" ${q.gold < q.dc(a.cost,'white_pact') || q.allyBought ? 'disabled' : ''}>${a.label} · ${q.dc(a.cost,'white_pact')}금</button>`).join('')}</div><div class="ally-row"><b class="mini">지형 장치 · 다음 전투에 1회 발동</b>${TRAP_PACKS.map((a, i) => `<button class="secondary mini" data-trap="${i}" ${q.gold < q.dc(a.cost,'siege_wright') ? 'disabled' : ''}>${a.label} · ${q.dc(a.cost,'siege_wright')}금</button>`).join('')}</div><div class="ally-row"><b class="mini">장비 상점 · 영구 장착 (유닛당 2개)</b><select id="equip-target" class="secondary mini">${q.permanent().map(u => `<option value="${u.uid}">${esc(u.name)}</option>`).join('')}</select>${LWB_EQUIP.map((a, i) => `<button class="secondary mini" data-equip="${i}" ${q.gold < q.dc(a.cost,'master_flame') ? 'disabled' : ''}>${a.label} · ${q.dc(a.cost,'master_flame')}금</button>`).join('')}</div><div class="camp-actions"><button id="heal-injury" class="secondary" ${q.gold < 20 || !q.permanent().some(u=>u.injury) ? 'disabled' : ''}>약초 치료 · 20 금화</button><button id="shop-back" class="secondary">← 영입으로</button><button id="shop-next" class="primary">유물 선택 →</button></div>`;
+        }
         if (step === 'event') { const oc = q.eventOutcome, ev = q.campEvent; body = oc ? `<div class="event-outcome">${(oc.relics || []).length ? `<div class="gain-row">${oc.relics.map(id => { const rr = CX.relics.find(x => x.id === id); return rr ? `<div class="gain-card rarity-${rr.rarity}"><span class="gain-label">유물 획득</span>${relicIcon(rr, 96)}<b>${esc(rr.name)}</b><small>${CX.rarityNames[rr.rarity]} · ${relicFamily(rr.id)}</small><p>${esc(rr.text)}</p></div>` : ''; }).join('')}</div>` : ''}<p class="event-result">${esc(oc.title)} — ${esc(oc.label)} → ${esc(oc.result)}</p><button id="ev-next" class="primary">동료 영입으로 →</button></div>` : (ev ? `<p>${esc(ev.text)}</p><div class="reward-cards">${ev.options.map((o, i) => `<button class="reward rarity-common" data-evopt="${i}"><b>${esc(o.label)}</b><p>${esc(o.sub)}</p></button>`).join('')}</div>` : ''); }
         if (step === 'relic')
             body = setProgressLine() + `<div class="reward-cards">${q.relicChoices.map(id => { const r = CX.relics.find(r => r.id === id); return `<button class="reward rarity-${r.rarity}" data-relic="${id}">${relicIcon(r, 88)}<small>${CX.rarityNames[r.rarity]} · ${relicFamily(id)}${q.rank(id) ? ' · ' + (q.rank(id) + 1) + '중첩' : ''}</small><b>${r.name}</b><p>${r.text}</p></button>`; }).join('')}</div>`;
@@ -10508,7 +10511,7 @@ Qe = function () {
         }
         if (q.campResult && !(step === 'event' && q.eventOutcome))
             body = `<p class="event-result">${esc(q.campResult)}</p>` + body;
-        box.innerHTML = `<div class="modal camp"><div class="eyebrow">STAGE ${q.wave} CLEARED · +${q.lastGold} GOLD</div><h2>${step==='event'?(q.campEvent?.title||'야영지'):step==='relic'?'유물 선택':'출전 준비'}</h2><div class="camp-steps">${steps.map((s, i) => `<span class="${step === s ? 'current' : ''}">${i + 1}. ${['전장 이벤트', '동료 영입', '유물 선택', '다음 전투'][i]}</span>`).join('')}</div>${body}</div>`;
+        box.innerHTML = `<div class="modal camp"><div class="eyebrow">STAGE ${q.wave} CLEARED · +${q.lastGold} GOLD</div><h2>${step==='event'?(q.campEvent?.title||'야영지'):step==='shop'?'상점':step==='relic'?'유물 선택':'출전 준비'}</h2><div class="camp-steps">${steps.map((s, i) => `<span class="${step === s ? 'current' : ''}">${i + 1}. ${['전장 이벤트', '동료 영입', '상점', '유물 선택', '다음 전투'][i]}</span>`).join('')}</div>${body}</div>`;
         box.querySelectorAll('[data-recruit]').forEach(el => el.onclick = () => { q.recruit(Number(el.dataset.recruit)); wt.play('reward_select'); Yt(); });
          if (ut('army-name')) ut('army-name').oninput = e => { q.armyName = e.target.value; q.save(); };
          box.querySelectorAll('[data-rename]').forEach(el => el.onclick = () => { const u = q.unit(el.dataset.rename); if (!u) return; const meta = q.meta.get(u.id) || {}; let m = box.querySelector('#camp-profile'); if (!m) { m = document.createElement('div'); m.id = 'camp-profile'; m.style.cssText = 'position:fixed;inset:0;background:rgba(8,12,10,.85);z-index:60;display:flex;align-items:center;justify-content:center;padding:16px'; m.onclick = e => { if (e.target === m) m.remove(); }; box.appendChild(m); }
@@ -10525,7 +10528,11 @@ Qe = function () {
         if (ut('expand'))
             ut('expand').onclick = () => { q.expand(); Yt(); };
         if (ut('to-relic'))
-            ut('to-relic').onclick = () => { q.campStep = 'relic'; q.save(); Yt(); };
+            ut('to-relic').onclick = () => { q.campStep = 'shop'; q.save(); Yt(); };
+        if (ut('shop-back'))
+            ut('shop-back').onclick = () => { q.campStep = 'recruit'; q.save(); Yt(); };
+        if (ut('shop-next'))
+            ut('shop-next').onclick = () => { q.campStep = 'relic'; q.save(); Yt(); };
         if (ut('heal-injury'))
             ut('heal-injury').onclick = () => { const w = q.permanent().filter(u => u.injury); const t = w[0]; if (!t || q.gold < 20) return Xt('치료할 대상이 없습니다.'); q.gold -= 20; t.injury = 0; q.refreshUnit(t); q.save(); Xt(t.name + '의 부상 치료 완료'); Yt(); };
         box.querySelectorAll('[data-evopt]').forEach(el => el.onclick = () => { if (q.chooseEvent(Number(el.dataset.evopt))) { wt.play('reward_select'); if (q.eventOutcome) Xt(q.eventOutcome.result); else if (q.campResult) Xt(q.campResult.split('→').pop().trim()); } Yt(); });
@@ -11148,7 +11155,7 @@ P.commitRecruits=function(){
     }
     this.gold-=total;this.recruitDraft=[];
     if(this.initialDraft){this.initialDraft=false;this.phase='preparation';this.campStep='';this.selected=this.alive('good')[0]?.uid||'';this.emit('Preparation','원정대가 결성됐습니다. 병사를 선택해 전열을 정하세요.');}
-    else this.campStep='relic';
+    else this.campStep='shop';
     this.save();return true;
 };
 P.mountVariant=function(u){
