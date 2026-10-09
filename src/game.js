@@ -153,7 +153,7 @@ class Ve extends Ot.Scene {
                 this.terrainLayer.add(this.add.image(H.x, H.y, 'terr_barricade').setDisplaySize(H.w + 34, 116).setAlpha(.97));
             else if (H.z) {
                 const K = this.add.graphics(), x = H.x - H.w / 2, y = H.y - H.h / 2, c = H.z === 'hill' ? 0xc9b06a : H.z === 'mountain' ? 0x9c8a5f : 0x7f9ab3;
-                if (H.z === 'hill') { K.fillStyle(0x4a3d20, .16), K.fillRoundedRect(x, y, H.w, H.h, 24); K.lineStyle(1.5, c, .28), K.strokeRoundedRect(x + 2, y + 2, H.w - 4, H.h - 4, 22); }
+                if (H.z === 'hill') { K.lineStyle(2, c, .38), K.strokeRoundedRect(x + 2, y + 2, H.w - 4, H.h - 4, 22); K.fillStyle(0x9a8a55, .07), K.fillRoundedRect(x, y, H.w, H.h, 24); }
                 else { const fc = H.z === 'mountain' ? 0x6b5d3f : 0x3d4a55; K.fillStyle(fc, .3), K.fillRoundedRect(x, y, H.w, H.h, 18); K.lineStyle(2, c, .5), K.strokeRoundedRect(x + 2, y + 2, H.w - 4, H.h - 4, 16); }
                 this.terrainLayer.add(K);
             }
