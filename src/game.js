@@ -1169,6 +1169,8 @@ const STAGE_CO_COMMANDERS = { 20: ['war_troll', 'nazgul_fellbeast', 'nazgul_fell
 const STAGE_EXTRA_FOES = { 15: ['mumakil', 'haradrim_raider', 'haradrim_raider', 'haradrim_spearman', 'haradrim_spearman'], 25: ['moria_goblin', 'moria_goblin', 'moria_goblin', 'moria_goblin'] };
 const STAGE_TITLES = { 5: '모리아의 트롤', 10: '아이센가드의 배신', 15: '펠렌노르 평원', 20: '검은문 총공세', 25: '고블린 도시', 30: '다섯 군대의 전투', 35: '외로운 산의 용', 40: '모르도르의 군주', 45: '다고르 브라골라흐', 50: '카르카로스의 추격', 55: '니르에나스 아르노이디아드', 60: '곤돌린의 몰락', 65: '분노의 전쟁', 70: '발리노르 최후의 대결' };
 const ARC_MAPS = ['amon_sul', 'isengard', 'pelennor', 'black_gate', 'mirkwood', 'erebor', 'erebor', 'dol_guldur', 'angband', 'lothlorien', 'gorgoroth', 'gondolin', 'angband', 'angband'];
+// 스테이지 단위 맵 지정 — 헬름 협곡 공성전(사루만 10 ↔ 펠렌노르 15 사이 스토리 자리).
+const STAGE_MAP_OVERRIDE = { 11: 'helms_deep', 12: 'helms_deep', 13: 'helms_deep', 14: 'helms_deep' };
 P.stageInfo = function (n) {
     let boss = n % 5 === 0 ? (STAGE_BOSSES[n] || (n > 70 ? ELDER_BOSSES[Math.floor(n / 5) % ELDER_BOSSES.length] : null)) : null;
     const missions = ['defense', 'annihilation', 'hold', 'survive', 'commander', 'breakthrough', 'rescue'];
@@ -1195,7 +1197,7 @@ P.stageInfo = function (n) {
     if (modifier === 'swarm') { ids.length = 0; for (let i = 0; i < count + 7; i++) ids.push(i % 6 === 5 ? 'uruk_berserker' : 'moria_goblin'); }
     if (modifier === 'ambush')
         for (let i = 0; i < ids.length; i++) if (ids[i] === 'warg_rider' || ids[i] === 'cave_troll') ids[i] = 'moria_goblin';
-    const _arcKey = ARC_MAPS[Math.floor((n - 1) / 5) % ARC_MAPS.length], _arcIdx = CX.maps.indexOf(_arcKey);
+    const _arcKey = (STAGE_MAP_OVERRIDE[n]) || ARC_MAPS[Math.floor((n - 1) / 5) % ARC_MAPS.length], _arcIdx = CX.maps.indexOf(_arcKey);
     return { n, boss, bossAll: boss ? [boss, ...(STAGE_CO_COMMANDERS[n] || [])] : null, mission, ids, map: _arcIdx >= 0 ? _arcIdx : Math.floor((n - 1) / 5) % CX.maps.length, modifier, title: STAGE_TITLES[n] || '' };
 };
 P.prepareStage = function () {
