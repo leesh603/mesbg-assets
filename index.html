@@ -10885,7 +10885,7 @@ const kindOf=u=>u.traits.includes('flying')?'fly':u.traits.includes('mounted')||
 const easeIO=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
 const now=()=>performance.now();
 // world-facing request: +1 look right, -1 look left
-function face(scene,uid,dir){/* no mirroring: quarter-view art always keeps its painted, camera-facing pose */}
+function face(scene,uid,dir){const c=scene.tokens&&scene.tokens.get(uid);if(!c||!dir)return;const s=c.getByName('token');if(s)s.setData('faceDir',dir);}
 function faceToward(scene,uid,x){const u=scene.b.unit(uid);if(!u)return;const dx=x-u.x;if(Math.abs(dx)>Math.max(6,u.radius*.25))face(scene,uid,Math.sign(dx));}
 window.MESBG&&(window.MESBG.faceToward=(a,b)=>{const v=Tt.b.unit(b);v&&faceToward(Tt,a,v.x);});
 Ve.prototype.mvFaceToward=function(uid,x){faceToward(this,uid,x);};
@@ -10900,7 +10900,7 @@ Ve.prototype.update=function(time){
             const c=this.tokens.get(u.uid),s=c&&c.getByName('token');
             if(!s||!s.getData('baseSX')||s.getData('fxLock'))continue;
             // turning: |cos| squash through zero, mirror at the midpoint
-            const turnK=1;if(s.flipX)s.setFlipX(false);
+            const turnK=1,_fd=s.getData('faceDir')||0;s.setFlipX(_fd!==0&&_fd!==artDir(this,u.id));
             // idle breathing (kept from TokenIdle) — frozen positionally while the battle is resolving
             let m={sx:1,sy:1,dx:0,dy:0};if(!calm){let kind=c.getData('ik');if(kind===undefined){kind=window.TokenIdle.classify(u.id,this.b.meta.get(u.id));c.setData('ik',kind);}m=window.TokenIdle.sample(kind,time,u.uid);}
             let oy=0,sx=1,sy=1,ang=0;
