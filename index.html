@@ -7706,8 +7706,14 @@ P.readBest = function () { try {
 catch {
     return 0;
 } };
+const STAGE_BOSSES = { 5: 'cave_troll', 10: 'saruman', 15: 'witchking_fellbeast', 20: 'mouth_of_sauron', 25: 'goblin_king', 30: 'azog', 35: 'smaug', 40: 'sauron', 45: 'glaurung', 50: 'carcharoth', 55: 'ungoliant', 60: 'gothmog_balrog', 65: 'ancalagon', 70: 'morgoth' };
+const ELDER_BOSSES = ['ungoliant', 'gothmog_balrog', 'ancalagon', 'morgoth'];
+const STAGE_CO_COMMANDERS = { 20: ['war_troll', 'nazgul_fellbeast', 'nazgul_fellbeast', 'nazgul_fellbeast'], 60: ['balrog'] };
+const STAGE_EXTRA_FOES = { 15: ['mumakil', 'haradrim_raider', 'haradrim_raider', 'haradrim_spearman', 'haradrim_spearman'], 25: ['moria_goblin', 'moria_goblin', 'moria_goblin', 'moria_goblin'] };
+const STAGE_TITLES = { 5: '모리아의 트롤', 10: '아이센가드의 배신', 15: '펠렌노르 평원', 20: '검은문 총공세', 25: '고블린 도시', 30: '다섯 군대의 전투', 35: '외로운 산의 용', 40: '모르도르의 군주', 45: '다고르 브라골라흐', 50: '카르카로스의 추격', 55: '니르에나스 아르노이디아드', 60: '곤돌린의 몰락', 65: '분노의 전쟁', 70: '발리노르 최후의 대결' };
+const ARC_MAPS = ['amon_sul', 'isengard', 'pelennor', 'black_gate', 'moria', 'erebor', 'erebor', 'gorgoroth', 'gorgoroth', 'fangorn', 'gorgoroth', 'minas_tirith', 'gorgoroth', 'gorgoroth'];
 P.stageInfo = function (n) {
-    let boss = n % 25 === 0 ? 'morgoth' : n % 20 === 0 ? 'sauron' : n % 15 === 0 ? 'ungoliant' : n % 10 === 0 ? 'balrog' : n % 5 === 0 ? 'witchking_fellbeast' : null;
+    let boss = n % 5 === 0 ? (STAGE_BOSSES[n] || (n > 70 ? ELDER_BOSSES[Math.floor(n / 5) % ELDER_BOSSES.length] : null)) : null;
     const missions = ['defense', 'annihilation', 'hold', 'survive', 'commander', 'breakthrough', 'rescue'];
     const mission = boss ? 'commander' : missions[(n - 1) % missions.length];
     const ids = [];
@@ -7716,7 +7722,7 @@ P.stageInfo = function (n) {
     for (let i = 0; i < count; i++)
         ids.push(n > 9 && i % 7 === 0 ? 'cave_troll' : n > 4 && i % 5 === 0 ? 'warg_rider' : n > 2 && i % 4 === 0 ? 'uruk_berserker' : i % 4 === 3 ? 'orc_archer' : i % 3 === 1 ? 'moria_goblin' : 'orc_sword');
     if (boss)
-        ids.push(boss);
+        ids.push(boss, ...(STAGE_CO_COMMANDERS[n] || []), ...(STAGE_EXTRA_FOES[n] || []));
     else if (mission === 'commander')
         ids.push(n > 8 ? 'saruman' : 'orc_captain');
     else if (n > 3)
@@ -7732,7 +7738,8 @@ P.stageInfo = function (n) {
     if (modifier === 'swarm') { ids.length = 0; for (let i = 0; i < count + 7; i++) ids.push(i % 6 === 5 ? 'uruk_berserker' : 'moria_goblin'); }
     if (modifier === 'ambush')
         for (let i = 0; i < ids.length; i++) if (ids[i] === 'warg_rider' || ids[i] === 'cave_troll') ids[i] = 'moria_goblin';
-    return { n, boss, mission, ids, map: Math.floor((n - 1) / 5) % CX.maps.length, modifier };
+    const _arcKey = ARC_MAPS[Math.floor((n - 1) / 5) % ARC_MAPS.length], _arcIdx = CX.maps.indexOf(_arcKey);
+    return { n, boss, bossAll: boss ? [boss, ...(STAGE_CO_COMMANDERS[n] || [])] : null, mission, ids, map: _arcIdx >= 0 ? _arcIdx : Math.floor((n - 1) / 5) % CX.maps.length, modifier, title: STAGE_TITLES[n] || '' };
 };
 P.prepareStage = function () {
     const info = this.stageInfo(this.wave + 1);
@@ -7861,10 +7868,10 @@ P.startWave = function () {
     this.delayed = [];
     this.spawnEnemies(this.current.ids);
     const _er = Object.entries(this.current.ids.reduce((a, id) => (a[id] = (a[id] || 0) + 1, a), {})).map(([id, n]) => { const m = this.meta.get(id) || {}; return m.name_ko ? m.name_ko + (n > 1 ? ' ×' + n : '') : ''; }).filter(Boolean);
-    this.emit('EnemyRoster', '적 편성 — ' + _er.join(', ') + (this.current.boss && this.meta.get(this.current.boss) ? ' · ⚠ ' + this.meta.get(this.current.boss).name_ko + ' 출현' : ''));
+    this.emit('EnemyRoster', '적 편성 — ' + _er.join(', ') + ((this.current.bossAll || [this.current.boss]).filter(Boolean).length ? ' · ⚠ ' + (this.current.bossAll || [this.current.boss]).map(b2 => this.meta.get(b2)?.name_ko).filter(Boolean).join(' · ') + ' 출현' : ''));
     if (this.current.modifier === 'ambush')
         this.alive('evil').forEach((u, i) => { u.x = i % 2 ? 260 + (i % 4) * 140 : 1960 - (i % 4) * 140; u.y = 560 + Math.floor(i / 8) * 160; });
-    this.commander = this.alive('evil').find(u => u.id === this.current.boss)?.uid || this.alive('evil').filter(u => u.traits.includes('hero')).at(-1)?.uid;
+    this.commander = this.alive('evil').find(u => u.id === this.current.boss)?.uid || this.alive('evil').filter(u => u.traits.includes('hero')).at(-1)?.uid; this.commanders = (this.current.bossAll || []).map(id => this.alive('evil').find(u => u.id === id)?.uid).filter(Boolean); if (!this.commanders.length && this.commander) this.commanders = [this.commander];
     if (this.challenge === 'dark_horde')
         this.spawnEnemies((this.wave > 8 ? ['uruk_berserker', 'warg_rider'] : this.wave > 4 ? ['uruk_berserker', 'orc_sword'] : ['orc_sword', 'moria_goblin']).filter(id => this.meta.has(id)));
     if (this.challenge === 'reinforce' || this.challenge === 'onslaught')
@@ -7907,7 +7914,7 @@ P.startWave = function () {
         u.baseStats.attacks += this.rank('cart') - 1;
         this.placeInDeployment(u);
     }
-    this.emit('WaveStarted', `STAGE ${this.wave} · ${CX.missionNames[this.mission]}${this.current.boss ? ' · ' + this.meta.get(this.current.boss).name_ko : ''}`, { boss: this.current.boss || null });
+    this.emit('WaveStarted', `STAGE ${this.wave} · ${CX.missionNames[this.mission]}${this.current.boss ? ' · ' + (this.current.bossAll || [this.current.boss]).map(b2 => this.meta.get(b2)?.name_ko).filter(Boolean).join(' · ') : ''}${this.current.title ? ' · ' + this.current.title : ''}`, { boss: this.current.boss || null });
     this.beginRound();
 };
 P.spawnEnemies = function (ids) {
@@ -8085,7 +8092,7 @@ P.checkRun = function () {
         this.endRun(false, '원정대가 전멸했습니다.');
         return true;
     }
-    if (this.mission === 'commander' && this.commander && !this.unit(this.commander)?.alive) {
+    if (this.mission === 'commander' && ((this.commanders?.length && this.commanders.every(uid => !this.unit(uid)?.alive)) || (!this.commanders?.length && this.commander && !this.unit(this.commander)?.alive))) {
         this.finishWave();
         return true;
     }
@@ -8143,6 +8150,7 @@ P.finishWave = function () {
         this.campResult = (this.campResult ? this.campResult + ' · ' : '') + `광전사 — ${_ramp.map(u => u.name).join(', ')} → 금화 +${rg}`;
     }
     this.phase = 'reward';
+    try { arcTransition(this.wave); } catch (e) { console.error('arcTransition', e); }
     typeof wt !== 'undefined' && wt.fanfare && wt.fanfare(true);
     this.campStep = 'event';
     this.rollCampEvent();
@@ -9947,6 +9955,17 @@ function relicIcon(r,size=72){
 function unitImage(id) { const f = q.meta.get(id).file; return `<img src="${Th(f)}" data-full="${Ut(f)}" onerror="${ThFallback}" decoding="async" fetchpriority="high" alt="${esc(q.meta.get(id).name_ko)}">`; }
 let __bossStyle = false;
 const BOSS_INTRO = {
+    cave_troll: { tag: '모리아의 괴수', line: '동굴에서 무언가가 기어나온다 — 트롤이다.', accent: '#b9a98a', glow: 'rgba(160,140,100,.5)', cls: 'bi-doom' },
+    saruman: { tag: '아이센가드의 주인', line: '오르상크의 백색 마법사가 배신을 완성한다.', accent: '#d8d3c0', glow: 'rgba(220,220,200,.5)', cls: 'bi-frost' },
+    goblin_king: { tag: '고블린 도시의 왕', line: '삼베 군주가 옥좌에서 일어난다 — 동굴 전체가 적이다.', accent: '#a8c48a', glow: 'rgba(120,170,90,.5)', cls: 'bi-void' },
+    azog: { tag: '창백한 오크', line: '아조그가 등장한다 — 드워프들의 오랜 원한.', accent: '#cfe0e0', glow: 'rgba(180,220,220,.5)', cls: 'bi-frost' },
+    smaug: { tag: '외로운 산의 용', line: '금의 산 아래에서 눈이 뜬다 — 스마우그가 깨어났다.', accent: '#ffb04a', glow: 'rgba(255,140,40,.65)', cls: 'bi-fire' },
+    gothmog: { tag: '모굴의 집행자', line: '모르도르의 부관이 전선을 밟고 선다.', accent: '#e07a4a', glow: 'rgba(220,90,40,.55)', cls: 'bi-fire' },
+    mouth_of_sauron: { tag: '사우론의 입', line: '검은문이 열리고 그의 혀가 조롱한다 — 남은 것은 싸움뿐.', accent: '#d43b3b', glow: 'rgba(200,50,40,.6)', cls: 'bi-doom' },
+    glaurung: { tag: '용의 아버지', line: '불꽃의 전투에서 첫 번째 용이 기어나온다 — 글라우룽.', accent: '#e8963c', glow: 'rgba(235,140,40,.6)', cls: 'bi-fire' },
+    carcharoth: { tag: '붉은 아귀', line: '앙그반드의 문지기 늑대 — 실마릴을 삼킨 자.', accent: '#c94a4a', glow: 'rgba(190,50,50,.55)', cls: 'bi-void' },
+    gothmog_balrog: { tag: '발록의 왕', line: '곤돌린의 화염 속에서 고스모그가 걸어 나온다.', accent: '#ff6a3c', glow: 'rgba(255,80,20,.7)', cls: 'bi-doom' },
+    ancalagon: { tag: '검은 앙칼라곤', line: '분노의 전쟁 — 하늘을 뒤덮는 가장 거대한 용.', accent: '#e8b23c', glow: 'rgba(255,120,30,.7)', cls: 'bi-doom' },
     witchking_fellbeast: { tag: '앙마르의 마술사왕', line: '펠비스트의 울음이 하늘을 가른다 — 무덤의 왕이 내려온다.', accent: '#9db6d9', glow: 'rgba(120,160,220,.55)', cls: 'bi-frost' },
     balrog: { tag: '두린의 파멸', line: '깊은 곳의 불길이 깨어났다 — 채찍과 화염의 그림자.', accent: '#ff8a4a', glow: 'rgba(255,90,30,.6)', cls: 'bi-fire' },
     ungoliant: { tag: '빛을 삼키는 자', line: '어둠이 스스로 기어온다 — 웅골리안트가 배고프다.', accent: '#a883d8', glow: 'rgba(140,90,220,.55)', cls: 'bi-void' },
@@ -9969,6 +9988,33 @@ function bossIntro(id) {
     el.onclick = () => el.remove();
     document.body.appendChild(el);
     setTimeout(() => el.remove(), cfg.cls === 'bi-doom' ? 4200 : 3400);
+}
+let __arcStyle = false;
+const ARC_TRANSITIONS = {
+    20: { end: 'THE END', endSub: '검은문의 적들이 무너졌다 — 원정은 끝난 듯했다.', teaser: null, teaserTag: 'ACT II · 호빗', teaserText: '외로운 산에서 불꽃이 일어난다 — 스마우그의 그림자가 드리운다.', cls: 'at-fire' },
+    35: { end: 'THE END', endSub: '스마우그가 쓰러졌다 — 산 아래에 평화가 온 듯했다.', teaser: '<div class="at-ring"></div><div class="at-eye"></div>', teaserTag: 'ACT III · 사우론 대전', teaserText: '하나의 반지가 깨어난다 — 사우론의 눈이 뜬다.', cls: 'at-eye' },
+    40: { end: 'THE END', endSub: '사우론의 눈이 꺼졌다 — 모르도르의 그림자가 물러난 듯했다.', teaser: '<div class="at-tree at-tree-l"></div><div class="at-tree at-tree-r"></div>', teaserTag: 'ACT IV · 실마릴리온', teaserText: '두 나무가 불탄다 — 최초의 어둠과의 전쟁이 시작된다.', cls: 'at-trees' },
+    70: { end: 'ALL WARS ENDED', endSub: '발리노르 최후의 대결이 끝났다.', teaser: '<div class="at-dawn"></div>', teaserTag: 'LEGEND CONTINUES', teaserText: '세계의 첫 어둠이 물러갔다 — 그러나 원정은 계속된다.', cls: 'at-dawn' },
+};
+function arcTransition(stage) {
+    const cfg = ARC_TRANSITIONS[stage]; if (!cfg) return;
+    if (!__arcStyle) { const st = document.createElement('style'); st.textContent = `#arc-transition{position:fixed;inset:0;z-index:90;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px;background:#000;animation:bossFade .5s ease;text-align:center}#arc-transition .at-end{font-family:'Noto Serif KR',serif;font-size:clamp(30px,8vw,64px);letter-spacing:.22em;color:#e8e0c8;margin:0}#arc-transition .at-endsub{color:#8a8574;font-size:14px;max-width:80%}#arc-transition .at-tag{letter-spacing:.4em;font-size:12px;color:#e8d7c0}#arc-transition .at-text{color:#c9b9a6;font-size:15px;max-width:78%}#arc-transition .at-art img{width:min(40vh,300px);filter:drop-shadow(0 0 46px rgba(255,110,20,.65));animation:biFlicker .3s ease-in-out infinite alternate}
+#arc-transition.at-fire{background:radial-gradient(ellipse at 50% 90%,rgba(120,30,4,.9),rgba(0,0,0,.98) 70%)}
+#arc-transition .at-ring{width:min(26vh,190px);height:min(26vh,190px);border:10px solid #d9b45a;border-radius:50%;box-shadow:0 0 60px rgba(230,190,80,.8),inset 0 0 40px rgba(230,190,80,.5);animation:atRing 2.2s ease-in-out infinite}@keyframes atRing{0%,100%{transform:scale(1)}50%{transform:scale(1.06);box-shadow:0 0 90px rgba(230,190,80,1)}}
+#arc-transition .at-eye{position:absolute;top:34%;left:50%;transform:translate(-50%,0);width:min(20vh,150px);height:min(9vh,66px);border-radius:50%;background:radial-gradient(ellipse at center,#ffd34a 0%,#e2571e 45%,#5c0f04 90%);box-shadow:0 0 70px rgba(255,120,20,.75);animation:biPulse 1.8s ease-in-out infinite}#arc-transition .at-eye::after{content:'';position:absolute;top:8%;bottom:8%;left:48%;width:6px;background:#0a0503;border-radius:3px}
+#arc-transition.at-eye{background:radial-gradient(ellipse at 50% 36%,rgba(70,10,4,.95),rgba(0,0,0,.985) 62%)}
+#arc-transition.at-trees{background:#000}#arc-transition .at-tree{position:absolute;top:6%;width:26vw;height:62vh;border-radius:45%}#arc-transition .at-tree-l{left:14%;background:radial-gradient(ellipse at 50% 30%,rgba(220,235,255,.5),transparent 65%)}#arc-transition .at-tree-r{right:14%;background:radial-gradient(ellipse at 50% 30%,rgba(255,215,120,.5),transparent 65%)}#arc-transition.at-trees .at-tree{animation:atBurn 3.4s ease forwards}@keyframes atBurn{0%{opacity:1;filter:brightness(1)}55%{opacity:.85;filter:brightness(1.3) hue-rotate(-30deg)}100%{opacity:.06;filter:brightness(.2) saturate(0)}}
+#arc-transition.at-dawn{background:radial-gradient(ellipse at 50% 70%,rgba(200,180,120,.32),rgba(0,0,0,.98) 70%)}#arc-transition .at-dawn{width:min(30vh,220px);height:min(30vh,220px);border-radius:50%;background:radial-gradient(circle,rgba(255,240,200,.85),rgba(255,190,90,.25) 55%,transparent 75%);animation:atRing 2.6s ease-in-out infinite}
+`; document.head.appendChild(st); __arcStyle = true; }
+    document.getElementById('arc-transition')?.remove();
+    const el = document.createElement('div'); el.id = 'arc-transition';
+    el.innerHTML = `<h2 class="at-end">${esc(cfg.end)}</h2><p class="at-endsub">${esc(cfg.endSub)}</p>`;
+    document.body.appendChild(el);
+    let killed = false; const kill = () => { if (killed) return; killed = true; el.remove(); };
+    el.onclick = kill;
+    const t1 = setTimeout(() => { if (killed || !el.isConnected) return; el.className = cfg.cls; let art = cfg.teaser || ''; try { if (stage === 20) art = '<div class="at-art">' + unitImage('smaug') + '</div>'; } catch (e) {} el.innerHTML = `${art}<div class="at-tag">${esc(cfg.teaserTag)}</div><p class="at-text">${esc(cfg.teaserText)}</p>`; }, 2600);
+    const t2 = setTimeout(kill, 6400);
+    el.addEventListener('click', () => { clearTimeout(t1); clearTimeout(t2); });
 }
 function objectiveText() {
     if (q.phase === 'menu')
