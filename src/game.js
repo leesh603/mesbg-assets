@@ -215,6 +215,12 @@ class Ve extends Ot.Scene {
                 this.labels.add(this.add.text(p.x, p.y - p.radius - 16, `명중 ${hitN}+ · 상처 ${wN}+`, { fontFamily: "Pretendard", fontSize: "14px", color: "#ffe6b0", backgroundColor: "#1c2a24e0", padding: { x: 6, y: 3 } }).setOrigin(.5));
             }
         }
+        if (b.phase === "move" && b.canAct(H) && !b.engaged(H))
+            for (const p of b.alive(Ht(H.side))) {
+                const c = ue(H, p);
+                if (c && ie(H, c, b.alive(), b.terrain, b.remaining(H)))
+                    this.rings.lineStyle(3, 15295845, .85), this.rings.strokeCircle(p.x, p.y, p.radius + 8), this.labels.add(this.add.text(p.x, p.y - p.radius - 16, `돌격 · 결투 ${H.stats.fight} vs ${p.stats.fight}`, { fontFamily: "Pretendard", fontSize: "14px", color: "#ffd9c9", backgroundColor: "#2a1c1ce0", padding: { x: 6, y: 3 } }).setOrigin(.5));
+            }
     } for (const p of b.alive()) {
         p.hold && (this.rings.lineStyle(3, 9362410, .8), this.rings.strokeCircle(p.x, p.y, p.radius + 2)), p.acted && ["move", "shoot"].includes(b.phase) && this.labels.add(this.add.text(p.x + p.radius - 3, p.y - p.radius, "✓", { fontFamily: "Pretendard", fontSize: "17px", color: "#fff1bc", stroke: "#121b1c", strokeThickness: 3 }));
         const S = p.radius + 10, t = p.stats.wounds;
