@@ -732,10 +732,16 @@ module.exports = [
     ['golfimbul','골핌불','Golfimbul of Mount Gram']] },
   { sheet:null, side:'good', faction:'rohan', role:'hero', weapon:'lance', base:'XL', traits:['mounted'], units:[
     ['eomund','에오문드','Eomund, Marshal of the Riddermark']] },
-  { sheet:null, side:'good', faction:'rohan', role:'soldier', weapon:'spear', base:'M', traits:[], units:[
+  { sheet:null, side:'good', faction:'rohan', role:'infantry', weapon:'spear', base:'M', traits:[], units:[
     ['guthlaf','구슬라프','Guthlaf, banner-bearer of Rohan']] },
-  { sheet:null, side:'good', faction:'gondor', role:'soldier', weapon:'spear', base:'M', traits:[], units:[
+  { sheet:null, side:'good', faction:'gondor', role:'infantry', weapon:'spear', base:'M', traits:[], units:[
     ['ingold','잉골드','Ingold, gate-guard of Minas Tirith']] },
+  { sheet:null, side:'good', faction:'rohan', role:'hero', weapon:'sword', base:'XL', traits:['mounted'], units:[
+    ['theoden_mounted','세오덴 기마','King Theoden of Rohan, mounted']] },
+  { sheet:null, side:'evil', faction:'angband', role:'monster', weapon:'twohanded', base:'XXL', traits:[], units:[
+    ['morgoth','모르고스','Morgoth, the Dark Enemy']] },
+  { sheet:null, side:'evil', faction:'angmar', role:'hero', weapon:'sword', base:'XL', traits:['mounted'], units:[
+    ['witchking_mounted_sheet','마술사왕 기마','Witch-king of Angmar, mounted (sheet)']] },
   { sheet:null, side:'evil', faction:'umbar', role:'hero', weapon:'sword', base:'L', traits:[], units:[
     ['corsair_captain','움바 선장','Corsair Captain of Umbar']] },
   { sheet:null, side:'good', faction:'bree', role:'civil', weapon:'none', base:'M', traits:[], units:[

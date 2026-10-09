@@ -141,6 +141,7 @@ const ROLE_KO = { hero: '영웅', infantry: '보병', cavalry: '기병', monster
 const ROLE_ORDER = ['hero', 'infantry', 'cavalry', 'monster', 'bigmonster', 'support', 'civil', 'beast', 'terrain'];
 const grp = r => r.role === 'monster' ? (r.base === 'XXL' ? 'bigmonster' : 'monster')
   : r.role === 'beast' ? 'monster'
+  : r.role === 'soldier' ? 'infantry'
   : (r.role === 'cavalry' || (r.base === 'XL' && r.role !== 'monster')) ? 'cavalry'
   : r.role;
 // 종족(팩션) 분류 — 인게임과 동일한 faction 값

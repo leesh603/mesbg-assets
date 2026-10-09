@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "count": 523,
+  "count": 526,
   "units": [
     {
       "id": "aragorn",
@@ -10045,7 +10045,7 @@
       "name_en": "Guthlaf, banner-bearer of Rohan",
       "side": "good",
       "faction": "rohan",
-      "role": "soldier",
+      "role": "infantry",
       "weapon": "spear",
       "base": "M",
       "sheet": null,
@@ -10058,12 +10058,70 @@
       "name_en": "Ingold, gate-guard of Minas Tirith",
       "side": "good",
       "faction": "gondor",
-      "role": "soldier",
+      "role": "infantry",
       "weapon": "spear",
       "base": "M",
       "sheet": null,
       "file": "tokens/ingold.png",
       "base_mm": "25mm"
+    },
+    {
+      "id": "theoden_mounted",
+      "name_ko": "세오덴 기마",
+      "name_en": "King Theoden of Rohan, mounted",
+      "side": "good",
+      "faction": "rohan",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/theoden_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "morgoth",
+      "name_ko": "모르고스",
+      "name_en": "Morgoth, the Dark Enemy",
+      "side": "evil",
+      "faction": "angband",
+      "role": "monster",
+      "weapon": "twohanded",
+      "base": "XXL",
+      "sheet": null,
+      "file": "tokens/morgoth.png",
+      "base_mm": "60mm"
+    },
+    {
+      "id": "witchking_mounted_sheet",
+      "name_ko": "마술사왕 기마",
+      "name_en": "Witch-king of Angmar, mounted (sheet)",
+      "side": "evil",
+      "faction": "angmar",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/witchking_mounted_sheet.png",
+      "stats": {
+        "f": 6,
+        "s": 5,
+        "d": 7,
+        "a": 3,
+        "w": 3,
+        "c": 6,
+        "might": 3,
+        "will": 20,
+        "fate": 3,
+        "rules": [
+          "Terror",
+          "The Morgul Lord"
+        ]
+      },
+      "rules": [
+        "Terror",
+        "The Morgul Lord"
+      ],
+      "base_mm": "40mm"
     },
     {
       "id": "corsair_captain",
