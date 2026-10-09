@@ -6949,7 +6949,7 @@ class We {
     setMood(Y) { if (this.mood === Y) return; this.mood = Y, this.music && (this.music.playbackRate = Y === 2 ? 1.05 : 1, this.music.volume = this.muted ? 0 : this._effVol()); }
     fanfare(Y = true) { if (this.muted || this.sfxVolume <= 0 || !this.context || document.hidden) return; const b = this.context, H = b.currentTime, K = Y ? [[261.6, 0, .16], [329.6, .15, .16], [392, .3, .18], [523.3, .5, .55]] : [[220, 0, .3], [174.6, .28, .62]]; for (const [$, p, S] of K) { const t = b.createOscillator(), f = b.createGain(), c = b.createBiquadFilter(); t.type = "sawtooth", t.frequency.value = $, c.type = "lowpass", c.frequency.value = 1300, f.gain.setValueAtTime(0, H + p), f.gain.linearRampToValueAtTime(this.sfxVolume * .4, H + p + .04), f.gain.setValueAtTime(this.sfxVolume * .4, Math.max(0, H + p + S - .05)), f.gain.linearRampToValueAtTime(0, H + p + S), t.connect(c), c.connect(f), f.connect(b.destination), t.start(H + p), t.stop(H + p + S + .05); } }
     async unlock() { this.music || (this.music = new Audio(this.asset("audio/gate-of-the-west.mp3")), this.music.loop = !0), this.music.volume = this.muted ? 0 : this._effVol(); if (this.muted || document.hidden)
-        return; this.context ?? (this.context = new AudioContext), await this.context.resume(), this.musicVolume > 0 && this.music.play().catch(() => { }); }
+        return; this.context ?? (this.context = new AudioContext), await this.context.resume(), this._startTheme && this._startTheme(), this.musicVolume > 0 && this.music.play().catch(() => { }); }
     savePrefs() { try { localStorage.setItem("lwb-audio", JSON.stringify({ muted: this.muted, sfxVolume: this.sfxVolume, musicVolume: this.musicVolume })); }
         catch { } }
     setVolumes(Y, b) { this.sfxVolume = Y, this.musicVolume = b; this.music && (this.music.volume = this.muted ? 0 : this._effVol(b), this.muted || b <= 0 ? this.music.pause() : this.music.paused && this.music.play().catch(() => { })); this.context && (this.muted || Y <= 0 && b <= 0 ? this.context.suspend() : this.context.state === "suspended" && this.context.resume().catch(() => { })); this.savePrefs(); }
@@ -7012,6 +7012,46 @@ Tt.b = q;
 Tt.soundFX = wt;
 Tt.asset = Ut;
 wt.asset = Ut;
+// ---- 막별 프로시저럴 BGM 레이어: 저음 드론 + 전쟁북 + 뿔피리 (mp3 위에 막 테마가 겹침)
+wt.act = 0;
+wt._THEMES = [
+    { base: 110.0, rate: 2.7, drum: .45, horn: [220, 277.2, 329.6] },   // 1막 반지의제왕 — 장중한 A장조
+    { base: 146.83, rate: 2.2, drum: .5, horn: [293.7, 349.2, 440] },   // 2막 호빗 — D장조 모험
+    { base: 98.0, rate: 1.7, drum: .8, horn: [196, 233.1, 261.6] },     // 3막 사우론 — G단조 무거운 북
+    { base: 73.42, rate: 3.0, drum: .9, horn: [146.8, 155.6, 174.6] }   // 4막 대암흑 — D드론 불협화
+];
+wt.setAct = function (a) { if (wt.act === a) return; wt.act = a; if (wt._drone) wt._tuneTheme(); };
+wt._tuneTheme = function () { const T = wt._THEMES[wt.act] || wt._THEMES[0]; if (wt._drone) { wt._drone.frequency.setTargetAtTime(T.base, wt.context.currentTime, .8); wt._drone2.frequency.setTargetAtTime(T.base * 1.5, wt.context.currentTime, .8); } wt._drumRate = T.rate; };
+wt._startTheme = function () {
+    if (wt._themeOn || !wt.context) return; wt._themeOn = true;
+    const c = wt.context, g = c.createGain(); g.gain.value = 0; g.connect(c.destination); wt._tg = g;
+    const f = c.createBiquadFilter(); f.type = 'lowpass'; f.frequency.value = 240;
+    const og = c.createGain(); og.gain.value = .014;
+    const o = c.createOscillator(); o.type = 'sawtooth'; o.frequency.value = 110;
+    const o2 = c.createOscillator(); o2.type = 'sawtooth'; o2.frequency.value = 165; o2.detune.value = 9;
+    o.connect(f); o2.connect(f); f.connect(og); og.connect(g); o.start(); o2.start();
+    wt._drone = o; wt._drone2 = o2; wt._nextDrum = c.currentTime + .8; wt._hornCount = 0; wt._drumRate = wt._THEMES[wt.act].rate;
+    wt._themeTimer = setInterval(() => {
+        if (!wt.context || wt.muted || document.hidden) return;
+        const ct = c.currentTime, T = wt._THEMES[wt.act] || wt._THEMES[0];
+        g.gain.setTargetAtTime((wt.musicVolume || 0) * .85, ct, .3);
+        if (ct >= wt._nextDrum) {
+            wt._nextDrum = ct + wt._drumRate; wt._hornCount++;
+            const k = c.createOscillator(); k.type = 'sine';
+            k.frequency.setValueAtTime(150, ct); k.frequency.exponentialRampToValueAtTime(38, ct + .09);
+            const kg = c.createGain(), dv = .14 * T.drum * (wt.mood === 2 ? 1.6 : 1);
+            kg.gain.setValueAtTime(dv, ct); kg.gain.exponentialRampToValueAtTime(.001, ct + .55);
+            k.connect(kg); kg.connect(g); k.start(ct); k.stop(ct + .6);
+            if (wt._hornCount % 6 === 1) {
+                const hz = T.horn[(wt._hornCount >> 1) % T.horn.length];
+                const h = c.createOscillator(); h.type = 'sawtooth'; h.frequency.value = hz;
+                const hf = c.createBiquadFilter(); hf.type = 'lowpass'; hf.frequency.value = hz * 3;
+                const hg = c.createGain(); hg.gain.setValueAtTime(.0001, ct); hg.gain.exponentialRampToValueAtTime(.028, ct + .4); hg.gain.exponentialRampToValueAtTime(.0001, ct + 2.4);
+                h.connect(hf); hf.connect(hg); hg.connect(g); h.start(ct); h.stop(ct + 2.5);
+            }
+        }
+    }, 380);
+};
 let At = !1, Jt, se, Qt = !1, qt = 1;
 const Ke = document.querySelector("#app");
 Ke.innerHTML = '<div class="rotate">가로 화면에서 전장이 가장 잘 보입니다. 기기를 가로로 돌려주세요.</div><header class="top"><div class="sigil">♜</div><div class="brand"><small>A SIEGE ROGUELITE</small><strong>MINAS TIRITH</strong></div><div class="runmeta"><div class="metric"><small>WAVE</small><strong id="wave">— / 03</strong></div><div class="metric"><small>ROUND</small><strong id="round">—</strong></div><div class="metric"><small>COMMAND</small><strong id="cp" class="gold">0 / 4 CP</strong></div></div><div class="top-actions"><button class="iconbtn" id="sound" title="음향 설정">음향</button><button class="iconbtn" id="help" title="조작법">?</button></div></header><div class="layout"><main class="battle-column"><nav class="phases" id="phases"></nav><div class="field"><div id="game"></div><div id="turn-indicator" class="turn-indicator hidden" aria-live="polite"></div><div class="map-label"><b>The Great Gate</b>PELENNOR FIELDS · III AGE</div><div id="dice" class="dice-panel hidden"></div><div id="toast" class="toast hidden"></div><canvas id="minimap" class="minimap" width="220" height="138" title="클릭하면 해당 위치로 카메라 이동"></canvas><div class="zoom"><button class="iconbtn" id="overview">전체</button><button class="iconbtn" id="focus">선택</button><button class="iconbtn" id="zoomout" title="축소">−</button><button class="iconbtn" id="zoomin" title="선택 병사 중심 확대">+</button></div></div><div class="hint"><b>FIELD ORDER</b><span id="hint"></span></div></main><aside class="aside"><section class="objective"><div class="section-label">01 / THE OBJECTIVE</div><h3>Hold the gate.</h3><p id="objective"></p><div id="gatebar" class="gatebar"></div></section><section><div class="section-label">02 / SELECTED UNIT</div><div id="unit" class="unit-card"></div></section><section class="control-block"><div class="section-label">03 / COMMAND ORDERS</div><div id="commands"></div><button id="action" class="primary action"></button><button id="wait" class="secondary action">선택 병사 대기</button><button id="step-auto" class="secondary action hidden">전체 진행</button><button id="deploy-all" class="secondary action hidden">일괄 배치</button></section><section class="log"><div class="section-label">BATTLE CHRONICLE</div><div id="log"></div></section></aside></div><footer class="footer"><span>GATE DEFENCE / V0.4</span><span>3 WAVES · 영웅 테스트 · 원형 베이스 전투</span></footer><div id="overlay" class="overlay"></div><div id="audio-panel" class="audio-panel hidden"><small>GATE OF THE WEST · 오리지널 BGM</small><label>배경음악<input id="bgm-volume" type="range" min="0" max="1" step=".05" value=".35"></label><label>효과음<input id="sfx-volume" type="range" min="0" max="1" step=".05" value=".7"></label><button id="mute" class="secondary">전체 음소거</button></div>';
@@ -7656,11 +7696,30 @@ const MAP_PROP_SETS = {
         [['terr_idol', 140, 560, 80, 110], ['terr_bone_pile', 2200, 480, 100, 70], ['terr_cage', 160, 1180, 90, 90], ['terr_orc_barricade', 2190, 1300, 130, 80], ['terr_dead_tree', 1160, 130, 90, 110]],
         [['terr_mumak_skull', 150, 300, 120, 80], ['terr_brazier', 2200, 560, 60, 70], ['terr_bone_pile', 160, 1300, 100, 70], ['terr_spike_barricade', 2180, 1380, 120, 70], ['terr_orc_totem', 1160, 1420, 70, 100]],
         [['terr_orc_camp', 140, 480, 130, 110], ['terr_siege_wreck', 2200, 700, 140, 90], ['terr_cage', 150, 1240, 90, 90], ['terr_bone_pile', 2190, 1240, 100, 70], ['terr_idol', 1160, 1420, 80, 110]]);
+    // 반지의제왕 로어 변형 세트 (구 맵 v3)
+    X('minas_tirith', [['terr_white_tree', 150, 300, 90, 110], ['terr_trebuchet', 2200, 620, 130, 100], ['terr_sarcophagus', 160, 1240, 100, 80], ['terr_war_banner', 2180, 1240, 60, 110], ['terr_portcullis', 1160, 1420, 180, 90]]);
+    X('helms_deep', [['terr_wall_segment', 1160, 140, 200, 90], ['terr_bomb', 150, 700, 80, 80], ['terr_siege_ladder', 2200, 620, 90, 110], ['terr_ballista', 160, 1240, 110, 90], ['terr_dead_tree', 2180, 1380, 90, 110]]);
+    X('moria', [['terr_sarcophagus', 150, 620, 100, 80], ['terr_relic_shrine', 2200, 400, 100, 110], ['terr_broken_pillar', 160, 1180, 80, 110], ['terr_bone_pile', 2180, 1300, 100, 70], ['terr_idol', 1160, 1420, 80, 110]]);
+    X('black_gate', [['terr_spike_line', 150, 400, 130, 70], ['terr_orc_totem', 2200, 620, 70, 100], ['terr_mumak_skull', 160, 1240, 120, 80], ['terr_catapult', 2180, 1300, 130, 100], ['terr_brazier', 1160, 1420, 60, 70]]);
+    X('edoras', [['terr_throne', 1160, 140, 100, 110], ['terr_rohan_hall', 150, 480, 160, 120], ['terr_weapon_rack', 2200, 700, 90, 80], ['terr_haystack', 160, 1300, 100, 90], ['terr_war_banner', 2180, 1240, 60, 110]]);
+    X('fangorn', [['terr_oak_tree', 150, 300, 110, 130], ['terr_oak_tree', 2200, 480, 110, 130], ['terr_standing_stones', 160, 1240, 130, 100], ['terr_bramble', 2180, 1300, 130, 60], ['terr_mushroom_ring', 1160, 1420, 90, 70]]);
+    X('gorgoroth', [['terr_idol', 150, 560, 80, 110], ['terr_spike_barricade', 2200, 300, 120, 70], ['terr_bone_pile', 160, 1180, 100, 70], ['terr_orc_barricade', 2180, 1240, 130, 80], ['terr_torch_post', 1160, 1420, 60, 90]]);
+    X('isengard', [['terr_palantir', 150, 560, 70, 90], ['terr_orc_camp', 2200, 300, 130, 110], ['terr_anvil', 160, 1180, 90, 80], ['terr_bomb', 2180, 1300, 80, 80], ['terr_spike_line', 1160, 1420, 130, 70]]);
+    X('amon_sul', [['terr_statue_head', 150, 400, 110, 90], ['terr_ruined_tower', 2200, 560, 120, 140], ['terr_standing_stones', 160, 1180, 130, 100], ['terr_barrow', 2180, 1240, 120, 90], ['terr_waystone', 1160, 1420, 70, 90]]);
+    X('osgiliath', [['terr_argonath', 150, 620, 130, 110], ['terr_broken_pillar', 2200, 300, 80, 110], ['terr_osgiliath_dome', 160, 1240, 160, 120], ['terr_stone_archway', 2180, 1300, 160, 100], ['terr_loot_bag', 1160, 1420, 70, 60]]);
+    X('rivendell', [['terr_palantir', 150, 300, 70, 90], ['terr_relic_shrine', 2200, 560, 100, 110], ['terr_stone_archway', 160, 1180, 160, 100], ['terr_pond', 2180, 1240, 130, 90], ['terr_altar', 1160, 1420, 90, 80]]);
+    X('lothlorien', [['terr_oak_tree', 150, 560, 110, 130], ['terr_oak_tree', 2200, 300, 110, 130], ['terr_altar', 160, 1180, 90, 80], ['terr_waystone', 2180, 1300, 70, 90], ['terr_pond', 1160, 1420, 130, 90]]);
+    X('erebor', [['terr_gold_pile', 150, 400, 110, 80], ['terr_throne', 2200, 560, 100, 110], ['terr_anvil', 160, 1180, 90, 80], ['terr_hoard', 2180, 1240, 130, 90], ['terr_bone_pile', 1160, 1420, 100, 70]]);
+    X('pelennor', [['terr_white_tree', 150, 400, 90, 110], ['terr_war_banner', 2200, 560, 60, 110], ['terr_trebuchet', 160, 1240, 130, 100], ['terr_hedgerow', 2180, 1300, 140, 60], ['terr_waystone', 1160, 1420, 70, 90]]);
+    X('dead_marshes', [['terr_barrow', 150, 560, 120, 90], ['terr_pond', 2200, 300, 130, 90], ['terr_brazier', 160, 1180, 60, 70], ['terr_sarcophagus', 2180, 1240, 100, 80], ['terr_dead_tree', 1160, 1420, 90, 110]]);
+    X('dunharrow', [['terr_standing_stones', 150, 480, 130, 100], ['terr_standing_stones', 2200, 300, 130, 100], ['terr_sarcophagus', 160, 1240, 100, 80], ['terr_torch_post', 2180, 1300, 60, 90], ['terr_waystone', 1160, 1420, 70, 90]]);
+    X('minas_gate', [['terr_argonath', 150, 560, 130, 110], ['terr_trebuchet', 2200, 300, 130, 100], ['terr_war_banner', 160, 1180, 60, 110], ['terr_grond', 2180, 1240, 160, 100], ['terr_bone_pile', 1160, 1420, 100, 70]]);
 }
 function mapProps(key, wave) {
     const v = mapVariant(wave);
     const sets = MAP_PROP_SETS[key];
     if (sets && sets[v]) return sets[v];
+    if (sets && sets.length > 1) return sets[1 + ((v - 1) % (sets.length - 1))];
     const base = MAP_PROPS[key] || [];
     if (v === 0) return base;
     return base.filter((p, i) => i % 4 === v - 1);
@@ -8807,6 +8866,36 @@ const LWB_EVENTS = [
     { id: 'lost_supply', title: '버려진 보급 수레', text: '길가에 주인 없는 곤도르 보급 수레가 서 있습니다.', options: [
         { label: '식량을 챙긴다', sub: '무작위 부상 아군 1기 완치', fx: q => { const w=q.alive('good').filter(u=>u.injury),t=w[Math.floor(q.rng()*w.length)]; if(!t)return '부상자 없음'; t.injury=null;q.refreshUnit(t); return `${t.name} 완치`; } },
         { label: '마차를 개조한다', sub: '스테이지마다 대독수리 지원 유물 획득 시도', fx: q => { q.gold+=20; return '부품 회수 · 금화 +20'; } }] },
+    { id: 'strider', title: '방랑자의 발자국', text: '길가 비탈에서 담뱃대를 문 방랑자가 부대를 지켜봅니다. 풀잎에 남은 발자국은 원정대가 가려던 길과 같습니다.', options: [
+        { label: '그의 길을 따른다', sub: '다음 전투 첫 라운드 아군 이동 +1½″', fx: q => { (q.nextRoundBuffs = q.nextRoundBuffs || []).push({ stat: 'move', n: 45 }); return '레인저의 길 · 이동 +1½″'; } },
+        { label: '경계를 유지한다', sub: '다음 전투 적 기습 무효', fx: q => { q.noAmbushNext = true; return '경계 유지 · 기습 무효'; } }] },
+    { id: 'gollum', title: '물가의 웅크린 그림자', text: '물가 바위 뒤에서 웅크린 무언가가 찰싹거리며 사라집니다. 비린내와 함께 두 갈래 발자국.', options: [
+        { label: '추적한다', sub: '행운 시험 · 금화 +40 또는 무작위 아군 상처 +1', fx: q => { if (q.rng() < 0.55) { q.gold += 40; return '추적 성공 · 금화 +40'; } const t = q.alive('good')[Math.floor(q.rng() * q.alive('good').length)]; if (t) t.currentWounds = Math.max(1, t.currentWounds - 1); return t ? `습격당함 — ${t.name} 상처` : '습격 · 피해 없음'; } },
+        { label: '놔두고 행군한다', sub: '아무 일도 없다', fx: q => { } }] },
+    { id: 'ents_song', title: '엔트의 노래', text: '숲 깊은 곳에서 낮고 느린 노랫소리가 울려옵니다. 병사들은 무슨 말인지 모르지만 왠지 마음이 가라앉습니다.', options: [
+        { label: '노래에 귀 기울인다', sub: '아군 전원 용기 +1 (영구)', fx: q => { q.alive('good').forEach(u => { u.baseStats.courage = (u.baseStats.courage || 0) + 1; q.refreshUnit(u); }); return '온후름 노래 · 용기 +1'; } },
+        { label: '서둘러 숲을 빠져나간다', sub: '금화 +10', fx: q => q.gold += 10 }] },
+    { id: 'huorns', title: '헤라그림의 행진', text: '밤사이 나무들이 움직였습니다. 그림자 나무들이 부대 주위에 모여 있고, 사이로 무언가가 걸어다닙니다.', options: [
+        { label: '나무들을 존중하며 지나간다', sub: '다음 전투 첫 라운드 아군 용기 +2', fx: q => { (q.nextRoundBuffs = q.nextRoundBuffs || []).push({ stat: 'courage', n: 2 }); return '헤라그림의 호의 · 용기 +2'; } },
+        { label: '장작을 채취한다', sub: '무작위 아군 1기 힘 +1 · 용기 −1 (영구)', fx: q => { const t = q.alive('good')[Math.floor(q.rng() * q.alive('good').length)]; if (t) { t.baseStats.strength = (t.baseStats.strength || 0) + 1; t.baseStats.courage = Math.max(0, (t.baseStats.courage || 0) - 1); q.refreshUnit(t); } return t ? `${t.name} 힘 +1 · 용기 −1` : '대상 없음'; } }] },
+    { id: 'white_blossom', title: '흰나무의 꽃봉오리', text: '돌무덤 틈에서 작은 흰 꽃이 피어 있습니다. 시들어가는 왕성의 후예가 마지막 봄을 맞이합니다.', options: [
+        { label: '꽃을 아끼며 기도한다', sub: '상처 입은 아군 전원 상처 1 회복', fx: q => { q.alive('good').forEach(u => u.currentWounds = Math.min(u.stats.wounds, u.currentWounds + 1)); return '흰나무의 축복 · 전원 회복'; } },
+        { label: '꽃잎을 거둔다', sub: '무작위 유물 1개 획득', fx: q => { const r = CX.relics[Math.floor(q.rng() * CX.relics.length)]; if (r) q.relics[r.id] = (q.relics[r.id] || 0) + 1; return r ? `유물 획득: ${r.name}` : '유물 없음'; } }] },
+    { id: 'mordor_ash', title: '모르도르의 화산재', text: '북동쪽에서 화산재가 비처럼 내립니다. 병사들이 기침하며 하늘을 올려다봅니다 — 적도 똑같이 고통받고 있습니다.', options: [
+        { label: '재를 뚫고 전진한다', sub: '다음 전투 양층 모두 이동 −1″', fx: q => { (q.nextRoundBuffs = q.nextRoundBuffs || []).push({ stat: 'move', n: -45 }, { stat: 'move', n: -45, side: 'evil' }); return '화산재 · 양층 이동 감소'; } },
+        { label: '재가 가라앉길 기다린다', sub: '금화 +15', fx: q => q.gold += 15 }] },
+    { id: 'argonath', title: '아르곤나스의 그림자', text: '강변 절벽에 거대한 왕의 석상 두 기가 내려다봅니다. 손바닥을 편 경고 속에 왕의 위엄이 살아 있습니다.', options: [
+        { label: '왕의 그림자 아래 맹세한다', sub: '무작위 아군 결투 +1 (영구)', fx: q => { const t = q.alive('good')[Math.floor(q.rng() * q.alive('good').length)]; if (t) { t.baseStats.fight = (t.baseStats.fight || 0) + 1; q.refreshUnit(t); } return t ? `${t.name} 결투 +1` : '대상 없음'; } },
+        { label: '잔해에서 파편을 수거한다', sub: '금화 +30', fx: q => q.gold += 30 }] },
+    { id: 'saruman_voice', title: '귀에 속삭이는 목소리', text: '어디선가 달콤하고 설득적인 목소리가 들립니다 — "항복하면 살려주겠다. 무릎 꿇어라."', options: [
+        { label: '목소리를 뿌리친다', sub: '용기 시험 · 성공 시 전원 용기 +1, 실패 시 다음 전투 용기 −1', fx: q => { if (q.rng() < 0.6) { q.alive('good').forEach(u => { u.baseStats.courage = (u.baseStats.courage || 0) + 1; q.refreshUnit(u); }); return '극복 성공 · 용기 +1'; } (q.nextRoundBuffs = q.nextRoundBuffs || []).push({ stat: 'courage', n: -1 }); return '동요함 · 다음 전투 용기 −1'; } },
+        { label: '귀를 막고 행군한다', sub: '다음 전투 첫 라운드 이동 −1″', fx: q => { (q.nextRoundBuffs = q.nextRoundBuffs || []).push({ stat: 'move', n: -45 }); return '우회 행군 · 이동 감소'; } }] },
+    { id: 'dead_men_path', title: '망자의 길목', text: '발 아래 돌들이 속삭이고, 어두운 회색 형체들이 모퉁이를 배회합니다. 둔하로우 밑 망자의 길.', options: [
+        { label: '망자에게 경의를 표한다', sub: '용기 시험 · 성공 시 전원 결투 +1, 실패 시 용기 −2', fx: q => { if (q.rng() < 0.5) { q.alive('good').forEach(u => { u.baseStats.fight = (u.baseStats.fight || 0) + 1; q.refreshUnit(u); }); return '망자의 축복 · 결투 +1'; } q.alive('good').forEach(u => { u.baseStats.courage = Math.max(0, (u.baseStats.courage || 0) - 2); q.refreshUnit(u); }); return '공포에 질림 · 용기 −2'; } },
+        { label: '해빛 길로 우회한다', sub: '금화 +20', fx: q => q.gold += 20 }] },
+    { id: 'two_trees', title: '두 나무의 기억', text: '몽상에서 오래된 두 나무가 함께 빛났습니다 — 라우렐린의 금빛과 텔페리온의 은빛이 잎사귀마다 남아 있습니다.', options: [
+        { label: '꿈의 빛을 간직한다', sub: '무작위 유물 1개 획득', fx: q => { const r = CX.relics[Math.floor(q.rng() * CX.relics.length)]; if (r) q.relics[r.id] = (q.relics[r.id] || 0) + 1; return r ? `유물 획득: ${r.name}` : '유물 없음'; } },
+        { label: '전우들에게 꿈을 들려준다', sub: '아군 전원 용기 +1 (영구)', fx: q => { q.alive('good').forEach(u => { u.baseStats.courage = (u.baseStats.courage || 0) + 1; q.refreshUnit(u); }); return '두 나무의 이야기 · 용기 +1'; } }] },
 ];
 P.rollCampEvent = function () {
     this.rng || (this.rng = Ne(Date.now()));
@@ -10800,6 +10889,7 @@ ut('next-unit').onclick=nextUnit;
 ut('speed-quick').onclick=()=>{ut('speed-toggle').click();ut('speed-quick').textContent='×'+qt;};
 function renderDock(){
     wt.setMood(['menu','reward','result'].includes(q.phase)?0:q.current&&q.current.boss?2:1);
+    wt.setAct&&wt.setAct(q.wave<=15?0:q.wave<=30?1:q.wave<=40?2:3);
     const _sq=ut('speed-quick');if(_sq)_sq.textContent='×'+qt;
     const active=actionableUnit(),selected=q.unit(q.selected),u=selected?.alive?selected:active,busy=At||q.mode==='ai'&&q.side==='evil'&&['move','shoot'].includes(q.phase);
     const phase=q.phase;
