@@ -5515,6 +5515,7 @@ dock.insertAdjacentHTML('beforeend',
    '<span class="act-gap"></span>'+
    '<button type="button" class="act-btn" id="act-ability">능력</button>'+
    '<button type="button" class="act-btn" id="act-shoot">사격</button>'+
+  '<button type="button" class="act-btn" id="auto-dock" title="자동 진행 온/오프" aria-label="자동 진행 온/오프">자동</button>'+
    '<button type="button" id="intent-cancel" class="hidden act-btn" aria-label="명령 취소">취소</button>'+
    '<button type="button" id="dock-primary" class="dock-primary"></button>'+
  '</div>'+
@@ -5524,6 +5525,7 @@ dock.insertAdjacentHTML('beforeend',
 // re-wire handlers that were bound to the old nodes
 ut('intent-cancel').onclick=()=>{clearIntent();renderDock();Tt.drawRings();};
 ut('dock-primary').onclick=window.__muxPrimary;
+{const _ad=ut('auto-dock');if(_ad)_ad.onclick=()=>{const _o=ut('auto');_o&&_o.click();};}
 // --- bottom sheet: unit details, abilities & commands
 sheet.classList.add('mux-sheet');
 const sh=$('sheet-toggle');sh.textContent='';sh.setAttribute('aria-label','상세 닫기');sh.innerHTML='<span class="grab"></span>';
