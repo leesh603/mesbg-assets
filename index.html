@@ -11576,13 +11576,14 @@ hud.onclick=()=>hud.classList.toggle('open');
 document.addEventListener('pointerdown',e=>{if(!hud.contains(e.target))hud.classList.remove('open');});
 // --- menu (≡): overview + battle log live here instead of on the battlefield
 const menu=document.querySelector('#app .top-actions');
-menu.insertAdjacentHTML('afterbegin','<button class="iconbtn" id="menu-overview" type="button">전장 전체 보기</button>');
-menu.insertAdjacentHTML('afterbegin','<button class="iconbtn" id="menu-fs" type="button">전체화면</button>');
+menu.insertAdjacentHTML('afterbegin','<button class="iconbtn" id="menu-overview" type="button">▦ 전장 전체 보기</button>');
+menu.insertAdjacentHTML('afterbegin','<button class="iconbtn" id="menu-fs" type="button">⛶ 전체화면</button>');
 $('menu-fs').onclick=()=>{try{document.fullscreenElement?document.exitFullscreen().catch(()=>{}):document.documentElement.requestFullscreen().catch(()=>{})}catch(e){}};
-const logBtn=$('battle-log-toggle');if(logBtn){logBtn.textContent='전투 기록';menu.insertBefore(logBtn,$('menu-overview').nextSibling);}
+const logBtn=$('battle-log-toggle');if(logBtn){logBtn.textContent='✎ 전투 기록';menu.insertBefore(logBtn,$('menu-overview').nextSibling);}
+{const _mst=document.createElement('style');_mst.textContent='#app .top-actions{display:flex;flex-wrap:wrap;gap:6px}#app .top-actions>*{order:50}#menu-fs{order:1}#menu-overview{order:2}#auto{order:3}#fx-toggle{order:4}#battle-log-toggle{order:5}#speed-toggle{order:6}#sound{order:7}#help{order:8}';document.head.appendChild(_mst);}
 let overviewBack=null;
-$('menu-overview').onclick=()=>{if(overviewBack){setCamera(overviewBack.x,overviewBack.y,overviewBack.z,'manual');overviewBack=null;$('menu-overview').textContent='전장 전체 보기';}
-    else{const c=cameraCenter();overviewBack={x:c.x,y:c.y,z:UX.zoom};Tt.overview();$('menu-overview').textContent='원래 시점으로';}
+$('menu-overview').onclick=()=>{if(overviewBack){setCamera(overviewBack.x,overviewBack.y,overviewBack.z,'manual');overviewBack=null;$('menu-overview').textContent='▦ 전장 전체 보기';}
+    else{const c=cameraCenter();overviewBack={x:c.x,y:c.y,z:UX.zoom};Tt.overview();$('menu-overview').textContent='◂ 원래 시점으로';}
     menu.classList.remove('open');};
 // --- bottom: unit panel + action bar
 dock.innerHTML='';
