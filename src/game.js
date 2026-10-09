@@ -495,10 +495,12 @@ function Zt(Z) { if (q.phase === "move" && q.activeMoverUid && Z !== q.activeMov
     return;
 } Tt.preview = void 0, Tt.previewPlan = null, q.selected = Z, wt.play("ui_select"), Yt(); if (Tt.scale.width < 850) { const u = q.unit(Z), c = Tt.cameras.main; u && u.alive && c && !c.worldView.contains(u.x, u.y) && c.pan(u.x, u.y, 320, "Sine.easeOut"); } }
 function unitCardModal(u) {
+    try {
     const meta = q.meta.get(u.id) || {}; let m = document.getElementById('unit-profile');
     if (!m) { m = document.createElement('div'); m.id = 'unit-profile'; m.style.cssText = 'position:fixed;inset:0;background:rgba(8,12,10,.85);z-index:60;display:flex;align-items:center;justify-content:center;padding:16px'; m.onclick = e => { if (e.target === m) m.remove(); }; document.body.appendChild(m); }
     m.innerHTML = `<div class="modal" style="max-width:360px;padding:18px;width:100%"><div class="unit-head">${unitImage(u.id)}<div><strong>${esc(u.name)}</strong><small>${u.side === 'good' ? '아군' : '적군'} · ${CX.roleNames[meta.role] || meta.role || ''}</small>${isHeroUnit(u.id) ? `<small class="unit-tier tier-${heroGrade(u.id)}">${tierLabel(u.id)} · ${(UnitCatalog[u.id] || {}).points ?? 0}pt</small>` : ''}</div></div><div class="stats"><span>이동<b>${(u.stats.move / 45).toFixed(1)}″</b></span><span>결투<b>${u.stats.fight}</b></span><span>힘<b>${u.stats.strength}</b></span><span>방어<b>${u.stats.defence}</b></span><span>공격<b>${u.stats.attacks}</b></span><span>용기<b>${u.stats.courage}</b></span>${u.stats.shootRange ? `<span>명중<b>${u.stats.shootValue}+ · ${(u.stats.shootRange / 45).toFixed(1)}″</b></span>` : ''}<span>HP<b>${u.currentWounds}/${u.stats.wounds}</b></span></div>${(u.traits || []).includes('hero') ? `<div class="resources"><span>Might <b>${u.resources.might}</b></span><span>Will <b>${u.resources.will}</b></span><span>Fate <b>${u.resources.fate}</b></span></div>` : ''}<div class="traits">${[(u.traits || []).includes('veteran') ? '베테랑' : '', u.injury ? '부상 ' + u.injury : '', '처치 ' + (u.kills || 0)].filter(Boolean).join(' · ')}</div>${CX.skills && CX.skills[u.id] ? `<div class="traits" style="margin-top:4px"><b style="color:#c9b06a">⚔ ${esc(CX.skills[u.id][0])}</b> · ${CX.skills[u.id][2]} ${CX.skills[u.id][1]} — ${esc(CX.skills[u.id][3] || '')}</div>` : ''}<button class="primary" style="margin-top:10px;width:100%" id="unit-profile-close">닫기</button></div>`;
     m.querySelector('#unit-profile-close').onclick = () => m.remove();
+    } catch (e) { console.error('unitCardModal', e); }
 }
 Tt.onUnit = Z => { if (At)
     return; const Y = q.unit(Z); if (q.mode === "ai" && q.side === "evil" && ["move", "shoot"].includes(q.phase)) {
@@ -2855,6 +2857,9 @@ be=function(b,u){
 };
 He=function(b){
     const u=b.eligible()[0];if(!u){b.advance();return;}
+    try{HeAct(b,u);}catch(e){console.error('ai turn error',e);try{b.wait(u.uid)}catch(_){try{b.advance()}catch(__){}}}
+};
+function HeAct(b,u){
     if(CX.skills[u.id]&&!b.skillReason(u)&&!b.engaged(u))b.skill(u.uid);
     if(b.phase==='move'){
         const _st=u.side==='good'?(u.stance||'auto'):'auto';
@@ -2873,7 +2878,7 @@ He=function(b){
         const target=b.validTargets(u).sort((a,c)=>_sc(c)-_sc(a))[0];
         if(!target||!b.shoot(u.uid,target.uid))b.wait(u.uid);
     }
-};
+}
 const MESBG_TIERS=[[100,'legendary','전설의 영웅'],[50,'epic','용맹의 영웅'],[26,'rare','강인의 영웅'],[0,'elite','하급 영웅']];
 const isHeroUnit=(id,role)=>(zt[id]?.traits||[]).includes('hero')||role==='hero'||UnitCatalog[id]?.meta?.role==='hero';
 const heroGrade=(id,pts,role)=>{if(isHeroUnit(id,role)){const p=pts??UnitCatalog[id]?.points??0;for(const[m,g]of MESBG_TIERS)if(p>=m)return g;}return(zt[id]?.traits||[]).includes('mounted')?'elite':'normal'};
@@ -5165,7 +5170,7 @@ $e=async function(e){
         detail='<div><span class="dx-side good">곤도르</span>'+ld.map(d=>'<img src="'+face('good',d)+'" alt="'+d+'">').join('')+'</div><div><span class="dx-side evil">모르도르</span>'+rd.map(d=>'<img src="'+face('evil',d)+'" alt="'+d+'">').join('')+'</div>'+(S.fightValues?'<div class="dx-fv">결투 '+S.fightValues.good+' / '+S.fightValues.evil+'</div>':'');
         if(S.winnerSide)e.__w=S.winnerSide;}
     else return;
-    const sp=Math.max(1,qt),best=a=>a.length?Math.max(...a):0;
+    const sp=(Math.max(1,qt)||1),best=a=>a.length?Math.max(...a):0;
     const dieHTML=(side,v,id)=>'<span class="dx-die" id="'+id+'"><img src="'+face(side,v||1+Math.floor(Math.random()*6))+'" alt=""></span>';
     box.className='dice-panel dx kind-'+kind+(special?' special':'');
     box.innerHTML='<div class="dx-row"><span class="dx-n l '+L.side+'">'+esc(L.name)+'</span>'+dieHTML(L.side,0,'dx-l')+'<img class="dx-vs px" src="'+pxIcon(kind==='shot'?'aim':'sword')+'" alt="">'+(kind==='shot'&&!rd.length?'':dieHTML(kind==='shot'?L.side:R.side,0,'dx-r'))+'<span class="dx-n r '+R.side+'">'+esc(R.name)+'</span></div><div class="dx-res"><b></b><small></small></div>'+(detail?'<div class="dx-detail">'+detail+'</div>':'');
@@ -5173,14 +5178,14 @@ $e=async function(e){
     wt.play('dice_roll');
     const lEl=box.querySelector('#dx-l img'),rEl=box.querySelector('#dx-r img');
     const rollSide=kind==='shot'?L.side:R.side;
-    if(!UX.reduced){const t0=performance.now();while(performance.now()-t0<240/sp){lEl&&(lEl.src=face(L.side,1+Math.floor(Math.random()*6)));rEl&&(rEl.src=face(kind==='shot'?L.side:R.side,1+Math.floor(Math.random()*6)));await sleep(45/sp);}}
+    if(!UX.reduced){const t0=performance.now();while(performance.now()-t0<240/sp){lEl&&(lEl.src=face(L.side,1+Math.floor(Math.random()*6)));rEl&&(rEl.src=face(kind==='shot'?L.side:R.side,1+Math.floor(Math.random()*6)));await sleep(45/sp);if(performance.now()-t0>3000)break;}}
     lEl&&(lEl.src=face(L.side,best(ld)||ld[0]));rEl&&(rEl.src=face(kind==='shot'?L.side:R.side,best(rd)||rd[0]));
     box.querySelectorAll('.dx-die').forEach(x=>x.classList.add('landed'));
     if(kind==='fight'||kind==='prio'){const lw=(kind==='prio'?q.priority:e.__w)==='good';box.querySelector(lw?'#dx-l':'#dx-r')?.classList.add('win');box.querySelector(lw?'.dx-n.l':'.dx-n.r')?.classList.add('win');}
     if(kind==='shot'){const t=e.result.strikeResults[0]||{};box.querySelector('#dx-l')?.classList.add(t.hit>=t.hitNeeded?'win':'lose');box.querySelector('#dx-r')?.classList.add(t.wound?'win':'lose');}
     box.querySelector('.dx-res b').textContent=res;box.querySelector('.dx-res small').textContent=sub;
     let wait=({fight:520,shot:460,prio:380})[kind]+(special?260:0);
-    const t1=performance.now();while(performance.now()-t1<(wait+hold)/sp)await sleep(40);
+    const t1=performance.now();while(performance.now()-t1<(wait+hold)/sp){await sleep(40);if(performance.now()-t1>8000)break;}
     box.classList.remove('open');
 };
 })();
