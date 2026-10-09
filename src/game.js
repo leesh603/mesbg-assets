@@ -4945,6 +4945,8 @@ document.addEventListener('pointerdown',e=>{if(!hud.contains(e.target))hud.class
 // --- menu (≡): overview + battle log live here instead of on the battlefield
 const menu=document.querySelector('#app .top-actions');
 menu.insertAdjacentHTML('afterbegin','<button class="iconbtn" id="menu-overview" type="button">전장 전체 보기</button>');
+menu.insertAdjacentHTML('afterbegin','<button class="iconbtn" id="menu-fs" type="button">전체화면</button>');
+$('menu-fs').onclick=()=>{try{document.fullscreenElement?document.exitFullscreen().catch(()=>{}):document.documentElement.requestFullscreen().catch(()=>{})}catch(e){}};
 const logBtn=$('battle-log-toggle');if(logBtn){logBtn.textContent='전투 기록';menu.insertBefore(logBtn,$('menu-overview').nextSibling);}
 let overviewBack=null;
 $('menu-overview').onclick=()=>{if(overviewBack){setCamera(overviewBack.x,overviewBack.y,overviewBack.z,'manual');overviewBack=null;$('menu-overview').textContent='전장 전체 보기';}
