@@ -7882,9 +7882,17 @@ P.stageInfo = function (n) {
     const mission = boss ? 'commander' : missions[(n - 1) % missions.length];
     const ids = [];
     const dmul = this.difficulty === 'easy' ? .75 : this.difficulty === 'hard' ? 1.35 : 1;
-    const count = Math.min(this.difficulty === 'hard' ? 30 : 24, Math.max(3, Math.round((4 + Math.floor(n * 1.15)) * dmul)));
+    // 잡병 수 — 보스전은 보스+부관 수만큼 잡병을 빼서 총량 폭증 방지.
+    const _extras = boss ? 1 + (STAGE_CO_COMMANDERS[n] || []).length + (STAGE_EXTRA_FOES[n] || []).length : 0;
+    const count = Math.min(this.difficulty === 'hard' ? 30 : 24, Math.max(3, Math.round((4 + Math.floor(n * 1.15)) * dmul))) - _extras;
     for (let i = 0; i < count; i++)
-        ids.push(n > 9 && i % 7 === 0 ? 'cave_troll' : n > 4 && i % 5 === 0 ? 'warg_rider' : n > 2 && i % 4 === 0 ? 'uruk_berserker' : i % 4 === 3 ? 'orc_archer' : i % 3 === 1 ? 'moria_goblin' : 'orc_sword');
+        ids.push(
+            n > 45 && i % 4 === 0 ? 'cave_troll' :          // 후반부 트롤 빈도 상승
+            n > 9 && i % 7 === 0 ? 'cave_troll' :
+            n > 4 && i % 5 === 0 ? 'warg_rider' :
+            n > 2 && i % 4 === 0 ? 'uruk_berserker' :
+            i % 4 === 3 ? 'orc_archer' :
+            i % 3 === 1 ? (n > 25 ? 'uruk_berserker' : 'moria_goblin') : 'orc_sword'); // 후반부 고블린→버서커
     if (boss)
         ids.push(boss, ...(STAGE_CO_COMMANDERS[n] || []), ...(STAGE_EXTRA_FOES[n] || []));
     else if (mission === 'commander')
