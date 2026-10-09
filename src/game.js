@@ -5516,6 +5516,7 @@ dock.insertAdjacentHTML('beforeend',
    '<button type="button" class="act-btn" id="act-ability">능력</button>'+
    '<button type="button" class="act-btn" id="act-shoot">사격</button>'+
   '<button type="button" class="act-btn" id="auto-dock" title="자동 진행 온/오프" aria-label="자동 진행 온/오프">자동</button>'+
+  '<button type="button" class="act-btn" id="speed-dock" title="재생 속도 ×1·×2·×4" aria-label="재생 속도">1×</button>'+
    '<button type="button" id="intent-cancel" class="hidden act-btn" aria-label="명령 취소">취소</button>'+
    '<button type="button" id="dock-primary" class="dock-primary"></button>'+
  '</div>'+
@@ -5526,6 +5527,7 @@ dock.insertAdjacentHTML('beforeend',
 ut('intent-cancel').onclick=()=>{clearIntent();renderDock();Tt.drawRings();};
 ut('dock-primary').onclick=window.__muxPrimary;
 {const _ad=ut('auto-dock');if(_ad)_ad.onclick=()=>{const _o=ut('auto');_o&&_o.click();};}
+{const _sd=ut('speed-dock');if(_sd){const _sy=()=>{const _o=ut('speed-toggle');if(_o)_sd.textContent=_o.textContent;};_sd.onclick=()=>{const _o=ut('speed-toggle');_o&&_o.click();_sy();};_sy();}}
 // --- bottom sheet: unit details, abilities & commands
 sheet.classList.add('mux-sheet');
 const sh=$('sheet-toggle');sh.textContent='';sh.setAttribute('aria-label','상세 닫기');sh.innerHTML='<span class="grab"></span>';
