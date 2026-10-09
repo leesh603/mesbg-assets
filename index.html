@@ -7584,6 +7584,79 @@ const MAP_PROP_SETS = {
         // 풀밭 고원 — 초원 소품
         [['terr_boulders', 2200, 400, 130, 80], ['terr_chest_closed', 140, 620, 90, 70],, ['terr_bramble', 140, 1000, 130, 60], ['terr_standing_stones', 2210, 1240, 130, 100], ['terr_torch_post', 150, 1400, 60, 90]]],
 };
+// 구역 변주 확장: 기존 2종 → 4종(v3,v4 추가) + 신규 4맵 전용 소품 세트.
+{
+    const X = (k, ...sets) => { (MAP_PROP_SETS[k] = MAP_PROP_SETS[k] || [null]).push(...sets); };
+    X('minas_tirith',
+        [['terr_gondor_house', 140, 300, 120, 100], ['terr_war_banner', 2200, 400, 60, 110], ['terr_statue_head', 150, 1180, 110, 90], ['terr_brazier', 2190, 1240, 60, 70], ['terr_market_stall', 1160, 1420, 110, 90]],
+        [['terr_white_tree', 150, 480, 90, 110], ['terr_weapon_rack', 2200, 300, 90, 80], ['terr_chest_closed', 160, 1240, 90, 70], ['terr_portcullis', 1160, 140, 180, 90], ['terr_rubble', 2180, 1400, 120, 60]]);
+    X('helms_deep',
+        [['terr_torch_post', 150, 400, 60, 90], ['terr_weapon_rack', 2190, 560, 90, 80], ['terr_spike_barricade', 160, 1180, 120, 70], ['terr_boulders', 2200, 1240, 130, 80], ['terr_sandbag', 1160, 1420, 130, 70]],
+        [['terr_catapult', 150, 700, 130, 110], ['terr_ammo_pile', 2200, 300, 100, 80], ['terr_crates', 140, 1240, 100, 80], ['terr_dead_tree', 2210, 1180, 90, 110], ['terr_chain_post', 1160, 130, 70, 90]]);
+    X('moria',
+        [['terr_bone_pile', 160, 420, 100, 70], ['terr_sarcophagus', 2180, 560, 100, 80], ['terr_broken_pillar', 150, 1300, 80, 110], ['terr_loot_bag', 2200, 1300, 70, 60], ['terr_cage', 1160, 140, 90, 90]],
+        [['terr_stone_archway', 140, 620, 160, 100], ['terr_bramble', 2190, 1240, 120, 60], ['terr_broken_stairs', 2180, 300, 110, 90], ['terr_waystone', 160, 1400, 70, 90], ['terr_chain_post', 1160, 1420, 70, 90]]);
+    X('black_gate',
+        [['terr_orc_totem', 140, 400, 70, 100], ['terr_mumak_skull', 150, 1240, 120, 80], ['terr_trebuchet', 2190, 400, 130, 110], ['terr_sandbag', 2150, 1240, 130, 70], ['terr_spike_line', 1160, 1420, 130, 70]],
+        [['terr_dead_tree', 150, 300, 90, 110], ['terr_bone_pile', 2200, 480, 100, 70], ['terr_orc_barricade', 140, 1180, 130, 80], ['terr_tent', 2150, 1400, 120, 90], ['terr_wall_segment', 1160, 130, 160, 90]]);
+    X('edoras',
+        [['terr_rohan_hall', 1160, 140, 160, 110], ['terr_palisade', 150, 480, 140, 60], ['terr_haystack', 2200, 620, 100, 90], ['terr_tent', 150, 1300, 120, 90], ['terr_war_banner', 2190, 1300, 60, 110]],
+        [['terr_cart', 160, 300, 110, 80], ['terr_fence_gate', 2180, 400, 120, 50], ['terr_hedgerow', 150, 1180, 140, 60], ['terr_torch_post', 2200, 1240, 60, 90], ['terr_beehive', 1160, 1420, 90, 80]]);
+    X('fangorn',
+        [['terr_oak_tree', 2200, 300, 110, 130], ['terr_fallen_log', 150, 700, 120, 60], ['terr_mushroom_ring', 2180, 1240, 90, 70], ['terr_beehive', 160, 1380, 90, 80], ['terr_pine_copse', 1160, 1420, 130, 110]],
+        [['terr_dead_tree', 150, 480, 90, 110], ['terr_bramble', 2200, 560, 130, 60], ['terr_oak_tree', 2180, 1300, 110, 130], ['terr_campfire', 160, 1240, 70, 70], ['terr_fallen_log', 1160, 130, 120, 60]]);
+    X('gorgoroth',
+        [['terr_orc_camp', 140, 480, 130, 110], ['terr_brazier', 150, 1240, 60, 70], ['terr_rock_outcrop', 2200, 700, 140, 100], ['terr_bone_pile', 2180, 1380, 100, 70], ['terr_tent', 1160, 1420, 120, 90]],
+        [['terr_siege_wreck', 150, 560, 140, 90], ['terr_idol', 2200, 400, 80, 110], ['terr_boulders', 160, 1300, 130, 80], ['terr_mumak_skull', 2190, 1240, 120, 80], ['terr_ammo_pile', 1160, 130, 100, 80]]);
+    X('isengard',
+        [['terr_anvil', 150, 400, 90, 80], ['terr_crates', 2200, 300, 100, 80], ['terr_stone_barricade', 160, 1180, 130, 70], ['terr_torch_post', 2190, 1240, 60, 90], ['terr_cage', 1160, 1420, 90, 90]],
+        [['terr_ammo_pile', 140, 560, 100, 80], ['terr_orc_barricade', 2200, 700, 130, 80], ['terr_map_table', 150, 1300, 120, 80], ['terr_fallen_log', 2180, 1380, 120, 60], ['terr_spike_barricade', 1160, 1420, 120, 70]]);
+    X('amon_sul',
+        [['terr_barrow', 160, 480, 120, 90], ['terr_sarcophagus', 2180, 1180, 100, 80], ['terr_standing_stones', 150, 1300, 130, 100], ['terr_dead_tree', 2200, 300, 90, 110], ['terr_boulders', 1160, 1420, 130, 80]],
+        [['terr_ruined_tower', 140, 700, 120, 140], ['terr_waystone', 2200, 560, 70, 90], ['terr_stone_archway', 150, 1240, 160, 100], ['terr_bramble', 2180, 1380, 120, 60], ['terr_torch_post', 1160, 130, 60, 90]]);
+    X('osgiliath',
+        [['terr_osgiliath_dome', 1160, 140, 160, 120], ['terr_broken_pillar', 150, 620, 80, 110], ['terr_statue_head', 2200, 480, 110, 90], ['terr_rubble', 160, 1300, 120, 80], ['terr_stone_archway', 2190, 1240, 160, 100]],
+        [['terr_ruined_wall', 140, 300, 180, 80], ['terr_pond', 2200, 620, 130, 90], ['terr_loot_bag', 160, 1180, 70, 60], ['terr_bramble', 2190, 1300, 130, 60], ['terr_bone_pile', 1160, 1420, 100, 70]]);
+    X('rivendell',
+        [['terr_relic_shrine', 140, 300, 100, 110], ['terr_well', 2200, 480, 90, 80], ['terr_pond', 150, 1180, 130, 90], ['terr_oak_tree', 2180, 1240, 110, 130], ['terr_altar', 1160, 1420, 90, 80]],
+        [['terr_palantir', 150, 560, 70, 90], ['terr_mushroom_ring', 2200, 700, 90, 70], ['terr_oak_tree', 160, 1300, 110, 130], ['terr_stone_archway', 2190, 300, 160, 100], ['terr_waystone', 1160, 130, 70, 90]]);
+    X('lothlorien',
+        [['terr_pine_copse', 150, 400, 130, 110], ['terr_beehive', 2200, 300, 90, 80], ['terr_pond', 160, 1240, 130, 90], ['terr_altar', 2180, 1300, 90, 80], ['terr_oak_tree', 1160, 1420, 110, 130]],
+        [['terr_bramble', 140, 560, 130, 60], ['terr_mushroom_ring', 2180, 480, 90, 70], ['terr_waystone', 150, 1300, 70, 90], ['terr_oak_tree', 2200, 1240, 110, 130], ['terr_relic_shrine', 1160, 130, 100, 110]]);
+    X('erebor',
+        [['terr_throne', 1160, 140, 100, 110], ['terr_chest_open', 150, 480, 90, 70], ['terr_anvil', 2200, 560, 90, 80], ['terr_boulders', 160, 1300, 130, 80], ['terr_gold_pile', 2180, 1240, 110, 80]],
+        [['terr_hoard', 140, 700, 130, 90], ['terr_crates', 2200, 300, 100, 80], ['terr_bone_pile', 150, 1180, 100, 70], ['terr_chest_closed', 2180, 1380, 90, 70], ['terr_rock_outcrop', 1160, 1420, 140, 100]]);
+    X('pelennor',
+        [['terr_hay_cart', 150, 400, 110, 80], ['terr_hedgerow', 2180, 560, 140, 60], ['terr_cart', 160, 1240, 110, 80], ['terr_market_stall', 2200, 1240, 110, 90], ['terr_waystone', 1160, 1420, 70, 90]],
+        [['terr_campfire', 140, 620, 70, 70], ['terr_bramble', 2200, 700, 130, 60], ['terr_fence_gate', 160, 1300, 120, 50], ['terr_haystack', 2190, 1380, 100, 90], ['terr_dead_tree', 1160, 130, 90, 110]]);
+    X('dead_marshes',
+        [['terr_pond', 160, 400, 130, 90], ['terr_dead_tree', 2200, 560, 90, 110], ['terr_bone_pile', 150, 1240, 100, 70], ['terr_sarcophagus', 2180, 1240, 100, 80], ['terr_bramble', 1160, 1420, 130, 60]],
+        [['terr_mushroom_ring', 140, 560, 90, 70], ['terr_pond', 2200, 300, 130, 90], ['terr_dead_tree', 160, 1180, 90, 110], ['terr_altar', 2190, 1380, 90, 80], ['terr_loot_bag', 1160, 130, 70, 60]]);
+    X('dunharrow',
+        [['terr_standing_stones', 150, 300, 130, 100], ['terr_boulders', 2200, 480, 130, 80], ['terr_altar', 160, 1240, 90, 80], ['terr_torch_post', 2180, 1300, 60, 90], ['terr_bramble', 1160, 1420, 130, 60]],
+        [['terr_waystone', 140, 560, 70, 90], ['terr_standing_stones', 2200, 620, 130, 100], ['terr_chest_closed', 160, 1300, 90, 70], ['terr_boulders', 2190, 1240, 130, 80], ['terr_dead_tree', 1160, 130, 90, 110]]);
+    // 신규 맵 전용 세트 (v1-v4)
+    X('mirkwood',
+        [['terr_bramble', 150, 400, 130, 60], ['terr_dead_tree', 2200, 300, 90, 110], ['terr_mushroom_ring', 160, 1240, 90, 70], ['terr_fallen_log', 2180, 1300, 120, 60], ['terr_cage', 1160, 140, 90, 90]],
+        [['terr_dead_tree', 140, 560, 90, 110], ['terr_oak_tree', 2180, 480, 110, 130], ['terr_bramble', 160, 1300, 130, 60], ['terr_cage', 2200, 1240, 90, 90], ['terr_bone_pile', 1160, 1420, 100, 70]],
+        [['terr_mushroom_ring', 150, 300, 90, 70], ['terr_dead_tree', 2200, 560, 90, 110], ['terr_fallen_log', 160, 1180, 120, 60], ['terr_beehive', 2180, 1380, 90, 80], ['terr_standing_stones', 1160, 1420, 130, 100]],
+        [['terr_pine_copse', 140, 480, 130, 110], ['terr_bramble', 2200, 700, 130, 60], ['terr_dead_tree', 150, 1240, 90, 110], ['terr_campfire', 2190, 1240, 70, 70], ['terr_waystone', 1160, 130, 70, 90]]);
+    X('dol_guldur',
+        [['terr_bramble', 150, 480, 130, 60], ['terr_dead_tree', 2200, 400, 90, 110], ['terr_cage', 160, 1240, 90, 90], ['terr_sarcophagus', 2180, 1300, 100, 80], ['terr_torch_post', 1160, 1420, 60, 90]],
+        [['terr_ruined_wall', 140, 300, 180, 80], ['terr_bone_pile', 2200, 620, 100, 70], ['terr_dead_tree', 150, 1180, 90, 110], ['terr_bramble', 2190, 1240, 130, 60], ['terr_idol', 1160, 140, 80, 110]],
+        [['terr_cage', 150, 560, 90, 90], ['terr_dead_tree', 2180, 300, 90, 110], ['terr_sarcophagus', 160, 1300, 100, 80], ['terr_bramble', 2200, 1380, 130, 60], ['terr_waystone', 1160, 1420, 70, 90]],
+        [['terr_bone_pile', 140, 400, 100, 70], ['terr_bramble', 2200, 560, 130, 60], ['terr_ruined_tower', 150, 1240, 120, 140], ['terr_dead_tree', 2180, 1300, 90, 110], ['terr_torch_post', 1160, 130, 60, 90]]);
+    X('gondolin',
+        [['terr_white_tree', 150, 480, 90, 110], ['terr_stone_archway', 2200, 300, 160, 100], ['terr_statue_head', 160, 1240, 110, 90], ['terr_relic_shrine', 2180, 1300, 100, 110], ['terr_pond', 1160, 1420, 130, 90]],
+        [['terr_gondor_house', 140, 300, 120, 100], ['terr_altar', 2200, 560, 90, 80], ['terr_well', 160, 1180, 90, 80], ['terr_stone_archway', 2190, 1240, 160, 100], ['terr_waystone', 1160, 1420, 70, 90]],
+        [['terr_statue_head', 150, 620, 110, 90], ['terr_relic_shrine', 2180, 400, 100, 110], ['terr_gondor_house', 160, 1300, 120, 100], ['terr_white_tree', 2200, 1300, 90, 110], ['terr_brazier', 1160, 130, 60, 70]],
+        [['terr_well', 140, 480, 90, 80], ['terr_statue_head', 2200, 620, 110, 90], ['terr_stone_archway', 150, 1240, 160, 100], ['terr_pond', 2180, 1380, 130, 90], ['terr_torch_post', 1160, 1420, 60, 90]]);
+    X('angband',
+        [['terr_bone_pile', 150, 400, 100, 70], ['terr_orc_totem', 2200, 300, 70, 100], ['terr_brazier', 160, 1240, 60, 70], ['terr_siege_wreck', 2180, 1240, 140, 90], ['terr_spike_line', 1160, 1420, 130, 70]],
+        [['terr_idol', 140, 560, 80, 110], ['terr_bone_pile', 2200, 480, 100, 70], ['terr_cage', 160, 1180, 90, 90], ['terr_orc_barricade', 2190, 1300, 130, 80], ['terr_dead_tree', 1160, 130, 90, 110]],
+        [['terr_mumak_skull', 150, 300, 120, 80], ['terr_brazier', 2200, 560, 60, 70], ['terr_bone_pile', 160, 1300, 100, 70], ['terr_spike_barricade', 2180, 1380, 120, 70], ['terr_orc_totem', 1160, 1420, 70, 100]],
+        [['terr_orc_camp', 140, 480, 130, 110], ['terr_siege_wreck', 2200, 700, 140, 90], ['terr_cage', 150, 1240, 90, 90], ['terr_bone_pile', 2190, 1240, 100, 70], ['terr_idol', 1160, 1420, 80, 110]]);
+}
 function mapProps(key, wave) {
     const v = mapVariant(wave);
     const sets = MAP_PROP_SETS[key];
