@@ -10032,7 +10032,9 @@ Ve.prototype.sync = function () {
     this.boundary.fillRect(pt.width - 12, 0, 12, pt.height);
     this.boundary.fillRect(0, 0, pt.width, 25);
     this.boundary.fillRect(0, pt.height - 12, pt.width, 12);
-    this.objectiveLabel.setBackgroundColor('rgba(0,0,0,0)').setStroke('#162027',3).setText(this.b.mission === 'defense' ? '방어선' : this.b.mission === 'hold' ? '거점 · 3라운드 확보' : this.b.mission === 'rescue' ? '포로 구출 지점' : this.b.mission === 'breakthrough' ? '남쪽 돌파선' : '').setPosition(Mt.objective.x, Mt.objective.y - 190).setVisible(this.b.phase !== 'menu');
+    const _objTxt = this.b.mission === 'defense' ? '방어선' : this.b.mission === 'hold' ? '거점 · 3라운드 확보' : this.b.mission === 'rescue' ? '포로 구출 지점' : this.b.mission === 'breakthrough' ? '남쪽 돌파선' : '';
+    const _objPos = this.b.mission === 'breakthrough' ? { x: 1165, y: 1178 } : { x: Mt.objective.x, y: Mt.objective.y - 190 };
+    this.objectiveLabel.setBackgroundColor('rgba(0,0,0,0)').setStroke('#162027',3).setText(_objTxt).setPosition(_objPos.x, _objPos.y).setVisible(this.b.phase !== 'menu' && !!_objTxt);
     for (const u of this.b.alive()) {
         const c = this.tokens.get(u.uid);
         if (!c)
@@ -10941,7 +10943,7 @@ Ve.prototype.sync=function(){
     }
     if(this.b.phase==='menu'){UX.stage=null;return;}
     const stage=(this.b.phase==='preparation'?this.b.wave+1:this.b.wave)+'/'+(this.b.mapIndex||0);
-    if(stage!==UX.stage&&['preparation','move','shoot','fight'].includes(this.b.phase)){UX.stage=stage;const team=this.b.alive(['move','shoot'].includes(this.b.phase)?this.b.side:'good');const x=team.length?team.reduce((n,u)=>n+u.x,0)/team.length:1165;const z=mobileLayout()?Math.max(.55,Math.min(.8,UX.height/(pt.height*.72))):.82;const y=this.b.mission==='defense'?(mobileLayout()&&innerHeight>innerWidth?600-Math.min(78,UX.height*.16)/z:590):690;panTo(x,y,z,430)}
+    if(stage!==UX.stage&&['preparation','move','shoot','fight'].includes(this.b.phase)){UX.stage=stage;const team=this.b.alive(['move','shoot'].includes(this.b.phase)?this.b.side:'good');const x=team.length?team.reduce((n,u)=>n+u.x,0)/team.length:1165;const z=mobileLayout()?Math.max(.55,Math.min(.8,UX.height/(pt.height*.72))):.82;const y=this.b.phase==='preparation'?(team.length?team.reduce((n,u)=>n+u.y,0)/team.length:690):this.b.mission==='defense'?(mobileLayout()&&innerHeight>innerWidth?600-Math.min(78,UX.height*.16)/z:590):690;panTo(x,y,z,430)}
     updateWorldUI();
 };
 const clarityRings=Ve.prototype.drawRings;
@@ -12409,7 +12411,7 @@ ut("overview").onclick = () => Tt.overview();
 ut("focus").onclick = () => Tt.focus();
 const re = ut("minimap");
 re.onpointerdown = Z => { const Y = re.getBoundingClientRect(); panTo((Z.clientX - Y.left) / Y.width * pt.width, (Z.clientY - Y.top) / Y.height * pt.height, UX.zoom, 300); };
-function xe() { var $; const Z = ut("minimap"); if (document.hidden || !Z.offsetParent) return; const Y = Z.getContext("2d"), b = Z.width / pt.width, H = Z.height / pt.height; Y.clearRect(0, 0, Z.width, Z.height), Y.fillStyle = "#263a37", Y.fillRect(0, 0, Z.width, Z.height); if (Mt.objective && ['defense', 'hold', 'rescue', 'breakthrough'].includes(q.mission)) { Y.strokeStyle = '#f0d89b', Y.lineWidth = 1.5, Y.setLineDash([3, 2]), Y.beginPath(), Y.arc(Mt.objective.x * b, Mt.objective.y * H, Mt.objective.radius * b, 0, 7), Y.stroke(), Y.setLineDash([]); } for (const p of q.terrain.filter(S => S.active))
+function xe() { var $; const Z = ut("minimap"); if (document.hidden || !Z.offsetParent) return; const Y = Z.getContext("2d"), b = Z.width / pt.width, H = Z.height / pt.height; Y.clearRect(0, 0, Z.width, Z.height), Y.fillStyle = "#263a37", Y.fillRect(0, 0, Z.width, Z.height); if (Mt.objective && ['defense', 'hold', 'rescue'].includes(q.mission)) { Y.strokeStyle = '#f0d89b', Y.lineWidth = 1.5, Y.setLineDash([3, 2]), Y.beginPath(), Y.arc(Mt.objective.x * b, Mt.objective.y * H, Mt.objective.radius * b, 0, 7), Y.stroke(), Y.setLineDash([]); } else if (q.mission === 'breakthrough') { Y.strokeStyle = '#f0d89b', Y.lineWidth = 1.5, Y.setLineDash([3, 2]), Y.strokeRect(12 * b, 1200 * H, (pt.width - 24) * b, 244 * H), Y.setLineDash([]); } for (const p of q.terrain.filter(S => S.active))
     Y.fillStyle = p.kind === "block" ? "#8c9480" : "#b6a27b", Y.fillRect((p.x - p.w / 2) * b, (p.y - p.h / 2) * H, p.w * b, p.h * H); for (const p of q.alive())
     Y.fillStyle = p.side === "good" ? "#b9e8f6" : "#ee9879", Y.beginPath(), Y.arc(p.x * b, p.y * H, p.traits.includes("hero") ? 3.3 : 2.3, 0, 7), Y.fill(), p.uid === (q.activeMoverUid || q.selected) && (Y.strokeStyle = "#f17b70", Y.lineWidth = 2, Y.beginPath(), Y.arc(p.x * b, p.y * H, 6, 0, 7), Y.stroke()); const K = ($ = Tt.cameras) == null ? void 0 : $.main; K && (Y.strokeStyle = "#f0d89b", Y.lineWidth = 1, Y.strokeRect(K.worldView.x * b, K.worldView.y * H, K.worldView.width * b, K.worldView.height * H)); }
 setInterval(xe, 200);
