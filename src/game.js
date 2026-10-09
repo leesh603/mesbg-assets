@@ -4977,7 +4977,7 @@ menu.insertAdjacentHTML('afterbegin','<button class="iconbtn" id="menu-overview"
 menu.insertAdjacentHTML('afterbegin','<button class="iconbtn" id="menu-fs" type="button">⛶ 전체화면</button>');
 $('menu-fs').onclick=()=>{try{document.fullscreenElement?document.exitFullscreen().catch(()=>{}):document.documentElement.requestFullscreen().catch(()=>{})}catch(e){}};
 const logBtn=$('battle-log-toggle');if(logBtn){logBtn.textContent='✎ 전투 기록';menu.insertBefore(logBtn,$('menu-overview').nextSibling);}
-{const _mst=document.createElement('style');_mst.textContent='#app .top-actions{flex-wrap:wrap;gap:6px}#app .top-actions>*{order:50}#menu-fs{order:1}#menu-overview{order:2}#auto{order:3}#fx-toggle{order:4}#battle-log-toggle{order:5}#speed-toggle{order:6}#sound{order:7}#help{order:8}';document.head.appendChild(_mst);}
+{const _mst=document.createElement('style');_mst.textContent='#app .top-actions{flex-wrap:wrap;gap:6px}#app .top-actions>*{order:50}#menu-fs{order:1}#menu-overview{order:2}#auto{order:3}#fx-toggle{order:4}#battle-log-toggle{order:5}#speed-toggle{order:6}#sound{order:7}#help{order:8}#menu-exit{order:9}';document.head.appendChild(_mst);}menu.insertAdjacentHTML('beforeend','<button class="iconbtn" id="menu-exit" type="button">⌂ 메뉴로</button>');$('menu-exit').onclick=()=>{if(window.confirm('전투를 끝내고 메인 메뉴로 나갈까요?')){q.phase='menu';menu.classList.remove('open');Yt();}};
 let overviewBack=null;
 $('menu-overview').onclick=()=>{if(overviewBack){setCamera(overviewBack.x,overviewBack.y,overviewBack.z,'manual');overviewBack=null;$('menu-overview').textContent='▦ 전장 전체 보기';}
     else{const c=cameraCenter();overviewBack={x:c.x,y:c.y,z:UX.zoom};Tt.overview();$('menu-overview').textContent='◂ 원래 시점으로';}
