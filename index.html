@@ -8490,26 +8490,27 @@ P.rollRecruits = function () {
     this.recruitOffers = pool.map(id => ({ id, r: this.rng() + (zt[id].traits.includes('hero') ? .28 : 0) })).sort((a, b) => a.r - b.r).slice(0, 4).map(x => ({ id: x.id, bought: false }));
 };
 const LWB_EQUIP = [
-    { id: 'whetstone', label: '전투검', cost: 35, desc: '결투 +1 · 영구 장착', icon: '<path d="M4 20 16 8M14 3l7 7-4 4-7-7zM4 20l2.5-.5L6 17z"/>', fx: u => u.stats.fight += 1 },
-    { id: 'plate', label: '판금갑옷', cost: 40, desc: '방어 +1 · 영구 장착', icon: '<path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/>', fx: u => u.stats.defence += 1 },
-    { id: 'hunting_bow', label: '사냥활', cost: 30, desc: '사격 능력 부여 · 13″ · 명중 4+', icon: '<path d="M7 3c5 3 5 15 0 18M7 3h4M7 21h4M11 12h10m-3-3 3 3-3 3"/>', fx: u => { if (!u.stats.shootRange) { u.stats.shootRange = 600; u.stats.shootValue = Math.max(u.stats.shootValue, 4); } } },
-    { id: 'war_banner_eq', label: '전투 기', cost: 25, desc: '용기 +1 · 영구 장착', icon: '<path d="M6 21V4m0 0h11l-2.5 4L17 12H6"/>', fx: u => u.stats.courage += 1 },
-    { id: 'salve', label: '치유 연고', cost: 20, once: true, needsWound: true, desc: '즉시 사용 · 상처 1 회복', icon: '<path d="M9 3h6M10 3v4l-5 9a3 3 0 0 0 3 5h8a3 3 0 0 0 3-5l-5-9V3M7 14h10"/>', fx: u => u.currentWounds = Math.min(u.stats.wounds, u.currentWounds + 1) },
-    { id: 'tower_shield', label: '탑방패', cost: 45, desc: '방어 +1 · 이동 −1″', icon: '<path d="M6 3h12v9c0 5-2.5 8-6 9-3.5-1-6-4-6-9z"/>', fx: u => { u.stats.defence += 1; u.stats.move = Math.max(90, u.stats.move - 45); } },
-    { id: 'mithril_helm', label: '미스릴 투구', cost: 70, desc: '방어 +2 · 영구 장착', icon: '<path d="M4 15V10a8 8 0 0 1 16 0v5M4 15h16m-16 0v4h4v-4m8 0v4h4v-4"/>', fx: u => u.stats.defence += 2 },
-    { id: 'pike', label: '날카로운 창', cost: 40, desc: '힘 +1 · 영구 장착', icon: '<path d="M5 21 19 7m0 0-1-4 4-1-1 4-2 1z"/>', fx: u => u.stats.strength += 1 },
-    { id: 'ranger_boots', label: '순찰자 장화', cost: 35, desc: '이동 +1″ · 영구 장착', icon: '<path d="M7 3v10l4 4h8a1 1 0 0 0 0-2l-5-2-1-6H9L8 3z"/>', fx: u => u.stats.move += 45 },
-    { id: 'war_horn', label: '전쟁 뿔피리', cost: 30, desc: '용기 +2 · 영구 장착', icon: '<path d="M4 13c0-3 4-5 8-5h2l6-4v16l-6-4h-2c-4 0-8-2-8-5zM8 16l1 5"/>', fx: u => u.stats.courage += 2 },
-    { id: 'drill', label: '전투 훈련', cost: 25, once: true, desc: '즉시 사용 · XP +2', icon: '<path d="M5 4h12a2 2 0 0 1 2 2v14H7a2 2 0 0 1-2-2zM9 9h6M9 13h4"/>', fx: u => u.veteranXP = (u.veteranXP || 0) + 2 },
-    { id: 'bandage', label: '전장 붕대', cost: 30, once: true, needsInjury: true, desc: '즉시 사용 · 부상 해제', icon: '<path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/>', fx: u => { u.injury = null; } },
-    { id: 'gondor_shield', label: '곤도르 방패', cost: 55, desc: '방어 +1 · 용기 +1', icon: '<path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6zM12 7v10M8 10h8"/>', fx: u => { u.stats.defence += 1; u.stats.courage += 1; } },
-    { id: 'war_gauntlets', label: '전투 건틀릿', cost: 85, desc: 'Attack +1 · 영구 장착', icon: '<path d="M7 21V11l5-8 5 8v10M7 15h10M10 8v4"/>', fx: u => u.stats.attacks += 1 }
+    { id: 'whetstone', label: '전투검', cost: 35, desc: '결투 +1 · 영구 장착', icon: '<path d="M4 20 16 8M14 3l7 7-4 4-7-7zM4 20l2.5-.5L6 17z"/>', iconImg: 'icons/eq_whetstone.png', fx: u => u.stats.fight += 1 },
+    { id: 'plate', label: '판금갑옷', cost: 40, desc: '방어 +1 · 영구 장착', icon: '<path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/>', iconImg: 'icons/eq_plate.png', fx: u => u.stats.defence += 1 },
+    { id: 'hunting_bow', label: '사냥활', cost: 30, desc: '사격 능력 부여 · 13″ · 명중 4+', icon: '<path d="M7 3c5 3 5 15 0 18M7 3h4M7 21h4M11 12h10m-3-3 3 3-3 3"/>', iconImg: 'icons/eq_hunting_bow.png', fx: u => { if (!u.stats.shootRange) { u.stats.shootRange = 600; u.stats.shootValue = Math.max(u.stats.shootValue, 4); } } },
+    { id: 'war_banner_eq', label: '전투 기', cost: 25, desc: '용기 +1 · 영구 장착', icon: '<path d="M6 21V4m0 0h11l-2.5 4L17 12H6"/>', iconImg: 'icons/relic_gondor_banner.png', fx: u => u.stats.courage += 1 },
+    { id: 'salve', label: '치유 연고', cost: 20, once: true, needsWound: true, desc: '즉시 사용 · 상처 1 회복', icon: '<path d="M9 3h6M10 3v4l-5 9a3 3 0 0 0 3 5h8a3 3 0 0 0 3-5l-5-9V3M7 14h10"/>', iconImg: 'icons/relic_athelas.png', fx: u => u.currentWounds = Math.min(u.stats.wounds, u.currentWounds + 1) },
+    { id: 'tower_shield', label: '탑방패', cost: 45, desc: '방어 +1 · 이동 −1″', icon: '<path d="M6 3h12v9c0 5-2.5 8-6 9-3.5-1-6-4-6-9z"/>', iconImg: 'icons/relic_rohan_shield.png', fx: u => { u.stats.defence += 1; u.stats.move = Math.max(90, u.stats.move - 45); } },
+    { id: 'mithril_helm', label: '미스릴 투구', cost: 70, desc: '방어 +2 · 영구 장착', icon: '<path d="M4 15V10a8 8 0 0 1 16 0v5M4 15h16m-16 0v4h4v-4m8 0v4h4v-4"/>', iconImg: 'icons/relic_mithril_shirt.png', fx: u => u.stats.defence += 2 },
+    { id: 'pike', label: '날카로운 창', cost: 40, desc: '힘 +1 · 영구 장착', icon: '<path d="M5 21 19 7m0 0-1-4 4-1-1 4-2 1z"/>', iconImg: 'icons/eq_pike.png', fx: u => u.stats.strength += 1 },
+    { id: 'ranger_boots', label: '순찰자 장화', cost: 35, desc: '이동 +1″ · 영구 장착', icon: '<path d="M7 3v10l4 4h8a1 1 0 0 0 0-2l-5-2-1-6H9L8 3z"/>', iconImg: 'icons/eq_ranger_boots.png', fx: u => u.stats.move += 45 },
+    { id: 'war_horn', label: '전쟁 뿔피리', cost: 30, desc: '용기 +2 · 영구 장착', icon: '<path d="M4 13c0-3 4-5 8-5h2l6-4v16l-6-4h-2c-4 0-8-2-8-5zM8 16l1 5"/>', iconImg: 'icons/relic_rohan_horn.png', fx: u => u.stats.courage += 2 },
+    { id: 'drill', label: '전투 훈련', cost: 25, once: true, desc: '즉시 사용 · XP +2', icon: '<path d="M5 4h12a2 2 0 0 1 2 2v14H7a2 2 0 0 1-2-2zM9 9h6M9 13h4"/>', iconImg: 'icons/ui_swords.png', fx: u => u.veteranXP = (u.veteranXP || 0) + 2 },
+    { id: 'bandage', label: '전장 붕대', cost: 30, once: true, needsInjury: true, desc: '즉시 사용 · 부상 해제', icon: '<path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/>', iconImg: 'icons/eq_bandage.png', fx: u => { u.injury = null; } },
+    { id: 'gondor_shield', label: '곤도르 방패', cost: 55, desc: '방어 +1 · 용기 +1', icon: '<path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6zM12 7v10M8 10h8"/>', iconImg: 'icons/eq_gondor_shield.png', fx: u => { u.stats.defence += 1; u.stats.courage += 1; } },
+    { id: 'war_gauntlets', label: '전투 건틀릿', cost: 85, desc: 'Attack +1 · 영구 장착', icon: '<path d="M7 21V11l5-8 5 8v10M7 15h10M10 8v4"/>', iconImg: 'icons/eq_gauntlets.png', fx: u => u.stats.attacks += 1 },
+    { id: 'anduril', label: '안두릴', cost: 120, desc: '아라곤 전용 · Attack +1', iconImg: 'icons/relic_anduril.png', req: u => u.id === 'aragorn', fx: u => u.stats.attacks += 1 }
 ];
 P.buyEquip = function (i, uid) {
     if (this.phase !== 'reward' || !['recruit', 'shop'].includes(this.campStep))
         return false;
     const a = LWB_EQUIP[i], u = this.unit(uid);
-    if (!a || !u || u.side !== 'good' || this.gold < this.dc(a.cost, 'master_flame'))
+    if (!a || !u || u.side !== 'good' || (a.req && !a.req(u)) || this.gold < this.dc(a.cost, 'master_flame'))
         return false;
     u.equipment = u.equipment || [];
     if (a.once) {
@@ -8531,12 +8532,12 @@ P.buyEquip = function (i, uid) {
     return true;
 };
 const TRAP_PACKS = [
-    { label: '화살 투석기', cost: 55, type: 'ballista', desc: '가까운 적 3기 타격 · 다음 전투 1회', icon: '<path d="M4 20h16M6 20l2-7h8l2 7M8 13l7-8 3 1-4 7M10 16h4"/>' },
-    { label: '불통', cost: 40, type: 'firepot', desc: '범위 내 적 전체 1피해', icon: '<path d="M12 21a5 5 0 0 1-5-5c0-3 3-4 3-7 2 1 3 3 3 5 1-1 1-2 1-3 2 2 3 4 3 5a5 5 0 0 1-5 5z"/>' },
-    { label: '연발 투석기', cost: 95, type: 'scorpion', desc: '가까운 적 5기 타격', icon: '<path d="M4 20l8-8m0 0H8m4 0v4M9 5l3 3M15 3l-1 4M3 9l4 1"/>' },
-    { label: '기름 통', cost: 70, type: 'oil', desc: '광역 화염 · 2피해', icon: '<path d="M12 3s6 6 6 11a6 6 0 0 1-12 0c0-5 6-11 6-11z"/>' },
-    { label: '화약통', cost: 35, type: 'barrel', desc: '광역 1피해 · 아군도 피해', icon: '<path d="M6 4h12v16H6zM6 8h12M6 16h12M4 4h16M4 20h16"/>' },
-    { label: '가시 함정', cost: 60, type: 'spike', desc: '적 2기 붙들기 · 이동 둔화', icon: '<path d="M4 20h16M6 20V12l2 8V9l3 11V7l3 13V10l2 10V12l2 8"/>' }
+    { label: '화살 투석기', cost: 55, type: 'ballista', desc: '가까운 적 3기 타격 · 다음 전투 1회', iconImg: 'icons/trap_ballista.png', icon: '<path d="M4 20h16M6 20l2-7h8l2 7M8 13l7-8 3 1-4 7M10 16h4"/>' },
+    { label: '불통', cost: 40, type: 'firepot', desc: '범위 내 적 전체 1피해', iconImg: 'icons/relic_torch.png', icon: '<path d="M12 21a5 5 0 0 1-5-5c0-3 3-4 3-7 2 1 3 3 3 5 1-1 1-2 1-3 2 2 3 4 3 5a5 5 0 0 1-5 5z"/>' },
+    { label: '연발 투석기', cost: 95, type: 'scorpion', desc: '가까운 적 5기 타격', iconImg: 'icons/proj_bolt.png', icon: '<path d="M4 20l8-8m0 0H8m4 0v4M9 5l3 3M15 3l-1 4M3 9l4 1"/>' },
+    { label: '기름 통', cost: 70, type: 'oil', desc: '광역 화염 · 2피해', iconImg: 'icons/trap_oil.png', icon: '<path d="M12 3s6 6 6 11a6 6 0 0 1-12 0c0-5 6-11 6-11z"/>' },
+    { label: '화약통', cost: 35, type: 'barrel', desc: '광역 1피해 · 아군도 피해', iconImg: 'icons/trap_barrel.png', icon: '<path d="M6 4h12v16H6zM6 8h12M6 16h12M4 4h16M4 20h16"/>' },
+    { label: '가시 함정', cost: 60, type: 'spike', desc: '적 2기 붙들기 · 이동 둔화', iconImg: 'icons/trap_spike.png', icon: '<path d="M4 20h16M6 20V12l2 8V9l3 11V7l3 13V10l2 10V12l2 8"/>' }
 ];
 P.dc = function (base, relicId) { const r = this.rank ? this.rank(relicId) : 0; return r ? Math.max(5, Math.round(base * (1 - 0.25 * r))) : base; };
 P.buyTrap = function (i) {
@@ -9740,7 +9741,6 @@ CX.relics.push(...[
     ['westfold_shield','서부 변경 방패',2,'방패를 든 아군의 Defense +1. 중첩마다 +1.',8],
     ['rohan_standard','로한 기병기',2,'기병의 결투 수치 +1. 중첩마다 +1.',3],
     ['elven_rope','엘프제 밧줄',1,'낮은 장애물 넘기 주사위 +1. 중첩마다 +1.',1],
-    ['anduril_hilt','안두릴의 칼자루',3,'아라곤의 Attack 횟수 +1. 원정 중 한 번만 획득.',10],
     ['alliance_standard','동맹의 표준',2,'파벌 결속 발동 조건이 4기 → 3기로 완화.',0],
     ['fellowship_flag','이종연합의 깃발',3,'파벌이 6종 이상 모이면 전원 용기 +1.',0],
     ['edain_banner','에다인의 대기',1,'인간 계열(곤도르·로한·누메노르·데일·호숫골·브리·봉기령·샤이어·로바니온) 아군의 힘 +1.',0],
@@ -10507,9 +10507,9 @@ Qe = function () {
                 const _tgt = q.permanent().find(u => u.uid === q._shopTarget) || q.permanent()[0];
                 q._shopTarget = _tgt ? _tgt.uid : '';
                 const _ec = a => q.dc(a.cost, 'master_flame'), _ac = a => q.dc(a.cost, 'white_pact'), _tc = a => q.dc(a.cost, 'siege_wright');
-                const _eq = LWB_EQUIP.map((a, i) => { const owned = _tgt && (_tgt.equipment || []).includes(a.id); const full = _tgt && !a.once && (_tgt.equipment || []).length >= 2; const badOnce = _tgt && a.once && ((a.needsWound && _tgt.currentWounds >= _tgt.stats.wounds) || (a.needsInjury && !_tgt.injury)); const dis = !_tgt || owned || full || badOnce || q.gold < _ec(a); return `<button class="shop-card" data-equip="${i}" ${dis ? 'disabled' : ''}><span class="shop-icon">${icon(a.icon)}</span><b>${a.label}</b><small>${a.desc}</small><em class="${owned ? 'owned' : ''}">${owned ? '장착 중' : _ec(a) + ' 금화'}</em></button>`; }).join('');
+                const _eq = LWB_EQUIP.map((a, i) => { const owned = _tgt && (_tgt.equipment || []).includes(a.id); const full = _tgt && !a.once && (_tgt.equipment || []).length >= 2; const badOnce = _tgt && a.once && ((a.needsWound && _tgt.currentWounds >= _tgt.stats.wounds) || (a.needsInjury && !_tgt.injury)); const badReq = _tgt && a.req && !a.req(_tgt); const dis = !_tgt || owned || full || badOnce || badReq || q.gold < _ec(a); const _ic = a.iconImg ? `<img src="${a.iconImg}" class="shop-px" alt="">` : icon(a.icon); return `<button class="shop-card" data-equip="${i}" ${dis ? 'disabled' : ''}><span class="shop-icon">${_ic}</span><b>${a.label}</b><small>${a.desc}</small><em class="${owned ? 'owned' : ''}">${owned ? '장착 중' : _ec(a) + ' 금화'}</em></button>`; }).join('');
                 const _al = ALLY_PACKS.map((a, i) => { const dis = q.gold < _ac(a) || q.allyBought; return `<button class="shop-card" data-ally="${i}" ${dis ? 'disabled' : ''}><span class="shop-icon">${q.meta.get(a.ids[0]) ? unitImage(a.ids[0]) : ''}</span><b>${a.label}</b><small>다음 전투에 임시 합류${a.ids.length > 1 ? ' · ' + a.ids.length + '기' : ''}</small><em>${q.allyBought ? '합류 완료' : _ac(a) + ' 금화'}</em></button>`; }).join('');
-                const _tr = TRAP_PACKS.map((a, i) => { const dis = q.gold < _tc(a); return `<button class="shop-card" data-trap="${i}" ${dis ? 'disabled' : ''}><span class="shop-icon">${icon(a.icon)}</span><b>${a.label}</b><small>${a.desc}</small><em>${_tc(a)} 금화</em></button>`; }).join('');
+                const _tr = TRAP_PACKS.map((a, i) => { const dis = q.gold < _tc(a); const _ic = a.iconImg ? `<img src="${a.iconImg}" class="shop-px" alt="">` : icon(a.icon); return `<button class="shop-card" data-trap="${i}" ${dis ? 'disabled' : ''}><span class="shop-icon">${_ic}</span><b>${a.label}</b><small>${a.desc}</small><em>${_tc(a)} 금화</em></button>`; }).join('');
                 body = `<p>금화 <b>${q.gold}</b> · 상인이 물품을 펼쳐 보인다.</p><div class="rtabs shop-tabs"><button class="rtab ${_tab === 'equip' ? 'active' : ''}" data-shoptab="equip">장비</button><button class="rtab ${_tab === 'ally' ? 'active' : ''}" data-shoptab="ally">동맹 지원</button><button class="rtab ${_tab === 'trap' ? 'active' : ''}" data-shoptab="trap">지형 장치</button></div><div class="shop-pane" data-pane="equip" ${_tab !== 'equip' ? 'hidden' : ''}>${_tgt ? `<div class="shop-target"><b class="mini" style="align-self:center">장착 대상</b>${q.permanent().map(u => `<button class="unit-chip ${u.uid === _tgt.uid ? 'active' : ''}" data-target="${u.uid}">${unitImage(u.id)}<span>${esc(u.name)}</span><small>장비 ${(u.equipment || []).length}/2${u.injury ? ' · 부상' : ''}</small></button>`).join('')}</div>` : '<p class="mini">장착할 유닛이 없습니다.</p>'}<div class="shop-cards">${_eq}</div></div><div class="shop-pane" data-pane="ally" ${_tab !== 'ally' ? 'hidden' : ''}><p class="mini">다음 전투에만 합류하는 임시 전력 — 1회만 구입 가능.</p><div class="shop-cards">${_al}</div></div><div class="shop-pane" data-pane="trap" ${_tab !== 'trap' ? 'hidden' : ''}><p class="mini">다음 전투에서 적이 다가오면 자동 발동.</p><div class="shop-cards">${_tr}</div></div><div class="camp-actions"><button id="heal-injury" class="secondary" ${q.gold < 20 || !q.permanent().some(u => u.injury) ? 'disabled' : ''}>약초 치료 · 20 금화</button><button id="shop-back" class="primary">← 부대 정비로</button></div>`;
             }
         }
