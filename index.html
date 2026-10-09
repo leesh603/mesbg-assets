@@ -8181,7 +8181,10 @@ P.bossTurn = function (u) {
     const phase = u.currentWounds <= Math.ceil(u.stats.wounds * .33) ? 3 : u.currentWounds <= Math.ceil(u.stats.wounds * .66) ? 2 : 1;
     if (phase > u.bossPhase) {
         u.bossPhase = phase;
-        this.emit('BossPhase', `${u.name} · ${phase}단계`);
+        u.stats.attacks += 1;
+        if (phase === 3)
+            u.stats.move += 45;
+        this.emit('BossPhase', `${u.name} · ${phase}단계 — 격노 (Attack +1${phase === 3 ? ' · 이동력 상승' : ''})`);
         if (phase === 2 && this.alive('evil').length < 24)
             this.spawnEnemies(['orc_sword', 'uruk_berserker']);
     }
@@ -8205,6 +8208,40 @@ P.bossTurn = function (u) {
             this.inflict(u, target, 1);
             this.emit('BossImpact', '발록의 화염 채찍', { uid: target.uid, at: target });
         }
+    }
+    else if (u.id === 'witchking_fellbeast' && this.round % 3 === 0) {
+        const t = this.alive('good').sort((a, b) => ht(a, u) - ht(b, u))[0];
+        if (t) { t.prone = true; this.emit('BossImpact', '펠비스트의 급강하 — 넘어짐', { uid: t.uid, at: t }); }
+    }
+    else if (u.id === 'ungoliant' && this.round % 3 === 0) {
+        const t = this.alive('good').filter(v => ht(v, u) < 420).sort((a, b) => ht(a, u) - ht(b, u))[0];
+        if (t) { this.inflict(u, t, 1); this.emit('BossImpact', '암흑의 포식', { uid: t.uid, at: t }); }
+        if (this.alive('evil').length < 24) this.spawnEnemies(['moria_goblin', 'moria_goblin']);
+    }
+    else if (u.id === 'sauron' && this.round % 2 === 0) {
+        const t = this.alive('good').sort((a, b) => b.stats.fight - a.stats.fight)[0];
+        if (t) { t.feared = true; this.emit('BossImpact', '사우론의 눈이 응시한다 — 공포', { uid: t.uid, at: t }); }
+    }
+    else if (u.id === 'smaug' && this.round % 3 === 0) {
+        for (const t of this.alive('good').filter(v => ht(v, u) < 500).sort((a, b) => ht(a, u) - ht(b, u)).slice(0, 2)) {
+            this.inflict(u, t, 1); this.emit('BossImpact', '스마우그의 화염', { uid: t.uid, at: t });
+        }
+    }
+    else if (u.id === 'glaurung' && this.round % 3 === 0) {
+        const t = this.alive('good').sort((a, b) => b.stats.fight - a.stats.fight)[0];
+        if (t) { t.feared = true; t.prone = true; this.emit('BossImpact', '글라우룽의 최면 — 공포·넘어짐', { uid: t.uid, at: t }); }
+    }
+    else if (u.id === 'carcharoth' && this.round % 2 === 0) {
+        const t = this.alive('good').filter(v => ht(v, u) < 320).sort((a, b) => ht(a, u) - ht(b, u))[0];
+        if (t) { this.inflict(u, t, 1); this.emit('BossImpact', '카르카로스의 발광', { uid: t.uid, at: t }); }
+    }
+    else if (u.id === 'gothmog_balrog' && this.round % 2 === 0) {
+        const t = this.alive('good').filter(v => ht(v, u) < 500).sort((a, b) => ht(a, u) - ht(b, u))[0];
+        if (t) { this.inflict(u, t, 1); this.emit('BossImpact', '고스모그의 화염 채찍', { uid: t.uid, at: t }); }
+    }
+    else if (u.id === 'ancalagon' && this.round % 3 === 0) {
+        const targets = this.alive('good').sort((a, b) => ht(a, u) - ht(b, u)).slice(0, phase);
+        for (const t of targets) { this.inflict(u, t, 1); this.emit('BossImpact', '앙칼라곤의 용화', { uid: t.uid, at: t }); }
     }
     this.checkRun();
 };
