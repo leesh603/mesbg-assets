@@ -8513,6 +8513,7 @@ P.finishWave = function () {
     this.phase = 'reward';
     try { arcTransition(this.wave); } catch (e) { console.error('arcTransition', e); }
     typeof wt !== 'undefined' && wt.fanfare && wt.fanfare(true);
+    try { const _vb = document.createElement('div'); _vb.id = 'stage-intro'; _vb.innerHTML = `<div class='si-card' style='border-color:#c9a94e;box-shadow:0 18px 60px #000c,0 0 40px #c9a94e33'><div style='padding:20px 22px;text-align:center'><div class='eyebrow' style='color:#e8c45c'>VICTORY</div><h2 style='color:#f5deb0;margin:2px 0'>STAGE ${this.wave} 클리어</h2><div class='si-mission'>보상 +${this.lastGold}금${this.stageDeaths?'':' · 무결 수비'} · 야영지로 이동합니다</div></div></div>`; document.body.appendChild(_vb); setTimeout(() => _vb.remove(), 1800); } catch (e) {}
     this.campStep = 'event';
     this.rollCampEvent();
     this.chosenRelic = '';
