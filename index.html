@@ -8115,6 +8115,7 @@ const BONUS_OBJECTIVES = [
     { id: 'untouchable', text: '아군 전사 없이 승리', gold: 30, test: q => (q.stageDeaths || 0) === 0 },
     { id: 'shield_wall', text: '아군 무사 승리 (전투 후 부상 0)', gold: 25, test: q => q.alive('good').every(u => !u.injury) },
     { id: 'trapper_obj', text: '함정으로 2기 처치', gold: 25, cond: q => (q.devices || []).length > 0, test: q => (q.stageTrapKills || 0) >= 2 },
+    { id: 'safe_cart', text: '무사 호송 — 마차 무손상', gold: 30, cond: q => q.mission === 'escort', test: q => { const c = q.unit(q.escortCart); return c && c.alive && c.currentWounds >= c.stats.wounds; } },
 ];
 const CHALLENGES = [
     { id: 'reinforce', label: '증원 경보', text: '적 +4기 추가', gold: 30 },
