@@ -301,8 +301,9 @@ class Ve extends Ot.Scene {
             continue;
         const f = S.getByName("token"), c = t.getByName("token");
         if (await Promise.all([this.tween(f, { angle: f.angle + Ot.Math.Angle.ShortestBetween(f.angle, Wt(this.b.unit(K.attacker).id, $, p)) }, 140), this.tween(c, { angle: c.angle + Ot.Math.Angle.ShortestBetween(c.angle, Wt(this.b.unit(K.target).id, p, $)) }, 140)]), b.kind === "shot") {
-            this.soundFX.play("arrow_release");
-            const r = this.add.container($.x, $.y, [this.add.rectangle(0, 0, 25, 2, 15127457), this.add.triangle(14, 0, 0, 0, 7, 4, 0, 8, 15656132).setOrigin(.5)]).setDepth(12).setRotation(Math.atan2(p.y - $.y, p.x - $.x));
+            const _su = this.b.unit(K.attacker), _fire = _su && _su.traits && (_su.traits.includes('monster') || _su.traits.includes('boss'));
+            this.soundFX.play(_fire ? "cast" : "arrow_release");
+            const r = _fire ? this.add.container($.x, $.y, [this.add.circle(0, 0, 17, 16751870, .3), this.add.circle(0, 0, 9, 16770085, .95), this.add.circle(-7, 0, 5, 15234331, .85)]).setDepth(12) : this.add.container($.x, $.y, [this.add.rectangle(0, 0, 25, 2, 15127457), this.add.triangle(14, 0, 0, 0, 7, 4, 0, 8, 15656132).setOrigin(.5)]).setDepth(12).setRotation(Math.atan2(p.y - $.y, p.x - $.x));
             await this.tween(r, { x: p.x + (K.wound ? 0 : 15), y: p.y + (K.wound ? 0 : -12) }, 330), r.destroy(), this.soundFX.play("arrow_impact");
         }
         else {
