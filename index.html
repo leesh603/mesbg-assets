@@ -6754,8 +6754,14 @@ Ae=[{id:"warrior_minas_tirith",name_ko:"미나스 티리스 전사",name_en:"War
         return;
     } this.beginRound(); }
     checkRun() { return this.alive("good").length ? !this.alive("evil").length && !this.delayed.length && this.wave > 0 ? (this.wave === 3 ? this.endRun(!0, "성문을 지켜냈습니다.") : this.finishWave(), !0) : !1 : (this.endRun(!1, "수비대가 전멸했습니다."), !0); }
-    finishWave() { var Y; for (const b of this.alive("good"))
-        b.veteranXP++; if (this.phase = "reward", this.selected = ((Y = this.alive("good")[0]) == null ? void 0 : Y.uid) || "", this.chosenReward = "", this.rewardChoices = jt.filter(b => !(b.id === "volley" && this.freeVolley) && !(b.id === "hold" && this.steadfast)).map(b => b.id).map(b => ({ id: b, key: this.rng() })).sort((b, H) => b.key - H.key).slice(0, 3).map(b => b.id), this.emit("WaveEnded", `Wave ${this.wave} Defense 성공 · 생존자 ${this.alive("good").length}명`), this.wave === 2) {
+    finishWave() { var Y; for (const b of this.alive("good")) {
+        b.veteranXP++;
+        if (!b.traits.includes("hero") && !b.traits.includes("veteran") && (b.veteranXP || 0) >= 6) {
+            b.traits.push("veteran"); b.baseStats.fight = (b.baseStats.fight || 0) + 1; b.baseStats.defence = (b.baseStats.defence || 0) + 1; this.refreshUnit(b);
+            this.emit("Event", "★ " + b.name + " 생존 승급 · 베테랑 (결투 +1 Defense +1)");
+            this.unlockAch("promoted");
+        }
+    } if (this.phase = "reward", this.selected = ((Y = this.alive("good")[0]) == null ? void 0 : Y.uid) || "", this.chosenReward = "", this.rewardChoices = jt.filter(b => !(b.id === "volley" && this.freeVolley) && !(b.id === "hold" && this.steadfast)).map(b => b.id).map(b => ({ id: b, key: this.rng() })).sort((b, H) => b.key - H.key).slice(0, 3).map(b => b.id), this.emit("WaveEnded", `Wave ${this.wave} Defense 성공 · 생존자 ${this.alive("good").length}명`), this.wave === 2) {
         const b = kt[Math.floor(this.rng() * kt.length)];
         this.eventId = b.id, b.id === "broken" && (this.terrain.find(H => H.id === "barricade-l").active = !1), b.id === "morale" && (this.bonusCP += 2), this.emit("Event", b.name + " — " + b.text);
     } }
