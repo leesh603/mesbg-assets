@@ -3941,6 +3941,13 @@ Ve.prototype.play = async function (e) { if (e.type === 'HeroSkill') {
 } return oldPlay.call(this, e); };
 // UI helpers use the same images as the battlefield and inventory.
 const PATCH_NOTES = [
+    ['v1.22', [
+      '적 포위 레인 — 측면에서 몰려와 갇힘(포위) 전술 발생',
+      '챔피언 2단 승급 — XP12 → 공격+1·용기+2 · ✪ · 시대의 챔피언',
+      '발리노르 완주 엔딩 + 패배 배너에 원정 통계',
+      '영웅 위기 경고 — 상처1 교전 중일 때 1회 알림',
+      '유물 세트 진행도 — 캠프 유물줄 아래 n/need·✓'
+    ]],
     ['v1.21', [
       '전설 등급 적 — 보라 링 ✦ · +25금 현상금 · 전리품 드랍율↑',
       '엘리트/전설 처치 보상 — 30~60% 확률 장비 드랍 (영웅 슬롯 시)',
