@@ -8420,8 +8420,6 @@ P.beginRound = function () {
     if (this.mission === 'defense') {
         let _hf = 0;
         for (const u of this.alive('good'))
-            if (ht(u, Mt.objective) <= Mt.objective.radius && !u.heroicUsed) { }
-        for (const u of this.alive('good'))
             if (ht(u, Mt.objective) <= Mt.objective.radius) { u.roundBuff.fight = (u.roundBuff.fight || 0) + 1; this.refreshUnit(u); _hf++; }
         if (_hf && this.round === 1) this.emit('Event', '🛡 방어선 의지 — 구역 내 아군 ' + _hf + '기 결투 +1');
     }
