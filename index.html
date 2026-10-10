@@ -8753,7 +8753,7 @@ const LWB_EVT_ART = { refugees:'wanderer', strider:'wanderer', dunedain:'wandere
     valar_grace:'light', lorien:'light', evenstar:'light', elven_harp:'light', elven_healer:'light', mirror:'light', white_blossom:'light', two_trees:'light', omen:'light', eagle_omen:'light', eagle:'light', eagle_eyrie:'light', priest:'light',
     breakfast:'feast', beorn_feast:'feast', beorn_guest:'feast', bombadil:'feast', minstrel:'feast', apothecary:'feast',
     council:'war', redarrow:'war', rohan_oath:'war', rohirrim_horn:'war', gondor_signal:'war', beacon_relief:'war', hornburg:'war',
-    marshes:'marshes', dead_men_path:'marshes' };
+    marshes:'marshes', dead_men_path:'marshes', emyn_muil:'marshes', beorning_hall:'feast', south_merchant:'treasure', isengard_smoke:'dark' };
 const LWB_EVENTS = [
     { id: 'refugees', title: '피난민 행렬', text: '곤도르 피난민 행렬이 성문을 지나치려 몰려듭니다.', options: [
         { label: '식량을 나눈다', sub: '금화 −15 · 아군 전원 용기 +1 (영구)', fx: q => { q.gold = Math.max(0, q.gold - 15); q.alive('good').forEach(u => { u.baseStats.courage = (u.baseStats.courage || 0) + 1; q.refreshUnit(u); }); } },
@@ -8983,6 +8983,18 @@ const LWB_EVENTS = [
     { id: 'two_trees', title: '두 나무의 기억', text: '몽상에서 오래된 두 나무가 함께 빛났습니다 — 라우렐린의 금빛과 텔페리온의 은빛이 잎사귀마다 남아 있습니다.', options: [
         { label: '꿈의 빛을 간직한다', sub: '무작위 유물 1개 획득', fx: q => { const r = CX.relics[Math.floor(q.rng() * CX.relics.length)]; if (r) q.relics[r.id] = (q.relics[r.id] || 0) + 1; return r ? `유물 획득: ${r.name}` : '유물 없음'; } },
         { label: '전우들에게 꿈을 들려준다', sub: '아군 전원 용기 +1 (영구)', fx: q => { q.alive('good').forEach(u => { u.baseStats.courage = (u.baseStats.courage || 0) + 1; q.refreshUnit(u); }); return '두 나무의 이야기 · 용기 +1'; } }] },
+    { id: 'emyn_muil', title: '엠인 무일의 길잡이', text: '뒤틀린 바위 미궁에서 작은 움직임이 포착됩니다 — 어디선가 골룸의 노랫소리가 들립니다.', options: [
+        { label: '흔적을 추적한다', sub: '다음 전투 매복 무력화', fx: q => { q.noAmbushNext = true; return '매복 경로를 미리 간파했습니다'; } },
+        { label: '무시하고 지나간다', sub: '금화 +10', fx: q => q.gold += 10 }] },
+    { id: 'beorning_hall', title: '베오르닝의 환대', text: '안돼인 골짜기의 대장간에서 베오른 일족이 원정대를 맞이합니다.', options: [
+        { label: '함께 쉬어간다', sub: '금화 −15 · 아군 전원 상처 1 회복', fx: q => { q.gold = Math.max(0, q.gold - 15); q.alive('good').forEach(u => u.currentWounds = Math.min(u.stats.wounds, u.currentWounds + 1)); } },
+        { label: '벌꿀주를 선물받는다', sub: '무작위 아군 용기 +2 (영구)', fx: q => { const u = q.alive('good'); const t = u[Math.floor(q.rng() * u.length)]; if (t) { t.baseStats.courage = (t.baseStats.courage || 0) + 2; q.refreshUnit(t); } return t ? t.name + ' 용기 +2' : '대상 없음'; } }] },
+    { id: 'south_merchant', title: '남쪽 상인', text: '하라드 방향에서 온 상인이 신기한 물건들을 펼쳐 보입니다.', options: [
+        { label: '희귀품을 산다', sub: '금화 −40 · 무작위 유물 1개 획득', fx: q => { q.gold = Math.max(0, q.gold - 40); const r = CX.relics[Math.floor(q.rng() * CX.relics.length)]; if (r) q.relics[r.id] = (q.relics[r.id] || 0) + 1; return r ? '유물 획득: ' + r.name : '유물 없음'; } },
+        { label: '소식을 나눈다', sub: '금화 +5', fx: q => q.gold += 5 }] },
+    { id: 'isengard_smoke', title: '이센가드의 연기', text: '서쪽 하늘에 검은 연기 기둥이 피어오릅니다 — 전쟁의 그림자가 다가옵니다.', options: [
+        { label: '경계를 강화한다', sub: '다음 전투 CP +2', fx: q => { q.bonusCP = (q.bonusCP || 0) + 2; } },
+        { label: '신속히 통과한다', sub: '금화 +10', fx: q => q.gold += 10 }] },
 ];
 P.rollCampEvent = function () {
     this.rng || (this.rng = Ne(Date.now()));
