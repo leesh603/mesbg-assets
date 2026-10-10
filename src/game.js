@@ -193,7 +193,7 @@ class Ve extends Ot.Scene {
         if (K && H.alive) { const _lw = K._lastWounds; if (_lw != null && H.currentWounds < _lw) { const _df = _lw - H.currentWounds; const _wt = this.add.text(K.x, K.y - (H.visualRadius || H.radius) - 10, '-' + _df, { fontFamily: 'Pretendard', fontSize: '22px', color: '#ff6a4d', stroke: '#000', strokeThickness: 4 }).setOrigin(.5).setDepth(21); this.tweens.add({ targets: _wt, y: _wt.y - 34, alpha: 0, duration: 800, onComplete: () => _wt.destroy() }); } else if (_lw != null && H.currentWounds > _lw) { const _df = H.currentWounds - _lw; const _wt = this.add.text(K.x, K.y - (H.visualRadius || H.radius) - 10, '+' + _df, { fontFamily: 'Pretendard', fontSize: '22px', color: '#7de896', stroke: '#000', strokeThickness: 4 }).setOrigin(.5).setDepth(21); this.tweens.add({ targets: _wt, y: _wt.y - 34, alpha: 0, duration: 800, onComplete: () => _wt.destroy() }); } K._lastWounds = H.currentWounds; }
         if (!H.alive || H.escaped) { if (K && !this.busy) { const _tk = K; this.tokens.delete(H.uid); if (H.escaped) { this.add.text(_tk.x, _tk.y - 30, '탈출!', { fontFamily: 'Pretendard', fontSize: '13px', color: '#9fd8ff', stroke: '#000', strokeThickness: 3 }).setOrigin(.5).setDepth(20); this.tweens.add({ targets: _tk, alpha: 0, y: _tk.y + 380, duration: 650, onComplete: () => _tk.destroy() }); } else if (H.fled) { this.add.text(_tk.x, _tk.y - 30, '도주!', { fontFamily: 'Pretendard', fontSize: '13px', color: '#ffb3a0', stroke: '#000', strokeThickness: 3 }).setOrigin(.5).setDepth(20); this.tweens.add({ targets: _tk, alpha: 0, y: _tk.y + (H.side === 'evil' ? 380 : -380), duration: 750, onComplete: () => _tk.destroy() }); } else this.tweens.add({ targets: _tk, alpha: 0, scaleX: .8, scaleY: .8, duration: 320, onComplete: () => _tk.destroy() }); } continue; }
         if (K && K.getData("assetId") !== H.id && (K.destroy(), this.tokens.delete(H.uid), K = void 0), !K) {
-            const p = this.add.ellipse(3, 6, H.radius * 2.15, H.radius * 1.6, 594704, .5), _tid = this.textures.exists(H.id) ? H.id : this._wantTex(H.id), S = this.textures.get(_tid).getSourceImage(), t = S.width / S.height, f = (H.artScale || 1) * Math.min(H.radius * 2.15, H.radius * 2 * Math.min(t, 1 / t)), c = this.add.image(0, 0, _tid).setDisplaySize(f * (t > 1 ? t : 1), f * (t > 1 ? 1 : 1 / t)).setName("token"), o = this.add.circle(0, 0, H.radius).setStrokeStyle(H.traits.includes("hero") ? 3 : (H.elite ? 3 : 2), H.side === "good" ? 10276837 : (H.elite ? 0xe8c45c : 15242357), .9).setName("rim"), r = this.add.text(0, H.radius + 8, H.traits.includes("hero") ? H.name : (H.autoAlly ? "◆" : H.elite ? "★" : "") + H.uid.toUpperCase(), { fontFamily: "Pretendard", fontSize: "12px", color: H.side === "good" ? "#e1eff0" : "#f0c4ae", backgroundColor: "#172223bb", padding: { x: 3, y: 2 } }).setOrigin(.5).setName("label");
+            const p = this.add.ellipse(3, 6, H.radius * 2.15, H.radius * 1.6, 594704, .5), _tid = this.textures.exists(H.id) ? H.id : this._wantTex(H.id), S = this.textures.get(_tid).getSourceImage(), t = S.width / S.height, f = (H.artScale || 1) * Math.min(H.radius * 2.15, H.radius * 2 * Math.min(t, 1 / t)), c = this.add.image(0, 0, _tid).setDisplaySize(f * (t > 1 ? t : 1), f * (t > 1 ? 1 : 1 / t)).setName("token"), o = this.add.circle(0, 0, H.radius).setStrokeStyle(H.traits.includes("hero") ? 3 : (H.elite ? 3 : 2), H.side === "good" ? 10276837 : (H.legendary ? 0xb98ee0 : (H.elite ? 0xe8c45c : 15242357)), .9).setName("rim"), r = this.add.text(0, H.radius + 8, H.traits.includes("hero") ? H.name : (H.autoAlly ? "◆" : H.legendary ? "✦" : H.elite ? "★" : "") + H.uid.toUpperCase(), { fontFamily: "Pretendard", fontSize: "12px", color: H.side === "good" ? "#e1eff0" : "#f0c4ae", backgroundColor: "#172223bb", padding: { x: 3, y: 2 } }).setOrigin(.5).setName("label");
             const m = this.add.image(0, -H.radius - 14, 'fx-clash').setName("clash").setVisible(!1), m2 = this.add.image(0, -H.radius - 14, 'fx-prone').setName("prone").setVisible(!1), m3 = this.add.image(0, -H.radius - 14, 'fx-terror').setName("terror").setVisible(!1), m4 = this.add.image(0, -H.radius - 14, 'fx-charge').setName("charge").setVisible(!1), m5 = this.add.image(0, -H.radius - 14, 'fx-halfmove').setName("halfmove").setVisible(!1), m6 = this.add.image(0, -H.radius - 14, 'fx-blood').setName("blood").setVisible(!1);
             const m7 = this.add.text(H.radius * .75, -H.radius - 10, '', { fontFamily: "Pretendard", fontSize: "11px", fontStyle: "bold", color: "#ff9d8a", stroke: "#17211d", strokeThickness: 2 }).setOrigin(.5).setName("wounds");
             K = this.add.container(H.x, H.y, [p, c, o, r, m, m2, m3, m4, m5, m6, m7]).setDepth(5), K.setData("assetId", H.id), this.tokens.set(H.uid, K);
@@ -336,7 +336,7 @@ class Ve extends Ot.Scene {
         }
         // Camera shake disabled in the clarity build.
         const o = this.add.text(p.x, p.y - 25, K.wound ? "−1" : "Defense", { fontFamily: "Pretendard", fontSize: "14px", color: K.wound ? "#ffd0ab" : "#fff1bf", stroke: "#17211d", strokeThickness: 2 }).setOrigin(.5).setDepth(13);
-        this.tween(o, { y: p.y - 55, alpha: 0 }, 550).then(() => o.destroy()); if (K.killed) { const _ku = this.b.unit(K.target), _kl = _ku && _ku.elite ? "엘리트 처치 +8금" : "처치!", _kt = this.add.text(p.x, p.y - 48, _kl, { fontFamily: "Pretendard", fontSize: "12px", color: "#ffe9a8", stroke: "#17211d", strokeThickness: 2 }).setOrigin(.5).setDepth(14); this.tween(_kt, { y: p.y - 74, alpha: 0 }, 750).then(() => _kt.destroy()); } K.killed ? (this.soundFX.play("death"), await this.tween(t, { alpha: .2, angle: 12 }, 120)) : await this.tween(t, { x: p.x + 3, y: p.y + 2 }, 70);
+        this.tween(o, { y: p.y - 55, alpha: 0 }, 550).then(() => o.destroy()); if (K.killed) { const _ku = this.b.unit(K.target), _kl = _ku && _ku.legendary ? "전설 처치 +25금" : _ku.elite ? "엘리트 처치 +8금" : "처치!", _kt = this.add.text(p.x, p.y - 48, _kl, { fontFamily: "Pretendard", fontSize: "12px", color: "#ffe9a8", stroke: "#17211d", strokeThickness: 2 }).setOrigin(.5).setDepth(14); this.tween(_kt, { y: p.y - 74, alpha: 0 }, 750).then(() => _kt.destroy()); } K.killed ? (this.soundFX.play("death"), await this.tween(t, { alpha: .2, angle: 12 }, 120)) : await this.tween(t, { x: p.x + 3, y: p.y + 2 }, 70);
     } for (const K of b.participants) {
         const $ = this.b.unit(K), p = this.tokens.get(K);
         if (($ == null ? void 0 : $.id) === "glorfindel_foot" && (p == null ? void 0 : p.getData("assetId")) === "glorfindel_mounted") {
@@ -1516,6 +1516,17 @@ P._trkKill = function (k, v) {
         if (k.traits.includes('mounted')) this.stageCavKills = (this.stageCavKills || 0) + 1;
         if (v.traits.includes('monster')) this.stageMonsterKills = (this.stageMonsterKills || 0) + 1;
         if (v.elite) this.stageEliteKills = (this.stageEliteKills || 0) + 1;
+        if (v.legendary) {
+            this.gold += 25;
+            if (k.traits.includes('hero') && typeof LWB_EQUIP !== 'undefined' && this.rng() < .6) {
+                const _pool = LWB_EQUIP.filter(e2 => !e2.once);
+                const _d = _pool[Math.floor(this.rng() * _pool.length)];
+                if (_d && (k.equipment || []).length < 2 && !(k.equipment || []).includes(_d.id)) {
+                    (k.equipment = k.equipment || []).push(_d.id); this.refreshUnit(k);
+                    this.emit('Event', `◆ 전설의 전리품 — ${k.name} · ${(_d.label || _d.id)} 획득`);
+                }
+            } else this.emit('Event', '◆ 전설 처치 · 금화 +25');
+        }
         if (v.elite && typeof LWB_EQUIP !== 'undefined') {
             if (this.rng() < .3 && k.traits.includes('hero')) {
                 const _pool = LWB_EQUIP.filter(e => !e.once);
@@ -1568,6 +1579,14 @@ P.startWave = function () {
         u.elite = true; u.stats.fight++; u.stats.defence++; u.stats.wounds++; u.currentWounds++;
     }
     if (_eliteN) this.emit('Event', `⚠ 엘리트 ${_eliteN}기 발견 — 처치 시 각 +8금`);
+    if (this.wave >= 5 && this.wave % 3 === 0 && this.rng() < .6) {
+        const _lc = this.alive('evil').filter(u => !u.traits.includes('hero') && !u.elite);
+        if (_lc.length) {
+            const u = _lc[Math.floor(this.rng() * _lc.length)];
+            u.legendary = true; u.stats.fight += 2; u.stats.defence += 2; u.stats.wounds += 1; u.currentWounds += 1;
+            this.emit('Event', `◆ 전설 — ${u.name} 발견 · 처치 시 +25금${k => ''}`);
+        }
+    }
     if (this.challenge === 'supplies') (this.nextRoundBuffs = this.nextRoundBuffs || []).push({ stat: 'courage', n: -1, side: 'good' });
     if (this.challenge === 'doubt') (this.nextRoundBuffs = this.nextRoundBuffs || []).push({ stat: 'fight', n: -1, side: 'good' });
     if (this.challenge === 'fog') (this.nextRoundBuffs = this.nextRoundBuffs || []).push({ stat: 'move', n: -45, side: 'good' });
