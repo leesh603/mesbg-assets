@@ -1603,7 +1603,7 @@ P.beginRound = function () {
         const u = this.alive('good').filter(u => u.currentWounds < u.stats.wounds).sort((a, b) => (b.stats.wounds - b.currentWounds) - (a.stats.wounds - a.currentWounds))[0];
         if (u) {
             u.currentWounds++;
-            this.emit('Relic', '나랴 · ' + u.name + ' 회복');
+            this.emit('Relic', '나랴 · ' + u.name + ' 회복', { uid: u.uid, heal: !0 });
         }
     }
     const _wm = this.current?.modifier;
@@ -3228,11 +3228,11 @@ P.startWave=function(){
         .sort((a,b)=>(b.stats.wounds-b.currentWounds)-(a.stats.wounds-a.currentWounds))[0];
     if(patient&&this.rank('athelas')){
         patient.currentWounds=Math.min(patient.stats.wounds,patient.currentWounds+this.rank('athelas'));
-        this.emit('Relic','아셀라스 · '+patient.name+' 회복');
+        this.emit('Relic','아셀라스 · '+patient.name+' 회복', { uid: patient.uid, heal: !0 });
     }
     if(this.rank('scouts_mark'))this.gold+=5*this.rank('scouts_mark');
-    if(this.rank('miruvor')){const w=this.alive('good').filter(u=>u.currentWounds<u.stats.wounds),t=w[Math.floor(this.rng()*w.length)];if(t){t.currentWounds=Math.min(t.stats.wounds,t.currentWounds+2*this.rank('miruvor'));this.emit('Relic','미루보르 · '+t.name+' 회복');}}
-    if(this.rank('beorn_mead')){const w=this.alive('good').filter(u=>u.currentWounds<u.stats.wounds),t=w[Math.floor(this.rng()*w.length)];if(t){t.currentWounds=Math.min(t.stats.wounds,t.currentWounds+this.rank('beorn_mead'));this.emit('Relic','베오른의 꿀주 · '+t.name+' 회복');}}
+    if(this.rank('miruvor')){const w=this.alive('good').filter(u=>u.currentWounds<u.stats.wounds),t=w[Math.floor(this.rng()*w.length)];if(t){t.currentWounds=Math.min(t.stats.wounds,t.currentWounds+2*this.rank('miruvor'));this.emit('Relic','미루보르 · '+t.name+' 회복', { uid: t.uid, heal: !0 });}}
+    if(this.rank('beorn_mead')){const w=this.alive('good').filter(u=>u.currentWounds<u.stats.wounds),t=w[Math.floor(this.rng()*w.length)];if(t){t.currentWounds=Math.min(t.stats.wounds,t.currentWounds+this.rank('beorn_mead'));this.emit('Relic','베오른의 꿀주 · '+t.name+' 회복', { uid: t.uid, heal: !0 });}}
     if(this.rank('elessar')||this.rank('evenstar'))for(const u of this.alive('good')){if(!u.traits.includes('hero'))continue;if(this.rank('elessar'))u.resources.will=Math.min((u.baseStats.will||0)+this.rank('elessar'),(u.resources.will||0)+1);if(this.rank('evenstar'))u.resources.might=Math.min((u.baseStats.might||0)+2*this.rank('evenstar'),(u.resources.might||0)+2*this.rank('evenstar'));}
 };
 // The player AI looks for an attack first and only moves if that improves an attack.
@@ -5116,7 +5116,7 @@ Ve.prototype.play=async function(event){if(event.type==='CommandUsed'){const u=t
 const heroFallenPlay=Ve.prototype.play;
 Ve.prototype.play=async function(event){if(event.type==='UnitKilled'&&event.uid){const u=this.b.unit(event.uid);if(u&&u.traits&&u.traits.includes('hero')){this.soundFX&&this.soundFX.play('death');const good=u.side==='good';const el=document.createElement('div');el.className='hero-fallen '+(good?'good':'evil');el.innerHTML=`<b>${good?'영웅 전사':'적장 격파'}</b><span>${esc(u.name)}</span>`;document.body.appendChild(el);setTimeout(()=>el.classList.add('on'),30);setTimeout(()=>{el.classList.remove('on');setTimeout(()=>el.remove(),450)},1600);}}return heroFallenPlay.call(this,event);};
 const unitFxPlay=Ve.prototype.play;
-Ve.prototype.play=async function(event){if(event.uid&&['Terror','HeroSkill','Saved'].includes(event.type)){const u=this.b.unit(event.uid);if(u){const tex=event.type==='Terror'?'fx-terror':event.type==='HeroSkill'?'fx-rally':'fx-cast';const col=event.type==='Terror'?'#b9a4e8':event.type==='HeroSkill'?'#fbe8b0':'#cfe6ff';this.soundFX&&this.soundFX.play(event.type==='Terror'?'dice_roll':'event');const fx=this.add.image(u.x,u.y,tex).setDepth(14).setDisplaySize(100,100).setAlpha(.92);const nm=this.add.text(u.x,u.y-u.radius-30,(event.text||'').split('·').pop().trim(),{fontFamily:'Pretendard',fontSize:'13px',color:col,stroke:'#17211d',strokeThickness:2,backgroundColor:'#1d2b3af0',padding:{x:6,y:3}}).setOrigin(.5).setDepth(15);await this.tween(fx,{displayWidth:180,displayHeight:180,alpha:0},400);fx.destroy();this.tween(nm,{y:u.y-u.radius-58,alpha:0},650).then(()=>nm.destroy());}}return unitFxPlay.call(this,event);};
+Ve.prototype.play=async function(event){if(event.uid&&['Terror','HeroSkill','Saved','Relic'].includes(event.type)){const u=this.b.unit(event.uid);if(u){const tex=event.type==='Terror'?'fx-terror':event.type==='HeroSkill'?'fx-rally':'fx-cast';const col=event.type==='Terror'?'#b9a4e8':event.type==='HeroSkill'?'#fbe8b0':event.type==='Relic'?'#9ff0cf':'#cfe6ff';this.soundFX&&this.soundFX.play(event.type==='Terror'?'dice_roll':'event');const fx=this.add.image(u.x,u.y,tex).setDepth(14).setDisplaySize(100,100).setAlpha(.92);if(event.type==='Relic')fx.setTint(0x9ff0cf);const nm=this.add.text(u.x,u.y-u.radius-30,(event.text||'').split('·').pop().trim(),{fontFamily:'Pretendard',fontSize:'13px',color:col,stroke:'#17211d',strokeThickness:2,backgroundColor:'#1d2b3af0',padding:{x:6,y:3}}).setOrigin(.5).setDepth(15);await this.tween(fx,{displayWidth:180,displayHeight:180,alpha:0},400);fx.destroy();this.tween(nm,{y:u.y-u.radius-58,alpha:0},650).then(()=>nm.destroy());}}return unitFxPlay.call(this,event);};
 const trapFxPlay=Ve.prototype.play;
 Ve.prototype.play=async function(event){if(event.type==='Trap'&&event.at){const d=event.at;this.soundFX&&this.soundFX.play(d.type==='ballista'||d.type==='scorpion'?'arrow_release':'base_contact');const r=Math.max(70,(d.radius||120)*1.2);const fx=this.add.image(d.x,d.y,'fx-clash').setDepth(14).setDisplaySize(80,80).setAlpha(.95);if(d.type==='oil'||d.type==='barrel')fx.setTint(0xff8a3d);else if(d.type==='spike')fx.setTint(0xc9d6e8);const nm=this.add.text(d.x,d.y-40,(event.text||'').split('·')[0].trim(),{fontFamily:'Pretendard',fontSize:'13px',color:'#ffcf9a',stroke:'#17211d',strokeThickness:2,backgroundColor:'#2a1d12f0',padding:{x:6,y:3}}).setOrigin(.5).setDepth(15);await this.tween(fx,{displayWidth:r*2,displayHeight:r*2,alpha:0},420);fx.destroy();this.tween(nm,{y:d.y-70,alpha:0},650).then(()=>nm.destroy());}return trapFxPlay.call(this,event);};
 const spellFxPlay=Ve.prototype.play;
