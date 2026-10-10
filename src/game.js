@@ -196,7 +196,7 @@ class Ve extends Ot.Scene {
             else if(this.textures.exists(H.id))
                 this.terrainLayer.add(this.add.image(H.x, H.y, H.id).setDisplaySize(H.w + 24, H.h + 22)); for (const D of (this.b.devices || []))
         if (D.armed) {
-            const K2 = { chest: 'terr_crates', ballista: 'terr_ballista', scorpion: 'terr_trebuchet', barrel: 'terr_bomb', oil: 'terr_brazier', firepot: 'terr_brazier', snare: 'terr_chain_post', spike: 'terr_spike_line' }[D.type] || 'terr_brazier';
+            const K2 = { chest: 'terr_crates', intel: 'terr_bone_pile', ballista: 'terr_ballista', scorpion: 'terr_trebuchet', barrel: 'terr_bomb', oil: 'terr_brazier', firepot: 'terr_brazier', snare: 'terr_chain_post', spike: 'terr_spike_line' }[D.type] || 'terr_brazier';
             this.textures.exists(K2) && this.terrainLayer.add(this.add.image(D.x, D.y, K2).setDisplaySize(D.type === 'ballista' ? 130 : 76, D.type === 'ballista' ? 130 : 76));
         } for (const H of this.b.units) {
         let K = this.tokens.get(H.uid);
@@ -280,9 +280,9 @@ class Ve extends Ot.Scene {
     }
     for (const d of (b.devices || [])) {
         if (!d.armed) continue;
-        this.rings.lineStyle(2, d.type === 'chest' ? 0xe8c45c : d.type === 'barrel' ? 0x8a3a20 : d.type === 'ballista' ? 0xc9a03f : 0xd4502a, .85);
+        this.rings.lineStyle(2, d.type === 'intel' ? 0x6fc4d8 : d.type === 'chest' ? 0xe8c45c : d.type === 'barrel' ? 0x8a3a20 : d.type === 'ballista' ? 0xc9a03f : 0xd4502a, .85);
         this.rings.strokeCircle(d.x, d.y, d.type === 'barrel' ? 34 : d.trigger * .35);
-        this.labels.add(this.add.text(d.x, d.y - 16, d.type === 'ballista' ? '\u2699 투석기' : d.type === 'chest' ? '\u{1F4E6} 상자' : d.type === 'snare' ? '\u26D3 덫' : d.type === 'barrel' ? '\u{1F4A3} 화약통' : '\u{1F525} 불통', { fontFamily: "Pretendard", fontSize: "15px", color: "#ffd98a", backgroundColor: "#1b2218d0", padding: { x: 6, y: 3 } }).setOrigin(.5));
+        this.labels.add(this.add.text(d.x, d.y - 16, d.type === 'ballista' ? '\u2699 투석기' : d.type === 'intel' ? '\u{1F4DC} 정보' : d.type === 'chest' ? '\u{1F4E6} 상자' : d.type === 'snare' ? '\u26D3 덫' : d.type === 'barrel' ? '\u{1F4A3} 화약통' : '\u{1F525} 불통', { fontFamily: "Pretendard", fontSize: "15px", color: "#ffd98a", backgroundColor: "#1b2218d0", padding: { x: 6, y: 3 } }).setOrigin(.5));
     }
     const K = b.unit(b.selected), $ = b.unit(b.activeMoverUid) || (K && b.canAct(K) ? K : b.eligible()[0]); if ($ != null && $.alive && ["move", "shoot", "preparation"].includes(b.phase) && (this.rings.lineStyle(5, 16769698, 1), this.rings.strokeCircle($.x, $.y, $.radius + 18), this.rings.lineStyle(2, 16773823, .96), this.rings.strokeCircle($.x, $.y, $.radius + 23), this.labels.add(this.add.text($.x, $.y - $.radius - 69, "▼ 현재 행동", { fontFamily: "Pretendard", fontSize: "18px", color: "#17282b", backgroundColor: "#f3d494", padding: { x: 10, y: 4 } }).setOrigin(.5))), b.phase === "fight")
         for (const p of b.fightQueue) {
@@ -651,7 +651,7 @@ const CX = {
     version: 1, inches: 45,
     maps: ['minas_tirith', 'osgiliath', 'amon_sul', 'helms_deep', 'fangorn', 'edoras', 'moria', 'isengard', 'black_gate', 'gorgoroth', 'rivendell', 'lothlorien', 'pelennor', 'dead_marshes', 'dunharrow', 'erebor', 'mirkwood', 'dol_guldur', 'gondolin', 'angband'],
     mapNames: ['미나스 티리스', '오스길리아스', '아몬 술', '헬름 협곡', '팡고른', '에도라스', '모리아', '아이센가드', '검은 문', '고르고로스', '리븐델', '로스로리엔', '펠렌노르', '죽은 늪', '던하로우', '에레보르', '미르크우드', '돌 굴두르', '곤돌린', '앙그반드'],
-    missionNames: { annihilation: '적 전멸', defense: '방어선 수호', hold: '거점 확보', survive: '포위망 생존', breakthrough: '전선 돌파', commander: '지휘관 처치', rescue: '포로 구출', escort: '보급 호송' },
+    missionNames: { annihilation: '적 전멸', defense: '방어선 수호', hold: '거점 확보', survive: '포위망 생존', breakthrough: '전선 돌파', commander: '지휘관 처치', rescue: '포로 구출', escort: '보급 호송', scouting: '정찰 수습' },
     roleNames: { infantry: '보병', hero: '영웅', cavalry: '기병', monster: '괴수', support: '지원', beast: '야수' },
     rarityNames: ['일반', '마법', '희귀', '고유'],
     relics: [
@@ -1384,7 +1384,7 @@ const ARC_MAPS = ['amon_sul', 'isengard', 'pelennor', 'black_gate', 'mirkwood', 
 const STAGE_MAP_OVERRIDE = { 11: 'helms_deep', 12: 'helms_deep', 13: 'helms_deep', 14: 'helms_deep' };
 P.stageInfo = function (n) {
     let boss = n % (this.difficulty === 'despair' ? 4 : 5) === 0 ? (STAGE_BOSSES[n] || (n > 70 ? ELDER_BOSSES[Math.floor(n / 5) % ELDER_BOSSES.length] : this.difficulty === 'despair' ? DESPAIR_BOSS_POOL[(Math.floor(n / 4) - 1) % DESPAIR_BOSS_POOL.length] : null)) : null;
-    const missions = ['defense', 'annihilation', 'hold', 'survive', 'commander', 'breakthrough', 'rescue', 'escort'];
+    const missions = ['defense', 'annihilation', 'hold', 'survive', 'commander', 'breakthrough', 'rescue', 'escort', 'scouting'];
     const mission = boss ? 'commander' : missions[(n - 1) % missions.length];
     const ids = [];
     const dmul = this.difficulty === 'easy' ? .75 : this.difficulty === 'hard' ? 1.35 : this.difficulty === 'despair' ? 1.6 : 1;
@@ -1891,6 +1891,10 @@ P.endRound = function () {
             return;
         }
     }
+    if (this.mission === 'scouting' && (this.scouts || 0) >= 3) {
+        this.finishWave();
+        return;
+    }
     if (this.mission === 'survive' && this.round >= 5) {
         this.finishWave();
         return;
@@ -2142,6 +2146,13 @@ P.checkTraps = function (u) {
     for (const d of this.devices || []) {
         if (!d.armed || ht(u, d) > d.trigger)
             continue;
+        if (d.type === 'intel') {
+            if (u.side !== 'good') continue;
+            d.armed = false;
+            this.scouts = (this.scouts || 0) + 1;
+            this.emit('Event', '📜 정보 수집 — ' + u.name + ' (' + this.scouts + '/3)', { at: d });
+            continue;
+        }
         if (d.type === 'chest') {
             if (u.side !== 'good') continue;
             d.armed = false;
@@ -3292,7 +3303,7 @@ P.shoot = function (uid, target) { const u = this.unit(uid); const multi = u?.pr
 // Enemy movement evaluates role, engagement, objectives and ranged spacing.
 const __lwbFA = P.finishActivation;
 P.finishActivation = function (u) {
-    if (u && (this.devices || []).some(d => d.armed && (u.side === 'evil' || d.type === 'barrel' || d.type === 'chest')))
+    if (u && (this.devices || []).some(d => d.armed && (u.side === 'evil' || d.type === 'barrel' || d.type === 'chest' || d.type === 'intel')))
         this.checkTraps(u);
     if (u && u.side === 'good' && u.traits.includes('hero') && this.rng() < 0.1) {
         const pr = LWB_PAIRS.find(w => w[0] === u.id || w[1] === u.id);
@@ -4826,7 +4837,7 @@ function renderDock(){
     } }
     { const _wf = ut('wx-fx'), _mod = (q.current && q.current.modifier) || ''; _wf && (_wf.className = ['rain', 'dark', 'fog', 'snow', 'eclipse', 'gale', 'frost', 'mud'].includes(_mod) ? 'wx-' + _mod : ''); }
     ut('wave').textContent=String(phase==='preparation'?q.wave+1:q.wave||1).padStart(2,'0');
-    const rules={defense:`라운드 끝 · 구역에 적 ${q.breachCount}기면 패배`,annihilation:'남은 적을 모두 격파',hold:`거점 우세 ${q.capture||0}/3 라운드`,survive:`생존 ${q.round||0}/5 라운드`,breakthrough:'아군 2기를 남쪽 돌파선으로'+(()=>{const n=q.alive('good').filter(u=>u.y>1200).length;return n?' · 돌파 '+Math.min(n,2)+'/2':''})(),rescue:q.rescued?`구출 후 생존 ${q.capture||0}/3`:'포로 구역 확보 후 3라운드 생존',commander:'보스를 처치하면 승리',escort:`보급 호송 — 남쪽 출구까지 호송${q.escortCart&&q.unit(q.escortCart)?.alive?` · 마차 ${Math.round(q.unit(q.escortCart).y)}/1180 · ♥${q.unit(q.escortCart).currentWounds}`:''} · 파괴 시 패배`};
+    const rules={defense:`라운드 끝 · 구역에 적 ${q.breachCount}기면 패배`,annihilation:'남은 적을 모두 격파',hold:`거점 우세 ${q.capture||0}/3 라운드`,survive:`생존 ${q.round||0}/5 라운드`,breakthrough:'아군 2기를 남쪽 돌파선으로'+(()=>{const n=q.alive('good').filter(u=>u.y>1200).length;return n?' · 돌파 '+Math.min(n,2)+'/2':''})(),rescue:q.rescued?`구출 후 생존 ${q.capture||0}/3`:'포로 구역 확보 후 3라운드 생존',commander:'보스를 처치하면 승리',escort:`보급 호송 — 남쪽 출구까지 호송${q.escortCart&&q.unit(q.escortCart)?.alive?` · 마차 ${Math.round(q.unit(q.escortCart).y)}/1180 · ♥${q.unit(q.escortCart).currentWounds}`:''} · 파괴 시 패배`,scouting:'전장에 흩어진 정보 3곳 수습 — 아군이 접근해 수집'};
     ut('ux-mission').innerHTML=`<em>${CX.missionNames[q.mission]||'원정 준비'}</em>${esc(rules[q.mission]||'병사를 선택해 전열을 정하세요')}${q.bonusObjective?" <small style='color:#f2c75a'>· ★"+esc(q.bonusObjective.text)+" (+"+q.bonusObjective.gold+"금)</small>":''}${(['hold','defense','rescue'].includes(q.mission)&&q.alive('evil').some(u=>ht(u,Mt.objective)<=Mt.objective.radius*0.75))?" <small style='color:#ff7a5c;font-weight:800'>· ⚠ 목표 위협</small>":''}${['move','shoot','fight'].includes(q.phase)&&!(q.stageDeaths||0)?" <small style='color:#8fd8a0'>· 무결 진행 중 (+25금)</small>":''}`;
     const image=ut('dock-portrait');if(u){const src=Th(q.meta.get(u.id).file);if(image.getAttribute('src')!==src){image.dataset.full=Ut(q.meta.get(u.id).file);image.onerror=function(){this.onerror=null;this.src=this.dataset.full};image.src=src;}image.classList.remove('hidden')}else image.classList.add('hidden');
     ut('dock-eyebrow').textContent=phase==='preparation'?'전열 배치':At?'행동 처리 중':active?'선택 병사':busy?'상대의 차례':phase==='fight'?'근접전 판정':'원정대 지휘';
@@ -5775,6 +5786,10 @@ P.prepareStage = function () {
     if (!this.current?.boss) {
         const _cx = [[1165, 940], [860, 900], [1470, 900]][this.wave % 3];
         this.devices.push({ type: 'chest', goodOnly: true, armed: true, x: _cx[0], y: _cx[1], trigger: 55, radius: 0 });
+    }
+    if (this.mission === 'scouting') {
+        this.devices = (this.devices || []).filter(d => d.type !== 'chest');
+        [[560, 800], [1165, 1010], [1770, 800]].forEach(([ix, iy]) => this.devices.push({ type: 'intel', goodOnly: true, armed: true, x: ix, y: iy, trigger: 60, radius: 0 }));
     }
 };
 const __lwbSV = P.save;
