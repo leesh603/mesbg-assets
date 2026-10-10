@@ -8216,7 +8216,7 @@ P.startWave = function () {
         if (_lc.length) {
             const u = _lc[Math.floor(this.rng() * _lc.length)];
             u.legendary = true; u.stats.fight += 2; u.stats.defence += 2; u.stats.wounds += 1; u.currentWounds += 1;
-            this.emit('Event', `◆ 전설 — ${u.name} 발견 · 처치 시 +25금${k => ''}`);
+            this.emit('Event', `◆ 전설 — ${u.name} 발견 · 처치 시 +25금`);
         }
     }
     if (this.challenge === 'supplies') (this.nextRoundBuffs = this.nextRoundBuffs || []).push({ stat: 'courage', n: -1, side: 'good' });
