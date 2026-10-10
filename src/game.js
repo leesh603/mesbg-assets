@@ -2255,7 +2255,7 @@ const LWB_EQUIP = [
     { id: 'elven_cloak_eq', label: '갈라드림 수호망토', cost: 55, desc: '적 사격이 이 유닛에 명중 난도 +1', iconImg: 'icons/eq_elven_cloak.png', fx: u => u.evadeRanged = 1 },
     { id: 'mithril_shirt_eq', label: '미스릴 쇠사슬', cost: 150, desc: '유니크 · 방어 +1 · Fate +1', iconImg: 'icons/eq_mithril_shirt.png', fx: u => { u.stats.defence += 1; u.stats.fate = (u.stats.fate || 0) + 1; if (!u._shirtFate) { u._shirtFate = 1; u.resources && (u.resources.fate = (u.resources.fate || 0) + 1); } } },
     { id: 'galadriel_phial', label: '갈라드리엘의 병', cost: 110, desc: '치명상을 견디는 빛 · Fate +2', iconImg: 'icons/eq_galadriel_phial.png', fx: u => { u.stats.fate = (u.stats.fate || 0) + 2; if (!u._phialFate) { u._phialFate = 1; u.resources && (u.resources.fate = (u.resources.fate || 0) + 2); } } },
-    { id: 'king_standard', label: '왕의 문장', cost: 90, desc: '용기 +2 · 영구 장착', iconImg: 'icons/eq_king_standard.png', fx: u => u.stats.courage += 2 },
+    { id: 'king_standard', label: '왕의 문장', cost: 90, desc: '유니크 · 용기 +3 · 영구 장착', iconImg: 'icons/eq_king_standard.png', fx: u => u.stats.courage += 3 },
     { id: 'glamdring', label: '글람드링', cost: 130, desc: '유니크 · 간달프 전용 · Attack +1 · 결투 +1', iconImg: 'icons/eq_glamdring.png', req: u => u.id.startsWith('gandalf'), fx: u => { u.stats.attacks += 1; u.stats.fight += 1; } },
     { id: 'lembas', label: '엘프 빵 레메이스', cost: 60, once: true, needsWound: true, desc: '즉시 사용 · 상처 전부 회복', iconImg: 'icons/eq_lembas.png', fx: u => u.currentWounds = u.stats.wounds },
     { id: 'star_flower', label: '별의 꽃', cost: 35, desc: '용기 +1 · 영구 장착', iconImg: 'icons/eq_star_flower.png', fx: u => u.stats.courage += 1 },
@@ -2273,7 +2273,17 @@ const LWB_EQUIP = [
     { id: 'dark_berry', label: '검은숲 열매', cost: 40, once: true, desc: '즉시 사용 · 용기 +2', iconImg: 'icons/eq_dark_berry.png', fx: u => u.stats.courage += 2 },
     { id: 'king_oath', label: '왕의 서약인장', cost: 50, once: true, desc: '즉시 사용 · Might 1 회복', iconImg: 'icons/eq_king_oath.png', fx: u => { u.resources && (u.resources.might = (u.resources.might || 0) + 1); } },
     { id: 'war_pennant', label: '울부짖는 전쟁깃', cost: 60, desc: '기마 영웅 전용 · 용기 +2', iconImg: 'icons/eq_war_pennant.png', req: u => u.traits.includes('mounted'), fx: u => u.stats.courage += 2 },
-    { id: 'oath_stone', label: '난쟁이 서약돌', cost: 120, desc: '유니크 · 상처 +1', iconImg: 'icons/eq_oath_stone.png', fx: u => { u.stats.wounds += 1; } }
+    { id: 'oath_stone', label: '난쟁이 서약돌', cost: 120, desc: '유니크 · 상처 +1', iconImg: 'icons/eq_oath_stone.png', fx: u => { u.stats.wounds += 1; } },
+    { id: 'sting', label: '쏘는 검 스팅', cost: 95, desc: '유니크 · 호빗 영웅 전용 · Attack +1 · 결투 +1', iconImg: 'icons/eq_sting.png', req: u => ['frodo', 'sam', 'bilbo', 'pippin', 'merry'].some(h => u.id.startsWith(h)), fx: u => { u.stats.attacks += 1; u.stats.fight += 1; } },
+    { id: 'miruvor', label: '미루보르', cost: 65, once: true, desc: '즉시 사용 · 상처 1 회복 + 용기 +2', iconImg: 'icons/eq_miruvor.png', fx: u => { u.currentWounds = Math.min(u.stats.wounds, u.currentWounds + 1); u.stats.courage += 2; } },
+    { id: 'palantir', label: '팔란티르', cost: 120, desc: '유니크 · Might +1 · 용기 +1', iconImg: 'icons/eq_palantir.png', fx: u => { u.stats.courage += 1; if (!u._palM) { u._palM = 1; u.resources && (u.resources.might = (u.resources.might || 0) + 1); } } },
+    { id: 'elfstone', label: '엘레사르의 녹보석', cost: 80, desc: '용기 +1 · Fate +1', iconImg: 'icons/eq_elfstone.png', fx: u => { u.stats.courage += 1; u.stats.fate = (u.stats.fate || 0) + 1; if (!u._elfF) { u._elfF = 1; u.resources && (u.resources.fate = (u.resources.fate || 0) + 1); } } },
+    { id: 'horn_gondor', label: '보로미르의 뿔피리', cost: 100, desc: '유니크 · 보로미르 전용 · 용기 +2 · Might +1', iconImg: 'icons/eq_horn_gondor.png', req: u => u.id.startsWith('boromir'), fx: u => { u.stats.courage += 2; if (!u._hornM) { u._hornM = 1; u.resources && (u.resources.might = (u.resources.might || 0) + 1); } } },
+    { id: 'shadowfax', label: '섀도팩스', cost: 140, desc: '유니크 · 간달프 전용 기마 · 이동 +3″ · 용기 +1', iconImg: 'icons/eq_shadowfax.png', req: u => u.traits.includes('mounted') && u.id.startsWith('gandalf'), fx: u => { u.stats.move += 135; u.stats.courage += 1; } },
+    { id: 'asfaloth', label: '아스팔로스', cost: 110, desc: '유니크 · 엘프 기마 영웅 전용 · 이동 +2″', iconImg: 'icons/eq_asfaloth.png', req: u => u.traits.includes('mounted') && ['glorfindel', 'legolas', 'elrond', 'haldir', 'arwen'].some(h => u.id.startsWith(h)), fx: u => { u.stats.move += 90; } },
+    { id: 'brego', label: '브레고', cost: 90, desc: '유니크 · 아라곤·로한 기마 영웅 전용 · 이동 +1.5″ · 용기 +1', iconImg: 'icons/eq_brego.png', req: u => u.traits.includes('mounted') && ['aragorn', 'theoden', 'eomer', 'eowyn', 'gamling'].some(h => u.id.startsWith(h)), fx: u => { u.stats.move += 70; u.stats.courage += 1; } },
+    { id: 'firefoot', label: '파이어풋', cost: 100, desc: '유니크 · 에오메르 전용 기마 · 이동 +1.5″ · 결투 +1', iconImg: 'icons/eq_firefoot.png', req: u => u.traits.includes('mounted') && u.id.startsWith('eomer'), fx: u => { u.stats.move += 70; u.stats.fight += 1; } },
+    { id: 'hasufel', label: '하스펠', cost: 75, desc: '유니크 · 로한 기마 영웅 전용 · 이동 +1.3″', iconImg: 'icons/eq_hasufel.png', req: u => u.traits.includes('mounted') && ['theoden', 'eomer', 'eowyn', 'gamling', 'hama', 'deorwine', 'elfhelm', 'erkenbrand', 'grimbold'].some(h => u.id.startsWith(h)), fx: u => { u.stats.move += 60; } }
 ];
 P.buyEquip = function (i, uid) {
     if (this.phase !== 'reward' || !['recruit', 'shop'].includes(this.campStep))
