@@ -8148,6 +8148,16 @@ P._trkKill = function (k, v) {
         if (k.traits.includes('mounted')) this.stageCavKills = (this.stageCavKills || 0) + 1;
         if (v.traits.includes('monster')) this.stageMonsterKills = (this.stageMonsterKills || 0) + 1;
         if (v.elite) this.stageEliteKills = (this.stageEliteKills || 0) + 1;
+        if (v.elite && typeof LWB_EQUIP !== 'undefined') {
+            if (this.rng() < .3 && k.traits.includes('hero')) {
+                const _pool = LWB_EQUIP.filter(e => !e.once);
+                const _d = _pool[Math.floor(this.rng() * _pool.length)];
+                if (_d && (k.equipment || []).length < 2 && !(k.equipment || []).includes(_d.id)) {
+                    (k.equipment = k.equipment || []).push(_d.id); this.refreshUnit(k);
+                    this.emit('Event', `⚔ 엘리트 전리품 — ${k.name} · ${(_d.label || _d.id)} 획득`);
+                } else { this.gold += 10; this.emit('Event', '엘리트 전리품 · 금화 +10'); }
+            } else { this.gold += 5; this.emit('Event', '엘리트 전리품 · 금화 +5'); }
+        }
         if (k.traits.includes('hero')) this.stageHeroSlayer = (this.stageHeroSlayer || 0) + 1;
         k._stageKills = (k._stageKills || 0) + 1;
         [3, 5, 8].includes(k._stageKills) && this.emit('Event', `⚔ ${k.name} 연속 처치 ×${k._stageKills}`);
@@ -8202,7 +8212,7 @@ P.startWave = function () {
     if (this.challenge === 'long_bows') (this.nextRoundBuffs = this.nextRoundBuffs || []).push({ stat: 'shootRange', n: 45, side: 'evil' });
     if (this.challenge === 'swift_blades') (this.nextRoundBuffs = this.nextRoundBuffs || []).push({ stat: 'move', n: 45, side: 'evil' });
     this.eliteKills = 0;
-    this.stageDeaths = 0; this.stageTrapKills = 0; this.stageHeroKills = 0; this.stageShootKills = 0; this.stageChargeKills = 0; this.stageKills = 0; this.stageCavKills = 0; this.stageMonsterKills = 0; this.stageHeroSlayer = 0; this.stageEliteKills = 0; this._midReinforced = false;
+    this.stageDeaths = 0; this.stageTrapKills = 0; this.stageHeroKills = 0; this.stageShootKills = 0; this.stageChargeKills = 0; this.stageKills = 0; this.stageCavKills = 0; this.stageMonsterKills = 0; this.stageHeroSlayer = 0; this.stageEliteKills = 0; this._midReinforced = false; this._lastStand = false;
     const _bp = BONUS_OBJECTIVES.filter(o => !o.cond || o.cond(this));
     this.bonusObjective = _bp.length ? _bp[Math.floor(this.rng() * _bp.length)] : null;
     this.bonusId = this.bonusObjective?.id || ''; this._bonusDone = false;
@@ -8329,6 +8339,11 @@ P.beginRound = function () {
         const extra = this.current.ids.slice(-rn);
         this.spawnEnemies(extra);
         this.emit('ReinforcementsArrived', '⚠ 적 증원 도착 — ' + extra.length + '기');
+    }
+    if (!this._lastStand && this.alive('good').length > 0 && this.alive('good').length <= 3 && this.alive('evil').length >= 3) {
+        this._lastStand = true;
+        this.alive('good').forEach(u => { u.roundBuff.courage = (u.roundBuff.courage || 0) + 1; u.roundBuff.fight = (u.roundBuff.fight || 0) + 1; this.refreshUnit(u); });
+        this.emit('Event', '⚔ 최후 결사 — 남은 병력이 항전합니다 (전원 결투+1 · 용기+1, 이 라운드)');
     }
     for (const boss of this.alive('evil').filter(u => u.traits.includes('boss')))
         this.bossTurn(boss);
