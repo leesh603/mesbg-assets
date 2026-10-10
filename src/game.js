@@ -1266,6 +1266,11 @@ P.refreshUnit = function (u) {
             if (s.active && s.apply)
                 s.apply(u);
     }
+    if (u.side === 'evil') {
+        if (u.stats.shootRange)
+            u.stats.shootRange = Math.max(60, u.stats.shootRange - 45 * this.rank('anduin_mist'));
+        u.stats.courage = Math.max(1, u.stats.courage - this.rank('black_breath'));
+    }
     for (const [key, v] of Object.entries(u.roundBuff || {}))
         u.stats[key] = (u.stats[key] || 0) + v;
     u.stats.attacks = Math.max(1, u.stats.attacks);
@@ -3227,7 +3232,9 @@ CX.relics.push(...[
     ['morgul_thorn','모르굴의 가시',1,'적 영웅 처치 시 다음 전투 CP +1.',0],
     ['ranger_hood','레인저의 두건',0,'궁수의 명중 −1. 중첩마다 −1.',0],
     ['mithril_ore','미스릴 원석',1,'스테이지 보상 금화 +10. 중첩마다 +10.',0],
-    ['beorn_mead','베오른의 꿀주',1,'스테이지 시작 시 무작위 아군 1기 상처 1 회복.',0]
+    ['beorn_mead','베오른의 꿀주',1,'스테이지 시작 시 무작위 아군 1기 상처 1 회복.',0],
+    ['anduin_mist','안두인의 안개',1,'적 궁수의 사거리 −1인치. 중첩마다 −1인치.',0],
+    ['black_breath','검은 숨결',2,'적 전원 용기 −1. 중첩마다 −1.',0]
 ].map(([id,name,rarity,text,icon])=>({id,name,rarity,text,icon})));
 const relicRefresh=P.refreshUnit;
 P.refreshUnit=function(u){
