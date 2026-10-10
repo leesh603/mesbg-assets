@@ -11849,7 +11849,7 @@ P.mountVariant=function(u){
 };
 P.mountCost=function(u){const v=this.mountVariant(u);if(!v)return 0;const d=UnitCatalog[u.id];return Math.max(30,Math.round(((v.points||60)-(d.points||50))*.6/5)*5);};
 P.buyHorse=function(){
-    if(this.phase!=='reward'||this.campStep!=='recruit')return false;
+    if(this.phase!=='reward'||!['recruit','shop'].includes(this.campStep))return false;
     const cost=40;if(this.gold<cost)return false;
     this.gold-=cost;this.horses=(this.horses||0)+1;
     this.emit('Camp','군마를 구입했습니다 — 기마를 줄 도보 영웅을 지정하세요.');
@@ -11871,7 +11871,7 @@ P.mountOptions=function(u){
 };
 P.specialMountCost=function(u,v){const d=UnitCatalog[u.id];return Math.max(60,Math.round((((v.points||150)-(d&&d.points||60))*.5)/5)*5);};
 P.buySpecialMount=function(uid,vid){
-    if(this.phase!=='reward'||this.campStep!=='recruit')return false;
+    if(this.phase!=='reward'||!['recruit','shop'].includes(this.campStep))return false;
     const u=this.unit(uid),v=UnitCatalog[vid];
     if(!u||!v||u.side!=='good'||u.traits.includes('mounted')||u.traits.includes('flying')||v.profile.traits.includes('mounted'))return false;
     const cost=this.specialMountCost(u,v);if(this.gold<cost)return false;
@@ -11881,7 +11881,7 @@ P.buySpecialMount=function(uid,vid){
     this.save();return true;
 };
 P.assignMount=function(uid,vid){
-    if(this.phase!=='reward'||this.campStep!=='recruit')return false;
+    if(this.phase!=='reward'||!['recruit','shop'].includes(this.campStep))return false;
     if(!(this.horses>0))return false;
     const u=this.unit(uid),v=(vid&&UnitCatalog[vid])||(u&&this.mountVariant(u));if(!u||!v)return false;
     this.horses--;
