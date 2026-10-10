@@ -9940,6 +9940,11 @@ He=function(b){
 function HeAct(b,u){
     if(CX.skills[u.id]&&!b.skillReason(u)&&!b.engaged(u))b.skill(u.uid);
     b.autoSpell(u);
+    if(u.side==='good'&&(b.cp||0)>0){
+        if(b.phase==='shoot'&&u.stats.shootRange&&!u.aim&&!(u.oncePerRunAbilities||[]).includes('aim-used'))b.command('aim',u.uid);
+        else if(b.phase==='move'&&b.furyRound!==b.round&&b.cp>=2&&b.alive('evil').length>b.alive('good').length*1.5)b.command('fury',u.uid);
+        else if(b.phase==='fight'&&!u.hold&&u.stats.defence>=6&&b.cp>=1&&b.engaged(u))b.command('hold',u.uid);
+    }
     if(b.phase==='move'){
         const _st=u.side==='good'?(u.stance||'auto'):'auto';
         if(!u.stats.shootRange&&!b.engaged(u)&&_st!=='rear'&&!(_st==='defense'&&b.alive(Ht(u.side)).every(f=>ht(u,f)>260))){
