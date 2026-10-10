@@ -8451,11 +8451,17 @@ P.startWave = function () {
             _lu.lair = true; _lu.static = true;
             Object.assign(_lu.stats, { move: 0, fight: 0, strength: 2, defence: 6, attacks: 0, wounds: 4, courage: 2, shootValue: 7, might: 0, will: 0, fate: 0 });
             _lu.baseStats = structuredClone(_lu.stats); _lu.currentWounds = 4; _lu.resources = { might: 0, will: 0, fate: 0 };
-            outer: for (let _dy = 0; _dy <= 420; _dy += 60) {
-                const _pts = [{ x: _lat3[_li][0], y: _lat3[_li][1] + _dy }, { x: _lat3[_li][0] - _dy, y: _lat3[_li][1] }, { x: _lat3[_li][0] + _dy, y: _lat3[_li][1] }, { x: _lat3[_li][0], y: _lat3[_li][1] - _dy }];
-                for (const _pt of _pts)
-                    if (Et(_lu, _pt, this.units, this.terrain)) { _lu.x = _pt.x; _lu.y = _pt.y; break outer; }
+            const _anchor = this.alive('good')[0] || { x: 1200, y: 1000, radius: 38, traits: [], uid: '__probe', side: 'good', alive: true };
+            let _placed = false;
+            for (const _needPath of [true, false]) {
+                outer: for (let _dy = 0; _dy <= 420; _dy += 60) {
+                    const _pts = [{ x: _lat3[_li][0], y: _lat3[_li][1] + _dy }, { x: _lat3[_li][0] - _dy, y: _lat3[_li][1] }, { x: _lat3[_li][0] + _dy, y: _lat3[_li][1] }, { x: _lat3[_li][0], y: _lat3[_li][1] - _dy }];
+                    for (const _pt of _pts)
+                        if (Et(_lu, _pt, this.units, this.terrain) && (!_needPath || bt(_anchor, _pt, this.units.filter(u => u.uid !== _lu.uid), this.terrain))) { _lu.x = _pt.x; _lu.y = _pt.y; _placed = true; break outer; }
+                }
+                if (_placed) break;
             }
+            if (!_placed) { _lu.x = 1200; _lu.y = 700; }
             this.refreshUnit(_lu); this.purgeLairs.push(_lu.uid);
         });
         if (this.purgeLairs.length) this.emit('Event', '적 소굴 3곳을 파괴하세요 — 둥지에서 적이 계속 쏟아져 나옵니다!');
