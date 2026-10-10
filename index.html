@@ -6684,6 +6684,19 @@ Ae=[{id:"warrior_minas_tirith",name_ko:"미나스 티리스 전사",name_en:"War
             }
         }
     }
+    if (this.mission === 'purge' && this.purgeLairs) {
+        const _goods = this.alive('good');
+        for (const _luid of this.purgeLairs.slice()) {
+            const _l = this.unit(_luid);
+            if (!_l || !_l.alive) continue;
+            const _reach = _goods.some(g => { const _ob = this.units.filter(u => u.uid !== _l.uid && u.uid !== g.uid); return bt(g, { x: _l.x, y: _l.y }, _ob, this.terrain) || !!ve(g, { x: _l.x, y: _l.y }, _ob, this.terrain, 99999, { snap: false }); });
+            if (!_reach) {
+                _l.alive = false; _l.currentWounds = 0;
+                this.purgeLairs = this.purgeLairs.filter(x => x !== _luid);
+                this.emit('UnitKilled', _l.name + ' 소굴이 무너졌습니다!');
+            }
+        }
+    }
     if (this.mission === 'purge' && this.purgeLairs && this.round % 2 === 0) {
         const _pool = ['orc_sword', 'orc_sword', 'orc_archer', 'moria_goblin'];
         let _ns = 0;
