@@ -3529,6 +3529,11 @@ Ve.prototype.drawRings = function () {
         g.fillRect(24, 285, pt.width - 48, pt.deployY - 285);
         for (let x = 24; x < pt.width - 24; x += 34) { const x2 = Math.min(x + 20, pt.width - 24); duo(3, ALLY_HI, .95, () => g.lineBetween(x, pt.deployY, x2, pt.deployY)); }
         label(1165, pt.deployY - 28, '배치 구역 · 병사를 선택하고 빈 땅을 클릭');
+        g.fillStyle(FOE, .09);
+        g.fillRect(24, pt.height - 160, pt.width - 48, 140);
+        g.lineStyle(3, FOE, .5);
+        g.strokeRect(24, pt.height - 160, pt.width - 48, 140);
+        label(pt.width / 2, pt.height - 92, '적 진입 예상 · 하단 방향');
     }
     if (['hold', 'defense', 'rescue'].includes(b.mission)) {
         g.fillStyle(FOE, .035);
