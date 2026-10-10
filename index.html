@@ -7336,7 +7336,7 @@ for (const [id, p] of Object.entries(zt)) {
     if (/eagle|gwaihir|landroval|meneldor|fellbeast|fell_beast|smaug|ancalagon|dragon|drake|bat_swarm/i.test(id) && !p.traits.includes('flying'))
         p.traits.push('flying');
 }
-q.meta = new Map(window.CAMPAIGN_META.filter(u => zt[u.id] || u.side === 'terrain').map(u => [u.id, u]));
+q.meta = new Map((window.CAMPAIGN_META || []).filter(u => zt[u.id] || u.side === 'terrain').map(u => [u.id, u]));
 q.meta.set('morgoth', { id: 'morgoth', name_ko: '모르고스', name_en: 'Morgoth', side: 'evil', faction: 'mordor', role: 'monster', weapon: 'mace', base: 'XXL', file: 'tokens/morgoth.png' });
 // Check the exact metadata and asset availability before preload.
 for (const [id, u] of q.meta)
