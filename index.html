@@ -6673,9 +6673,12 @@ Ae=[{id:"warrior_minas_tirith",name_ko:"미나스 티리스 전사",name_en:"War
     if (this.mission === 'escort' && this.escortCart) {
         const _ec = this.unit(this.escortCart);
         if (_ec && _ec.alive && _ec.y < 1180) {
+            const _blk = (nx, ny) => this.alive().some(v => v.uid !== _ec.uid && Math.abs(v.x - nx) < v.radius + _ec.radius + 6 && Math.abs(v.y - ny) < v.radius + _ec.radius + 6) || (this.terrain || []).some(t => t.active && t.kind !== 'cover' && nx > t.x - 8 && nx < t.x + t.w + 8 && ny > t.y - 8 && ny < t.y + t.h + 8);
             const _ny = Math.min(1200, _ec.y + 70);
-            if (!this.alive().some(v => v.uid !== _ec.uid && Math.abs(v.x - _ec.x) < v.radius + _ec.radius + 6 && Math.abs(v.y - _ny) < v.radius + _ec.radius + 6))
-                _ec.y = _ny;
+            if (!_blk(_ec.x, _ny)) _ec.y = _ny;
+            else for (const _dx of [-90, 90, -180, 180]) {
+                if (!_blk(_ec.x + _dx, _ec.y + 40)) { _ec.x = Math.max(80, Math.min(2320, _ec.x + _dx)); _ec.y += 40; break; }
+            }
         }
     }
     this._roundStartCounts = { good: this.alive("good").length, evil: this.alive("evil").length };
