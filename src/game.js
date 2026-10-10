@@ -203,7 +203,7 @@ class Ve extends Ot.Scene {
     constructor() { super("battle"); lt(this, "b"); lt(this, "soundFX"); lt(this, "asset"); lt(this, "onPoint"); lt(this, "onUnit"); lt(this, "onDrop"); lt(this, "tokens", new Map); lt(this, "rings"); lt(this, "terrainLayer"); lt(this, "labels"); lt(this, "dragStart"); lt(this, "dragUnit", ""); lt(this, "busy", !1); lt(this, "focusedUid", ""); lt(this, "preview"); lt(this, "previewPlan"); lt(this, "previewAt", 0); }
     preload() { this.load.maxParallelDownloads = 8; this.load.image("gate-art", this.asset("backgrounds/bg_minas_gate.png?v=p2")); this.load.image("terr_barricade", this.asset("tokens/terr_barricade.png?v=p2")); this.load.image("terr_bomb", this.asset("tokens/terr_bomb.png?v=p2")), this.load.image("terr_ballista", this.asset("tokens/terr_ballista.png?v=p2")), this.load.image("terr_brazier", this.asset("tokens/terr_brazier.png?v=p2"));for(const _tk of["terr_trebuchet","terr_crates","terr_bone_pile","terr_chain_post","terr_spike_line","terr_chest_closed"])this.load.image(_tk,this.asset("tokens/"+_tk+".png?v=p2"));for(const _sk of["st_fear","st_prone","st_shield","st_aim","st_snare","st_crown","st_cart","st_lair","st_done","st_warn","st_bow"])this.load.image(_sk,"icons/"+_sk+".png"); for (const b of this.b.meta.values())
         if (b.side === 'terrain' && b.file) this.load.image(b.id, this.asset(b.file)); }
-    create() { this.drawMap(), this.terrainLayer = this.add.container(0, 0), this.rings = this.add.graphics().setDepth(3), this.labels = this.add.container(0, 0).setDepth(8), this.cameras.main.setBounds(0, 0, pt.width, pt.height), this.cameras.main.setZoom(this.scale.width < 850 ? .85 : 1), this.cameras.main.centerOn(pt.width / 2, pt.deployY - 120), this.input.addPointer(1), this.input.on("pointerdown", b => { this.dragStart = { x: b.worldX, y: b.worldY }; const H = this.hit({ x: b.worldX, y: b.worldY }); this.dragUnit = (H == null ? void 0 : H.uid) || ""; }), this.input.on("pointerup", b => { if (this.busy)
+    create() { this.drawMap(), this.terrainLayer = this.add.container(0, 0), this.rings = this.add.graphics().setDepth(3), this.labels = this.add.container(0, 0).setDepth(8), this.cameras.main.setBounds(0, 0, pt.width, pt.height), this.cameras.main.setZoom(this.scale.width < 850 ? .85 : 1), this.cameras.main.centerOn(pt.width / 2, (285 + pt.deployY) / 2), this.input.addPointer(1), this.input.on("pointerdown", b => { this.dragStart = { x: b.worldX, y: b.worldY }; const H = this.hit({ x: b.worldX, y: b.worldY }); this.dragUnit = (H == null ? void 0 : H.uid) || ""; }), this.input.on("pointerup", b => { if (this.busy)
         return; const H = { x: b.worldX, y: b.worldY }; if (!this.dragUnit && this.dragStart && Math.hypot(b.x - b.downX, b.y - b.downY) > 10) {
         this.dragStart = void 0;
         return;
@@ -3915,7 +3915,7 @@ Ve.prototype.create = function () {
     oldCreate.call(this);
     const small = this.scale.width < 820;
     this.cameras.main.setZoom(small ? Math.max(.4, Math.min(.62, this.scale.width / 1350)) : Math.max(.48, Math.min(.76, this.scale.width / 1650)));
-    this.cameras.main.centerOn(1165, 770);
+    this.cameras.main.centerOn(1165, this.b && this.b.phase === 'preparation' ? (285 + pt.deployY) / 2 : 770);
     this.hoverBox = document.createElement('div');
     this.hoverBox.className = 'unit-tooltip hidden';
     document.querySelector('.field').append(this.hoverBox);
