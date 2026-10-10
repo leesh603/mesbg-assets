@@ -2779,16 +2779,23 @@ P.castSpell = function (uid, idx) {
     const buff = (v, k, n) => { v.roundBuff[k] = (v.roundBuff[k] || 0) + n; this.refreshUnit(v); };
     const sb = (t, o) => { for (const k in o) buff(t, k, o[k]); };
     const inR = (l, r) => l.filter(t => ht(t, u) <= r);
-    const _aff = [];
+    const _aff = [], _res = [];
+    const _rk = (t) => {
+        if (!t || !t.alive) return false;
+        if ((t.resources.will || 0) < 1 || (t.stats.will || 0) < 1) return false;
+        t.resources.will -= 1;
+        if (Lt(t) >= 4) { _res.push(t.uid); return true; }
+        return false;
+    };
     if (fxd.self) sb(u, fxd.self);
     if (fxd.ally) inR(near, fxd.ally.r || 360).filter(t => !fxd.ally.trait || t.traits.includes(fxd.ally.trait)).forEach(t => { sb(t, fxd.ally.stats || {}); if (fxd.ally.protect) t.protected = !0; _aff.push(t.uid); });
-    if (fxd.foe) inR(foes, fxd.foe.r || 450).forEach(t => { sb(t, fxd.foe.stats || {}); _aff.push(t.uid); });
-    if (fxd.foeStrongest) { const t = foes.sort((a, b) => b.stats.attacks - a.stats.attacks)[0]; if (t) { sb(t, fxd.foeStrongest); _aff.push(t.uid); } }
+    if (fxd.foe) inR(foes, fxd.foe.r || 450).forEach(t => { if (_rk(t)) return; sb(t, fxd.foe.stats || {}); _aff.push(t.uid); });
+    if (fxd.foeStrongest) { const t = foes.sort((a, b) => b.stats.attacks - a.stats.attacks)[0]; if (t && !_rk(t)) { sb(t, fxd.foeStrongest); _aff.push(t.uid); } }
     if (fxd.heal) inR(near, fxd.heal.r || 360).filter(t => t.currentWounds < t.stats.wounds).sort((a, b) => (b.stats.wounds - b.currentWounds) - (a.stats.wounds - a.currentWounds)).slice(0, fxd.heal.n || 1).forEach(t => { t.currentWounds++; _aff.push(t.uid); });
-    if (fxd.strike) inR(foes, fxd.strike.r || 450).slice(0, fxd.strike.n || 1).forEach(t => { if (fxd.strike.dmg) { this.inflict(u, t, fxd.strike.dmg); _aff.push(t.uid); } });
-    if (fxd.fear) inR(foes, fxd.fear.r || 450).forEach(t => { t.feared = !0; _aff.push(t.uid); });
-    if (fxd.push) { const t = foes.sort((a, b) => ht(a, u) - ht(b, u))[0]; if (t) { const ps = De(t, [u], this.alive(), this.terrain, fxd.push); Object.assign(t, ps.to); _aff.push(t.uid); } }
-    this.emit('Spell', `${u.name} · ${sp[0]}`, { uid: u.uid, targets: _aff, offensive: !!(fxd.strike || fxd.push || fxd.fear || fxd.foe || fxd.foeStrongest) });
+    if (fxd.strike) inR(foes, fxd.strike.r || 450).slice(0, fxd.strike.n || 1).forEach(t => { if (fxd.strike.dmg && !_rk(t)) { this.inflict(u, t, fxd.strike.dmg); _aff.push(t.uid); } });
+    if (fxd.fear) inR(foes, fxd.fear.r || 450).forEach(t => { if (_rk(t)) return; t.feared = !0; _aff.push(t.uid); });
+    if (fxd.push) { const t = foes.sort((a, b) => ht(a, u) - ht(b, u))[0]; if (t && !_rk(t)) { const ps = De(t, [u], this.alive(), this.terrain, fxd.push); Object.assign(t, ps.to); _aff.push(t.uid); } }
+    this.emit('Spell', `${u.name} · ${sp[0]}${_res.length ? ' · 저항 ×' + _res.length : ''}`, { uid: u.uid, targets: _aff, resisted: _res, offensive: !!(fxd.strike || fxd.push || fxd.fear || fxd.foe || fxd.foeStrongest) });
     this.checkRun();
     return true;
 };
