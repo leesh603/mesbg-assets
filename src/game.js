@@ -1477,6 +1477,7 @@ const BONUS_OBJECTIVES = [
     { id: 'elite_hunter', text: '엘리트 적 2기 처치', gold: 25, cond: q => q.alive('evil').some(u => u.elite), test: q => (q.stageEliteKills || 0) >= 2 },
     { id: 'untouchable', text: '아군 전사 없이 승리', gold: 30, test: q => (q.stageDeaths || 0) === 0 },
     { id: 'shield_wall', text: '아군 무사 승리 (전투 후 부상 0)', gold: 25, test: q => q.alive('good').every(u => !u.injury) },
+    { id: 'trapper_obj', text: '함정으로 2기 처치', gold: 25, cond: q => (q.devices || []).length > 0, test: q => (q.stageTrapKills || 0) >= 2 },
 ];
 const CHALLENGES = [
     { id: 'reinforce', label: '증원 경보', text: '적 +4기 추가', gold: 30 },
@@ -1554,7 +1555,7 @@ P.startWave = function () {
     if (this.challenge === 'arcane_storm') (this.nextRoundBuffs = this.nextRoundBuffs || []).push({ stat: 'will', n: 2, side: 'evil' });
     if (this.challenge === 'long_bows') (this.nextRoundBuffs = this.nextRoundBuffs || []).push({ stat: 'shootRange', n: 45, side: 'evil' });
     this.eliteKills = 0;
-    this.stageDeaths = 0; this.stageHeroKills = 0; this.stageShootKills = 0; this.stageChargeKills = 0; this.stageKills = 0; this.stageCavKills = 0; this.stageMonsterKills = 0; this.stageHeroSlayer = 0; this.stageEliteKills = 0;
+    this.stageDeaths = 0; this.stageTrapKills = 0; this.stageHeroKills = 0; this.stageShootKills = 0; this.stageChargeKills = 0; this.stageKills = 0; this.stageCavKills = 0; this.stageMonsterKills = 0; this.stageHeroSlayer = 0; this.stageEliteKills = 0;
     const _bp = BONUS_OBJECTIVES.filter(o => !o.cond || o.cond(this));
     this.bonusObjective = _bp.length ? _bp[Math.floor(this.rng() * _bp.length)] : null;
     this.bonusId = this.bonusObjective?.id || '';
@@ -2037,7 +2038,7 @@ P.checkTraps = function (u) {
                         : d.type === 'snare'
                             ? this.alive('evil').filter(v => ht(v, d) <= d.radius).sort((a, b) => ht(a, d) - ht(b, d)).slice(0, 1)
                         : this.alive('evil').filter(v => ht(v, d) <= d.radius);
-        hits.forEach(v => { this.inflict(ag, v, d.type === 'oil' ? 2 : 1); if (d.type === 'spike' && v.alive) v.roundBuff = { ...(v.roundBuff || {}), move: (v.roundBuff.move || 0) - 90 }; if (d.type === 'snare' && v.alive) v._snared = 2; });
+        hits.forEach(v => { const _wa = v.alive; this.inflict(ag, v, d.type === 'oil' ? 2 : 1); if (_wa && !v.alive) this.stageTrapKills = (this.stageTrapKills || 0) + 1; if (d.type === 'spike' && v.alive) v.roundBuff = { ...(v.roundBuff || {}), move: (v.roundBuff.move || 0) - 90 }; if (d.type === 'snare' && v.alive) v._snared = 2; });
         this.emit('Trap', (d.type === 'ballista' ? '투석기 발사' : d.type === 'scorpion' ? '연발 투석기 발사' : d.type === 'barrel' ? '화약통 폭발' : d.type === 'oil' ? '기름 화염' : d.type === 'spike' ? '가시 함정 발동 · 이동 둔화' : d.type === 'snare' ? '짐승 덫 발동 · 2라운드 속박' : '불통 폭발') + ' · ' + hits.length + '기 타격', { at: d });
     }
 };
@@ -3994,7 +3995,7 @@ function objectiveText() {
         return '작은 원정대에서 시작하는 끝없는 전쟁.';
     const counts = `아군 ${q.alive('good').length} · 적 ${q.alive('evil').length}`;
     const rules = { defense: `라운드 종료 시 Defense 구역에 적 ${q.breachCount}명이 모이면 패배. 적을 전멸시키세요.`, annihilation: '적 부대를 전멸시키세요.', hold: `거점에서 아군이 수적 우세인 라운드 3회. 진행 ${q.capture || 0}/3.`, survive: `5라운드까지 살아남으세요. 현재 ${q.round}/5.`, breakthrough: '아군 2기를 남쪽 돌파선에 보낸 뒤 라운드를 종료하세요.', rescue: `포로 지점을 아군만 점유한 뒤 3라운드 생존. ${q.rescued ? '구출 완료 · ' + q.capture + '/3' : '아직 구출되지 않음'}`, commander: `${q.meta.get(q.current?.boss)?.name_ko || '적 지휘관'}을 처치하세요. 호위병은 남아도 됩니다.` };
-    return `${rules[q.mission] || rules.defense}<br><b>${counts}</b>` + (q.bonusObjective ? `<br><b class='gold'>보너스 · ${q.bonusObjective.text} (+${q.bonusObjective.gold}금)${(({volley:(q.stageShootKills||0)+'/4',rout:(q.stageKills||0)+'/8',elite_hunter:(q.stageEliteKills||0)+'/2',headsman:(q.stageHeroKills||q.stageHeroSlayer?'완료':'진행 중'),blitz:(q.round||0)+'/4라운드',flawless:(q.stageDeaths?'실패':'진행 중'),untouchable:(q.stageDeaths?'실패':'진행 중'),linehold:'진행 중',shield_wall:'진행 중'})[q.bonusObjective.id]||'')?' · '+(({volley:(q.stageShootKills||0)+'/4',rout:(q.stageKills||0)+'/8',elite_hunter:(q.stageEliteKills||0)+'/2',headsman:(q.stageHeroKills||q.stageHeroSlayer?'완료':'진행 중'),blitz:(q.round||0)+'/4라운드',flawless:(q.stageDeaths?'실패':'진행 중'),untouchable:(q.stageDeaths?'실패':'진행 중'),linehold:'진행 중',shield_wall:'진행 중'})[q.bonusObjective.id]||''):''}</b>` : '') + (q.alive('evil').some(u => u.elite) ? `<br><b class='gold'>엘리트 ${q.alive('evil').filter(u => u.elite).length}기 — 처치 시 각 +8금</b>` : '');
+    return `${rules[q.mission] || rules.defense}<br><b>${counts}</b>` + (q.bonusObjective ? `<br><b class='gold'>보너스 · ${q.bonusObjective.text} (+${q.bonusObjective.gold}금)${(({volley:(q.stageShootKills||0)+'/4',rout:(q.stageKills||0)+'/8',trapper_obj:(q.stageTrapKills||0)+'/2',elite_hunter:(q.stageEliteKills||0)+'/2',headsman:(q.stageHeroKills||q.stageHeroSlayer?'완료':'진행 중'),blitz:(q.round||0)+'/4라운드',flawless:(q.stageDeaths?'실패':'진행 중'),untouchable:(q.stageDeaths?'실패':'진행 중'),linehold:'진행 중',shield_wall:'진행 중'})[q.bonusObjective.id]||'')?' · '+(({volley:(q.stageShootKills||0)+'/4',rout:(q.stageKills||0)+'/8',trapper_obj:(q.stageTrapKills||0)+'/2',elite_hunter:(q.stageEliteKills||0)+'/2',headsman:(q.stageHeroKills||q.stageHeroSlayer?'완료':'진행 중'),blitz:(q.round||0)+'/4라운드',flawless:(q.stageDeaths?'실패':'진행 중'),untouchable:(q.stageDeaths?'실패':'진행 중'),linehold:'진행 중',shield_wall:'진행 중'})[q.bonusObjective.id]||''):''}</b>` : '') + (q.alive('evil').some(u => u.elite) ? `<br><b class='gold'>엘리트 ${q.alive('evil').filter(u => u.elite).length}기 — 처치 시 각 +8금</b>` : '');
 }
 const baseRender = Yt;
 Yt = function () {
