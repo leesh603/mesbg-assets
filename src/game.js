@@ -1896,7 +1896,22 @@ P.finishWave = function () {
     this.phase = 'reward';
     try { arcTransition(this.wave); } catch (e) { console.error('arcTransition', e); }
     typeof wt !== 'undefined' && wt.fanfare && wt.fanfare(true);
-    try { const _vb = document.createElement('div'); _vb.id = 'stage-intro'; _vb.innerHTML = `<div class='si-card' style='border-color:#c9a94e;box-shadow:0 18px 60px #000c,0 0 40px #c9a94e33'><div style='padding:20px 22px;text-align:center'><div class='eyebrow' style='color:#e8c45c'>VICTORY</div><h2 style='color:#f5deb0;margin:2px 0'>STAGE ${this.wave} 클리어</h2><div class='si-mission'>보상 +${this.lastGold}금${this.stageDeaths?'':' · 무결 수비'} · 야영지로 이동합니다</div></div></div>`; document.body.appendChild(_vb); setTimeout(() => _vb.remove(), 1800); } catch (e) {}
+    try { const _vb = document.createElement('div'); _vb.id = 'stage-intro'; _vb.innerHTML = `<div class='si-card' style='border-color:#c9a94e;box-shadow:0 18px 60px #000c,0 0 40px #c9a94e33'><div style='padding:20px 22px;text-align:center'><div class='eyebrow' style='color:#e8c45c'>VICTORY</div><h2 style='color:#f5deb0;margin:2px 0'>STAGE ${this.wave} 클리어</h2><div class='si-mission'>보상 +${this.lastGold}금${this.stageDeaths?'':' · 무결 수비'} · 야영지로 이동합니다</div></div></div>`; document.body.appendChild(_vb);
+        try {
+            const _card=_vb.querySelector('.si-card');
+            for(let _i=0;_i<16;_i++){
+                const _p=document.createElement('i');
+                const _ang=(Math.PI*2)*_i/16+(Math.random()*.4),_d=90+Math.random()*80;
+                _p.style.cssText='position:absolute;left:50%;top:50%;width:'+(4+Math.random()*4)+'px;height:'+(4+Math.random()*4)+'px;margin:-4px;background:'+(_i%3?'#f2c75a':'#f7ecc8')+';border-radius:'+(_i%2?'50%':'2px')+';pointer-events:none;animation:vp_'+_i%4+' .9s cubic-bezier(.1,.7,.3,1) forwards;animation-delay:'+(Math.random()*.12)+'s;--dx:'+Math.cos(_ang)*_d+'px;--dy:'+Math.sin(_ang)*_d*.7+'px;--rot:'+(Math.random()*400-200)+'deg';
+                _card.appendChild(_p);
+            }
+            if(!document.getElementById('vp-style')){
+                const _st=document.createElement('style');_st.id='vp-style';
+                _st.textContent='.si-card{position:relative;overflow:visible!important}@keyframes vp_0{to{transform:translate(var(--dx),var(--dy)) rotate(var(--rot));opacity:0}}@keyframes vp_1{to{transform:translate(var(--dx),var(--dy)) rotate(var(--rot)) scale(.4);opacity:0}}@keyframes vp_2{to{transform:translate(calc(var(--dx)*1.3),calc(var(--dy)*.5)) rotate(var(--rot));opacity:0}}@keyframes vp_3{to{transform:translate(var(--dx),calc(var(--dy)*1.4)) rotate(var(--rot)) scale(.7);opacity:0}}';
+                document.head.appendChild(_st);
+            }
+        } catch(e) {}
+        setTimeout(() => _vb.remove(), 1800); } catch (e) {}
     this.campStep = 'event';
     this.rollCampEvent();
     this.chosenRelic = '';
