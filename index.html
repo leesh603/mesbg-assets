@@ -6761,6 +6761,10 @@ Ae=[{id:"warrior_minas_tirith",name_ko:"미나스 티리스 전사",name_en:"War
             this.emit("Event", "★ " + b.name + " 생존 승급 · 베테랑 (결투 +1 Defense +1)");
             this.unlockAch("promoted");
         }
+        if (!b.traits.includes("hero") && b.traits.includes("veteran") && !b.traits.includes("champion") && (b.veteranXP || 0) >= 12) {
+            b.traits.push("champion"); b.baseStats.courage = (b.baseStats.courage || 0) + 2; b.baseStats.attacks = (b.baseStats.attacks || 1) + 1; this.refreshUnit(b);
+            this.emit("Event", "★★ " + b.name + " 챔피언 승급 · 공격 +1 용기 +2");
+        }
     } if (this.phase = "reward", this.selected = ((Y = this.alive("good")[0]) == null ? void 0 : Y.uid) || "", this.chosenReward = "", this.rewardChoices = jt.filter(b => !(b.id === "volley" && this.freeVolley) && !(b.id === "hold" && this.steadfast)).map(b => b.id).map(b => ({ id: b, key: this.rng() })).sort((b, H) => b.key - H.key).slice(0, 3).map(b => b.id), this.emit("WaveEnded", `Wave ${this.wave} Defense 성공 · 생존자 ${this.alive("good").length}명`), this.wave === 2) {
         const b = kt[Math.floor(this.rng() * kt.length)];
         this.eventId = b.id, b.id === "broken" && (this.terrain.find(H => H.id === "barricade-l").active = !1), b.id === "morale" && (this.bonusCP += 2), this.emit("Event", b.name + " — " + b.text);
@@ -8184,6 +8188,10 @@ P._trkKill = function (k, v) {
             k.traits.push('veteran'); k.baseStats.fight = (k.baseStats.fight || 0) + 1; k.baseStats.defence = (k.baseStats.defence || 0) + 1; this.refreshUnit(k);
             this.emit('Event', `★ ${k.name} 베테랑 승급 · 결투 +1 Defense +1`);
             this.unlockAch('promoted');
+        }
+        if (!k.traits.includes('hero') && k.traits.includes('veteran') && !k.traits.includes('champion') && (k.veteranXP || 0) >= 12) {
+            k.traits.push('champion'); k.baseStats.courage = (k.baseStats.courage || 0) + 2; k.baseStats.attacks = (k.baseStats.attacks || 1) + 1; this.refreshUnit(k);
+            this.emit('Event', `★★ ${k.name} 챔피언 승급 · 공격 +1 용기 +2`);
         }
     }
     if (v.side === 'good') this.stageDeaths = (this.stageDeaths || 0) + 1;
