@@ -259,7 +259,7 @@ class Ve extends Ot.Scene {
         if (!d.armed) continue;
         this.rings.lineStyle(2, d.type === 'barrel' ? 0x8a3a20 : d.type === 'ballista' ? 0xc9a03f : 0xd4502a, .85);
         this.rings.strokeCircle(d.x, d.y, d.type === 'barrel' ? 34 : d.trigger * .35);
-        this.labels.add(this.add.text(d.x, d.y - 16, d.type === 'ballista' ? '\u2699 투석기' : d.type === 'barrel' ? '\u{1F4A3} 화약통' : '\u{1F525} 불통', { fontFamily: "Pretendard", fontSize: "15px", color: "#ffd98a", backgroundColor: "#1b2218d0", padding: { x: 6, y: 3 } }).setOrigin(.5));
+        this.labels.add(this.add.text(d.x, d.y - 16, d.type === 'ballista' ? '\u2699 투석기' : d.type === 'snare' ? '\u26D3 덫' : d.type === 'barrel' ? '\u{1F4A3} 화약통' : '\u{1F525} 불통', { fontFamily: "Pretendard", fontSize: "15px", color: "#ffd98a", backgroundColor: "#1b2218d0", padding: { x: 6, y: 3 } }).setOrigin(.5));
     }
     const K = b.unit(b.selected), $ = b.unit(b.activeMoverUid) || (K && b.canAct(K) ? K : b.eligible()[0]); if ($ != null && $.alive && ["move", "shoot", "preparation"].includes(b.phase) && (this.rings.lineStyle(5, 16769698, 1), this.rings.strokeCircle($.x, $.y, $.radius + 18), this.rings.lineStyle(2, 16773823, .96), this.rings.strokeCircle($.x, $.y, $.radius + 23), this.labels.add(this.add.text($.x, $.y - $.radius - 69, "▼ 현재 행동", { fontFamily: "Pretendard", fontSize: "18px", color: "#17282b", backgroundColor: "#f3d494", padding: { x: 10, y: 4 } }).setOrigin(.5))), b.phase === "fight")
         for (const p of b.fightQueue) {
@@ -1592,6 +1592,7 @@ P.beginRound = function () {
         return;
     for (const u of this.alive()) {
         u.roundBuff = {};
+        if (u._snared) { u.roundBuff.move = -999; u._snared--; if (!u._snared) delete u._snared; }
         u.protected = false;
         u.heroicUsed = false;
         u.heroicCombat = false;
@@ -1963,7 +1964,8 @@ const TRAP_PACKS = [
     { label: '연발 투석기', cost: 95, type: 'scorpion', desc: '가까운 적 5기 타격', iconImg: 'icons/trap_scorpion.png', icon: '<path d="M4 20l8-8m0 0H8m4 0v4M9 5l3 3M15 3l-1 4M3 9l4 1"/>' },
     { label: '기름 통', cost: 70, type: 'oil', desc: '광역 화염 · 2피해', iconImg: 'icons/trap_oil.png', icon: '<path d="M12 3s6 6 6 11a6 6 0 0 1-12 0c0-5 6-11 6-11z"/>' },
     { label: '화약통', cost: 35, type: 'barrel', desc: '광역 1피해 · 아군도 피해', iconImg: 'icons/trap_barrel.png', icon: '<path d="M6 4h12v16H6zM6 8h12M6 16h12M4 4h16M4 20h16"/>' },
-    { label: '가시 함정', cost: 60, type: 'spike', desc: '적 2기 붙들기 · 이동 둔화', iconImg: 'icons/trap_spike.png', icon: '<path d="M4 20h16M6 20V12l2 8V9l3 11V7l3 13V10l2 10V12l2 8"/>' }
+    { label: '가시 함정', cost: 60, type: 'spike', desc: '적 2기 붙들기 · 이동 둔화', iconImg: 'icons/trap_spike.png', icon: '<path d="M4 20h16M6 20V12l2 8V9l3 11V7l3 13V10l2 10V12l2 8"/>' },
+    { label: '짐승 덫', cost: 55, type: 'snare', desc: '가장 가까운 적 1기 · 상처 1 + 2라운드 속박', icon: '<path d="M12 4a8 8 0 1 0 0 16 8 8 0 0 0 0-16zm0 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm-1 3h2v4h-2z"/>' }
 ];
 P.dc = function (base, relicId) { const r = this.rank ? this.rank(relicId) : 0; return r ? Math.max(5, Math.round(base * (1 - 0.25 * r))) : base; };
 P.buyTrap = function (i) {
@@ -1972,7 +1974,7 @@ P.buyTrap = function (i) {
     const a = TRAP_PACKS[i];
     if (!a || this.gold < this.dc(a.cost, 'siege_wright'))
         return false;
-    const _r = { ballista: [420, 260], scorpion: [420, 300], firepot: [140, 150], oil: [180, 200], barrel: [140, 160], spike: [160, 140] }[a.type] || [140, 150];
+    const _r = { ballista: [420, 260], scorpion: [420, 300], firepot: [140, 150], oil: [180, 200], barrel: [140, 160], spike: [160, 140], snare: [90, 100] }[a.type] || [140, 150];
     (this.devices = this.devices || []).push({ type: a.type, armed: true, x: 0, y: 0, trigger: _r[0], radius: _r[1] });
     this.gold -= this.dc(a.cost, 'siege_wright');
     this.save();
@@ -1994,9 +1996,11 @@ P.checkTraps = function (u) {
                     ? this.alive('evil').filter(v => ht(v, d) <= d.radius).sort((a, b) => ht(a, d) - ht(b, d)).slice(0, 5)
                     : d.type === 'spike'
                         ? this.alive('evil').filter(v => ht(v, d) <= d.radius).sort((a, b) => ht(a, d) - ht(b, d)).slice(0, 2)
+                        : d.type === 'snare'
+                            ? this.alive('evil').filter(v => ht(v, d) <= d.radius).sort((a, b) => ht(a, d) - ht(b, d)).slice(0, 1)
                         : this.alive('evil').filter(v => ht(v, d) <= d.radius);
-        hits.forEach(v => { this.inflict(ag, v, d.type === 'oil' ? 2 : 1); if (d.type === 'spike' && v.alive) v.roundBuff = { ...(v.roundBuff || {}), move: (v.roundBuff.move || 0) - 90 }; });
-        this.emit('Trap', (d.type === 'ballista' ? '투석기 발사' : d.type === 'scorpion' ? '연발 투석기 발사' : d.type === 'barrel' ? '화약통 폭발' : d.type === 'oil' ? '기름 화염' : d.type === 'spike' ? '가시 함정 발동 · 이동 둔화' : '불통 폭발') + ' · ' + hits.length + '기 타격', { at: d });
+        hits.forEach(v => { this.inflict(ag, v, d.type === 'oil' ? 2 : 1); if (d.type === 'spike' && v.alive) v.roundBuff = { ...(v.roundBuff || {}), move: (v.roundBuff.move || 0) - 90 }; if (d.type === 'snare' && v.alive) v._snared = 2; });
+        this.emit('Trap', (d.type === 'ballista' ? '투석기 발사' : d.type === 'scorpion' ? '연발 투석기 발사' : d.type === 'barrel' ? '화약통 폭발' : d.type === 'oil' ? '기름 화염' : d.type === 'spike' ? '가시 함정 발동 · 이동 둔화' : d.type === 'snare' ? '짐승 덫 발동 · 2라운드 속박' : '불통 폭발') + ' · ' + hits.length + '기 타격', { at: d });
     }
 };
 const ALLY_PACKS = [
