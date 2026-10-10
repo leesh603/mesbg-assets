@@ -502,7 +502,7 @@ async function lwbSubmit() {
 function lwbOpenRank() {
     let m = document.getElementById("rank-modal");
     if (!m) {
-        document.body.insertAdjacentHTML("beforeend", '<div id="rank-modal" class="rank-modal"><div class="modal"><div class="eyebrow">HALL OF FAME</div><h1>명예의 전당</h1><div id="rank-board"></div><div class="ach-row">' + LWB_ACH.map(function (x) { return '<span class="ach-badge ' + (q.achievements()[x[0]] ? 'on' : '') + '" title="' + x[2] + '">' + x[1] + '</span>'; }).join('') + '</div><div class="menu-buttons"><button id="rank-close" class="secondary">닫기</button></div></div></div>');
+        document.body.insertAdjacentHTML("beforeend", '<div id="rank-modal" class="rank-modal"><div class="modal"><div class="eyebrow">HALL OF FAME</div><h1>명예의 전당</h1><div id="rank-board"></div><div style="font-size:10px;color:#a89878;letter-spacing:.4px">업적 ' + LWB_ACH.filter(x=>q.achievements()[x[0]]).length + '/' + LWB_ACH.length + ' 해금</div><div class="ach-row">' + LWB_ACH.map(function (x) { return '<span class="ach-badge ' + (q.achievements()[x[0]] ? 'on' : '') + '" title="' + x[2] + '">' + x[1] + '</span>'; }).join('') + '</div><div class="menu-buttons"><button id="rank-close" class="secondary">닫기</button></div></div></div>');
         document.getElementById("rank-close").onclick = () => document.getElementById("rank-modal").classList.add("hidden");
         m = document.getElementById("rank-modal");
     }
