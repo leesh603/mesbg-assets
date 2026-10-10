@@ -1586,7 +1586,7 @@ P.startWave = function () {
     this.wave++;
     this.round = 0;
     this.capture = 0;
-    this.current = this.stageInfo(this.wave);
+    this.current = (this.next && (this.next.wave === this.wave || this.next.n === this.wave || !this.next.wave)) ? this.next : this.stageInfo(this.wave);
     if (this.noAmbushNext) { this.noAmbushNext = false; if (this.current.modifier === 'ambush') this.current.modifier = 'clear'; }
     this.units = this.units.filter(u => u.side === 'good' && u.alive && !u.temporary);
     this.delayed = [];
