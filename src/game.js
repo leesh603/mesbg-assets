@@ -1698,7 +1698,7 @@ P.startWave = function () {
     if (this.challenge === 'long_bows') (this.nextRoundBuffs = this.nextRoundBuffs || []).push({ stat: 'shootRange', n: 45, side: 'evil' });
     if (this.challenge === 'swift_blades') (this.nextRoundBuffs = this.nextRoundBuffs || []).push({ stat: 'move', n: 45, side: 'evil' });
     this.eliteKills = 0;
-    this.stageDeaths = 0; this.stageTrapKills = 0; this.stageHeroKills = 0; this.stageShootKills = 0; this.stageChargeKills = 0; this.stageKills = 0; this.stageCavKills = 0; this.stageMonsterKills = 0; this.stageHeroSlayer = 0; this.stageEliteKills = 0; this._midReinforced = false; this._lastStand = false; this._crisisWarned = false; this._eagleSent = false;
+    this.stageDeaths = 0; this.stageTrapKills = 0; this.stageHeroKills = 0; this.stageShootKills = 0; this.stageChargeKills = 0; this.stageKills = 0; this.stageCavKills = 0; this.stageMonsterKills = 0; this.stageHeroSlayer = 0; this.stageEliteKills = 0; this._midReinforced = false; this._lastStand = false; this._crisisWarned = false; this._eagleSent = false; this._startCounts = null; this._brokenGood = false; this._brokenEvil = false;
     const _bp = BONUS_OBJECTIVES.filter(o => !o.cond || o.cond(this));
     this.bonusObjective = _bp.length ? _bp[Math.floor(this.rng() * _bp.length)] : null;
     this.bonusObjective2 = null;
@@ -1839,6 +1839,16 @@ P.beginRound = function () {
         const _eg = this.spawn('great_eagle', 'good', { x: 300 + Math.floor(this.rng() * 1700), y: 180 });
         _eg.autoAlly = true;
         this.emit('Event', '🦅 독수리의 지원 — 민들레가 하늘에서 내려와 함께 싸웁니다', { uid: _eg.uid });
+    }
+    if (!this._startCounts) this._startCounts = { good: this.alive('good').length, evil: this.alive('evil').length };
+    for (const _sd of ['good', 'evil']) {
+        const _st = this._startCounts[_sd] || 0;
+        const _done = _sd === 'good' ? this._brokenGood : this._brokenEvil;
+        if (_st && !_done && this.alive(_sd).length <= _st / 2) {
+            if (_sd === 'good') this._brokenGood = true; else this._brokenEvil = true;
+            for (const _u of this.alive(_sd)) _u.baseStats.courage = Math.max(1, (_u.baseStats.courage || 0) - 1);
+            this.emit('Event', (_sd === 'good' ? '전열 붕괴 — 아군 병력 반감, 사기 -1' : '적 전열 붕괴 — 적 병력 반감, 사기 -1'));
+        }
     }
     if (!this._lastStand && this.alive('good').length > 0 && this.alive('good').length <= 3 && this.alive('evil').length >= 3) {
         this._lastStand = true;
