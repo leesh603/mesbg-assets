@@ -12347,6 +12347,8 @@ const PX_ICONS={
  hold:{bg:'#1a2a24',rows:['kkkkkkkkkkkkkkkk','kbbbbbbbbbbbbbbk','kbbttttttttttbbk','kbbtttttwttttbbk','kbbtttttwttttbbk','kbbttwwwwwwwtbbk','kbbtttttwttttbbk','kbbtttttwttttbbk','kbbbttttwtttbbbk','kbbbtttttttbbbbk','kbbbbttttttbbbbk','kbbbbbttttbbbbbk','kbbbbbbttbbbbbbk','kbbbbbbbbbbbbbbk','kbbbbbbbbbbbbbbk','kkkkkkkkkkkkkkkk']},
  // 정밀 사격 — crosshair
  aim:{bg:'#2a2414',rows:['kkkkkkkkkkkkkkkk','kbbbbbbgbbbbbbbk','kbbbbbbgbbbbbbbk','kbbbbggggggbbbbk','kbbbgbbgbbbgbbbk','kbbgbbbbbbbbgbbk','kbbgbbbbbbbbgbbk','kggggbbbwbbggggk','kbbgbbbbbbbbgbbk','kbbgbbbbbbbbgbbk','kbbbgbbgbbbgbbbk','kbbbbggggggbbbbk','kbbbbbbgbbbbbbbk','kbbbbbbgbbbbbbbk','kbbbbbbbbbbbbbbk','kkkkkkkkkkkkkkkk']},
+ // 돌파 성공 — barrier breach arrow
+ escaped:{bg:'#16283a',rows:['kkkkkkkkkkkkkkkk','kbbbbbbbbbbbbbbk','kbbbbbbwwbbbbbbk','kbbbbbbwwbbbbbbk','keeeeeeebbeeeeek','keeeeeeebbeeeeek','kbbbbbbwwbbbbbbk','kbbbbbbwwbbbbbbk','kbbbwwwwwwwwbbbk','kbbbbwwwwwwbbbbk','kbbbbbwwwwbbbbbk','kbbbbbbwwbbbbbbk','kbbbbbbbbbbbbbbk','kbbbbbbbbbbbbbbk','kbbbbbbbbbbbbbbk','kkkkkkkkkkkkkkkk']},
  // UI glyphs
  sword:{bg:null,rows:['.......kk.','......kwwk','.....kwwk.','....kwwk..','.k.kwwk...','.kgkwk....','..kgk.....','.kgkgk....','kgk..k....','kk........']},
  flag:{bg:null,rows:['kk......','kgkkkk..','kggggk..','kgggggk.','kggggk..','kgkkkk..','kg......','kk......']},
@@ -12370,9 +12372,10 @@ const UNIT_STATE_DEFS={
     slowed:{label:'이동력 감소',desc:'이번 라운드 이동력이 줄어듦',test:u=>(u.roundBuff?.move||0)<0},
     noshoot:{label:'반 이상 이동',desc:'이동력 절반 넘게 이동 — 이번 턴 사격 불가',test:u=>u.stats.shootRange>0&&['move','shoot'].includes(q.phase)&&u.movementSpent*2>u.stats.move},
     hold:{label:'전열 유지',desc:'전열 유지 명령 적용 중',test:u=>!!u.hold},
-    aim:{label:'정밀 사격',desc:'정밀 사격 명령 적용 중',test:u=>!!u.aim}
+    aim:{label:'정밀 사격',desc:'정밀 사격 명령 적용 중',test:u=>!!u.aim},
+    escaped:{label:'돌파 성공',desc:'남쪽 돌파선을 넘음 — 미션 목표 달성 중',test:u=>q.mission==='breakthrough'&&u.side==='good'&&u.y>1200}
 };
-const UNIT_STATE_ORDER=['charge','engaged','terror','prone','broken','slowed','noshoot','hold','aim'];
+const UNIT_STATE_ORDER=['charge','engaged','terror','prone','broken','slowed','noshoot','hold','aim','escaped'];
 function unitStates(u){if(!u?.alive)return[];const out=[];for(const id of UNIT_STATE_ORDER){try{if(UNIT_STATE_DEFS[id].test(u))out.push(id);}catch(e){}}return out;}
 window.MESBG&&(window.MESBG.unitStates=u=>unitStates(typeof u==='string'?q.unit(u):u));
 // ==== Mobile portrait UX v4 — screen structure ====
