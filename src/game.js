@@ -5995,6 +5995,9 @@ function renderTacticalHUD() {
     if (next && !next.querySelector('.scout-roles')) {
         const p = document.createElement('p'); p.className = 'scout-roles';
         const _si = q.stageInfo(q.wave + 1); p.textContent = _si.scouting + (_si.boss ? ' · 보스 ' + ((UnitCatalog[_si.boss] && UnitCatalog[_si.boss].name) || _si.boss) : ''); next.append(p);
+        const _gp = q.alive('good').reduce((t, u) => t + (u.points || 0), 0), _ep = (_si.ids || []).reduce((t, id) => t + ((UnitCatalog[id] && UnitCatalog[id].points) || 0), 0);
+        const _rt = _gp ? _ep / _gp : 1, _stars = _rt < 0.7 ? 1 : _rt < 1.1 ? 2 : _rt < 1.6 ? 3 : _rt < 2.2 ? 4 : 5, _lbl = ['수월', '무난', '만만치 않음', '위험', '치명적'][_stars - 1];
+        const p2 = document.createElement('p'); p2.className = 'scout-roles'; p2.innerHTML = '예상 난도 <b style="color:' + (_stars >= 4 ? '#ff8a5c' : _stars === 3 ? '#ffd76a' : '#9fd8a0') + '">' + '★'.repeat(_stars) + '<span style="opacity:.4">' + '★'.repeat(5 - _stars) + '</span> ' + _lbl + '</b>'; next.append(p2);
     }
 }
 const __lwbR = Yt;
