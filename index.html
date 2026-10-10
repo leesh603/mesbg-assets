@@ -9111,8 +9111,19 @@ P.rollRelics = function () {
     this.relicChoices = picks;
 };
 P.chooseRelic = function (id) {
-    if (this.phase !== 'reward' || this.campStep !== 'relic' || !(this.relicChoices || []).includes(id) || this.chosenRelic)
+    if (this.phase !== 'reward' || this.campStep !== 'relic' || (id !== 'pass' && !(this.relicChoices || []).includes(id)) || this.chosenRelic)
         return false;
+    if (id === 'pass') {
+        this.gold += 25;
+        this.lastGold += 25;
+        this.chosenRelic = 'pass';
+        this.campResult = (this.campResult ? this.campResult + ' · ' : '') + '유물 패스 — 금화 +25';
+        this.campDraft = null;
+        this.campStep = 'ready';
+        this._chalPool = CHALLENGES.slice().sort(() => (this.rng ? this.rng() : Math.random()) - .5).slice(0, 3).map(c => c.id);
+        this.save();
+        return true;
+    }
     this.relics[id] = (this.relics[id] || 0) + 1;
     this.chosenRelic = id;
     const r = CX.relics.find(x => x.id === id);
@@ -10677,7 +10688,7 @@ Qe = function () {
         if (step === 'event') { const oc = q.eventOutcome, ev = q.campEvent; body = oc ? `<div class="event-outcome">${(oc.relics || []).length ? `<div class="gain-row">${oc.relics.map(id => { const rr = CX.relics.find(x => x.id === id); return rr ? `<div class="gain-card rarity-${rr.rarity}"><span class="gain-label">유물 획득</span>${relicIcon(rr, 96)}<b>${esc(rr.name)}</b><small>${CX.rarityNames[rr.rarity]} · ${relicFamily(rr.id)}</small><p>${esc(rr.text)}</p></div>` : ''; }).join('')}</div>` : ''}<p class="event-result">${esc(oc.title)} — ${esc(oc.label)} → ${esc(oc.result)}</p><button id="ev-next" class="primary">동료 영입으로 →</button></div>` : (ev ? `<img class="evt-art" src="events/evt_${LWB_EVT_ART[ev.id] || 'wanderer'}.jpg" alt="" onerror="this.remove()"><p>${esc(ev.text)}</p><div class="reward-cards">${ev.options.map((o, i) => `<button class="reward rarity-common" data-evopt="${i}"><b>${esc(o.label)}</b><p>${esc(o.sub)}</p></button>`).join('')}</div>` : ''); }
         if (step === 'relic') {
             if (!(q.relicChoices || []).length && !q.chosenRelic) { q.rollRelics(); q.save(); }
-            body = setProgressLine() + `<img class="evt-art" src="events/evt_treasure.jpg" alt="" onerror="this.remove()"><div class="reward-cards">${(q.relicChoices || []).filter(id => CX.relics.find(x => x.id === id)).map(id => { const r = CX.relics.find(r => r.id === id); return `<button class="reward rarity-${r.rarity}" data-relic="${id}">${relicIcon(r, 88)}<small>${CX.rarityNames[r.rarity]} · ${relicFamily(id)}${q.rank(id) ? ' · ' + (q.rank(id) + 1) + '중첩' : ''}</small><b>${r.name}</b><p>${r.text}</p></button>`; }).join('')}</div>`;
+            body = setProgressLine() + `<img class="evt-art" src="events/evt_treasure.jpg" alt="" onerror="this.remove()"><div class="reward-cards">${(q.relicChoices || []).filter(id => CX.relics.find(x => x.id === id)).map(id => { const r = CX.relics.find(r => r.id === id); return `<button class="reward rarity-${r.rarity}" data-relic="${id}">${relicIcon(r, 88)}<small>${CX.rarityNames[r.rarity]} · ${relicFamily(id)}${q.rank(id) ? ' · ' + (q.rank(id) + 1) + '중첩' : ''}</small><b>${r.name}</b><p>${r.text}</p></button>`; }).join('') + `<button class="reward rarity-0" data-relic="pass" style="opacity:.85"><span style="font-size:34px;line-height:88px">✕</span><small>선택 안 함</small><b>유물 패스</b><p>필요한 유물이 없다면 넘기고 금화 25를 받습니다.</p></button>`}</div>`;
         }
         if (step === 'ready') {
             const next = q.stageInfo(q.wave + 1);
