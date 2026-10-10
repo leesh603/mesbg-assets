@@ -10705,8 +10705,9 @@ Ve.prototype.drawRings = function () {
             g.lineStyle(5.5/z,INK,.45);g.strokePoints(points,true);
             g.lineStyle(2.4/z,MOVE_HI,1);g.strokePoints(points,true);
             for(const t of b.terrain.filter(t=>t.active&&!t.z&&ht(t,u)<r+Math.max(t.w,t.h))){
-                const jump=lowBarrier(t);
-                g.lineStyle(1.4/z,jump?GOLD:FOE_HI,jump?.7:.45);g.strokeRoundedRect(t.x-t.w/2,t.y-t.h/2,t.w,t.h,Math.min(10,t.h/3,t.w/3));
+                if(!lowBarrier(t))continue;
+                g.fillStyle(GOLD,.10);g.fillRoundedRect(t.x-t.w/2,t.y-t.h/2,t.w,t.h,Math.min(10,t.h/3,t.w/3));
+                g.lineStyle(1.4/z,GOLD,.55);g.strokeRoundedRect(t.x-t.w/2,t.y-t.h/2,t.w,t.h,Math.min(10,t.h/3,t.w/3));
             }
             for(const foe of b.alive(Ht(u.side)).filter(v=>ht(v,u)<=r+u.radius+v.radius+UNIT_RULES.chargeTolerance)){
                 const plan=chargePlan(u,foe,b.alive(),b.terrain,r);if(!plan)continue;
