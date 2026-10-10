@@ -1669,7 +1669,7 @@ P.startWave = function () {
     if (this.challenge === 'long_bows') (this.nextRoundBuffs = this.nextRoundBuffs || []).push({ stat: 'shootRange', n: 45, side: 'evil' });
     if (this.challenge === 'swift_blades') (this.nextRoundBuffs = this.nextRoundBuffs || []).push({ stat: 'move', n: 45, side: 'evil' });
     this.eliteKills = 0;
-    this.stageDeaths = 0; this.stageTrapKills = 0; this.stageHeroKills = 0; this.stageShootKills = 0; this.stageChargeKills = 0; this.stageKills = 0; this.stageCavKills = 0; this.stageMonsterKills = 0; this.stageHeroSlayer = 0; this.stageEliteKills = 0; this._midReinforced = false; this._lastStand = false; this._crisisWarned = false;
+    this.stageDeaths = 0; this.stageTrapKills = 0; this.stageHeroKills = 0; this.stageShootKills = 0; this.stageChargeKills = 0; this.stageKills = 0; this.stageCavKills = 0; this.stageMonsterKills = 0; this.stageHeroSlayer = 0; this.stageEliteKills = 0; this._midReinforced = false; this._lastStand = false; this._crisisWarned = false; this._eagleSent = false;
     const _bp = BONUS_OBJECTIVES.filter(o => !o.cond || o.cond(this));
     this.bonusObjective = _bp.length ? _bp[Math.floor(this.rng() * _bp.length)] : null;
     this.bonusId = this.bonusObjective?.id || ''; this._bonusDone = false;
@@ -1796,6 +1796,12 @@ P.beginRound = function () {
         const extra = this.current.ids.slice(-rn);
         this.spawnEnemies(extra);
         this.emit('ReinforcementsArrived', '⚠ 적 증원 도착 — ' + extra.length + '기');
+    }
+    if (this.round === 4 && !this._eagleSent && !this.current?.boss && this.wave >= 7 && this.meta.has('great_eagle') && this.rng() < .25) {
+        this._eagleSent = true;
+        const _eg = this.spawn('great_eagle', 'good', { x: 300 + Math.floor(this.rng() * 1700), y: 180 });
+        _eg.autoAlly = true;
+        this.emit('Event', '🦅 독수리의 지원 — 민들레가 하늘에서 내려와 함께 싸웁니다', { uid: _eg.uid });
     }
     if (!this._lastStand && this.alive('good').length > 0 && this.alive('good').length <= 3 && this.alive('evil').length >= 3) {
         this._lastStand = true;
