@@ -4979,7 +4979,7 @@ Ve.prototype.sync=function(){
     }
     if(this.b.phase==='menu'){UX.stage=null;return;}
     const stage=(this.b.phase==='preparation'?this.b.wave+1:this.b.wave)+'/'+(this.b.mapIndex||0);
-    if(stage!==UX.stage&&['preparation','move','shoot','fight'].includes(this.b.phase)){UX.stage=stage;const _foes=this.b.phase==='move'?this.b.alive('evil'):[];const team=_foes.length?_foes:this.b.alive(['move','shoot'].includes(this.b.phase)?this.b.side:'good');const x=team.length?team.reduce((n,u)=>n+u.x,0)/team.length:1165;const z=mobileLayout()?Math.max(.55,Math.min(.8,UX.height/(pt.height*.72))):.82;const y=this.b.phase==='preparation'||_foes.length?(team.length?team.reduce((n,u)=>n+u.y,0)/team.length:690):this.b.mission==='defense'?(mobileLayout()&&innerHeight>innerWidth?600-Math.min(78,UX.height*.16)/z:590):690;panTo(x,y,z,430)}
+    if(stage!==UX.stage&&['preparation','move','shoot','fight'].includes(this.b.phase)){UX.stage=stage;const _foes=this.b.phase==='move'?this.b.alive('evil'):[];let team=_foes.length?_foes:this.b.alive(['move','shoot'].includes(this.b.phase)?this.b.side:'good');if(this.b.phase==='preparation'){const _pl=team.filter(u=>u.x>=0);team=_pl.length?_pl:[{x:1165,y:pt.deployY||690}];}const x=team.length?team.reduce((n,u)=>n+u.x,0)/team.length:1165;const z=mobileLayout()?Math.max(.55,Math.min(.8,UX.height/(pt.height*.72))):.82;const y=this.b.phase==='preparation'||_foes.length?(team.length?team.reduce((n,u)=>n+u.y,0)/team.length:690):this.b.mission==='defense'?(mobileLayout()&&innerHeight>innerWidth?600-Math.min(78,UX.height*.16)/z:590):690;panTo(x,y,z,430)}
     updateWorldUI();
 };
 const clarityRings=Ve.prototype.drawRings;
@@ -5050,7 +5050,7 @@ function renderDock(){
     const _sq=ut('speed-quick');if(_sq)_sq.textContent='×'+qt;
     const active=actionableUnit(),selected=q.unit(q.selected),u=selected?.alive?selected:active,busy=At||q.mode==='ai'&&q.side==='evil'&&['move','shoot'].includes(q.phase);
     const phase=q.phase;
-    const steps=[['preparation','배치'],['move','이동 · 돌격'],['shoot','사격'],['fight','근접전']];
+    const steps=[['preparation','배치단계'],['move','이동단계'],['shoot','사격단계'],['fight','전투단계']];
     ut('phases').innerHTML=steps.map(([id,label],i)=>`<span class="phase ${phase===id?'active':''}" ${phase===id?'aria-current="step"':''}><i>${String(i+1).padStart(2,'0')}</i>${label}</span>`).join('')+`<span class="turn">${phase==='preparation'?'출전 준비':At?'행동 처리 중':phase==='fight'?'교전 판정':q.side==='good'?'아군 차례':'적군 차례'}</span>`;
     ut('cp').textContent=q.cp+' CP';ut('round').textContent=(q.round||'—')+' · '+({preparation:'배치',move:'이동',shoot:'사격',fight:'근접'}[phase]||'정비');
     const _mk=CX.maps[visualMapIdx(q.mapIndex)],_zn=(MAP_ZONE_NAMES[_mk]||[])[mapVariant(q.wave||1)];
