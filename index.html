@@ -6670,6 +6670,14 @@ Ae=[{id:"warrior_minas_tirith",name_ko:"미나스 티리스 전사",name_en:"War
                 if (Lt(this.rng) + Lt(this.rng) + v.stats.courage < 8)
                     v.alive = false, this.emit("UnitKilled", `${v.name} · 전열 붕괴 — 도주`, { uid: v.uid });
     }
+    if (this.mission === 'escort' && this.escortCart) {
+        const _ec = this.unit(this.escortCart);
+        if (_ec && _ec.alive && _ec.y < 1180) {
+            const _ny = Math.min(1200, _ec.y + 70);
+            if (!this.alive().some(v => v.uid !== _ec.uid && Math.abs(v.x - _ec.x) < v.radius + _ec.radius + 6 && Math.abs(v.y - _ny) < v.radius + _ec.radius + 6))
+                _ec.y = _ny;
+        }
+    }
     this._roundStartCounts = { good: this.alive("good").length, evil: this.alive("evil").length };
     let Y = Lt(this.rng), b = Lt(this.rng), H = 0; for (; Y === b && H < 100;)
         H++, Y = Lt(this.rng), b = Lt(this.rng); this.priority = Y >= b ? "good" : "evil", this.priorityForce && (this.priority = this.side = this.priorityForce, this.priorityForce = ""), this.nextRoundBuffs && (this.nextRoundBuffs.forEach(rb => this.alive(rb.side || "good").forEach(u => (!rb.trait || u.traits.includes(rb.trait)) && (u.roundBuff[rb.stat] = (u.roundBuff[rb.stat] || 0) + rb.n, this.refreshUnit(u)))), this.nextRoundBuffs = null), this.side = this.priority, this.phase = "move", this.emit("RoundStarted", `라운드 ${this.round} · ${this.priority === "good" ? "곤도르" : "모르도르"} 우선권`), this.emit("PriorityRolled", void 0, { good: Y, evil: b, ties: H }), this.autoSelect(); }
@@ -6874,7 +6882,7 @@ class Ve extends Ot.Scene {
             }
     } for (const p of b.alive()) {
         p.traits && p.traits.includes('boss') && (this.rings.fillStyle(12534097, .1 + .06 * Math.sin(performance.now() / 240)), this.rings.fillCircle(p.x, p.y, (p.visualRadius || p.radius) + 14), this.rings.lineStyle(4, 16745560, .5 + .3 * Math.sin(performance.now() / 240)), this.rings.strokeCircle(p.x, p.y, (p.visualRadius || p.radius) + 14)),
-        p.hold && (this.rings.lineStyle(3, 9362410, .8), this.rings.strokeCircle(p.x, p.y, p.radius + 2)), p.feared && this.labels.add(this.add.text(p.x, p.y - p.radius - 30, '😨', { fontFamily: 'Pretendard', fontSize: '15px' }).setOrigin(.5)), (this.b.commanders || []).includes(p.uid) && this.labels.add(this.add.text(p.x, p.y - p.radius - 44, '♛', { fontFamily: 'Pretendard', fontSize: '15px', color: '#ffd76a', stroke: '#000', strokeThickness: 3 }).setOrigin(.5)), p.protected && this.labels.add(this.add.text(p.x, p.y + p.radius + 8, '🛡', { fontFamily: 'Pretendard', fontSize: '13px' }).setOrigin(.5)), p.aim && this.labels.add(this.add.text(p.x - p.radius + 4, p.y - p.radius - 8, '🎯', { fontFamily: 'Pretendard', fontSize: '12px' }).setOrigin(.5)), p.prone && this.labels.add(this.add.text(p.x + p.radius - 4, p.y - p.radius - 8, '💥', { fontFamily: 'Pretendard', fontSize: '13px' }).setOrigin(.5)), p.acted && ["move", "shoot"].includes(b.phase) && this.labels.add(this.add.text(p.x + p.radius - 3, p.y - p.radius, "✓", { fontFamily: "Pretendard", fontSize: "17px", color: "#fff1bc", stroke: "#121b1c", strokeThickness: 3 }));
+        p.hold && (this.rings.lineStyle(3, 9362410, .8), this.rings.strokeCircle(p.x, p.y, p.radius + 2)), p.feared && this.labels.add(this.add.text(p.x, p.y - p.radius - 30, '😨', { fontFamily: 'Pretendard', fontSize: '15px' }).setOrigin(.5)), (this.b.commanders || []).includes(p.uid) && this.labels.add(this.add.text(p.x, p.y - p.radius - 44, '♛', { fontFamily: 'Pretendard', fontSize: '15px', color: '#ffd76a', stroke: '#000', strokeThickness: 3 }).setOrigin(.5)), p.uid === this.b.escortCart && this.labels.add(this.add.text(p.x, p.y - p.radius - 44, '호송', { fontFamily: 'Pretendard', fontSize: '12px', color: '#bfe3ff', stroke: '#000', strokeThickness: 3 }).setOrigin(.5)), p.protected && this.labels.add(this.add.text(p.x, p.y + p.radius + 8, '🛡', { fontFamily: 'Pretendard', fontSize: '13px' }).setOrigin(.5)), p.aim && this.labels.add(this.add.text(p.x - p.radius + 4, p.y - p.radius - 8, '🎯', { fontFamily: 'Pretendard', fontSize: '12px' }).setOrigin(.5)), p.prone && this.labels.add(this.add.text(p.x + p.radius - 4, p.y - p.radius - 8, '💥', { fontFamily: 'Pretendard', fontSize: '13px' }).setOrigin(.5)), p.acted && ["move", "shoot"].includes(b.phase) && this.labels.add(this.add.text(p.x + p.radius - 3, p.y - p.radius, "✓", { fontFamily: "Pretendard", fontSize: "17px", color: "#fff1bc", stroke: "#121b1c", strokeThickness: 3 }));
         const S = p.radius + 10, t = p.stats.wounds;
         for (let f = 0; f < t; f++) {
             const c = -Math.PI / 2 + f * Math.PI * 2 / t + .055, o = -Math.PI / 2 + (f + 1) * Math.PI * 2 / t - .055;
@@ -7252,7 +7260,7 @@ const CX = {
     version: 1, inches: 45,
     maps: ['minas_tirith', 'osgiliath', 'amon_sul', 'helms_deep', 'fangorn', 'edoras', 'moria', 'isengard', 'black_gate', 'gorgoroth', 'rivendell', 'lothlorien', 'pelennor', 'dead_marshes', 'dunharrow', 'erebor', 'mirkwood', 'dol_guldur', 'gondolin', 'angband'],
     mapNames: ['미나스 티리스', '오스길리아스', '아몬 술', '헬름 협곡', '팡고른', '에도라스', '모리아', '아이센가드', '검은 문', '고르고로스', '리븐델', '로스로리엔', '펠렌노르', '죽은 늪', '던하로우', '에레보르', '미르크우드', '돌 굴두르', '곤돌린', '앙그반드'],
-    missionNames: { annihilation: '적 전멸', defense: '방어선 수호', hold: '거점 확보', survive: '포위망 생존', breakthrough: '전선 돌파', commander: '지휘관 처치', rescue: '포로 구출' },
+    missionNames: { annihilation: '적 전멸', defense: '방어선 수호', hold: '거점 확보', survive: '포위망 생존', breakthrough: '전선 돌파', commander: '지휘관 처치', rescue: '포로 구출', escort: '보급 호송' },
     roleNames: { infantry: '보병', hero: '영웅', cavalry: '기병', monster: '괴수', support: '지원', beast: '야수' },
     rarityNames: ['일반', '마법', '희귀', '고유'],
     relics: [
@@ -7977,7 +7985,7 @@ const ARC_MAPS = ['amon_sul', 'isengard', 'pelennor', 'black_gate', 'mirkwood', 
 const STAGE_MAP_OVERRIDE = { 11: 'helms_deep', 12: 'helms_deep', 13: 'helms_deep', 14: 'helms_deep' };
 P.stageInfo = function (n) {
     let boss = n % (this.difficulty === 'despair' ? 4 : 5) === 0 ? (STAGE_BOSSES[n] || (n > 70 ? ELDER_BOSSES[Math.floor(n / 5) % ELDER_BOSSES.length] : this.difficulty === 'despair' ? DESPAIR_BOSS_POOL[(Math.floor(n / 4) - 1) % DESPAIR_BOSS_POOL.length] : null)) : null;
-    const missions = ['defense', 'annihilation', 'hold', 'survive', 'commander', 'breakthrough', 'rescue'];
+    const missions = ['defense', 'annihilation', 'hold', 'survive', 'commander', 'breakthrough', 'rescue', 'escort'];
     const mission = boss ? 'commander' : missions[(n - 1) % missions.length];
     const ids = [];
     const dmul = this.difficulty === 'easy' ? .75 : this.difficulty === 'hard' ? 1.35 : this.difficulty === 'despair' ? 1.6 : 1;
@@ -8191,6 +8199,14 @@ P.startWave = function () {
         u.autoAlly = true;
         u.baseStats.attacks += this.rank('cart') - 1;
         this.placeInDeployment(u);
+    }
+    if (this.mission === 'escort' && this.meta.has('terr_cart') && !this.escortCart) {
+        const _cart = this.spawn('terr_cart', 'good', { x: 1200, y: 240 });
+        _cart.autoAlly = true; _cart.escortee = true;
+        Object.assign(_cart.stats, { move: 0, fight: 1, strength: 2, defence: 6, attacks: 0, wounds: 3, courage: 2, shootValue: 7, might: 0, will: 0, fate: 0 });
+        _cart.baseStats = structuredClone(_cart.stats); _cart.currentWounds = 3; _cart.resources = { might: 0, will: 0, fate: 0 };
+        this.refreshUnit(_cart); this.escortCart = _cart.uid;
+        this.emit('Event', '보급 마차가 야영지를 출발합니다 — 남쪽 출구까지 호송하세요!');
     }
     this.emit('WaveStarted', `STAGE ${this.wave} · ${CX.missionNames[this.mission]}${this.current.boss ? ' · ' + (this.current.bossAll || [this.current.boss]).map(b2 => this.meta.get(b2)?.name_ko).filter(Boolean).join(' · ') : ''}${this.current.title ? ' · ' + this.current.title : ''}`, { boss: this.current.boss || null });
     this.beginRound();
@@ -8420,6 +8436,17 @@ P.checkRun = function () {
     if (this.mission === 'commander' && ((this.commanders?.length && this.commanders.every(uid => !this.unit(uid)?.alive)) || (!this.commanders?.length && this.commander && !this.unit(this.commander)?.alive))) {
         this.finishWave();
         return true;
+    }
+    if (this.mission === 'escort') {
+        const _ec = this.unit(this.escortCart);
+        if (!_ec || !_ec.alive) {
+            this.endRun(false, '보급 마차가 파괴됐습니다.');
+            return true;
+        }
+        if (_ec.y >= 1180) {
+            this.finishWave();
+            return true;
+        }
     }
     if (!this.alive('evil').length && !this.delayed.length && this.wave > 0) {
         this.finishWave();
@@ -11239,7 +11266,7 @@ function renderDock(){
     } }
     { const _wf = ut('wx-fx'), _mod = (q.current && q.current.modifier) || ''; _wf && (_wf.className = ['rain', 'dark', 'fog', 'snow', 'eclipse', 'gale', 'frost', 'mud'].includes(_mod) ? 'wx-' + _mod : ''); }
     ut('wave').textContent=String(phase==='preparation'?q.wave+1:q.wave||1).padStart(2,'0');
-    const rules={defense:`라운드 끝 · 구역에 적 ${q.breachCount}기면 패배`,annihilation:'남은 적을 모두 격파',hold:`거점 우세 ${q.capture||0}/3 라운드`,survive:`생존 ${q.round||0}/5 라운드`,breakthrough:'아군 2기를 남쪽 돌파선으로',rescue:q.rescued?`구출 후 생존 ${q.capture||0}/3`:'포로 구역 확보 후 3라운드 생존',commander:'보스를 처치하면 승리'};
+    const rules={defense:`라운드 끝 · 구역에 적 ${q.breachCount}기면 패배`,annihilation:'남은 적을 모두 격파',hold:`거점 우세 ${q.capture||0}/3 라운드`,survive:`생존 ${q.round||0}/5 라운드`,breakthrough:'아군 2기를 남쪽 돌파선으로',rescue:q.rescued?`구출 후 생존 ${q.capture||0}/3`:'포로 구역 확보 후 3라운드 생존',commander:'보스를 처치하면 승리',escort:`보급 호송 — 남쪽 출구까지 호송${q.escortCart&&q.unit(q.escortCart)?.alive?` · 마차 ${Math.round(q.unit(q.escortCart).y)}/1180`:''} · 파괴 시 패배`};
     ut('ux-mission').innerHTML=`<em>${CX.missionNames[q.mission]||'원정 준비'}</em>${esc(rules[q.mission]||'병사를 선택해 전열을 정하세요')}`;
     const image=ut('dock-portrait');if(u){const src=Th(q.meta.get(u.id).file);if(image.getAttribute('src')!==src){image.dataset.full=Ut(q.meta.get(u.id).file);image.onerror=function(){this.onerror=null;this.src=this.dataset.full};image.src=src;}image.classList.remove('hidden')}else image.classList.add('hidden');
     ut('dock-eyebrow').textContent=phase==='preparation'?'전열 배치':At?'행동 처리 중':active?'선택 병사':busy?'상대의 차례':phase==='fight'?'근접전 판정':'원정대 지휘';
