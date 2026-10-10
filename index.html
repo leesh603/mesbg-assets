@@ -11205,7 +11205,7 @@ function renderDock(){
             const _max = (_boss.baseStats && _boss.baseStats.wounds) || _boss.stats.wounds || 1;
             const _frac = Math.max(0, Math.min(1, _boss.currentWounds / _max));
             _bb.classList.remove('hidden'); if (_bb.dataset.boss !== _boss.uid) { _bb.dataset.boss = _boss.uid; _bb.classList.remove('bossbar-in'); void _bb.offsetWidth; _bb.classList.add('bossbar-in'); }
-            const _bn = _bb.querySelector('.bossbar-name'); if (_bn) _bn.textContent = (_boss.name || q.meta.get(_boss.id).name_ko || '보스') + (_boss.traits.includes('terror') ? ' · 공포' : '') + (_boss._enraged ? ' · 격노' : ''); _bb.classList.toggle('enraged', !!_boss._enraged);
+            const _bn = _bb.querySelector('.bossbar-name'); if (_bn) _bn.textContent = (_boss.name || q.meta.get(_boss.id).name_ko || '보스') + (_boss.traits.includes('terror') ? ' · 공포' : '') + ((_boss.bossPhase||1)>1 ? ' · ' + _boss.bossPhase + '단계' : '') + (_boss._enraged ? ' · 격노' : ''); _bb.classList.toggle('enraged', !!_boss._enraged);
             const _bf = _bb.querySelector('.bossbar-fill'); if (_bf) { _bf.style.width = (_frac * 100).toFixed(1) + '%'; _bf.style.background = _frac > .5 ? 'linear-gradient(90deg,#7e1d12,#c63d1e)' : _frac > .25 ? 'linear-gradient(90deg,#8a3a10,#d97a20)' : 'linear-gradient(90deg,#a85a10,#e0a020)'; }
             const _bh = _bb.querySelector('.bossbar-hp'); if (_bh) _bh.textContent = _boss.currentWounds + ' / ' + _max;
         } else _bb.classList.add('hidden');
