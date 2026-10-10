@@ -540,7 +540,7 @@ const ne = Z => new Promise(Y => {
 async function Rt(Z) { if (At)
     return; wt.unlock(), clearTimeout(Jt), At = !0, Tt.busy = !0, Z(); const Y = q.drain(); ut("hint").textContent = "행동을 처리하고 있습니다…", ut("action").disabled = !0, ut("wait").disabled = !0; try {
     for (const b of Y)
-        await Promise.all([$e(b), Tt.play(b)]), ["WaveStarted", "Event", "CommandUsed", "RoundStarted"].includes(b.type) && b.message && Xt(b.message), b.type === "WaveStarted" && (b == null ? void 0 : b.boss) && bossIntro(b.boss);
+        await Promise.all([$e(b), Tt.play(b)]), ["WaveStarted", "Event", "CommandUsed", "RoundStarted"].includes(b.type) && b.message && Xt(b.message), b.type === "WaveStarted" && ((b == null ? void 0 : b.boss) ? bossIntro(b.boss) : stageIntro());
 }
 finally {
     ut("dice").classList.add("hidden"), At = !1, Tt.busy = !1, Tt.preview = void 0, Tt.previewPlan = null, Yt(), me();
@@ -3796,6 +3796,22 @@ function bossIntro(id) {
     document.body.appendChild(el);
     setTimeout(() => el.remove(), cfg.cls === 'bi-doom' ? 4200 : 3400);
 }
+let __siStyle = false;
+const LWB_STAGE_ART = { minas_tirith: 'war', osgiliath: 'ruins', amon_sul: 'ruins', helms_deep: 'war', fangorn: 'darkforest', edoras: 'war', moria: 'dark', isengard: 'dark', black_gate: 'dark', gorgoroth: 'dark', rivendell: 'light', lothlorien: 'light', pelennor: 'war', dead_marshes: 'marshes', dunharrow: 'ruins', erebor: 'treasure', mirkwood: 'darkforest', dol_guldur: 'dark', gondolin: 'light', angband: 'dark' };
+function stageIntro() {
+    if (!__siStyle) { const st = document.createElement('style'); st.textContent = `#stage-intro{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(8,10,6,.62);z-index:68;animation:bossFade .4s ease}#stage-intro .si-card{width:min(430px,88vw);background:#161b12f2;border:1px solid #5a6142;border-radius:14px;overflow:hidden;box-shadow:0 18px 60px #000c;animation:siUp .5s cubic-bezier(.16,.8,.3,1)}@keyframes siUp{from{transform:translateY(34px);opacity:0}to{transform:none;opacity:1}}#stage-intro .si-art{width:100%;height:150px;object-fit:cover;display:block}#stage-intro .si-body{padding:14px 18px 16px;text-align:center}#stage-intro .si-eyebrow{color:#b6bd90;letter-spacing:.3em;font-size:10px;margin-bottom:5px}#stage-intro h2{margin:0 0 6px;font-size:26px;color:#efe4b0;font-family:'Noto Serif KR',serif;letter-spacing:.04em}#stage-intro h2 small{display:block;font-size:12px;color:#c9c39a;margin-top:3px;font-family:Pretendard,sans-serif;letter-spacing:.08em}#stage-intro .si-mission{display:inline-block;background:#232a16;border:1px solid #59603d;color:#e0cf8f;font-size:12px;font-weight:700;padding:4px 14px;border-radius:12px}`; document.head.appendChild(st); __siStyle = true; }
+    const old = document.getElementById('stage-intro'); old && old.remove();
+    const info = q.current; if (!info) return;
+    const key = CX.maps[visualMapIdx(q.mapIndex)] || '';
+    const art = LWB_STAGE_ART[key] || (['rain', 'gale', 'snow', 'frost'].includes(info.modifier) ? 'storm' : ['dark', 'eclipse', 'ambush', 'warg'].includes(info.modifier) ? 'dark' : ['fog', 'mud'].includes(info.modifier) ? 'marshes' : 'war');
+    const _zn = (MAP_ZONE_NAMES[key] || [])[mapVariant(q.wave || info.n || 1)] || '';
+    const modTxt = ({ clear: '', rain: '폭우', dark: '어둠', reinforce: '적 증원', warg: '와르그 사냥대', ambush: '기습', cavalry: '기병 돌격', swarm: '고블린 떼', snow: '눈보라', eclipse: '일식', mud: '진창', gale: '강풍', frost: '서리' })[info.modifier || 'clear'] || '';
+    const el = document.createElement('div'); el.id = 'stage-intro';
+    el.innerHTML = `<div class="si-card"><img class="si-art" src="events/evt_${art}.jpg" alt="" onerror="this.remove()"><div class="si-body"><div class="si-eyebrow">STAGE ${String(info.n || q.wave).padStart(2, '0')}${info.title ? ' · ' + esc(info.title) : ''}</div><h2>${esc(CX.mapNames[visualMapIdx(q.mapIndex)] || '')}${_zn ? `<small>${esc(_zn)}</small>` : ''}</h2><div class="si-mission">${esc(CX.missionNames[info.mission] || '전투')}${modTxt ? ` · ${modTxt}` : ''}</div></div></div>`;
+    el.onclick = () => el.remove();
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 2400);
+}
 let __arcStyle = false;
 const ARC_TRANSITIONS = {
     20: { end: 'THE END', endSub: '검은문의 적들이 무너졌다 — 원정은 끝난 듯했다.', teaser: null, teaserTag: 'ACT II · 호빗', teaserText: '외로운 산에서 불꽃이 일어난다 — 스마우그의 그림자가 드리운다.', cls: 'at-fire' },
@@ -4475,7 +4491,7 @@ Yt=function(){const u=q.unit(q.selected);if(u&&!u.alive){q.selected='';q.autoSel
 // Keep the existing wait confirmation, but surface it on the persistent button.
 ut('dock-primary').onclick=()=>{if(At||Qt||ut('dock-primary').disabled)return;if(['preparation','fight'].includes(q.phase)){setSheet(false);ut('action').click();return;}const u=actionableUnit();if(u){q.selected=u.uid;ut('wait').click();renderDock();}};
 // Ensure the fixed controls cannot issue a second action while animation is running.
-Rt=async function(fn){if(At)return;wt.unlock();clearTimeout(Jt);At=true;Tt.busy=true;resetGestures();renderDock();try{fn();renderDock();const events=q.drain();ut('action').disabled=true;ut('wait').disabled=true;for(const event of events){await $e(event);ut('dice').classList.add('hidden');await Tt.play(event);if(['WaveStarted','Event','CommandUsed'].includes(event.type)&&event.message)Xt(event.message)}}catch(error){console.error('[battle action]',error);try{localStorage.setItem('__dbgstart',String(error&&error.stack||error).slice(0,1200))}catch(e){}Xt('행동을 처리하지 못했습니다 — '+String(error&&error.message||error).slice(0,90))}finally{ut('dice').classList.add('hidden');At=false;Tt.busy=false;Tt.preview=undefined;Tt.previewPlan=null;Yt();me();}};
+Rt=async function(fn){if(At)return;wt.unlock();clearTimeout(Jt);At=true;Tt.busy=true;resetGestures();renderDock();try{fn();renderDock();const events=q.drain();ut('action').disabled=true;ut('wait').disabled=true;for(const event of events){await $e(event);ut('dice').classList.add('hidden');await Tt.play(event);if(['WaveStarted','Event','CommandUsed'].includes(event.type)&&event.message)Xt(event.message);if(event.type==='WaveStarted')(event.boss?bossIntro(event.boss):stageIntro());}}catch(error){console.error('[battle action]',error);try{localStorage.setItem('__dbgstart',String(error&&error.stack||error).slice(0,1200))}catch(e){}Xt('행동을 처리하지 못했습니다 — '+String(error&&error.message||error).slice(0,90))}finally{ut('dice').classList.add('hidden');At=false;Tt.busy=false;Tt.preview=undefined;Tt.previewPlan=null;Yt();me();}};
 const clarityPlay=Ve.prototype.play;
 Ve.prototype.play=async function(event){await clarityPlay.call(this,event);if(event.type==='UnitKilled')removeCasualty(event.uid);};
 const claritySchedule=me;me=function(){if(document.hidden){clearTimeout(Jt);return;}claritySchedule();};
