@@ -1400,6 +1400,7 @@ P.stageInfo = function (n) {
 P.prepareStage = function () {
     const info = this.stageInfo(this.wave + 1);
     this.next = info;
+    const _prevMap = this.mapIndex;
     this.mapIndex = info.map;
     this.mission = info.mission;
     this.capture = 0;
@@ -1437,6 +1438,7 @@ P.prepareStage = function () {
     this._lastFormation = this._lastFormation || {};
     for (const u of this.alive('good')) {
         if (u.x > 0) this._lastFormation[u.uid] = { x: u.x, y: u.y };
+        this._lastFormationMap = _prevMap;
         u.x = -1000;
         u.y = -1000;
     }
@@ -4350,7 +4352,7 @@ if(localStorage.getItem('lwb-view')!=='pc')document.body.classList.add('force-mo
     const un = q.alive('good').filter(u => u.x < 0);
     if (!un.length) return;
     const _rk = u => u.stats.shootRange ? 0 : u.traits.includes('spear') ? 1 : u.traits.includes('mounted') ? 1 : 2;
-    const _lf = q._lastFormation || {};
+    const _lf = q._lastFormationMap === q.mapIndex ? (q._lastFormation || {}) : {};
     un.sort((a, b) => _rk(a) - _rk(b)).forEach(u => { if (_lf[u.uid]) Object.assign(u, _lf[u.uid]); else q.placeInDeployment(u); });
     const left = q.alive('good').find(u => u.x < 0);
     q.selected = (left || q.alive('good')[0] || {}).uid || q.selected;
