@@ -196,7 +196,7 @@ class Ve extends Ot.Scene {
             else if(this.textures.exists(H.id))
                 this.terrainLayer.add(this.add.image(H.x, H.y, H.id).setDisplaySize(H.w + 24, H.h + 22)); for (const D of (this.b.devices || []))
         if (D.armed) {
-            const K2 = { ballista: 'terr_ballista', scorpion: 'terr_trebuchet', barrel: 'terr_bomb', oil: 'terr_brazier', firepot: 'terr_brazier', snare: 'terr_chain_post', spike: 'terr_spike_line' }[D.type] || 'terr_brazier';
+            const K2 = { chest: 'terr_crates', ballista: 'terr_ballista', scorpion: 'terr_trebuchet', barrel: 'terr_bomb', oil: 'terr_brazier', firepot: 'terr_brazier', snare: 'terr_chain_post', spike: 'terr_spike_line' }[D.type] || 'terr_brazier';
             this.textures.exists(K2) && this.terrainLayer.add(this.add.image(D.x, D.y, K2).setDisplaySize(D.type === 'ballista' ? 130 : 76, D.type === 'ballista' ? 130 : 76));
         } for (const H of this.b.units) {
         let K = this.tokens.get(H.uid);
@@ -280,9 +280,9 @@ class Ve extends Ot.Scene {
     }
     for (const d of (b.devices || [])) {
         if (!d.armed) continue;
-        this.rings.lineStyle(2, d.type === 'barrel' ? 0x8a3a20 : d.type === 'ballista' ? 0xc9a03f : 0xd4502a, .85);
+        this.rings.lineStyle(2, d.type === 'chest' ? 0xe8c45c : d.type === 'barrel' ? 0x8a3a20 : d.type === 'ballista' ? 0xc9a03f : 0xd4502a, .85);
         this.rings.strokeCircle(d.x, d.y, d.type === 'barrel' ? 34 : d.trigger * .35);
-        this.labels.add(this.add.text(d.x, d.y - 16, d.type === 'ballista' ? '\u2699 투석기' : d.type === 'snare' ? '\u26D3 덫' : d.type === 'barrel' ? '\u{1F4A3} 화약통' : '\u{1F525} 불통', { fontFamily: "Pretendard", fontSize: "15px", color: "#ffd98a", backgroundColor: "#1b2218d0", padding: { x: 6, y: 3 } }).setOrigin(.5));
+        this.labels.add(this.add.text(d.x, d.y - 16, d.type === 'ballista' ? '\u2699 투석기' : d.type === 'chest' ? '\u{1F4E6} 상자' : d.type === 'snare' ? '\u26D3 덫' : d.type === 'barrel' ? '\u{1F4A3} 화약통' : '\u{1F525} 불통', { fontFamily: "Pretendard", fontSize: "15px", color: "#ffd98a", backgroundColor: "#1b2218d0", padding: { x: 6, y: 3 } }).setOrigin(.5));
     }
     const K = b.unit(b.selected), $ = b.unit(b.activeMoverUid) || (K && b.canAct(K) ? K : b.eligible()[0]); if ($ != null && $.alive && ["move", "shoot", "preparation"].includes(b.phase) && (this.rings.lineStyle(5, 16769698, 1), this.rings.strokeCircle($.x, $.y, $.radius + 18), this.rings.lineStyle(2, 16773823, .96), this.rings.strokeCircle($.x, $.y, $.radius + 23), this.labels.add(this.add.text($.x, $.y - $.radius - 69, "▼ 현재 행동", { fontFamily: "Pretendard", fontSize: "18px", color: "#17282b", backgroundColor: "#f3d494", padding: { x: 10, y: 4 } }).setOrigin(.5))), b.phase === "fight")
         for (const p of b.fightQueue) {
@@ -2142,6 +2142,13 @@ P.checkTraps = function (u) {
     for (const d of this.devices || []) {
         if (!d.armed || ht(u, d) > d.trigger)
             continue;
+        if (d.type === 'chest') {
+            if (u.side !== 'good') continue;
+            d.armed = false;
+            if (this.rng() < .7) { this.gold += 15; this.emit('Event', '📦 보물 상자 — ' + u.name + ' 발견 · 금화 +15', { at: d }); }
+            else { u.currentWounds--; if (u.currentWounds <= 0) { u.alive = false; this.emit('UnitKilled', u.name + ' — 상자의 덫에 쓰러짐', { uid: u.uid }); } else this.emit('UnitWounded', '⚠ 덫 상자 — ' + u.name + ' 상처 1', { uid: u.uid }); }
+            continue;
+        }
         if (!d.neutral && u.side !== 'evil')
             continue;
         d.armed = false;
@@ -3282,7 +3289,7 @@ P.shoot = function (uid, target) { const u = this.unit(uid); const multi = u?.pr
 // Enemy movement evaluates role, engagement, objectives and ranged spacing.
 const __lwbFA = P.finishActivation;
 P.finishActivation = function (u) {
-    if (u && (this.devices || []).some(d => d.armed && (u.side === 'evil' || d.type === 'barrel')))
+    if (u && (this.devices || []).some(d => d.armed && (u.side === 'evil' || d.type === 'barrel' || d.type === 'chest')))
         this.checkTraps(u);
     if (u && u.side === 'good' && u.traits.includes('hero') && this.rng() < 0.1) {
         const pr = LWB_PAIRS.find(w => w[0] === u.id || w[1] === u.id);
@@ -5750,6 +5757,10 @@ P.prepareStage = function () {
     for (let i = 0; i < 1 + (this.wave % 2); i++) {
         const [hx, hy] = _hz[(this.wave * 2 + i) % _hz.length];
         this.devices.push({ type: 'barrel', neutral: true, armed: true, x: hx, y: hy, trigger: 55, radius: 140 });
+    }
+    if (!this.current?.boss) {
+        const _cx = [[1165, 940], [860, 900], [1470, 900]][this.wave % 3];
+        this.devices.push({ type: 'chest', goodOnly: true, armed: true, x: _cx[0], y: _cx[1], trigger: 55, radius: 0 });
     }
 };
 const __lwbSV = P.save;
