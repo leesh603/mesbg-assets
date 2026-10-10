@@ -8766,7 +8766,7 @@ const LWB_EVT_ART = { refugees:'wanderer', strider:'wanderer', dunedain:'wandere
     valar_grace:'light', lorien:'light', evenstar:'light', elven_harp:'light', elven_healer:'light', mirror:'light', white_blossom:'light', two_trees:'light', omen:'light', eagle_omen:'light', eagle:'light', eagle_eyrie:'light', priest:'light',
     breakfast:'feast', beorn_feast:'feast', beorn_guest:'feast', bombadil:'feast', minstrel:'feast', apothecary:'feast',
     council:'war', redarrow:'war', rohan_oath:'war', rohirrim_horn:'war', gondor_signal:'war', beacon_relief:'war', hornburg:'war',
-    marshes:'marshes', dead_men_path:'marshes', emyn_muil:'marshes', beorning_hall:'feast', south_merchant:'treasure', isengard_smoke:'dark' };
+    marshes:'marshes', dead_men_path:'marshes', emyn_muil:'marshes', beorning_hall:'feast', south_merchant:'treasure', isengard_smoke:'dark', argonath:'ruins', dead_marshes:'marshes', mithril_vein:'treasure' };
 const LWB_EVENTS = [
     { id: 'refugees', title: '피난민 행렬', text: '곤도르 피난민 행렬이 성문을 지나치려 몰려듭니다.', options: [
         { label: '식량을 나눈다', sub: '금화 −15 · 아군 전원 용기 +1 (영구)', fx: q => { q.gold = Math.max(0, q.gold - 15); q.alive('good').forEach(u => { u.baseStats.courage = (u.baseStats.courage || 0) + 1; q.refreshUnit(u); }); } },
@@ -9008,6 +9008,15 @@ const LWB_EVENTS = [
     { id: 'isengard_smoke', title: '이센가드의 연기', text: '서쪽 하늘에 검은 연기 기둥이 피어오릅니다 — 전쟁의 그림자가 다가옵니다.', options: [
         { label: '경계를 강화한다', sub: '다음 전투 CP +2', fx: q => { q.bonusCP = (q.bonusCP || 0) + 2; } },
         { label: '신속히 통과한다', sub: '금화 +10', fx: q => q.gold += 10 }] },
+    { id: 'argonath', title: '아르고나스의 그림자', text: '강 양쪽에 옛 왕들의 거상이 서 있습니다. 지나는 이들의 마음을 울리는 기백이 느껴집니다.', options: [
+        { label: '왕들에게 경의를 표한다', sub: '다음 전투 첫 라운드 아군 전원 결투 +1', fx: q => { (q.nextRoundBuffs = q.nextRoundBuffs || []).push({ stat: 'fight', n: 1, side: 'good' }); } },
+        { label: '서둘러 하류로 나아간다', sub: '금화 +8', fx: q => q.gold += 8 }] },
+    { id: 'dead_marshes', title: '죽음의 늪 불빛', text: '늪 위로 창백한 불빛이 일렁입니다. 이끌리면 물 아래 얼굴들이 기다립니다.', options: [
+        { label: '불빛을 따라간다', sub: '용기 시험 — 성공 +12금 · 실패 무작위 아군 상처 1', fx: q => { if (q.rng() < .5) { q.gold += 12; return '불빛을 물리쳤다 · +12금'; } const u = q.alive('good'); const t = u[Math.floor(q.rng() * u.length)]; if (t) { t.currentWounds = Math.max(1, (t.currentWounds || 1) - 1); return `${t.name} 상처 1`; } return '대상 없음'; } },
+        { label: '길을 돌아 피해간다', sub: '금화 +5', fx: q => q.gold += 5 }] },
+    { id: 'mithril_vein', title: '버려진 광산', text: '난쟁이들이 버려둔 광맥에서 은빛 광석이 희미하게 빛납니다.', options: [
+        { label: '채굴에 시간을 쓴다', sub: '금화 +40', fx: q => q.gold += 40 },
+        { label: '지나치고 행군한다', sub: '금화 +5', fx: q => q.gold += 5 }] },
 ];
 P.rollCampEvent = function () {
     this.rng || (this.rng = Ne(Date.now()));
