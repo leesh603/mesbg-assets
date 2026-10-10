@@ -2786,7 +2786,7 @@ P.castSpell = function (uid, idx) {
     if (fxd.strike) inR(foes, fxd.strike.r || 450).slice(0, fxd.strike.n || 1).forEach(t => fxd.strike.dmg && this.inflict(u, t, fxd.strike.dmg));
     if (fxd.fear) inR(foes, fxd.fear.r || 450).forEach(t => { t.feared = !0; });
     if (fxd.push) { const t = foes.sort((a, b) => ht(a, u) - ht(b, u))[0]; if (t) { const ps = De(t, [u], this.alive(), this.terrain, fxd.push); Object.assign(t, ps.to); } }
-    this.emit('Spell', `${u.name} · ${sp[0]}`);
+    this.emit('Spell', `${u.name} · ${sp[0]}`, { uid: u.uid, offensive: !!(fxd.strike || fxd.push || fxd.fear || fxd.foe || fxd.foeStrongest) });
     this.checkRun();
     return true;
 };
@@ -5109,6 +5109,8 @@ Ve.prototype.update=function(time){omUpdate.call(this,time);if(UX.ready)marks();
 // The older play wrapper handles HeroSkill; its asset is changed to cast/rally below.
 const effectPlay=Ve.prototype.play;
 Ve.prototype.play=async function(event){if(event.type==='CommandUsed'){const u=this.b.unit(event.uid||this.b.selected);if(u){const fx=this.add.image(u.x,u.y,'fx-rally').setDepth(13).setDisplaySize(140,140);await this.tween(fx,{displayWidth:230,displayHeight:230,alpha:0},350);fx.destroy();}}return effectPlay.call(this,event);};
+const spellFxPlay=Ve.prototype.play;
+Ve.prototype.play=async function(event){if(event.type==='Spell'&&event.uid){const u=this.b.unit(event.uid);if(u){this.soundFX&&this.soundFX.play('event');const fx=this.add.image(u.x,u.y,'fx-cast').setDepth(14).setDisplaySize(110,110).setAlpha(.95);const nm=this.add.text(u.x,u.y-46,(event.text||'').split('·').pop().trim(),{fontFamily:'Pretendard',fontSize:'13px',color:event.offensive?'#ffb9a0':'#cfe6ff',stroke:'#17211d',strokeThickness:2,backgroundColor:'#1d2b3af0',padding:{x:6,y:3}}).setOrigin(.5).setDepth(15);await this.tween(fx,{displayWidth:200,displayHeight:200,alpha:0},430);fx.destroy();this.tween(nm,{y:u.y-82,alpha:0},700).then(()=>nm.destroy());}}return spellFxPlay.call(this,event);};
 window.MESBG.ui.confirm=()=>ut('dock-primary').click();window.MESBG.ui.cancel=()=>ut('intent-cancel').click();
 window.MESBG.catalog={rules:UNIT_RULES,units:UnitCatalog,estimatePoints,register:registerUnit,registerSkill:(id,fn)=>customSkills.set(id,fn)};
 window.MESBG.chargePlan=chargePlan;window.MESBG.effectType=effectType;window.MESBG.plan=ve;window.MESBG.act=fn=>Rt(fn);
