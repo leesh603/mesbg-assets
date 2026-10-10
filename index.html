@@ -6716,10 +6716,10 @@ Ae=[{id:"warrior_minas_tirith",name_ko:"미나스 티리스 전사",name_en:"War
             const foes = b.filter(v => v.side === 'good'), best = Math.max(...foes.map(v => v.stats.fight)), bestStr = Math.max(...foes.map(v => v.stats.strength));
             if (bestStr >= h.stats.defence + 1 || (h.currentWounds <= 1 && h.stats.fight <= best)) {
                 h.resources.might--; h.heroicDef = true;
-                this.refreshUnit(h), this.emit('Heroic', h.name + ' — 영웅적 수비 (AI)');
+                this.refreshUnit(h), this.emit('Heroic', h.name + ' — 영웅적 수비 (AI)', { uid: h.uid });
             } else if (h.stats.fight <= best + 1) {
                 h.resources.might--; h.roundBuff.fight = (h.roundBuff.fight || 0) + 1;
-                this.refreshUnit(h), this.emit('Heroic', h.name + ' — 영웅적 일격 (AI)');
+                this.refreshUnit(h), this.emit('Heroic', h.name + ' — 영웅적 일격 (AI)', { uid: h.uid });
             }
         }
         const H = Ue(b, this.alive(), this.terrain, this.priority, this.rng);
@@ -6727,7 +6727,7 @@ Ae=[{id:"warrior_minas_tirith",name_ko:"미나스 티리스 전사",name_en:"War
         for (const h of b.filter(v => v.heroicCombat && v.alive && v.side === H.winnerSide)) {
             h.heroicCombat = false;
             const foes2 = this.alive(Ht(h.side)), others = foes2.filter(f => !b.includes(f)), nf = (others[0] ? others : foes2).sort((a, c) => ht(h, a) - ht(h, c))[0];
-            if (nf && ht(h, nf) <= h.stats.move) { Object.assign(h, ue(h, nf)); this.fightQueue.unshift([h.uid, nf.uid]); this.emit('Heroic', h.name + ' — 영웅의 전투 · 재돌격'); }
+            if (nf && ht(h, nf) <= h.stats.move) { Object.assign(h, ue(h, nf)); this.fightQueue.unshift([h.uid, nf.uid]); this.emit('Heroic', h.name + ' — 영웅의 전투 · 재돌격', { uid: h.uid }); }
         }
     } this.checkRun(); }
     applyCombat(Y) { for (const b of Y.strikeResults) {
@@ -9396,7 +9396,7 @@ P.heroic = function (uid, key) {
     T[key]();
     this.refreshUnit(u);
     const N = { strike: '영웅적 일격', combat: '영웅의 전투', defence: '영웅적 수비', shoot: '영웅적 사격', move: '영웅적 진군', might: '운명의 일격' };
-    this.emit('Heroic', u.name + ' — 영웅 행동 · ' + N[key]);
+    this.emit('Heroic', u.name + ' — 영웅 행동 · ' + N[key], { uid: u.uid });
     this.save();
     return true;
 };
@@ -11748,7 +11748,7 @@ Ve.prototype.play=async function(event){if(event.type==='CommandUsed'){const u=t
 const heroFallenPlay=Ve.prototype.play;
 Ve.prototype.play=async function(event){if(event.type==='UnitKilled'&&event.uid){const u=this.b.unit(event.uid);if(u&&u.traits&&u.traits.includes('hero')){this.soundFX&&this.soundFX.play('death');const good=u.side==='good';const el=document.createElement('div');el.className='hero-fallen '+(good?'good':'evil');el.innerHTML=`<b>${good?'영웅 전사':'적장 격파'}</b><span>${esc(u.name)}</span>`;document.body.appendChild(el);setTimeout(()=>el.classList.add('on'),30);setTimeout(()=>{el.classList.remove('on');setTimeout(()=>el.remove(),450)},1600);}}return heroFallenPlay.call(this,event);};
 const unitFxPlay=Ve.prototype.play;
-Ve.prototype.play=async function(event){if(event.uid&&['Terror','HeroSkill','Saved','Relic'].includes(event.type)){const u=this.b.unit(event.uid);if(u){const tex=event.type==='Terror'?'fx-terror':event.type==='HeroSkill'?'fx-rally':'fx-cast';const col=event.type==='Terror'?'#b9a4e8':event.type==='HeroSkill'?'#fbe8b0':event.type==='Relic'?'#9ff0cf':'#cfe6ff';this.soundFX&&this.soundFX.play(event.type==='Terror'?'dice_roll':'event');const fx=this.add.image(u.x,u.y,tex).setDepth(14).setDisplaySize(100,100).setAlpha(.92);if(event.type==='Relic')fx.setTint(0x9ff0cf);const nm=this.add.text(u.x,u.y-u.radius-30,(event.text||'').split('·').pop().trim(),{fontFamily:'Pretendard',fontSize:'13px',color:col,stroke:'#17211d',strokeThickness:2,backgroundColor:'#1d2b3af0',padding:{x:6,y:3}}).setOrigin(.5).setDepth(15);await this.tween(fx,{displayWidth:180,displayHeight:180,alpha:0},400);fx.destroy();this.tween(nm,{y:u.y-u.radius-58,alpha:0},650).then(()=>nm.destroy());}}return unitFxPlay.call(this,event);};
+Ve.prototype.play=async function(event){if(event.uid&&['Terror','HeroSkill','Saved','Relic','Heroic'].includes(event.type)){const u=this.b.unit(event.uid);if(u){const tex=event.type==='Terror'?'fx-terror':event.type==='HeroSkill'?'fx-rally':'fx-cast';const col=event.type==='Terror'?'#b9a4e8':event.type==='HeroSkill'||event.type==='Heroic'?'#fbe8b0':event.type==='Relic'?'#9ff0cf':'#cfe6ff';this.soundFX&&this.soundFX.play(event.type==='Terror'?'dice_roll':'event');const fx=this.add.image(u.x,u.y,tex).setDepth(14).setDisplaySize(100,100).setAlpha(.92);if(event.type==='Relic')fx.setTint(0x9ff0cf);const nm=this.add.text(u.x,u.y-u.radius-30,(event.text||'').split('·').pop().trim(),{fontFamily:'Pretendard',fontSize:'13px',color:col,stroke:'#17211d',strokeThickness:2,backgroundColor:'#1d2b3af0',padding:{x:6,y:3}}).setOrigin(.5).setDepth(15);await this.tween(fx,{displayWidth:180,displayHeight:180,alpha:0},400);fx.destroy();this.tween(nm,{y:u.y-u.radius-58,alpha:0},650).then(()=>nm.destroy());}}return unitFxPlay.call(this,event);};
 const trapFxPlay=Ve.prototype.play;
 Ve.prototype.play=async function(event){if(event.type==='Trap'&&event.at){const d=event.at;this.soundFX&&this.soundFX.play(d.type==='ballista'||d.type==='scorpion'?'arrow_release':'base_contact');const r=Math.max(70,(d.radius||120)*1.2);const fx=this.add.image(d.x,d.y,'fx-clash').setDepth(14).setDisplaySize(80,80).setAlpha(.95);if(d.type==='oil'||d.type==='barrel')fx.setTint(0xff8a3d);else if(d.type==='spike')fx.setTint(0xc9d6e8);const nm=this.add.text(d.x,d.y-40,(event.text||'').split('·')[0].trim(),{fontFamily:'Pretendard',fontSize:'13px',color:'#ffcf9a',stroke:'#17211d',strokeThickness:2,backgroundColor:'#2a1d12f0',padding:{x:6,y:3}}).setOrigin(.5).setDepth(15);await this.tween(fx,{displayWidth:r*2,displayHeight:r*2,alpha:0},420);fx.destroy();this.tween(nm,{y:d.y-70,alpha:0},650).then(()=>nm.destroy());}return trapFxPlay.call(this,event);};
 const spellFxPlay=Ve.prototype.play;
