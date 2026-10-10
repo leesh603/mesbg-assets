@@ -2778,15 +2778,16 @@ P.castSpell = function (uid, idx) {
     const buff = (v, k, n) => { v.roundBuff[k] = (v.roundBuff[k] || 0) + n; this.refreshUnit(v); };
     const sb = (t, o) => { for (const k in o) buff(t, k, o[k]); };
     const inR = (l, r) => l.filter(t => ht(t, u) <= r);
+    const _aff = [];
     if (fxd.self) sb(u, fxd.self);
-    if (fxd.ally) inR(near, fxd.ally.r || 360).filter(t => !fxd.ally.trait || t.traits.includes(fxd.ally.trait)).forEach(t => { sb(t, fxd.ally.stats || {}); if (fxd.ally.protect) t.protected = !0; });
-    if (fxd.foe) inR(foes, fxd.foe.r || 450).forEach(t => sb(t, fxd.foe.stats || {}));
-    if (fxd.foeStrongest) { const t = foes.sort((a, b) => b.stats.attacks - a.stats.attacks)[0]; if (t) sb(t, fxd.foeStrongest); }
-    if (fxd.heal) inR(near, fxd.heal.r || 360).filter(t => t.currentWounds < t.stats.wounds).sort((a, b) => (b.stats.wounds - b.currentWounds) - (a.stats.wounds - a.currentWounds)).slice(0, fxd.heal.n || 1).forEach(t => t.currentWounds++);
-    if (fxd.strike) inR(foes, fxd.strike.r || 450).slice(0, fxd.strike.n || 1).forEach(t => fxd.strike.dmg && this.inflict(u, t, fxd.strike.dmg));
-    if (fxd.fear) inR(foes, fxd.fear.r || 450).forEach(t => { t.feared = !0; });
-    if (fxd.push) { const t = foes.sort((a, b) => ht(a, u) - ht(b, u))[0]; if (t) { const ps = De(t, [u], this.alive(), this.terrain, fxd.push); Object.assign(t, ps.to); } }
-    this.emit('Spell', `${u.name} · ${sp[0]}`, { uid: u.uid, offensive: !!(fxd.strike || fxd.push || fxd.fear || fxd.foe || fxd.foeStrongest) });
+    if (fxd.ally) inR(near, fxd.ally.r || 360).filter(t => !fxd.ally.trait || t.traits.includes(fxd.ally.trait)).forEach(t => { sb(t, fxd.ally.stats || {}); if (fxd.ally.protect) t.protected = !0; _aff.push(t.uid); });
+    if (fxd.foe) inR(foes, fxd.foe.r || 450).forEach(t => { sb(t, fxd.foe.stats || {}); _aff.push(t.uid); });
+    if (fxd.foeStrongest) { const t = foes.sort((a, b) => b.stats.attacks - a.stats.attacks)[0]; if (t) { sb(t, fxd.foeStrongest); _aff.push(t.uid); } }
+    if (fxd.heal) inR(near, fxd.heal.r || 360).filter(t => t.currentWounds < t.stats.wounds).sort((a, b) => (b.stats.wounds - b.currentWounds) - (a.stats.wounds - a.currentWounds)).slice(0, fxd.heal.n || 1).forEach(t => { t.currentWounds++; _aff.push(t.uid); });
+    if (fxd.strike) inR(foes, fxd.strike.r || 450).slice(0, fxd.strike.n || 1).forEach(t => { if (fxd.strike.dmg) { this.inflict(u, t, fxd.strike.dmg); _aff.push(t.uid); } });
+    if (fxd.fear) inR(foes, fxd.fear.r || 450).forEach(t => { t.feared = !0; _aff.push(t.uid); });
+    if (fxd.push) { const t = foes.sort((a, b) => ht(a, u) - ht(b, u))[0]; if (t) { const ps = De(t, [u], this.alive(), this.terrain, fxd.push); Object.assign(t, ps.to); _aff.push(t.uid); } }
+    this.emit('Spell', `${u.name} · ${sp[0]}`, { uid: u.uid, targets: _aff, offensive: !!(fxd.strike || fxd.push || fxd.fear || fxd.foe || fxd.foeStrongest) });
     this.checkRun();
     return true;
 };
@@ -5113,7 +5114,7 @@ Ve.prototype.play=async function(event){if(event.type==='CommandUsed'){const u=t
 const heroFallenPlay=Ve.prototype.play;
 Ve.prototype.play=async function(event){if(event.type==='UnitKilled'&&event.uid){const u=this.b.unit(event.uid);if(u&&u.traits&&u.traits.includes('hero')){const good=u.side==='good';const el=document.createElement('div');el.className='hero-fallen '+(good?'good':'evil');el.innerHTML=`<b>${good?'영웅 전사':'적장 격파'}</b><span>${esc(u.name)}</span>`;document.body.appendChild(el);setTimeout(()=>el.classList.add('on'),30);setTimeout(()=>{el.classList.remove('on');setTimeout(()=>el.remove(),450)},1600);}}return heroFallenPlay.call(this,event);};
 const spellFxPlay=Ve.prototype.play;
-Ve.prototype.play=async function(event){if(event.type==='Spell'&&event.uid){const u=this.b.unit(event.uid);if(u){this.soundFX&&this.soundFX.play('event');const fx=this.add.image(u.x,u.y,'fx-cast').setDepth(14).setDisplaySize(110,110).setAlpha(.95);const nm=this.add.text(u.x,u.y-46,(event.text||'').split('·').pop().trim(),{fontFamily:'Pretendard',fontSize:'13px',color:event.offensive?'#ffb9a0':'#cfe6ff',stroke:'#17211d',strokeThickness:2,backgroundColor:'#1d2b3af0',padding:{x:6,y:3}}).setOrigin(.5).setDepth(15);await this.tween(fx,{displayWidth:200,displayHeight:200,alpha:0},430);fx.destroy();this.tween(nm,{y:u.y-82,alpha:0},700).then(()=>nm.destroy());}}return spellFxPlay.call(this,event);};
+Ve.prototype.play=async function(event){if(event.type==='Spell'&&event.uid){const u=this.b.unit(event.uid);if(u){this.soundFX&&this.soundFX.play('event');const fx=this.add.image(u.x,u.y,'fx-cast').setDepth(14).setDisplaySize(110,110).setAlpha(.95);const nm=this.add.text(u.x,u.y-46,(event.text||'').split('·').pop().trim(),{fontFamily:'Pretendard',fontSize:'13px',color:event.offensive?'#ffb9a0':'#cfe6ff',stroke:'#17211d',strokeThickness:2,backgroundColor:'#1d2b3af0',padding:{x:6,y:3}}).setOrigin(.5).setDepth(15);for(const tid of event.targets||[]){const tv=this.b.unit(tid);if(!tv)continue;const tfx=this.add.image(tv.x,tv.y,'fx-cast').setDepth(13).setDisplaySize(70,70).setAlpha(.8);if(event.offensive)tfx.setTint(0xff9a70);this.tween(tfx,{displayWidth:130,displayHeight:130,alpha:0},420).then(()=>tfx.destroy());}await this.tween(fx,{displayWidth:200,displayHeight:200,alpha:0},430);fx.destroy();this.tween(nm,{y:u.y-82,alpha:0},700).then(()=>nm.destroy());}}return spellFxPlay.call(this,event);};
 window.MESBG.ui.confirm=()=>ut('dock-primary').click();window.MESBG.ui.cancel=()=>ut('intent-cancel').click();
 window.MESBG.catalog={rules:UNIT_RULES,units:UnitCatalog,estimatePoints,register:registerUnit,registerSkill:(id,fn)=>customSkills.set(id,fn)};
 window.MESBG.chargePlan=chargePlan;window.MESBG.effectType=effectType;window.MESBG.plan=ve;window.MESBG.act=fn=>Rt(fn);
