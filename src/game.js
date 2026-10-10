@@ -1996,7 +1996,12 @@ const ALLY_PACKS = [
     { label: '에오를의 아들들', cost: 85, ids: ['sons_of_eorl'] },
     { label: '망자 기병', cost: 120, ids: ['dead_rider'] },
     { label: '곤도르 기사', cost: 65, ids: ['gondor_knight'] },
-    { label: '로한 근위기병', cost: 75, ids: ['rohan_royal_guard_mounted'] }
+    { label: '로한 근위기병', cost: 75, ids: ['rohan_royal_guard_mounted'] },
+    { label: '엔트', cost: 130, ids: ['ent'] },
+    { label: '베오른 (곰)', cost: 145, ids: ['beorn_bear'] },
+    { label: '돌 암로스 백조기사', cost: 80, ids: ['dol_amroth_knight'] },
+    { label: '카자드 근위병 ×2', cost: 100, ids: ['khazad_guard', 'khazad_guard'] },
+    { label: '샘물수위병 ×2', cost: 90, ids: ['mt_fountain_guard', 'mt_fountain_guard'] }
 ];
 P.buyAlly = function (i) {
     if (this.phase !== 'reward' || !['recruit', 'shop'].includes(this.campStep) || this.allyBought)
