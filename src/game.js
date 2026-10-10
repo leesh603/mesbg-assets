@@ -1594,6 +1594,7 @@ P._trkKill = function (k, v) {
         if (k.traits.includes('hero')) this.stageHeroSlayer = (this.stageHeroSlayer || 0) + 1;
         k._stageKills = (k._stageKills || 0) + 1;
         if (k.side === 'good' && k.traits.includes('hero') && !k._questDone && typeof HERO_QUESTS !== 'undefined' && HERO_QUESTS[k.id] && HERO_QUESTS[k.id].need > 0 && k._stageKills >= HERO_QUESTS[k.id].need) { k._questDone = true; _questGrant(this, k); this.emit('Event', '◆ 임무 달성 — ' + k.name + '의 ' + HERO_QUESTS[k.id].label.split(' — ')[0]); }
+        if (v.id === 'orc_captain' || v.id === 'goblin_king') { let _n = 0; for (const e2 of this.alive('evil')) { if (ht(e2, v) <= 520 && !e2.traits.includes('boss') && !e2.traits.includes('hero')) { e2.baseStats.courage = Math.max(0, (e2.baseStats.courage || 0) - 1); this.refreshUnit(e2); _n++; } } if (_n) this.emit('Event', '💀 지휘관 전사 — 주변 적 ' + _n + '기 용기 −1'); }
         [3, 5, 8].includes(k._stageKills) && this.emit('Event', `⚔ ${k.name} 연속 처치 ×${k._stageKills}`);
         if (!k.traits.includes('hero') && !k.traits.includes('veteran') && (k.veteranXP || 0) >= 6) {
             k.traits.push('veteran'); k.baseStats.fight = (k.baseStats.fight || 0) + 1; k.baseStats.defence = (k.baseStats.defence || 0) + 1; this.refreshUnit(k);
@@ -1784,6 +1785,14 @@ P.beginRound = function () {
     if (_wm === 'frost')
         for (const u of this.alive())
             u.stats.strength = Math.max(1, u.stats.strength - 1);
+    if (this.mission === 'defense') {
+        let _hf = 0;
+        for (const u of this.alive('good'))
+            if (ht(u, Mt.objective) <= Mt.objective.radius && !u.heroicUsed) { }
+        for (const u of this.alive('good'))
+            if (ht(u, Mt.objective) <= Mt.objective.radius) { u.roundBuff.fight = (u.roundBuff.fight || 0) + 1; this.refreshUnit(u); _hf++; }
+        if (_hf && this.round === 1) this.emit('Event', '🛡 방어선 의지 — 구역 내 아군 ' + _hf + '기 결투 +1');
+    }
     if (this.current?.modifier === 'reinforce' && this.round % 3 === 0 && this.alive('evil').length < 26)
         this.spawnEnemies(['orc_sword', 'orc_archer']);
     if (this.delayed.length) {
@@ -4875,7 +4884,7 @@ function renderDock(){
     } }
     { const _wf = ut('wx-fx'), _mod = (q.current && q.current.modifier) || ''; _wf && (_wf.className = ['rain', 'dark', 'fog', 'snow', 'eclipse', 'gale', 'frost', 'mud'].includes(_mod) ? 'wx-' + _mod : ''); }
     ut('wave').textContent=String(phase==='preparation'?q.wave+1:q.wave||1).padStart(2,'0');
-    const rules={defense:`라운드 끝 · 구역에 적 ${q.breachCount}기면 패배`,annihilation:'남은 적을 모두 격파',hold:`거점 우세 ${q.capture||0}/3 라운드`,survive:`생존 ${q.round||0}/5 라운드`,breakthrough:'아군 2기를 남쪽 돌파선으로'+(()=>{const n=q.alive('good').filter(u=>u.y>1200).length;return n?' · 돌파 '+Math.min(n,2)+'/2':''})(),rescue:q.rescued?`구출 후 생존 ${q.capture||0}/3`:'포로 구역 확보 후 3라운드 생존',commander:'보스를 처치하면 승리',escort:`보급 호송 — 남쪽 출구까지 호송${q.escortCart&&q.unit(q.escortCart)?.alive?` · 마차 ${Math.round(q.unit(q.escortCart).y)}/1180 · ♥${q.unit(q.escortCart).currentWounds}`:''} · 파괴 시 패배`,scouting:`정보 수습 ${(q.scouts||0)}/3 — 흩어진 정보에 아군 접근`};
+    const rules={defense:`라운드 끝 · 구역에 적 ${q.breachCount}기면 패배 · 구역 내 아군 결투 +1`,annihilation:'남은 적을 모두 격파',hold:`거점 우세 ${q.capture||0}/3 라운드`,survive:`생존 ${q.round||0}/5 라운드`,breakthrough:'아군 2기를 남쪽 돌파선으로'+(()=>{const n=q.alive('good').filter(u=>u.y>1200).length;return n?' · 돌파 '+Math.min(n,2)+'/2':''})(),rescue:q.rescued?`구출 후 생존 ${q.capture||0}/3`:'포로 구역 확보 후 3라운드 생존',commander:'보스를 처치하면 승리',escort:`보급 호송 — 남쪽 출구까지 호송${q.escortCart&&q.unit(q.escortCart)?.alive?` · 마차 ${Math.round(q.unit(q.escortCart).y)}/1180 · ♥${q.unit(q.escortCart).currentWounds}`:''} · 파괴 시 패배`,scouting:`정보 수습 ${(q.scouts||0)}/3 — 흩어진 정보에 아군 접근`};
     ut('ux-mission').innerHTML=`<em>${CX.missionNames[q.mission]||'원정 준비'}</em>${esc(rules[q.mission]||'병사를 선택해 전열을 정하세요')}${q.bonusObjective?" <small style='color:#f2c75a'>· ★"+esc(q.bonusObjective.text)+" (+"+q.bonusObjective.gold+"금)</small>":''}${(['hold','defense','rescue'].includes(q.mission)&&q.alive('evil').some(u=>ht(u,Mt.objective)<=Mt.objective.radius*0.75))?" <small style='color:#ff7a5c;font-weight:800'>· ⚠ 목표 위협</small>":''}${['move','shoot','fight'].includes(q.phase)&&!(q.stageDeaths||0)?" <small style='color:#8fd8a0'>· 무결 진행 중 (+25금)</small>":''}`;
     const image=ut('dock-portrait');if(u){const src=Th(q.meta.get(u.id).file);if(image.getAttribute('src')!==src){image.dataset.full=Ut(q.meta.get(u.id).file);image.onerror=function(){this.onerror=null;this.src=this.dataset.full};image.src=src;}image.classList.remove('hidden')}else image.classList.add('hidden');
     ut('dock-eyebrow').textContent=phase==='preparation'?'전열 배치':At?'행동 처리 중':active?'선택 병사':busy?'상대의 차례':phase==='fight'?'근접전 판정':'원정대 지휘';
