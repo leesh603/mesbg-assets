@@ -36,7 +36,7 @@ Ae=[{id:"warrior_minas_tirith",name_ko:"미나스 티리스 전사",name_en:"War
         const mcBase = this.waveStartCounts ? this.waveStartCounts[mc] : 0;
         if (mcBase && this.alive(mc).length <= mcBase / 2)
             for (const v of this.alive(mc).slice())
-                if (Lt(this.rng) + Lt(this.rng) + v.stats.courage < 8)
+                if (!v.lair && Lt(this.rng) + Lt(this.rng) + v.stats.courage < 8)
                     v.alive = false, v.fled = true, this.emit("UnitKilled", `${v.name} · 전열 붕괴 — 도주`, { uid: v.uid });
     }
     if (this.mission === 'escort' && this.escortCart) {
@@ -50,11 +50,34 @@ Ae=[{id:"warrior_minas_tirith",name_ko:"미나스 티리스 전사",name_en:"War
             }
         }
     }
+    if (this.mission === 'purge' && this.purgeLairs && this.round % 2 === 0) {
+        const _pool = ['orc_sword', 'orc_sword', 'orc_archer', 'moria_goblin'];
+        let _ns = 0;
+        for (const _luid of this.purgeLairs.slice()) {
+            const _l = this.unit(_luid);
+            if (!_l || !_l.alive || this.alive('evil').length >= 30)
+                continue;
+            const _pid = _pool[Math.floor(this.rng() * _pool.length)];
+            if (!this.meta.has(_pid))
+                continue;
+            const _o = this.spawn(_pid, 'evil', { x: _l.x, y: _l.y });
+            let _ok = false;
+            outer: for (let _dd = _l.radius + 60; _dd <= 380; _dd += 40) {
+                for (let _a = 0; _a < 10; _a++) {
+                    const _pt = { x: _l.x + Math.cos(_a * Math.PI / 5) * _dd, y: _l.y + Math.sin(_a * Math.PI / 5) * _dd };
+                    if (Et(_o, _pt, this.units, this.terrain)) { _o.x = _pt.x; _o.y = _pt.y; _ok = true; break outer; }
+                }
+            }
+            if (_ok) { this.refreshUnit(_o); _ns++; }
+            else { _o.alive = false; _o.fled = true; }
+        }
+        if (_ns) this.emit('Event', `소굴에서 적 ${_ns}기가 쏟아져 나옵니다!`);
+    }
     this._roundStartCounts = { good: this.alive("good").length, evil: this.alive("evil").length };
     let Y = Lt(this.rng), b = Lt(this.rng), H = 0; for (; Y === b && H < 100;)
         H++, Y = Lt(this.rng), b = Lt(this.rng); this.priority = Y >= b ? "good" : "evil", this.priorityForce && (this.priority = this.side = this.priorityForce, this.priorityForce = ""), this.nextRoundBuffs && (this.nextRoundBuffs.forEach(rb => (this.alive(rb.side || "good").forEach(u => (!rb.trait || u.traits.includes(rb.trait)) && (u.roundBuff[rb.stat] = (u.roundBuff[rb.stat] || 0) + rb.n, this.refreshUnit(u))), rb.stat ? this.emit("Event", (rb.side === "evil" ? "적 " : "아군 ") + ({fight:"결투",move:"이동",courage:"용기",attacks:"Attack",will:"Will",shootRange:"사거리",defence:"Defense",strength:"힘"}[rb.stat] || rb.stat) + " " + (rb.n > 0 ? "+" : "") + rb.n + " 적용") : 0)), this.nextRoundBuffs = null), this.side = this.priority, this.phase = "move", this.emit("RoundStarted", `라운드 ${this.round} · ${this.priority === "good" ? "곤도르" : "모르도르"} 우선권`), this.emit("PriorityRolled", void 0, { good: Y, evil: b, ties: H }), this.autoSelect(); }
     remaining(Y) { return Math.max(0, Y.stats.move - Y.movementSpent); }
-    eligible(Y = this.side) { return this.alive(Y).filter(b => !b.acted && (!this.activeMoverUid || this.phase !== "move" || Y !== this.side || b.uid === this.activeMoverUid) && (this.phase === "move" || this.phase === "shoot" && b.stats.shootRange > 0 && !this.engaged(b) && b.movementSpent * 2 <= b.stats.move)); }
+    eligible(Y = this.side) { return this.alive(Y).filter(b => !b.acted && (!this.activeMoverUid || this.phase !== "move" || Y !== this.side || b.uid === this.activeMoverUid) && ((this.phase === "move" && !b.lair) || this.phase === "shoot" && b.stats.shootRange > 0 && !this.engaged(b) && b.movementSpent * 2 <= b.stats.move)); }
     engaged(Y) { return this.alive().some(b => Vt(Y, b)); }
     autoSelect() { var Y; this.selected = ((Y = this.eligible()[0]) == null ? void 0 : Y.uid) || ""; }
     canAct(Y) { return !!Y && Y.alive && Y.side === this.side && !Y.acted && (this.phase === "move" || this.phase === "shoot") && this.eligible().includes(Y); }
@@ -268,7 +291,7 @@ class Ve extends Ot.Scene {
     } for (const p of b.alive()) {
         p.traits && p.traits.includes('boss') && (this.rings.fillStyle(12534097, .1 + .06 * Math.sin(performance.now() / 240)), this.rings.fillCircle(p.x, p.y, (p.visualRadius || p.radius) + 14), this.rings.lineStyle(4, 16745560, .5 + .3 * Math.sin(performance.now() / 240)), this.rings.strokeCircle(p.x, p.y, (p.visualRadius || p.radius) + 14)),
         (this.b.commanders || []).includes(p.uid) && (this.rings.lineStyle(1.5, 0xffd76a, .28), this.rings.strokeCircle(p.x, p.y, 135)),
-        p.hold && (this.rings.lineStyle(3, 9362410, .8), this.rings.strokeCircle(p.x, p.y, p.radius + 2)), p.feared && this.labels.add(this.add.text(p.x, p.y - p.radius - 30, '😨', { fontFamily: 'Pretendard', fontSize: '15px' }).setOrigin(.5)), p._snared && this.labels.add(this.add.text(p.x + 16, p.y - p.radius - 30, '⛓', { fontFamily: 'Pretendard', fontSize: '13px' }).setOrigin(.5)), (this.b.commanders || []).includes(p.uid) && this.labels.add(this.add.text(p.x, p.y - p.radius - 44, '♛', { fontFamily: 'Pretendard', fontSize: '15px', color: '#ffd76a', stroke: '#000', strokeThickness: 3 }).setOrigin(.5)), p.uid === this.b.escortCart && this.labels.add(this.add.text(p.x, p.y - p.radius - 44, '호송', { fontFamily: 'Pretendard', fontSize: '12px', color: '#bfe3ff', stroke: '#000', strokeThickness: 3 }).setOrigin(.5)), p.protected && this.labels.add(this.add.text(p.x, p.y + p.radius + 8, '🛡', { fontFamily: 'Pretendard', fontSize: '13px' }).setOrigin(.5)), p.aim && this.labels.add(this.add.text(p.x - p.radius + 4, p.y - p.radius - 8, '🎯', { fontFamily: 'Pretendard', fontSize: '12px' }).setOrigin(.5)), p.prone && this.labels.add(this.add.text(p.x + p.radius - 4, p.y - p.radius - 8, '💥', { fontFamily: 'Pretendard', fontSize: '13px' }).setOrigin(.5)), p.acted && ["move", "shoot"].includes(b.phase) && this.labels.add(this.add.text(p.x + p.radius - 3, p.y - p.radius, "✓", { fontFamily: "Pretendard", fontSize: "17px", color: "#fff1bc", stroke: "#121b1c", strokeThickness: 3 }));
+        p.hold && (this.rings.lineStyle(3, 9362410, .8), this.rings.strokeCircle(p.x, p.y, p.radius + 2)), p.feared && this.labels.add(this.add.text(p.x, p.y - p.radius - 30, '😨', { fontFamily: 'Pretendard', fontSize: '15px' }).setOrigin(.5)), p._snared && this.labels.add(this.add.text(p.x + 16, p.y - p.radius - 30, '⛓', { fontFamily: 'Pretendard', fontSize: '13px' }).setOrigin(.5)), (this.b.commanders || []).includes(p.uid) && this.labels.add(this.add.text(p.x, p.y - p.radius - 44, '♛', { fontFamily: 'Pretendard', fontSize: '15px', color: '#ffd76a', stroke: '#000', strokeThickness: 3 }).setOrigin(.5)), p.uid === this.b.escortCart && this.labels.add(this.add.text(p.x, p.y - p.radius - 44, '호송', { fontFamily: 'Pretendard', fontSize: '12px', color: '#bfe3ff', stroke: '#000', strokeThickness: 3 }).setOrigin(.5)), (this.b.purgeLairs || []).includes(p.uid) && this.labels.add(this.add.text(p.x, p.y - p.radius - 44, '소굴', { fontFamily: 'Pretendard', fontSize: '12px', color: '#ff9a6a', stroke: '#000', strokeThickness: 3 }).setOrigin(.5)), p.protected && this.labels.add(this.add.text(p.x, p.y + p.radius + 8, '🛡', { fontFamily: 'Pretendard', fontSize: '13px' }).setOrigin(.5)), p.aim && this.labels.add(this.add.text(p.x - p.radius + 4, p.y - p.radius - 8, '🎯', { fontFamily: 'Pretendard', fontSize: '12px' }).setOrigin(.5)), p.prone && this.labels.add(this.add.text(p.x + p.radius - 4, p.y - p.radius - 8, '💥', { fontFamily: 'Pretendard', fontSize: '13px' }).setOrigin(.5)), p.acted && ["move", "shoot"].includes(b.phase) && this.labels.add(this.add.text(p.x + p.radius - 3, p.y - p.radius, "✓", { fontFamily: "Pretendard", fontSize: "17px", color: "#fff1bc", stroke: "#121b1c", strokeThickness: 3 }));
         const S = p.radius + 10, t = p.stats.wounds;
         for (let f = 0; f < t; f++) {
             const c = -Math.PI / 2 + f * Math.PI * 2 / t + .055, o = -Math.PI / 2 + (f + 1) * Math.PI * 2 / t - .055;
@@ -663,7 +686,7 @@ const CX = {
     version: 1, inches: 45,
     maps: ['minas_tirith', 'osgiliath', 'amon_sul', 'helms_deep', 'fangorn', 'edoras', 'moria', 'isengard', 'black_gate', 'gorgoroth', 'rivendell', 'lothlorien', 'pelennor', 'dead_marshes', 'dunharrow', 'erebor', 'mirkwood', 'dol_guldur', 'gondolin', 'angband'],
     mapNames: ['미나스 티리스', '오스길리아스', '아몬 술', '헬름 협곡', '팡고른', '에도라스', '모리아', '아이센가드', '검은 문', '고르고로스', '리븐델', '로스로리엔', '펠렌노르', '죽은 늪', '던하로우', '에레보르', '미르크우드', '돌 굴두르', '곤돌린', '앙그반드'],
-    missionNames: { annihilation: '적 전멸', defense: '방어선 수호', hold: '거점 확보', survive: '포위망 생존', breakthrough: '전선 돌파', commander: '지휘관 처치', rescue: '포로 구출', escort: '보급 호송', scouting: '정찰 수습' },
+    missionNames: { annihilation: '적 전멸', defense: '방어선 수호', hold: '거점 확보', survive: '포위망 생존', breakthrough: '전선 돌파', commander: '지휘관 처치', rescue: '포로 구출', escort: '보급 호송', scouting: '정찰 수습', purge: '소굴 소탕' },
     roleNames: { infantry: '보병', hero: '영웅', cavalry: '기병', monster: '괴수', support: '지원', beast: '야수' },
     rarityNames: ['일반', '마법', '희귀', '고유'],
     relics: [
@@ -1411,7 +1434,7 @@ const ARC_FOES = {
 };
 P.stageInfo = function (n) {
     let boss = n % (this.difficulty === 'despair' ? 4 : 5) === 0 ? (STAGE_BOSSES[n] || (n > 70 ? ELDER_BOSSES[Math.floor(n / 5) % ELDER_BOSSES.length] : this.difficulty === 'despair' ? DESPAIR_BOSS_POOL[(Math.floor(n / 4) - 1) % DESPAIR_BOSS_POOL.length] : null)) : null;
-    const missions = ['defense', 'annihilation', 'hold', 'survive', 'commander', 'breakthrough', 'rescue', 'escort', 'scouting'];
+    const missions = ['defense', 'annihilation', 'hold', 'survive', 'commander', 'breakthrough', 'rescue', 'escort', 'scouting', 'purge'];
     const mission = boss ? 'commander' : missions[(n - 1) % missions.length];
     const ids = [];
     const dmul = this.difficulty === 'easy' ? .75 : this.difficulty === 'hard' ? 1.35 : this.difficulty === 'despair' ? 1.6 : 1;
@@ -1470,6 +1493,8 @@ P.prepareStage = function () {
     this.rescued = false;
     this.scouts = 0;
     this.escortCart = null;
+    this.purgeLairs = null;
+    this._lairDownAt = 0;
     this.escaped = [];
     this.warnings = [];
     this.terrain = structuredClone(ee).filter(t => !t.id.startsWith('wall') || this.mapIndex === 0);
@@ -1549,6 +1574,7 @@ const BONUS_OBJECTIVES = [
     { id: 'trapper_obj', text: '함정으로 2기 처치', gold: 25, cond: q => (q.devices || []).length > 0, test: q => (q.stageTrapKills || 0) >= 2 },
     { id: 'safe_cart', text: '무사 호송 — 마차 무손상', gold: 30, cond: q => q.mission === 'escort', test: q => { const c = q.unit(q.escortCart); return c && c.alive && c.currentWounds >= c.stats.wounds; } },
     { id: 'swift_scout', text: '신속 정찰 — 3라운드 내 정보 전부 수습', gold: 25, cond: q => q.mission === 'scouting', test: q => (q.scouts || 0) >= 3 && q.round <= 3 },
+    { id: 'lair_buster', text: '급습 — 3라운드 내 소굴 1곳 파괴', gold: 25, cond: q => q.mission === 'purge', test: q => (q._lairDownAt || 99) <= 3 },
 ];
 const HERO_QUESTS = {
     aragorn: { label: '왕의 귀환 — 3처치', need: 3, buff: 'fight' },
@@ -1739,6 +1765,24 @@ P.startWave = function () {
         _cart.baseStats = structuredClone(_cart.stats); _cart.currentWounds = 3; _cart.resources = { might: 0, will: 0, fate: 0 };
         this.refreshUnit(_cart); this.escortCart = _cart.uid;
         this.emit('Event', '보급 마차가 야영지를 출발합니다 — 남쪽 출구까지 호송하세요!');
+    }
+    if (this.mission === 'purge' && !this.purgeLairs) {
+        this.purgeLairs = [];
+        const _lid3 = ['terr_orc_camp', 'terr_barrow', 'terr_idol'], _lat3 = [[520, 700], [1200, 560], [1880, 700]];
+        _lid3.forEach((_lid, _li) => {
+            if (!this.meta.has(_lid)) return;
+            const _lu = this.spawn(_lid, 'evil', { x: _lat3[_li][0], y: _lat3[_li][1] });
+            _lu.lair = true;
+            Object.assign(_lu.stats, { move: 0, fight: 0, strength: 2, defence: 6, attacks: 0, wounds: 4, courage: 2, shootValue: 7, might: 0, will: 0, fate: 0 });
+            _lu.baseStats = structuredClone(_lu.stats); _lu.currentWounds = 4; _lu.resources = { might: 0, will: 0, fate: 0 };
+            outer: for (let _dy = 0; _dy <= 420; _dy += 60) {
+                const _pts = [{ x: _lat3[_li][0], y: _lat3[_li][1] + _dy }, { x: _lat3[_li][0] - _dy, y: _lat3[_li][1] }, { x: _lat3[_li][0] + _dy, y: _lat3[_li][1] }, { x: _lat3[_li][0], y: _lat3[_li][1] - _dy }];
+                for (const _pt of _pts)
+                    if (Et(_lu, _pt, this.units, this.terrain)) { _lu.x = _pt.x; _lu.y = _pt.y; break outer; }
+            }
+            this.refreshUnit(_lu); this.purgeLairs.push(_lu.uid);
+        });
+        if (this.purgeLairs.length) this.emit('Event', '적 소굴 3곳을 파괴하세요 — 둥지에서 적이 계속 쏟아져 나옵니다!');
     }
     this.emit('WaveStarted', `STAGE ${this.wave} · ${CX.missionNames[this.mission]}${this.current.boss ? ' · ' + (this.current.bossAll || [this.current.boss]).map(b2 => this.meta.get(b2)?.name_ko).filter(Boolean).join(' · ') : ''}${this.current.title ? ' · ' + this.current.title : ''}`, { boss: this.current.boss || null });
     this.beginRound();
@@ -1986,6 +2030,12 @@ P.endRound = function () {
         }
     }
     if (this.mission === 'scouting' && (this.scouts || 0) >= 3) {
+        this.finishWave();
+        return;
+    }
+    if (this.mission === 'purge' && this.purgeLairs && !this._lairDownAt && this.purgeLairs.some(u => { const w = this.unit(u); return !w || !w.alive; }))
+        this._lairDownAt = this.round;
+    if (this.mission === 'purge' && this.purgeLairs && !this.purgeLairs.some(u => { const w = this.unit(u); return w && w.alive; })) {
         this.finishWave();
         return;
     }
@@ -2850,7 +2900,7 @@ P.retreatStage = function () {
     return true;
 };
 P._saveState = function () {
-    const keys = ['gold', 'relics', 'capacityBought', 'totalKills', 'mithrilSpent', 'wave', 'cleared', 'units', 'counter', 'mode', 'best', 'campStep', 'campEvent', 'nextRoundBuffs', 'recruitOffers', 'relicChoices', 'chosenRelic', 'rerolls', 'lastGold', 'recruitDraft', 'initialDraft', 'horses', 'campDraft', 'campResult', 'eventOutcome', 'priorityForce', 'bonusCP', 'fallen', 'difficulty', 'armyName', 'allyBought', 'dailySeed', 'devices', 'weeklySeed', 'bonusId', 'escortCart', 'nextRelicRare', 'noAmbushNext', 'stageDeaths', 'stageHeroKills', 'stageShootKills', 'stageChargeKills', 'stageCavKills', 'stageMonsterKills', 'stageHeroSlayer', 'stageEliteKills', 'stageKills', 'challenge', 'eliteKills', '_routeChoice', '_altRoute', '_altRoute2', 'chestsOpened', 'legacy', '_flawless', 'bonusId2', '_bonusDone2'];
+    const keys = ['gold', 'relics', 'capacityBought', 'totalKills', 'mithrilSpent', 'wave', 'cleared', 'units', 'counter', 'mode', 'best', 'campStep', 'campEvent', 'nextRoundBuffs', 'recruitOffers', 'relicChoices', 'chosenRelic', 'rerolls', 'lastGold', 'recruitDraft', 'initialDraft', 'horses', 'campDraft', 'campResult', 'eventOutcome', 'priorityForce', 'bonusCP', 'fallen', 'difficulty', 'armyName', 'allyBought', 'dailySeed', 'devices', 'weeklySeed', 'bonusId', 'escortCart', 'purgeLairs', '_lairDownAt', 'nextRelicRare', 'noAmbushNext', 'stageDeaths', 'stageHeroKills', 'stageShootKills', 'stageChargeKills', 'stageCavKills', 'stageMonsterKills', 'stageHeroSlayer', 'stageEliteKills', 'stageKills', 'challenge', 'eliteKills', '_routeChoice', '_altRoute', '_altRoute2', 'chestsOpened', 'legacy', '_flawless', 'bonusId2', '_bonusDone2'];
     const state = { version: CX.version };
     for (const k of keys)
         state[k] = this[k];
@@ -4090,6 +4140,7 @@ Ve.prototype.play = async function (e) { if (e.type === 'HeroSkill') {
 } return oldPlay.call(this, e); };
 // UI helpers use the same images as the battlefield and inventory.
 const PATCH_NOTES = [
+    ['v1.24', ['신규 미션 소굴 소탕 — 2라운드마다 적을 쏟아내는 소굴 3곳(오크 야영지·고분·우상)을 파괴. 전용 보너스 급습 · 소굴 라벨 표시']],
     ['v1.23', ['신규 미션 정찰 수습 — 흩어진 정보 3곳 수습 (전용 보너스 신속 정찰)', '유품 시스템 — 사망 영웅 장비를 캠프에서 다른 영웅에게 분배 (슬롯 부족 시 금화 환급)', '경로 분기 — 캠프에서 다음 전장의 대안 경로 선택 가능 · 연속 전멸 보상(재기의 응원) · 적 영웅 등장 알림']],
     ['v1.22', [
       '적 포위 레인 — 측면에서 몰려와 갇힘(포위) 전술 발생',
@@ -4284,7 +4335,7 @@ function objectiveText() {
     if (q.phase === 'menu')
         return '작은 원정대에서 시작하는 끝없는 전쟁.';
     const counts = `아군 ${q.alive('good').length} · 적 ${q.alive('evil').length}`;
-    const rules = { defense: `라운드 종료 시 Defense 구역에 적 ${q.breachCount}명이 모이면 패배. 적을 전멸시키세요.`, annihilation: '적 부대를 전멸시키세요.', hold: `거점에서 아군이 수적 우세인 라운드 3회. 진행 ${q.capture || 0}/3.`, survive: `5라운드까지 살아남으세요. 현재 ${q.round}/5.`, breakthrough: '아군 2기를 남쪽 돌파선에 보낸 뒤 라운드를 종료하세요.', rescue: `포로 지점을 아군만 점유한 뒤 3라운드 생존. ${q.rescued ? '구출 완료 · ' + q.capture + '/3' : '아직 구출되지 않음'}`, commander: `${q.meta.get(q.current?.boss)?.name_ko || '적 지휘관'}을 처치하세요. 호위병은 남아도 됩니다.` };
+    const rules = { defense: `라운드 종료 시 Defense 구역에 적 ${q.breachCount}명이 모이면 패배. 적을 전멸시키세요.`, annihilation: '적 부대를 전멸시키세요.', hold: `거점에서 아군이 수적 우세인 라운드 3회. 진행 ${q.capture || 0}/3.`, survive: `5라운드까지 살아남으세요. 현재 ${q.round}/5.`, breakthrough: '아군 2기를 남쪽 돌파선에 보낸 뒤 라운드를 종료하세요.', rescue: `포로 지점을 아군만 점유한 뒤 3라운드 생존. ${q.rescued ? '구출 완료 · ' + q.capture + '/3' : '아직 구출되지 않음'}`, commander: `${q.meta.get(q.current?.boss)?.name_ko || '적 지휘관'}을 처치하세요. 호위병은 남아도 됩니다.`, purge: `적 소굴을 모두 파괴하세요 — 소굴은 2라운드마다 적을 끌어모읍니다. 남은 소굴 ${(q.purgeLairs||[]).filter(u=>{const w=q.unit(u);return w&&w.alive}).length}/3` };
     return `${rules[q.mission] || rules.defense}<br><b>${counts}</b>` + (q.bonusObjective ? `<br><b class='gold'>보너스 · ${q.bonusObjective.text} (+${q.bonusObjective.gold}금)${(({volley:(q.stageShootKills||0)+'/4',rout:(q.stageKills||0)+'/8',trapper_obj:(q.stageTrapKills||0)+'/2',safe_cart:(()=>{const c=q.unit(q.escortCart);return c?c.currentWounds+'/'+c.stats.wounds:''})(),elite_hunter:(q.stageEliteKills||0)+'/2',headsman:(q.stageHeroKills||q.stageHeroSlayer?'완료':'진행 중'),blitz:(q.round||0)+'/4라운드',flawless:(q.stageDeaths?'실패':'진행 중'),untouchable:(q.stageDeaths?'실패':'진행 중'),linehold:'진행 중',shield_wall:'진행 중'})[q.bonusObjective.id]||'')?' · '+(({volley:(q.stageShootKills||0)+'/4',rout:(q.stageKills||0)+'/8',trapper_obj:(q.stageTrapKills||0)+'/2',safe_cart:(()=>{const c=q.unit(q.escortCart);return c?c.currentWounds+'/'+c.stats.wounds:''})(),elite_hunter:(q.stageEliteKills||0)+'/2',headsman:(q.stageHeroKills||q.stageHeroSlayer?'완료':'진행 중'),blitz:(q.round||0)+'/4라운드',flawless:(q.stageDeaths?'실패':'진행 중'),untouchable:(q.stageDeaths?'실패':'진행 중'),linehold:'진행 중',shield_wall:'진행 중'})[q.bonusObjective.id]||''):''}</b>` : '') + (q.alive('evil').some(u => u.elite) ? `<br><b class='gold'>엘리트 ${q.alive('evil').filter(u => u.elite).length}기 — 처치 시 각 +8금</b>` : '');
 }
 const baseRender = Yt;
@@ -4953,7 +5004,7 @@ function renderDock(){
     } }
     { const _wf = ut('wx-fx'), _mod = (q.current && q.current.modifier) || ''; _wf && (_wf.className = ['rain', 'dark', 'fog', 'snow', 'eclipse', 'gale', 'frost', 'mud'].includes(_mod) ? 'wx-' + _mod : ''); }
     ut('wave').textContent=String(phase==='preparation'?q.wave+1:q.wave||1).padStart(2,'0');
-    const rules={defense:`라운드 끝 · 구역에 적 ${q.breachCount}기면 패배 · 구역 내 아군 결투 +1`,annihilation:'남은 적을 모두 격파',hold:`거점 우세 ${q.capture||0}/3 라운드`,survive:`생존 ${q.round||0}/5 라운드`,breakthrough:'아군 2기를 남쪽 돌파선으로'+(()=>{const n=q.alive('good').filter(u=>u.y>1200).length;return n?' · 돌파 '+Math.min(n,2)+'/2':''})(),rescue:q.rescued?`구출 후 생존 ${q.capture||0}/3`:'포로 구역 확보 후 3라운드 생존',commander:'보스를 처치하면 승리',escort:`보급 호송 — 남쪽 출구까지 호송${q.escortCart&&q.unit(q.escortCart)?.alive?` · 마차 ${Math.round(q.unit(q.escortCart).y)}/1180 · ♥${q.unit(q.escortCart).currentWounds}`:''} · 파괴 시 패배`,scouting:`정보 수습 ${(q.scouts||0)}/3 — 흩어진 정보에 아군 접근`};
+    const rules={defense:`라운드 끝 · 구역에 적 ${q.breachCount}기면 패배 · 구역 내 아군 결투 +1`,annihilation:'남은 적을 모두 격파',hold:`거점 우세 ${q.capture||0}/3 라운드`,survive:`생존 ${q.round||0}/5 라운드`,breakthrough:'아군 2기를 남쪽 돌파선으로'+(()=>{const n=q.alive('good').filter(u=>u.y>1200).length;return n?' · 돌파 '+Math.min(n,2)+'/2':''})(),rescue:q.rescued?`구출 후 생존 ${q.capture||0}/3`:'포로 구역 확보 후 3라운드 생존',commander:'보스를 처치하면 승리',escort:`보급 호송 — 남쪽 출구까지 호송${q.escortCart&&q.unit(q.escortCart)?.alive?` · 마차 ${Math.round(q.unit(q.escortCart).y)}/1180 · ♥${q.unit(q.escortCart).currentWounds}`:''} · 파괴 시 패배`,scouting:`정보 수습 ${(q.scouts||0)}/3 — 흩어진 정보에 아군 접근`,purge:`소굴 파괴 ${3-((q.purgeLairs||[]).filter(u=>{const w=q.unit(u);return w&&w.alive}).length)}/3 · 소굴은 2라운드마다 적 생성`};
     ut('ux-mission').innerHTML=`<em>${CX.missionNames[q.mission]||'원정 준비'}</em>${esc(rules[q.mission]||'병사를 선택해 전열을 정하세요')}${q.bonusObjective?" <small style='color:#f2c75a'>· ★"+esc(q.bonusObjective.text)+" (+"+q.bonusObjective.gold+"금)</small>":''}${q.bonusObjective2?" <small style='color:#f2c75a'>· ★"+esc(q.bonusObjective2.text)+" (+"+q.bonusObjective2.gold+"금)</small>":''}${(['hold','defense','rescue'].includes(q.mission)&&q.alive('evil').some(u=>ht(u,Mt.objective)<=Mt.objective.radius*0.75))?" <small style='color:#ff7a5c;font-weight:800'>· ⚠ 목표 위협</small>":''}${['move','shoot','fight'].includes(q.phase)&&!(q.stageDeaths||0)?" <small style='color:#8fd8a0'>· 무결 진행 중 (+25금)</small>":''}`;
     const image=ut('dock-portrait');if(u){const src=Th(q.meta.get(u.id).file);if(image.getAttribute('src')!==src){image.dataset.full=Ut(q.meta.get(u.id).file);image.onerror=function(){this.onerror=null;this.src=this.dataset.full};image.src=src;}image.classList.remove('hidden')}else image.classList.add('hidden');
     ut('dock-eyebrow').textContent=phase==='preparation'?'전열 배치':At?'행동 처리 중':active?'선택 병사':busy?'상대의 차례':phase==='fight'?'근접전 판정':'원정대 지휘';
