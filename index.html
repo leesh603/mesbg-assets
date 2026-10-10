@@ -10232,6 +10232,8 @@ Ve.prototype.drawRings = function () {
                 g.fillStyle(TARGET, .16); g.fillCircle(v.x, v.y, rr);
                 duo(3 / Z, TARGET, 1, () => g.strokeCircle(v.x, v.y, rr));
                 for (let k = 0; k < 4; k++) { const a = k * Math.PI / 2; duo(3 / Z, TARGET, 1, () => g.lineBetween(v.x + Math.cos(a) * (rr - 6 / Z), v.y + Math.sin(a) * (rr - 6 / Z), v.x + Math.cos(a) * (rr + 9 / Z), v.y + Math.sin(a) * (rr + 9 / Z))); }
+                const _hit = Math.min(6, u.stats.shootValue + (u.moved ? pt.movePenalty : 0) + (_t(u, v, b.terrain) === 'cover' ? 1 : 0) + (b.terrain.some(t => t.z === 'hill' && t.active && le(u, t, 0)) ? -1 : 0));
+                label(v.x, v.y + v.radius + 14 / Z, `명중 ${_hit}+ · 상처 ${oe(u.stats.strength, v.stats.defence)}+`, { fontSize: '14px', color: '#ffd9c2', padding: { x: 5, y: 3 } });
             }
         }
     }
