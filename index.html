@@ -8066,7 +8066,7 @@ const ARC_FOES = {
 };
 P.stageInfo = function (n) {
     let boss = n % (this.difficulty === 'despair' ? 4 : 5) === 0 ? (STAGE_BOSSES[n] || (n > 70 ? ELDER_BOSSES[Math.floor(n / 5) % ELDER_BOSSES.length] : this.difficulty === 'despair' ? DESPAIR_BOSS_POOL[(Math.floor(n / 4) - 1) % DESPAIR_BOSS_POOL.length] : null)) : null;
-    const missions = ['defense', 'annihilation', 'hold', 'survive', 'commander', 'breakthrough', 'rescue', 'escort', 'scouting', 'purge'];
+    const missions = ['defense', 'annihilation', 'hold', 'purge', 'survive', 'commander', 'breakthrough', 'rescue', 'escort', 'scouting'];
     const mission = boss ? 'commander' : missions[(n - 1) % missions.length];
     const ids = [];
     const dmul = this.difficulty === 'easy' ? .75 : this.difficulty === 'hard' ? 1.35 : this.difficulty === 'despair' ? 1.6 : 1;
