@@ -36,7 +36,7 @@ Ae=[{id:"warrior_minas_tirith",name_ko:"미나스 티리스 전사",name_en:"War
         if (mcBase && this.alive(mc).length <= mcBase / 2)
             for (const v of this.alive(mc).slice())
                 if (Lt(this.rng) + Lt(this.rng) + v.stats.courage < 8)
-                    v.alive = false, this.emit("UnitKilled", `${v.name} · 전열 붕괴 — 도주`, { uid: v.uid });
+                    v.alive = false, v.fled = true, this.emit("UnitKilled", `${v.name} · 전열 붕괴 — 도주`, { uid: v.uid });
     }
     if (this.mission === 'escort' && this.escortCart) {
         const _ec = this.unit(this.escortCart);
@@ -187,7 +187,7 @@ class Ve extends Ot.Scene {
             this.textures.exists(K2) && this.terrainLayer.add(this.add.image(D.x, D.y, K2).setDisplaySize(D.type === 'ballista' ? 130 : 76, D.type === 'ballista' ? 130 : 76));
         } for (const H of this.b.units) {
         let K = this.tokens.get(H.uid);
-        if (!H.alive || H.escaped) { if (K && !this.busy) { const _tk = K; this.tokens.delete(H.uid); this.tweens.add({ targets: _tk, alpha: 0, scaleX: .8, scaleY: .8, duration: 320, onComplete: () => _tk.destroy() }); } continue; }
+        if (!H.alive || H.escaped) { if (K && !this.busy) { const _tk = K; this.tokens.delete(H.uid); if (H.fled) { this.add.text(_tk.x, _tk.y - 30, '도주!', { fontFamily: 'Pretendard', fontSize: '13px', color: '#ffb3a0', stroke: '#000', strokeThickness: 3 }).setOrigin(.5).setDepth(20); this.tweens.add({ targets: _tk, alpha: 0, y: _tk.y + (H.side === 'evil' ? 380 : -380), duration: 750, onComplete: () => _tk.destroy() }); } else this.tweens.add({ targets: _tk, alpha: 0, scaleX: .8, scaleY: .8, duration: 320, onComplete: () => _tk.destroy() }); } continue; }
         if (K && K.getData("assetId") !== H.id && (K.destroy(), this.tokens.delete(H.uid), K = void 0), !K) {
             const p = this.add.ellipse(3, 6, H.radius * 2.15, H.radius * 1.6, 594704, .5), _tid = this.textures.exists(H.id) ? H.id : this._wantTex(H.id), S = this.textures.get(_tid).getSourceImage(), t = S.width / S.height, f = (H.artScale || 1) * Math.min(H.radius * 2.15, H.radius * 2 * Math.min(t, 1 / t)), c = this.add.image(0, 0, _tid).setDisplaySize(f * (t > 1 ? t : 1), f * (t > 1 ? 1 : 1 / t)).setName("token"), o = this.add.circle(0, 0, H.radius).setStrokeStyle(H.traits.includes("hero") ? 3 : (H.elite ? 3 : 2), H.side === "good" ? 10276837 : (H.elite ? 0xe8c45c : 15242357), .9).setName("rim"), r = this.add.text(0, H.radius + 8, H.traits.includes("hero") ? H.name : (H.autoAlly ? "◆" : H.elite ? "★" : "") + H.uid.toUpperCase(), { fontFamily: "Pretendard", fontSize: "12px", color: H.side === "good" ? "#e1eff0" : "#f0c4ae", backgroundColor: "#172223bb", padding: { x: 3, y: 2 } }).setOrigin(.5).setName("label");
             const m = this.add.image(0, -H.radius - 14, 'fx-clash').setName("clash").setVisible(!1), m2 = this.add.image(0, -H.radius - 14, 'fx-prone').setName("prone").setVisible(!1), m3 = this.add.image(0, -H.radius - 14, 'fx-terror').setName("terror").setVisible(!1), m4 = this.add.image(0, -H.radius - 14, 'fx-charge').setName("charge").setVisible(!1), m5 = this.add.image(0, -H.radius - 14, 'fx-halfmove').setName("halfmove").setVisible(!1), m6 = this.add.image(0, -H.radius - 14, 'fx-blood').setName("blood").setVisible(!1);
