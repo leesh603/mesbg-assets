@@ -319,7 +319,31 @@ class Ve extends Ot.Scene {
                 for (const f of S)
                     t.side !== f.side && ht(t, f) <= t.radius + f.radius + 3 && (this.rings.lineStyle(3, 14724967, .65), this.rings.lineBetween(t.x, t.y, f.x, f.y));
         }
-        if (b.fightQueue[0]) { const _nx = b.fightQueue[0].map(t => b.unit(t)).filter(t => t && t.alive), _cx = _nx.reduce((a, t) => a + t.x, 0) / Math.max(1, _nx.length), _cy = _nx.reduce((a, t) => a + t.y, 0) / Math.max(1, _nx.length); for (const t of _nx) this.rings.lineStyle(3, 15501166, .9).strokeCircle(t.x, t.y, t.radius + 8); _nx.length && this.labels.add(this.add.text(_cx, _cy - 60, '▼ 다음 교전 · 탭한 교전부터 해결', { fontFamily: 'Pretendard', fontSize: '13px', color: '#fbe8b0', backgroundColor: '#241d0aea', padding: { x: 7, y: 3 } }).setOrigin(.5)); } }
+        if (b.fightQueue[0]) { const _nx = b.fightQueue[0].map(t => b.unit(t)).filter(t => t && t.alive), _cx = _nx.reduce((a, t) => a + t.x, 0) / Math.max(1, _nx.length), _cy = _nx.reduce((a, t) => a + t.y, 0) / Math.max(1, _nx.length); for (const t of _nx) this.rings.lineStyle(3, 15501166, .9).strokeCircle(t.x, t.y, t.radius + 8); _nx.length && this.labels.add(this.add.text(_cx, _cy - 60, '▼ 다음 교전 · 탭한 교전부터 해결', { fontFamily: 'Pretendard', fontSize: '13px', color: '#fbe8b0', backgroundColor: '#241d0aea', padding: { x: 7, y: 3 } }).setOrigin(.5)); } 
+        // off-screen enemy edge indicators
+        if (!this._edgeG) { this._edgeG = this.add.graphics().setScrollFactor(0).setDepth(40); }
+        const _eg = this._edgeG; _eg.clear();
+        const _cam = this.cameras.main, _vw = _cam.worldView;
+        const _m = 26;
+        for (const _u of b.units) {
+            if (!_u.alive || _u.side !== 'evil' || _u.id === 'terr_cart') continue;
+            if (_vw.contains(_u.x, _u.y)) continue;
+            const _sx = _u.x - _vw.x, _sy = _u.y - _vw.y;
+            const _ex = Math.max(_m, Math.min(_vw.width - _m, _sx));
+            const _ey = Math.max(_m + 30, Math.min(_vw.height - _m, _sy));
+            const _ang = Math.atan2(_sy - _ey, _sx - _ex);
+            _eg.fillStyle(0xe04a30, .92);
+            _eg.beginPath();
+            _eg.moveTo(_ex + Math.cos(_ang) * 15, _ey + Math.sin(_ang) * 15);
+            _eg.lineTo(_ex + Math.cos(_ang + 2.5) * 10, _ey + Math.sin(_ang + 2.5) * 10);
+            _eg.lineTo(_ex + Math.cos(_ang - 2.5) * 10, _ey + Math.sin(_ang - 2.5) * 10);
+            _eg.closePath(); _eg.fillPath();
+            _eg.lineStyle(2, 0x1a0805, .9); _eg.strokePath();
+        }
+        if (!this._edgeLbl) { this._edgeLbl = this.add.text(0, 0, '', { fontFamily: 'Pretendard', fontSize: '11px', color: '#ffb0a0', backgroundColor: '#2a0d08d9', padding: { x: 5, y: 2 } }).setScrollFactor(0).setDepth(41).setOrigin(1, 0); }
+        const _off = b.units.filter(u => u.alive && u.side === 'evil' && !_vw.contains(u.x, u.y) && u.id !== 'terr_cart').length;
+        _off ? (this._edgeLbl.setText('화면 밖 적 ' + _off + '기'), this._edgeLbl.setPosition(_vw.width - 8, 44), this._edgeLbl.setVisible(true)) : this._edgeLbl.setVisible(false);
+}
     tween(b, H, K = 250) { return new Promise($ => { this.tweens.add({ targets: b, ...H, duration: K, ease: "Sine.easeInOut", onComplete: () => $() }); }); }
     sleep(b) { return new Promise(H => this.time.delayedCall(window._lwbFx ? Math.min(b, 30) : b, H)); }
     async play(b) { if (b.type === "UnitYielded") {
