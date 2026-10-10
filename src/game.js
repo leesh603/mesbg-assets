@@ -4661,7 +4661,7 @@ function renderDock(){
     const image=ut('dock-portrait');if(u){const src=Th(q.meta.get(u.id).file);if(image.getAttribute('src')!==src){image.dataset.full=Ut(q.meta.get(u.id).file);image.onerror=function(){this.onerror=null;this.src=this.dataset.full};image.src=src;}image.classList.remove('hidden')}else image.classList.add('hidden');
     ut('dock-eyebrow').textContent=phase==='preparation'?'전열 배치':At?'행동 처리 중':active?'선택 병사':busy?'상대의 차례':phase==='fight'?'근접전 판정':'원정대 지휘';
     ut('dock-name').textContent=u?shortName(u):phase==='fight'?(q.fightQueue.length?'교전 중인 전열':'다음 라운드 준비'):'병사를 선택하세요';
-    ut('dock-status').textContent=u?(q.engaged(u)?'교전 중':u.acted?'행동 완료':phase==='preparation'?'배치':q.canAct(u)?'행동 가능':'대기'):phase==='fight'?'남은 교전 '+q.fightQueue.length:'원정 정비';
+    ut('dock-status').textContent=u?(q.engaged(u)?'교전 중':u.acted?'행동 완료':phase==='preparation'?'배치':q.canAct(u)?'행동 가능':'대기'):phase==='fight'?'남은 교전 '+q.fightQueue.length:['move','shoot'].includes(phase)?'명령 대기 '+q.alive('good').filter(u=>!u.acted).length+'명':'원정 정비';
     const primary=ut('dock-primary');primary.classList.remove('confirm');
     if(phase==='preparation')primary.textContent='전투 시작 →';else if(phase==='fight')primary.textContent=q.fightQueue.length?'교전 해결 →':'라운드 종료';else primary.textContent=busy?'상대 행동 중 · '+q.alive(q.side).filter(function(u){return!u.acted}).length+'명':phase==='move'?'이동 종료':'사격 대기';
     primary.disabled=At||AUTO||busy||!['preparation','move','shoot','fight'].includes(phase)||(['move','shoot'].includes(phase)&&!active);
