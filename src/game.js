@@ -1571,6 +1571,15 @@ P.startWave = function () {
     this.spawnEnemies(this.current.ids);
     const _er = Object.entries(this.current.ids.reduce((a, id) => (a[id] = (a[id] || 0) + 1, a), {})).map(([id, n]) => { const m = this.meta.get(id) || {}; return m.name_ko ? m.name_ko + (n > 1 ? ' ×' + n : '') : ''; }).filter(Boolean);
     this.emit('EnemyRoster', '적 편성 — ' + _er.join(', ') + ((this.current.bossAll || [this.current.boss]).filter(Boolean).length ? ' · ⚠ ' + (this.current.bossAll || [this.current.boss]).map(b2 => this.meta.get(b2)?.name_ko).filter(Boolean).join(' · ') + ' 출현' : ''));
+    try {
+        const _seen = new Set(JSON.parse(localStorage.getItem('lwb_seen_foes') || '[]'));
+        const _newIds = [...new Set(this.current.ids)].filter(id => !_seen.has(id));
+        if (_newIds.length) {
+            this.emit('Event', '◆ 신규 적 발견 — ' + _newIds.map(id => (this.meta.get(id) || {}).name_ko).filter(Boolean).join(', '));
+            _newIds.forEach(id => _seen.add(id));
+            localStorage.setItem('lwb_seen_foes', JSON.stringify([..._seen]));
+        }
+    } catch (e) { }
     if (this.current.modifier === 'ambush')
         this.alive('evil').forEach((u, i) => { u.x = i % 2 ? 260 + (i % 4) * 140 : 1960 - (i % 4) * 140; u.y = 560 + Math.floor(i / 8) * 160; });
     this.commander = this.alive('evil').find(u => u.id === this.current.boss)?.uid || this.alive('evil').filter(u => u.traits.includes('hero')).at(-1)?.uid; this.commanders = (this.current.bossAll || []).map(id => this.alive('evil').find(u => u.id === id)?.uid).filter(Boolean); if (!this.commanders.length && this.commander) this.commanders = [this.commander];
