@@ -1327,6 +1327,7 @@ catch {
     return 0;
 } };
 const STAGE_BOSSES = { 5: 'cave_troll', 10: 'saruman', 15: 'witchking_fellbeast', 20: 'mouth_of_sauron', 25: 'goblin_king', 30: 'azog', 35: 'smaug', 40: 'sauron', 45: 'glaurung', 50: 'carcharoth', 55: 'ungoliant', 60: 'gothmog_balrog', 65: 'ancalagon', 70: 'morgoth' };
+const DESPAIR_BOSS_POOL = ['cave_troll','goblin_king','azog','witchking_fellbeast','mouth_of_sauron','saruman','sauron','carcharoth','smaug','glaurung','gothmog_balrog','ungoliant','ancalagon','morgoth'];
 const ELDER_BOSSES = ['ungoliant', 'gothmog_balrog', 'ancalagon', 'morgoth'];
 const STAGE_CO_COMMANDERS = { 20: ['war_troll', 'nazgul_fellbeast', 'nazgul_fellbeast', 'nazgul_fellbeast'], 60: ['balrog'] };
 const STAGE_EXTRA_FOES = { 15: ['mumakil', 'haradrim_raider', 'haradrim_raider', 'haradrim_spearman', 'haradrim_spearman'], 25: ['moria_goblin', 'moria_goblin', 'moria_goblin', 'moria_goblin'] };
@@ -1335,7 +1336,7 @@ const ARC_MAPS = ['amon_sul', 'isengard', 'pelennor', 'black_gate', 'mirkwood', 
 // 스테이지 단위 맵 지정 — 헬름 협곡 공성전(사루만 10 ↔ 펠렌노르 15 사이 스토리 자리).
 const STAGE_MAP_OVERRIDE = { 11: 'helms_deep', 12: 'helms_deep', 13: 'helms_deep', 14: 'helms_deep' };
 P.stageInfo = function (n) {
-    let boss = n % (this.difficulty === 'despair' ? 4 : 5) === 0 ? (STAGE_BOSSES[n] || (n > 70 ? ELDER_BOSSES[Math.floor(n / 5) % ELDER_BOSSES.length] : null)) : null;
+    let boss = n % (this.difficulty === 'despair' ? 4 : 5) === 0 ? (STAGE_BOSSES[n] || (n > 70 ? ELDER_BOSSES[Math.floor(n / 5) % ELDER_BOSSES.length] : this.difficulty === 'despair' ? DESPAIR_BOSS_POOL[(Math.floor(n / 4) - 1) % DESPAIR_BOSS_POOL.length] : null)) : null;
     const missions = ['defense', 'annihilation', 'hold', 'survive', 'commander', 'breakthrough', 'rescue'];
     const mission = boss ? 'commander' : missions[(n - 1) % missions.length];
     const ids = [];
