@@ -1872,13 +1872,13 @@ const LWB_EQUIP = [
     { id: 'gondor_shield', label: '곤도르 방패', cost: 55, desc: '방어 +1 · 용기 +1', icon: '<path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6zM12 7v10M8 10h8"/>', iconImg: 'icons/eq_gondor_shield.png', fx: u => { u.stats.defence += 1; u.stats.courage += 1; } },
     { id: 'war_gauntlets', label: '전투 건틀릿', cost: 85, desc: 'Attack +1 · 영구 장착', icon: '<path d="M7 21V11l5-8 5 8v10M7 15h10M10 8v4"/>', iconImg: 'icons/eq_gauntlets.png', fx: u => u.stats.attacks += 1 },
     { id: 'anduril', label: '안두릴', cost: 120, desc: '아라곤 전용 · Attack +1', iconImg: 'icons/relic_anduril.png', req: u => u.id === 'aragorn', fx: u => u.stats.attacks += 1 },
-    { id: 'barrow_blade', label: '무덤의 칼', cost: 45, desc: '결투 +1 · 영구 장착', iconImg: 'icons/eq_barrow_blade.png', fx: u => u.stats.fight += 1 },
+    { id: 'barrow_blade', label: '무덤의 칼', cost: 55, desc: '결투 +1 · 영구 장착', iconImg: 'icons/eq_barrow_blade.png', fx: u => u.stats.fight += 1 },
     { id: 'rohan_lance', label: '로한 기수 투창', cost: 60, desc: '기마 영웅 전용 · Attack +1', iconImg: 'icons/eq_rohan_lance.png', req: u => u.traits.includes('mounted'), fx: u => u.stats.attacks += 1 },
     { id: 'galadhrim_quiver', label: '갈라드림 화살통', cost: 50, desc: '궁수 영웅 전용 · 사거리 +1″', iconImg: 'icons/eq_galadhrim_quiver.png', req: u => u.stats.shootRange > 0, fx: u => u.stats.shootRange += 45 },
     { id: 'elven_cloak_eq', label: '갈라드림 수호망토', cost: 55, desc: '적 사격이 이 유닛에 명중 난도 +1', iconImg: 'icons/eq_elven_cloak.png', fx: u => u.evadeRanged = 1 },
-    { id: 'mithril_shirt_eq', label: '미스릴 쇠사슬', cost: 150, desc: '방어 +2 · Fate +1', iconImg: 'icons/eq_mithril_shirt.png', fx: u => { u.stats.defence += 2; u.stats.fate = (u.stats.fate || 0) + 1; if (!u._shirtFate) { u._shirtFate = 1; u.resources && (u.resources.fate = (u.resources.fate || 0) + 1); } } },
+    { id: 'mithril_shirt_eq', label: '미스릴 쇠사슬', cost: 150, desc: '방어 +1 · Fate +1', iconImg: 'icons/eq_mithril_shirt.png', fx: u => { u.stats.defence += 1; u.stats.fate = (u.stats.fate || 0) + 1; if (!u._shirtFate) { u._shirtFate = 1; u.resources && (u.resources.fate = (u.resources.fate || 0) + 1); } } },
     { id: 'galadriel_phial', label: '갈라드리엘의 병', cost: 110, desc: '치명상을 견디는 빛 · Fate +2', iconImg: 'icons/eq_galadriel_phial.png', fx: u => { u.stats.fate = (u.stats.fate || 0) + 2; if (!u._phialFate) { u._phialFate = 1; u.resources && (u.resources.fate = (u.resources.fate || 0) + 2); } } },
-    { id: 'king_standard', label: '왕의 문장', cost: 80, desc: '용기 +2 · 영구 장착', iconImg: 'icons/eq_king_standard.png', fx: u => u.stats.courage += 2 },
+    { id: 'king_standard', label: '왕의 문장', cost: 90, desc: '용기 +2 · 영구 장착', iconImg: 'icons/eq_king_standard.png', fx: u => u.stats.courage += 2 },
     { id: 'glamdring', label: '글람드링', cost: 130, desc: '간달프 전용 · Attack +1', iconImg: 'icons/eq_glamdring.png', req: u => u.id === 'gandalf', fx: u => u.stats.attacks += 1 }
 ];
 P.buyEquip = function (i, uid) {
