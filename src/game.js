@@ -3568,8 +3568,8 @@ Ve.prototype.sync = function () {
     this.boundary.fillRect(pt.width - 12, 0, 12, pt.height);
     this.boundary.fillRect(0, 0, pt.width, 25);
     this.boundary.fillRect(0, pt.height - 12, pt.width, 12);
-    const _objTxt = this.b.mission === 'defense' ? '방어선' : this.b.mission === 'hold' ? '거점 · 3라운드 확보' : this.b.mission === 'rescue' ? '포로 구출 지점' : this.b.mission === 'breakthrough' ? '남쪽 돌파선' : '';
-    const _objPos = this.b.mission === 'breakthrough' ? { x: 1165, y: 1178 } : { x: Mt.objective.x, y: Mt.objective.y - 190 };
+    const _objTxt = this.b.mission === 'defense' ? '방어선' : this.b.mission === 'hold' ? '거점 · 3라운드 확보' : this.b.mission === 'rescue' ? '포로 구출 지점' : this.b.mission === 'breakthrough' ? '남쪽 돌파선' : this.b.mission === 'escort' ? '남쪽 출구' : '';
+    const _objPos = (this.b.mission === 'breakthrough' || this.b.mission === 'escort') ? { x: 1165, y: 1178 } : { x: Mt.objective.x, y: Mt.objective.y - 190 };
     this.objectiveLabel.setBackgroundColor('rgba(0,0,0,0)').setStroke('#162027',3).setText(_objTxt).setPosition(_objPos.x, _objPos.y).setVisible(this.b.phase !== 'menu' && !!_objTxt);
     for (const u of this.b.alive()) {
         const c = this.tokens.get(u.uid);
