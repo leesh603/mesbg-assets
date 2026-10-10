@@ -4134,7 +4134,7 @@ Qe = function () {
         }
         if (q.campResult && !(step === 'event' && q.eventOutcome))
             body = `<p class="event-result">${esc(q.campResult)}</p>` + body;
-        box.innerHTML = `<div class="modal camp"><div class="eyebrow">STAGE ${q.wave} CLEARED · +${q.lastGold} GOLD</div>${step==='event'?`<div style="font-size:10px;color:#a89878;margin:4px 0 0;letter-spacing:.4px">이번 전투 · 처치 ${q.stageKills||0} · 전사 ${q.stageDeaths||0} · 생존 ${q.alive('good').length}</div>`:''}<h2>${step==='event'?(q.campEvent?.title||'야영지'):step==='shop'?'상점':step==='relic'?'유물 선택':'출전 준비'}</h2><div class="camp-steps" ${step==='shop'?'style="display:none!important"':''}>${steps.map((s, i) => `<span class="${step === s ? 'current' : ''}">${i + 1}. ${['전장 이벤트', '동료 영입', '유물 선택', '다음 전투'][i]}</span>`).join('')}</div>${body}</div>`;
+        box.innerHTML = `<div class="modal camp"><div class="eyebrow">STAGE ${q.wave} CLEARED · +${q.lastGold} GOLD</div>${step==='event'?`<div style="font-size:10px;color:#a89878;margin:4px 0 0;letter-spacing:.4px">이번 전투 · 처치 ${q.stageKills||0} · 전사 ${q.stageDeaths||0} · 생존 ${q.alive('good').length}</div><button class="secondary mini" style="margin:3px 0 0" onclick="_shareResult()">↗ 전적 공유</button>`:''}<h2>${step==='event'?(q.campEvent?.title||'야영지'):step==='shop'?'상점':step==='relic'?'유물 선택':'출전 준비'}</h2><div class="camp-steps" ${step==='shop'?'style="display:none!important"':''}>${steps.map((s, i) => `<span class="${step === s ? 'current' : ''}">${i + 1}. ${['전장 이벤트', '동료 영입', '유물 선택', '다음 전투'][i]}</span>`).join('')}</div>${body}</div>`;
         box.querySelectorAll('[data-recruit]').forEach(el => el.onclick = () => { q.recruit(Number(el.dataset.recruit)); wt.play('reward_select'); Yt(); });
          if (ut('army-name')) ut('army-name').oninput = e => { q.armyName = e.target.value; q.save(); };
          box.querySelectorAll('[data-rename]').forEach(el => el.onclick = () => { const u = q.unit(el.dataset.rename); if (!u) return; const meta = q.meta.get(u.id) || {}; let m = box.querySelector('#camp-profile'); if (!m) { m = document.createElement('div'); m.id = 'camp-profile'; m.style.cssText = 'position:fixed;inset:0;background:rgba(8,12,10,.85);z-index:60;display:flex;align-items:center;justify-content:center;padding:16px'; m.onclick = e => { if (e.target === m) m.remove(); }; box.appendChild(m); }
@@ -4962,6 +4962,11 @@ async function syncWake(){
     }catch(e){__wakeLock=null}
 }
 document.addEventListener('visibilitychange',()=>{if(!document.hidden&&q&&q.phase&&!['menu','reward','result','loading'].includes(q.phase))syncWake()});
+window._shareResult=function(){
+    const txt='MIDDLE-EARTH WARBANDS · '+(q.armyName||'원정대')+' — STAGE '+q.wave+' 클리어 · 처치 '+(q.stageKills||0)+' · 전사 '+(q.stageDeaths||0)+' · 금화 '+q.gold+' · 생존 '+q.alive('good').length+'기';
+    if(navigator.share){navigator.share({title:'MIDDLE-EARTH WARBANDS',text:txt,url:location.href.split('#')[0]}).catch(()=>{})}
+    else if(navigator.clipboard){navigator.clipboard.writeText(txt+' '+location.href.split('#')[0]).then(()=>Xt('전적이 복사됐어요'))}
+};
 let __coachEl=null;
 function updCoach(){
     if(localStorage.getItem('lwb_onb_v1')||q.mode!=='ai'||q.wave>2){if(__coachEl){__coachEl.remove();__coachEl=null}return}
