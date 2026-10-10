@@ -4494,7 +4494,7 @@ Qe = function () {
             {
                 const _tab = q._shopTab || 'equip';
                 const _tgt = q.permanent().find(u => u.uid === q._shopTarget) || q.permanent()[0];
-                if (q._stockFor !== q.stage || !q.shopStock || !q.shopStock.length) { const _pool = LWB_EQUIP.map((t, f) => f); for (let t = _pool.length - 1; t > 0; t--) { const f = Math.floor(Math.random() * (t + 1)); [_pool[t], _pool[f]] = [_pool[f], _pool[t]]; } q.shopStock = _pool.slice(0, Math.min(4, _pool.length)); q._stockFor = q.stage; }
+                if (q._stockFor !== (q.wave+'@'+(q.mapIndex||0)) || !q.shopStock || !q.shopStock.length) { const _pool = LWB_EQUIP.map((t, f) => f); for (let t = _pool.length - 1; t > 0; t--) { const f = Math.floor(Math.random() * (t + 1)); [_pool[t], _pool[f]] = [_pool[f], _pool[t]]; } q.shopStock = _pool.slice(0, Math.min(4, _pool.length)); q._stockFor = q.wave+'@'+(q.mapIndex||0); }
                 const _stock = q.shopStock;
                 q._shopTarget = _tgt ? _tgt.uid : '';
                 const _ec = a => q.dc(a.cost, 'master_flame'), _ac = a => q.dc(a.cost, 'white_pact'), _tc = a => q.dc(a.cost, 'siege_wright');
@@ -4551,7 +4551,7 @@ ${u.side === 'good' ? '<button class="secondary" id="cp-dismiss" style="margin-t
         box.querySelectorAll('[data-shoptab]').forEach(el => el.onclick = () => { q._shopTab = el.dataset.shoptab; Yt(); });
         box.querySelectorAll('[data-mount]').forEach(el=>el.onclick=()=>{const[uid,vid]=el.dataset.mount.split('|');if(q.assignMount(uid,vid))wt.play('reward_select');Yt();});
         box.querySelectorAll('[data-buymount]').forEach(el=>el.onclick=()=>{const[uid,vid]=el.dataset.buymount.split('|');if(q.buySpecialMount(uid,vid))wt.play('reward_select');Yt();});
-        const _mb=ut('mount-buy');if(_mb)_mb.onclick=()=>{if(q.buyHorse())wt.play('reward_select');else Xt('금화가 부족합니다.');Yt();};
+        const _mb=ut('mount-buy');if(_mb)_mb.onclick=()=>{if(q.buyHorse()){wt.play('reward_select');Xt('군마 1필 획득 — 아래 기마 지정에서 올릴 영웅을 고르세요.');const _fl=document.createElement('div');_fl.className='mount-pop';_fl.innerHTML='<img src="icons/horse.png" alt="">';document.body.appendChild(_fl);setTimeout(()=>_fl.classList.add('on'),20);setTimeout(()=>{ _fl.classList.remove('on');setTimeout(()=>_fl.remove(),400);},1100);}else Xt('금화가 부족합니다.');Yt();};
         if (ut('shop-reroll'))
             ut('shop-reroll').onclick = () => Rt(() => {
                 if (q.gold < 8)
@@ -5292,7 +5292,7 @@ function renderRecruitDraft(){
     ut('draft-confirm').onclick=()=>{if(q.commitRecruits())wt.play('reward_select');else Xt('영입할 공간이 부족합니다. 선택을 조정하세요.');Yt();};
     box.querySelectorAll('[data-mount]').forEach(el=>el.onclick=()=>{const[uid,vid]=el.dataset.mount.split('|');if(q.assignMount(uid,vid))wt.play('reward_select');Yt();});
     box.querySelectorAll('[data-buymount]').forEach(el=>el.onclick=()=>{const[uid,vid]=el.dataset.buymount.split('|');if(q.buySpecialMount(uid,vid))wt.play('reward_select');Yt();});
-    const mb=ut('mount-buy');if(mb)mb.onclick=()=>{if(q.buyHorse())wt.play('reward_select');Yt();};
+    const mb=ut('mount-buy');if(mb)mb.onclick=()=>{if(q.buyHorse()){wt.play('reward_select');Xt('군마 1필 획득 — 아래 기마 지정에서 올릴 영웅을 고르세요.');const _fl=document.createElement('div');_fl.className='mount-pop';_fl.innerHTML='<img src="icons/horse.png" alt="">';document.body.appendChild(_fl);setTimeout(()=>_fl.classList.add('on'),20);setTimeout(()=>{ _fl.classList.remove('on');setTimeout(()=>_fl.remove(),400);},1100);}else Xt('금화가 부족합니다.');Yt();};
 }
 
 // One shared, collision-safe contact solver for AI, preview and committed charge.
