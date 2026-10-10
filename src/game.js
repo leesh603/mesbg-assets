@@ -2406,6 +2406,7 @@ function relicFamily(id) {
     return '원정';
 }
 P.rollRelics = function () {
+    if (STAGE_BOSSES[this.wave] || (this.difficulty === 'despair' && this.wave % 4 === 0)) this.nextRelicRare = true;
     const pool = CX.relics.filter(r => r.rarity !== 3 || !this.rank(r.id));
     const weighted = pool.map(r => ({ id: r.id, family: relicFamily(r.id), k: -Math.log(Math.max(.00001, this.rng())) / [1, .75, .42, Math.min(.32, .035 + this.wave * .015)][r.rarity] }));
     weighted.sort((a, b) => a.k - b.k);
