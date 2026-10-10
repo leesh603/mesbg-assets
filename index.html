@@ -8002,6 +8002,7 @@ P.stageInfo = function (n) {
     if (modifier === 'swarm') { ids.length = 0; for (let i = 0; i < count + 7; i++) ids.push(i % 6 === 5 ? 'uruk_berserker' : 'moria_goblin'); }
     if (modifier === 'ambush')
         for (let i = 0; i < ids.length; i++) if (ids[i] === 'warg_rider' || ids[i] === 'cave_troll') ids[i] = 'moria_goblin';
+    if (boss) modifier = 'eclipse';
     const _arcKey = (STAGE_MAP_OVERRIDE[n]) || ARC_MAPS[Math.floor((n - 1) / 5) % ARC_MAPS.length], _arcIdx = CX.maps.indexOf(_arcKey);
     return { n, boss, bossAll: boss ? [boss, ...(STAGE_CO_COMMANDERS[n] || [])] : null, mission, ids, map: _arcIdx >= 0 ? _arcIdx : Math.floor((n - 1) / 5) % CX.maps.length, modifier, title: STAGE_TITLES[n] || '' };
 };
