@@ -3306,7 +3306,7 @@ He=function(b){
     try{HeAct(b,u);}catch(e){console.error('ai turn error',e);try{b.wait(u.uid)}catch(_){try{b.advance()}catch(__){}}}
 };
 function HeAct(b,u){
-    if(CX.skills[u.id]&&!b.skillReason(u)&&!b.engaged(u))b.skill(u.uid);
+    if(CX.skills[u.id]&&!b.skillReason(u))b.skill(u.uid);
     b.autoSpell(u);
     if(u.side==='good'&&(b.cp||0)>0){
         if(b.phase==='shoot'&&u.stats.shootRange&&!u.aim&&!(u.oncePerRunAbilities||[]).includes('aim-used'))b.command('aim',u.uid);
@@ -5301,7 +5301,7 @@ He = function (b) {
         _pool = b.side === 'good' && !AUTO ? _cand.filter(x => x.autoAlly) : _cand,
         u = _pool.sort((a, c) => order[window.LWBTactics.role(a, id => b.meta.get(id))] - order[window.LWBTactics.role(c, id => b.meta.get(id))])[0];
     if (!u) { if (b.side === 'good' && !AUTO && _cand.length) return; b.advance(); return; }
-    if (CX.skills[u.id] && !b.skillReason(u) && !b.engaged(u)) b.skill(u.uid);
+    if (CX.skills[u.id] && !b.skillReason(u)) b.skill(u.uid);
     b.autoSpell(u);
     if (!b.canAct(u)) return;
     const role = window.LWBTactics.role(u, id => b.meta.get(id));
