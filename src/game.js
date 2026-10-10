@@ -183,7 +183,7 @@ class Ve extends Ot.Scene {
             else if(this.textures.exists(H.id))
                 this.terrainLayer.add(this.add.image(H.x, H.y, H.id).setDisplaySize(H.w + 24, H.h + 22)); for (const D of (this.b.devices || []))
         if (D.armed) {
-            const K2 = { ballista: 'terr_ballista', scorpion: 'terr_trebuchet', barrel: 'terr_bomb', oil: 'terr_brazier', firepot: 'terr_brazier', snare: 'terr_chain_post', spike: 'terr_spike' }[D.type] || 'terr_brazier';
+            const K2 = { ballista: 'terr_ballista', scorpion: 'terr_trebuchet', barrel: 'terr_bomb', oil: 'terr_brazier', firepot: 'terr_brazier', snare: 'terr_chain_post', spike: 'terr_spike_line' }[D.type] || 'terr_brazier';
             this.textures.exists(K2) && this.terrainLayer.add(this.add.image(D.x, D.y, K2).setDisplaySize(D.type === 'ballista' ? 130 : 76, D.type === 'ballista' ? 130 : 76));
         } for (const H of this.b.units) {
         let K = this.tokens.get(H.uid);
