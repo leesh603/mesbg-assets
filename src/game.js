@@ -1397,6 +1397,8 @@ P.prepareStage = function () {
             this.terrain.push({ id: 'zone-' + i, x: z.x + z.w / 2, y: z.y + z.h / 2, w: z.w, h: z.h, kind: 'block', z: z.z, active: true });
         for (const p of mapProps(_mapKey, this.wave || 1))
             this.terrain.push({ id: p[0], x: p[1], y: p[2], w: p[3], h: p[4], kind: 'cover', active: true });
+        if (this.mission === 'rescue' && Mt.objective)
+            this.terrain.push({ id: 'terr_cage', x: Mt.objective.x - 40, y: Mt.objective.y - 40, w: 80, h: 80, kind: 'cover', active: true });
     }
     catch (e) {
         console.error('[map data]', _mapKey, e);
