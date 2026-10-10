@@ -479,7 +479,9 @@ const lwbLocal = {
     add(s2) { const l = this.load(); l.push(s2); l.sort((a, b) => b.stage - a.stage || b.kills - a.kills || b.gold - a.gold || a.t - b.t); this.save(l); return l.indexOf(s2) + 1; }
 };
 function lwbRender(el, list, note) {
-    el.innerHTML = (list && list.length
+    const _me = lwbLocal.load();
+    const _lt = _me.length ? '<div style="font-size:10px;color:#a89878;margin-bottom:4px">이 기기 통산 · 원정 ' + _me.length + '회 · 최고 STAGE ' + Math.max.apply(null, _me.map(x => x.stage || 0)) + ' · 누적 처치 ' + _me.reduce((a, x) => a + (x.kills || 0), 0) + '</div>' : '';
+    el.innerHTML = _lt + (list && list.length
         ? '<table class="rank-table"><tbody>' + list.slice(0, 20).map((s2, i) => `<tr><td class="r">${s2.rank || i + 1}</td><td class="n">${lwbEsc(s2.nickname)}</td><td>${s2.stage} 스테이지</td><td>${s2.kills} 처치</td></tr>`).join("") + "</tbody></table>"
         : '<p class="mini">아직 등록된 기록이 없습니다.</p>') + (note ? '<p class="mini">' + note + "</p>" : "");
 }
