@@ -1965,7 +1965,7 @@ const TRAP_PACKS = [
     { label: '기름 통', cost: 70, type: 'oil', desc: '광역 화염 · 2피해', iconImg: 'icons/trap_oil.png', icon: '<path d="M12 3s6 6 6 11a6 6 0 0 1-12 0c0-5 6-11 6-11z"/>' },
     { label: '화약통', cost: 35, type: 'barrel', desc: '광역 1피해 · 아군도 피해', iconImg: 'icons/trap_barrel.png', icon: '<path d="M6 4h12v16H6zM6 8h12M6 16h12M4 4h16M4 20h16"/>' },
     { label: '가시 함정', cost: 60, type: 'spike', desc: '적 2기 붙들기 · 이동 둔화', iconImg: 'icons/trap_spike.png', icon: '<path d="M4 20h16M6 20V12l2 8V9l3 11V7l3 13V10l2 10V12l2 8"/>' },
-    { label: '짐승 덫', cost: 55, type: 'snare', desc: '가장 가까운 적 1기 · 상처 1 + 2라운드 속박', icon: '<path d="M12 4a8 8 0 1 0 0 16 8 8 0 0 0 0-16zm0 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm-1 3h2v4h-2z"/>' }
+    { label: '짐승 덫', cost: 55, type: 'snare', desc: '가장 가까운 적 1기 · 상처 1 + 2라운드 속박', iconImg: 'icons/trap_snare.png', icon: '<path d="M12 4a8 8 0 1 0 0 16 8 8 0 0 0 0-16zm0 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm-1 3h2v4h-2z"/>' }
 ];
 P.dc = function (base, relicId) { const r = this.rank ? this.rank(relicId) : 0; return r ? Math.max(5, Math.round(base * (1 - 0.25 * r))) : base; };
 P.buyTrap = function (i) {
