@@ -6895,7 +6895,8 @@ class Ve extends Ot.Scene {
             for (const t of S)
                 for (const f of S)
                     t.side !== f.side && ht(t, f) <= t.radius + f.radius + 3 && (this.rings.lineStyle(3, 14724967, .65), this.rings.lineBetween(t.x, t.y, f.x, f.y));
-        } }
+        }
+        if (b.fightQueue[0]) { const _nx = b.fightQueue[0].map(t => b.unit(t)).filter(t => t && t.alive), _cx = _nx.reduce((a, t) => a + t.x, 0) / Math.max(1, _nx.length), _cy = _nx.reduce((a, t) => a + t.y, 0) / Math.max(1, _nx.length); for (const t of _nx) this.rings.lineStyle(3, 15501166, .9).strokeCircle(t.x, t.y, t.radius + 8); _nx.length && this.labels.add(this.add.text(_cx, _cy - 60, '▼ 다음 교전 · 탭한 교전부터 해결', { fontFamily: 'Pretendard', fontSize: '13px', color: '#fbe8b0', backgroundColor: '#241d0aea', padding: { x: 7, y: 3 } }).setOrigin(.5)); } }
     tween(b, H, K = 250) { return new Promise($ => { this.tweens.add({ targets: b, ...H, duration: K, ease: "Sine.easeInOut", onComplete: () => $() }); }); }
     sleep(b) { return new Promise(H => this.time.delayedCall(window._lwbFx ? Math.min(b, 30) : b, H)); }
     async play(b) { if (b.type === "UnitYielded") {
@@ -11133,7 +11134,7 @@ const clarityPlay=Ve.prototype.play;
 Ve.prototype.play=async function(event){await clarityPlay.call(this,event);if(event.type==='UnitKilled')removeCasualty(event.uid);};
 const claritySchedule=me;me=function(){if(document.hidden){clearTimeout(Jt);return;}claritySchedule();};
 // Switching units no longer schedules a late re-selection behind a later turn.
-Zt=function(uid){const u=q.unit(uid);if(!u?.alive||At||Qt)return;if(q.phase==='move'&&q.activeMoverUid&&uid!==q.activeMoverUid){if(u.side===q.side)Rt(()=>{q.wait(q.activeMoverUid);q.selected=uid});else Xt('이동 중인 병사의 이동을 먼저 종료하세요.');return;}Tt.preview=undefined;Tt.previewPlan=null;Tt.chargeTarget=null;q.selected=uid;wt.play('ui_select');Yt();};
+Zt=function(uid){const u=q.unit(uid);if(!u?.alive||At||Qt)return;if(q.phase==='move'&&q.activeMoverUid&&uid!==q.activeMoverUid){if(u.side===q.side)Rt(()=>{q.wait(q.activeMoverUid);q.selected=uid});else Xt('이동 중인 병사의 이동을 먼저 종료하세요.');return;}if(q.phase==='fight'){const gi=q.fightQueue.findIndex(g=>g.includes(uid));if(gi>0){q.fightQueue.unshift(q.fightQueue.splice(gi,1)[0]);Xt('우선권 — 그 교전부터 해결합니다.');}}Tt.preview=undefined;Tt.previewPlan=null;Tt.chargeTarget=null;q.selected=uid;wt.play('ui_select');Yt();};
 const helpHandler=ut('help').onclick;ut('help').onclick=()=>{setSheet(false);helpHandler();const entries=ut('overlay').querySelectorAll('.help-list p');if(entries[5])entries[5].innerHTML='<b>모바일 조작 · 상태 표시</b><br>병사 탭 → 목적지 탭. 한 손가락 드래그는 카메라 이동, 두 손가락은 확대·축소입니다. 드래그 후 놓아도 이동 명령은 나가지 않습니다. 금색 고리와 화살표는 현재 행동 병사, 회색 병사는 현재 단계의 행동 완료입니다. 전사자는 전장에서 사라집니다. 하단 명령에서 능력과 상세 수치를 확인하세요.';};
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){setSheet(false);document.querySelector('.top-actions').classList.remove('open');ut('settings-toggle').setAttribute('aria-expanded','false');if(Qt)ut('close-help')?.click();}});
 window.MESBG.ui={version:UX.version,state:UX,resize:()=>resizeBattle(true),worldToScreen:screenAt,screenToWorld:worldAt,focus:()=>Tt.focus(),setCamera,active:()=>actionableUnit()?.uid||'',openSheet:setSheet,update:()=>Yt()};
