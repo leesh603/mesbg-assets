@@ -8436,7 +8436,7 @@ P.startWave = function () {
     }
     if (this.mission === 'escort' && this.meta.has('terr_cart') && !this.escortCart) {
         const _cart = this.spawn('terr_cart', 'good', { x: 1200, y: 240 });
-        _cart.autoAlly = true; _cart.escortee = true; _cart.temporary = true;
+        _cart.autoAlly = true; _cart.escortee = true; _cart.temporary = true; _cart.static = true;
         Object.assign(_cart.stats, { move: 0, fight: 1, strength: 2, defence: 6, attacks: 0, wounds: 3, courage: 2, shootValue: 7, might: 0, will: 0, fate: 0 });
         _cart.baseStats = structuredClone(_cart.stats); _cart.currentWounds = 3; _cart.resources = { might: 0, will: 0, fate: 0 };
         this.refreshUnit(_cart); this.escortCart = _cart.uid;
@@ -8448,7 +8448,7 @@ P.startWave = function () {
         _lid3.forEach((_lid, _li) => {
             if (!this.meta.has(_lid)) return;
             const _lu = this.spawn(_lid, 'evil', { x: _lat3[_li][0], y: _lat3[_li][1] });
-            _lu.lair = true;
+            _lu.lair = true; _lu.static = true;
             Object.assign(_lu.stats, { move: 0, fight: 0, strength: 2, defence: 6, attacks: 0, wounds: 4, courage: 2, shootValue: 7, might: 0, will: 0, fate: 0 });
             _lu.baseStats = structuredClone(_lu.stats); _lu.currentWounds = 4; _lu.resources = { might: 0, will: 0, fate: 0 };
             outer: for (let _dy = 0; _dy <= 420; _dy += 60) {
@@ -9696,7 +9696,7 @@ P.resumeSlot = function (n) {
     }
     catch { return false; }
 };
-P.rotate = function (uid, degrees) { const u = this.unit(uid); if (!u || this.phase !== 'move' || !this.canAct(u) || this.engaged(u))
+P.rotate = function (uid, degrees) { const u = this.unit(uid); if (!u || u.static || this.phase !== 'move' || !this.canAct(u) || this.engaged(u))
     return false; u.angle = (u.angle + degrees) % 360; return true; };
 P.move = function (uid, to, target) {
     const u = this.unit(uid), v = this.unit(target);
@@ -12505,7 +12505,7 @@ function resolveFight(group,all,terrain,priority,rng,links,api){
  for(const f of fighters){const u=f.unit,dice=Array.from({length:f.support?1:u.stats.attacks+(cavalry(u)?1:0)},roll);if(has(u,'veteran')){const i=dice.indexOf(Math.min(...dice));dice[i]=Math.max(dice[i],roll());}r.diceResults[u.side].push(...dice);r.fightValues[u.side]=Math.max(r.fightValues[u.side],u.stats.fight);}
  const g=Math.max(...r.diceResults.good),e=Math.max(...r.diceResults.evil),f=r.fightValues,onHill=u=>terrain.some(t=>t.z==='hill'&&t.active&&le(u,t,0)),hillAdv=s=>group.some(u=>u.side===s&&onHill(u))&&!group.some(u=>u.side!==s&&onHill(u));r.winnerSide=g!==e?(g>e?'good':'evil'):hillAdv('good')?'good':hillAdv('evil')?'evil':f.good!==f.evil?(f.good>f.evil?'good':'evil'):priority;
  const winners=group.filter(u=>u.side===r.winnerSide),losers=group.filter(u=>u.side!==r.winnerSide),positions=all.map(u=>({...u}));
- for(const u of losers){const p=api.push(u,winners,positions,terrain,52*(u.hold?.25:1)*(has(u,'steadfast')?.65:1));r.pushVectors.push({uid:u.uid,from:{x:u.x,y:u.y},to:p.to});if(p.trapped)r.trappedUnits.push(u.uid);Object.assign(positions.find(v=>v.uid===u.uid),p.to);if(winners.some(w=>cavalry(w)&&contact(w,u)&&!has(u,'mounted')&&!has(u,'monster')&&!has(u,'flying')))r.knockedDownUnits.push(u.uid);}
+ for(const u of losers){if(u.static){const _sp={to:{x:u.x,y:u.y},trapped:true};r.pushVectors.push({uid:u.uid,from:{x:u.x,y:u.y},to:_sp.to});r.trappedUnits.push(u.uid);continue}const p=api.push(u,winners,positions,terrain,52*(u.hold?.25:1)*(has(u,'steadfast')?.65:1));r.pushVectors.push({uid:u.uid,from:{x:u.x,y:u.y},to:p.to});if(p.trapped)r.trappedUnits.push(u.uid);Object.assign(positions.find(v=>v.uid===u.uid),p.to);if(winners.some(w=>cavalry(w)&&contact(w,u)&&!has(u,'mounted')&&!has(u,'monster')&&!has(u,'flying')))r.knockedDownUnits.push(u.uid);}
  const wounds=new Map(losers.map(u=>[u.uid,u.currentWounds]));
  for(const f of fighters.filter(f=>f.unit.side===r.winnerSide)){const u=f.unit,targets=losers.filter(v=>contact(f.front,v)).sort((a,b)=>distance(f.front,a)-distance(f.front,b));
   for(let a=0;a<(f.support?1:u.stats.attacks);a++){let v=targets.find(v=>wounds.get(v.uid)>0);if(!v)break;const doubled=r.trappedUnits.includes(v.uid)||r.knockedDownUnits.includes(v.uid);
