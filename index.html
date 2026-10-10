@@ -10973,7 +10973,8 @@ if(localStorage.getItem('lwb-view')!=='pc')document.body.classList.add('force-mo
   ut('deploy-all').onclick = () => Rt(() => {
     const un = q.alive('good').filter(u => u.x < 0);
     if (!un.length) return;
-    un.forEach(u => q.placeInDeployment(u));
+    const _rk = u => u.stats.shootRange ? 0 : u.traits.includes('spear') ? 1 : u.traits.includes('mounted') ? 1 : 2;
+    un.sort((a, b) => _rk(a) - _rk(b)).forEach(u => q.placeInDeployment(u));
     const left = q.alive('good').find(u => u.x < 0);
     q.selected = (left || q.alive('good')[0] || {}).uid || q.selected;
     Xt(left ? '일부 병사를 배치하지 못했습니다 — 직접 위치를 정하세요.' : '남은 병사를 전부 배치했습니다. 자유롭게 위치를 바꿀 수 있습니다.');
