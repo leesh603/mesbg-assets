@@ -2508,7 +2508,7 @@ P.chooseRelic = function (id) {
 P.selectCampChoice = function (key) {
     if (this.phase !== 'reward') return false;
     const step = this.campStep;
-    if (step === 'event' ? !this.campEvent?.options[Number(key)] : step === 'relic' ? !(this.relicChoices || []).includes(key) : true) return false;
+    if (step === 'event' ? !this.campEvent?.options[Number(key)] : step === 'relic' ? (key !== 'pass' && !(this.relicChoices || []).includes(key)) : true) return false;
     this.campDraft = this.campDraft?.step === step && this.campDraft.key === key ? null : {step, key};
     this.save(); return true;
 };
