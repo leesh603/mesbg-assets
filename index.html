@@ -9287,7 +9287,7 @@ P.resume=function(){
     return true;
 };
 const oldEndRun = P.endRun;
-P.endRun = function (won, msg) { oldEndRun.call(this, won, msg); if (typeof wt !== 'undefined' && wt.fanfare) wt.fanfare(won); if (won) this.checkAchievements(); try {
+P.endRun = function (won, msg) { oldEndRun.call(this, won, msg); if (typeof wt !== 'undefined' && wt.fanfare) wt.fanfare(won); if (!won) try { const _db = document.createElement('div'); _db.id = 'stage-intro'; _db.innerHTML = `<div class='si-card' style='border-color:#7a3a2a'><div style='padding:20px 22px;text-align:center'><div class='eyebrow' style='color:#c98a7a'>THE WAR BAND FALLS</div><h2 style='color:#e8b8a8;margin:2px 0'>원정대 전멸</h2><div class='si-mission'>${this.wave} 스테이지에서 쓰러졌습니다</div></div></div>`; document.body.appendChild(_db); setTimeout(() => _db.remove(), 2000); } catch (e) {} if (won) this.checkAchievements(); try {
     localStorage.removeItem('mesbg-endless-save');
     if (this.dailySeed) try { const k = 'mesbg-daily-' + this.dailySeed; if ((this.wave || 0) > (Number(localStorage.getItem(k)) || 0)) localStorage.setItem(k, String(this.wave)); } catch (e) { }
     if (this.weeklySeed) try { const k = 'mesbg-weekly-' + this.weeklySeed; if ((this.wave || 0) > (Number(localStorage.getItem(k)) || 0)) localStorage.setItem(k, String(this.wave)); } catch (e) { }
