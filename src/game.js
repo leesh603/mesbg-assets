@@ -1624,7 +1624,7 @@ P.startWave = function () {
     if (this.challenge === 'long_bows') (this.nextRoundBuffs = this.nextRoundBuffs || []).push({ stat: 'shootRange', n: 45, side: 'evil' });
     if (this.challenge === 'swift_blades') (this.nextRoundBuffs = this.nextRoundBuffs || []).push({ stat: 'move', n: 45, side: 'evil' });
     this.eliteKills = 0;
-    this.stageDeaths = 0; this.stageTrapKills = 0; this.stageHeroKills = 0; this.stageShootKills = 0; this.stageChargeKills = 0; this.stageKills = 0; this.stageCavKills = 0; this.stageMonsterKills = 0; this.stageHeroSlayer = 0; this.stageEliteKills = 0; this._midReinforced = false; this._lastStand = false;
+    this.stageDeaths = 0; this.stageTrapKills = 0; this.stageHeroKills = 0; this.stageShootKills = 0; this.stageChargeKills = 0; this.stageKills = 0; this.stageCavKills = 0; this.stageMonsterKills = 0; this.stageHeroSlayer = 0; this.stageEliteKills = 0; this._midReinforced = false; this._lastStand = false; this._crisisWarned = false;
     const _bp = BONUS_OBJECTIVES.filter(o => !o.cond || o.cond(this));
     this.bonusObjective = _bp.length ? _bp[Math.floor(this.rng() * _bp.length)] : null;
     this.bonusId = this.bonusObjective?.id || ''; this._bonusDone = false;
@@ -1756,6 +1756,10 @@ P.beginRound = function () {
         this._lastStand = true;
         this.alive('good').forEach(u => { u.roundBuff.courage = (u.roundBuff.courage || 0) + 1; u.roundBuff.fight = (u.roundBuff.fight || 0) + 1; this.refreshUnit(u); });
         this.emit('Event', '⚔ 최후 결사 — 남은 병력이 항전합니다 (전원 결투+1 · 용기+1, 이 라운드)');
+    }
+    if (!this._crisisWarned) {
+        const _h = this.alive('good').find(u => u.traits.includes('hero') && u.currentWounds === 1 && this.engaged(u));
+        if (_h) { this._crisisWarned = true; this.emit('Event', '⚠ ' + _h.name + ' 위기 — 상처 1, 교전 중. 즉시 지원 권장'); }
     }
     for (const boss of this.alive('evil').filter(u => u.traits.includes('boss')))
         this.bossTurn(boss);
