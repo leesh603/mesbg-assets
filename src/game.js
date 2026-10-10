@@ -4953,6 +4953,15 @@ Ve.prototype.drawRings=function(){const intent=UX.intent;if(intent){this.preview
     if(intent?.kind==='shoot'){const u=q.unit(intent.uid),v=q.unit(intent.target),g=this.rings,z=UX.zoom;g.lineStyle(7/z,0x0b100d,.6);g.lineBetween(u.x,u.y,v.x,v.y);g.lineStyle(10/z,0xff5f4a,.18);g.lineBetween(u.x,u.y,v.x,v.y);g.lineStyle(3/z,0xff8a6e,1);g.lineBetween(u.x,u.y,v.x,v.y);}
 };
 let uiPhase='',uiActive='';
+let __wakeLock=null;
+async function syncWake(){
+    const want=!['menu','reward','result','loading'].includes(q.phase);
+    try{
+        if(want&&!__wakeLock&&navigator.wakeLock){__wakeLock=await navigator.wakeLock.request('screen');__wakeLock.addEventListener('release',()=>{__wakeLock=null})}
+        if(!want&&__wakeLock){__wakeLock.release();__wakeLock=null}
+    }catch(e){__wakeLock=null}
+}
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&q&&q.phase&&!['menu','reward','result','loading'].includes(q.phase))syncWake()});
 let __coachEl=null;
 function updCoach(){
     if(localStorage.getItem('lwb_onb_v1')||q.mode!=='ai'||q.wave>2){if(__coachEl){__coachEl.remove();__coachEl=null}return}
@@ -4975,7 +4984,7 @@ function updCoach(){
 const renderBeforeV14=Yt;
 Yt=function(){const key=q.phase+'/'+q.campStep,modal=ut('overlay').querySelector('.modal'),scroll=key===uiPhase?(modal?.scrollTop||0):0,strip=ut('roster-strip').scrollLeft;
     if(key!==uiPhase){clearIntent();setSheet(false);closeRelicInfo();document.querySelector('.top-actions').classList.remove('open');ut('settings-toggle').setAttribute('aria-expanded','false');}
-    renderBeforeV14();try{updCoach()}catch(e){}if(!Qt&&q.phase==='reward'&&q.campStep==='recruit')renderRecruitDraft();
+    renderBeforeV14();try{updCoach()}catch(e){}try{syncWake()}catch(e){}if(!Qt&&q.phase==='reward'&&q.campStep==='recruit')renderRecruitDraft();
     const nextModal=ut('overlay').querySelector('.modal');if(nextModal)nextModal.scrollTop=scroll;ut('roster-strip').scrollLeft=strip;
     const active=actionableUnit();if(UX.ready&&active&&active.uid!==uiActive&&!At&&!UX.gesture&&q.side==='good'){
         const pos=screenAt(active.x,active.y);if(pos.x<50||pos.x>UX.width-50||pos.y<80||pos.y>UX.height-72)panTo(active.x,active.y,UX.zoom,260);
