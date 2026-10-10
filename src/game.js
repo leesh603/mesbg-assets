@@ -3818,7 +3818,14 @@ function bossIntro(id) {
     el.innerHTML = `<div class="boss-tag">WARNING · ${esc(cfg.tag)}</div><h2 style="color:${cfg.accent};text-shadow:0 0 34px ${cfg.glow}">${esc(meta.name_ko)}</h2><div class="boss-art">${unitImage(id)}</div><p>${esc(cfg.line)}</p>`;
     el.onclick = () => el.remove();
     document.body.appendChild(el);
-    setTimeout(() => el.remove(), cfg.cls === 'bi-doom' ? 4200 : 3400);
+    const _dur = cfg.cls === 'bi-doom' ? 4200 : 3400;
+    setTimeout(() => el.remove(), _dur);
+    setTimeout(() => { try {
+        const _bu = q.alive('evil').find(u => u.id === id) || q.alive('evil').find(u => u.traits && u.traits.includes('boss'));
+        const _cam = window.MESBG && window.MESBG.scene && window.MESBG.scene.cameras && window.MESBG.scene.cameras.main;
+        if (_bu && _cam) { _cam.pan(_bu.x, _bu.y, 750, 'Sine.easeInOut'); _cam.shake(320, .0045); }
+        const _bb = ut('ux-bossbar'); if (_bb && !_bb.classList.contains('hidden')) { _bb.classList.remove('bossbar-in'); void _bb.offsetWidth; _bb.classList.add('bossbar-in'); }
+    } catch (e) {} }, Math.min(_dur - 200, 2500));
 }
 let __siStyle = false;
 const LWB_STAGE_ART = { minas_tirith: 'war', osgiliath: 'ruins', amon_sul: 'ruins', helms_deep: 'war', fangorn: 'darkforest', edoras: 'war', moria: 'dark', isengard: 'dark', black_gate: 'dark', gorgoroth: 'dark', rivendell: 'light', lothlorien: 'light', pelennor: 'war', dead_marshes: 'marshes', dunharrow: 'ruins', erebor: 'treasure', mirkwood: 'darkforest', dol_guldur: 'dark', gondolin: 'light', angband: 'dark' };
@@ -4494,7 +4501,7 @@ function renderDock(){
         if (_boss && _boss.alive) {
             const _max = (_boss.baseStats && _boss.baseStats.wounds) || _boss.stats.wounds || 1;
             const _frac = Math.max(0, Math.min(1, _boss.currentWounds / _max));
-            _bb.classList.remove('hidden');
+            _bb.classList.remove('hidden'); if (_bb.dataset.boss !== _boss.uid) { _bb.dataset.boss = _boss.uid; _bb.classList.remove('bossbar-in'); void _bb.offsetWidth; _bb.classList.add('bossbar-in'); }
             const _bn = _bb.querySelector('.bossbar-name'); if (_bn) _bn.textContent = (_boss.name || q.meta.get(_boss.id).name_ko || '보스') + (_boss.traits.includes('terror') ? ' · 공포' : '');
             const _bf = _bb.querySelector('.bossbar-fill'); if (_bf) { _bf.style.width = (_frac * 100).toFixed(1) + '%'; _bf.style.background = _frac > .5 ? 'linear-gradient(90deg,#7e1d12,#c63d1e)' : _frac > .25 ? 'linear-gradient(90deg,#8a3a10,#d97a20)' : 'linear-gradient(90deg,#a85a10,#e0a020)'; }
             const _bh = _bb.querySelector('.bossbar-hp'); if (_bh) _bh.textContent = _boss.currentWounds + ' / ' + _max;
