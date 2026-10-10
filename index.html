@@ -8210,7 +8210,7 @@ P._trkKill = function (k, v) {
                 if (_d && (k.equipment || []).length < 2 && !(k.equipment || []).includes(_d.id)) {
                     (k.equipment = k.equipment || []).push(_d.id); this.refreshUnit(k);
                     this.emit('Event', `◆ 전설의 전리품 — ${k.name} · ${(_d.label || _d.id)} 획득`);
-                }
+                } else { this.gold += 15; this.emit('Event', '전설의 전리품 · 금화 +15'); }
             } else this.emit('Event', '◆ 전설 처치 · 금화 +25');
         }
         if (v.elite && typeof LWB_EQUIP !== 'undefined') {
