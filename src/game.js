@@ -1863,8 +1863,8 @@ const LWB_EQUIP = [
     { id: 'hunting_bow', label: '사냥활', cost: 30, desc: '사격 능력 부여 · 13″ · 명중 4+', icon: '<path d="M7 3c5 3 5 15 0 18M7 3h4M7 21h4M11 12h10m-3-3 3 3-3 3"/>', iconImg: 'icons/eq_hunting_bow.png', fx: u => { if (!u.stats.shootRange) { u.stats.shootRange = 600; u.stats.shootValue = Math.max(u.stats.shootValue, 4); } } },
     { id: 'war_banner_eq', label: '전투 기', cost: 25, desc: '용기 +1 · 영구 장착', icon: '<path d="M6 21V4m0 0h11l-2.5 4L17 12H6"/>', iconImg: 'icons/relic_gondor_banner.png', fx: u => u.stats.courage += 1 },
     { id: 'salve', label: '치유 연고', cost: 20, once: true, needsWound: true, desc: '즉시 사용 · 상처 1 회복', icon: '<path d="M9 3h6M10 3v4l-5 9a3 3 0 0 0 3 5h8a3 3 0 0 0 3-5l-5-9V3M7 14h10"/>', iconImg: 'icons/relic_athelas.png', fx: u => u.currentWounds = Math.min(u.stats.wounds, u.currentWounds + 1) },
-    { id: 'tower_shield', label: '탑방패', cost: 45, desc: '방어 +1 · 이동 −1″', icon: '<path d="M6 3h12v9c0 5-2.5 8-6 9-3.5-1-6-4-6-9z"/>', iconImg: 'icons/relic_rohan_shield.png', fx: u => { u.stats.defence += 1; u.stats.move = Math.max(90, u.stats.move - 45); } },
-    { id: 'mithril_helm', label: '미스릴 투구', cost: 70, desc: '방어 +2 · 영구 장착', icon: '<path d="M4 15V10a8 8 0 0 1 16 0v5M4 15h16m-16 0v4h4v-4m8 0v4h4v-4"/>', iconImg: 'icons/relic_mithril_shirt.png', fx: u => u.stats.defence += 2 },
+    { id: 'tower_shield', label: '탑방패', cost: 45, desc: '방어 +1 · 이동 −1″', icon: '<path d="M6 3h12v9c0 5-2.5 8-6 9-3.5-1-6-4-6-9z"/>', iconImg: 'icons/eq_tower_shield.png', fx: u => { u.stats.defence += 1; u.stats.move = Math.max(90, u.stats.move - 45); } },
+    { id: 'mithril_helm', label: '미스릴 투구', cost: 70, desc: '방어 +2 · 영구 장착', icon: '<path d="M4 15V10a8 8 0 0 1 16 0v5M4 15h16m-16 0v4h4v-4m8 0v4h4v-4"/>', iconImg: 'icons/eq_mithril_helm.png', fx: u => u.stats.defence += 2 },
     { id: 'pike', label: '날카로운 창', cost: 40, desc: '힘 +1 · 영구 장착', icon: '<path d="M5 21 19 7m0 0-1-4 4-1-1 4-2 1z"/>', iconImg: 'icons/eq_pike.png', fx: u => u.stats.strength += 1 },
     { id: 'ranger_boots', label: '순찰자 장화', cost: 35, desc: '이동 +1″ · 영구 장착', icon: '<path d="M7 3v10l4 4h8a1 1 0 0 0 0-2l-5-2-1-6H9L8 3z"/>', iconImg: 'icons/eq_ranger_boots.png', fx: u => u.stats.move += 45 },
     { id: 'war_horn', label: '전쟁 뿔피리', cost: 30, desc: '용기 +2 · 영구 장착', icon: '<path d="M4 13c0-3 4-5 8-5h2l6-4v16l-6-4h-2c-4 0-8-2-8-5zM8 16l1 5"/>', iconImg: 'icons/relic_rohan_horn.png', fx: u => u.stats.courage += 2 },
@@ -1901,8 +1901,8 @@ P.buyEquip = function (i, uid) {
 };
 const TRAP_PACKS = [
     { label: '화살 투석기', cost: 55, type: 'ballista', desc: '가까운 적 3기 타격 · 다음 전투 1회', iconImg: 'icons/trap_ballista.png', icon: '<path d="M4 20h16M6 20l2-7h8l2 7M8 13l7-8 3 1-4 7M10 16h4"/>' },
-    { label: '불통', cost: 40, type: 'firepot', desc: '범위 내 적 전체 1피해', iconImg: 'icons/relic_torch.png', icon: '<path d="M12 21a5 5 0 0 1-5-5c0-3 3-4 3-7 2 1 3 3 3 5 1-1 1-2 1-3 2 2 3 4 3 5a5 5 0 0 1-5 5z"/>' },
-    { label: '연발 투석기', cost: 95, type: 'scorpion', desc: '가까운 적 5기 타격', iconImg: 'icons/proj_bolt.png', icon: '<path d="M4 20l8-8m0 0H8m4 0v4M9 5l3 3M15 3l-1 4M3 9l4 1"/>' },
+    { label: '불통', cost: 40, type: 'firepot', desc: '범위 내 적 전체 1피해', iconImg: 'icons/trap_firepot.png', icon: '<path d="M12 21a5 5 0 0 1-5-5c0-3 3-4 3-7 2 1 3 3 3 5 1-1 1-2 1-3 2 2 3 4 3 5a5 5 0 0 1-5 5z"/>' },
+    { label: '연발 투석기', cost: 95, type: 'scorpion', desc: '가까운 적 5기 타격', iconImg: 'icons/trap_scorpion.png', icon: '<path d="M4 20l8-8m0 0H8m4 0v4M9 5l3 3M15 3l-1 4M3 9l4 1"/>' },
     { label: '기름 통', cost: 70, type: 'oil', desc: '광역 화염 · 2피해', iconImg: 'icons/trap_oil.png', icon: '<path d="M12 3s6 6 6 11a6 6 0 0 1-12 0c0-5 6-11 6-11z"/>' },
     { label: '화약통', cost: 35, type: 'barrel', desc: '광역 1피해 · 아군도 피해', iconImg: 'icons/trap_barrel.png', icon: '<path d="M6 4h12v16H6zM6 8h12M6 16h12M4 4h16M4 20h16"/>' },
     { label: '가시 함정', cost: 60, type: 'spike', desc: '적 2기 붙들기 · 이동 둔화', iconImg: 'icons/trap_spike.png', icon: '<path d="M4 20h16M6 20V12l2 8V9l3 11V7l3 13V10l2 10V12l2 8"/>' }
