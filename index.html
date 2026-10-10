@@ -8233,6 +8233,7 @@ P._trkKill = function (k, v) {
         if (k.traits.includes('mounted')) this.stageCavKills = (this.stageCavKills || 0) + 1;
         if (v.traits.includes('monster')) this.stageMonsterKills = (this.stageMonsterKills || 0) + 1;
         if (v.elite) this.stageEliteKills = (this.stageEliteKills || 0) + 1;
+        if (k.side === "good") { k.streak = (this._lastKiller === k.uid) ? (k.streak || 0) + 1 : 1; this._lastKiller = k.uid; if (k.streak >= 3) this.emit("Event", k.name + " 연속 처치 ×" + k.streak + "!", { uid: k.uid }); }
         if (v.legendary) {
             this.gold += 25;
             if (k.traits.includes('hero') && typeof LWB_EQUIP !== 'undefined' && this.rng() < .6) {
