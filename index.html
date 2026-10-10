@@ -7752,10 +7752,10 @@ const MAP_PROP_SETS = {
 function mapProps(key, wave) {
     const v = mapVariant(wave);
     const sets = MAP_PROP_SETS[key];
+    const base = MAP_PROPS[key] || [];
+    if (v === 0) return base.length ? base : (sets && sets[1]) || [];
     if (sets && sets[v]) return sets[v];
     if (sets && sets.length > 1) return sets[1 + ((v - 1) % (sets.length - 1))];
-    const base = MAP_PROPS[key] || [];
-    if (v === 0) return base;
     return base.filter((p, i) => i % 4 === v - 1);
 }
 function zoneOpen(Z, t) { return !t.active || t.z !== 'cliff' || !!Z && Z.traits.includes('flying'); }
