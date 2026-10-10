@@ -1611,6 +1611,10 @@ P._trkKill = function (k, v) {
         this._bonusDone = true;
         this.emit('Event', `★ 보너스 목표 달성 — ${this.bonusObjective.text}`);
     }
+    if (this.bonusObjective2 && !this._bonusDone2 && ['volley','rout','trapper_obj','elite_hunter','headsman'].includes(this.bonusObjective2.id) && this.bonusObjective2.test(this)) {
+        this._bonusDone2 = true;
+        this.emit('Event', `★ 보너스 목표 달성 — ${this.bonusObjective2.text}`);
+    }
 };
 P.startWave = function () {
     if (this.phase !== 'preparation')
@@ -1673,8 +1677,10 @@ P.startWave = function () {
     this.stageDeaths = 0; this.stageTrapKills = 0; this.stageHeroKills = 0; this.stageShootKills = 0; this.stageChargeKills = 0; this.stageKills = 0; this.stageCavKills = 0; this.stageMonsterKills = 0; this.stageHeroSlayer = 0; this.stageEliteKills = 0; this._midReinforced = false; this._lastStand = false; this._crisisWarned = false; this._eagleSent = false;
     const _bp = BONUS_OBJECTIVES.filter(o => !o.cond || o.cond(this));
     this.bonusObjective = _bp.length ? _bp[Math.floor(this.rng() * _bp.length)] : null;
-    this.bonusId = this.bonusObjective?.id || ''; this._bonusDone = false;
-    if (this.bonusObjective) this.emit('Event', `보너스 목표 — ${this.bonusObjective.text} (+${this.bonusObjective.gold}금)`);
+    this.bonusObjective2 = null;
+    if (_bp.length > 1) { const _r2 = _bp.filter(o => o.id !== this.bonusObjective?.id); this.bonusObjective2 = _r2[Math.floor(this.rng() * _r2.length)] || null; }
+    this.bonusId = this.bonusObjective?.id || ''; this._bonusDone = false; this._bonusDone2 = false;
+    if (this.bonusObjective) this.emit('Event', `보너스 목표 — ${this.bonusObjective.text} (+${this.bonusObjective.gold}금)` + (this.bonusObjective2 ? ` · ${this.bonusObjective2.text} (+${this.bonusObjective2.gold}금)` : ''));
     for (const u of this.alive('good')) {
         const s = this.rank('silmaril');
         for (const k of ['might', 'will', 'fate'])
@@ -1996,6 +2002,12 @@ P.finishWave = function () {
     }
     else
         this.lastGold = bounty;
+    if (this.bonusObjective2 && this.bonusObjective2.test(this)) {
+        this.gold += this.bonusObjective2.gold;
+        this.lastGold = (this.lastGold || bounty) + this.bonusObjective2.gold;
+        this.campResult = (this.campResult ? this.campResult + ' · ' : '') + `보너스 목표 — ${this.bonusObjective2.text} 달성 → 금화 +${this.bonusObjective2.gold}`;
+        this.emit('Event', `보너스 목표 달성 · +${this.bonusObjective2.gold} 금화`);
+    }
     this.gold += bounty;
     if (!(this.stageDeaths || 0)) { this.gold += 25; this.lastGold += 25; this.campResult = '무결 수비 · 전사자 없음 → 금화 +25' + (this.campResult ? ' · ' + this.campResult : ''); this.emit('Event', '무결 수비 · 전사자 없이 스테이지 클리어 · +25금'); }
     this.campResult = `스테이지 ${this.wave} 수비 보상 → 금화 +${bounty}` + (this.campResult ? ' · ' + this.campResult : '');
@@ -2792,7 +2804,7 @@ P.retreatStage = function () {
     return true;
 };
 P._saveState = function () {
-    const keys = ['gold', 'relics', 'capacityBought', 'totalKills', 'mithrilSpent', 'wave', 'cleared', 'units', 'counter', 'mode', 'best', 'campStep', 'campEvent', 'nextRoundBuffs', 'recruitOffers', 'relicChoices', 'chosenRelic', 'rerolls', 'lastGold', 'recruitDraft', 'initialDraft', 'horses', 'campDraft', 'campResult', 'eventOutcome', 'priorityForce', 'bonusCP', 'fallen', 'difficulty', 'armyName', 'allyBought', 'dailySeed', 'devices', 'weeklySeed', 'bonusId', 'escortCart', 'nextRelicRare', 'noAmbushNext', 'stageDeaths', 'stageHeroKills', 'stageShootKills', 'stageChargeKills', 'stageCavKills', 'stageMonsterKills', 'stageHeroSlayer', 'stageEliteKills', 'stageKills', 'challenge', 'eliteKills', '_routeChoice', '_altRoute', 'chestsOpened', 'legacy', '_flawless'];
+    const keys = ['gold', 'relics', 'capacityBought', 'totalKills', 'mithrilSpent', 'wave', 'cleared', 'units', 'counter', 'mode', 'best', 'campStep', 'campEvent', 'nextRoundBuffs', 'recruitOffers', 'relicChoices', 'chosenRelic', 'rerolls', 'lastGold', 'recruitDraft', 'initialDraft', 'horses', 'campDraft', 'campResult', 'eventOutcome', 'priorityForce', 'bonusCP', 'fallen', 'difficulty', 'armyName', 'allyBought', 'dailySeed', 'devices', 'weeklySeed', 'bonusId', 'escortCart', 'nextRelicRare', 'noAmbushNext', 'stageDeaths', 'stageHeroKills', 'stageShootKills', 'stageChargeKills', 'stageCavKills', 'stageMonsterKills', 'stageHeroSlayer', 'stageEliteKills', 'stageKills', 'challenge', 'eliteKills', '_routeChoice', '_altRoute', 'chestsOpened', 'legacy', '_flawless', 'bonusObjective2', '_bonusDone2'];
     const state = { version: CX.version };
     for (const k of keys)
         state[k] = this[k];
@@ -4893,7 +4905,7 @@ function renderDock(){
     { const _wf = ut('wx-fx'), _mod = (q.current && q.current.modifier) || ''; _wf && (_wf.className = ['rain', 'dark', 'fog', 'snow', 'eclipse', 'gale', 'frost', 'mud'].includes(_mod) ? 'wx-' + _mod : ''); }
     ut('wave').textContent=String(phase==='preparation'?q.wave+1:q.wave||1).padStart(2,'0');
     const rules={defense:`라운드 끝 · 구역에 적 ${q.breachCount}기면 패배 · 구역 내 아군 결투 +1`,annihilation:'남은 적을 모두 격파',hold:`거점 우세 ${q.capture||0}/3 라운드`,survive:`생존 ${q.round||0}/5 라운드`,breakthrough:'아군 2기를 남쪽 돌파선으로'+(()=>{const n=q.alive('good').filter(u=>u.y>1200).length;return n?' · 돌파 '+Math.min(n,2)+'/2':''})(),rescue:q.rescued?`구출 후 생존 ${q.capture||0}/3`:'포로 구역 확보 후 3라운드 생존',commander:'보스를 처치하면 승리',escort:`보급 호송 — 남쪽 출구까지 호송${q.escortCart&&q.unit(q.escortCart)?.alive?` · 마차 ${Math.round(q.unit(q.escortCart).y)}/1180 · ♥${q.unit(q.escortCart).currentWounds}`:''} · 파괴 시 패배`,scouting:`정보 수습 ${(q.scouts||0)}/3 — 흩어진 정보에 아군 접근`};
-    ut('ux-mission').innerHTML=`<em>${CX.missionNames[q.mission]||'원정 준비'}</em>${esc(rules[q.mission]||'병사를 선택해 전열을 정하세요')}${q.bonusObjective?" <small style='color:#f2c75a'>· ★"+esc(q.bonusObjective.text)+" (+"+q.bonusObjective.gold+"금)</small>":''}${(['hold','defense','rescue'].includes(q.mission)&&q.alive('evil').some(u=>ht(u,Mt.objective)<=Mt.objective.radius*0.75))?" <small style='color:#ff7a5c;font-weight:800'>· ⚠ 목표 위협</small>":''}${['move','shoot','fight'].includes(q.phase)&&!(q.stageDeaths||0)?" <small style='color:#8fd8a0'>· 무결 진행 중 (+25금)</small>":''}`;
+    ut('ux-mission').innerHTML=`<em>${CX.missionNames[q.mission]||'원정 준비'}</em>${esc(rules[q.mission]||'병사를 선택해 전열을 정하세요')}${q.bonusObjective?" <small style='color:#f2c75a'>· ★"+esc(q.bonusObjective.text)+" (+"+q.bonusObjective.gold+"금)</small>":''}${q.bonusObjective2?" <small style='color:#f2c75a'>· ★"+esc(q.bonusObjective2.text)+" (+"+q.bonusObjective2.gold+"금)</small>":''}${(['hold','defense','rescue'].includes(q.mission)&&q.alive('evil').some(u=>ht(u,Mt.objective)<=Mt.objective.radius*0.75))?" <small style='color:#ff7a5c;font-weight:800'>· ⚠ 목표 위협</small>":''}${['move','shoot','fight'].includes(q.phase)&&!(q.stageDeaths||0)?" <small style='color:#8fd8a0'>· 무결 진행 중 (+25금)</small>":''}`;
     const image=ut('dock-portrait');if(u){const src=Th(q.meta.get(u.id).file);if(image.getAttribute('src')!==src){image.dataset.full=Ut(q.meta.get(u.id).file);image.onerror=function(){this.onerror=null;this.src=this.dataset.full};image.src=src;}image.classList.remove('hidden')}else image.classList.add('hidden');
     ut('dock-eyebrow').textContent=phase==='preparation'?'전열 배치':At?'행동 처리 중':active?'선택 병사':busy?'상대의 차례':phase==='fight'?'근접전 판정':'원정대 지휘';
     ut('dock-name').textContent=u?shortName(u):phase==='fight'?(q.fightQueue.length?'교전 중인 전열':'다음 라운드 준비'):'병사를 선택하세요';
