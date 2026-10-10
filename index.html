@@ -7943,6 +7943,14 @@ P.refreshUnit = function (u) {
 };
 P.start = function (mode) {
     this.gold = mode === 'ai' ? 600 : 35;
+    try {
+        const _ls = Number(localStorage.getItem('lwb_loss_streak') || 0);
+        if (_ls > 0) {
+            const _bonus = Math.min(75, _ls * 25);
+            this.gold += _bonus;
+            this.emit('Event', '재기의 응원 — 연속 ' + _ls + '회 패배 보상 · 금화 +' + _bonus);
+        }
+    } catch (e) { }
     this.relics = {};
     this.capacityBought = 0;
     this.totalKills = 0;
@@ -8213,6 +8221,8 @@ P.startWave = function () {
     this.spawnEnemies(this.current.ids);
     const _er = Object.entries(this.current.ids.reduce((a, id) => (a[id] = (a[id] || 0) + 1, a), {})).map(([id, n]) => { const m = this.meta.get(id) || {}; return m.name_ko ? m.name_ko + (n > 1 ? ' ×' + n : '') : ''; }).filter(Boolean);
     this.emit('EnemyRoster', '적 편성 — ' + _er.join(', ') + ((this.current.bossAll || [this.current.boss]).filter(Boolean).length ? ' · ⚠ ' + (this.current.bossAll || [this.current.boss]).map(b2 => this.meta.get(b2)?.name_ko).filter(Boolean).join(' · ') + ' 출현' : ''));
+    const _eh = [...new Set(this.current.ids)].filter(id => (this.meta.get(id)?.traits || []).includes('hero') && !(this.current.bossAll || [this.current.boss]).includes(id)).map(id => this.meta.get(id)?.name_ko).filter(Boolean);
+    if (_eh.length) this.emit('Event', '⚔ 적 영웅 등장 — ' + _eh.join(' · '));
     try {
         const _seen = new Set(JSON.parse(localStorage.getItem('lwb_seen_foes') || '[]'));
         const _newIds = [...new Set(this.current.ids)].filter(id => !_seen.has(id));
@@ -9398,6 +9408,7 @@ P.resume=function(){
 const oldEndRun = P.endRun;
 P.endRun = function (won, msg) { oldEndRun.call(this, won, msg); if (typeof wt !== 'undefined' && wt.fanfare) wt.fanfare(won); try { const _tk = this.units.filter(u => u.side === 'good').reduce((n, u) => n + (u.kills || 0), 0) + (this.fallen || []).reduce((n, f) => n + (f.kills || 0), 0); const _db = document.createElement('div'); _db.id = 'stage-intro'; _db.innerHTML = `<div class='si-if (!won) card' style='border-color:#7a3a2a'><div style='padding:20px 22px;text-align:center'><div class='eyebrow' style='color:#c98a7a'>THE WAR BAND FALLS</div><h2 style='color:#e8b8a8;margin:2px 0'>원정대 전멸</h2><div class='si-mission'>${this.wave} 스테이지에서 쓰러졌습니다<br><small style='opacity:.75'>도달 ST ${this.wave} · 총 처치 ${_tk} · 최고 기록 ST ${Math.max(this.best || 0, this.wave)}</small></div></div></div>`; document.body.appendChild(_db); setTimeout(() => _db.remove(), 2600); } catch (e) {}
     if (won && this.wave >= 70) try { const _fk = this.units.filter(u => u.side === 'good').reduce((n, u) => n + (u.kills || 0), 0); const _fb = document.createElement('div'); _fb.id = 'stage-intro'; _fb.innerHTML = `<div class='si-card' style='border-color:#e8c45c;box-shadow:0 18px 60px #000c,0 0 60px #e8c45c55'><div style='padding:22px 24px;text-align:center'><div class='eyebrow' style='color:#e8c45c'>LEGEND COMPLETE</div><h2 style='color:#f5deb0;margin:4px 0'>캠페인 완주</h2><div class='si-mission'>발리노르 최후의 대결에서 승리했습니다<br><small style='opacity:.8'>70 스테이지 · 총 처치 ${_fk} · 생존 ${this.alive('good').length}명</small></div></div></div>`; document.body.appendChild(_fb); setTimeout(() => _fb.remove(), 4000); } catch (e) {} if (won) this.checkAchievements(); try {
+    try { localStorage.setItem('lwb_loss_streak', won ? '0' : String((Number(localStorage.getItem('lwb_loss_streak') || 0) + 1))); } catch (e) { }
     localStorage.removeItem('mesbg-endless-save');
     if (this.dailySeed) try { const k = 'mesbg-daily-' + this.dailySeed; if ((this.wave || 0) > (Number(localStorage.getItem(k)) || 0)) localStorage.setItem(k, String(this.wave)); } catch (e) { }
     if (this.weeklySeed) try { const k = 'mesbg-weekly-' + this.weeklySeed; if ((this.wave || 0) > (Number(localStorage.getItem(k)) || 0)) localStorage.setItem(k, String(this.wave)); } catch (e) { }
