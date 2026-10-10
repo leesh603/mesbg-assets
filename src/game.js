@@ -2044,6 +2044,7 @@ const LWB_ACH = [
     ['bondmaster', '파벌 결속', '파벌 결속 발동 (같은 파벌 아군 4기 이상)'],
     ['trapper', '함정 장인', '지형 장치 설치'],
     ['monster_hunter', '몬스터 사냥꾼', '몬스터 3기 처치'],
+    ['dragon_slayer', '용 사냥꾼', '스마우그·글라우룽·앙칼라곤 처치'],
     ['promoted', '베테랑 승급', '병사가 베테랑으로 승급'],
     ['elite_bane', '엘리트 파괴자', '엘리트 적 5기 처치'],
     ['warlord', '대군주', '부대 12기 이상으로 원정'],
@@ -2083,6 +2084,8 @@ P.checkAchievements = function () {
         this.unlockAch('ally');
     if (this.current?.boss && !this.units.some(u => u.id === this.current.boss && u.alive))
         this.unlockAch('boss');
+    if (this.current?.boss && ['smaug','glaurung','ancalagon'].includes(this.current.boss) && !this.units.some(u => u.id === this.current.boss && u.alive))
+        this.unlockAch('dragon_slayer');
     if (!(this.fallen || []).some(f => f.wave === this.wave))
         this.unlockAch('flawless');
     if (Object.keys(this.relics || {}).length >= 6)
