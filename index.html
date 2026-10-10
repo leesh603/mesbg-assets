@@ -6724,7 +6724,7 @@ Ae=[{id:"warrior_minas_tirith",name_ko:"미나스 티리스 전사",name_en:"War
         this.endRound();
         return;
     } const b = Y.map(H => this.unit(H)).filter(H => H.alive); if (b.some(H => H.side === "good") && b.some(H => H.side === "evil")) {
-        for (const h of b.filter(v => v.traits.includes('hero') && v.side === 'evil' && this.mode === 'ai' && (v.resources.might || 0) > 0 && !v.heroicDef && !v.roundBuff.fight)) {
+        for (const h of b.filter(v => v.traits.includes('hero') && v.side === 'evil' && (v.resources.might || 0) > 0 && !v.heroicDef && !v.roundBuff.fight)) {
             const foes = b.filter(v => v.side === 'good'), best = Math.max(...foes.map(v => v.stats.fight)), bestStr = Math.max(...foes.map(v => v.stats.strength));
             if (bestStr >= h.stats.defence + 1 || (h.currentWounds <= 1 && h.stats.fight <= best)) {
                 h.resources.might--; h.heroicDef = true;
