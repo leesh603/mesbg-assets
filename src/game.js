@@ -127,12 +127,12 @@ Ae=[{id:"warrior_minas_tirith",name_ko:"미나스 티리스 전사",name_en:"War
         for (let H = 820; H <= 1640; H += 115)
             if (Et(Y, { x: H, y: b }, this.alive("good"), this.terrain)) {
                 Object.assign(Y, { x: H, y: b });
-                return;
+                return true;
             } for (let b = 120; b < 2210; b += 115)
         if (Et(Y, { x: b, y: 635 }, this.alive("good"), this.terrain)) {
             Object.assign(Y, { x: b, y: 635 });
-            return;
-        } }
+            return true;
+        } return false; }
     command(Y, b = this.selected) { const H = this.unit(b), K = ae.find(p => p.id === Y); if (!H || !H.alive || H.side !== "good" || !K || !["move", "shoot"].includes(this.phase))
         return !1; const $ = Y === "aim" && this.freeVolley ? 0 : K.cost; return this.cp < $ || Y === "hold" && H.hold || Y === "aim" && (!H.stats.shootRange || H.oncePerRunAbilities.includes("aim-used")) || Y === "urgent" && (H.acted || !this.eligible("good").includes(H)) || Y === "fury" && this.furyRound === this.round || Y === "march" && (this.phase !== "move" || !H.movementSpent) || Y === "rally" && !this.alive("good").some(p => ht(p, H) <= 240 && (p.feared || p.prone)) || Y === "aid" && H.currentWounds >= H.stats.wounds ? !1 : (Y === "hold" && (H.hold = !0), Y === "aim" && (H.aim = !0, H.oncePerRunAbilities.push("aim-used")), Y === "urgent" && (this.side = "good", this.selected = H.uid), Y === "fury" && (this.furyRound = this.round, this.alive("good").forEach(p => (p.roundBuff.attacks = (p.roundBuff.attacks || 0) + 1, this.refreshUnit(p)))), Y === "march" && (H.movementSpent = Math.floor(H.movementSpent * .5)), Y === "rally" && this.alive("good").filter(p => ht(p, H) <= 240).forEach(p => (p.feared = !1, p.prone = !1)), Y === "aid" && (H.currentWounds = Math.min(H.stats.wounds, H.currentWounds + 1)), this.cp -= $, this.emit("CommandUsed", `${K.ko} · ${H.name}`), !0); }
     endRun(Y, b) { this.phase = "result", this.result = Y ? "victory" : "defeat", this.emit("RunEnded", b); }
