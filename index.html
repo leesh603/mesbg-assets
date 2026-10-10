@@ -12141,7 +12141,7 @@ function renderTacticalHUD() {
     const next = document.querySelector('.next-stage');
     if (next && !next.querySelector('.scout-roles')) {
         const p = document.createElement('p'); p.className = 'scout-roles';
-        p.textContent = q.stageInfo(q.wave + 1).scouting; next.append(p);
+        const _si = q.stageInfo(q.wave + 1); p.textContent = _si.scouting + (_si.boss ? ' · 보스 ' + ((UnitCatalog[_si.boss] && UnitCatalog[_si.boss].name) || _si.boss) : ''); next.append(p);
     }
 }
 const __lwbR = Yt;
