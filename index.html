@@ -6650,7 +6650,7 @@ Ae=[{id:"warrior_minas_tirith",name_ko:"미나스 티리스 전사",name_en:"War
         return !1; const $ = { x: H.x, y: H.y }; return Object.assign(H, K), this.emit("UnitMoved", void 0, { uid: Y, from: $, to: K }), !0; }
     startWave() { if (this.phase !== "preparation")
         return; this.wave++, this.round = 0, this.units = this.units.filter(b => b.side === "good"); let Y = Mt.waves[this.wave - 1].flatMap(b => Array(b.count).fill(b.id)); this.delayed = this.eventId === "delay" && this.wave === 3 ? Y.splice(-2) : [], this.spawnEnemies(Y), this.waveStartCounts = { good: this.alive("good").length, evil: this.alive("evil").length }, this.emit("WaveStarted", `WAVE ${this.wave} — ${this.wave === 3 ? "오크 대장의 총공세" : "적이 접근합니다."}`), this.beginRound(); }
-    spawnEnemies(Y) { Y.forEach((b, H) => { const K = this.spawn(b, "evil", b === "witchking_fellbeast" ? { x: 1165, y: 1255 } : { x: 260 + H % 7 * 300, y: 1295 - Math.floor(H / 7) * 150 }); if (!Et(K, K, this.alive(), this.terrain))
+    spawnEnemies(Y) { let _bi = 0; Y.forEach((b, H) => { const _rad = [(this.meta.get(b) || {}).base || 'M'] || 38, _big = _rad >= 62; const _pos = b === "witchking_fellbeast" ? { x: 1165, y: 1255 } : _big ? { x: 420 + _bi % 3 * 560, y: 1120 - Math.floor(_bi / 3) * 190 } : { x: 260 + H % 7 * 300, y: 1295 - Math.floor(H / 7) * 150 }; _big && _bi++; const K = this.spawn(b, "evil", _pos); if (!Et(K, K, this.alive(), this.terrain))
         for (let $ = 1290; $ > 980; $ -= 90) {
             let p = !1;
             for (let S = 140; S < 2200; S += 115)
