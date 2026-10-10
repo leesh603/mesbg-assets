@@ -1896,6 +1896,11 @@ P.checkRun = function () {
 P.finishWave = function () {
     if (this.phase === 'reward' || this.phase === 'result')
         return;
+    if (this.wave >= 70) {
+        this.cleared = this.wave;
+        this.endRun(!0, '발리노르 최후의 대결 승리 — 전설의 원정 완주');
+        return;
+    }
     this.cleared = this.wave;
     const bounty = Math.round((60 + this.wave * 8 + this.rank('palantir') * 10 + this.rank('numenor_map') * 10 + this.rank('steward_ledger') * 15) * (this.difficulty === 'easy' ? 1.2 : this.difficulty === 'hard' ? 1.5 : this.difficulty === 'despair' ? 1.75 : 1) * (1 + .5 * this.rank('nauglamir')));
     if (this.bonusObjective && this.bonusObjective.test(this)) {
