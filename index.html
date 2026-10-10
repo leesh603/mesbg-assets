@@ -9196,7 +9196,7 @@ P.move = function (uid, to, target) {
         u.terrorTested = true;
         const score = Lt(this.rng) + Lt(this.rng) + u.stats.courage;
         if (score < (v.id === 'balrog' ? 12 : 10)) {
-            u.feared=!0;this.emit('Terror', `${u.name} · 공포 검사 실패${v.id === 'balrog' ? ' — 모르고스의 그림자 앞에서' : ''}, 돌격 불가`);
+            u.feared=!0;this.emit('Terror', `${u.name} · 공포 검사 실패${v.id === 'balrog' ? ' — 모르고스의 그림자 앞에서' : ''}, 돌격 불가`, { uid: u.uid });
             this.finishActivation(u);
             return false;
         }
@@ -9558,7 +9558,7 @@ P.applyCombat = function (result) {
                 this.totalKills = (this.totalKills || 0) + 1;
         }
         if (s.prevented)
-            this.emit('Saved', `${u.name} · ${s.prevented}로 상처 Defense`);
+            this.emit('Saved', `${u.name} · ${s.prevented}로 상처 Defense`, { uid: u.uid });
     }
     for (const p of result.pushVectors) {
         const u = this.unit(p.uid);
@@ -11747,6 +11747,8 @@ const effectPlay=Ve.prototype.play;
 Ve.prototype.play=async function(event){if(event.type==='CommandUsed'){const u=this.b.unit(event.uid||this.b.selected);if(u){const fx=this.add.image(u.x,u.y,'fx-rally').setDepth(13).setDisplaySize(140,140);await this.tween(fx,{displayWidth:230,displayHeight:230,alpha:0},350);fx.destroy();}}return effectPlay.call(this,event);};
 const heroFallenPlay=Ve.prototype.play;
 Ve.prototype.play=async function(event){if(event.type==='UnitKilled'&&event.uid){const u=this.b.unit(event.uid);if(u&&u.traits&&u.traits.includes('hero')){this.soundFX&&this.soundFX.play('death');const good=u.side==='good';const el=document.createElement('div');el.className='hero-fallen '+(good?'good':'evil');el.innerHTML=`<b>${good?'영웅 전사':'적장 격파'}</b><span>${esc(u.name)}</span>`;document.body.appendChild(el);setTimeout(()=>el.classList.add('on'),30);setTimeout(()=>{el.classList.remove('on');setTimeout(()=>el.remove(),450)},1600);}}return heroFallenPlay.call(this,event);};
+const unitFxPlay=Ve.prototype.play;
+Ve.prototype.play=async function(event){if(event.uid&&['Terror','HeroSkill','Saved'].includes(event.type)){const u=this.b.unit(event.uid);if(u){const tex=event.type==='Terror'?'fx-terror':event.type==='HeroSkill'?'fx-rally':'fx-cast';const col=event.type==='Terror'?'#b9a4e8':event.type==='HeroSkill'?'#fbe8b0':'#cfe6ff';this.soundFX&&this.soundFX.play(event.type==='Terror'?'dice_roll':'event');const fx=this.add.image(u.x,u.y,tex).setDepth(14).setDisplaySize(100,100).setAlpha(.92);const nm=this.add.text(u.x,u.y-u.radius-30,(event.text||'').split('·').pop().trim(),{fontFamily:'Pretendard',fontSize:'13px',color:col,stroke:'#17211d',strokeThickness:2,backgroundColor:'#1d2b3af0',padding:{x:6,y:3}}).setOrigin(.5).setDepth(15);await this.tween(fx,{displayWidth:180,displayHeight:180,alpha:0},400);fx.destroy();this.tween(nm,{y:u.y-u.radius-58,alpha:0},650).then(()=>nm.destroy());}}return unitFxPlay.call(this,event);};
 const trapFxPlay=Ve.prototype.play;
 Ve.prototype.play=async function(event){if(event.type==='Trap'&&event.at){const d=event.at;this.soundFX&&this.soundFX.play(d.type==='ballista'||d.type==='scorpion'?'arrow_release':'base_contact');const r=Math.max(70,(d.radius||120)*1.2);const fx=this.add.image(d.x,d.y,'fx-clash').setDepth(14).setDisplaySize(80,80).setAlpha(.95);if(d.type==='oil'||d.type==='barrel')fx.setTint(0xff8a3d);else if(d.type==='spike')fx.setTint(0xc9d6e8);const nm=this.add.text(d.x,d.y-40,(event.text||'').split('·')[0].trim(),{fontFamily:'Pretendard',fontSize:'13px',color:'#ffcf9a',stroke:'#17211d',strokeThickness:2,backgroundColor:'#2a1d12f0',padding:{x:6,y:3}}).setOrigin(.5).setDepth(15);await this.tween(fx,{displayWidth:r*2,displayHeight:r*2,alpha:0},420);fx.destroy();this.tween(nm,{y:d.y-70,alpha:0},650).then(()=>nm.destroy());}return trapFxPlay.call(this,event);};
 const spellFxPlay=Ve.prototype.play;
