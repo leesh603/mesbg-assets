@@ -8685,7 +8685,10 @@ const LWB_ACH = [
     ['warlord', '대군주', '부대 12기 이상으로 원정'],
     ['relic_master', '유물 달인', '유물 12종 보유'],
     ['veteran_host', '백전 노장', '베테랑 5기 보유'],
-    ['long_march', '먼 길을 온 자', '스테이지 20 도달']
+    ['long_march', '먼 길을 온 자', '스테이지 20 도달'],
+    ['hero_hunter', '영웅 사냥꾼', '한 전투에서 적 영웅 2기 처치'],
+    ['treasury', '왕의 금고', '금화 1000 보유'],
+    ['desperado', '절망의 생존자', '절망 난이도 STAGE 5 도달']
 ];
 P.achievements = function () { try {
     return JSON.parse(localStorage.getItem('mesbg-achievements')) || {};
@@ -8721,6 +8724,12 @@ P.checkAchievements = function () {
         this.unlockAch('boss');
     if (this.current?.boss && ['smaug','glaurung','ancalagon'].includes(this.current.boss) && !this.units.some(u => u.id === this.current.boss && u.alive))
         this.unlockAch('dragon_slayer');
+    if ((this.stageHeroKills || 0) >= 2)
+        this.unlockAch('hero_hunter');
+    if ((this.gold || 0) >= 1000)
+        this.unlockAch('treasury');
+    if (this.difficulty === 'despair' && this.wave >= 5)
+        this.unlockAch('desperado');
     if (!(this.fallen || []).some(f => f.wave === this.wave))
         this.unlockAch('flawless');
     if (Object.keys(this.relics || {}).length >= 6)
