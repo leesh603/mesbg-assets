@@ -2145,7 +2145,7 @@ P.checkTraps = function (u) {
         if (d.type === 'chest') {
             if (u.side !== 'good') continue;
             d.armed = false;
-            if (this.rng() < .7) { this.gold += 15; this.emit('Event', '📦 보물 상자 — ' + u.name + ' 발견 · 금화 +15', { at: d }); }
+            if (this.rng() < .7) { this.gold += 15; this.chestsOpened = (this.chestsOpened || 0) + 1; this.emit('Event', '📦 보물 상자 — ' + u.name + ' 발견 · 금화 +15', { at: d }); }
             else { u.currentWounds--; if (u.currentWounds <= 0) { u.alive = false; this.emit('UnitKilled', u.name + ' — 상자의 덫에 쓰러짐', { uid: u.uid }); } else this.emit('UnitWounded', '⚠ 덫 상자 — ' + u.name + ' 상처 1', { uid: u.uid }); }
             continue;
         }
@@ -2245,6 +2245,7 @@ const LWB_ACH = [
     ['relic_master', '유물 달인', '유물 12종 보유'],
     ['veteran_host', '백전 노장', '베테랑 5기 보유'],
     ['champion_of_ages', '시대의 챔피언', '챔피언 승급 유닛 보유'],
+    ['treasure_hunter', '보물 사냥꾼', '보물 상자 3개 개봉'],
     ['long_march', '먼 길을 온 자', '스테이지 20 도달'],
     ['hero_hunter', '영웅 사냥꾼', '한 전투에서 적 영웅 2기 처치'],
     ['treasury', '왕의 금고', '금화 1000 보유'],
@@ -2312,6 +2313,8 @@ P.checkAchievements = function () {
         this.unlockAch('veteran_host');
     if (us.some(u => (u.traits || []).includes('champion')))
         this.unlockAch('champion_of_ages');
+    if ((this.chestsOpened || 0) >= 3)
+        this.unlockAch('treasure_hunter');
     if (this.wave >= 20)
         this.unlockAch('long_march');
 };
@@ -2724,7 +2727,7 @@ P.retreatStage = function () {
     return true;
 };
 P._saveState = function () {
-    const keys = ['gold', 'relics', 'capacityBought', 'totalKills', 'mithrilSpent', 'wave', 'cleared', 'units', 'counter', 'mode', 'best', 'campStep', 'campEvent', 'nextRoundBuffs', 'recruitOffers', 'relicChoices', 'chosenRelic', 'rerolls', 'lastGold', 'recruitDraft', 'initialDraft', 'horses', 'campDraft', 'campResult', 'eventOutcome', 'priorityForce', 'bonusCP', 'fallen', 'difficulty', 'armyName', 'allyBought', 'dailySeed', 'devices', 'weeklySeed', 'bonusId', 'escortCart', 'nextRelicRare', 'noAmbushNext', 'stageDeaths', 'stageHeroKills', 'stageShootKills', 'stageChargeKills', 'stageCavKills', 'stageMonsterKills', 'stageHeroSlayer', 'stageEliteKills', 'stageKills', 'challenge', 'eliteKills', '_routeChoice', '_altRoute'];
+    const keys = ['gold', 'relics', 'capacityBought', 'totalKills', 'mithrilSpent', 'wave', 'cleared', 'units', 'counter', 'mode', 'best', 'campStep', 'campEvent', 'nextRoundBuffs', 'recruitOffers', 'relicChoices', 'chosenRelic', 'rerolls', 'lastGold', 'recruitDraft', 'initialDraft', 'horses', 'campDraft', 'campResult', 'eventOutcome', 'priorityForce', 'bonusCP', 'fallen', 'difficulty', 'armyName', 'allyBought', 'dailySeed', 'devices', 'weeklySeed', 'bonusId', 'escortCart', 'nextRelicRare', 'noAmbushNext', 'stageDeaths', 'stageHeroKills', 'stageShootKills', 'stageChargeKills', 'stageCavKills', 'stageMonsterKills', 'stageHeroSlayer', 'stageEliteKills', 'stageKills', 'challenge', 'eliteKills', '_routeChoice', '_altRoute', 'chestsOpened'];
     const state = { version: CX.version };
     for (const k of keys)
         state[k] = this[k];
