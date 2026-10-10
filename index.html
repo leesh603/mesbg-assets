@@ -8433,6 +8433,7 @@ P.finishWave = function () {
     else
         this.lastGold = bounty;
     this.gold += bounty;
+    if (!(this.stageDeaths || 0)) { this.gold += 25; this.lastGold += 25; this.campResult = '무결 수비 · 전사자 없음 → 금화 +25' + (this.campResult ? ' · ' + this.campResult : ''); this.emit('Event', '무결 수비 · 전사자 없이 스테이지 클리어 · +25금'); }
     this.campResult = `스테이지 ${this.wave} 수비 보상 → 금화 +${bounty}` + (this.campResult ? ' · ' + this.campResult : '');
     if (this.eliteKills) {
         const eg = this.eliteKills * 8;
