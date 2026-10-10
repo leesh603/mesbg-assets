@@ -8155,6 +8155,10 @@ P._trkKill = function (k, v) {
         }
     }
     if (v.side === 'good') this.stageDeaths = (this.stageDeaths || 0) + 1;
+    if (this.bonusObjective && !this._bonusDone && ['volley','rout','trapper_obj','elite_hunter','headsman'].includes(this.bonusObjective.id) && this.bonusObjective.test(this)) {
+        this._bonusDone = true;
+        this.emit('Event', `★ 보너스 목표 달성 — ${this.bonusObjective.text}`);
+    }
 };
 P.startWave = function () {
     if (this.phase !== 'preparation')
@@ -8198,7 +8202,7 @@ P.startWave = function () {
     this.stageDeaths = 0; this.stageTrapKills = 0; this.stageHeroKills = 0; this.stageShootKills = 0; this.stageChargeKills = 0; this.stageKills = 0; this.stageCavKills = 0; this.stageMonsterKills = 0; this.stageHeroSlayer = 0; this.stageEliteKills = 0;
     const _bp = BONUS_OBJECTIVES.filter(o => !o.cond || o.cond(this));
     this.bonusObjective = _bp.length ? _bp[Math.floor(this.rng() * _bp.length)] : null;
-    this.bonusId = this.bonusObjective?.id || '';
+    this.bonusId = this.bonusObjective?.id || ''; this._bonusDone = false;
     if (this.bonusObjective) this.emit('Event', `보너스 목표 — ${this.bonusObjective.text} (+${this.bonusObjective.gold}금)`);
     for (const u of this.alive('good')) {
         const s = this.rank('silmaril');
