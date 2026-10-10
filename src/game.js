@@ -1679,7 +1679,7 @@ P.startWave = function () {
     this.bonusObjective = _bp.length ? _bp[Math.floor(this.rng() * _bp.length)] : null;
     this.bonusObjective2 = null;
     if (_bp.length > 1) { const _r2 = _bp.filter(o => o.id !== this.bonusObjective?.id); this.bonusObjective2 = _r2[Math.floor(this.rng() * _r2.length)] || null; }
-    this.bonusId = this.bonusObjective?.id || ''; this._bonusDone = false; this._bonusDone2 = false;
+    this.bonusId = this.bonusObjective?.id || ''; this.bonusId2 = this.bonusObjective2?.id || ''; this._bonusDone = false; this._bonusDone2 = false;
     if (this.bonusObjective) this.emit('Event', `보너스 목표 — ${this.bonusObjective.text} (+${this.bonusObjective.gold}금)` + (this.bonusObjective2 ? ` · ${this.bonusObjective2.text} (+${this.bonusObjective2.gold}금)` : ''));
     for (const u of this.alive('good')) {
         const s = this.rank('silmaril');
@@ -2804,7 +2804,7 @@ P.retreatStage = function () {
     return true;
 };
 P._saveState = function () {
-    const keys = ['gold', 'relics', 'capacityBought', 'totalKills', 'mithrilSpent', 'wave', 'cleared', 'units', 'counter', 'mode', 'best', 'campStep', 'campEvent', 'nextRoundBuffs', 'recruitOffers', 'relicChoices', 'chosenRelic', 'rerolls', 'lastGold', 'recruitDraft', 'initialDraft', 'horses', 'campDraft', 'campResult', 'eventOutcome', 'priorityForce', 'bonusCP', 'fallen', 'difficulty', 'armyName', 'allyBought', 'dailySeed', 'devices', 'weeklySeed', 'bonusId', 'escortCart', 'nextRelicRare', 'noAmbushNext', 'stageDeaths', 'stageHeroKills', 'stageShootKills', 'stageChargeKills', 'stageCavKills', 'stageMonsterKills', 'stageHeroSlayer', 'stageEliteKills', 'stageKills', 'challenge', 'eliteKills', '_routeChoice', '_altRoute', 'chestsOpened', 'legacy', '_flawless', 'bonusObjective2', '_bonusDone2'];
+    const keys = ['gold', 'relics', 'capacityBought', 'totalKills', 'mithrilSpent', 'wave', 'cleared', 'units', 'counter', 'mode', 'best', 'campStep', 'campEvent', 'nextRoundBuffs', 'recruitOffers', 'relicChoices', 'chosenRelic', 'rerolls', 'lastGold', 'recruitDraft', 'initialDraft', 'horses', 'campDraft', 'campResult', 'eventOutcome', 'priorityForce', 'bonusCP', 'fallen', 'difficulty', 'armyName', 'allyBought', 'dailySeed', 'devices', 'weeklySeed', 'bonusId', 'escortCart', 'nextRelicRare', 'noAmbushNext', 'stageDeaths', 'stageHeroKills', 'stageShootKills', 'stageChargeKills', 'stageCavKills', 'stageMonsterKills', 'stageHeroSlayer', 'stageEliteKills', 'stageKills', 'challenge', 'eliteKills', '_routeChoice', '_altRoute', 'chestsOpened', 'legacy', '_flawless', 'bonusId2', '_bonusDone2'];
     const state = { version: CX.version };
     for (const k of keys)
         state[k] = this[k];
@@ -2856,6 +2856,7 @@ catch {
 const baseResume=P.resume;
 P.resume=function(){
     if (this.bonusId) this.bonusObjective = BONUS_OBJECTIVES.find(o => o.id === this.bonusId) || null;
+    if (this.bonusId2) this.bonusObjective2 = BONUS_OBJECTIVES.find(o => o.id === this.bonusId2) || null;
     if(!baseResume.call(this))return false;
     for(const u of this.units){const m=this.meta.get(u.id);if(!m)continue;
         u.radius=$t[m.base]||$t.M;
