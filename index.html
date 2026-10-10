@@ -12408,6 +12408,9 @@ function renderTacticalHUD() {
         const links = supportFor(group),
             parts = group.map(u => ({ u, label: '전열' })).concat(links.map(l => ({ u: l.unit, label: l.rank === 2 ? '파이크 2열' : '창 지원' })));
         box.querySelector('.fight-preview-title').textContent = '교전 ' + group.filter(u => u.side === 'good').length + ' vs ' + group.filter(u => u.side === 'evil').length + ' · 지원 ' + links.filter(l => l.unit.side === 'good').length + ' / ' + links.filter(l => l.unit.side === 'evil').length;
+        const _gf = Math.max(0, ...group.filter(u => u.side === 'good').map(u => u.stats.fight || 0));
+        const _ef = Math.max(0, ...group.filter(u => u.side === 'evil').map(u => u.stats.fight || 0));
+        box.querySelector('.fight-preview-title').textContent += ' · 전망 ' + (_gf >= _ef + 2 ? '우세' : _gf + 2 <= _ef ? '열세' : '균형');
         const key = parts.map(p => p.u.uid + p.label).join('|');
         if (box.dataset.group !== key) {
             box.dataset.group = key;
