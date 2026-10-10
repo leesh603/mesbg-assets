@@ -1466,6 +1466,8 @@ const CHALLENGES = [
     { id: 'tired_line', label: '지친 전열', text: '첫 라운드 아군 전원 이동·결투 −1', gold: 40 },
     { id: 'poison_mist', label: '독 안개', text: '첫 라운드 아군 전원 힘 −1', gold: 30 },
     { id: 'iron_wall', label: '철벽 포위', text: '첫 라운드 적 전원 방어 +1', gold: 30 },
+    { id: 'arcane_storm', label: '마력 폭풍', text: '첫 라운드 적 전원 Will +2', gold: 30 },
+    { id: 'long_bows', label: '장궁 사수', text: '첫 라운드 적 전원 사거리 +1인치', gold: 30 },
 ];
 P._trkKill = function (k, v) {
     if (k.side === 'good' && v.side === 'evil') {
@@ -1524,6 +1526,8 @@ P.startWave = function () {
     if (this.challenge === 'tired_line') (this.nextRoundBuffs = this.nextRoundBuffs || []).push({ stat: 'move', n: -45, side: 'good' }, { stat: 'fight', n: -1, side: 'good' });
     if (this.challenge === 'poison_mist') (this.nextRoundBuffs = this.nextRoundBuffs || []).push({ stat: 'strength', n: -1, side: 'good' });
     if (this.challenge === 'iron_wall') (this.nextRoundBuffs = this.nextRoundBuffs || []).push({ stat: 'defence', n: 1, side: 'evil' });
+    if (this.challenge === 'arcane_storm') (this.nextRoundBuffs = this.nextRoundBuffs || []).push({ stat: 'will', n: 2, side: 'evil' });
+    if (this.challenge === 'long_bows') (this.nextRoundBuffs = this.nextRoundBuffs || []).push({ stat: 'shootRange', n: 45, side: 'evil' });
     this.eliteKills = 0;
     this.stageDeaths = 0; this.stageHeroKills = 0; this.stageShootKills = 0; this.stageChargeKills = 0; this.stageKills = 0; this.stageCavKills = 0; this.stageMonsterKills = 0; this.stageHeroSlayer = 0; this.stageEliteKills = 0;
     const _bp = BONUS_OBJECTIVES.filter(o => !o.cond || o.cond(this));
