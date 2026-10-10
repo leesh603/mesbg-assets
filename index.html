@@ -12171,8 +12171,8 @@ P.prepareStage = function () {
         if (free({ x: 1165 + dx, y: 850 }, 150)) { this.terrain.push({ id: tid, x: 1165 + dx, y: 850, w: 150, h: 105, kind: 'cover', active: true }); break; }
     const _tp = [[1000, 470], [1330, 470], [1165, 600], [820, 560], [1510, 560]];
     for (const [i, d] of (this.devices || []).entries()) {
-        d.x = _tp[i % _tp.length][0];
-        d.y = _tp[i % _tp.length][1];
+        d.x = _tp[i % _tp.length][0] + Math.floor(i / _tp.length) * 90;
+        d.y = _tp[i % _tp.length][1] + Math.floor(i / _tp.length) * 40;
         d.armed = true;
     }
     const _hz = [[815, 548], [1510, 548], [520, 742], [1830, 742], [1165, 690]];
