@@ -2221,6 +2221,15 @@ P.checkTraps = function (u) {
                         : this.alive('evil').filter(v => ht(v, d) <= d.radius);
         hits.forEach(v => { const _wa = v.alive; this.inflict(ag, v, d.type === 'oil' ? 2 : 1); if (_wa && !v.alive) this.stageTrapKills = (this.stageTrapKills || 0) + 1; if (d.type === 'spike' && v.alive) v.roundBuff = { ...(v.roundBuff || {}), move: (v.roundBuff.move || 0) - 90 }; if (d.type === 'snare' && v.alive) v._snared = 2; });
         this.emit('Trap', (d.type === 'ballista' ? '투석기 발사' : d.type === 'scorpion' ? '연발 투석기 발사' : d.type === 'barrel' ? '화약통 폭발' : d.type === 'oil' ? '기름 화염' : d.type === 'spike' ? '가시 함정 발동 · 이동 둔화' : d.type === 'snare' ? '짐승 덫 발동 · 2라운드 속박' : '불통 폭발') + ' · ' + hits.length + '기 타격', { at: d });
+        if (d.type === 'barrel') {
+            for (const d2 of (this.devices || []))
+                if (d2.armed && d2.type === 'barrel' && d2 !== d && Math.hypot(d2.x - d.x, d2.y - d.y) <= d.radius) {
+                    d2.armed = false;
+                    const _hits2 = this.alive().filter(v => ht(v, d2) <= d2.radius);
+                    _hits2.forEach(v => { const _wa2 = v.alive; this.inflict(ag, v, 1); if (_wa2 && !v.alive) this.stageTrapKills = (this.stageTrapKills || 0) + 1; });
+                    this.emit('Trap', '화약통 연쇄 폭발 · ' + _hits2.length + '기 타격', { at: d2 });
+                }
+        }
     }
 };
 const ALLY_PACKS = [
