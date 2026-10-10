@@ -9,7 +9,9 @@ Ae=[{id:"warrior_minas_tirith",name_ko:"미나스 티리스 전사",name_en:"War
     } }
     alive(Y) { return this.units.filter(b => b.alive && (!Y || b.side === Y)); }
     unit(Y) { return this.units.find(b => b.uid === Y); }
-    spawn(Y, b, H) { const K = this.meta.get(Y); if (!K || !zt[Y])
+    spawn(Y, b, H) { const K = this.meta.get(Y); if (!K)
+        throw new Error("Unknown unit " + Y); if (!zt[Y] && K.side === 'terrain')
+            zt[Y] = { ...structuredClone(Ft), move: 0, fight: 0, strength: 2, defence: 6, attacks: 0, wounds: 3, courage: 2, shootValue: 7, traits: [] }; if (!zt[Y])
         throw new Error("Unknown unit " + Y); const $ = `${b[0]}${++this.counter}`, p = { ...H, uid: $, id: Y, name: zt[Y].traits.includes("hero") ? K.name_ko : `${b === "good" ? "수비대" : "공격대"} ${this.counter}`, side: b, radius: $t[K.base], stats: structuredClone(zt[Y]), alive: !0, currentWounds: zt[Y].wounds, kills: 0, veteranXP: 0, traits: [...zt[Y].traits, ...this.steadfast && b === "good" ? ["steadfast"] : []], oncePerRunAbilities: [], moved: !1, movementSpent: 0, acted: !1, charged: !1, hold: !1, aim: !1, angle: b === "good" ? 0 : 180 }; return this.units.push(p), p; }
     start(Y) { this.mode = Y, this.units = [], this.terrain = structuredClone(ee), this.wave = 0, this.round = 0, this.cp = 0, this.counter = 0, this.activeMoverUid = "", this.bonusCP = 0, this.breachCount = Mt.objective.breachCount, this.freeVolley = !1, this.steadfast = !1, this.delayed = [], this.result = "", this.log = [], this.events = [], this.eventId = "", this.chosenReward = "", this.campResult = null; let b = 0; for (const H of Mt.initial)
         for (let K = 0; K < H.count; K++)
