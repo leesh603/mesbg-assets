@@ -10219,7 +10219,7 @@ Ve.prototype.drawRings = function () {
                     const prev=plan.path.at(-2)||u,a=Math.atan2(dest.y-prev.y,dest.x-prev.x),tip=18/z;
                     g.fillStyle(INK,.7);g.fillTriangle(dest.x+Math.cos(a)*2/z,dest.y+Math.sin(a)*2/z,dest.x-Math.cos(a-.5)*(tip+3/z),dest.y-Math.sin(a-.5)*(tip+3/z),dest.x-Math.cos(a+.5)*(tip+3/z),dest.y-Math.sin(a+.5)*(tip+3/z));
                     g.fillStyle(color,1);g.fillTriangle(dest.x,dest.y,dest.x-Math.cos(a-.5)*tip,dest.y-Math.sin(a-.5)*tip,dest.x-Math.cos(a+.5)*tip,dest.y-Math.sin(a+.5)*tip);
-                    label(dest.x,dest.y+u.radius+23/z,`${this.chargeTarget?'돌격 · ':''}${(plan.distance/45).toFixed(1)}″ · 잔여 ${Math.max(0,(r-plan.distance)/45).toFixed(1)}″${this.chargeTarget?` · 결투 ${sel.stats.fight}v${this.chargeTarget.u.stats.fight} · 상처 ${oe(sel.stats.strength,this.chargeTarget.u.stats.defence)}+`:''}`,{color:'#f0e0b7'});
+                    label(dest.x,dest.y+u.radius+23/z,`${this.chargeTarget?'돌격 · ':''}${(plan.distance/45).toFixed(1)}″ · 잔여 ${Math.max(0,(r-plan.distance)/45).toFixed(1)}″${this.chargeTarget?` · 결투 ${sel.stats.fight}v${this.chargeTarget.u.stats.fight} · 상처 ${oe(sel.stats.strength,this.chargeTarget.u.stats.defence)}+${this.chargeTarget.u.traits.includes('terror')?' · ⚠공포 검사':''}`:''}`,{color:'#f0e0b7'});
                 }else label(dest.x,dest.y+u.radius+23/z,'이동 불가',{color:'#efaf9b'});
             }
         }
