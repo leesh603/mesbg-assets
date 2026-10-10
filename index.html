@@ -8028,6 +8028,7 @@ P.prepareStage = function () {
     this.mission = info.mission;
     this.capture = 0;
     this.rescued = false;
+    this.escortCart = null;
     this.escaped = [];
     this.warnings = [];
     this.terrain = structuredClone(ee).filter(t => !t.id.startsWith('wall') || this.mapIndex === 0);
