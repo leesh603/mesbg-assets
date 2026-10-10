@@ -1387,6 +1387,20 @@ const STAGE_TITLES = { 5: '모리아의 트롤', 10: '아이센가드의 배신'
 const ARC_MAPS = ['amon_sul', 'isengard', 'pelennor', 'black_gate', 'mirkwood', 'erebor', 'erebor', 'dol_guldur', 'angband', 'lothlorien', 'gorgoroth', 'gondolin', 'angband', 'angband'];
 // 스테이지 단위 맵 지정 — 헬름 협곡 공성전(사루만 10 ↔ 펠렌노르 15 사이 스토리 자리).
 const STAGE_MAP_OVERRIDE = { 11: 'helms_deep', 12: 'helms_deep', 13: 'helms_deep', 14: 'helms_deep' };
+const ARC_FOES = {
+    2: ['haradrim_spearman', 'haradrim_raider', 'haradrim_bow'],
+    3: ['uruk_berserker', 'haradrim_spearman', 'orc_archer'],
+    4: ['moria_goblin', 'goblin_scout', 'orc_archer'],
+    5: ['cave_troll', 'moria_goblin', 'uruk_berserker'],
+    6: ['cave_troll', 'moria_goblin', 'uruk_berserker'],
+    7: ['moria_goblin', 'warg_rider', 'orc_archer'],
+    8: ['cave_troll', 'uruk_berserker', 'moria_goblin'],
+    9: ['uruk_berserker', 'warg_rider', 'orc_sword'],
+    10: ['uruk_berserker', 'orc_sword', 'orc_archer'],
+    11: ['uruk_berserker', 'orc_sword', 'haradrim_bow'],
+    12: ['cave_troll', 'uruk_berserker', 'moria_goblin'],
+    13: ['cave_troll', 'uruk_berserker', 'moria_goblin'],
+};
 P.stageInfo = function (n) {
     let boss = n % (this.difficulty === 'despair' ? 4 : 5) === 0 ? (STAGE_BOSSES[n] || (n > 70 ? ELDER_BOSSES[Math.floor(n / 5) % ELDER_BOSSES.length] : this.difficulty === 'despair' ? DESPAIR_BOSS_POOL[(Math.floor(n / 4) - 1) % DESPAIR_BOSS_POOL.length] : null)) : null;
     const missions = ['defense', 'annihilation', 'hold', 'survive', 'commander', 'breakthrough', 'rescue', 'escort', 'scouting'];
@@ -1410,6 +1424,12 @@ P.stageInfo = function (n) {
         ids.push(n > 8 ? 'saruman' : 'orc_captain');
     else if (n > 3)
         ids.push('orc_captain');
+    {
+        const _ai = Math.floor((n - 1) / 5) % ARC_MAPS.length, _af = ARC_FOES[_ai];
+        if (_af && n >= 6)
+            for (let i = 2; i < ids.length; i += 5)
+                ids[i] = _af[(i + n) % _af.length];
+    }
     let modifier = n < 4 ? 'clear' : ['clear', 'rain', 'dark', 'reinforce', 'warg', 'ambush', 'cavalry', 'swarm', 'snow', 'eclipse', 'mud', 'gale', 'frost'][n % 13];
     if (modifier === 'clear' && n > 6 && n % 4 === 1)
         modifier = 'fog';
