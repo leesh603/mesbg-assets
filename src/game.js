@@ -1750,8 +1750,13 @@ P.endRound = function () {
         }
     }
     if (this.mission === 'rescue') {
-        if (allies.length && !foes.length)
+        if (allies.length && !foes.length) {
+            if (!this.rescued && this.meta.has('arnor_warrior')) {
+                const _pu = this.spawn('arnor_warrior', 'good', { x: Mt.objective.x, y: Math.min(1380, Mt.objective.y + 60) });
+                _pu && this.emit('Event', '포로 해방 — ' + _pu.name + '이(가) 부대에 합류!', { uid: _pu.uid });
+            }
             this.rescued = true;
+        }
         if (this.rescued)
             this.capture++;
         if (this.capture >= 3) {
