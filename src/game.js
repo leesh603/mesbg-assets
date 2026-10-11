@@ -1882,6 +1882,8 @@ P.spawnEnemies = function (ids) {
 P.beginRound = function () {
     if (this.checkRun())
         return;
+    for (const u of this.alive('evil'))
+        if (u._dominated) { u._dominated = false; u.side = 'good'; u.acted = true; this.emit('Event', u.name + ' — 정신 지배가 풀렸습니다', { uid: u.uid }); }
     for (const u of this.alive()) {
         u.roundBuff = {};
         if (u._snared) { u.roundBuff.move = -999; u._snared--; if (!u._snared) delete u._snared; }
@@ -1995,59 +1997,108 @@ P.bossTurn = function (u) {
         if (phase === 2 && this.alive('evil').length < 24)
             this.spawnEnemies(['orc_sword', 'uruk_berserker']);
     }
-    if (u.id === 'morgoth') {
-        if (this.warnings.length) {
-            for (const area of this.warnings) {
-                for (const v of this.alive('good').filter(v => ht(v, area) < area.radius + v.radius)) {
-                    this.inflict(u, v, 1 + Number(phase === 3));
-                    this.emit('BossImpact', '그론드의 충격', { uid: v.uid, at: area });
-                }
+    // 경고 구역 공통 해결 — src가 이 보스인 경고만 처리 (죽은 보스의 경고는 폐기)
+    if (this.warnings.length) {
+        this.warnings = this.warnings.filter(a => { const s = a.src && this.unit(a.src); return !a.src || (s && s.alive); });
+        const mine = this.warnings.filter(a => a.src === u.uid), rest = this.warnings.filter(a => a.src !== u.uid);
+        for (const area of mine) {
+            this.emit('BossCast', undefined, { fx: area.fx || 'strike', at: area });
+            for (const v of this.alive('good').filter(v => ht(v, area) < area.radius + v.radius)) {
+                this.inflict(u, v, area.dmg || 1);
+                this.emit('BossImpact', area.label || '보스의 일격', { uid: v.uid, at: area });
             }
-            this.warnings = [];
+            area.prone && this.alive('good').filter(v => ht(v, area) < area.radius + v.radius).forEach(v => v.prone = true);
         }
+        this.warnings = rest;
+    }
+    if (u.id === 'morgoth') {
         const targets = this.alive('good').sort((a, b) => b.stats.attacks - a.stats.attacks).slice(0, phase);
-        this.warnings = targets.map(v => ({ x: v.x, y: v.y, radius: 130, round: this.round + 1 }));
+        this.warnings.push(...targets.map(v => ({ x: v.x, y: v.y, radius: 130, round: this.round + 1, src: u.uid, label: '그론드의 충격', fx: 'crack', dmg: 1 + Number(phase === 3) })));
         this.emit('BossWarning', '그론드가 내리칩니다. 다음 라운드 전에 붉은 균열에서 벗어나세요.');
     }
-    else if (u.id === 'balrog' && this.round % 2 === 0) {
-        const target = this.alive('good').filter(v => ht(v, u) < 500).sort((a, b) => ht(a, u) - ht(b, u))[0];
-        if (target) {
-            this.inflict(u, target, 1);
-            this.emit('BossImpact', '발록의 화염 채찍', { uid: target.uid, at: target });
+    else if (u.id === 'saruman') {
+        if (this.round % 3 === 0) {
+            const targets = this.alive('good').slice().sort(() => this.rng() - .5).slice(0, 3);
+            this.warnings.push(...targets.map(v => ({ x: v.x, y: v.y, radius: 150, round: this.round + 1, src: u.uid, label: '번개 폭풍', fx: 'lightning', dmg: 1, prone: true })));
+            this.emit('BossWarning', '사루만이 폭풍을 부립니다 — 표시된 자리에서 벗어나세요.');
         }
     }
-    else if (u.id === 'witchking_fellbeast' && this.round % 3 === 0) {
-        const t = this.alive('good').sort((a, b) => ht(a, u) - ht(b, u))[0];
-        if (t) { t.prone = true; this.emit('BossImpact', '펠비스트의 급강하 — 넘어짐', { uid: t.uid, at: t }); }
+    else if (u.id === 'balrog' || u.id === 'gothmog_balrog') {
+        if (this.round % 4 === 0) {
+            const targets = this.alive('good').slice().sort(() => this.rng() - .5).slice(0, 2);
+            this.warnings.push(...targets.map(v => ({ x: v.x, y: v.y, radius: 165, round: this.round + 1, src: u.uid, label: '메테오', fx: 'meteor', dmg: phase >= 3 ? 2 : 1 })));
+            this.emit('BossWarning', '불의 유성이 떨어집니다 — 표시된 자리에서 벗어나세요.');
+        } else if (this.round % 2 === 0) {
+            const target = this.alive('good').filter(v => ht(v, u) < 500).sort((a, b) => ht(a, u) - ht(b, u))[0];
+            if (target) { this.emit('BossCast', undefined, { fx: 'whip', at: target, from: { x: u.x, y: u.y } }); this.inflict(u, target, 1); this.emit('BossImpact', (u.id === 'gothmog_balrog' ? '고스모그' : '발록') + '의 화염 채찍', { uid: target.uid, at: target }); }
+        }
+    }
+    else if (u.id === 'witchking_fellbeast' || u.id === 'nazgul_fellbeast') {
+        if (this.round % 5 === 0 && u.id === 'witchking_fellbeast') {
+            const cand = this.alive('good').filter(v => !v.traits.includes('hero') && !v._dominated);
+            if (cand.length && this.alive('good').length > 1) {
+                const t = cand[Math.floor(this.rng() * cand.length)];
+                t._dominated = true; t.side = 'evil'; t.acted = false;
+                this.emit('BossCast', undefined, { fx: 'dominate', at: t });
+                this.emit('BossImpact', '마술왕의 지배 — ' + t.name + '이(가) 조종당합니다', { uid: t.uid, at: t });
+            }
+        } else if (this.round % 3 === 0) {
+            const t = this.alive('good').sort((a, b) => a.currentWounds - b.currentWounds || a.stats.defence - b.stats.defence || ht(a, u) - ht(b, u))[0];
+            if (t) {
+                const from = { x: u.x, y: u.y };
+                Object.assign(u, ue(u, t));
+                this.emit('UnitMoved', undefined, { uid: u.uid });
+                this.emit('BossCast', undefined, { fx: 'dive', at: t, from });
+                this.inflict(u, t, t.currentWounds <= 2 ? 2 : 1);
+                t.prone = true;
+                this.emit('BossImpact', '펠비스트 급강하 돌진 — 약한 적을 노립니다', { uid: t.uid, at: t });
+            }
+        }
     }
     else if (u.id === 'ungoliant' && this.round % 3 === 0) {
         const t = this.alive('good').filter(v => ht(v, u) < 420).sort((a, b) => ht(a, u) - ht(b, u))[0];
         if (t) { this.inflict(u, t, 1); this.emit('BossImpact', '암흑의 포식', { uid: t.uid, at: t }); }
         if (this.alive('evil').length < 24) this.spawnEnemies(['moria_goblin', 'moria_goblin']);
     }
-    else if (u.id === 'sauron' && this.round % 2 === 0) {
-        const t = this.alive('good').sort((a, b) => b.stats.fight - a.stats.fight)[0];
-        if (t) { t.feared = true; this.emit('BossImpact', '사우론의 눈이 응시한다 — 공포', { uid: t.uid, at: t }); }
-    }
-    else if (u.id === 'smaug' && this.round % 3 === 0) {
-        for (const t of this.alive('good').filter(v => ht(v, u) < 500).sort((a, b) => ht(a, u) - ht(b, u)).slice(0, 2)) {
-            this.inflict(u, t, 1); this.emit('BossImpact', '스마우그의 화염', { uid: t.uid, at: t });
+    else if (u.id === 'sauron') {
+        if (this.round % 6 === 0) {
+            const targets = this.alive('good').slice().sort(() => this.rng() - .5).slice(0, 2);
+            this.warnings.push(...targets.map(v => ({ x: v.x, y: v.y, radius: 160, round: this.round + 1, src: u.uid, label: '파멸의 유성', fx: 'meteor', dmg: phase >= 3 ? 2 : 1 })));
+            this.emit('BossWarning', '사우론이 하늘에서 불의 비를 내립니다.');
+        } else if (this.round % 2 === 0) {
+            const t = this.alive('good').sort((a, b) => b.stats.fight - a.stats.fight)[0];
+            if (t) { t.feared = true; this.emit('BossImpact', '사우론의 눈이 응시한다 — 공포', { uid: t.uid, at: t }); }
         }
     }
-    else if (u.id === 'glaurung' && this.round % 3 === 0) {
-        const t = this.alive('good').sort((a, b) => b.stats.fight - a.stats.fight)[0];
-        if (t) { t.feared = true; t.prone = true; this.emit('BossImpact', '글라우룽의 최면 — 공포·넘어짐', { uid: t.uid, at: t }); }
+    else if (u.id === 'smaug' && this.round % 3 === 0) {
+        const _br = this.alive('good').filter(v => ht(v, u) < 520).sort((a, b) => ht(a, u) - ht(b, u)).slice(0, 2);
+        if (_br.length) this.emit('BossCast', undefined, { fx: 'breath', at: _br[0], from: { x: u.x, y: u.y } });
+        for (const t of _br) {
+            this.inflict(u, t, 1); this.emit('BossImpact', '스마우그의 화염 브레스', { uid: t.uid, at: t });
+        }
+    }
+    else if (u.id === 'glaurung') {
+        if (this.round % 3 === 0) {
+            const t = this.alive('good').sort((a, b) => b.stats.fight - a.stats.fight)[0];
+            if (t) { t.feared = true; t.prone = true; this.emit('BossImpact', '글라우룽의 최면 — 공포·넘어짐', { uid: t.uid, at: t }); }
+        } else if (this.round % 6 === 0) {
+            const _br = this.alive('good').filter(v => ht(v, u) < 520).sort((a, b) => ht(a, u) - ht(b, u)).slice(0, 2);
+            if (_br.length) this.emit('BossCast', undefined, { fx: 'breath', at: _br[0], from: { x: u.x, y: u.y } });
+            for (const t of _br) { this.inflict(u, t, 1); this.emit('BossImpact', '글라우룽의 화염', { uid: t.uid, at: t }); }
+        }
+    }
+    else if (u.id === 'scatha' && this.round % 3 === 0) {
+        const _br = this.alive('good').filter(v => ht(v, u) < 520).sort((a, b) => ht(a, u) - ht(b, u)).slice(0, 2);
+        if (_br.length) this.emit('BossCast', undefined, { fx: 'breath', at: _br[0], from: { x: u.x, y: u.y } });
+        for (const t of _br) { this.inflict(u, t, 1); this.emit('BossImpact', '스카사의 화염 브레스', { uid: t.uid, at: t }); }
     }
     else if (u.id === 'carcharoth' && this.round % 2 === 0) {
         const t = this.alive('good').filter(v => ht(v, u) < 320).sort((a, b) => ht(a, u) - ht(b, u))[0];
         if (t) { this.inflict(u, t, 1); this.emit('BossImpact', '카르카로스의 발광', { uid: t.uid, at: t }); }
     }
-    else if (u.id === 'gothmog_balrog' && this.round % 2 === 0) {
-        const t = this.alive('good').filter(v => ht(v, u) < 500).sort((a, b) => ht(a, u) - ht(b, u))[0];
-        if (t) { this.inflict(u, t, 1); this.emit('BossImpact', '고스모그의 화염 채찍', { uid: t.uid, at: t }); }
-    }
     else if (u.id === 'ancalagon' && this.round % 3 === 0) {
         const targets = this.alive('good').sort((a, b) => ht(a, u) - ht(b, u)).slice(0, phase);
+        if (targets.length) this.emit('BossCast', undefined, { fx: 'breath', at: targets[0], from: { x: u.x, y: u.y } });
         for (const t of targets) { this.inflict(u, t, 1); this.emit('BossImpact', '앙칼라곤의 용화', { uid: t.uid, at: t }); }
     }
     this.checkRun();
@@ -2206,22 +2257,7 @@ P.finishWave = function () {
     this.phase = 'reward';
     try { arcTransition(this.wave); } catch (e) { console.error('arcTransition', e); }
     typeof wt !== 'undefined' && wt.fanfare && wt.fanfare(true);
-    try { const _vb = document.createElement('div'); _vb.id = 'stage-intro'; _vb.innerHTML = `<div class='si-card' style='border-color:#c9a94e;box-shadow:0 18px 60px #000c,0 0 40px #c9a94e33'><div style='padding:20px 22px;text-align:center'><div class='eyebrow' style='color:#e8c45c'>VICTORY</div><h2 style='color:#f5deb0;margin:2px 0'>STAGE ${this.wave} 클리어</h2><div class='si-mission'>보상 +${this.lastGold}금${this.stageDeaths?'':' · 무결 수비'} · 야영지로 이동합니다</div></div></div>`; document.body.appendChild(_vb);
-        try {
-            const _card=_vb.querySelector('.si-card');
-            for(let _i=0;_i<16;_i++){
-                const _p=document.createElement('i');
-                const _ang=(Math.PI*2)*_i/16+(Math.random()*.4),_d=90+Math.random()*80;
-                _p.style.cssText='position:absolute;left:50%;top:50%;width:'+(4+Math.random()*4)+'px;height:'+(4+Math.random()*4)+'px;margin:-4px;background:'+(_i%3?'#f2c75a':'#f7ecc8')+';border-radius:'+(_i%2?'50%':'2px')+';pointer-events:none;animation:vp_'+_i%4+' .9s cubic-bezier(.1,.7,.3,1) forwards;animation-delay:'+(Math.random()*.12)+'s;--dx:'+Math.cos(_ang)*_d+'px;--dy:'+Math.sin(_ang)*_d*.7+'px;--rot:'+(Math.random()*400-200)+'deg';
-                _card.appendChild(_p);
-            }
-            if(!document.getElementById('vp-style')){
-                const _st=document.createElement('style');_st.id='vp-style';
-                _st.textContent='.si-card{position:relative;overflow:visible!important}@keyframes vp_0{to{transform:translate(var(--dx),var(--dy)) rotate(var(--rot));opacity:0}}@keyframes vp_1{to{transform:translate(var(--dx),var(--dy)) rotate(var(--rot)) scale(.4);opacity:0}}@keyframes vp_2{to{transform:translate(calc(var(--dx)*1.3),calc(var(--dy)*.5)) rotate(var(--rot));opacity:0}}@keyframes vp_3{to{transform:translate(var(--dx),calc(var(--dy)*1.4)) rotate(var(--rot)) scale(.7);opacity:0}}';
-                document.head.appendChild(_st);
-            }
-        } catch(e) {}
-        _vb.onclick = () => _vb.remove(); setTimeout(() => _vb.remove(), 1600); } catch (e) {}
+    this.emit('StageCleared', `STAGE ${this.wave} 클리어`, { wave: this.wave, gold: this.lastGold, flawless: !(this.stageDeaths || 0) });
     this.campStep = 'event';
     this.rollCampEvent();
     this.chosenRelic = '';
@@ -4214,7 +4250,7 @@ Ve.prototype.drawRings = function () {
         g.fillStyle(TARGET, .22);
         g.fillCircle(area.x, area.y, area.radius);
         dashCircle(area.x, area.y, area.radius, 5, FOE_HI, 1, 36);
-        label(area.x, area.y, '다음 라운드 · 그론드', { color: '#ffd2ab' });
+        label(area.x, area.y, '다음 라운드 · ' + (area.label || '보스 기술'), { color: '#ffd2ab' });
     }
 };
 const oldTween = Ve.prototype.tween;
@@ -5175,7 +5211,7 @@ Yt=function(){const u=q.unit(q.selected);if(u&&!u.alive){q.selected='';q.autoSel
 // Keep the existing wait confirmation, but surface it on the persistent button.
 ut('dock-primary').onclick=()=>{if(At||Qt||ut('dock-primary').disabled)return;if(['preparation','fight'].includes(q.phase)){setSheet(false);ut('action').click();return;}const u=actionableUnit();if(u){q.selected=u.uid;ut('wait').click();renderDock();}};
 // Ensure the fixed controls cannot issue a second action while animation is running.
-Rt=async function(fn){if(At)return;wt.unlock();clearTimeout(Jt);At=true;Tt.busy=true;resetGestures();renderDock();try{fn();renderDock();const events=q.drain();ut('action').disabled=true;ut('wait').disabled=true;for(const event of events){await $e(event);ut('dice').classList.add('hidden');await Tt.play(event);if(['WaveStarted','Event','CommandUsed'].includes(event.type)&&event.message)Xt(event.message);if(event.type==='WaveStarted')(event.boss?bossIntro(event.boss):stageIntro());}}catch(error){console.error('[battle action]',error);try{localStorage.setItem('__dbgstart',String(error&&error.stack||error).slice(0,1200))}catch(e){}Xt('행동을 처리하지 못했습니다 — '+String(error&&error.message||error).slice(0,90))}finally{ut('dice').classList.add('hidden');At=false;Tt.busy=false;Tt.preview=undefined;Tt.previewPlan=null;Yt();me();}};
+Rt=async function(fn){if(At)return;wt.unlock();clearTimeout(Jt);At=true;Tt.busy=true;resetGestures();renderDock();try{fn();renderDock();const events=q.drain();ut('action').disabled=true;ut('wait').disabled=true;for(const event of events){await $e(event);ut('dice').classList.add('hidden');await Tt.play(event);if(['WaveStarted','Event','CommandUsed'].includes(event.type)&&event.message)Xt(event.message);if(event.type==='WaveStarted')(event.boss?bossIntro(event.boss):stageIntro());if(event.type==='StageCleared'){try{const _vb=document.createElement('div');_vb.id='stage-intro';_vb.innerHTML=`<div class='si-card' style='border-color:#c9a94e;box-shadow:0 18px 60px #000c,0 0 40px #c9a94e33'><div style='padding:20px 22px;text-align:center'><div class='eyebrow' style='color:#e8c45c'>VICTORY</div><h2 style='color:#f5deb0;margin:2px 0'>STAGE ${event.wave||q.wave} 클리어</h2><div class='si-mission'>보상 +${event.gold||q.lastGold}금${event.flawless===false?'':' · 무결 수비'} · 야영지로 이동합니다</div></div></div>`;document.body.appendChild(_vb);const _card=_vb.querySelector('.si-card');for(let _i=0;_i<16;_i++){const _p=document.createElement('i');const _ang=(Math.PI*2)*_i/16+(Math.random()*.4),_d=90+Math.random()*80;_p.style.cssText='position:absolute;left:50%;top:50%;width:'+(4+Math.random()*4)+'px;height:'+(4+Math.random()*4)+'px;margin:-4px;background:'+(_i%3?'#f2c75a':'#f7ecc8')+';border-radius:'+(_i%2?'50%':'2px')+';pointer-events:none;animation:vp_'+_i%4+' .9s cubic-bezier(.1,.7,.3,1) forwards;animation-delay:'+(Math.random()*.12)+'s;--dx:'+Math.cos(_ang)*_d+'px;--dy:'+Math.sin(_ang)*_d*.7+'px;--rot:'+(Math.random()*400-200)+'deg';_card.appendChild(_p);}if(!document.getElementById('vp-style')){const _st=document.createElement('style');_st.id='vp-style';_st.textContent='.si-card{position:relative;overflow:visible!important}@keyframes vp_0{to{transform:translate(var(--dx),var(--dy)) rotate(var(--rot));opacity:0}}@keyframes vp_1{to{transform:translate(var(--dx),var(--dy)) rotate(var(--rot)) scale(.4);opacity:0}}@keyframes vp_2{to{transform:translate(calc(var(--dx)*1.3),calc(var(--dy)*.5)) rotate(var(--rot));opacity:0}}@keyframes vp_3{to{transform:translate(var(--dx),calc(var(--dy)*1.4)) rotate(var(--rot)) scale(.7);opacity:0}}';document.head.appendChild(_st);}_vb.onclick=()=>_vb.remove();setTimeout(()=>_vb.remove(),1600);}catch(e){}}}}catch(error){console.error('[battle action]',error);try{localStorage.setItem('__dbgstart',String(error&&error.stack||error).slice(0,1200))}catch(e){}Xt('행동을 처리하지 못했습니다 — '+String(error&&error.message||error).slice(0,90))}finally{ut('dice').classList.add('hidden');At=false;Tt.busy=false;Tt.preview=undefined;Tt.previewPlan=null;Yt();me();}};
 const clarityPlay=Ve.prototype.play;
 Ve.prototype.play=async function(event){await clarityPlay.call(this,event);if(event.type==='UnitKilled')removeCasualty(event.uid);};
 const claritySchedule=me;me=function(){if(document.hidden){clearTimeout(Jt);return;}claritySchedule();};
@@ -5666,6 +5702,51 @@ Ve.prototype.play=async function(event){
             await new Promise(r=>this.time.delayedCall(320,r));return;
         }
         if(event.type==='BossWarning'){vfxShake(300,.008);if(event.message)vfxLabel(1165,500,'⚠ '+event.message.slice(0,22),'#ff7060');}
+        if(event.type==='BossCast'){
+            const at=event.at||(event.uid&&this.b.unit(event.uid)),from=event.from||at;
+            const fxk=event.fx||'strike';
+            const streak=(x,y,ang,len,col,th)=>{const p=FXV.add.image(x,y,'fx2-streak').setDepth(18).setBlendMode(ADDB).setTint(col).setRotation(ang).setScale(th||1.2,len/28);FXV.tween(p,{alpha:0},340).then(()=>p.destroy());};
+            if(fxk==='lightning'&&at){
+                streak(at.x,at.y-170,Math.PI/2,340,0xbfe8ff,1.6);
+                vfxGlow(at.x,at.y,0xcfeaff,200,420);vfxRing(at.x,at.y,0x9fd6ff,170,400);vfxBurst(at.x,at.y,0xdaf0ff,16);vfxShake(300,.016);
+                if(event.at&&event.at.label)vfxLabel(at.x,at.y-70,event.at.label,'#bfe4ff');
+                await new Promise(r=>this.time.delayedCall(150,r));return;
+            }
+            if(fxk==='meteor'&&at){
+                const m=FXV.add.image(at.x+190,at.y-260,'fx2-glow').setDepth(18).setBlendMode(ADDB).setTint(0xff8a3d).setScale(2.4);
+                streak(at.x+190,at.y-260,Math.atan2(260,-190),150,0xffb46a,1.6);
+                await FXV.tween(m,{x:at.x,y:at.y},300);m.destroy();
+                vfxGlow(at.x,at.y,0xff6a2c,270,560);vfxRing(at.x,at.y,0xffab5a,250,500);vfxBurst(at.x,at.y,0xffc39c,22);vfxShake(440,.02);
+                if(event.at&&event.at.label)vfxLabel(at.x,at.y-80,event.at.label,'#ff9a6b');
+                await new Promise(r=>this.time.delayedCall(190,r));return;
+            }
+            if(fxk==='dominate'&&at){
+                vfxGlow(at.x,at.y,0xa050ff,160,720);vfxRing(at.x,at.y,0xb44dff,150,620);vfxBurst(at.x,at.y,0xda8cff,16);vfxShake(240,.01);
+                vfxLabel(at.x,at.y-70,'정신 지배','#da8cff');
+                await new Promise(r=>this.time.delayedCall(280,r));return;
+            }
+            if(fxk==='dive'&&at){
+                if(from)streak((at.x+from.x)/2,(at.y+from.y)/2,Math.atan2(at.y-from.y,at.x-from.x),Math.hypot(at.x-from.x,at.y-from.y),0x9fd6ff,1.4);
+                vfxGlow(at.x,at.y,0x8fb8ff,180,460);vfxRing(at.x,at.y,0xaecfff,190,420);vfxBurst(at.x,at.y,0xbfd9ff,14);vfxShake(280,.014);
+                vfxLabel(at.x,at.y-70,'급강하','#aecfff');
+                await new Promise(r=>this.time.delayedCall(160,r));return;
+            }
+            if(fxk==='whip'&&at){
+                if(from)streak((at.x+from.x)/2,(at.y+from.y)/2,Math.atan2(at.y-from.y,at.x-from.x),Math.hypot(at.x-from.x,at.y-from.y),0xff7a3c,1.2);
+                vfxGlow(at.x,at.y,0xff6a2c,140,380);vfxBurst(at.x,at.y,0xff9a5a,10);vfxShake(200,.01);
+                await new Promise(r=>this.time.delayedCall(120,r));return;
+            }
+            if(fxk==='breath'&&at&&from){
+                const d=Math.hypot(at.x-from.x,at.y-from.y),ba=Math.atan2(at.y-from.y,at.x-from.x);
+                for(let i=0;i<5;i++){const ang=ba+(i-2)*.13;streak(from.x+Math.cos(ang)*d*.5,from.y+Math.sin(ang)*d*.5,ang,d,0xff8a3d,1.8);}
+                vfxGlow(at.x,at.y,0xff7a3c,220,460);vfxBurst(at.x,at.y,0xff9a5a,14);vfxShake(240,.011);
+                await new Promise(r=>this.time.delayedCall(140,r));return;
+            }
+            if(fxk==='crack'&&at){
+                vfxGlow(at.x,at.y,0xff5a3c,190,480);vfxRing(at.x,at.y,0xffb46a,180,440);vfxBurst(at.x,at.y,0xffc39c,16);vfxShake(320,.018);
+                await new Promise(r=>this.time.delayedCall(140,r));return;
+            }
+        }
         if(event.type==='UnitKilled'&&event.uid){
             const c=this.tokens.get(event.uid),x=c?c.x:event.x,y=c?c.y:event.y;
             if(x!==undefined){vfxGlow(x,y,0xff4040,110,420);vfxRing(x,y,0xffd0b0,120,360);vfxBurst(x,y,0xc23a2e,12);vfxShake(160,.007);}
