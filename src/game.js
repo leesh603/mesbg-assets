@@ -2064,6 +2064,26 @@ P.beginRound = function () {
     }
     for (const boss of this.alive('evil').filter(u => u.traits.includes('boss')))
         this.bossTurn(boss);
+    // 나즈굴 특수스킬 — 공포의 발자취: 반경 내 아군 용기 검사, 실패 시 도주
+    let _fled = 0;
+    for (const nz of this.alive('evil').filter(u => u.id.startsWith('nazgul'))) {
+        for (const v of this.alive('good').filter(v => !v.fearless && !v.protected && !v.terrorTested && ht(v, nz) < 300)) {
+            v.terrorTested = true;
+            const score = Lt(this.rng) + Lt(this.rng) + v.stats.courage;
+            if (score < 10) {
+                v.feared = true; v.acted = true; _fled++;
+                const a = Math.atan2(v.y - nz.y, v.x - nz.x);
+                const p = { x: Math.min(2240, Math.max(90, v.x + Math.cos(a) * 170)), y: Math.min(1390, Math.max(90, v.y + Math.sin(a) * 170)) };
+                if (Et(v, p, this.alive(), this.terrain)) Object.assign(v, p);
+                this.emit('Terror', `${v.name} — 나즈굴의 공포에 짓눌려 물러납니다`, { uid: v.uid });
+            }
+        }
+        if (_fled) this.emit('BossCast', undefined, { fx: 'dominate', at: nz });
+    }
+    if (_fled) this.emit('Event', `😨 반지 악령의 공포 — 아군 ${_fled}명이 도망쳤습니다`);
+    // 성문 수비 — 목표 구역 내 아군은 방어 태세로 Defence +1
+    for (const v of this.alive('good').filter(v => ht(v, Mt.objective) < Mt.objective.radius + 60))
+        { v.roundBuff.defence = (v.roundBuff.defence || 0) + 1; this.refreshUnit(v); }
     this.autoSelect();
 };
 P.bossTurn = function (u) {
