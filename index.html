@@ -13059,7 +13059,7 @@ document.addEventListener('click', e => {
     let d = document.getElementById('eq-detail');
     if (d) d.remove();
     d = document.createElement('div'); d.id = 'eq-detail';
-    d.style.cssText = 'position:fixed;left:50%;bottom:calc(74px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:65;background:#242c1fed;border:1px solid #8a7b53;border-radius:10px;padding:9px 16px;max-width:80vw;text-align:center;box-shadow:0 8px 24px #000a';
+    d.style.cssText = 'position:fixed;left:50%;bottom:calc(74px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:65;background:linear-gradient(180deg,#2c2416,#1c160c);border:2px solid #8a7440;border-radius:8px;padding:12px 18px;max-width:80vw;text-align:center;box-shadow:0 0 0 1px #14100a,0 8px 24px #000a,inset 0 0 0 1px #3a2f16';
     d.innerHTML = (a.iconImg ? '<img src="'+a.iconImg+'" style="width:34px;height:34px;image-rendering:pixelated;vertical-align:-10px;margin-right:8px">' : '') + '<b style="color:#efe4b0;font-size:13px">'+a.label+'</b><div style="font-size:11px;color:#b9c9a6;margin-top:3px">'+(a.desc||'')+'</div><div style="font-size:9px;color:#8f9a7f;margin-top:4px">판매·장착은 야영지 상점에서</div>';
     document.body.appendChild(d);
     setTimeout(() => { d && d.remove(); }, 3600);
