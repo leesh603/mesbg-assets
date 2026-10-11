@@ -332,7 +332,7 @@ class Ve extends Ot.Scene {
                 for (const f of S)
                     t.side !== f.side && ht(t, f) <= t.radius + f.radius + 3 && (this.rings.lineStyle(3, 14724967, .65), this.rings.lineBetween(t.x, t.y, f.x, f.y));
         }
-        if (b.fightQueue[0]) { const _nx = b.fightQueue[0].map(t => b.unit(t)).filter(t => t && t.alive), _cx = _nx.reduce((a, t) => a + t.x, 0) / Math.max(1, _nx.length), _cy = _nx.reduce((a, t) => a + t.y, 0) / Math.max(1, _nx.length); for (const t of _nx) this.rings.lineStyle(3, 15501166, .9).strokeCircle(t.x, t.y, t.radius + 8); _nx.length && this.labels.add(this.add.text(_cx, _cy - 60, '▼ 다음 교전 · 탭한 교전부터 해결', { fontFamily: 'Pretendard', fontSize: '13px', color: '#fbe8b0', backgroundColor: '#241d0aea', padding: { x: 7, y: 3 } }).setOrigin(.5)); } 
+        if (b.fightQueue[0]) { const _nx = b.fightQueue[0].map(t => b.unit(t)).filter(t => t && t.alive), _cx = _nx.reduce((a, t) => a + t.x, 0) / Math.max(1, _nx.length), _cy = _nx.reduce((a, t) => a + t.y, 0) / Math.max(1, _nx.length); for (const t of _nx) this.rings.lineStyle(3, 15501166, .9).strokeCircle(t.x, t.y, t.radius + 8); _nx.length && this.labels.add(this.add.text(_cx, _cy - 60, '▼ 다음 교전', { fontFamily: 'Pretendard', fontSize: '13px', color: '#fbe8b0', backgroundColor: '#241d0aea', padding: { x: 7, y: 3 } }).setOrigin(.5)); } 
         // off-screen enemy edge indicators
         if (!this._edgeG) { this._edgeG = this.add.graphics().setScrollFactor(0).setDepth(40); }
         const _eg = this._edgeG; _eg.clear();
