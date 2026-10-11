@@ -1,12 +1,172 @@
 {
   "project": "MIDDLE-EARTH WARBANDS original orchestral OST",
-  "status": "blocked_on_paid_music_plan",
+  "status": "musical_direction_revision_pending_audition",
   "auditDate": "2026-10-11",
   "auditedSourceCommit": "ecf20c41939ebb84d85d2f238311a1d7ebbf4b7f",
   "branch": "feat/original-orchestral-ost",
   "runtimeModified": false,
-  "generatedAudioCount": 0,
+  "generatedAudioCount": 9,
   "provider": {
+    "selected": "ACE-Step local",
+    "selectedModel": "acestep-v15-turbo",
+    "codeRevision": "ca1e85fe9430179831e6bc6be790c332190a3866",
+    "modelRevision": "19671f406d603126926c1b7e2adc169acbcade22",
+    "license": "MIT",
+    "documentationUsageRights": "https://huggingface.co/ACE-Step/Ace-Step1.5",
+    "outputFormat": "FLAC master, MP3 and Opus game candidates",
+    "paidServiceUsed": false,
+    "referenceAudioUsed": false,
+    "musicPlanner": "acestep-5Hz-lm-1.7B"
+  },
+  "tracks": [
+    {
+      "id": "main",
+      "title": "중간계의 황혼",
+      "targetSeconds": 120,
+      "instrumentation": [
+        "divisi strings",
+        "solo cello",
+        "French horns",
+        "woodwinds",
+        "wordless mixed choir",
+        "restrained timpani"
+      ],
+      "structure": "0–24 mournful string introduction; 24–64 cello and horn melody; 64–100 expanded orchestra and choir; 100–120 restrained return into loop",
+      "plannedLocation": "main entry screen only",
+      "file": null,
+      "loopStartSeconds": null,
+      "loopEndSeconds": null,
+      "status": "first_candidate_rejected",
+      "generatedCandidateExists": true
+    },
+    {
+      "id": "rohan",
+      "title": "황금빛 초원의 기병",
+      "targetSeconds": 108,
+      "instrumentation": [
+        "solo fiddle",
+        "Nordic bowed folk strings",
+        "violas",
+        "cellos",
+        "French horns",
+        "restrained frame drum"
+      ],
+      "structure": "0–20 exposed lament; 20–56 restrained riding pulse; 56–84 cavalry climax; 84–108 fiddle recollection and loop return",
+      "plannedLocation": "Rohan regional preparation; helms_deep, edoras, dunharrow",
+      "file": null,
+      "loopStartSeconds": null,
+      "loopEndSeconds": null,
+      "status": "first_candidate_direction_held",
+      "generatedCandidateExists": true
+    },
+    {
+      "id": "gondor",
+      "title": "백색 도시의 수호자",
+      "targetSeconds": 108,
+      "instrumentation": [
+        "horns",
+        "trumpets",
+        "trombones",
+        "male choir",
+        "strings",
+        "restrained snare and timpani"
+      ],
+      "structure": "0–20 solemn brass chorale; 20–52 quieter remembrance; 52–88 final-stand development; 88–108 dignified return",
+      "plannedLocation": "Gondor regional preparation; minas_tirith, osgiliath, pelennor",
+      "file": null,
+      "loopStartSeconds": null,
+      "loopEndSeconds": null,
+      "status": "first_candidate_direction_held",
+      "generatedCandidateExists": true
+    },
+    {
+      "id": "mordor",
+      "title": "검은 대지",
+      "targetSeconds": 108,
+      "instrumentation": [
+        "basso choir",
+        "bass trombones",
+        "tuba",
+        "contrabassoon",
+        "low strings",
+        "gran cassa and timpani"
+      ],
+      "structure": "0–20 low choral motif; 20–52 accumulating march; 52–88 contrapuntal dissonant expansion; 88–108 ominous return",
+      "plannedLocation": "Mordor regional preparation; black_gate, gorgoroth, dol_guldur, angband",
+      "file": null,
+      "loopStartSeconds": null,
+      "loopEndSeconds": null,
+      "status": "first_candidate_direction_held",
+      "generatedCandidateExists": true
+    },
+    {
+      "id": "battle",
+      "title": "검과 방패",
+      "targetSeconds": 120,
+      "instrumentation": [
+        "articulated strings",
+        "French horns",
+        "woodwind counterlines",
+        "war drums",
+        "timpani"
+      ],
+      "structure": "0–16 concise entrance; 16–48 rhythmic theme; 48–80 reduced-orchestration variation; 80–112 countertheme; 112–120 loop transition",
+      "plannedLocation": "ordinary active combat; move, shoot, fight and other combat phases after checking the phase model",
+      "file": null,
+      "loopStartSeconds": null,
+      "loopEndSeconds": null,
+      "status": "first_candidate_direction_held",
+      "generatedCandidateExists": true
+    },
+    {
+      "id": "heroes-bosses",
+      "title": "최후의 전열",
+      "targetSeconds": 132,
+      "instrumentation": [
+        "full strings",
+        "brass choir",
+        "mixed wordless choir",
+        "timpani",
+        "restrained bass drum and cymbals"
+      ],
+      "structure": "0–20 threat motif; 20–56 heroic reply; 56–92 confrontation and harmonic development; 92–120 culmination; 120–132 loop return",
+      "plannedLocation": "active boss combat (q.current.boss); hero-duel trigger requires a separately confirmed encounter definition",
+      "file": null,
+      "loopStartSeconds": null,
+      "loopEndSeconds": null,
+      "status": "first_candidate_direction_held",
+      "generatedCandidateExists": true
+    },
+    {
+      "id": "aftermath",
+      "title": "전쟁이 끝난 자리",
+      "targetSeconds": 60,
+      "instrumentation": [
+        "soft strings",
+        "solo oboe",
+        "clarinet",
+        "solo cello"
+      ],
+      "structure": "0–36 shared elegy; 36–60 relief or grief ending variants only if the chosen service supports reliable editing",
+      "plannedLocation": "stage clear, reward and run result; play once, then hold silence or an authored sustain without restarting the ending",
+      "file": null,
+      "loopStartSeconds": null,
+      "loopEndSeconds": null,
+      "status": "first_candidate_direction_held",
+      "generatedCandidateExists": true
+    }
+  ],
+  "releaseGate": {
+    "originalMelodyAndDevelopmentAuditioned": false,
+    "naturalArticulationAndChoirAuditioned": false,
+    "loopPointsAuditioned": false,
+    "loudnessAndTruePeakMeasured": false,
+    "gameEmbeddingAndPublicAssetHostingRightsRecorded": false,
+    "chromePlaybackTested": false,
+    "samsungInternetPlaybackTested": false,
+    "iosSafariPlaybackTested": false
+  },
+  "previousProvider": {
     "selected": "Runway",
     "connectionVerified": true,
     "accountPlan": "Free",
@@ -23,100 +183,29 @@
     "sevenFirstCandidatesCredits": 56,
     "stemsOrSectionEditingVerified": false
   },
-  "tracks": [
+  "acceptedAudioCount": 0,
+  "gameIntegratedAudioCount": 0,
+  "reviewDecision": {
+    "firstMainCandidate": "user_rejected",
+    "userFeedback": "전혀 반지의 제왕 같지 않다. 반지의 제왕 느낌과 내 게임에 맞아야 한다.",
+    "remainingFirstDirectionCandidates": "held; not adopted after main direction failed",
+    "revisionScope": "main and Rohan first, with separate music planning and sound rendering",
+    "referenceAudioUsed": false,
+    "gameChanges": "experimental runtime changes reverted; original game source and BGM retained",
+    "deployment": "none"
+  },
+  "revisionCandidates": [
     {
-      "id": "main",
-      "title": "중간계의 황혼",
-      "targetSeconds": 120,
-      "instrumentation": ["divisi strings", "solo cello", "French horns", "woodwinds", "wordless mixed choir", "restrained timpani"],
-      "structure": "0–24 mournful string introduction; 24–64 cello and horn melody; 64–100 expanded orchestra and choir; 100–120 restrained return into loop",
-      "plannedLocation": "main entry screen only",
-      "file": null,
-      "loopStartSeconds": null,
-      "loopEndSeconds": null,
-      "status": "not_generated"
+      "id": "main-v2",
+      "status": "pending_user_audition",
+      "targetSeconds": 96,
+      "gameIntegrated": false
     },
     {
-      "id": "rohan",
-      "title": "황금빛 초원의 기병",
-      "targetSeconds": 108,
-      "instrumentation": ["solo fiddle", "Nordic bowed folk strings", "violas", "cellos", "French horns", "restrained frame drum"],
-      "structure": "0–20 exposed lament; 20–56 restrained riding pulse; 56–84 cavalry climax; 84–108 fiddle recollection and loop return",
-      "plannedLocation": "Rohan regional preparation; helms_deep, edoras, dunharrow",
-      "file": null,
-      "loopStartSeconds": null,
-      "loopEndSeconds": null,
-      "status": "not_generated"
-    },
-    {
-      "id": "gondor",
-      "title": "백색 도시의 수호자",
-      "targetSeconds": 108,
-      "instrumentation": ["horns", "trumpets", "trombones", "male choir", "strings", "restrained snare and timpani"],
-      "structure": "0–20 solemn brass chorale; 20–52 quieter remembrance; 52–88 final-stand development; 88–108 dignified return",
-      "plannedLocation": "Gondor regional preparation; minas_tirith, osgiliath, pelennor",
-      "file": null,
-      "loopStartSeconds": null,
-      "loopEndSeconds": null,
-      "status": "not_generated"
-    },
-    {
-      "id": "mordor",
-      "title": "검은 대지",
-      "targetSeconds": 108,
-      "instrumentation": ["basso choir", "bass trombones", "tuba", "contrabassoon", "low strings", "gran cassa and timpani"],
-      "structure": "0–20 low choral motif; 20–52 accumulating march; 52–88 contrapuntal dissonant expansion; 88–108 ominous return",
-      "plannedLocation": "Mordor regional preparation; black_gate, gorgoroth, dol_guldur, angband",
-      "file": null,
-      "loopStartSeconds": null,
-      "loopEndSeconds": null,
-      "status": "not_generated"
-    },
-    {
-      "id": "battle",
-      "title": "검과 방패",
-      "targetSeconds": 120,
-      "instrumentation": ["articulated strings", "French horns", "woodwind counterlines", "war drums", "timpani"],
-      "structure": "0–16 concise entrance; 16–48 rhythmic theme; 48–80 reduced-orchestration variation; 80–112 countertheme; 112–120 loop transition",
-      "plannedLocation": "ordinary active combat; move, shoot, fight and other combat phases after checking the phase model",
-      "file": null,
-      "loopStartSeconds": null,
-      "loopEndSeconds": null,
-      "status": "not_generated"
-    },
-    {
-      "id": "heroes-bosses",
-      "title": "최후의 전열",
-      "targetSeconds": 132,
-      "instrumentation": ["full strings", "brass choir", "mixed wordless choir", "timpani", "restrained bass drum and cymbals"],
-      "structure": "0–20 threat motif; 20–56 heroic reply; 56–92 confrontation and harmonic development; 92–120 culmination; 120–132 loop return",
-      "plannedLocation": "active boss combat (q.current.boss); hero-duel trigger requires a separately confirmed encounter definition",
-      "file": null,
-      "loopStartSeconds": null,
-      "loopEndSeconds": null,
-      "status": "not_generated"
-    },
-    {
-      "id": "aftermath",
-      "title": "전쟁이 끝난 자리",
-      "targetSeconds": 60,
-      "instrumentation": ["soft strings", "solo oboe", "clarinet", "solo cello"],
-      "structure": "0–36 shared elegy; 36–60 relief or grief ending variants only if the chosen service supports reliable editing",
-      "plannedLocation": "stage clear, reward and run result; play once, then hold silence or an authored sustain without restarting the ending",
-      "file": null,
-      "loopStartSeconds": null,
-      "loopEndSeconds": null,
-      "status": "not_generated"
+      "id": "rohan-v2",
+      "status": "pending_user_audition",
+      "targetSeconds": 90,
+      "gameIntegrated": false
     }
-  ],
-  "releaseGate": {
-    "originalMelodyAndDevelopmentAuditioned": false,
-    "naturalArticulationAndChoirAuditioned": false,
-    "loopPointsAuditioned": false,
-    "loudnessAndTruePeakMeasured": false,
-    "gameEmbeddingAndPublicAssetHostingRightsRecorded": false,
-    "chromePlaybackTested": false,
-    "samsungInternetPlaybackTested": false,
-    "iosSafariPlaybackTested": false
-  }
+  ]
 }
