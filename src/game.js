@@ -1594,7 +1594,7 @@ P.readBest = function () { try {
 catch {
     return 0;
 } };
-const STAGE_BOSSES = { 5: 'cave_troll', 10: 'saruman', 15: 'witchking_fellbeast', 20: 'mouth_of_sauron', 25: 'goblin_king', 30: 'azog', 35: 'smaug', 40: 'sauron', 45: 'glaurung', 50: 'carcharoth', 55: 'ungoliant', 60: 'gothmog_balrog', 65: 'ancalagon', 70: 'morgoth' };
+const STAGE_BOSSES = { 5: 'war_troll', 10: 'saruman', 15: 'witchking_fellbeast', 20: 'mouth_of_sauron', 25: 'goblin_king', 30: 'azog', 35: 'smaug', 40: 'sauron', 45: 'glaurung', 50: 'carcharoth', 55: 'ungoliant', 60: 'gothmog_balrog', 65: 'ancalagon', 70: 'morgoth' };
 const DESPAIR_BOSS_POOL = ['cave_troll','goblin_king','azog','witchking_fellbeast','mouth_of_sauron','sauron','carcharoth','smaug','glaurung','gothmog_balrog','ungoliant','ancalagon','morgoth'];
 const ELDER_BOSSES = ['ungoliant', 'gothmog_balrog', 'ancalagon', 'morgoth'];
 const STAGE_CO_COMMANDERS = { 20: ['war_troll', 'nazgul_fellbeast', 'nazgul_fellbeast', 'nazgul_fellbeast'], 60: ['balrog'] };
@@ -4623,6 +4623,7 @@ function unitImage(id) { const f = q.meta.get(id).file; return `<img src="${Th(f
 let __bossStyle = false;
 const BOSS_INTRO = {
     cave_troll: { tag: '모리아의 괴수', line: '동굴에서 무언가가 기어나온다 — 트롤이다.', accent: '#b9a98a', glow: 'rgba(160,140,100,.5)', cls: 'bi-doom' },
+    war_troll: { tag: '모르도르의 전쟁괴수', line: '철갑을 두른 전쟁 트롤이 전장을 짓밟는다.', accent: '#d8a08a', glow: 'rgba(200,90,60,.55)', cls: 'bi-doom' },
     saruman: { tag: '아이센가드의 주인', line: '오르상크의 백색 마법사가 배신을 완성한다.', accent: '#d8d3c0', glow: 'rgba(220,220,200,.5)', cls: 'bi-frost' },
     goblin_king: { tag: '고블린 도시의 왕', line: '삼베 군주가 옥좌에서 일어난다 — 동굴 전체가 적이다.', accent: '#a8c48a', glow: 'rgba(120,170,90,.5)', cls: 'bi-void' },
     azog: { tag: '창백한 오크', line: '아조그가 등장한다 — 드워프들의 오랜 원한.', accent: '#cfe0e0', glow: 'rgba(180,220,220,.5)', cls: 'bi-frost' },
