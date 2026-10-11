@@ -202,7 +202,7 @@ Ae=[{id:"warrior_minas_tirith",name_ko:"미나스 티리스 전사",name_en:"War
 }
 class Ve extends Ot.Scene {
     constructor() { super("battle"); lt(this, "b"); lt(this, "soundFX"); lt(this, "asset"); lt(this, "onPoint"); lt(this, "onUnit"); lt(this, "onDrop"); lt(this, "tokens", new Map); lt(this, "rings"); lt(this, "terrainLayer"); lt(this, "labels"); lt(this, "dragStart"); lt(this, "dragUnit", ""); lt(this, "busy", !1); lt(this, "focusedUid", ""); lt(this, "preview"); lt(this, "previewPlan"); lt(this, "previewAt", 0); }
-    preload() { this.load.maxParallelDownloads = 8; this.load.image("gate-art", this.asset("backgrounds/bg_minas_gate.png?v=p2")); this.load.image("terr_barricade", this.asset("tokens/terr_barricade.png?v=p2")); this.load.image("terr_bomb", this.asset("tokens/terr_bomb.png?v=p2")), this.load.image("terr_ballista", this.asset("tokens/terr_ballista.png?v=p2")), this.load.image("terr_brazier", this.asset("tokens/terr_brazier.png?v=p2"));for(const _tk of["terr_trebuchet","terr_crates","terr_bone_pile","terr_chain_post","terr_spike_line","terr_chest_closed"])this.load.image(_tk,this.asset("tokens/"+_tk+".png?v=p2"));for(const _sk of["st_fear","st_prone","st_shield","st_aim","st_snare","st_crown","st_cart","st_lair","st_done","st_warn","st_bow","ui_heart","eye_sauron","trap_ballista","trap_scorpion","trap_snare","trap_barrel","trap_oil","trap_spike","trap_firepot","node_treasure","relic_map_scroll","ui_star","ui_flag","tr_champion"])this.load.image(_sk,"icons/"+_sk+".png"); for (const b of this.b.meta.values())
+    preload() { this.load.maxParallelDownloads = 8; this.load.image("gate-art", this.asset("backgrounds/bg_minas_gate.png?v=p2")); this.load.image("terr_barricade", this.asset("tokens/terr_barricade.png?v=p2")); this.load.image("terr_bomb", this.asset("tokens/terr_bomb.png?v=p2")), this.load.image("terr_ballista", this.asset("tokens/terr_ballista.png?v=p2")), this.load.image("terr_brazier", this.asset("tokens/terr_brazier.png?v=p2"));for(const _tk of["terr_trebuchet","terr_crates","terr_bone_pile","terr_chain_post","terr_spike_line","terr_chest_closed","terr_great_wall","terr_palisade_long"])this.load.image(_tk,this.asset("tokens/"+_tk+".png?v=p2"));for(const _pp of new Set([...Object.values(MAP_PROPS||{}),...Object.values(MAP_PROP_SETS||{})].flat(3).filter(a=>Array.isArray(a)).map(a=>a[0]).filter(a=>typeof a==='string'&&a.startsWith('terr_'))))if(!this.textures.exists(_pp))this.load.image(_pp,this.asset('tokens/'+_pp+'.png?v=p2'));for(const _sk of["st_fear","st_prone","st_shield","st_aim","st_snare","st_crown","st_cart","st_lair","st_done","st_warn","st_bow","ui_heart","eye_sauron","trap_ballista","trap_scorpion","trap_snare","trap_barrel","trap_oil","trap_spike","trap_firepot","node_treasure","relic_map_scroll","ui_star","ui_flag","tr_champion"])this.load.image(_sk,"icons/"+_sk+".png"); for (const b of this.b.meta.values())
         if (b.side === 'terrain' && b.file) this.load.image(b.id, this.asset(b.file)); }
     create() { this.drawMap(), this.terrainLayer = this.add.container(0, 0), this.rings = this.add.graphics().setDepth(3), this.labels = this.add.container(0, 0).setDepth(8), this.cameras.main.setBounds(0, 0, pt.width, pt.height), this.cameras.main.setZoom(this.scale.width < 850 ? .85 : 1), (() => { const _g = this.b ? this.b.alive('good').filter(u => u.x >= 0) : []; const _cx = _g.length ? _g.reduce((a, u) => a + u.x, 0) / _g.length : 1165, _cy = _g.length ? _g.reduce((a, u) => a + u.y, 0) / _g.length : (285 + pt.deployY) / 2; this.cameras.main.centerOn(Math.max(200, Math.min(pt.width - 200, _cx)), _cy); })(), this.input.addPointer(1), this.input.on("pointerdown", b => { this.dragStart = { x: b.worldX, y: b.worldY }; const H = this.hit({ x: b.worldX, y: b.worldY }); this.dragUnit = (H == null ? void 0 : H.uid) || ""; }), this.input.on("pointerup", b => { if (this.busy)
         return; const H = { x: b.worldX, y: b.worldY }; if (!this.dragUnit && this.dragStart && Math.hypot(b.x - b.downX, b.y - b.downY) > 10) {
@@ -1163,12 +1163,12 @@ const MAP_PROPS = {
 const MAP_PROP_SETS = {
     minas_tirith: [null,
         // 성문 앞 — 포트큘리스·석상·전투 잔해
-        [['terr_portcullis', 1165, 130, 180, 90], ['terr_siege_ladder', 2190, 1180, 90, 130], ['terr_ruined_gate', 130, 480, 140, 100, 'block'], ['terr_siege_wreck', 2210, 900, 140, 90], ['terr_war_banner', 150, 1180, 60, 110], ['terr_rubble', 1050, 1410, 120, 60], ['terr_wall_segment', 1750, 760, 240, 70, 'block']],
+        [['terr_portcullis', 1165, 130, 180, 90], ['terr_siege_ladder', 2190, 1180, 90, 130], ['terr_ruined_gate', 130, 480, 140, 100, 'block'], ['terr_siege_wreck', 2210, 900, 140, 90], ['terr_war_banner', 150, 1180, 60, 110], ['terr_rubble', 1050, 1410, 120, 60], ['terr_white_wall', 1760, 790, 540, 280, 'block']],
         // 펠렌노르 평원 — 농장·밀짚·울타리
         [['terr_haystack', 160, 480, 100, 90], ['terr_fence_gate', 2200, 700, 120, 50], ['terr_hay_cart', 150, 1240, 110, 80], ['terr_hedgerow', 2190, 1400, 140, 60]]],
     helms_deep: [null,
         // 협곡 입구 — 암석·바리케이드
-        [['terr_rock_outcrop', 140, 300, 140, 100], ['terr_spike_barricade', 2200, 400, 120, 70], ['terr_wall_segment', 1160, 1400, 160, 90], ['terr_boulders', 150, 1240, 130, 80], ['terr_dead_tree', 2230, 1180, 90, 110], ['terr_wall_segment', 640, 1060, 320, 70, 'block'], ['terr_wall_segment', 1690, 1060, 320, 70, 'block']],
+        [['terr_rock_outcrop', 140, 300, 140, 100], ['terr_spike_barricade', 2200, 400, 120, 70], ['terr_wall_segment', 1160, 1400, 160, 90], ['terr_boulders', 150, 1240, 130, 80], ['terr_dead_tree', 2230, 1180, 90, 110], ['terr_great_wall', 500, 1070, 560, 300, 'block'], ['terr_great_wall', 1830, 1070, 560, 300, 'block']],
         // 개울 하류 — 공성 잔해·사지
         [['terr_siege_wreck', 200, 700, 140, 90], ['terr_siege_ladder', 2100, 300, 90, 130], ['terr_bone_pile', 2180, 620, 100, 70], ['terr_ruined_wall', 1160, 130, 180, 80], ['terr_torch_post', 2200, 1240, 60, 90]]],
     moria: [null,
@@ -1180,12 +1180,12 @@ const MAP_PROP_SETS = {
         // 북쪽 설원 — 바위·뼈대
         [['terr_boulders', 140, 300, 130, 80], ['terr_tent', 150, 1240, 120, 90], ['terr_mumak_skull', 2210, 420, 120, 80], ['terr_orc_barricade', 150, 1180, 130, 80], ['terr_dead_tree', 2210, 1240, 90, 110]],
         // 폐허 참호선 — 모래주머니·가시
-        [['terr_sandbag', 160, 480, 130, 70], ['terr_wall_segment', 1100, 150, 160, 90], ['terr_spike_line', 2200, 760, 130, 70], ['terr_orc_totem', 140, 1240, 70, 100], ['terr_trebuchet', 2150, 1300, 130, 110], ['terr_orc_barricade', 780, 900, 260, 60, 'block'], ['terr_orc_barricade', 1550, 900, 260, 60, 'block']]],
+        [['terr_sandbag', 160, 480, 130, 70], ['terr_wall_segment', 1100, 150, 160, 90], ['terr_spike_line', 2200, 760, 130, 70], ['terr_orc_totem', 140, 1240, 70, 100], ['terr_trebuchet', 2150, 1300, 130, 110], ['terr_dark_wall', 740, 900, 520, 260, 'block'], ['terr_dark_wall', 1590, 900, 520, 260, 'block']]],
     edoras: [null,
         // 평원 들판 — 건초·목책
-        [['terr_haystack', 140, 300, 100, 90], ['terr_tent', 2150, 1200, 120, 90], ['terr_hay_cart', 2200, 480, 110, 80], ['terr_fence_gate', 150, 1400, 120, 50], ['terr_hedgerow', 2200, 1240, 140, 60], ['terr_palisade', 1165, 950, 300, 60, 'block']],
+        [['terr_haystack', 140, 300, 100, 90], ['terr_tent', 2150, 1200, 120, 90], ['terr_hay_cart', 2200, 480, 110, 80], ['terr_fence_gate', 150, 1400, 120, 50], ['terr_hedgerow', 2200, 1240, 140, 60], ['terr_palisade_long', 1165, 950, 600, 250, 'block']],
         // 메두셀드 외곽 — 전당·기마대
-        [['terr_war_banner', 2200, 300, 60, 110], ['terr_weapon_rack', 150, 700, 90, 80], ['terr_cart', 160, 1240, 110, 80], ['terr_torch_post', 2150, 1180, 60, 90], ['terr_palisade', 430, 880, 260, 60, 'block'], ['terr_palisade', 1900, 880, 260, 60, 'block']]],
+        [['terr_war_banner', 2200, 300, 60, 110], ['terr_weapon_rack', 150, 700, 90, 80], ['terr_cart', 160, 1240, 110, 80], ['terr_torch_post', 2150, 1180, 60, 90], ['terr_palisade_long', 400, 920, 520, 230, 'block'], ['terr_palisade_long', 1930, 920, 520, 230, 'block']]],
     fangorn: [null,
         // 깊은 숲 — 거목·가시덤불
         [['terr_oak_tree', 150, 560, 110, 130], ['terr_campfire', 1160, 730, 70, 70], ['terr_pine_copse', 2200, 620, 130, 110], ['terr_bramble', 150, 900, 130, 60], ['terr_dead_tree', 2200, 980, 90, 110], ['terr_beehive', 1160, 140, 90, 80]],
@@ -1200,7 +1200,7 @@ const MAP_PROP_SETS = {
         // 공사 구덩이 — 가마·폭탄·목재
         [['terr_fallen_log', 150, 300, 120, 60], ['terr_map_table', 1160, 1420, 120, 80], ['terr_ammo_pile', 2200, 420, 100, 80], ['terr_crates', 160, 1240, 100, 80], ['terr_orc_barricade', 2180, 1400, 130, 80]],
         // 물길 플랜트 — 방벽·포로 우리
-        [['terr_cage', 150, 620, 90, 90], ['terr_orc_camp', 140, 1180, 130, 110], ['terr_stone_barricade', 2200, 760, 130, 70, 'block'], ['terr_anvil', 140, 1400, 90, 80], ['terr_torch_post', 2150, 1300, 60, 90], ['terr_orc_barricade', 1000, 1000, 260, 60, 'block']]],
+        [['terr_cage', 150, 620, 90, 90], ['terr_orc_camp', 140, 1180, 130, 110], ['terr_dark_wall', 1950, 800, 500, 250, 'block'], ['terr_anvil', 140, 1400, 90, 80], ['terr_torch_post', 2150, 1300, 60, 90], ['terr_orc_barricade', 950, 1050, 260, 60, 'block']]],
     amon_sul: [null,
         // 둥근 고개 — 스탠딩 스톤 원
         [['terr_standing_stones', 1165, 300, 130, 100], ['terr_ruined_tower', 2150, 1240, 120, 140], ['terr_standing_stones', 150, 1240, 130, 100], ['terr_waystone', 2200, 760, 70, 90], ['terr_boulders', 140, 400, 130, 80]],
@@ -1240,7 +1240,7 @@ const MAP_PROP_SETS = {
         // 영혼의 길 — 스탠딩 스톤 행렬
         [['terr_standing_stones', 900, 200, 130, 100], ['terr_altar', 150, 900, 90, 80], ['terr_standing_stones', 1400, 1300, 130, 100], ['terr_waystone', 150, 400, 70, 90], ['terr_torch_post', 2200, 700, 60, 90]],
         // 풀밭 고원 — 초원 소품
-        [['terr_boulders', 2200, 400, 130, 80], ['terr_chest_closed', 140, 620, 90, 70], ['terr_bramble', 140, 1000, 130, 60], ['terr_standing_stones', 2210, 1240, 130, 100], ['terr_torch_post', 150, 1400, 60, 90]]],
+        [['terr_boulders', 2200, 400, 130, 80], ['terr_chest_closed', 140, 620, 90, 70], ['terr_bramble', 140, 1000, 130, 60], ['terr_standing_stones', 2210, 1240, 130, 100], ['terr_torch_post', 150, 1400, 60, 90], ['terr_palisade_long', 1165, 1000, 560, 240, 'block']]],
 };
 // 구역 변주 확장: 기존 2종 → 4종(v3,v4 추가) + 신규 4맵 전용 소품 세트.
 {
@@ -1315,7 +1315,7 @@ const MAP_PROP_SETS = {
         [['terr_mumak_skull', 150, 300, 120, 80], ['terr_brazier', 2200, 560, 60, 70], ['terr_bone_pile', 160, 1300, 100, 70], ['terr_spike_barricade', 2180, 1380, 120, 70], ['terr_orc_totem', 1160, 1420, 70, 100]],
         [['terr_orc_camp', 140, 480, 130, 110], ['terr_siege_wreck', 2200, 700, 140, 90], ['terr_cage', 150, 1240, 90, 90], ['terr_bone_pile', 2190, 1240, 100, 70], ['terr_idol', 1160, 1420, 80, 110]]);
     X('minas_court',
-        [['terr_white_tree', 1160, 620, 90, 110], ['terr_brazier', 150, 300, 60, 70], ['terr_brazier', 2180, 300, 60, 70], ['terr_statue_head', 150, 1180, 110, 90], ['terr_altar', 2180, 1300, 90, 80], ['terr_wall_segment', 300, 730, 240, 70, 'block'], ['terr_wall_segment', 2030, 730, 240, 70, 'block']],
+        [['terr_white_tree', 1160, 620, 90, 110], ['terr_brazier', 150, 300, 60, 70], ['terr_brazier', 2180, 300, 60, 70], ['terr_statue_head', 150, 1180, 110, 90], ['terr_altar', 2180, 1300, 90, 80], ['terr_white_wall', 320, 820, 520, 270, 'block'], ['terr_white_wall', 2010, 820, 520, 270, 'block']],
         [['terr_well', 2200, 480, 90, 80], ['terr_brazier', 140, 620, 60, 70], ['terr_relic_shrine', 160, 1240, 100, 110], ['terr_pond', 2180, 1180, 130, 90], ['terr_war_banner', 1160, 130, 60, 110]]);
     X('orthanc',
         [['terr_anvil', 150, 400, 90, 80], ['terr_cage', 2180, 480, 90, 90], ['terr_chain_post', 160, 1180, 70, 90], ['terr_torch_post', 2200, 1240, 60, 90], ['terr_map_table', 1160, 1420, 120, 80], ['terr_broken_pillar', 620, 920, 80, 140, 'block'], ['terr_broken_pillar', 1710, 920, 80, 140, 'block']],
