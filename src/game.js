@@ -5226,6 +5226,21 @@ function inputBlocked(){return Qt||aside.classList.contains('open')||!ut('overla
 function installFieldInput(scene){
     const canvas=scene.game.canvas;
     const point=e=>{const r=canvas.getBoundingClientRect();return{x:(e.clientX-r.left)*UX.width/r.width,y:(e.clientY-r.top)*UX.height/r.height}};
+    scene.hoverBox=document.createElement('div');
+    scene.hoverBox.className='unit-tooltip hidden';scene.hoverBox.setAttribute('role','tooltip');
+    document.querySelector('.field').append(scene.hoverBox);
+    const hideHover=()=>scene.hoverBox.classList.add('hidden');
+    const showHover=(u,p)=>{
+        if(!u){hideHover();return;}
+        const m=q.meta.get(u.id)||{};
+        scene.hoverBox.innerHTML=uiInfoHead(u.name,(u.side==='good'?'아군':'적군')+' · '+(CX.roleNames[m.role]||m.role||''),unitImage(u.id))+'<div class="ui-hover-stats"><span>결투 <b>'+u.stats.fight+'</b></span><span>힘 <b>'+u.stats.strength+'</b></span><span>방어 <b>'+u.stats.defence+'</b></span></div><p class="ui-hover-state">'+(q.engaged(u)?'교전 중':u.acted?'행동 완료':'행동 가능')+'</p>';
+        scene.hoverBox.classList.remove('hidden');
+        const bounds=scene.hoverBox.parentElement.getBoundingClientRect();
+        scene.hoverBox.style.setProperty('width',Math.min(280,bounds.width-24)+'px','important');
+        scene.hoverBox.style.left=Math.max(12,Math.min(p.x/UX.width*bounds.width+16,bounds.width-scene.hoverBox.offsetWidth-12))+'px';
+        scene.hoverBox.style.top=Math.max(12,Math.min(p.y/UX.height*bounds.height+16,bounds.height-scene.hoverBox.offsetHeight-12))+'px';
+    };
+    document.addEventListener('pointerdown',hideHover);document.addEventListener('keydown',hideHover);window.addEventListener('resize',hideHover);
     canvas.addEventListener('contextmenu',e=>e.preventDefault());
     canvas.addEventListener('pointerdown',e=>{
         if(inputBlocked()||e.pointerType==='mouse'&&e.button!==0)return;
@@ -5238,8 +5253,9 @@ function installFieldInput(scene){
     },{passive:false});
     canvas.addEventListener('pointermove',e=>{
         if(!UX.pointers.has(e.pointerId)){
-            if(e.pointerType!=='mouse'||At||UX.intent||inputBlocked())return;
+            if(e.pointerType!=='mouse'||At||UX.intent||inputBlocked()){hideHover();return;}
             const p=point(e),wp=worldAt(p.x,p.y),u=actionableUnit();
+            showHover(scene.hit(wp),p);
             if(u&&q.phase==='move'&&performance.now()-(UX.previewAt||0)>100){UX.previewAt=performance.now();scene.preview=wp;scene.previewPlan=ve(u,wp,q.alive(),q.terrain,q.remaining(u));const foe=scene.hit(wp);scene.chargeTarget=foe&&foe.side!==u.side?{u:foe,plan:ve(u,ue(u,foe),q.alive(),q.terrain,q.remaining(u),{chargeTarget:foe})}:null;scene.drawRings();}
             return;
         }
@@ -5263,8 +5279,8 @@ function installFieldInput(scene){
     };
     canvas.addEventListener('pointerup',e=>finish(e,false),{passive:false});canvas.addEventListener('pointercancel',e=>finish(e,true),{passive:false});
     canvas.addEventListener('lostpointercapture',e=>{if(UX.pointers.has(e.pointerId))resetGestures()});
-    canvas.addEventListener('pointerleave',()=>{if(!UX.pointers.size){scene.preview=undefined;scene.previewPlan=null;scene.chargeTarget=null;scene.drawRings()}});
-    canvas.addEventListener('wheel',e=>{if(inputBlocked())return;e.preventDefault();const p=point(e);zoomAt(UX.zoom*Math.exp(-Ot.Math.Clamp(e.deltaY,-120,120)*.002),p.x,p.y)},{passive:false});
+    canvas.addEventListener('pointerleave',()=>{hideHover();if(!UX.pointers.size){scene.preview=undefined;scene.previewPlan=null;scene.chargeTarget=null;scene.drawRings()}});
+    canvas.addEventListener('wheel',e=>{hideHover();if(inputBlocked())return;e.preventDefault();const p=point(e);zoomAt(UX.zoom*Math.exp(-Ot.Math.Clamp(e.deltaY,-120,120)*.002),p.x,p.y)},{passive:false});
     for(const ev of ['gesturestart','gesturechange','gestureend'])canvas.addEventListener(ev,e=>e.preventDefault(),{passive:false});
     window.addEventListener('blur',resetGestures);document.addEventListener('visibilitychange',()=>{resetGestures();if(document.hidden)clearTimeout(Jt);else me()});
 }
