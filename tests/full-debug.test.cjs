@@ -1,6 +1,14 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 const load=require('./campaign-harness.cjs'),source=fs.readFileSync('src/game.js','utf8');
 function field(){const h=load(),q=h.q;q.start('hotseat');q.units=[];q.events=[];q.terrain=[];q.delayed=[];q.phase='move';q.side=q.priority='good';q.mission='annihilation';q.current={modifier:'clear',ids:[],mission:'annihilation'};q.activeMoverUid='';return h;}
+test('infantry wounds never dismount or strip buffs; mounted variants still dismount',()=>{
+ const h=field(),q=h.q,a=q.spawn('orc_captain','evil',{x:500,y:500}),u=q.spawn('aragorn','good',{x:600,y:500});
+ u.resources.fate=0;u.baseStats.defence+=2;q.refreshUnit(u);const before=JSON.stringify(u.baseStats),hp=u.currentWounds;q.events=[];
+ q.applyCombat({kind:'skill',participants:[a.uid,u.uid],strikeResults:[{attacker:a.uid,target:u.uid,wound:true,killed:false}],pushVectors:[]});
+ assert.equal(u.currentWounds,hp-1);assert.equal(u.alive,true);assert.equal(JSON.stringify(u.baseStats),before);assert.ok(!u.traits.includes('dismounted'));assert.ok(!q.events.some(e=>e.type==='UnitDismounted'));
+ q.dismount(u);assert.equal(JSON.stringify(u.baseStats),before);assert.ok(!q.events.some(e=>e.type==='UnitDismounted'));
+ const rider=q.spawn('glorfindel_mounted','good',{x:900,y:500});q.dismount(rider);assert.equal(rider.id,'glorfindel_foot');assert.ok(rider.traits.includes('dismounted'));assert.ok(!rider.traits.includes('mounted'));assert.ok(q.events.some(e=>e.type==='UnitDismounted'&&e.uid===rider.uid));
+});
 test('every map and variant prepares without sparse-zone errors or missing props',()=>{
  const h=load(),q=h.q;h.run("this.mapErrors=[];console={error:(...args)=>mapErrors.push(args.map(String).join(' ')),warn(){},log(){}};");q.start('hotseat');
  for(let map=0;map<h.CX.maps.length;map++)for(let wave=0;wave<5;wave++){

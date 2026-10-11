@@ -7218,6 +7218,19 @@ wt._startTheme = function () {
     }, 380);
 };
 let At = !1, Jt, se, Qt = !1, qt = 1;
+function setPlaybackSpeed(value) {
+    const speed = [1,2,3,4,8,30].includes(Number(value)) ? Number(value) : 1;
+    qt = speed;
+    const label = speed === 30 ? '즉시' : speed + '×';
+    for (const id of ['speed-toggle','speed-dock']) { const el = ut(id); if (el) el.textContent = label; }
+    const select = ut('speed'); if (select) select.value = String(speed);
+    const quick = ut('speed-quick'); if (quick) quick.textContent = speed === 30 ? '즉시' : '×' + speed;
+    localStorage.setItem('lwb_speed', String(speed));
+    const scene = window.MESBG?.scene;
+    if (scene?.tweens) scene.tweens.timeScale = speed;
+    if (scene?.time) scene.time.timeScale = speed;
+    return speed;
+}
 const Ke = document.querySelector("#app");
 Ke.innerHTML = '<div class="rotate">가로 화면에서 전장이 가장 잘 보입니다. 기기를 가로로 돌려주세요.</div><header class="top"><div class="sigil">♜</div><div class="brand"><small>A SIEGE ROGUELITE</small><strong>MINAS TIRITH</strong></div><div class="runmeta"><div class="metric"><small>WAVE</small><strong id="wave">— / 03</strong></div><div class="metric"><small>ROUND</small><strong id="round">—</strong></div><div class="metric"><small>COMMAND</small><strong id="cp" class="gold">0 / 4 CP</strong></div></div><div class="top-actions"><button class="iconbtn" id="sound" title="음향 설정">음향</button><button class="iconbtn" id="help" title="조작법"><img src="icons/relic_map_scroll.png" alt="">조작법</button></div></header><div class="layout"><main class="battle-column"><nav class="phases" id="phases"></nav><div class="field"><div id="game"></div><div id="turn-indicator" class="turn-indicator hidden" aria-live="polite"></div><div class="map-label"><b>The Great Gate</b>PELENNOR FIELDS · III AGE</div><div id="dice" class="dice-panel hidden"></div><div id="toast" class="toast hidden"></div><canvas id="minimap" class="minimap" width="220" height="138" title="클릭하면 해당 위치로 카메라 이동"></canvas><div class="zoom"><button class="iconbtn" id="overview">전체</button><button class="iconbtn" id="focus">선택</button><button class="iconbtn" id="zoomout" title="축소">−</button><button class="iconbtn" id="zoomin" title="선택 병사 중심 확대">+</button></div></div><div class="hint"><b>FIELD ORDER</b><span id="hint"></span></div></main><aside class="aside"><section class="objective"><div class="section-label">01 / THE OBJECTIVE</div><h3>Hold the gate.</h3><p id="objective"></p><div id="gatebar" class="gatebar"></div></section><section><div class="section-label">02 / SELECTED UNIT</div><div id="unit" class="unit-card"></div></section><section class="control-block"><div class="section-label">03 / COMMAND ORDERS</div><div id="commands"></div><button id="action" class="primary action"></button><button id="wait" class="secondary action">선택 병사 대기</button><button id="step-auto" class="secondary action hidden">전체 진행</button><button id="deploy-all" class="secondary action hidden">일괄 배치</button></section><section class="log"><div class="section-label">전투 기록</div><div id="log"></div></section></aside></div><footer class="footer"><span>GATE DEFENCE / V0.4</span><span>3 WAVES · 영웅 테스트 · 원형 베이스 전투</span></footer><div id="overlay" class="overlay"></div><div id="audio-panel" class="audio-panel hidden"><div class="audio-head"><h2><img src="icons/ui_cards.png" alt="">음향</h2><button id="audio-close" class="secondary">닫기</button></div><label>배경음악<input id="bgm-volume" type="range" min="0" max="1" step=".05" value=".35"></label><label>효과음<input id="sfx-volume" type="range" min="0" max="1" step=".05" value=".7"></label><button id="mute" class="secondary">전체 음소거</button><button id="haptic-tgl" class="secondary">진동 끄기</button></div>';
 const ut = Z => document.getElementById(Z), Ze = [["priority", "우선권"], ["move", "이동 / 돌격"], ["shoot", "사격"], ["fight", "근접전"]];
@@ -10583,7 +10596,7 @@ const baseAI = He;
 He = function (b) { const u = b.eligible()[0]; if (u && CX.skills[u.id] && !b.skillReason(u))
     b.skill(u.uid); baseAI(b); };
 const campaignOldDismount = P.dismount;
-P.dismount = function (u) { campaignOldDismount.call(this, u); u.baseStats = structuredClone(u.stats); this.refreshUnit(u); };
+P.dismount = function (u) { if (!u?.traits.includes('mounted')) return; campaignOldDismount.call(this, u); u.baseStats = structuredClone(u.stats); this.refreshUnit(u); };
 // Mobile clarity 1.2: jumpable low barriers, stronger combat AI, and working relics.
 const lowBarrier=t=>t.active&&t.kind==='cover';
 function firstJumpOnPath(path,terrain){
@@ -11238,7 +11251,7 @@ Ve.prototype.play = async function (e) { if (e.type === 'HeroSkill') {
 } return oldPlay.call(this, e); };
 // UI helpers use the same images as the battlefield and inventory.
 const PATCH_NOTES = [
-    ['v1.38', ['UI 통일 — 흰 나무 문양 · 금빛 픽셀 모서리 · 석조 녹색 패널을 알림·설정·상세·도움말·기록에 공통 적용', 'HUD 가독성 — 능력치 이름 · 영웅 자원 숫자 표시 · 내부 수치 테두리 정리 · 확정 행동 대비 강화', '정비 화면 — 진행 단계 표시와 선택 강조 개선 · 기존 상점 진열대 유지 · 상세창 상단 닫기 추가 · 야영지 창 뒤에 가려지던 알림 복구']],
+    ['v1.38', ['UI 통일 — 흰 나무 문양 · 금빛 픽셀 모서리 · 석조 녹색 패널을 알림·설정·상세·도움말·기록에 공통 적용', 'HUD 가독성 — 능력치 이름 · 영웅 자원 숫자 표시 · 내부 수치 테두리 정리 · 확정 행동 대비 강화', '정비 화면 — 진행 단계 표시와 선택 강조 개선 · 기존 상점 진열대 유지 · 상세창 상단 닫기 추가 · 야영지 창 뒤에 가려지던 알림 복구', '추가 검증 — 설정·HUD 속도 동기화 · 보병의 잘못된 낙마 처리 차단']],
     ['v1.37', ['진행 오류 수정 — 돌격 미리보기 · 소굴 반경 · 지도 지형 생성 · 슬롯/클라우드 전장 저장', 'AI 수정 — 자동 궁수의 사격 가능한 이동량 보존 · 공격 태세 돌격 유지', '표시·보상 수정 — 엘리트 강화 보존 · 효과 문구 · 승리 화면 · 보스 보상 저장 · 아이콘 39종 연결 배경 투명 처리']],
     ['v1.36', ['상점 복구 — 기존 진열대·자유형 상품·영웅 선택 칩 복원', 'UI 복구 — 좁은 화면의 카드·명부 넘침과 스크롤 겹침 수정 · 한글 글꼴 대체 경로 보강', '아이콘 복구 — 없는 명령 아이콘 경로 수정 · 펠비스트의 정상 투명 이미지와 초상 복원']],
     ['v1.35', ['입력 복구 — 오류 뒤 행동 잠금 해제 · 도크 이동 종료 · 아군 전체 턴 종료 수정', '자동 전투 — 한 단계 자동 진행 · 공포 뒤 차례 전환 · 후방 및 방어 태세 수정', '전투 규칙 — 지원 주사위·타격 중복 제거 · 구조물 이동·밀림 차단 · 날씨 및 사우론의 눈 효과 수정', '보스 — 펠비스트 급강하 좌표 · 글라우룽 6라운드 화염 브레스 · 단계 강화 유지 · 보스 편성 누락 수정', '정비 및 복원 — 사건 선택·취소·확정 분리 · 대안 전장과 배치 복원 · 클라우드 불러오기 화면 갱신 · 토큰 이미지 실패 후 재시도']],
@@ -11671,7 +11684,7 @@ document.querySelector('.brand').innerHTML = '<small>MIDDLE-EARTH WARBANDS · TA
 document.querySelector('.sigil').innerHTML = `<img src="${Ut('dice-faces/minastirith-emblem.png')}" alt="곤도르">`;
 document.querySelector('.runmeta').insertAdjacentHTML('beforeend', '<div class="metric"><small>GOLD</small><strong id="gold-count">35</strong></div><div class="metric"><small>WARBAND</small><strong id="roster-count">6/8</strong></div>');
 document.querySelector('.top-actions').insertAdjacentHTML('afterbegin', '<select id="speed" aria-label="진행 속도"><option value="1">보통</option><option value="3">빠르게</option><option value="30">즉시</option></select><button class="iconbtn" id="undo" title="직전 라운드로 되돌리기"><img src="icons/ui_cooldown.png" alt="">되돌리기</button>');
-ut('speed').onchange = () => { qt = Number(ut('speed').value); me(); };
+ut('speed').onchange = () => { setPlaybackSpeed(ut('speed').value); me(); };
 ut('undo').onclick = () => { clearTimeout(Jt); Rt(() => { q.undoRound() ? (Xt('직전 라운드로 되돌렸습니다.'), Yt()) : Xt('되돌릴 수 있는 이전 라운드가 없습니다.'); }); };
 document.querySelector('.aside').insertAdjacentHTML('beforeend', '<section class="inventory"><div class="section-label">원정대의 유물</div><div id="relic-inventory"></div></section>');
 document.querySelector('.footer').innerHTML = '<span>MIDDLE-EARTH WARBANDS · ENDLESS 1.0</span><span>Q/E 방향 · Tab 다음 병사 · F 선택 중심 · Space 행동 종료</span>';
@@ -11822,8 +11835,9 @@ if(localStorage.getItem('lwb-view')!=='pc')document.body.classList.add('force-mo
   window._lwbFx = localStorage.getItem('lwb_fx') === '0'; const _fxb = ut('fx-toggle');
   const _fxr = () => { _fxb.textContent = window._lwbFx ? '연출 OFF' : '연출'; _fxb.style.opacity = window._lwbFx ? .55 : 1; };
   _fxr(); _fxb.onclick = () => { window._lwbFx = !window._lwbFx; localStorage.setItem('lwb_fx', window._lwbFx ? '0' : '1'); _fxr(); };
-  let _spd = Math.max(1, Math.min(8, parseInt(localStorage.getItem('lwb_speed') || '1') || 1)); if (_spd > 1) { qt = _spd; ut('speed-toggle').textContent = _spd + '×'; }
-  ut('speed-toggle').onclick = () => { _spd = _spd >= 8 ? 1 : _spd * 2; qt = _spd; ut('speed-toggle').textContent = _spd + '×'; localStorage.setItem('lwb_speed', String(_spd)); if (window.MESBG && MESBG.scene) { MESBG.scene.tweens.timeScale = _spd; MESBG.scene.time.timeScale = _spd; } };
+  ut('speed').innerHTML = [1,2,3,4,8,30].map(n => '<option value="' + n + '">' + (n === 30 ? '즉시 진행' : '속도 ×' + n) + '</option>').join('');
+  setPlaybackSpeed(localStorage.getItem('lwb_speed') || '1');
+  ut('speed-toggle').onclick = () => { setPlaybackSpeed([1,2,4,8].find(n => n > qt) || 1); me(); };
   ut('auto').onclick = () => { AUTO = !AUTO; q._autoCampNote = 0; ut('auto').classList.toggle('on', AUTO); ut('auto').textContent = AUTO ? '자동 중' : '자동'; const _ad2=ut('auto-dock'); if(_ad2){_ad2.textContent=AUTO?'자동 중':'자동';_ad2.classList.toggle('on',AUTO);} Xt(AUTO ? '자동 진행 시작 — 아군 턴도 AI가 맡습니다. 보상 화면에서는 멈춥니다.' : '자동 진행 해제'); me(); };
   ut('deploy-all').onclick = () => Rt(() => {
     const un = q.alive('good').filter(u => u.x < 0);
@@ -11894,7 +11908,7 @@ document.querySelector('.brand').innerHTML='<small>MIDDLE-EARTH WARBANDS</small>
 [...document.querySelectorAll('.metric small')].forEach((e,i)=>e.innerHTML=['ui_wave','ui_cooldown','ui_flag','coin','ui_swords'].map(k=>`<img src="icons/${k}.png" style="width:11px;height:11px;vertical-align:-2px;margin-right:2px;image-rendering:pixelated">`)[i]+['공세','라운드','지휘력','금화','원정대'][i]);
 document.querySelector('.top').insertAdjacentHTML('beforeend',`<button id="settings-toggle" class="iconbtn" aria-label="진행 속도·자동·음향 설정" aria-expanded="false">${icon('<path d="M4 6h16M4 12h16M4 18h16"/><circle cx="9" cy="6" r="2" fill="#18232c"/><circle cx="16" cy="12" r="2" fill="#18232c"/><circle cx="8" cy="18" r="2" fill="#18232c"/>')}</button>`);
 ut('help').setAttribute('aria-label','게임 조작법');
-ut('speed').options[0].text='속도 ×1';ut('speed').options[1].text='속도 ×3';ut('speed').options[2].text='즉시 진행';
+for (const option of ut('speed').options) option.text = option.value === '30' ? '즉시 진행' : '속도 ×' + option.value;
 const field = document.querySelector('.field');
 field.insertAdjacentHTML('beforeend',`<div id="wx-fx"></div><div class="battle-info"><div id="ux-place" class="place"></div><div id="ux-mission" class="mission"></div><div id="ux-bossbar" class="bossbar hidden"><span class="bossbar-name"></span><div class="bossbar-track"><i class="bossbar-fill"></i></div><span class="bossbar-hp"></span></div></div><div id="world-ui"><div id="active-tag" class="active-tag hidden"></div></div><button id="offscreen-unit" class="hidden" aria-label="화면 밖 현재 행동 병사로 이동"><img src="icons/ui_target.png" style="width:12px;height:12px;vertical-align:-2px;margin-right:3px;image-rendering:pixelated">현재 병사</button><button id="map-toggle" class="iconbtn" aria-expanded="false" aria-controls="minimap">${icon('<path d="m3 5 6-2 6 3 6-2v15l-6 2-6-3-6 2zM9 3v15M15 6v15"/>')}<span>전술 지도</span></button><div class="field-actions"></div>`);
 const fieldActions=field.querySelector('.field-actions');
@@ -13435,7 +13449,7 @@ dock.insertAdjacentHTML('beforeend',
    '<button type="button" class="act-btn" id="act-ability">능력</button>'+
    '<button type="button" class="act-btn" id="act-shoot">사격</button>'+
   '<button type="button" class="act-btn" id="auto-dock" title="자동 진행 온/오프" aria-label="자동 진행 온/오프">자동</button>'+
-  '<button type="button" class="act-btn" id="speed-dock" title="재생 속도 ×1·×2·×4" aria-label="재생 속도">1×</button>'+
+  '<button type="button" class="act-btn" id="speed-dock" title="재생 속도 ×1·×2·×4·×8" aria-label="재생 속도">1×</button>'+
    '<button type="button" id="intent-cancel" class="hidden act-btn" aria-label="명령 취소">취소</button>'+
    '<button type="button" id="dock-primary" class="dock-primary"></button>'+
  '</div></div>'+
