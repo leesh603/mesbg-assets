@@ -65,12 +65,12 @@ Ae=[{id:"warrior_minas_tirith",name_ko:"미나스 티리스 전사",name_en:"War
             }
         }
     }
-    if (this.mission === 'purge' && this.purgeLairs && this.round % 2 === 0) {
+    if (this.mission === 'purge' && this.purgeLairs && this.round % 2 === 0 && this.alive('evil').some(u => u.lair && (u._lairSpawns || 0) < 4)) {
         const _pool = ['orc_sword', 'orc_sword', 'orc_archer', 'moria_goblin'];
         let _ns = 0;
         for (const _luid of this.purgeLairs.slice()) {
             const _l = this.unit(_luid);
-            if (!_l || !_l.alive || this.alive('evil').length >= 30)
+            if (!_l || !_l.alive || (this.unit(_luid)._lairSpawns || 0) >= 4 || this.alive('evil').length >= 30)
                 continue;
             const _pid = _pool[Math.floor(this.rng() * _pool.length)];
             if (!this.meta.has(_pid))
@@ -83,10 +83,11 @@ Ae=[{id:"warrior_minas_tirith",name_ko:"미나스 티리스 전사",name_en:"War
                     if (Et(_o, _pt, this.units, this.terrain)) { _o.x = _pt.x; _o.y = _pt.y; _ok = true; break outer; }
                 }
             }
-            if (_ok) { this.refreshUnit(_o); _ns++; }
+            if (_ok) { this.refreshUnit(_o); _ns++; this.unit(_luid)._lairSpawns = (this.unit(_luid)._lairSpawns || 0) + 1; }
             else { _o.alive = false; _o.fled = true; }
         }
         if (_ns) this.emit('Event', `소굴에서 적 ${_ns}기가 쏟아져 나옵니다!`);
+        this.alive('evil').filter(u => u.lair && (u._lairSpawns || 0) >= 4 && !u._lairDrained).forEach(u => { u._lairDrained = true; this.emit('Event', '소굴이 고갈됐습니다 — 파괴하면 끝'); });
     }
     this._roundStartCounts = { good: this.alive("good").length, evil: this.alive("evil").length };
     let Y = Lt(this.rng), b = Lt(this.rng), H = 0; for (; Y === b && H < 100;)
@@ -1854,7 +1855,7 @@ P.startWave = function () {
         }
     } catch (e) { }
     if (this.current.modifier === 'ambush')
-        this.alive('evil').forEach((u, i) => { u.x = i % 2 ? 260 + (i % 4) * 140 : 1960 - (i % 4) * 140; u.y = 560 + Math.floor(i / 8) * 160; });
+        this.alive('evil').filter(u => !u.lair && !u.static).forEach((u, i) => { u.x = i % 2 ? 260 + (i % 4) * 140 : 1960 - (i % 4) * 140; u.y = 560 + Math.floor(i / 8) * 160; });
         this._separateUnits(this.alive('evil'));
     this.commander = this.alive('evil').find(u => u.id === this.current.boss)?.uid || this.alive('evil').filter(u => u.traits.includes('hero')).at(-1)?.uid; this.commanders = (this.current.bossAll || []).map(id => this.alive('evil').find(u => u.id === id)?.uid).filter(Boolean); if (!this.commanders.length && this.commander) this.commanders = [this.commander];
     if (this.challenge === 'dark_horde')
