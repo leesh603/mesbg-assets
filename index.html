@@ -10552,6 +10552,7 @@ Ve.prototype.create = function () {
     this.hoverBox.className = 'unit-tooltip hidden';
     document.querySelector('.field').append(this.hoverBox);
     this.input.addPointer(1);
+    this.input.on('pointerdown', () => { this.hoverBox && this.hoverBox.classList.add('hidden'); });
     this.input.on('pointermove', p => {
         const u = this.hit({ x: p.worldX, y: p.worldY });
         this.chargeTarget = null;
