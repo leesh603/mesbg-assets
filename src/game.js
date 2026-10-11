@@ -5468,7 +5468,7 @@ function estimatePoints(p) {
 const UnitCatalog={};
 for(const [id,meta] of q.meta){if(!zt[id]||meta.side==='terrain')continue;
     const profile=structuredClone(zt[id]),points=estimatePoints(profile);
-    if(id==='cave_troll')meta.baseMm=60; // units.json physical footprint, independent of token art size
+    if(id==='cave_troll')meta.baseMm=50; // units.json physical footprint, independent of token art size
     meta.baseMm=meta.baseMm||(id==='morgoth'?132*2/UNIT_RULES.worldPerMm:($t[meta.base]||38)*2/UNIT_RULES.worldPerMm);if(profile.traits.includes('mounted'))meta.baseMm=Math.max(meta.baseMm,40);
     UnitCatalog[id]={id,enabled:true,meta:structuredClone(meta),profile,points,
         recruitCost:Math.max(30,Math.round(points*.8/5)*5),rarity:heroGrade(id,points,meta.role),
