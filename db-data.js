@@ -737,8 +737,6 @@ module.exports = [
     ['guthlaf','구슬라프','Guthlaf, banner-bearer of Rohan']] },
   { sheet:null, side:'good', faction:'gondor', role:'infantry', weapon:'spear', base:'M', traits:[], units:[
     ['ingold','잉골드','Ingold, gate-guard of Minas Tirith']] },
-  { sheet:null, side:'good', faction:'rohan', role:'hero', weapon:'sword', base:'XL', traits:['mounted'], units:[
-    ['theoden_mounted','세오덴 기마','King Theoden of Rohan, mounted']] },
   { sheet:null, side:'evil', faction:'angband', role:'monster', weapon:'twohanded', base:'XXL', traits:[], units:[
     ['morgoth','모르고스','Morgoth, the Dark Enemy']] },
   { sheet:null, side:'evil', faction:'angmar', role:'hero', weapon:'sword', base:'XL', traits:['mounted'], units:[

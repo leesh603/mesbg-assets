@@ -7,6 +7,10 @@ description: MESBG pixel-token generation rules — approved style, composition,
 
 User-approved style. Do not deviate without explicit instruction.
 
+## PERMANENT RULE (locked 2026-10-11 — user demand, never violate)
+- On ANY character modify/redraw request: FIRST study the live asset gallery (gallery.html / tokens/*.png) — quarter-view camera, head/body ratio, pixel rendering. Produce drafts ONLY on that baseline.
+- EVERY generation MUST pass 2-3 approved live tokens as input_image_paths references. Text-prompt-only generation is FORBIDDEN — it produces wrong-angle/front-view slop.
+
 ## Camera & proportions (MOST IMPORTANT — user repeats this)
 - **Steep top-down quarter view** — camera looks DOWN on the figure. Top of head/shoulders dominate the upper frame; body foreshortened below. NOT front view, NOT 45°, NOT side view.
 - Chunky retro JRPG overworld-sprite proportions (Final Fantasy Tactics). **Updated 2026-10-07 (final lock): medium-stocky heroic build — head ≈ 1/4 of figure height. Reference tokens: barahir (ranger), huor (axeman), thrydan (burly).** NOT realistic 7-head proportions and NOT super-squat — the goal is the barahir/huor silhouette.
