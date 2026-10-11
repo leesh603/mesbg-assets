@@ -69,3 +69,17 @@ test('action and render failures always release input locks and resume schedulin
 test('source UI strings contain no corrupted control characters or replacement glyphs',()=>{
  for(const c of source){const n=c.charCodeAt(0);assert.ok(n>=32||[9,10,13].includes(n));assert.notEqual(n,0xfffd);}
 });
+
+test('elite and legendary maximum wounds, Fight and Defence survive round refreshes',()=>{
+ const h=load(),q=h.q;q.start('hotseat');q.wave=5;q._routeChoice={...q.stageInfo(6),map:0,mission:'annihilation',modifier:'clear',ids:Array(8).fill('orc_sword')};q.prepareStage();q.rng=()=>0;q.startWave();
+ const foes=q.alive('evil').filter(u=>u.elite||u.legendary);assert.ok(foes.some(u=>u.elite));assert.ok(foes.some(u=>u.legendary));
+ for(let i=0;i<3;i++){for(const u of foes){const bonus=u.legendary?2:1;assert.equal(u.stats.fight,h.zt.orc_sword.fight+bonus);assert.equal(u.stats.defence,h.zt.orc_sword.defence+bonus);assert.equal(u.stats.wounds,h.zt.orc_sword.wounds+1);assert.ok(u.currentWounds<=u.stats.wounds);}q.beginRound();}
+});
+
+test('skill, trap and spell effects display production message text instead of blank labels',async()=>{
+ const ctx={Ve:function(){},unitFxPlay:async()=>{},trapFxPlay:async()=>{},spellFxPlay:async()=>{}};vm.createContext(ctx);
+ const node=()=>({setDepth(){return this;},setDisplaySize(){return this;},setAlpha(){return this;},setTint(){return this;},setOrigin(){return this;},destroy(){}}),labels=[],scene={b:{unit:()=>({x:100,y:100,radius:30})},add:{image:()=>node(),text:(x,y,text)=>{labels.push(text);return node();}},tween:async()=>{}};
+ for(const [prefix,event,expected] of [["if(event.uid&&['Terror'",{type:'HeroSkill',uid:'u',message:'아라곤 · 검무'},'검무'],["if(event.type==='Trap'",{type:'Trap',at:{x:100,y:100,type:'oil'},message:'기름 · 적 둘'},'기름'],["if(event.type==='Spell'",{type:'Spell',uid:'u',message:'간달프 · 눈부신 빛'},'눈부신 빛']]){
+  const code=source.split('\n').find(s=>s.startsWith('Ve.prototype.play=async function(event){'+prefix));assert.ok(code);vm.runInContext(code,ctx);await ctx.Ve.prototype.play.call(scene,event);assert.equal(labels.pop(),expected);
+ }
+});
