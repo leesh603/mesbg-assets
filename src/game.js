@@ -5417,11 +5417,13 @@ P.rollRecruits=function(){
     // 지역 파벌 가중치 — 그 땅의 군대가 영입 후보에 우선 등장 (로한 땅엔 로한군 등)
     const _facs=(FACTION_BY_MAP[CX.maps[visualMapIdx(this.mapIndex)]]||[]);
     const _isfac=d=>_facs.includes(d.meta.faction)&&!RECRUIT_NOFAM.has(d.id);
-    const heroPool=base.filter(d=>isH(d)&&this.wave>=(d.unlockWave||0)&&!owned.has(d.uniqueKey||d.id)&&(!SILMARIL_HEROES.has(d.uniqueKey||d.id)||this.rank("silmaril"))).map(d=>({id:d.id,r:this.rng()})).sort((a,b)=>a.r-b.r);
+    const _RW={normal:1,elite:.5,rare:.32,epic:.18,legendary:.09};
+    const _wgt=d=>{const g=UnitCatalog[d.id]?.rarity||'normal';const w=(_RW[g]||1)*(_isfac(UnitCatalog[d.id])?2.2:1);return w*this.rng();};
+    const heroPool=base.filter(d=>isH(d)&&this.wave>=(d.unlockWave||0)&&!owned.has(d.uniqueKey||d.id)&&(!SILMARIL_HEROES.has(d.uniqueKey||d.id)||this.rank("silmaril"))).map(d=>({id:d.id,r:_wgt(d)})).sort((a,b)=>b.r-a.r);
     const _heroes=[],_seenFam=new Set();
-    for(const d of heroPool.filter(d=>_isfac(UnitCatalog[d.id])).concat(heroPool.filter(d=>!_isfac(UnitCatalog[d.id])))){const f=RECRUIT_FAMILY[d.id];if(f&&_seenFam.has(f))continue;_heroes.push(d);if(f)_seenFam.add(f);if(_heroes.length>=2)break;}
+    for(const d of heroPool){const f=RECRUIT_FAMILY[d.id];if(f&&_seenFam.has(f))continue;_heroes.push(d);if(f)_seenFam.add(f);if(_heroes.length>=2)break;}
     const heroes=_heroes;
-    const candidates=base.filter(d=>d.recruitable&&!isH(d)).map(d=>({id:d.id,r:this.rng(),fac:_isfac(d),role:d.profile.traits.includes('mounted')?'cavalry':d.profile.shootRange?'archer':d.profile.traits.includes('spear')?'support':'infantry'})).sort((a,b)=>(b.fac-a.fac)||(a.r-b.r));
+    const candidates=base.filter(d=>d.recruitable&&!isH(d)).map(d=>({id:d.id,r:_wgt(d),fac:_isfac(d),role:d.profile.traits.includes('mounted')?'cavalry':d.profile.shootRange?'archer':d.profile.traits.includes('spear')?'support':'infantry'})).sort((a,b)=>b.r-a.r);
     const troops=[];
     for(const role of ['infantry','support','archer','cavalry']){const d=candidates.find(d=>d.role===role&&d.fac)||candidates.find(d=>d.role===role);if(d)troops.push(d);}
     for(const d of candidates)if(troops.length<4&&!troops.includes(d))troops.push(d);
