@@ -7296,7 +7296,7 @@ finally {
 } }
 function me() { clearTimeout(Jt), !At && !Qt && q.mode === "ai" && q.side === "evil" && ["move", "shoot"].includes(q.phase) && (Jt = setTimeout(() => Rt(() => He(q)), 650 / qt)); }
 function Zt(Z) { if (q.phase === "move" && q.activeMoverUid && Z !== q.activeMoverUid) {
-    Xt("이동 중인 병사의 남은 이동력을 사용하거나 이동 종료를 누르세요.");
+    Xt("남은 이동력 사용 후 이동 종료");
     return;
 } Tt.preview = void 0, Tt.previewPlan = null, q.selected = Z, wt.play("ui_select"), Yt(); if (Tt.scale.width < 850) { const u = q.unit(Z), c = Tt.cameras.main; u && u.alive && c && !c.worldView.contains(u.x, u.y) && c.pan(u.x, u.y, 320, "Sine.easeOut"); } }
 function unitCardModal(u) {
@@ -11907,7 +11907,7 @@ P.commitRecruits=function(){
         offer.bought=true;
     }
     this.gold-=total;this.recruitDraft=[];
-    if(this.initialDraft){this.initialDraft=false;this.phase='preparation';this.campStep='';this.selected=this.alive('good')[0]?.uid||'';this.emit('Preparation','원정대가 결성됐습니다. 병사를 선택해 전열을 정하세요.');}
+    if(this.initialDraft){this.initialDraft=false;this.phase='preparation';this.campStep='';this.selected=this.alive('good')[0]?.uid||'';this.emit('Preparation','원정대 결성 — 전열을 정하세요');}
     else this.campStep='relic';
     this.save();return true;
 };
@@ -12087,7 +12087,7 @@ let __coachEl=null;
 function updCoach(){
     if(true||localStorage.getItem('lwb_onb_v1')||q.mode!=='ai'||q.wave>2){if(__coachEl){__coachEl.remove();__coachEl=null}return}
     const hints={
-        preparation:'배치 단계 — 병사를 눌러 초록 구역에 놓으세요 · 자동 버튼으로 자동 배치도 가능해요',
+        preparation:'배치 단계 · 병사를 초록 구역에 배치',
         move:'이동 단계 — 병사를 누르고 이동할 곳을 터치 · 돌격은 적을 터치 · 다 하면 아래 큰 버튼',
         shoot:'사격 단계 — 궁수를 누르고 사거리 안 적을 터치 · 없으면 다음으로',
         fight:'전투 단계 — 교전이 자동 해결돼요 · 결투가 끝나면 라운드 종료'
