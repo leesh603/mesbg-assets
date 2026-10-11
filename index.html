@@ -7139,12 +7139,12 @@ wt.asset = Ut;
 // ---- 막별 프로시저럴 BGM 레이어: 저음 드론 + 전쟁북 + 뿔피리 (mp3 위에 막 테마가 겹침)
 wt.act = 0;
 wt._THEMES = [
-    { base: 110.0, rate: 2.7, drum: .45, horn: [220, 277.2, 329.6] },   // 1막 반지의제왕 — 장중한 A장조
-    { base: 146.83, rate: 2.2, drum: .5, horn: [293.7, 349.2, 440] },   // 2막 호빗 — D장조 모험
-    { base: 98.0, rate: 1.7, drum: .8, horn: [196, 233.1, 261.6] },     // 3막 사우론 — G단조 무거운 북
-    { base: 73.42, rate: 3.0, drum: .9, horn: [146.8, 155.6, 174.6] }   // 4막 대암흑 — D드론 불협화
+    { base: 110.0, rate: 2.7, drum: .45, horn: [220, 277.2, 329.6], mel: [0, 4, 7, 9, 12, 9, 7, 4], melWave: 'triangle', melVol: 1, mrate: 1 },   // 1막 반지의제왕 — 장중한 A장조
+    { base: 146.83, rate: 2.2, drum: .5, horn: [293.7, 349.2, 440], mel: [0, 7, 4, 9, 7, 12, 9, 4], melWave: 'triangle', melVol: 1.15, mrate: .97 }, // 2막 호빗 — D장조 모험
+    { base: 98.0, rate: 1.7, drum: .8, horn: [196, 233.1, 261.6], mel: [0, 3, 7, 3, 10, 7, 3, 0], melWave: 'square', melVol: .8, mrate: .92 },    // 3막 사우론 — G단조 무거운 북
+    { base: 73.42, rate: 3.0, drum: .9, horn: [146.8, 155.6, 174.6], mel: [0, 1, 6, null, 1, 0, null, 6], melWave: 'sawtooth', melVol: .55, mrate: .94 } // 4막 대암흑 — D드론 불협화
 ];
-wt.setAct = function (a) { if (wt.act === a) return; wt.act = a; if (wt._drone) wt._tuneTheme(); };
+wt.setAct = function (a) { if (wt.act === a) return; wt.act = a; if (wt._drone) wt._tuneTheme(); if (wt.music) wt.music.playbackRate = (wt._THEMES[wt.act] || wt._THEMES[0]).mrate * (wt.mood === 2 ? 1.05 : 1); };
 wt._tuneTheme = function () { const T = wt._THEMES[wt.act] || wt._THEMES[0]; if (wt._drone) { wt._drone.frequency.setTargetAtTime(T.base, wt.context.currentTime, .8); wt._drone2.frequency.setTargetAtTime(T.base * 1.5, wt.context.currentTime, .8); } wt._drumRate = T.rate; };
 wt._startTheme = function () {
     if (wt._themeOn || !wt.context) return; wt._themeOn = true;
@@ -7154,11 +7154,24 @@ wt._startTheme = function () {
     const o = c.createOscillator(); o.type = 'sawtooth'; o.frequency.value = 110;
     const o2 = c.createOscillator(); o2.type = 'sawtooth'; o2.frequency.value = 165; o2.detune.value = 9;
     o.connect(f); o2.connect(f); f.connect(og); og.connect(g); o.start(); o2.start();
-    wt._drone = o; wt._drone2 = o2; wt._nextDrum = c.currentTime + .8; wt._hornCount = 0; wt._drumRate = wt._THEMES[wt.act].rate;
+    wt._drone = o; wt._drone2 = o2; wt._nextDrum = c.currentTime + .8; wt._hornCount = 0; wt._melStep = 0; wt._nextMel = c.currentTime + 1.6; wt._drumRate = wt._THEMES[wt.act].rate;
     wt._themeTimer = setInterval(() => {
         if (!wt.context || wt.muted || document.hidden) return;
         const ct = c.currentTime, T = wt._THEMES[wt.act] || wt._THEMES[0];
         g.gain.setTargetAtTime((wt.musicVolume || 0) * .85, ct, .3);
+        const melDt = wt._drumRate / 4;
+        if (ct >= wt._nextMel) {
+            wt._nextMel = ct + melDt;
+            const st = (T.mel || [])[wt._melStep++ % (T.mel || []).length];
+            if (st != null) {
+                const hz = T.base * 2 * Math.pow(2, st / 12);
+                const m = c.createOscillator(); m.type = T.melWave || 'triangle'; m.frequency.value = hz;
+                const mf = c.createBiquadFilter(); mf.type = 'lowpass'; mf.frequency.value = hz * 4;
+                const mg = c.createGain(), mv = .022 * (T.melVol || 1) * (wt.mood === 0 ? .5 : wt.mood === 2 ? 1.3 : 1);
+                mg.gain.setValueAtTime(.0001, ct); mg.gain.exponentialRampToValueAtTime(mv, ct + .06); mg.gain.exponentialRampToValueAtTime(.0001, ct + melDt * .95);
+                m.connect(mf); mf.connect(mg); mg.connect(g); m.start(ct); m.stop(ct + melDt);
+            }
+        }
         if (ct >= wt._nextDrum) {
             wt._nextDrum = ct + wt._drumRate; wt._hornCount++;
             const k = c.createOscillator(); k.type = 'sine';
