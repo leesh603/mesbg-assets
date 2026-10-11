@@ -8065,9 +8065,9 @@ const FACTION_BONDS = {
     shire: ['작은 발걸음 · 용기 +1 · 이동 +1인치', u => { u.stats.courage += 1; u.stats.move += 45; }],
     dead: ['맹세의 군대 · 용기 +2 · 결투 +1', u => { u.stats.courage += 2; u.stats.fight += 1; }],
     silmaril: ['고대의 위엄 · 결투 +1 · 용기 +1', u => { u.stats.fight += 1; u.stats.courage += 1; }],
-    mordor: ['공포의 물결 · 용기 +2', u => { u.stats.courage += 2; }],
-    angmar: ['마술의 서약 · 용기 +2', u => { u.stats.courage += 2; }],
-    isengard: ['광기의 충성 · 용기 +2', u => { u.stats.courage += 2; }],
+    mordor: ['무한한 물결 · 용기 +1 · 결투 +1', u => { u.stats.courage += 1; u.stats.fight += 1; }],
+    angmar: ['마술왕의 서약 · 용기 +1 · 결투 +1', u => { u.stats.courage += 1; u.stats.fight += 1; }],
+    isengard: ['흰 손의 충성 · 용기 +1 · 힘 +1', u => { u.stats.courage += 1; u.stats.strength += 1; }],
     numenor: ['왕족의 핏줄 · 결투 +1 · 용기 +1', u => { u.stats.fight += 1; u.stats.courage += 1; }],
     laketown: ['검은 화살 · 사격 명중 +1', u => { if (u.stats.shootRange) u.stats.shootValue = Math.max(2, u.stats.shootValue - 1); }],
     dale: ['용살자의 후예 · 사격 명중 +1', u => { if (u.stats.shootRange) u.stats.shootValue = Math.max(2, u.stats.shootValue - 1); }],
@@ -8075,16 +8075,22 @@ const FACTION_BONDS = {
     fangorn: ['나무의 인내 · 체력 +1', u => { u.stats.wounds += 1; }],
     rhovanion: ['산림 정찰 · 이동 +1인치', u => { u.stats.move += 45; }],
     fiefdoms: ['곤도르의 외곽 · Defence +1', u => { u.stats.defence += 1; }],
-    harad: ['남방 전사 · 결투 +1', u => { u.stats.fight += 1; }],
-    umbar: ['해적의 강인함 · 용기 +2', u => { u.stats.courage += 2; }],
+    harad: ['남방 전사 · 결투 +1 · 용기 +1', u => { u.stats.fight += 1; u.stats.courage += 1; }],
+    umbar: ['해적의 강인함 · 용기 +1 · 이동 +1인치', u => { u.stats.courage += 1; u.stats.move += 45; }],
     khand: ['바리아그 · 결투 +1', u => { u.stats.fight += 1; }],
     dunland: ['혐오의 분노 · 힘 +1', u => { u.stats.strength += 1; }],
+    gundabad: ['산적 무리 · 이동 +1인치', u => { u.stats.move += 45; }],
+    moria: ['동굴의 군중 · 용기 +1 · Attack 동수 시 결투 +1', u => { u.stats.courage += 1; }],
+    dolguldur: ['어둠의 군대 · 용기 +1 · 힘 +1', u => { u.stats.courage += 1; u.stats.strength += 1; }],
+    rhun: ['동부인의 맹세 · 결투 +1', u => { u.stats.fight += 1; }],
+    gorgoroth: ['재와 불의 군대 · 힘 +1', u => { u.stats.strength += 1; }],
+    angband: ['철의 왕좌 · 결투 +1 · 용기 +1', u => { u.stats.fight += 1; u.stats.courage += 1; }],
     deeping: ['충심의 결의 · 용기 +1 · 결투 +1', u => { u.stats.courage += 1; u.stats.fight += 1; }],
     arnor: ['북방의 유산 · 결투 +1', u => { u.stats.fight += 1; }],
 };
-P.factionBonds = function () {
+P.factionBonds = function (_side) {
     const counts = {};
-    for (const u of this.alive('good')) {
+    for (const u of this.alive(_side || 'good')) {
         const f = this.meta.get(u.id)?.faction;
         if (f && f !== 'terrain') counts[f] = (counts[f] || 0) + 1;
     }
@@ -8215,7 +8221,7 @@ P.refreshUnit = function (u) {
         }
         if (u.stats.shootRange)
             u.stats.shootValue = Math.max(2, u.stats.shootValue - this.rank('elven_feather'));
-        for (const b of this.factionBonds())
+        for (const b of this.factionBonds(u.side))
             if ((this.meta.get(u.id) || {}).faction === b.faction)
                 b.apply(u);
         for (const ns of this.namedSets ? this.namedSets() : [])
