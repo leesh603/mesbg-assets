@@ -521,12 +521,13 @@ wt._MAP_TUNING = {
     fangorn: { shift: -4, drumMul: .7, melSkip: .5 }, mirkwood: { shift: -5, drumMul: .7, melSkip: .55 }, dead_marshes: { shift: -6, drumMul: .65, melSkip: .6 },
     moria: { shift: -12, drumMul: .8, melSkip: .45 }, erebor: { shift: -9, drumMul: .85, melSkip: .3 },
     isengard: { shift: -2, drumMul: 1.15, melSkip: .15 },
+    minas_court: { shift: 1, drumMul: 1.05, melSkip: .2 }, orthanc: { shift: -3, drumMul: 1.1, melSkip: .2 },
     black_gate: { shift: -9, drumMul: 1.1, melSkip: .3 }, gorgoroth: { shift: -7, drumMul: 1.15, melSkip: .25 }, dol_guldur: { shift: -8, drumMul: .9, melSkip: .4 }, angband: { shift: -11, drumMul: .9, melSkip: .45 },
     rivendell: { shift: 3, drumMul: .6, melSkip: .5 }, lothlorien: { shift: 3, drumMul: .6, melSkip: .5 }, gondolin: { shift: 4, drumMul: .65, melSkip: .4 }
 };
 wt._MAP_TRACK = {
     moria: 'audio/lwb-moria.mp3', erebor: 'audio/lwb-moria.mp3',
-    isengard: 'audio/lwb-isengard.mp3',
+    isengard: 'audio/lwb-isengard.mp3', orthanc: 'audio/lwb-isengard.mp3', minas_court: 'audio/lwb-march.mp3',
     helms_deep: 'audio/lwb-rohan.mp3', edoras: 'audio/lwb-rohan.mp3', dunharrow: 'audio/lwb-rohan.mp3',
     rivendell: 'audio/lwb-elf.mp3', lothlorien: 'audio/lwb-elf.mp3', gondolin: 'audio/lwb-elf.mp3',
     black_gate: 'audio/lwb-mordor.mp3', gorgoroth: 'audio/lwb-mordor.mp3', dol_guldur: 'audio/lwb-mordor.mp3', angband: 'audio/lwb-mordor.mp3',
@@ -822,8 +823,8 @@ document.fonts.load("16px Pretendard"); /* MESBG Endless campaign extension. Ori
  */
 const CX = {
     version: 1, inches: 45,
-    maps: ['minas_tirith', 'osgiliath', 'amon_sul', 'helms_deep', 'fangorn', 'edoras', 'moria', 'isengard', 'black_gate', 'gorgoroth', 'rivendell', 'lothlorien', 'pelennor', 'dead_marshes', 'dunharrow', 'erebor', 'mirkwood', 'dol_guldur', 'gondolin', 'angband'],
-    mapNames: ['미나스 티리스', '오스길리아스', '아몬 술', '헬름 협곡', '팡고른', '에도라스', '모리아', '아이센가드', '검은 문', '고르고로스', '리븐델', '로스로리엔', '펠렌노르', '죽은 늪', '던하로우', '에레보르', '미르크우드', '돌 굴두르', '곤돌린', '앙그반드'],
+    maps: ['minas_tirith', 'osgiliath', 'amon_sul', 'helms_deep', 'fangorn', 'edoras', 'moria', 'isengard', 'black_gate', 'gorgoroth', 'rivendell', 'lothlorien', 'pelennor', 'dead_marshes', 'dunharrow', 'erebor', 'mirkwood', 'dol_guldur', 'gondolin', 'angband', 'minas_court', 'orthanc'],
+    mapNames: ['미나스 티리스', '오스길리아스', '아몬 술', '헬름 협곡', '팡고른', '에도라스', '모리아', '아이센가드', '검은 문', '고르고로스', '리븐델', '로스로리엔', '펠렌노르', '죽은 늪', '던하로우', '에레보르', '미르크우드', '돌 굴두르', '곤돌린', '앙그반드', '미나스 티리스 성 안', '오르상크 내부'],
     missionNames: { annihilation: '적 전멸', defense: '방어선 수호', hold: '거점 확보', survive: '포위망 생존', breakthrough: '전선 돌파', commander: '지휘관 처치', rescue: '포로 구출', escort: '보급 호송', scouting: '정찰 수습', purge: '소굴 소탕' },
     roleNames: { infantry: '보병', hero: '영웅', cavalry: '기병', monster: '괴수', support: '지원', beast: '야수' },
     rarityNames: ['일반', '마법', '희귀', '고유'],
@@ -928,7 +929,7 @@ const MAP_HQ = {};
 const MAP_TINT = {};
 // Play order of maps: open fields first, chokepoint maps (여울·다리·협곡 길목) pushed late.
 // mapIndex stays the stage slot (enemy theme/difficulty); only the visuals/terrain/name follow this order.
-const MAP_PLAY_ORDER=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19];
+const MAP_PLAY_ORDER=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21];
 const visualMapIdx=i=>MAP_PLAY_ORDER[(i||0)%MAP_PLAY_ORDER.length];
 // Per-map impassable zones (rects are x,y center-top-left style {x,y,w,h,z}; merged into terrain each stage).
 // z:'cliff' blocks every non-flyer; z:'mountain' also opens for units with the 'mountain' trait.
@@ -1023,6 +1024,16 @@ amon_sul: [ null,
     [ , ],
     [ ],
     [[300,300,280,160,'hill'],[1750,300,280,160,'hill'],[1015,640,300,160,'hill'],[300,1000,280,160,'hill'],[1750,1000,280,160,'hill']] ],
+minas_court: [ null,
+    [[900,0,530,330,'hill'],[900,1126,530,330,'hill']],
+    [[900,0,530,330,'hill']],
+    [[900,1126,530,330,'hill']],
+    [ ] ],
+orthanc: [ null,
+    [[0,0,360,240,'hill'],[0,700,360,340,'hill'],[1970,0,360,240,'hill'],[1970,700,360,340,'hill']],
+    [[0,700,360,340,'hill'],[1970,700,360,340,'hill']],
+    [[0,0,360,240,'hill'],[1970,0,360,240,'hill']],
+    [ ] ],
 osgiliath: [ null,
     [ , ],
     [ , ],
@@ -1090,6 +1101,7 @@ rivendell:['협곡 다리','폭포 계곡','숲속 정원','돌다리','절벽 �
 erebor:['성문 앞','외로운 산 비탈','호수 건너','회색 산기슭','호수 잔교'], pelennor:['외성벽','들판 농장','강변 초지','농장 사잇길','외성 평원'],
 dead_marshes:['죽음의 늪','밀집 웅덩이','마른 갈대밭','안개 늪','죽은 수로'], dunharrow:['산 입구','영혼의 길','풀밭 고원','절벽 전망','벼랑 위 풀밭'],
 mirkwood:['숲길','거미줄 숲','쓰러진 거목','버섯 골짜기','시냇물가'], dol_guldur:['너른 폐허','독안개 들판','무너진 회랑','가시덤불 벌판','지하 구덩이'],
+minas_court:['성채 안마당','백색 회랑','샘터 정원','북쪽 계단','남쪽 계단'], orthanc:['흑요석 전당','용광로 격자','북쪽 철계단','남쪽 철계단','기어 원반 광장'],
 gondolin:['하얀 성벽','숨겨진 계곡','왕의 탑 앞','수정 개울가','은빛 들판'], angband:['철의 성벽 앞','탕고로드림 아래','재의 평원','용암 균열','검은 문터'] };
 function mapVariant(wave) { return (wave - 1) % 5; }
 // 변형 배경 색조: 기본 / 황혼(웜) / 새벽(쿨) — MAP_TINT에 곱연산으로 블렌드.
@@ -1302,6 +1314,12 @@ const MAP_PROP_SETS = {
         [['terr_idol', 140, 560, 80, 110], ['terr_bone_pile', 2200, 480, 100, 70], ['terr_cage', 160, 1180, 90, 90], ['terr_orc_barricade', 2190, 1300, 130, 80], ['terr_dead_tree', 1160, 130, 90, 110]],
         [['terr_mumak_skull', 150, 300, 120, 80], ['terr_brazier', 2200, 560, 60, 70], ['terr_bone_pile', 160, 1300, 100, 70], ['terr_spike_barricade', 2180, 1380, 120, 70], ['terr_orc_totem', 1160, 1420, 70, 100]],
         [['terr_orc_camp', 140, 480, 130, 110], ['terr_siege_wreck', 2200, 700, 140, 90], ['terr_cage', 150, 1240, 90, 90], ['terr_bone_pile', 2190, 1240, 100, 70], ['terr_idol', 1160, 1420, 80, 110]]);
+    X('minas_court',
+        [['terr_white_tree', 1160, 620, 90, 110], ['terr_brazier', 150, 300, 60, 70], ['terr_brazier', 2180, 300, 60, 70], ['terr_statue_head', 150, 1180, 110, 90], ['terr_altar', 2180, 1300, 90, 80]],
+        [['terr_well', 2200, 480, 90, 80], ['terr_brazier', 140, 620, 60, 70], ['terr_relic_shrine', 160, 1240, 100, 110], ['terr_pond', 2180, 1180, 130, 90], ['terr_war_banner', 1160, 130, 60, 110]]);
+    X('orthanc',
+        [['terr_anvil', 150, 400, 90, 80], ['terr_cage', 2180, 480, 90, 90], ['terr_chain_post', 160, 1180, 70, 90], ['terr_torch_post', 2200, 1240, 60, 90], ['terr_map_table', 1160, 1420, 120, 80]],
+        [['terr_ammo_pile', 140, 560, 100, 80], ['terr_stone_barricade', 2180, 700, 130, 70], ['terr_cage', 150, 1240, 90, 90], ['terr_spike_barricade', 2190, 1300, 120, 70], ['terr_idol', 1160, 130, 80, 110]]);
     // 반지의제왕 로어 변형 세트 (구 맵 v3)
     X('minas_tirith', [['terr_white_tree', 150, 300, 90, 110], ['terr_trebuchet', 2200, 620, 130, 100], ['terr_sarcophagus', 160, 1240, 100, 80], ['terr_war_banner', 2180, 1240, 60, 110], ['terr_portcullis', 1160, 1420, 180, 90]]);
     X('helms_deep', [['terr_wall_segment', 1160, 140, 200, 90], ['terr_bomb', 150, 700, 80, 80], ['terr_siege_ladder', 2200, 620, 90, 110], ['terr_ballista', 160, 1240, 110, 90], ['terr_dead_tree', 2180, 1380, 90, 110]]);
@@ -1602,7 +1620,7 @@ const STAGE_EXTRA_FOES = { 15: ['mumakil', 'haradrim_raider', 'haradrim_raider',
 const STAGE_TITLES = { 5: '모리아의 트롤', 10: '아이센가드의 배신', 15: '펠렌노르 평원', 20: '검은문 총공세', 25: '고블린 도시', 30: '다섯 군대의 전투', 35: '외로운 산의 용', 40: '모르도르의 군주', 45: '다고르 브라골라흐', 50: '카르카로스의 추격', 55: '니르에나스 아르노이디아드', 60: '곤돌린의 몰락', 65: '분노의 전쟁', 70: '발리노르 최후의 대결' };
 const ARC_MAPS = ['amon_sul', 'isengard', 'pelennor', 'black_gate', 'mirkwood', 'erebor', 'erebor', 'dol_guldur', 'angband', 'lothlorien', 'gorgoroth', 'gondolin', 'angband', 'angband'];
 // 스테이지 단위 맵 지정 — 헬름 협곡 공성전(사루만 10 ↔ 펠렌노르 15 사이 스토리 자리).
-const STAGE_MAP_OVERRIDE = { 11: 'helms_deep', 12: 'helms_deep', 13: 'helms_deep', 14: 'helms_deep' };
+const STAGE_MAP_OVERRIDE = { 10: 'orthanc', 15: 'minas_court', 11: 'helms_deep', 12: 'helms_deep', 13: 'helms_deep', 14: 'helms_deep' };
 const ARC_FOES = {
     2: ['haradrim_spearman', 'haradrim_raider', 'haradrim_bow'],
     3: ['uruk_berserker', 'haradrim_spearman', 'orc_archer'],
