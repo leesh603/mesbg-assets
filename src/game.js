@@ -6790,8 +6790,9 @@ function muxActions(){
 // Tap the same destination / target again to confirm (the confirm button keeps working too)
 (function(){
     const prevPoint=Tt.onPoint,prevUnit=Tt.onUnit;
-    Tt.onPoint=p=>{const it=UX.intent;if(it&&!At&&['move','deploy'].includes(it.kind)&&it.to){const u=q.unit(it.uid),r=Math.max(26,(u?.radius||30)*.9);if(Math.hypot(p.x-it.to.x,p.y-it.to.y)<=r){ut('dock-primary').click();return;}}if(q.selected){clearIntent();q.selected='';Yt();return;}prevPoint(p);};
-    Tt.onUnit=uid=>{const v=q.unit(uid);const it=UX.intent;if(it&&!At&&['charge','shoot'].includes(it.kind)&&it.target===uid){ut('dock-primary').click();return;}if(v&&v.side!==q.side&&!it){unitCardModal(v);return;}prevUnit(uid);};
+    Tt.onPoint=p=>{const it=UX.intent;if(it&&!At&&['move','deploy'].includes(it.kind)&&it.to){const u=q.unit(it.uid),r=Math.max(26,(u?.radius||30)*.9);if(Math.hypot(p.x-it.to.x,p.y-it.to.y)<=r){ut('dock-primary').click();return;}clearIntent();}
+    else if(q.selected&&!actionableUnit()){clearIntent();q.selected='';Yt();return;}prevPoint(p);};
+    Tt.onUnit=uid=>{const v=q.unit(uid);const it=UX.intent;if(it&&!At&&['charge','shoot'].includes(it.kind)&&it.target===uid){ut('dock-primary').click();return;}if(v&&v.side!==q.side&&!it){if(actionableUnit()&&['move','shoot'].includes(q.phase)){prevUnit(uid);}else{unitCardModal(v);}return;}prevUnit(uid);};
 })();
 
 // equip icon-only chips: tap shows detail popup (view only — sell stays in shop)
