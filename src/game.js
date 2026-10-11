@@ -6503,7 +6503,7 @@ function renderPolishedHUD() {
     // Current selection is represented in the dock; detailed skill prose belongs in tooltips.
     const skill=ut('hero-skill');if(skill){const small=skill.querySelector('small');if(small)skill.title=small.textContent+' · '+skill.title;}
 }
-document.body.classList.add('lwb-polished');
+document.body.classList.add('lwb-polished','ui-rebuilt');
 // ==== Mobile portrait UX v4 — core: pixel status icons + MESBG unit states (all mapped 1:1 to real game state) ====
 const PX_PAL={k:'#0b0d0c',w:'#f4ecd6',g:'#f2c75a',y:'#c99a4a',s:'#dfe6ea',h:'#c9973f',o:'#f0a860',r:'#e0604c',c:'#8fc8f0',t:'#7fd3b0',p:'#b98ee0',e:'#7c8478'};
 const PX_ICONS={
@@ -6566,12 +6566,17 @@ const $=id=>document.getElementById(id);
 const field=document.querySelector('#app .field'),top=document.querySelector('#app .top'),dock=$('command-dock'),sheet=$('battle-sheet');
 // --- top HUD: [공세·라운드] [임무] [CP] [≡]
 const hud=document.createElement('div');hud.id='hud-mission';hud.setAttribute('role','button');hud.tabIndex=0;
-hud.innerHTML='<div class="hm-line"></div><div class="hm-more"></div>';
+hud.innerHTML='<img class="hud-icon" src="icons/ui_flag.png" alt=""><div class="hm-line"></div><div class="hm-more" id="mission-details"></div>';
+hud.setAttribute('aria-controls','mission-details');hud.setAttribute('aria-expanded','false');
 top.querySelector('.runmeta').after(hud);
 const hmMore=hud.querySelector('.hm-more');
 hmMore.appendChild($('ux-mission'));hmMore.appendChild($('ux-place'));
-hud.onclick=()=>hud.classList.toggle('open');
-document.addEventListener('pointerdown',e=>{if(!hud.contains(e.target))hud.classList.remove('open');});
+const setMissionOpen=on=>{hud.classList.toggle('open',on);hud.setAttribute('aria-expanded',String(on));};
+hud.onclick=()=>setMissionOpen(!hud.classList.contains('open'));
+hud.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();hud.click();}if(e.key==='Escape')setMissionOpen(false);};
+document.addEventListener('pointerdown',e=>{if(!hud.contains(e.target))setMissionOpen(false);});
+const settings=$('settings-toggle');if(settings){settings.innerHTML='<img class="hud-icon" src="icons/ui_gear.png" alt="">';settings.setAttribute('aria-label','설정');}
+const waveLabel=$('wave')?.parentElement.querySelector('small');if(waveLabel)waveLabel.textContent='공세';
 // --- menu (≡): overview + battle log live here instead of on the battlefield
 const menu=document.querySelector('#app .top-actions');
 menu.insertAdjacentHTML('afterbegin','<button class="iconbtn" id="menu-overview" type="button"><img src="icons/ui_map.png" style="width:12px;height:12px;vertical-align:-2px;margin-right:3px;image-rendering:pixelated">전장 전체 보기</button>');
@@ -6594,16 +6599,16 @@ dock.insertAdjacentHTML('beforeend',
    '<span class="u-grab" aria-hidden="true"></span>'+
  '</div>'+
  '<div class="u-actions">'+
-   '<span class="act-phase" id="act-phase"></span>'+
+   '<div class="action-context"><span class="act-phase" id="act-phase"></span>'+
    '<button type="button" class="act-btn" id="act-end">턴 종료</button>'+
-   '<span class="act-gap"></span>'+
+   '</div><div class="action-commands">'+
    '<button type="button" class="act-btn" id="act-ability">능력</button>'+
    '<button type="button" class="act-btn" id="act-shoot">사격</button>'+
   '<button type="button" class="act-btn" id="auto-dock" title="자동 진행 온/오프" aria-label="자동 진행 온/오프">자동</button>'+
   '<button type="button" class="act-btn" id="speed-dock" title="재생 속도 ×1·×2·×4" aria-label="재생 속도">1×</button>'+
    '<button type="button" id="intent-cancel" class="hidden act-btn" aria-label="명령 취소">취소</button>'+
    '<button type="button" id="dock-primary" class="dock-primary"></button>'+
- '</div>'+
+ '</div></div>'+
  '<div class="u-tip hidden" id="u-tip"></div>'+
  // legacy nodes other code still writes to; kept off-screen
  '<div class="mux-legacy" hidden><span id="dock-eyebrow"></span><div id="dock-status"></div><div id="dock-vitals"></div><div id="roster-strip"></div><button id="next-unit"></button><button id="dock-detail"></button></div>');
@@ -6620,6 +6625,7 @@ const stSec=document.createElement('section');stSec.id='sheet-unit-extra';stSec.
 const unitSec=$('unit')?.closest('section');if(unitSec)unitSec.after(stSec);
 const openSheet=on=>{setSheet(on);if(on)sheet.scrollTop=0;};
 const panel=$('u-panel');
+panel.addEventListener('keydown',e=>{if(e.target===panel&&(e.key==='Enter'||e.key===' ')){e.preventDefault();if(!At)openSheet(true);}});
 panel.addEventListener('click',e=>{if(e.target.closest('.u-st'))return;if(!At)openSheet(true);});
 let swy=null;panel.addEventListener('pointerdown',e=>{swy=e.clientY;});
 panel.addEventListener('pointermove',e=>{if(swy!==null&&e.clientY-swy<-28){swy=null;if(!At)openSheet(true);}});
@@ -6644,11 +6650,11 @@ function renderUnitVitals(){
     if(!u?.alive||['menu','reward','result'].includes(q.phase)){panel.classList.add('empty');name.textContent=q.phase==='fight'?(q.fightQueue.length?'교전 판정':'다음 라운드 준비'):'병사를 선택하세요';hp.innerHTML='';st.innerHTML='';rs.innerHTML='';ss.innerHTML='';img.classList.add('hidden');return;}
     panel.classList.remove('empty');panel.classList.toggle('foe',u.side!==(q.mode==='ai'?'good':q.side));
     const src=Th(q.meta.get(u.id).file);if(img.getAttribute('src')!==src){img.dataset.full=Ut(q.meta.get(u.id).file);img.onerror=function(){this.onerror=null;this.src=this.dataset.full};img.src=src;}img.classList.remove('hidden');
-    name.textContent=shortName(u);
+    name.textContent=u.name;
     const w=u.stats.wounds,c=Math.max(0,u.currentWounds),r=Math.max(0,Math.min(1,c/Math.max(1,w)));
     hp.innerHTML='<img class="px" src="'+pxIcon('heart')+'" alt=""><b>'+c+'<small>/'+w+'</small></b><span class="hpbar'+(r<=.34?' low':'')+'"><i style="width:'+Math.round(r*100)+'%"></i></span><span class="mv">이동 '+(q.remaining(u)/45).toFixed(1)+'″</span>';
-    const S=u.stats;st.innerHTML=[['F',S.fight,'결투'],['S',S.strength,'힘'],['D',S.defence,'방어'],['A',S.attacks,'공격 횟수']].map(([k,v,t])=>'<span title="'+t+'"><i>'+k+'</i><b>'+v+'</b></span>').join('');
-    if(u.traits.includes('hero')||S.might||S.will||S.fate){const pip=(k,n,m)=>{let h='';for(let i=0;i<Math.max(m,n);i++)h+='<i class="'+(i<n?'on':'')+'"></i>';return '<span class="res-'+k+'"><em>'+k.toUpperCase()[0]+'</em>'+h+'</span>';};
+    const S=u.stats;st.innerHTML=[['ui_swords',S.fight,'결투'],['res_iron',S.strength,'힘'],['cmd_hold',S.defence,'방어'],['ui_target',S.attacks,'공격']].map(([k,v,t])=>'<span title="'+t+'" aria-label="'+t+' '+v+'"><img src="icons/'+k+'.png" alt=""><b>'+v+'</b></span>').join('');
+    if(u.traits.includes('hero')||S.might||S.will||S.fate){const pip=(k,n,m)=>{let h='';for(let i=0;i<Math.max(m,n);i++)h+='<i class="'+(i<n?'on':'')+'"></i>';return '<span class="res-'+k+'" title="'+({might:'용맹',will:'의지',fate:'운명'})[k]+' '+n+'/'+m+'"><em>'+({might:'용맹',will:'의지',fate:'운명'})[k]+'</em><span class="resource-pips">'+h+'</span></span>';};
         const R=u.resources||{};rs.innerHTML=pip('might',R.might||0,S.might||0)+pip('will',R.will||0,S.will||0)+pip('fate',R.fate||0,S.fate||0);rs.classList.remove('hidden');}
     else{rs.innerHTML='';rs.classList.add('hidden');}
     const states=unitStates(u);
