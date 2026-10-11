@@ -388,6 +388,7 @@ module.exports = [
   ['faramir_mounted', '파라미르(기마)', 'Faramir, mounted', { faction: 'gondor', weapon: 'sword', role: 'hero', base: 'XL' }],
   ['eomer_foot', '에오메르(도보)', 'Eomer on foot', { faction: 'rohan', weapon: 'spear' }],
   ['elfhelm', '엘프헬름', 'Elfhelm of Rohan', { faction: 'rohan', weapon: 'sword_shield' }],
+  ['elfhelm_mounted', '엘프헬름(기마)', 'Elfhelm, mounted', { faction: 'rohan', weapon: 'sword_shield', role: 'hero', base: 'XL' }],
 ]},
 { sheet: 'roster-warg-riders-v1.png', side: 'evil', faction: 'isengard', role: 'cavalry', base: 'XL', units: [
   ['warg_rider_spear', '와르그 기병(창)', 'Warg Rider, spear', { weapon: 'spear' }],

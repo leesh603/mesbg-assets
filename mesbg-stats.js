@@ -92,6 +92,7 @@ module.exports = {
   grimbold:           { f: 4, s: 3, d: 4, a: 2, w: 2, c: 4, might: 1, will: 0, fate: 1, rules: ['Marshal of the West-mark'] },
   harding:            { f: 4, s: 4, d: 5, a: 3, w: 2, c: 5, might: 2, will: 0, fate: 1, rules: ['Master of the Harrowfields'] },
   elfhelm:            { f: 4, s: 4, d: 4, a: 2, w: 2, c: 4, might: 1, will: 0, fate: 1, rules: ['Marshal of the East-mark'] },
+  elfhelm_mounted:    { f: 4, s: 4, d: 4, a: 2, w: 2, c: 4, might: 1, will: 0, fate: 1, rules: ['Marshal of the East-mark', 'Mounted'] },
 
   // ===== Evil =====
   witchking_foot:     { f: 6, s: 5, d: 7, a: 3, w: 3, c: 6, might: 3, will: 20, fate: 3, rules: ['Terror', 'The Morgul Lord', 'Black Breath'] },

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "count": 526,
+  "count": 527,
   "units": [
     {
       "id": "aragorn",
@@ -5922,6 +5922,38 @@
         "Marshal of the East-mark"
       ],
       "base_mm": "25mm"
+    },
+    {
+      "id": "elfhelm_mounted",
+      "name_ko": "엘프헬름(기마)",
+      "name_en": "Elfhelm, mounted",
+      "side": "good",
+      "faction": "rohan",
+      "role": "hero",
+      "weapon": "sword_shield",
+      "base": "XL",
+      "sheet": "roster-good-fill-v2.png",
+      "file": "tokens/elfhelm_mounted.png",
+      "stats": {
+        "f": 4,
+        "s": 4,
+        "d": 4,
+        "a": 2,
+        "w": 2,
+        "c": 4,
+        "might": 1,
+        "will": 0,
+        "fate": 1,
+        "rules": [
+          "Marshal of the East-mark",
+          "Mounted"
+        ]
+      },
+      "rules": [
+        "Marshal of the East-mark",
+        "Mounted"
+      ],
+      "base_mm": "40mm"
     },
     {
       "id": "warg_rider_spear",
