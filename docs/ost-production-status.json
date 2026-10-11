@@ -1,6 +1,6 @@
 {
   "project": "MIDDLE-EARTH WARBANDS original orchestral OST",
-  "status": "blocked_on_music_service_connection",
+  "status": "blocked_on_paid_music_plan",
   "auditDate": "2026-10-11",
   "auditedSourceCommit": "ecf20c41939ebb84d85d2f238311a1d7ebbf4b7f",
   "branch": "feat/original-orchestral-ost",
@@ -8,13 +8,20 @@
   "generatedAudioCount": 0,
   "provider": {
     "selected": "Runway",
-    "connectionVerified": false,
-    "observedBrowserState": "guest; Models unavailable; Login displayed",
+    "connectionVerified": true,
+    "accountPlan": "Free",
+    "generationAttemptResult": "paid_plan_required; no task created",
+    "observedBrowserState": "Earlier guest browser session; connector authentication subsequently verified",
     "documentationMusicSupport": "https://help.runwayml.com/hc/en-us/articles/51601639579667-Creating-with-Runway-Agent",
     "documentationUsageRights": "https://help.runwayml.com/hc/en-us/articles/18927776141715-Usage-rights",
-    "selectedModel": null,
+    "selectedModel": "lyria-3-pro",
     "modelSpecificTermsVerified": false,
-    "creditsVerified": false
+    "creditsVerified": true,
+    "outputFormat": "MP3",
+    "durationControl": "Fixed by model; no duration parameter",
+    "fullTrackCreditsPerGeneration": 8,
+    "sevenFirstCandidatesCredits": 56,
+    "stemsOrSectionEditingVerified": false
   },
   "tracks": [
     {
