@@ -6229,8 +6229,14 @@ Ve.prototype.combat=async function(result){
                     g.clear();const strike=clamp((t-.13)/.43,0,1),impact=clamp((t-.56)/.44,0,1),fade=1-clamp((t-.78)/.22,0,1);g.setAlpha(fade);
                     if(!calm){const motion=t<.56?Math.sin(Math.PI*strike)*lunge:(1-impact)*lunge*.25;ac.setPosition(ax+Math.cos(angle)*motion,ay+Math.sin(angle)*motion);
                         if(t>=.13&&t<.66){
-                            if(shape==='slash'||shape==='cleave')arc(g,bp,r*(shape==='cleave'?1.3:1.12),angle-2.2,angle+.7,strike,mat,shape==='cleave'?12:9);
-                            else if(shape==='claw'){for(let i=-1;i<=1;i++)arc(g,{x:bp.x-Math.sin(angle)*i*11,y:bp.y+Math.cos(angle)*i*11},r*.9,angle-1.9,angle+.5,clamp(strike-i*.07,0,1),mat,6);}
+                            if(shape==='slash'||shape==='cleave')arc(g,{x:bp.x-Math.cos(angle)*r*.35,y:bp.y-Math.sin(angle)*r*.35},r*(shape==='cleave'?1.15:.95),angle-2.2,angle+1.15,strike,mat,shape==='cleave'?15:12);
+                            else if(shape==='claw'){
+                                for(let i=-1;i<=1;i++){const head=clamp(strike-i*.07,0,1),tail=Math.max(0,head-.48);
+                                    for(let j=0;j<14;j++){const k=tail+(head-tail)*j/13,lx=(k-.5)*r*1.35+i*14,ly=(k-.5)*r*1.7+Math.sin(k*Math.PI)*7,px=bp.x+Math.cos(angle)*lx-Math.sin(angle)*ly,py=bp.y+Math.sin(angle)*lx+Math.cos(angle)*ly;
+                                        ink(g,px,py,6,mat.dark,.5);ink(g,px,py,3,mat.mid,.65+j/40);if(j>7)ink(g,px,py,3,mat.edge,.95);
+                                    }
+                                }
+                            }
                             else if(shape==='bite'){for(const side of [-1,1]){const d=(1-strike)*r*.6+6,p={x:bp.x-Math.sin(angle)*side*d,y:bp.y+Math.cos(angle)*side*d};for(let i=-1;i<=1;i++)line(g,{x:p.x+Math.cos(angle)*i*12,y:p.y+Math.sin(angle)*i*12},{x:p.x+Math.sin(angle)*side*9+Math.cos(angle)*i*12,y:p.y-Math.cos(angle)*side*9+Math.sin(angle)*i*12},6,mat.edge,.9);}}
                             else if(shape==='thrust'){const p=mix(ap,bp,strike),tail={x:p.x-Math.cos(angle)*35,y:p.y-Math.sin(angle)*35};line(g,tail,p,6,mat.mid,.9);ink(g,p.x,p.y,6,mat.edge);}
                             else if(shape==='arrow'){const p=mix(ap,bp,strike);p.y-=Math.sin(Math.PI*strike)*22;const tail={x:p.x-Math.cos(angle)*26,y:p.y-Math.sin(angle)*26};line(g,tail,p,3,MAT.earth.mid);ink(g,p.x,p.y,6,MAT.steel.edge);line(g,tail,{x:tail.x-Math.cos(angle-.5)*9,y:tail.y-Math.sin(angle-.5)*9},3,MAT.bone.edge);}
@@ -6260,10 +6266,10 @@ Ve.prototype.combat=async function(result){
 };
 Ve.prototype.battleFXEvent=async function(event){
     if(window._lwbFx||qt>=20||!this.add)return;
-    const scene=this,u=scene.b.unit(event.uid||scene.b.selected),at=valid(event.at)?event.at:valid(u)?u:null,from=valid(event.from)?event.from:valid(u)?u:at;
+    const scene=this,u=scene.b.unit(event.uid||scene.b.selected),at=event.type==='BossImpact'&&valid(u)?u:valid(event.at)?event.at:valid(u)?u:null,from=valid(event.from)?event.from:valid(u)?u:at;
     if(!at)return;
     if(event.type==='UnitKilled'&&scene._fxCasualties?.delete(event.uid))return;
-    const fx=event.fx||'',calm=!!UX.reduced,mat=event.type==='Terror'||fx==='dominate'?MAT.shadow:event.type==='Trap'?/oil|barrel/.test(event.at.type)?MAT.fire:MAT.earth:/Saved|Heroic|HeroSkill|CommandUsed|Relic|WaveStarted/.test(event.type)?MAT.gold:magic(u,fx),r=clamp(at.radius||u?.radius||36,24,event.type==='Trap'?100:75);
+    const fx=event.fx||event.at?.fx||'',calm=!!UX.reduced,mat=event.type==='Terror'||fx==='dominate'?MAT.shadow:event.type==='Trap'?/oil|barrel/.test(event.at.type)?MAT.fire:MAT.earth:/Saved|Heroic|HeroSkill|CommandUsed|Relic|WaveStarted/.test(event.type)?MAT.gold:event.type==='BossImpact'?magic({side:'evil'},fx):magic(u,fx),r=clamp(at.radius||u?.radius||36,24,event.type==='Trap'?100:75);
     await scoped(scene,async own=>{
         const g=own(scene.add.graphics().setDepth(18)),raw=event.message||event.text||'',text=event.type==='UnitKilled'?'':event.type==='WaveStarted'?raw.split('·')[0].trim():raw.split('·').pop().trim(),nm=label(scene,own,at,text,mat.edge);
         const targets=(event.targets||[]).map(id=>scene.b.unit(id)).filter(valid).slice(0,12),resisted=(event.resisted||[]).map(id=>scene.b.unit(id)).filter(valid).slice(0,12);

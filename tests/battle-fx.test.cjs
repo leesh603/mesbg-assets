@@ -43,3 +43,7 @@ test('all cosmetic events route once while casualty housekeeping still runs exac
 test('combat casualty is not animated twice when UnitKilled follows its strike result',async()=>{
  const s=setup({killed:true});await s.scene.combat(s.result);const count=s.objects.length;await s.scene.battleFXEvent({type:'UnitKilled',uid:'b'});assert.equal(s.objects.length,count);assert.equal(s.scene._fxCasualties.size,0);
 });
+test('an area boss impact uses each victim location and keeps the area fire material',async()=>{
+ const s=setup();await s.scene.battleFXEvent({type:'BossImpact',uid:'b',at:{x:900,y:900,radius:150,fx:'meteor'},message:'보스의 일격'});
+ assert.ok(s.draws.length>0);assert.ok(s.draws.every(p=>Math.hypot(p.x-s.b.x,p.y-s.b.y)<100));assert.ok(s.draws.some(p=>p.color===0xe99b48));assert.ok(s.objects.slice(4).every(n=>!n.scene));
+});
