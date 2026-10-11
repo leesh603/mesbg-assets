@@ -23,7 +23,7 @@ module.exports = [
 ]},
 { sheet: 'roster-enemy-heroes-v1.png', side: 'evil', faction: 'mordor', role: 'hero', weapon: 'sword', units: [
   ['witchking_foot_mace', '마술왕(투구)', 'Witch-king, crowned with mace', { traits: ['terror'], faction: 'angmar', weapon: 'mace', base: 'L' }],
-  ['nazgul_sword', '나즈굴(검)', 'Nazgul, sword', { traits: ['terror'], faction: 'angmar', base: 'L' }],
+  ['nazgul_sword', '나즈굴(검)', 'Nazgul, sword', { traits: ['terror'], faction: 'angmar', base: 'L', artScale: 1.15 }],
   ['saruman', '사루만', 'Saruman the White', { faction: 'isengard', weapon: 'staff', base: 'L' }],
   ['orc_shaman', '오크 주술사', 'Orc Shaman', { faction: 'moria', role: 'support', weapon: 'staff', base: 'S' }],
   ['orc_captain', '오크 대장', 'Orc Captain', { base: 'M' }],
@@ -62,12 +62,11 @@ module.exports = [
 ]},
 { sheet: 'roster-sauron-nazgul-v1.png', side: 'evil', role: 'hero', base: 'L', units: [
   ['sauron', '사우론', 'Sauron', { traits: ['terror'], faction: 'mordor', role: 'monster', weapon: 'mace', base: 'XXL' }],
-  ['nazgul_sword_2', '나즈굴(검·B)', 'Nazgul, sword (v2)', { traits: ['terror'], faction: 'angmar', weapon: 'sword' }],
-  ['nazgul_mace', '나즈굴(철퇴)', 'Nazgul, mace', { traits: ['terror'], faction: 'angmar', weapon: 'mace' }],
+  ['nazgul_sword_2', '나즈굴(검·B)', 'Nazgul, sword (v2)', { traits: ['terror'], faction: 'angmar', weapon: 'sword', artScale: 1.15 }],
+  ['nazgul_mace', '나즈굴(철퇴)', 'Nazgul, mace', { traits: ['terror'], faction: 'angmar', weapon: 'mace', artScale: 1.15 }],
   ['nazgul_mounted', '나즈굴(기마)', 'Nazgul mounted', { role: 'hero', traits: ['terror'], faction: 'angmar', weapon: 'sword', base: 'XL' }],
   ['morgul_knight', '모르굴 기사', 'Morgul Knight', { faction: 'mordor', role: 'cavalry', weapon: 'lance', base: 'XL' }],
   ['dwimmerlaik', '드위머레이크(갑옷 나즈굴)', 'Dwimmerlaik', { faction: 'angmar', weapon: 'twohanded', base: 'L' }],
-  ['witchking_spear', '마술왕(창)', 'Witch-king, crowned with spear', { traits: ['terror'], faction: 'angmar', weapon: 'twohanded', base: 'L' }],
 ]},
 { sheet: 'roster-minastirith-variants-v1.png', side: 'good', faction: 'gondor', role: 'infantry', base: 'M', units: [
   ['mt_swordshield', '미나스 티리스 검방', 'MT sword & shield', { weapon: 'sword_shield' }],
@@ -240,7 +239,7 @@ module.exports = [
 { sheet: 'roster-hobbit-evil-v1.png', side: 'evil', units: [
   ['azog', '아조그', 'Azog the Defiler', { faction: 'gundabad', role: 'hero', weapon: 'mace', base: 'XL' }],
   ['azog_warg_rider', '아조그(흰 와르그)', 'Azog on white warg', { faction: 'gundabad', role: 'cavalry', weapon: 'mace', base: 'XL' }],
-  ['azog_foot', '아조그(도보)', 'Azog the Defiler on foot', { faction: 'gundabad', role: 'hero', weapon: 'mace', base: 'L' }],
+  ['azog_foot', '아조그(도보)', 'Azog the Defiler on foot', { faction: 'gundabad', role: 'hero', weapon: 'mace', base: 'L', artScale: 1.2 }],
   ['necromancer', '네크로맨서', 'The Necromancer', { faction: 'dol_guldur', role: 'hero', weapon: 'staff', base: 'L' }],
   ['hunter_orc', '헌터 오크', 'Hunter Orc', { faction: 'gundabad', role: 'infantry', weapon: 'bow' }],
   ['gundabad_orc', '군다바드 오크', 'Gundabad Orc', { faction: 'gundabad', role: 'infantry', weapon: 'sword_shield' }],

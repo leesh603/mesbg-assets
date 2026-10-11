@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "count": 526,
+  "count": 525,
   "units": [
     {
       "id": "aragorn",
@@ -333,6 +333,7 @@
       "traits": [
         "terror"
       ],
+      "artScale": 1.15,
       "stats": {
         "f": 5,
         "s": 4,
@@ -961,6 +962,7 @@
       "traits": [
         "terror"
       ],
+      "artScale": 1.15,
       "stats": {
         "f": 5,
         "s": 4,
@@ -998,6 +1000,7 @@
       "traits": [
         "terror"
       ],
+      "artScale": 1.15,
       "stats": {
         "f": 5,
         "s": 4,
@@ -1102,22 +1105,6 @@
         "Terror",
         "Ringwraith",
         "The Dwimmerlaik"
-      ],
-      "base_mm": "25mm"
-    },
-    {
-      "id": "witchking_spear",
-      "name_ko": "마술왕(창)",
-      "name_en": "Witch-king, crowned with spear",
-      "side": "evil",
-      "faction": "angmar",
-      "role": "hero",
-      "weapon": "twohanded",
-      "base": "L",
-      "sheet": "roster-sauron-nazgul-v1.png",
-      "file": "tokens/witchking_spear.png",
-      "traits": [
-        "terror"
       ],
       "base_mm": "25mm"
     },
@@ -3693,6 +3680,7 @@
       "base": "L",
       "sheet": "roster-hobbit-evil-v1.png",
       "file": "tokens/azog_foot.png",
+      "artScale": 1.2,
       "base_mm": "25mm"
     },
     {
