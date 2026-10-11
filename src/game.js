@@ -1925,8 +1925,12 @@ P._separateUnits = function (list) {
             let dx = B.x - A.x, dy = B.y - A.y, d = Math.hypot(dx, dy);
             if (d < need) {
                 if (d < .01) { dx = 1; dy = 0; d = 1; }
-                const p = (need - d) / 2, ux = dx / d, uy = dy / d;
-                A.x -= ux * p; A.y -= uy * p; B.x += ux * p; B.y += uy * p; moved = true;
+                const _aPin = A.lair || A.static, _bPin = B.lair || B.static;
+                if (_aPin && _bPin) continue;
+                const p = (need - d) / (_aPin || _bPin ? 1 : 2), ux = dx / d, uy = dy / d;
+                if (!_aPin) { A.x -= ux * p; A.y -= uy * p; }
+                if (!_bPin) { B.x += ux * p; B.y += uy * p; }
+                moved = true;
             }
         }
         _us.forEach(u => { u.x = Math.max(u.radius + 8, Math.min(pt.width - u.radius - 8, u.x)); u.y = Math.max(u.radius + 8, Math.min(pt.height - u.radius - 8, u.y)); });
