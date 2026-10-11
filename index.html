@@ -8740,6 +8740,24 @@ P.bossTurn = function (u) {
         if (this.alive('evil').length < 24) this.spawnEnemies(['moria_goblin', 'moria_goblin']);
     }
     else if (u.id === 'sauron') {
+        if (!u._ringSummon && u.currentWounds <= Math.ceil(u.stats.wounds * .5)) {
+            u._ringSummon = true;
+            this.emit('BossCast', undefined, { fx: 'dominate', at: u });
+            let n = 0;
+            const nazIds = ['nazgul_sword', 'nazgul_sword_2', 'nazgul_mace'].filter(id => this.meta.has(id));
+            for (let i = 0; i < 9 && nazIds.length; i++) {
+                const nu = this.spawn(nazIds[i % nazIds.length], 'evil', { x: u.x, y: u.y });
+                let placed = false;
+                for (let ring = 150; ring <= 400 && !placed; ring += 62)
+                    for (let k = 0; k < 14 && !placed; k++) {
+                        const a = (Math.PI * 2 * i / 9) + (k % 2 ? .45 : -.45) * Math.floor(k / 2);
+                        const p = { x: Math.min(2240, Math.max(90, u.x + Math.cos(a) * ring)), y: Math.min(1380, Math.max(90, u.y + Math.sin(a) * ring)) };
+                        if (Et(nu, p, this.alive(), this.terrain)) { Object.assign(nu, p); placed = true; n++; }
+                    }
+                if (!placed) nu.alive = false;
+            }
+            this.emit('BossImpact', '반지의 악령 소환 — 아홉 나즈굴이 모습을 드러냅니다', { uid: u.uid, at: u });
+        }
         if (this.round % 6 === 0) {
             const targets = this.alive('good').slice().sort(() => this.rng() - .5).slice(0, 2);
             this.warnings.push(...targets.map(v => ({ x: v.x, y: v.y, radius: 160, round: this.round + 1, src: u.uid, label: '파멸의 유성', fx: 'meteor', dmg: phase >= 3 ? 2 : 1 })));
