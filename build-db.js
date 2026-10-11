@@ -160,10 +160,9 @@ const card = (r, fh) => {
   const art = gm.artScale ?? r.artScale;
   const st = r.stats ? '<div class="meta" style="color:#d8c98a">F' + r.stats.f + ' S' + r.stats.s + ' D' + r.stats.d + ' A' + r.stats.a + ' W' + r.stats.w + ' C' + r.stats.c + ' · M' + r.stats.might + ' W' + r.stats.will + ' F' + r.stats.fate + '</div>' : '';
   const rl = (r.rules && r.rules.length) ? '<div class="meta" style="color:#9a8ac0">' + r.rules.join(' · ') + '</div>' : '';
-  const baseRing = baseD ? `<i class="basering" style="width:${baseD}px;height:${baseD}px"></i>` : '';
-  const _cap = Math.min(h, 150) / h; w = Math.round(w * _cap); h = Math.round(h * _cap);
+    const _cap = Math.min(h, 150) / h; w = Math.round(w * _cap); h = Math.round(h * _cap);
   const szLine = r.role === 'terrain' ? '' : `<div class="meta" style="color:#8fb3d9">${gm.baseMm || parseInt(r.base_mm) || '?'}mm${art && art !== 1 ? ' · 스케일 ' + art : ''}</div>`;
-  return `<div class="card ucard" style="height:${fh + 132}px"><div class="fig" style="height:${fh}px">${baseRing}<img src="tokens/${r.id}.png" loading="lazy" style="width:${w}px;height:${h}px"></div><div class="id">${r.id}</div><div class="ko">${r.name_ko}</div><div class="meta">${ROLE_KO[r.role] || r.role} · ${r.weapon}${(r.traits && r.traits.length) ? " · " + r.traits.join("·") : ""}</div>${szLine}${st}${rl}</div>`;
+  return `<div class="card ucard" style="height:${fh + 132}px"><div class="fig" style="height:${fh}px"><img src="tokens/${r.id}.png" loading="lazy" style="width:${w}px;height:${h}px"></div><div class="id">${r.id}</div><div class="ko">${r.name_ko}</div><div class="meta">${ROLE_KO[r.role] || r.role} · ${r.weapon}${(r.traits && r.traits.length) ? " · " + r.traits.join("·") : ""}</div>${szLine}${st}${rl}</div>`;
 };
 // 팩션 그룹 → 역할 소그룹 → 카드. fig 높이는 팩션 최대치로 통일.
 const factionGrid = list => {
