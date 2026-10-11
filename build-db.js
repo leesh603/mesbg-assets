@@ -235,4 +235,40 @@ ${TABS.map(([k, n], i) => `<div class="tabpane" data-t="${k}" style="display:${i
 </body></html>`;
 fs.writeFileSync(path.join(SRC, 'gallery.html'), html);
 
-console.log(`OK: ${rows.length} rows -> units.csv / units.json / gallery.html`);
+// gallery2.html — 그림체 통일 작업 전용 별도 갤러리 (메인 gallery.html 과 독립).
+// 인게임 표시 크기가 아니라 아트 스타일 비교가 목적이므로 타일 높이를 균일하게 맞춤.
+const card2 = r => `<div class="card ucard"><div class="fig" style="height:150px"><img src="tokens/${r.id}.png?v=${CB}" loading="lazy" style="max-height:140px;max-width:170px;height:auto;width:auto"></div><div class="id">${r.id}</div><div class="ko">${r.name_ko}</div><div class="meta">${FACTION_KO[facOf(r)] || facOf(r)} · ${ROLE_KO[r.role] || r.role}</div></div>`;
+const factionGrid2 = list => {
+  const facs = {};
+  for (const r of list) { (facs[facOf(r)] ??= []).push(r); }
+  const order = facOrder(list[0] && list[0].side === 'evil' ? 'evil' : 'good');
+  const keys = [...order.filter(f => facs[f]), ...Object.keys(facs).filter(f => !order.includes(f)).sort()];
+  return keys.map(f => `<h2>${FACTION_KO[f] || f} — ${facs[f].length}</h2><div class="grid">${facs[f].map(card2).join('')}</div>`).join('');
+};
+const html2fixed = `<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><title>그림체 통일 갤러리</title><style>
+:root{--bg:#0f120c;--panel:#1a1d14;--panel2:#232718;--line:#5d5233;--gold:#c9a959;--gold2:#efe0ae;--txt:#ece4cd;--dim:#a89d7f}
+*{box-sizing:border-box}
+body{background:radial-gradient(ellipse at 50% -5%,#26301b 0%,#141a10 45%,#0f120c 100%);color:var(--txt);font-family:'Malgun Gothic',Georgia,serif;margin:0;padding:24px}
+h1{font-family:Georgia,serif;font-size:20px;color:var(--gold2);letter-spacing:2px;font-variant:small-caps;text-shadow:0 0 12px rgba(201,169,89,.3)}
+h2{font-family:Georgia,serif;font-size:15px;margin:28px 0 10px;color:var(--gold);border-bottom:1px solid var(--line);padding-bottom:6px;letter-spacing:1px}
+.tabs{display:flex;gap:8px;margin:14px 0 4px;position:sticky;top:0;background:var(--bg);padding:8px 0;z-index:10;flex-wrap:wrap}
+.tabs button{background:var(--panel);border:1px solid var(--line);color:var(--dim);padding:8px 18px;border-radius:6px;cursor:pointer;font-size:13px}
+.tabs button.on{background:var(--gold);color:#1a150f;border-color:var(--gold);font-weight:700}
+.grid{display:flex;flex-wrap:wrap;gap:14px}
+.card{background:linear-gradient(170deg,#20241a,#181b12);border:1px solid var(--line);border-radius:8px;padding:12px;text-align:center;position:relative;flex:none}
+.card::before{content:'';position:absolute;inset:3px;border:1px solid rgba(201,169,89,.15);border-radius:5px;pointer-events:none}
+.fig{display:flex;align-items:flex-end;justify-content:center;position:relative;width:100%}
+.ucard{width:195px;overflow:hidden}
+@media (max-width:760px){.fig{zoom:1.9}.ucard{width:auto;flex:1 1 46%}}
+.card img{image-rendering:auto;object-fit:contain;display:block;position:relative;filter:drop-shadow(0 3px 4px rgba(0,0,0,.6))}
+.id{font-size:11px;color:#7fa3cc;word-break:break-all;margin-top:8px;max-width:170px}
+.ko{font-size:13px;font-weight:600;margin-top:2px;color:var(--txt)}
+.meta{font-size:10px;color:var(--dim);margin-top:3px}
+</style></head><body>
+<h1>MESBG 통일 작업 갤러리 — 아트 스타일 검수 · <span style="font-size:11px;color:#8a8">#${CB.toString(36).toUpperCase()}</span> · ${rows.length}종</h1>
+<div class="tabs">${TABS.filter(([k]) => k === 'good' || k === 'evil').map(([k, n], i) => `<button data-t="${k}" class="${i ? '' : 'on'}" onclick="document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('on'));this.classList.add('on');document.querySelectorAll('.tabpane').forEach(p=>p.style.display=p.dataset.t===this.dataset.t?'block':'none')">${n} — ${groups[k].length}</button>`).join('')}</div>
+${TABS.filter(([k]) => k === 'good' || k === 'evil').map(([k, n], i) => `<div class="tabpane" data-t="${k}" style="display:${i ? 'none' : 'block'}"><h2>${n} — ${groups[k].length}</h2>${factionGrid2(groups[k])}</div>`).join('')}
+</body></html>`;
+fs.writeFileSync(path.join(SRC, 'gallery2.html'), html2fixed);
+
+console.log(`OK: ${rows.length} rows -> units.csv / units.json / gallery.html / gallery2.html`);
