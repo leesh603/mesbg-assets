@@ -420,7 +420,7 @@ const Ye = Object.fromEntries(["dice_roll", "base_slide", "base_contact", "sword
 class We {
     constructor() { lt(this, "context"); lt(this, "muted", !0); lt(this, "sfxVolume", .7); lt(this, "musicVolume", .35); lt(this, "music"); lt(this, "buffers", new Map); lt(this, "asset", Y => Y); lt(this, "mood", 1); }
     _effVol(b = this.musicVolume) { return b * (this.mood === 0 ? .45 : 1); }
-    setMood(Y) { if (this.mood === Y) return; this.mood = Y; const track = { 0: 'audio/lwb-camp.mp3', 1: 'audio/lwb-battle.mp3', 2: 'audio/lwb-boss.mp3' }[Y] || 'audio/gate-of-the-west.mp3'; if (this.music && this._track !== track) { this._track = track; this.music.src = this.asset(track); this.music.loop = !0; this.muted || this.musicVolume <= 0 || this.music.play().catch(() => { }); } this.music && (this.music.playbackRate = Y === 2 ? 1.05 : 1, this.music.volume = this.muted ? 0 : this._effVol()); }
+    setMood(Y) { if (this.mood === Y) return; this.mood = Y; const track = { 0: 'audio/lwb-camp.mp3', 2: 'audio/lwb-boss.mp3' }[Y] || (this._MAP_TRACK[this._mapName] || 'audio/lwb-battle.mp3'); if (this.music && this._track !== track) { this._track = track; this.music.src = this.asset(track); this.music.loop = !0; this.muted || this.musicVolume <= 0 || this.music.play().catch(() => { }); } this.music && (this.music.playbackRate = Y === 2 ? 1.05 : 1, this.music.volume = this.muted ? 0 : this._effVol()); }
     fanfare(Y = true) { if (this.muted || this.sfxVolume <= 0 || !this.context || document.hidden) return; const b = this.context, H = b.currentTime, K = Y ? [[261.6, 0, .16], [329.6, .15, .16], [392, .3, .18], [523.3, .5, .55]] : [[220, 0, .3], [174.6, .28, .62]]; for (const [$, p, S] of K) { const t = b.createOscillator(), f = b.createGain(), c = b.createBiquadFilter(); t.type = "sawtooth", t.frequency.value = $, c.type = "lowpass", c.frequency.value = 1300, f.gain.setValueAtTime(0, H + p), f.gain.linearRampToValueAtTime(this.sfxVolume * .4, H + p + .04), f.gain.setValueAtTime(this.sfxVolume * .4, Math.max(0, H + p + S - .05)), f.gain.linearRampToValueAtTime(0, H + p + S), t.connect(c), c.connect(f), f.connect(b.destination), t.start(H + p), t.stop(H + p + S + .05); } }
     async unlock() { if (!this.music) { this._track = 'audio/lwb-camp.mp3'; this.music = new Audio(this.asset(this._track)); this.music.loop = !0; } this.music.volume = this.muted ? 0 : this._effVol(); if (this.muted || document.hidden)
         return; this.context ?? (this.context = new AudioContext), await this.context.resume(), this._startTheme && this._startTheme(), this.musicVolume > 0 && this.music.play().catch(() => { }); }
@@ -513,20 +513,25 @@ wt._THEMES = [
     { base: 73.42, rate: 3.0, drum: .9, horn: [146.8, 155.6, 174.6], mel: [0, 1, 6, null, 1, 0, null, 6], melWave: 'sawtooth', melVol: .55, mrate: .94 } // 4막 대암흑 — D드론 불협화
 ];
 wt.setAct = function (a) { if (wt.act === a) return; wt.act = a; if (wt._drone) wt._tuneTheme(); if (wt.music) wt.music.playbackRate = (wt._THEMES[wt.act] || wt._THEMES[0]).mrate * (wt.mood === 2 ? 1.05 : 1); };
-// 맵별 분위기 — 인덱스는 CX.maps 순서: 미나스티리스/모리아/로한평원/이센가드/미르크우드/하라드/던랜드/모르도르/검은문/발라지오트
-wt._MAP_TUNING = [
-    { shift: 0, drumMul: 1, melSkip: 0 },      // 0 성문 — 표준
-    { shift: -12, drumMul: .8, melSkip: .45 }, // 1 모리아 — 한 옥타브 아래, 희박한 메아리
-    { shift: 2, drumMul: 1.2, melSkip: .15 },  // 2 로한 평원 — 밝게, 경쾌한 북
-    { shift: -2, drumMul: 1.1, melSkip: .2 },  // 3 이센가드 — 어두운 공업
-    { shift: -5, drumMul: .7, melSkip: .55 },  // 4 미르크우드 — 나직하고 드물게
-    { shift: 4, drumMul: 1.3, melSkip: .1 },   // 5 하라드 — 이국적 고음, 촘촘한 북
-    { shift: -3, drumMul: 1, melSkip: .3 },    // 6 던랜드 — 거친 야영지
-    { shift: -7, drumMul: 1.15, melSkip: .2 }, // 7 모르도르 — 깊고 위협적
-    { shift: -9, drumMul: 1, melSkip: .35 },   // 8 검은문 — 최저음 무게
-    { shift: 0, drumMul: 1.25, melSkip: .05 }  // 9 발라지오트 — 본격 전투
-];
-wt.setMap = function (m) { if (wt._map === m) return; wt._map = m; };
+// 맵별 분위기 — 이름 기준: 음정 시프트·북 속도·선율 밀도, 그리고 지역별 테마곡
+wt._MAP_TUNING = {
+    minas_tirith: {}, osgiliath: { shift: -1, melSkip: .1 }, pelennor: { drumMul: 1.15 }, amon_sul: { shift: 2, drumMul: .9, melSkip: .15 },
+    helms_deep: { shift: 2, drumMul: 1.2, melSkip: .1 }, edoras: { shift: 2, drumMul: 1.2, melSkip: .1 }, dunharrow: { shift: 1, drumMul: 1.1, melSkip: .2 },
+    fangorn: { shift: -4, drumMul: .7, melSkip: .5 }, mirkwood: { shift: -5, drumMul: .7, melSkip: .55 }, dead_marshes: { shift: -6, drumMul: .65, melSkip: .6 },
+    moria: { shift: -12, drumMul: .8, melSkip: .45 }, erebor: { shift: -9, drumMul: .85, melSkip: .3 },
+    isengard: { shift: -2, drumMul: 1.15, melSkip: .15 },
+    black_gate: { shift: -9, drumMul: 1.1, melSkip: .3 }, gorgoroth: { shift: -7, drumMul: 1.15, melSkip: .25 }, dol_guldur: { shift: -8, drumMul: .9, melSkip: .4 }, angband: { shift: -11, drumMul: .9, melSkip: .45 },
+    rivendell: { shift: 3, drumMul: .6, melSkip: .5 }, lothlorien: { shift: 3, drumMul: .6, melSkip: .5 }, gondolin: { shift: 4, drumMul: .65, melSkip: .4 }
+};
+wt._MAP_TRACK = {
+    moria: 'audio/lwb-moria.mp3', erebor: 'audio/lwb-moria.mp3',
+    isengard: 'audio/lwb-isengard.mp3',
+    helms_deep: 'audio/lwb-rohan.mp3', edoras: 'audio/lwb-rohan.mp3', dunharrow: 'audio/lwb-rohan.mp3',
+    rivendell: 'audio/lwb-elf.mp3', lothlorien: 'audio/lwb-elf.mp3', gondolin: 'audio/lwb-elf.mp3',
+    black_gate: 'audio/lwb-mordor.mp3', gorgoroth: 'audio/lwb-mordor.mp3', dol_guldur: 'audio/lwb-mordor.mp3', angband: 'audio/lwb-mordor.mp3',
+    mirkwood: 'audio/lwb-mirkwood.mp3', dead_marshes: 'audio/lwb-mirkwood.mp3', fangorn: 'audio/lwb-mirkwood.mp3'
+};
+wt.setMap = function (m) { if (wt._mapName === m) return; wt._mapName = m; wt.mood = -1; };
 wt._tuneTheme = function () { const T = wt._THEMES[wt.act] || wt._THEMES[0]; if (wt._drone) { wt._drone.frequency.setTargetAtTime(T.base, wt.context.currentTime, .8); wt._drone2.frequency.setTargetAtTime(T.base * 1.5, wt.context.currentTime, .8); } wt._drumRate = T.rate; };
 wt._startTheme = function () {
     if (wt._themeOn || !wt.context) return; wt._themeOn = true;
@@ -541,7 +546,7 @@ wt._startTheme = function () {
         if (!wt.context || wt.muted || document.hidden) return;
         const ct = c.currentTime, T = wt._THEMES[wt.act] || wt._THEMES[0];
         g.gain.setTargetAtTime((wt.musicVolume || 0) * .85, ct, .3);
-        const MT = wt._MAP_TUNING[wt._map | 0] || wt._MAP_TUNING[0], melDt = wt._drumRate / (wt.mood === 2 ? 6 : 4);
+        const MT = wt._MAP_TUNING[wt._mapName] || wt._MAP_TUNING.minas_tirith, melDt = wt._drumRate / (wt.mood === 2 ? 6 : 4);
         if (wt.mood === 2 && ct >= wt._nextPulse) {
             wt._nextPulse = ct + wt._drumRate * .31;
             const p = c.createOscillator(); p.type = 'sawtooth'; p.frequency.value = T.base * Math.pow(2, MT.shift / 12);
@@ -5301,7 +5306,7 @@ ut('speed-quick').onclick=()=>{ut('speed-toggle').click();ut('speed-quick').text
 function renderDock(){
     wt.setMood(['menu','reward','result'].includes(q.phase)?0:q.current&&q.current.boss?2:1);
     wt.setAct&&wt.setAct(q.wave<=15?0:q.wave<=30?1:q.wave<=40?2:3);
-    wt.setMap&&wt.setMap(visualMapIdx(q.mapIndex||0));
+    wt.setMap&&wt.setMap(CX.maps[visualMapIdx(q.mapIndex||0)]);
     const _sq=ut('speed-quick');if(_sq)_sq.textContent='×'+qt;
     const active=actionableUnit(),selected=q.unit(q.selected),u=selected?.alive?selected:active,busy=At||q.mode==='ai'&&q.side==='evil'&&['move','shoot'].includes(q.phase);
     const phase=q.phase;
