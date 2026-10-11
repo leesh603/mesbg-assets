@@ -2,7 +2,7 @@ const fs=require('node:fs'),vm=require('node:vm');
 module.exports=function(){let html=fs.readFileSync('index.html','utf8');const store=new Map();
  if(process.env.MESBG_TEST_SOURCE){const begin='/*__LWB_SRC_BEGIN__*/',end='/*__LWB_SRC_END__*/';html=html.slice(0,html.indexOf(begin)+begin.length)+'\n'+fs.readFileSync(process.env.MESBG_TEST_SOURCE,'utf8')+'\n'+html.slice(html.indexOf(end));}
  const node={style:{},children:[],remove(){},append(){},appendChild(){},prepend(){},classList:{add(){},remove(){}}};
- const ctx={structuredClone,console,setTimeout:()=>0,clearTimeout(){},esc:String,uiCopy:String,uiNoticeHost:()=>node,Xt(){},arcTransition(){},lt:(o,k,v)=>o[k]=v,localStorage:{getItem:k=>store.get(k)||null,setItem:(k,v)=>store.set(k,v),removeItem:k=>store.delete(k)},window:{},document:{getElementById:()=>node,createElement:()=>({...node,style:{}}),body:node,head:node}};vm.createContext(ctx);
+ const ctx={structuredClone,console,setTimeout:()=>0,clearTimeout(){},wt:{_MAP_TUNING:{},_MAP_TRACK:{}},esc:String,uiCopy:String,uiNoticeHost:()=>node,Xt(){},arcTransition(){},lt:(o,k,v)=>o[k]=v,localStorage:{getItem:k=>store.get(k)||null,setItem:(k,v)=>store.set(k,v),removeItem:k=>store.delete(k)},window:{},document:{getElementById:()=>node,createElement:()=>({...node,style:{},dataset:{}}),body:node,head:node}};vm.createContext(ctx);
  const section=(a,b)=>html.slice(html.indexOf(a),html.indexOf(b,html.indexOf(a)));
  vm.runInContext(section('window.__MESBG_ASSETS__=','</script>'),ctx);vm.runInContext(section('window.CAMPAIGN_META=','</script>'),ctx);
  vm.runInContext('const __ASSET_SET__=new Set([...Object.keys(window.__MESBG_ASSETS__||{}),...(window.__MESBG_ASSET_KEYS__||[])]),__assetOk=id=>__ASSET_SET__.has(id);',ctx);
