@@ -61,6 +61,6 @@ test('failed token load releases its queue and allows a later successful retry',
 });
 test('cloud restore passes both menu and camp loads through the action renderer',async()=>{
  for(const line of source.split('\n').filter(s=>s.includes("ut('cloud-load').onclick = async"))){
-  const nodes={'cloud-load':{},'cloud-id':{value:'test'},'cloud-pw':{value:'test'},'cloud-msg':{}},ctx={ut:id=>nodes[id],LWB_API:'https://test.invalid',fetch:async()=>({ok:true,json:async()=>({data:{version:1}})}),localStorage:{setItem(){}},q:{resume:()=>true},Xt(){},renders:0,Rt:async fn=>{fn();ctx.renders++;}};vm.createContext(ctx);vm.runInContext(line,ctx);await nodes['cloud-load'].onclick();assert.equal(ctx.renders,1);
+  const nodes={'cloud-load':{},'cloud-id':{value:'test'},'cloud-pw':{value:'test'},'cloud-msg':{}},ctx={ut:id=>nodes[id],LWB_API:'https://test.invalid',fetch:async()=>({ok:true,json:async()=>({data:{version:1}})}),localStorage:{setItem(){}},q:{importSave:()=>true},Xt(){},renders:0,Rt:async fn=>{fn();ctx.renders++;}};vm.createContext(ctx);vm.runInContext(line,ctx);await nodes['cloud-load'].onclick();assert.equal(ctx.renders,1);
  }
 });
