@@ -22,3 +22,10 @@ fingolfin-assets/
 LAST-WAR-BAND_*.html
 asset-archive/
 px-nb-single-*.png
+
+# root-level sprite sheets are generation sources, not site files — keep untracked
+/*.png
+/*.webp
+/*.jpg
+!favicon-*.png
+!apple-touch-icon.png
