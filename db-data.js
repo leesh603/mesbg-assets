@@ -793,6 +793,15 @@ module.exports = [
     ['frealaf_mounted','프레알라프(기마)','Frealaf, mounted',{ weapon:'axe' }],
     ['thrydan_mounted','트리단(기마)','Thrydan Wolfsbane, mounted',{ faction:'dunland', weapon:'twohanded' }],
     ['hera_mounted','헤라(기마)','Hera, mounted',{ weapon:'axe' }]] },
+  { sheet:null, side:'good', faction:'gondor', role:'hero', weapon:'mixed', base:'XL', units:[
+    ['elendil_mounted','엘렌딜(기마)','Elendil, mounted',{ faction:'arnor', weapon:'sword' }],
+    ['isildur_mounted','이실두르(기마)','Isildur, mounted',{ faction:'gondor', weapon:'sword' }],
+    ['anarion_mounted','아나리온(기마)','Anarion, mounted',{ faction:'numenor', weapon:'sword' }],
+    ['cirion_mounted','키리온(기마)','Cirion, mounted',{ faction:'gondor', weapon:'sword' }],
+    ['earnur_mounted','에아르누르(기마)','Earnur, mounted',{ faction:'gondor', weapon:'sword' }],
+    ['arvedui_mounted','아르베두이(기마)','Arvedui, mounted',{ faction:'arnor', weapon:'sword' }],
+    ['arathorn_mounted','아라손(기마)','Arathorn, mounted',{ faction:'arnor', weapon:'sword' }],
+    ['halbarad_mounted','할바라드(기마)','Halbarad, mounted',{ faction:'arnor', weapon:'banner' }]] },
   { sheet:null, side:'good', faction:'elf', role:'hero', weapon:'sword', base:'XL', traits:['mounted'], units:[
     ['fingon_mounted','핑곤(기마)','Fingon, mounted'],
     ['ecthelion_mounted','엑텔리온(기마)','Ecthelion, mounted'],
