@@ -131,8 +131,8 @@ const dispWH = r => {
   const E = mm * 3.04 * art;
   const { ratio, fx, fy } = figInfo(r.id);
   let dw, dh;
-  if (ratio >= 1) { dw = Math.min(E / Math.max(.35, fx || 1), E * 1.95); dh = dw / ratio; }
-  else { dh = Math.min(E / Math.max(.35, fy || 1), E * 1.95); dw = dh * ratio; }
+  // 피겨 높이 기준 통일 — 같은 베이스급은 화면상 피겨 높이가 같아야 함
+  dh = Math.min(E / Math.max(.35, fy || 1), E * 1.95); dw = dh * ratio;
   const mx = E * 1.3, lg = Math.max(dw, dh);
   if (lg > mx) { const k = mx / lg; dw *= k; dh *= k; }
   return [Math.round(dw), Math.round(dh), mm * 3.04]; // [표시폭, 표시높이, 베이스 직경]
