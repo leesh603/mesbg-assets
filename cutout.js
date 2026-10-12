@@ -183,6 +183,7 @@ const sheets = [
   { file: 'nb-single-turgon-mounted.png', rows: 1, cols: 1, noRim: true, names: ['turgon_mounted'] },
   { file: 'nb-single-cirdan-mounted.png', rows: 1, cols: 1, noRim: true, names: ['cirdan_mounted'] },
   { file: 'nb-single-gilgalad-mounted.png', rows: 1, cols: 1, noRim: true, names: ['gil_galad_mounted'] },
+  { file: 'nb-single-gilgalad-foot9.png', rows: 1, cols: 1, noRim: true, names: ['gil_galad'] },
 ];
 
 function idx(x, y, w) { return (y * w + x) << 2; }
