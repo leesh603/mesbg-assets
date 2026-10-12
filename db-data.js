@@ -787,7 +787,12 @@ module.exports = [
     ['harding_mounted','하딩(기마)','Harding, mounted',{ weapon:'bow' }],
     ['dunhere_mounted','둔헤레(기마)','Dunhere, mounted',{ weapon:'spear' }],
     ['guthlaf_mounted','구슬라프(기마)','Guthlaf, mounted',{ weapon:'banner' }],
-    ['gamling_mounted','감링(기마)','Gamling, mounted',{ weapon:'banner' }]] },
+    ['gamling_mounted','감링(기마)','Gamling, mounted',{ weapon:'banner' }],
+    ['erkenbrand_mounted','에르켄브란드(기마)','Erkenbrand, mounted',{ weapon:'sword_shield' }],
+    ['eorl_the_young_mounted','에오를(기마)','Eorl the Young, mounted',{ weapon:'spear' }],
+    ['frealaf_mounted','프레알라프(기마)','Frealaf, mounted',{ weapon:'axe' }],
+    ['thrydan_mounted','트리단(기마)','Thrydan Wolfsbane, mounted',{ faction:'dunland', weapon:'twohanded' }],
+    ['hera_mounted','헤라(기마)','Hera, mounted',{ weapon:'axe' }]] },
   { sheet:null, side:'good', faction:'elf', role:'hero', weapon:'sword', base:'XL', traits:['mounted'], units:[
     ['fingon_mounted','핑곤(기마)','Fingon, mounted'],
     ['ecthelion_mounted','엑텔리온(기마)','Ecthelion, mounted'],

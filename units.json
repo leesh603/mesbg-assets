@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "count": 540,
+  "count": 545,
   "units": [
     {
       "id": "aragorn",
@@ -10453,6 +10453,71 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/gamling_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "erkenbrand_mounted",
+      "name_ko": "에르켄브란드(기마)",
+      "name_en": "Erkenbrand, mounted",
+      "side": "good",
+      "faction": "rohan",
+      "role": "hero",
+      "weapon": "sword_shield",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/erkenbrand_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "eorl_the_young_mounted",
+      "name_ko": "에오를(기마)",
+      "name_en": "Eorl the Young, mounted",
+      "side": "good",
+      "faction": "rohan",
+      "role": "hero",
+      "weapon": "spear",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/eorl_the_young_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "frealaf_mounted",
+      "name_ko": "프레알라프(기마)",
+      "name_en": "Frealaf, mounted",
+      "side": "good",
+      "faction": "rohan",
+      "role": "hero",
+      "weapon": "axe",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/frealaf_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "thrydan_mounted",
+      "name_ko": "트리단(기마)",
+      "name_en": "Thrydan Wolfsbane, mounted",
+      "side": "good",
+      "faction": "dunland",
+      "role": "hero",
+      "weapon": "twohanded",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/thrydan_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "hera_mounted",
+      "name_ko": "헤라(기마)",
+      "name_en": "Hera, mounted",
+      "side": "good",
+      "faction": "rohan",
+      "role": "hero",
+      "weapon": "axe",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/hera_mounted.png",
       "base_mm": "40mm"
     },
     {

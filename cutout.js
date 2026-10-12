@@ -183,6 +183,11 @@ const sheets = [
   { file: 'nb-single-turgon-mounted.png', rows: 1, cols: 1, noRim: true, names: ['turgon_mounted'] },
   { file: 'nb-single-cirdan-mounted.png', rows: 1, cols: 1, noRim: true, names: ['cirdan_mounted'] },
   { file: 'nb-single-gilgalad-mounted2.png', rows: 1, cols: 1, noRim: true, names: ['gil_galad_mounted'] },
+  { file: 'nb-single-erkenbrand-mounted.png', rows: 1, cols: 1, noRim: true, names: ['erkenbrand_mounted'] },
+  { file: 'nb-single-eorl-mounted.png', rows: 1, cols: 1, noRim: true, names: ['eorl_the_young_mounted'] },
+  { file: 'nb-single-frealaf-mounted.png', rows: 1, cols: 1, noRim: true, names: ['frealaf_mounted'] },
+  { file: 'nb-single-thrydan-mounted.png', rows: 1, cols: 1, noRim: true, names: ['thrydan_mounted'] },
+  { file: 'nb-single-hera-mounted.png', rows: 1, cols: 1, noRim: true, names: ['hera_mounted'] },
   { file: 'nb-single-gilgalad-foot9.png', rows: 1, cols: 1, noRim: true, names: ['gil_galad'] },
 ];
 
