@@ -254,6 +254,11 @@ const factionGrid2 = list => {
   const nazHtml = nazgul.length ? `<h2>나즈굴 — ${nazgul.length}</h2><div class="grid">${nazgul.map(r => card2(r, fh(nazgul))).join('')}</div>` : '';
   return nazHtml + keys.map(f => `<h2>${FACTION_KO[f] || f} — ${facs[f].length}</h2>${roleGrid(facs[f])}`).join('');
 };
+// 위치킹 버전 비교 — 도보(두건/A안/가시왕관)·기마·펠비스트 복수 버전 나란히
+const wkRow = (file, label) => `<div class="card ucard"><div class="fig" style="height:150px"><img src="${file}?v=${CB}" loading="lazy" style="max-height:140px;max-width:170px;height:auto;width:auto"></div><div class="id">${label}</div></div>`;
+const wkHtml = `<h2>위치킹 버전 비교 — 도보</h2><div class="grid">${wkRow('tokens/witchking_foot.png', '도보 · 두건(현재)')}${wkRow('tokens/witchking_foot_mace.png', '도보 · 투구A안')}${wkRow('alt/witchking_foot_moviecrown.png', '도보 · 가시왕관')}${wkRow('alt/witchking_foot_scale_dome.png', '도보 · 비늘돔')}</div>` +
+  `<h2>위치킹 버전 비교 — 기마</h2><div class="grid">${wkRow('tokens/witchking_mounted.png', '기마 · A안(현재)')}${wkRow('alt/witchking_mounted_moviecrown.png', '기마 · 가시왕관')}</div>` +
+  `<h2>위치킹 버전 비교 — 펠비스트</h2><div class="grid">${wkRow('tokens/witchking_fellbeast.png', '펠비스트 · A안(현재)')}${wkRow('alt/witchking_fellbeast_moviecrown.png', '펠비스트 · 가시왕관')}</div>`;
 const html2fixed = `<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><title>그림체 통일 갤러리</title><style>
 :root{--bg:#0f120c;--panel:#1a1d14;--panel2:#232718;--line:#5d5233;--gold:#c9a959;--gold2:#efe0ae;--txt:#ece4cd;--dim:#a89d7f}
 *{box-sizing:border-box}
@@ -277,7 +282,7 @@ h3{font-family:Georgia,serif;font-size:12px;margin:16px 0 6px;color:var(--gold2)
 </style></head><body>
 <h1>MESBG 통일 작업 갤러리 — 아트 스타일 검수 · <span style="font-size:11px;color:#8a8">#${CB.toString(36).toUpperCase()}</span> · ${rows.length}종</h1>
 <div class="tabs">${TABS.filter(([k]) => k === 'good' || k === 'evil').map(([k, n], i) => `<button data-t="${k}" class="${i ? '' : 'on'}" onclick="document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('on'));this.classList.add('on');document.querySelectorAll('.tabpane').forEach(p=>p.style.display=p.dataset.t===this.dataset.t?'block':'none')">${n} — ${groups[k].length}</button>`).join('')}</div>
-${TABS.filter(([k]) => k === 'good' || k === 'evil').map(([k, n], i) => `<div class="tabpane" data-t="${k}" style="display:${i ? 'none' : 'block'}"><h2>${n} — ${groups[k].length}</h2>${factionGrid2(groups[k])}</div>`).join('')}
+${TABS.filter(([k]) => k === 'good' || k === 'evil').map(([k, n], i) => `<div class="tabpane" data-t="${k}" style="display:${i ? 'none' : 'block'}"><h2>${n} — ${groups[k].length}</h2>${k === 'evil' ? wkHtml : ''}${factionGrid2(groups[k])}</div>`).join('')}
 </body></html>`;
 fs.writeFileSync(path.join(SRC, 'gallery2.html'), html2fixed);
 
