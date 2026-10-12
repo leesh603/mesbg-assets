@@ -1,0 +1,85 @@
+{
+  "canvas": [
+    414,
+    420
+  ],
+  "mode": "RGBA",
+  "transparent_corners": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "original_alpha_bbox": [
+    69,
+    8,
+    345,
+    411
+  ],
+  "reworked_alpha_bbox": [
+    64,
+    8,
+    349,
+    411
+  ],
+  "normalization": "alpha <= 1 to 0; alpha-bbox crop; one aspect-preserving Lanczos fit; centered in original 414x420 canvas; no recoloring or paint edits",
+  "input_assets": [
+    {
+      "id": "mt_captain",
+      "sha256": "2edd62d1e73b47fb891ce93868937c9891d597702ef79ff3c60872c3c233895a"
+    },
+    {
+      "id": "imrahil",
+      "sha256": "c45a73cd869107ec89b1ca25fc48c859f70080ed6be36b94a7335aa6e083fdc7"
+    },
+    {
+      "id": "helm_hammerhand",
+      "sha256": "8da20d5eb526e31799265dc8ab0044a2dc696d128b971ef8a94bc17207d07293"
+    },
+    {
+      "id": "legolas",
+      "sha256": "a2af153c353faf1a609ee3317f7a27cdedcef819ae55b397b7e37b67dc0a0077"
+    },
+    {
+      "id": "fingolfin",
+      "sha256": "7a05528de4ed6ae10e9fc6028e11b76ea6906b440cb9709cca73b067d2a173e3"
+    },
+    {
+      "id": "feanor",
+      "sha256": "6fcb211f4faac894998c0913ab2a3ef837293c79b61ea9c2fe4ca21b768d6bc4"
+    },
+    {
+      "id": "tauriel",
+      "sha256": "57a53e95b0ca50ab47b2fa116e1c116c3467350a960cf829115829a797feaa5f"
+    },
+    {
+      "id": "celebrimbor",
+      "sha256": "0ef937190e39a8cf842ce418e393deb8b45c1abe4d87d88a971587e0dea7cb64"
+    },
+    {
+      "id": "glorfindel_foot",
+      "sha256": "9dcb71e7b2455c8d7e7f068047023f141cb5711389c3b351dfbf6ba3cb5fa0db"
+    },
+    {
+      "id": "gorbag",
+      "sha256": "36c3fa9e70ae9e498df00e429ed025508dd55673dc2cfc357dd55e645345f857"
+    },
+    {
+      "id": "werewolf",
+      "sha256": "24e91a2583f3648872aa6103df1ed6a7d8218edd1b4ad2a1757afbc5a941ec75"
+    },
+    {
+      "id": "lurtz",
+      "sha256": "5e71e1d319642e968e7f4e53600064f8fad8188c59139943ed6f6387b875a778"
+    },
+    {
+      "id": "cave_drake",
+      "sha256": "91d6cd1c4cceaf4bde9f6c152a155c0f380d100ef4b723fb54f3c6ce4a8e223f"
+    },
+    {
+      "id": "shadow_lord",
+      "sha256": "331dc2afda968c5afe5def09f948694457ded4c77e681ce3f13efcccfc46849d"
+    }
+  ],
+  "generated_source": "generated_images/exec-6f5c4cdd-c67d-4ac9-919e-e8001240e4af.png",
+  "original_unchanged": true
+}
