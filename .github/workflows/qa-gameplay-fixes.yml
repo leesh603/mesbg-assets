@@ -46,11 +46,9 @@ jobs:
           base=git('merge-base','HEAD',os.environ['MESBG_BASE_REF']).strip()
           roles=('gloin','oin','nori','ori','dori','bifur','bofur','bombur')
           def normalize(text, incoming=False):
-              # Both conflict variants were inspected from the pinned main SHA.
-              # The old HEAD header contains the current asset list (including
-              # Galadriel War) and Goblin King scale 1.56. The stale stash lacks
-              # those changes but contains eight intended infantry->hero roles.
-              # Preserve the current assets/scale and merge those role changes.
+              # Inspected conflicts in the pinned upstream revision: keep the
+              # current asset list and Goblin King scale 1.56, while retaining
+              # the eight intended infantry->hero changes from the old stash.
               old=r'^<<<<<<< HEAD\n(.*?)^\|{7} [^\n]*\n.*?^={7}\n.*?^>{7} [^\n]*\n'
               text=re.sub(old,lambda m:m[1],text,flags=re.S|re.M)
               stash=r'^<<<<<<< Updated upstream\n(.*?)^=======\n(.*?)^>>>>>>> Stashed changes\n'
@@ -61,9 +59,6 @@ jobs:
                       text=re.sub(pattern,r'\1"hero"',text)
               assert not re.search(r'^(<{7}|>{7}|={7}|\|{7})',text,re.M), 'Unknown conflict remains'
               return text
-          # Also re-merge the source: Git cannot flag conflict markers already
-          # committed as ordinary text in upstream. Normalize each reviewed
-          # input before a true three-way merge, preserving independent fixes.
           for path in ['src/game.js','index.html']:
               names=[]
               for label,ref in [('ours','HEAD'),('base',base),('theirs',os.environ['MESBG_BASE_REF'])]:
@@ -78,10 +73,7 @@ jobs:
           begin='/*__LWB_SRC_BEGIN__*/';end='/*__LWB_SRC_END__*/'
           a=html.index(begin)+len(begin);b=html.index(end)
           Path('index.html').write_text(html[:a]+'\n'+src.strip()+'\n'+html[b:])
-          # Baseline image comparison must ignore the two already-committed
-          # opening conflict-marker lines, not any actual image data.
-          test=Path('tests/tactics.test.cjs')
-          text=test.read_text()
+          test=Path('tests/tactics.test.cjs');text=test.read_text()
           old=".replace(/^<<<<<<< HEAD\\r?\\n/,'')"
           new=".replace(/^(?:<<<<<<< (?:HEAD|Updated upstream)\\r?\\n)+/,'')"
           assert old in text or new in text
@@ -92,6 +84,15 @@ jobs:
               target=Path('qa-results/source')/path
               target.parent.mkdir(parents=True,exist_ok=True)
               target.write_bytes(Path(path).read_bytes())
+          # The separately maintained art galleries are imported byte-for-byte
+          # from main, not changed in this gameplay repair. Surface their
+          # pre-existing conflict markers rather than silently rewriting art.
+          notes=[]
+          for path in ['gallery.html','gallery2.html']:
+              assert Path(path).read_bytes()==subprocess.check_output(['git','show',os.environ['MESBG_BASE_REF']+':'+path])
+              for n,line in enumerate(Path(path).read_text().splitlines(),1):
+                  if re.match(r'^(<{7}|>{7}|={7}|\|{7})',line): notes.append(f'{path}:{n}: {line}')
+          Path('qa-results/upstream-gallery-diagnostics.txt').write_text('\n'.join(notes)+'\n')
           PY
       - name: Verify integrated game and retained art data
         shell: bash
@@ -107,7 +108,7 @@ jobs:
           assert.equal(h.UnitCatalog.goblin_king.meta.artScale,1.56);
           console.log('Retained eight hero-role changes and current Goblin King scale');
           JS
-          git diff --cached --check
+          git diff --cached --check -- src/game.js index.html lwb-worker/src/index.js tests tools/qa .github/workflows/qa-gameplay-fixes.yml
           git diff --cached --stat | tee qa-results/diff-stat.txt
       - name: Commit tested integration to this branch only
         shell: bash
