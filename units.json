@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "count": 526,
+  "count": 540,
   "units": [
     {
       "id": "aragorn",
@@ -333,6 +333,7 @@
       "traits": [
         "terror"
       ],
+      "artScale": 1.15,
       "stats": {
         "f": 5,
         "s": 4,
@@ -961,6 +962,7 @@
       "traits": [
         "terror"
       ],
+      "artScale": 1.15,
       "stats": {
         "f": 5,
         "s": 4,
@@ -998,6 +1000,7 @@
       "traits": [
         "terror"
       ],
+      "artScale": 1.15,
       "stats": {
         "f": 5,
         "s": 4,
@@ -1102,22 +1105,6 @@
         "Terror",
         "Ringwraith",
         "The Dwimmerlaik"
-      ],
-      "base_mm": "25mm"
-    },
-    {
-      "id": "witchking_spear",
-      "name_ko": "마술왕(창)",
-      "name_en": "Witch-king, crowned with spear",
-      "side": "evil",
-      "faction": "angmar",
-      "role": "hero",
-      "weapon": "twohanded",
-      "base": "L",
-      "sheet": "roster-sauron-nazgul-v1.png",
-      "file": "tokens/witchking_spear.png",
-      "traits": [
-        "terror"
       ],
       "base_mm": "25mm"
     },
@@ -2211,8 +2198,8 @@
     },
     {
       "id": "gamling",
-      "name_ko": "감링(기수)",
-      "name_en": "Gamling with banner",
+      "name_ko": "감링",
+      "name_en": "Gamling",
       "side": "good",
       "faction": "rohan",
       "role": "hero",
@@ -3693,6 +3680,7 @@
       "base": "L",
       "sheet": "roster-hobbit-evil-v1.png",
       "file": "tokens/azog_foot.png",
+      "artScale": 1.2,
       "base_mm": "25mm"
     },
     {
@@ -4136,7 +4124,7 @@
       "name_en": "Gloin",
       "side": "good",
       "faction": "dwarf",
-      "role": "infantry",
+      "role": "hero",
       "weapon": "axe",
       "base": "M",
       "sheet": "roster-hobbit-company-v1.png",
@@ -4149,7 +4137,7 @@
       "name_en": "Oin",
       "side": "good",
       "faction": "dwarf",
-      "role": "infantry",
+      "role": "hero",
       "weapon": "club",
       "base": "M",
       "sheet": "roster-hobbit-company-v1.png",
@@ -4162,7 +4150,7 @@
       "name_en": "Nori",
       "side": "good",
       "faction": "dwarf",
-      "role": "infantry",
+      "role": "hero",
       "weapon": "sword",
       "base": "M",
       "sheet": "roster-hobbit-company-v1.png",
@@ -4175,7 +4163,7 @@
       "name_en": "Ori",
       "side": "good",
       "faction": "dwarf",
-      "role": "infantry",
+      "role": "hero",
       "weapon": "sword",
       "base": "M",
       "sheet": "roster-hobbit-company-v1.png",
@@ -4188,7 +4176,7 @@
       "name_en": "Dori",
       "side": "good",
       "faction": "dwarf",
-      "role": "infantry",
+      "role": "hero",
       "weapon": "sword",
       "base": "M",
       "sheet": "roster-hobbit-exp-v1.png",
@@ -4201,7 +4189,7 @@
       "name_en": "Bifur",
       "side": "good",
       "faction": "dwarf",
-      "role": "infantry",
+      "role": "hero",
       "weapon": "spear",
       "base": "M",
       "sheet": "roster-hobbit-exp-v1.png",
@@ -4214,7 +4202,7 @@
       "name_en": "Bofur",
       "side": "good",
       "faction": "dwarf",
-      "role": "infantry",
+      "role": "hero",
       "weapon": "club",
       "base": "M",
       "sheet": "roster-hobbit-exp-v1.png",
@@ -4227,7 +4215,7 @@
       "name_en": "Bombur",
       "side": "good",
       "faction": "dwarf",
-      "role": "infantry",
+      "role": "hero",
       "weapon": "club",
       "base": "M",
       "sheet": "roster-hobbit-exp-v1.png",
@@ -10077,7 +10065,7 @@
       "name_en": "Guthlaf, banner-bearer of Rohan",
       "side": "good",
       "faction": "rohan",
-      "role": "infantry",
+      "role": "hero",
       "weapon": "spear",
       "base": "M",
       "sheet": null,
@@ -10388,6 +10376,201 @@
       "sheet": "px-nb-roster-varied-v2.png",
       "file": "tokens/troll_shaman.png",
       "base_mm": "50mm"
+    },
+    {
+      "id": "deorwine_mounted",
+      "name_ko": "데오르바인(기마)",
+      "name_en": "Deorwine, mounted",
+      "side": "good",
+      "faction": "rohan",
+      "role": "hero",
+      "weapon": "sword_shield",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/deorwine_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "grimbold_mounted",
+      "name_ko": "그림볼드(기마)",
+      "name_en": "Grimbold, mounted",
+      "side": "good",
+      "faction": "rohan",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/grimbold_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "harding_mounted",
+      "name_ko": "하딩(기마)",
+      "name_en": "Harding, mounted",
+      "side": "good",
+      "faction": "rohan",
+      "role": "hero",
+      "weapon": "bow",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/harding_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "dunhere_mounted",
+      "name_ko": "둔헤레(기마)",
+      "name_en": "Dunhere, mounted",
+      "side": "good",
+      "faction": "rohan",
+      "role": "hero",
+      "weapon": "spear",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/dunhere_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "guthlaf_mounted",
+      "name_ko": "구슬라프(기마)",
+      "name_en": "Guthlaf, mounted",
+      "side": "good",
+      "faction": "rohan",
+      "role": "hero",
+      "weapon": "banner",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/guthlaf_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "gamling_mounted",
+      "name_ko": "감링(기마)",
+      "name_en": "Gamling, mounted",
+      "side": "good",
+      "faction": "rohan",
+      "role": "hero",
+      "weapon": "banner",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/gamling_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "fingon_mounted",
+      "name_ko": "핑곤(기마)",
+      "name_en": "Fingon, mounted",
+      "side": "good",
+      "faction": "elf",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/fingon_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "ecthelion_mounted",
+      "name_ko": "엑텔리온(기마)",
+      "name_en": "Ecthelion, mounted",
+      "side": "good",
+      "faction": "elf",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/ecthelion_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "finrod_felagund_mounted",
+      "name_ko": "핀로드(기마)",
+      "name_en": "Finrod Felagund, mounted",
+      "side": "good",
+      "faction": "elf",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/finrod_felagund_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "maedhros_mounted",
+      "name_ko": "마이드로스(기마)",
+      "name_en": "Maedhros, mounted",
+      "side": "good",
+      "faction": "elf",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/maedhros_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "celegorm_mounted",
+      "name_ko": "켈레고름(기마)",
+      "name_en": "Celegorm, mounted",
+      "side": "good",
+      "faction": "elf",
+      "role": "hero",
+      "weapon": "spear",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/celegorm_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "turgon_mounted",
+      "name_ko": "투르곤(기마)",
+      "name_en": "Turgon, mounted",
+      "side": "good",
+      "faction": "elf",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/turgon_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "cirdan_mounted",
+      "name_ko": "키르단(기마)",
+      "name_en": "Cirdan, mounted",
+      "side": "good",
+      "faction": "elf",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/cirdan_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "gil_galad_mounted",
+      "name_ko": "길갈라드(기마)",
+      "name_en": "Gil-galad, mounted",
+      "side": "good",
+      "faction": "elf",
+      "role": "hero",
+      "weapon": "spear",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/gil_galad_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "thingol_mounted",
+      "name_ko": "싱골(기마)",
+      "name_en": "Thingol, mounted",
+      "side": "good",
+      "faction": "doriath",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/thingol_mounted.png",
+      "base_mm": "40mm"
     }
   ]
 }

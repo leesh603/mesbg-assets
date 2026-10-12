@@ -44,7 +44,6 @@ nazgul_mace,나즈굴(철퇴),"Nazgul, mace",evil,angmar,hero,mace,L,25mm,roster
 nazgul_mounted,나즈굴(기마),Nazgul mounted,evil,angmar,hero,sword,XL,40mm,roster-sauron-nazgul-v1.png,tokens/nazgul_mounted.png
 morgul_knight,모르굴 기사,Morgul Knight,evil,mordor,cavalry,lance,XL,40mm,roster-sauron-nazgul-v1.png,tokens/morgul_knight.png
 dwimmerlaik,드위머레이크(갑옷 나즈굴),Dwimmerlaik,evil,angmar,hero,twohanded,L,25mm,roster-sauron-nazgul-v1.png,tokens/dwimmerlaik.png
-witchking_spear,마술왕(창),"Witch-king, crowned with spear",evil,angmar,hero,twohanded,L,25mm,roster-sauron-nazgul-v1.png,tokens/witchking_spear.png
 mt_swordshield,미나스 티리스 검방,MT sword & shield,good,gondor,infantry,sword_shield,M,25mm,roster-minastirith-variants-v1.png,tokens/mt_swordshield.png
 mt_spear,미나스 티리스 창병,MT spear,good,gondor,infantry,spear,M,25mm,roster-minastirith-variants-v1.png,tokens/mt_spear.png
 mt_spearshield,미나스 티리스 창방,MT spear & shield,good,gondor,infantry,spear_shield,M,25mm,roster-minastirith-variants-v1.png,tokens/mt_spearshield.png
@@ -121,7 +120,7 @@ theoden,세오덴(기마),Theoden mounted,good,rohan,hero,sword_shield,XL,40mm,r
 faramir,파라미르,Faramir,good,gondor,hero,bow,M,25mm,roster-free-heroes-exp-v1.png,tokens/faramir.png
 haldir,할디르,Haldir,good,lothlorien,hero,twohanded,M,25mm,roster-free-heroes-exp-v1.png,tokens/haldir.png
 galadriel,갈라드리엘,Galadriel,good,lothlorien,hero,none,M,25mm,roster-free-heroes-exp-v1.png,tokens/galadriel.png
-gamling,감링(기수),Gamling with banner,good,rohan,hero,banner,M,25mm,roster-free-heroes-exp-v1.png,tokens/gamling.png
+gamling,감링,Gamling,good,rohan,hero,banner,M,25mm,roster-free-heroes-exp-v1.png,tokens/gamling.png
 samwise,샘와이즈,Samwise Gamgee,good,shire,hero,dagger,S,25mm,roster-free-heroes-exp-v1.png,tokens/samwise.png
 mouth_of_sauron,사우론의 입(기마),Mouth of Sauron,evil,mordor,hero,sword,XL,40mm,roster-evil-heroes-exp-v1.png,tokens/mouth_of_sauron.png
 gothmog,고스모그,Gothmog,evil,mordor,hero,mace,L,25mm,roster-evil-heroes-exp-v1.png,tokens/gothmog.png
@@ -192,14 +191,14 @@ gorbag,고르바그,Gorbag,evil,mordor,hero,sword,,25mm,roster-exp-evil-v1.png,t
 warg_alpha,와르그 우두머리,Warg Alpha,evil,isengard,beast,none,XL,50mm,roster-exp-evil-v1.png,tokens/warg_alpha.png
 balin,발린,Balin,good,dwarf,hero,sword,M,25mm,roster-hobbit-company-v1.png,tokens/balin.png
 dwalin,드왈린,Dwalin,good,dwarf,hero,axe,M,25mm,roster-hobbit-company-v1.png,tokens/dwalin.png
-gloin,글로인,Gloin,good,dwarf,infantry,axe,M,25mm,roster-hobbit-company-v1.png,tokens/gloin.png
-oin,오인,Oin,good,dwarf,infantry,club,M,25mm,roster-hobbit-company-v1.png,tokens/oin.png
-nori,노리,Nori,good,dwarf,infantry,sword,M,25mm,roster-hobbit-company-v1.png,tokens/nori.png
-ori,오리,Ori,good,dwarf,infantry,sword,M,25mm,roster-hobbit-company-v1.png,tokens/ori.png
-dori,도리,Dori,good,dwarf,infantry,sword,M,25mm,roster-hobbit-exp-v1.png,tokens/dori.png
-bifur,비푸르,Bifur,good,dwarf,infantry,spear,M,25mm,roster-hobbit-exp-v1.png,tokens/bifur.png
-bofur,보푸르,Bofur,good,dwarf,infantry,club,M,25mm,roster-hobbit-exp-v1.png,tokens/bofur.png
-bombur,봄부르,Bombur,good,dwarf,infantry,club,M,25mm,roster-hobbit-exp-v1.png,tokens/bombur.png
+gloin,글로인,Gloin,good,dwarf,hero,axe,M,25mm,roster-hobbit-company-v1.png,tokens/gloin.png
+oin,오인,Oin,good,dwarf,hero,club,M,25mm,roster-hobbit-company-v1.png,tokens/oin.png
+nori,노리,Nori,good,dwarf,hero,sword,M,25mm,roster-hobbit-company-v1.png,tokens/nori.png
+ori,오리,Ori,good,dwarf,hero,sword,M,25mm,roster-hobbit-company-v1.png,tokens/ori.png
+dori,도리,Dori,good,dwarf,hero,sword,M,25mm,roster-hobbit-exp-v1.png,tokens/dori.png
+bifur,비푸르,Bifur,good,dwarf,hero,spear,M,25mm,roster-hobbit-exp-v1.png,tokens/bifur.png
+bofur,보푸르,Bofur,good,dwarf,hero,club,M,25mm,roster-hobbit-exp-v1.png,tokens/bofur.png
+bombur,봄부르,Bombur,good,dwarf,hero,club,M,25mm,roster-hobbit-exp-v1.png,tokens/bombur.png
 goat_rider,산양 기수,Iron Hills Goat Rider,good,dwarf,cavalry,lance,XL,40mm,roster-hobbit-exp-v1.png,tokens/goat_rider.png
 gollum,골룸,Gollum,evil,moria,beast,none,M,50mm,roster-hobbit-exp-v1.png,tokens/gollum.png
 gil_galad,길갈라드,Gil-galad,good,elf,hero,spear,L,25mm,roster-elf-exp-v1.png,tokens/gil_galad.png
@@ -502,7 +501,7 @@ thrain,스라인,"Thrain, son of Thror",good,dwarf,hero,hammer,GS,25mm,null,toke
 thror,스로르,"Thror, King of Erebor",good,dwarf,hero,hammer,GS,25mm,null,tokens/thror.png
 golfimbul,골핌불,Golfimbul of Mount Gram,evil,moria,hero,twohanded,L,25mm,null,tokens/golfimbul.png
 eomund,에오문드,"Eomund, Marshal of the Riddermark",good,rohan,hero,lance,XL,40mm,null,tokens/eomund.png
-guthlaf,구슬라프,"Guthlaf, banner-bearer of Rohan",good,rohan,infantry,spear,M,25mm,null,tokens/guthlaf.png
+guthlaf,구슬라프,"Guthlaf, banner-bearer of Rohan",good,rohan,hero,spear,M,25mm,null,tokens/guthlaf.png
 ingold,잉골드,"Ingold, gate-guard of Minas Tirith",good,gondor,infantry,spear,M,25mm,null,tokens/ingold.png
 morgoth,모르고스,"Morgoth, the Dark Enemy",evil,angband,monster,twohanded,XXL,60mm,null,tokens/morgoth.png
 witchking_mounted_sheet,마술사왕 기마,"Witch-king of Angmar, mounted (sheet)",evil,angmar,hero,sword,XL,40mm,null,tokens/witchking_mounted_sheet.png
@@ -525,3 +524,18 @@ thorondor,소론도르,"Thorondor, King of Eagles",good,eagle,monster,talons,XXL
 rhosgobel_rabbit,로스고벨 토끼썰매,Rhosgobel Rabbits,good,maiar,beast,none,L,50mm,px-nb-roster-varied-v2.png,tokens/rhosgobel_rabbit.png
 morgul_duellist,모르굴 결투사,Morgul Duellist,evil,mordor,infantry,sword,M,25mm,px-nb-roster-varied-v2.png,tokens/morgul_duellist.png
 troll_shaman,트롤 주술사,Troll Shaman,evil,mordor,monster,staff,L,50mm,px-nb-roster-varied-v2.png,tokens/troll_shaman.png
+deorwine_mounted,데오르바인(기마),"Deorwine, mounted",good,rohan,hero,sword_shield,XL,40mm,null,tokens/deorwine_mounted.png
+grimbold_mounted,그림볼드(기마),"Grimbold, mounted",good,rohan,hero,sword,XL,40mm,null,tokens/grimbold_mounted.png
+harding_mounted,하딩(기마),"Harding, mounted",good,rohan,hero,bow,XL,40mm,null,tokens/harding_mounted.png
+dunhere_mounted,둔헤레(기마),"Dunhere, mounted",good,rohan,hero,spear,XL,40mm,null,tokens/dunhere_mounted.png
+guthlaf_mounted,구슬라프(기마),"Guthlaf, mounted",good,rohan,hero,banner,XL,40mm,null,tokens/guthlaf_mounted.png
+gamling_mounted,감링(기마),"Gamling, mounted",good,rohan,hero,banner,XL,40mm,null,tokens/gamling_mounted.png
+fingon_mounted,핑곤(기마),"Fingon, mounted",good,elf,hero,sword,XL,40mm,null,tokens/fingon_mounted.png
+ecthelion_mounted,엑텔리온(기마),"Ecthelion, mounted",good,elf,hero,sword,XL,40mm,null,tokens/ecthelion_mounted.png
+finrod_felagund_mounted,핀로드(기마),"Finrod Felagund, mounted",good,elf,hero,sword,XL,40mm,null,tokens/finrod_felagund_mounted.png
+maedhros_mounted,마이드로스(기마),"Maedhros, mounted",good,elf,hero,sword,XL,40mm,null,tokens/maedhros_mounted.png
+celegorm_mounted,켈레고름(기마),"Celegorm, mounted",good,elf,hero,spear,XL,40mm,null,tokens/celegorm_mounted.png
+turgon_mounted,투르곤(기마),"Turgon, mounted",good,elf,hero,sword,XL,40mm,null,tokens/turgon_mounted.png
+cirdan_mounted,키르단(기마),"Cirdan, mounted",good,elf,hero,sword,XL,40mm,null,tokens/cirdan_mounted.png
+gil_galad_mounted,길갈라드(기마),"Gil-galad, mounted",good,elf,hero,spear,XL,40mm,null,tokens/gil_galad_mounted.png
+thingol_mounted,싱골(기마),"Thingol, mounted",good,doriath,hero,sword,XL,40mm,null,tokens/thingol_mounted.png
