@@ -237,7 +237,7 @@ fs.writeFileSync(path.join(SRC, 'gallery.html'), html);
 
 // gallery2.html — 그림체 통일 작업 전용 별도 갤러리 (메인 gallery.html 과 독립).
 // 인게임 표시 크기가 아니라 아트 스타일 비교가 목적이므로 타일 높이를 균일하게 맞춤.
-const card2 = r => `<div class="card ucard"><div class="fig" style="height:150px"><img src="tokens/${r.id}.png?v=${CB}" loading="lazy" style="max-height:140px;max-width:170px;height:auto;width:auto"></div><div class="id">${r.id}</div><div class="ko">${r.name_ko}</div><div class="meta">${FACTION_KO[facOf(r)] || facOf(r)} · ${ROLE_KO[r.role] || r.role}</div></div>`;
+const card2 = (r, fh) => card(r, fh);
 // 나즈굴·위치킹 계열은 팩션 무관하게 한 묶음으로 (앙그마르·모르도르·하라드 흩어짐 방지)
 const NAZGUL_SET = new Set(['nazgul_sword','nazgul_sword_2','nazgul_mace','nazgul_mounted','nazgul_fellbeast','witchking_foot','witchking_foot_mace','witchking_spear','witchking_mounted','witchking_fellbeast','khamul','dwimmerlaik','dark_marshal','betrayer','tainted','undying','knight_of_umbar','shadow_lord','muzgur']);
 const NAZGUL_ORDER = ['witchking_foot','witchking_foot_mace','witchking_spear','witchking_mounted','witchking_fellbeast','khamul','dwimmerlaik','dark_marshal','shadow_lord','betrayer','tainted','undying','knight_of_umbar','muzgur','nazgul_sword','nazgul_sword_2','nazgul_mace','nazgul_mounted','nazgul_fellbeast'];
@@ -248,9 +248,10 @@ const factionGrid2 = list => {
   for (const r of rest) { (facs[facOf(r)] ??= []).push(r); }
   const order = facOrder(list[0] && list[0].side === 'evil' ? 'evil' : 'good');
   const keys = [...order.filter(f => facs[f]), ...Object.keys(facs).filter(f => !order.includes(f)).sort()];
+  const fh = us => Math.min(340, Math.max(...us.map(r => dispWH(r)[1]))) + 10;
   const roleGrid = us => ROLE_ORDER.filter(ro => us.some(r => grp(r) === ro)).map(ro =>
-    `<h3>${ROLE_KO[ro] || ro} — ${us.filter(r => grp(r) === ro).length}</h3><div class="grid">${us.filter(r => grp(r) === ro).map(card2).join('')}</div>`).join('');
-  const nazHtml = nazgul.length ? `<h2>나즈굴 — ${nazgul.length}</h2><div class="grid">${nazgul.map(card2).join('')}</div>` : '';
+    `<h3>${ROLE_KO[ro] || ro} — ${us.filter(r => grp(r) === ro).length}</h3><div class="grid">${us.filter(r => grp(r) === ro).map(r => card2(r, fh(us))).join('')}</div>`).join('');
+  const nazHtml = nazgul.length ? `<h2>나즈굴 — ${nazgul.length}</h2><div class="grid">${nazgul.map(r => card2(r, fh(nazgul))).join('')}</div>` : '';
   return nazHtml + keys.map(f => `<h2>${FACTION_KO[f] || f} — ${facs[f].length}</h2>${roleGrid(facs[f])}`).join('');
 };
 const html2fixed = `<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><title>그림체 통일 갤러리</title><style>
