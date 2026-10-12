@@ -1,0 +1,33 @@
+name: Gameplay fix verification
+on:
+  push:
+    branches: [fix/qa-gameplay-20261012]
+    paths: [.github/workflows/qa-gameplay-fixes.yml]
+permissions:
+  contents: read
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            src
+            tools
+            tests
+            lwb-worker
+          persist-credentials: false
+      - name: Export exact source for local regression testing
+        run: |
+          mkdir -p qa-source
+          cp --parents src/game.js index.html tools/build.js lwb-worker/src/index.js lwb-worker/wrangler.toml qa-source/
+          if [ -f package.json ]; then cp package.json qa-source/; fi
+          if [ -d tests ]; then cp -R tests qa-source/; fi
+          git rev-parse HEAD > qa-source/COMMIT.txt
+          git log -6 --oneline > qa-source/RECENT_COMMITS.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gameplay-source
+          path: qa-source/
+          retention-days: 3
