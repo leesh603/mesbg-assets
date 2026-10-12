@@ -47,6 +47,16 @@ _keys.sort();
 }
 fs.writeFileSync(INDEX, html);
 console.log('spliced src/game.js → index.html', (html.length / 1048576).toFixed(2) + 'MB');
+// smoke check: every inline <script> in index.html must parse — a merge-corrupted
+// script (e.g. fused asset keys) black-screens the whole game at boot.
+{
+  const re = new RegExp('<script(?![^>]*src)[^>]*>([\\\\s\\\\S]*?)</' + 'script>', 'g');
+  let mm, n = 0;
+  while ((mm = re.exec(html))) {
+    try { new Function(mm[1]); } catch (e) { console.error('inline script', n, 'fails to parse:', e.message); process.exit(1); }
+    n++;
+  }
+}
 
 // Build the offline single-file bundle: replace the asset stub with a real
 // base64 map of every file under assets/mesbg/.
