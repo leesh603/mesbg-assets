@@ -142,7 +142,17 @@ Ae=[{id:"warrior_minas_tirith",name_ko:"미나스 티리스 전사",name_en:"War
             }
         }
         const H = Ue(b, this.alive(), this.terrain, this.priority, this.rng);
-        this.applyCombat(H), this.emit("FightResolved", `${b.filter(K => K.side === "good").length} 대 ${b.filter(K => K.side === "evil").length} · ${H.winnerSide === "good" ? "곤도르" : "모르도르"} 승리${H.trappedUnits.length ? " · 포위 추가 타격" : ""}${(H.standFast||[]).length ? " · 버텼다 ×" + H.standFast.length : ""}${(H.supportUnits||[]).length ? " · 창 지원 ×" + H.supportUnits.length : ""}`, { result: H });
+        this.applyCombat(H);
+        for (const nz of b.filter(v => v.alive && (v.id.startsWith('nazgul') || v.id.startsWith('witchking') || ['dwimmerlaik','khamul','muzgur','dark_marshal','shadow_lord','betrayer','tainted','undying','forsaken'].includes(v.id)))) {
+            nz.resources.will = (nz.resources.will || 0) - 1;
+            this.refreshUnit(nz);
+            if (nz.resources.will <= 0) {
+                nz.alive = false; nz._banished = true;
+                this.emit('Event', esc(nz.name) + ' — 의지가 소진돼 어둠으로 되돌아갔다', { uid: nz.uid });
+                this.emit('UnitKilled', void 0, { uid: nz.uid });
+            }
+        }
+        this.emit("FightResolved", `${b.filter(K => K.side === "good").length} 대 ${b.filter(K => K.side === "evil").length} · ${H.winnerSide === "good" ? "곤도르" : "모르도르"} 승리${H.trappedUnits.length ? " · 포위 추가 타격" : ""}${(H.standFast||[]).length ? " · 버텼다 ×" + H.standFast.length : ""}${(H.supportUnits||[]).length ? " · 창 지원 ×" + H.supportUnits.length : ""}`, { result: H });
         for (const h of b.filter(v => v.heroicCombat && v.alive && v.side === H.winnerSide)) {
             h.heroicCombat = false;
             const foes2 = this.alive(Ht(h.side)), others = foes2.filter(f => !b.includes(f)), nf = (others[0] ? others : foes2).sort((a, c) => ht(h, a) - ht(h, c))[0];
@@ -204,7 +214,7 @@ class Ve extends Ot.Scene {
     constructor() { super("battle"); lt(this, "b"); lt(this, "soundFX"); lt(this, "asset"); lt(this, "onPoint"); lt(this, "onUnit"); lt(this, "onDrop"); lt(this, "tokens", new Map); lt(this, "rings"); lt(this, "terrainLayer"); lt(this, "labels"); lt(this, "dragStart"); lt(this, "dragUnit", ""); lt(this, "busy", !1); lt(this, "focusedUid", ""); lt(this, "preview"); lt(this, "previewPlan"); lt(this, "previewAt", 0); }
     preload() { this.load.maxParallelDownloads = 8; this.load.image("gate-art", this.asset("backgrounds/bg_minas_gate.png?v=p2")); this.load.image("terr_barricade", this.asset("tokens/terr_barricade.png?v=p2")); this.load.image("terr_bomb", this.asset("tokens/terr_bomb.png?v=p2")), this.load.image("terr_ballista", this.asset("tokens/terr_ballista.png?v=p2")), this.load.image("terr_brazier", this.asset("tokens/terr_brazier.png?v=p2"));for(const _tk of["terr_trebuchet","terr_crates","terr_bone_pile","terr_chain_post","terr_spike_line","terr_chest_closed","terr_great_wall","terr_palisade_long"])this.load.image(_tk,this.asset("tokens/"+_tk+".png?v=p2"));for(const _pp of new Set([...Object.values(MAP_PROPS||{}),...Object.values(MAP_PROP_SETS||{})].flat(3).filter(a=>Array.isArray(a)).map(a=>a[0]).filter(a=>typeof a==='string'&&a.startsWith('terr_'))))if(!this.textures.exists(_pp))this.load.image(_pp,this.asset('tokens/'+_pp+'.png?v=p2'));for(const _sk of["st_fear","st_prone","st_shield","st_aim","st_snare","st_crown","st_cart","st_lair","st_done","st_warn","st_bow","ui_heart","eye_sauron","trap_ballista","trap_scorpion","trap_snare","trap_barrel","trap_oil","trap_spike","trap_firepot","node_treasure","relic_map_scroll","ui_star","ui_flag","tr_champion"])this.load.image(_sk,"icons/"+_sk+".png"); for (const b of this.b.meta.values())
         if (b.side === 'terrain' && b.file) this.load.image(b.id, this.asset(b.file)); }
-    create() { this.drawMap(), this.terrainLayer = this.add.container(0, 0), this.rings = this.add.graphics().setDepth(3), this.labels = this.add.container(0, 0).setDepth(8), this.cameras.main.setBounds(0, 0, pt.width, pt.height), this.cameras.main.setZoom(this.scale.width < 850 ? .95 : 1.05), (() => { const _g = this.b ? this.b.alive('good').filter(u => u.x >= 0) : []; const _cx = _g.length ? _g.reduce((a, u) => a + u.x, 0) / _g.length : 1165, _cy = _g.length ? _g.reduce((a, u) => a + u.y, 0) / _g.length : (285 + pt.deployY) / 2; this.cameras.main.centerOn(Math.max(200, Math.min(pt.width - 200, _cx)), _cy); })(), this.input.addPointer(1), this.input.on("pointerdown", b => { this.dragStart = { x: b.worldX, y: b.worldY }; const H = this.hit({ x: b.worldX, y: b.worldY }); this.dragUnit = (H == null ? void 0 : H.uid) || ""; }), this.input.on("pointerup", b => { if (this.busy)
+    create() { this.drawMap(), this.terrainLayer = this.add.container(0, 0), this.rings = this.add.graphics().setDepth(3), this.labels = this.add.container(0, 0).setDepth(8), this.underlay = this.add.container(0, 0).setDepth(4), this.cameras.main.setBounds(0, 0, pt.width, pt.height), this.cameras.main.setZoom(this.scale.width < 850 ? .95 : 1.05), (() => { const _g = this.b ? this.b.alive('good').filter(u => u.x >= 0) : []; const _cx = _g.length ? _g.reduce((a, u) => a + u.x, 0) / _g.length : 1165, _cy = _g.length ? _g.reduce((a, u) => a + u.y, 0) / _g.length : (285 + pt.deployY) / 2; this.cameras.main.centerOn(Math.max(200, Math.min(pt.width - 200, _cx)), _cy); })(), this.input.addPointer(1), this.input.on("pointerdown", b => { this.dragStart = { x: b.worldX, y: b.worldY }; const H = this.hit({ x: b.worldX, y: b.worldY }); this.dragUnit = (H == null ? void 0 : H.uid) || ""; }), this.input.on("pointerup", b => { if (this.busy)
         return; const H = { x: b.worldX, y: b.worldY }; if (!this.dragUnit && this.dragStart && Math.hypot(b.x - b.downX, b.y - b.downY) > 10) {
         this.dragStart = void 0;
         return;
@@ -259,7 +269,7 @@ class Ve extends Ot.Scene {
         this.tweens.killTweensOf($), this.tween($, { angle: $.angle + Ot.Math.Angle.ShortestBetween($.angle, H.angle) }, 180), H.alive ? K.setDepth(5).setAngle(0) : K.setDepth(1);
     } for (const [H, K] of this.tokens)
         this.b.unit(H) || (K.destroy(), this.tokens.delete(H)); this.drawRings(); /* Camera stays where the player left it. */ }
-    drawRings() { this.rings.clear(), this.labels.removeAll(!0); const b = this.b; b.phase === "preparation" && (this.rings.fillStyle(5748685, .24), this.rings.fillRect(32, 285, pt.width - 64, pt.deployY - 285), this.rings.lineStyle(4, 11137535, .95), this.rings.lineBetween(32, pt.deployY, pt.width - 32, pt.deployY), null); { const _now = Date.now(); for (const p of b.alive()) if (p._spawnedAt && _now - p._spawnedAt < 1600) { const a = 1 - (_now - p._spawnedAt) / 1600; this.rings.lineStyle(5, p.side === 'evil' ? 15210014 : 10151679, a), this.rings.strokeCircle(p.x, p.y, 46 + (1 - a) * 28), this.labels.add(this.add.text(p.x, p.y - p.radius - 16, p.name || p.uid, { fontFamily: "Pretendard", fontSize: "14px", color: p.side === 'evil' ? "#ffc9b8" : "#c9ffd8", backgroundColor: "#1c2a24d8", padding: { x: 6, y: 3 } }).setOrigin(.5)); } } const H = b.unit(b.activeMoverUid || this.dragUnit || b.selected); if (H != null && H.alive) {
+    drawRings() { this.rings.clear(), this.labels.removeAll(!0), this.underlay && this.underlay.removeAll(!0); const b = this.b; b.phase === "preparation" && (this.rings.fillStyle(5748685, .24), this.rings.fillRect(32, 285, pt.width - 64, pt.deployY - 285), this.rings.lineStyle(4, 11137535, .95), this.rings.lineBetween(32, pt.deployY, pt.width - 32, pt.deployY), null); { const _now = Date.now(); for (const p of b.alive()) if (p._spawnedAt && _now - p._spawnedAt < 1600) { const a = 1 - (_now - p._spawnedAt) / 1600; this.rings.lineStyle(5, p.side === 'evil' ? 15210014 : 10151679, a), this.rings.strokeCircle(p.x, p.y, 46 + (1 - a) * 28), this.labels.add(this.add.text(p.x, p.y - p.radius - 16, p.name || p.uid, { fontFamily: "Pretendard", fontSize: "14px", color: p.side === 'evil' ? "#ffc9b8" : "#c9ffd8", backgroundColor: "#1c2a24d8", padding: { x: 6, y: 3 } }).setOrigin(.5)); } } const H = b.unit(b.activeMoverUid || this.dragUnit || b.selected); if (H != null && H.alive) {
         if (this.rings.lineStyle(4, 16769697, 1), this.rings.strokeCircle(H.x, H.y, H.radius + 7), b.phase === "move" && b.canAct(H) && !b.engaged(H)) {
             const p = b.remaining(H), S = [], t = b.alive();
             for (let f = 0; f <= 80; f++) {
@@ -4485,6 +4495,7 @@ Ve.prototype.drawRings = function () {
     const g = this.rings, b = this.b;
     g.clear();
     this.labels.removeAll(true);
+    this.underlay && this.underlay.removeAll(true);
     const font = { fontFamily: 'Pretendard', fontSize: '20px', color: '#eee5c9', backgroundColor: '#1b211cea', padding: { x: 8, y: 5 } };
     const label = (x, y, text, style = {}) => this.labels.add(this.add.text(x, y, text, { ...font, ...style }).setOrigin(.5));
     if (b.phase === 'menu')
@@ -4649,7 +4660,7 @@ Ve.prototype.drawRings = function () {
         g.fillStyle(0x8f1f16, .14);
         g.fillCircle(b._eyeZone.x, b._eyeZone.y, b._eyeZone.radius);
         const _ew = b._eyeZone.radius * 1.9;
-        this.labels.add(this.add.image(b._eyeZone.x, b._eyeZone.y, 'eye_sauron').setOrigin(.5).setDisplaySize(_ew, _ew * .8).setAlpha(.92));
+        this.underlay.add(this.add.image(b._eyeZone.x, b._eyeZone.y, 'eye_sauron').setOrigin(.5).setDisplaySize(_ew, _ew * .8).setAlpha(.92));
     }
 };
 const oldTween = Ve.prototype.tween;
@@ -5554,7 +5565,7 @@ function updateWorldUI(){
 const clarityUpdate=Ve.prototype.update;
 Ve.prototype.update=function(t){if(!UX.reduced)clarityUpdate.call(this,t);updateWorldUI();};
 Ve.prototype.create=function(){
-    this.drawMap();this.terrainLayer=this.add.container(0,0);this.rings=this.add.graphics().setDepth(3);this.labels=this.add.container(0,0).setDepth(8);this.actionRing=this.add.graphics().setDepth(10);
+    this.drawMap();this.terrainLayer=this.add.container(0,0);this.rings=this.add.graphics().setDepth(3);this.labels=this.add.container(0,0).setDepth(8);this.underlay=this.add.container(0,0).setDepth(4);this.actionRing=this.add.graphics().setDepth(10);
     this.cameras.main.removeBounds();this.input.enabled=false;UX.ready=true;
     resizeBattle(true);setCamera(pt.width / 2, this.b && this.b.phase === 'preparation' ? (285 + pt.deployY) / 2 : pt.height / 2);installFieldInput(this);this.sync();Yt();
 };
@@ -6443,7 +6454,7 @@ Object.assign(CX.skills,{amdur:['하라드의 왕','might',1,'이번 라운드 A
 
 const LORE_FIX={fingolfin:{fight:9,strength:5,defence:7,courage:9,might:4},feanor:{fight:9,strength:5,courage:8},fingolfin_mounted:{fight:9,strength:5,defence:6,courage:9,might:4},gil_galad:{fight:9,strength:6,courage:8},turin:{fight:8,strength:5,courage:7},beren:{fight:6,defence:5,courage:7,fate:3},beleg:{fight:6,strength:4,shootValue:2,shootRange:880},luthien:{fight:4,will:12,might:3,fate:3},thranduil:{fight:7,courage:7},thranduil_mounted:{fight:7,courage:7},cirdan:{fight:7,will:9},mablung:{fight:6,strength:4,courage:6},isildur:{fight:7,courage:8},elendil:{fight:8,strength:5},arwen:{fight:4,will:6},elladan:{fight:6,attacks:3},elrohir:{fight:6,attacks:3},glorfindel_foot:{fight:9,courage:8},glorfindel_mounted:{fight:9,courage:8},gothmog_balrog:{fight:9,strength:8,wounds:9},glaurung:{fight:9,strength:8,defence:9,wounds:10},ungoliant:{fight:9,strength:8,wounds:12},ancalagon:{fight:10,strength:9,wounds:12},smaug:{strength:8,wounds:10},carcharoth:{fight:8,strength:7,wounds:6},draugluin:{fight:7,strength:6,wounds:5},thuringwethil:{fight:6,wounds:5},boldog:{fight:7},necromancer:{fight:6,will:12}};
 for(const[li,lx]of Object.entries(LORE_FIX)){const lp=zt[li];if(!lp)continue;Object.assign(lp,lx);const lc=UnitCatalog[li];if(lc){lc.points=estimatePoints(lp);lc.recruitCost=Math.max(30,Math.round(lc.points*.8/5)*5);if(typeof heroGrade==='function'&&typeof isHeroUnit==='function'&&isHeroUnit(li,lc.meta.role))lc.rarity=heroGrade(li,lc.points,'hero');}}
-const LORE_FIX2={nazgul_sword:{fight:7,defence:6,wounds:3,will:10},nazgul_sword_2:{fight:7,defence:6,wounds:3,will:10},nazgul_mace:{fight:7,defence:6,wounds:3,will:10},nazgul_mounted:{fight:7,defence:6,wounds:3,will:10},khamul:{fight:7,defence:6,wounds:3,will:10},dark_marshal:{fight:7,defence:6,wounds:3,will:12},shadow_lord:{fight:6,defence:6,wounds:3,will:10},betrayer:{fight:7,defence:6,wounds:3,will:10},tainted:{fight:6,defence:6,wounds:3,will:8},undying:{fight:7,defence:6,wounds:3,will:14},knight_of_umbar:{fight:7,defence:6,wounds:3,will:8},dwimmerlaik:{fight:7,defence:6,wounds:3,will:10},witchking_foot:{fight:8,defence:8,courage:8},witchking_foot_mace:{fight:8,defence:8,courage:8},witchking_mounted:{fight:8,defence:8,courage:8},witchking_mounted_sheet:{fight:8,defence:8,courage:8},witchking_fellbeast:{fight:8,strength:5,defence:8,attacks:3,wounds:4,courage:8},nazgul_fellbeast:{fight:7,strength:5,defence:7,attacks:3,wounds:4}};
+const LORE_FIX2={nazgul_sword:{might:1,will:3,fate:1},nazgul_sword_2:{might:1,will:3,fate:1},nazgul_mace:{might:1,will:3,fate:1},nazgul_mounted:{might:1,will:3,fate:1},khamul:{might:1,will:3,fate:2},dark_marshal:{might:1,will:3,fate:1},shadow_lord:{might:1,will:3,fate:1},betrayer:{might:3,will:3,fate:1},tainted:{might:1,will:3,fate:1},undying:{might:1,will:3,fate:3},knight_of_umbar:{fight:7,defence:6,wounds:3,will:8},dwimmerlaik:{might:1,will:3,fate:1},witchking_foot:{fight:8,defence:8,courage:8},witchking_foot_mace:{fight:8,defence:8,courage:8},witchking_mounted:{fight:8,defence:8,courage:8},witchking_mounted_sheet:{fight:8,defence:8,courage:8},witchking_fellbeast:{fight:8,strength:5,defence:8,attacks:3,wounds:4,courage:8},nazgul_fellbeast:{fight:7,strength:5,defence:7,attacks:3,wounds:4}};
 for(const[li,lx]of Object.entries(LORE_FIX2)){const lp=zt[li];if(lp)Object.assign(lp,lx);}
 const TRAIT_FIX={
 terror:'nazgul_sword nazgul_sword_2 nazgul_mace nazgul_mounted nazgul_fellbeast witchking_foot witchking_foot_mace witchking_mounted witchking_mounted_sheet witchking_fellbeast khamul dark_marshal shadow_lord betrayer tainted undying knight_of_umbar dwimmerlaik muzgur mouth_of_sauron king_of_the_dead dead_rider dead_soldier barrow_wight smaug glaurung ancalagon gothmog_balrog melkor ungoliant necromancer mumakil shelob fellbeast',
