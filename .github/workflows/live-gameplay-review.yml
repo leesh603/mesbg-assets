@@ -1,0 +1,106 @@
+name: Live mobile gameplay review
+on:
+  push:
+    branches: [diagnostics/playtest-20261013]
+    paths: [.github/workflows/live-gameplay-review.yml]
+permissions:
+  contents: read
+jobs:
+  play:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Play the unmodified live game through its UI
+        run: |
+          mkdir -p evidence
+          npm install --prefix /tmp/mesbg-browser playwright --no-audit --no-fund
+          NODE_PATH=/tmp/mesbg-browser/node_modules node <<'JS'
+          const {chromium}=require('playwright');
+          const fs=require('fs'),cp=require('child_process');
+          const log=[],errors=[],httpErrors=[];let seq=0;
+          const note=(type,data)=>{log.push({at:new Date().toISOString(),type,data});fs.writeFileSync('evidence/actions.json',JSON.stringify(log,null,2));};
+          (async()=>{
+            const chrome=cp.execSync('which google-chrome || which chromium || which chromium-browser').toString().trim();
+            const browser=await chromium.launch({executablePath:chrome,headless:true,args:['--no-sandbox']});
+            const ctx=await browser.newContext({viewport:{width:390,height:844},deviceScaleFactor:1,isMobile:true,hasTouch:true});
+            const page=await ctx.newPage();page.setDefaultTimeout(8000);
+            page.on('pageerror',e=>errors.push(String(e)));
+            page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
+            page.on('response',r=>{if(r.status()>=400)httpErrors.push({status:r.status(),url:r.url()});});
+            async function state(){return page.evaluate(()=>{const m=window.MESBG,b=m?.battle;if(!b)return null;return {phase:b.phase,side:b.side,wave:b.wave,cleared:b.cleared,round:b.round,mission:b.mission,gold:b.gold,cp:b.cp,campStep:b.campStep,selected:b.selected,active:m.ui?.active(),intent:m.ui?.state?.intent,auto:document.querySelector('#auto-dock')?.textContent,units:b.units.map(u=>({uid:u.uid,id:u.id,name:u.name,side:u.side,alive:u.alive,x:u.x,y:u.y,wounds:u.currentWounds,maxWounds:u.stats.wounds,acted:u.acted,resources:u.resources,traits:u.traits,kills:u.kills})),relics:b.relics,errors:window.__reviewErrors||[]};});}
+            async function snap(label){const name=String(seq++).padStart(2,'0')+'-'+label;await page.screenshot({path:'evidence/'+name+'.png',fullPage:true});const d=await page.evaluate(()=>({url:location.href,title:document.title,text:document.body.innerText,viewport:{width:innerWidth,height:innerHeight,scrollWidth:document.documentElement.scrollWidth,scrollHeight:document.documentElement.scrollHeight},controls:Array.from(document.querySelectorAll('button,input,select')).filter(e=>e.getClientRects().length&&getComputedStyle(e).visibility!=='hidden').map(e=>({id:e.id,text:e.innerText,value:e.value,disabled:e.disabled,rect:{x:e.getBoundingClientRect().x,y:e.getBoundingClientRect().y,w:e.getBoundingClientRect().width,h:e.getBoundingClientRect().height}})),brokenImages:Array.from(document.images).filter(e=>e.complete&&!e.naturalWidth).map(e=>e.src)}));d.game=await state();d.errors=[...errors];d.httpErrors=[...httpErrors];fs.writeFileSync('evidence/'+name+'.json',JSON.stringify(d,null,2));note('snapshot',name);return d.game;}
+            async function click(sel){const el=page.locator(sel).first();if(await el.count()&&await el.isVisible()&&await el.isEnabled()){await el.click();note('click',sel);await page.waitForTimeout(350);return true;}return false;}
+            async function auto(on){const t=await page.locator('#auto-dock').innerText();if(t.includes('중')!==on)await click('#auto-dock');}
+            async function recruit(initial){
+              const offers=await page.evaluate(()=>{const m=window.MESBG,b=m.battle;return b.recruitOffers.map((o,i)=>({i,id:o.id,name:b.meta.get(o.id)?.name_ko,cost:b.price(o.id),bought:o.bought,p:m.profiles[o.id],faction:b.meta.get(o.id)?.faction}));});note('offers',offers);
+              let budget=await page.evaluate(()=>window.MESBG.battle.gold),chosen=[];
+              const heroes=offers.filter(o=>o.p.traits.includes('hero')&&!o.bought&&o.cost<=Math.min(350,budget));
+              if(initial&&heroes.length){heroes.sort((a,b)=>((b.p.fight+b.p.attacks*3+b.p.wounds*3)/(b.cost+80))-((a.p.fight+a.p.attacks*3+a.p.wounds*3)/(a.cost+80)));chosen.push(heroes[0]);budget-=heroes[0].cost;}
+              const troops=offers.filter(o=>!o.p.traits.includes('hero')&&!o.bought).sort((a,b)=>a.cost-b.cost);
+              for(const role of ['front','spear','bow','mounted']){const o=troops.find(o=>!chosen.includes(o)&&o.cost<=budget&&(role==='front'?!o.p.shootRange&&!o.p.traits.includes('spear')&&!o.p.traits.includes('mounted'):role==='spear'?o.p.traits.includes('spear'):role==='bow'?o.p.shootRange:o.p.traits.includes('mounted')));if(o){chosen.push(o);budget-=o.cost;}if(!initial&&chosen.length>=2)break;}
+              if(initial)for(const o of troops){if(!chosen.includes(o)&&o.cost<=budget&&chosen.length<8){chosen.push(o);budget-=o.cost;}}
+              note('team-choice',chosen.map(o=>({id:o.id,name:o.name,cost:o.cost})));
+              for(const o of chosen){const el=page.locator('[data-draft="'+o.i+'"] .recruit-name');if(await el.count()&&await el.locator('..').isEnabled()){await el.click();await page.waitForTimeout(200);}}
+              await snap(initial?'recruitment-selection':'camp-recruitment-selection');await click('#draft-confirm');
+            }
+            try{
+              await page.goto('https://leesh603.github.io/mesbg-assets/',{waitUntil:'domcontentloaded',timeout:60000});
+              await page.waitForFunction(()=>window.MESBG?.ui?.state?.ready,null,{timeout:60000});await page.waitForTimeout(2000);
+              await snap('live-title');await click('#start-ai');await snap('initial-recruitment');
+              await recruit(true);await page.waitForTimeout(1000);await snap('deployment');
+              await click('#hud-mission');await snap('mission-description');await click('#hud-mission');
+              await click('#dock-primary');
+              await page.waitForFunction(()=>window.MESBG.battle.phase==='move'&&window.MESBG.battle.side==='good'&&!document.querySelector('#dock-primary').disabled,null,{timeout:60000});
+              await snap('first-player-turn');
+              const trial=await page.evaluate(()=>{
+                const m=window.MESBG,b=m.battle,u=b.unit(m.ui.active());if(!u)return null;
+                const r=document.querySelector('canvas').getBoundingClientRect(),en=b.alive('evil').sort((a,c)=>Math.hypot(a.x-u.x,a.y-u.y)-Math.hypot(c.x-u.x,c.y-u.y))[0];if(!en)return null;
+                const angle=Math.atan2(en.y-u.y,en.x-u.x),budget=b.remaining(u);
+                for(const f of [.6,.35,.2])for(const da of [0,.4,-.4,.8,-.8,1.2,-1.2]){
+                  const pt={x:u.x+Math.cos(angle+da)*budget*f,y:u.y+Math.sin(angle+da)*budget*f};
+                  const plan=m.plan(u,pt,b.alive(),b.terrain,budget);if(!plan||plan.distance<25)continue;
+                  const s=m.ui.worldToScreen(plan.to.x,plan.to.y);if(s.x<25||s.y<25||s.x>r.width-25||s.y>r.height-25)continue;
+                  return {uid:u.uid,name:u.name,before:{x:u.x,y:u.y},to:plan.to,screen:{x:r.left+s.x,y:r.top+s.y}};
+                }return null;
+              });note('manual-move-plan',trial);
+              if(trial){
+                await page.mouse.click(trial.screen.x,trial.screen.y);await page.waitForTimeout(300);await snap('move-preview');
+                const beforeCancel=await state();if(beforeCancel.intent){await click('#intent-cancel');const afterCancel=await state();note('cancel-verification',{before:trial.before,after:afterCancel.units.find(u=>u.uid===trial.uid),intent:afterCancel.intent});await page.mouse.click(trial.screen.x,trial.screen.y);await page.waitForTimeout(300);if((await state()).intent){await click('#dock-primary');await page.waitForTimeout(1600);await snap('manual-move-completed');}}
+              }
+              await click('#speed-dock');await click('#speed-dock');await auto(true);
+              let last='',combatShots=0;const until=Date.now()+210000;
+              while(Date.now()<until){
+                const s=await state();if(!s)break;
+                const key=[s.wave,s.round,s.phase,s.side,s.campStep,s.units.filter(u=>u.alive&&u.side==='good').length,s.units.filter(u=>u.alive&&u.side==='evil').length].join('/');
+                if(key!==last){note('phase',s);last=key;if(combatShots<16&&!['menu','reward'].includes(s.phase)){await snap('battle-'+s.wave+'-'+s.round+'-'+s.phase);combatShots++;}}
+                if(s.phase==='result'){await snap('expedition-result');break;}
+                if(s.phase==='reward'){
+                  await auto(false);await snap('camp-'+s.wave+'-'+s.campStep);
+                  if(s.campStep==='event'){
+                    if(await page.locator('#ev-next').count())await click('#ev-next');
+                    else {await click('[data-evopt]');await click('#camp-choice-confirm');await snap('event-outcome');await click('#ev-next');}
+                  }else if(s.campStep==='recruit')await recruit(false);
+                  else if(s.campStep==='relic'){await click('[data-relic]:not([data-relic="pass"])');await snap('relic-selection');await click('#camp-choice-confirm');}
+                  else if(s.campStep==='ready'){
+                    if((s.cleared||s.wave)>=2){
+                      await click('#to-shop');await snap('camp-shop');await click('#shop-x');
+                      const before=await state();await ctx.storageState({path:'evidence/storage-state.json'});await page.reload({waitUntil:'domcontentloaded'});await page.waitForTimeout(4000);await snap('reload-title');await click('#resume');await page.waitForTimeout(1200);await snap('resumed-camp');note('resume-comparison',{before,after:await state()});
+                      await page.setViewportSize({width:360,height:740});await page.waitForTimeout(700);await snap('narrow-mobile-camp');break;
+                    }
+                    await click('#leave-camp');await page.waitForTimeout(700);
+                  }else {await snap('unhandled-camp');break;}
+                }else if(s.phase==='preparation'){await click('#dock-primary');await page.waitForTimeout(800);await auto(true);}
+                await page.waitForTimeout(450);
+              }
+              await snap('final-state');await ctx.storageState({path:'evidence/final-storage-state.json'});
+            }catch(e){note('driver-error',String(e));try{await snap('driver-stopped');}catch{}throw e;}
+            finally{fs.writeFileSync('evidence/errors.json',JSON.stringify({errors,httpErrors},null,2));await browser.close();}
+          })().catch(e=>{console.error(e);process.exitCode=1;});
+          JS
+      - name: Save actual play evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mesbg-live-gameplay-review
+          path: evidence/
+          retention-days: 2
