@@ -3693,7 +3693,7 @@ CX.skills.halbarad_mounted = CX.skills.halbarad;
 const __lwbSkillStart = P.start;
 P.start = function (m) {
     __lwbSkillStart.call(this, m);
-    const WIZ = [ cirion_mounted halbarad_mounted'마법 화살', 'will', 1, '8인치 내 적 1기에 타격.', { strike: { r: 480, n: 1 } }];
+    const WIZ = ['마법 화살', 'will', 1, '8인치 내 적 1기에 타격.', { strike: { r: 480, n: 1 } }];
     const BOW = ['명사수', 'might', 1, '이번 사격 단계 최대 2발.', { shots: 2 }];
     const LEAD = ['전장 지휘', 'might', 1, '6인치 내 아군 용기 +2.', { ally: { r: 360, stats: { courage: 2 } } }];
     const DUEL = ['영웅적 돌격', 'might', 1, '이번 라운드 결투 +1.', { self: { fight: 1 } }];
@@ -4718,7 +4718,7 @@ Ve.prototype.play = async function (e) { if (e.type === 'HeroSkill') {
 } return oldPlay.call(this, e); };
 // UI helpers use the same images as the battlefield and inventory.
 const PATCH_NOTES = [
-    ['v1.40', ['명마 탈것칸 — 파이어풋·하스펠이 장비칸을 먹던 버그 수정 (탈것 슬롯으로 이동)', '안장은 새 마구칸 — 로한 안장이 장비 2칸을 먹지 않고 기마와 공존', '탈것·마구는 장비칸 가득 차도 구매 가능', '물자 이벤트가 안장·탈것을 임의 장착하던 문제 수정', '발라의 은총 — 전사한 영웅 여럿이면 목록에서 골라 부활']],
+    ['v1.41',['사우론의 눈이 유닛 아래 레이어로 이동 — 토큰 가림 해소','나즈굴 Will 룰 — 결투(1턴)마다 Will 1 소모, 0이면 소멸','감링·루밀 등 오프센터 토큰 118개 재중앙화 + 너무 작은 토큰 73개 확대·넘친 40개 축소','Might·Will·Fate 영어 표기로 통일','전투 중 영웅 스킬 탭하면 설명 팝업 — 발동 전 확인','단계 표시줄 가독성 — 현재 단계 금색 칩·글자 확대','자동 진행이 전장 탭으로 풀리던 문제 — 버튼으로만 해제','깨진 유물 아이콘 교체 — 안두인 안개·하라드 장궁·담뱃잎 등']],['v1.40', ['명마 탈것칸 — 파이어풋·하스펠이 장비칸을 먹던 버그 수정 (탈것 슬롯으로 이동)', '안장은 새 마구칸 — 로한 안장이 장비 2칸을 먹지 않고 기마와 공존', '탈것·마구는 장비칸 가득 차도 구매 가능', '물자 이벤트가 안장·탈것을 임의 장착하던 문제 수정', '발라의 은총 — 전사한 영웅 여럿이면 목록에서 골라 부활']],
     ['v1.39', ['전투 FX 통일 — 칼·도끼·창·발톱·이빨·둔기·화살을 구분하는 픽셀 궤적과 타격 파편', '마법·보스 FX — 빛·그림자·화염 재질 공통 적용 · 번개·운석·채찍·브레스·균열 전용 연출', 'FX 안정성 — 중복 재생 제거 · 효과 끄기/동작 줄이기/배속 반영 · 씬 종료와 렌더 오류 뒤 잠금·잔상 정리']],
     ['v1.38', ['UI 통일 — 흰 나무 문양 · 금빛 픽셀 모서리 · 석조 녹색 패널을 알림·설정·상세·도움말·기록에 공통 적용', 'HUD 가독성 — 능력치 이름 · 영웅 자원 숫자 표시 · 내부 수치 테두리 정리 · 확정 행동 대비 강화', '정비 화면 — 진행 단계 표시와 선택 강조 개선 · 기존 상점 진열대 유지 · 상세창 상단 닫기 추가 · 야영지 창 뒤에 가려지던 알림 복구', '추가 검증 — 설정·HUD 속도 동기화 · 보병의 잘못된 낙마 처리 차단']],
     ['v1.37', ['진행 오류 수정 — 돌격 미리보기 · 소굴 반경 · 지도 지형 생성 · 슬롯/클라우드 전장 저장', 'AI 수정 — 자동 궁수의 사격 가능한 이동량 보존 · 공격 태세 돌격 유지', '표시·보상 수정 — 엘리트 강화 보존 · 효과 문구 · 승리 화면 · 보스 보상 저장 · 아이콘 39종 연결 배경 투명 처리']],
@@ -4828,10 +4828,16 @@ elendur:['이실두르의 장자','might',1,'이번 라운드 Attack +1, 결투 
 });
  }
 const RELIC_ICON_FILE={lembas:'relic_lembas',cloak:'relic_elven_cloak',horn:'relic_rohan_horn',horseshoe:'relic_horseshoe',phial:'relic_phial_galadriel',mithril:'relic_mithril_shirt',cart:'relic_wagon',palantir:'relic_palantir',banner:'relic_gondor_banner',arrow:'relic_red_arrow',silmaril:'relic_silmaril',narya:'relic_narya',nenya:'relic_nenya',vilya:'relic_vilya',narsil:'relic_anduril',quiver:'relic_quiver',darkpact:'relic_one_ring',warbanner:'relic_warbanner',durin_axe:'relic_durin_axe',eagle_feather:'relic_eagle_feather',second_breakfast:'res_food',crown_west:'relic_winged_crown',eohere_horn:'relic_eohere_horn',elven_feather:'relic_elven_feather',numenor_map:'relic_map_scroll',pipeweed:'relic_pipeweed',athelas:'relic_athelas',dwarf_axe:'relic_durin_axe',elf_bow:'relic_elf_bow',ithilien_blade:'relic_barrow_blade',westfold_shield:'relic_rohan_shield',rohan_standard:'relic_warbanner',elven_rope:'relic_elven_rope',anduril_hilt:'relic_anduril',barahir_ring:'relic_ring_barahir',rohan_shield:'relic_rohan_knight'};
+function _skillInfo(title,detail,fire){
+    const ov=ut('overlay');Qt=true;ov.classList.remove('hidden');
+    ov.innerHTML='<div class="modal" style="max-width:340px;text-align:center"><div class="eyebrow">영웅 능력</div><h2 style="font-size:20px;margin:6px 0">'+esc(title)+'</h2><p style="font-size:13px;color:#cfc9a8;line-height:1.6;margin:8px 0 14px">'+esc(detail)+'</p><div style="display:flex;gap:8px;justify-content:center"><button id="sk-use" class="primary" style="flex:1">발동</button><button id="sk-cancel" class="secondary" style="flex:1">취소</button></div></div>';
+    ut('sk-cancel').onclick=()=>{Qt=false;Yt();};
+    ut('sk-use').onclick=()=>{Qt=false;Yt();setSheet(false);fire();};
+}
 function relicIcon(r,size=72){
     const f='relics/icons/'+(RELIC_ICON_FILE[r.id]||'relic_'+r.id)+'.png';
     const _rc=['#6b6f52','#8a9a4a','#c9a53b','#a06bd0'][Math.min(3,r.rarity||0)];
-    return `<span class="relic-icon" style="width:${size}px;height:${size}px;display:inline-flex;align-items:center;justify-content:center;background:rgba(18,24,17,.55);border:1px solid ${_rc};box-shadow:0 0 6px ${_rc}44,inset 0 0 8px #0006;border-radius:3px;color:#e6d3a0;font-size:${Math.round(size*.4)}px" aria-hidden="true"><img src="${Ut(f)}" alt="" style="width:92%;height:92%;object-fit:contain" onerror="this.onerror=null;this.src='${Ut('icons/res_gem.png')}'"></span>`;
+    return `<span class="relic-icon" style="width:${size}px;height:${size}px;display:inline-flex;align-items:center;justify-content:center;background:rgba(18,24,17,.55);border:none;box-shadow:none;border-radius:6px;color:#e6d3a0;font-size:${Math.round(size*.4)}px" aria-hidden="true"><img src="${Ut(f)}" alt="" style="width:92%;height:92%;object-fit:contain" onerror="this.onerror=null;this.src='${Ut('icons/res_gem.png')}'"></span>`;
 }
 function unitImage(id) { const f = q.meta.get(id).file; return `<img src="${Th(f)}" data-full="${Ut(f)}" onerror="${ThFallback}" decoding="async" fetchpriority="high" alt="${esc(q.meta.get(id).name_ko)}">`; }
 let __bossStyle = false;
@@ -4949,19 +4955,19 @@ Yt = function () {
         if (CX.skills[u.id]) {
             const skill = CX.skills[u.id], reason = q.mode === 'ai' && u.side === 'evil' ? 'AI가 조작하는 영웅입니다' : q.skillReason(u);
             ut('commands').insertAdjacentHTML('afterbegin', `<button class="hero-skill" id="hero-skill" ${At || reason ? 'disabled' : ''} title="${esc(reason || skill[3])}">${unitImage(u.id)}<span><b>${skill[0]}</b><small>${esc(uiCopy(skill[3]))}</small><em>${reason || `${skill[2]} ${skill[1] === 'will' ? 'Will' : 'Might'}`}</em></span></button>`);
-            ut('hero-skill').onclick = () => {setSheet(false);setIntent({kind:'skill',uid:u.uid,label:skill[0],detail:skill[3]+' · '+skill[2]+' '+skill[1]});};
+            ut('hero-skill').onclick = () => {_skillInfo(skill[0], skill[3] + ' · 비용 ' + skill[2] + ' ' + skill[1], () => setIntent({kind:'skill',uid:u.uid,label:skill[0],detail:skill[3]+' · '+skill[2]+' '+skill[1]}));};
         }
     }
     if (u && u.side === 'good' && u.traits.includes('hero') && (u.resources.might || 0) > 0 && !At && (q.phase === 'move' || q.phase === 'fight' || q.phase === 'shoot')) {
         const _ha = [['strike', '영웅적 일격', '결투 +1'], ['combat', '영웅의 전투', '승리 후 재돌격'], ['defence', '영웅적 수비', '상처 필요 6'], ['shoot', '영웅적 사격', '명중 +1'], ['move', '영웅적 진군', '이동 +3″'], ['might', '운명의 일격', '결투 주사위 재굴림']].filter(([k]) => !(u.heroics || {})[k] && (k !== 'shoot' || u.stats.shootRange) && (k !== 'combat' || q.phase === 'fight'));
         if (_ha.length) {
             ut('commands').insertAdjacentHTML('beforeend', '<div class="heroic-row" style="display:flex;gap:6px;flex-wrap:wrap;margin-top:7px">' + _ha.map(([k, l, d]) => '<button class="heroic-btn" data-heroic="' + k + '" title="' + d + ' · Might 1 소모" style="flex:1;min-width:70px;background:#2d2417;border:1px solid #8f7540;border-radius:7px;padding:5px 3px;color:#e8d5a8;font:600 12px Pretendard,ui-sans-serif;cursor:pointer">' + l + '<small style="display:block;font-weight:400;color:#b9a077">' + d + '</small></button>').join('') + '</div>');
-            document.querySelectorAll('.heroic-btn').forEach(b => b.onclick = () => {setSheet(false);setIntent({kind:'heroic',uid:u.uid,key:b.dataset.heroic,label:b.firstChild.textContent,detail:b.title});});
+            document.querySelectorAll('.heroic-btn').forEach(b => b.onclick = () => {_skillInfo(b.firstChild.textContent, b.title, () => setIntent({kind:'heroic',uid:u.uid,key:b.dataset.heroic,label:b.firstChild.textContent,detail:b.title}));});
         }
     }
     if (u && u.side === 'good' && CX.spells && CX.spells[u.id] && ['move', 'shoot', 'fight'].includes(q.phase)) {
         ut('commands').insertAdjacentHTML('beforeend', '<div class="spell-row" style="display:flex;gap:6px;flex-wrap:wrap;margin-top:5px">' + CX.spells[u.id].map((sp, i) => '<button class="spell-btn" data-spell="' + i + '" ' + (At || u.spellRound || (u.resources.will || 0) < sp[1] ? 'disabled' : '') + ' title="' + esc(sp[0] + ' — ' + sp[2]) + '" style="flex:1;min-width:90px;background:#1d2233;border:1px solid #5f6a8f;border-radius:7px;padding:5px 3px;color:#c9d5f2;font:600 12px Pretendard,ui-sans-serif;cursor:pointer">✦ ' + sp[0] + '<small style="display:block;font-weight:400;color:#8f9ab9">' + sp[1] + ' Will</small></button>').join('') + '</div>');
-        document.querySelectorAll('.spell-btn').forEach(b => b.onclick = () => {const sp = CX.spells[u.id][+b.dataset.spell]; setSheet(false); setIntent({ kind: 'spell', uid: u.uid, key: +b.dataset.spell, label: '✦ ' + sp[0], detail: sp[2] + ' · ' + sp[1] + ' Will' }); });
+        document.querySelectorAll('.spell-btn').forEach(b => b.onclick = () => {const sp = CX.spells[u.id][+b.dataset.spell]; _skillInfo('✦ ' + sp[0], sp[2] + ' · 비용 ' + sp[1] + ' Will', () => setIntent({ kind: 'spell', uid: u.uid, key: +b.dataset.spell, label: '✦ ' + sp[0], detail: sp[2] + ' · ' + sp[1] + ' Will' })); });
     }
     const inv = ut('relic-inventory');
     inv.innerHTML = Object.entries(q.relics || {}).map(([id, rank]) => { const r = CX.relics.find(r => r.id === id); return `<button class="owned-relic rarity-${r.rarity}" type="button" data-owned-relic="${id}" aria-label="${esc(r.name)} · ${rank}중첩 · ${esc(r.text)}">${relicIcon(r, 32)}<small>${rank}</small></button>`; }).join('') || '<span class="mini">유물 없음</span>';
@@ -5336,23 +5342,8 @@ ut('step-auto').onclick = () => {
   };
 window.MESBG.auto = v => { if (v !== undefined && v !== AUTO)
     ut('auto').click(); return AUTO; };
-// 자동 진행 중: 전장(#game)을 짧게 탭해야만 자동 해제. 카메라 드래그·핀치·미니맵·줌·패널·정비 화면·상단 버튼은 자동 유지.
+// 자동 진행은 자동 버튼으로만 켜고 끔 — 전장 탭으로 풀리지 않음.
 let _autoTapPt = null;
-document.addEventListener('pointerdown', e => {
-    if (!AUTO) { _autoTapPt = null; return; }
-    if (e.target.closest('.top-actions,#overlay'))
-        return;
-    if (!_autoTapPt && e.target.closest('#game'))
-        _autoTapPt = { id: e.pointerId, x: e.clientX, y: e.clientY };
-}, true);
-document.addEventListener('pointerup', e => {
-    if (!AUTO || !_autoTapPt || e.pointerId !== _autoTapPt.id)
-        return;
-    const dx = e.clientX - _autoTapPt.x, dy = e.clientY - _autoTapPt.y;
-    _autoTapPt = null;
-    if (dx * dx + dy * dy < 100)
-        ut('auto').click();
-}, true);
 document.addEventListener('pointercancel', () => { _autoTapPt = null; }, true);
 // Collapsible battle panel on small screens.
 document.querySelector('.aside').insertAdjacentHTML('afterbegin', '<button id="sheet-toggle" type="button">전투 패널</button>');
@@ -7218,7 +7209,7 @@ polishStyle.textContent=[
 'body.lwb-polished #sheet-backdrop{position:absolute!important;inset:0!important;z-index:31;background:#070d0990;border:0;display:none!important}body.lwb-polished #sheet-backdrop.open{display:block!important}',
 'body.lwb-polished .unit-card{background:none!important;border:0!important;padding:0!important;box-shadow:none!important}body.lwb-polished .unit-head img{filter:none;width:66px;height:74px}body.lwb-polished .unit-head strong{font-size:16px}body.lwb-polished .unit-head small{font-size:12px}',
 'body.lwb-polished .objective{padding-bottom:12px;margin-bottom:16px}body.lwb-polished .objective h3{font-size:18px}body.lwb-polished .objective p{font-size:12px}body.lwb-polished .stats span,body.lwb-polished .resources{font-size:12px}body.lwb-polished .stats b{font-size:17px}',
-'body.lwb-polished .hero-skill{background:#303b2d;border:1px solid #8d8059;border-radius:2px;min-height:48px}body.lwb-polished .hero-skill small{display:none}body.lwb-polished .heroic-btn{border-radius:2px!important;min-height:44px;background:#293329!important}body.lwb-polished .command{min-height:44px;border-width:0 0 1px;background:none!important}body.lwb-polished .command b{font-size:13px}',
+'body.lwb-polished .camp-steps{display:flex!important;gap:6px!important;justify-content:space-between}body.lwb-polished .camp-steps span{display:inline-flex!important;align-items:center;gap:5px;font:700 13px/1 Pretendard,sans-serif!important;padding:6px 10px!important;border-radius:13px;border:1px solid #46523a;background:#1a2216;color:#93a384}body.lwb-polished .camp-steps span img{width:15px!important;height:15px!important;image-rendering:pixelated}body.lwb-polished .camp-steps span.current{background:linear-gradient(#efd07a,#c9a13b)!important;color:#241d0a!important;border-color:#e8c76a}body.lwb-polished .camp-steps span.current img{filter:none!important}body.lwb-polished .hero-skill{background:#303b2d;border:1px solid #8d8059;border-radius:2px;min-height:48px}body.lwb-polished .hero-skill small{display:none}body.lwb-polished .heroic-btn{border-radius:2px!important;min-height:44px;background:#293329!important}body.lwb-polished .command{min-height:44px;border-width:0 0 1px;background:none!important}body.lwb-polished .command b{font-size:13px}',
 'body.lwb-polished #app .phases{display:flex!important;background:#1c251e!important;min-height:30px;gap:14px;padding:0 16px;border-bottom:1px solid #4d5746}body.lwb-polished .phase{background:none!important;border:0;border-radius:0!important;padding:7px 0;font-size:11px;color:#a9b2a2}body.lwb-polished .phase.active{color:#f1dda4;box-shadow:inset 0 -2px #d7be80}body.lwb-polished .phase i{display:none}body.lwb-polished .turn{margin-left:auto;font-size:11px}',
 'body.lwb-polished #command-dock{display:flex!important;flex-direction:column!important;gap:5px!important;min-height:0!important;padding:8px 16px calc(7px + env(safe-area-inset-bottom))!important;background:#1d261f!important;border-top:1px solid #8a7b53;box-shadow:none!important}',
 'body.lwb-polished .dock-main{display:flex!important;height:48px!important;gap:10px!important;width:100%}body.lwb-polished .dock-portrait{width:42px!important;height:46px!important;object-fit:contain;border:0!important;background:none!important}body.lwb-polished .dock-eyebrow{display:none!important}body.lwb-polished .dock-text{flex:1;min-width:0}body.lwb-polished .dock-text strong{font-size:17px!important;line-height:22px!important;color:#f3e7c4}body.lwb-polished .dock-status{font-size:12px!important;line-height:17px!important;color:#c7cebb;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}',
