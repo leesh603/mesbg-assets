@@ -196,6 +196,16 @@ const sheets = [
   { file: 'nb-single-arvedui-mounted.png', rows: 1, cols: 1, noRim: true, names: ['arvedui_mounted'] },
   { file: 'nb-single-arathorn-mounted.png', rows: 1, cols: 1, noRim: true, names: ['arathorn_mounted'] },
   { file: 'nb-single-halbarad-mounted.png', rows: 1, cols: 1, noRim: true, names: ['halbarad_mounted'] },
+  { file: 'nb-single-khamul-mounted.png', rows: 1, cols: 1, noRim: true, names: ['khamul_mounted'] },
+  { file: 'nb-single-dark_marshal-mounted.png', rows: 1, cols: 1, noRim: true, names: ['dark_marshal_mounted'] },
+  { file: 'nb-single-dwimmerlaik-mounted.png', rows: 1, cols: 1, noRim: true, names: ['dwimmerlaik_mounted'] },
+  { file: 'nb-single-shadow_lord-mounted.png', rows: 1, cols: 1, noRim: true, names: ['shadow_lord_mounted'] },
+  { file: 'nb-single-forsaken-mounted.png', rows: 1, cols: 1, noRim: true, names: ['forsaken_mounted'] },
+  { file: 'nb-single-tainted-mounted.png', rows: 1, cols: 1, noRim: true, names: ['tainted_mounted'] },
+  { file: 'nb-single-undying-mounted.png', rows: 1, cols: 1, noRim: true, names: ['undying_mounted'] },
+  { file: 'nb-single-betrayer-mounted.png', rows: 1, cols: 1, noRim: true, names: ['betrayer_mounted'] },
+  { file: 'nb-single-bolg-mounted.png', rows: 1, cols: 1, noRim: true, names: ['bolg_mounted'] },
+  { file: 'nb-single-guritz-mounted.png', rows: 1, cols: 1, noRim: true, names: ['guritz_mounted'] },
   { file: 'nb-single-gilgalad-foot9.png', rows: 1, cols: 1, noRim: true, names: ['gil_galad'] },
 ];
 

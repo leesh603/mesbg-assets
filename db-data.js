@@ -802,6 +802,17 @@ module.exports = [
     ['arvedui_mounted','아르베두이(기마)','Arvedui, mounted',{ faction:'arnor', weapon:'sword' }],
     ['arathorn_mounted','아라손(기마)','Arathorn, mounted',{ faction:'arnor', weapon:'sword' }],
     ['halbarad_mounted','할바라드(기마)','Halbarad, mounted',{ faction:'arnor', weapon:'banner' }]] },
+  { sheet:null, side:'evil', faction:'angmar', role:'hero', weapon:'mixed', base:'XL', units:[
+    ['khamul_mounted','카물(기마)','Khamul, mounted',{ faction:'angmar', weapon:'mace' }],
+    ['dark_marshal_mounted','다크 마샬(기마)','The Dark Marshal, mounted',{ faction:'angmar', weapon:'sword' }],
+    ['dwimmerlaik_mounted','드위머레이크(기마)','The Dwimmerlaik, mounted',{ faction:'angmar', weapon:'twohanded' }],
+    ['shadow_lord_mounted','섀도 로드(기마)','The Shadow Lord, mounted',{ faction:'angmar', weapon:'sword' }],
+    ['forsaken_mounted','포세이큰(기마)','The Forsaken, mounted',{ faction:'dol_guldur', weapon:'sword' }],
+    ['tainted_mounted','테인티드(기마)','The Tainted, mounted',{ faction:'angmar', weapon:'dagger' }],
+    ['undying_mounted','언다잉(기마)','The Undying, mounted',{ faction:'angmar', weapon:'staff' }],
+    ['betrayer_mounted','배신자(기마)','The Betrayer, mounted',{ faction:'angmar', weapon:'mace' }],
+    ['bolg_mounted','볼그(와르그)','Bolg, warg rider',{ faction:'gundabad', weapon:'mace' }],
+    ['guritz_mounted','구리츠(와르그)','Guritz, warg rider',{ faction:'mordor', weapon:'twohanded' }]] },
   { sheet:null, side:'good', faction:'elf', role:'hero', weapon:'sword', base:'XL', traits:['mounted'], units:[
     ['fingon_mounted','핑곤(기마)','Fingon, mounted'],
     ['ecthelion_mounted','엑텔리온(기마)','Ecthelion, mounted'],
