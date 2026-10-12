@@ -1,0 +1,114 @@
+name: Isolated live playtest export
+
+on:
+  push:
+    branches: [diagnostics/playtest-20261013]
+    paths: [.github/workflows/playtest-runtime-export.yml]
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  capture-and-export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Capture the live game in mobile Chrome
+        continue-on-error: true
+        run: |
+          mkdir -p evidence
+          npm install --prefix /tmp/mesbg-browser playwright --no-audit --no-fund
+          NODE_PATH=/tmp/mesbg-browser/node_modules node <<'JS'
+          const {chromium}=require('playwright');
+          const fs=require('fs');
+          const cp=require('child_process');
+          (async()=>{
+            const chrome=cp.execSync('which google-chrome || which chromium || which chromium-browser').toString().trim();
+            const browser=await chromium.launch({executablePath:chrome,headless:true,args:['--no-sandbox']});
+            const context=await browser.newContext({viewport:{width:390,height:844},deviceScaleFactor:1,isMobile:true,hasTouch:true});
+            const page=await context.newPage();
+            const errors=[],responses=[];
+            page.on('pageerror',e=>errors.push(String(e)));
+            page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
+            page.on('response',r=>{if(r.status()>=400)responses.push({status:r.status(),url:r.url()});});
+            try{
+              const response=await page.goto('https://leesh603.github.io/mesbg-assets/',{waitUntil:'domcontentloaded',timeout:60000});
+              if(response)fs.writeFileSync('evidence/live-index.html',await response.body());
+              await page.waitForTimeout(10000);
+              await page.screenshot({path:'evidence/live-opening-mobile.png',fullPage:true});
+              fs.writeFileSync('evidence/live-opening.json',JSON.stringify({url:page.url(),title:await page.title(),text:await page.locator('body').innerText(),errors,responses,viewport:await page.evaluate(()=>({width:innerWidth,height:innerHeight,scrollWidth:document.documentElement.scrollWidth,scrollHeight:document.documentElement.scrollHeight}))},null,2));
+            }catch(e){fs.writeFileSync('evidence/capture-error.txt',String(e));throw e;}
+            finally{await browser.close();}
+          })().catch(e=>{console.error(e);process.exitCode=1;});
+          JS
+      - name: Upload live opening evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mesbg-live-opening-5662b66
+          path: evidence/
+          retention-days: 1
+      - name: Fetch the exact existing Pages deployment
+        uses: actions/download-artifact@v4
+        with:
+          name: github-pages
+          path: deployed
+          repository: leesh603/mesbg-assets
+          run-id: 38269113453
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Export unchanged runtime in bounded chunks
+        run: |
+          python3 - <<'PY'
+          import tarfile,gzip,shutil,json,collections
+          from pathlib import Path
+          out=Path('runtime');out.mkdir()
+          archive=next(Path('deployed').rglob('*.tar'))
+          counts=collections.defaultdict(lambda:[0,0])
+          with tarfile.open(archive,'r:*') as src,tarfile.open(out/'core.tgz','w:gz') as dst:
+              for m in src:
+                  if not m.isfile():continue
+                  p=Path(m.name)
+                  if p.is_absolute() or '..' in p.parts:continue
+                  root=p.parts[0] if len(p.parts)>1 else '(root)'
+                  counts[root][0]+=1;counts[root][1]+=m.size
+                  if p.suffix.lower() in {'.html','.js','.mjs','.css','.json','.md','.txt','.svg','.woff','.woff2','.ttf'}:
+                      dst.addfile(m,src.extractfile(m))
+          (out/'manifest.json').write_text(json.dumps({'commit':'5662b66fae3fd996193ef565b84ec6118750fc5e','deployment_run':38269113453,'groups':dict(counts)},indent=2))
+          print((out/'manifest.json').read_text())
+          with open(archive,'rb') as src,gzip.open(out/'site.tgz','wb',compresslevel=1) as dst:shutil.copyfileobj(src,dst)
+          limit=240*1024*1024
+          with open(out/'site.tgz','rb') as src:
+              i=0
+              while True:
+                  block=src.read(limit)
+                  if not block:break
+                  (out/f'site.part{i:03d}').write_bytes(block)
+                  print('chunk',i,'bytes',len(block));i+=1
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mesbg-runtime-core-5662b66
+          path: |
+            runtime/core.tgz
+            runtime/manifest.json
+          retention-days: 1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mesbg-runtime-part000-5662b66
+          path: runtime/site.part000
+          compression-level: 0
+          retention-days: 1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mesbg-runtime-part001-5662b66
+          path: runtime/site.part001
+          compression-level: 0
+          retention-days: 1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mesbg-runtime-part002-5662b66
+          path: runtime/site.part002
+          compression-level: 0
+          if-no-files-found: ignore
+          retention-days: 1
