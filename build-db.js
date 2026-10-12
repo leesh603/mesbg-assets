@@ -238,12 +238,20 @@ fs.writeFileSync(path.join(SRC, 'gallery.html'), html);
 // gallery2.html — 그림체 통일 작업 전용 별도 갤러리 (메인 gallery.html 과 독립).
 // 인게임 표시 크기가 아니라 아트 스타일 비교가 목적이므로 타일 높이를 균일하게 맞춤.
 const card2 = r => `<div class="card ucard"><div class="fig" style="height:150px"><img src="tokens/${r.id}.png?v=${CB}" loading="lazy" style="max-height:140px;max-width:170px;height:auto;width:auto"></div><div class="id">${r.id}</div><div class="ko">${r.name_ko}</div><div class="meta">${FACTION_KO[facOf(r)] || facOf(r)} · ${ROLE_KO[r.role] || r.role}</div></div>`;
+// 나즈굴·위치킹 계열은 팩션 무관하게 한 묶음으로 (앙그마르·모르도르·하라드 흩어짐 방지)
+const NAZGUL_SET = new Set(['nazgul_sword','nazgul_sword_2','nazgul_mace','nazgul_mounted','nazgul_fellbeast','witchking_foot','witchking_foot_mace','witchking_spear','witchking_mounted','witchking_fellbeast','khamul','dwimmerlaik','dark_marshal','betrayer','tainted','undying','knight_of_umbar','shadow_lord','muzgur']);
+const NAZGUL_ORDER = ['witchking_foot','witchking_foot_mace','witchking_spear','witchking_mounted','witchking_fellbeast','khamul','dwimmerlaik','dark_marshal','shadow_lord','betrayer','tainted','undying','knight_of_umbar','muzgur','nazgul_sword','nazgul_sword_2','nazgul_mace','nazgul_mounted','nazgul_fellbeast'];
 const factionGrid2 = list => {
+  const nazgul = list.filter(r => NAZGUL_SET.has(r.id)).sort((a, b) => NAZGUL_ORDER.indexOf(a.id) - NAZGUL_ORDER.indexOf(b.id));
+  const rest = list.filter(r => !NAZGUL_SET.has(r.id));
   const facs = {};
-  for (const r of list) { (facs[facOf(r)] ??= []).push(r); }
+  for (const r of rest) { (facs[facOf(r)] ??= []).push(r); }
   const order = facOrder(list[0] && list[0].side === 'evil' ? 'evil' : 'good');
   const keys = [...order.filter(f => facs[f]), ...Object.keys(facs).filter(f => !order.includes(f)).sort()];
-  return keys.map(f => `<h2>${FACTION_KO[f] || f} — ${facs[f].length}</h2><div class="grid">${facs[f].map(card2).join('')}</div>`).join('');
+  const roleGrid = us => ROLE_ORDER.filter(ro => us.some(r => grp(r) === ro)).map(ro =>
+    `<h3>${ROLE_KO[ro] || ro} — ${us.filter(r => grp(r) === ro).length}</h3><div class="grid">${us.filter(r => grp(r) === ro).map(card2).join('')}</div>`).join('');
+  const nazHtml = nazgul.length ? `<h2>나즈굴 — ${nazgul.length}</h2><div class="grid">${nazgul.map(card2).join('')}</div>` : '';
+  return nazHtml + keys.map(f => `<h2>${FACTION_KO[f] || f} — ${facs[f].length}</h2>${roleGrid(facs[f])}`).join('');
 };
 const html2fixed = `<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><title>그림체 통일 갤러리</title><style>
 :root{--bg:#0f120c;--panel:#1a1d14;--panel2:#232718;--line:#5d5233;--gold:#c9a959;--gold2:#efe0ae;--txt:#ece4cd;--dim:#a89d7f}
@@ -251,6 +259,7 @@ const html2fixed = `<!doctype html><html lang="ko"><head><meta charset="utf-8"><
 body{background:radial-gradient(ellipse at 50% -5%,#26301b 0%,#141a10 45%,#0f120c 100%);color:var(--txt);font-family:'Malgun Gothic',Georgia,serif;margin:0;padding:24px}
 h1{font-family:Georgia,serif;font-size:20px;color:var(--gold2);letter-spacing:2px;font-variant:small-caps;text-shadow:0 0 12px rgba(201,169,89,.3)}
 h2{font-family:Georgia,serif;font-size:15px;margin:28px 0 10px;color:var(--gold);border-bottom:1px solid var(--line);padding-bottom:6px;letter-spacing:1px}
+h3{font-family:Georgia,serif;font-size:12px;margin:16px 0 6px;color:var(--gold2);letter-spacing:1px}
 .tabs{display:flex;gap:8px;margin:14px 0 4px;position:sticky;top:0;background:var(--bg);padding:8px 0;z-index:10;flex-wrap:wrap}
 .tabs button{background:var(--panel);border:1px solid var(--line);color:var(--dim);padding:8px 18px;border-radius:6px;cursor:pointer;font-size:13px}
 .tabs button.on{background:var(--gold);color:#1a150f;border-color:var(--gold);font-weight:700}
