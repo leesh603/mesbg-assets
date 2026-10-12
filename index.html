@@ -8350,7 +8350,7 @@ const ARC_FOES = {
     13: ['cave_troll', 'uruk_berserker', 'moria_goblin'],
 };
 P.stageInfo = function (n) {
-    let boss = n % (this.difficulty === 'despair' ? 4 : 5) === 0 ? (STAGE_BOSSES[n] || (n > 70 ? ELDER_BOSSES[Math.floor(n / 5) % ELDER_BOSSES.length] : this.difficulty === 'despair' ? DESPAIR_BOSS_POOL[(Math.floor(n / 4) - 1) % DESPAIR_BOSS_POOL.length] : null)) : null;
+    let boss = n % (this.difficulty === 'despair' ? 4 : 5) === 0 ? (STAGE_BOSSES[n] || (n > 70 ? ELDER_BOSSES[Math.floor(n / 5) % ELDER_BOSSES.length] : this.difficulty === 'despair' ? (Math.floor(n / 4) - 1 < DESPAIR_BOSS_POOL.length ? DESPAIR_BOSS_POOL[Math.floor(n / 4) - 1] : ELDER_BOSSES[Math.floor(n / 5) % ELDER_BOSSES.length]) : null)) : null;
     const missions = ['defense', 'annihilation', 'hold', 'purge', 'survive', 'commander', 'breakthrough', 'rescue', 'escort', 'scouting'];
     const mission = boss ? 'commander' : missions[(n - 1) % missions.length];
     const ids = [];
@@ -8943,6 +8943,13 @@ P.bossTurn = function (u) {
                 t.prone = true;
                 this.emit('BossImpact', '펠비스트 급강하 돌진 — 약한 적을 노립니다', { uid: t.uid, at: t });
             }
+        }
+    }
+    else if (u.id === 'goblin_king') {
+        if (this.round % 2 === 0 && this.alive('evil').length < 26) {
+            this.spawnEnemies(['moria_goblin', 'moria_goblin', 'moria_goblin']);
+            this.emit('BossCast', undefined, { fx: 'dominate', at: u });
+            this.emit('BossImpact', '고블린 왕의 부름 — 고블린 무리가 쏟아져 나옵니다', { uid: u.uid, at: u });
         }
     }
     else if (u.id === 'ungoliant' && this.round % 3 === 0) {
