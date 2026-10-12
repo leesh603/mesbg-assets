@@ -1939,6 +1939,15 @@ P._trkKill = function (k, v) {
                 } else { this.gold += 10; this.emit('Event', '엘리트 전리품 · 금화 +10'); }
             } else { this.gold += 5; this.emit('Event', '엘리트 전리품 · 금화 +5'); }
         }
+        if (v._darkInfil && typeof LWB_EQUIP !== 'undefined' && this.rng() < .5) {
+            const _wU = this.rng() < .3, _pool = LWB_EQUIP.filter(e => !e.once && !e.req && !!e.rare === _wU);
+            const _d = _pool[Math.floor(this.rng() * _pool.length)];
+            if (_d) {
+                (this.stash = this.stash || []).push(_d.id);
+                this.emit('Event', `💎 어둠의 전리품 — ${_d.label || _d.id} 드랍! 보관함에 보관됐습니다`);
+                this.emit('LootDrop', undefined, { item: _d.id });
+            }
+        }
         if (k.traits.includes('hero')) this.stageHeroSlayer = (this.stageHeroSlayer || 0) + 1;
         k._stageKills = (k._stageKills || 0) + 1; this._kills = this._kills || { good: 0, evil: 0 }; this._kills[k.side === 'good' ? 'good' : 'evil']++;
         if (typeof document !== 'undefined') { const _sc = document.getElementById('lwb-score') || (() => { const d = document.createElement('div'); d.id = 'lwb-score'; d.style.cssText = 'position:fixed;top:64px;left:10px;z-index:40;pointer-events:none;font:700 13px Pretendard,sans-serif;color:#ffd9a0;text-shadow:0 1px 2px #000,0 0 8px rgba(0,0,0,.7);background:rgba(20,14,8,.55);border:1px solid rgba(232,196,92,.35);border-radius:8px;padding:3px 10px;transition:opacity .6s;opacity:0'; document.body.appendChild(d); return d; })(); _sc.innerHTML = '<img src="icons/ui_swords.png" style="width:12px;height:12px;vertical-align:-2px;margin-right:3px;image-rendering:pixelated">처치 ' + this._kills.good + ' : ' + this._kills.evil; _sc.style.opacity = '1'; clearTimeout(this._scT); this._scT = setTimeout(() => { _sc.style.opacity = '0'; }, 2400); }
@@ -2209,7 +2218,7 @@ P.beginRound = function () {
         const _pick = _pool[Math.floor(this.rng() * _pool.length)];
         const _dx = 500 + Math.floor(this.rng() * 1200), _dy = 1050 + Math.floor(this.rng() * 250);
         let _n = 0;
-        for (const _id of _pick) { const _su = this.spawn(_id, 'evil', { x: _dx + _n * 70 - _pick.length * 35, y: _dy }); _su && _n++; }
+        for (const _id of _pick) { const _su = this.spawn(_id, 'evil', { x: _dx + _n * 70 - _pick.length * 35, y: _dy }); if (_su) { _su._darkInfil = true; _n++; } }
         if (_n) {
             const _nm = (this.meta.get(_pick[0]) || {}).name_ko || _pick[0];
             this.emit('Event', `🌑 다크 이벤트 — ${_nm}${_n > 1 ? ' 무리' : ''}이(가) 후방에 침투했습니다!`, { at: { x: _dx, y: _dy } });
