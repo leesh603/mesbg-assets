@@ -27,12 +27,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Merge reviewed concurrent main changes without replacing game fixes
+      - name: Integrate reviewed concurrent main edits
         shell: bash
         run: |
           set -euo pipefail
           test "$GITHUB_REF_NAME" = 'fix/qa-gameplay-20261012'
-          mkdir -p qa-results
+          mkdir -p qa-results/source
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git fetch --no-tags --depth=20 origin "$MESBG_BASE_REF"
@@ -44,40 +44,69 @@ jobs:
           conflicts=git('diff','--name-only','--diff-filter=U').splitlines()
           assert set(conflicts) <= {'index.html','src/game.js'}, 'Unexpected conflict: '+repr(conflicts)
           base=git('merge-base','HEAD',os.environ['MESBG_BASE_REF']).strip()
-          # main already contained a top-of-document diff3 conflict before this
-          # repair. Normalize THAT historical conflict consistently on all three
-          # inputs, then use a real three-way merge; never choose an entire side.
-          def normalize(text):
-              if not text.startswith('<<<<<<< HEAD\n'): return text
-              pattern=r'^<<<<<<< HEAD\n(.*?)^\|{7} [^\n]*\n.*?^={7}\n.*?^>{7} [^\n]*\n'
-              fixed,n=re.subn(pattern,lambda m:m[1],text,count=1,flags=re.S|re.M)
-              assert n==1, 'Unrecognized historical merge conflict'
-              return fixed
-          for path in conflicts:
+          roles=('gloin','oin','nori','ori','dori','bifur','bofur','bombur')
+          def normalize(text, incoming=False):
+              # Both conflict variants were inspected from the pinned main SHA.
+              # The old HEAD header contains the current asset list (including
+              # Galadriel War) and Goblin King scale 1.56. The stale stash lacks
+              # those changes but contains eight intended infantry->hero roles.
+              # Preserve the current assets/scale and merge those role changes.
+              old=r'^<<<<<<< HEAD\n(.*?)^\|{7} [^\n]*\n.*?^={7}\n.*?^>{7} [^\n]*\n'
+              text=re.sub(old,lambda m:m[1],text,flags=re.S|re.M)
+              stash=r'^<<<<<<< Updated upstream\n(.*?)^=======\n(.*?)^>>>>>>> Stashed changes\n'
+              text=re.sub(stash,lambda m:m[1],text,flags=re.S|re.M)
+              if incoming:
+                  for unit in roles:
+                      pattern=r'("id":"'+unit+r'",[^{}]*?"role":)"infantry"'
+                      text=re.sub(pattern,r'\1"hero"',text)
+              assert not re.search(r'^(<{7}|>{7}|={7}|\|{7})',text,re.M), 'Unknown conflict remains'
+              return text
+          # Also re-merge the source: Git cannot flag conflict markers already
+          # committed as ordinary text in upstream. Normalize each reviewed
+          # input before a true three-way merge, preserving independent fixes.
+          for path in ['src/game.js','index.html']:
               names=[]
               for label,ref in [('ours','HEAD'),('base',base),('theirs',os.environ['MESBG_BASE_REF'])]:
-                  text=git('show',ref+':'+path)
-                  if path=='index.html': text=normalize(text)
+                  text=normalize(git('show',ref+':'+path),label=='theirs')
                   temp=Path('qa-results')/(Path(path).name+'.'+label)
                   temp.write_text(text);names.append(str(temp))
               merged=subprocess.run(['git','merge-file','-p',*names],capture_output=True,text=True)
               assert merged.returncode==0, 'Needs manual conflict review: '+path
               Path(path).write_text(merged.stdout)
-              subprocess.check_call(['git','add',path])
+              for name in names: Path(name).unlink()
           html=Path('index.html').read_text();src=Path('src/game.js').read_text()
           begin='/*__LWB_SRC_BEGIN__*/';end='/*__LWB_SRC_END__*/'
           a=html.index(begin)+len(begin);b=html.index(end)
           Path('index.html').write_text(html[:a]+'\n'+src.strip()+'\n'+html[b:])
-          subprocess.check_call(['git','add','index.html','src/game.js'])
+          # Baseline image comparison must ignore the two already-committed
+          # opening conflict-marker lines, not any actual image data.
+          test=Path('tests/tactics.test.cjs')
+          text=test.read_text()
+          old=".replace(/^<<<<<<< HEAD\\r?\\n/,'')"
+          new=".replace(/^(?:<<<<<<< (?:HEAD|Updated upstream)\\r?\\n)+/,'')"
+          assert old in text or new in text
+          test.write_text(text.replace(old,new))
+          subprocess.check_call(['git','add','index.html','src/game.js','tests/tactics.test.cjs'])
           assert not git('diff','--name-only','--diff-filter=U').strip()
+          for path in ['src/game.js','index.html','lwb-worker/src/index.js']:
+              target=Path('qa-results/source')/path
+              target.parent.mkdir(parents=True,exist_ok=True)
+              target.write_bytes(Path(path).read_bytes())
           PY
-      - name: Verify merged game with the latest original assets
+      - name: Verify integrated game and retained art data
         shell: bash
         run: |
           set -euo pipefail
           node --check src/game.js
           node --check lwb-worker/src/index.js
           node --test tests/*.test.cjs 2>&1 | tee qa-results/repository-tests.log
+          node - <<'JS'
+          const assert=require('node:assert/strict');
+          const h=require('./tests/campaign-harness.cjs')();
+          for(const id of ['gloin','oin','nori','ori','dori','bifur','bofur','bombur']) assert.equal(h.UnitCatalog[id].meta.role,'hero',id);
+          assert.equal(h.UnitCatalog.goblin_king.meta.artScale,1.56);
+          console.log('Retained eight hero-role changes and current Goblin King scale');
+          JS
           git diff --cached --check
           git diff --cached --stat | tee qa-results/diff-stat.txt
       - name: Commit tested integration to this branch only
@@ -86,7 +115,7 @@ jobs:
           set -euo pipefail
           test "$GITHUB_REF_NAME" = 'fix/qa-gameplay-20261012'
           if ! git diff --cached --quiet || [ -f .git/MERGE_HEAD ]; then
-            git commit -m 'merge: preserve latest art updates with verified campaign repairs'
+            git commit -m 'merge: retain latest art and hero roles with verified campaign repairs'
             git push origin HEAD:refs/heads/fix/qa-gameplay-20261012
           fi
           git rev-parse HEAD | tee qa-results/COMMIT.txt
