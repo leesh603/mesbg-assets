@@ -733,7 +733,7 @@ module.exports = [
   { sheet:null, side:'good', faction:'rohan', role:'hero', weapon:'lance', base:'XL', traits:['mounted'], units:[
     ['eomund','에오문드','Eomund, Marshal of the Riddermark']] },
   { sheet:null, side:'good', faction:'rohan', role:'infantry', weapon:'spear', base:'M', traits:[], units:[
-    ['guthlaf','구슬라프','Guthlaf, banner-bearer of Rohan']] },
+    ['guthlaf','구슬라프','Guthlaf, banner-bearer of Rohan', { role: 'hero' }]] },
   { sheet:null, side:'good', faction:'gondor', role:'infantry', weapon:'spear', base:'M', traits:[], units:[
     ['ingold','잉골드','Ingold, gate-guard of Minas Tirith']] },
   { sheet:null, side:'evil', faction:'angband', role:'monster', weapon:'twohanded', base:'XXL', traits:[], units:[
