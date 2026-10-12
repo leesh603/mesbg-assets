@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "count": 563,
+  "count": 569,
   "units": [
     {
       "id": "aragorn",
@@ -10752,6 +10752,84 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/guritz_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "feanor_mounted",
+      "name_ko": "페아노르(기마)",
+      "name_en": "Feanor, mounted",
+      "side": "good",
+      "faction": "elf",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/feanor_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "turin_mounted",
+      "name_ko": "투린(기마)",
+      "name_en": "Turin Turambar, mounted",
+      "side": "good",
+      "faction": "men",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/turin_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "tuor_mounted",
+      "name_ko": "투오르(기마)",
+      "name_en": "Tuor, mounted",
+      "side": "good",
+      "faction": "men",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/tuor_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "beleg_mounted",
+      "name_ko": "벨레그(기마)",
+      "name_en": "Beleg Cuthalion, mounted",
+      "side": "good",
+      "faction": "doriath",
+      "role": "hero",
+      "weapon": "bow",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/beleg_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "hurin_thalion_mounted",
+      "name_ko": "후린 탈리온(기마)",
+      "name_en": "Hurin Thalion, mounted",
+      "side": "good",
+      "faction": "men",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/hurin_thalion_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "maeglin_mounted",
+      "name_ko": "매글린(기마)",
+      "name_en": "Maeglin, mounted",
+      "side": "good",
+      "faction": "elf",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/maeglin_mounted.png",
       "base_mm": "40mm"
     },
     {

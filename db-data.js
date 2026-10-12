@@ -813,6 +813,13 @@ module.exports = [
     ['betrayer_mounted','배신자(기마)','The Betrayer, mounted',{ faction:'angmar', weapon:'mace' }],
     ['bolg_mounted','볼그(와르그)','Bolg, warg rider',{ faction:'gundabad', weapon:'mace' }],
     ['guritz_mounted','구리츠(와르그)','Guritz, warg rider',{ faction:'mordor', weapon:'twohanded' }]] },
+  { sheet:null, side:'good', faction:'elf', role:'hero', weapon:'mixed', base:'XL', units:[
+    ['feanor_mounted','페아노르(기마)','Feanor, mounted',{ faction:'elf', weapon:'sword' }],
+    ['turin_mounted','투린(기마)','Turin Turambar, mounted',{ faction:'men', weapon:'sword' }],
+    ['tuor_mounted','투오르(기마)','Tuor, mounted',{ faction:'men', weapon:'sword' }],
+    ['beleg_mounted','벨레그(기마)','Beleg Cuthalion, mounted',{ faction:'doriath', weapon:'bow' }],
+    ['hurin_thalion_mounted','후린 탈리온(기마)','Hurin Thalion, mounted',{ faction:'men', weapon:'sword' }],
+    ['maeglin_mounted','매글린(기마)','Maeglin, mounted',{ faction:'elf', weapon:'sword' }]] },
   { sheet:null, side:'good', faction:'elf', role:'hero', weapon:'sword', base:'XL', traits:['mounted'], units:[
     ['fingon_mounted','핑곤(기마)','Fingon, mounted'],
     ['ecthelion_mounted','엑텔리온(기마)','Ecthelion, mounted'],
