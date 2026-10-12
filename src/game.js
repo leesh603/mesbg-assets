@@ -2214,7 +2214,7 @@ P.beginRound = function () {
         const _pool = _w < 10 ? [['warg', 'warg', 'warg'], ['uruk_berserker', 'uruk_berserker']]
             : _w < 20 ? [['cave_troll'], ['nazgul_mounted'], ['warg', 'warg', 'warg', 'warg']]
             : _w < 35 ? [['nazgul_fellbeast'], ['shelob']]
-            : [['shelob'], ['spider_queen'], ['mirkwood_spider', 'mirkwood_spider', 'mirkwood_spider'], ['carcharoth'], ['scatha']];
+            : [['carcharoth'], ['scatha'], ['smaug'], ['glaurung']];
         const _pick = _pool[Math.floor(this.rng() * _pool.length)];
         const _dx = 500 + Math.floor(this.rng() * 1200), _dy = 1050 + Math.floor(this.rng() * 250);
         let _n = 0;
