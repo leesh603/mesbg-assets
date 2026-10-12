@@ -2198,6 +2198,24 @@ P.beginRound = function () {
         _eg.autoAlly = true;
         this.emit('Event', '🦅 독수리의 지원 — 민들레가 하늘에서 내려와 함께 싸웁니다', { uid: _eg.uid });
     }
+    // 다크 이벤트 — 웨이브당 1회, 4라운드 이후 낮은 확률로 강한 적이 후방에 침투
+    if (!this._darkEvent && !this.current?.boss && this.round >= 4 && this.rng() < (this.difficulty === 'despair' ? .16 : this.difficulty === 'hard' ? .11 : .08)) {
+        this._darkEvent = true;
+        const _w = this.wave;
+        const _pool = _w < 10 ? [['warg', 'warg', 'warg'], ['uruk_berserker', 'uruk_berserker']]
+            : _w < 20 ? [['cave_troll'], ['nazgul_mounted'], ['warg', 'warg', 'warg', 'warg']]
+            : _w < 35 ? [['war_troll'], ['nazgul_fellbeast'], ['olog_hai']]
+            : [['nazgul_fellbeast'], ['carcharoth'], ['scatha']];
+        const _pick = _pool[Math.floor(this.rng() * _pool.length)];
+        const _dx = 500 + Math.floor(this.rng() * 1200), _dy = 1050 + Math.floor(this.rng() * 250);
+        let _n = 0;
+        for (const _id of _pick) { const _su = this.spawn(_id, 'evil', { x: _dx + _n * 70 - _pick.length * 35, y: _dy }); _su && _n++; }
+        if (_n) {
+            const _nm = (this.meta.get(_pick[0]) || {}).name_ko || _pick[0];
+            this.emit('Event', `🌑 다크 이벤트 — ${_nm}${_n > 1 ? ' 무리' : ''}이(가) 후방에 침투했습니다!`, { at: { x: _dx, y: _dy } });
+            this.emit('BossWarning', '어둠 속에서 적이 침투합니다 — 후방을 주의하세요.');
+        }
+    }
     if (!this._startCounts) this._startCounts = { good: this.alive('good').length, evil: this.alive('evil').length };
     for (const _sd of ['good', 'evil']) {
         const _st = this._startCounts[_sd] || 0;
