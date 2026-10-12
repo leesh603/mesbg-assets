@@ -13,10 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
-      MESBG_BASE_REF: dbd48447b9719bd97ddb63269cb762147348a22c
+      MESBG_BASE_REF: bc1f3ed6512174eef78eeed1fd310a01eb9f21eb
     steps:
       - uses: actions/checkout@v4
         with:
+          fetch-depth: 20
           sparse-checkout: |
             src
             tools
@@ -26,67 +27,72 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Apply exact locally verified source repairs
+      - name: Merge reviewed concurrent main changes without replacing game fixes
         shell: bash
         run: |
           set -euo pipefail
           test "$GITHUB_REF_NAME" = 'fix/qa-gameplay-20261012'
           mkdir -p qa-results
-          git fetch --no-tags --depth=1 origin "$MESBG_BASE_REF"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git fetch --no-tags --depth=20 origin "$MESBG_BASE_REF"
+          git merge --no-ff --no-commit "$MESBG_BASE_REF" || true
           python3 - <<'PY'
-          import base64, hashlib, json, lzma
+          import os, re, subprocess
           from pathlib import Path
-          # Compressed JSON text edits transport the tested changes without
-          # replacing multi-megabyte files through a truncated text interface.
-          # Every input and output is SHA-256 checked before writing any file.
-          raw = lzma.decompress(base64.b64decode(Path('tools/qa/gameplay-20261012.patch.xz.b64').read_text()))
-          assert hashlib.sha256(raw).hexdigest() == '6e07a1adc37bac0d77a85319134683a336d18be5119761f788b4f27bbe3c2b3b', 'Patch payload mismatch'
-          manifest = json.loads(raw)
-          allowed = {'src/game.js', 'index.html', 'lwb-worker/src/index.js', 'tests/progression.test.cjs', 'tests/tactics.test.cjs'}
-          assert {f['path'] for f in manifest['files']} == allowed
-          pending = []
-          for f in manifest['files']:
-              path = Path(f['path'])
-              text = path.read_text()
-              digest = lambda s: hashlib.sha256(s.encode()).hexdigest()
-              if digest(text) == f['after']:
-                  continue
-              assert digest(text) == f['before'], 'Changed upstream file: ' + str(path)
-              for start, end, replacement in reversed(f['edits']):
-                  assert 0 <= start <= end <= len(text)
-                  text = text[:start] + replacement + text[end:]
-              assert digest(text) == f['after'], 'Output mismatch: ' + str(path)
-              pending.append((path, text))
-          for path, text in pending:
-              path.write_text(text)
-              print('Applied', path)
-          Path('qa-results/applied.json').write_text(json.dumps({'base': manifest['base'], 'files': [{k:v for k,v in f.items() if k != 'edits'} for f in manifest['files']]}, indent=2))
+          def git(*args): return subprocess.check_output(['git', *args]).decode()
+          conflicts=git('diff','--name-only','--diff-filter=U').splitlines()
+          assert set(conflicts) <= {'index.html','src/game.js'}, 'Unexpected conflict: '+repr(conflicts)
+          base=git('merge-base','HEAD',os.environ['MESBG_BASE_REF']).strip()
+          # main already contained a top-of-document diff3 conflict before this
+          # repair. Normalize THAT historical conflict consistently on all three
+          # inputs, then use a real three-way merge; never choose an entire side.
+          def normalize(text):
+              if not text.startswith('<<<<<<< HEAD\n'): return text
+              pattern=r'^<<<<<<< HEAD\n(.*?)^\|{7} [^\n]*\n.*?^={7}\n.*?^>{7} [^\n]*\n'
+              fixed,n=re.subn(pattern,lambda m:m[1],text,count=1,flags=re.S|re.M)
+              assert n==1, 'Unrecognized historical merge conflict'
+              return fixed
+          for path in conflicts:
+              names=[]
+              for label,ref in [('ours','HEAD'),('base',base),('theirs',os.environ['MESBG_BASE_REF'])]:
+                  text=git('show',ref+':'+path)
+                  if path=='index.html': text=normalize(text)
+                  temp=Path('qa-results')/(Path(path).name+'.'+label)
+                  temp.write_text(text);names.append(str(temp))
+              merged=subprocess.run(['git','merge-file','-p',*names],capture_output=True,text=True)
+              assert merged.returncode==0, 'Needs manual conflict review: '+path
+              Path(path).write_text(merged.stdout)
+              subprocess.check_call(['git','add',path])
+          html=Path('index.html').read_text();src=Path('src/game.js').read_text()
+          begin='/*__LWB_SRC_BEGIN__*/';end='/*__LWB_SRC_END__*/'
+          a=html.index(begin)+len(begin);b=html.index(end)
+          Path('index.html').write_text(html[:a]+'\n'+src.strip()+'\n'+html[b:])
+          subprocess.check_call(['git','add','index.html','src/game.js'])
+          assert not git('diff','--name-only','--diff-filter=U').strip()
           PY
-      - name: Verify syntax and all repository regressions with original assets
+      - name: Verify merged game with the latest original assets
         shell: bash
         run: |
           set -euo pipefail
           node --check src/game.js
           node --check lwb-worker/src/index.js
           node --test tests/*.test.cjs 2>&1 | tee qa-results/repository-tests.log
-          git diff --check
-          git diff --stat | tee qa-results/diff-stat.txt
-      - name: Commit verified game files to this branch only
+          git diff --cached --check
+          git diff --cached --stat | tee qa-results/diff-stat.txt
+      - name: Commit tested integration to this branch only
         shell: bash
         run: |
           set -euo pipefail
           test "$GITHUB_REF_NAME" = 'fix/qa-gameplay-20261012'
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add src/game.js index.html lwb-worker/src/index.js tests/progression.test.cjs tests/tactics.test.cjs
-          if ! git diff --cached --quiet; then
-            git commit -m 'fix: repair campaign saves, retry state, injuries, mandatory bosses and purge freezes'
+          if ! git diff --cached --quiet || [ -f .git/MERGE_HEAD ]; then
+            git commit -m 'merge: preserve latest art updates with verified campaign repairs'
             git push origin HEAD:refs/heads/fix/qa-gameplay-20261012
           fi
           git rev-parse HEAD | tee qa-results/COMMIT.txt
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: gameplay-fix-results
+          name: gameplay-integrated-results
           path: qa-results/
           retention-days: 7
