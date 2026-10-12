@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "count": 539,
+  "count": 540,
   "units": [
     {
       "id": "aragorn",
@@ -2198,8 +2198,8 @@
     },
     {
       "id": "gamling",
-      "name_ko": "감링(기수)",
-      "name_en": "Gamling with banner",
+      "name_ko": "감링",
+      "name_en": "Gamling",
       "side": "good",
       "faction": "rohan",
       "role": "hero",
@@ -10440,6 +10440,19 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/guthlaf_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "gamling_mounted",
+      "name_ko": "감링(기마)",
+      "name_en": "Gamling, mounted",
+      "side": "good",
+      "faction": "rohan",
+      "role": "hero",
+      "weapon": "banner",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/gamling_mounted.png",
       "base_mm": "40mm"
     },
     {

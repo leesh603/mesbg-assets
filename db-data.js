@@ -169,7 +169,7 @@ module.exports = [
   ['faramir', '파라미르', 'Faramir', { faction: 'gondor', weapon: 'bow' }],
   ['haldir', '할디르', 'Haldir', { faction: 'lothlorien', weapon: 'twohanded' }],
   ['galadriel', '갈라드리엘', 'Galadriel', { faction: 'lothlorien', weapon: 'none' }],
-  ['gamling', '감링(기수)', 'Gamling with banner', { faction: 'rohan', weapon: 'banner' }],
+  ['gamling', '감링', 'Gamling', { faction: 'rohan', weapon: 'banner' }],
   ['samwise', '샘와이즈', 'Samwise Gamgee', { faction: 'shire', weapon: 'dagger', base: 'S' }],
 ]},
 { sheet: 'roster-evil-heroes-exp-v1.png', side: 'evil', role: 'hero', units: [
@@ -786,7 +786,8 @@ module.exports = [
     ['grimbold_mounted','그림볼드(기마)','Grimbold, mounted'],
     ['harding_mounted','하딩(기마)','Harding, mounted',{ weapon:'bow' }],
     ['dunhere_mounted','둔헤레(기마)','Dunhere, mounted',{ weapon:'spear' }],
-    ['guthlaf_mounted','구슬라프(기마)','Guthlaf, mounted',{ weapon:'banner' }]] },
+    ['guthlaf_mounted','구슬라프(기마)','Guthlaf, mounted',{ weapon:'banner' }],
+    ['gamling_mounted','감링(기마)','Gamling, mounted',{ weapon:'banner' }]] },
   { sheet:null, side:'good', faction:'elf', role:'hero', weapon:'sword', base:'XL', traits:['mounted'], units:[
     ['fingon_mounted','핑곤(기마)','Fingon, mounted'],
     ['ecthelion_mounted','엑텔리온(기마)','Ecthelion, mounted'],
