@@ -779,4 +779,22 @@ module.exports = [
     ['morgul_duellist','모르굴 결투사','Morgul Duellist']] },
   { sheet:'px-nb-roster-varied-v2.png', side:'evil', faction:'mordor', role:'monster', weapon:'staff', base:'L', traits:[], units:[
     ['troll_shaman','트롤 주술사','Troll Shaman']] },
+
+  // --- 영웅 기마 확장 (승인 2026-10-12): 로한 5 + 실마릴리온 9 ---
+  { sheet:null, side:'good', faction:'rohan', role:'hero', weapon:'sword', base:'XL', traits:['mounted'], units:[
+    ['deorwine_mounted','데오르바인(기마)','Deorwine, mounted',{ weapon:'sword_shield' }],
+    ['grimbold_mounted','그림볼드(기마)','Grimbold, mounted'],
+    ['harding_mounted','하딩(기마)','Harding, mounted',{ weapon:'bow' }],
+    ['dunhere_mounted','둔헤레(기마)','Dunhere, mounted',{ weapon:'spear' }],
+    ['guthlaf_mounted','구슬라프(기마)','Guthlaf, mounted',{ weapon:'banner' }]] },
+  { sheet:null, side:'good', faction:'elf', role:'hero', weapon:'sword', base:'XL', traits:['mounted'], units:[
+    ['fingon_mounted','핑곤(기마)','Fingon, mounted'],
+    ['ecthelion_mounted','엑텔리온(기마)','Ecthelion, mounted'],
+    ['finrod_felagund_mounted','핀로드(기마)','Finrod Felagund, mounted'],
+    ['maedhros_mounted','마이드로스(기마)','Maedhros, mounted'],
+    ['celegorm_mounted','켈레고름(기마)','Celegorm, mounted',{ weapon:'spear' }],
+    ['turgon_mounted','투르곤(기마)','Turgon, mounted'],
+    ['cirdan_mounted','키르단(기마)','Cirdan, mounted'],
+    ['gil_galad_mounted','길갈라드(기마)','Gil-galad, mounted',{ weapon:'spear' }],
+    ['thingol_mounted','싱골(기마)','Thingol, mounted',{ faction:'doriath' }]] },
 ];

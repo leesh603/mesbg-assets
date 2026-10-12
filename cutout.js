@@ -168,6 +168,21 @@ const sheets = [
   { file: 'nb-single-esgaroth-archer.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-nb-single-esgaroth-archer.png', names: ['esgaroth_archer'] },
   { file: 'px-single-witchking-spear.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-single-witchking-spear.png', names: ['witchking_spear'] },
   { file: 'px-single-azog-foot.png', rows: 1, cols: 1, noRim: true, paintedFile: 'px-single-azog-foot.png', names: ['azog_foot'] },
+  // mounted hero batch (approved 시안 2026-10-12)
+  { file: 'nb-single-deorwine-mounted.png', rows: 1, cols: 1, noRim: true, names: ['deorwine_mounted'] },
+  { file: 'nb-single-grimbold-mounted.png', rows: 1, cols: 1, noRim: true, names: ['grimbold_mounted'] },
+  { file: 'nb-single-harding-mounted.png', rows: 1, cols: 1, noRim: true, names: ['harding_mounted'] },
+  { file: 'nb-single-dunhere-mounted.png', rows: 1, cols: 1, noRim: true, names: ['dunhere_mounted'] },
+  { file: 'nb-single-guthlaf-mounted.png', rows: 1, cols: 1, noRim: true, names: ['guthlaf_mounted'] },
+  { file: 'nb-single-fingon-mounted.png', rows: 1, cols: 1, noRim: true, names: ['fingon_mounted'] },
+  { file: 'nb-single-ecthelion-mounted.png', rows: 1, cols: 1, noRim: true, names: ['ecthelion_mounted'] },
+  { file: 'nb-single-finrod-mounted.png', rows: 1, cols: 1, noRim: true, names: ['finrod_felagund_mounted'] },
+  { file: 'nb-single-maedhros-mounted.png', rows: 1, cols: 1, noRim: true, names: ['maedhros_mounted'] },
+  { file: 'nb-single-celegorm-mounted.png', rows: 1, cols: 1, noRim: true, names: ['celegorm_mounted'] },
+  { file: 'nb-single-thingol-mounted.png', rows: 1, cols: 1, noRim: true, names: ['thingol_mounted'] },
+  { file: 'nb-single-turgon-mounted.png', rows: 1, cols: 1, noRim: true, names: ['turgon_mounted'] },
+  { file: 'nb-single-cirdan-mounted.png', rows: 1, cols: 1, noRim: true, names: ['cirdan_mounted'] },
+  { file: 'nb-single-gilgalad-mounted.png', rows: 1, cols: 1, noRim: true, names: ['gil_galad_mounted'] },
 ];
 
 function idx(x, y, w) { return (y * w + x) << 2; }
