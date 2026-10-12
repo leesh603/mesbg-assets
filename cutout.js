@@ -206,6 +206,12 @@ const sheets = [
   { file: 'nb-single-betrayer-mounted.png', rows: 1, cols: 1, noRim: true, names: ['betrayer_mounted'] },
   { file: 'nb-single-bolg-mounted.png', rows: 1, cols: 1, noRim: true, names: ['bolg_mounted'] },
   { file: 'nb-single-guritz-mounted.png', rows: 1, cols: 1, noRim: true, names: ['guritz_mounted'] },
+  { file: 'nb-single-feanor-mounted.png', rows: 1, cols: 1, noRim: true, names: ['feanor_mounted'] },
+  { file: 'nb-single-turin-mounted.png', rows: 1, cols: 1, noRim: true, names: ['turin_mounted'] },
+  { file: 'nb-single-tuor-mounted.png', rows: 1, cols: 1, noRim: true, names: ['tuor_mounted'] },
+  { file: 'nb-single-beleg-mounted.png', rows: 1, cols: 1, noRim: true, names: ['beleg_mounted'] },
+  { file: 'nb-single-hurin_thalion-mounted.png', rows: 1, cols: 1, noRim: true, names: ['hurin_thalion_mounted'] },
+  { file: 'nb-single-maeglin-mounted.png', rows: 1, cols: 1, noRim: true, names: ['maeglin_mounted'] },
   { file: 'nb-single-gilgalad-foot9.png', rows: 1, cols: 1, noRim: true, names: ['gil_galad'] },
 ];
 
