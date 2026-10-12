@@ -491,7 +491,7 @@ else if (Z.phase === "shoot") {
     const b = Z.validTargets(Y).sort((H, K) => H.currentWounds - K.currentWounds || H.stats.defence - K.stats.defence || ht(H, Mt.objective) - ht(K, Mt.objective))[0];
     (!b || !Z.shoot(Y.uid, b.uid)) && Z.wait(Y.uid);
 } }
-const __ASSET_SET__ = new Set([...Object.keys(window.__MESBG_ASSETS__ || {}), ...(window.__MESBG_ASSET_KEYS__ || [])]), __assetOk = Z => __ASSET_SET__.has(Z), Ut = Z => { var Y; return ((Y = window.__MESBG_ASSETS__) == null ? void 0 : Y[Z]) || `./assets/mesbg/${Z}${Z.includes('?') ? '' : '?v='+('a14')}`; }, pe = document.createElement("style");
+const __ASSET_SET__ = new Set([...Object.keys(window.__MESBG_ASSETS__ || {}), ...(window.__MESBG_ASSET_KEYS__ || [])]), __assetOk = Z => __ASSET_SET__.has(Z), Ut = Z => { var Y; return ((Y = window.__MESBG_ASSETS__) == null ? void 0 : Y[Z]) || `./assets/mesbg/${Z}${Z.includes('?') ? '' : '?v='+('a15')}`; }, pe = document.createElement("style");
 // Small WebP portraits for DOM UI (cards, panels). Full PNGs stay for the battlefield. Regenerate with tools/make_thumbs.py.
 const Th = Z => { const m = /^tokens\/(.+)\.png/.exec(Z || ''); return m ? Ut('thumbs/' + m[1] + '.webp') : Ut(Z); }, ThFallback = 'this.onerror=null;this.src=this.dataset.full';
 pe.textContent = `@font-face{font-family:Pretendard;src:url('${Ut("fonts/PretendardVariable.woff2")}') format('woff2');font-weight:100 900;font-display:swap}`;
@@ -933,7 +933,7 @@ for (const [id, p] of Object.entries(zt)) {
         p.traits.push('flying');
 }
 q.meta = new Map((window.CAMPAIGN_META || []).filter(u => zt[u.id] || u.side === 'terrain').map(u => [u.id, u]));
-q.meta.set('morgoth', { id: 'morgoth', name_ko: '모르고스', name_en: 'Morgoth', side: 'evil', faction: 'mordor', role: 'monster', weapon: 'mace', base: 'XXL', file: 'tokens/morgoth.png' });
+q.meta.set('morgoth', { id: 'morgoth', name_ko: '모르고스', name_en: 'Morgoth', side: 'evil', faction: 'mordor', role: 'monster', weapon: 'mace', base: 'XXL', file: 'tokens/morgoth.png', artScale: 1.3 });
 // Check the exact metadata and asset availability before preload.
 for (const [id, u] of q.meta)
     if (!__assetOk(u.file))
