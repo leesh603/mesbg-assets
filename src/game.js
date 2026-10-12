@@ -2213,7 +2213,7 @@ P.beginRound = function () {
         const _w = this.wave;
         const _pool = _w < 10 ? [['warg', 'warg', 'warg'], ['uruk_berserker', 'uruk_berserker']]
             : _w < 20 ? [['cave_troll'], ['nazgul_mounted'], ['warg', 'warg', 'warg', 'warg']]
-            : _w < 35 ? [['war_troll'], ['nazgul_fellbeast'], ['olog_hai']]
+            : _w < 35 ? [['nazgul_fellbeast']]
             : [['nazgul_fellbeast'], ['carcharoth'], ['scatha']];
         const _pick = _pool[Math.floor(this.rng() * _pool.length)];
         const _dx = 500 + Math.floor(this.rng() * 1200), _dy = 1050 + Math.floor(this.rng() * 250);
