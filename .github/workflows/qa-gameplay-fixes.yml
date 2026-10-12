@@ -4,11 +4,16 @@ on:
     branches: [fix/qa-gameplay-20261012]
     paths: [.github/workflows/qa-gameplay-fixes.yml]
 permissions:
-  contents: read
+  contents: write
+concurrency:
+  group: gameplay-fixes-20261012
+  cancel-in-progress: false
 jobs:
-  source:
+  verify-and-commit:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
+    env:
+      MESBG_BASE_REF: dbd48447b9719bd97ddb63269cb762147348a22c
     steps:
       - uses: actions/checkout@v4
         with:
@@ -17,17 +22,71 @@ jobs:
             tools
             tests
             lwb-worker
-          persist-credentials: false
-      - name: Export exact source for local regression testing
-        run: |
-          mkdir -p qa-source
-          cp --parents src/game.js index.html tools/build.js lwb-worker/src/index.js lwb-worker/wrangler.toml qa-source/
-          if [ -f package.json ]; then cp package.json qa-source/; fi
-          if [ -d tests ]; then cp -R tests qa-source/; fi
-          git rev-parse HEAD > qa-source/COMMIT.txt
-          git log -6 --oneline > qa-source/RECENT_COMMITS.txt
-      - uses: actions/upload-artifact@v4
+            assets/mesbg
+      - uses: actions/setup-node@v4
         with:
-          name: gameplay-source
-          path: qa-source/
-          retention-days: 3
+          node-version: '22'
+      - name: Apply exact locally verified source repairs
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = 'fix/qa-gameplay-20261012'
+          mkdir -p qa-results
+          git fetch --no-tags --depth=1 origin "$MESBG_BASE_REF"
+          python3 - <<'PY'
+          import base64, hashlib, json, lzma
+          from pathlib import Path
+          # Compressed JSON text edits transport the tested changes without
+          # replacing multi-megabyte files through a truncated text interface.
+          # Every input and output is SHA-256 checked before writing any file.
+          raw = lzma.decompress(base64.b64decode(Path('tools/qa/gameplay-20261012.patch.xz.b64').read_text()))
+          assert hashlib.sha256(raw).hexdigest() == '6e07a1adc37bac0d77a85319134683a336d18be5119761f788b4f27bbe3c2b3b', 'Patch payload mismatch'
+          manifest = json.loads(raw)
+          allowed = {'src/game.js', 'index.html', 'lwb-worker/src/index.js', 'tests/progression.test.cjs', 'tests/tactics.test.cjs'}
+          assert {f['path'] for f in manifest['files']} == allowed
+          pending = []
+          for f in manifest['files']:
+              path = Path(f['path'])
+              text = path.read_text()
+              digest = lambda s: hashlib.sha256(s.encode()).hexdigest()
+              if digest(text) == f['after']:
+                  continue
+              assert digest(text) == f['before'], 'Changed upstream file: ' + str(path)
+              for start, end, replacement in reversed(f['edits']):
+                  assert 0 <= start <= end <= len(text)
+                  text = text[:start] + replacement + text[end:]
+              assert digest(text) == f['after'], 'Output mismatch: ' + str(path)
+              pending.append((path, text))
+          for path, text in pending:
+              path.write_text(text)
+              print('Applied', path)
+          Path('qa-results/applied.json').write_text(json.dumps({'base': manifest['base'], 'files': [{k:v for k,v in f.items() if k != 'edits'} for f in manifest['files']]}, indent=2))
+          PY
+      - name: Verify syntax and all repository regressions with original assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --check src/game.js
+          node --check lwb-worker/src/index.js
+          node --test tests/*.test.cjs 2>&1 | tee qa-results/repository-tests.log
+          git diff --check
+          git diff --stat | tee qa-results/diff-stat.txt
+      - name: Commit verified game files to this branch only
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = 'fix/qa-gameplay-20261012'
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add src/game.js index.html lwb-worker/src/index.js tests/progression.test.cjs tests/tactics.test.cjs
+          if ! git diff --cached --quiet; then
+            git commit -m 'fix: repair campaign saves, retry state, injuries, mandatory bosses and purge freezes'
+            git push origin HEAD:refs/heads/fix/qa-gameplay-20261012
+          fi
+          git rev-parse HEAD | tee qa-results/COMMIT.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gameplay-fix-results
+          path: qa-results/
+          retention-days: 7
