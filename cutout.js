@@ -188,6 +188,14 @@ const sheets = [
   { file: 'nb-single-frealaf-mounted.png', rows: 1, cols: 1, noRim: true, names: ['frealaf_mounted'] },
   { file: 'nb-single-thrydan-mounted.png', rows: 1, cols: 1, noRim: true, names: ['thrydan_mounted'] },
   { file: 'nb-single-hera-mounted.png', rows: 1, cols: 1, noRim: true, names: ['hera_mounted'] },
+  { file: 'nb-single-elendil-mounted.png', rows: 1, cols: 1, noRim: true, names: ['elendil_mounted'] },
+  { file: 'nb-single-isildur-mounted.png', rows: 1, cols: 1, noRim: true, names: ['isildur_mounted'] },
+  { file: 'nb-single-anarion-mounted.png', rows: 1, cols: 1, noRim: true, names: ['anarion_mounted'] },
+  { file: 'nb-single-cirion-mounted.png', rows: 1, cols: 1, noRim: true, names: ['cirion_mounted'] },
+  { file: 'nb-single-earnur-mounted.png', rows: 1, cols: 1, noRim: true, names: ['earnur_mounted'] },
+  { file: 'nb-single-arvedui-mounted.png', rows: 1, cols: 1, noRim: true, names: ['arvedui_mounted'] },
+  { file: 'nb-single-arathorn-mounted.png', rows: 1, cols: 1, noRim: true, names: ['arathorn_mounted'] },
+  { file: 'nb-single-halbarad-mounted.png', rows: 1, cols: 1, noRim: true, names: ['halbarad_mounted'] },
   { file: 'nb-single-gilgalad-foot9.png', rows: 1, cols: 1, noRim: true, names: ['gil_galad'] },
 ];
 

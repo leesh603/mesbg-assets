@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "count": 545,
+  "count": 553,
   "units": [
     {
       "id": "aragorn",
@@ -10518,6 +10518,110 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/hera_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "elendil_mounted",
+      "name_ko": "엘렌딜(기마)",
+      "name_en": "Elendil, mounted",
+      "side": "good",
+      "faction": "arnor",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/elendil_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "isildur_mounted",
+      "name_ko": "이실두르(기마)",
+      "name_en": "Isildur, mounted",
+      "side": "good",
+      "faction": "gondor",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/isildur_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "anarion_mounted",
+      "name_ko": "아나리온(기마)",
+      "name_en": "Anarion, mounted",
+      "side": "good",
+      "faction": "numenor",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/anarion_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "cirion_mounted",
+      "name_ko": "키리온(기마)",
+      "name_en": "Cirion, mounted",
+      "side": "good",
+      "faction": "gondor",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/cirion_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "earnur_mounted",
+      "name_ko": "에아르누르(기마)",
+      "name_en": "Earnur, mounted",
+      "side": "good",
+      "faction": "gondor",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/earnur_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "arvedui_mounted",
+      "name_ko": "아르베두이(기마)",
+      "name_en": "Arvedui, mounted",
+      "side": "good",
+      "faction": "arnor",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/arvedui_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "arathorn_mounted",
+      "name_ko": "아라손(기마)",
+      "name_en": "Arathorn, mounted",
+      "side": "good",
+      "faction": "arnor",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/arathorn_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "halbarad_mounted",
+      "name_ko": "할바라드(기마)",
+      "name_en": "Halbarad, mounted",
+      "side": "good",
+      "faction": "arnor",
+      "role": "hero",
+      "weapon": "banner",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/halbarad_mounted.png",
       "base_mm": "40mm"
     },
     {
