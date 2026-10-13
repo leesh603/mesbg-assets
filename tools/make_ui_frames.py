@@ -86,3 +86,98 @@ for y in range(64):
         if r < .06: p[x, y] = (255, 240, 200, 10)
         elif r < .14: p[x, y] = (0, 0, 0, 22)
 save(g, 'grain.png')
+
+
+# ---------------------------------------------------------------------------------------------
+# Ornate frames: 36x36, 12px slice. Corners carry a small scroll and leaf tendril (drawn from a
+# char map, mirrored for the other corners); edges are a 4-ring metal band. Shown at 2x.
+#   K ink  D dark metal  M mid  L light  . clear
+CORNER = [
+    "KKKKKKKKKKKK",
+    "KDDDDDDDDDDD",
+    "KDLLLLLLLLLL",
+    "KDLMMMMMMMMM",
+    "KDLM........",
+    "KDLM.LLLLLLD",
+    "KDLM.L......",
+    "KDLM.L.GL...",
+    "KDLM.L.LG...",
+    "KDLM.L......",
+    "KDLM.L......",
+    "KDLM.D......",
+]
+OS = 36
+
+
+def ornate(dark, mid, light, name):
+    D, M, L = hexrgb(dark), hexrgb(mid), hexrgb(light)
+    pal = {'K': INK, 'D': D, 'M': M, 'L': L, 'G': hexrgb('#f6e3a6')}
+    im = Image.new('RGBA', (OS, OS), (0, 0, 0, 0)); px = im.load()
+    # edges
+    band = ['K', 'D', 'L', 'M']
+    for i in range(OS):
+        for k, ch in enumerate(band):
+            for (x, y) in ((i, k), (i, OS - 1 - k), (k, i), (OS - 1 - k, i)):
+                px[x, y] = pal[ch]
+    # mid-edge rivets
+    for (x, y) in ((OS // 2, 2), (OS // 2, OS - 3), (2, OS // 2), (OS - 3, OS // 2)):
+        px[x, y] = L
+    # corners (mirror)
+    for j, row in enumerate(CORNER):
+        for i, ch in enumerate(row):
+            if ch == '.': continue
+            c = pal[ch]
+            for (x, y) in ((i, j), (OS - 1 - i, j), (i, OS - 1 - j), (OS - 1 - i, OS - 1 - j)):
+                px[x, y] = c
+    for (cx, cy) in ((0, 0), (OS - 1, 0), (0, OS - 1), (OS - 1, OS - 1)):
+        px[cx, cy] = (0, 0, 0, 0)
+    save(im, name)
+
+
+ornate('#3a2912', '#8a6a32', '#e8c87e', 'panel-ornate.png')
+for k, (d, m, l) in TIERS.items():
+    ornate(d, m, l, f'card-ornate-{k}.png')
+
+# title divider 120x9: tapering rule, centre diamond with two leaf curls, end knobs
+W9, H9 = 120, 9
+dv = Image.new('RGBA', (W9, H9), (0, 0, 0, 0)); p = dv.load()
+G, Gd, Gl = hexrgb('#c9a24e'), hexrgb('#6b4e1e'), hexrgb('#f6e3a6')
+c = W9 // 2
+for x in range(6, W9 - 6):
+    d = abs(x - c) / (c - 6)
+    if d < .97:
+        p[x, 4] = Gl if d < .5 else G
+        if d < .75: p[x, 5] = Gd
+for k in range(5):           # diamond
+    for dx in range(-k, k + 1):
+        p[c + dx, 4 - (4 - k)] = G if abs(dx) == k else Gl
+        p[c + dx, 4 + (4 - k)] = G if abs(dx) == k else Gl
+for s in (-1, 1):            # leaf curls either side of the diamond
+    for (dx, dy) in ((6, -2), (7, -3), (8, -3), (9, -2), (9, -1), (8, 0), (7, 1), (6, 2), (10, 2), (11, 1)):
+        p[c + s * dx, 4 + dy] = G
+    for (dx, dy) in ((7, -2), (8, -2)):
+        p[c + s * dx, 4 + dy] = Gl
+    for (dx, dy) in ((W9 // 2 - 5, 0), (W9 // 2 - 4, -1), (W9 // 2 - 4, 1), (W9 // 2 - 3, 0)):
+        p[c + s * dx, 4 + dy] = G
+save(dv, 'divider.png')
+
+# crest 26x14: winged star, sits on the top edge of dialogs
+cr = Image.new('RGBA', (26, 14), (0, 0, 0, 0)); p = cr.load()
+STAR = ["......K......",
+        ".....KLK.....",
+        "....KLGLK....",
+        ".KKKLGLGLKKK.",
+        "KLGGGLKLGGGLK",
+        ".KKKLGLGLKKK.",
+        "....KLGLK....",
+        ".....KLK.....",
+        "......K......"]
+cp = {'K': INK, 'L': Gl, 'G': G}
+for j, row in enumerate(STAR):
+    for i, ch in enumerate(row):
+        if ch in cp: p[6 + i, 2 + j] = cp[ch]
+for s in (-1, 1):  # wings
+    for (dx, dy, ch) in ((7, 0, 'K'), (8, -1, 'K'), (9, -1, 'G'), (10, -2, 'K'), (11, -2, 'G'), (12, -3, 'K'), (9, 0, 'L'), (10, -1, 'L'), (11, -1, 'L'), (12, -2, 'G'), (8, 1, 'K'), (9, 1, 'G'), (10, 1, 'K'), (11, 0, 'G'), (12, -1, 'K')):
+        x = 12 + s * dx
+        if 0 <= x < 26: p[x, 6 + dy] = cp[ch]
+save(cr, 'crest.png')

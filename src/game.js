@@ -7589,7 +7589,7 @@ window.__LWB = { be: (...a) => be(...a), He: (...a) => He(...a), metaFor, suppor
 function renderPolishedHUD() {
     document.body.dataset.phase=q.phase;document.body.dataset.side=q.side||'';
     {const wm=ut('wave')?.parentElement;if(wm)wm.dataset.round=['move','shoot','fight'].includes(q.phase)&&q.round?'R'+q.round:'';
-     const hm=document.querySelector('#hud-mission .hm-line'),em=ut('ux-mission')?.querySelector('em');if(hm)hm.textContent=em?.textContent||'원정 준비';}
+     const hm=document.querySelector('#hud-mission .hm-line'),em=ut('ux-mission')?.querySelector('em');if(hm)hm.textContent=em?.textContent||'원정 준비';{const box=ut('hud-mission'),mx=ut('ux-mission');if(box&&mx){let sub=box.querySelector('.hm-sub');if(!sub){sub=document.createElement('div');sub.className='hm-sub';box.appendChild(sub);}const c=mx.cloneNode(true);c.querySelector('em')?.remove();c.querySelectorAll('small,img').forEach(e=>e.remove());const t=c.textContent.replace(/^\s*[·—-]\s*/,'').trim();if(sub.textContent!==t)sub.textContent=t;box.classList.toggle('has-sub',!!t);}}}
     renderUnitVitals();
     if(!Qt&&q.phase==='reward'&&['event','relic'].includes(q.campStep)&&!q.eventOutcome){
         const modal=ut('overlay').querySelector('.modal'),draft=q.campDraft;
@@ -7979,7 +7979,7 @@ document.head.appendChild(polishStyle);
 // Pixel UI fonts (Galmuri, SIL OFL 1.1) — registered through Ut() so the offline bundle embeds them too.
 (function(){try{if(document.getElementById('lwb-fonts'))return;const st=document.createElement('style');st.id='lwb-fonts';
 const ff=(fam,file,w)=>"@font-face{font-family:'"+fam+"';src:url('"+Ut('fonts/galmuri/'+file+'.woff')+"') format('woff');font-weight:"+w+";font-display:swap}";
-st.textContent=ff('Galmuri11','Galmuri11',400)+ff('Galmuri11','Galmuri11-Bold',700)+ff('Galmuri9','Galmuri9',400)+ff('Galmuri14','Galmuri14',400)+":root{--ui-bg:url('"+Ut('ui/title-bg.jpg')+"')"+['panel','card-normal','card-elite','card-rare','card-epic','card-legendary','btn-gold','btn-gold-down','btn-bronze','chip','grain'].map(k=>';--fr-'+k+":url('"+Ut('ui/frames/'+k+'.png')+"')").join('')+"}";document.head.appendChild(st);}catch(e){}})();
+st.textContent=ff('Galmuri11','Galmuri11',400)+ff('Galmuri11','Galmuri11-Bold',700)+ff('Galmuri9','Galmuri9',400)+ff('Galmuri14','Galmuri14',400)+":root{--ui-bg:url('"+Ut('ui/title-bg.jpg')+"')"+['panel','card-normal','card-elite','card-rare','card-epic','card-legendary','btn-gold','btn-gold-down','btn-bronze','chip','grain','panel-ornate','card-ornate-normal','card-ornate-elite','card-ornate-rare','card-ornate-epic','card-ornate-legendary','divider','crest'].map(k=>';--fr-'+k+":url('"+Ut('ui/frames/'+k+'.png')+"')").join('')+"}";document.head.appendChild(st);}catch(e){}})();
 // Title shows real loader progress; the battlefield is veiled until its textures are in; DOM portraits shimmer until loaded.
 (function(){
 const st={p:0,done:false};
