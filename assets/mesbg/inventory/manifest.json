@@ -1,0 +1,4634 @@
+{
+  "version": 1,
+  "source": {
+    "repository": "leesh603/mesbg-assets",
+    "sha": "5662b66fae3fd996193ef565b84ec6118750fc5e"
+  },
+  "counts": {
+    "relics": 69,
+    "equipment": 65,
+    "expansion": 10,
+    "total": 144
+  },
+  "format": {
+    "cell": 256,
+    "columns": 4,
+    "rows": 4,
+    "padding_min": 20,
+    "alpha": "binary 0/255",
+    "pixel_grid": 2
+  },
+  "master": {
+    "file": "MESBG_ALL_144.png",
+    "width": 3072,
+    "height": 3072,
+    "columns": 12,
+    "rows": 12,
+    "cell": 256
+  },
+  "sheets": [
+    {
+      "file": "01_jewels_and_rings.png",
+      "width": 1024,
+      "height": 1024,
+      "icons": [
+        "relic:narya",
+        "relic:nenya",
+        "relic:vilya",
+        "relic:silmaril",
+        "relic:darkpact",
+        "relic:barahir_ring",
+        "relic:elessar",
+        "relic:evenstar",
+        "relic:nauglamir",
+        "relic:crown_west",
+        "relic:erebor_crown",
+        "relic:dunedain_star",
+        "equipment:arkenstone",
+        "equipment:elendilmir",
+        "equipment:elfstone",
+        "expansion:one_ring"
+      ]
+    },
+    {
+      "file": "02_legendary_arms.png",
+      "width": 1024,
+      "height": 1024,
+      "icons": [
+        "equipment:anduril",
+        "equipment:glamdring",
+        "equipment:sting",
+        "equipment:orcrist",
+        "equipment:ringil",
+        "equipment:gurthang",
+        "equipment:guthwine",
+        "equipment:herugrim",
+        "equipment:aeglos",
+        "equipment:grond_eq",
+        "equipment:belthronding",
+        "equipment:dragon_helm",
+        "equipment:angrist",
+        "equipment:durin_axe",
+        "equipment:black_arrow",
+        "equipment:barrow_blade"
+      ]
+    },
+    {
+      "file": "03_field_equipment.png",
+      "width": 1024,
+      "height": 1024,
+      "icons": [
+        "equipment:whetstone",
+        "equipment:plate",
+        "equipment:hunting_bow",
+        "equipment:tower_shield",
+        "equipment:mithril_helm",
+        "equipment:pike",
+        "equipment:ranger_boots",
+        "equipment:war_gauntlets",
+        "equipment:gondor_shield",
+        "equipment:rohan_lance",
+        "equipment:galadhrim_quiver",
+        "equipment:elven_cloak_eq",
+        "equipment:mithril_shirt_eq",
+        "equipment:erebor_plate",
+        "equipment:twin_knives",
+        "equipment:lorien_bow"
+      ]
+    },
+    {
+      "file": "04_supplies_and_charms.png",
+      "width": 1024,
+      "height": 1024,
+      "icons": [
+        "equipment:salve",
+        "equipment:bandage",
+        "equipment:lembas",
+        "equipment:star_flower",
+        "equipment:dunedain_star",
+        "equipment:wizard_powder",
+        "equipment:guardian_feather",
+        "equipment:lorien_arrow",
+        "equipment:arrowhead",
+        "equipment:north_map",
+        "equipment:athelas_leaf",
+        "equipment:dark_berry",
+        "equipment:king_oath",
+        "equipment:miruvor",
+        "equipment:palantir",
+        "equipment:galadriel_phial"
+      ]
+    },
+    {
+      "file": "05_mounts_and_standards.png",
+      "width": 1024,
+      "height": 1024,
+      "icons": [
+        "equipment:war_banner_eq",
+        "equipment:war_horn",
+        "equipment:king_standard",
+        "equipment:rohan_saddle",
+        "equipment:war_pennant",
+        "equipment:oath_stone",
+        "equipment:horn_gondor",
+        "equipment:shadowfax",
+        "equipment:asfaloth",
+        "equipment:brego",
+        "equipment:firefoot",
+        "equipment:hasufel",
+        "equipment:shire_pony",
+        "equipment:red_arrow",
+        "expansion:gandalf_staff",
+        "expansion:saruman_staff"
+      ]
+    },
+    {
+      "file": "06_core_relics.png",
+      "width": 1024,
+      "height": 1024,
+      "icons": [
+        "relic:lembas",
+        "relic:cloak",
+        "relic:horn",
+        "relic:horseshoe",
+        "relic:phial",
+        "relic:mithril",
+        "relic:cart",
+        "relic:palantir",
+        "relic:banner",
+        "relic:arrow",
+        "relic:narsil",
+        "relic:quiver",
+        "relic:warbanner",
+        "relic:durin_axe",
+        "relic:eagle_feather",
+        "relic:second_breakfast"
+      ]
+    },
+    {
+      "file": "07_faction_relics.png",
+      "width": 1024,
+      "height": 1024,
+      "icons": [
+        "relic:eohere_horn",
+        "relic:elven_feather",
+        "relic:numenor_map",
+        "relic:rohan_shield",
+        "relic:rohan_lance",
+        "relic:haradrim_bow",
+        "relic:ranger_cloak",
+        "relic:morannon_pike",
+        "relic:gondor_tabard",
+        "relic:mithril_mail",
+        "relic:shadowfax",
+        "relic:miruvor",
+        "relic:keys_erebor",
+        "relic:pipeweed",
+        "relic:athelas",
+        "relic:dwarf_axe"
+      ]
+    },
+    {
+      "file": "08_company_relics.png",
+      "width": 1024,
+      "height": 1024,
+      "icons": [
+        "relic:elf_bow",
+        "relic:ithilien_blade",
+        "relic:westfold_shield",
+        "relic:rohan_standard",
+        "relic:elven_rope",
+        "relic:alliance_standard",
+        "relic:fellowship_flag",
+        "relic:edain_banner",
+        "relic:bounty_list",
+        "relic:siege_wright",
+        "relic:white_pact",
+        "relic:master_flame",
+        "relic:lords_letter",
+        "relic:oath_dead",
+        "relic:harad_dart",
+        "relic:troll_heart"
+      ]
+    },
+    {
+      "file": "09_shadow_and_lore.png",
+      "width": 1024,
+      "height": 1024,
+      "icons": [
+        "relic:sting",
+        "relic:steward_ledger",
+        "relic:scouts_mark",
+        "relic:morgul_thorn",
+        "relic:ranger_hood",
+        "relic:mithril_ore",
+        "relic:beorn_mead",
+        "relic:anduin_mist",
+        "relic:black_breath",
+        "expansion:morgoth_crown",
+        "expansion:dramborleg",
+        "expansion:anglachel",
+        "expansion:dailir",
+        "expansion:galadriel_mirror",
+        "expansion:thror_key",
+        "expansion:mazarbul_book"
+      ]
+    }
+  ],
+  "icons": {
+    "relic:narya": {
+      "family": "relic",
+      "id": "narya",
+      "name": "나랴",
+      "sheet": "01_jewels_and_rings.png",
+      "index": 0,
+      "row": 1,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 20,
+        "y": 38,
+        "w": 216,
+        "h": 180
+      },
+      "master_frame": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Narya, a gold ring with one deep ruby red gem, flame engraved shoulders",
+      "rarity": 3,
+      "existing_path": "relics/icons/relic_narya.png",
+      "file": "inventory/icons/relic_narya.png"
+    },
+    "relic:nenya": {
+      "family": "relic",
+      "id": "nenya",
+      "name": "네냐",
+      "sheet": "01_jewels_and_rings.png",
+      "index": 1,
+      "row": 1,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 276,
+        "y": 38,
+        "w": 216,
+        "h": 178
+      },
+      "master_frame": {
+        "x": 256,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Nenya, mithril silver ring with a white adamant gem in a restrained floral silver setting",
+      "rarity": 3,
+      "existing_path": "relics/icons/relic_nenya.png",
+      "file": "inventory/icons/relic_nenya.png"
+    },
+    "relic:vilya": {
+      "family": "relic",
+      "id": "vilya",
+      "name": "빌랴",
+      "sheet": "01_jewels_and_rings.png",
+      "index": 2,
+      "row": 1,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 532,
+        "y": 36,
+        "w": 216,
+        "h": 182
+      },
+      "master_frame": {
+        "x": 512,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Vilya, gold ring with a large vivid blue sapphire and gold leaf filigree",
+      "rarity": 3,
+      "existing_path": "relics/icons/relic_vilya.png",
+      "file": "inventory/icons/relic_vilya.png"
+    },
+    "relic:silmaril": {
+      "family": "relic",
+      "id": "silmaril",
+      "name": "실마릴",
+      "sheet": "01_jewels_and_rings.png",
+      "index": 3,
+      "row": 1,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 820,
+        "y": 20,
+        "w": 152,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 768,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "description": "a Silmaril, a radiant faceted white crystal reflecting the silver and gold light of the Two Trees; no ring or metal mount",
+      "rarity": 3,
+      "existing_path": "relics/icons/relic_silmaril.png",
+      "file": "inventory/icons/relic_silmaril.png"
+    },
+    "relic:darkpact": {
+      "family": "relic",
+      "id": "darkpact",
+      "name": "위력의 반지",
+      "sheet": "01_jewels_and_rings.png",
+      "index": 4,
+      "row": 2,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 20,
+        "y": 294,
+        "w": 216,
+        "h": 178
+      },
+      "master_frame": {
+        "x": 1024,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "description": "game interpretation of a fragment of the Nine Rings of Men: fractured tarnished silver ring with smoky amethyst stone, visibly broken",
+      "rarity": 3,
+      "existing_path": "relics/icons/relic_one_ring.png",
+      "file": "inventory/icons/relic_darkpact.png"
+    },
+    "relic:barahir_ring": {
+      "family": "relic",
+      "id": "barahir_ring",
+      "name": "바라히르의 반지",
+      "sheet": "01_jewels_and_rings.png",
+      "index": 5,
+      "row": 2,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 278,
+        "y": 276,
+        "w": 210,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1280,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Ring of Barahir, two intertwined silver serpents with emerald eyes supporting a tiny crown of gold flowers",
+      "rarity": 2,
+      "existing_path": "relics/icons/relic_ring_barahir.png",
+      "file": "inventory/icons/relic_barahir_ring.png"
+    },
+    "relic:elessar": {
+      "family": "relic",
+      "id": "elessar",
+      "name": "엘렛사르",
+      "sheet": "01_jewels_and_rings.png",
+      "index": 6,
+      "row": 2,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 532,
+        "y": 290,
+        "w": 216,
+        "h": 188
+      },
+      "master_frame": {
+        "x": 1536,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Elessar, emerald green oval Elfstone on a silver eagle brooch with spread wings",
+      "rarity": 3,
+      "existing_path": "relics/icons/relic_elessar.png",
+      "file": "inventory/icons/relic_elessar.png"
+    },
+    "relic:evenstar": {
+      "family": "relic",
+      "id": "evenstar",
+      "name": "아렌델 저녁별",
+      "sheet": "01_jewels_and_rings.png",
+      "index": 7,
+      "row": 2,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 826,
+        "y": 276,
+        "w": 138,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1792,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Evenstar film-inspired silver star pendant, elongated white crystal petals, fine silver chain",
+      "rarity": 3,
+      "existing_path": "relics/icons/relic_evenstar.png",
+      "display_name": "아르웬의 저녁별",
+      "file": "inventory/icons/relic_evenstar.png"
+    },
+    "relic:nauglamir": {
+      "family": "relic",
+      "id": "nauglamir",
+      "name": "나우글라미르",
+      "sheet": "01_jewels_and_rings.png",
+      "index": 8,
+      "row": 3,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 30,
+        "y": 532,
+        "w": 196,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 2048,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Nauglamir, sumptuous dwarf-crafted gold necklace with multicolored jewels and a single white central jewel",
+      "rarity": 3,
+      "existing_path": "relics/icons/relic_nauglamir.png",
+      "file": "inventory/icons/relic_nauglamir.png"
+    },
+    "relic:crown_west": {
+      "family": "relic",
+      "id": "crown_west",
+      "name": "웨스터네스의 왕관",
+      "sheet": "01_jewels_and_rings.png",
+      "index": 9,
+      "row": 3,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 278,
+        "y": 532,
+        "w": 212,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 2304,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Gondor crown, tall silver winged royal crown, black inner cap, white star gem",
+      "rarity": 1,
+      "existing_path": "relics/icons/relic_winged_crown.png",
+      "file": "inventory/icons/relic_crown_west.png"
+    },
+    "relic:erebor_crown": {
+      "family": "relic",
+      "id": "erebor_crown",
+      "name": "에레보르의 군왕관",
+      "sheet": "01_jewels_and_rings.png",
+      "index": 10,
+      "row": 3,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 532,
+        "y": 542,
+        "w": 216,
+        "h": 194
+      },
+      "master_frame": {
+        "x": 2560,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Erebor dwarf king crown, angular gold and dark iron geometry with a green central stone",
+      "rarity": 2,
+      "existing_path": "relics/icons/relic_erebor_crown.png",
+      "file": "inventory/icons/relic_erebor_crown.png"
+    },
+    "relic:dunedain_star": {
+      "family": "relic",
+      "id": "dunedain_star",
+      "name": "두네다인의 별표",
+      "sheet": "01_jewels_and_rings.png",
+      "index": 11,
+      "row": 3,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 792,
+        "y": 532,
+        "w": 208,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 2816,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Dunedain seven-point silver star cloak pin on a small dark leather backing",
+      "rarity": 0,
+      "existing_path": "relics/icons/relic_dunedain_star.png",
+      "file": "inventory/icons/relic_dunedain_star.png"
+    },
+    "equipment:arkenstone": {
+      "family": "equipment",
+      "id": "arkenstone",
+      "name": "아르켄스톤",
+      "sheet": "01_jewels_and_rings.png",
+      "index": 12,
+      "row": 4,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 38,
+        "y": 788,
+        "w": 180,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 0,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Arkenstone, oval faceted milky white gem with tiny rainbow-colored internal pixels, no metal setting",
+      "existing_path": "icons/eq_arkenstone.png",
+      "file": "inventory/icons/equipment_arkenstone.png"
+    },
+    "equipment:elendilmir": {
+      "family": "equipment",
+      "id": "elendilmir",
+      "name": "엘렌디미르",
+      "sheet": "01_jewels_and_rings.png",
+      "index": 13,
+      "row": 4,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 276,
+        "y": 824,
+        "w": 216,
+        "h": 142
+      },
+      "master_frame": {
+        "x": 256,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Elendilmir, white star crystal centered on a slim mithril brow circlet",
+      "existing_path": "icons/eq_elendilmir.png",
+      "file": "inventory/icons/equipment_elendilmir.png"
+    },
+    "equipment:elfstone": {
+      "family": "equipment",
+      "id": "elfstone",
+      "name": "엘레사르의 녹보석",
+      "sheet": "01_jewels_and_rings.png",
+      "index": 14,
+      "row": 4,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 534,
+        "y": 788,
+        "w": 212,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 512,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Elessar equipment variant: green stone pendant in silver eagle-shaped frame on a short chain",
+      "existing_path": "icons/eq_elfstone.png",
+      "file": "inventory/icons/equipment_elfstone.png"
+    },
+    "expansion:one_ring": {
+      "family": "expansion",
+      "id": "one_ring",
+      "name": "절대반지",
+      "sheet": "01_jewels_and_rings.png",
+      "index": 15,
+      "row": 4,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 788,
+        "y": 808,
+        "w": 216,
+        "h": 174
+      },
+      "master_frame": {
+        "x": 768,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "description": "One Ring, a plain unadorned gold band, very small fiery inscription marks on inner edge, no gemstone",
+      "registered_in_game": false,
+      "file": "inventory/icons/expansion_one_ring.png"
+    },
+    "equipment:anduril": {
+      "family": "equipment",
+      "id": "anduril",
+      "name": "안두릴",
+      "sheet": "02_legendary_arms.png",
+      "index": 0,
+      "row": 1,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 24,
+        "y": 20,
+        "w": 208,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1024,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Anduril, straight silver longsword with narrow central fuller, dark leather grip, silver crossguard, subtle sun moon and seven stars on blade",
+      "existing_path": "icons/eq_anduril.png",
+      "file": "inventory/icons/equipment_anduril.png"
+    },
+    "equipment:glamdring": {
+      "family": "equipment",
+      "id": "glamdring",
+      "name": "글람드링",
+      "sheet": "02_legendary_arms.png",
+      "index": 1,
+      "row": 1,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 282,
+        "y": 20,
+        "w": 202,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1280,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Glamdring, elegant long straight Elven sword, blue jewel in broad curved silver crossguard",
+      "existing_path": "icons/eq_glamdring.png",
+      "file": "inventory/icons/equipment_glamdring.png"
+    },
+    "equipment:sting": {
+      "family": "equipment",
+      "id": "sting",
+      "name": "쏘는 검 스팅",
+      "sheet": "02_legendary_arms.png",
+      "index": 2,
+      "row": 1,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 548,
+        "y": 20,
+        "w": 182,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1536,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Sting, short leaf-shaped Elven blade, engraved dark wood grip, slender curved silver guard, tiny blue edge pixels",
+      "existing_path": "icons/eq_sting.png",
+      "file": "inventory/icons/equipment_sting.png"
+    },
+    "equipment:orcrist": {
+      "family": "equipment",
+      "id": "orcrist",
+      "name": "오르크리스트",
+      "sheet": "02_legendary_arms.png",
+      "index": 3,
+      "row": 1,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 806,
+        "y": 20,
+        "w": 178,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1792,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Orcrist, asymmetric long curved single-edge Elven sword, white tooth-like hilt and silver guard",
+      "existing_path": "icons/relic_orcrist.png",
+      "file": "inventory/icons/equipment_orcrist.png"
+    },
+    "equipment:ringil": {
+      "family": "equipment",
+      "id": "ringil",
+      "name": "링길",
+      "sheet": "02_legendary_arms.png",
+      "index": 4,
+      "row": 2,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 28,
+        "y": 276,
+        "w": 198,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 2048,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Ringil, Fingolfin's straight sword glittering like ice, pale cyan sharp edge and silver hilt, no flame",
+      "existing_path": "icons/eq_ringil.png",
+      "file": "inventory/icons/equipment_ringil.png"
+    },
+    "equipment:gurthang": {
+      "family": "equipment",
+      "id": "gurthang",
+      "name": "구르상",
+      "sheet": "02_legendary_arms.png",
+      "index": 5,
+      "row": 2,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 280,
+        "y": 276,
+        "w": 206,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 2304,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Gurthang, Turin's long black meteoric-iron sword with a sharply contrasting bright silver cutting edge",
+      "existing_path": "icons/eq_gurthang.png",
+      "file": "inventory/icons/equipment_gurthang.png"
+    },
+    "equipment:guthwine": {
+      "family": "equipment",
+      "id": "guthwine",
+      "name": "구스위네",
+      "sheet": "02_legendary_arms.png",
+      "index": 6,
+      "row": 2,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 538,
+        "y": 276,
+        "w": 202,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 2560,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Guthwine, Eomer's SWORD, silver blade and horse-head bronze crossguard; absolutely not a spear",
+      "existing_path": "icons/eq_guthwine.png",
+      "file": "inventory/icons/equipment_guthwine.png"
+    },
+    "equipment:herugrim": {
+      "family": "equipment",
+      "id": "herugrim",
+      "name": "헤르구림",
+      "sheet": "02_legendary_arms.png",
+      "index": 7,
+      "row": 2,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 802,
+        "y": 276,
+        "w": 186,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 2816,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Herugrim, Theoden's straight kingly sword, paired horse-head gold guard, red-brown leather grip",
+      "existing_path": "icons/eq_herugrim.png",
+      "file": "inventory/icons/equipment_herugrim.png"
+    },
+    "equipment:aeglos": {
+      "family": "equipment",
+      "id": "aeglos",
+      "name": "아이글로스",
+      "sheet": "02_legendary_arms.png",
+      "index": 8,
+      "row": 3,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 26,
+        "y": 532,
+        "w": 204,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 0,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Aeglos, Gil-galad's long spear, pale silver leaf point, slender dark wood shaft, small gold fittings",
+      "existing_path": "icons/eq_aeglos.png",
+      "file": "inventory/icons/equipment_aeglos.png"
+    },
+    "equipment:grond_eq": {
+      "family": "equipment",
+      "id": "grond_eq",
+      "name": "그론드",
+      "sheet": "02_legendary_arms.png",
+      "index": 9,
+      "row": 3,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 276,
+        "y": 534,
+        "w": 216,
+        "h": 212
+      },
+      "master_frame": {
+        "x": 256,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Morgoth's Grond, huge black iron war hammer/mace with jagged heavy head, rusty dull steel edge; NOT a battering ram",
+      "existing_path": "icons/eq_grond.png",
+      "display_name": "모르고스의 그론드",
+      "file": "inventory/icons/equipment_grond_eq.png"
+    },
+    "equipment:belthronding": {
+      "family": "equipment",
+      "id": "belthronding",
+      "name": "벨그론드",
+      "sheet": "02_legendary_arms.png",
+      "index": 10,
+      "row": 3,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 532,
+        "y": 534,
+        "w": 216,
+        "h": 212
+      },
+      "master_frame": {
+        "x": 512,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Belthronding, Beleg's powerful black yew-wood longbow, dark wood and pale taut bowstring, restrained silver grip",
+      "existing_path": "icons/eq_belthronding.png",
+      "display_name": "벨스론딩",
+      "file": "inventory/icons/equipment_belthronding.png"
+    },
+    "equipment:dragon_helm": {
+      "family": "equipment",
+      "id": "dragon_helm",
+      "name": "용투구",
+      "sheet": "02_legendary_arms.png",
+      "index": 11,
+      "row": 3,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 804,
+        "y": 532,
+        "w": 182,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 768,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Dragon-helm of Dor-lomin, steel dwarf-made helm with gilded edges and a small gold dragon crest across its top",
+      "existing_path": "icons/eq_dragon_helm.png",
+      "file": "inventory/icons/equipment_dragon_helm.png"
+    },
+    "equipment:angrist": {
+      "family": "equipment",
+      "id": "angrist",
+      "name": "앵그리스트",
+      "sheet": "02_legendary_arms.png",
+      "index": 12,
+      "row": 4,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 20,
+        "y": 788,
+        "w": 216,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1024,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Angrist, a short broad wedge-like knife made by Telchar, dark iron blade and simple dwarf-made bronze hilt",
+      "existing_path": "icons/eq_angrist.png",
+      "file": "inventory/icons/equipment_angrist.png"
+    },
+    "equipment:durin_axe": {
+      "family": "equipment",
+      "id": "durin_axe",
+      "name": "두린의 룬도끼",
+      "sheet": "02_legendary_arms.png",
+      "index": 13,
+      "row": 4,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 280,
+        "y": 788,
+        "w": 206,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1280,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Durin rune axe, compact heavy dwarf battle axe with angular steel head, bronze runes, dark wood grip",
+      "existing_path": "icons/eq_durin_axe.png",
+      "file": "inventory/icons/equipment_durin_axe.png"
+    },
+    "equipment:black_arrow": {
+      "family": "equipment",
+      "id": "black_arrow",
+      "name": "흑화살",
+      "sheet": "02_legendary_arms.png",
+      "index": 14,
+      "row": 4,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 532,
+        "y": 792,
+        "w": 216,
+        "h": 206
+      },
+      "master_frame": {
+        "x": 1536,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Bard's Black Arrow, one dark shaft, black feather fletching and a long steel point, no red color",
+      "existing_path": "icons/eq_black_arrow.png",
+      "file": "inventory/icons/equipment_black_arrow.png"
+    },
+    "equipment:barrow_blade": {
+      "family": "equipment",
+      "id": "barrow_blade",
+      "name": "무덤의 칼",
+      "sheet": "02_legendary_arms.png",
+      "index": 15,
+      "row": 4,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 796,
+        "y": 788,
+        "w": 200,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1792,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Barrow blade, short bronze and silver Westernesse dagger with red-gold serpent patterns and leather grip",
+      "existing_path": "icons/eq_barrow_blade.png",
+      "file": "inventory/icons/equipment_barrow_blade.png"
+    },
+    "equipment:whetstone": {
+      "family": "equipment",
+      "id": "whetstone",
+      "name": "전투검",
+      "sheet": "03_field_equipment.png",
+      "index": 0,
+      "row": 1,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 20,
+        "y": 20,
+        "w": 216,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 2048,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "description": "ordinary Gondor steel battle sword, simple straight blade and dark brown leather grip; this ID means a sword, not a sharpening stone",
+      "existing_path": "icons/eq_whetstone.png",
+      "file": "inventory/icons/equipment_whetstone.png"
+    },
+    "equipment:plate": {
+      "family": "equipment",
+      "id": "plate",
+      "name": "판금갑옷",
+      "sheet": "03_field_equipment.png",
+      "index": 1,
+      "row": 1,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 282,
+        "y": 20,
+        "w": 202,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 2304,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "description": "plain soldier steel breastplate with rivets and leather straps",
+      "existing_path": "icons/eq_plate.png",
+      "file": "inventory/icons/equipment_plate.png"
+    },
+    "equipment:hunting_bow": {
+      "family": "equipment",
+      "id": "hunting_bow",
+      "name": "사냥활",
+      "sheet": "03_field_equipment.png",
+      "index": 2,
+      "row": 1,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 536,
+        "y": 20,
+        "w": 208,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 2560,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "description": "simple brown wood hunting bow with a taut cream bowstring",
+      "existing_path": "icons/eq_hunting_bow.png",
+      "file": "inventory/icons/equipment_hunting_bow.png"
+    },
+    "equipment:tower_shield": {
+      "family": "equipment",
+      "id": "tower_shield",
+      "name": "탑방패",
+      "sheet": "03_field_equipment.png",
+      "index": 3,
+      "row": 1,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 826,
+        "y": 20,
+        "w": 140,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 2816,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "description": "tall battered rectangular wooden tower shield with steel rim",
+      "existing_path": "icons/eq_tower_shield.png",
+      "file": "inventory/icons/equipment_tower_shield.png"
+    },
+    "equipment:mithril_helm": {
+      "family": "equipment",
+      "id": "mithril_helm",
+      "name": "미스릴 투구",
+      "sheet": "03_field_equipment.png",
+      "index": 4,
+      "row": 2,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 46,
+        "y": 276,
+        "w": 162,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 0,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "description": "fine silver mithril helmet with delicate cheek plates and subtle leaf engraving",
+      "existing_path": "icons/eq_mithril_helm.png",
+      "file": "inventory/icons/equipment_mithril_helm.png"
+    },
+    "equipment:pike": {
+      "family": "equipment",
+      "id": "pike",
+      "name": "날카로운 창",
+      "sheet": "03_field_equipment.png",
+      "index": 5,
+      "row": 2,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 290,
+        "y": 276,
+        "w": 188,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 256,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "description": "slender sharp steel-tipped long spear, brown wooden haft",
+      "existing_path": "icons/eq_pike.png",
+      "file": "inventory/icons/equipment_pike.png"
+    },
+    "equipment:ranger_boots": {
+      "family": "equipment",
+      "id": "ranger_boots",
+      "name": "순찰자 장화",
+      "sheet": "03_field_equipment.png",
+      "index": 6,
+      "row": 2,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 532,
+        "y": 280,
+        "w": 216,
+        "h": 208
+      },
+      "master_frame": {
+        "x": 512,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "description": "pair of worn dark brown leather ranger boots with olive wraps",
+      "existing_path": "icons/eq_ranger_boots.png",
+      "file": "inventory/icons/equipment_ranger_boots.png"
+    },
+    "equipment:war_gauntlets": {
+      "family": "equipment",
+      "id": "war_gauntlets",
+      "name": "전투 건틀릿",
+      "sheet": "03_field_equipment.png",
+      "index": 7,
+      "row": 2,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 788,
+        "y": 282,
+        "w": 216,
+        "h": 204
+      },
+      "master_frame": {
+        "x": 768,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "description": "pair of articulated dark steel war gauntlets with brass rivets",
+      "existing_path": "icons/eq_gauntlets.png",
+      "file": "inventory/icons/equipment_war_gauntlets.png"
+    },
+    "equipment:gondor_shield": {
+      "family": "equipment",
+      "id": "gondor_shield",
+      "name": "곤도르 방패",
+      "sheet": "03_field_equipment.png",
+      "index": 8,
+      "row": 3,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 46,
+        "y": 532,
+        "w": 162,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1024,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "description": "black Gondor kite shield with silver rim and crisp white Tree and seven stars",
+      "existing_path": "icons/eq_gondor_shield.png",
+      "file": "inventory/icons/equipment_gondor_shield.png"
+    },
+    "equipment:rohan_lance": {
+      "family": "equipment",
+      "id": "rohan_lance",
+      "name": "로한 기수 투창",
+      "sheet": "03_field_equipment.png",
+      "index": 9,
+      "row": 3,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 276,
+        "y": 536,
+        "w": 216,
+        "h": 208
+      },
+      "master_frame": {
+        "x": 1280,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Rohan horseman throwing spear, short silver leaf head and small green pennon",
+      "existing_path": "icons/eq_rohan_lance.png",
+      "file": "inventory/icons/equipment_rohan_lance.png"
+    },
+    "equipment:galadhrim_quiver": {
+      "family": "equipment",
+      "id": "galadhrim_quiver",
+      "name": "갈라드림 화살통",
+      "sheet": "03_field_equipment.png",
+      "index": 10,
+      "row": 3,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 560,
+        "y": 532,
+        "w": 160,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1536,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "description": "ornate olive-brown Galadhrim quiver holding three white-feather arrows, gold leaf stitching",
+      "existing_path": "icons/eq_galadhrim_quiver.png",
+      "file": "inventory/icons/equipment_galadhrim_quiver.png"
+    },
+    "equipment:elven_cloak_eq": {
+      "family": "equipment",
+      "id": "elven_cloak_eq",
+      "name": "갈라드림 수호망토",
+      "sheet": "03_field_equipment.png",
+      "index": 11,
+      "row": 3,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 790,
+        "y": 532,
+        "w": 212,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1792,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "description": "folded gray-green Elven cloak with silver mallorn leaf clasp",
+      "existing_path": "icons/eq_elven_cloak.png",
+      "file": "inventory/icons/equipment_elven_cloak_eq.png"
+    },
+    "equipment:mithril_shirt_eq": {
+      "family": "equipment",
+      "id": "mithril_shirt_eq",
+      "name": "미스릴 쇠사슬",
+      "sheet": "03_field_equipment.png",
+      "index": 12,
+      "row": 4,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 32,
+        "y": 788,
+        "w": 190,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 2048,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "description": "short fine silver mithril mail shirt, complete wearable armor with brown belt",
+      "existing_path": "icons/eq_mithril_shirt.png",
+      "file": "inventory/icons/equipment_mithril_shirt_eq.png"
+    },
+    "equipment:erebor_plate": {
+      "family": "equipment",
+      "id": "erebor_plate",
+      "name": "에레보르 도금 갑주",
+      "sheet": "03_field_equipment.png",
+      "index": 13,
+      "row": 4,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 278,
+        "y": 788,
+        "w": 212,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 2304,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Erebor ornate angular dwarf breastplate, dark blue steel panels with bronze-gold edges",
+      "existing_path": "icons/eq_erebor_plate.png",
+      "file": "inventory/icons/equipment_erebor_plate.png"
+    },
+    "equipment:twin_knives": {
+      "family": "equipment",
+      "id": "twin_knives",
+      "name": "엘프 쌍날검",
+      "sheet": "03_field_equipment.png",
+      "index": 14,
+      "row": 4,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 532,
+        "y": 790,
+        "w": 216,
+        "h": 210
+      },
+      "master_frame": {
+        "x": 2560,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "description": "two slender curved Elven fighting knives crossed diagonally, silver blades and pale bone grips",
+      "existing_path": "icons/eq_twin_knives.png",
+      "file": "inventory/icons/equipment_twin_knives.png"
+    },
+    "equipment:lorien_bow": {
+      "family": "equipment",
+      "id": "lorien_bow",
+      "name": "갈라드림 장궁",
+      "sheet": "03_field_equipment.png",
+      "index": 15,
+      "row": 4,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 802,
+        "y": 788,
+        "w": 188,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 2816,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Galadhrim longbow, a graceful golden-brown recurved bow with carved mallorn leaf limbs; NOT a quiver",
+      "existing_path": "icons/eq_galadhrim_quiver.png",
+      "file": "inventory/icons/equipment_lorien_bow.png"
+    },
+    "equipment:salve": {
+      "family": "equipment",
+      "id": "salve",
+      "name": "치유 연고",
+      "sheet": "04_supplies_and_charms.png",
+      "index": 0,
+      "row": 1,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 20,
+        "y": 36,
+        "w": 216,
+        "h": 184
+      },
+      "master_frame": {
+        "x": 0,
+        "y": 1024,
+        "w": 256,
+        "h": 256
+      },
+      "description": "open clay pot of pale healing salve with wooden applicator",
+      "existing_path": "icons/eq_salve.png",
+      "file": "inventory/icons/equipment_salve.png"
+    },
+    "equipment:bandage": {
+      "family": "equipment",
+      "id": "bandage",
+      "name": "전장 붕대",
+      "sheet": "04_supplies_and_charms.png",
+      "index": 1,
+      "row": 1,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 276,
+        "y": 30,
+        "w": 216,
+        "h": 196
+      },
+      "master_frame": {
+        "x": 256,
+        "y": 1024,
+        "w": 256,
+        "h": 256
+      },
+      "description": "rolled cream linen bandage with a loose trailing strip",
+      "existing_path": "icons/eq_bandage.png",
+      "file": "inventory/icons/equipment_bandage.png"
+    },
+    "equipment:lembas": {
+      "family": "equipment",
+      "id": "lembas",
+      "name": "레메이스 빵 조각",
+      "sheet": "04_supplies_and_charms.png",
+      "index": 2,
+      "row": 1,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 532,
+        "y": 46,
+        "w": 216,
+        "h": 164
+      },
+      "master_frame": {
+        "x": 512,
+        "y": 1024,
+        "w": 256,
+        "h": 256
+      },
+      "description": "a single broken lembas wafer on one green mallorn leaf",
+      "existing_path": "icons/eq_lembas.png",
+      "display_name": "렘바스",
+      "file": "inventory/icons/equipment_lembas.png"
+    },
+    "equipment:star_flower": {
+      "family": "equipment",
+      "id": "star_flower",
+      "name": "별의 꽃",
+      "sheet": "04_supplies_and_charms.png",
+      "index": 3,
+      "row": 1,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 804,
+        "y": 20,
+        "w": 182,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 768,
+        "y": 1024,
+        "w": 256,
+        "h": 256
+      },
+      "description": "small five-petal white star flower with green stalk",
+      "existing_path": "icons/eq_star_flower.png",
+      "file": "inventory/icons/equipment_star_flower.png"
+    },
+    "equipment:dunedain_star": {
+      "family": "equipment",
+      "id": "dunedain_star",
+      "name": "두네다인의 별",
+      "sheet": "04_supplies_and_charms.png",
+      "index": 4,
+      "row": 2,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 20,
+        "y": 284,
+        "w": 216,
+        "h": 198
+      },
+      "master_frame": {
+        "x": 1024,
+        "y": 1024,
+        "w": 256,
+        "h": 256
+      },
+      "description": "seven-point silver Dunedain star pin with a narrow dark leather strap",
+      "existing_path": "icons/eq_dunedain_star.png",
+      "file": "inventory/icons/equipment_dunedain_star.png"
+    },
+    "equipment:wizard_powder": {
+      "family": "equipment",
+      "id": "wizard_powder",
+      "name": "술사의 가루",
+      "sheet": "04_supplies_and_charms.png",
+      "index": 5,
+      "row": 2,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 276,
+        "y": 292,
+        "w": 216,
+        "h": 182
+      },
+      "master_frame": {
+        "x": 1280,
+        "y": 1024,
+        "w": 256,
+        "h": 256
+      },
+      "description": "little brown pouch spilled with several bright pale-blue mineral grains; game invented supply",
+      "existing_path": "icons/eq_wizard_powder.png",
+      "file": "inventory/icons/equipment_wizard_powder.png"
+    },
+    "equipment:guardian_feather": {
+      "family": "equipment",
+      "id": "guardian_feather",
+      "name": "수호 깃털",
+      "sheet": "04_supplies_and_charms.png",
+      "index": 6,
+      "row": 2,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 534,
+        "y": 276,
+        "w": 210,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1536,
+        "y": 1024,
+        "w": 256,
+        "h": 256
+      },
+      "description": "one pale eagle feather tied with a silver bead and a short leather cord",
+      "existing_path": "icons/eq_guardian_feather.png",
+      "file": "inventory/icons/equipment_guardian_feather.png"
+    },
+    "equipment:lorien_arrow": {
+      "family": "equipment",
+      "id": "lorien_arrow",
+      "name": "로스로리엔 화살",
+      "sheet": "04_supplies_and_charms.png",
+      "index": 7,
+      "row": 2,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 790,
+        "y": 276,
+        "w": 210,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1792,
+        "y": 1024,
+        "w": 256,
+        "h": 256
+      },
+      "description": "one long silver-tipped Lorien arrow with pale gold shaft and white fletching",
+      "existing_path": "icons/eq_lorien_arrow.png",
+      "file": "inventory/icons/equipment_lorien_arrow.png"
+    },
+    "equipment:arrowhead": {
+      "family": "equipment",
+      "id": "arrowhead",
+      "name": "연마 화살촉",
+      "sheet": "04_supplies_and_charms.png",
+      "index": 8,
+      "row": 3,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 20,
+        "y": 550,
+        "w": 216,
+        "h": 180
+      },
+      "master_frame": {
+        "x": 2048,
+        "y": 1024,
+        "w": 256,
+        "h": 256
+      },
+      "description": "three polished gray steel arrowheads bundled in dark leather",
+      "existing_path": "icons/eq_arrowhead.png",
+      "file": "inventory/icons/equipment_arrowhead.png"
+    },
+    "equipment:north_map": {
+      "family": "equipment",
+      "id": "north_map",
+      "name": "북부 지도",
+      "sheet": "04_supplies_and_charms.png",
+      "index": 9,
+      "row": 3,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 276,
+        "y": 542,
+        "w": 216,
+        "h": 194
+      },
+      "master_frame": {
+        "x": 2304,
+        "y": 1024,
+        "w": 256,
+        "h": 256
+      },
+      "description": "partly unfurled worn parchment map with a small northern mountain outline, no readable text",
+      "existing_path": "icons/eq_north_map.png",
+      "file": "inventory/icons/equipment_north_map.png"
+    },
+    "equipment:athelas_leaf": {
+      "family": "equipment",
+      "id": "athelas_leaf",
+      "name": "아쓸라스 잎",
+      "sheet": "04_supplies_and_charms.png",
+      "index": 10,
+      "row": 3,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 532,
+        "y": 534,
+        "w": 216,
+        "h": 212
+      },
+      "master_frame": {
+        "x": 2560,
+        "y": 1024,
+        "w": 256,
+        "h": 256
+      },
+      "description": "three fresh long athelas leaves tied with cream linen",
+      "existing_path": "icons/eq_athelas_leaf.png",
+      "display_name": "아셀라스 잎",
+      "file": "inventory/icons/equipment_athelas_leaf.png"
+    },
+    "equipment:dark_berry": {
+      "family": "equipment",
+      "id": "dark_berry",
+      "name": "검은숲 열매",
+      "sheet": "04_supplies_and_charms.png",
+      "index": 11,
+      "row": 3,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 788,
+        "y": 540,
+        "w": 216,
+        "h": 200
+      },
+      "master_frame": {
+        "x": 2816,
+        "y": 1024,
+        "w": 256,
+        "h": 256
+      },
+      "description": "small bunch of dark purple woodland berries with two green leaves",
+      "existing_path": "icons/eq_dark_berry.png",
+      "file": "inventory/icons/equipment_dark_berry.png"
+    },
+    "equipment:king_oath": {
+      "family": "equipment",
+      "id": "king_oath",
+      "name": "왕의 서약인장",
+      "sheet": "04_supplies_and_charms.png",
+      "index": 12,
+      "row": 4,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 20,
+        "y": 806,
+        "w": 216,
+        "h": 180
+      },
+      "master_frame": {
+        "x": 0,
+        "y": 1280,
+        "w": 256,
+        "h": 256
+      },
+      "description": "small wax-red royal seal and brass signet stamp on a short parchment strip",
+      "existing_path": "icons/eq_king_oath.png",
+      "file": "inventory/icons/equipment_king_oath.png"
+    },
+    "equipment:miruvor": {
+      "family": "equipment",
+      "id": "miruvor",
+      "name": "미루보르",
+      "sheet": "04_supplies_and_charms.png",
+      "index": 13,
+      "row": 4,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 340,
+        "y": 788,
+        "w": 86,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 256,
+        "y": 1280,
+        "w": 256,
+        "h": 256
+      },
+      "description": "slender travel bottle of clear cordial with pale-gold stopper, restrained silver decoration",
+      "existing_path": "icons/eq_miruvor.png",
+      "file": "inventory/icons/equipment_miruvor.png"
+    },
+    "equipment:palantir": {
+      "family": "equipment",
+      "id": "palantir",
+      "name": "팔란티르 구체",
+      "sheet": "04_supplies_and_charms.png",
+      "index": 14,
+      "row": 4,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 554,
+        "y": 788,
+        "w": 172,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 512,
+        "y": 1280,
+        "w": 256,
+        "h": 256
+      },
+      "description": "intact dark glass palantir sphere with a small cool blue-white reflected highlight; no eye drawn on it",
+      "existing_path": "icons/eq_palantir.png",
+      "file": "inventory/icons/equipment_palantir.png"
+    },
+    "equipment:galadriel_phial": {
+      "family": "equipment",
+      "id": "galadriel_phial",
+      "name": "갈라드리엘의 병",
+      "sheet": "04_supplies_and_charms.png",
+      "index": 15,
+      "row": 4,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 830,
+        "y": 788,
+        "w": 130,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 768,
+        "y": 1280,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Galadriel's clear crystal phial, a simple elongated teardrop vial filled with sharp white-blue star pixels",
+      "existing_path": "icons/eq_galadriel_phial.png",
+      "file": "inventory/icons/equipment_galadriel_phial.png"
+    },
+    "equipment:war_banner_eq": {
+      "family": "equipment",
+      "id": "war_banner_eq",
+      "name": "전투 기",
+      "sheet": "05_mounts_and_standards.png",
+      "index": 0,
+      "row": 1,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 44,
+        "y": 20,
+        "w": 168,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1024,
+        "y": 1280,
+        "w": 256,
+        "h": 256
+      },
+      "description": "plain ochre-brown military banner on a short wood pole with bronze tip",
+      "existing_path": "icons/eq_war_banner.png",
+      "file": "inventory/icons/equipment_war_banner_eq.png"
+    },
+    "equipment:war_horn": {
+      "family": "equipment",
+      "id": "war_horn",
+      "name": "전쟁 뿔피리",
+      "sheet": "05_mounts_and_standards.png",
+      "index": 1,
+      "row": 1,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 276,
+        "y": 50,
+        "w": 216,
+        "h": 154
+      },
+      "master_frame": {
+        "x": 1280,
+        "y": 1280,
+        "w": 256,
+        "h": 256
+      },
+      "description": "weathered brown cattle war horn with plain bronze mouthpiece",
+      "existing_path": "icons/eq_war_horn.png",
+      "file": "inventory/icons/equipment_war_horn.png"
+    },
+    "equipment:king_standard": {
+      "family": "equipment",
+      "id": "king_standard",
+      "name": "왕의 문장",
+      "sheet": "05_mounts_and_standards.png",
+      "index": 2,
+      "row": 1,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 554,
+        "y": 20,
+        "w": 170,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1536,
+        "y": 1280,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Aragorn's black royal banner with white Tree, seven white stars and small silver crown",
+      "existing_path": "icons/eq_king_standard.png",
+      "file": "inventory/icons/equipment_king_standard.png"
+    },
+    "equipment:rohan_saddle": {
+      "family": "equipment",
+      "id": "rohan_saddle",
+      "name": "로한 안장",
+      "sheet": "05_mounts_and_standards.png",
+      "index": 3,
+      "row": 1,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 788,
+        "y": 22,
+        "w": 216,
+        "h": 210
+      },
+      "master_frame": {
+        "x": 1792,
+        "y": 1280,
+        "w": 256,
+        "h": 256
+      },
+      "description": "brown leather Rohan saddle with a green wool saddlecloth and bronze stirrups",
+      "existing_path": "icons/eq_rohan_saddle.png",
+      "file": "inventory/icons/equipment_rohan_saddle.png"
+    },
+    "equipment:war_pennant": {
+      "family": "equipment",
+      "id": "war_pennant",
+      "name": "울부짖는 전쟁깃",
+      "sheet": "05_mounts_and_standards.png",
+      "index": 4,
+      "row": 2,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 20,
+        "y": 278,
+        "w": 216,
+        "h": 212
+      },
+      "master_frame": {
+        "x": 2048,
+        "y": 1280,
+        "w": 256,
+        "h": 256
+      },
+      "description": "narrow split-tail dark red and brown cavalry pennant",
+      "existing_path": "icons/eq_war_pennant.png",
+      "file": "inventory/icons/equipment_war_pennant.png"
+    },
+    "equipment:oath_stone": {
+      "family": "equipment",
+      "id": "oath_stone",
+      "name": "난쟁이 서약돌",
+      "sheet": "05_mounts_and_standards.png",
+      "index": 5,
+      "row": 2,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 276,
+        "y": 286,
+        "w": 216,
+        "h": 194
+      },
+      "master_frame": {
+        "x": 2304,
+        "y": 1280,
+        "w": 256,
+        "h": 256
+      },
+      "description": "small squat gray dwarf oathstone with geometric engraved rune marks and bronze edging",
+      "existing_path": "icons/eq_oath_stone.png",
+      "file": "inventory/icons/equipment_oath_stone.png"
+    },
+    "equipment:horn_gondor": {
+      "family": "equipment",
+      "id": "horn_gondor",
+      "name": "보로미르의 뿔피리",
+      "sheet": "05_mounts_and_standards.png",
+      "index": 6,
+      "row": 2,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 532,
+        "y": 294,
+        "w": 216,
+        "h": 180
+      },
+      "master_frame": {
+        "x": 2560,
+        "y": 1280,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Boromir's great ivory horn with silver fittings and dark carrying cord, white Tree on metal band",
+      "existing_path": "icons/eq_horn_gondor.png",
+      "file": "inventory/icons/equipment_horn_gondor.png"
+    },
+    "equipment:shadowfax": {
+      "family": "equipment",
+      "id": "shadowfax",
+      "name": "섀도팩스",
+      "sheet": "05_mounts_and_standards.png",
+      "index": 7,
+      "row": 2,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 802,
+        "y": 276,
+        "w": 188,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 2816,
+        "y": 1280,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Shadowfax, noble silver-white horse head and neck profile, unbridled, pale gray mane",
+      "existing_path": "icons/eq_shadowfax.png",
+      "file": "inventory/icons/equipment_shadowfax.png"
+    },
+    "equipment:asfaloth": {
+      "family": "equipment",
+      "id": "asfaloth",
+      "name": "아스팔로스",
+      "sheet": "05_mounts_and_standards.png",
+      "index": 8,
+      "row": 3,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 26,
+        "y": 532,
+        "w": 204,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 0,
+        "y": 1536,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Asfaloth, white horse head with elegant silver Elven harness and tiny bells",
+      "existing_path": "icons/eq_asfaloth.png",
+      "file": "inventory/icons/equipment_asfaloth.png"
+    },
+    "equipment:brego": {
+      "family": "equipment",
+      "id": "brego",
+      "name": "브레고",
+      "sheet": "05_mounts_and_standards.png",
+      "index": 9,
+      "row": 3,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 282,
+        "y": 532,
+        "w": 202,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 256,
+        "y": 1536,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Brego, warm bay horse head with black mane and plain dark leather bridle; film-inspired mount",
+      "existing_path": "icons/eq_brego.png",
+      "file": "inventory/icons/equipment_brego.png"
+    },
+    "equipment:firefoot": {
+      "family": "equipment",
+      "id": "firefoot",
+      "name": "파이어풋",
+      "sheet": "05_mounts_and_standards.png",
+      "index": 10,
+      "row": 3,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 538,
+        "y": 532,
+        "w": 204,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 512,
+        "y": 1536,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Firefoot, powerful gray horse head with darker mane and bronze Rohan bridle",
+      "existing_path": "icons/eq_firefoot.png",
+      "file": "inventory/icons/equipment_firefoot.png"
+    },
+    "equipment:hasufel": {
+      "family": "equipment",
+      "id": "hasufel",
+      "name": "하스펠",
+      "sheet": "05_mounts_and_standards.png",
+      "index": 11,
+      "row": 3,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 798,
+        "y": 532,
+        "w": 196,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 768,
+        "y": 1536,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Hasufel, chestnut horse head with brown mane and plain leather bridle",
+      "existing_path": "icons/eq_hasufel.png",
+      "file": "inventory/icons/equipment_hasufel.png"
+    },
+    "equipment:shire_pony": {
+      "family": "equipment",
+      "id": "shire_pony",
+      "name": "샤이어 조랑말",
+      "sheet": "05_mounts_and_standards.png",
+      "index": 12,
+      "row": 4,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 24,
+        "y": 788,
+        "w": 208,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1024,
+        "y": 1536,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Shire pony, shaggy small brown pony head with rough little forelock and travel harness",
+      "existing_path": "icons/horse.png",
+      "file": "inventory/icons/equipment_shire_pony.png"
+    },
+    "equipment:red_arrow": {
+      "family": "equipment",
+      "id": "red_arrow",
+      "name": "붉은 화살",
+      "sheet": "05_mounts_and_standards.png",
+      "index": 13,
+      "row": 4,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 278,
+        "y": 788,
+        "w": 212,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1280,
+        "y": 1536,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Red Arrow of Gondor, a single arrow with red-painted tip and dark fletching, no bow",
+      "existing_path": "icons/eq_red_arrow.png",
+      "file": "inventory/icons/equipment_red_arrow.png"
+    },
+    "expansion:gandalf_staff": {
+      "family": "expansion",
+      "id": "gandalf_staff",
+      "name": "백색 간달프의 지팡이",
+      "sheet": "05_mounts_and_standards.png",
+      "index": 14,
+      "row": 4,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 558,
+        "y": 788,
+        "w": 162,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1536,
+        "y": 1536,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Gandalf the White's pale branching wooden staff, white carved crown-like tip, no glass orb",
+      "registered_in_game": false,
+      "file": "inventory/icons/expansion_gandalf_staff.png"
+    },
+    "expansion:saruman_staff": {
+      "family": "expansion",
+      "id": "saruman_staff",
+      "name": "사루만의 지팡이",
+      "sheet": "05_mounts_and_standards.png",
+      "index": 15,
+      "row": 4,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 812,
+        "y": 788,
+        "w": 166,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1792,
+        "y": 1536,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Saruman's black staff with silver angular crown-like prongs clasping a small clear crystal",
+      "registered_in_game": false,
+      "file": "inventory/icons/expansion_saruman_staff.png"
+    },
+    "relic:lembas": {
+      "family": "relic",
+      "id": "lembas",
+      "name": "렘바스",
+      "sheet": "06_core_relics.png",
+      "index": 0,
+      "row": 1,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 20,
+        "y": 40,
+        "w": 216,
+        "h": 176
+      },
+      "master_frame": {
+        "x": 2048,
+        "y": 1536,
+        "w": 256,
+        "h": 256
+      },
+      "description": "two square golden lembas wafers in a neatly folded green mallorn leaf packet",
+      "rarity": 0,
+      "existing_path": "relics/icons/relic_lembas.png",
+      "file": "inventory/icons/relic_lembas.png"
+    },
+    "relic:cloak": {
+      "family": "relic",
+      "id": "cloak",
+      "name": "이실리엔 수호망토",
+      "sheet": "06_core_relics.png",
+      "index": 1,
+      "row": 1,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 286,
+        "y": 20,
+        "w": 194,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 2304,
+        "y": 1536,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Ithilien ranger hooded cloak, deep olive-green fabric, dark leather collar tie",
+      "rarity": 1,
+      "existing_path": "relics/icons/relic_elven_cloak.png",
+      "file": "inventory/icons/relic_cloak.png"
+    },
+    "relic:horn": {
+      "family": "relic",
+      "id": "horn",
+      "name": "곤도르의 뿔",
+      "sheet": "06_core_relics.png",
+      "index": 2,
+      "row": 1,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 532,
+        "y": 22,
+        "w": 216,
+        "h": 210
+      },
+      "master_frame": {
+        "x": 2560,
+        "y": 1536,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Horn of Gondor, large ivory curved horn with silver ends and white Tree engraved on silver collar",
+      "rarity": 2,
+      "existing_path": "relics/icons/relic_rohan_horn.png",
+      "file": "inventory/icons/relic_horn.png"
+    },
+    "relic:horseshoe": {
+      "family": "relic",
+      "id": "horseshoe",
+      "name": "로한의 말굽",
+      "sheet": "06_core_relics.png",
+      "index": 3,
+      "row": 1,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 790,
+        "y": 20,
+        "w": 210,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 2816,
+        "y": 1536,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Rohan horseshoe, worn dark steel with six holes and brown leather charm knot",
+      "rarity": 0,
+      "existing_path": "relics/icons/relic_horseshoe.png",
+      "file": "inventory/icons/relic_horseshoe.png"
+    },
+    "relic:phial": {
+      "family": "relic",
+      "id": "phial",
+      "name": "갈라드리엘의 빛",
+      "sheet": "06_core_relics.png",
+      "index": 4,
+      "row": 2,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 60,
+        "y": 276,
+        "w": 134,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 0,
+        "y": 1792,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Light of Galadriel, silver-framed crystal phial on a fine short chain, tiny white and cool blue light pixels",
+      "rarity": 2,
+      "existing_path": "relics/icons/relic_phial_galadriel.png",
+      "file": "inventory/icons/relic_phial.png"
+    },
+    "relic:mithril": {
+      "family": "relic",
+      "id": "mithril",
+      "name": "미스릴 셔츠",
+      "sheet": "06_core_relics.png",
+      "index": 5,
+      "row": 2,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 276,
+        "y": 280,
+        "w": 216,
+        "h": 208
+      },
+      "master_frame": {
+        "x": 256,
+        "y": 1792,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Frodo's fine silver mithril mail shirt, soft shimmering small chain links, folded sleeves",
+      "rarity": 3,
+      "existing_path": "relics/icons/relic_mithril_shirt.png",
+      "file": "inventory/icons/relic_mithril.png"
+    },
+    "relic:cart": {
+      "family": "relic",
+      "id": "cart",
+      "name": "라다가스트의 동물마차",
+      "sheet": "06_core_relics.png",
+      "index": 6,
+      "row": 2,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 532,
+        "y": 288,
+        "w": 216,
+        "h": 192
+      },
+      "master_frame": {
+        "x": 512,
+        "y": 1792,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Radagast film-inspired little woodland wooden cart with a rabbit, herbs and brown spoked wheel, compact object only",
+      "rarity": 2,
+      "existing_path": "relics/icons/relic_wagon.png",
+      "file": "inventory/icons/relic_cart.png"
+    },
+    "relic:palantir": {
+      "family": "relic",
+      "id": "palantir",
+      "name": "팔란티르 파편",
+      "sheet": "06_core_relics.png",
+      "index": 7,
+      "row": 2,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 814,
+        "y": 276,
+        "w": 162,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 768,
+        "y": 1792,
+        "w": 256,
+        "h": 256
+      },
+      "description": "palantir fragment, jagged black glass crystal shard with reflected cold blue facets; visibly a shard, not a full sphere",
+      "rarity": 1,
+      "existing_path": "relics/icons/relic_palantir.png",
+      "file": "inventory/icons/relic_palantir.png"
+    },
+    "relic:banner": {
+      "family": "relic",
+      "id": "banner",
+      "name": "백색나무 군기",
+      "sheet": "06_core_relics.png",
+      "index": 8,
+      "row": 3,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 36,
+        "y": 532,
+        "w": 184,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1024,
+        "y": 1792,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Gondor black military banner with white Tree and seven small white stars, modest square cloth",
+      "rarity": 1,
+      "existing_path": "relics/icons/relic_gondor_banner.png",
+      "file": "inventory/icons/relic_banner.png"
+    },
+    "relic:arrow": {
+      "family": "relic",
+      "id": "arrow",
+      "name": "검은 화살",
+      "sheet": "06_core_relics.png",
+      "index": 9,
+      "row": 3,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 276,
+        "y": 534,
+        "w": 216,
+        "h": 210
+      },
+      "master_frame": {
+        "x": 1280,
+        "y": 1792,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Bard's Black Arrow relic, black arrow resting diagonally over a small dark leather strip; no red arrow",
+      "rarity": 2,
+      "existing_path": "relics/icons/relic_red_arrow.png",
+      "file": "inventory/icons/relic_arrow.png"
+    },
+    "relic:narsil": {
+      "family": "relic",
+      "id": "narsil",
+      "name": "나르실의 파편",
+      "sheet": "06_core_relics.png",
+      "index": 10,
+      "row": 3,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 548,
+        "y": 532,
+        "w": 184,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1536,
+        "y": 1792,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Narsil shards, broken silver sword hilt and two detached blade pieces, jagged fracture clearly visible",
+      "rarity": 1,
+      "existing_path": "relics/icons/relic_anduril.png",
+      "file": "inventory/icons/relic_narsil.png"
+    },
+    "relic:quiver": {
+      "family": "relic",
+      "id": "quiver",
+      "name": "레인저의 화살통",
+      "sheet": "06_core_relics.png",
+      "index": 11,
+      "row": 3,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 824,
+        "y": 532,
+        "w": 144,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1792,
+        "y": 1792,
+        "w": 256,
+        "h": 256
+      },
+      "description": "ranger's plain brown leather quiver filled with four brown-feather arrows",
+      "rarity": 0,
+      "existing_path": "relics/icons/relic_quiver.png",
+      "file": "inventory/icons/relic_quiver.png"
+    },
+    "relic:warbanner": {
+      "family": "relic",
+      "id": "warbanner",
+      "name": "로한의 전쟁깃발",
+      "sheet": "06_core_relics.png",
+      "index": 12,
+      "row": 4,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 20,
+        "y": 788,
+        "w": 216,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 2048,
+        "y": 1792,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Rohan green war flag with a single white running horse, mounted on a wood pole",
+      "rarity": 2,
+      "existing_path": "relics/icons/relic_warbanner.png",
+      "file": "inventory/icons/relic_warbanner.png"
+    },
+    "relic:durin_axe": {
+      "family": "relic",
+      "id": "durin_axe",
+      "name": "두린의 도끼",
+      "sheet": "06_core_relics.png",
+      "index": 13,
+      "row": 4,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 288,
+        "y": 788,
+        "w": 192,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 2304,
+        "y": 1792,
+        "w": 256,
+        "h": 256
+      },
+      "description": "old dwarf rune battleaxe, broad steel head with bronze geometric engraving and short wood handle",
+      "rarity": 2,
+      "existing_path": "relics/icons/relic_durin_axe.png",
+      "file": "inventory/icons/relic_durin_axe.png"
+    },
+    "relic:eagle_feather": {
+      "family": "relic",
+      "id": "eagle_feather",
+      "name": "대독수리의 깃털",
+      "sheet": "06_core_relics.png",
+      "index": 14,
+      "row": 4,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 534,
+        "y": 788,
+        "w": 210,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 2560,
+        "y": 1792,
+        "w": 256,
+        "h": 256
+      },
+      "description": "great eagle's broad warm gray and cream primary feather",
+      "rarity": 1,
+      "existing_path": "relics/icons/relic_eagle_feather.png",
+      "file": "inventory/icons/relic_eagle_feather.png"
+    },
+    "relic:second_breakfast": {
+      "family": "relic",
+      "id": "second_breakfast",
+      "name": "두 번째 아침상",
+      "sheet": "06_core_relics.png",
+      "index": 15,
+      "row": 4,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 788,
+        "y": 814,
+        "w": 216,
+        "h": 164
+      },
+      "master_frame": {
+        "x": 2816,
+        "y": 1792,
+        "w": 256,
+        "h": 256
+      },
+      "description": "hobbit second breakfast, small wooden plate with bread, cheese, a little fried egg and an apple",
+      "rarity": 0,
+      "existing_path": "relics/icons/res_food.png",
+      "file": "inventory/icons/relic_second_breakfast.png"
+    },
+    "relic:eohere_horn": {
+      "family": "relic",
+      "id": "eohere_horn",
+      "name": "에오르의 경적",
+      "sheet": "07_faction_relics.png",
+      "index": 0,
+      "row": 1,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 20,
+        "y": 38,
+        "w": 216,
+        "h": 178
+      },
+      "master_frame": {
+        "x": 0,
+        "y": 2048,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Eorl's great dark brown war horn with bronze horse-knot fitting",
+      "rarity": 2,
+      "existing_path": "relics/icons/relic_eohere_horn.png",
+      "file": "inventory/icons/relic_eohere_horn.png"
+    },
+    "relic:elven_feather": {
+      "family": "relic",
+      "id": "elven_feather",
+      "name": "갈라드림의 깃털",
+      "sheet": "07_faction_relics.png",
+      "index": 1,
+      "row": 1,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 298,
+        "y": 20,
+        "w": 170,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 256,
+        "y": 2048,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Galadhrim fletching bundle, three pale white feathers bound with green thread",
+      "rarity": 2,
+      "existing_path": "relics/icons/relic_elven_feather.png",
+      "file": "inventory/icons/relic_elven_feather.png"
+    },
+    "relic:numenor_map": {
+      "family": "relic",
+      "id": "numenor_map",
+      "name": "누메노르의 지도",
+      "sheet": "07_faction_relics.png",
+      "index": 2,
+      "row": 1,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 532,
+        "y": 26,
+        "w": 216,
+        "h": 204
+      },
+      "master_frame": {
+        "x": 512,
+        "y": 2048,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Numenor parchment map showing a small five-point island silhouette and inked coast, no readable text",
+      "rarity": 1,
+      "existing_path": "relics/icons/relic_map_scroll.png",
+      "file": "inventory/icons/relic_numenor_map.png"
+    },
+    "relic:rohan_shield": {
+      "family": "relic",
+      "id": "rohan_shield",
+      "name": "로한 기병 방패",
+      "sheet": "07_faction_relics.png",
+      "index": 3,
+      "row": 1,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 792,
+        "y": 20,
+        "w": 208,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 768,
+        "y": 2048,
+        "w": 256,
+        "h": 256
+      },
+      "description": "round Rohan wooden shield, deep green face with two pale horse motifs and bronze boss",
+      "rarity": 1,
+      "existing_path": "relics/icons/relic_rohan_knight.png",
+      "file": "inventory/icons/relic_rohan_shield.png"
+    },
+    "relic:rohan_lance": {
+      "family": "relic",
+      "id": "rohan_lance",
+      "name": "로한 기수 투창",
+      "sheet": "07_faction_relics.png",
+      "index": 4,
+      "row": 2,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 36,
+        "y": 276,
+        "w": 184,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1024,
+        "y": 2048,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Rohan throwing spear with silver leaf point and a narrow green cloth tie",
+      "rarity": 1,
+      "existing_path": "relics/icons/relic_rohan_lance.png",
+      "file": "inventory/icons/relic_rohan_lance.png"
+    },
+    "relic:haradrim_bow": {
+      "family": "relic",
+      "id": "haradrim_bow",
+      "name": "하라드 장궁",
+      "sheet": "07_faction_relics.png",
+      "index": 5,
+      "row": 2,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 280,
+        "y": 276,
+        "w": 208,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1280,
+        "y": 2048,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Haradrim dark reddish wood recurved bow with leather grip and little ochre tassel",
+      "rarity": 1,
+      "existing_path": "relics/icons/relic_haradrim_bow.png",
+      "file": "inventory/icons/relic_haradrim_bow.png"
+    },
+    "relic:ranger_cloak": {
+      "family": "relic",
+      "id": "ranger_cloak",
+      "name": "북부 순찰자 망토",
+      "sheet": "07_faction_relics.png",
+      "index": 6,
+      "row": 2,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 536,
+        "y": 276,
+        "w": 208,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1536,
+        "y": 2048,
+        "w": 256,
+        "h": 256
+      },
+      "description": "northern ranger charcoal-gray cloak, worn edges, small silver star fastening",
+      "rarity": 1,
+      "existing_path": "relics/icons/relic_ranger_cloak.png",
+      "file": "inventory/icons/relic_ranger_cloak.png"
+    },
+    "relic:morannon_pike": {
+      "family": "relic",
+      "id": "morannon_pike",
+      "name": "모란논 장창",
+      "sheet": "07_faction_relics.png",
+      "index": 7,
+      "row": 2,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 808,
+        "y": 276,
+        "w": 176,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1792,
+        "y": 2048,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Morannon black iron pike, brutal narrow hooked spearhead and dark wood haft",
+      "rarity": 1,
+      "existing_path": "relics/icons/relic_morannon_pike.png",
+      "file": "inventory/icons/relic_morannon_pike.png"
+    },
+    "relic:gondor_tabard": {
+      "family": "relic",
+      "id": "gondor_tabard",
+      "name": "곤도르 전투복",
+      "sheet": "07_faction_relics.png",
+      "index": 8,
+      "row": 3,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 54,
+        "y": 532,
+        "w": 148,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 2048,
+        "y": 2048,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Gondor black soldier tabard displaying a simple white Tree, leather belt folded across it",
+      "rarity": 0,
+      "existing_path": "relics/icons/relic_gondor_tabard.png",
+      "file": "inventory/icons/relic_gondor_tabard.png"
+    },
+    "relic:mithril_mail": {
+      "family": "relic",
+      "id": "mithril_mail",
+      "name": "미스릴 쇠사슬",
+      "sheet": "07_faction_relics.png",
+      "index": 9,
+      "row": 3,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 276,
+        "y": 556,
+        "w": 216,
+        "h": 168
+      },
+      "master_frame": {
+        "x": 2304,
+        "y": 2048,
+        "w": 256,
+        "h": 256
+      },
+      "description": "rolled strip of silver dwarf mithril chainmail on a small bronze clasp, distinct from a full shirt",
+      "rarity": 2,
+      "existing_path": "relics/icons/relic_mithril_mail.png",
+      "file": "inventory/icons/relic_mithril_mail.png"
+    },
+    "relic:shadowfax": {
+      "family": "relic",
+      "id": "shadowfax",
+      "name": "섀도팩스의 제갈",
+      "sheet": "07_faction_relics.png",
+      "index": 10,
+      "row": 3,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 532,
+        "y": 540,
+        "w": 216,
+        "h": 200
+      },
+      "master_frame": {
+        "x": 2560,
+        "y": 2048,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Shadowfax bridle relic, a silver horse-bit and dark leather headstall, no horse portrait",
+      "rarity": 3,
+      "existing_path": "relics/icons/relic_shadowfax.png",
+      "file": "inventory/icons/relic_shadowfax.png"
+    },
+    "relic:miruvor": {
+      "family": "relic",
+      "id": "miruvor",
+      "name": "미루보르",
+      "sheet": "07_faction_relics.png",
+      "index": 11,
+      "row": 3,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 834,
+        "y": 532,
+        "w": 122,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 2816,
+        "y": 2048,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Miruvor relic, pale cordial in an elegant low silver-capped crystal flask",
+      "rarity": 2,
+      "existing_path": "relics/icons/relic_miruvor.png",
+      "file": "inventory/icons/relic_miruvor.png"
+    },
+    "relic:keys_erebor": {
+      "family": "relic",
+      "id": "keys_erebor",
+      "name": "에레보르의 열쇠",
+      "sheet": "07_faction_relics.png",
+      "index": 12,
+      "row": 4,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 22,
+        "y": 788,
+        "w": 210,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 0,
+        "y": 2304,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Erebor's large dwarf-made dark steel key with an angular bronze bow",
+      "rarity": 2,
+      "existing_path": "relics/icons/relic_keys_erebor.png",
+      "file": "inventory/icons/relic_keys_erebor.png"
+    },
+    "relic:pipeweed": {
+      "family": "relic",
+      "id": "pipeweed",
+      "name": "샤이어의 담뱃잎",
+      "sheet": "07_faction_relics.png",
+      "index": 13,
+      "row": 4,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 276,
+        "y": 792,
+        "w": 216,
+        "h": 206
+      },
+      "master_frame": {
+        "x": 256,
+        "y": 2304,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Shire pipeweed, a brown wooden pipe beside a small bag of dried green-brown leaves",
+      "rarity": 1,
+      "existing_path": "relics/icons/relic_pipeweed.png",
+      "file": "inventory/icons/relic_pipeweed.png"
+    },
+    "relic:athelas": {
+      "family": "relic",
+      "id": "athelas",
+      "name": "아셀라스 잎",
+      "sheet": "07_faction_relics.png",
+      "index": 14,
+      "row": 4,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 544,
+        "y": 788,
+        "w": 192,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 512,
+        "y": 2304,
+        "w": 256,
+        "h": 256
+      },
+      "description": "athelas fresh herbal sprig, long green leaves with tiny white flower",
+      "rarity": 2,
+      "existing_path": "relics/icons/relic_athelas.png",
+      "file": "inventory/icons/relic_athelas.png"
+    },
+    "relic:dwarf_axe": {
+      "family": "relic",
+      "id": "dwarf_axe",
+      "name": "두린의 도끼날",
+      "sheet": "07_faction_relics.png",
+      "index": 15,
+      "row": 4,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 788,
+        "y": 790,
+        "w": 216,
+        "h": 212
+      },
+      "master_frame": {
+        "x": 768,
+        "y": 2304,
+        "w": 256,
+        "h": 256
+      },
+      "description": "dwarf axe blade relic, detached compact steel axe head with bronze angular runes; no handle",
+      "rarity": 1,
+      "existing_path": "relics/icons/relic_durin_axe.png",
+      "file": "inventory/icons/relic_dwarf_axe.png"
+    },
+    "relic:elf_bow": {
+      "family": "relic",
+      "id": "elf_bow",
+      "name": "갈라드림 활시위",
+      "sheet": "08_company_relics.png",
+      "index": 0,
+      "row": 1,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 24,
+        "y": 20,
+        "w": 206,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1024,
+        "y": 2304,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Galadhrim bowstring relic, coiled pale silk bowstring beside a small golden-brown bow tip",
+      "rarity": 1,
+      "existing_path": "relics/icons/relic_elf_bow.png",
+      "file": "inventory/icons/relic_elf_bow.png"
+    },
+    "relic:ithilien_blade": {
+      "family": "relic",
+      "id": "ithilien_blade",
+      "name": "이실리엔 단검",
+      "sheet": "08_company_relics.png",
+      "index": 1,
+      "row": 1,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 284,
+        "y": 20,
+        "w": 198,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1280,
+        "y": 2304,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Ithilien ranger's short steel dagger with olive leather grip, plain functional form",
+      "rarity": 2,
+      "existing_path": "relics/icons/relic_barrow_blade.png",
+      "file": "inventory/icons/relic_ithilien_blade.png"
+    },
+    "relic:westfold_shield": {
+      "family": "relic",
+      "id": "westfold_shield",
+      "name": "서부 변경 방패",
+      "sheet": "08_company_relics.png",
+      "index": 2,
+      "row": 1,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 532,
+        "y": 20,
+        "w": 214,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1536,
+        "y": 2304,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Westfold round wooden shield, muted ochre face, dark steel boss and one green horse emblem",
+      "rarity": 2,
+      "existing_path": "relics/icons/relic_rohan_shield.png",
+      "file": "inventory/icons/relic_westfold_shield.png"
+    },
+    "relic:rohan_standard": {
+      "family": "relic",
+      "id": "rohan_standard",
+      "name": "로한 기병기",
+      "sheet": "08_company_relics.png",
+      "index": 3,
+      "row": 1,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 816,
+        "y": 20,
+        "w": 158,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1792,
+        "y": 2304,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Rohan cavalry standard, long green swallowtail with white horse and gold knot border",
+      "rarity": 2,
+      "existing_path": "relics/icons/relic_rohan_standard.png",
+      "file": "inventory/icons/relic_rohan_standard.png"
+    },
+    "relic:elven_rope": {
+      "family": "relic",
+      "id": "elven_rope",
+      "name": "엘프제 밧줄",
+      "sheet": "08_company_relics.png",
+      "index": 4,
+      "row": 2,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 20,
+        "y": 288,
+        "w": 216,
+        "h": 190
+      },
+      "master_frame": {
+        "x": 2048,
+        "y": 2304,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Elven rope, neat coil of silver-white rope with one long trailing loop",
+      "rarity": 1,
+      "existing_path": "relics/icons/relic_elven_rope.png",
+      "file": "inventory/icons/relic_elven_rope.png"
+    },
+    "relic:alliance_standard": {
+      "family": "relic",
+      "id": "alliance_standard",
+      "name": "동맹의 표준",
+      "sheet": "08_company_relics.png",
+      "index": 5,
+      "row": 2,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 290,
+        "y": 276,
+        "w": 188,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 2304,
+        "y": 2304,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Last Alliance interpretation: dark blue and black split banner with a white Tree and one silver Elven star",
+      "rarity": 2,
+      "existing_path": "relics/icons/relic_alliance_standard.png",
+      "file": "inventory/icons/relic_alliance_standard.png"
+    },
+    "relic:fellowship_flag": {
+      "family": "relic",
+      "id": "fellowship_flag",
+      "name": "이종연합의 깃발",
+      "sheet": "08_company_relics.png",
+      "index": 6,
+      "row": 2,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 546,
+        "y": 276,
+        "w": 186,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 2560,
+        "y": 2304,
+        "w": 256,
+        "h": 256
+      },
+      "description": "game fellowship banner, small dark green triangular cloth, nine tiny pale stars around a ring motif",
+      "rarity": 3,
+      "existing_path": "relics/icons/relic_fellowship_flag.png",
+      "file": "inventory/icons/relic_fellowship_flag.png"
+    },
+    "relic:edain_banner": {
+      "family": "relic",
+      "id": "edain_banner",
+      "name": "에다인의 대기",
+      "sheet": "08_company_relics.png",
+      "index": 7,
+      "row": 2,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 806,
+        "y": 276,
+        "w": 180,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 2816,
+        "y": 2304,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Edain game banner, cream and muted bronze-gold cloth with simple sun emblem",
+      "rarity": 1,
+      "existing_path": "relics/icons/relic_edain_banner.png",
+      "file": "inventory/icons/relic_edain_banner.png"
+    },
+    "relic:bounty_list": {
+      "family": "relic",
+      "id": "bounty_list",
+      "name": "현상금 목록",
+      "sheet": "08_company_relics.png",
+      "index": 8,
+      "row": 3,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 30,
+        "y": 532,
+        "w": 194,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 0,
+        "y": 2560,
+        "w": 256,
+        "h": 256
+      },
+      "description": "game bounty parchment, red wax seal and small charcoal Orc-head sketch, no letters",
+      "rarity": 1,
+      "existing_path": "relics/icons/relic_bounty_list.png",
+      "file": "inventory/icons/relic_bounty_list.png"
+    },
+    "relic:siege_wright": {
+      "family": "relic",
+      "id": "siege_wright",
+      "name": "공성 기술자",
+      "sheet": "08_company_relics.png",
+      "index": 9,
+      "row": 3,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 276,
+        "y": 532,
+        "w": 216,
+        "h": 214
+      },
+      "master_frame": {
+        "x": 256,
+        "y": 2560,
+        "w": 256,
+        "h": 256
+      },
+      "description": "game siege engineer emblem, a wood mallet crossed with a steel chisel, short leather strap",
+      "rarity": 0,
+      "existing_path": "relics/icons/relic_siege_wright.png",
+      "file": "inventory/icons/relic_siege_wright.png"
+    },
+    "relic:white_pact": {
+      "family": "relic",
+      "id": "white_pact",
+      "name": "백색 조약",
+      "sheet": "08_company_relics.png",
+      "index": 10,
+      "row": 3,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 532,
+        "y": 554,
+        "w": 216,
+        "h": 170
+      },
+      "master_frame": {
+        "x": 512,
+        "y": 2560,
+        "w": 256,
+        "h": 256
+      },
+      "description": "game white alliance treaty, folded cream parchment with a white wax seal and silver cord",
+      "rarity": 1,
+      "existing_path": "relics/icons/relic_white_pact.png",
+      "file": "inventory/icons/relic_white_pact.png"
+    },
+    "relic:master_flame": {
+      "family": "relic",
+      "id": "master_flame",
+      "name": "에레보르의 명장 불꽃",
+      "sheet": "08_company_relics.png",
+      "index": 11,
+      "row": 3,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 788,
+        "y": 536,
+        "w": 216,
+        "h": 206
+      },
+      "master_frame": {
+        "x": 768,
+        "y": 2560,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Erebor master smith relic, small dwarf forge anvil with a compact orange flame behind it",
+      "rarity": 1,
+      "existing_path": "relics/icons/relic_master_flame.png",
+      "file": "inventory/icons/relic_master_flame.png"
+    },
+    "relic:lords_letter": {
+      "family": "relic",
+      "id": "lords_letter",
+      "name": "군주의 추천서",
+      "sheet": "08_company_relics.png",
+      "index": 12,
+      "row": 4,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 20,
+        "y": 806,
+        "w": 216,
+        "h": 180
+      },
+      "master_frame": {
+        "x": 1024,
+        "y": 2560,
+        "w": 256,
+        "h": 256
+      },
+      "description": "game lord's letter, folded parchment envelope sealed with burgundy wax and bronze ring",
+      "rarity": 0,
+      "existing_path": "relics/icons/relic_lords_letter.png",
+      "file": "inventory/icons/relic_lords_letter.png"
+    },
+    "relic:oath_dead": {
+      "family": "relic",
+      "id": "oath_dead",
+      "name": "망자의 맹세",
+      "sheet": "08_company_relics.png",
+      "index": 13,
+      "row": 4,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 298,
+        "y": 788,
+        "w": 172,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1280,
+        "y": 2560,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Dead Men's oath interpretation, ancient cracked gray oathstone with a small ghost-green spectral hand print",
+      "rarity": 1,
+      "existing_path": "relics/icons/relic_oath_dead.png",
+      "file": "inventory/icons/relic_oath_dead.png"
+    },
+    "relic:harad_dart": {
+      "family": "relic",
+      "id": "harad_dart",
+      "name": "하라드림 독 화살",
+      "sheet": "08_company_relics.png",
+      "index": 14,
+      "row": 4,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 532,
+        "y": 788,
+        "w": 216,
+        "h": 214
+      },
+      "master_frame": {
+        "x": 1536,
+        "y": 2560,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Haradrim poison dart bundle, three short reddish shafts with black steel tips and tiny green poison pixels",
+      "rarity": 0,
+      "existing_path": "relics/icons/relic_harad_dart.png",
+      "file": "inventory/icons/relic_harad_dart.png"
+    },
+    "relic:troll_heart": {
+      "family": "relic",
+      "id": "troll_heart",
+      "name": "트롤의 심장",
+      "sheet": "08_company_relics.png",
+      "index": 15,
+      "row": 4,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 792,
+        "y": 788,
+        "w": 208,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1792,
+        "y": 2560,
+        "w": 256,
+        "h": 256
+      },
+      "description": "game troll heart relic, large rough dark crimson heart held in coarse leather straps, non-gory icon",
+      "rarity": 2,
+      "existing_path": "relics/icons/relic_troll_heart.png",
+      "file": "inventory/icons/relic_troll_heart.png"
+    },
+    "relic:sting": {
+      "family": "relic",
+      "id": "sting",
+      "name": "스팅",
+      "sheet": "09_shadow_and_lore.png",
+      "index": 0,
+      "row": 1,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 24,
+        "y": 20,
+        "w": 208,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 2048,
+        "y": 2560,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Sting relic variant, short blue-edged leaf blade beside a dark leather scabbard",
+      "rarity": 3,
+      "existing_path": "relics/icons/relic_sting.png",
+      "file": "inventory/icons/relic_sting.png"
+    },
+    "relic:steward_ledger": {
+      "family": "relic",
+      "id": "steward_ledger",
+      "name": "집정관의 장부",
+      "sheet": "09_shadow_and_lore.png",
+      "index": 1,
+      "row": 1,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 276,
+        "y": 22,
+        "w": 216,
+        "h": 212
+      },
+      "master_frame": {
+        "x": 2304,
+        "y": 2560,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Gondor steward's game ledger, dark leather bound book with small silver Tree clasp",
+      "rarity": 1,
+      "existing_path": "relics/icons/relic_steward_ledger.png",
+      "file": "inventory/icons/relic_steward_ledger.png"
+    },
+    "relic:scouts_mark": {
+      "family": "relic",
+      "id": "scouts_mark",
+      "name": "북녘 정찰 표지",
+      "sheet": "09_shadow_and_lore.png",
+      "index": 2,
+      "row": 1,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 532,
+        "y": 28,
+        "w": 216,
+        "h": 198
+      },
+      "master_frame": {
+        "x": 2560,
+        "y": 2560,
+        "w": 256,
+        "h": 256
+      },
+      "description": "northern scout game marker, a little wood trail token with arrow notch and leather cord",
+      "rarity": 0,
+      "existing_path": "relics/icons/relic_scouts_mark.png",
+      "file": "inventory/icons/relic_scouts_mark.png"
+    },
+    "relic:morgul_thorn": {
+      "family": "relic",
+      "id": "morgul_thorn",
+      "name": "모르굴의 가시",
+      "sheet": "09_shadow_and_lore.png",
+      "index": 3,
+      "row": 1,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 800,
+        "y": 20,
+        "w": 192,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 2816,
+        "y": 2560,
+        "w": 256,
+        "h": 256
+      },
+      "description": "game Morgul thorn, a wicked dark iron curved blade fragment with tiny sickly green edge",
+      "rarity": 1,
+      "existing_path": "relics/icons/relic_morgul_thorn.png",
+      "file": "inventory/icons/relic_morgul_thorn.png"
+    },
+    "relic:ranger_hood": {
+      "family": "relic",
+      "id": "ranger_hood",
+      "name": "레인저의 두건",
+      "sheet": "09_shadow_and_lore.png",
+      "index": 4,
+      "row": 2,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 20,
+        "y": 276,
+        "w": 216,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 0,
+        "y": 2816,
+        "w": 256,
+        "h": 256
+      },
+      "description": "ranger's separate hood, dark olive cloth, deep black face opening; no face",
+      "rarity": 0,
+      "existing_path": "relics/icons/relic_ranger_hood.png",
+      "file": "inventory/icons/relic_ranger_hood.png"
+    },
+    "relic:mithril_ore": {
+      "family": "relic",
+      "id": "mithril_ore",
+      "name": "미스릴 원석",
+      "sheet": "09_shadow_and_lore.png",
+      "index": 5,
+      "row": 2,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 276,
+        "y": 278,
+        "w": 216,
+        "h": 210
+      },
+      "master_frame": {
+        "x": 256,
+        "y": 2816,
+        "w": 256,
+        "h": 256
+      },
+      "description": "rough mithril ore, dark rock containing bright silver-blue metal veins",
+      "rarity": 1,
+      "existing_path": "relics/icons/relic_mithril_ore.png",
+      "file": "inventory/icons/relic_mithril_ore.png"
+    },
+    "relic:beorn_mead": {
+      "family": "relic",
+      "id": "beorn_mead",
+      "name": "베오른의 꿀주",
+      "sheet": "09_shadow_and_lore.png",
+      "index": 6,
+      "row": 2,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 532,
+        "y": 276,
+        "w": 214,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 512,
+        "y": 2816,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Beorn's honey mead, rustic wood cup with golden drink, small honeycomb beside it",
+      "rarity": 1,
+      "existing_path": "relics/icons/relic_beorn_mead.png",
+      "file": "inventory/icons/relic_beorn_mead.png"
+    },
+    "relic:anduin_mist": {
+      "family": "relic",
+      "id": "anduin_mist",
+      "name": "안두인의 안개",
+      "sheet": "09_shadow_and_lore.png",
+      "index": 7,
+      "row": 2,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 256,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 820,
+        "y": 276,
+        "w": 150,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 768,
+        "y": 2816,
+        "w": 256,
+        "h": 256
+      },
+      "description": "game Anduin mist relic, capped clear vial containing a few pale gray-blue mist pixels, no background fog",
+      "rarity": 1,
+      "existing_path": "relics/icons/relic_anduin_mist.png",
+      "file": "inventory/icons/relic_anduin_mist.png"
+    },
+    "relic:black_breath": {
+      "family": "relic",
+      "id": "black_breath",
+      "name": "검은 숨결",
+      "sheet": "09_shadow_and_lore.png",
+      "index": 8,
+      "row": 3,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 60,
+        "y": 532,
+        "w": 134,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1024,
+        "y": 2816,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Black Breath game interpretation, cracked black pendant with contained dull green spectral smoke, no outer haze",
+      "rarity": 2,
+      "existing_path": "relics/icons/relic_black_breath.png",
+      "file": "inventory/icons/relic_black_breath.png"
+    },
+    "expansion:morgoth_crown": {
+      "family": "expansion",
+      "id": "morgoth_crown",
+      "name": "모르고스의 철관",
+      "sheet": "09_shadow_and_lore.png",
+      "index": 9,
+      "row": 3,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 276,
+        "y": 536,
+        "w": 216,
+        "h": 208
+      },
+      "master_frame": {
+        "x": 1280,
+        "y": 2816,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Morgoth's massive black iron crown with three bright white Silmarils; clearly THREE gems",
+      "registered_in_game": false,
+      "file": "inventory/icons/expansion_morgoth_crown.png"
+    },
+    "expansion:dramborleg": {
+      "family": "expansion",
+      "id": "dramborleg",
+      "name": "드람보를레그",
+      "sheet": "09_shadow_and_lore.png",
+      "index": 10,
+      "row": 3,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 534,
+        "y": 532,
+        "w": 210,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1536,
+        "y": 2816,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Tuor's Dramborleg axe, heavy broad steel axehead with angular dwarf craftsmanship and a brown grip",
+      "registered_in_game": false,
+      "file": "inventory/icons/expansion_dramborleg.png"
+    },
+    "expansion:anglachel": {
+      "family": "expansion",
+      "id": "anglachel",
+      "name": "앙글라헬",
+      "sheet": "09_shadow_and_lore.png",
+      "index": 11,
+      "row": 3,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 512,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 800,
+        "y": 532,
+        "w": 190,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 1792,
+        "y": 2816,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Anglachel before reforging, black meteoric iron sword with pale edge and plain dark hilt, distinct from Gurthang",
+      "registered_in_game": false,
+      "file": "inventory/icons/expansion_anglachel.png"
+    },
+    "expansion:dailir": {
+      "family": "expansion",
+      "id": "dailir",
+      "name": "다일리르",
+      "sheet": "09_shadow_and_lore.png",
+      "index": 12,
+      "row": 4,
+      "column": 1,
+      "frame": {
+        "x": 0,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 22,
+        "y": 788,
+        "w": 210,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 2048,
+        "y": 2816,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Beleg's Dailir arrow, elegant single dark-shaft arrow with pale feather fletching",
+      "registered_in_game": false,
+      "file": "inventory/icons/expansion_dailir.png"
+    },
+    "expansion:galadriel_mirror": {
+      "family": "expansion",
+      "id": "galadriel_mirror",
+      "name": "갈라드리엘의 거울",
+      "sheet": "09_shadow_and_lore.png",
+      "index": 13,
+      "row": 4,
+      "column": 2,
+      "frame": {
+        "x": 256,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 276,
+        "y": 800,
+        "w": 216,
+        "h": 192
+      },
+      "master_frame": {
+        "x": 2304,
+        "y": 2816,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Galadriel's Mirror, shallow silver water basin on a small carved pedestal, reflective blue water",
+      "registered_in_game": false,
+      "file": "inventory/icons/expansion_galadriel_mirror.png"
+    },
+    "expansion:thror_key": {
+      "family": "expansion",
+      "id": "thror_key",
+      "name": "스로르의 열쇠",
+      "sheet": "09_shadow_and_lore.png",
+      "index": 14,
+      "row": 4,
+      "column": 3,
+      "frame": {
+        "x": 512,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 538,
+        "y": 788,
+        "w": 204,
+        "h": 216
+      },
+      "master_frame": {
+        "x": 2560,
+        "y": 2816,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Thror's key, long narrow black metal key with large simple angular bow",
+      "registered_in_game": false,
+      "file": "inventory/icons/expansion_thror_key.png"
+    },
+    "expansion:mazarbul_book": {
+      "family": "expansion",
+      "id": "mazarbul_book",
+      "name": "마자르불의 책",
+      "sheet": "09_shadow_and_lore.png",
+      "index": 15,
+      "row": 4,
+      "column": 4,
+      "frame": {
+        "x": 768,
+        "y": 768,
+        "w": 256,
+        "h": 256
+      },
+      "content": {
+        "x": 788,
+        "y": 792,
+        "w": 216,
+        "h": 208
+      },
+      "master_frame": {
+        "x": 2816,
+        "y": 2816,
+        "w": 256,
+        "h": 256
+      },
+      "description": "Book of Mazarbul, battered brown leather volume with several worn loose parchment pages and red-brown damage marks, no readable words",
+      "registered_in_game": false,
+      "file": "inventory/icons/expansion_mazarbul_book.png"
+    }
+  }
+}
