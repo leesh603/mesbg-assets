@@ -129,3 +129,9 @@ q.relics={};q.refreshUnit(spear);
 const ordinary=h.Ue([front,target],q.alive(),[],'good',()=>.9).strikeResults.find(s=>s.support);
 assert.equal(needed,ordinary.needed-1);
 console.log('PASS: spear relic changes support-strike threshold');
+// A nonlethal camp injury cannot leave a zero-health unit marked alive.
+q.start('ai');q.units=[];const traveler=q.spawn('butterbur','good',{x:500,y:500});traveler.currentWounds=1;
+h.LWB_EVENTS.find(e=>e.id==='warg_track').options[0].fx(q);assert.equal(traveler.currentWounds,1);assert.equal(traveler.alive,true);
+traveler.injury='leg';traveler.injuryBackup={move:traveler.baseStats.move};const travelMove=traveler.baseStats.move;traveler.baseStats.move=90;
+h.LWB_EVENTS.find(e=>e.id==='lost_supply').options[0].fx(q);assert.equal(traveler.baseStats.move,travelMove);assert.ok(!traveler.injury);
+console.log('PASS: camp damage stays nonlethal and treatment restores lost stats');

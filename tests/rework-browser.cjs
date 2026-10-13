@@ -49,7 +49,7 @@ async function manualProbe(page,run){
    if(mode==='ui'){await context.close();continue;}
    const run={width,version,checkpoints:[],started:new Date().toISOString(),finished:false};report.runs.push(run);
    await click(page,'#dock-primary');await page.waitForTimeout(1200);if(mode==='play')await manualProbe(page,run);await click(page,'#auto-dock');
-   for(let i=0;i<3;i++)await click(page,'#speed-dock');
+   for(let i=0;i<3;i++)await click(page,'#speed-dock');await click(page,'#dock-detail');if(await page.locator('#speed').isVisible())await page.locator('#speed').selectOption('30');await click(page,'#sheet-toggle');run.speed=await page.locator('#speed-dock').textContent();
    const deadline=Date.now()+(mode==='comparison'?6:18)*60*1000;let last='',lastChange=Date.now(),campShot=false;
    while(Date.now()<deadline){
     await page.waitForTimeout(1200);const s=await state(page);if(!s)continue;
