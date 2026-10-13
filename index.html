@@ -16525,6 +16525,19 @@ html body.lwb-polished{--fr-w:12px;
 #app#app#app .os-mark.ally i{background:#c9d9a8!important}
 #app#app#app .os-mark.foe i{background:#f2a68c!important}
 #app#app#app .os-mark b{font:12px/1 var(--px11)!important;color:var(--tx)!important}
+#app#app#app .t-sheet .diff-btn.active,#app#app#app .t-sheet .diff-btn.active *{color:#2b1a04!important;text-shadow:0 1px 0 rgba(255,244,200,.5)!important}
+#app#app#app .t-sheet .diff-btn.active{border-image-source:var(--fr-btn-gold)!important}
+#app#app#app .os-mark.ally i{background:#e2c27a!important}
+:is(html,#_o#_v#_r) body.lwb-polished #patch-pop details{border:0 solid transparent!important;border-image:var(--fr-chip) 6 / 10px / 0 stretch!important;background:var(--surf-deep)!important;box-shadow:none!important;border-radius:0!important;image-rendering:pixelated}
+:is(html,#_o#_v#_r) body.lwb-polished #patch-pop details[open]{border-image-source:var(--fr-panel)!important}
+:is(html,#_o#_v#_r) body.lwb-polished .modal :is(.ui-dialog-actions,.modal-actions,footer){background:linear-gradient(180deg,transparent,#100c08 40%)!important;border:0!important;box-shadow:none!important}
+/* narrow phones: keep the action row on one line */
+@media (max-width:379px){
+ #app#app#app .u-actions{gap:4px!important}
+ #app#app#app .u-actions .act-btn:not(#battle-order){padding:0 6px!important;min-width:48px!important;font:12px/1.15 var(--px11)!important;white-space:nowrap!important}
+ #app#app#app .u-actions #battle-order,#app#app#app .u-actions:has(#battle-order) #act-phase{width:48px!important;min-width:48px!important;font:12px/1.15 var(--px11)!important}
+ #app#app#app .u-actions #dock-primary{min-width:72px!important;font:12px/1.15 var(--px11)!important;white-space:nowrap!important;padding:0 6px!important}
+}
 </style></head><body><div id="app"></div><style id="integrated-rework">
 /* Integrated mobile layout: content first, stable controls, original artwork. */
 html body.lwb-polished.ui-rebuilt #app #overlay .t-title .title-controls{display:flex!important;flex-direction:column!important;gap:10px!important}
