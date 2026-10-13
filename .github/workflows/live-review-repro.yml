@@ -1,0 +1,53 @@
+name: Live review targeted reproductions
+on:
+  push:
+    branches: [diagnostics/playtest-20261013]
+    paths: [.github/workflows/live-review-repro.yml]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: mesbg-live-gameplay-review
+          path: previous
+          repository: leesh603/mesbg-assets
+          run-id: 38324812691
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Reproduce findings in the unmodified live UI
+        run: |
+          mkdir -p evidence
+          npm install --prefix /tmp/mesbg-browser playwright --no-audit --no-fund
+          NODE_PATH=/tmp/mesbg-browser/node_modules node <<'JS'
+          const {chromium}=require('playwright');
+          const fs=require('fs'),cp=require('child_process');
+          (async()=>{
+            const browser=await chromium.launch({executablePath:cp.execSync('which google-chrome || which chromium').toString().trim(),headless:true,args:['--no-sandbox']});
+            const errors=[],results={};
+            async function open(ctx){const p=await ctx.newPage();p.setDefaultTimeout(8000);p.on('pageerror',e=>errors.push(String(e)));await p.goto('https://leesh603.github.io/mesbg-assets/',{waitUntil:'domcontentloaded',timeout:60000});await p.waitForFunction(()=>window.MESBG?.ui?.state?.ready,null,{timeout:60000});await p.waitForTimeout(1200);return p;}
+            async function snap(p,name){await p.screenshot({path:'evidence/'+name+'.png',fullPage:true});const data=await p.evaluate(()=>{const m=window.MESBG,b=m.battle;return {url:location.href,text:document.body.innerText,phase:b.phase,gold:b.gold,wave:b.wave,recruitDraft:b.recruitDraft,offers:b.recruitOffers,challenge:b.challenge,pool:b._chalPool,fallen:b.fallen,roster:b.alive('good').map(u=>({id:u.id,uid:u.uid,name:u.name,traits:u.traits,alive:u.alive,wounds:u.currentWounds})),cards:Array.from(document.querySelectorAll('[data-draft]')).map(e=>({index:e.dataset.draft,disabled:e.disabled,text:e.innerText})),challenges:Array.from(document.querySelectorAll('[data-challenge]')).map(e=>({id:e.dataset.challenge,text:e.innerText})),viewport:{width:innerWidth,height:innerHeight,scrollWidth:document.documentElement.scrollWidth},modal:Array.from(document.querySelectorAll('.modal')).map(e=>({clientHeight:e.clientHeight,scrollHeight:e.scrollHeight,scrollTop:e.scrollTop})),leaveButton:(()=>{const e=document.querySelector('#leave-camp');if(!e)return null;const r=e.getBoundingClientRect();return {x:r.x,y:r.y,w:r.width,h:r.height};})()};});fs.writeFileSync('evidence/'+name+'.json',JSON.stringify(data,null,2));return data;}
+            try{
+              const c=await browser.newContext({viewport:{width:390,height:844},deviceScaleFactor:1,isMobile:true,hasTouch:true});const p=await open(c);await p.locator('#start-ai').click();await p.waitForTimeout(700);
+              const hs=await p.evaluate(()=>{const m=window.MESBG;return m.battle.recruitOffers.map((o,i)=>({i,id:o.id,hero:m.profiles[o.id]?.traits.includes('hero')||m.catalog[o.id]?.meta.role==='hero'})).filter(o=>o.hero);});
+              if(hs.length>=2){await p.locator('[data-draft="'+hs[0].i+'"] .recruit-name').click();await p.waitForTimeout(300);results.firstHero=await snap(p,'00-one-hero-selected');await p.locator('[data-draft="'+hs[1].i+'"] .recruit-name').click();await p.waitForTimeout(400);results.secondHero=await snap(p,'01-second-hero-click');}
+              await c.close();
+              const c2=await browser.newContext({viewport:{width:390,height:844},deviceScaleFactor:1,isMobile:true,hasTouch:true,storageState:'previous/final-storage-state.json'});const p2=await open(c2);await p2.locator('#resume').click();await p2.waitForTimeout(1200);results.campBefore=await snap(p2,'02-resumed-camp-top');
+              await p2.locator('.honor-details summary').click();await p2.waitForTimeout(300);await snap(p2,'03-honor-roll-and-living-roster');
+              for(let i=0;i<2;i++){await p2.reload({waitUntil:'domcontentloaded'});await p2.waitForFunction(()=>window.MESBG?.ui?.state?.ready);await p2.locator('#resume').click();await p2.waitForTimeout(800);const d=await snap(p2,'04-reload-'+i+'-top');results['reload'+i]=d;await p2.locator('#leave-camp').scrollIntoViewIfNeeded();await snap(p2,'05-reload-'+i+'-choices');}
+              await p2.setViewportSize({width:360,height:740});await p2.locator('.modal.camp').evaluate(e=>{e.scrollTop=0;});await p2.waitForTimeout(300);results.narrow=await snap(p2,'06-narrow-camp-top');await p2.locator('#leave-camp').scrollIntoViewIfNeeded();await snap(p2,'07-narrow-camp-bottom');
+              results.catalog=await p2.evaluate(()=>{const m=window.MESBG,b=m.battle;return {butterbur:m.catalog.butterbur,mt_spear:m.catalog.mt_spear,elladan:m.catalog.elladan,stages:[1,2,5,25,70].map(n=>({n,info:b.stageInfo(n)}))};});
+              await c2.close();
+            }catch(e){results.driverError=String(e);throw e;}
+            finally{fs.writeFileSync('evidence/results.json',JSON.stringify(results,null,2));fs.writeFileSync('evidence/errors.json',JSON.stringify(errors,null,2));await browser.close();}
+          })().catch(e=>{console.error(e);process.exitCode=1;});
+          JS
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mesbg-live-review-reproductions
+          path: evidence/
+          retention-days: 2
