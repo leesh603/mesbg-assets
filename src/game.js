@@ -1660,6 +1660,14 @@ P.start = function (mode) {
     this.nextRoundBuffs = [];
     this.horses = 0;
     this.fallen = [];
+    // Equipment belongs to this expedition, not to the reused battle instance.
+    this.stash = [];
+    this.legacy = [];
+    this._resale = [];
+    this.shopStock = [];
+    this._stockFor = '';
+    this._soldOut = [];
+    this._shopTarget = '';
     this.devices = [];
     if (!this.difficulty) this.difficulty = 'normal';
     if (this.dailySeed)
@@ -3509,7 +3517,13 @@ P.resume = function () { try {
         u.resources = { might: u.stats.might || 0, will: u.stats.will || 0, fate: u.stats.fate || 0, ...(u.resources || {}) };
         u.equipment = u.equipment || []; u.usedSkills = u.usedSkills || []; u.roundBuff = u.roundBuff || {};
     }
+    // Older saves may omit these fields; do not retain a different run's items.
+    s.stash = Array.isArray(s.stash) ? s.stash : [];
+    s.legacy = Array.isArray(s.legacy) ? s.legacy : [];
     Object.assign(this, s);
+    // Buyback and target selection are session-only and absent from saved state.
+    this._resale = [];
+    this._shopTarget = '';
     this.events = [];
     this.log = [];
     this.terrain = structuredClone(ee);
