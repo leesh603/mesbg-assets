@@ -1,0 +1,869 @@
+{
+  "base": "a1a254cf6c3a1e0e91f6cc4a82208a62a6bf5ef3",
+  "errors": [],
+  "failed": [],
+  "scenarios": [
+    {
+      "kind": "deep-block",
+      "uid": "g1",
+      "start": {
+        "x": 1100,
+        "y": 640
+      },
+      "to": {
+        "x": 1100,
+        "y": 880
+      },
+      "budget": 290,
+      "radius": 38,
+      "plan": null,
+      "moved": false,
+      "after": {
+        "x": 1100,
+        "y": 640
+      },
+      "spent": 0,
+      "remaining": 290,
+      "legal": true
+    },
+    {
+      "kind": "bridge-cross",
+      "uid": "g1",
+      "start": {
+        "x": 760,
+        "y": 653.780487804878
+      },
+      "to": {
+        "x": 760,
+        "y": 908.780487804878
+      },
+      "budget": 290,
+      "radius": 38,
+      "plan": {
+        "path": [
+          {
+            "x": 760,
+            "y": 653.780487804878
+          },
+          {
+            "x": 760,
+            "y": 908.780487804878
+          }
+        ],
+        "distance": 255,
+        "travel": 255
+      },
+      "uiPlan": {
+        "to": {
+          "x": 760,
+          "y": 908.7805016765044
+        },
+        "path": [
+          {
+            "x": 760,
+            "y": 653.780487804878
+          },
+          {
+            "x": 760,
+            "y": 908.7805016765044
+          }
+        ],
+        "distance": 255.00001387162615,
+        "travel": 255.00001387162638,
+        "snapped": false,
+        "yields": []
+      },
+      "moved": true,
+      "after": {
+        "x": 760,
+        "y": 908.7805016765044
+      },
+      "spent": 255.00001387162615,
+      "remaining": 34.99998612837385,
+      "legal": true
+    },
+    {
+      "kind": "shallow-cost",
+      "uid": "g1",
+      "start": {
+        "x": 1660,
+        "y": 694.5
+      },
+      "to": {
+        "x": 1660,
+        "y": 814.5
+      },
+      "budget": 290,
+      "radius": 38,
+      "plan": {
+        "path": [
+          {
+            "x": 1660,
+            "y": 694.5
+          },
+          {
+            "x": 1660,
+            "y": 814.5
+          }
+        ],
+        "distance": 240,
+        "travel": 120
+      },
+      "uiPlan": {
+        "to": {
+          "x": 1660,
+          "y": 814.4999861283736
+        },
+        "path": [
+          {
+            "x": 1660,
+            "y": 694.5
+          },
+          {
+            "x": 1660,
+            "y": 814.4999861283736
+          }
+        ],
+        "distance": 239.9999722567472,
+        "travel": 119.99998612837362,
+        "snapped": false,
+        "yields": []
+      },
+      "moved": true,
+      "after": {
+        "x": 1660,
+        "y": 814.4999861283736
+      },
+      "spent": 239.9999722567472,
+      "remaining": 50.00002774325279,
+      "legal": true
+    },
+    {
+      "kind": "rock-detour",
+      "uid": "g1",
+      "start": {
+        "x": 1070,
+        "y": 1175
+      },
+      "to": {
+        "x": 1290,
+        "y": 1175
+      },
+      "budget": 290,
+      "radius": 38,
+      "plan": {
+        "path": [
+          {
+            "x": 1070,
+            "y": 1175
+          },
+          {
+            "x": 1232,
+            "y": 1200
+          },
+          {
+            "x": 1290,
+            "y": 1175
+          }
+        ],
+        "distance": 227.07619295616283,
+        "travel": 227.07619295616283
+      },
+      "uiPlan": {
+        "to": {
+          "x": 1289.9999861283736,
+          "y": 1175.0000013871627
+        },
+        "path": [
+          {
+            "x": 1070,
+            "y": 1175
+          },
+          {
+            "x": 1232,
+            "y": 1200
+          },
+          {
+            "x": 1289.9999861283736,
+            "y": 1175.0000013871627
+          }
+        ],
+        "distance": 227.07617966843466,
+        "travel": 227.07617966843463,
+        "snapped": false,
+        "yields": [],
+        "gridCost": 229.7347173651999
+      },
+      "moved": true,
+      "after": {
+        "x": 1289.9999861283736,
+        "y": 1175.0000013871627
+      },
+      "spent": 227.07617966843466,
+      "remaining": 62.92382033156534,
+      "legal": true
+    },
+    {
+      "kind": "wall-block",
+      "uid": "g1",
+      "start": {
+        "x": 300,
+        "y": 330
+      },
+      "to": {
+        "x": 300,
+        "y": 215
+      },
+      "budget": 290,
+      "radius": 38,
+      "plan": null,
+      "moved": false,
+      "after": {
+        "x": 300,
+        "y": 330
+      },
+      "spent": 0,
+      "remaining": 290,
+      "legal": true
+    },
+    {
+      "kind": "tree-detour",
+      "uid": "g1",
+      "start": {
+        "x": 200,
+        "y": 1155
+      },
+      "to": {
+        "x": 420,
+        "y": 1155
+      },
+      "budget": 290,
+      "radius": 38,
+      "plan": {
+        "path": [
+          {
+            "x": 200,
+            "y": 1155
+          },
+          {
+            "x": 304,
+            "y": 1200
+          },
+          {
+            "x": 368,
+            "y": 1200
+          },
+          {
+            "x": 420,
+            "y": 1155
+          }
+        ],
+        "distance": 246.08586122381388,
+        "travel": 246.08586122381388
+      },
+      "uiPlan": {
+        "to": {
+          "x": 419.99998612837356,
+          "y": 1154.9999944513495
+        },
+        "path": [
+          {
+            "x": 200,
+            "y": 1155
+          },
+          {
+            "x": 304,
+            "y": 1200
+          },
+          {
+            "x": 368,
+            "y": 1200
+          },
+          {
+            "x": 419.99998612837356,
+            "y": 1154.9999944513495
+          }
+        ],
+        "distance": 246.08585436543353,
+        "travel": 246.08585436543353,
+        "snapped": false,
+        "yields": [],
+        "gridCost": 249.67354831794586
+      },
+      "moved": true,
+      "after": {
+        "x": 419.99998612837356,
+        "y": 1154.9999944513495
+      },
+      "spent": 246.08585436543353,
+      "remaining": 43.91414563456647,
+      "legal": true
+    }
+  ],
+  "views": [
+    {
+      "name": "after-entry",
+      "phase": "menu",
+      "progress": 0,
+      "overflow": false,
+      "objects": 0,
+      "broken": []
+    },
+    {
+      "name": "probe-deep-block-preview",
+      "phase": "move",
+      "map": "osgiliath",
+      "progress": 0,
+      "overflow": false,
+      "objects": 8,
+      "broken": []
+    },
+    {
+      "name": "probe-deep-block-result",
+      "phase": "move",
+      "map": "osgiliath",
+      "progress": 0,
+      "overflow": false,
+      "objects": 8,
+      "broken": []
+    },
+    {
+      "name": "probe-bridge-cross-preview",
+      "phase": "move",
+      "map": "osgiliath",
+      "progress": 0,
+      "overflow": false,
+      "objects": 8,
+      "broken": []
+    },
+    {
+      "name": "probe-bridge-cross-result",
+      "phase": "move",
+      "map": "osgiliath",
+      "progress": 0,
+      "overflow": false,
+      "objects": 8,
+      "broken": []
+    },
+    {
+      "name": "probe-shallow-cost-preview",
+      "phase": "move",
+      "map": "fangorn",
+      "progress": 0,
+      "overflow": false,
+      "objects": 11,
+      "broken": []
+    },
+    {
+      "name": "probe-shallow-cost-result",
+      "phase": "move",
+      "map": "fangorn",
+      "progress": 0,
+      "overflow": false,
+      "objects": 11,
+      "broken": []
+    },
+    {
+      "name": "probe-rock-detour-preview",
+      "phase": "move",
+      "map": "osgiliath",
+      "progress": 0,
+      "overflow": false,
+      "objects": 8,
+      "broken": []
+    },
+    {
+      "name": "probe-rock-detour-result",
+      "phase": "move",
+      "map": "osgiliath",
+      "progress": 0,
+      "overflow": false,
+      "objects": 8,
+      "broken": []
+    },
+    {
+      "name": "probe-wall-block-preview",
+      "phase": "move",
+      "map": "black_gate",
+      "progress": 0,
+      "overflow": false,
+      "objects": 10,
+      "broken": []
+    },
+    {
+      "name": "probe-wall-block-result",
+      "phase": "move",
+      "map": "black_gate",
+      "progress": 0,
+      "overflow": false,
+      "objects": 10,
+      "broken": []
+    },
+    {
+      "name": "probe-tree-detour-preview",
+      "phase": "move",
+      "map": "mirkwood",
+      "progress": 0,
+      "overflow": false,
+      "objects": 10,
+      "broken": []
+    },
+    {
+      "name": "probe-tree-detour-result",
+      "phase": "move",
+      "map": "mirkwood",
+      "progress": 0,
+      "overflow": false,
+      "objects": 10,
+      "broken": []
+    },
+    {
+      "name": "mobile-osgiliath",
+      "phase": "preparation",
+      "map": "osgiliath",
+      "progress": 2,
+      "overflow": false,
+      "objects": 10,
+      "broken": []
+    },
+    {
+      "name": "mobile-forest",
+      "phase": "preparation",
+      "map": "mirkwood",
+      "progress": 2,
+      "overflow": false,
+      "objects": 12,
+      "broken": []
+    }
+  ],
+  "play": {
+    "checkpoints": [
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 1,
+        "good": 6,
+        "evil": 4,
+        "result": "",
+        "log": [
+          "🛡 방어선 의지 — 구역 내 아군 2기 결투 +1",
+          "라운드 1 · 모르도르 우선권"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 1,
+        "good": 6,
+        "evil": 4,
+        "result": "",
+        "log": [
+          "고블린 궁수 · 남은 이동력 117",
+          "오크 궁수 · 남은 이동력 117"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 1,
+        "good": 6,
+        "evil": 4,
+        "result": "",
+        "log": [
+          "곤도르 궁수 · 남은 이동력 135",
+          "곤도르 궁수 · 남은 이동력 135"
+        ]
+      },
+      {
+        "phase": "shoot",
+        "wave": 1,
+        "round": 1,
+        "good": 6,
+        "evil": 4,
+        "result": "",
+        "log": [
+          "고블린 궁수 → 미나스 티리스 전사: 피해 없음",
+          "곤도르 궁수 → 고블린 궁수: 피해 없음"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 2,
+        "good": 6,
+        "evil": 4,
+        "result": "",
+        "log": [
+          "미나스 티리스 전사 돌격!",
+          "라운드 2 · 곤도르 우선권"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 2,
+        "good": 6,
+        "evil": 4,
+        "result": "",
+        "log": [
+          "아라곤 · 남은 이동력 69",
+          "아라곤 · 남은 이동력 85"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 2,
+        "good": 6,
+        "evil": 4,
+        "result": "",
+        "log": [
+          "미나스 티리스 창병 · 남은 이동력 58",
+          "고블린 궁수 · 남은 이동력 158"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 2,
+        "good": 5,
+        "evil": 4,
+        "result": "",
+        "log": [
+          "곤도르 궁수 · 남은 이동력 135",
+          "화약통 폭발 · 1기 타격"
+        ]
+      },
+      {
+        "phase": "shoot",
+        "wave": 1,
+        "round": 2,
+        "good": 5,
+        "evil": 4,
+        "result": "",
+        "log": [
+          "고블린 궁수 → 미나스 티리스 전사: 피해 없음",
+          "오크 궁수 → 미나스 티리스 전사: 피해 없음"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 3,
+        "good": 5,
+        "evil": 3,
+        "result": "",
+        "log": [
+          "👁 사우론의 눈이 전장을 비춥니다 — 범위 내 적 결투 재굴림 · 아군 용기 −1",
+          "라운드 3 · 모르도르 우선권"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 3,
+        "good": 5,
+        "evil": 3,
+        "result": "",
+        "log": [
+          "헌터 오크 · 남은 이동력 135",
+          "고블린 궁수 · 남은 이동력 158"
+        ]
+      },
+      {
+        "phase": "shoot",
+        "wave": 1,
+        "round": 3,
+        "good": 5,
+        "evil": 3,
+        "result": "",
+        "log": [
+          "곤도르 궁수 → 헌터 오크: 피해 없음",
+          "오크 궁수 → 미나스 티리스 전사: 피해 없음"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 4,
+        "good": 5,
+        "evil": 3,
+        "result": "",
+        "log": [
+          "라운드 4 · 곤도르 우선권",
+          "── 라운드 4 ──"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 4,
+        "good": 5,
+        "evil": 3,
+        "result": "",
+        "log": [
+          "아라곤 돌격!",
+          "고블린 궁수 · 남은 이동력 117"
+        ]
+      },
+      {
+        "phase": "fight",
+        "wave": 1,
+        "round": 4,
+        "good": 5,
+        "evil": 2,
+        "result": "",
+        "log": [
+          "1 대 1 · 곤도르 승리 · 창 지원 ×1",
+          "근접전 단계 · 2개 교전"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 5,
+        "good": 5,
+        "evil": 2,
+        "result": "",
+        "log": [
+          "미나스 티리스 전사 돌격!",
+          "적 전열 붕괴 — 적 병력 반감, 사기 -1"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 5,
+        "good": 5,
+        "evil": 2,
+        "result": "",
+        "log": [
+          "고블린 궁수 · 남은 이동력 117",
+          "미나스 티리스 전사 돌격!"
+        ]
+      },
+      {
+        "phase": "fight",
+        "wave": 1,
+        "round": 5,
+        "good": 5,
+        "evil": 2,
+        "result": "",
+        "log": [
+          "2 대 1 · 곤도르 승리",
+          "근접전 단계 · 1개 교전"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 6,
+        "good": 5,
+        "evil": 2,
+        "result": "",
+        "log": [
+          "고블린 궁수 · 남은 이동력 197",
+          "미나스 티리스 전사 돌격!"
+        ]
+      },
+      {
+        "phase": "shoot",
+        "wave": 1,
+        "round": 6,
+        "good": 5,
+        "evil": 2,
+        "result": "",
+        "log": [
+          "사격 · 곤도르: 아군 차폐 금지 / 모르도르: 4+ 통과, 1–3 아군 오사",
+          "곤도르 궁수 · 남은 이동력 135"
+        ]
+      },
+      {
+        "phase": "fight",
+        "wave": 1,
+        "round": 6,
+        "good": 5,
+        "evil": 1,
+        "result": "",
+        "log": [
+          "3 대 1 · 곤도르 승리 · 포위 추가 타격 · 창 지원 ×1",
+          "엘리트 전리품 · 금화 +5"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 7,
+        "good": 5,
+        "evil": 1,
+        "result": "",
+        "log": [
+          "고블린 궁수 · 남은 이동력 158",
+          "라운드 7 · 모르도르 우선권"
+        ]
+      },
+      {
+        "phase": "shoot",
+        "wave": 1,
+        "round": 7,
+        "good": 5,
+        "evil": 1,
+        "result": "",
+        "log": [
+          "고블린 궁수 → 미나스 티리스 전사: 피해 없음",
+          "사격 · 곤도르: 아군 차폐 금지 / 모르도르: 4+ 통과, 1–3 아군 오사"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 8,
+        "good": 5,
+        "evil": 1,
+        "result": "",
+        "log": [
+          "미나스 티리스 전사 돌격!",
+          "라운드 8 · 곤도르 우선권"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 8,
+        "good": 5,
+        "evil": 1,
+        "result": "",
+        "log": [
+          "곤도르 궁수 · 남은 이동력 135",
+          "미나스 티리스 창병 · 남은 이동력 68"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 9,
+        "good": 5,
+        "evil": 1,
+        "result": "",
+        "log": [
+          "라운드 9 · 곤도르 우선권",
+          "── 라운드 9 ──"
+        ]
+      },
+      {
+        "phase": "fight",
+        "wave": 1,
+        "round": 9,
+        "good": 5,
+        "evil": 1,
+        "result": "",
+        "log": [
+          "근접전 단계 · 1개 교전",
+          "사격 · 곤도르: 아군 차폐 금지 / 모르도르: 4+ 통과, 1–3 아군 오사"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 10,
+        "good": 5,
+        "evil": 3,
+        "result": "",
+        "log": [
+          "우르크 광전사 · 남은 이동력 72",
+          "어둠 속에서 적이 침투합니다 — 후방을 주의하세요."
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 10,
+        "good": 5,
+        "evil": 3,
+        "result": "",
+        "log": [
+          "아라곤 · 남은 이동력 197",
+          "미나스 티리스 전사 돌격!"
+        ]
+      },
+      {
+        "phase": "fight",
+        "wave": 1,
+        "round": 10,
+        "good": 5,
+        "evil": 3,
+        "result": "",
+        "log": [
+          "1 대 2 · 모르도르 승리 · 포위 추가 타격 · 창 지원 ×1",
+          "근접전 단계 · 2개 교전"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 11,
+        "good": 4,
+        "evil": 3,
+        "result": "",
+        "log": [
+          "라운드 11 · 곤도르 우선권",
+          "── 라운드 11 ──"
+        ]
+      },
+      {
+        "phase": "fight",
+        "wave": 1,
+        "round": 11,
+        "good": 4,
+        "evil": 3,
+        "result": "",
+        "log": [
+          "근접전 단계 · 2개 교전",
+          "사격 · 곤도르: 아군 차폐 금지 / 모르도르: 4+ 통과, 1–3 아군 오사"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 12,
+        "good": 4,
+        "evil": 1,
+        "result": "",
+        "log": [
+          "라운드 12 · 모르도르 우선권",
+          "── 라운드 12 ──"
+        ]
+      },
+      {
+        "phase": "reward",
+        "wave": 1,
+        "round": 12,
+        "good": 4,
+        "evil": 0,
+        "result": "",
+        "log": [
+          "STAGE 1 완료 · 금화 +68",
+          "업적 달성 — 파벌 결속"
+        ]
+      }
+    ],
+    "final": {
+      "phase": "reward",
+      "wave": 1,
+      "round": 12,
+      "good": 4,
+      "evil": 0,
+      "result": "",
+      "log": [
+        "STAGE 1 완료 · 금화 +68",
+        "업적 달성 — 파벌 결속"
+      ]
+    }
+  },
+  "performance": {
+    "frameMedianMs": 16.700000002980232,
+    "p95": 19.600000001490116,
+    "cachedLayers": 11,
+    "heap": 56800000
+  }
+}

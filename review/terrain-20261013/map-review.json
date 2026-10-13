@@ -1,0 +1,1109 @@
+{
+  "base": "a1a254cf6c3a1e0e91f6cc4a82208a62a6bf5ef3",
+  "errors": [],
+  "failed": [],
+  "scenarios": [
+    {
+      "kind": "deep-block",
+      "uid": "g1",
+      "start": {
+        "x": 1100,
+        "y": 640
+      },
+      "to": {
+        "x": 1100,
+        "y": 880
+      },
+      "budget": 290,
+      "radius": 38,
+      "plan": null,
+      "moved": false,
+      "after": {
+        "x": 1100,
+        "y": 640
+      },
+      "spent": 0,
+      "remaining": 290,
+      "legal": true
+    },
+    {
+      "kind": "bridge-cross",
+      "uid": "g1",
+      "start": {
+        "x": 760,
+        "y": 653.780487804878
+      },
+      "to": {
+        "x": 760,
+        "y": 908.780487804878
+      },
+      "budget": 290,
+      "radius": 38,
+      "plan": {
+        "path": [
+          {
+            "x": 760,
+            "y": 653.780487804878
+          },
+          {
+            "x": 760,
+            "y": 908.780487804878
+          }
+        ],
+        "distance": 255,
+        "travel": 255
+      },
+      "moved": true,
+      "after": {
+        "x": 760,
+        "y": 908.780487804878
+      },
+      "spent": 255,
+      "remaining": 35,
+      "legal": true
+    },
+    {
+      "kind": "shallow-cost",
+      "uid": "g1",
+      "start": {
+        "x": 1660,
+        "y": 694.5
+      },
+      "to": {
+        "x": 1660,
+        "y": 814.5
+      },
+      "budget": 290,
+      "radius": 38,
+      "plan": {
+        "path": [
+          {
+            "x": 1660,
+            "y": 694.5
+          },
+          {
+            "x": 1660,
+            "y": 814.5
+          }
+        ],
+        "distance": 240,
+        "travel": 120
+      },
+      "moved": true,
+      "after": {
+        "x": 1660,
+        "y": 814.5
+      },
+      "spent": 240,
+      "remaining": 50,
+      "legal": true
+    },
+    {
+      "kind": "rock-detour",
+      "uid": "g1",
+      "start": {
+        "x": 1070,
+        "y": 1175
+      },
+      "to": {
+        "x": 1290,
+        "y": 1175
+      },
+      "budget": 290,
+      "radius": 38,
+      "plan": {
+        "path": [
+          {
+            "x": 1070,
+            "y": 1175
+          },
+          {
+            "x": 1232,
+            "y": 1200
+          },
+          {
+            "x": 1290,
+            "y": 1175
+          }
+        ],
+        "distance": 227.07619295616283,
+        "travel": 227.07619295616283
+      },
+      "moved": true,
+      "after": {
+        "x": 1290,
+        "y": 1175
+      },
+      "spent": 227.07619295616283,
+      "remaining": 62.92380704383717,
+      "legal": true
+    },
+    {
+      "kind": "wall-block",
+      "uid": "g1",
+      "start": {
+        "x": 300,
+        "y": 330
+      },
+      "to": {
+        "x": 300,
+        "y": 215
+      },
+      "budget": 290,
+      "radius": 38,
+      "plan": null,
+      "moved": false,
+      "after": {
+        "x": 300,
+        "y": 330
+      },
+      "spent": 0,
+      "remaining": 290,
+      "legal": true
+    },
+    {
+      "kind": "tree-detour",
+      "uid": "g1",
+      "start": {
+        "x": 200,
+        "y": 1155
+      },
+      "to": {
+        "x": 420,
+        "y": 1155
+      },
+      "budget": 290,
+      "radius": 38,
+      "plan": {
+        "path": [
+          {
+            "x": 200,
+            "y": 1155
+          },
+          {
+            "x": 304,
+            "y": 1200
+          },
+          {
+            "x": 368,
+            "y": 1200
+          },
+          {
+            "x": 420,
+            "y": 1155
+          }
+        ],
+        "distance": 246.08586122381388,
+        "travel": 246.08586122381388
+      },
+      "moved": true,
+      "after": {
+        "x": 420,
+        "y": 1155
+      },
+      "spent": 246.08586122381388,
+      "remaining": 43.91413877618612,
+      "legal": true
+    }
+  ],
+  "views": [
+    {
+      "name": "before-entry",
+      "phase": "menu",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "name": "before-osgiliath-early",
+      "phase": "preparation",
+      "map": "osgiliath",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "name": "before-fangorn-early",
+      "phase": "preparation",
+      "map": "fangorn",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "name": "before-moria-early",
+      "phase": "preparation",
+      "map": "moria",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "name": "before-black_gate-early",
+      "phase": "preparation",
+      "map": "black_gate",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "name": "after-entry",
+      "phase": "menu",
+      "progress": 0,
+      "overflow": false,
+      "objects": 0,
+      "broken": []
+    },
+    {
+      "name": "after-osgiliath-early",
+      "phase": "preparation",
+      "map": "osgiliath",
+      "progress": 0,
+      "overflow": false,
+      "objects": 8,
+      "broken": []
+    },
+    {
+      "name": "after-osgiliath-late",
+      "phase": "preparation",
+      "map": "osgiliath",
+      "progress": 4,
+      "overflow": false,
+      "objects": 12,
+      "broken": []
+    },
+    {
+      "name": "after-fangorn-early",
+      "phase": "preparation",
+      "map": "fangorn",
+      "progress": 0,
+      "overflow": false,
+      "objects": 11,
+      "broken": []
+    },
+    {
+      "name": "after-fangorn-late",
+      "phase": "preparation",
+      "map": "fangorn",
+      "progress": 4,
+      "overflow": false,
+      "objects": 15,
+      "broken": []
+    },
+    {
+      "name": "after-moria-early",
+      "phase": "preparation",
+      "map": "moria",
+      "progress": 0,
+      "overflow": false,
+      "objects": 10,
+      "broken": []
+    },
+    {
+      "name": "after-moria-late",
+      "phase": "preparation",
+      "map": "moria",
+      "progress": 4,
+      "overflow": false,
+      "objects": 13,
+      "broken": []
+    },
+    {
+      "name": "after-black_gate-early",
+      "phase": "preparation",
+      "map": "black_gate",
+      "progress": 0,
+      "overflow": false,
+      "objects": 10,
+      "broken": []
+    },
+    {
+      "name": "after-black_gate-late",
+      "phase": "preparation",
+      "map": "black_gate",
+      "progress": 4,
+      "overflow": false,
+      "objects": 14,
+      "broken": []
+    },
+    {
+      "name": "map-minas_tirith",
+      "phase": "preparation",
+      "map": "minas_tirith",
+      "progress": 2,
+      "overflow": false,
+      "objects": 12,
+      "broken": []
+    },
+    {
+      "name": "map-osgiliath",
+      "phase": "preparation",
+      "map": "osgiliath",
+      "progress": 2,
+      "overflow": false,
+      "objects": 10,
+      "broken": []
+    },
+    {
+      "name": "map-amon_sul",
+      "phase": "preparation",
+      "map": "amon_sul",
+      "progress": 2,
+      "overflow": false,
+      "objects": 13,
+      "broken": []
+    },
+    {
+      "name": "map-helms_deep",
+      "phase": "preparation",
+      "map": "helms_deep",
+      "progress": 2,
+      "overflow": false,
+      "objects": 16,
+      "broken": []
+    },
+    {
+      "name": "map-fangorn",
+      "phase": "preparation",
+      "map": "fangorn",
+      "progress": 2,
+      "overflow": false,
+      "objects": 13,
+      "broken": []
+    },
+    {
+      "name": "map-edoras",
+      "phase": "preparation",
+      "map": "edoras",
+      "progress": 2,
+      "overflow": false,
+      "objects": 13,
+      "broken": []
+    },
+    {
+      "name": "map-moria",
+      "phase": "preparation",
+      "map": "moria",
+      "progress": 2,
+      "overflow": false,
+      "objects": 11,
+      "broken": []
+    },
+    {
+      "name": "map-isengard",
+      "phase": "preparation",
+      "map": "isengard",
+      "progress": 2,
+      "overflow": false,
+      "objects": 12,
+      "broken": []
+    },
+    {
+      "name": "map-black_gate",
+      "phase": "preparation",
+      "map": "black_gate",
+      "progress": 2,
+      "overflow": false,
+      "objects": 12,
+      "broken": []
+    },
+    {
+      "name": "map-gorgoroth",
+      "phase": "preparation",
+      "map": "gorgoroth",
+      "progress": 2,
+      "overflow": false,
+      "objects": 9,
+      "broken": []
+    },
+    {
+      "name": "map-rivendell",
+      "phase": "preparation",
+      "map": "rivendell",
+      "progress": 2,
+      "overflow": false,
+      "objects": 14,
+      "broken": []
+    },
+    {
+      "name": "map-lothlorien",
+      "phase": "preparation",
+      "map": "lothlorien",
+      "progress": 2,
+      "overflow": false,
+      "objects": 13,
+      "broken": []
+    },
+    {
+      "name": "map-pelennor",
+      "phase": "preparation",
+      "map": "pelennor",
+      "progress": 2,
+      "overflow": false,
+      "objects": 12,
+      "broken": []
+    },
+    {
+      "name": "map-dead_marshes",
+      "phase": "preparation",
+      "map": "dead_marshes",
+      "progress": 2,
+      "overflow": false,
+      "objects": 13,
+      "broken": []
+    },
+    {
+      "name": "map-dunharrow",
+      "phase": "preparation",
+      "map": "dunharrow",
+      "progress": 2,
+      "overflow": false,
+      "objects": 12,
+      "broken": []
+    },
+    {
+      "name": "map-erebor",
+      "phase": "preparation",
+      "map": "erebor",
+      "progress": 2,
+      "overflow": false,
+      "objects": 9,
+      "broken": []
+    },
+    {
+      "name": "map-mirkwood",
+      "phase": "preparation",
+      "map": "mirkwood",
+      "progress": 2,
+      "overflow": false,
+      "objects": 12,
+      "broken": []
+    },
+    {
+      "name": "map-dol_guldur",
+      "phase": "preparation",
+      "map": "dol_guldur",
+      "progress": 2,
+      "overflow": false,
+      "objects": 9,
+      "broken": []
+    },
+    {
+      "name": "map-gondolin",
+      "phase": "preparation",
+      "map": "gondolin",
+      "progress": 2,
+      "overflow": false,
+      "objects": 12,
+      "broken": []
+    },
+    {
+      "name": "map-angband",
+      "phase": "preparation",
+      "map": "angband",
+      "progress": 2,
+      "overflow": false,
+      "objects": 12,
+      "broken": []
+    },
+    {
+      "name": "map-minas_court",
+      "phase": "preparation",
+      "map": "minas_court",
+      "progress": 2,
+      "overflow": false,
+      "objects": 8,
+      "broken": []
+    },
+    {
+      "name": "map-orthanc",
+      "phase": "preparation",
+      "map": "orthanc",
+      "progress": 2,
+      "overflow": false,
+      "objects": 8,
+      "broken": []
+    },
+    {
+      "name": "map-barad_dur",
+      "phase": "preparation",
+      "map": "barad_dur",
+      "progress": 2,
+      "overflow": false,
+      "objects": 9,
+      "broken": []
+    },
+    {
+      "name": "map-minas_morgul",
+      "phase": "preparation",
+      "map": "minas_morgul",
+      "progress": 2,
+      "overflow": false,
+      "objects": 10,
+      "broken": []
+    },
+    {
+      "name": "map-dale",
+      "phase": "preparation",
+      "map": "dale",
+      "progress": 2,
+      "overflow": false,
+      "objects": 10,
+      "broken": []
+    },
+    {
+      "name": "map-hornburg",
+      "phase": "preparation",
+      "map": "hornburg",
+      "progress": 2,
+      "overflow": false,
+      "objects": 8,
+      "broken": []
+    },
+    {
+      "name": "map-erebor_hall",
+      "phase": "preparation",
+      "map": "erebor_hall",
+      "progress": 2,
+      "overflow": false,
+      "objects": 8,
+      "broken": []
+    },
+    {
+      "name": "probe-deep-block-preview",
+      "phase": "move",
+      "map": "osgiliath",
+      "progress": 0,
+      "overflow": false,
+      "objects": 8,
+      "broken": []
+    },
+    {
+      "name": "probe-deep-block-result",
+      "phase": "move",
+      "map": "osgiliath",
+      "progress": 0,
+      "overflow": false,
+      "objects": 8,
+      "broken": []
+    },
+    {
+      "name": "probe-bridge-cross-preview",
+      "phase": "move",
+      "map": "osgiliath",
+      "progress": 0,
+      "overflow": false,
+      "objects": 8,
+      "broken": []
+    },
+    {
+      "name": "probe-bridge-cross-result",
+      "phase": "move",
+      "map": "osgiliath",
+      "progress": 0,
+      "overflow": false,
+      "objects": 8,
+      "broken": []
+    },
+    {
+      "name": "probe-shallow-cost-preview",
+      "phase": "move",
+      "map": "fangorn",
+      "progress": 0,
+      "overflow": false,
+      "objects": 11,
+      "broken": []
+    },
+    {
+      "name": "probe-shallow-cost-result",
+      "phase": "move",
+      "map": "fangorn",
+      "progress": 0,
+      "overflow": false,
+      "objects": 11,
+      "broken": []
+    },
+    {
+      "name": "probe-rock-detour-preview",
+      "phase": "move",
+      "map": "osgiliath",
+      "progress": 0,
+      "overflow": false,
+      "objects": 8,
+      "broken": []
+    },
+    {
+      "name": "probe-rock-detour-result",
+      "phase": "move",
+      "map": "osgiliath",
+      "progress": 0,
+      "overflow": false,
+      "objects": 8,
+      "broken": []
+    },
+    {
+      "name": "probe-wall-block-preview",
+      "phase": "move",
+      "map": "black_gate",
+      "progress": 0,
+      "overflow": false,
+      "objects": 10,
+      "broken": []
+    },
+    {
+      "name": "probe-wall-block-result",
+      "phase": "move",
+      "map": "black_gate",
+      "progress": 0,
+      "overflow": false,
+      "objects": 10,
+      "broken": []
+    },
+    {
+      "name": "probe-tree-detour-preview",
+      "phase": "move",
+      "map": "mirkwood",
+      "progress": 0,
+      "overflow": false,
+      "objects": 10,
+      "broken": []
+    },
+    {
+      "name": "probe-tree-detour-result",
+      "phase": "move",
+      "map": "mirkwood",
+      "progress": 0,
+      "overflow": false,
+      "objects": 10,
+      "broken": []
+    },
+    {
+      "name": "actual-battle-result",
+      "phase": "reward",
+      "map": "amon_sul",
+      "progress": 0,
+      "overflow": false,
+      "objects": 11,
+      "broken": []
+    },
+    {
+      "name": "mobile-osgiliath",
+      "phase": "preparation",
+      "map": "osgiliath",
+      "progress": 2,
+      "overflow": false,
+      "objects": 10,
+      "broken": []
+    },
+    {
+      "name": "mobile-forest",
+      "phase": "preparation",
+      "map": "mirkwood",
+      "progress": 2,
+      "overflow": false,
+      "objects": 12,
+      "broken": []
+    }
+  ],
+  "play": {
+    "checkpoints": [
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 1,
+        "good": 6,
+        "evil": 4,
+        "result": "",
+        "log": [
+          "🛡 방어선 의지 — 구역 내 아군 2기 결투 +1",
+          "라운드 1 · 곤도르 우선권"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 1,
+        "good": 6,
+        "evil": 4,
+        "result": "",
+        "log": [
+          "고블린 궁수 · 남은 이동력 117",
+          "아라곤 · 남은 이동력 16"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 1,
+        "good": 6,
+        "evil": 4,
+        "result": "",
+        "log": [
+          "곤도르 궁수 · 남은 이동력 135",
+          "헌터 오크 · 남은 이동력 135"
+        ]
+      },
+      {
+        "phase": "shoot",
+        "wave": 1,
+        "round": 1,
+        "good": 6,
+        "evil": 4,
+        "result": "",
+        "log": [
+          "오크 궁수 → 미나스 티리스 창병: 피해 없음",
+          "곤도르 궁수 → 고블린 궁수: 피해 없음"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 2,
+        "good": 6,
+        "evil": 4,
+        "result": "",
+        "log": [
+          "라운드 2 · 모르도르 우선권",
+          "── 라운드 2 ──"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 2,
+        "good": 6,
+        "evil": 4,
+        "result": "",
+        "log": [
+          "고블린 궁수 · 남은 이동력 117",
+          "미나스 티리스 전사 돌격!"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 2,
+        "good": 6,
+        "evil": 4,
+        "result": "",
+        "log": [
+          "미나스 티리스 창병 · 남은 이동력 210",
+          "헌터 오크 · 남은 이동력 167"
+        ]
+      },
+      {
+        "phase": "shoot",
+        "wave": 1,
+        "round": 2,
+        "good": 6,
+        "evil": 4,
+        "result": "",
+        "log": [
+          "곤도르 궁수 → 고블린 궁수: 피해 없음",
+          "오크 궁수 → 미나스 티리스 전사: 피해 없음"
+        ]
+      },
+      {
+        "phase": "fight",
+        "wave": 1,
+        "round": 2,
+        "good": 6,
+        "evil": 3,
+        "result": "",
+        "log": [
+          "근접전 단계 · 1개 교전",
+          "헌터 오크 → 미나스 티리스 전사: 피해 없음"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 3,
+        "good": 6,
+        "evil": 2,
+        "result": "",
+        "log": [
+          "고블린 궁수 · 남은 이동력 197",
+          "적 전열 붕괴 — 적 병력 반감, 사기 -1"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 3,
+        "good": 6,
+        "evil": 2,
+        "result": "",
+        "log": [
+          "아라곤 · 남은 이동력 197",
+          "헌터 오크 · 남은 이동력 135"
+        ]
+      },
+      {
+        "phase": "shoot",
+        "wave": 1,
+        "round": 3,
+        "good": 6,
+        "evil": 2,
+        "result": "",
+        "log": [
+          "사격 · 곤도르: 아군 차폐 금지 / 모르도르: 4+ 통과, 1–3 아군 오사",
+          "곤도르 궁수 · 남은 이동력 135"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 4,
+        "good": 6,
+        "evil": 4,
+        "result": "",
+        "log": [
+          "어둠 속에서 적이 침투합니다 — 후방을 주의하세요.",
+          "🌑 다크 이벤트 — 우르크 광전사 무리이(가) 후방에 침투했습니다!"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 4,
+        "good": 6,
+        "evil": 4,
+        "result": "",
+        "log": [
+          "고블린 궁수 · 남은 이동력 117",
+          "미나스 티리스 전사 돌격!"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 4,
+        "good": 6,
+        "evil": 4,
+        "result": "",
+        "log": [
+          "곤도르 궁수 · 남은 이동력 135",
+          "미나스 티리스 창병 · 남은 이동력 182"
+        ]
+      },
+      {
+        "phase": "fight",
+        "wave": 1,
+        "round": 4,
+        "good": 6,
+        "evil": 3,
+        "result": "",
+        "log": [
+          "근접전 단계 · 2개 교전",
+          "곤도르 궁수 → 고블린 궁수: 부상"
+        ]
+      },
+      {
+        "phase": "fight",
+        "wave": 1,
+        "round": 4,
+        "good": 6,
+        "evil": 2,
+        "result": "",
+        "log": [
+          "1 대 1 · 곤도르 승리",
+          "1 대 1 · 곤도르 승리 · 창 지원 ×1"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 5,
+        "good": 6,
+        "evil": 2,
+        "result": "",
+        "log": [
+          "미나스 티리스 전사 돌격!",
+          "미나스 티리스 전사 돌격!"
+        ]
+      },
+      {
+        "phase": "fight",
+        "wave": 1,
+        "round": 5,
+        "good": 6,
+        "evil": 2,
+        "result": "",
+        "log": [
+          "1 대 1 · 곤도르 승리 · 창 지원 ×1",
+          "근접전 단계 · 2개 교전"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 6,
+        "good": 6,
+        "evil": 2,
+        "result": "",
+        "log": [
+          "우르크 광전사 돌격!",
+          "라운드 6 · 모르도르 우선권"
+        ]
+      },
+      {
+        "phase": "shoot",
+        "wave": 1,
+        "round": 6,
+        "good": 6,
+        "evil": 2,
+        "result": "",
+        "log": [
+          "사격 · 곤도르: 아군 차폐 금지 / 모르도르: 4+ 통과, 1–3 아군 오사",
+          "곤도르 궁수 · 남은 이동력 135"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 7,
+        "good": 6,
+        "evil": 1,
+        "result": "",
+        "log": [
+          "라운드 7 · 모르도르 우선권",
+          "── 라운드 7 ──"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 7,
+        "good": 6,
+        "evil": 1,
+        "result": "",
+        "log": [
+          "미나스 티리스 전사 돌격!",
+          "미나스 티리스 전사 돌격!"
+        ]
+      },
+      {
+        "phase": "fight",
+        "wave": 1,
+        "round": 7,
+        "good": 6,
+        "evil": 1,
+        "result": "",
+        "log": [
+          "근접전 단계 · 1개 교전",
+          "사격 · 곤도르: 아군 차폐 금지 / 모르도르: 4+ 통과, 1–3 아군 오사"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 8,
+        "good": 6,
+        "evil": 1,
+        "result": "",
+        "log": [
+          "미나스 티리스 전사 돌격!",
+          "미나스 티리스 전사 돌격!"
+        ]
+      },
+      {
+        "phase": "shoot",
+        "wave": 1,
+        "round": 8,
+        "good": 6,
+        "evil": 1,
+        "result": "",
+        "log": [
+          "사격 · 곤도르: 아군 차폐 금지 / 모르도르: 4+ 통과, 1–3 아군 오사",
+          "곤도르 궁수 · 남은 이동력 135"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 9,
+        "good": 6,
+        "evil": 1,
+        "result": "",
+        "log": [
+          "라운드 9 · 곤도르 우선권",
+          "── 라운드 9 ──"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 9,
+        "good": 6,
+        "evil": 1,
+        "result": "",
+        "log": [
+          "미나스 티리스 창병 · 남은 이동력 191",
+          "아라곤 돌격!"
+        ]
+      },
+      {
+        "phase": "fight",
+        "wave": 1,
+        "round": 9,
+        "good": 6,
+        "evil": 1,
+        "result": "",
+        "log": [
+          "2 대 1 · 곤도르 승리 · 창 지원 ×1",
+          "근접전 단계 · 1개 교전"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 10,
+        "good": 6,
+        "evil": 1,
+        "result": "",
+        "log": [
+          "미나스 티리스 전사 · 남은 이동력 183",
+          "라운드 10 · 곤도르 우선권"
+        ]
+      },
+      {
+        "phase": "move",
+        "wave": 1,
+        "round": 10,
+        "good": 6,
+        "evil": 1,
+        "result": "",
+        "log": [
+          "곤도르 궁수 · 남은 이동력 135",
+          "미나스 티리스 창병 · 남은 이동력 111"
+        ]
+      },
+      {
+        "phase": "reward",
+        "wave": 1,
+        "round": 10,
+        "good": 6,
+        "evil": 0,
+        "result": "",
+        "log": [
+          "STAGE 1 완료 · 금화 +68",
+          "업적 달성 — 파벌 결속"
+        ]
+      }
+    ],
+    "final": {
+      "phase": "reward",
+      "wave": 1,
+      "round": 10,
+      "good": 6,
+      "evil": 0,
+      "result": "",
+      "log": [
+        "STAGE 1 완료 · 금화 +68",
+        "업적 달성 — 파벌 결속"
+      ]
+    }
+  },
+  "performance": {
+    "frameMedianMs": 16.700000002980232,
+    "p95": 19.600000001490116,
+    "cachedLayers": 11,
+    "heap": 56800000
+  }
+}
