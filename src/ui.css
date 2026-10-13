@@ -723,3 +723,11 @@ html body.lwb-polished:not([data-phase="move"]):not([data-phase="shoot"]):not([d
 #app#app#app#app#app#app .os-mark.foe i::after{border-left-color:#f2a68c!important}
 #app#app#app#app#app#app .os-mark b{position:absolute!important;left:50%;top:50%;transform:translate(-50%,-50%);font:12px/1 var(--px11)!important;color:#fff!important;text-shadow:0 0 2px #000,0 0 2px #000!important}
 #app#app#app#app#app#app .os-mark b:empty::before{content:none!important;display:none!important}
+/* the command dock keeps one height in every phase, so the battlefield canvas never resizes (no black flash) */
+#app#app#app#app#app#app #u-panel{min-height:112px!important;height:112px!important;max-height:112px!important;box-sizing:border-box!important;overflow:hidden!important}
+#app#app#app#app#app#app #command-dock{flex:0 0 auto!important}
+#app#app#app#app#app#app #command-dock > :not(#u-panel):not(.u-actions):not(.u-tip):not(.mux-legacy){display:none!important}
+#app#app#app#app#app#app #u-panel.empty{display:grid!important;place-items:center!important;grid-template-columns:1fr!important}
+#app#app#app#app#app#app #u-panel.empty #dock-name{grid-column:1!important;text-align:center!important}
+#app#app#app#app#app#app #u-panel.empty :is(.dock-portrait,#u-stats,#u-res){display:none!important}
+#app#app#app#app#app#app .u-actions{height:44px!important;min-height:44px!important;max-height:44px!important}

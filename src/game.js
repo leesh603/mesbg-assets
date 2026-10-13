@@ -5944,7 +5944,7 @@ function resizeBattle(force=false){
     if(!force&&w===UX.width&&h===UX.height&&Math.abs(dpr-UX.dpr)<.01)return;
     const center=UX.ready?cameraCenter():{x:1165,y:650},z=UX.zoom;
     resetGestures();UX.width=w;UX.height=h;UX.dpr=dpr;
-    if(UX.ready){const scale=Tt.scale;scale.zoom=1/dpr;scale._resetZoom=true;scale.resize(Math.round(w*dpr),Math.round(h*dpr));Tt.game.canvas.style.width=w+'px';Tt.game.canvas.style.height=h+'px';scale.refresh();Tt.cameras.main.setSize(Math.round(w*dpr),Math.round(h*dpr));setCamera(center.x,center.y,UX.cameraMode==='overview'?overviewZoom():z);}
+    if(UX.ready){const scale=Tt.scale;scale.zoom=1/dpr;scale._resetZoom=true;scale.resize(Math.round(w*dpr),Math.round(h*dpr));Tt.game.canvas.style.width=w+'px';Tt.game.canvas.style.height=h+'px';scale.refresh();Tt.cameras.main.setSize(Math.round(w*dpr),Math.round(h*dpr));setCamera(center.x,center.y,UX.cameraMode==='overview'?overviewZoom():z);try{Tt.game.step(performance.now(),16);}catch(e){}}
     aside.inert=!aside.classList.contains('open');aside.setAttribute('aria-hidden',String(aside.inert));
 }
 let resizeFrame=0;
