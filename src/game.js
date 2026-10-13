@@ -384,7 +384,7 @@ class Ve extends Ot.Scene {
             }
             // No automatic camera following after a unit move.
         }
-    } b.type === "ChargeConnected" && this.soundFX.play("base_contact"), b.result && await this.combat(b.result); }
+    } b.type === "ChargeConnected" && this.soundFX.play(b.cavalry ? "cavalry_charge" : "base_contact"), b.result && await this.combat(b.result); }
     async combat(b) { for (const K of b.trappedUnits) {
         const $ = this.b.unit(K), p = this.add.text($.x, $.y - $.radius - 25, "포위 · 추가 타격", { fontFamily: "Pretendard", fontSize: "11px", color: "#ffdb9c", backgroundColor: "#5d241cee", padding: { x: 5, y: 3 } }).setOrigin(.5).setDepth(20);
         this.time.delayedCall(1500, () => p.destroy());
@@ -425,32 +425,68 @@ class Ve extends Ot.Scene {
         }
     } await Promise.all(b.pushVectors.map(async (K) => { const $ = this.tokens.get(K.uid); $ && (this.soundFX.play("push"), await this.tween($, { x: K.to.x, y: K.to.y }, 200)); })); }
 }
-const Ye = Object.fromEntries(["dice_roll", "base_slide", "base_contact", "sword_swing", "sword_armor", "sword_shield", "sword_flesh", "arrow_release", "arrow_fly", "arrow_impact", "push", "death", "ui_select", "reward_select"].map(Z => [Z, { file: `audio/${Z}.wav`, volume: Z === "dice_roll" ? .5 : .75 }]));
+const Ye = {"sword_swing":{"file":"audio/sword_swing.wav","files":["audio/sword_swing.wav","audio/sword_swing_02.wav","audio/sword_swing_03.wav"],"volume":0.75},"sword_armor":{"file":"audio/sword_armor.wav","files":["audio/sword_armor.wav","audio/sword_armor_02.wav","audio/sword_armor_03.wav"],"volume":0.75},"sword_shield":{"file":"audio/sword_shield.wav","files":["audio/sword_shield.wav","audio/sword_shield_02.wav","audio/sword_shield_03.wav"],"volume":0.75},"sword_flesh":{"file":"audio/sword_flesh.wav","files":["audio/sword_flesh.wav","audio/sword_flesh_02.wav","audio/sword_flesh_03.wav"],"volume":0.75},"sword_parry":{"file":"audio/sword_parry.wav","files":["audio/sword_parry.wav","audio/sword_parry_02.wav","audio/sword_parry_03.wav"],"volume":0.75},"critical_hit":{"file":"audio/critical_hit.wav","files":["audio/critical_hit.wav","audio/critical_hit_02.wav","audio/critical_hit_03.wav"],"volume":0.75},"spear_thrust":{"file":"audio/spear_thrust.wav","files":["audio/spear_thrust.wav","audio/spear_thrust_02.wav","audio/spear_thrust_03.wav"],"volume":0.75},"axe_hit":{"file":"audio/axe_hit.wav","files":["audio/axe_hit.wav","audio/axe_hit_02.wav","audio/axe_hit_03.wav"],"volume":0.75},"arrow_release":{"file":"audio/arrow_release.wav","files":["audio/arrow_release.wav","audio/arrow_release_02.wav","audio/arrow_release_03.wav"],"volume":0.75},"arrow_fly":{"file":"audio/arrow_fly.wav","files":["audio/arrow_fly.wav","audio/arrow_fly_02.wav","audio/arrow_fly_03.wav"],"volume":0.75},"arrow_impact":{"file":"audio/arrow_impact.wav","files":["audio/arrow_impact.wav","audio/arrow_impact_02.wav","audio/arrow_impact_03.wav"],"volume":0.75},"base_slide":{"file":"audio/base_slide.wav","files":["audio/base_slide.wav","audio/base_slide_02.wav","audio/base_slide_03.wav"],"volume":0.75},"base_contact":{"file":"audio/base_contact.wav","files":["audio/base_contact.wav","audio/base_contact_02.wav","audio/base_contact_03.wav"],"volume":0.75},"push":{"file":"audio/push.wav","files":["audio/push.wav","audio/push_02.wav"],"volume":0.75},"cavalry_charge":{"file":"audio/cavalry_charge.wav","files":["audio/cavalry_charge.wav","audio/cavalry_charge_02.wav"],"volume":0.75},"dice_roll":{"file":"audio/dice_roll.wav","files":["audio/dice_roll.wav","audio/dice_roll_02.wav","audio/dice_roll_03.wav"],"volume":0.52},"ui_select":{"file":"audio/ui_select.wav","files":["audio/ui_select.wav","audio/ui_select_02.wav","audio/ui_select_03.wav"],"volume":0.75},"ui_confirm":{"file":"audio/ui_confirm.wav","files":["audio/ui_confirm.wav","audio/ui_confirm_02.wav"],"volume":0.75},"ui_cancel":{"file":"audio/ui_cancel.wav","files":["audio/ui_cancel.wav","audio/ui_cancel_02.wav"],"volume":0.75},"ui_error":{"file":"audio/ui_error.wav","files":["audio/ui_error.wav","audio/ui_error_02.wav"],"volume":0.75},"reward_select":{"file":"audio/reward_select.wav","files":["audio/reward_select.wav","audio/reward_select_02.wav"],"volume":0.75},"event":{"file":"audio/event.wav","files":["audio/event.wav","audio/event_02.wav"],"volume":0.75},"death":{"file":"audio/death.wav","files":["audio/death.wav","audio/death_02.wav","audio/death_03.wav"],"volume":0.75},"war_horn":{"file":"audio/war_horn.wav","files":["audio/war_horn.wav","audio/war_horn_02.wav"],"volume":0.75},"cast":{"file":"audio/cast.wav","files":["audio/cast.wav","audio/cast_02.wav"],"volume":0.75},"heal":{"file":"audio/heal.wav","files":["audio/heal.wav","audio/heal_02.wav"],"volume":0.75},"terror":{"file":"audio/terror.wav","files":["audio/terror.wav","audio/terror_02.wav"],"volume":0.75},"monster_hit":{"file":"audio/monster_hit.wav","files":["audio/monster_hit.wav","audio/monster_hit_02.wav"],"volume":0.75},"victory":{"file":"audio/victory.wav","files":["audio/victory.wav"],"volume":0.75},"defeat":{"file":"audio/defeat.wav","files":["audio/defeat.wav"],"volume":0.75}};
+// Original Audio Pack v1. Stream music; decode and cache short effects on demand.
 class We {
-    constructor() { lt(this, "context"); lt(this, "muted", !0); lt(this, "sfxVolume", .7); lt(this, "musicVolume", .35); lt(this, "music"); lt(this, "buffers", new Map); lt(this, "asset", Y => Y); lt(this, "mood", 1); }
-    _effVol(b = this.musicVolume) { return b * (this.mood === 0 ? .45 : 1); }
-    setMood(Y) { if (this.mood === Y) return; this.mood = Y; const track = { 0: 'audio/lwb-camp.mp3', 2: 'audio/lwb-boss.mp3' }[Y] || (this._MAP_TRACK[this._mapName] || 'audio/lwb-battle.mp3'); if (this.music && this._track !== track) { this._track = track; this.music.src = this.asset(track); this.music.loop = !0; this.muted || this.musicVolume <= 0 || this.music.play().catch(() => { }); } this.music && (this.music.playbackRate = Y === 2 ? 1.05 : 1, this.music.volume = this.muted ? 0 : this._effVol()); }
-    fanfare(Y = true) { if (this.muted || this.sfxVolume <= 0 || !this.context || document.hidden) return; const b = this.context, H = b.currentTime, K = Y ? [[261.6, 0, .16], [329.6, .15, .16], [392, .3, .18], [523.3, .5, .55]] : [[220, 0, .3], [174.6, .28, .62]]; for (const [$, p, S] of K) { const t = b.createOscillator(), f = b.createGain(), c = b.createBiquadFilter(); t.type = "sawtooth", t.frequency.value = $, c.type = "lowpass", c.frequency.value = 1300, f.gain.setValueAtTime(0, H + p), f.gain.linearRampToValueAtTime(this.sfxVolume * .4, H + p + .04), f.gain.setValueAtTime(this.sfxVolume * .4, Math.max(0, H + p + S - .05)), f.gain.linearRampToValueAtTime(0, H + p + S), t.connect(c), c.connect(f), f.connect(b.destination), t.start(H + p), t.stop(H + p + S + .05); } }
-    async unlock() { if (!this.music) { this._track = 'audio/lwb-camp.mp3'; this.music = new Audio(this.asset(this._track)); this.music.loop = !0; } this.music.volume = this.muted ? 0 : this._effVol(); if (this.muted || document.hidden)
-        return; this.context ?? (this.context = new AudioContext), await this.context.resume(), this._startTheme && this._startTheme(), this.musicVolume > 0 && this.music.play().catch(() => { }); }
-    savePrefs() { try { localStorage.setItem("lwb-audio", JSON.stringify({ muted: this.muted, sfxVolume: this.sfxVolume, musicVolume: this.musicVolume })); }
-        catch { } }
-    setVolumes(Y, b) { this.sfxVolume = Y, this.musicVolume = b; this.music && (this.music.volume = this.muted ? 0 : this._effVol(b), this.muted || b <= 0 ? this.music.pause() : this.music.paused && this.music.play().catch(() => { })); this.context && (this.muted || Y <= 0 && b <= 0 ? this.context.suspend() : this.context.state === "suspended" && this.context.resume().catch(() => { })); this.savePrefs(); }
-    toggle() { this.muted = !this.muted; if (this.music)
-        this.music.volume = this.muted ? 0 : this._effVol(), this.muted ? this.music.pause() : this.musicVolume > 0 && this.music.play().catch(() => { }); this.context && (this.muted ? this.context.suspend() : this.context.resume().catch(() => { })); this.savePrefs(); }
-    async play(Y) { if (this.muted || document.hidden || this.sfxVolume <= 0)
-        return; const b = Ye[Y]; if (b)
+    constructor() {
+        this.muted=false; this.sfxVolume=.7; this.musicVolume=.35; this.mood=3;
+        this.asset=Y=>Y; this.buffers=new Map(); this.pending=new Map();
+        this.voices=new Set(); this.lastVariant=new Map(); this.lastPlayed=new Map();
+    }
+    _effVol(b=this.musicVolume) { return b*(this.mood===0?.7:1); }
+    _url(file) { const url=this.asset(file); return url.startsWith('data:')?url:url+(url.includes('?')?'&':'?')+'audio=lwb-original-1'; }
+    _trackForMood() { return 'audio/'+({0:'lwb-camp',2:'lwb-boss',3:'gate-of-the-west'}[this.mood]||'lwb-battle')+'.mp3'; }
+    _syncMusic() {
+        const track=this._trackForMood();
+        if(!this.music) { this.music=new Audio(); this.music.preload='none'; this.music.loop=true; this.music.id='lwb-background-music'; this.music.hidden=true; document.body.append(this.music);
+            this.music.addEventListener('error',()=>{if(this._format==='ogg'){this._format='mp3';this.music.src=this._url(this._track);this._resumeMusic();}}); }
+        if(this._track!==track) { this._track=track; this._format=this.music.canPlayType('audio/ogg; codecs="vorbis"')?'ogg':'mp3';
+            this.music.src=this._url(track.replace('.mp3','.'+this._format)); }
+        this.music.playbackRate=1; this.music.volume=this.muted?0:this._effVol();
+        const label=document.getElementById('audio-now-playing');if(label)label.textContent='현재 음악 · '+({0:'별빛 야영지',2:'검은 문의 공세',3:'돌아갈 땅'}[this.mood]||'서녘의 맹세');
+        this._resumeMusic();
+    }
+    _resumeMusic() { if(!this.music)return; if(this.muted||document.hidden||this.musicVolume<=0)this.music.pause();
+        else if(this._unlocked&&this.music.paused)this.music.play().catch(()=>{}); }
+    setMood(value) { this.mood=value; this._syncMusic(); }
+    setAct(value) { this.act=value; }
+    setMap(value) { this._mapName=value; }
+    fanfare(won=true) { return this.play(won?'victory':'defeat'); }
+    async unlock() {
+        this._unlocked=true; this._syncMusic(); if(this.muted||document.hidden)return;
+        try { const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;
+            this.context??=new AC();if(this.context.state==='suspended')await this.context.resume(); } catch {}
+    }
+    savePrefs() { try { localStorage.setItem('lwb-audio',JSON.stringify({muted:this.muted,sfxVolume:this.sfxVolume,musicVolume:this.musicVolume})); } catch {} }
+    _stopEffects() { for(const source of this.voices)try{source.stop();}catch{} this.voices.clear(); }
+    setVolumes(sfx,music) { this.sfxVolume=Math.max(0,Math.min(1,Number(sfx)||0));this.musicVolume=Math.max(0,Math.min(1,Number(music)||0));
+        if(this.sfxVolume<=0)this._stopEffects();this._syncMusic();this.savePrefs(); }
+    toggle() { this.muted=!this.muted;if(this.muted){this._stopEffects();this.context?.suspend().catch(()=>{});}else this.unlock();this._syncMusic();this.savePrefs(); }
+    async _buffer(file) {
+        if(this.buffers.has(file))return this.buffers.get(file);
+        if(!this.pending.has(file))this.pending.set(file,(async()=>{
+            const res=await fetch(this._url(file));if(!res.ok)throw new Error('Audio '+res.status);
+            const buffer=await this.context.decodeAudioData(await res.arrayBuffer());this.buffers.set(file,buffer);return buffer;
+        })().finally(()=>this.pending.delete(file)));
+        return this.pending.get(file);
+    }
+    async play(id) {
+        const effect=Ye[id];if(!effect||this.muted||document.hidden||this.sfxVolume<=0)return;
+        // Fast-forward and simultaneous melee must not create an unbounded sound queue.
+        const now=performance.now();if(now-(this.lastPlayed.get(id)??-Infinity)<(id==='base_slide'?110:45))return;
+        this.lastPlayed.set(id,now);
         try {
-            this.context ?? (this.context = new AudioContext), this.context.state === "suspended" && await this.context.resume();
-            let H = this.buffers.get(Y);
-            if (!H) {
-                const p = await (await fetch(this.asset(b.file))).arrayBuffer();
-                H = await this.context.decodeAudioData(p), this.buffers.set(Y, H);
-            }
-            const K = this.context.createBufferSource(), $ = this.context.createGain();
-            K.buffer = H, K.playbackRate.value = .96 + Math.random() * .08, $.gain.value = this.sfxVolume * b.volume, K.connect($), $.connect(this.context.destination), K.start();
-        }
-        catch { } }
+            await this.unlock();if(!this.context)return;
+            const files=effect.files,last=this.lastVariant.get(id),choices=files.filter(f=>f!==last),file=(choices.length?choices:files)[Math.floor(Math.random()*(choices.length||files.length))];
+            this.lastVariant.set(id,file);const buffer=await this._buffer(file);
+            if(this.muted||document.hidden||this.sfxVolume<=0||this.context.state!=='running')return;
+            if(this.voices.size>=12){const old=this.voices.values().next().value;try{old.stop();}catch{}this.voices.delete(old);}
+            const source=this.context.createBufferSource(),gain=this.context.createGain();source.buffer=buffer;
+            source.playbackRate.value=/^(ui_|victory|defeat|war_horn|reward_select|heal)/.test(id)?1:.98+Math.random()*.04;
+            gain.gain.value=this.sfxVolume*effect.volume;source.connect(gain);gain.connect(this.context.destination);this.voices.add(source);
+            source.onended=()=>{this.voices.delete(source);source.disconnect();gain.disconnect();};source.start();
+        } catch(error) { console.warn('[LWB audio]',id,error.message); }
+    }
 }
 function be(Z, Y) { if (Z.engaged(Y) || Z.remaining(Y) < 12)
     return null; if (Y.traits.includes('spear')) { if (supportAlly(Y)) return null; const sup = Z.alive(Y.side).filter(v => v !== Y && Z.alive(Ht(Y.side)).some(f => Vt(v, f))).sort((a, c) => ht(Y, a) - ht(Y, c)); for (const v of sup.slice(0, 3)) { const ang = Math.atan2(v.y - Y.y, v.x - Y.x); for (const t of [v.radius + Y.radius + 30, v.radius + Y.radius + 44]) for (let k = 0; k < 14; k++) { const c = ang + (k % 2 === 0 ? 1 : -1) * Math.ceil(k / 2) * Math.PI / 7, o = { x: v.x + Math.cos(c) * t, y: v.y + Math.sin(c) * t }; if (ht(o, v) > v.radius + Y.radius + 48) continue; if (Z.alive(Ht(Y.side)).some(f => ht(o, f) <= Y.radius + f.radius + 3)) continue; if (de(Y, o, Z.alive(), Z.terrain, Z.remaining(Y))) return o; } } } const b = Z.alive(Y.side === "good" ? "evil" : "good"), H = b.map(t => ({ v: t, p: ue(Y, t) })).filter(t => de(Y, t.p, Z.alive(), Z.terrain, Z.remaining(Y))).sort((t, f) => ht(Y, t.v) - ht(Y, f.v)); if (H.length && (!Y.stats.shootRange || ht(Y, H[0].v) < 90))
@@ -505,7 +541,7 @@ const Th = Z => { const m = /^tokens\/(.+)\.png/.exec(Z || ''); return m ? Ut('t
 pe.textContent = `@font-face{font-family:Pretendard;src:url('${Ut("fonts/PretendardVariable.woff2")}') format('woff2');font-weight:100 900;font-display:swap}`;
 document.head.append(pe);
 (function(){const go=()=>{const seen=new Set(),pool=[];for(const m of window.CAMPAIGN_META||[]){if(m&&m.side==='good'&&m.file&&!seen.has(m.file)){seen.add(m.file);pool.push(m.file);}}let i=0;const step=()=>{for(let k=0;k<24&&i<pool.length;k++){const im=new Image();im.fetchPriority='low';im.src=Th(pool[i++]);}if(i<pool.length)setTimeout(step,60);};step();};const _boot=()=>{if(document.body.classList.contains('assets-ready'))return go();const mo=new MutationObserver(()=>{if(document.body.classList.contains('assets-ready')){mo.disconnect();go();}});mo.observe(document.body,{attributeFilter:['class']});setTimeout(go,9000);};if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',_boot);else _boot();})();
-document.addEventListener("visibilitychange", () => { const Z = document.hidden; Z ? (wt.__resumeOnShow = !!(wt.music && !wt.music.paused), wt.music && wt.music.pause()) : (wt.__resumeOnShow && !wt.muted && wt.music && wt.music.play().catch(() => { }), wt.__resumeOnShow = !1); wt.context && (Z ? wt.context.state === "running" && wt.context.suspend() : !wt.muted && wt.context.state === "suspended" && wt.context.resume().catch(() => { })); });
+document.addEventListener("visibilitychange", () => { const Z = document.hidden; if(Z)wt._stopEffects(); Z ? (wt.__resumeOnShow = !!(wt.music && !wt.music.paused), wt.music && wt.music.pause()) : (wt.__resumeOnShow && !wt.muted && wt.music && wt.music.play().catch(() => { }), wt.__resumeOnShow = !1); wt.context && (Z ? wt.context.state === "running" && wt.context.suspend() : !wt.muted && wt.context.state === "suspended" && wt.context.resume().catch(() => { })); });
 const q = new ze(Me.units), wt = new We, Tt = new Ve;
 try { const Z = JSON.parse(localStorage.getItem("lwb-audio")); Z && (Z.muted != null && (wt.muted = !!Z.muted), Z.sfxVolume != null && (wt.sfxVolume = Z.sfxVolume), Z.musicVolume != null && (wt.musicVolume = Z.musicVolume)); }
 catch { }
@@ -513,86 +549,10 @@ Tt.b = q;
 Tt.soundFX = wt;
 Tt.asset = Ut;
 wt.asset = Ut;
-// ---- 막별 프로시저럴 BGM 레이어: 저음 드론 + 전쟁북 + 뿔피리 (mp3 위에 막 테마가 겹침)
-wt.act = 0;
-wt._THEMES = [
-    { base: 110.0, rate: 2.7, drum: .45, horn: [220, 277.2, 329.6], mel: [0, 4, 7, 9, 12, 9, 7, 4], melWave: 'triangle', melVol: 1, mrate: 1 },   // 1막 반지의제왕 — 장중한 A장조
-    { base: 146.83, rate: 2.2, drum: .5, horn: [293.7, 349.2, 440], mel: [0, 7, 4, 9, 7, 12, 9, 4], melWave: 'triangle', melVol: 1.15, mrate: .97 }, // 2막 호빗 — D장조 모험
-    { base: 98.0, rate: 1.7, drum: .8, horn: [196, 233.1, 261.6], mel: [0, 3, 7, 3, 10, 7, 3, 0], melWave: 'square', melVol: .8, mrate: .92 },    // 3막 사우론 — G단조 무거운 북
-    { base: 73.42, rate: 3.0, drum: .9, horn: [146.8, 155.6, 174.6], mel: [0, 1, 6, null, 1, 0, null, 6], melWave: 'sawtooth', melVol: .55, mrate: .94 } // 4막 대암흑 — D드론 불협화
-];
-wt.setAct = function (a) { if (wt.act === a) return; wt.act = a; if (wt._drone) wt._tuneTheme(); if (wt.music) wt.music.playbackRate = (wt._THEMES[wt.act] || wt._THEMES[0]).mrate * (wt.mood === 2 ? 1.05 : 1); };
-// 맵별 분위기 — 이름 기준: 음정 시프트·북 속도·선율 밀도, 그리고 지역별 테마곡
-wt._MAP_TUNING = {
-    minas_tirith: {}, osgiliath: { shift: -1, melSkip: .1 }, pelennor: { drumMul: 1.15 }, amon_sul: { shift: 2, drumMul: .9, melSkip: .15 },
-    helms_deep: { shift: 2, drumMul: 1.2, melSkip: .1 }, edoras: { shift: 2, drumMul: 1.2, melSkip: .1 }, dunharrow: { shift: 1, drumMul: 1.1, melSkip: .2 },
-    fangorn: { shift: -4, drumMul: .7, melSkip: .5 }, mirkwood: { shift: -5, drumMul: .7, melSkip: .55 }, dead_marshes: { shift: -6, drumMul: .65, melSkip: .6 },
-    moria: { shift: -12, drumMul: .8, melSkip: .45 }, erebor: { shift: -9, drumMul: .85, melSkip: .3 },
-    isengard: { shift: -2, drumMul: 1.15, melSkip: .15 },
-    minas_court: { shift: 1, drumMul: 1.05, melSkip: .2 }, orthanc: { shift: -3, drumMul: 1.1, melSkip: .2 },
-    black_gate: { shift: -9, drumMul: 1.1, melSkip: .3 }, gorgoroth: { shift: -7, drumMul: 1.15, melSkip: .25 }, dol_guldur: { shift: -8, drumMul: .9, melSkip: .4 }, angband: { shift: -11, drumMul: .9, melSkip: .45 },
-    rivendell: { shift: 3, drumMul: .6, melSkip: .5 }, lothlorien: { shift: 3, drumMul: .6, melSkip: .5 }, gondolin: { shift: 4, drumMul: .65, melSkip: .4 }
-};
-wt._MAP_TRACK = {
-    moria: 'audio/lwb-moria.mp3', erebor: 'audio/lwb-moria.mp3',
-    isengard: 'audio/lwb-isengard.mp3', orthanc: 'audio/lwb-isengard.mp3', minas_court: 'audio/lwb-march.mp3',
-    helms_deep: 'audio/lwb-rohan.mp3', edoras: 'audio/lwb-rohan.mp3', dunharrow: 'audio/lwb-rohan.mp3',
-    rivendell: 'audio/lwb-elf.mp3', lothlorien: 'audio/lwb-elf.mp3', gondolin: 'audio/lwb-elf.mp3',
-    black_gate: 'audio/lwb-mordor.mp3', gorgoroth: 'audio/lwb-mordor.mp3', dol_guldur: 'audio/lwb-mordor.mp3', angband: 'audio/lwb-mordor.mp3',
-    mirkwood: 'audio/lwb-mirkwood.mp3', dead_marshes: 'audio/lwb-mirkwood.mp3', fangorn: 'audio/lwb-mirkwood.mp3'
-};
-wt.setMap = function (m) { if (wt._mapName === m) return; wt._mapName = m; wt.mood = -1; };
-wt._tuneTheme = function () { const T = wt._THEMES[wt.act] || wt._THEMES[0]; if (wt._drone) { wt._drone.frequency.setTargetAtTime(T.base, wt.context.currentTime, .8); wt._drone2.frequency.setTargetAtTime(T.base * 1.5, wt.context.currentTime, .8); } wt._drumRate = T.rate; };
-wt._startTheme = function () {
-    if (wt._themeOn || !wt.context) return; wt._themeOn = true;
-    const c = wt.context, g = c.createGain(); g.gain.value = 0; g.connect(c.destination); wt._tg = g;
-    const f = c.createBiquadFilter(); f.type = 'lowpass'; f.frequency.value = 240;
-    const og = c.createGain(); og.gain.value = .014;
-    const o = c.createOscillator(); o.type = 'sawtooth'; o.frequency.value = 110;
-    const o2 = c.createOscillator(); o2.type = 'sawtooth'; o2.frequency.value = 165; o2.detune.value = 9;
-    o.connect(f); o2.connect(f); f.connect(og); og.connect(g); o.start(); o2.start();
-    wt._drone = o; wt._drone2 = o2; wt._nextDrum = c.currentTime + .8; wt._hornCount = 0; wt._melStep = 0; wt._nextMel = c.currentTime + 1.6; wt._nextPulse = c.currentTime + 1.2; wt._drumRate = wt._THEMES[wt.act].rate; wt._map = wt._map || 0;
-    wt._themeTimer = setInterval(() => {
-        if (!wt.context || wt.muted || document.hidden) return;
-        const ct = c.currentTime, T = wt._THEMES[wt.act] || wt._THEMES[0];
-        g.gain.setTargetAtTime((wt.musicVolume || 0) * .85, ct, .3);
-        const MT = wt._MAP_TUNING[wt._mapName] || wt._MAP_TUNING.minas_tirith, melDt = wt._drumRate / (wt.mood === 2 ? 6 : 4);
-        if (wt.mood === 2 && ct >= wt._nextPulse) {
-            wt._nextPulse = ct + wt._drumRate * .31;
-            const p = c.createOscillator(); p.type = 'sawtooth'; p.frequency.value = T.base * Math.pow(2, MT.shift / 12);
-            const pf = c.createBiquadFilter(); pf.type = 'lowpass'; pf.frequency.value = T.base * 5;
-            const pg = c.createGain(); pg.gain.setValueAtTime(.0001, ct); pg.gain.exponentialRampToValueAtTime(.05, ct + .04); pg.gain.exponentialRampToValueAtTime(.0001, ct + wt._drumRate * .3);
-            p.connect(pf); pf.connect(pg); pg.connect(g); p.start(ct); p.stop(ct + wt._drumRate * .31);
-        }
-        if (ct >= wt._nextMel) {
-            wt._nextMel = ct + melDt;
-            const st = (T.mel || [])[wt._melStep++ % (T.mel || []).length];
-            if (st != null && Math.random() >= (MT.melSkip || 0)) {
-                const hz = T.base * 2 * Math.pow(2, (st + MT.shift) / 12);
-                const m = c.createOscillator(); m.type = T.melWave || 'triangle'; m.frequency.value = hz;
-                const mf = c.createBiquadFilter(); mf.type = 'lowpass'; mf.frequency.value = hz * 4;
-                const mg = c.createGain(), mv = .022 * (T.melVol || 1) * (wt.mood === 0 ? .5 : wt.mood === 2 ? 1.3 : 1);
-                mg.gain.setValueAtTime(.0001, ct); mg.gain.exponentialRampToValueAtTime(mv, ct + .06); mg.gain.exponentialRampToValueAtTime(.0001, ct + melDt * .95);
-                m.connect(mf); mf.connect(mg); mg.connect(g); m.start(ct); m.stop(ct + melDt);
-            }
-        }
-        if (ct >= wt._nextDrum) {
-            wt._nextDrum = ct + wt._drumRate * (MT.drumMul || 1) * (wt.mood === 2 ? .62 : 1); wt._hornCount++;
-            const k = c.createOscillator(); k.type = 'sine';
-            k.frequency.setValueAtTime(150, ct); k.frequency.exponentialRampToValueAtTime(38, ct + .09);
-            const kg = c.createGain(), dv = .14 * T.drum * (wt.mood === 2 ? 1.6 : 1);
-            kg.gain.setValueAtTime(dv, ct); kg.gain.exponentialRampToValueAtTime(.001, ct + .55);
-            k.connect(kg); kg.connect(g); k.start(ct); k.stop(ct + .6);
-            if (wt._hornCount % 6 === 1) {
-                const hz = T.horn[(wt._hornCount >> 1) % T.horn.length];
-                const h = c.createOscillator(); h.type = 'sawtooth'; h.frequency.value = hz;
-                const hf = c.createBiquadFilter(); hf.type = 'lowpass'; hf.frequency.value = hz * 3;
-                const hg = c.createGain(); hg.gain.setValueAtTime(.0001, ct); hg.gain.exponentialRampToValueAtTime(.028, ct + .4); hg.gain.exponentialRampToValueAtTime(.0001, ct + 2.4);
-                h.connect(hf); hf.connect(hg); hg.connect(g); h.start(ct); h.stop(ct + 2.5);
-            }
-        }
-    }, 380);
-};
+// Compatibility tables for later map registrations; the original pack owns playback.
+wt._MAP_TUNING={};wt._MAP_TRACK={};
+// User gestures unlock browser audio; preferences still honor an existing mute choice.
+for(const type of ['pointerdown','keydown'])document.addEventListener(type,()=>{wt.unlock();},{passive:true});
 let At = !1, Jt, se, Qt = !1, qt = 1;
 function setPlaybackSpeed(value) {
     const speed = [1,2,3,4,8,30].includes(Number(value)) ? Number(value) : 1;
@@ -608,7 +568,7 @@ function setPlaybackSpeed(value) {
     return speed;
 }
 const Ke = document.querySelector("#app");
-Ke.innerHTML = '<div class="rotate">가로 화면에서 전장이 가장 잘 보입니다. 기기를 가로로 돌려주세요.</div><header class="top"><div class="sigil">♜</div><div class="brand"><small>A SIEGE ROGUELITE</small><strong>MINAS TIRITH</strong></div><div class="runmeta"><div class="metric"><small>WAVE</small><strong id="wave">— / 03</strong></div><div class="metric"><small>ROUND</small><strong id="round">—</strong></div><div class="metric"><small>COMMAND</small><strong id="cp" class="gold">0 / 4 CP</strong></div></div><div class="top-actions"><button class="iconbtn" id="sound" title="음향 설정">음향</button><button class="iconbtn" id="help" title="조작법"><img src="icons/relic_map_scroll.png" alt="">조작법</button></div></header><div class="layout"><main class="battle-column"><nav class="phases" id="phases"></nav><div class="field"><div id="game"></div><div id="turn-indicator" class="turn-indicator hidden" aria-live="polite"></div><div class="map-label"><b>The Great Gate</b>PELENNOR FIELDS · III AGE</div><div id="dice" class="dice-panel hidden"></div><div id="toast" class="toast hidden"></div><canvas id="minimap" class="minimap" width="220" height="138" title="클릭하면 해당 위치로 카메라 이동"></canvas><div class="zoom"><button class="iconbtn" id="overview">전체</button><button class="iconbtn" id="focus">선택</button><button class="iconbtn" id="zoomout" title="축소">−</button><button class="iconbtn" id="zoomin" title="선택 병사 중심 확대">+</button></div></div><div class="hint"><b>FIELD ORDER</b><span id="hint"></span></div></main><aside class="aside"><section class="objective"><div class="section-label">01 / THE OBJECTIVE</div><h3>Hold the gate.</h3><p id="objective"></p><div id="gatebar" class="gatebar"></div></section><section><div class="section-label">02 / SELECTED UNIT</div><div id="unit" class="unit-card"></div></section><section class="control-block"><div class="section-label">03 / COMMAND ORDERS</div><div id="commands"></div><button id="action" class="primary action"></button><button id="wait" class="secondary action">선택 병사 대기</button><button id="step-auto" class="secondary action hidden">전체 진행</button><button id="deploy-all" class="secondary action hidden">일괄 배치</button></section><section class="log"><div class="section-label">전투 기록</div><div id="log"></div></section></aside></div><footer class="footer"><span>GATE DEFENCE / V0.4</span><span>3 WAVES · 영웅 테스트 · 원형 베이스 전투</span></footer><div id="overlay" class="overlay"></div><div id="audio-panel" class="audio-panel hidden"><div class="audio-head"><h2><img src="icons/ui_cards.png" alt="">음향</h2><button id="audio-close" class="secondary">닫기</button></div><label>배경음악<input id="bgm-volume" type="range" min="0" max="1" step=".05" value=".35"></label><label>효과음<input id="sfx-volume" type="range" min="0" max="1" step=".05" value=".7"></label><button id="mute" class="secondary">전체 음소거</button><button id="haptic-tgl" class="secondary">진동 끄기</button></div>';
+Ke.innerHTML = '<div class="rotate">가로 화면에서 전장이 가장 잘 보입니다. 기기를 가로로 돌려주세요.</div><header class="top"><div class="sigil">♜</div><div class="brand"><small>A SIEGE ROGUELITE</small><strong>MINAS TIRITH</strong></div><div class="runmeta"><div class="metric"><small>WAVE</small><strong id="wave">— / 03</strong></div><div class="metric"><small>ROUND</small><strong id="round">—</strong></div><div class="metric"><small>COMMAND</small><strong id="cp" class="gold">0 / 4 CP</strong></div></div><div class="top-actions"><button class="iconbtn" id="sound" title="음향 설정">음향</button><button class="iconbtn" id="help" title="조작법"><img src="icons/relic_map_scroll.png" alt="">조작법</button></div></header><div class="layout"><main class="battle-column"><nav class="phases" id="phases"></nav><div class="field"><div id="game"></div><div id="turn-indicator" class="turn-indicator hidden" aria-live="polite"></div><div class="map-label"><b>The Great Gate</b>PELENNOR FIELDS · III AGE</div><div id="dice" class="dice-panel hidden"></div><div id="toast" class="toast hidden"></div><canvas id="minimap" class="minimap" width="220" height="138" title="클릭하면 해당 위치로 카메라 이동"></canvas><div class="zoom"><button class="iconbtn" id="overview">전체</button><button class="iconbtn" id="focus">선택</button><button class="iconbtn" id="zoomout" title="축소">−</button><button class="iconbtn" id="zoomin" title="선택 병사 중심 확대">+</button></div></div><div class="hint"><b>FIELD ORDER</b><span id="hint"></span></div></main><aside class="aside"><section class="objective"><div class="section-label">01 / THE OBJECTIVE</div><h3>Hold the gate.</h3><p id="objective"></p><div id="gatebar" class="gatebar"></div></section><section><div class="section-label">02 / SELECTED UNIT</div><div id="unit" class="unit-card"></div></section><section class="control-block"><div class="section-label">03 / COMMAND ORDERS</div><div id="commands"></div><button id="action" class="primary action"></button><button id="wait" class="secondary action">선택 병사 대기</button><button id="step-auto" class="secondary action hidden">전체 진행</button><button id="deploy-all" class="secondary action hidden">일괄 배치</button></section><section class="log"><div class="section-label">전투 기록</div><div id="log"></div></section></aside></div><footer class="footer"><span>GATE DEFENCE / V0.4</span><span>3 WAVES · 영웅 테스트 · 원형 베이스 전투</span></footer><div id="overlay" class="overlay"></div><div id="audio-panel" class="audio-panel hidden"><div class="audio-head"><h2><img src="icons/ui_cards.png" alt="">음향</h2><button id="audio-close" class="secondary">닫기</button></div><p id="audio-now-playing" aria-live="polite">현재 음악 · 돌아갈 땅</p><label>배경음악<input id="bgm-volume" type="range" min="0" max="1" step=".05" value=".35"></label><label>효과음<input id="sfx-volume" type="range" min="0" max="1" step=".05" value=".7"></label><button id="mute" class="secondary">전체 음소거</button><button id="haptic-tgl" class="secondary">진동 끄기</button></div>';
 const ut = Z => document.getElementById(Z), Ze = [["priority", "우선권"], ["move", "이동 / 돌격"], ["shoot", "사격"], ["fight", "근접전"]];
 function Xt(Z) { uiNoticeHost().prepend(ut("toast")); ut("toast").setAttribute("role", "status"), ut("toast").textContent = uiCopy(Z), ut("toast").classList.remove("hidden"), clearTimeout(se), se = setTimeout(() => ut("toast").classList.add("hidden"), Math.min(7000, Math.max(2800, uiCopy(Z).length * 70))); }
 function Je() { const _el = ["move", "shoot"].includes(q.phase) ? ` · 아군 ${q.eligible('good').length} / 적 ${q.eligible('evil').length}기` : ''; return At ? "행동 처리 중…" : q.phase === "preparation" ? "배치 단계 · 푸른 구역에 배치" : q.phase === "move" ? `이동 단계 · ${q.side === "good" ? "곤도르" : "모르도르"} 차례` + _el : q.phase === "shoot" ? `사격 단계 · ${q.side === "good" ? "곤도르" : "모르도르"} 차례` + _el : q.phase === "fight" ? "전투 단계 · 교전 해결 중" : "다음 공세 대비"; }
@@ -819,7 +779,7 @@ Tt.onDrop = (Z, Y) => { const b = q.unit(Z); if (b && b.side === (q.phase === "p
 ut("action").onclick = () => Rt(() => { q.phase === "preparation" ? q.startWave() : q.fightNext(); });
 ut("wait").onclick = () => Rt(() => { q.wait(q.activeMoverUid || q.selected); });
 ut("sound").onclick = () => { document.querySelector(".top-actions").classList.remove("open"); ut("audio-panel").classList.toggle("hidden"); wt.unlock(); };
-ut("audio-close").onclick = () => ut("audio-panel").classList.add("hidden");
+ut("audio-close").onclick = () => { wt.play("ui_cancel"); ut("audio-panel").classList.add("hidden"); };
 ut("mute").onclick = () => { wt.toggle(), ut("mute").textContent = wt.muted ? "음소거 해제" : "전체 음소거"; };
 ut("haptic-tgl").onclick = () => { const off = localStorage.getItem("lwb_haptic") !== "0"; localStorage.setItem("lwb_haptic", off ? "0" : "1"); ut("haptic-tgl").textContent = off ? "진동 켜기" : "진동 끄기"; };
 ut("haptic-tgl").textContent = localStorage.getItem("lwb_haptic") === "0" ? "진동 켜기" : "진동 끄기";
@@ -1650,6 +1610,7 @@ speed=surfaceSpeed;
 root.MESBGTerrain={version:2,TYPES,THEMES,WIDTH,HEIGHT,CELL,contains,signed,blocks,legal,line,cost,speed,plan,route,prefix,sight,build,pathCost,stamp};
 if(typeof module!=='undefined'&&module.exports)module.exports=root.MESBGTerrain;
 })(typeof window!=='undefined'?window:globalThis);
+
 
 /*__TERRAIN_END__*/
 const Terrain=window.MESBGTerrain;
@@ -5597,7 +5558,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeRelicInfo();});
 relicList.addEventListener('click',e=>{const b=e.target.closest('[data-owned-relic]');if(!b)return;e.stopPropagation();openRelicInfo(b);});
 document.addEventListener('pointerdown',e=>{if(!e.target.closest('#relic-inventory,#relic-info'))closeRelicInfo();});
 // Expose a small read-only-friendly QA surface for repeatable regression checks.
-window.MESBG = { unitArtProfiles: UNIT_ART_PROFILES, unitArtLayout, battle: q, scene: Tt, render: () => Yt(), act: fn => Rt(fn), ai: () => He(q), constants: CX, profiles: zt, legal: Et, plan: ve, contact: Vt, path: bt, zones: MAP_ZONES };
+window.MESBG = { audio: wt, audioEffects: Ye, unitArtProfiles: UNIT_ART_PROFILES, unitArtLayout, battle: q, scene: Tt, render: () => Yt(), act: fn => Rt(fn), ai: () => He(q), constants: CX, profiles: zt, legal: Et, plan: ve, contact: Vt, path: bt, zones: MAP_ZONES };
 // Selecting another friendly model while one is mid-move ends the active mover's turn (spec: unit switch = movement end).
 const baseSelect = Zt;
 Zt = function (uid) {
@@ -5972,7 +5933,7 @@ ut('next-unit').onclick=nextUnit;
 ut('speed-quick').onclick=()=>{ut('speed-toggle').click();ut('speed-quick').textContent='×'+qt;};
 function renderDock(){
     const order = ut('battle-order'); if(order) { const o=q.battleOrder, target=o&&q.unit(o.target); order.textContent='지휘 · '+(o?.mode==='hold'?'전열 유지':o?.mode==='focus'&&target?.alive?'집중 공격':'자율'); order.title=o?.mode==='focus'&&target?.alive?target.name:'자동 진행 지휘'; }
-    wt.setMood(['menu','reward','result'].includes(q.phase)?0:q.current&&q.current.boss?2:1);
+    wt.setMood(q.phase==='menu'?3:['reward','result'].includes(q.phase)?0:(q.phase==='preparation'?q.next:q.current)?.boss?2:1);
     wt.setAct&&wt.setAct(q.wave<=15?0:q.wave<=30?1:q.wave<=40?2:3);
     wt.setMap&&wt.setMap(CX.maps[visualMapIdx(q.mapIndex||0)]);
     const _sq=ut('speed-quick');if(_sq)_sq.textContent='×'+qt;
@@ -6032,7 +5993,7 @@ Yt=function(){const u=q.unit(q.selected);if(u&&!u.alive){q.selected='';q.autoSel
 // Keep the existing wait confirmation, but surface it on the persistent button.
 ut('dock-primary').onclick=()=>{if(At||Qt||ut('dock-primary').disabled)return;if(['preparation','fight'].includes(q.phase)){setSheet(false);ut('action').click();return;}const u=actionableUnit();if(u){q.selected=u.uid;ut('wait').onclick();renderDock();}};
 // Ensure the fixed controls cannot issue a second action while animation is running.
-Rt=async function(fn){if(At)return;wt.unlock();clearTimeout(Jt);At=true;Tt.busy=true;try{resetGestures();renderDock();await fn();renderDock();const events=q.drain();ut('action').disabled=true;ut('wait').disabled=true;for(const event of events){await $e(event);ut('dice').classList.add('hidden');await Tt.play(event);if(['WaveStarted','Event','CommandUsed'].includes(event.type)&&event.message)Xt(event.message);if(event.type==='WaveStarted'){wt.play('war_horn');(event.boss?bossIntro(event.boss):stageIntro());}if(event.type==='StageCleared'){try{const _vb=document.createElement('div');_vb.id='stage-intro';_vb.innerHTML=`<div class='si-card' style='border-color:#c9a94e;box-shadow:0 18px 60px #000c,0 0 40px #c9a94e33'><div style='padding:20px 22px;text-align:center'><div class='eyebrow' style='color:#e8c45c'>승전</div><h2 style='color:#f5deb0;margin:2px 0'>공세 ${event.wave||q.wave} 완료</h2><div class='si-mission'>보상 +${event.gold||q.lastGold}금${event.flawless===false?'':' · 무결 수비'} · 야영지로 이동합니다</div></div></div>`;document.body.appendChild(_vb);const _card=_vb.querySelector('.si-card');for(let _i=0;_i<16;_i++){const _p=document.createElement('i');const _ang=(Math.PI*2)*_i/16+(Math.random()*.4),_d=90+Math.random()*80;_p.style.cssText='position:absolute;left:50%;top:50%;width:'+(4+Math.random()*4)+'px;height:'+(4+Math.random()*4)+'px;margin:-4px;background:'+(_i%3?'#f2c75a':'#f7ecc8')+';border-radius:'+(_i%2?'50%':'2px')+';pointer-events:none;animation:vp_'+_i%4+' .9s cubic-bezier(.1,.7,.3,1) forwards;animation-delay:'+(Math.random()*.12)+'s;--dx:'+Math.cos(_ang)*_d+'px;--dy:'+Math.sin(_ang)*_d*.7+'px;--rot:'+(Math.random()*400-200)+'deg';_card.appendChild(_p);}if(!document.getElementById('vp-style')){const _st=document.createElement('style');_st.id='vp-style';_st.textContent='.si-card{position:relative;overflow:visible!important}@keyframes vp_0{to{transform:translate(var(--dx),var(--dy)) rotate(var(--rot));opacity:0}}@keyframes vp_1{to{transform:translate(var(--dx),var(--dy)) rotate(var(--rot)) scale(.4);opacity:0}}@keyframes vp_2{to{transform:translate(calc(var(--dx)*1.3),calc(var(--dy)*.5)) rotate(var(--rot));opacity:0}}@keyframes vp_3{to{transform:translate(var(--dx),calc(var(--dy)*1.4)) rotate(var(--rot)) scale(.7);opacity:0}}';document.head.appendChild(_st);}_vb.onclick=()=>_vb.remove();await new Promise(r=>setTimeout(r,1800));_vb.remove();}catch(e){}}}}catch(error){console.error('[battle action]',error);try{localStorage.setItem('__dbgstart',String(error&&error.stack||error).slice(0,1200))}catch(e){}Xt('행동을 처리하지 못했습니다 — '+String(error&&error.message||error).slice(0,90))}finally{At=false;Tt.busy=false;Tt.preview=undefined;Tt.previewPlan=null;try{ut('dice')?.classList.add('hidden');Yt();}catch(error){console.error('[battle render]',error);}finally{me();}}};
+Rt=async function(fn){if(At)return;wt.unlock();wt.play('ui_confirm');clearTimeout(Jt);At=true;Tt.busy=true;try{resetGestures();renderDock();await fn();renderDock();const events=q.drain();ut('action').disabled=true;ut('wait').disabled=true;for(const event of events){await $e(event);ut('dice').classList.add('hidden');await Tt.play(event);if(['WaveStarted','Event','CommandUsed'].includes(event.type)&&event.message)Xt(event.message);if(event.type==='WaveStarted'){wt.play('war_horn');(event.boss?bossIntro(event.boss):stageIntro());}if(event.type==='StageCleared'){try{const _vb=document.createElement('div');_vb.id='stage-intro';_vb.innerHTML=`<div class='si-card' style='border-color:#c9a94e;box-shadow:0 18px 60px #000c,0 0 40px #c9a94e33'><div style='padding:20px 22px;text-align:center'><div class='eyebrow' style='color:#e8c45c'>승전</div><h2 style='color:#f5deb0;margin:2px 0'>공세 ${event.wave||q.wave} 완료</h2><div class='si-mission'>보상 +${event.gold||q.lastGold}금${event.flawless===false?'':' · 무결 수비'} · 야영지로 이동합니다</div></div></div>`;document.body.appendChild(_vb);const _card=_vb.querySelector('.si-card');for(let _i=0;_i<16;_i++){const _p=document.createElement('i');const _ang=(Math.PI*2)*_i/16+(Math.random()*.4),_d=90+Math.random()*80;_p.style.cssText='position:absolute;left:50%;top:50%;width:'+(4+Math.random()*4)+'px;height:'+(4+Math.random()*4)+'px;margin:-4px;background:'+(_i%3?'#f2c75a':'#f7ecc8')+';border-radius:'+(_i%2?'50%':'2px')+';pointer-events:none;animation:vp_'+_i%4+' .9s cubic-bezier(.1,.7,.3,1) forwards;animation-delay:'+(Math.random()*.12)+'s;--dx:'+Math.cos(_ang)*_d+'px;--dy:'+Math.sin(_ang)*_d*.7+'px;--rot:'+(Math.random()*400-200)+'deg';_card.appendChild(_p);}if(!document.getElementById('vp-style')){const _st=document.createElement('style');_st.id='vp-style';_st.textContent='.si-card{position:relative;overflow:visible!important}@keyframes vp_0{to{transform:translate(var(--dx),var(--dy)) rotate(var(--rot));opacity:0}}@keyframes vp_1{to{transform:translate(var(--dx),var(--dy)) rotate(var(--rot)) scale(.4);opacity:0}}@keyframes vp_2{to{transform:translate(calc(var(--dx)*1.3),calc(var(--dy)*.5)) rotate(var(--rot));opacity:0}}@keyframes vp_3{to{transform:translate(var(--dx),calc(var(--dy)*1.4)) rotate(var(--rot)) scale(.7);opacity:0}}';document.head.appendChild(_st);}_vb.onclick=()=>_vb.remove();await new Promise(r=>setTimeout(r,1800));_vb.remove();}catch(e){}}}}catch(error){console.error('[battle action]',error);try{localStorage.setItem('__dbgstart',String(error&&error.stack||error).slice(0,1200))}catch(e){}Xt('행동을 처리하지 못했습니다 — '+String(error&&error.message||error).slice(0,90))}finally{At=false;Tt.busy=false;Tt.preview=undefined;Tt.previewPlan=null;try{ut('dice')?.classList.add('hidden');Yt();}catch(error){console.error('[battle render]',error);}finally{me();}}};
 const clarityPlay=Ve.prototype.play;
 Ve.prototype.play=async function(event){await clarityPlay.call(this,event);if(event.type==='UnitKilled')removeCasualty(event.uid);};
 const claritySchedule=me;me=function(){if(document.hidden){clearTimeout(Jt);return;}claritySchedule();};
@@ -6283,7 +6244,7 @@ function renderRecruitDraft(){
     const selected=q.recruitDraft||[],sum=selected.reduce((n,i)=>n+q.price(q.recruitOffers[i].id),0),capacity=q.capacity()-q.permanent().length-selected.length;
     const box=ut('overlay');
     box.innerHTML=`<div class="modal camp"><div class="eyebrow">${q.initialDraft ? '출정 · 원정대 편성' : '공세 ' + q.wave + ' · 야영지'}</div><h2>${q.initialDraft ? '원정대 편성' : '동료 영입'}</h2><div class="recruit-summary"><span><small>보유</small><b><img src="icons/coin.png" alt="금화"> ${q.gold}</b></span><span><small>선택 비용</small><b>${sum}</b></span><span><small>남은 금화</small><b>${q.gold-sum}</b></span><span class="draft-capacity">선택 ${selected.length}명 · ${capacity<0?'정원 초과 '+(-capacity)+'명':'빈자리 '+capacity+'명'}</span></div>${warbandComposition(q.permanent().map(u=>u.id).concat(selected.map(i=>q.recruitOffers[i].id)))}${bondHint()}${q.initialDraft?'<p class="draft-help">영웅 1기 · 다른 영웅을 선택하면 교체됩니다</p>':''}<div class="recruit-cards">${(q.recruitOffers||[]).map((o,i)=>{const d=UnitCatalog[o.id]||{rarity:'normal'},m=q.meta.get(o.id)||{},p=zt[o.id]||{traits:[]},on=selected.includes(i),cost=q.price(o.id),reason=!on?q.recruitSelection(i).reason:'',disabled=o.bought;return `<button type="button" class="recruit-card tier-${d.rarity} ${on?'is-picked':''}" data-draft="${i}" aria-pressed="${on}" ${disabled?'disabled':''}><span class="pick-mark${reason?' why':''}">${on?'선택됨':(reason?'영입 조건 확인':'선택')}</span><span class="recruit-portrait">${q.meta.get(o.id)?unitImage(o.id):''}<span class="recruit-info" data-vunit="${o.id}" role="button" aria-label="프로필 보기">i</span></span><span class="recruit-grade">${_gic(isHeroUnit(o.id)?tierLabel(o.id):({normal:'일반',elite:'정예',rare:'희귀',epic:'영웅급',legendary:'전설'})[d.rarity]||tierLabel(o.id))}</span>${FACTION_LABEL(o.id)?`<span class="recruit-faction">${esc(FACTION_LABEL(o.id))}</span>`:''}<b class="recruit-name">${esc(m.name_ko)}</b><small class="recruit-role">${warbandRole(o.id)}</small><div class="recruit-combat"><span title="공격"><img src="icons/ui_swords.png" alt="공격">${p.attacks}</span><span title="방어"><img src="icons/cmd_hold.png?v=1.37" alt="방어">${p.defence}</span></div><p>${esc(CX.skills[o.id]?.[0]||'전열')}</p><em>${o.bought?'합류 완료':(reason||cost+' 금화')}</em></button>`}).join('')}</div><div class="camp-secondary"><button id="draft-menu">← 메뉴</button><button id="draft-clear" ${selected.length?'':'disabled'}>선택 취소</button><button id="draft-reroll" ${q.gold<q.rerollCost()?'disabled':''}>후보 교체 · ${q.rerollCost()}</button><button id="draft-expand" ${q.gold<45+q.capacityBought*25||q.capacity()>=30?'disabled':''}>정원 +2 · ${45+q.capacityBought*25}</button></div><div class="camp-confirm"><span>${selected.length?selected.length+'명 · '+sum+' 금화':(q.initialDraft?'1명 이상 선택':'영입 없이 진행 가능')}</span><button id="draft-confirm" class="primary" ${q.initialDraft&&!selected.length?'disabled':''}>${selected.length?'영입 확정':(q.initialDraft?'출정 준비':'건너뛰기')} →</button></div></div>`;
-    box.querySelectorAll('[data-draft]').forEach(el=>el.onclick=e=>{const _vn=e.target.closest&&e.target.closest('[data-vunit]');if(_vn){const _id=_vn.dataset.vunit,_p=zt[_id]||{},_pu={id:_id,side:'good',name:(q.meta.get(_id)||{}).name_ko||_id,stats:{..._p},traits:[...(_p.traits||[])],resources:{might:_p.might||0,will:_p.will||0,fate:_p.fate||0},equipment:[],kills:0,currentWounds:_p.wounds||1,injury:'',alive:true,roundBuff:{}};unitCardModal(_pu);return;}if(q.toggleRecruit(Number(el.dataset.draft)))wt.play('ui_select');else Xt(q.recruitReason||'선택할 수 없습니다');Yt();});
+    box.querySelectorAll('[data-draft]').forEach(el=>el.onclick=e=>{const _vn=e.target.closest&&e.target.closest('[data-vunit]');if(_vn){const _id=_vn.dataset.vunit,_p=zt[_id]||{},_pu={id:_id,side:'good',name:(q.meta.get(_id)||{}).name_ko||_id,stats:{..._p},traits:[...(_p.traits||[])],resources:{might:_p.might||0,will:_p.will||0,fate:_p.fate||0},equipment:[],kills:0,currentWounds:_p.wounds||1,injury:'',alive:true,roundBuff:{}};unitCardModal(_pu);return;}if(q.toggleRecruit(Number(el.dataset.draft)))wt.play('ui_select');else {wt.play('ui_error');Xt(q.recruitReason||'선택할 수 없습니다');}Yt();});
     ut('draft-menu').onclick=async()=>{if(await uiConfirm('현재 편성은 저장됩니다. 메뉴로 나갈까요?')){q.save();q.phase='menu';Yt();}};ut('draft-clear').onclick=()=>{q.recruitDraft=[];q.save();Yt();};
     ut('draft-reroll').onclick=()=>{q.reroll();Yt();};ut('draft-expand').onclick=()=>{q.expand();Yt();};
     ut('draft-confirm').onclick=()=>{if(q.commitRecruits())wt.play('reward_select');else Xt('영입할 공간이 부족합니다. 선택을 조정하세요.');Yt();};
@@ -6328,7 +6289,7 @@ Zt=function(uid){const u=q.unit(uid);if(!u?.alive||At||Qt||AUTO)return;
     if(q.phase==='move'&&q.activeMoverUid&&uid!==q.activeMoverUid){if(u.side===q.side)setIntent({kind:'switch',uid:q.activeMoverUid,target:uid});else Xt('현재 병사의 이동을 먼저 종료하세요.');return;}
     clearIntent();q.selected=uid;wt.play('ui_select');Yt();};
 ut('dock-primary').insertAdjacentHTML('beforebegin','<button type="button" id="intent-cancel" class="hidden" aria-label="명령 취소">취소</button>');
-ut('intent-cancel').onclick=()=>{clearIntent();renderDock();Tt.drawRings();};
+ut('intent-cancel').onclick=()=>{wt.play('ui_cancel');clearIntent();renderDock();Tt.drawRings();};
 const baseDock=renderDock;
 renderDock=function(){baseDock();renderUnitVitals();const p=UX.intent,b=ut('dock-primary');ut('intent-cancel').classList.toggle('hidden',!p);
     if(p&&!At){b.disabled=false;b.classList.add('confirm');b.textContent=({move:'이동 확정',charge:'돌격 확정',shoot:'사격 확정',deploy:'배치 확정',switch:'병사 변경',skill:'능력 확정',heroic:'능력 확정',spell:'주문 확정'})[p.kind];ut('dock-status').textContent=(p.detail?p.label+' · '+p.detail:'')||(p.kind==='switch'?'남은 이동 종료':p.plan?(p.plan.distance/45).toFixed(1)+'″ · 잔여 '+Math.max(0,(q.remaining(q.unit(p.uid))-p.plan.distance)/45).toFixed(1)+'″':p.kind==='shoot'?'대상 · '+q.unit(p.target).name:'배치 지점 선택');}
@@ -6730,7 +6691,8 @@ Ve.prototype.combat=async function(result){
             if(enabled)await scoped(scene,async own=>{
                 const g=own(scene.add.graphics().setDepth(18)),nm=label(scene,own,bp,hit.killed?'격파':hit.wound?'−1':hit.prevented?'보호':'막음',hit.killed?MAT.gold.edge:hit.wound?MAT.blood.edge:MAT.steel.edge);
                 const lunge=!calm&&!a.traits?.includes('static')&&!a.traits?.includes('lair')&&result.kind!=='shot'?Math.min(14,r*.25):0;
-                scene.soundFX?.play(result.kind==='shot'?(shape==='fire'?'cast':'arrow_release'):shape==='magic'?'cast':'sword_swing');
+                scene.soundFX?.play(result.kind==='shot'?(shape==='fire'?'cast':'arrow_release'):shape==='magic'||shape==='fire'?'cast':shape==='thrust'?'spear_thrust':'sword_swing');
+                if(shape==='arrow')scene.soundFX?.play('arrow_fly');
                 let impacted=false;
                 await frame(scene,duration(calm?190:shape==='arrow'||shape==='fire'?540:480),t=>{
                     g.clear();const strike=clamp((t-.13)/.43,0,1),impact=clamp((t-.56)/.44,0,1),fade=1-clamp((t-.78)/.22,0,1);g.setAlpha(fade);
@@ -6753,7 +6715,7 @@ Ve.prototype.combat=async function(result){
                             else {rune(g,ap,clamp(a.radius||36,22,50)*.8,mat,t);const p=mix(ap,bp,strike);ink(g,p.x,p.y,9,mat.mid);ink(g,p.x,p.y,3,mat.edge);}
                         }
                     }
-                    if(t>=.56){if(!impacted){impacted=true;scene.soundFX?.play(result.kind==='shot'?'arrow_impact':hit.wound?'sword_flesh':'sword_armor');}
+                    if(t>=.56){if(!impacted){impacted=true;scene.soundFX?.play(combatAudioImpact(scene,a,b,hit,result.kind));}
                         const material=hit.wound?shape==='fire'?MAT.fire:shape==='smash'?MAT.earth:MAT.blood:MAT.gold;
                         burst(g,bp,r*(calm?.45:1.05),impact,material,calm?4:hit.killed?14:10);
                         if(!hit.wound)arc(g,bp,r*.65,angle+Math.PI-.8,angle+Math.PI+.8,1,MAT.gold,6);
@@ -6769,7 +6731,7 @@ Ve.prototype.combat=async function(result){
     }
     for(const uid of result.trappedUnits||[]){const u=scene.b.unit(uid);if(enabled&&valid(u))await scene.battleFXEvent({type:'StatusFX',at:u,text:'포위 · 추가 타격'});}
     for(const uid of result.knockedDownUnits||[]){const u=scene.b.unit(uid);if(enabled&&valid(u))await scene.battleFXEvent({type:'StatusFX',at:u,text:'기병 충격 · 넘어짐'});}
-    for(const push of result.pushVectors||[]){const c=scene.tokens.get(push.uid),u=scene.b.unit(push.uid);if(!c?.scene||!valid(push.to)||u?.traits?.includes('lair')||u?.traits?.includes('static'))continue;const from={x:c.x,y:c.y};await frame(scene,duration(calm?0:150),t=>{if(c.scene)c.setPosition(from.x+(push.to.x-from.x)*t,from.y+(push.to.y-from.y)*t);});if(c.scene)c.setPosition(push.to.x,push.to.y);}
+    for(const push of result.pushVectors||[]){const c=scene.tokens.get(push.uid),u=scene.b.unit(push.uid);if(!c?.scene||!valid(push.to)||u?.traits?.includes('lair')||u?.traits?.includes('static'))continue;scene.soundFX?.play('push');const from={x:c.x,y:c.y};await frame(scene,duration(calm?0:150),t=>{if(c.scene)c.setPosition(from.x+(push.to.x-from.x)*t,from.y+(push.to.y-from.y)*t);});if(c.scene)c.setPosition(push.to.x,push.to.y);}
 };
 Ve.prototype.battleFXEvent=async function(event){
     if(window._lwbFx||qt>=20||!this.add)return;
@@ -6781,7 +6743,7 @@ Ve.prototype.battleFXEvent=async function(event){
         const g=own(scene.add.graphics().setDepth(18)),raw=event.message||event.text||'',text=event.type==='UnitKilled'?'':event.type==='WaveStarted'?raw.split('·')[0].trim():raw.split('·').pop().trim(),nm=label(scene,own,at,text,mat.edge);
         const targets=(event.targets||[]).map(id=>scene.b.unit(id)).filter(valid).slice(0,12),resisted=(event.resisted||[]).map(id=>scene.b.unit(id)).filter(valid).slice(0,12);
         const resistance=resisted.map(p=>label(scene,own,p,'저항',MAT.light.edge));
-        if(event.type!=='StatusFX')scene.soundFX?.play(event.type==='BossCast'||event.type==='Spell'?'cast':event.type==='Trap'?'base_contact':'event');
+        if(event.type!=='StatusFX')scene.soundFX?.play(eventAudioCue(event));
         await frame(scene,duration(calm?200:event.type==='BossCast'?700:440),t=>{
             g.clear();const fade=1-clamp((t-.72)/.28,0,1);g.setAlpha(fade);if(nm){nm.setAlpha(fade);if(!calm)nm.y=at.y-r-20/clamp(UX.zoom||1,.25,2)-t*12;}for(const n of resistance)if(n)n.setAlpha(fade);
             if(event.type==='StatusFX')return;
@@ -7968,7 +7930,7 @@ dock.insertAdjacentHTML('beforeend',
  // legacy nodes other code still writes to; kept off-screen
  '<div class="mux-legacy" hidden><span id="dock-eyebrow"></span><div id="dock-status"></div><div id="dock-vitals"></div><div id="roster-strip"></div><button id="next-unit"></button><button id="dock-detail"></button></div>');
 // re-wire handlers that were bound to the old nodes
-ut('intent-cancel').onclick=()=>{clearIntent();renderDock();Tt.drawRings();};
+ut('intent-cancel').onclick=()=>{wt.play('ui_cancel');clearIntent();renderDock();Tt.drawRings();};
 ut('dock-primary').onclick=window.__muxPrimary;
 {const _mo=ut('mass-order');if(_mo)_mo.onclick=()=>{if(!q||q.phase!=='move'||q.side!=='good'){Xt('아군 이동 차례에만 사용할 수 있습니다.');return;}const _cs=q.alive('good').filter(u=>!u.acted&&!u.autoAlly&&!q.engaged(u)&&!u.feared);let _n=0;for(const u of _cs){const _t=q.alive('evil').slice().sort((a2,b2)=>ht(u,a2)-ht(u,b2))[0];if(_t&&q.charge(u.uid,_t.uid)){_n++;continue;}const _d=be(q,u);if(_d&&q.move(u.uid,_d))_n++;}Xt(_n?'전원 명령 — '+_n+'기 돌격·전진':'움직일 수 있는 아군이 없습니다.');Yt();Tt.drawRings();};}
 {const _ad=ut('auto-dock');if(_ad)_ad.onclick=()=>{const _o=ut('auto');_o&&_o.click();};}
@@ -8384,3 +8346,25 @@ function xe() { var $; const Z = ut("minimap"); if (document.hidden || !Z.offset
     Y.fillStyle = p.traits && p.traits.includes('boss') ? "#ff5a3c" : p.side === "good" ? "#b9e8f6" : "#ee9879", Y.beginPath(), Y.arc(p.x * b, p.y * H, p.traits && p.traits.includes('boss') ? 4.6 : p.traits.includes("hero") ? 3.3 : 2.3, 0, 7), Y.fill(), p.traits && p.traits.includes('boss') && (Y.strokeStyle = "#ffb199", Y.lineWidth = 1.5, Y.beginPath(), Y.arc(p.x * b, p.y * H, 6.5, 0, 7), Y.stroke()), p.uid === (q.activeMoverUid || q.selected) && (Y.strokeStyle = "#f17b70", Y.lineWidth = 2, Y.beginPath(), Y.arc(p.x * b, p.y * H, 6, 0, 7), Y.stroke()); const K = ($ = Tt.cameras) == null ? void 0 : $.main; K && (Y.strokeStyle = "#f0d89b", Y.lineWidth = 1, Y.strokeRect(K.worldView.x * b, K.worldView.y * H, K.worldView.width * b, K.worldView.height * H)); }
 setInterval(xe, 200);
 
+
+
+// Sound cues follow resolved hits and events; combat rules and visual timing stay intact.
+function combatAudioImpact(scene,attacker,target,hit,kind) {
+    if(kind==='shot')return 'arrow_impact';
+    const weapon=scene.b.meta.get(attacker.id)?.weapon||'';
+    if(!hit.wound){const defense=scene.b.meta.get(target.id)?.weapon||'';return /shield/.test(defense)?'sword_shield':/sword/.test(defense)?'sword_parry':'sword_armor';}
+    if(attacker.traits?.includes('monster')||attacker.traits?.includes('beast'))return 'monster_hit';
+    if(hit.roll===6)return 'critical_hit';
+    if(/axe|hammer|mace|club/.test(weapon))return 'axe_hit';
+    return 'sword_flesh';
+}
+function eventAudioCue(event) {
+    if(event.type==='Terror')return 'terror';
+    if(event.type==='Saved'||/heal|healing|restore/.test(event.fx||'')||/회복|치유/.test(event.message||''))return 'heal';
+    if(event.type==='BossCast'||event.type==='Spell')return 'cast';
+    if(event.type==='Relic')return 'reward_select';
+    if(event.type==='Heroic'||event.type==='CommandUsed')return 'war_horn';
+    if(event.type==='HeroSkill')return 'cast';
+    if(event.type==='Trap')return 'base_contact';
+    return 'event';
+}
