@@ -121,3 +121,14 @@ MESBG.render()                        // 화면 갱신
 - `git push origin main` 만으로 자동 배포 — GitHub Pages가 main 브랜치를 서빙
 - 라이브: https://leesh603.github.io/mesbg-assets/ (푸시 후 반영까지 ~1-5분)
 - 구 주소(https://c--users-administrator-mesbg-d-ggxmnwtm.devinapps.com)는 수동 배포라 갱신 안 됨
+
+## 유닛 크기·중앙 정렬 — 몸체 기준 고정
+
+- 원판·발판·상시 둘레 링을 유닛 아래에 다시 붙이지 않는다. 선택·행동·범위 표시는 별도 전술 UI다.
+- 표시 크기는 충돌 반경, 티어, 영웅 여부, 이미지 전체 외곽, 알파 질량으로 계산하지 않는다.
+- 기준: 인간 86, 호빗 54, 난쟁이 67, 큰 인간 100 월드 픽셀. 오크·고블린·괴수는 `docs/unit-art-audit.json`의 체급을 따른다.
+- 보행은 장식물을 제외한 머리–발 몸체, 기마는 기수 머리–골반을 잰다. 기수 상체 기준은 해당 종족 보행 높이의 56%다. 창·깃발·날개·꼬리 끝은 기준이 아니다.
+- 중심점은 몸체 중심이며 Phaser `origin`으로 지정한다. 회전·대기 동작도 이 점을 따른다.
+- 새 원화·교체 원화는 눈으로 몸체와 기수 기준점을 확인해 `docs/unit-art-audit.json`의 해당 유닛을 갱신한다. 원화 크기·SHA256도 함께 갱신한다.
+- `node tools/sync-unit-art-profiles.cjs` → `node tools/build.js --online-only` → `node tests/unit-art.test.cjs`. 인게임 화면에서도 검증한다.
+- 자동 알파 외곽·무기 외곽 정규화로 이 표를 덮어쓰지 않는다. 전투용 충돌 반경과 이동·전투 규칙은 시각 크기와 별도로 유지한다.
