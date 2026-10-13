@@ -587,3 +587,50 @@ html body.lwb-polished:not([data-phase="move"]):not([data-phase="shoot"]):not([d
 #app#app#app .modal .reward{padding-right:22px!important}
 :is(html,#_o#_v#_r) body.lwb-polished .modal.ui-profile strong,:is(html,#_o#_v#_r) body.lwb-polished .modal .ui-info-head :is(h2,strong){font:400 15px/1.3 var(--px14)!important;letter-spacing:.06em;color:var(--tx-gold)!important}
 :is(html,#_o#_v#_r) body.lwb-polished #patch-pop > button,:is(html,#_o#_v#_r) body.lwb-polished #patch-pop .patch-close,:is(html,#_o#_v#_r) body.lwb-polished #patch-pop button:last-child{border:0 solid transparent!important;border-image:var(--fr-btn-bronze) 6 fill / 12px / 0 stretch!important;background:none!important;font:400 15px/1.2 var(--px14)!important;color:var(--tx)!important;image-rendering:pixelated}
+
+/* =====================================================================================
+   RELIC CARDS — icon left (fixed 64px plaque), name big and in the tier colour, family under it,
+   tier as a small plate in the top-right gap, pick shown by a gold ring + check on the icon.
+   Event options: text kept clear of the corner brackets.
+   ===================================================================================== */
+#app#app#app#app#app .modal .reward.relic-card{position:relative!important;display:grid!important;grid-template-columns:72px minmax(0,1fr)!important;grid-template-rows:none!important;column-gap:12px!important;align-items:start!important;
+ padding:20px 22px 18px 20px!important;text-align:left!important}
+#app#app#app#app#app .modal .reward.relic-card > .choice-art{grid-column:1!important;grid-row:1!important;align-self:start!important;position:relative;width:72px!important;height:72px!important;margin:0!important;display:grid!important;place-items:center;
+ border:0 solid transparent!important;border-image:var(--fr-chip) 6 / 12px / 0 stretch!important;background:radial-gradient(circle at 50% 45%,color-mix(in srgb,var(--tc) 35%,transparent),rgba(8,6,4,.9) 72%)!important;image-rendering:pixelated}
+#app#app#app#app#app .modal .reward.relic-card > .choice-art :is(img,.relic-icon){width:52px!important;height:52px!important;max-width:none!important;margin:0!important;background:none!important;box-shadow:none!important;border:0!important;image-rendering:pixelated}
+#app#app#app#app#app .modal .reward.relic-card > .choice-art .relic-icon img{width:100%!important;height:100%!important}
+#app#app#app#app#app .modal .reward.relic-card > .rc-body{grid-column:2!important;grid-row:1!important;display:flex!important;flex-direction:column!important;gap:3px!important;min-width:0;padding-right:44px}
+#app#app#app#app#app .modal .reward.relic-card .rc-name{font:400 15px/1.3 var(--px14)!important;letter-spacing:.04em;color:color-mix(in srgb,var(--tc) 45%,#fff6dc)!important;text-shadow:0 1px 0 #000,0 0 8px color-mix(in srgb,var(--tc) 40%,transparent)!important}
+#app#app#app#app#app .modal .reward.relic-card .rc-family{font:12px/1.3 var(--px11)!important;color:var(--tx-mute)!important}
+#app#app#app#app#app .modal .reward.relic-card .rc-family::before{content:"◆ ";color:var(--tc)}
+#app#app#app#app#app .modal .reward.relic-card p{margin:4px 0 0!important;font:12px/1.55 var(--px11)!important;color:var(--tx)!important;-webkit-line-clamp:3}
+#app#app#app#app#app .modal .reward.relic-card .rc-note{margin-top:4px;padding-top:4px;border-top:1px solid rgba(201,164,94,.18);font:12px/1.4 var(--px11)!important;color:color-mix(in srgb,var(--tc) 55%,#cfc3a4)!important;
+ display:-webkit-box!important;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+/* tier plate in the top-right gap */
+#app#app#app#app#app .modal .reward.relic-card .rc-tier{position:absolute!important;top:16px;right:18px;padding:2px 8px;font:12px/1.3 var(--px11)!important;color:#140d04!important;background:var(--tc)!important;
+ box-shadow:0 0 0 2px #0a0806,inset 0 -2px 0 rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.35)!important}
+#app#app#app#app#app .modal .reward.relic-card.relic-pass{--tc:#d8b45e}
+/* picked: gold ring around the card (tier frame kept) + check medallion on the icon; no corner sticker */
+#app#app#app#app#app .modal .reward.relic-card.is-picked::after{content:none!important;display:none!important}
+#app#app#app#app#app .modal .reward.relic-card.is-picked > .choice-art::after{content:"✓";position:absolute;right:-8px;bottom:-8px;width:22px;height:22px;display:grid;place-items:center;font:12px/1 var(--px11);color:#2b1a04;
+ background:#f6dd96;box-shadow:0 0 0 2px #0a0806,inset 0 -2px 0 #b8892e}
+#app#app#app#app#app .modal .reward.relic-card.is-picked{transform:none!important;box-shadow:0 0 0 2px #0a0806,0 0 0 4px #f6dd96,0 0 0 6px #0a0806,0 0 18px rgba(246,221,150,.4)!important}
+#app#app#app#app#app .modal .reward.relic-card.is-picked > .choice-art{border-image-source:var(--fr-btn-gold)!important}
+/* event options: keep text clear of the bracket corners */
+#app#app#app#app#app .modal .reward[data-evopt]{padding:20px 24px!important;gap:4px!important}
+#app#app#app#app#app .modal .reward[data-evopt] b{font:400 15px/1.35 var(--px14)!important;color:#fff4d6!important}
+#app#app#app#app#app .modal .reward[data-evopt] p{font:12px/1.5 var(--px11)!important;color:var(--tx-mute)!important}
+#app#app#app#app#app .modal .reward[data-evopt].is-picked::after{top:8px!important;right:10px!important}
+#app#app#app#app#app .modal .reward.relic-card .rc-tier{bottom:auto!important;left:auto!important;width:auto!important;height:auto!important;min-height:0!important;grid-area:auto!important;display:block!important;margin:0!important;line-height:1.3!important}
+#app#app#app#app#app .modal .reward.relic-card{height:auto!important;max-height:none!important;min-height:100%!important;overflow:visible!important}
+#app#app#app#app#app .modal .reward.relic-card .rc-note{display:block!important;-webkit-line-clamp:unset!important}
+#app#app#app#app#app .modal .reward.relic-card > .rc-body{padding-right:0!important}
+#app#app#app#app#app .modal .reward.relic-card .rc-name{padding-right:56px}
+#app#app#app#app#app .modal .reward.relic-card p{display:block!important;-webkit-line-clamp:unset!important}
+#app#app#app#app#app .modal .reward::before,#app#app#app#app#app .modal .reward.is-picked::before{content:none!important;display:none!important}
+#app#app#app#app#app .modal .reward[data-evopt].is-picked::after{content:none!important;display:none!important}
+#app#app#app#app#app .modal .reward[data-evopt].is-picked{box-shadow:0 0 0 2px #0a0806,0 0 0 4px #f6dd96,0 0 0 6px #0a0806,0 0 16px rgba(246,221,150,.4)!important;outline:0!important}
+#app#app#app#app#app .modal .reward[data-evopt].is-picked b{color:#f6dd96!important}
+#app#app#app#app#app .modal .reward[data-evopt].is-picked b::before{content:"✓ "}
+#app#app#app#app#app .modal .reward-cards:has(.relic-card),#app#app#app#app#app .modal .reward-cards:has([data-evopt]){grid-auto-rows:1fr!important}
+#app#app#app#app#app .modal .reward.is-picked,#app#app#app#app#app .recruit-card[data-draft].is-picked{border-image-slice:12!important;border-image-width:24px!important}
