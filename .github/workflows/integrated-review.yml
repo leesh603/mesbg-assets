@@ -4,7 +4,7 @@ on:
     branches: [codex/mesbg-integrated-rework-20261013]
     paths: ['src/**', 'index.html', 'tests/rework-browser.cjs', '.github/workflows/integrated-review.yml']
 concurrency:
-  group: integrated-review-${{ github.ref }}
+  group: integrated-review-${{ github.ref }}-${{ contains(github.event.head_commit.message, '[ui-review]') && 'ui' || 'full' }}
   cancel-in-progress: true
 permissions:
   contents: read
@@ -13,7 +13,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        mode: [ui, play, comparison]
+        mode: ${{ fromJSON(contains(github.event.head_commit.message, '[ui-review]') && '["ui","comparison"]' || '["ui","play","comparison"]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
