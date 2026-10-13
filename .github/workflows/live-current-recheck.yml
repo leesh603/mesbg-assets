@@ -1,0 +1,61 @@
+name: Current live game and same-tab restart recheck
+on:
+  push:
+    branches: [diagnostics/playtest-20261013]
+    paths: [.github/workflows/live-current-recheck.yml]
+permissions:
+  contents: read
+jobs:
+  live:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    strategy:
+      fail-fast: false
+      matrix:
+        case: [normal, restart]
+    steps:
+      - name: Reuse the previously successful live Chrome driver
+        env:
+          CASE: ${{ matrix.case }}
+        run: |
+          mkdir -p evidence
+          curl -fLsS 'https://raw.githubusercontent.com/leesh603/mesbg-assets/4c25e253c85da629779c0e2e45ed21167a692587/.github/workflows/live-gameplay-review.yml' -o previous.yml
+          npm install --prefix /tmp/mesbg-browser playwright --no-audit --no-fund
+          python3 <<'PY'
+          import pathlib, textwrap
+          text=pathlib.Path('previous.yml').read_text()
+          js=textwrap.dedent(text.split("node <<'JS'\n",1)[1].split('\n          JS',1)[0])
+          js=js.replace("const log=[],errors=[],httpErrors=[];let seq=0;", "const log=[],errors=[],httpErrors=[];let seq=0;const reviewCase=process.env.CASE;console.log('LIVE_CASE',reviewCase);")
+          js=js.replace("note('snapshot',name);return d.game;", "d.lifecycle=await page.evaluate(()=>{const b=MESBG.battle;return Object.fromEntries(Object.keys(b).filter(k=>/heir|grave|fall|death|inherit|legacy|souvenir|loot|inventory|stash|relic|equip|memento/i.test(k)).map(k=>[k,b[k]]));});fs.writeFileSync('evidence/'+name+'.json',JSON.stringify(d,null,2));console.log('LIVE_SNAPSHOT',JSON.stringify({name,phase:d.game?.phase,wave:d.game?.wave,round:d.game?.round,alive:d.game?.units?.filter(u=>u.side==='good'&&u.alive).map(u=>u.name),fallen:d.lifecycle?.fallen,lifecycle:d.lifecycle}));note('snapshot',name);return d.game;")
+          js=js.replace("note('team-choice',chosen.map", "if(initial&&reviewCase==='restart'&&heroes.length){chosen=[heroes.slice().sort((a,b)=>(a.p.wounds*5+a.p.defence+a.p.attacks*2)-(b.p.wounds*5+b.p.defence+b.p.attacks*2))[0]];}note('team-choice',chosen.map")
+          js=js.replace("viewport:{width:390,height:844}", "viewport:{width:reviewCase==='restart'?360:390,height:reviewCase==='restart'?740:844}")
+          js=js.replace("await page.waitForFunction(()=>window.MESBG?.ui?.state?.ready", "const proof=await page.evaluate(async()=>{const live=await (await fetch(location.href,{cache:'no-store'})).text();const r=await (await fetch('https://api.github.com/repos/leesh603/mesbg-assets/branches/main')).json();const sha=r.commit?.sha;const source=sha?await (await fetch('https://raw.githubusercontent.com/leesh603/mesbg-assets/'+sha+'/index.html')).text():'';const hash=async s=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)))).map(x=>x.toString(16).padStart(2,'0')).join('');return{url:location.href,mainSha:sha,liveHash:await hash(live),mainHash:await hash(source),exactMatch:live===source,at:new Date().toISOString()};});fs.writeFileSync('evidence/live-build.json',JSON.stringify(proof,null,2));console.log('LIVE_BUILD',JSON.stringify(proof));page.on('dialog',async d=>{note('dialog',{type:d.type(),message:d.message()});await d.accept();});await page.waitForFunction(()=>window.MESBG?.ui?.state?.ready",1)
+          old="await snap('final-state');await ctx.storageState({path:'evidence/final-storage-state.json'});"
+          new="""await snap('final-state');await ctx.storageState({path:'evidence/final-storage-state.json'});
+          await auto(false).catch(()=>{});
+          const restartBefore=await snap('before-same-tab-restart');
+          for(let step=0;step<3;step++){
+            const candidate=await page.evaluate(()=>Array.from(document.querySelectorAll('button')).filter(e=>e.getClientRects().length&&!e.disabled&&getComputedStyle(e).visibility!=='hidden').map(e=>({id:e.id,text:e.innerText.trim()})).find(e=>e.id&&/새 원정|새 게임|다시 시작|다시 도전|메인으로|메인 메뉴|처음으로|원정 포기|새로운 원정|원정 시작/.test(e.text)));
+            console.log('RESTART_BUTTON',JSON.stringify(candidate));
+            if(!candidate)break;
+            await click('#'+candidate.id);await page.waitForTimeout(1000);await snap('same-tab-step-'+step);
+            const s=await state();if(s?.phase==='menu'){await click('#start-ai');await page.waitForTimeout(600);await snap('new-expedition-draft');break;}
+            if(s?.phase==='reward'&&await page.locator('#draft-confirm').isVisible())break;
+          }
+          await snap('after-same-tab-restart');
+          const restartAfter=await state();note('same-tab-restart-comparison',{before:restartBefore,after:restartAfter});
+          await ctx.storageState({path:'evidence/post-restart-storage.json'});"""
+          assert old in js
+          js=js.replace(old,new)
+          pathlib.Path('review.cjs').write_text(js)
+          PY
+          NODE_PATH=/tmp/mesbg-browser/node_modules node review.cjs
+      - name: Preserve fresh screenshots and actual UI actions
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: live-recheck-${{ github.run_id }}-${{ matrix.case }}-${{ github.run_attempt }}
+          path: |
+            evidence/
+            review.cjs
+          retention-days: 14
