@@ -10,9 +10,30 @@ const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.png'
 const server=http.createServer(async(req,res)=>{try{if(req.method!=='GET'){res.writeHead(405);return res.end();}let name=decodeURIComponent(new URL(req.url,'http://localhost').pathname).slice(1)||'index.html';const baseline=name.startsWith('baseline/');if(baseline)name=name.slice(9)||'index.html';if(name.includes('..'))throw Error('path');const file=path.resolve(name);if(!baseline&&fs.existsSync(file)&&fs.statSync(file).isFile()){res.setHeader('Content-Type',mime[path.extname(file)]||'application/octet-stream');return fs.createReadStream(file).pipe(res);}const a=await asset(name);res.writeHead(a.status,{'Content-Type':mime[path.extname(name)]||a.type||'application/octet-stream'});res.end(a.body);}catch(e){res.writeHead(502);res.end(String(e));}});
 const report={mode,base:process.env.BASE_SHA,errors:[],requestsFailed:[],views:[],runs:[]};
 const state=page=>page.evaluate(()=>{const b=window.MESBG?.battle;return b?{initialDraft:b.initialDraft,phase:b.phase,step:b.campStep,wave:b.wave,round:b.round,result:b.result,gold:b.gold,units:b.alive('good').map(u=>({id:u.id,hp:u.currentWounds})),foes:b.alive('evil').length,offers:b.recruitOffers,draft:b.recruitDraft,log:b.log?.slice(0,3)}:null;});
-async function screenshot(page,name){await page.screenshot({path:out+'/'+name+'.png'});const layout=await page.evaluate(()=>({bodyClasses:document.body.className,columns:document.querySelector('.recruit-cards')?getComputedStyle(document.querySelector('.recruit-cards')).gridTemplateColumns:null,width:innerWidth,height:innerHeight,overflow:document.documentElement.scrollWidth>innerWidth,broken:[...document.images].filter(i=>i.getBoundingClientRect().width&&i.complete&&!i.naturalWidth).map(i=>i.src)}));report.views.push({name,...layout});}
+async function screenshot(page,name){await page.screenshot({path:out+'/'+name+'.png'});const layout=await page.evaluate(()=>({bodyClasses:document.body.className,columns:document.querySelector('.recruit-cards')?getComputedStyle(document.querySelector('.recruit-cards')).gridTemplateColumns:null,width:innerWidth,height:innerHeight,overflow:document.documentElement.scrollWidth>innerWidth,broken:[...document.images].filter(i=>i.getBoundingClientRect().width&&i.complete&&!i.naturalWidth).map(i=>i.src)}));report.views.push({name,...layout});if(name.startsWith('after-')&&name.endsWith('-recruit')){const box=await page.locator('.camp-confirm>span').boundingBox();if(!box||box.width<70||box.height>60)throw Error('Recruit confirmation text is squeezed');if(layout.columns?.split(' ').length!==2)throw Error('Mobile recruitment must have two columns');}}
 async function click(page,selector){const l=page.locator(selector).first();if(await l.isVisible()&&await l.isEnabled()){await l.click({timeout:5000});return true;}return false;}
 async function recruit(page){const initial=await state(page);for(let i=0;i<(initial.offers||[]).length;i++){if(page.viewportSize().width===360&&i===1&&initial.initialDraft)continue;const card=page.locator('[data-draft="'+i+'"]');if(await card.isVisible()&&await card.isEnabled())await card.locator('.recruit-name').click({timeout:5000});}await click(page,'#draft-confirm');}
+async function manualProbe(page,run){
+  await page.waitForTimeout(4000);
+  await click(page,'#offscreen-unit');await page.waitForTimeout(450);
+  const attempt=await page.evaluate(()=>{
+    const api=window.MESBG,b=api?.battle,u=b?.unit(b.selected),c=api?.scene?.cameras?.main,canvas=document.querySelector('canvas');
+    if(!u||!c||!canvas||b.phase!=='move'||!b.canAct(u)||b.engaged(u))return {skipped:'이동 가능한 현재 아군 없음'};
+    const r=canvas.getBoundingClientRect(),z=c.zoom/(devicePixelRatio||1),cx=c.scrollX+c.width/2,cy=c.scrollY+c.height/2;
+    for(const [dx,dy]of[[0,90],[90,0],[-90,0],[0,-90]]){const plan=api.plan(u,{x:u.x+dx,y:u.y+dy},b.alive(),b.terrain,b.remaining(u));if(!plan)continue;const x=(plan.to.x-cx)*z+r.width/2+r.left,y=(plan.to.y-cy)*z+r.height/2+r.top;if(x>r.left+8&&x<r.right-8&&y>r.top+8&&y<r.bottom-8)return {uid:u.uid,x,y,before:{x:u.x,y:u.y},resources:{...u.resources}};}
+    return {skipped:'화면 안 안전한 이동 후보 없음'};
+  });run.manual=attempt;if(attempt.skipped)return;
+  await page.mouse.click(attempt.x,attempt.y);await page.waitForTimeout(200);
+  if(!await page.locator('#intent-cancel').isVisible()){run.manual.preview=false;return;}
+  run.manual.preview=true;await screenshot(page,'manual-move-preview');await click(page,'#intent-cancel');
+  run.manual.afterCancel=await page.evaluate(uid=>{const u=MESBG.battle.unit(uid);return{x:u.x,y:u.y};},attempt.uid);
+  await page.mouse.click(attempt.x,attempt.y);await click(page,'#dock-primary');await page.waitForTimeout(1300);
+  run.manual.afterConfirm=await page.evaluate(uid=>{const u=MESBG.battle.unit(uid);return{x:u.x,y:u.y};},attempt.uid);
+  await click(page,'#dock-detail');
+  if(await click(page,'#hero-skill')){await screenshot(page,'manual-skill-preview');await click(page,'#sk-use');await click(page,'#dock-primary');await page.waitForTimeout(800);run.manual.skillUsed=true;}
+  await click(page,'#sheet-toggle');
+}
+
 (async()=>{server.listen(8137,'127.0.0.1');const browser=await chromium.launch({headless:true});
  try{
   for(const [width,version] of (mode==='ui'?[[360,'before'],[360,'after'],[390,'before'],[390,'after']]:mode==='comparison'?[[390,'before'],[360,'after']]:[[390,'after']])){
@@ -27,7 +48,7 @@ async function recruit(page){const initial=await state(page);for(let i=0;i<(init
    await recruit(page);await page.waitForTimeout(700);await screenshot(page,version+'-'+width+'-deployment');
    if(mode==='ui'){await context.close();continue;}
    const run={width,version,checkpoints:[],started:new Date().toISOString(),finished:false};report.runs.push(run);
-   await click(page,'#dock-primary');await page.waitForTimeout(1200);await click(page,'#auto-dock');
+   await click(page,'#dock-primary');await page.waitForTimeout(1200);if(mode==='play')await manualProbe(page,run);await click(page,'#auto-dock');
    for(let i=0;i<3;i++)await click(page,'#speed-dock');
    const deadline=Date.now()+(mode==='comparison'?6:18)*60*1000;let last='',lastChange=Date.now(),campShot=false;
    while(Date.now()<deadline){

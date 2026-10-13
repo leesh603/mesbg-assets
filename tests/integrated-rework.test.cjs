@@ -119,3 +119,13 @@ const hit=()=>({strikeResults:[{target:dwarf.uid,attacker:killer.uid,wound:true,
 q.refreshUnit(dwarf);q.applyCombat(hit());assert.equal(dwarf.alive,true);assert.equal(dwarf.currentWounds,1);assert.ok(dwarf._mailUsed);assert.ok(!killer.ringilSurge);
 q.applyCombat(hit());assert.equal(dwarf.alive,false);assert.equal(killer.ringilSurge,1);
 console.log('PASS: lethal relic prevention precedes casualties and kill rewards');
+// The spear relic improves the actual support strike, not an unrelated front attack.
+q.start('ai');q.units=[];q.terrain=[];q.phase='fight';q.side='good';q.relics={morannon_pike:1};
+const front=q.spawn('mt_swordshield','good',{x:1000,y:800});const target=q.spawn('orc_sword','evil',{x:1076,y:800});const spear=q.spawn('mt_spear','good',{x:924,y:800});
+target.currentWounds=20;target.stats.wounds=20;target.stats.defence=8;
+const supported=h.Ue([front,target],q.alive(),[],'good',()=>.9).strikeResults.find(s=>s.support);
+assert.ok(supported);const needed=supported.needed;
+q.relics={};q.refreshUnit(spear);
+const ordinary=h.Ue([front,target],q.alive(),[],'good',()=>.9).strikeResults.find(s=>s.support);
+assert.equal(needed,ordinary.needed-1);
+console.log('PASS: spear relic changes support-strike threshold');
