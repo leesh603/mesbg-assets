@@ -4834,7 +4834,7 @@ Ve.prototype.sync = function () {
             // flattened so it reads as lying on the ground; the figure stands on it.
             const _bm = q.meta.get(u.id), key = 'basefile:' + (_bm ? baseFile(_bm) : 'bases/base_gondor_M.png'), d = u.radius * 2.2;
             const shadow = this.add.ellipse(0, u.radius * .16, d * 1.08, d * .9, 0x000000, .34).setName('base-shadow');
-            const base = this.textures.exists(key) ? this.add.image(0, 0, key).setDisplaySize(d, d * .94).setName('base') : this.add.ellipse(0, 0, d, d * .94, u.side === 'good' ? 0x6f7466 : 0x3a302a, .95).setStrokeStyle(2, u.side === 'good' ? 0xc9c4a8 : 0x6b4a3c).setName('base');
+            const base = this.textures.exists(key) ? this.add.image(0, u.radius * .04, key).setDisplaySize(d, d).setName('base') : this.add.ellipse(0, 0, d, d * .94, u.side === 'good' ? 0x6f7466 : 0x3a302a, .95).setStrokeStyle(2, u.side === 'good' ? 0xc9c4a8 : 0x6b4a3c).setName('base');
             c.addAt(shadow, 0); c.addAt(base, 1);
         }
         sprite.setAlpha(1).setVisible(this.textures.exists(u.id)); // Spent units use the cached grayscale texture in the clarity adapter.
