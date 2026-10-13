@@ -1,0 +1,21 @@
+{
+  "errors": [],
+  "failed": [],
+  "unitsChecked": 492,
+  "views": [
+    "before-osgiliath",
+    "before-fangorn",
+    "before-black_gate",
+    "before-cavalry",
+    "before-statures",
+    "after-osgiliath",
+    "after-fangorn",
+    "after-black_gate",
+    "after-cavalry",
+    "after-statures",
+    "after-mobile-cavalry",
+    "normal-deployment"
+  ],
+  "play": null,
+  "fatal": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#speed-dock')\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" class=\"act-btn\" id=\"speed-dock\" aria-label=\"재생 속도\" title=\"재생 속도 ×1·×2·×4·×8\">1×</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div role=\"tooltip\" class=\"ui-popover\" id=\"ui-control-help\" data-placement=\"below\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div role=\"tooltip\" class=\"ui-popover\" id=\"ui-control-help\" data-placement=\"below\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    51 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <div role=\"tooltip\" class=\"ui-popover\" id=\"ui-control-help\" data-placement=\"below\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at /workspace/scratch/efd9b18c08b0/mesbg/review/recovery-20261014/browser.cjs:17:510"
+}

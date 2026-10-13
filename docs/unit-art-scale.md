@@ -24,3 +24,7 @@ The 99 riding profiles were remeasured. 150 foot/creature profiles had incorrect
 3. Run node tools/sync-unit-art-profiles.cjs then node tools/build.js --online-only.
 4. Run node --test tests/unit-art.test.cjs. Source hash validation detects replaced art with stale measurements.
 5. Review actual game screenshots at identical zoom. Numerical span checks alone are not visual approval.
+
+## 2026-10-14 completion
+
+Recovered onto main 85c1da1 while retaining its UI. Dunhere mounted art was replaced and separately calibrated: helmet crown y63, seated pelvis y201 on the 212×500 source; 43 world pixels. Phaser verified all 492 reference spans and origins. See [actual game comparisons](../review/recovery-20261014/comparison.html) and [verification summary](../review/recovery-20261014/summary.json).

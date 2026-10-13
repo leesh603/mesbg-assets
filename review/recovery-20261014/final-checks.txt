@@ -1,0 +1,19 @@
+✔ settings and dock speeds share the same value, persistence and animation rate (6.997871ms)
+✔ camp notifications escape the overlay and return to the battlefield without losing their children (5.942029ms)
+✔ every production combat token has an explicit anatomical reference (65.526981ms)
+✔ all 492 anatomical spans render to their specified size, independent of radius and artScale (2.537135ms)
+✔ banners, staves and spears have anatomical centers independent of their ornament envelopes (0.125449ms)
+✔ padding and seated poses do not create multiples of cavalry size (0.602979ms)
+✔ character details do not reveal evolution thresholds or next forms (40.619886ms)
+✔ lazy-loaded and transformed units anchor rotation and idle at the body, with no stale profile (0.320483ms)
+✔ newer main base rendering is preserved and never used to normalize body scale (0.74327ms)
+✔ review is tied to the actual production raster, never stale source copies (77.74291ms)
+✔ regressions: empty padding, torso-only foot profiles, and Nazgul class (1.478419ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 290.434239

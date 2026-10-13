@@ -1,0 +1,26 @@
+{
+  "base": "85c1da12e1eabf7736b3e619e90566ee4c24b314",
+  "branch": "fix/finish-three-tasks-20261014",
+  "unitsChecked": 492,
+  "visualErrors": [],
+  "visualFailedRequests": [],
+  "play": {
+    "phase": "result",
+    "round": 20,
+    "survivors": 0,
+    "wave": 1
+  },
+  "playErrors": [],
+  "playFailedRequests": [],
+  "regressions": {
+    "main": 52,
+    "finalAfterTooltipFix": 11
+  },
+  "resolvedVerificationIssue": "Original ordinary-play attempt found control-help tooltip intercepting the speed button. Production tooltip made pointer-transparent; rerun completed at reward phase.",
+  "initialRecordedPhaseObservation": {
+    "phase": "reward",
+    "round": 13,
+    "survivors": 2,
+    "wave": 1
+  }
+}
