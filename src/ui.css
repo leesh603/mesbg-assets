@@ -647,3 +647,14 @@ html body.lwb-polished:not([data-phase="move"]):not([data-phase="shoot"]):not([d
 #app#app#app#app#app .modal .reward[data-evopt].is-picked{box-shadow:0 4px 0 rgba(0,0,0,.45),0 0 16px rgba(246,221,150,.35)!important;
  background:var(--fr-grain),linear-gradient(180deg,rgba(150,112,40,.62) 0,rgba(96,68,22,.72) 55%,rgba(58,40,12,.85) 100%)!important}
 #app#app#app#app#app .modal .reward[data-evopt].is-picked p{color:#f3e6c4!important}
+
+/* no "…" truncation anywhere in the UI: text wraps by word instead */
+#app#app#app#app#app :is(.recruit-card,.reward,.modal,#hud-mission,#command-dock,#battle-sheet,.camp-confirm,.camp-dock) :is(p,small,span,b,em,div,strong){
+ text-overflow:clip!important;-webkit-line-clamp:unset!important;overflow-wrap:break-word;word-break:keep-all}
+#app#app#app#app#app .recruit-card[data-draft] > p,#app#app#app#app#app .recruit-card[data-draft] .recruit-name,#app#app#app#app#app .modal .reward-cards .reward p,
+#app#app#app#app#app #hud-mission :is(.hm-line,.hm-sub),#app#app#app#app#app #dock-name,#app#app#app#app#app .camp-confirm > span:first-child,#app#app#app#app#app #camp-choice-summary{
+ white-space:normal!important;overflow:visible!important;text-overflow:clip!important;display:block!important;-webkit-line-clamp:unset!important}
+/* the top bar grows to fit a wrapped mission rule */
+#app#app#app#app#app header.top{height:auto!important;max-height:none!important;grid-template-rows:auto!important;align-items:stretch!important}
+#app#app#app#app#app header.top :is(.metric,#hud-mission,#settings-toggle){height:auto!important;min-height:44px!important}
+#app#app#app#app#app #hud-mission{padding:5px 10px!important}
