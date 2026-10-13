@@ -1,0 +1,4424 @@
+{
+  "source_main": "6c57ddae162a4fb74b1cf590f670c6f6c30c5559",
+  "source_assets_checked": 540,
+  "unit_count": 463,
+  "terrain_excluded": 77,
+  "preserved_copies_verified": 311,
+  "redraw_target_count": 152,
+  "native_pngs_validated": 152,
+  "visual_review_pass_count": 152,
+  "missing": [],
+  "unreviewed": [],
+  "errors": [],
+  "visible_framing_flags": [],
+  "validated_outputs": [
+    {
+      "id": "boromir",
+      "size": [
+        414,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        52,
+        3,
+        361,
+        415
+      ],
+      "visible_bbox": [
+        53,
+        4,
+        360,
+        413
+      ],
+      "source_visible_bbox": [
+        68,
+        6,
+        372,
+        413
+      ],
+      "visible_height_ratio": 1.0049140049140048,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "7361e010a01511b4ebd77a6aa6243d2a30ee84ea8edd15d609f1afac61b4efd6"
+    },
+    {
+      "id": "beregond",
+      "size": [
+        412,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        43,
+        22,
+        369,
+        395
+      ],
+      "visible_bbox": [
+        43,
+        23,
+        369,
+        395
+      ],
+      "source_visible_bbox": [
+        56,
+        24,
+        370,
+        394
+      ],
+      "visible_height_ratio": 1.0054054054054054,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "c01cfc11b7f64b2345dc5f2331bab0078bf658717e69413f939c82979b7c263f"
+    },
+    {
+      "id": "forlong",
+      "size": [
+        414,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        57,
+        28,
+        356,
+        403
+      ],
+      "visible_bbox": [
+        57,
+        28,
+        355,
+        402
+      ],
+      "source_visible_bbox": [
+        67,
+        30,
+        363,
+        401
+      ],
+      "visible_height_ratio": 1.0080862533692723,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "a29f59ae8d9a6e5506ed51a3831fa1fb902a4e8ce38dbcb71e87c235c57332ff"
+    },
+    {
+      "id": "damrod",
+      "size": [
+        319,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        45,
+        24,
+        273,
+        391
+      ],
+      "visible_bbox": [
+        46,
+        25,
+        273,
+        391
+      ],
+      "source_visible_bbox": [
+        39,
+        26,
+        262,
+        389
+      ],
+      "visible_height_ratio": 1.0082644628099173,
+      "visible_foot_delta_px": 2,
+      "output_sha256": "b15dcc7921b3d98067b7a04413897a144526003af1dcb88013d5766a12bcf5fd"
+    },
+    {
+      "id": "duinhir",
+      "size": [
+        317,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        31,
+        17,
+        285,
+        401
+      ],
+      "visible_bbox": [
+        31,
+        17,
+        284,
+        400
+      ],
+      "source_visible_bbox": [
+        40,
+        20,
+        286,
+        399
+      ],
+      "visible_height_ratio": 1.0105540897097625,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "a5c36c7be9ef826ef91a1ca60c03d460eaac37ff0cbe9761ebbda0a019f18eed"
+    },
+    {
+      "id": "isildur",
+      "size": [
+        275,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        11,
+        7,
+        264,
+        392
+      ],
+      "visible_bbox": [
+        12,
+        7,
+        264,
+        391
+      ],
+      "source_visible_bbox": [
+        16,
+        9,
+        266,
+        390
+      ],
+      "visible_height_ratio": 1.0078740157480315,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "62d4df432adfecedcd015f3d3d993e483bcf2f53c8005927ad96ada125e0ddcb"
+    },
+    {
+      "id": "denethor",
+      "size": [
+        322,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        37,
+        19,
+        285,
+        402
+      ],
+      "visible_bbox": [
+        37,
+        19,
+        285,
+        402
+      ],
+      "source_visible_bbox": [
+        38,
+        21,
+        289,
+        399
+      ],
+      "visible_height_ratio": 1.0132275132275133,
+      "visible_foot_delta_px": 3,
+      "output_sha256": "d8eb6a55b8358862e0216587fe219a6e6612b22c43444a30689e29374f971117"
+    },
+    {
+      "id": "anborn",
+      "size": [
+        316,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        40,
+        22,
+        276,
+        379
+      ],
+      "visible_bbox": [
+        41,
+        23,
+        276,
+        379
+      ],
+      "source_visible_bbox": [
+        35,
+        24,
+        269,
+        377
+      ],
+      "visible_height_ratio": 1.0084985835694051,
+      "visible_foot_delta_px": 2,
+      "output_sha256": "562e964ac5beec224f8a487755ca50befa5d7e608ffe42d1560cbf6ad14deafe"
+    },
+    {
+      "id": "hirluin",
+      "size": [
+        417,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        48,
+        2,
+        369,
+        417
+      ],
+      "visible_bbox": [
+        49,
+        2,
+        368,
+        416
+      ],
+      "source_visible_bbox": [
+        49,
+        5,
+        372,
+        414
+      ],
+      "visible_height_ratio": 1.0122249388753055,
+      "visible_foot_delta_px": 2,
+      "output_sha256": "b5c6743c8a4770b60b454e59362f033c0c39d8199846538fc5320e4a76c87d82"
+    },
+    {
+      "id": "madril",
+      "size": [
+        328,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        30,
+        43,
+        297,
+        394
+      ],
+      "visible_bbox": [
+        31,
+        44,
+        297,
+        393
+      ],
+      "source_visible_bbox": [
+        25,
+        45,
+        291,
+        392
+      ],
+      "visible_height_ratio": 1.005763688760807,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "926eda20bf43e86356aeb4c6cae3e698802e588ec698030e3952b5c06b957beb"
+    },
+    {
+      "id": "irolas",
+      "size": [
+        424,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        25,
+        17,
+        398,
+        408
+      ],
+      "visible_bbox": [
+        25,
+        18,
+        398,
+        407
+      ],
+      "source_visible_bbox": [
+        31,
+        19,
+        396,
+        406
+      ],
+      "visible_height_ratio": 1.0051679586563307,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "54b2911a17f98319354db5cec926ceae4076fd03a2afc6a579846b705db31f5d"
+    },
+    {
+      "id": "hurin",
+      "size": [
+        1147,
+        1484
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        127,
+        118,
+        1019,
+        1405
+      ],
+      "visible_bbox": [
+        129,
+        120,
+        1016,
+        1402
+      ],
+      "source_visible_bbox": [
+        136,
+        56,
+        1043,
+        1405
+      ],
+      "visible_height_ratio": 0.9503335804299481,
+      "visible_foot_delta_px": -3,
+      "output_sha256": "a6ea8e2593c4b8e255a0631cbfe88d00f26bb439c161b4a26aae24d6b9816b5f"
+    },
+    {
+      "id": "cirion",
+      "size": [
+        289,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        13,
+        30,
+        275,
+        401
+      ],
+      "visible_bbox": [
+        14,
+        30,
+        275,
+        401
+      ],
+      "source_visible_bbox": [
+        12,
+        32,
+        278,
+        399
+      ],
+      "visible_height_ratio": 1.0108991825613078,
+      "visible_foot_delta_px": 2,
+      "output_sha256": "c226e782827f79e9e3c3de53dbf41d7cb0915a1decbed0c3e1f47c5a43117199"
+    },
+    {
+      "id": "numenorean_captain",
+      "size": [
+        284,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        18,
+        18,
+        266,
+        392
+      ],
+      "visible_bbox": [
+        19,
+        18,
+        266,
+        391
+      ],
+      "source_visible_bbox": [
+        33,
+        20,
+        273,
+        390
+      ],
+      "visible_height_ratio": 1.008108108108108,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "e391f200383b3f043bb3f0d529e13c306bb14a0c630e82f6502c1877270a763f"
+    },
+    {
+      "id": "angbor",
+      "size": [
+        420,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        58,
+        18,
+        362,
+        406
+      ],
+      "visible_bbox": [
+        58,
+        19,
+        362,
+        405
+      ],
+      "source_visible_bbox": [
+        62,
+        20,
+        372,
+        404
+      ],
+      "visible_height_ratio": 1.0052083333333333,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "51ba8f6faefec65b7b488c8040f29bcb27c0a497183eec2fc9c3cae1f760e567"
+    },
+    {
+      "id": "dervorin",
+      "size": [
+        425,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        27,
+        16,
+        398,
+        411
+      ],
+      "visible_bbox": [
+        27,
+        17,
+        397,
+        411
+      ],
+      "source_visible_bbox": [
+        33,
+        5,
+        386,
+        410
+      ],
+      "visible_height_ratio": 0.9728395061728395,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "0375431905a7525444bc3ee5451eeccf155a1de0dadec612606dc124ae81d648"
+    },
+    {
+      "id": "pippin_citadel",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        119,
+        167,
+        321,
+        429
+      ],
+      "visible_bbox": [
+        119,
+        167,
+        321,
+        429
+      ],
+      "source_visible_bbox": [
+        123,
+        162,
+        317,
+        428
+      ],
+      "visible_height_ratio": 0.9849624060150376,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "2e7393cf5ab14ca96bf92b2a619125ce7930e3a10c291ee3af023b5ad33e5fde"
+    },
+    {
+      "id": "ithilien_ranger",
+      "size": [
+        307,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        32,
+        28,
+        274,
+        388
+      ],
+      "visible_bbox": [
+        32,
+        28,
+        273,
+        388
+      ],
+      "source_visible_bbox": [
+        29,
+        30,
+        272,
+        386
+      ],
+      "visible_height_ratio": 1.0112359550561798,
+      "visible_foot_delta_px": 2,
+      "output_sha256": "98d00d3e9095ef9214e8f4c6ed8051dcd5c6f21b84dd49f6b43ef5ed89aa4eae"
+    },
+    {
+      "id": "mt_spear",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        127,
+        78,
+        313,
+        413
+      ],
+      "visible_bbox": [
+        128,
+        78,
+        313,
+        413
+      ],
+      "source_visible_bbox": [
+        113,
+        79,
+        306,
+        413
+      ],
+      "visible_height_ratio": 1.0029940119760479,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "a12f6eb8a7f0af6c1bc7365905aa558d1b7531de86920fab69d3dab87e0701ea"
+    },
+    {
+      "id": "osgiliath_veteran",
+      "size": [
+        416,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        71,
+        24,
+        344,
+        396
+      ],
+      "visible_bbox": [
+        72,
+        25,
+        343,
+        396
+      ],
+      "source_visible_bbox": [
+        77,
+        27,
+        348,
+        394
+      ],
+      "visible_height_ratio": 1.0108991825613078,
+      "visible_foot_delta_px": 2,
+      "output_sha256": "e0da35362bef8a6f2e67f40585dd6c4088a53947dbc101ec743018ec692b0c04"
+    },
+    {
+      "id": "lossarnach_axeman",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        97,
+        80,
+        342,
+        431
+      ],
+      "visible_bbox": [
+        98,
+        80,
+        342,
+        431
+      ],
+      "source_visible_bbox": [
+        88,
+        81,
+        352,
+        432
+      ],
+      "visible_height_ratio": 1.0,
+      "visible_foot_delta_px": -1,
+      "output_sha256": "46ce101a0045ff6679975987d70b4956c3bf25e0f574c9e185293b48271db26f"
+    },
+    {
+      "id": "citadel_guard",
+      "size": [
+        287,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        15,
+        1,
+        272,
+        414
+      ],
+      "visible_bbox": [
+        15,
+        1,
+        272,
+        413
+      ],
+      "source_visible_bbox": [
+        23,
+        3,
+        270,
+        412
+      ],
+      "visible_height_ratio": 1.0073349633251834,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "ffde08fd8b917b76ddcef31760772d5590fbc9520139c57218e7da7a836b158d"
+    },
+    {
+      "id": "pelennor_militia",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        116,
+        80,
+        324,
+        430
+      ],
+      "visible_bbox": [
+        117,
+        81,
+        323,
+        429
+      ],
+      "source_visible_bbox": [
+        115,
+        80,
+        323,
+        431
+      ],
+      "visible_height_ratio": 0.9914529914529915,
+      "visible_foot_delta_px": -2,
+      "output_sha256": "b37694c6235af5221fa02a425b7021659b2804c0514ad9029bdc0bd2d7c06423"
+    },
+    {
+      "id": "blackroot_archer",
+      "size": [
+        324,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        19,
+        26,
+        305,
+        388
+      ],
+      "visible_bbox": [
+        19,
+        28,
+        304,
+        388
+      ],
+      "source_visible_bbox": [
+        19,
+        18,
+        313,
+        387
+      ],
+      "visible_height_ratio": 0.975609756097561,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "384714b5bff63e115f5993923921e8b82ccd6f3df14453453b3ed30da9705f09"
+    },
+    {
+      "id": "dol_amroth_man_at_arms",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        117,
+        114,
+        323,
+        411
+      ],
+      "visible_bbox": [
+        117,
+        114,
+        323,
+        411
+      ],
+      "source_visible_bbox": [
+        121,
+        115,
+        320,
+        411
+      ],
+      "visible_height_ratio": 1.0033783783783783,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "3b281c206aa0a5172bc34a32bfc81fe2a5a533edd1ed56996481196f66359c25"
+    },
+    {
+      "id": "aragorn_mounted",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        136,
+        65,
+        303,
+        414
+      ],
+      "visible_bbox": [
+        136,
+        65,
+        303,
+        414
+      ],
+      "source_visible_bbox": [
+        151,
+        65,
+        312,
+        413
+      ],
+      "visible_height_ratio": 1.0028735632183907,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "2c0456296551892628054b2cb8ecd69444fd4a4b5b896ea105b2167ef4fa5525"
+    },
+    {
+      "id": "eowyn",
+      "size": [
+        1429,
+        1446
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        307,
+        229,
+        1121,
+        1297
+      ],
+      "visible_bbox": [
+        310,
+        231,
+        1119,
+        1293
+      ],
+      "source_visible_bbox": [
+        284,
+        177,
+        1100,
+        1296
+      ],
+      "visible_height_ratio": 0.9490616621983914,
+      "visible_foot_delta_px": -3,
+      "output_sha256": "85680a9294c6345f5146cab500df055bbcb5435d3c1ba409dde61a6ef7c38f31"
+    },
+    {
+      "id": "elfhelm",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        113,
+        105,
+        326,
+        408
+      ],
+      "visible_bbox": [
+        113,
+        105,
+        325,
+        408
+      ],
+      "source_visible_bbox": [
+        114,
+        105,
+        320,
+        408
+      ],
+      "visible_height_ratio": 1.0,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "a0e760f89ca6e168c8fc6db62de9b9c1935251eb21f0b700c288bb7a710be823"
+    },
+    {
+      "id": "haleth",
+      "size": [
+        415,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        72,
+        33,
+        343,
+        396
+      ],
+      "visible_bbox": [
+        73,
+        34,
+        343,
+        396
+      ],
+      "source_visible_bbox": [
+        72,
+        35,
+        348,
+        394
+      ],
+      "visible_height_ratio": 1.0083565459610029,
+      "visible_foot_delta_px": 2,
+      "output_sha256": "6d27c4e41cb60862a67fd0d2beab20e9f072a03a52d082490a4570d089c68a3d"
+    },
+    {
+      "id": "eowyn_mounted",
+      "size": [
+        332,
+        492
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        9,
+        11,
+        322,
+        481
+      ],
+      "visible_bbox": [
+        10,
+        12,
+        321,
+        480
+      ],
+      "source_visible_bbox": [
+        7,
+        11,
+        324,
+        481
+      ],
+      "visible_height_ratio": 0.9957446808510638,
+      "visible_foot_delta_px": -1,
+      "output_sha256": "450cbeb9ba481d527464c0ec2a705f8bdb86307949054b53988c8174cc3b1ec1"
+    },
+    {
+      "id": "war_hound",
+      "size": [
+        370,
+        513
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        42,
+        11,
+        328,
+        498
+      ],
+      "visible_bbox": [
+        44,
+        12,
+        326,
+        497
+      ],
+      "source_visible_bbox": [
+        46,
+        11,
+        332,
+        497
+      ],
+      "visible_height_ratio": 0.9979423868312757,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "4cfc268afb0f4bc14cb0879563e08e9a3cf31c3a3b2d50c0529b522eb5f49471"
+    },
+    {
+      "id": "legolas",
+      "size": [
+        414,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        64,
+        8,
+        349,
+        411
+      ],
+      "visible_bbox": [
+        65,
+        8,
+        349,
+        410
+      ],
+      "source_visible_bbox": [
+        71,
+        11,
+        343,
+        408
+      ],
+      "visible_height_ratio": 1.012594458438287,
+      "visible_foot_delta_px": 2,
+      "output_sha256": "0844b85404f00a797dbb82e15a0c23eabfdf62b82c1a7872336abb8b3ee99dca"
+    },
+    {
+      "id": "mirkwood_sentinel",
+      "size": [
+        316,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        26,
+        10,
+        290,
+        399
+      ],
+      "visible_bbox": [
+        26,
+        10,
+        290,
+        399
+      ],
+      "source_visible_bbox": [
+        30,
+        12,
+        295,
+        397
+      ],
+      "visible_height_ratio": 1.0103896103896104,
+      "visible_foot_delta_px": 2,
+      "output_sha256": "1be35ecb67d3fbaca06d937c03735f26fa4638f6d4f4d71da0e00aeddefed2e4"
+    },
+    {
+      "id": "noldor_warrior",
+      "size": [
+        288,
+        419
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        5,
+        13,
+        283,
+        409
+      ],
+      "visible_bbox": [
+        5,
+        13,
+        283,
+        409
+      ],
+      "source_visible_bbox": [
+        6,
+        9,
+        281,
+        409
+      ],
+      "visible_height_ratio": 0.99,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "6e105b5e89b739ed467d7b48ae1f533a27ad1a68b95bf491df526c0935eaa842"
+    },
+    {
+      "id": "silvan_archer",
+      "size": [
+        320,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        29,
+        22,
+        290,
+        397
+      ],
+      "visible_bbox": [
+        30,
+        22,
+        289,
+        397
+      ],
+      "source_visible_bbox": [
+        32,
+        24,
+        282,
+        395
+      ],
+      "visible_height_ratio": 1.0107816711590296,
+      "visible_foot_delta_px": 2,
+      "output_sha256": "5564222be761246eb3be9c0324d09d73cdb238f04e4c8fba45866ad717640674"
+    },
+    {
+      "id": "palace_guard",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        110,
+        90,
+        330,
+        425
+      ],
+      "visible_bbox": [
+        111,
+        90,
+        329,
+        425
+      ],
+      "source_visible_bbox": [
+        114,
+        88,
+        325,
+        425
+      ],
+      "visible_height_ratio": 0.9940652818991098,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "85604054c16609f50e9ece795ce02f96c7ed6cba72198cbeb6938885746b88e2"
+    },
+    {
+      "id": "haldir",
+      "size": [
+        415,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        73,
+        8,
+        341,
+        396
+      ],
+      "visible_bbox": [
+        74,
+        8,
+        340,
+        396
+      ],
+      "source_visible_bbox": [
+        91,
+        10,
+        352,
+        394
+      ],
+      "visible_height_ratio": 1.0104166666666667,
+      "visible_foot_delta_px": 2,
+      "output_sha256": "4f108111df87c854c642dba669e57d93a13790182e23bd579aeda7543539af55"
+    },
+    {
+      "id": "galadriel",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        112,
+        101,
+        328,
+        414
+      ],
+      "visible_bbox": [
+        113,
+        103,
+        328,
+        414
+      ],
+      "source_visible_bbox": [
+        112,
+        101,
+        332,
+        414
+      ],
+      "visible_height_ratio": 0.9936102236421726,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "54270e07ca01be42e5ccd64b22cbffc06ee22f536a51f3601a2304a205525511"
+    },
+    {
+      "id": "celeborn",
+      "size": [
+        339,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        31,
+        45,
+        308,
+        390
+      ],
+      "visible_bbox": [
+        31,
+        45,
+        307,
+        389
+      ],
+      "source_visible_bbox": [
+        30,
+        48,
+        311,
+        388
+      ],
+      "visible_height_ratio": 1.011764705882353,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "e366fc752e4952e50c4c58d40cd6798e663113058af59a9c215901dd12e89560"
+    },
+    {
+      "id": "rumil",
+      "size": [
+        282,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        25,
+        0,
+        256,
+        413
+      ],
+      "visible_bbox": [
+        26,
+        0,
+        256,
+        413
+      ],
+      "source_visible_bbox": [
+        42,
+        2,
+        269,
+        411
+      ],
+      "visible_height_ratio": 1.0097799511002445,
+      "visible_foot_delta_px": 2,
+      "output_sha256": "64e50f2d5b098e814b3b9caadaa3718189622278611de5ee7f7475a85729e17c"
+    },
+    {
+      "id": "orophin",
+      "size": [
+        290,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        5,
+        48,
+        285,
+        389
+      ],
+      "visible_bbox": [
+        5,
+        48,
+        284,
+        389
+      ],
+      "source_visible_bbox": [
+        9,
+        40,
+        281,
+        387
+      ],
+      "visible_height_ratio": 0.9827089337175793,
+      "visible_foot_delta_px": 2,
+      "output_sha256": "8ff09c1b5a764e2b7107938d21b2ad923e7582f4d604734c460e095afbc6a1f1"
+    },
+    {
+      "id": "galadhrim_warrior",
+      "size": [
+        415,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        99,
+        23,
+        315,
+        400
+      ],
+      "visible_bbox": [
+        100,
+        24,
+        314,
+        400
+      ],
+      "source_visible_bbox": [
+        110,
+        14,
+        313,
+        397
+      ],
+      "visible_height_ratio": 0.9817232375979112,
+      "visible_foot_delta_px": 3,
+      "output_sha256": "efb5a4cf922bf6e87c62a2044d6c74e98db3945d63c44b6544a4d416f33face6"
+    },
+    {
+      "id": "galadhrim_knight",
+      "size": [
+        312,
+        513
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        20,
+        14,
+        292,
+        498
+      ],
+      "visible_bbox": [
+        21,
+        14,
+        291,
+        498
+      ],
+      "source_visible_bbox": [
+        19,
+        15,
+        284,
+        498
+      ],
+      "visible_height_ratio": 1.0020703933747412,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "7a8a4d203e18933b432842ffe1b529dbc5571f913a1573da4ded36f30a3f6753"
+    },
+    {
+      "id": "elf_seer",
+      "size": [
+        355,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        43,
+        36,
+        312,
+        383
+      ],
+      "visible_bbox": [
+        43,
+        36,
+        311,
+        383
+      ],
+      "source_visible_bbox": [
+        53,
+        38,
+        317,
+        382
+      ],
+      "visible_height_ratio": 1.0087209302325582,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "b4159fbdd649ff77938f1b745bf415c0ce56ec6ec0a6fa31cf7c8b980bf37597"
+    },
+    {
+      "id": "gimli",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        84,
+        115,
+        356,
+        430
+      ],
+      "visible_bbox": [
+        86,
+        115,
+        355,
+        429
+      ],
+      "source_visible_bbox": [
+        85,
+        116,
+        354,
+        430
+      ],
+      "visible_height_ratio": 1.0,
+      "visible_foot_delta_px": -1,
+      "output_sha256": "5134e9cfd31a7e224434ee9e6434f132e5a2e2bd78f60dbde99115ae708b062f"
+    },
+    {
+      "id": "dain",
+      "size": [
+        235,
+        294
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        41,
+        88,
+        194,
+        290
+      ],
+      "visible_bbox": [
+        42,
+        88,
+        194,
+        290
+      ],
+      "source_visible_bbox": [
+        37,
+        88,
+        198,
+        290
+      ],
+      "visible_height_ratio": 1.0,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "2696dbbad24782065799bf3a03909bf5cf2ba4ae1b2189d4b40133fba5de2c72"
+    },
+    {
+      "id": "fili",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        124,
+        187,
+        316,
+        390
+      ],
+      "visible_bbox": [
+        124,
+        188,
+        316,
+        390
+      ],
+      "source_visible_bbox": [
+        114,
+        188,
+        330,
+        390
+      ],
+      "visible_height_ratio": 1.0,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "666c8bd44a485a9afc9afa679bc2c2e2151c9b926be611806c662497bd656121"
+    },
+    {
+      "id": "kili",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        103,
+        115,
+        336,
+        430
+      ],
+      "visible_bbox": [
+        104,
+        116,
+        335,
+        429
+      ],
+      "source_visible_bbox": [
+        103,
+        115,
+        335,
+        429
+      ],
+      "visible_height_ratio": 0.9968152866242038,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "8ecf25ccfdc5bf34ce330c810668e3511a090be0f06471b6477e9ed93b334d4c"
+    },
+    {
+      "id": "balin",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        89,
+        115,
+        350,
+        430
+      ],
+      "visible_bbox": [
+        89,
+        116,
+        350,
+        430
+      ],
+      "source_visible_bbox": [
+        91,
+        116,
+        348,
+        429
+      ],
+      "visible_height_ratio": 1.0031948881789137,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "0263e8905de78eba17dc96b9ae51c3f3642f508b69105c74b41603f7c09d68f6"
+    },
+    {
+      "id": "dwalin",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        53,
+        115,
+        386,
+        430
+      ],
+      "visible_bbox": [
+        53,
+        116,
+        385,
+        430
+      ],
+      "source_visible_bbox": [
+        57,
+        115,
+        382,
+        430
+      ],
+      "visible_height_ratio": 0.9968253968253968,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "3bfec262454b0f69afa38b51636664b053db8542caa2d1ecffd75c6c3be0f39f"
+    },
+    {
+      "id": "gloin",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        125,
+        172,
+        314,
+        395
+      ],
+      "visible_bbox": [
+        125,
+        172,
+        314,
+        395
+      ],
+      "source_visible_bbox": [
+        127,
+        173,
+        321,
+        395
+      ],
+      "visible_height_ratio": 1.0045045045045045,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "4e20714d54358e49bb6d329944b26ed7a3b602db057ba6c8c85926f5220347d2"
+    },
+    {
+      "id": "oin",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        78,
+        115,
+        362,
+        429
+      ],
+      "visible_bbox": [
+        79,
+        116,
+        361,
+        429
+      ],
+      "source_visible_bbox": [
+        79,
+        115,
+        360,
+        430
+      ],
+      "visible_height_ratio": 0.9936507936507937,
+      "visible_foot_delta_px": -1,
+      "output_sha256": "577058fc0de48556430ff234dbbd614901d3bcad85e62e65b7aa367b6956e8e9"
+    },
+    {
+      "id": "nori",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        90,
+        116,
+        349,
+        429
+      ],
+      "visible_bbox": [
+        91,
+        116,
+        349,
+        429
+      ],
+      "source_visible_bbox": [
+        93,
+        116,
+        346,
+        429
+      ],
+      "visible_height_ratio": 1.0,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "e4ab3b1293c3db881de00859e6db4a327cece1beb323d301c01004be20c5fed0"
+    },
+    {
+      "id": "ori",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        101,
+        126,
+        339,
+        429
+      ],
+      "visible_bbox": [
+        101,
+        126,
+        338,
+        429
+      ],
+      "source_visible_bbox": [
+        106,
+        116,
+        335,
+        430
+      ],
+      "visible_height_ratio": 0.964968152866242,
+      "visible_foot_delta_px": -1,
+      "output_sha256": "1503cac59b620d0f9673a7864502b3841254544c68a8078615c5727f41f73178"
+    },
+    {
+      "id": "dori",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        78,
+        115,
+        362,
+        430
+      ],
+      "visible_bbox": [
+        78,
+        116,
+        361,
+        429
+      ],
+      "source_visible_bbox": [
+        77,
+        115,
+        362,
+        430
+      ],
+      "visible_height_ratio": 0.9936507936507937,
+      "visible_foot_delta_px": -1,
+      "output_sha256": "38391fa1f20264152e4b3b7cd56221d8fd20e29eab957aea01c86faadd15ddd3"
+    },
+    {
+      "id": "bifur",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        97,
+        116,
+        343,
+        430
+      ],
+      "visible_bbox": [
+        98,
+        116,
+        342,
+        429
+      ],
+      "source_visible_bbox": [
+        97,
+        116,
+        342,
+        430
+      ],
+      "visible_height_ratio": 0.9968152866242038,
+      "visible_foot_delta_px": -1,
+      "output_sha256": "2edce0da92fca1c0194b4da6c83a4e74b7914a32de9aa790ca8e58eaf2e8d823"
+    },
+    {
+      "id": "bofur",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        109,
+        115,
+        330,
+        429
+      ],
+      "visible_bbox": [
+        109,
+        115,
+        328,
+        428
+      ],
+      "source_visible_bbox": [
+        107,
+        115,
+        333,
+        429
+      ],
+      "visible_height_ratio": 0.9968152866242038,
+      "visible_foot_delta_px": -1,
+      "output_sha256": "e676e2761ec17f42853b0abef5c5b138c8102b270627e2803051d6cfec843283"
+    },
+    {
+      "id": "iron_hills_captain",
+      "size": [
+        361,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        72,
+        129,
+        289,
+        412
+      ],
+      "visible_bbox": [
+        72,
+        130,
+        289,
+        412
+      ],
+      "source_visible_bbox": [
+        70,
+        130,
+        291,
+        412
+      ],
+      "visible_height_ratio": 1.0,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "30cd43e321687ef746069e0344b6977fe2a33cfc06690532f8798ebb084ff382"
+    },
+    {
+      "id": "azaghal",
+      "size": [
+        362,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        59,
+        130,
+        303,
+        413
+      ],
+      "visible_bbox": [
+        60,
+        130,
+        302,
+        413
+      ],
+      "source_visible_bbox": [
+        61,
+        130,
+        301,
+        412
+      ],
+      "visible_height_ratio": 1.00354609929078,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "5b21868f42e3fb5e1ba287a89c4960ab81e67d06f667e67e9dca9d1d87620a56"
+    },
+    {
+      "id": "nain",
+      "size": [
+        363,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        63,
+        129,
+        299,
+        413
+      ],
+      "visible_bbox": [
+        63,
+        130,
+        299,
+        413
+      ],
+      "source_visible_bbox": [
+        60,
+        130,
+        303,
+        412
+      ],
+      "visible_height_ratio": 1.00354609929078,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "ed0d6513d097ae0c22bbff1b183dad3317d206e3ae6754a4fc405ddec3df1ddf"
+    },
+    {
+      "id": "dwarf_guardian",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        83,
+        115,
+        356,
+        430
+      ],
+      "visible_bbox": [
+        83,
+        116,
+        356,
+        429
+      ],
+      "source_visible_bbox": [
+        84,
+        115,
+        355,
+        430
+      ],
+      "visible_height_ratio": 0.9936507936507937,
+      "visible_foot_delta_px": -1,
+      "output_sha256": "ac0079e97aa273b53fbf5725e3dea2dd67d9818b063a3f84b4e56aef67067318"
+    },
+    {
+      "id": "dwarf_axeshield",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        66,
+        115,
+        373,
+        429
+      ],
+      "visible_bbox": [
+        67,
+        116,
+        373,
+        428
+      ],
+      "source_visible_bbox": [
+        62,
+        116,
+        378,
+        429
+      ],
+      "visible_height_ratio": 0.9968051118210862,
+      "visible_foot_delta_px": -1,
+      "output_sha256": "cab80e4dbbcef248a51d61620ec51aa339897606cfcc9c49625e6fad0103dc0b"
+    },
+    {
+      "id": "dwarf_2haxe",
+      "size": [
+        176,
+        246
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        5,
+        8,
+        171,
+        240
+      ],
+      "visible_bbox": [
+        5,
+        8,
+        171,
+        240
+      ],
+      "source_visible_bbox": [
+        4,
+        5,
+        172,
+        240
+      ],
+      "visible_height_ratio": 0.9872340425531915,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "980378e6b73782c36594f95b71a5c7f8ed24759c970ad2ab8bf66d7b87fea502"
+    },
+    {
+      "id": "dwarf_ranger",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        100,
+        115,
+        340,
+        430
+      ],
+      "visible_bbox": [
+        101,
+        116,
+        340,
+        430
+      ],
+      "source_visible_bbox": [
+        104,
+        115,
+        335,
+        429
+      ],
+      "visible_height_ratio": 1.0,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "fdce881afbde495f9875b8bec520047e145d2b5490e3467defbfd18787817115"
+    },
+    {
+      "id": "khazad_guard",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        101,
+        115,
+        339,
+        429
+      ],
+      "visible_bbox": [
+        102,
+        115,
+        338,
+        429
+      ],
+      "source_visible_bbox": [
+        100,
+        115,
+        339,
+        430
+      ],
+      "visible_height_ratio": 0.9968253968253968,
+      "visible_foot_delta_px": -1,
+      "output_sha256": "0af922d91c673e5965425a52772d93d5714344d6187e88f21bb39017b0a98bc1"
+    },
+    {
+      "id": "iron_guard",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        108,
+        115,
+        332,
+        430
+      ],
+      "visible_bbox": [
+        108,
+        116,
+        332,
+        429
+      ],
+      "source_visible_bbox": [
+        105,
+        115,
+        334,
+        430
+      ],
+      "visible_height_ratio": 0.9936507936507937,
+      "visible_foot_delta_px": -1,
+      "output_sha256": "6748d8d70de7bfd5b0b0ecada3b9d73fce14bd6361c8d6a585d776d1d0b8b331"
+    },
+    {
+      "id": "goat_rider",
+      "size": [
+        276,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        30,
+        8,
+        246,
+        410
+      ],
+      "visible_bbox": [
+        31,
+        8,
+        246,
+        410
+      ],
+      "source_visible_bbox": [
+        33,
+        10,
+        239,
+        407
+      ],
+      "visible_height_ratio": 1.012594458438287,
+      "visible_foot_delta_px": 3,
+      "output_sha256": "63a63e73dc776bdf6e0dda16267590b0bff0b1a1abc98e4946493ea5c4c2408c"
+    },
+    {
+      "id": "dain_boar",
+      "size": [
+        327,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        49,
+        8,
+        277,
+        409
+      ],
+      "visible_bbox": [
+        50,
+        8,
+        276,
+        409
+      ],
+      "source_visible_bbox": [
+        59,
+        11,
+        276,
+        407
+      ],
+      "visible_height_ratio": 1.0126262626262625,
+      "visible_foot_delta_px": 2,
+      "output_sha256": "a94d98987c02bf9989a571e1acdbb905adc3981fd6858f6d7a495e277b31353d"
+    },
+    {
+      "id": "dwarf_shieldbearers",
+      "size": [
+        358,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        71,
+        129,
+        286,
+        413
+      ],
+      "visible_bbox": [
+        71,
+        129,
+        286,
+        413
+      ],
+      "source_visible_bbox": [
+        68,
+        130,
+        289,
+        412
+      ],
+      "visible_height_ratio": 1.0070921985815602,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "13e9c1140a57955953a018e092b1d638e25e3024a52c80416cbebedca5dfeaf2"
+    },
+    {
+      "id": "dale_warrior",
+      "size": [
+        362,
+        366
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        49,
+        10,
+        312,
+        354
+      ],
+      "visible_bbox": [
+        50,
+        10,
+        312,
+        354
+      ],
+      "source_visible_bbox": [
+        53,
+        10,
+        314,
+        354
+      ],
+      "visible_height_ratio": 1.0,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "90c1a3b4b6718a9f5c761b1c656ccdfa90857eb9180b13d663ea9cc389ba7ec1"
+    },
+    {
+      "id": "esgaroth_archer",
+      "size": [
+        363,
+        366
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        66,
+        10,
+        296,
+        352
+      ],
+      "visible_bbox": [
+        66,
+        10,
+        296,
+        352
+      ],
+      "source_visible_bbox": [
+        67,
+        11,
+        300,
+        351
+      ],
+      "visible_height_ratio": 1.0058823529411764,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "dadd2f8f59c42ad0ab55cfa92386834f6b30d7476ebebf7d818df2a621388053"
+    },
+    {
+      "id": "turin",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        80,
+        89,
+        360,
+        409
+      ],
+      "visible_bbox": [
+        80,
+        89,
+        359,
+        409
+      ],
+      "source_visible_bbox": [
+        90,
+        90,
+        365,
+        409
+      ],
+      "visible_height_ratio": 1.0031347962382444,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "d39d5d52236dbff199d377f0479c88fd4c9f43c4c30d7d31fbcaa832edf3f8a0"
+    },
+    {
+      "id": "bard",
+      "size": [
+        320,
+        274
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        10,
+        6,
+        309,
+        269
+      ],
+      "visible_bbox": [
+        10,
+        6,
+        308,
+        268
+      ],
+      "source_visible_bbox": [
+        8,
+        7,
+        314,
+        268
+      ],
+      "visible_height_ratio": 1.003831417624521,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "8da1c0c6f7d28e1c13ba0208baadcdb42786b25efc9abcf25054c74b612ec400"
+    },
+    {
+      "id": "hurin_thalion",
+      "size": [
+        418,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        39,
+        18,
+        378,
+        391
+      ],
+      "visible_bbox": [
+        40,
+        18,
+        376,
+        390
+      ],
+      "source_visible_bbox": [
+        36,
+        20,
+        368,
+        388
+      ],
+      "visible_height_ratio": 1.0108695652173914,
+      "visible_foot_delta_px": 2,
+      "output_sha256": "3d9de9cf4b9ad7ad07487ec19cc877e0971f335c3489d0d1445b533ffef887ee"
+    },
+    {
+      "id": "barahir",
+      "size": [
+        188,
+        256
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        6,
+        0,
+        181,
+        256
+      ],
+      "visible_bbox": [
+        7,
+        0,
+        181,
+        256
+      ],
+      "source_visible_bbox": [
+        0,
+        0,
+        188,
+        256
+      ],
+      "visible_height_ratio": 1.0,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "cc7575570e5b3f9f9927f7416d5b27071299cd521880623603945eb13b635698"
+    },
+    {
+      "id": "elendil",
+      "size": [
+        327,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        31,
+        18,
+        295,
+        403
+      ],
+      "visible_bbox": [
+        32,
+        18,
+        295,
+        402
+      ],
+      "source_visible_bbox": [
+        44,
+        17,
+        294,
+        401
+      ],
+      "visible_height_ratio": 1.0,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "d2a334522fb66015e3cdbad8531f62723cff4d136f5016574e37b47041dbb158"
+    },
+    {
+      "id": "halbarad",
+      "size": [
+        341,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        21,
+        8,
+        319,
+        405
+      ],
+      "visible_bbox": [
+        22,
+        8,
+        318,
+        405
+      ],
+      "source_visible_bbox": [
+        19,
+        10,
+        310,
+        403
+      ],
+      "visible_height_ratio": 1.0101781170483461,
+      "visible_foot_delta_px": 2,
+      "output_sha256": "f7f158b2a546b0117bc2e4610e30c00612022e3d28baf4c29a37b171b160a451"
+    },
+    {
+      "id": "arvedui",
+      "size": [
+        352,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        18,
+        0,
+        333,
+        413
+      ],
+      "visible_bbox": [
+        19,
+        0,
+        332,
+        412
+      ],
+      "source_visible_bbox": [
+        35,
+        2,
+        335,
+        411
+      ],
+      "visible_height_ratio": 1.0073349633251834,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "ee2ae89d6c84f2db84fa4e526bb497224c5846242f31838527e4a92f554d638f"
+    },
+    {
+      "id": "malbeth",
+      "size": [
+        361,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        27,
+        14,
+        334,
+        402
+      ],
+      "visible_bbox": [
+        27,
+        14,
+        334,
+        401
+      ],
+      "source_visible_bbox": [
+        28,
+        17,
+        325,
+        399
+      ],
+      "visible_height_ratio": 1.013089005235602,
+      "visible_foot_delta_px": 2,
+      "output_sha256": "4091e8679596aa2e9762dc89209b79eccba5bc244640af9e50c09e060f102686"
+    },
+    {
+      "id": "arathorn",
+      "size": [
+        323,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        18,
+        17,
+        304,
+        395
+      ],
+      "visible_bbox": [
+        18,
+        17,
+        304,
+        394
+      ],
+      "source_visible_bbox": [
+        23,
+        19,
+        312,
+        393
+      ],
+      "visible_height_ratio": 1.0080213903743316,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "7b7847f802c2f4becc2259bfc8d69e3bd8a5dd4521fbc226e83d7fbbdfcf7ebd"
+    },
+    {
+      "id": "ranger_north",
+      "size": [
+        341,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        24,
+        29,
+        317,
+        389
+      ],
+      "visible_bbox": [
+        24,
+        30,
+        317,
+        389
+      ],
+      "source_visible_bbox": [
+        33,
+        31,
+        318,
+        387
+      ],
+      "visible_height_ratio": 1.0084269662921348,
+      "visible_foot_delta_px": 2,
+      "output_sha256": "16ba40ae341f983ad7ce9d8205b46d300ec8401d3e816e37bc4451982d2af850"
+    },
+    {
+      "id": "arnor_warrior",
+      "size": [
+        422,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        33,
+        0,
+        389,
+        420
+      ],
+      "visible_bbox": [
+        34,
+        0,
+        388,
+        420
+      ],
+      "source_visible_bbox": [
+        41,
+        0,
+        399,
+        418
+      ],
+      "visible_height_ratio": 1.0047846889952152,
+      "visible_foot_delta_px": 2,
+      "output_sha256": "b819a8853b9ff2b3e2fb42f6646386c962a0fa3933dc1747db6a79dc0a8896ba"
+    },
+    {
+      "id": "arnor_archer",
+      "size": [
+        415,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        77,
+        16,
+        338,
+        410
+      ],
+      "visible_bbox": [
+        78,
+        16,
+        337,
+        409
+      ],
+      "source_visible_bbox": [
+        84,
+        13,
+        330,
+        407
+      ],
+      "visible_height_ratio": 0.9974619289340102,
+      "visible_foot_delta_px": 2,
+      "output_sha256": "f1903efaa315cf8c8cd6306451445880e20dce7428cf25ad2cc75014474ea778"
+    },
+    {
+      "id": "huan",
+      "size": [
+        282,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        13,
+        9,
+        269,
+        405
+      ],
+      "visible_bbox": [
+        14,
+        9,
+        269,
+        405
+      ],
+      "source_visible_bbox": [
+        8,
+        11,
+        261,
+        403
+      ],
+      "visible_height_ratio": 1.010204081632653,
+      "visible_foot_delta_px": 2,
+      "output_sha256": "83aa605ddc3b62dde7be20e42ea31314cba3ed167501240ab022a08dce500c0a"
+    },
+    {
+      "id": "frodo",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        110,
+        166,
+        329,
+        429
+      ],
+      "visible_bbox": [
+        110,
+        166,
+        328,
+        429
+      ],
+      "source_visible_bbox": [
+        115,
+        162,
+        325,
+        428
+      ],
+      "visible_height_ratio": 0.9887218045112782,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "da811ee5a54e775f5fcb8dbdbc85129f2e96b1f15bfdb32a3c35502ad42a7721"
+    },
+    {
+      "id": "samwise",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        107,
+        161,
+        332,
+        429
+      ],
+      "visible_bbox": [
+        108,
+        162,
+        331,
+        428
+      ],
+      "source_visible_bbox": [
+        109,
+        162,
+        332,
+        428
+      ],
+      "visible_height_ratio": 1.0,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "a3546a93dac4e3f886546c79b9f063db5567462ac6f92f25e5658e349a6f2bae"
+    },
+    {
+      "id": "merry",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        111,
+        161,
+        328,
+        428
+      ],
+      "visible_bbox": [
+        111,
+        161,
+        328,
+        428
+      ],
+      "source_visible_bbox": [
+        107,
+        162,
+        332,
+        428
+      ],
+      "visible_height_ratio": 1.0037593984962405,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "fa7ef5f88fc988b434dac4a61ef81e7b61303f46ebd0bce3583ebb2c20a282f7"
+    },
+    {
+      "id": "pippin",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        106,
+        160,
+        334,
+        430
+      ],
+      "visible_bbox": [
+        106,
+        160,
+        333,
+        429
+      ],
+      "source_visible_bbox": [
+        106,
+        160,
+        334,
+        430
+      ],
+      "visible_height_ratio": 0.9962962962962963,
+      "visible_foot_delta_px": -1,
+      "output_sha256": "933c54ebe2e47f33d1d1b465a55e4dccdcfe30d91b0917741c697592cd9b1114"
+    },
+    {
+      "id": "bilbo",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        126,
+        162,
+        313,
+        428
+      ],
+      "visible_bbox": [
+        127,
+        163,
+        313,
+        427
+      ],
+      "source_visible_bbox": [
+        125,
+        162,
+        315,
+        428
+      ],
+      "visible_height_ratio": 0.9924812030075187,
+      "visible_foot_delta_px": -1,
+      "output_sha256": "f3b710f1eb4cac877e09c48014ecf1aa1cad625b3192272a36c287d3c1029d25"
+    },
+    {
+      "id": "paladin_took",
+      "size": [
+        322,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        34,
+        19,
+        288,
+        404
+      ],
+      "visible_bbox": [
+        34,
+        19,
+        287,
+        403
+      ],
+      "source_visible_bbox": [
+        40,
+        22,
+        291,
+        402
+      ],
+      "visible_height_ratio": 1.0105263157894737,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "4fe8cafa8e616b514c6aae900324b338a0e77ec65a9599f2c96017b167e4d542"
+    },
+    {
+      "id": "farmer_maggot",
+      "size": [
+        335,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        22,
+        11,
+        312,
+        403
+      ],
+      "visible_bbox": [
+        22,
+        12,
+        311,
+        403
+      ],
+      "source_visible_bbox": [
+        21,
+        13,
+        307,
+        401
+      ],
+      "visible_height_ratio": 1.0077319587628866,
+      "visible_foot_delta_px": 2,
+      "output_sha256": "d13bbef10e8981dbccf7ea859c20ed946a8fa2a781ef3f28bf8532d3ecafd24e"
+    },
+    {
+      "id": "fredegar",
+      "size": [
+        327,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        21,
+        30,
+        305,
+        395
+      ],
+      "visible_bbox": [
+        21,
+        31,
+        304,
+        394
+      ],
+      "source_visible_bbox": [
+        21,
+        33,
+        298,
+        393
+      ],
+      "visible_height_ratio": 1.0083333333333333,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "2503214cf2d403a538e0dbbbb427e1cb569615bb9f70480259ceb9a03c581f4c"
+    },
+    {
+      "id": "bandobras",
+      "size": [
+        329,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        18,
+        2,
+        309,
+        415
+      ],
+      "visible_bbox": [
+        19,
+        3,
+        309,
+        415
+      ],
+      "source_visible_bbox": [
+        25,
+        4,
+        310,
+        413
+      ],
+      "visible_height_ratio": 1.0073349633251834,
+      "visible_foot_delta_px": 2,
+      "output_sha256": "9729f15c19d59593b93ba4ec834a63f9aa99325267cacdc86dd6d126449f1f15"
+    },
+    {
+      "id": "lobelia",
+      "size": [
+        329,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        31,
+        11,
+        297,
+        409
+      ],
+      "visible_bbox": [
+        32,
+        12,
+        296,
+        409
+      ],
+      "source_visible_bbox": [
+        32,
+        13,
+        303,
+        407
+      ],
+      "visible_height_ratio": 1.0076142131979695,
+      "visible_foot_delta_px": 2,
+      "output_sha256": "d6e8621f6909f307ce571a1214f44ec053ded8dd85523c560b552d490f36a305"
+    },
+    {
+      "id": "will_whitfoot",
+      "size": [
+        342,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        33,
+        17,
+        309,
+        403
+      ],
+      "visible_bbox": [
+        33,
+        17,
+        308,
+        403
+      ],
+      "source_visible_bbox": [
+        37,
+        20,
+        317,
+        402
+      ],
+      "visible_height_ratio": 1.0104712041884816,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "2421c04caf8f3c93ff9baf43ed1815799db2f6adb05b8fac119a0e9b138a978a"
+    },
+    {
+      "id": "hobbit_shirriff",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        138,
+        161,
+        301,
+        429
+      ],
+      "visible_bbox": [
+        139,
+        162,
+        301,
+        429
+      ],
+      "source_visible_bbox": [
+        136,
+        162,
+        304,
+        428
+      ],
+      "visible_height_ratio": 1.0037593984962405,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "bd8fab2173aee3fd0c4315755fea78f7215964d236d9fd8c4b93f7a3b227d7e8"
+    },
+    {
+      "id": "hobbit_bounder",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        142,
+        160,
+        298,
+        430
+      ],
+      "visible_bbox": [
+        142,
+        160,
+        298,
+        430
+      ],
+      "source_visible_bbox": [
+        139,
+        160,
+        300,
+        430
+      ],
+      "visible_height_ratio": 1.0,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "1bdf6df370b8b8e40b0279cabff63aa750efb5af7d2f16c680ea1f78c47e75db"
+    },
+    {
+      "id": "hobbit_militia",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        118,
+        161,
+        321,
+        429
+      ],
+      "visible_bbox": [
+        118,
+        161,
+        321,
+        429
+      ],
+      "source_visible_bbox": [
+        121,
+        162,
+        319,
+        429
+      ],
+      "visible_height_ratio": 1.00374531835206,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "b0ad49ef292af781398980d1318f99c83ab4a5fc46ff8c8461fb1946c9e39732"
+    },
+    {
+      "id": "butterbur",
+      "size": [
+        247,
+        335
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        14,
+        18,
+        233,
+        319
+      ],
+      "visible_bbox": [
+        14,
+        18,
+        233,
+        318
+      ],
+      "source_visible_bbox": [
+        11,
+        18,
+        229,
+        318
+      ],
+      "visible_height_ratio": 1.0,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "650f8c28f2da8bdcde9ee73a46dbc0f7b61e8d1788f4e00f4d9b0286ef3a8ab9"
+    },
+    {
+      "id": "beorning",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        131,
+        103,
+        308,
+        398
+      ],
+      "visible_bbox": [
+        131,
+        103,
+        308,
+        398
+      ],
+      "source_visible_bbox": [
+        132,
+        104,
+        308,
+        398
+      ],
+      "visible_height_ratio": 1.0034013605442176,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "467271f53590f040875fd87aae4c03d4a6e73fc833376544400816d04f5ae0fe"
+    },
+    {
+      "id": "beorn",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        98,
+        94,
+        342,
+        420
+      ],
+      "visible_bbox": [
+        100,
+        95,
+        341,
+        419
+      ],
+      "source_visible_bbox": [
+        102,
+        94,
+        344,
+        419
+      ],
+      "visible_height_ratio": 0.9969230769230769,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "b9ae25a84217bed1ba5d56ceda65431c41fc010dd8efaa3517163691cba3830a"
+    },
+    {
+      "id": "grimbeorn",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        116,
+        94,
+        323,
+        409
+      ],
+      "visible_bbox": [
+        117,
+        95,
+        322,
+        408
+      ],
+      "source_visible_bbox": [
+        111,
+        94,
+        315,
+        408
+      ],
+      "visible_height_ratio": 0.9968152866242038,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "f388e584e2155397a3f33ac0c4f250387562ed4f28f3e14bdc705d4feb88df12"
+    },
+    {
+      "id": "beorn_bear",
+      "size": [
+        306,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        7,
+        11,
+        299,
+        406
+      ],
+      "visible_bbox": [
+        7,
+        11,
+        298,
+        404
+      ],
+      "source_visible_bbox": [
+        12,
+        14,
+        296,
+        404
+      ],
+      "visible_height_ratio": 1.0076923076923077,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "01986ea43a24bbfdc8d9a3c95dc8f083c4474c2566ea61e48838ff2bf8da2af2"
+    },
+    {
+      "id": "gwaihir",
+      "size": [
+        426,
+        513
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        9,
+        12,
+        416,
+        498
+      ],
+      "visible_bbox": [
+        10,
+        13,
+        415,
+        497
+      ],
+      "source_visible_bbox": [
+        10,
+        13,
+        415,
+        498
+      ],
+      "visible_height_ratio": 0.9979381443298969,
+      "visible_foot_delta_px": -1,
+      "output_sha256": "da1a461ccbc30d8555acbb0e553f17cff24d9145dbae2be8018f28ba61bae665"
+    },
+    {
+      "id": "great_eagle",
+      "size": [
+        422,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        19,
+        18,
+        403,
+        397
+      ],
+      "visible_bbox": [
+        20,
+        19,
+        403,
+        396
+      ],
+      "source_visible_bbox": [
+        12,
+        20,
+        412,
+        395
+      ],
+      "visible_height_ratio": 1.0053333333333334,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "24c0b241907d5b889615dedb1eb2a26b1d0a87194696f50ac89e07da025edf0b"
+    },
+    {
+      "id": "landroval",
+      "size": [
+        1232,
+        1277
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        41,
+        77,
+        1191,
+        1237
+      ],
+      "visible_bbox": [
+        43,
+        79,
+        1189,
+        1232
+      ],
+      "source_visible_bbox": [
+        64,
+        78,
+        1179,
+        1236
+      ],
+      "visible_height_ratio": 0.9956822107081175,
+      "visible_foot_delta_px": -4,
+      "output_sha256": "afdbcf8276c26e19dad787b2d184fd3b6ccd06fbef817d1030ed0fea68e52d08"
+    },
+    {
+      "id": "meneldor",
+      "size": [
+        473,
+        513
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        8,
+        14,
+        465,
+        493
+      ],
+      "visible_bbox": [
+        10,
+        15,
+        465,
+        492
+      ],
+      "source_visible_bbox": [
+        13,
+        15,
+        461,
+        493
+      ],
+      "visible_height_ratio": 0.997907949790795,
+      "visible_foot_delta_px": -1,
+      "output_sha256": "78881e00c988c630243dd7625e840a2876354074ee3fafb482e50c8bc72d18c4"
+    },
+    {
+      "id": "thorondor",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        5,
+        42,
+        435,
+        432
+      ],
+      "visible_bbox": [
+        5,
+        43,
+        435,
+        432
+      ],
+      "source_visible_bbox": [
+        0,
+        18,
+        440,
+        432
+      ],
+      "visible_height_ratio": 0.9396135265700483,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "7a33882f743821ec7dfaf15bbfb17ee20a74453a1a510468789f9769a11d39c0"
+    },
+    {
+      "id": "quickbeam",
+      "size": [
+        488,
+        513
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        28,
+        20,
+        459,
+        487
+      ],
+      "visible_bbox": [
+        29,
+        21,
+        458,
+        486
+      ],
+      "source_visible_bbox": [
+        29,
+        20,
+        457,
+        486
+      ],
+      "visible_height_ratio": 0.9978540772532188,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "5f9d77070be5e2285e5dcff74662fe04dafdaca85625ebebb818a809f52c9030"
+    },
+    {
+      "id": "leaflock",
+      "size": [
+        380,
+        513
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        8,
+        14,
+        372,
+        498
+      ],
+      "visible_bbox": [
+        9,
+        15,
+        371,
+        498
+      ],
+      "source_visible_bbox": [
+        12,
+        15,
+        368,
+        497
+      ],
+      "visible_height_ratio": 1.0020746887966805,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "30e23a118e74fed146e3b2fe0e748dabb0c51830a4d1e1cb12e4d892416e28fb"
+    },
+    {
+      "id": "beechbone",
+      "size": [
+        380,
+        513
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        6,
+        14,
+        374,
+        498
+      ],
+      "visible_bbox": [
+        7,
+        15,
+        372,
+        497
+      ],
+      "source_visible_bbox": [
+        9,
+        15,
+        370,
+        498
+      ],
+      "visible_height_ratio": 0.9979296066252588,
+      "visible_foot_delta_px": -1,
+      "output_sha256": "50c82bbae8c5447af23457d6d9abc17d5f5668f4d7430e17921b21d1eb5d43a6"
+    },
+    {
+      "id": "ent",
+      "size": [
+        420,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        29,
+        33,
+        390,
+        411
+      ],
+      "visible_bbox": [
+        62,
+        33,
+        390,
+        411
+      ],
+      "source_visible_bbox": [
+        39,
+        7,
+        383,
+        408
+      ],
+      "visible_height_ratio": 0.942643391521197,
+      "visible_foot_delta_px": 3,
+      "output_sha256": "7d78a55837d94d334949f66854b56e3c266e366d77736d4313eb1002b11ad0aa"
+    },
+    {
+      "id": "gandalf",
+      "size": [
+        430,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        66,
+        42,
+        362,
+        387
+      ],
+      "visible_bbox": [
+        66,
+        42,
+        362,
+        386
+      ],
+      "source_visible_bbox": [
+        58,
+        45,
+        361,
+        385
+      ],
+      "visible_height_ratio": 1.011764705882353,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "0d02513ea12b3e16ad10bfcf71b1802a6b75ea1f453d3c799d585f6c02ccaab9"
+    },
+    {
+      "id": "radagast",
+      "size": [
+        353,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        29,
+        27,
+        323,
+        391
+      ],
+      "visible_bbox": [
+        29,
+        27,
+        323,
+        391
+      ],
+      "source_visible_bbox": [
+        26,
+        29,
+        321,
+        389
+      ],
+      "visible_height_ratio": 1.011111111111111,
+      "visible_foot_delta_px": 2,
+      "output_sha256": "5e093582374d32aba503f5937052e62887222d3afb3ff2367ecbdf7a5bf7b903"
+    },
+    {
+      "id": "luthien",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        120,
+        83,
+        320,
+        422
+      ],
+      "visible_bbox": [
+        120,
+        84,
+        320,
+        422
+      ],
+      "source_visible_bbox": [
+        125,
+        80,
+        316,
+        422
+      ],
+      "visible_height_ratio": 0.9883040935672515,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "e863aca60dc84b8010c86706d9b696bb1745c9e4812bceff5f39bc9ec7b944a2"
+    },
+    {
+      "id": "beleg",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        98,
+        96,
+        342,
+        421
+      ],
+      "visible_bbox": [
+        98,
+        97,
+        342,
+        421
+      ],
+      "source_visible_bbox": [
+        90,
+        96,
+        335,
+        420
+      ],
+      "visible_height_ratio": 1.0,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "783137fd992ccf3b7af415eafc9dd8a98076796c19bee1b4e4ef0a6299205f69"
+    },
+    {
+      "id": "tom_bombadil",
+      "size": [
+        332,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        9,
+        16,
+        323,
+        398
+      ],
+      "visible_bbox": [
+        9,
+        16,
+        323,
+        397
+      ],
+      "source_visible_bbox": [
+        15,
+        19,
+        321,
+        396
+      ],
+      "visible_height_ratio": 1.0106100795755968,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "50d79b336bc6404b25a94fc81de7287e4c90dcde0d5a515494517206207e9d49"
+    },
+    {
+      "id": "goldberry",
+      "size": [
+        328,
+        420
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        58,
+        28,
+        269,
+        395
+      ],
+      "visible_bbox": [
+        58,
+        28,
+        269,
+        395
+      ],
+      "source_visible_bbox": [
+        59,
+        30,
+        281,
+        393
+      ],
+      "visible_height_ratio": 1.0110192837465564,
+      "visible_foot_delta_px": 2,
+      "output_sha256": "d9f217877c63d47bd42102a3e00f01358f96732832cab848fffdb08897e36225"
+    },
+    {
+      "id": "rhosgobel_rabbit",
+      "size": [
+        372,
+        513
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        29,
+        15,
+        343,
+        493
+      ],
+      "visible_bbox": [
+        30,
+        17,
+        343,
+        493
+      ],
+      "source_visible_bbox": [
+        35,
+        15,
+        347,
+        492
+      ],
+      "visible_height_ratio": 0.9979035639412998,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "db50190f8e1b49e96bbcc8520264d69b2077df79e8e1f9dc976320aee257316a"
+    },
+    {
+      "id": "gothmog",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        72,
+        52,
+        367,
+        425
+      ],
+      "visible_bbox": [
+        73,
+        52,
+        367,
+        424
+      ],
+      "source_visible_bbox": [
+        47,
+        53,
+        344,
+        425
+      ],
+      "visible_height_ratio": 1.0,
+      "visible_foot_delta_px": -1,
+      "output_sha256": "c9329ff3040c4a2c3f889d53cb17f195edc5f637716abd279fb6dde9b2ad3927"
+    },
+    {
+      "id": "numenorean_marshal",
+      "size": [
+        418,
+        419
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        33,
+        9,
+        384,
+        405
+      ],
+      "visible_bbox": [
+        33,
+        10,
+        384,
+        405
+      ],
+      "source_visible_bbox": [
+        39,
+        10,
+        380,
+        404
+      ],
+      "visible_height_ratio": 1.00253807106599,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "95fb1660c3d34cea252a11a1c956525ddcb5c35b2f12a2fa7916b0430584fbef"
+    },
+    {
+      "id": "annatar",
+      "size": [
+        369,
+        419
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        19,
+        16,
+        350,
+        393
+      ],
+      "visible_bbox": [
+        19,
+        16,
+        350,
+        393
+      ],
+      "source_visible_bbox": [
+        22,
+        17,
+        353,
+        392
+      ],
+      "visible_height_ratio": 1.0053333333333334,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "b3ff167a19e3c091044802a1bd4697bdaefe7927f0918cef142451298cfbcf18"
+    },
+    {
+      "id": "black_guard",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        78,
+        53,
+        362,
+        426
+      ],
+      "visible_bbox": [
+        79,
+        54,
+        360,
+        425
+      ],
+      "source_visible_bbox": [
+        86,
+        53,
+        382,
+        426
+      ],
+      "visible_height_ratio": 0.9946380697050938,
+      "visible_foot_delta_px": -1,
+      "output_sha256": "fa7e04727353ef6f845e72b8d72dc8b3002a086c249b07bd2b320b16751013bf"
+    },
+    {
+      "id": "morgul_duellist",
+      "size": [
+        349,
+        398
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        16,
+        11,
+        332,
+        382
+      ],
+      "visible_bbox": [
+        17,
+        12,
+        332,
+        382
+      ],
+      "source_visible_bbox": [
+        31,
+        11,
+        339,
+        381
+      ],
+      "visible_height_ratio": 1.0,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "1a41656a9cf2dbf1156b5d2ad29aaaadc15eb3388e0102e4ae14b49c08980046"
+    },
+    {
+      "id": "morgul_knight",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        104,
+        128,
+        336,
+        398
+      ],
+      "visible_bbox": [
+        104,
+        128,
+        336,
+        398
+      ],
+      "source_visible_bbox": [
+        104,
+        111,
+        327,
+        398
+      ],
+      "visible_height_ratio": 0.9407665505226481,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "2689e3d8859f04ed5414141649400df2bed7fbc051f7032b68101533b9b94353"
+    },
+    {
+      "id": "mountain_troll",
+      "size": [
+        586,
+        597
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        21,
+        32,
+        564,
+        577
+      ],
+      "visible_bbox": [
+        24,
+        35,
+        563,
+        576
+      ],
+      "source_visible_bbox": [
+        31,
+        19,
+        553,
+        577
+      ],
+      "visible_height_ratio": 0.9695340501792115,
+      "visible_foot_delta_px": -1,
+      "output_sha256": "7cdc8f8149f086118076240451862ac102ce191b9ce0f406186d88894a40c28c"
+    },
+    {
+      "id": "saruman",
+      "size": [
+        1233,
+        1282
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        199,
+        44,
+        1033,
+        1209
+      ],
+      "visible_bbox": [
+        204,
+        46,
+        1029,
+        1207
+      ],
+      "source_visible_bbox": [
+        203,
+        45,
+        1007,
+        1208
+      ],
+      "visible_height_ratio": 0.998280309544282,
+      "visible_foot_delta_px": -1,
+      "output_sha256": "d794698f185273620ab916666054a42692f525f882ce4ef777fe26c5de558d89"
+    },
+    {
+      "id": "grima",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        112,
+        103,
+        328,
+        409
+      ],
+      "visible_bbox": [
+        113,
+        104,
+        328,
+        408
+      ],
+      "source_visible_bbox": [
+        113,
+        103,
+        339,
+        408
+      ],
+      "visible_height_ratio": 0.9967213114754099,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "6c8dd4f32c65f941c9e0eb0ca2f93b06be99dfbc5375c5aa65aa8b9b0b5c4bf9"
+    },
+    {
+      "id": "snaga",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        119,
+        118,
+        320,
+        401
+      ],
+      "visible_bbox": [
+        120,
+        118,
+        320,
+        401
+      ],
+      "source_visible_bbox": [
+        114,
+        118,
+        317,
+        402
+      ],
+      "visible_height_ratio": 0.9964788732394366,
+      "visible_foot_delta_px": -1,
+      "output_sha256": "625162079c7c13c003a5bff6e1597f2256c200de7d67853ad88f68eaefbfa733"
+    },
+    {
+      "id": "wild_warg",
+      "size": [
+        372,
+        377
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        86,
+        13,
+        285,
+        362
+      ],
+      "visible_bbox": [
+        86,
+        14,
+        285,
+        361
+      ],
+      "source_visible_bbox": [
+        80,
+        13,
+        272,
+        361
+      ],
+      "visible_height_ratio": 0.9971264367816092,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "cffbbc4a59606321402e4cd9a766a24d416e9fceee88900dc295d5a8240b3fde"
+    },
+    {
+      "id": "wild_warg_alpha",
+      "size": [
+        352,
+        419
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        37,
+        22,
+        315,
+        406
+      ],
+      "visible_bbox": [
+        38,
+        22,
+        315,
+        406
+      ],
+      "source_visible_bbox": [
+        41,
+        12,
+        308,
+        406
+      ],
+      "visible_height_ratio": 0.9746192893401016,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "58ef257a6b0f9fe10c7130602f6f55721282197604a67c6afd660e4e1fb01982"
+    },
+    {
+      "id": "goblin_spear",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        120,
+        80,
+        319,
+        420
+      ],
+      "visible_bbox": [
+        121,
+        80,
+        319,
+        419
+      ],
+      "source_visible_bbox": [
+        121,
+        80,
+        323,
+        420
+      ],
+      "visible_height_ratio": 0.9970588235294118,
+      "visible_foot_delta_px": -1,
+      "output_sha256": "00bf24dec0289cd1cd9a023bce14135ba7994a61b132deadc30b5d9c7084c5dd"
+    },
+    {
+      "id": "gollum",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        120,
+        111,
+        319,
+        408
+      ],
+      "visible_bbox": [
+        120,
+        111,
+        317,
+        408
+      ],
+      "source_visible_bbox": [
+        124,
+        112,
+        324,
+        408
+      ],
+      "visible_height_ratio": 1.0033783783783783,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "754edd66ec309e561c0f9e1c7998cb4b6fabc3921fd768377488181fec0e3ab6"
+    },
+    {
+      "id": "cave_troll",
+      "size": [
+        355,
+        471
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        9,
+        13,
+        345,
+        441
+      ],
+      "visible_bbox": [
+        10,
+        14,
+        343,
+        441
+      ],
+      "source_visible_bbox": [
+        15,
+        14,
+        346,
+        441
+      ],
+      "visible_height_ratio": 1.0,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "58ad89c7dc47fc220227aab6dd3237355dd1cf51163341a9f9c8d393fd9201aa"
+    },
+    {
+      "id": "stone_giant",
+      "size": [
+        597,
+        597
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        14,
+        13,
+        582,
+        578
+      ],
+      "visible_bbox": [
+        15,
+        14,
+        579,
+        576
+      ],
+      "source_visible_bbox": [
+        13,
+        13,
+        583,
+        578
+      ],
+      "visible_height_ratio": 0.9946902654867257,
+      "visible_foot_delta_px": -2,
+      "output_sha256": "6cb5f55ca477b30b260e3117db2cb0044f13649030c18653e7c86a64b1c64eb3"
+    },
+    {
+      "id": "witchking_foot",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        91,
+        42,
+        348,
+        432
+      ],
+      "visible_bbox": [
+        92,
+        42,
+        347,
+        432
+      ],
+      "source_visible_bbox": [
+        95,
+        43,
+        345,
+        432
+      ],
+      "visible_height_ratio": 1.0025706940874035,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "553af7a536c90fbb44219907e3673466e256d5d93e8b41980cecf251fb54f346"
+    },
+    {
+      "id": "witchking_foot_mace",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        5,
+        50,
+        435,
+        430
+      ],
+      "visible_bbox": [
+        5,
+        51,
+        435,
+        429
+      ],
+      "source_visible_bbox": [
+        0,
+        45,
+        440,
+        429
+      ],
+      "visible_height_ratio": 0.984375,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "e568e6021706e45f94cb8d8cb8c7eb9a955fd205a6878c96af924fda40436b81"
+    },
+    {
+      "id": "nazgul_sword",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        36,
+        63,
+        405,
+        432
+      ],
+      "visible_bbox": [
+        36,
+        63,
+        404,
+        431
+      ],
+      "source_visible_bbox": [
+        28,
+        63,
+        412,
+        431
+      ],
+      "visible_height_ratio": 1.0,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "91ce391b0143e19277821e0dda94a1c665687cc8fa40a2faf6b6be38e6b50668"
+    },
+    {
+      "id": "nazgul_sword_2",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        60,
+        65,
+        380,
+        430
+      ],
+      "visible_bbox": [
+        60,
+        65,
+        379,
+        430
+      ],
+      "source_visible_bbox": [
+        59,
+        65,
+        381,
+        429
+      ],
+      "visible_height_ratio": 1.0027472527472527,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "3ef644a27ea4a9ff0fc95fca75cbe4a84e92e154abd1aaeb37c37422b6973596"
+    },
+    {
+      "id": "nazgul_mace",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        95,
+        66,
+        344,
+        430
+      ],
+      "visible_bbox": [
+        95,
+        66,
+        343,
+        429
+      ],
+      "source_visible_bbox": [
+        98,
+        65,
+        341,
+        430
+      ],
+      "visible_height_ratio": 0.9945205479452055,
+      "visible_foot_delta_px": -1,
+      "output_sha256": "81182744570e200a0dc844c468bd314de38e9906a25debf0b92abc9013453402"
+    },
+    {
+      "id": "dwimmerlaik",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        70,
+        86,
+        369,
+        432
+      ],
+      "visible_bbox": [
+        71,
+        86,
+        368,
+        432
+      ],
+      "source_visible_bbox": [
+        75,
+        63,
+        363,
+        432
+      ],
+      "visible_height_ratio": 0.9376693766937669,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "214a653b815f28a52c9c6b7e227901d7692980f5bf0892cbf861365c5da3f4ee"
+    },
+    {
+      "id": "khamul",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        91,
+        65,
+        349,
+        430
+      ],
+      "visible_bbox": [
+        91,
+        65,
+        348,
+        429
+      ],
+      "source_visible_bbox": [
+        95,
+        63,
+        344,
+        429
+      ],
+      "visible_height_ratio": 0.994535519125683,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "ba2e7855943513c1f3854669d48993fe4aae2c1ee794bfc1b8bb9b6b78e9c298"
+    },
+    {
+      "id": "dark_marshal",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        46,
+        63,
+        393,
+        432
+      ],
+      "visible_bbox": [
+        46,
+        63,
+        393,
+        431
+      ],
+      "source_visible_bbox": [
+        39,
+        63,
+        401,
+        431
+      ],
+      "visible_height_ratio": 1.0,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "a693b54e625e7b86a1fb41ea3e04d26b94b69f0c381023e41cd9c3ff75afb079"
+    },
+    {
+      "id": "betrayer",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        55,
+        66,
+        384,
+        430
+      ],
+      "visible_bbox": [
+        56,
+        67,
+        383,
+        429
+      ],
+      "source_visible_bbox": [
+        61,
+        64,
+        378,
+        430
+      ],
+      "visible_height_ratio": 0.9890710382513661,
+      "visible_foot_delta_px": -1,
+      "output_sha256": "e1cca61b32a035c4c4e0d1381c292582ff8cea4d2cfd9ef50e653c0e0d868c76"
+    },
+    {
+      "id": "tainted",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        50,
+        63,
+        389,
+        432
+      ],
+      "visible_bbox": [
+        51,
+        64,
+        388,
+        431
+      ],
+      "source_visible_bbox": [
+        58,
+        63,
+        383,
+        431
+      ],
+      "visible_height_ratio": 0.9972826086956522,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "037088e01cf910d270226f00ecdb2881a6435620269cae1032ce21b8d745dce2"
+    },
+    {
+      "id": "undying",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        90,
+        62,
+        349,
+        432
+      ],
+      "visible_bbox": [
+        91,
+        62,
+        348,
+        431
+      ],
+      "source_visible_bbox": [
+        95,
+        63,
+        345,
+        431
+      ],
+      "visible_height_ratio": 1.002717391304348,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "c112178fee8c21bae7f9e1a70fc616a05bdd19813d99e5132ef34d9813149b8d"
+    },
+    {
+      "id": "witchking_mounted",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        30,
+        25,
+        410,
+        430
+      ],
+      "visible_bbox": [
+        31,
+        26,
+        409,
+        428
+      ],
+      "source_visible_bbox": [
+        38,
+        15,
+        402,
+        429
+      ],
+      "visible_height_ratio": 0.9710144927536232,
+      "visible_foot_delta_px": -1,
+      "output_sha256": "974cc93bd1aaa32cbc5c9b1265062fe393754c3903e40649a06254b0dc96d1b2"
+    },
+    {
+      "id": "nazgul_mounted",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        75,
+        30,
+        365,
+        432
+      ],
+      "visible_bbox": [
+        75,
+        31,
+        363,
+        430
+      ],
+      "source_visible_bbox": [
+        81,
+        13,
+        358,
+        432
+      ],
+      "visible_height_ratio": 0.9522673031026253,
+      "visible_foot_delta_px": -2,
+      "output_sha256": "371f4b9dce0333911b4ec5319e42e703c22425885824432150ed013f523bc03e"
+    },
+    {
+      "id": "witchking_mounted_sheet",
+      "size": [
+        513,
+        513
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        56,
+        53,
+        456,
+        478
+      ],
+      "visible_bbox": [
+        57,
+        53,
+        455,
+        478
+      ],
+      "source_visible_bbox": [
+        24,
+        41,
+        409,
+        478
+      ],
+      "visible_height_ratio": 0.9725400457665904,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "a3cc87b9d001fbf3db8011e99e05be54770bfc36965586c51df389ab1cd9aee6"
+    },
+    {
+      "id": "glaurung",
+      "size": [
+        565,
+        565
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        17,
+        15,
+        547,
+        538
+      ],
+      "visible_bbox": [
+        17,
+        15,
+        546,
+        538
+      ],
+      "source_visible_bbox": [
+        16,
+        16,
+        552,
+        537
+      ],
+      "visible_height_ratio": 1.0038387715930903,
+      "visible_foot_delta_px": 1,
+      "output_sha256": "b69fd9343ebf5acc29844170c112d3bcf15373799efe3cf78980f67102f4f259"
+    },
+    {
+      "id": "watcher_karna",
+      "size": [
+        597,
+        597
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        12,
+        14,
+        584,
+        578
+      ],
+      "visible_bbox": [
+        13,
+        14,
+        583,
+        577
+      ],
+      "source_visible_bbox": [
+        13,
+        13,
+        583,
+        578
+      ],
+      "visible_height_ratio": 0.9964601769911504,
+      "visible_foot_delta_px": -1,
+      "output_sha256": "9234eb2ade0fcd72b929ac6adf8ebd599174ea3c284508246115b207a45e11a2"
+    },
+    {
+      "id": "bill_ferny",
+      "size": [
+        440,
+        440
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        105,
+        103,
+        334,
+        403
+      ],
+      "visible_bbox": [
+        106,
+        103,
+        334,
+        403
+      ],
+      "source_visible_bbox": [
+        115,
+        104,
+        339,
+        403
+      ],
+      "visible_height_ratio": 1.0033444816053512,
+      "visible_foot_delta_px": 0,
+      "output_sha256": "4ff119d8f68743520bfa2c8634716cd2929492e78dabaeb640b80ab7f3398898"
+    }
+  ]
+}

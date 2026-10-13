@@ -1,0 +1,46 @@
+{
+  "annatar": {
+    "operation": "Transparent-noise trimming and proportional native serialization only; no repainting or palette changes.",
+    "reason": "Very faint raw alpha extended 56 pixels below the visible boots and made their native baseline 16 pixels too high.",
+    "alpha_noise_cutoff": 8,
+    "size": [
+      369,
+      419
+    ],
+    "bbox": [
+      19,
+      16,
+      350,
+      393
+    ],
+    "source_bbox": [
+      21,
+      16,
+      354,
+      393
+    ],
+    "output_sha256": "b3ff167a19e3c091044802a1bd4697bdaefe7927f0918cef142451298cfbcf18"
+  },
+  "glaurung": {
+    "operation": "Transparent-noise trimming and proportional native serialization only; no repainting or palette changes.",
+    "reason": "Faint raw alpha continued 33 pixels below the visible front claws and shifted their native baseline 13 pixels upwards.",
+    "alpha_noise_cutoff": 8,
+    "size": [
+      565,
+      565
+    ],
+    "bbox": [
+      17,
+      15,
+      547,
+      538
+    ],
+    "source_bbox": [
+      15,
+      15,
+      552,
+      538
+    ],
+    "output_sha256": "b69fd9343ebf5acc29844170c112d3bcf15373799efe3cf78980f67102f4f259"
+  }
+}
