@@ -2881,20 +2881,20 @@ const LWB_EQUIP = [
     { id: 'war_banner_eq', label: '전투 기', cost: 45, desc: '용기 +1 · 3″ 내 아군의 결투 최저 주사위 1회 재굴림 · 장비', icon: '<path d="M6 21V4m0 0h11l-2.5 4L17 12H6"/>', iconImg: 'icons/eq_war_banner.png', fx: u => u.stats.courage += 1 },
     { id: 'salve', label: '치유 연고', cost: 20, once: true, needsWound: true, desc: '즉시 사용 · 상처 1 회복', icon: '<path d="M9 3h6M10 3v4l-5 9a3 3 0 0 0 3 5h8a3 3 0 0 0 3-5l-5-9V3M7 14h10"/>', iconImg: 'icons/eq_salve.png', fx: u => u.currentWounds = Math.min(u.stats.wounds, u.currentWounds + 1) },
     { id: 'tower_shield', label: '탑방패', cost: 45, desc: '방어 +2 · 이동 −1″', icon: '<path d="M6 3h12v9c0 5-2.5 8-6 9-3.5-1-6-4-6-9z"/>', iconImg: 'icons/eq_tower_shield.png', fx: u => { u.stats.defence += 2; u.stats.move = Math.max(90, u.stats.move - 45); } },
-    { id: 'mithril_helm', label: '미스릴 투구', cost: 70, desc: '방어 +2 · 장비', icon: '<path d="M4 15V10a8 8 0 0 1 16 0v5M4 15h16m-16 0v4h4v-4m8 0v4h4v-4"/>', iconImg: 'icons/eq_mithril_helm.png', fx: u => u.stats.defence += 2 },
+    { id: 'mithril_helm', label: '미스릴 투구', cost: 70, desc: '방어 +1 · 장비', icon: '<path d="M4 15V10a8 8 0 0 1 16 0v5M4 15h16m-16 0v4h4v-4m8 0v4h4v-4"/>', iconImg: 'icons/eq_mithril_helm.png', fx: u => { u.stats.defence += 1; } },
     { id: 'pike', label: '날카로운 창', cost: 40, desc: '힘 +1 · 장비', icon: '<path d="M5 21 19 7m0 0-1-4 4-1-1 4-2 1z"/>', iconImg: 'icons/eq_pike.png', fx: u => u.stats.strength += 1 },
     { id: 'ranger_boots', label: '순찰자 장화', cost: 35, desc: '이동 +1″ · 장비', icon: '<path d="M7 3v10l4 4h8a1 1 0 0 0 0-2l-5-2-1-6H9L8 3z"/>', iconImg: 'icons/eq_ranger_boots.png', fx: u => u.stats.move += 45 },
     { id: 'war_horn', label: '전쟁 뿔피리', cost: 30, desc: '용기 +2 · 장비', icon: '<path d="M4 13c0-3 4-5 8-5h2l6-4v16l-6-4h-2c-4 0-8-2-8-5zM8 16l1 5"/>', iconImg: 'icons/eq_war_horn.png', fx: u => u.stats.courage += 2 },
     { id: 'bandage', label: '전장 붕대', cost: 30, once: true, needsInjury: true, desc: '즉시 사용 · 부상 해제', icon: '<path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/>', iconImg: 'icons/eq_bandage.png', fx: u => restoreWarbandInjury(u) },
     { id: 'gondor_shield', label: '곤도르 방패', cost: 55, desc: '방어 +1 · 용기 +1', icon: '<path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6zM12 7v10M8 10h8"/>', iconImg: 'icons/eq_gondor_shield.png', fx: u => { u.stats.defence += 1; u.stats.courage += 1; } },
-    { id: 'war_gauntlets', label: '전투 건틀릿', cost: 85, desc: 'Attack +1 · 장비', icon: '<path d="M7 21V11l5-8 5 8v10M7 15h10M10 8v4"/>', iconImg: 'icons/eq_gauntlets.png', fx: u => u.stats.attacks += 1 },
-    { id: 'anduril', label: '안두릴', cost: 350, rare: 2, desc: '유니크 · 재련된 나르실 · 아라곤 전용 · Attack +1 · 결투 +1 · 상처 주사위 1 재굴림 · 처치 시 Might 회복', iconImg: 'icons/eq_anduril.png?v=1.37', req: u => u.id.startsWith('aragorn'), fx: u => { u.stats.attacks += 1; u.stats.fight += 1; u.eqReroll1 = 1; u.eqAnduril = 1; } },
+    { id: 'war_gauntlets', label: '전투 건틀릿', cost: 85, desc: '힘 +1 · 장비', icon: '<path d="M7 21V11l5-8 5 8v10M7 15h10M10 8v4"/>', iconImg: 'icons/eq_gauntlets.png', fx: u => { u.stats.strength += 1; } },
+    { id: 'anduril', label: '안두릴', cost: 600, rare: 2, desc: '유니크 · 재련된 나르실 · 아라곤 전용 · Attack +1 · 결투 +1 · 상처 주사위 1 재굴림 · 처치 시 Might 회복', iconImg: 'icons/eq_anduril.png?v=1.37', req: u => u.id.startsWith('aragorn'), fx: u => { u.stats.attacks += 1; u.stats.fight += 1; u.eqReroll1 = 1; u.eqAnduril = 1; } },
     { id: 'barrow_blade', label: '무덤의 칼', cost: 160, rare: 2, desc: '유니크 · 서방의 옛 칼 · 결투 +1 · 망령·언데드 상처 필요값 −2', iconImg: 'icons/eq_barrow_blade.png', fx: u => { u.stats.fight += 1; u.eqBarrowWraith = 1; } },
     { id: 'rohan_lance', label: '로한 기수 투창', cost: 60, desc: '기마 영웅 전용 · Attack +1', iconImg: 'icons/eq_rohan_lance.png', req: u => u.traits.includes('mounted'), fx: u => u.stats.attacks += 1 },
-    { id: 'galadhrim_quiver', label: '갈라드림 화살통', cost: 50, desc: '궁수 영웅 전용 · 사거리 +1″', iconImg: 'icons/eq_galadhrim_quiver.png', req: u => u.stats.shootRange > 0, fx: u => u.stats.shootRange += 45 },
-    { id: 'elven_cloak_eq', label: '갈라드림 수호망토', cost: 55, desc: '적 사격이 이 유닛에 명중 난도 +1', iconImg: 'icons/eq_elven_cloak.png', fx: u => u.evadeRanged = 1 },
+    { id: 'galadhrim_quiver', label: '갈라드림 화살통', cost: 50, desc: '궁수 영웅 전용 · 사거리 +3″', iconImg: 'icons/eq_galadhrim_quiver.png', req: u => u.stats.shootRange > 0, fx: u => { u.stats.shootRange += 135; } },
+    { id: 'elven_cloak_eq', label: '갈라드림 수호망토', cost: 55, desc: '이 유닛을 향한 적 사격의 명중 필요값 +1', iconImg: 'icons/eq_elven_cloak.png', fx: u => u.evadeRanged = 1 },
     { id: 'mithril_shirt_eq', label: '미스릴 쇠사슬', cost: 440, rare: 2, desc: '유니크 · 방어 +1 · Fate +1 · 받는 상처 필요값 +1', iconImg: 'icons/eq_mithril_shirt.png', fx: u => { u.stats.defence += 1; u.eqDhelm = 1; u.stats.fate = (u.stats.fate || 0) + 1; if (!u._shirtFate) { u._shirtFate = 1; u.resources && (u.resources.fate = (u.resources.fate || 0) + 1); } } },
-    { id: 'galadriel_phial', label: '갈라드리엘의 병', cost: 110, desc: '치명상을 견디는 빛 · Fate +2', iconImg: 'icons/eq_galadriel_phial.png', fx: u => { u.stats.fate = (u.stats.fate || 0) + 2; if (!u._phialFate) { u._phialFate = 1; u.resources && (u.resources.fate = (u.resources.fate || 0) + 2); } } },
+    { id: 'galadriel_phial', label: '갈라드리엘의 병', cost: 110, desc: '치명상을 견디는 빛 · Fate 굴림 3+ 성공', iconImg: 'icons/eq_galadriel_phial.png', fx: u => { u.eqFate3 = 1; } },
     { id: 'king_standard', label: '왕의 문장', cost: 260, rare: 2, desc: '유니크 · 용기 +3 · 6″ 내 아군 결투 최저 주사위 재굴림 · 장비', iconImg: 'icons/eq_king_standard.png', fx: u => u.stats.courage += 3 },
     { id: 'glamdring', label: '글람드링', cost: 390, rare: 2, desc: '유니크 · 간달프 전용 · Attack +1 · 결투 +1 · 오크·고블린 상처 필요값 −1', iconImg: 'icons/eq_glamdring.png', req: u => u.id.startsWith('gandalf'), fx: u => { u.stats.attacks += 1; u.stats.fight += 1; u.relicSting = 1; } },
     { id: 'lembas', label: '렘바스 빵 조각', cost: 60, once: true, needsWound: true, desc: '즉시 사용 · 상처 전부 회복', iconImg: 'icons/eq_lembas.png', fx: u => u.currentWounds = u.stats.wounds },
@@ -2904,7 +2904,7 @@ const LWB_EQUIP = [
     { id: 'guardian_feather', label: '수호 깃털', cost: 70, desc: 'Fate +1', iconImg: 'icons/eq_guardian_feather.png', fx: u => { u.stats.fate = (u.stats.fate || 0) + 1; if (!u._gfeF) { u._gfeF = 1; u.resources && (u.resources.fate = (u.resources.fate || 0) + 1); } } },
     { id: 'lorien_arrow', label: '로스로리엔 화살', cost: 55, desc: '궁수 영웅 전용 · 명중 +1', iconImg: 'icons/eq_lorien_arrow.png', req: u => u.stats.shootRange > 0, fx: u => u.stats.shootValue = Math.max(2, u.stats.shootValue - 1) },
     { id: 'arrowhead', label: '연마 화살촉', cost: 60, desc: '궁수 영웅 전용 · 힘 +1', iconImg: 'icons/eq_arrowhead.png', req: u => u.stats.shootRange > 0, fx: u => u.stats.strength += 1 },
-    { id: 'erebor_plate', label: '에레보르 도금 갑주', cost: 290, rare: 2, desc: '유니크 · 방어 +2 · 받는 상처 필요값 +1', iconImg: 'icons/eq_erebor_plate.png', fx: u => { u.stats.defence += 2; u.eqDhelm = 1; } },
+    { id: 'erebor_plate', label: '에레보르 도금 갑주', cost: 290, rare: 2, desc: '유니크 · 방어 +2', iconImg: 'icons/eq_erebor_plate.png', fx: u => { u.stats.defence += 2; } },
     { id: 'north_map', label: '북부 지도', cost: 40, desc: '이동 +1.3″ · 장비', iconImg: 'icons/eq_north_map.png', fx: u => u.stats.move += 60 },
     { id: 'durin_axe', label: '두린의 룬도끼', cost: 290, rare: 2, desc: '유니크 · 힘 +1 · 상처 필요값 −1', iconImg: 'icons/eq_durin_axe.png', fx: u => { u.stats.strength += 1; u.eqPierce = 1; } },
     { id: 'twin_knives', label: '엘프 쌍날검', cost: 330, rare: 2, desc: '유니크 · Attack +1 · 상처 주사위 1 재굴림', iconImg: 'icons/eq_twin_knives.png', fx: u => { u.stats.attacks += 1; u.eqReroll1 = 1; } },
@@ -2913,33 +2913,33 @@ const LWB_EQUIP = [
     { id: 'dark_berry', label: '검은숲 열매', cost: 40, once: true, desc: '즉시 사용 · 용기 +2 (원정 동안 유지)', iconImg: 'icons/eq_dark_berry.png', fx: u => { u.baseStats.courage += 2; u.stats.courage += 2; } },
     { id: 'king_oath', label: '왕의 서약인장', cost: 50, once: true, desc: '즉시 사용 · Might 1 회복', iconImg: 'icons/eq_king_oath.png', fx: u => { u.resources && (u.resources.might = (u.resources.might || 0) + 1); } },
     { id: 'war_pennant', label: '울부짖는 전쟁깃', cost: 60, desc: '기마 영웅 전용 · 용기 +2 · 결투 +1', iconImg: 'icons/eq_war_pennant.png', req: u => u.traits.includes('mounted'), fx: u => { u.stats.courage += 2; u.stats.fight += 1; } },
-    { id: 'oath_stone', label: '난쟁이 서약돌', cost: 350, rare: 2, desc: '유니크 · 상처 +1 · 견고한 전열', iconImg: 'icons/eq_oath_stone.png', fx: u => { u.stats.wounds += 1; u.traits.includes('steadfast') || u.traits.push('steadfast'); } },
+    { id: 'oath_stone', label: '난쟁이 서약돌', cost: 350, rare: 2, desc: '유니크 · 상처 +1 · 방어 +1', iconImg: 'icons/eq_oath_stone.png', fx: u => { u.stats.wounds += 1; u.stats.defence += 1; } },
     { id: 'sting', label: '쏘는 검 스팅', cost: 290, rare: 2, desc: '유니크 · 호빗 영웅 전용 · Attack +1 · 결투 +1 · 오크·고블린 상처 필요값 −1', iconImg: 'icons/eq_sting.png?v=1.37', req: u => ['frodo', 'sam', 'bilbo', 'pippin', 'merry'].some(h => u.id.startsWith(h)), fx: u => { u.stats.attacks += 1; u.stats.fight += 1; u.relicSting = 1; } },
     { id: 'miruvor', label: '미루보르', cost: 65, once: true, desc: '즉시 사용 · 상처 1 회복 · 용기 +2 (원정 동안 유지)', iconImg: 'icons/eq_miruvor.png?v=1.37', fx: u => { u.currentWounds = Math.min(u.stats.wounds, u.currentWounds + 1); u.baseStats.courage += 2; u.stats.courage += 2; } },
     { id: 'palantir', label: '팔란티르 구체', cost: 350, rare: 2, desc: '유니크 · Might +1 · Will +1 · 용기 +1', iconImg: 'icons/eq_palantir.png?v=1.37', fx: u => { u.stats.courage += 1; if (!u._palM) { u._palM = 1; u.resources && (u.resources.might = (u.resources.might || 0) + 1); u.resources && (u.resources.will = (u.resources.will || 0) + 1); } } },
     { id: 'elfstone', label: '엘레사르의 녹보석', cost: 80, desc: '용기 +1 · Fate +1', iconImg: 'icons/eq_elfstone.png?v=1.37', fx: u => { u.stats.courage += 1; u.stats.fate = (u.stats.fate || 0) + 1; if (!u._elfF) { u._elfF = 1; u.resources && (u.resources.fate = (u.resources.fate || 0) + 1); } } },
     { id: 'horn_gondor', label: '보로미르의 뿔피리', cost: 300, rare: 2, desc: '유니크 · 보로미르 전용 · 용기 +3 · Might +1', iconImg: 'icons/eq_horn_gondor.png?v=1.37', req: u => u.id.startsWith('boromir'), fx: u => { u.stats.courage += 3; if (!u._hornM) { u._hornM = 1; u.resources && (u.resources.might = (u.resources.might || 0) + 1); } } },
-    { id: 'shadowfax', mount: true, label: '섀도팩스', cost: 420, rare: 2, desc: '유니크 · 간달프 전용 기마 · 이동 +3″ · 용기 +2', iconImg: 'icons/eq_shadowfax.png', req: u => u.traits.includes('mounted') && u.id.startsWith('gandalf'), fx: u => { u.stats.move += 135; u.stats.courage += 2; } },
+    { id: 'shadowfax', mount: true, label: '섀도팩스', cost: 420, rare: 2, desc: '유니크 · 간달프 전용 기마 · 이동 +3″ · 용기 +2 · 공포 면역', iconImg: 'icons/eq_shadowfax.png', req: u => u.traits.includes('mounted') && u.id.startsWith('gandalf'), fx: u => { u.stats.move += 135; u.stats.courage += 2; u.fearless = 1; } },
     { id: 'asfaloth', mount: true, label: '아스팔로스', cost: 330, rare: 2, desc: '유니크 · 엘프 기마 영웅 전용 · 이동 +2″ · 용기 +1', iconImg: 'icons/eq_asfaloth.png', req: u => u.traits.includes('mounted') && ['glorfindel', 'legolas', 'elrond', 'haldir', 'arwen'].some(h => u.id.startsWith(h)), fx: u => { u.stats.move += 90; u.stats.courage += 1; } },
     { id: 'brego', mount: true, label: '브레고', cost: 260, rare: 2, desc: '유니크 · 아라곤·로한 기마 영웅 전용 · 이동 +2″ · 용기 +1', iconImg: 'icons/eq_brego.png', req: u => u.traits.includes('mounted') && ['aragorn', 'theoden', 'eomer', 'eowyn', 'gamling'].some(h => u.id.startsWith(h)), fx: u => { u.stats.move += 90; u.stats.courage += 1; } },
     { id: 'firefoot', mount: true, label: '파이어풋', cost: 300, rare: 2, desc: '유니크 · 에오메르 전용 기마 · 이동 +2″ · 결투 +1', iconImg: 'icons/eq_firefoot.png', req: u => u.traits.includes('mounted') && u.id.startsWith('eomer'), fx: u => { u.stats.move += 90; u.stats.fight += 1; } },
     { id: 'hasufel', mount: true, label: '하스펠', cost: 220, rare: 2, desc: '유니크 · 로한 기마 영웅 전용 · 이동 +1.8″', iconImg: 'icons/eq_hasufel.png', req: u => u.traits.includes('mounted') && ['theoden', 'eomer', 'eowyn', 'gamling', 'hama', 'deorwine', 'elfhelm', 'erkenbrand', 'grimbold'].some(h => u.id.startsWith(h)), fx: u => { u.stats.move += 80; } },
     { id: 'orcrist', label: '오르크리스트', cost: 290, rare: 2, desc: '유니크 · 난쟁이 영웅 전용 · 결투 +1 · Attack +1 · 오크·고블린 상처 필요값 −1', iconImg: 'icons/relic_orcrist.png', req: u => u.traits.includes('hero') && ['thorin', 'balin', 'dwalin', 'gloin', 'dain', 'durin_vi', 'gimli', 'iron_hills_captain', 'fili', 'kili', 'nori', 'oin', 'dori', 'bifur', 'bofur', 'bombur'].some(h => u.id.startsWith(h)), fx: u => { u.stats.fight += 1; u.stats.attacks += 1; u.relicSting = 1; } },
-    { id: 'lorien_bow', label: '갈라드림 장궁', cost: 240, rare: 2, desc: '유니크 · 엘프 궁수 영웅 전용 · 사거리 +2″ · 명중 +1 · 이동 후 사격 페널티 없음', iconImg: 'icons/eq_galadhrim_quiver.png', req: u => u.traits.includes('hero') && (u.stats.shootRange || 0) > 0 && ['legolas', 'haldir', 'tauriel', 'mirkwood', 'silvan', 'thranduil', 'elf_'].some(h => u.id.startsWith(h)), fx: u => { u.stats.shootRange += 90; u.stats.shootValue = Math.max(2, (u.stats.shootValue || 7) - 1); u.traits.includes('ranger') || u.traits.push('ranger'); } },
+    { id: 'lorien_bow', label: '갈라드림 장궁', cost: 300, rare: 2, desc: '유니크 · 엘프 궁수 영웅 전용 · 사거리 +2″ · 명중 +1 · 이동 후 사격 페널티 없음', iconImg: 'icons/eq_galadhrim_quiver.png', req: u => u.traits.includes('hero') && (u.stats.shootRange || 0) > 0 && ['legolas', 'haldir', 'tauriel', 'mirkwood', 'silvan', 'thranduil', 'elf_'].some(h => u.id.startsWith(h)), fx: u => { u.stats.shootRange += 90; u.stats.shootValue = Math.max(2, (u.stats.shootValue || 7) - 1); u.traits.includes('ranger') || u.traits.push('ranger'); } },
     { id: 'shire_pony', mount: true, label: '샤이어 조랑말', cost: 45, desc: '호빗 영웅 전용 · 이동 +1.5″', iconImg: 'icons/horse.png', req: u => u.traits.includes('hero') && ['frodo', 'samwise', 'merry', 'pippin', 'bilbo'].some(h => u.id.startsWith(h)), fx: u => { u.stats.move += 67; } }
 ,
-    { id: 'ringil', label: '링길', cost: 390, rare: 3, desc: '유니크 · 핑골핀의 명검 · 엘프 영웅 전용 · 적 처치 시 다음 결투 Attack +1', iconImg: 'icons/eq_ringil.png?v=1.37', req: u => u.traits.includes('hero') && ['elrond', 'glorfindel', 'legolas', 'haldir', 'thranduil', 'gil_galad', 'tauriel', 'elf_', 'mirkwood', 'silvan'].some(h => u.id.startsWith(h)), fx: u => { u.eqRingil = 1; } },
-    { id: 'arkenstone', label: '아르켄스톤', cost: 480, rare: 3, desc: '유니크 · 에레보르의 심장 · 매 전투 드워프 지원군 2기 합류', iconImg: 'icons/eq_arkenstone.png?v=1.37', fx: u => { u.eqArken = 1; } },
+    { id: 'ringil', label: '링길', cost: 900, rare: 3, desc: '레전드리 · 핑골핀의 명검 · 엘프 영웅 전용 · 처치 시 다음 적에게 돌진 · 다음 결투 Attack +1 · 공포', iconImg: 'icons/eq_ringil.png?v=1.37', req: u => u.traits.includes('hero') && ['elrond', 'glorfindel', 'legolas', 'haldir', 'thranduil', 'gil_galad', 'tauriel', 'elf_', 'mirkwood', 'silvan'].some(h => u.id.startsWith(h)), fx: u => { u.eqRingil = 1; if (!u.traits.includes('terror')) u.traits.push('terror'); } },
+    { id: 'arkenstone', label: '아르켄스톤', cost: 800, rare: 3, desc: '유니크 · 에레보르의 심장 · 매 전투 난쟁이 지원군 2~5기 무작위 합류', iconImg: 'icons/eq_arkenstone.png?v=1.37', fx: u => { u.eqArken = 1; } },
     { id: 'guthwine', label: '구스위네', cost: 350, rare: 2, desc: '유니크 · 에오메르의 검 · 결투 +1 · 상처 주사위 실패 시 재굴림', iconImg: 'icons/eq_guthwine.png?v=1.37', req: u => u.id.startsWith('eomer'), fx: u => { u.stats.fight += 1; u.eqRerollW = 1; } },
-    { id: 'herugrim', label: '헤르구림', cost: 350, rare: 2, desc: '유니크 · 테오덴의 왕검 · 결투 +1 · 상처 주사위 1이면 재굴림', iconImg: 'icons/eq_herugrim.png?v=1.37', req: u => u.id.startsWith('theoden'), fx: u => { u.stats.fight += 1; u.eqReroll1 = 1; } },
-    { id: 'aeglos', label: '아이글로스', cost: 370, rare: 3, desc: '유니크 · 길갈라드의 창 · 타격 적중 시 인접 적에게도 피해', iconImg: 'icons/eq_aeglos.png?v=1.37', req: u => u.traits.includes('hero'), fx: u => { u.eqCleave = 1; } },
-    { id: 'grond_eq', label: '그론드', cost: 430, rare: 3, desc: '유니크 · 모르고스의 철퇴 · 밀림 2배 · 상처 필요값 −1', iconImg: 'icons/eq_grond.png?v=1.37', req: u => u.traits.includes('hero'), fx: u => { u.eqPush2 = 1; u.eqPierce = 1; } },
-    { id: 'belthronding', label: '벨그론드', cost: 360, rare: 3, desc: '유니크 · 벨레그의 명궁 · 궁수 영웅 전용 · 명중 굴림 1회 재굴림', iconImg: 'icons/eq_belthronding.png?v=1.37', req: u => u.traits.includes('hero') && u.stats.shootRange > 0, fx: u => { u.eqRerollHit = 1; } },
-    { id: 'dragon_helm', label: '용투구', cost: 360, rare: 2, desc: '유니크 · 도르로민의 용투구 · 방어 +1 · 적의 상처 필요값 +1 · 공포 면역', iconImg: 'icons/eq_dragon_helm.png?v=1.37', req: u => u.traits.includes('hero'), fx: u => { u.stats.defence += 1; u.fearless = 1; u.eqDhelm = 1; } },
-    { id: 'gurthang', label: '구르상', cost: 360, rare: 2, desc: '유니크 · 투린의 흑검 · 괴수·보스 상처 필요값 −2', iconImg: 'icons/eq_gurthang.png?v=1.37', req: u => u.traits.includes('hero'), fx: u => { u.eqGurthang = 1; } },
-    { id: 'black_arrow', label: '흑화살', cost: 330, rare: 2, desc: '유니크 · 바르드의 화살 · 궁수 영웅 전용 · 괴수·보스 상처 필요값 −2', iconImg: 'icons/eq_black_arrow.png?v=1.37', req: u => u.traits.includes('hero') && u.stats.shootRange > 0, fx: u => { u.eqBlackArrow = 1; } },
-    { id: 'red_arrow', label: '붉은 화살', cost: 310, rare: 2, desc: '유니크 · 곤도르의 구원 신호 · 매 전투 로한 기수 1기 합류', iconImg: 'icons/eq_red_arrow.png?v=1.37', fx: u => { u.eqRedArrow = 1; } },
-    { id: 'angrist', label: '앵그리스트', cost: 340, rare: 2, desc: '유니크 · 베렌의 단도 · 상처 필요값 −2 (철도 끊음)', iconImg: 'icons/eq_angrist.png?v=1.37', req: u => u.traits.includes('hero'), fx: u => { u.eqPierce = 2; } },
+    { id: 'herugrim', label: '헤르구림', cost: 350, rare: 2, desc: '유니크 · 테오덴의 왕검 · 결투 +1 · 6″ 이내 로한 아군 결투 +1 · 용기 +1', iconImg: 'icons/eq_herugrim.png?v=1.37', req: u => u.id.startsWith('theoden'), fx: u => { u.stats.fight += 1; u.eqHerugrim = 1; } },
+    { id: 'aeglos', label: '아이글로스', cost: 700, rare: 3, desc: '유니크 · 길갈라드의 창 · 적중 시 인접 적 피해 · 상처 필요값 −1', iconImg: 'icons/eq_aeglos.png?v=1.37', req: u => u.traits.includes('hero'), fx: u => { u.eqCleave = 1; u.eqPierce = 1; } },
+    { id: 'grond_eq', label: '그론드', cost: 1000, rare: 3, desc: '레전드리 · 모르고스의 철퇴 · 밀림 2배 · 상처 필요값 −2 · 접근한 적 공포 검사', iconImg: 'icons/eq_grond.png?v=1.37', req: u => u.traits.includes('hero'), fx: u => { u.eqPush2 = 1; u.eqPierce = 2; u.eqGrondTerror = 1; if (!u.traits.includes('terror')) u.traits.push('terror'); } },
+    { id: 'belthronding', label: '벨그론드', cost: 500, rare: 3, desc: '유니크 · 벨레그의 명궁 · 궁수 영웅 전용 · 명중 굴림 1회 재굴림 · 명중 필요값 −1', iconImg: 'icons/eq_belthronding.png?v=1.37', req: u => u.traits.includes('hero') && u.stats.shootRange > 0, fx: u => { u.eqRerollHit = 1; u.stats.shootValue = Math.max(2, u.stats.shootValue - 1); } },
+    { id: 'dragon_helm', label: '용투구', cost: 700, rare: 3, desc: '레전드리 · 도르로민의 용투구 · 방어 +1 · 받는 상처 필요값 +1 · 공포 면역 · Fate +1', iconImg: 'icons/eq_dragon_helm.png?v=1.37', req: u => u.traits.includes('hero'), fx: u => { u.stats.defence += 1; u.fearless = 1; u.eqDhelm = 1; u.stats.fate = (u.stats.fate || 0) + 1; if (!u._dragonHelmFate) { u._dragonHelmFate = 1; if (u.resources) u.resources.fate = (u.resources.fate || 0) + 1; } } },
+    { id: 'gurthang', label: '구르상', cost: 700, rare: 2, desc: '유니크 · 투린의 흑검 · 괴수·보스 상처 필요값 −2 · Attack +1', iconImg: 'icons/eq_gurthang.png?v=1.37', req: u => u.traits.includes('hero'), fx: u => { u.eqGurthang = 1; u.stats.attacks += 1; } },
+    { id: 'black_arrow', label: '흑화살', cost: 400, rare: 2, desc: '유니크 · 바르드의 화살 · 궁수 영웅 전용 · 괴수·보스 상처 필요값 −2', iconImg: 'icons/eq_black_arrow.png?v=1.37', req: u => u.traits.includes('hero') && u.stats.shootRange > 0, fx: u => { u.eqBlackArrow = 1; } },
+    { id: 'red_arrow', label: '붉은 화살', cost: 310, rare: 2, desc: '유니크 · 곤도르의 구원 신호 · 매 전투 로한 기수 3기 합류', iconImg: 'icons/eq_red_arrow.png?v=1.37', fx: u => { u.eqRedArrow = 1; } },
+    { id: 'angrist', label: '앵그리스트', cost: 340, rare: 2, desc: '유니크 · 베렌의 단도 · 상처 필요값 −2', iconImg: 'icons/eq_angrist.png?v=1.37', req: u => u.traits.includes('hero'), fx: u => { u.eqPierce = 2; } },
     { id: 'elendilmir', label: '엘렌디미르', cost: 320, rare: 2, desc: '유니크 · 왕의 별 · 매 라운드 Might 회복 +1', iconImg: 'icons/eq_elendilmir.png?v=1.37', req: u => u.traits.includes('hero'), fx: u => { u.eqElm = 1; } }
 ];
 for (const item of LWB_EQUIP) item.iconImg = inventoryIconPath('equipment', item.id) || item.iconImg;
@@ -4228,7 +4228,7 @@ P.applyCombat = function (result) {
         }
         if (s.wound && u.resources?.fate > 0) {
             u.resources.fate--;
-            if (Lt(this.rng) >= 4) {
+            if (Lt(this.rng) >= (u.eqFate3 ? 3 : 4)) {
                 s.wound = false;
                 s.prevented = 'Fate';
             }
@@ -4541,7 +4541,7 @@ P.refreshUnit=function(u){
     if(this.weeklySeed&&this.weeklySeed%12===9&&u.side==='evil')u.stats.fight+=1;
     if(this.weeklySeed&&this.weeklySeed%12===10)u.stats.move+=45;
     if(this.weeklySeed&&this.weeklySeed%12===11)u.stats.strength+=1;
-    for (const k of ['eqReroll1','eqRerollW','eqRerollHit','eqAnduril','eqBarrowWraith','eqDhelm','eqPierce','eqRingil','eqArken','eqCleave','eqPush2','eqGurthang','eqBlackArrow','eqRedArrow','eqElm','evadeRanged']) u[k] = 0;
+    for (const k of ['eqReroll1','eqRerollW','eqRerollHit','eqAnduril','eqBarrowWraith','eqDhelm','eqPierce','eqRingil','eqArken','eqCleave','eqPush2','eqGurthang','eqBlackArrow','eqRedArrow','eqElm','eqFate3','eqHerugrim','eqGrondTerror','evadeRanged']) u[k] = 0;
     if(u._equipmentTraits) { u.traits=u.traits.filter(t=>!u._equipmentTraits.includes(t)); u._equipmentTraits=[]; }
     if(u._equipmentFearless) { u.fearless=false; u._equipmentFearless=false; }
     let strongestPierce=0;
@@ -7114,16 +7114,19 @@ P.prepareStage = function () {
     __lwbPS.call(this);
     if (this.alive('good').some(u => u.eqArken)) {
         const _dp = ['dwarf_guardian', 'khazad_guard', 'vault_warden'].filter(id => this.meta.has(id));
-        for (let _di = 0; _di < Math.min(2, _dp.length); _di++) {
+        const _dn = _dp.length ? 2 + Math.floor(this.rng() * 4) : 0;
+        for (let _di = 0; _di < _dn; _di++) {
             const _du = this.spawn(_dp[Math.floor(this.rng() * _dp.length)], 'good', { x: -1000, y: -1000 });
             _du.temporary = true; _du.autoAlly = true; this.placeInDeployment(_du);
         }
-        this.emit('Event', '아르켄스톤의 부름 — 드워프 지원군 2기 합류');
+        if (_dn) this.emit('Event', '아르켄스톤의 부름 — 드워프 지원군 ' + _dn + '기 합류');
     }
     if (this.alive('good').some(u => u.eqRedArrow) && this.meta.has('rohan_rider')) {
-        const _ra = this.spawn('rohan_rider', 'good', { x: -1000, y: -1000 });
-        _ra.temporary = true; _ra.autoAlly = true; this.placeInDeployment(_ra);
-        this.emit('Event', '붉은 화살의 부름 — 로한 기수 1기 합류');
+        for (let _ri = 0; _ri < 3; _ri++) {
+            const _ra = this.spawn('rohan_rider', 'good', { x: -1000, y: -1000 });
+            _ra.temporary = true; _ra.autoAlly = true; this.placeInDeployment(_ra);
+        }
+        this.emit('Event', '붉은 화살의 부름 — 로한 기수 3기 합류');
     }
     const _tp = [[1000, 470], [1330, 470], [1165, 600], [820, 560], [1510, 560]];
     for (const [i, d] of (this.devices || []).entries()) {
@@ -8384,3 +8387,90 @@ function xe() { var $; const Z = ut("minimap"); if (document.hidden || !Z.offset
     Y.fillStyle = p.traits && p.traits.includes('boss') ? "#ff5a3c" : p.side === "good" ? "#b9e8f6" : "#ee9879", Y.beginPath(), Y.arc(p.x * b, p.y * H, p.traits && p.traits.includes('boss') ? 4.6 : p.traits.includes("hero") ? 3.3 : 2.3, 0, 7), Y.fill(), p.traits && p.traits.includes('boss') && (Y.strokeStyle = "#ffb199", Y.lineWidth = 1.5, Y.beginPath(), Y.arc(p.x * b, p.y * H, 6.5, 0, 7), Y.stroke()), p.uid === (q.activeMoverUid || q.selected) && (Y.strokeStyle = "#f17b70", Y.lineWidth = 2, Y.beginPath(), Y.arc(p.x * b, p.y * H, 6, 0, 7), Y.stroke()); const K = ($ = Tt.cameras) == null ? void 0 : $.main; K && (Y.strokeStyle = "#f0d89b", Y.lineWidth = 1, Y.strokeRect(K.worldView.x * b, K.worldView.y * H, K.worldView.width * b, K.worldView.height * H)); }
 setInterval(xe, 200);
 
+
+
+// Spreadsheet equipment revisions (2026-10-14): proximity aura and kill-charge triggers.
+// These are runtime behaviors, not cosmetic descriptions.
+function excelRohanAura(b, unit) {
+    if (!unit || unit.side !== 'good' || !unit.alive) return false;
+    const f=b.meta?.get(unit.id)?.faction;
+    if (f!=='rohan' && !unit.traits.includes('rohan')) return false;
+    return b.alive('good').some(w=>w.alive && w.uid!==unit.uid && w.eqHerugrim && ht(w,unit)<=270);
+}
+const excelRefreshUnit=P.refreshUnit;
+P.refreshUnit=function(unit) {
+    excelRefreshUnit.call(this,unit);
+    if(unit?.stats && excelRohanAura(this,unit)) {
+        unit.stats.fight+=1;
+        unit.stats.courage+=1;
+    }
+};
+const excelMove=P.move;
+P.move=function(uid,to,charge) {
+    const unit=this.unit(uid);
+    if (unit?.alive && this.phase==='move' && to && !unit.terrorTested &&
+        !unit.fearless && !unit.traits.includes('fearless') && !unit.protected) {
+        const nearby=this.alive(Ht(unit.side)).find(w=>w.alive && w.eqGrondTerror && ht(w,to)<300 && ht(w,unit)>=300);
+        if (nearby) {
+            unit.terrorTested=true;
+            const leader=this.alive(unit.side).some(w=>w!==unit && w.traits.includes('commander') && ht(w,unit)<135)?1:0;
+            if (Lt(this.rng)+Lt(this.rng)+unit.stats.courage+leader<10) {
+                unit.feared=true;
+                this.emit('Terror',unit.name+' · 그론드의 공포에 접근 실패',{uid:unit.uid});
+                this.finishActivation(unit);
+                return false;
+            }
+        }
+    }
+    const ok=excelMove.call(this,uid,to,charge);
+    if(ok && this.alive('good').some(w=>w.eqHerugrim)) {
+        for(const w of this.alive('good')) {
+            const f=this.meta?.get(w.id)?.faction;
+            if(f==='rohan'||w.traits.includes('rohan')) this.refreshUnit(w);
+        }
+    }
+    return ok;
+};
+const excelStage=P.prepareStage;
+P.prepareStage=function(){
+    const ret=excelStage.call(this);
+    if(this.alive('good').some(w=>w.eqHerugrim))
+        for(const w of this.alive('good')) if(this.meta?.get(w.id)?.faction==='rohan'||w.traits.includes('rohan')) this.refreshUnit(w);
+    return ret;
+};
+const excelCombat=P.applyCombat;
+P.applyCombat=function(result){
+    excelCombat.call(this,result);
+    if(!result?.strikeResults?.length) return;
+    const candidates=new Set();
+    for(const hit of result.strikeResults) {
+        if(!hit.killed)continue;
+        const attacker=this.unit(hit.attacker);
+        if(attacker?.alive && attacker.eqRingil && !attacker.prone && !attacker._excelRingilCharging)
+            candidates.add(attacker);
+    }
+    for(const unit of candidates) {
+        const enemies=this.alive(Ht(unit.side)).filter(v=>v.alive).sort((a,b)=>ht(unit,a)-ht(unit,b));
+        const nearby=enemies.find(v=>ht(unit,v)<unit.stats.move+unit.radius+v.radius+20);
+        if(!nearby)continue;
+        const safeDistance=unit.radius+nearby.radius+pt.contactTolerance*.5;
+        let best=null;
+        for(let i=0;i<16;i++) {
+            const theta=i*Math.PI/8;
+            const pos={x:nearby.x+Math.cos(theta)*safeDistance,y:nearby.y+Math.sin(theta)*safeDistance};
+            const d=ht(unit,pos);
+            if(d>unit.stats.move || !Et(unit,pos,this.alive(),this.terrain))continue;
+            const plan=ve(unit,pos,this.alive(),this.terrain,unit.stats.move,{snap:false,chargeTarget:nearby});
+            if(plan && (!best||plan.distance<best.distance)) best=plan;
+        }
+        if(!best)continue;
+        unit._excelRingilCharging=true;
+        try{
+            const from={x:unit.x,y:unit.y};
+            Object.assign(unit,best.to);
+            unit.charged=true;
+            this.emit('UnitMoved',undefined,{uid:unit.uid,from,to:best.to});
+            this.emit('Event',unit.name+' · 링길의 추격 돌진',{uid:unit.uid,at:unit});
+        }finally{unit._excelRingilCharging=false;}
+    }
+};
