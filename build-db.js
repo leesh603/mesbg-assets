@@ -203,7 +203,7 @@ try {
   }).join('');
   TABS.push(['maps', '전장 맵']);
 } catch (e) { /* no backgrounds dir */ }
-const html = `<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><title>에셋 매칭 갤러리</title><style>
+const html = `<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><meta name="viewport" content="width=device-width,initial-scale=1"><title>에셋 매칭 갤러리</title><style>
 :root{--bg:#0f120c;--panel:#1a1d14;--panel2:#232718;--line:#5d5233;--gold:#c9a959;--gold2:#efe0ae;--txt:#ece4cd;--dim:#a89d7f}
 *{box-sizing:border-box}
 body{background:radial-gradient(ellipse at 50% -5%,#26301b 0%,#141a10 45%,#0f120c 100%);color:var(--txt);font-family:'Malgun Gothic',Georgia,serif;margin:0;padding:24px}
@@ -230,9 +230,9 @@ h3{font-family:Georgia,serif;font-size:13px;margin:18px 0 8px;color:var(--gold2)
 .meta{font-size:10px;color:var(--dim);margin-top:3px}
 </style></head><body>
 <h1>MESBG 에셋 갤러리 — 인게임 표시 크기 · <span style="font-size:11px;color:#8a8">#${CB.toString(36).toUpperCase()}</span> · ${rows.length}종 <button id="vsw" onclick="let p=document.querySelectorAll('img'),pt=document.body.dataset.pt!=='1';document.body.dataset.pt=pt?'1':'0';p.forEach(i=>i.src=i.src.replace(pt?'tokens/':'tokens_painted/',pt?'tokens_painted/':'tokens/'));this.textContent=pt?'보는중: 도색 (클릭→픽셀)':'보는중: 픽셀 (클릭→도색)';" style="font-size:12px;padding:4px 10px;cursor:pointer">보는중: 픽셀 (클릭→도색)</button></h1>
-<div class="tabs">${TABS.map(([k, n], i) => `<button data-t="${k}" class="${i ? '' : 'on'}" onclick="document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('on'));this.classList.add('on');document.querySelectorAll('.tabpane').forEach(p=>p.style.display=p.dataset.t===this.dataset.t?'block':'none')">${n} — ${k === 'relics' ? relicCount : (k === 'maps' ? mapsCount : groups[k].length)}</button>`).join('')}</div>
+<div class="tabs"><button data-t="preview" onclick="document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('on'));this.classList.add('on');document.querySelectorAll('.tabpane').forEach(p=>p.style.display=p.dataset.t===this.dataset.t?'block':'none');const f=document.getElementById('ingame-preview');if(!f.src)f.src='gallery-preview.html'">인게임 맵 · 크기 테스트</button>${TABS.map(([k, n], i) => `<button data-t="${k}" class="${i ? '' : 'on'}" onclick="document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('on'));this.classList.add('on');document.querySelectorAll('.tabpane').forEach(p=>p.style.display=p.dataset.t===this.dataset.t?'block':'none')">${n} — ${k === 'relics' ? relicCount : (k === 'maps' ? mapsCount : groups[k].length)}</button>`).join('')}</div>
 ${TABS.map(([k, n], i) => `<div class="tabpane" data-t="${k}" style="display:${i ? 'none' : 'block'}"><h2>${n} — ${k === 'relics' ? relicCount : (k === 'maps' ? mapsCount : groups[k].length)}</h2>${k === 'relics' ? relicHtml : (k === 'maps' ? mapsHtml : factionGrid(groups[k]))}</div>`).join('')}
-</body></html>`;
+<div class="tabpane" data-t="preview" style="display:none"><p style="color:var(--dim)">실제 게임 맵과 캐릭터 크기로 비교 · <a href="gallery-preview.html" target="_blank" rel="noopener" style="color:var(--gold)">전체 화면으로 열기 ↗</a></p><iframe id="ingame-preview" title="인게임 맵 및 캐릭터 크기 테스트" style="width:100%;height:1100px;max-height:none;border:1px solid var(--line);border-radius:8px" allow="fullscreen"></iframe></div></body></html>`;
 fs.writeFileSync(path.join(SRC, 'gallery.html'), html);
 
 // gallery2.html — 그림체 통일 작업 전용 별도 갤러리 (메인 gallery.html 과 독립).
@@ -287,3 +287,4 @@ ${TABS.filter(([k]) => k === 'good' || k === 'evil').map(([k, n], i) => `<div cl
 fs.writeFileSync(path.join(SRC, 'gallery2.html'), html2fixed);
 
 console.log(`OK: ${rows.length} rows -> units.csv / units.json / gallery.html / gallery2.html`);
+
