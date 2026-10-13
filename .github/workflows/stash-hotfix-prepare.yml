@@ -1,0 +1,66 @@
+name: Prepare approved expedition inventory hotfix
+on:
+  push:
+    branches: [diagnostics/playtest-20261013]
+    paths: [.github/workflows/stash-hotfix-prepare.yml]
+permissions:
+  contents: write
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Read pinned main files and add regression tests
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 <<'PY'
+          import urllib.request,json,pathlib,base64
+          sha='929bd2ed039afbb90b4ea9713b2f2ec220c83c24'
+          root='https://api.github.com/repos/leesh603/mesbg-assets/'
+          base='https://raw.githubusercontent.com/leesh603/mesbg-assets/'+sha+'/'
+          files=['src/game.js','index.html','tools/build.js','tests/campaign-harness.cjs','tests/integrated-rework.test.cjs','tests/hero-identities.test.cjs','tests/progression.test.cjs','tests/battle-fx.test.cjs','tests/polish.test.cjs']
+          for f in files:
+            p=pathlib.Path(f);p.parent.mkdir(parents=True,exist_ok=True)
+            with urllib.request.urlopen(base+f) as r:p.write_bytes(r.read())
+          with urllib.request.urlopen(root+'git/blobs/a6f52bd80207f61f6071f6c424ec8dc76af14fb0') as r:test=json.load(r)
+          pathlib.Path('tests/expedition-inventory.test.cjs').write_bytes(base64.b64decode(test['content']))
+          p=pathlib.Path('src/game.js');s=p.read_text()
+          old='    this.horses = 0;\n    this.fallen = [];\n    this.devices = [];'
+          new="    this.horses = 0;\n    this.fallen = [];\n    // Equipment belongs to this expedition, not to the reused battle instance.\n    this.stash = [];\n    this.legacy = [];\n    this._resale = [];\n    this.shopStock = [];\n    this._stockFor = '';\n    this._soldOut = [];\n    this._shopTarget = '';\n    this.devices = [];"
+          assert s.count(old)==1,'new-expedition anchor changed';s=s.replace(old,new)
+          old2='    Object.assign(this, s);\n    this.events = [];\n    this.log = [];\n    this.terrain = structuredClone(ee);'
+          new2="    // Older saves may omit these fields; do not retain a different run's items.\n    s.stash = Array.isArray(s.stash) ? s.stash : [];\n    s.legacy = Array.isArray(s.legacy) ? s.legacy : [];\n    Object.assign(this, s);\n    // Buyback and target selection are session-only and absent from saved state.\n    this._resale = [];\n    this._shopTarget = '';\n    this.events = [];\n    this.log = [];\n    this.terrain = structuredClone(ee);"
+          assert s.count(old2)==1,'resume anchor changed';s=s.replace(old2,new2);p.write_text(s)
+          PY
+      - name: Build and run inventory, combat, hero and save regressions
+        run: |
+          set -o pipefail
+          mkdir -p evidence
+          node tools/build.js --online-only | tee evidence/build.log
+          node --test tests/expedition-inventory.test.cjs tests/progression.test.cjs tests/battle-fx.test.cjs tests/polish.test.cjs | tee evidence/regression.log
+          node tests/integrated-rework.test.cjs | tee evidence/integrated.log
+          node tests/hero-identities.test.cjs | tee evidence/heroes.log
+      - name: Create verified Git objects only, do not move any branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 <<'PY'
+          import pathlib,json,os,urllib.request,hashlib
+          root='https://api.github.com/repos/leesh603/mesbg-assets/'
+          expected={'src/game.js':'5cd37645befd78646098c3ceb404e76f327563fd','index.html':'171c25eaf383b1a9d319237bb2ad5492bf666e6e','tests/expedition-inventory.test.cjs':'a6f52bd80207f61f6071f6c424ec8dc76af14fb0'}
+          objects=[]
+          for f,want in expected.items():
+            b=pathlib.Path(f).read_bytes();oid=hashlib.sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest();assert oid==want,(f,oid,want)
+            req=urllib.request.Request(root+'git/blobs',data=json.dumps({'content':b.decode(),'encoding':'utf-8'}).encode(),headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Content-Type':'application/json','Accept':'application/vnd.github+json'},method='POST')
+            with urllib.request.urlopen(req) as r:obj=json.load(r)
+            assert obj['sha']==oid;objects.append({'path':f,'mode':'100644','type':'blob','sha':oid})
+          report={'base':'929bd2ed039afbb90b4ea9713b2f2ec220c83c24','baseTree':'457d719a09a8b81622a0de181de2078b631ea2dd','objects':objects,'tests':'42 named regression cases plus integrated and all-hero/evolution suite','branchUpdated':False}
+          pathlib.Path('evidence/objects.json').write_text(json.dumps(report,indent=2));print('VERIFIED_OBJECTS '+json.dumps(report))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: stash-hotfix-prepared-${{ github.run_id }}
+          path: evidence/
+          retention-days: 14
