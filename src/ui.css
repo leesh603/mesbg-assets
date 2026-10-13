@@ -634,3 +634,16 @@ html body.lwb-polished:not([data-phase="move"]):not([data-phase="shoot"]):not([d
 #app#app#app#app#app .modal .reward[data-evopt].is-picked b::before{content:"✓ "}
 #app#app#app#app#app .modal .reward-cards:has(.relic-card),#app#app#app#app#app .modal .reward-cards:has([data-evopt]){grid-auto-rows:1fr!important}
 #app#app#app#app#app .modal .reward.is-picked,#app#app#app#app#app .recruit-card[data-draft].is-picked{border-image-slice:12!important;border-image-width:24px!important}
+/* relic cards: icon plaque centred vertically; picking tints the whole card gold (icon untouched) */
+#app#app#app#app#app .modal .reward.relic-card{align-items:center!important}
+#app#app#app#app#app .modal .reward.relic-card > .choice-art{align-self:center!important}
+#app#app#app#app#app .modal .reward.relic-card.is-picked > .choice-art{border-image-source:var(--fr-chip)!important}
+#app#app#app#app#app .modal .reward.relic-card.is-picked > .choice-art::after{content:none!important;display:none!important}
+#app#app#app#app#app .modal .reward.relic-card.is-picked{box-shadow:0 4px 0 rgba(0,0,0,.45),0 0 16px rgba(246,221,150,.35)!important;
+ background:var(--fr-grain),linear-gradient(180deg,rgba(150,112,40,.62) 0,rgba(96,68,22,.72) 55%,rgba(58,40,12,.85) 100%)!important}
+#app#app#app#app#app .modal .reward.relic-card.is-picked .rc-name{color:#fff1c4!important}
+#app#app#app#app#app .modal .reward.relic-card.is-picked :is(p,.rc-family,.rc-note){color:#f3e6c4!important}
+/* event options pick the same way */
+#app#app#app#app#app .modal .reward[data-evopt].is-picked{box-shadow:0 4px 0 rgba(0,0,0,.45),0 0 16px rgba(246,221,150,.35)!important;
+ background:var(--fr-grain),linear-gradient(180deg,rgba(150,112,40,.62) 0,rgba(96,68,22,.72) 55%,rgba(58,40,12,.85) 100%)!important}
+#app#app#app#app#app .modal .reward[data-evopt].is-picked p{color:#f3e6c4!important}
