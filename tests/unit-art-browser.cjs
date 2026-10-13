@@ -23,7 +23,7 @@ async function board(page,ids){return page.evaluate(async ids=>{
  for(const c of s.tokens.values())c.destroy();s.tokens.clear();b.units=[];b.terrain=[];b.phase='preparation';b.selected='';b.activeMoverUid='';
  const sample=ids.map((id,i)=>{const u=b.spawn(id,b.meta.get(id).side,{x:0,y:0});u.x=1060+(i%2)*206;u.y=460+Math.floor(i/2)*225;u.angle=0;u.acted=false;u.prone=false;return u;});
  b.units=sample;s.busy=true;s.sync();s.cameras.main.setZoom(.82).centerOn(1165,685);s.busy=true;
- return sample.map(u=>{const c=s.tokens.get(u.uid),sp=c.getByName('token');return{id:u.id,uid:u.uid,radius:u.radius,width:sp.displayWidth,height:sp.displayHeight,baseHeight:sp.getData('baseSY')*s.textures.get(u.id).getSourceImage().height,originX:sp.originX,originY:sp.originY,bases:c.list.filter(x=>['base','rim'].includes(x.name)).map(x=>x.name),alpha:sp.alpha,visible:sp.visible};});
+ return sample.map(u=>{const c=s.tokens.get(u.uid),sp=c.getByName('token');return{id:u.id,uid:u.uid,radius:u.radius,width:sp.displayWidth,height:sp.displayHeight,baseWidth:sp.getData('baseSX')*s.textures.get(u.id).getSourceImage().width,baseHeight:sp.getData('baseSY')*s.textures.get(u.id).getSourceImage().height,originX:sp.originX,originY:sp.originY,bases:c.list.filter(x=>['base','rim'].includes(x.name)).map(x=>x.name),alpha:sp.alpha,visible:sp.visible};});
  },ids);}
 (async()=>{server.listen(8146,'127.0.0.1');const browser=await chromium.launch({executablePath:process.env.BROWSER_EXECUTABLE||undefined,headless:true,args:['--no-sandbox','--disable-dev-shm-usage','--disable-gpu','--disable-software-rasterizer','--no-zygote']});
  try{
@@ -46,13 +46,14 @@ async function board(page,ids){return page.evaluate(async ids=>{
   await board(page,['frodo','gimli','warrior_minas_tirith','beorn','cave_troll','sauron']);await page.waitForTimeout(600);await shot(page,version+'-body-classes');
   await board(page,['boromir','boromir_mounted','gandalf','gandalf_white_mounted','gimli','dain_boar']);await page.waitForTimeout(600);await shot(page,version+'-rider-reference');
   if(version==='after'){
-   for(let i=0;i<(process.env.QUICK_QA?0:catalog.length);i+=32){const ids=catalog.slice(i,i+32).map(x=>x.id),rows=await board(page,ids);for(const r of rows){const meta=await page.evaluate(id=>({p:MESBG.unitArtProfiles[id],m:MESBG.battle.meta.get(id)}),r.id);if(r.bases.length)throw Error('Base still present: '+r.id);if(!r.visible||!Number.isFinite(r.width)||r.width<=0)throw Error('Missing art: '+r.id);if(Math.abs(r.baseHeight*(meta.p[2]-meta.p[1])-meta.p[5])>.01)throw Error('Wrong anatomical height: '+r.id);if(Math.abs(r.originX-meta.p[3])>.001||Math.abs(r.originY-meta.p[4])>.001)throw Error('Wrong body center: '+r.id);report.unitsChecked++;}
+   for(let i=0;i<(process.env.QUICK_QA?0:catalog.length);i+=32){const ids=catalog.slice(i,i+32).map(x=>x.id),rows=await board(page,ids);for(const r of rows){const meta=await page.evaluate(id=>({p:MESBG.unitArtProfiles[id],m:MESBG.battle.meta.get(id)}),r.id);if(r.bases.length)throw Error('Base still present: '+r.id);if(!r.visible||!Number.isFinite(r.width)||r.width<=0)throw Error('Missing art: '+r.id);if(Math.abs((meta.p[7]==='width'?r.baseWidth*(meta.p[9]-meta.p[8]):r.baseHeight*(meta.p[2]-meta.p[1]))-meta.p[5])>.01)throw Error('Wrong anatomical height: '+r.id);if(Math.abs(r.originX-meta.p[3])>.001||Math.abs(r.originY-meta.p[4])>.001)throw Error('Wrong body center: '+r.id);report.unitsChecked++;}
     fs.writeFileSync('review-output/browser-report.json',JSON.stringify(report,null,2));
    }
    await board(page,['mt_swordshield','mt_spear','warrior_minas_tirith','gondor_archer','gandalf','boromir']);await page.waitForTimeout(600);await shot(page,'after-size-lineup');
-   await page.evaluate(()=>{const el=document.getElementById('game');for(const k of ['position','left','top','width','height','zIndex'])el.style[k]='';});await page.setViewportSize({width:390,height:844});await page.evaluate(()=>{const s=MESBG.scene;s.busy=false;s.cameras.main.setZoom(.9).centerOn(550,500);});await page.waitForTimeout(500);await shot(page,'after-mobile-lineup');
+   await page.evaluate(()=>{const el=document.getElementById('game');for(const k of ['position','left','top','width','height','zIndex'])el.style[k]='';});await page.setViewportSize({width:390,height:844});await page.evaluate(()=>{const s=MESBG.scene;s.busy=false;s.cameras.main.setZoom(.9).centerOn(1165,685);});await page.waitForTimeout(500);await shot(page,'after-mobile-lineup');
   }
   report.versions.push(version);await context.close();
  }
  }catch(e){report.fatal=e.stack;console.error(e.stack);process.exitCode=1;}finally{fs.writeFileSync('review-output/browser-report.json',JSON.stringify(report,null,2));await browser.close();server.close();}
 })();
+
