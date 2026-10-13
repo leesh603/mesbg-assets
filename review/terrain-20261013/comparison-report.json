@@ -1,0 +1,140 @@
+{
+  "base": "a1a254cf6c3a1e0e91f6cc4a82208a62a6bf5ef3",
+  "errors": [],
+  "failed": [],
+  "scenarios": [],
+  "views": [
+    {
+      "name": "before-entry",
+      "phase": "menu",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "name": "before-osgiliath-early",
+      "phase": "preparation",
+      "map": "osgiliath",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "name": "before-fangorn-early",
+      "phase": "preparation",
+      "map": "fangorn",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "name": "before-moria-early",
+      "phase": "preparation",
+      "map": "moria",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "name": "before-black_gate-early",
+      "phase": "preparation",
+      "map": "black_gate",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "name": "after-entry",
+      "phase": "menu",
+      "progress": 0,
+      "overflow": false,
+      "objects": 0,
+      "broken": []
+    },
+    {
+      "name": "after-osgiliath-early",
+      "phase": "preparation",
+      "map": "osgiliath",
+      "progress": 0,
+      "overflow": false,
+      "objects": 8,
+      "broken": []
+    },
+    {
+      "name": "after-osgiliath-late",
+      "phase": "preparation",
+      "map": "osgiliath",
+      "progress": 4,
+      "overflow": false,
+      "objects": 12,
+      "broken": []
+    },
+    {
+      "name": "after-fangorn-early",
+      "phase": "preparation",
+      "map": "fangorn",
+      "progress": 0,
+      "overflow": false,
+      "objects": 11,
+      "broken": []
+    },
+    {
+      "name": "after-fangorn-late",
+      "phase": "preparation",
+      "map": "fangorn",
+      "progress": 4,
+      "overflow": false,
+      "objects": 15,
+      "broken": []
+    },
+    {
+      "name": "after-moria-early",
+      "phase": "preparation",
+      "map": "moria",
+      "progress": 0,
+      "overflow": false,
+      "objects": 10,
+      "broken": []
+    },
+    {
+      "name": "after-moria-late",
+      "phase": "preparation",
+      "map": "moria",
+      "progress": 4,
+      "overflow": false,
+      "objects": 13,
+      "broken": []
+    },
+    {
+      "name": "after-black_gate-early",
+      "phase": "preparation",
+      "map": "black_gate",
+      "progress": 0,
+      "overflow": false,
+      "objects": 10,
+      "broken": []
+    },
+    {
+      "name": "after-black_gate-late",
+      "phase": "preparation",
+      "map": "black_gate",
+      "progress": 4,
+      "overflow": false,
+      "objects": 14,
+      "broken": []
+    },
+    {
+      "name": "mobile-osgiliath",
+      "phase": "preparation",
+      "map": "osgiliath",
+      "progress": 2,
+      "overflow": false,
+      "objects": 10,
+      "broken": []
+    },
+    {
+      "name": "mobile-forest",
+      "phase": "preparation",
+      "map": "mirkwood",
+      "progress": 2,
+      "overflow": false,
+      "objects": 12,
+      "broken": []
+    }
+  ]
+}
