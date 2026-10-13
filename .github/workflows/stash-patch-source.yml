@@ -1,0 +1,38 @@
+name: Stash hotfix focused source
+on:
+  push:
+    branches: [diagnostics/playtest-20261013]
+    paths: [.github/workflows/stash-patch-source.yml]
+permissions:
+  contents: read
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Fetch the pinned source, not the asset repository
+        run: |
+          python3 <<'PY'
+          import urllib.request,json,pathlib
+          sha='929bd2ed039afbb90b4ea9713b2f2ec220c83c24'
+          base='https://raw.githubusercontent.com/leesh603/mesbg-assets/'+sha+'/'
+          files=['src/game.js','index.html','tools/build.js']
+          for folder in ['tests','.github/workflows']:
+            with urllib.request.urlopen('https://api.github.com/repos/leesh603/mesbg-assets/contents/'+folder+'?ref='+sha) as r: entries=json.load(r)
+            files += [e['path'] for e in entries if e['type']=='file']
+          for f in files:
+            p=pathlib.Path('focused')/f;p.parent.mkdir(parents=True,exist_ok=True)
+            with urllib.request.urlopen(base+f) as r: p.write_bytes(r.read())
+          pathlib.Path('focused/BASE_SHA').write_text(sha)
+          src=pathlib.Path('focused/src/game.js').read_text()
+          lines=src.splitlines()
+          for i,l in enumerate(lines):
+            if 'stash' in l or 'prototype.start' in l or 'stageDeaths' in l:
+              print(str(i+1)+': '+l)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: focused-stash-source-${{ github.run_id }}
+          path: focused/
+          include-hidden-files: true
+          retention-days: 2
