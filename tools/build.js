@@ -22,7 +22,11 @@ const STUB = /window\.__MESBG_ASSETS__=\{\};window\.__MESBG_ASSET_KEYS__=\[[^\]]
 const MIME = { png: 'image/png', jpg: 'image/jpeg', jpeg: 'image/jpeg', webp: 'image/webp', gif: 'image/gif', svg: 'image/svg+xml', wav: 'audio/wav', mp3: 'audio/mpeg', ogg: 'audio/ogg', woff: 'font/woff', woff2: 'font/woff2' };
 
 let html = fs.readFileSync(INDEX, 'utf8');
-const src = fs.readFileSync(SRC, 'utf8');
+let src = fs.readFileSync(SRC, 'utf8');
+// The pure terrain module is embedded so online and offline boot stay identical.
+const terrain = fs.readFileSync(path.join(ROOT,'src','tactical-terrain.js'),'utf8');
+src=src.replace(/\/\*__TERRAIN_BEGIN__\*\/[\s\S]*?\/\*__TERRAIN_END__\*\//,()=> '/*__TERRAIN_BEGIN__*/\n'+terrain+'\n/*__TERRAIN_END__*/');
+fs.writeFileSync(SRC,src);
 
 const a = html.indexOf(BEGIN), b = html.indexOf(END);
 if (a < 0 || b < 0 || b < a) {
