@@ -49,3 +49,65 @@ assert.equal(q.toggleRecruit(0), false);
 assert.match(q.recruitReason, /금화/);
 assert.deepEqual(Array.from(q.recruitDraft), [1,2]);
 console.log('PASS: heal validity/resource, spell effect/resource, save choices, named recruitment, hero swap');
+
+// Equipment removal and use must agree with the card and preserve permanent changes.
+const equipment=h.run('LWB_EQUIP');
+const idx=id=>equipment.findIndex(e=>e.id===id);
+q.start('ai');q.units=[];q.gold=5000;q.phase='reward';q.campStep='shop';q._soldOut=[];
+const fighter=q.spawn('aragorn','good',{x:500,y:500});
+assert.equal(q.buyEquip(idx('angrist'),fighter.uid),true);assert.equal(fighter.eqPierce,2);
+assert.equal(q.buyEquip(idx('durin_axe'),fighter.uid),true);assert.equal(fighter.eqPierce,2);
+assert.equal(q.unequip('angrist',fighter.uid),true);assert.equal(fighter.eqPierce,1);
+assert.equal(q.unequip('durin_axe',fighter.uid),true);assert.equal(fighter.eqPierce,0);
+const courage=fighter.baseStats.courage;
+assert.equal(q.buyEquip(idx('dark_berry'),fighter.uid),true);q.refreshUnit(fighter);
+assert.equal(fighter.baseStats.courage,courage+2);assert.equal(fighter.stats.courage,courage+2);
+fighter.injury='leg';fighter.injuryBackup={move:fighter.baseStats.move};const move=fighter.baseStats.move;fighter.baseStats.move=Math.floor(move*.75);
+assert.equal(q.buyEquip(idx('bandage'),fighter.uid),true);assert.equal(fighter.baseStats.move,move);assert.ok(!fighter.injury);
+q.save();assert.equal(q.resume(),true);assert.equal(q.unit(fighter.uid).baseStats.courage,courage+2);
+const money=q.gold;assert.equal(q.buyEquip(idx('salve'),fighter.uid),false);assert.equal(q.gold,money);
+q.relics={narya:3,quiver:2};q.save();q.relics={};assert.equal(q.resume(),true);assert.equal(q.rank('narya'),3);
+assert.match(q.relicSummary('narya'),/기존 저장 3중첩/);
+assert.equal(q.relicAudience('quiver').units.length,0);
+for(let i=0;i<20;i++){q.rollRelics();assert.ok(!q.relicChoices.includes('narya'));}
+q.campStep='relic';q.chosenRelic='';q.relicChoices=['narya'];assert.equal(q.chooseRelic('narya'),false);
+
+// Hero variants execute the same family signature, and never pay for empty effects.
+q.units=[];q.relics={};q.phase='move';q.side='good';
+const king=q.spawn('theoden_foot','good',{x:500,y:500});
+const rider=q.spawn('rohan_rider','good',{x:550,y:500});
+const foreign=q.spawn('gondor_knight','good',{x:650,y:500});
+const rm=rider.stats.move,fm=foreign.stats.move;
+assert.equal(q.skill(king.uid),true);assert.equal(rider.stats.move,rm+90);assert.equal(foreign.stats.move,fm);assert.equal(rider.protected,true);
+const aragorn=q.spawn('aragorn_blackgate','good',{x:850,y:500});
+assert.equal(q.skill(aragorn.uid),false);aragorn.resources.might--;
+assert.equal(q.skill(aragorn.uid),true);assert.equal(aragorn.resources.might,aragorn.stats.might);
+const imrahil=q.spawn('imrahil','good',{x:1200,y:500});
+const swan=q.spawn('dol_amroth_knight','good',{x:1250,y:500});
+assert.equal(q.skill(imrahil.uid),true);assert.equal(swan.mightReroll,true);assert.ok(!foreign.mightReroll);
+const elf=h.UnitCatalog.elrond_mounted;
+const elrond=q.spawn('elrond_mounted','good',{x:1800,y:500});
+const will2=elrond.resources.will;assert.equal(q.skill(elrond.uid),false);assert.equal(elrond.resources.will,will2);
+elrond.currentWounds--;assert.equal(q.skill(elrond.uid),true);assert.equal(elrond.currentWounds,elrond.stats.wounds);assert.equal(elrond._stageHealing,1);
+// Auto commands change priorities, not actions, positions, or resources.
+const foe=q.spawn('orc_sword','evil',{x:1000,y:900});
+const snapshot=JSON.stringify(q.units.map(u=>[u.uid,u.x,u.y,u.acted,u.resources]));const cp=q.cp;
+assert.equal(q.setBattleOrder('focus',foe.uid),true);assert.equal(q.setBattleOrder('hold'),true);assert.equal(q.cp,cp);
+assert.equal(JSON.stringify(q.units.map(u=>[u.uid,u.x,u.y,u.acted,u.resources])),snapshot);
+assert.equal(q.setBattleOrder('auto'),true);assert.equal(q.battleOrder,null);
+// Initial empty recruitment state resumes without rerolling the offers or choice.
+q.start('ai');q.recruitDraft=[0];const offers=JSON.stringify(q.recruitOffers);q.save();assert.equal(q.resume(),true);
+assert.equal(JSON.stringify(q.recruitOffers),offers);assert.deepEqual(Array.from(q.recruitDraft),[0]);
+// Two expedition consequences survive save/load and are consumed by the next battle.
+q.units=[];q.spawn('aragorn','good',{x:500,y:500});q.initialDraft=false;q.phase='reward';q.campStep='ready';
+q.expeditionIntel=q.wave+1;q.expeditionSupport=q.wave+1;q.save();assert.equal(q.resume(),true);
+assert.equal(q.leaveCamp(),true);q.startWave();
+assert.equal(q.expeditionIntel,0);assert.equal(q.expeditionSupport,0);assert.equal(q.priority,'good');
+assert.equal(q.alive('good').filter(u=>u.temporary&&u.id==='mt_swordshield').length,2);
+console.log('PASS: equipment stacking/removal/healing/save, unique legacy relics, hero variants, command invariants, initial resume, expedition consequences');
+// Purchased allies must survive departure and enter exactly one battle.
+q.start('ai');q.units=[];q.spawn('aragorn','good',{x:500,y:500});q.initialDraft=false;q.phase='reward';q.campStep='shop';q.gold=300;
+assert.equal(q.buyAlly(0),true);q.campStep='ready';q.save();assert.equal(q.resume(),true);assert.equal(q.leaveCamp(),true);q.startWave();
+assert.equal(q.alive('good').filter(u=>u.temporary&&u.id==='rohan_rider').length,2);
+assert.ok(q.alive('good').filter(u=>u.temporary).every(u=>!u._pendingAlly));
+console.log('PASS: purchased reinforcements persist until the promised battle');
