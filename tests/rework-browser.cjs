@@ -36,7 +36,7 @@ async function manualProbe(page,run){
 
 (async()=>{server.listen(8137,'127.0.0.1');const browser=await chromium.launch({headless:true});
  try{
-  for(const [width,version] of (mode==='ui'?[[360,'before'],[360,'after'],[390,'before'],[390,'after']]:mode==='comparison'?[[390,'before'],[360,'after']]:[[390,'after']])){
+  for(const [width,version] of (mode==='ui'?[[360,'before'],[360,'after'],[390,'before'],[390,'after']]:mode==='comparison'?[[390,'before'],[390,'after'],[360,'after']]:[[390,'after']])){
    const context=await browser.newContext({viewport:{width,height:width===360?740:844},deviceScaleFactor:1});
    await context.route('**/*',route=>{const r=route.request();if(r.method()!=='GET'||/workers\.dev/.test(r.url()))return route.abort();return route.continue();});
    await context.addInitScript(()=>{Element.prototype.requestFullscreen=async()=>{};});
