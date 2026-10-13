@@ -6,10 +6,7 @@ for(const u of data.units){
  if(!(u.top>=0&&u.bottom>u.top&&u.bottom<=1&&u.centerX>=0&&u.centerX<=1&&u.centerY>=0&&u.centerY<=1&&u.worldReferenceSize>0))throw Error('Invalid anatomy: '+u.id);
  if(rows[u.id])throw Error('Duplicate anatomy: '+u.id);
  rows[u.id]=[u.bodyClass,u.top,u.bottom,u.centerX,u.centerY,u.worldReferenceSize,u.reference];
- if(u.referenceAxis==='width'){
-  if(!(u.left>=0&&u.right>u.left&&u.right<=1))throw Error('Invalid torso width: '+u.id);
-  rows[u.id].push('width',u.left,u.right);
- }
+ if(u.referenceAxis!=='height'||!u.visualReview||!u.sourceSHA256)throw Error('A visually reviewed body-height profile is required: '+u.id);
 }
 const file='src/game.js',src=fs.readFileSync(file,'utf8'),anchor='const UNIT_ART_PROFILES = ',a=src.indexOf(anchor),b=src.indexOf(';',a);
 if(a<0||b<0)throw Error('Art profile marker is missing');
