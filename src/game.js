@@ -5691,7 +5691,7 @@ if(localStorage.getItem('lwb-view')!=='pc')document.body.classList.add('force-mo
   setPlaybackSpeed(localStorage.getItem('lwb_speed') || '1');
   ut('speed-toggle').onclick = () => { setPlaybackSpeed([1,2,4,8].find(n => n > qt) || 1); me(); };
   document.querySelector('.top-actions').insertAdjacentHTML('afterbegin','<select id="doctrine" title="부대 전술 지침 — 태세 미지정 병사가 지침을 따릅니다"><option value="">균형</option><option value="charge">돌진</option><option value="volley">사격중심</option><option value="shield">방어선</option><option value="harass">후방대기</option></select>');
-{const _dc=ut('doctrine');_dc.value=q.doctrine||'';_dc.onchange=()=>{q.doctrine=_dc.value;Xt('부대 지침 · '+(DOCTRINE[q.doctrine]||DOCTRINE['']).label+' — '+(DOCTRINE[q.doctrine]||DOCTRINE['']).desc);q.save&&q.save();};}
+{const _dc=ut('doctrine');if(_dc&&!_dc.closest('label')){const _l=document.createElement('label');_l.className='settings-speed settings-doctrine';_l.innerHTML='<span><img src="icons/ui_flag.png" alt="">부대 지침</span>';_dc.before(_l);_l.appendChild(_dc);}_dc.value=q.doctrine||'';_dc.onchange=()=>{q.doctrine=_dc.value;Xt('부대 지침 · '+(DOCTRINE[q.doctrine]||DOCTRINE['']).label+' — '+(DOCTRINE[q.doctrine]||DOCTRINE['']).desc);q.save&&q.save();};}
 ut('auto').onclick = () => { AUTO = !AUTO; q._autoCampNote = 0; ut('auto').classList.toggle('on', AUTO); ut('auto').textContent = AUTO ? '자동 중' : '자동'; const _ad2=ut('auto-dock'); if(_ad2){_ad2.textContent=AUTO?'자동 중':'자동';_ad2.classList.toggle('on',AUTO);} Xt(AUTO ? '자동 진행 시작 — 아군 턴도 AI가 맡습니다. 보상 화면에서는 멈춥니다.' : '자동 진행 해제'); me(); };
   ut('deploy-all').onclick = () => Rt(() => {
     const un = q.alive('good').filter(u => u.x < 0);
@@ -5733,7 +5733,7 @@ ut('help').onclick = () => { if (At)
  * world pixels are intentionally separate; only this adapter moves camera.
  * No network dependencies. Native Pointer Events own all field gestures.
  * -------------------------------------------------------------------- */
-const UX = {version:'1.9-hud-polish', dpr:1, zoom:.7, width:1, height:1, ready:false,
+const UX = {version:'1.9-hud-polish', dpr:1, zoom:.9, width:1, height:1, ready:false,
     cameraMode:'tactical', pointers:new Map(), gesture:null, stage:null, rosterKey:'', reduced:matchMedia('(prefers-reduced-motion: reduce)').matches};
 const mobileLayout = () => matchMedia('(max-width:900px)').matches || document.body.classList.contains('force-mobile');
 const touchLayout = () => matchMedia('(pointer:coarse)').matches || mobileLayout();
@@ -5807,7 +5807,7 @@ function screenAt(x,y){const c=cameraCenter();return{x:(x-c.x)*UX.zoom+UX.width/
 function zoomAt(z,x=UX.width/2,y=UX.height/2){const p=worldAt(x,y);z=Ot.Math.Clamp(z,Math.max(.12,fitZoom()),1.65);setCamera(p.x-(x-UX.width/2)/z,p.y-(y-UX.height/2)/z,z,'manual');}
 Ve.prototype.zoom=function(delta){zoomAt(UX.zoom*(delta>0?1.2:1/1.2));};
 Ve.prototype.overview=function(){setCamera(pt.width/2,pt.height/2,overviewZoom(),'overview')};
-Ve.prototype.focus=function(){const u=actionableUnit()||this.b.unit(this.b.selected);if(u?.alive){panTo(u.x,u.y,UX.cameraMode==='overview'?(mobileLayout()?.78:.82):UX.zoom,320)}};
+Ve.prototype.focus=function(){const u=actionableUnit()||this.b.unit(this.b.selected);if(u?.alive){panTo(u.x,u.y,UX.cameraMode==='overview'?(mobileLayout()?.9:.95):UX.zoom,320)}};
 Ve.prototype.center=function(x,y){setCamera(x,y,UX.zoom,'manual')};
 ut('offscreen-unit').onclick=()=>Tt.focus();
 function resetGestures(){for(const id of UX.pointers.keys()){try{Tt.game.canvas.releasePointerCapture(id)}catch{}}UX.pointers.clear();UX.gesture=null;Tt.dragStart=undefined;Tt.dragUnit='';Tt.preview=undefined;Tt.previewPlan=null;Tt.chargeTarget=null;}
@@ -5890,7 +5890,7 @@ Ve.prototype.sync=function(){
     }
     if(this.b.phase==='menu'){UX.stage=null;return;}
     const stage=(this.b.phase==='preparation'?this.b.wave+1:this.b.wave)+'/'+(this.b.mapIndex||0);
-    if(stage!==UX.stage&&['preparation','move','shoot','fight'].includes(this.b.phase)){UX.stage=stage;const _foes=this.b.phase==='move'?this.b.alive('evil'):[];let team=_foes.length?_foes:this.b.alive(['move','shoot'].includes(this.b.phase)?this.b.side:'good');if(this.b.phase==='preparation'){const _pl=team.filter(u=>u.x>=0);team=_pl.length?_pl:[{x:1165,y:pt.deployY||690}];}const x=team.length?team.reduce((n,u)=>n+u.x,0)/team.length:1165;const z=mobileLayout()?Math.max(.55,Math.min(.8,UX.height/(pt.height*.72))):.82;const y=this.b.phase==='preparation'||_foes.length?(team.length?team.reduce((n,u)=>n+u.y,0)/team.length:690):this.b.mission==='defense'?(mobileLayout()&&innerHeight>innerWidth?600-Math.min(78,UX.height*.16)/z:590):690;panTo(x,y,z,430)}
+    if(stage!==UX.stage&&['preparation','move','shoot','fight'].includes(this.b.phase)){UX.stage=stage;const _foes=this.b.phase==='move'?this.b.alive('evil'):[];let team=_foes.length?_foes:this.b.alive(['move','shoot'].includes(this.b.phase)?this.b.side:'good');if(this.b.phase==='preparation'){const _pl=team.filter(u=>u.x>=0);team=_pl.length?_pl:[{x:1165,y:pt.deployY||690}];}const x=team.length?team.reduce((n,u)=>n+u.x,0)/team.length:1165;const z=mobileLayout()?Math.max(.82,Math.min(1.05,UX.height/(pt.height*.5))):.95;const y=this.b.phase==='preparation'||_foes.length?(team.length?team.reduce((n,u)=>n+u.y,0)/team.length:690):this.b.mission==='defense'?(mobileLayout()&&innerHeight>innerWidth?600-Math.min(78,UX.height*.16)/z:590):690;panTo(x,y,z,430)}
     updateWorldUI();
 };
 const clarityRings=Ve.prototype.drawRings;
@@ -7825,7 +7825,7 @@ window.__LWB = { be: (...a) => be(...a), He: (...a) => He(...a), metaFor, suppor
 function renderPolishedHUD() {
     document.body.dataset.phase=q.phase;document.body.dataset.side=q.side||'';
     {const wm=ut('wave')?.parentElement;if(wm)wm.dataset.round=['move','shoot','fight'].includes(q.phase)&&q.round?'R'+q.round:'';
-     const hm=document.querySelector('#hud-mission .hm-line'),em=ut('ux-mission')?.querySelector('em');if(hm)hm.textContent=em?.textContent||'원정 준비';{const box=ut('hud-mission'),mx=ut('ux-mission');if(box&&mx){let sub=box.querySelector('.hm-sub');if(!sub){sub=document.createElement('div');sub.className='hm-sub';box.appendChild(sub);}const c=mx.cloneNode(true);c.querySelector('em')?.remove();c.querySelectorAll('small,img').forEach(e=>e.remove());const t=c.textContent.replace(/^\s*[·—-]\s*/,'').trim();if(sub.textContent!==t)sub.textContent=t;box.classList.toggle('has-sub',!!t);}}}
+     const hm=document.querySelector('#hud-mission .hm-line'),em=ut('ux-mission')?.querySelector('em');if(hm)hm.textContent=em?.textContent||'원정 준비';{const box=ut('hud-mission'),mx=ut('ux-mission');if(box&&!box.dataset.pop){box.dataset.pop='1';box.setAttribute('role','button');box.setAttribute('aria-label','전장 임무 보기');box.onclick=()=>{const m=ut('ux-mission');const d=document.createElement('dialog');d.className='ui-info-dialog mission-pop';const c=m?m.cloneNode(true):document.createElement('div');const t=c.querySelector('em')?.textContent||'전장 임무';c.querySelector('em')?.remove();d.innerHTML='<h2>'+esc(t)+'</h2><div class="mission-rule">'+c.innerHTML+'</div><button class="primary" data-close>확인</button>';document.body.appendChild(d);d.querySelector('[data-close]').onclick=()=>d.close();d.onclick=e=>{if(e.target===d)d.close();};d.onclose=()=>d.remove();d.showModal();};}if(box&&mx){let sub=box.querySelector('.hm-sub');if(!sub){sub=document.createElement('div');sub.className='hm-sub';box.appendChild(sub);}const c=mx.cloneNode(true);c.querySelector('em')?.remove();c.querySelectorAll('small,img').forEach(e=>e.remove());const t=c.textContent.replace(/^\s*[·—-]\s*/,'').trim();if(sub.textContent!==t)sub.textContent=t;box.classList.toggle('has-sub',!!t);}}}
     renderUnitVitals();
     if(!Qt&&q.phase==='reward'&&['event','relic'].includes(q.campStep)&&!q.eventOutcome){
         const modal=ut('overlay').querySelector('.modal'),draft=q.campDraft;

@@ -658,3 +658,68 @@ html body.lwb-polished:not([data-phase="move"]):not([data-phase="shoot"]):not([d
 #app#app#app#app#app header.top{height:auto!important;max-height:none!important;grid-template-rows:auto!important;align-items:stretch!important}
 #app#app#app#app#app header.top :is(.metric,#hud-mission,#settings-toggle){height:auto!important;min-height:44px!important}
 #app#app#app#app#app #hud-mission{padding:5px 10px!important}
+
+/* ---------- fixes after merging into main ---------- */
+/* title keeps its painting (the panel skin must not cover it) */
+#app#app#app#app#app#app .t-title.modal{border-image:none!important;border:0!important;
+ background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,0) 58%,rgba(0,0,0,.6) 78%,rgba(0,0,0,.88) 100%),var(--title-bg,var(--ui-bg)) center 60%/cover no-repeat,#060403!important;padding:0!important}
+/* top bar: mission name only — tap for the rule */
+#app#app#app#app#app #hud-mission .hm-sub{display:none!important}
+#app#app#app#app#app #hud-mission{cursor:pointer;justify-content:center!important}
+#app#app#app#app#app #hud-mission .hm-line{font:400 15px/1.2 var(--px14)!important;color:var(--tx-gold)!important;white-space:nowrap!important}
+#app#app#app#app#app #hud-mission::after{content:"ⓘ";position:absolute;right:8px;top:50%;transform:translateY(-50%);font:12px/1 var(--px11);color:var(--tx-mute)}
+#app#app#app#app#app #hud-mission{position:relative!important;padding-right:24px!important}
+#app#app#app#app#app header.top{height:calc(52px + var(--safe-t,0px))!important;grid-template-rows:44px!important}
+#app#app#app#app#app header.top :is(.metric,#hud-mission,#settings-toggle){height:44px!important}
+/* playback toggles: label never wraps */
+#app#app#app#app#app header.top .top-play .act-btn{width:auto!important;min-width:44px!important;padding:0 8px!important;white-space:nowrap!important;font:12px/1 var(--px11)!important}
+/* off-screen markers: round dark plaque, team ring, arrow outside, count inside */
+#app#app#app#app#app .os-mark{width:30px!important;height:30px!important;border:0!important;border-image:none!important;border-radius:50%!important;
+ background:radial-gradient(circle,#1c1610 0 55%,#0a0806 56%)!important;box-shadow:0 0 0 2px #0a0806,0 0 0 4px #c9d9a8,0 2px 6px rgba(0,0,0,.6)!important}
+#app#app#app#app#app .os-mark.foe{box-shadow:0 0 0 2px #0a0806,0 0 0 4px #e0907a,0 2px 6px rgba(0,0,0,.6)!important}
+#app#app#app#app#app .os-mark i{background:none!important;inset:0!important}
+#app#app#app#app#app .os-mark i::after{right:-12px!important;border-left-color:#c9d9a8!important;border-width:5px 0 5px 7px!important;margin-top:-5px!important}
+#app#app#app#app#app .os-mark.foe i::after{border-left-color:#e0907a!important}
+#app#app#app#app#app .os-mark b{font:12px/1 var(--px11)!important;color:#f6e8c8!important}
+#app#app#app#app#app .os-mark b:empty::before{width:8px!important;height:8px!important;border-radius:50%;background:#c9d9a8!important}
+#app#app#app#app#app .os-mark.foe b:empty::before{background:#e0907a!important}
+/* settings: speed and doctrine are labelled rows with bronze selects */
+#app#app#app#app#app .top-actions.open :is(.settings-speed){grid-column:1 / -1;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:10px!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important}
+#app#app#app#app#app .top-actions.open .settings-speed > span{display:flex;align-items:center;gap:6px;font:400 15px/1.2 var(--px14)!important;color:var(--tx)!important}
+#app#app#app#app#app .top-actions.open .settings-speed > span img{width:16px;height:16px;image-rendering:pixelated}
+#app#app#app#app#app .top-actions.open select{appearance:none;-webkit-appearance:none;min-width:150px;min-height:44px!important;padding:0 30px 0 12px!important;
+ border:0 solid transparent!important;border-image:var(--fr-btn-bronze) 6 fill / 12px / 0 stretch!important;background:none!important;color:var(--tx)!important;font:400 15px/1.2 var(--px14)!important;image-rendering:pixelated;
+ background-image:linear-gradient(45deg,transparent 50%,var(--tx-gold) 50%),linear-gradient(135deg,var(--tx-gold) 50%,transparent 50%)!important;background-position:calc(100% - 16px) 50%,calc(100% - 11px) 50%!important;background-size:5px 5px!important;background-repeat:no-repeat!important}
+#app#app#app#app#app .top-actions.open > select#doctrine{display:none!important}
+/* mission / info dialogs (attached to <body>) */
+:is(html,#_o#_v#_r) body.lwb-polished dialog.ui-info-dialog{max-width:min(92vw,420px);padding:28px 24px 20px!important;border:0 solid transparent!important;border-image:var(--fr-panel-ornate) 12 / 24px / 0 stretch!important;image-rendering:pixelated;border-radius:0!important;
+ background:var(--fr-crest) center 0/52px 28px no-repeat,var(--fr-grain),linear-gradient(180deg,rgba(40,33,22,.97),rgba(14,11,8,.98))!important;color:var(--tx)!important;box-shadow:0 18px 40px rgba(0,0,0,.6)!important}
+:is(html,#_o#_v#_r) body.lwb-polished dialog.ui-info-dialog::backdrop{background:rgba(0,0,0,.6)}
+:is(html,#_o#_v#_r) body.lwb-polished dialog.ui-info-dialog *{font-family:var(--px11)!important;font-weight:400!important}
+:is(html,#_o#_v#_r) body.lwb-polished dialog.ui-info-dialog h2{font:400 15px/1.4 var(--px14)!important;letter-spacing:.12em;color:var(--tx-gold)!important;text-align:center;margin:0 0 10px!important}
+:is(html,#_o#_v#_r) body.lwb-polished dialog.ui-info-dialog h2::after{content:"";display:block;width:240px;max-width:90%;height:18px;margin:6px auto 0;background:var(--fr-divider) center/240px 18px no-repeat;image-rendering:pixelated}
+:is(html,#_o#_v#_r) body.lwb-polished dialog.ui-info-dialog :is(p,.mission-rule,label){font:12px/1.6 var(--px11)!important;color:var(--tx)!important;white-space:normal}
+:is(html,#_o#_v#_r) body.lwb-polished dialog.ui-info-dialog .mission-rule img{width:12px;height:12px;vertical-align:-2px;image-rendering:pixelated}
+:is(html,#_o#_v#_r) body.lwb-polished dialog.ui-info-dialog button{display:block;width:100%;min-height:44px;margin-top:10px;border:0 solid transparent!important;border-image:var(--fr-btn-bronze) 6 fill / 12px / 0 stretch!important;background:none!important;color:var(--tx)!important;font:400 15px/1.2 var(--px14)!important;image-rendering:pixelated}
+:is(html,#_o#_v#_r) body.lwb-polished dialog.ui-info-dialog button.primary{border-image-source:var(--fr-btn-gold)!important;color:#2b1a04!important}
+:is(html,#_o#_v#_r) body.lwb-polished dialog.ui-info-dialog select{width:100%;min-height:44px;margin-top:6px;border:0 solid transparent!important;border-image:var(--fr-chip) 6 fill / 12px / 0 stretch!important;background:none!important;color:var(--tx)!important;font:12px var(--px11)!important}
+/* nothing inside a scrolling panel stays pinned while scrolling: summaries and confirm bars scroll with the content */
+#app#app#app#app#app#app .modal :is(.recruit-summary,.camp-confirm,.camp-dock,.camp-steps,.warband-composition,.ready-overview,.mount-head,.camp-secondary),
+#app#app#app#app#app#app .modal > *,:is(html,#_o#_v#_r) body.lwb-polished .modal :is(.ui-dialog-actions,.modal-actions,footer){position:static!important;top:auto!important;bottom:auto!important}
+#app#app#app#app#app#app .modal.camp .camp-confirm,#app#app#app#app#app#app .modal .camp-dock{box-shadow:none!important;margin-top:14px!important;margin-bottom:14px!important}
+#app#app#app#app#app#app #battle-sheet #sheet-toggle{position:static!important}
+/* title: logo high over the painting, controls at the bottom */
+#app#app#app#app#app#app .t-title.modal{display:flex!important;flex-direction:column!important;justify-content:space-between!important;padding:calc(64px + var(--safe-t,0px)) 16px calc(16px + var(--safe-b,0px))!important}
+#app#app#app#app#app#app .t-title .t-ver{position:absolute!important;left:12px;top:calc(10px + var(--safe-t,0px));font:12px/1.4 var(--px11)!important;color:#e9e1cc!important;text-shadow:0 1px 2px #000!important}
+#app#app#app#app#app#app .t-title .intro-layout{margin:0!important;position:static!important}
+/* settings row labels never wrap */
+#app#app#app#app#app#app .top-actions.open .settings-speed > span{white-space:nowrap!important;flex:0 0 auto}
+#app#app#app#app#app#app .top-actions.open .settings-speed select{flex:1 1 auto;min-width:0!important}
+/* off-screen markers: just a team-coloured arrowhead pointing at the hidden units (+count), no plate */
+#app#app#app#app#app#app .os-mark{width:28px!important;height:28px!important;background:none!important;box-shadow:none!important;border:0!important;border-image:none!important;border-radius:0!important;opacity:.95}
+#app#app#app#app#app#app .os-mark i{position:absolute!important;inset:0!important;background:none!important}
+#app#app#app#app#app#app .os-mark i::after{content:""!important;position:absolute!important;left:50%!important;top:50%!important;right:auto!important;margin:-9px 0 0 -6px!important;width:0;height:0;
+ border-style:solid!important;border-width:9px 0 9px 14px!important;border-color:transparent transparent transparent #d9e8c4!important;filter:drop-shadow(0 0 1px #0a0806) drop-shadow(0 0 1px #0a0806) drop-shadow(0 2px 2px rgba(0,0,0,.6))}
+#app#app#app#app#app#app .os-mark.foe i::after{border-left-color:#f2a68c!important}
+#app#app#app#app#app#app .os-mark b{position:absolute!important;left:50%;top:50%;transform:translate(-50%,-50%);font:12px/1 var(--px11)!important;color:#fff!important;text-shadow:0 0 2px #000,0 0 2px #000!important}
+#app#app#app#app#app#app .os-mark b:empty::before{content:none!important;display:none!important}
