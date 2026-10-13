@@ -1,0 +1,94 @@
+name: Verify deployed expedition inventory hotfix
+on:
+  push:
+    branches: [diagnostics/playtest-20261013]
+    paths: [.github/workflows/stash-hotfix-live.yml]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  live:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        case: [normal, restart, fixtures]
+    env:
+      PATCH_SHA: a1a254cf6c3a1e0e91f6cc4a82208a62a6bf5ef3
+      CASE: ${{ matrix.case }}
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: live-recheck-38353328242-restart-1
+          path: previous
+          repository: leesh603/mesbg-assets
+          run-id: 38353328242
+          github-token: ${{ github.token }}
+      - name: Run the proven live driver and separate controlled browser regressions
+        run: |
+          mkdir -p evidence
+          npm install --prefix /tmp/mesbg-browser playwright --no-audit --no-fund
+          python3 <<'PY'
+          import pathlib,os,time,urllib.request,json
+          sha=os.environ['PATCH_SHA'];base='https://raw.githubusercontent.com/leesh603/mesbg-assets/'+sha+'/index.html'
+          with urllib.request.urlopen(base) as r:expected=r.read()
+          for n in range(45):
+            try:
+              with urllib.request.urlopen('https://leesh603.github.io/mesbg-assets/?hotfix='+sha+'&check='+str(n)) as r:actual=r.read()
+              if actual==expected:break
+            except Exception as e:print(type(e).__name__,str(e))
+            time.sleep(4)
+          else:raise RuntimeError('Live deployment did not match authorized hotfix')
+          pathlib.Path('expected-index.html').write_bytes(expected)
+          js=pathlib.Path('previous/review.cjs').read_text()
+          old="await page.goto('https://leesh603.github.io/mesbg-assets/',{waitUntil:'domcontentloaded',timeout:60000});"
+          new="const nav=await page.goto('https://leesh603.github.io/mesbg-assets/?hotfix='+process.env.PATCH_SHA,{waitUntil:'domcontentloaded',timeout:60000});if(await nav.text()!==fs.readFileSync('expected-index.html','utf8'))throw Error('Loaded document does not match patched main');"
+          assert old in js;js=js.replace(old,new)
+          js=js.replace("fs.writeFileSync('evidence/live-build.json',JSON.stringify(proof,null,2));", "if(!proof.exactMatch||proof.mainSha!==process.env.PATCH_SHA)throw Error('Live build mismatch');fs.writeFileSync('evidence/live-build.json',JSON.stringify(proof,null,2));")
+          anchor="await ctx.storageState({path:'evidence/post-restart-storage.json'});"
+          assert anchor in js
+          js=js.replace(anchor,anchor+"\nconst inv=await page.evaluate(()=>({stash:MESBG.battle.stash,legacy:MESBG.battle.legacy,resale:MESBG.battle._resale}));const comparison={kind:'natural-ui-play',beforePhase:restartBefore.phase,afterPhase:restartAfter.phase,afterWave:restartAfter.wave,inventory:inv,restarted:restartBefore.phase==='result'&&restartAfter.wave===0&&restartAfter.phase==='reward'};if(comparison.restarted&&[inv.stash,inv.legacy,inv.resale].some(a=>a?.length))throw Error('Inventory survived natural UI restart');fs.writeFileSync('evidence/natural-verification.json',JSON.stringify(comparison,null,2));")
+          pathlib.Path('natural.cjs').write_text(js)
+          PY
+          cat > fixtures.cjs <<'JS'
+          const {chromium}=require('playwright'),fs=require('fs'),cp=require('child_process'),assert=require('node:assert/strict'),crypto=require('node:crypto');
+          const report={kind:'controlled-browser-fixtures-not-natural-play',sha:process.env.PATCH_SHA,checks:[],errors:[]};
+          (async()=>{
+            const browser=await chromium.launch({executablePath:cp.execSync('which google-chrome || which chromium').toString().trim(),headless:true,args:['--no-sandbox']});
+            try{for(const width of [360,390]){
+              const ctx=await browser.newContext({viewport:{width,height:width===360?740:844},isMobile:true,hasTouch:true,deviceScaleFactor:1});
+              const p=await ctx.newPage();p.on('pageerror',e=>report.errors.push(e.message));p.on('dialog',d=>d.accept());
+              const nav=await p.goto('https://leesh603.github.io/mesbg-assets/?hotfix='+process.env.PATCH_SHA,{waitUntil:'domcontentloaded'});
+              const loaded=await nav.text();assert.equal(loaded,fs.readFileSync('expected-index.html','utf8'));report.liveHash=crypto.createHash('sha256').update(loaded).digest('hex');
+              await p.waitForFunction(()=>window.MESBG?.ui?.state?.ready);await p.locator('#start-ai').click();
+              // A deterministic camp fixture; resource setup is explicitly labelled, not claimed as natural play.
+              const before=await p.evaluate(()=>{const m=MESBG,b=m.battle;m.auto(false);b.units=[];const u=b.spawn('aragorn','good',{x:500,y:500});b.initialDraft=false;b.wave=b.cleared=1;b.phase='reward';b.campStep='ready';b.stash=['anduril'];b.legacy=['north_map'];b.gold=321;b.save();m.render();return{uid:u.uid,gold:b.gold,stash:[...b.stash],legacy:[...b.legacy]};});
+              await p.screenshot({path:'evidence/fixture-'+width+'-camp-before.png'});
+              await p.reload({waitUntil:'domcontentloaded'});await p.waitForFunction(()=>window.MESBG?.ui?.state?.ready);await p.locator('#resume').click();await p.waitForTimeout(450);
+              const restored=await p.evaluate(()=>{const b=MESBG.battle;return{uid:b.alive('good')[0].uid,gold:b.gold,stash:[...b.stash],legacy:[...b.legacy]};});assert.deepEqual(restored,before);
+              assert.equal(await p.locator('[data-leg="0"]').count(),1);await p.locator('#to-shop').click();await p.locator('[data-stash="0"]').click();await p.waitForTimeout(350);
+              const equipped=await p.evaluate(uid=>{const b=MESBG.battle;return{stash:b.stash,eq:b.unit(uid).equipment,gold:b.gold};},before.uid);assert.deepEqual(equipped.stash,[]);assert.ok(equipped.eq.includes('anduril'));assert.equal(equipped.gold,321);
+              await p.screenshot({path:'evidence/fixture-'+width+'-restored-equipped.png'});
+              // Controlled end-of-expedition state, followed by the real restart button.
+              await p.evaluate(()=>{const m=MESBG,b=m.battle;b.stash=['north_map'];b.legacy=['anduril'];b._resale=[{i:0,uid:b.units[0].uid,refund:5}];b.phase='result';b.result='evil';m.render();});
+              await p.screenshot({path:'evidence/fixture-'+width+'-before-restart.png'});await p.locator('#restart').click();await p.waitForTimeout(400);
+              const after=await p.evaluate(()=>{const b=MESBG.battle;return{wave:b.wave,initialDraft:b.initialDraft,stash:b.stash,legacy:b.legacy,resale:b._resale,fallen:b.fallen};});assert.equal(after.wave,0);assert.equal(after.initialDraft,true);for(const k of ['stash','legacy','resale','fallen'])assert.deepEqual(after[k],[],k);
+              await p.screenshot({path:'evidence/fixture-'+width+'-after-restart.png'});
+              // Same-context loading of an old save lacking both optional inventory keys.
+              await p.evaluate(()=>{const b=MESBG.battle;b.save();const s=JSON.parse(localStorage.getItem('mesbg-endless-save'));delete s.stash;delete s.legacy;localStorage.setItem('mesbg-endless-save',JSON.stringify(s));b.stash=['ringil'];b.legacy=['anduril'];b.phase='menu';MESBG.render();});
+              await p.locator('#resume').click();await p.waitForTimeout(350);const oldSave=await p.evaluate(()=>({stash:MESBG.battle.stash,legacy:MESBG.battle.legacy}));assert.deepEqual(oldSave,{stash:[],legacy:[]});
+              report.checks.push({width,before,restored,equipped,restart:after,oldSave,status:'passed'});await ctx.close();
+            }assert.deepEqual(report.errors,[]);}catch(e){report.failure=e.stack;throw e;}finally{fs.writeFileSync('evidence/browser-fixtures.json',JSON.stringify(report,null,2));console.log('FIXTURE_REPORT',JSON.stringify(report));await browser.close();}
+          })().catch(e=>{console.error(e);process.exitCode=1;});
+          JS
+          if [ "$CASE" = fixtures ]; then NODE_PATH=/tmp/mesbg-browser/node_modules node fixtures.cjs; else NODE_PATH=/tmp/mesbg-browser/node_modules node natural.cjs; fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: stash-hotfix-live-${{ matrix.case }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            evidence/
+            natural.cjs
+            fixtures.cjs
+          retention-days: 14
