@@ -118,6 +118,7 @@ q.start('ai');q.units=[];const rider=q.spawn('gandalf','good',{x:1000,y:700});q.
 assert.equal(q.assignMount(rider.uid,'gandalf_white_mounted'),false);assert.equal(q.horses,2);
 assert.equal(q.assignMount(rider.uid,'gandalf_mounted'),true);assert.equal(rider.id,'gandalf_mounted');
 for(let i=0;i<100;i++){q.rollInitialRecruits();assert.ok(q.recruitOffers.every(o=>!UnitCatalog[o.id].evolutionOnly));q.wave=20;q.rollRecruits();assert.ok(q.recruitOffers.every(o=>!UnitCatalog[o.id].evolutionOnly));}
+assert.ok(CX.recruits.every(id=>!UnitCatalog[id]?.evolutionOnly));
 q.recruitOffers=[{id:'gandalf_white'}];q.recruitDraft=[0];q.campStep='recruit';assert.equal(q.commitRecruits(),false);
 console.log('PASS: five 99→100 kill evolution paths, no prevented/corpse credit, preserved state, save/resume and recruitment/mount gates');
 // Temporary identity states cannot leak into another round.

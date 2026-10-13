@@ -7431,6 +7431,8 @@ for(const [family,e]of Object.entries(HERO_EVOLUTIONS)){
     e.family=family;for(const id of e.from)evolutionSources.set(id,e);
     for(const id of [e.foot,e.mounted].filter(Boolean)){evolutionForms.set(id,e);if(UnitCatalog[id]){UnitCatalog[id].evolutionOnly=true;UnitCatalog[id].recruitable=false;}}
 }
+// Event reward pools also use CX.recruits; promoted forms must not bypass milestones there.
+for(let i=CX.recruits.length-1;i>=0;i--)if(evolutionForms.has(CX.recruits[i]))CX.recruits.splice(i,1);
 P.evolutionInfo=function(u){const e=evolutionSources.get(u.id);return e?{kills:Math.max(0,Math.floor(u.kills||0)),required:e.kills,target:u.traits.includes('mounted')&&e.mounted?e.mounted:e.foot}:null;};
 P.evolveHero=function(u){
     const info=u&&this.evolutionInfo(u);if(!u?.alive||u.side!=='good'||!info||info.kills<info.required)return false;
