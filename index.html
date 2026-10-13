@@ -17260,6 +17260,25 @@ html body.lwb-polished #lwb-score{display:none!important}
 #app#app#app#app#app#app#app #dice{top:auto!important;bottom:8px!important;left:8px!important;right:8px!important;transform:none!important}
 html body.lwb-polished:has(#stage-intro) #app #battle-notices{visibility:hidden!important}
 #app#app#app#app#app#app#app #battle-notices .kill-feed-item{width:fit-content!important;align-self:flex-start}
+
+/* shop targets: one horizontal row that swipes sideways when the warband grows */
+#app#app#app#app#app#app#app .shop-target{display:flex!important;flex-wrap:nowrap!important;overflow-x:auto!important;overflow-y:hidden!important;gap:8px!important;padding:2px 2px 8px!important;margin:8px -4px 12px!important;
+ scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#8a6a32 transparent}
+#app#app#app#app#app#app#app .shop-target::-webkit-scrollbar{height:4px}
+#app#app#app#app#app#app#app .shop-target::-webkit-scrollbar-thumb{background:#8a6a32}
+#app#app#app#app#app#app#app .shop-target > b{flex:0 0 auto;writing-mode:horizontal-tb;align-self:center!important;margin-right:2px}
+#app#app#app#app#app#app#app .shop-target .unit-chip{flex:0 0 88px!important;width:88px!important;scroll-snap-align:start}
+
+/* shop items: two per row, room to breathe */
+#app#app#app#app#app#app#app .shop-cards{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+@media (min-width:600px){#app#app#app#app#app#app#app .shop-cards{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+#app#app#app#app#app#app#app .shop-card{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:6px!important;padding:14px 12px 12px!important;min-height:0!important;height:auto!important;text-align:left!important}
+#app#app#app#app#app#app#app .shop-card .shop-icon{align-self:center!important;width:56px!important;height:56px!important;margin:0 0 4px!important}
+#app#app#app#app#app#app#app .shop-card .shop-icon img{width:100%!important;height:100%!important;object-fit:contain}
+#app#app#app#app#app#app#app .shop-card > b{font:400 15px/1.3 Galmuri14,var(--body)!important;color:#fff4d6!important;text-align:center!important;margin:0!important}
+#app#app#app#app#app#app#app .shop-card > small{display:block!important;font:400 13px/1.55 var(--body)!important;color:var(--tx)!important;margin:0!important;white-space:normal!important;word-break:keep-all}
+#app#app#app#app#app#app#app .shop-card > small + small{margin-top:2px!important;padding-top:6px!important;border-top:1px solid rgba(201,164,94,.22);font-size:12px!important;color:var(--tx-mute)!important}
+#app#app#app#app#app#app#app .shop-card > em{margin-top:auto!important;padding:6px 8px!important;text-align:center!important;font:700 13px/1.3 var(--body)!important;font-style:normal!important;white-space:normal!important}
 </style></head><body><div id="app"></div><style id="integrated-rework">
 /* Integrated mobile layout: content first, stable controls, original artwork. */
 html body.lwb-polished.ui-rebuilt #app #overlay .t-title .title-controls{display:flex!important;flex-direction:column!important;gap:10px!important}
