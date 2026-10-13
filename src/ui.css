@@ -880,3 +880,60 @@ html body.lwb-polished:has(#stage-intro) #app #battle-notices{visibility:hidden!
 #app#app#app#app#app#app#app .shop-card > small{display:block!important;font:400 13px/1.55 var(--body)!important;color:var(--tx)!important;margin:0!important;white-space:normal!important;word-break:keep-all}
 #app#app#app#app#app#app#app .shop-card > small + small{margin-top:2px!important;padding-top:6px!important;border-top:1px solid rgba(201,164,94,.22);font-size:12px!important;color:var(--tx-mute)!important}
 #app#app#app#app#app#app#app .shop-card > em{margin-top:auto!important;padding:6px 8px!important;text-align:center!important;font:700 13px/1.3 var(--body)!important;font-style:normal!important;white-space:normal!important}
+
+/* =====================================================================================
+   PASS 7 — shop tiers, extra challenges, save/continue
+   ===================================================================================== */
+/* shop item tiers: frame, glow, badge and name colour follow the tier; unique = gold, legend = bright gold */
+#app#app#app#app#app#app#app .shop-card{--tc:#8e979c;--tcd:#26292b;position:relative!important;border:0 solid transparent!important;border-image:var(--fr-card-ornate-normal) 12 / 24px / 0 stretch!important;image-rendering:pixelated;border-radius:0!important;
+ background:var(--fr-grain),radial-gradient(ellipse at 50% 22%,color-mix(in srgb,var(--tc) 26%,transparent) 0,transparent 60%),linear-gradient(180deg,color-mix(in srgb,var(--tcd) 80%,#000),#0d0b08)!important;box-shadow:0 3px 0 rgba(0,0,0,.45)!important;padding:18px 14px 14px!important}
+#app#app#app#app#app#app#app .shop-card.r-magic{--tc:#5e95d6;--tcd:#142439;border-image-source:var(--fr-card-ornate-rare)!important}
+#app#app#app#app#app#app#app .shop-card.r-rare{--tc:#a874e0;--tcd:#28163a;border-image-source:var(--fr-card-ornate-epic)!important}
+#app#app#app#app#app#app#app .shop-card.r-unique{--tc:#e8b84a;--tcd:#3d2706;border-image-source:var(--fr-card-ornate-legendary)!important;box-shadow:0 3px 0 rgba(0,0,0,.45),0 0 14px rgba(240,180,64,.35)!important}
+#app#app#app#app#app#app#app .shop-card.r-legend{--tc:#ffd66a;--tcd:#4a2f04;border-image-source:var(--fr-card-ornate-legendary)!important;box-shadow:0 3px 0 rgba(0,0,0,.45),0 0 0 2px rgba(255,214,106,.5),0 0 22px rgba(255,200,80,.55)!important}
+#app#app#app#app#app#app#app .shop-card .sc-tier{position:absolute!important;top:8px;right:10px;padding:1px 7px;font:700 11px/1.35 var(--body)!important;color:#140d04!important;background:var(--tc)!important;box-shadow:0 0 0 2px #0a0806,inset 0 -2px 0 rgba(0,0,0,.28)!important;z-index:2}
+#app#app#app#app#app#app#app .shop-card.r-common .sc-tier{color:#e8e2d0!important;background:#4a4f54!important}
+#app#app#app#app#app#app#app .shop-card > b{color:color-mix(in srgb,var(--tc) 45%,#fff6dc)!important;text-shadow:0 1px 0 #000,0 0 8px color-mix(in srgb,var(--tc) 40%,transparent)!important}
+#app#app#app#app#app#app#app .shop-card .shop-icon{filter:drop-shadow(0 0 6px color-mix(in srgb,var(--tc) 45%,transparent))}
+#app#app#app#app#app#app#app .shop-card[disabled]{filter:saturate(.45) brightness(.72)!important;opacity:1!important}
+#app#app#app#app#app#app#app .shop-card.sold-out{filter:grayscale(1) brightness(.6)!important}
+#app#app#app#app#app#app#app .shop-card.stash-card{--tc:#9fb08a;--tcd:#1c2414}
+
+/* collapsible sections on the ready screen (extra challenge, save/continue, roster, honour roll): one style */
+#app#app#app#app#app#app#app .modal :is(details.camp-challenges,details.save-wrap,details.warband-roster-details,details.honor-details){display:block!important;margin:10px 0!important;padding:0!important;
+ border:1px solid rgba(201,164,94,.38)!important;border-image:none!important;border-radius:2px!important;background:linear-gradient(180deg,rgba(34,27,18,.88),rgba(14,11,8,.92))!important;box-shadow:inset 0 0 0 1px rgba(0,0,0,.55)!important;position:static!important}
+#app#app#app#app#app#app#app .modal details > summary{list-style:none!important;display:flex!important;align-items:center!important;gap:8px!important;min-height:46px!important;padding:0 14px!important;cursor:pointer;
+ font:400 15px/1.3 Galmuri14,var(--body)!important;color:var(--tx)!important;background:none!important;border:0!important}
+#app#app#app#app#app#app#app .modal details > summary::-webkit-details-marker{display:none}
+#app#app#app#app#app#app#app .modal details > summary::after{content:"";margin-left:auto;width:8px;height:8px;border-right:2px solid var(--tx-gold);border-bottom:2px solid var(--tx-gold);transform:rotate(45deg) translateY(-2px);transition:transform .15s}
+#app#app#app#app#app#app#app .modal details[open] > summary::after{transform:rotate(-135deg) translateY(-2px)}
+#app#app#app#app#app#app#app .modal details > summary img{width:18px;height:18px;image-rendering:pixelated}
+#app#app#app#app#app#app#app .modal details[open] > summary{border-bottom:1px solid rgba(201,164,94,.22)!important}
+#app#app#app#app#app#app#app .modal details > :not(summary){padding:12px 14px 14px!important;margin:0!important}
+/* extra challenge choices: three even cards with icon, name and reward */
+#app#app#app#app#app#app#app .modal .chal-icons{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important;position:static!important;flex-wrap:nowrap!important}
+#app#app#app#app#app#app#app .modal .chal-ic{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:flex-start!important;gap:4px!important;min-height:92px!important;width:auto!important;height:auto!important;padding:10px 6px!important;position:relative!important;
+ border:0 solid transparent!important;border-image:var(--fr-btn-bronze) 6 fill / 12px / 0 stretch!important;background:none!important;box-shadow:0 3px 0 rgba(0,0,0,.4)!important;image-rendering:pixelated}
+#app#app#app#app#app#app#app .modal .chal-ic img{width:28px!important;height:28px!important;position:static!important;margin:0!important}
+#app#app#app#app#app#app#app .modal .chal-ic em{position:static!important;font:600 13px/1.25 var(--body)!important;font-style:normal!important;color:var(--tx)!important;text-align:center;white-space:normal!important;word-break:keep-all;background:none!important;padding:0!important}
+#app#app#app#app#app#app#app .modal .chal-ic i{position:static!important;font:700 12px/1.2 var(--body)!important;font-style:normal!important;color:var(--tx-gold)!important;background:none!important;padding:0!important;border:0!important}
+#app#app#app#app#app#app#app .modal .chal-ic.on{border-image-source:var(--fr-btn-gold)!important}
+#app#app#app#app#app#app#app .modal .chal-ic.on :is(em,i){color:#2b1a04!important}
+#app#app#app#app#app#app#app .modal .chal-icons > .secondary{grid-column:1 / -1;min-height:40px!important}
+/* save / continue: slot buttons in one row, cloud fields stacked with labels */
+#app#app#app#app#app#app#app .modal details.save-wrap .save-slots{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important;border:0!important;background:none!important;box-shadow:none!important;padding:0!important;margin:0 0 12px!important}
+#app#app#app#app#app#app#app .modal details.save-wrap .save-slots > b{grid-column:1 / -1;font:600 13px/1.3 var(--body)!important;color:var(--tx-gold)!important;margin:0!important}
+#app#app#app#app#app#app#app .modal details.save-wrap [data-saveslot]{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:2px!important;min-height:56px!important;padding:6px 4px!important}
+#app#app#app#app#app#app#app .modal details.save-wrap [data-saveslot] span{font:400 15px/1.2 Galmuri14,var(--body)!important}
+#app#app#app#app#app#app#app .modal details.save-wrap [data-saveslot] small{font:500 11px/1.3 var(--body)!important;color:var(--tx-mute)!important}
+#app#app#app#app#app#app#app .modal details.save-wrap .cloud-save{grid-template-columns:repeat(2,minmax(0,1fr))!important;margin:0!important}
+#app#app#app#app#app#app#app .modal details.save-wrap .cloud-field{grid-column:1 / -1;display:flex!important;flex-direction:column!important;gap:4px!important}
+#app#app#app#app#app#app#app .modal details.save-wrap .cloud-field span{font:600 12px/1.3 var(--body)!important;color:var(--tx-mute)!important}
+#app#app#app#app#app#app#app .modal details.save-wrap .cloud-field input{width:100%!important;min-height:42px!important;padding:0 10px!important;font:500 14px var(--body)!important;color:var(--tx)!important}
+#app#app#app#app#app#app#app .modal details.save-wrap #cloud-msg{grid-column:1 / -1;font:500 12px/1.4 var(--body)!important;color:var(--tx-mute)!important;text-align:center}
+#app#app#app#app#app#app#app .modal .camp-dock{margin:10px 0!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important}
+#app#app#app#app#app#app#app .modal details > summary::before{content:none!important;display:none!important}
+#app#app#app#app#app#app#app .modal details.save-wrap > .save-slots{padding:12px 14px 4px!important}
+#app#app#app#app#app#app#app .modal details.save-wrap > .save-slots.cloud-save{padding:8px 14px 14px!important;border-top:1px solid rgba(201,164,94,.18)!important}
+#app#app#app#app#app#app#app#app#app .modal .camp-dock,#app#app#app#app#app#app#app#app#app .modal details.save-wrap > .save-slots{border:0!important;background:none!important;box-shadow:none!important}
+#app#app#app#app#app#app#app#app#app .modal details.save-wrap > .save-slots.cloud-save{border-top:1px solid rgba(201,164,94,.18)!important}
