@@ -6877,7 +6877,7 @@ function renderPolishedHUD() {
         let selected='';
         for(const b of buttons){const key=b.dataset.relic??b.dataset.evopt,on=draft?.step===q.campStep&&draft.key===key;b.classList.toggle('is-picked',on);b.setAttribute('aria-pressed',String(on));if(on)selected=b.querySelector('b').textContent;}
         if(!modal.querySelector('#camp-choice-confirm'))modal.insertAdjacentHTML('beforeend','<div class="camp-confirm"><span id="camp-choice-summary"></span><button id="camp-choice-cancel" class="secondary">취소</button><button id="camp-choice-confirm" class="primary">선택 확정</button></div>');
-        ut('camp-choice-summary').textContent=selected||'선택 대기';
+        ut('camp-choice-summary').textContent=selected?'선택: '+selected:'위에서 하나를 고르면 확정할 수 있습니다';
         ut('camp-choice-confirm').disabled=!selected;ut('camp-choice-cancel').disabled=!selected;
         ut('camp-choice-cancel').onclick=()=>{q.campDraft=null;q.save();Yt();};
         ut('camp-choice-confirm').onclick=()=>{if(q.confirmCampChoice())wt.play('reward_select');Yt();};

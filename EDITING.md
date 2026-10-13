@@ -25,6 +25,14 @@
 - 타이틀 배경 그림: `assets/mesbg/ui/title-bg.jpg`.
 - 타이틀·로딩·등급 색 CSS는 index.html의 `<style id="ui-extras">`에 있다.
 
+## 공통 UI 규칙 — `src/ui.css`
+
+모바일 UI·HUD의 공통 디자인 규칙(색·글꼴 크기·버튼·터치 영역 44px·전투 HUD 배치)은 **`src/ui.css`** 한 파일에 있다. `node tools/build.js`가 이 파일을 index.html의 `<style id="ui-overhaul">`(head 맨 끝)로 넣는다 — 그 블록을 직접 고치지 말고 `src/ui.css`를 고칠 것.
+- 앞쪽의 오래된 style 블록 위에 덮어쓰는 층이라, 선택자가 `#app#app#app …`(또는 `:is(html,#_o#_v#_r) body …`)로 시작한다. 새 규칙도 같은 접두어를 쓰면 앞 블록보다 우선한다.
+- 글꼴: 본문·수치는 Pretendard(`--ov-font`), 도트 글꼴(갈무리)은 화면 제목(24px)에만 쓴다. 글자 크기는 `--ov-xs`(13) `--ov-s`(14) `--ov-m`(15) `--ov-l`(17) 토큰을 쓴다.
+- 버튼: 주 행동 = 금색 채움, 보조 = 청동 테두리, 사용 불가 = 어둡게 + 이유 문구.
+- CSS만 반복해서 고칠 때는 `node tools/build.js --no-bundle`로 오프라인 번들 생성을 건너뛸 수 있다.
+
 ## UI 스타일(CSS) 수정 — index.html 직접 수정 가능 영역
 
 `index.html`에서 `/*__LWB_SRC_END__*/` 마커 **이후**에 나오는 `<style>` 블록들은 빌드로 덮어쓰이지 않는다 — **여기만 HTML을 직접 고쳐도 된다**. HUD/패널/버튼의 색·크기·레이아웃 같은 순수 스타일 변경은 이 구간의 CSS를 수정하면 된다. (index.html이 원본 문서라 새 클론에서도 바로 편집 가능)

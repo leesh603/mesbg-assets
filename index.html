@@ -13510,7 +13510,7 @@ function renderPolishedHUD() {
         let selected='';
         for(const b of buttons){const key=b.dataset.relic??b.dataset.evopt,on=draft?.step===q.campStep&&draft.key===key;b.classList.toggle('is-picked',on);b.setAttribute('aria-pressed',String(on));if(on)selected=b.querySelector('b').textContent;}
         if(!modal.querySelector('#camp-choice-confirm'))modal.insertAdjacentHTML('beforeend','<div class="camp-confirm"><span id="camp-choice-summary"></span><button id="camp-choice-cancel" class="secondary">취소</button><button id="camp-choice-confirm" class="primary">선택 확정</button></div>');
-        ut('camp-choice-summary').textContent=selected||'선택 대기';
+        ut('camp-choice-summary').textContent=selected?'선택: '+selected:'위에서 하나를 고르면 확정할 수 있습니다';
         ut('camp-choice-confirm').disabled=!selected;ut('camp-choice-cancel').disabled=!selected;
         ut('camp-choice-cancel').onclick=()=>{q.campDraft=null;q.save();Yt();};
         ut('camp-choice-confirm').onclick=()=>{if(q.confirmCampChoice())wt.play('reward_select');Yt();};
@@ -15582,4 +15582,19 @@ html body.lwb-polished.lwb-polished:has(#battle-notices > :not(.hidden)) #lwb-sc
 #app#app#app .modal .camp-roster{align-items:flex-start!important;row-gap:10px!important}
 #app#app#app .modal .camp-roster > button{height:auto!important;min-height:0!important;max-height:none!important;overflow:visible!important;padding-bottom:6px!important}
 #app#app#app .modal .camp-roster > button > small{position:static!important;display:block!important}
+
+/* ---------- dialogs (unit profile, patch notes, help) — some are attached to <body>, outside #app ---------- */
+:is(html,#_o#_v#_r) body.lwb-polished .modal *:not(svg):not(svg *){font-family:var(--ov-font)!important}
+:is(html,#_o#_v#_r) body.lwb-polished .modal > h2,:is(html,#_o#_v#_r) body.lwb-polished .modal .ui-info-head h2{font-family:var(--ov-pixel)!important}
+:is(html,#_o#_v#_r) body.lwb-polished .modal:not(.camp) :is(.eyebrow,h3,.section-label){font:700 var(--ov-xs)/1.35 var(--ov-font)!important;letter-spacing:.02em!important}
+:is(html,#_o#_v#_r) body.lwb-polished .modal :is(li,p,.traits){font-size:var(--ov-s)!important;line-height:1.55!important}
+:is(html,#_o#_v#_r) body.lwb-polished .modal :is(small,.unit-tier,.ui-skill-cost){font-size:var(--ov-xs)!important}
+:is(html,#_o#_v#_r) body.lwb-polished .modal.ui-profile strong{font-size:20px!important}
+:is(html,#_o#_v#_r) body.lwb-polished .modal button{min-height:var(--ov-tap)}
+:is(html,#_o#_v#_r) body.lwb-polished #patch-pop *:not(svg):not(svg *){font-family:var(--ov-font)!important}
+:is(html,#_o#_v#_r) body.lwb-polished #patch-pop h2{font-family:var(--ov-pixel)!important;font-size:24px!important}
+:is(html,#_o#_v#_r) body.lwb-polished #patch-pop .eyebrow{font:700 var(--ov-xs)/1.35 var(--ov-font)!important}
+:is(html,#_o#_v#_r) body.lwb-polished #patch-pop li{font:400 var(--ov-s)/1.55 var(--ov-font)!important}
+:is(html,#_o#_v#_r) body.lwb-polished #patch-pop summary{font:700 var(--ov-m)/1.3 var(--ov-font)!important;min-height:var(--ov-tap)}
+html body.lwb-polished.lwb-polished #lwb-killfeed .kill-feed-item,html body.lwb-polished.lwb-polished #lwb-killfeed .kill-feed-item *{font:600 var(--ov-xs)/1.3 var(--ov-font)!important}
 </style></head><body><div id="app"></div></body></html>
