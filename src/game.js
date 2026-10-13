@@ -1661,6 +1661,14 @@ P.start = function (mode) {
     this.nextRoundBuffs = [];
     this.horses = 0;
     this.fallen = [];
+    // Equipment belongs to this expedition, not to the reused battle instance.
+    this.stash = [];
+    this.legacy = [];
+    this._resale = [];
+    this.shopStock = [];
+    this._stockFor = '';
+    this._soldOut = [];
+    this._shopTarget = '';
     this.devices = [];
     if (!this.difficulty) this.difficulty = 'normal';
     if (this.dailySeed)
@@ -2624,6 +2632,16 @@ P.rollRecruits = function () {
     let pool = CX.recruits.filter(id => this.meta.has(id) && (!zt[id].traits.includes('hero') || this.wave >= 2 && !this.permanent().some(u => u.id === id)));
     this.recruitOffers = pool.map(id => ({ id, r: this.rng() + (zt[id].traits.includes('hero') ? .28 : 0) })).sort((a, b) => a.r - b.r).slice(0, 4).map(x => ({ id: x.id, bought: false }));
 };
+// Inventory art: distinct ID-based exports from the 144-icon pixel atlas pack.
+const LWB_INVENTORY_ICONS = {
+    relic: new Set(["narya", "nenya", "vilya", "silmaril", "darkpact", "barahir_ring", "elessar", "evenstar", "nauglamir", "crown_west", "erebor_crown", "dunedain_star", "lembas", "cloak", "horn", "horseshoe", "phial", "mithril", "cart", "palantir", "banner", "arrow", "narsil", "quiver", "warbanner", "durin_axe", "eagle_feather", "second_breakfast", "eohere_horn", "elven_feather", "numenor_map", "rohan_shield", "rohan_lance", "haradrim_bow", "ranger_cloak", "morannon_pike", "gondor_tabard", "mithril_mail", "shadowfax", "miruvor", "keys_erebor", "pipeweed", "athelas", "dwarf_axe", "elf_bow", "ithilien_blade", "westfold_shield", "rohan_standard", "elven_rope", "alliance_standard", "fellowship_flag", "edain_banner", "bounty_list", "siege_wright", "white_pact", "master_flame", "lords_letter", "oath_dead", "harad_dart", "troll_heart", "sting", "steward_ledger", "scouts_mark", "morgul_thorn", "ranger_hood", "mithril_ore", "beorn_mead", "anduin_mist", "black_breath"]),
+    equipment: new Set(["arkenstone", "elendilmir", "elfstone", "anduril", "glamdring", "sting", "orcrist", "ringil", "gurthang", "guthwine", "herugrim", "aeglos", "grond_eq", "belthronding", "dragon_helm", "angrist", "durin_axe", "black_arrow", "barrow_blade", "whetstone", "plate", "hunting_bow", "tower_shield", "mithril_helm", "pike", "ranger_boots", "war_gauntlets", "gondor_shield", "rohan_lance", "galadhrim_quiver", "elven_cloak_eq", "mithril_shirt_eq", "erebor_plate", "twin_knives", "lorien_bow", "salve", "bandage", "lembas", "star_flower", "dunedain_star", "wizard_powder", "guardian_feather", "lorien_arrow", "arrowhead", "north_map", "athelas_leaf", "dark_berry", "king_oath", "miruvor", "palantir", "galadriel_phial", "war_banner_eq", "war_horn", "king_standard", "rohan_saddle", "war_pennant", "oath_stone", "horn_gondor", "shadowfax", "asfaloth", "brego", "firefoot", "hasufel", "shire_pony", "red_arrow"])
+};
+function inventoryIconPath(kind, id) {
+    if (!LWB_INVENTORY_ICONS[kind]?.has(id)) return '';
+    const key = 'inventory/icons/' + kind + '_' + id + '.png';
+    return (window.__MESBG_ASSETS__ || {})[key] || './assets/mesbg/' + key + '?v=inventory144-1';
+}
 const LWB_EQUIP = [
     { id: 'whetstone', label: '전투검', cost: 35, desc: '결투 +1 · 장비', icon: '<path d="M4 20 16 8M14 3l7 7-4 4-7-7zM4 20l2.5-.5L6 17z"/>', iconImg: 'icons/eq_whetstone.png', fx: u => u.stats.fight += 1 },
     { id: 'plate', label: '판금갑옷', cost: 40, desc: '방어 +1 · 장비', icon: '<path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/>', iconImg: 'icons/eq_plate.png', fx: u => u.stats.defence += 1 },
@@ -2692,6 +2710,7 @@ const LWB_EQUIP = [
     { id: 'angrist', label: '앵그리스트', cost: 340, rare: 2, desc: '유니크 · 베렌의 단도 · 상처 필요값 −2 (철도 끊음)', iconImg: 'icons/eq_angrist.png?v=1.37', req: u => u.traits.includes('hero'), fx: u => { u.eqPierce = 2; } },
     { id: 'elendilmir', label: '엘렌디미르', cost: 320, rare: 2, desc: '유니크 · 왕의 별 · 매 라운드 Might 회복 +1', iconImg: 'icons/eq_elendilmir.png?v=1.37', req: u => u.traits.includes('hero'), fx: u => { u.eqElm = 1; } }
 ];
+for (const item of LWB_EQUIP) item.iconImg = inventoryIconPath('equipment', item.id) || item.iconImg;
 
 // 장비 슬롯: 탈것·마구는 별도 슬롯 — 장비 N/2는 둘 다 제외 개수
 const _eqIsMount = eid => !!(LWB_EQUIP.find(x => x.id === eid) || {}).mount;
@@ -3499,7 +3518,13 @@ P.resume = function () { try {
         u.resources = { might: u.stats.might || 0, will: u.stats.will || 0, fate: u.stats.fate || 0, ...(u.resources || {}) };
         u.equipment = u.equipment || []; u.usedSkills = u.usedSkills || []; u.roundBuff = u.roundBuff || {};
     }
+    // Older saves may omit these fields; do not retain a different run's items.
+    s.stash = Array.isArray(s.stash) ? s.stash : [];
+    s.legacy = Array.isArray(s.legacy) ? s.legacy : [];
     Object.assign(this, s);
+    // Buyback and target selection are session-only and absent from saved state.
+    this._resale = [];
+    this._shopTarget = '';
     this.events = [];
     this.log = [];
     this.terrain = structuredClone(ee);
@@ -4944,8 +4969,9 @@ function _skillInfo(title,detail,fire){
 }
 function relicIcon(r,size=72){
     const f='relics/icons/'+(RELIC_ICON_FILE[r.id]||'relic_'+r.id)+'.png';
+    const iconSrc = inventoryIconPath('relic', r.id) || Ut(f);
     const _rc=['#6b6f52','#8a9a4a','#c9a53b','#a06bd0'][Math.min(3,r.rarity||0)];
-    return `<span class="relic-icon" style="width:${size}px;height:${size}px;display:inline-flex;align-items:center;justify-content:center;color:#e6d3a0;font-size:${Math.round(size*.4)}px" aria-hidden="true"><img src="${Ut(f)}" alt="" style="width:92%;height:92%;object-fit:contain" onerror="this.onerror=null;this.src='${Ut('icons/res_gem.png')}'"></span>`;
+    return `<span class="relic-icon" style="width:${size}px;height:${size}px;display:inline-flex;align-items:center;justify-content:center;color:#e6d3a0;font-size:${Math.round(size*.4)}px" aria-hidden="true"><img src="${iconSrc}" alt="" style="width:92%;height:92%;object-fit:contain;image-rendering:pixelated" onerror="this.onerror=null;this.src='${Ut('icons/res_gem.png')}'"></span>`;
 }
 function unitImage(id) { const f = q.meta.get(id).file; return `<img src="${Th(f)}" data-full="${Ut(f)}" onerror="${ThFallback}" decoding="async" fetchpriority="high" alt="${esc(q.meta.get(id).name_ko)}">`; }
 let __bossStyle = false;
