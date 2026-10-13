@@ -50,7 +50,8 @@ test('lazy-loaded and transformed units anchor rotation and idle at the body, wi
  context.apply(scene,sprite,{id:'gandalf_white_mounted'});assert.equal(data.get('bodyProfile'),'gandalf_white_mounted');assert.equal(sprite.originX,context.profiles.gandalf_white_mounted[3]);
  assert.equal(data.get('baseSX'),sprite.scaleX);assert.equal(data.get('cxy').x,0);assert.equal(data.get('cxy').y,0);
 });
-test('production creates neither permanent discs nor token rims and never scans alpha for scaling',()=>{
- assert(!source.includes("setName('base')"));assert(!source.includes('setName("rim")'));assert(!source.includes("load.image('basefile:"));
+// Painted faction bases were restored on request (2026-10-13); they sit under the figure and never drive scaling.
+test('production creates no token rims and never scans alpha for scaling; bases do not affect figure size',()=>{
+ assert(!source.includes('setName("rim")'));assert(source.includes("setName('base')"));assert(!/setName\('base'\)[^;]*setDisplaySize\([^)]*(sprite|body)/.test(source));
  assert(!source.includes('__figCenterPx'));assert(!source.includes('const p = this.add.ellipse(3, 6, H.radius'));
 });
