@@ -11497,7 +11497,7 @@ function applyUnitArtSprite(scene, sprite, u) {
     const source = scene.textures.get(u.id).getSourceImage(), body = unitArtLayout(u, source);
     sprite.setDisplaySize(body.width, body.height).setOrigin(body.originX, body.originY).setPosition(0, 0).setVisible(true);
     sprite.setData('baseSX', sprite.scaleX); sprite.setData('baseSY', sprite.scaleY);
-    sprite.setData('cxy', { x: 0, y: 0 }); sprite.setData('bodyProfile', u.id);
+    sprite.setData('cxy', { x: 0, y: 0 }); sprite.setData('bodyProfile', u.id); sprite.setData('ox', body.originX);
 }
 Ve.prototype.update = function (time) { if (!this.tokens || this.busy)
     return; for (const u of this.b.alive()) {
@@ -12307,7 +12307,6 @@ me = function () {
         Jt = setTimeout(safeAct(_gate(() => q.startWave())), 900);
     else if (q.phase === 'reward' && !q._autoCampNote) {
         q._autoCampNote = 1;
-        Xt('자동 진행 중 · 영입과 유물은 직접 선택하세요');
     }
 };
 document.querySelector('.top-actions').insertAdjacentHTML('afterbegin', '<button class="iconbtn" id="auto" title="AI가 아군 턴도 진행합니다. 전투·배치·교전을 자동으로 넘깁니다">자동</button>');
@@ -13121,7 +13120,7 @@ Ve.prototype.update=function(time){
             const c=this.tokens.get(u.uid),s=c&&c.getByName('token');
             if(!s||!s.getData('baseSX')||s.getData('fxLock'))continue;
             // turning: |cos| squash through zero, mirror at the midpoint
-            const turnK=1,_fd=s.getData('faceDir')||0;s.setFlipX(_fd!==0&&_fd!==artDir(this,u.id));
+            const turnK=1,_fd=s.getData('faceDir')||0;s.setFlipX(_fd!==0&&_fd!==artDir(this,u.id));{const _ox=s.getData('ox');if(_ox!=null){const _w=s.flipX?1-_ox:_ox;if(Math.abs(s.originX-_w)>1e-4)s.setOrigin(_w,s.originY);}}
             // idle breathing (kept from TokenIdle) — frozen positionally while the battle is resolving
             let m={sx:1,sy:1,dx:0,dy:0};if(!calm){let kind=c.getData('ik');if(kind===undefined){kind=window.TokenIdle.classify(u.id,this.b.meta.get(u.id));c.setData('ik',kind);}m=window.TokenIdle.sample(kind,time,u.uid);}
             let oy=0,sx=1,sy=1,ang=0;
@@ -14470,7 +14469,7 @@ window.__LWB = { be: (...a) => be(...a), He: (...a) => He(...a), metaFor, suppor
 
 // Product HUD: one command surface, restrained materials, contextual detail.
 function renderPolishedHUD() {
-    document.body.dataset.phase=q.phase;document.body.dataset.side=q.side||'';
+    document.body.dataset.phase=q.phase;document.body.dataset.side=q.side||'';document.body.dataset.auto=AUTO?'1':'';
     {const wm=ut('wave')?.parentElement;if(wm)wm.dataset.round=['move','shoot','fight'].includes(q.phase)&&q.round?'R'+q.round:'';
      const hm=document.querySelector('#hud-mission .hm-line'),em=ut('ux-mission')?.querySelector('em');if(hm)hm.textContent=em?.textContent||'원정 준비';{const box=ut('hud-mission'),mx=ut('ux-mission');if(box&&!box.dataset.pop){box.dataset.pop='1';box.setAttribute('role','button');box.setAttribute('aria-label','전장 임무 보기');box.onclick=()=>{const m=ut('ux-mission');const d=document.createElement('dialog');d.className='ui-info-dialog mission-pop';const c=m?m.cloneNode(true):document.createElement('div');const t=c.querySelector('em')?.textContent||'전장 임무';c.querySelector('em')?.remove();d.innerHTML='<h2>'+esc(t)+'</h2><div class="mission-rule">'+c.innerHTML+'</div><button class="primary" data-close>확인</button>';document.body.appendChild(d);d.querySelector('[data-close]').onclick=()=>d.close();d.onclick=e=>{if(e.target===d)d.close();};d.onclose=()=>d.remove();d.showModal();};}if(box&&mx){let sub=box.querySelector('.hm-sub');if(!sub){sub=document.createElement('div');sub.className='hm-sub';box.appendChild(sub);}const c=mx.cloneNode(true);c.querySelector('em')?.remove();c.querySelectorAll('small,img').forEach(e=>e.remove());const t=c.textContent.replace(/^\s*[·—-]\s*/,'').trim();if(sub.textContent!==t)sub.textContent=t;box.classList.toggle('has-sub',!!t);}}}
     renderUnitVitals();
@@ -17346,6 +17345,49 @@ html body.lwb-polished:has(#stage-intro) #app #battle-notices{visibility:hidden!
 #app#app#app#app#app#app#app .modal details.save-wrap > .save-slots.cloud-save{padding:8px 14px 14px!important;border-top:1px solid rgba(201,164,94,.18)!important}
 #app#app#app#app#app#app#app#app#app .modal .camp-dock,#app#app#app#app#app#app#app#app#app .modal details.save-wrap > .save-slots{border:0!important;background:none!important;box-shadow:none!important}
 #app#app#app#app#app#app#app#app#app .modal details.save-wrap > .save-slots.cloud-save{border-top:1px solid rgba(201,164,94,.18)!important}
+
+/* =====================================================================================
+   PASS 8
+   ===================================================================================== */
+/* kill feed container is not a notice plate itself (it showed as an empty thin bar) */
+#app#app#app#app#app#app#app#app #battle-notices > #lwb-killfeed{border:0!important;background:none!important;box-shadow:none!important;padding:0!important;min-height:0!important}
+#app#app#app#app#app#app#app#app #battle-notices > #lwb-killfeed:empty,#app#app#app#app#app#app#app#app #battle-notices > :empty{display:none!important}
+
+/* auto-run note sits inside the camp panel under the step tabs, never over the choices */
+html body.lwb-polished[data-auto="1"][data-phase="reward"] #app#app#app#app#app#app#app .modal.camp .camp-steps::after{content:"자동 진행 중 · 영입과 유물은 직접 선택하세요";grid-column:1 / -1;display:block;margin-top:8px;padding:6px 10px;
+ font:600 12px/1.4 var(--body);color:#2b1a04;text-align:center;background:linear-gradient(180deg,#f6dd96,#d9ac4e);box-shadow:0 0 0 1px #0a0806}
+
+/* shop tiers escalate: common plain → magic blue ornate → rare violet + glow → unique gold, gilded ground, shimmer
+   → legend: gilded frame on a deep crimson-gold ground, double glow, travelling sheen and sparkles */
+#app#app#app#app#app#app#app .shop-card{overflow:hidden!important;isolation:isolate}
+#app#app#app#app#app#app#app .shop-card.r-common{border-image:none!important;border:1px solid rgba(160,166,170,.4)!important;background:linear-gradient(180deg,rgba(32,32,30,.9),rgba(14,12,10,.94))!important}
+#app#app#app#app#app#app#app .shop-card.r-rare{box-shadow:0 3px 0 rgba(0,0,0,.45),0 0 12px rgba(168,116,224,.35)!important}
+#app#app#app#app#app#app#app .shop-card.r-unique{
+ background:var(--fr-grain),radial-gradient(ellipse at 50% 20%,rgba(255,214,120,.38) 0,transparent 62%),linear-gradient(180deg,#4a3410 0,#2a1d08 55%,#140d04 100%)!important;
+ box-shadow:0 3px 0 rgba(0,0,0,.45),0 0 0 1px rgba(255,214,120,.35),0 0 18px rgba(240,180,64,.45)!important}
+#app#app#app#app#app#app#app .shop-card.r-legend{border-image-source:var(--fr-card-ornate-legendary)!important;border-image-slice:12!important;border-image-width:24px!important;
+ background:var(--fr-grain),radial-gradient(ellipse at 50% 18%,rgba(255,236,170,.55) 0,transparent 58%),radial-gradient(ellipse at 50% 120%,rgba(200,60,30,.45),transparent 60%),linear-gradient(180deg,#5a2a0c 0,#3a1606 50%,#1a0904 100%)!important;
+ box-shadow:0 3px 0 rgba(0,0,0,.5),0 0 0 2px #0a0806,0 0 0 4px #ffd66a,0 0 26px rgba(255,190,70,.7),0 0 46px rgba(255,140,40,.35)!important;padding:20px 16px 16px!important}
+#app#app#app#app#app#app#app .shop-card.r-legend > b{color:#fff3c4!important;text-shadow:0 1px 0 #3a1606,0 0 10px rgba(255,214,106,.9)!important}
+#app#app#app#app#app#app#app .shop-card.r-legend > small{color:#f6e6c4!important}
+#app#app#app#app#app#app#app .shop-card.r-legend .sc-tier{background:linear-gradient(180deg,#fff6cf,#ffd66a 50%,#d79a26)!important;color:#3a1606!important}
+#app#app#app#app#app#app#app .shop-card.r-legend .shop-icon{filter:drop-shadow(0 0 8px rgba(255,214,106,.95)) drop-shadow(0 0 2px #fff)!important}
+#app#app#app#app#app#app#app .shop-card:is(.r-unique,.r-legend)::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+ background:linear-gradient(115deg,transparent 35%,rgba(255,240,190,.22) 47%,rgba(255,255,230,.38) 50%,rgba(255,240,190,.22) 53%,transparent 65%) no-repeat;background-size:250% 100%;animation:scSheen 3.6s ease-in-out infinite}
+#app#app#app#app#app#app#app .shop-card.r-legend::before{animation-duration:2.4s}
+#app#app#app#app#app#app#app .shop-card.r-legend::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.9;
+ background-image:radial-gradient(circle,#fff 0 1px,transparent 1.5px),radial-gradient(circle,#ffe7a0 0 1px,transparent 1.5px),radial-gradient(circle,#fff 0 1px,transparent 1.5px);
+ background-size:61px 53px,47px 71px,83px 67px;background-position:7px 11px,29px 37px,51px 5px;animation:scTwinkle 1.8s steps(3) infinite}
+@keyframes scSheen{0%{background-position:150% 0}55%,100%{background-position:-60% 0}}
+@keyframes scTwinkle{0%{opacity:.25}50%{opacity:.95}100%{opacity:.4}}
+@media (prefers-reduced-motion:reduce){#app .shop-card::before,#app .shop-card::after{animation:none!important}}
+/* camp: battle kill reports are done; other notices become one slim bar pinned to the very top edge (over the frame, not the choices) */
+html body.lwb-polished:is([data-phase="reward"],[data-phase="menu"],[data-phase="result"]) #lwb-killfeed{display:none!important}
+:is(html,#_o#_v#_r#_x) body.lwb-polished #battle-notices.camp-notices{position:fixed!important;top:calc(4px + var(--safe-t,0px))!important;left:50%!important;right:auto!important;transform:translateX(-50%)!important;width:max-content!important;max-width:calc(100vw - 24px)!important;
+ z-index:80!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:4px!important;pointer-events:none}
+:is(html,#_o#_v#_r#_x) body.lwb-polished #battle-notices.camp-notices > :not(#lwb-killfeed){position:static!important;transform:none!important;margin:0!important;padding:5px 12px!important;font:600 12px/1.4 var(--body)!important;color:#2b1a04!important;
+ background:linear-gradient(180deg,#f6dd96,#d9ac4e)!important;border:0!important;border-image:none!important;border-radius:2px!important;box-shadow:0 0 0 1px #0a0806,0 3px 8px rgba(0,0,0,.5)!important;white-space:normal!important;text-align:center}
+:is(html,#_o#_v#_r#_x) body.lwb-polished #battle-notices.camp-notices > * *{color:#2b1a04!important;font:inherit!important}
 </style></head><body><div id="app"></div><style id="integrated-rework">
 /* Integrated mobile layout: content first, stable controls, original artwork. */
 html body.lwb-polished.ui-rebuilt #app #overlay .t-title .title-controls{display:flex!important;flex-direction:column!important;gap:10px!important}

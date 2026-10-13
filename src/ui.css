@@ -937,3 +937,46 @@ html body.lwb-polished:has(#stage-intro) #app #battle-notices{visibility:hidden!
 #app#app#app#app#app#app#app .modal details.save-wrap > .save-slots.cloud-save{padding:8px 14px 14px!important;border-top:1px solid rgba(201,164,94,.18)!important}
 #app#app#app#app#app#app#app#app#app .modal .camp-dock,#app#app#app#app#app#app#app#app#app .modal details.save-wrap > .save-slots{border:0!important;background:none!important;box-shadow:none!important}
 #app#app#app#app#app#app#app#app#app .modal details.save-wrap > .save-slots.cloud-save{border-top:1px solid rgba(201,164,94,.18)!important}
+
+/* =====================================================================================
+   PASS 8
+   ===================================================================================== */
+/* kill feed container is not a notice plate itself (it showed as an empty thin bar) */
+#app#app#app#app#app#app#app#app #battle-notices > #lwb-killfeed{border:0!important;background:none!important;box-shadow:none!important;padding:0!important;min-height:0!important}
+#app#app#app#app#app#app#app#app #battle-notices > #lwb-killfeed:empty,#app#app#app#app#app#app#app#app #battle-notices > :empty{display:none!important}
+
+/* auto-run note sits inside the camp panel under the step tabs, never over the choices */
+html body.lwb-polished[data-auto="1"][data-phase="reward"] #app#app#app#app#app#app#app .modal.camp .camp-steps::after{content:"자동 진행 중 · 영입과 유물은 직접 선택하세요";grid-column:1 / -1;display:block;margin-top:8px;padding:6px 10px;
+ font:600 12px/1.4 var(--body);color:#2b1a04;text-align:center;background:linear-gradient(180deg,#f6dd96,#d9ac4e);box-shadow:0 0 0 1px #0a0806}
+
+/* shop tiers escalate: common plain → magic blue ornate → rare violet + glow → unique gold, gilded ground, shimmer
+   → legend: gilded frame on a deep crimson-gold ground, double glow, travelling sheen and sparkles */
+#app#app#app#app#app#app#app .shop-card{overflow:hidden!important;isolation:isolate}
+#app#app#app#app#app#app#app .shop-card.r-common{border-image:none!important;border:1px solid rgba(160,166,170,.4)!important;background:linear-gradient(180deg,rgba(32,32,30,.9),rgba(14,12,10,.94))!important}
+#app#app#app#app#app#app#app .shop-card.r-rare{box-shadow:0 3px 0 rgba(0,0,0,.45),0 0 12px rgba(168,116,224,.35)!important}
+#app#app#app#app#app#app#app .shop-card.r-unique{
+ background:var(--fr-grain),radial-gradient(ellipse at 50% 20%,rgba(255,214,120,.38) 0,transparent 62%),linear-gradient(180deg,#4a3410 0,#2a1d08 55%,#140d04 100%)!important;
+ box-shadow:0 3px 0 rgba(0,0,0,.45),0 0 0 1px rgba(255,214,120,.35),0 0 18px rgba(240,180,64,.45)!important}
+#app#app#app#app#app#app#app .shop-card.r-legend{border-image-source:var(--fr-card-ornate-legendary)!important;border-image-slice:12!important;border-image-width:24px!important;
+ background:var(--fr-grain),radial-gradient(ellipse at 50% 18%,rgba(255,236,170,.55) 0,transparent 58%),radial-gradient(ellipse at 50% 120%,rgba(200,60,30,.45),transparent 60%),linear-gradient(180deg,#5a2a0c 0,#3a1606 50%,#1a0904 100%)!important;
+ box-shadow:0 3px 0 rgba(0,0,0,.5),0 0 0 2px #0a0806,0 0 0 4px #ffd66a,0 0 26px rgba(255,190,70,.7),0 0 46px rgba(255,140,40,.35)!important;padding:20px 16px 16px!important}
+#app#app#app#app#app#app#app .shop-card.r-legend > b{color:#fff3c4!important;text-shadow:0 1px 0 #3a1606,0 0 10px rgba(255,214,106,.9)!important}
+#app#app#app#app#app#app#app .shop-card.r-legend > small{color:#f6e6c4!important}
+#app#app#app#app#app#app#app .shop-card.r-legend .sc-tier{background:linear-gradient(180deg,#fff6cf,#ffd66a 50%,#d79a26)!important;color:#3a1606!important}
+#app#app#app#app#app#app#app .shop-card.r-legend .shop-icon{filter:drop-shadow(0 0 8px rgba(255,214,106,.95)) drop-shadow(0 0 2px #fff)!important}
+#app#app#app#app#app#app#app .shop-card:is(.r-unique,.r-legend)::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+ background:linear-gradient(115deg,transparent 35%,rgba(255,240,190,.22) 47%,rgba(255,255,230,.38) 50%,rgba(255,240,190,.22) 53%,transparent 65%) no-repeat;background-size:250% 100%;animation:scSheen 3.6s ease-in-out infinite}
+#app#app#app#app#app#app#app .shop-card.r-legend::before{animation-duration:2.4s}
+#app#app#app#app#app#app#app .shop-card.r-legend::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.9;
+ background-image:radial-gradient(circle,#fff 0 1px,transparent 1.5px),radial-gradient(circle,#ffe7a0 0 1px,transparent 1.5px),radial-gradient(circle,#fff 0 1px,transparent 1.5px);
+ background-size:61px 53px,47px 71px,83px 67px;background-position:7px 11px,29px 37px,51px 5px;animation:scTwinkle 1.8s steps(3) infinite}
+@keyframes scSheen{0%{background-position:150% 0}55%,100%{background-position:-60% 0}}
+@keyframes scTwinkle{0%{opacity:.25}50%{opacity:.95}100%{opacity:.4}}
+@media (prefers-reduced-motion:reduce){#app .shop-card::before,#app .shop-card::after{animation:none!important}}
+/* camp: battle kill reports are done; other notices become one slim bar pinned to the very top edge (over the frame, not the choices) */
+html body.lwb-polished:is([data-phase="reward"],[data-phase="menu"],[data-phase="result"]) #lwb-killfeed{display:none!important}
+:is(html,#_o#_v#_r#_x) body.lwb-polished #battle-notices.camp-notices{position:fixed!important;top:calc(4px + var(--safe-t,0px))!important;left:50%!important;right:auto!important;transform:translateX(-50%)!important;width:max-content!important;max-width:calc(100vw - 24px)!important;
+ z-index:80!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:4px!important;pointer-events:none}
+:is(html,#_o#_v#_r#_x) body.lwb-polished #battle-notices.camp-notices > :not(#lwb-killfeed){position:static!important;transform:none!important;margin:0!important;padding:5px 12px!important;font:600 12px/1.4 var(--body)!important;color:#2b1a04!important;
+ background:linear-gradient(180deg,#f6dd96,#d9ac4e)!important;border:0!important;border-image:none!important;border-radius:2px!important;box-shadow:0 0 0 1px #0a0806,0 3px 8px rgba(0,0,0,.5)!important;white-space:normal!important;text-align:center}
+:is(html,#_o#_v#_r#_x) body.lwb-polished #battle-notices.camp-notices > * *{color:#2b1a04!important;font:inherit!important}

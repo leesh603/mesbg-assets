@@ -4864,7 +4864,7 @@ function applyUnitArtSprite(scene, sprite, u) {
     const source = scene.textures.get(u.id).getSourceImage(), body = unitArtLayout(u, source);
     sprite.setDisplaySize(body.width, body.height).setOrigin(body.originX, body.originY).setPosition(0, 0).setVisible(true);
     sprite.setData('baseSX', sprite.scaleX); sprite.setData('baseSY', sprite.scaleY);
-    sprite.setData('cxy', { x: 0, y: 0 }); sprite.setData('bodyProfile', u.id);
+    sprite.setData('cxy', { x: 0, y: 0 }); sprite.setData('bodyProfile', u.id); sprite.setData('ox', body.originX);
 }
 Ve.prototype.update = function (time) { if (!this.tokens || this.busy)
     return; for (const u of this.b.alive()) {
@@ -5674,7 +5674,6 @@ me = function () {
         Jt = setTimeout(safeAct(_gate(() => q.startWave())), 900);
     else if (q.phase === 'reward' && !q._autoCampNote) {
         q._autoCampNote = 1;
-        Xt('자동 진행 중 · 영입과 유물은 직접 선택하세요');
     }
 };
 document.querySelector('.top-actions').insertAdjacentHTML('afterbegin', '<button class="iconbtn" id="auto" title="AI가 아군 턴도 진행합니다. 전투·배치·교전을 자동으로 넘깁니다">자동</button>');
@@ -6488,7 +6487,7 @@ Ve.prototype.update=function(time){
             const c=this.tokens.get(u.uid),s=c&&c.getByName('token');
             if(!s||!s.getData('baseSX')||s.getData('fxLock'))continue;
             // turning: |cos| squash through zero, mirror at the midpoint
-            const turnK=1,_fd=s.getData('faceDir')||0;s.setFlipX(_fd!==0&&_fd!==artDir(this,u.id));
+            const turnK=1,_fd=s.getData('faceDir')||0;s.setFlipX(_fd!==0&&_fd!==artDir(this,u.id));{const _ox=s.getData('ox');if(_ox!=null){const _w=s.flipX?1-_ox:_ox;if(Math.abs(s.originX-_w)>1e-4)s.setOrigin(_w,s.originY);}}
             // idle breathing (kept from TokenIdle) — frozen positionally while the battle is resolving
             let m={sx:1,sy:1,dx:0,dy:0};if(!calm){let kind=c.getData('ik');if(kind===undefined){kind=window.TokenIdle.classify(u.id,this.b.meta.get(u.id));c.setData('ik',kind);}m=window.TokenIdle.sample(kind,time,u.uid);}
             let oy=0,sx=1,sy=1,ang=0;
@@ -7837,7 +7836,7 @@ window.__LWB = { be: (...a) => be(...a), He: (...a) => He(...a), metaFor, suppor
 
 // Product HUD: one command surface, restrained materials, contextual detail.
 function renderPolishedHUD() {
-    document.body.dataset.phase=q.phase;document.body.dataset.side=q.side||'';
+    document.body.dataset.phase=q.phase;document.body.dataset.side=q.side||'';document.body.dataset.auto=AUTO?'1':'';
     {const wm=ut('wave')?.parentElement;if(wm)wm.dataset.round=['move','shoot','fight'].includes(q.phase)&&q.round?'R'+q.round:'';
      const hm=document.querySelector('#hud-mission .hm-line'),em=ut('ux-mission')?.querySelector('em');if(hm)hm.textContent=em?.textContent||'원정 준비';{const box=ut('hud-mission'),mx=ut('ux-mission');if(box&&!box.dataset.pop){box.dataset.pop='1';box.setAttribute('role','button');box.setAttribute('aria-label','전장 임무 보기');box.onclick=()=>{const m=ut('ux-mission');const d=document.createElement('dialog');d.className='ui-info-dialog mission-pop';const c=m?m.cloneNode(true):document.createElement('div');const t=c.querySelector('em')?.textContent||'전장 임무';c.querySelector('em')?.remove();d.innerHTML='<h2>'+esc(t)+'</h2><div class="mission-rule">'+c.innerHTML+'</div><button class="primary" data-close>확인</button>';document.body.appendChild(d);d.querySelector('[data-close]').onclick=()=>d.close();d.onclick=e=>{if(e.target===d)d.close();};d.onclose=()=>d.remove();d.showModal();};}if(box&&mx){let sub=box.querySelector('.hm-sub');if(!sub){sub=document.createElement('div');sub.className='hm-sub';box.appendChild(sub);}const c=mx.cloneNode(true);c.querySelector('em')?.remove();c.querySelectorAll('small,img').forEach(e=>e.remove());const t=c.textContent.replace(/^\s*[·—-]\s*/,'').trim();if(sub.textContent!==t)sub.textContent=t;box.classList.toggle('has-sub',!!t);}}}
     renderUnitVitals();
