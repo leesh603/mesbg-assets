@@ -6,7 +6,7 @@
 // index.html is the source of truth: it holds all markup, CSS, engine code
 // and the asset key list, and it is what GitHub Pages serves. On a fresh
 // clone this script works with no other prerequisites.
-// Usage (repo root):  node tools/build.js
+// Usage (repo root):  node tools/build.js   (add --no-bundle to skip the offline bundle)
 const fs = require('fs');
 const path = require('path');
 
@@ -45,6 +45,17 @@ _keys.sort();
   if (m) html = html.slice(0, m.index) + 'window.__MESBG_ASSETS__={};window.__MESBG_ASSET_KEYS__=' + JSON.stringify(_keys) + ';' + html.slice(m.index + m[0].length);
   console.log('asset keys synced:', _keys.length);
 }
+// src/ui.css (shared design rules for the mobile UI/HUD) → <style id="ui-overhaul">, kept last in <head>
+// so it sits on top of the older style blocks. Edit src/ui.css, not that block.
+{
+  const UICSS = path.join(ROOT, 'src', 'ui.css');
+  if (fs.existsSync(UICSS)) {
+    const tag = '<style id="ui-overhaul">\n' + fs.readFileSync(UICSS, 'utf8').trim() + '\n</style>';
+    const re = /<style id="ui-overhaul">[\s\S]*?<\/style>/;
+    html = re.test(html) ? html.replace(re, () => tag) : html.replace('</head>', () => tag + '</head>');
+    console.log('spliced src/ui.css → index.html');
+  }
+}
 fs.writeFileSync(INDEX, html);
 console.log('spliced src/game.js → index.html', (html.length / 1048576).toFixed(2) + 'MB');
 // smoke check: every inline <script> in index.html must parse — a merge-corrupted
@@ -58,6 +69,7 @@ console.log('spliced src/game.js → index.html', (html.length / 1048576).toFixe
   }
 }
 
+if (process.argv.includes('--no-bundle')) process.exit(0); // quick UI iterations: skip the 200MB+ offline bundle
 // Build the offline single-file bundle: replace the asset stub with a real
 // base64 map of every file under assets/mesbg/.
 const map = {};
