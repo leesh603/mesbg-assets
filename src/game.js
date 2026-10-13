@@ -1447,6 +1447,7 @@ P.bonded = function (u) {
     return !!(f && this.alive('good').some(v => v !== u && this.meta.get(v.id)?.faction === f && ht(u, v) <= u.radius + v.radius + 60));
 };
 const FACTION_KO = { gondor: '곤도르', minastirith: '미나스 티리스', rohan: '로한', elf: '엘프', rivendell: '리븐델', lothlorien: '로스로리엔', dwarf: '난쟁이', erebor: '에레보르', hobbit: '홉빗', shire: '샤이어', dead: '망자', arnor: '아르노르', silmaril: '1시대', mordor: '모르도르', angmar: '앙그마르', isengard: '아이센가드', gundabad: '군다바드', harad: '하라드', rhun: '룬', dolguldur: '돌 굴두르', dunland: '던란드', fangorn: '판고른', laketown: '호숫골', dale: '데일', bree: '브리', numenor: '누메노르' };
+const FACTION_LABEL = id => { const f = (q.meta.get(id) || {}).faction || ''; return FACTION_KO[f] || ({ men: '인간', maiar: '마이아', doriath: '도리아스', eagle: '독수리', umbar: '움바르', ent: '엔트', beorning: '베오른족', angband: '앙그반드', moria: '모리아', easterling: '동부인', dol_guldur: '돌 굴두르', valinor: '발리노르', dragon: '용', terrain: '' })[f] || f; };
 // 세력 결속: 같은 세력 아군 4기 이상이면 그 세력 고유의 패시브가 전원에게 발동.
 const FACTION_BONDS = {
     gondor: ['방벽 · Defence +1', u => { u.stats.defence += 1; }],
@@ -4621,7 +4622,7 @@ Ve.prototype.drawRings = function () {
     if (b.phase === 'menu')
         return;
     // UI v2 map palette — role colours with a dark under-stroke so every mark reads on busy painted maps.
-    const Z = UX.zoom || 1, INK = 0x0b100d, ALLY = 0x58c9a5, ALLY_HI = 0x9ff0cf, FOE = 0xe8705e, FOE_HI = 0xffa898, GOLD = 0xe9c97e, GOLD_HI = 0xfbe8b0, MOVE = 0x62c6f2, MOVE_HI = 0xc4ecff, CHARGE = 0xff9a52, AMBER = 0xf2c45a, TARGET = 0xff5f4a;
+    const Z = UX.zoom || 1, INK = 0x0b0a08, ALLY = 0x8fb28a, ALLY_HI = 0xd9e8c4, FOE = 0xc85a42, FOE_HI = 0xf2a68c, GOLD = 0xd8b45e, GOLD_HI = 0xf6e3a6, MOVE = 0xe6d7a8, MOVE_HI = 0xfff3cf, CHARGE = 0xe88a3a, AMBER = 0xe8b84e, TARGET = 0xe4553e;
     const duo = (w, color, alpha, draw) => { g.lineStyle(w + 3.5 / Z, INK, .62 * alpha); draw(); g.lineStyle(w, color, alpha); draw(); };
     const dashCircle = (x, y, r, w, color, alpha, n = 40) => { for (let i = 0; i < n; i++) { const a0 = i * Math.PI * 2 / n, a1 = a0 + Math.PI / n * 1.15; duo(w, color, alpha, () => { g.beginPath(); g.arc(x, y, r, a0, a1); g.strokePath(); }); } };
     if (b.phase === 'preparation') {
@@ -4695,10 +4696,10 @@ Ve.prototype.drawRings = function () {
             }
             const points=this._rangePoints,z=UX.zoom||1;
             // Two-tone boundary survives both light stone and dark ground.
-            g.fillStyle(MOVE,.15);g.fillPoints(points,true);
-            g.lineStyle(12/z,MOVE,.14);g.strokePoints(points,true);
-            g.lineStyle(5.5/z,INK,.45);g.strokePoints(points,true);
-            g.lineStyle(2.4/z,MOVE_HI,1);g.strokePoints(points,true);
+            g.fillStyle(MOVE,.09);g.fillPoints(points,true);
+            g.lineStyle(4.5/z,INK,.55);g.strokePoints(points,true);
+            g.lineStyle(2/z,MOVE_HI,.95);g.strokePoints(points,true);
+            { const cx=u.x,cy=u.y,inner=points.map(p=>({x:cx+(p.x-cx)*.965,y:cy+(p.y-cy)*.965}));g.lineStyle(1.4/z,MOVE,.6);const step=Math.max(4,Math.round(inner.length/72));for(let i=0;i<inner.length;i+=step*2){g.beginPath();g.moveTo(inner[i].x,inner[i].y);for(let k=1;k<=step;k++){const P=inner[(i+k)%inner.length];g.lineTo(P.x,P.y);}g.strokePath();} }
             for(const t of b.terrain.filter(t=>t.active&&!t.z&&ht(t,u)<r+Math.max(t.w,t.h))){
                 if(!lowBarrier(t))continue;
                 g.fillStyle(GOLD,.10);g.fillRoundedRect(t.x-t.w/2,t.y-t.h/2,t.w,t.h,Math.min(10,t.h/3,t.w/3));
@@ -4749,16 +4750,16 @@ Ve.prototype.drawRings = function () {
         // Facing: small team-coloured wedge just outside the base.
         { const r0 = u.radius + 3, r1 = u.radius + 13, w = .22; g.fillStyle(INK, .6); g.fillTriangle(u.x + Math.cos(fa) * (r1 + 2), u.y + Math.sin(fa) * (r1 + 2), u.x + Math.cos(fa - w - .05) * (r0 - 1), u.y + Math.sin(fa - w - .05) * (r0 - 1), u.x + Math.cos(fa + w + .05) * (r0 - 1), u.y + Math.sin(fa + w + .05) * (r0 - 1)); g.fillStyle(color, 1); g.fillTriangle(u.x + Math.cos(fa) * r1, u.y + Math.sin(fa) * r1, u.x + Math.cos(fa - w) * r0, u.y + Math.sin(fa - w) * r0, u.x + Math.cos(fa + w) * r0, u.y + Math.sin(fa + w) * r0); }
         if (u.stats.wounds > 1) {
-            g.lineStyle(9, INK, .6); g.beginPath(); g.arc(u.x, u.y, u.radius + 4, 0, Math.PI * 2); g.strokePath();
+            g.lineStyle(7, INK, .6); g.beginPath(); g.arc(u.x, u.y, u.radius + 4, 0, Math.PI * 2); g.strokePath();
             for (let i = 0; i < u.stats.wounds; i++) {
                 const a = -Math.PI / 2 + i * Math.PI * 2 / u.stats.wounds + .07, z = -Math.PI / 2 + (i + 1) * Math.PI * 2 / u.stats.wounds - .07;
-                g.lineStyle(5, i < u.currentWounds ? (u.currentWounds / u.stats.wounds <= .34 ? 0xff6a50 : u.side === 'good' ? 0x7fd36b : FOE_HI) : 0x2b2622, 1);
+                g.lineStyle(3.5, i < u.currentWounds ? (u.currentWounds / u.stats.wounds <= .34 ? 0xd2603f : u.side === 'good' ? 0xa9bf7a : 0xe0907a) : 0x2b2622, 1);
                 g.beginPath();
                 g.arc(u.x, u.y, u.radius + 4, a, z);
                 g.strokePath();
             }
         }
-        const status = b.engaged(u) ? CHARGE : u.acted ? 0x6b6f66 : u.movementSpent ? AMBER : (u.side === 'good' ? ALLY : FOE);
+        const status = b.engaged(u) ? CHARGE : u.acted ? 0x5f5c54 : u.movementSpent ? AMBER : (u.side === 'good' ? ALLY : FOE);
         const sx = u.x + u.radius * .78, sy = u.y - u.radius * .78;
         g.fillStyle(INK, .9);
         g.fillCircle(sx, sy, 9.5);
@@ -5641,7 +5642,7 @@ Ve.prototype.sync=function(){
         c.setAlpha(1).setVisible(this.b.phase!=='menu');const s=c.getByName('token'),spent=u.acted&&['move','shoot'].includes(this.b.phase);
         s.setAlpha(1).setTexture(spent?grayTexture(u.id):(Tt.textures.exists(u.id)?u.id:s.texture.key)).clearTint();c.setData('spent',spent);
         c.getByName('label')?.setVisible(false);const base=c.getByName('base');if(base){base.setAlpha(1);if(base.setTint)spent?base.setTint(0xb1b8bb):base.clearTint();}
-        c.getByName('rim')?.setStrokeStyle((u.traits.includes('hero')?3:2.2)/UX.zoom,spent?0x7d8478:u.traits.includes('hero')?0xe9c97e:u.side==='good'?0x58c9a5:0xe8705e,spent?.7:1);
+        c.getByName('rim')?.setStrokeStyle((u.traits.includes('hero')?2.6:1.8)/UX.zoom,spent?0x6f6c62:u.traits.includes('hero')?0xd8b45e:u.side==='good'?0x8fb28a:0xc85a42,spent?.7:.95);
     }
     if(this.b.phase==='menu'){UX.stage=null;return;}
     const stage=(this.b.phase==='preparation'?this.b.wave+1:this.b.wave)+'/'+(this.b.mapIndex||0);
@@ -5675,11 +5676,12 @@ function updateWorldUI(){
     const x=token?.x??u.x,y=token?.y??u.y;
     g.clear();
     const z=UX.zoom;
-    g.lineStyle(14/z,0xe9c97e,.16);g.strokeCircle(x,y,r+2/z);
-    g.lineStyle(6.5/z,0x0b100d,.9);g.strokeCircle(x,y,r);g.lineStyle(3.2/z,0xfbe8b0,1);g.strokeCircle(x,y,r);
+    g.lineStyle(8/z,0xd8b45e,.12);g.strokeCircle(x,y,r+1/z);
+    g.lineStyle(5/z,0x0b0a08,.85);g.strokeCircle(x,y,r);g.lineStyle(2.4/z,0xf6e3a6,1);g.strokeCircle(x,y,r);
+    for(let k=1;k<4;k++){const a=-Math.PI/2+k*Math.PI/2,c=Math.cos(a),s2=Math.sin(a);g.lineStyle(5/z,0x0b0a08,.85);g.lineBetween(x+c*(r-5/z),y+s2*(r-5/z),x+c*(r+6/z),y+s2*(r+6/z));g.lineStyle(2.4/z,0xf6e3a6,1);g.lineBetween(x+c*(r-4/z),y+s2*(r-4/z),x+c*(r+5/z),y+s2*(r+5/z));}
     // Direction chevron provides a shape cue in addition to colour.
-    g.fillStyle(0x0b100d,.9);g.fillTriangle(x-8/z,y-r-12/z,x+8/z,y-r-12/z,x,y-r-1/z);
-    g.fillStyle(0xfbe8b0,1);g.fillTriangle(x-5.5/z,y-r-10/z,x+5.5/z,y-r-10/z,x,y-r-3/z);
+    g.fillStyle(0x0b0a08,.9);g.fillTriangle(x-8/z,y-r-12/z,x+8/z,y-r-12/z,x,y-r-1/z);
+    g.fillStyle(0xf6e3a6,1);g.fillTriangle(x-5.5/z,y-r-10/z,x+5.5/z,y-r-10/z,x,y-r-3/z);
     if(!UX.reduced&&!Tt._ringPulse)Tt._ringPulse=Tt.tweens.add({targets:g,alpha:{from:1,to:.62},duration:760,yoyo:true,repeat:-1,ease:'Sine.easeInOut'});
     tag.classList.toggle('hidden',!on);out.classList.toggle('hidden',on);
     if(on){tag.textContent=text;tag.style.left=left+'px';tag.style.top=top+'px';}
@@ -6022,7 +6024,7 @@ function renderRecruitDraft(){
     q.sanitizeRecruitOffers();
     const selected=q.recruitDraft||[],sum=selected.reduce((n,i)=>n+q.price(q.recruitOffers[i].id),0),capacity=q.capacity()-q.permanent().length-selected.length;
     const box=ut('overlay');
-    box.innerHTML=`<div class="modal camp"><div class="eyebrow">${q.initialDraft ? '출정 · 원정대 편성' : '공세 ' + q.wave + ' · 야영지'}</div><h2>${q.initialDraft ? '원정대 편성' : '동료 영입'}</h2><div class="recruit-summary"><span><small>보유</small><b><img src="icons/coin.png" alt="금화"> ${q.gold}</b></span><span><small>선택 비용</small><b>${sum}</b></span><span><small>남은 금화</small><b>${q.gold-sum}</b></span><span class="draft-capacity">선택 ${selected.length}명 · ${capacity<0?'정원 초과 '+(-capacity)+'명':'빈자리 '+capacity+'명'}</span></div>${warbandComposition(q.permanent().map(u=>u.id).concat(selected.map(i=>q.recruitOffers[i].id)))}${bondHint()}${q.initialDraft?'<p class="draft-help">영웅 1기 · 다른 영웅을 선택하면 교체됩니다</p>':''}<div class="recruit-cards">${(q.recruitOffers||[]).map((o,i)=>{const d=UnitCatalog[o.id]||{rarity:'normal'},m=q.meta.get(o.id)||{},p=zt[o.id]||{traits:[]},on=selected.includes(i),cost=q.price(o.id),reason=!on?q.recruitSelection(i).reason:'',disabled=o.bought;return `<button type="button" class="recruit-card tier-${d.rarity} ${on?'is-picked':''}" data-draft="${i}" aria-pressed="${on}" ${disabled?'disabled':''}><span class="pick-mark${reason?' why':''}">${on?'선택됨':(reason?'영입 조건 확인':'선택')}</span><span class="recruit-portrait" data-vunit="${o.id}" title="터치하면 프로필 보기">${q.meta.get(o.id)?unitImage(o.id):''}</span><span class="recruit-grade">${_gic(isHeroUnit(o.id)?tierLabel(o.id):({normal:'일반',elite:'정예',rare:'희귀',epic:'영웅급',legendary:'전설'})[d.rarity]||tierLabel(o.id))}</span><b class="recruit-name">${esc(m.name_ko)}</b><small class="recruit-role">${warbandRole(o.id)}</small><div class="recruit-combat"><span title="공격"><img src="icons/ui_swords.png" alt="공격">${p.attacks}</span><span title="방어"><img src="icons/cmd_hold.png?v=1.37" alt="방어">${p.defence}</span></div><p>${esc(CX.skills[o.id]?.[0]||'전열')}</p><em>${o.bought?'합류 완료':(reason||cost+' 금화')}</em></button>`}).join('')}</div><div class="camp-secondary"><button id="draft-menu">← 메뉴</button><button id="draft-clear" ${selected.length?'':'disabled'}>선택 취소</button><button id="draft-reroll" ${q.gold<q.rerollCost()?'disabled':''}>후보 교체 · ${q.rerollCost()}</button><button id="draft-expand" ${q.gold<45+q.capacityBought*25||q.capacity()>=30?'disabled':''}>정원 +2 · ${45+q.capacityBought*25}</button></div><div class="camp-confirm"><span>${selected.length?selected.length+'명 · '+sum+' 금화':(q.initialDraft?'1명 이상 선택':'영입 없이 진행 가능')}</span><button id="draft-confirm" class="primary" ${q.initialDraft&&!selected.length?'disabled':''}>${selected.length?'영입 확정':(q.initialDraft?'출정 준비':'건너뛰기')} →</button></div></div>`;
+    box.innerHTML=`<div class="modal camp"><div class="eyebrow">${q.initialDraft ? '출정 · 원정대 편성' : '공세 ' + q.wave + ' · 야영지'}</div><h2>${q.initialDraft ? '원정대 편성' : '동료 영입'}</h2><div class="recruit-summary"><span><small>보유</small><b><img src="icons/coin.png" alt="금화"> ${q.gold}</b></span><span><small>선택 비용</small><b>${sum}</b></span><span><small>남은 금화</small><b>${q.gold-sum}</b></span><span class="draft-capacity">선택 ${selected.length}명 · ${capacity<0?'정원 초과 '+(-capacity)+'명':'빈자리 '+capacity+'명'}</span></div>${warbandComposition(q.permanent().map(u=>u.id).concat(selected.map(i=>q.recruitOffers[i].id)))}${bondHint()}${q.initialDraft?'<p class="draft-help">영웅 1기 · 다른 영웅을 선택하면 교체됩니다</p>':''}<div class="recruit-cards">${(q.recruitOffers||[]).map((o,i)=>{const d=UnitCatalog[o.id]||{rarity:'normal'},m=q.meta.get(o.id)||{},p=zt[o.id]||{traits:[]},on=selected.includes(i),cost=q.price(o.id),reason=!on?q.recruitSelection(i).reason:'',disabled=o.bought;return `<button type="button" class="recruit-card tier-${d.rarity} ${on?'is-picked':''}" data-draft="${i}" aria-pressed="${on}" ${disabled?'disabled':''}><span class="pick-mark${reason?' why':''}">${on?'선택됨':(reason?'영입 조건 확인':'선택')}</span><span class="recruit-portrait">${q.meta.get(o.id)?unitImage(o.id):''}<span class="recruit-info" data-vunit="${o.id}" role="button" aria-label="프로필 보기">i</span></span><span class="recruit-grade">${_gic(isHeroUnit(o.id)?tierLabel(o.id):({normal:'일반',elite:'정예',rare:'희귀',epic:'영웅급',legendary:'전설'})[d.rarity]||tierLabel(o.id))}</span>${FACTION_LABEL(o.id)?`<span class="recruit-faction">${esc(FACTION_LABEL(o.id))}</span>`:''}<b class="recruit-name">${esc(m.name_ko)}</b><small class="recruit-role">${warbandRole(o.id)}</small><div class="recruit-combat"><span title="공격"><img src="icons/ui_swords.png" alt="공격">${p.attacks}</span><span title="방어"><img src="icons/cmd_hold.png?v=1.37" alt="방어">${p.defence}</span></div><p>${esc(CX.skills[o.id]?.[0]||'전열')}</p><em>${o.bought?'합류 완료':(reason||cost+' 금화')}</em></button>`}).join('')}</div><div class="camp-secondary"><button id="draft-menu">← 메뉴</button><button id="draft-clear" ${selected.length?'':'disabled'}>선택 취소</button><button id="draft-reroll" ${q.gold<q.rerollCost()?'disabled':''}>후보 교체 · ${q.rerollCost()}</button><button id="draft-expand" ${q.gold<45+q.capacityBought*25||q.capacity()>=30?'disabled':''}>정원 +2 · ${45+q.capacityBought*25}</button></div><div class="camp-confirm"><span>${selected.length?selected.length+'명 · '+sum+' 금화':(q.initialDraft?'1명 이상 선택':'영입 없이 진행 가능')}</span><button id="draft-confirm" class="primary" ${q.initialDraft&&!selected.length?'disabled':''}>${selected.length?'영입 확정':(q.initialDraft?'출정 준비':'건너뛰기')} →</button></div></div>`;
     box.querySelectorAll('[data-draft]').forEach(el=>el.onclick=e=>{const _vn=e.target.closest&&e.target.closest('[data-vunit]');if(_vn){const _id=_vn.dataset.vunit,_p=zt[_id]||{},_pu={id:_id,side:'good',name:(q.meta.get(_id)||{}).name_ko||_id,stats:{..._p},traits:[...(_p.traits||[])],resources:{might:_p.might||0,will:_p.will||0,fate:_p.fate||0},equipment:[],kills:0,currentWounds:_p.wounds||1,injury:'',alive:true,roundBuff:{}};unitCardModal(_pu);return;}if(q.toggleRecruit(Number(el.dataset.draft)))wt.play('ui_select');else Xt(q.recruitReason||'선택할 수 없습니다');Yt();});
     ut('draft-menu').onclick=async()=>{if(await uiConfirm('현재 편성은 저장됩니다. 메뉴로 나갈까요?')){q.save();q.phase='menu';Yt();}};ut('draft-clear').onclick=()=>{q.recruitDraft=[];q.save();Yt();};
     ut('draft-reroll').onclick=()=>{q.reroll();Yt();};ut('draft-expand').onclick=()=>{q.expand();Yt();};
@@ -6089,7 +6091,7 @@ Rt=async function(fn){if(At)return;clearIntent();if(mobileLayout())setSheet(fals
 Ve.prototype.hit=function(p){const min=touchLayout()?23/(UX.zoom||1):0;return this.b.alive().filter(u=>ht(p,u)<=Math.max(min,u.radius+7,(u.visualRadius||u.radius)*.85)).sort((a,b)=>ht(p,a)-ht(p,b))[0];};
 const ringV14=Ve.prototype.drawRings;
 Ve.prototype.drawRings=function(){const intent=UX.intent;if(intent){this.preview=intent.to;this.previewPlan=intent.plan||null;this.chargeTarget=intent.kind==='charge'?{u:q.unit(intent.target),plan:intent.plan}:null;}ringV14.call(this);
-    if(intent?.kind==='deploy'&&this.rings){const r=q.unit(intent.uid).radius,g=this.rings,z=UX.zoom;g.fillStyle(0x58c9a5,.22);g.fillCircle(intent.to.x,intent.to.y,r);g.lineStyle(6/z,0x0b100d,.6);g.strokeCircle(intent.to.x,intent.to.y,r);g.lineStyle(2.6/z,0x9ff0cf,1);g.strokeCircle(intent.to.x,intent.to.y,r);}
+    if(intent?.kind==='deploy'&&this.rings){const r=q.unit(intent.uid).radius,g=this.rings,z=UX.zoom;g.fillStyle(0x8fb28a,.2);g.fillCircle(intent.to.x,intent.to.y,r);g.lineStyle(6/z,0x0b100d,.6);g.strokeCircle(intent.to.x,intent.to.y,r);g.lineStyle(2.6/z,0x9ff0cf,1);g.strokeCircle(intent.to.x,intent.to.y,r);}
     if(intent?.kind==='shoot'){const u=q.unit(intent.uid),v=q.unit(intent.target),g=this.rings,z=UX.zoom;g.lineStyle(7/z,0x0b100d,.6);g.lineBetween(u.x,u.y,v.x,v.y);g.lineStyle(10/z,0xff5f4a,.18);g.lineBetween(u.x,u.y,v.x,v.y);g.lineStyle(3/z,0xff8a6e,1);g.lineBetween(u.x,u.y,v.x,v.y);}
 };
 let uiPhase='',uiActive='';
@@ -7576,7 +7578,7 @@ Ve.prototype.drawRings = function () {
     for (const u of group) {
         g.lineStyle(6.5 / z, 0x0b100d, .55);
         g.strokeCircle(u.x, u.y, u.radius + 8 / z);
-        g.lineStyle(3 / z, u.side === 'good' ? 0x9ff0cf : 0xffa898, 1);
+        g.lineStyle(2.4 / z, u.side === 'good' ? 0xd9e8c4 : 0xf2a68c, 1);
         g.strokeCircle(u.x, u.y, u.radius + 8 / z);
     }
 };
@@ -7977,7 +7979,7 @@ document.head.appendChild(polishStyle);
 // Pixel UI fonts (Galmuri, SIL OFL 1.1) — registered through Ut() so the offline bundle embeds them too.
 (function(){try{if(document.getElementById('lwb-fonts'))return;const st=document.createElement('style');st.id='lwb-fonts';
 const ff=(fam,file,w)=>"@font-face{font-family:'"+fam+"';src:url('"+Ut('fonts/galmuri/'+file+'.woff')+"') format('woff');font-weight:"+w+";font-display:swap}";
-st.textContent=ff('Galmuri11','Galmuri11',400)+ff('Galmuri11','Galmuri11-Bold',700)+ff('Galmuri9','Galmuri9',400)+ff('Galmuri14','Galmuri14',400)+":root{--ui-bg:url('"+Ut('ui/title-bg.jpg')+"')}";document.head.appendChild(st);}catch(e){}})();
+st.textContent=ff('Galmuri11','Galmuri11',400)+ff('Galmuri11','Galmuri11-Bold',700)+ff('Galmuri9','Galmuri9',400)+ff('Galmuri14','Galmuri14',400)+":root{--ui-bg:url('"+Ut('ui/title-bg.jpg')+"')"+['panel','card-normal','card-elite','card-rare','card-epic','card-legendary','btn-gold','btn-gold-down','btn-bronze','chip','grain'].map(k=>';--fr-'+k+":url('"+Ut('ui/frames/'+k+'.png')+"')").join('')+"}";document.head.appendChild(st);}catch(e){}})();
 // Title shows real loader progress; the battlefield is veiled until its textures are in; DOM portraits shimmer until loaded.
 (function(){
 const st={p:0,done:false};
