@@ -1669,6 +1669,13 @@ ve=function(u,p,units,terrain,budget=u.stats.move,options={}){
 _t=function(a,b,terrain){return Terrain.sight(a,b,terrain);};
 function zoneOpen(u,t){return !t.active||!!u?.traits?.includes('flying')||t.decoration||['shallow','bridge','rubble'].includes(t.surface)||t.z==='hill';}
 function climbCost(){return 0;}
+function terrainSafePoint(u,p,terrain){
+ if(Terrain.legal(u,p,[],terrain))return p;
+ for(const d of[32,64,96,128,192,256,384,512,768])for(let i=0;i<24;i++){
+  const q={x:p.x+Math.cos(i*Math.PI/12)*d,y:p.y+Math.sin(i*Math.PI/12)*d};if(Terrain.legal(u,q,[],terrain))return q;
+ }
+ return null;
+}
 // Spear-support predicate, shared by the fight solver and the HUD link lines.
 function supportAlly(u) { const all = q.alive(); if (!u.alive || !u.traits.includes('spear') || all.some(v => Vt(u, v)))
     return null; return all.filter(v => v !== u && v.side === u.side && all.some(f => f.side !== u.side && Vt(v, f)) && ht(u, v) <= u.radius + v.radius + 48).sort((a, b2) => ht(u, a) - ht(u, b2))[0] || null; }
@@ -2323,7 +2330,7 @@ P.startWave = function () {
                 }
                 if (_placed) break;
             }
-            if (!_placed) { _lu.x = 1200; _lu.y = 700; }
+            if(!_placed){const spot=terrainSafePoint(_lu,{x:1200,y:700},this.terrain);if(spot)Object.assign(_lu,spot);else{_lu.alive=false;return;}}
             this.refreshUnit(_lu); this.purgeLairs.push(_lu.uid);
         });
         if (this.purgeLairs.length) this.emit('Event', '적 소굴 3곳을 파괴하세요 — 둥지에서 적이 계속 쏟아져 나옵니다!');
@@ -2343,12 +2350,15 @@ P._separateUnits = function (list) {
                 const _aPin = A.lair || A.static, _bPin = B.lair || B.static;
                 if (_aPin && _bPin) continue;
                 const p = (need - d) / (_aPin || _bPin ? 1 : 2), ux = dx / d, uy = dy / d;
-                if (!_aPin) { A.x -= ux * p; A.y -= uy * p; }
-                if (!_bPin) { B.x += ux * p; B.y += uy * p; }
-                moved = true;
+                const aa={x:A.x-ux*p,y:A.y-uy*p},bb={x:B.x+ux*p,y:B.y+uy*p};
+                const ma=!_aPin&&Terrain.legal(A,aa,[],this.terrain)&&Terrain.line(A,A,aa,[],this.terrain,false),mb=!_bPin&&Terrain.legal(B,bb,[],this.terrain)&&Terrain.line(B,B,bb,[],this.terrain,false);
+                if(ma)Object.assign(A,aa);if(mb)Object.assign(B,bb);
+                if(ma&&!mb){const ap={x:A.x-ux*p,y:A.y-uy*p};if(Terrain.legal(A,ap,[],this.terrain)&&Terrain.line(A,A,ap,[],this.terrain,false))Object.assign(A,ap);}
+                if(mb&&!ma){const bp={x:B.x+ux*p,y:B.y+uy*p};if(Terrain.legal(B,bp,[],this.terrain)&&Terrain.line(B,B,bp,[],this.terrain,false))Object.assign(B,bp);}
+                moved=ma||mb;
             }
         }
-        _us.forEach(u => { u.x = Math.max(u.radius + 8, Math.min(pt.width - u.radius - 8, u.x)); u.y = Math.max(u.radius + 8, Math.min(pt.height - u.radius - 8, u.y)); });
+        _us.forEach(u => { u.x = Math.max(u.radius + 12, Math.min(pt.width - u.radius - 12, u.x)); u.y = Math.max(u.radius + 25, Math.min(pt.height - u.radius - 12, u.y)); });
         if (!moved) break;
     }
 };
@@ -2456,7 +2466,11 @@ P.beginRound = function () {
         const _pick = _pool[Math.floor(this.rng() * _pool.length)];
         const _dx = 500 + Math.floor(this.rng() * 1200), _dy = 1050 + Math.floor(this.rng() * 250);
         let _n = 0;
-        for (const _id of _pick) { const _su = this.spawn(_id, 'evil', { x: _dx + _n * 70 - _pick.length * 35, y: _dy }); if (_su) { _su._darkInfil = true; _n++; } }
+        for(const _id of _pick){
+            const _origin={x:_dx+_n*100-_pick.length*50,y:_dy},_su=this.spawn(_id,'evil',{x:-1000,y:-1000});
+            if(!_su)continue;const _pos=Be(_su,_origin,this.alive(),this.terrain,118);
+            if(_pos){Object.assign(_su,_pos);_su._darkInfil=true;_n++;}else{_su.alive=false;this.delayed.push(_id);}
+        }
         if (_n) {
             const _nm = (this.meta.get(_pick[0]) || {}).name_ko || _pick[0];
             this.emit('Event', `🌑 다크 이벤트 — ${_nm}${_n > 1 ? ' 무리' : ''}이(가) 후방에 침투했습니다!`, { at: { x: _dx, y: _dy } });
@@ -2494,7 +2508,7 @@ P.beginRound = function () {
                 v.feared = true; v.acted = true; _fled++;
                 const a = Math.atan2(v.y - nz.y, v.x - nz.x);
                 const p = { x: Math.min(2240, Math.max(90, v.x + Math.cos(a) * 170)), y: Math.min(1390, Math.max(90, v.y + Math.sin(a) * 170)) };
-                if (Et(v, p, this.alive(), this.terrain)) Object.assign(v, p);
+                if(Et(v,p,this.alive(),this.terrain)&&bt(v,p,this.alive(),this.terrain))Object.assign(v,p);else Object.assign(v,De(v,[nz],this.alive(),this.terrain,170).to);
                 this.emit('Terror', `${v.name} — 나즈굴의 공포에 짓눌려 물러납니다`, { uid: v.uid });
             }
         }
@@ -4779,18 +4793,19 @@ Ve.prototype.sync = function () {
     if (!this.backdrop)
         return;
     const name = CX.maps[visualMapIdx(this.b.mapIndex)];
-    const mapKey = 'terrain-ground-'+(Terrain.THEMES[name]||Terrain.THEMES.pelennor).ground;
+    const family=(Terrain.THEMES[name]||Terrain.THEMES.pelennor).ground,tint=family==='stone'?0x848f93:family==='forest'?0xd0d3bb:0xffffff;
+    const mapKey = 'terrain-ground-'+family;
     if (!this.textures.exists(mapKey)) {
         // 지연 로드: 스테이지 전환 때만 필요한 배경을 받는다 (preload에서 전부 받지 않음).
         const file = 'terrain/'+((Terrain.THEMES[name]||Terrain.THEMES.pelennor).ground==='stone'?'gondor':(Terrain.THEMES[name]||Terrain.THEMES.pelennor).ground)+'.webp?v=terrain2';
         if (this._mapLoading !== mapKey) {
             this._mapLoading = mapKey;
             this.load.image(mapKey, this.asset(file));
-            this.load.once('complete', () => { this._mapLoading = null; if (this.backdrop) this.backdrop.setTexture(mapKey).setTint(0xffffff).setDisplaySize(pt.width, pt.height); });
+            this.load.once('complete', () => { this._mapLoading = null; if(this.backdrop&&'terrain-ground-'+(Terrain.THEMES[CX.maps[visualMapIdx(this.b.mapIndex)]]||Terrain.THEMES.pelennor).ground===mapKey)this.backdrop.setTexture(mapKey).setTint(tint).setDisplaySize(pt.width, pt.height); });
             this.load.start();
         }
     } else
-        this.backdrop.setTexture(mapKey).setTint(0xffffff).setDisplaySize(pt.width, pt.height);
+        this.backdrop.setTexture(mapKey).setTint(tint).setDisplaySize(pt.width, pt.height);
     this.boundary.clear();
     // Soft stepped fog margins remain outside the legal base-center boundary.
     for (let i = 0; i < 5; i++) {
@@ -4921,11 +4936,12 @@ Ve.prototype.drawRings = function () {
                 // then single-ray spikes are trimmed and the outline is rounded with Chaikin (draw only).
                 const N=144,STEP=11,R=new Array(N);
                 const at=(a,d)=>({x:u.x+Math.cos(a)*d,y:u.y+Math.sin(a)*d});
-                const stopOk=p=>Et(u,p,enemies,obstacles)&&Et(u,p,enemies,b.terrain);
+                const stopOk=p=>Et(u,p,enemies,obstacles)&&Et(u,p,enemies,b.terrain)&&Terrain.cost(u,u,p,b.terrain)<=r+.1;
                 for(let i=0;i<N;i++){
-                    const a=i*Math.PI*2/N;let last=0,hit=0;
+                    const a=i*Math.PI*2/N;let last=0,hit=0,spent=0,previous=0;
                     for(let distance=STEP;distance<=r+STEP;distance+=STEP){const d=Math.min(distance,r),p=at(a,d);
-                        if(!Et(u,p,enemies,obstacles)){if(!hit)hit=d;break;}
+                        spent+=(d-previous)/Terrain.speed(u,at(a,(d+previous)/2),b.terrain);previous=d;
+                        if(!Et(u,p,enemies,obstacles)||spent>r+.1){if(!hit)hit=d;break;}
                         if(Et(u,p,enemies,b.terrain)){last=d;hit=0;}else if(!hit)hit=d;
                         if(d===r)break;
                     }
@@ -5767,9 +5783,10 @@ function actionableUnit(){
 function shortName(u){return u.name.replace('미나스 티리스 전사','곤도르 전사').replace('미나스 티리스 창병','곤도르 창병').replace('모르도르 오크(검)','오크 전사')}
 function cameraCenter(){const c=Tt.cameras?.main;return c?{x:c.scrollX+c.width/2,y:c.scrollY+c.height/2}:{x:1165,y:670}}
 function fitZoom(){return Math.max(UX.width/pt.width,UX.height/pt.height)}
+function overviewZoom(){return Math.min(UX.width/pt.width,UX.height/pt.height)}
 function setCamera(x,y,z=UX.zoom,mode=UX.cameraMode){
     if(!UX.ready)return;
-    const c=Tt.cameras.main;UX.zoom=Ot.Math.Clamp(z,Math.max(.12,fitZoom()),1.65);UX.cameraMode=mode;
+    const c=Tt.cameras.main;UX.zoom=Ot.Math.Clamp(z,Math.max(.12,mode==='overview'?overviewZoom():fitZoom()),1.65);UX.cameraMode=mode;
     const halfW=UX.width/(2*UX.zoom),halfH=UX.height/(2*UX.zoom);
     x=halfW>=pt.width/2?pt.width/2:Ot.Math.Clamp(x,halfW,pt.width-halfW);
     y=halfH>=pt.height/2?pt.height/2:Ot.Math.Clamp(y,halfH,pt.height-halfH);
@@ -5793,7 +5810,7 @@ function worldAt(x,y){const c=cameraCenter();return{x:c.x+(x-UX.width/2)/UX.zoom
 function screenAt(x,y){const c=cameraCenter();return{x:(x-c.x)*UX.zoom+UX.width/2,y:(y-c.y)*UX.zoom+UX.height/2}}
 function zoomAt(z,x=UX.width/2,y=UX.height/2){const p=worldAt(x,y);z=Ot.Math.Clamp(z,Math.max(.12,fitZoom()),1.65);setCamera(p.x-(x-UX.width/2)/z,p.y-(y-UX.height/2)/z,z,'manual');}
 Ve.prototype.zoom=function(delta){zoomAt(UX.zoom*(delta>0?1.2:1/1.2));};
-Ve.prototype.overview=function(){setCamera(pt.width/2,pt.height/2,fitZoom(),'overview')};
+Ve.prototype.overview=function(){setCamera(pt.width/2,pt.height/2,overviewZoom(),'overview')};
 Ve.prototype.focus=function(){const u=actionableUnit()||this.b.unit(this.b.selected);if(u?.alive){panTo(u.x,u.y,UX.cameraMode==='overview'?(mobileLayout()?.78:.82):UX.zoom,320)}};
 Ve.prototype.center=function(x,y){setCamera(x,y,UX.zoom,'manual')};
 ut('offscreen-unit').onclick=()=>Tt.focus();
@@ -5944,7 +5961,7 @@ function resizeBattle(force=false){
     if(!force&&w===UX.width&&h===UX.height&&Math.abs(dpr-UX.dpr)<.01)return;
     const center=UX.ready?cameraCenter():{x:1165,y:650},z=UX.zoom;
     resetGestures();UX.width=w;UX.height=h;UX.dpr=dpr;
-    if(UX.ready){const scale=Tt.scale;scale.zoom=1/dpr;scale._resetZoom=true;scale.resize(Math.round(w*dpr),Math.round(h*dpr));Tt.game.canvas.style.width=w+'px';Tt.game.canvas.style.height=h+'px';scale.refresh();Tt.cameras.main.setSize(Math.round(w*dpr),Math.round(h*dpr));setCamera(center.x,center.y,UX.cameraMode==='overview'?fitZoom():z);}
+    if(UX.ready){const scale=Tt.scale;scale.zoom=1/dpr;scale._resetZoom=true;scale.resize(Math.round(w*dpr),Math.round(h*dpr));Tt.game.canvas.style.width=w+'px';Tt.game.canvas.style.height=h+'px';scale.refresh();Tt.cameras.main.setSize(Math.round(w*dpr),Math.round(h*dpr));setCamera(center.x,center.y,UX.cameraMode==='overview'?overviewZoom():z);}
     aside.inert=!aside.classList.contains('open');aside.setAttribute('aria-hidden',String(aside.inert));
 }
 let resizeFrame=0;
@@ -6492,8 +6509,9 @@ Ve.prototype.update=function(time){
 };
 async function glide(scene,e,yield_){
     const c=scene.tokens.get(e.uid),u=scene.b.unit(e.uid);if(!c||!u)return;
-    const pts=(e.path&&e.path.length>1?e.path:[e.from||{x:c.x,y:c.y},e.to||u]).map(p=>({x:p.x,y:p.y}));
-    const seg=[];let L=0;for(let i=1;i<pts.length;i++){const d=Math.hypot(pts[i].x-pts[i-1].x,pts[i].y-pts[i-1].y);seg.push(d);L+=d;}
+    const raw=(e.path&&e.path.length>1?e.path:[e.from||{x:c.x,y:c.y},e.to||u]).map(p=>({x:p.x,y:p.y}));
+    const pts=[raw[0]];for(let i=1;i<raw.length;i++){const a=raw[i-1],b=raw[i],n=Math.max(1,Math.ceil(ht(a,b)/8));for(let j=1;j<=n;j++)pts.push({x:a.x+(b.x-a.x)*j/n,y:a.y+(b.y-a.y)*j/n});}
+    const seg=[];let L=0;for(let i=1;i<pts.length;i++){const d=yield_?ht(pts[i-1],pts[i]):Terrain.cost(u,pts[i-1],pts[i],scene.b.terrain);seg.push(d);L+=d;}
     c.setPosition(pts[0].x,pts[0].y);
     if(L<1){c.setPosition(pts.at(-1).x,pts.at(-1).y);return;}
     const sp=Math.max(1,Math.min(qt,5)),kind=kindOf(u);
@@ -7129,6 +7147,8 @@ P.prepareStage = function () {
         this.devices = (this.devices || []).filter(d => d.type !== 'chest');
         [[560, 800], [1165, 1010], [1770, 800]].forEach(([ix, iy]) => this.devices.push({ type: 'intel', goodOnly: true, armed: true, x: ix, y: iy, trigger: 60, radius: 0 }));
     }
+    for(const d of this.devices||[]){const p=terrainSafePoint({uid:'device',radius:24,traits:[]},d,this.terrain);if(p){d.x=p.x;d.y=p.y;}else d.armed=false;}
+
 };
 P.orderPriority = function (u, target) {
     if (u.side !== 'good') return 0;
@@ -8290,10 +8310,14 @@ function renderBattlefield(scene){
    }
    terrainStroke(x,t.points,t.w,pat(x,t.surface==='chasm'?'chasm':t.surface==='deep'?'deep':'shallow'));
   }
-  // Fords show the shallow pebble texture all the way across the deep core.
+  // A depth transition uses material blending, with a bright readable ford
+  // interior and a narrow dark fringe beyond its legal crossing footprint.
   for(const c of field.bridges.filter(c=>c.ford)){
-   x.save();x.beginPath();x.rect(c.x-c.w/2,c.y-c.h/2,c.w,c.h);x.clip();
-   for(const t of waters)terrainStroke(x,t.points,t.w,pat(x,'shallow'));x.restore();
+   const overlay=document.createElement('canvas');overlay.width=pt.width;overlay.height=pt.height;const ox=overlay.getContext('2d');
+   for(const t of waters)terrainStroke(ox,t.points,t.w,pat(ox,'shallow'));
+   const g=ox.createLinearGradient(c.x-c.w/2-30,0,c.x+c.w/2+30,0),fringe=30/(c.w+60);
+   g.addColorStop(0,'rgba(0,0,0,0)');g.addColorStop(fringe,'rgba(0,0,0,.95)');g.addColorStop(.5,'rgba(0,0,0,1)');g.addColorStop(1-fringe,'rgba(0,0,0,.95)');g.addColorStop(1,'rgba(0,0,0,0)');
+   ox.globalCompositeOperation='destination-in';ox.fillStyle=g;ox.fillRect(0,0,pt.width,pt.height);x.drawImage(overlay,0,0);
   }
   for(const d of field.decals){
    x.save();x.translate(d.x,d.y);x.rotate(d.angle*Math.PI/180);const g=x.createRadialGradient(0,0,12,0,0,d.w/2);g.addColorStop(0,'rgba(25,23,18,'+d.alpha+')');g.addColorStop(.6,'rgba(35,28,22,'+d.alpha*.6+')');g.addColorStop(1,'rgba(35,28,22,0)');x.fillStyle=g;x.scale(1,d.h/d.w);x.beginPath();x.arc(0,0,d.w/2,0,Math.PI*2);x.fill();x.restore();
