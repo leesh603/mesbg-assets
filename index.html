@@ -13566,6 +13566,11 @@ P.spawnEnemies = function (ids) {
     }
 };
 // Integrated rules pass. These are mobile-game adaptations, not verbatim MESBG profiles.
+// Identity is independent of combat classification and cosmetic/transformed profiles.
+const NAMED_IDENTITY_ALIASES={gandalf_white:'gandalf',beorn_bear:'beorn',pippin_citadel:'pippin',annatar:'sauron',sauron_wolf:'sauron'};
+for(const d of Object.values(UnitCatalog)){const key=d.uniqueKey||d.id;if(NAMED_IDENTITY_ALIASES[key])d.uniqueKey=NAMED_IDENTITY_ALIASES[key];}
+for(const d of Object.values(UnitCatalog)){const base=d.uniqueKey&&UnitCatalog[d.uniqueKey];if(base&&!base.uniqueKey)base.uniqueKey=d.uniqueKey;}
+
 function restoreWarbandInjury(u) {
     for (const k in u.injuryBackup || {}) u.baseStats[k] = u.injuryBackup[k];
     delete u.injury; delete u.injuryBackup;

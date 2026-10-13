@@ -135,3 +135,10 @@ h.LWB_EVENTS.find(e=>e.id==='warg_track').options[0].fx(q);assert.equal(traveler
 traveler.injury='leg';traveler.injuryBackup={move:traveler.baseStats.move};const travelMove=traveler.baseStats.move;traveler.baseStats.move=90;
 h.LWB_EVENTS.find(e=>e.id==='lost_supply').options[0].fx(q);assert.equal(traveler.baseStats.move,travelMove);assert.ok(!traveler.injury);
 console.log('PASS: camp damage stays nonlethal and treatment restores lost stats');
+// Named banner bearers and transformed/alternate profiles share an identity.
+for(const [a,b]of [['guthlaf','guthlaf_mounted'],['gandalf','gandalf_white_mounted'],['beorn','beorn_bear'],['pippin','pippin_citadel'],['sauron','annatar']])assert.equal(h.UnitCatalog[a].uniqueKey,h.UnitCatalog[b].uniqueKey);
+q.start('ai');q.units=[];q.fallen=[];q.initialDraft=false;q.phase='reward';q.campStep='recruit';q.gold=600;
+q.spawn('guthlaf','good',{x:500,y:500});q.recruitOffers=[{id:'guthlaf_mounted'},{id:'mt_spear'},{id:'mt_spear'}];q.recruitDraft=[];
+assert.equal(q.toggleRecruit(0),false);assert.match(q.recruitReason,/인물/);assert.equal(q.toggleRecruit(1),true);assert.equal(q.toggleRecruit(2),true);
+q.fallen=[{id:'gandalf_white',uid:'fallen-wizard'}];q.recruitOffers=[{id:'gandalf_mounted'}];q.recruitDraft=[];assert.equal(q.toggleRecruit(0),false);
+console.log('PASS: named variants share identity while ordinary troops remain repeatable');
