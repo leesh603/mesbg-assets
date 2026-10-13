@@ -12,13 +12,13 @@ const report={base:process.env.BASE_SHA,errors:[],requestsFailed:[],views:[],run
 const state=page=>page.evaluate(()=>{const b=window.MESBG?.battle;return b?{phase:b.phase,step:b.campStep,wave:b.wave,round:b.round,result:b.result,gold:b.gold,units:b.alive('good').map(u=>({id:u.id,hp:u.currentWounds})),foes:b.alive('evil').length,offers:b.recruitOffers,draft:b.recruitDraft,log:b.log?.slice(0,3)}:null;});
 async function screenshot(page,name){await page.screenshot({path:out+'/'+name+'.png'});const layout=await page.evaluate(()=>({width:innerWidth,height:innerHeight,overflow:document.documentElement.scrollWidth>innerWidth,broken:[...document.images].filter(i=>i.getBoundingClientRect().width&&i.complete&&!i.naturalWidth).map(i=>i.src)}));report.views.push({name,...layout});}
 async function click(page,selector){const l=page.locator(selector).first();if(await l.isVisible()&&await l.isEnabled()){await l.click({timeout:5000});return true;}return false;}
-async function recruit(page){const initial=await state(page);for(let i=0;i<(initial.offers||[]).length;i++){const card=page.locator('[data-draft="'+i+'"]');if(await card.isVisible()&&await card.isEnabled())await card.click({position:{x:12,y:12}});}await click(page,'#draft-confirm');}
+async function recruit(page){const initial=await state(page);for(let i=0;i<(initial.offers||[]).length;i++){const card=page.locator('[data-draft="'+i+'"]');if(await card.isVisible()&&await card.isEnabled())await card.locator('.recruit-name').click({timeout:5000});}await click(page,'#draft-confirm');}
 (async()=>{server.listen(8137,'127.0.0.1');const browser=await chromium.launch({headless:true});
  try{
   for(const width of [360,390])for(const version of ['before','after']){
    const context=await browser.newContext({viewport:{width,height:width===360?740:844},deviceScaleFactor:1});
    await context.route('**/*',route=>{const r=route.request();if(r.method()!=='GET'||/workers\.dev/.test(r.url()))return route.abort();return route.continue();});
-   await context.addInitScript(()=>{const now=1791853200000;Date.now=()=>now;});
+   await context.addInitScript(()=>{Element.prototype.requestFullscreen=async()=>{};});
    const page=await context.newPage();page.on('pageerror',e=>report.errors.push({version,width,message:e.message}));page.on('requestfailed',r=>{if(!/workers\.dev/.test(r.url()))report.requestsFailed.push({url:r.url(),error:r.failure()?.errorText});});
    await page.goto('http://127.0.0.1:8137/'+(version==='before'?'baseline/':''),{waitUntil:'domcontentloaded',timeout:60000});
    await page.waitForFunction(()=>window.MESBG?.scene?.sys?.isActive(),null,{timeout:180000});
@@ -48,5 +48,5 @@ async function recruit(page){const initial=await state(page);for(let i=0;i<(init
    }
    run.final=await state(page);await screenshot(page,'after-390-final');await context.close();
   }
- }catch(e){report.fatal=e.stack;process.exitCode=1;}finally{fs.writeFileSync(out+'/report.json',JSON.stringify(report,null,2));await browser.close();server.close();}
+ }catch(e){report.fatal=e.stack;console.error(e.stack);process.exitCode=1;}finally{fs.writeFileSync(out+'/report.json',JSON.stringify(report,null,2));await browser.close();server.close();}
 })();

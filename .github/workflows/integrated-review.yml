@@ -3,6 +3,9 @@ on:
   push:
     branches: [codex/mesbg-integrated-rework-20261013]
     paths: ['src/**', 'index.html', 'tests/rework-browser.cjs', '.github/workflows/integrated-review.yml']
+concurrency:
+  group: integrated-review-${{ github.ref }}
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:
@@ -16,8 +19,6 @@ jobs:
             /src/
             /tests/
             /tools/build.js
-            /icons/eq_guthwine.png
-            /icons/eq_lorien_bow.png
             /index.html
           sparse-checkout-cone-mode: false
       - uses: actions/setup-node@v4
