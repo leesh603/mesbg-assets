@@ -109,7 +109,7 @@ def emblem_mask(fam):
 def make(fam, seed):
     st = STYLE[fam]; rd, rm, rl = (hx(c) for c in st['rim'])
     img = np.zeros((N, N, 4), float)
-    cx = N / 2 - .5; R = N / 2 - 1.5; T = 4                  # T: visible side thickness in px (bottom)
+    cx = N / 2 - .5; R = N / 2 - 1.5; T = 2.5                 # T: visible side thickness in px (bottom)
     yy, xx = np.mgrid[0:N, 0:N]
     top_cy = cx - T / 2
     dt = np.hypot(xx - cx, yy - top_cy)                        # top face

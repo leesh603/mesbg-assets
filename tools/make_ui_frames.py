@@ -181,3 +181,6 @@ for s in (-1, 1):  # wings
         x = 12 + s * dx
         if 0 <= x < 26: p[x, 6 + dy] = cp[ch]
 save(cr, 'crest.png')
+
+# pink frame for the "unique" item tier (between rare violet and legendary gold)
+ornate('#4a1030', '#c0508a', '#ffc2e0', 'card-ornate-unique.png')

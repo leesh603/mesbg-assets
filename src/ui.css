@@ -980,3 +980,8 @@ html body.lwb-polished:is([data-phase="reward"],[data-phase="menu"],[data-phase=
 :is(html,#_o#_v#_r#_x) body.lwb-polished #battle-notices.camp-notices > :not(#lwb-killfeed){position:static!important;transform:none!important;margin:0!important;padding:5px 12px!important;font:600 12px/1.4 var(--body)!important;color:#2b1a04!important;
  background:linear-gradient(180deg,#f6dd96,#d9ac4e)!important;border:0!important;border-image:none!important;border-radius:2px!important;box-shadow:0 0 0 1px #0a0806,0 3px 8px rgba(0,0,0,.5)!important;white-space:normal!important;text-align:center}
 :is(html,#_o#_v#_r#_x) body.lwb-polished #battle-notices.camp-notices > * *{color:#2b1a04!important;font:inherit!important}
+/* unique = rose/pink (gold stays for legendary only) */
+#app#app#app#app#app#app#app#app .shop-card.r-unique{--tc:#ff8cc6;--tcd:#3a0f28;border-image-source:var(--fr-card-ornate-unique)!important;
+ background:var(--fr-grain),radial-gradient(ellipse at 50% 20%,rgba(255,150,205,.36) 0,transparent 62%),linear-gradient(180deg,#4a1634 0,#2a0c1e 55%,#14060e 100%)!important;
+ box-shadow:0 3px 0 rgba(0,0,0,.45),0 0 0 1px rgba(255,160,210,.35),0 0 18px rgba(255,120,190,.45)!important}
+#app#app#app#app#app#app#app#app .shop-card.r-unique::before{background:linear-gradient(115deg,transparent 35%,rgba(255,200,230,.2) 47%,rgba(255,235,245,.34) 50%,rgba(255,200,230,.2) 53%,transparent 65%) no-repeat!important;background-size:250% 100%!important}
