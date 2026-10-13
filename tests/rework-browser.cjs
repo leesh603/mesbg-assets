@@ -29,7 +29,8 @@ async function manualProbe(page,run){
   run.manual.afterCancel=await page.evaluate(uid=>{const u=MESBG.battle.unit(uid);return{x:u.x,y:u.y};},attempt.uid);
   await page.mouse.click(attempt.x,attempt.y);await click(page,'#dock-primary');await page.waitForTimeout(1300);
   run.manual.afterConfirm=await page.evaluate(uid=>{const u=MESBG.battle.unit(uid);return{x:u.x,y:u.y};},attempt.uid);
-  await click(page,'#dock-detail');
+  await click(page,'#act-ability');
+  if(await page.locator('#battle-sheet').isVisible())await screenshot(page,'hero-command-sheet');
   if(await click(page,'#hero-skill')){await screenshot(page,'manual-skill-preview');await click(page,'#sk-use');await click(page,'#dock-primary');await page.waitForTimeout(800);run.manual.skillUsed=true;}
   await click(page,'#sheet-toggle');
 }
@@ -49,7 +50,7 @@ async function manualProbe(page,run){
    if(mode==='ui'){await context.close();continue;}
    const run={width,version,checkpoints:[],started:new Date().toISOString(),finished:false};report.runs.push(run);
    await click(page,'#dock-primary');await page.waitForTimeout(1200);if(mode==='play')await manualProbe(page,run);await click(page,'#auto-dock');
-   for(let i=0;i<3;i++)await click(page,'#speed-dock');await click(page,'#dock-detail');if(await page.locator('#speed').isVisible())await page.locator('#speed').selectOption('30');await click(page,'#sheet-toggle');run.speed=await page.locator('#speed-dock').textContent();
+   for(let i=0;i<3;i++)await click(page,'#speed-dock');await click(page,'#act-ability');if(await page.locator('#speed').isVisible())await page.locator('#speed').selectOption('30');await click(page,'#sheet-toggle');run.speed=await page.locator('#speed-dock').textContent();
    const deadline=Date.now()+(mode==='comparison'?6:18)*60*1000;let last='',lastChange=Date.now(),campShot=false;
    while(Date.now()<deadline){
     await page.waitForTimeout(1200);const s=await state(page);if(!s)continue;

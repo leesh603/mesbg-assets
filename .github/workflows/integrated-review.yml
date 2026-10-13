@@ -2,7 +2,7 @@ name: Isolated integrated rework review
 on:
   push:
     branches: [codex/mesbg-integrated-rework-20261013]
-    paths: ['src/**', 'index.html', 'tests/rework-browser.cjs', '.github/workflows/integrated-review.yml']
+    paths: ['src/**', 'index.html', 'tests/**', '.github/workflows/integrated-review.yml']
 concurrency:
   group: integrated-review-${{ github.ref }}-${{ contains(github.event.head_commit.message, '[ui-review]') && 'ui' || 'full' }}
   cancel-in-progress: true
@@ -31,6 +31,7 @@ jobs:
       - run: npm install --no-save --package-lock=false playwright
       - run: npx playwright install --with-deps chromium
       - run: node tests/integrated-rework.test.cjs
+      - run: node tests/hero-identities.test.cjs
       - run: node tests/rework-browser.cjs
         env:
           REVIEW_MODE: ${{ matrix.mode }}
