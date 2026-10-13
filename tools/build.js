@@ -32,7 +32,9 @@ if (a < 0 || b < 0 || b < a) {
 html = html.slice(0, a + BEGIN.length) + '\n' + src.replace(/^\n+|\s+$/g, '') + '\n' + html.slice(b);
 // keep the served asset key list in sync with files on disk — a unit whose
 // token isn't listed fails the boot-time "Missing unit art" check.
+const onlineOnly = process.argv.includes('--online-only');
 const _keys = [];
+if (!onlineOnly) {
 (function _walk(dir) {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
     const p = path.join(dir, e.name);
@@ -45,18 +47,21 @@ _keys.sort();
   if (m) html = html.slice(0, m.index) + 'window.__MESBG_ASSETS__={};window.__MESBG_ASSET_KEYS__=' + JSON.stringify(_keys) + ';' + html.slice(m.index + m[0].length);
   console.log('asset keys synced:', _keys.length);
 }
+}
 fs.writeFileSync(INDEX, html);
 console.log('spliced src/game.js → index.html', (html.length / 1048576).toFixed(2) + 'MB');
 // smoke check: every inline <script> in index.html must parse — a merge-corrupted
 // script (e.g. fused asset keys) black-screens the whole game at boot.
 {
-  const re = new RegExp('<script(?![^>]*src)[^>]*>([\\\\s\\\\S]*?)</' + 'script>', 'g');
+  const re = new RegExp('<script(?![^>]*src)[^>]*>([\\s\\S]*?)</' + 'script>', 'g');
   let mm, n = 0;
   while ((mm = re.exec(html))) {
     try { new Function(mm[1]); } catch (e) { console.error('inline script', n, 'fails to parse:', e.message); process.exit(1); }
     n++;
   }
 }
+
+if (onlineOnly) { console.log('online build: existing asset manifest preserved; offline bundle skipped'); process.exit(0); }
 
 // Build the offline single-file bundle: replace the asset stub with a real
 // base64 map of every file under assets/mesbg/.
@@ -78,3 +83,4 @@ const fat = html.replace(STUB, () => 'window.__MESBG_ASSETS__=' + JSON.stringify
 if (fat === html) { console.error('asset stub not found in index.html'); process.exit(1); }
 fs.writeFileSync(FAT, fat);
 console.log(`built offline bundle (${count} assets embedded) → MIDDLE-EARTH-WARBANDS_v1.9.html`, (fat.length / 1048576).toFixed(1) + 'MB');
+
