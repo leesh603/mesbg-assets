@@ -111,3 +111,11 @@ assert.equal(q.buyAlly(0),true);q.campStep='ready';q.save();assert.equal(q.resum
 assert.equal(q.alive('good').filter(u=>u.temporary&&u.id==='rohan_rider').length,2);
 assert.ok(q.alive('good').filter(u=>u.temporary).every(u=>!u._pendingAlly));
 console.log('PASS: purchased reinforcements persist until the promised battle');
+// Lethal prevention is applied before casualties and on-kill equipment rewards.
+q.units=[];q.relics={mithril_mail:1};q.phase='fight';q.side='good';
+const dwarf=q.spawn('gimli','good',{x:500,y:500});const killer=q.spawn('orc_sword','evil',{x:550,y:500});
+dwarf.resources.fate=0;dwarf.currentWounds=1;killer.eqRingil=1;
+const hit=()=>({strikeResults:[{target:dwarf.uid,attacker:killer.uid,wound:true,killed:true}],pushVectors:[]});
+q.refreshUnit(dwarf);q.applyCombat(hit());assert.equal(dwarf.alive,true);assert.equal(dwarf.currentWounds,1);assert.ok(dwarf._mailUsed);assert.ok(!killer.ringilSurge);
+q.applyCombat(hit());assert.equal(dwarf.alive,false);assert.equal(killer.ringilSurge,1);
+console.log('PASS: lethal relic prevention precedes casualties and kill rewards');

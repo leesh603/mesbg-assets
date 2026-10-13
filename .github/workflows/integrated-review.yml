@@ -10,6 +10,10 @@ permissions:
   contents: read
 jobs:
   browser:
+    strategy:
+      fail-fast: false
+      matrix:
+        mode: [ui, play, comparison]
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
@@ -29,10 +33,11 @@ jobs:
       - run: node tests/integrated-rework.test.cjs
       - run: node tests/rework-browser.cjs
         env:
+          REVIEW_MODE: ${{ matrix.mode }}
           BASE_SHA: 5662b66fae3fd996193ef565b84ec6118750fc5e
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: integrated-review-${{ github.sha }}
+          name: integrated-review-${{ matrix.mode }}-${{ github.sha }}
           path: review-output/
           retention-days: 14
