@@ -8098,7 +8098,17 @@ function signed(p,t){
  }
  const dx=Math.abs(q.x)-w,dy=Math.abs(q.y)-h;return Math.hypot(Math.max(0,dx),Math.max(0,dy))+Math.min(Math.max(dx,dy),0);
 }
-const contains=(p,t,pad=0)=>signed(p,t)<pad;
+// Cheap bounding reject before the exact signed distance (identical results, far fewer trig calls).
+// Rect: true distance >= centre distance - circumradius. Ellipse (radial approximation):
+// signed >= (d/M-1)*m for half-axes M>=m, so d >= M*(1+pad/m) can never be inside.
+const contains=(p,t,pad=0)=>{
+ if(t.shape!=='ribbon'&&t.w>0&&t.h>0){
+  const P=Math.max(0,pad),M=Math.max(t.w,t.h)/2,m=Math.min(t.w,t.h)/2;
+  const R=(t.shape==='ellipse'?M*(1+P/m):Math.hypot(t.w,t.h)/2+P)+1,dx=p.x-t.x,dy=p.y-t.y;
+  if(dx>R||dx<-R||dy>R||dy<-R||dx*dx+dy*dy>R*R)return false;
+ }
+ return signed(p,t)<pad;
+};
 function corridor(p,terrain,pad=0,kind){return terrain.some(t=>t.active&&t.surface==='bridge'&&(!kind||t.over===kind)&&signed(p,t)<=-pad);}
 function blocks(u,p,t,terrain,pad=u?.radius||0,passJump=false){
  if(!t.active||t.decoration||flying(u)||t.surface==='bridge'||t.surface==='shallow'||t.surface==='rubble'||t.z==='hill')return false;
@@ -11566,6 +11576,14 @@ Ve.prototype.update = function (time) { if (!this.tokens || this.busy)
     s.setScale(s.getData('baseSX') * m.sx, s.getData('baseSY') * m.sy);
     { const _c = s.getData('cxy') || { x: 0, y: 0 }; s.setPosition(m.dx * u.radius * 2 + _c.x, m.dy * u.radius * 2 + _c.y); }
 } };
+// Closed-polyline Douglas-Peucker; keeps the outline within eps world px.
+function simplifyLoop(pts,eps){
+    const n=pts.length;if(n<8)return pts;
+    const dp=(a,b,out)=>{const A=pts[a%n],B=pts[b%n],dx=B.x-A.x,dy=B.y-A.y,L=Math.hypot(dx,dy)||1;let far=-1,fd=eps;
+        for(let i=a+1;i<b;i++){const P=pts[i%n],d=Math.abs((P.x-A.x)*dy-(P.y-A.y)*dx)/L;if(d>fd){fd=d;far=i;}}
+        if(far<0){out.push(B);return;}dp(a,far,out);dp(far,b,out);};
+    const h=n>>1,out=[pts[0]];dp(0,h,out);dp(h,n,out);out.pop();return out.length>=3?out:pts;
+}
 Ve.prototype.drawRings = function () {
     if (!this.rings)
         return;
@@ -11651,14 +11669,18 @@ Ve.prototype.drawRings = function () {
                 let pts=R.map((d,i)=>at(i*Math.PI*2/N,d));
                 for(let it=0;it<2;it++){const out=[];for(let i=0;i<pts.length;i++){const A=pts[i],B=pts[(i+1)%pts.length];out.push({x:A.x*.75+B.x*.25,y:A.y*.75+B.y*.25},{x:A.x*.25+B.x*.75,y:A.y*.25+B.y*.75});}pts=out;}
                 this._rangePoints=pts;
+                // The smoothed outline has ~576 vertices; WebGL Graphics re-tessellates every frame, so draw a
+                // Douglas-Peucker simplified copy (<=0.8px error) for fill and strokes.
+                this._rangeDraw=simplifyLoop(pts,.8);
                 this._rangeStamp=stamp;
             }
-            const points=this._rangePoints,z=UX.zoom||1;
+            const points=this._rangePoints,shape=this._rangeDraw||points,z=UX.zoom||1;
             // Two-tone boundary survives both light stone and dark ground.
-            g.fillStyle(MOVE,.09);g.fillPoints(points,true);
-            g.lineStyle(4.5/z,INK,.55);g.strokePoints(points,true);
-            g.lineStyle(2/z,MOVE_HI,.95);g.strokePoints(points,true);
-            { const cx=u.x,cy=u.y,inner=points.map(p=>({x:cx+(p.x-cx)*.965,y:cy+(p.y-cy)*.965}));g.lineStyle(1.4/z,MOVE,.6);const step=Math.max(4,Math.round(inner.length/72));for(let i=0;i<inner.length;i+=step*2){g.beginPath();g.moveTo(inner[i].x,inner[i].y);for(let k=1;k<=step;k++){const P=inner[(i+k)%inner.length];g.lineTo(P.x,P.y);}g.strokePath();} }
+            g.fillStyle(MOVE,.09);g.fillPoints(shape,true);
+            g.lineStyle(4.5/z,INK,.55);g.strokePoints(shape,true);
+            g.lineStyle(2/z,MOVE_HI,.95);g.strokePoints(shape,true);
+            // Inner dashes: two short chords per dash instead of one vertex per outline point.
+            { const cx=u.x,cy=u.y,step=Math.max(4,Math.round(points.length/72)),n=points.length,inn=p=>({x:cx+(p.x-cx)*.965,y:cy+(p.y-cy)*.965});g.lineStyle(1.4/z,MOVE,.6);for(let i=0;i<n;i+=step*2){const A=inn(points[i]),M=inn(points[(i+(step>>1))%n]),B=inn(points[(i+step)%n]);g.beginPath();g.moveTo(A.x,A.y);g.lineTo(M.x,M.y);g.lineTo(B.x,B.y);g.strokePath();} }
             for(const t of b.terrain.filter(t=>t.active&&!t.z&&ht(t,u)<r+Math.max(t.w,t.h))){
                 if(!lowBarrier(t))continue;
                 g.fillStyle(GOLD,.10);g.fillRoundedRect(t.x-t.w/2,t.y-t.h/2,t.w,t.h,Math.min(10,t.h/3,t.w/3));
@@ -12694,7 +12716,7 @@ function renderDock(){
     if (q.weeklySeed) { const _wk = ['적 대군', '보스 러시', '근접전', '베테랑', '기병 전성', '모르도르의 광기', '강철의 전장', '궁술 경연', '긴 밤', '비열한 날', '강행군', '피의 전장'][q.weeklySeed % 12]; _chips += '<span class="hud-mod" style="border-color:#c9a84caa;color:#e8d08a">주간 · ' + _wk + '</span>'; }
     if (q.challenge) { const _chl = (CHALLENGES.find(c=>c.id===q.challenge)||{}).label || q.challenge; _chips += '<span class="hud-mod" style="border-color:#b8452faa;color:#e8a88a">의뢰 · ' + _chl + '</span>'; }
     ut('ux-place').innerHTML = esc(place) + _chips;
-    { const _syncHdr = () => { const h = document.querySelector('header.top'); if (h) document.documentElement.style.setProperty('--hdr-b', Math.round(h.getBoundingClientRect().bottom) + 'px'); }; requestAnimationFrame(_syncHdr); setTimeout(_syncHdr, 250); if (!window.__hdrSync) { window.__hdrSync = true; addEventListener('resize', () => setTimeout(_syncHdr, 60)); } }
+    { /* header bottom is tracked by a ResizeObserver instead of a forced layout read on every render */ if (!window.__hdrSync) { const h = document.querySelector('header.top'); if (h) { window.__hdrSync = true; let last = ''; const _syncHdr = () => { const v = Math.round(h.getBoundingClientRect().bottom) + 'px'; if (v !== last) { last = v; document.documentElement.style.setProperty('--hdr-b', v); } }; new ResizeObserver(() => requestAnimationFrame(_syncHdr)).observe(h); addEventListener('resize', () => setTimeout(_syncHdr, 60)); requestAnimationFrame(_syncHdr); } } }
     { const _bb = ut('ux-bossbar'); if (_bb && _bb.parentElement !== document.querySelector('header.top')) document.querySelector('header.top')?.appendChild(_bb); if (_bb) {
         const _boss = ((_info && _info.boss) ? q.alive('evil').find(u => u.id === _info.boss) : null) || q.alive('evil').find(u => u.traits && u.traits.includes('boss'));
         if (_boss && _boss.alive) {
@@ -13100,10 +13122,10 @@ function updCoach(){
     __coachEl.innerHTML=txt+' <b style="color:#f2c75a;margin-left:6px">알겠어 ✕</b>';
 }
 const renderBeforeV14=Yt;
-Yt=function(){const key=q.phase+'/'+q.campStep,modal=ut('overlay').querySelector('.modal'),scroll=key===uiPhase?(modal?.scrollTop||0):0,strip=ut('roster-strip').scrollLeft;
+Yt=function(){const key=q.phase+'/'+q.campStep,modal=ut('overlay').querySelector('.modal'),scroll=key===uiPhase&&modal?(modal.scrollTop||0):0,stripEl=ut('roster-strip'),rosterKey=UX.rosterKey;if(!stripEl.__sx){stripEl.__sx=true;stripEl.addEventListener('scroll',()=>{UX.stripScroll=stripEl.scrollLeft},{passive:true});}const strip=UX.stripScroll||0;
     if(key!==uiPhase){clearIntent();setSheet(false);closeRelicInfo();document.querySelector('.top-actions').classList.remove('open');ut('settings-toggle').setAttribute('aria-expanded','false');}
     try{renderBeforeV14()}catch(e){console.error('render',e);Xt('화면 오류: '+(e&&e.message||e));}try{updCoach()}catch(e){}try{syncWake()}catch(e){}if(!Qt&&q.phase==='reward'&&q.campStep==='recruit')renderRecruitDraft();
-    const nextModal=ut('overlay').querySelector('.modal');if(nextModal)nextModal.scrollTop=scroll;ut('roster-strip').scrollLeft=strip;
+    const nextModal=ut('overlay').querySelector('.modal');if(nextModal&&scroll)nextModal.scrollTop=scroll;if(UX.rosterKey!==rosterKey&&strip)ut('roster-strip').scrollLeft=strip;
     const active=actionableUnit();if(UX.ready&&active&&active.uid!==uiActive&&!At&&!UX.gesture&&q.side==='good'){
         const pos=screenAt(active.x,active.y);if(pos.x<50||pos.x>UX.width-50||pos.y<80||pos.y>UX.height-72)panTo(active.x,active.y,UX.zoom,260);
         const btn=ut('roster-strip').querySelector(`[data-unit="${active.uid}"]`);if(btn){const left=btn.offsetLeft,stripEl=ut('roster-strip');if(left<stripEl.scrollLeft||left+btn.offsetWidth>stripEl.scrollLeft+stripEl.clientWidth)stripEl.scrollLeft=Math.max(0,left-stripEl.clientWidth/2+btn.offsetWidth/2);}}
@@ -14956,25 +14978,32 @@ window.__muxEls={hud,vs,tip};
 })();
 
 // Unit panel: portrait · name · HP · F S D A · Might/Will/Fate pips · state icons
+// Skip DOM rewrites when the markup is unchanged: the dock re-renders on every action and an
+// identical innerHTML still reparses, drops images and forces style/layout work on phones.
+function setHTML(el,h){if(!el)return;if(el.__h===h&&el.innerHTML.length===el.__hl)return;el.innerHTML=h;el.__h=h;el.__hl=el.innerHTML.length;}
+// Same idea for text: writing an identical string to an element whose only child is that text node
+// is a no-op we can skip (HUD labels are rewritten many times per second during AI turns).
+(function(){const d=Object.getOwnPropertyDescriptor(Node.prototype,'textContent');if(!d||!d.set||Node.prototype.__tcGuard)return;Node.prototype.__tcGuard=true;
+ Object.defineProperty(Node.prototype,'textContent',{configurable:true,enumerable:d.enumerable,get:d.get,set(v){const t=this.firstChild;if(this.nodeType===1&&t&&t===this.lastChild&&t.nodeType===3&&t.data===String(v))return;d.set.call(this,v);}});})();
 function renderUnitVitals(){
     const u=q.unit(q.selected)||actionableUnit();
     const name=ut('dock-name'),hp=ut('u-hp'),st=ut('u-stats'),rs=ut('u-res'),ss=ut('u-states'),img=ut('dock-portrait'),panel=ut('u-panel');
     if(!name)return;
-    if(!u?.alive||['menu','reward','result'].includes(q.phase)){panel.classList.add('empty');name.textContent=q.phase==='fight'?(q.fightQueue.length?'교전 판정':'다음 라운드 준비'):'병사를 선택하세요';hp.innerHTML='';st.innerHTML='';rs.innerHTML='';ss.innerHTML='';img.classList.add('hidden');return;}
+    if(!u?.alive||['menu','reward','result'].includes(q.phase)){panel.classList.add('empty');name.textContent=q.phase==='fight'?(q.fightQueue.length?'교전 판정':'다음 라운드 준비'):'병사를 선택하세요';setHTML(hp,'');setHTML(st,'');setHTML(rs,'');setHTML(ss,'');img.classList.add('hidden');return;}
     panel.classList.remove('empty');panel.classList.toggle('foe',u.side!==(q.mode==='ai'?'good':q.side));
     const src=Th(q.meta.get(u.id).file);if(img.getAttribute('src')!==src){img.dataset.full=Ut(q.meta.get(u.id).file);img.onerror=function(){this.onerror=null;this.src=this.dataset.full};img.src=src;}img.alt=u.name;img.classList.remove('hidden');
     name.textContent=u.name;
     const w=u.stats.wounds,c=Math.max(0,u.currentWounds),r=Math.max(0,Math.min(1,c/Math.max(1,w)));
-    hp.innerHTML='<img class="px" src="'+pxIcon('heart')+'" alt=""><b>'+c+'<small>/'+w+'</small></b><span class="hpbar'+(r<=.34?' low':'')+'"><i style="width:'+Math.round(r*100)+'%"></i></span><span class="mv">이동 '+(q.remaining(u)/45).toFixed(1)+'″</span>';
-    const S=u.stats;st.innerHTML=[['ui_swords',S.fight,'결투'],['res_iron',S.strength,'힘'],['cmd_hold',S.defence,'방어'],['ui_target',S.attacks,'공격']].map(([k,v,t])=>'<span title="'+t+'" aria-label="'+t+' '+v+'"><img src="icons/'+k+'.png?v=1.37" alt=""><small class="stat-label">'+t+'</small><b>'+v+'</b></span>').join('');
+    setHTML(hp,'<img class="px" src="'+pxIcon('heart')+'" alt=""><b>'+c+'<small>/'+w+'</small></b><span class="hpbar'+(r<=.34?' low':'')+'"><i style="width:'+Math.round(r*100)+'%"></i></span><span class="mv">이동 '+(q.remaining(u)/45).toFixed(1)+'″</span>');
+    const S=u.stats;setHTML(st,[['ui_swords',S.fight,'결투'],['res_iron',S.strength,'힘'],['cmd_hold',S.defence,'방어'],['ui_target',S.attacks,'공격']].map(([k,v,t])=>'<span title="'+t+'" aria-label="'+t+' '+v+'"><img src="icons/'+k+'.png?v=1.37" alt=""><small class="stat-label">'+t+'</small><b>'+v+'</b></span>').join(''));
     if(u.traits.includes('hero')||S.might||S.will||S.fate){const pip=(k,n,m)=>{let h='';for(let i=0;i<Math.min(6,Math.max(m,n));i++)h+='<i class="'+(i<n?'on':'')+'"></i>';return '<span class="res-'+k+'" title="'+({might:'Might',will:'Will',fate:'Fate'})[k]+' '+n+'/'+m+'"><em>'+({might:'Might',will:'Will',fate:'Fate'})[k]+'</em><b class="res-count">'+n+'/'+m+'</b><span class="resource-pips" aria-hidden="true">'+h+'</span></span>';};
-        const R=u.resources||{};rs.innerHTML=pip('might',R.might||0,S.might||0)+pip('will',R.will||0,S.will||0)+pip('fate',R.fate||0,S.fate||0);rs.classList.remove('hidden');}
-    else{rs.innerHTML='';rs.classList.add('hidden');}
+        const R=u.resources||{};setHTML(rs,pip('might',R.might||0,S.might||0)+pip('will',R.will||0,S.will||0)+pip('fate',R.fate||0,S.fate||0));rs.classList.remove('hidden');}
+    else{setHTML(rs,'');rs.classList.add('hidden');}
     const states=unitStates(u);
-    ss.innerHTML=states.slice(0,5).map(id=>'<button type="button" class="u-st" data-st="'+id+'" title="'+UNIT_STATE_DEFS[id].label+'"><img src="'+pxIcon(id)+'" alt="'+UNIT_STATE_DEFS[id].label+'"></button>').join('');
+    setHTML(ss,states.slice(0,5).map(id=>'<button type="button" class="u-st" data-st="'+id+'" title="'+UNIT_STATE_DEFS[id].label+'"><img src="'+pxIcon(id)+'" alt="'+UNIT_STATE_DEFS[id].label+'"></button>').join(''));
     // bottom sheet extras
-    const sl=ut('sheet-states');if(sl)sl.innerHTML=states.length?states.map(id=>'<div class="sheet-st"><img src="'+pxIcon(id)+'" alt=""><b>'+UNIT_STATE_DEFS[id].label+'</b><p>'+UNIT_STATE_DEFS[id].desc+'</p></div>').join(''):'<p class="mini">특별한 상태 없음</p>';
-    const eq=ut('sheet-equip');if(eq){const list=(u.equipment||[]).map(id=>(typeof LWB_EQUIP!=='undefined'&&LWB_EQUIP.find(x=>x.id===id))||null).filter(Boolean);eq.innerHTML=list.length?list.map(d=>'<div class="sheet-eq"><b>'+esc(d.label||d.id)+'</b>'+(d.desc?'<span>'+esc(d.desc)+'</span>':'')+'</div>').join(''):'<p class="mini">장비 없음</p>';}
+    const sl=ut('sheet-states');if(sl)setHTML(sl,states.length?states.map(id=>'<div class="sheet-st"><img src="'+pxIcon(id)+'" alt=""><b>'+UNIT_STATE_DEFS[id].label+'</b><p>'+UNIT_STATE_DEFS[id].desc+'</p></div>').join(''):'<p class="mini">특별한 상태 없음</p>');
+    const eq=ut('sheet-equip');if(eq){const list=(u.equipment||[]).map(id=>(typeof LWB_EQUIP!=='undefined'&&LWB_EQUIP.find(x=>x.id===id))||null).filter(Boolean);setHTML(eq,list.length?list.map(d=>'<div class="sheet-eq"><b>'+esc(d.label||d.id)+'</b>'+(d.desc?'<span>'+esc(d.desc)+'</span>':'')+'</div>').join(''):'<p class="mini">장비 없음</p>');}
 }
 
 // Action bar: only what the current phase / unit allows
@@ -15038,7 +15067,10 @@ function renderVs(){
     vs.innerHTML=card(a,'a',willCharge?['charge']:[])+'<div class="vs-mid"><img class="px" src="'+pxIcon(shot?'aim':'sword')+'" alt=""><b>'+(shot?'사격':willCharge?'기병 돌격':'돌격')+'</b><small>확정 대기</small></div>'+card(t,'b');
 }
 const muxDock=renderDock;
-renderDock=function(){muxDock();try{renderUnitVitals();muxActions();renderVs();for(const el of [document.querySelector('#app .layout'),document.querySelector('#app .battle-column'),ut('app')])if(el&&(el.scrollTop||el.scrollLeft)){el.scrollTop=0;el.scrollLeft=0;}}catch(e){console.error('[mux]',e);}};
+renderDock=function(){muxDock();try{renderUnitVitals();muxActions();renderVs();queueScrollGuard();}catch(e){console.error('[mux]',e);}};
+// Reading scrollTop right after DOM writes forces a synchronous layout on every dock render;
+// reset stray scroll from a scroll listener instead (no reads during rendering).
+function queueScrollGuard(){for(const el of [document.querySelector('#app .layout'),document.querySelector('#app .battle-column'),ut('app')]){if(!el||el.__scrollGuard)continue;el.__scrollGuard=true;el.addEventListener('scroll',()=>{if(el.scrollTop||el.scrollLeft){el.scrollTop=0;el.scrollLeft=0;}},{passive:true});if(el.scrollTop||el.scrollLeft){el.scrollTop=0;el.scrollLeft=0;}}}
 // ==== Mobile portrait UX v4 — battlefield feedback ====
 // (a) up to 3 pixel state icons under each token, constant on-screen size
 // (b) prone units visibly lie down (sprite tilts; base and rules untouched)
@@ -15311,7 +15343,7 @@ be=function(b,u){
  if(u.static||u.lair||b.engaged(u)||b.remaining(u)<12)return null;
  const foes=b.alive(Ht(u.side)),stance=stanceOf(b,u),ranged=!!u.stats.shootRange;
  if(!foes.length||stance==='rear'||stance==='defense'||(u.side==='good'&&b.battleOrder?.mode==='hold')||(ranged&&b.validTargets(u).length))return tacticalLocalAI(b,u);
- const sorted=foes.slice().sort((a,c)=>ht(u,a)-ht(u,c)).slice(0,6),all=b.alive();
+ const sorted=foes.slice().sort((a,c)=>ht(u,a)-ht(u,c)).slice(0,4),all=b.alive();
  if(Terrain.line(u,u,ue(u,sorted[0]),[],b.terrain)){const direct=tacticalLocalAI(b,u);if(direct)return direct;}
  const budget=ranged?Math.min(b.remaining(u),Math.max(0,u.stats.move/2-(u.movementSpent||0))):b.remaining(u);
  // Walk the planned route as far as it is legal; a blocked tail (units, wall corners) must not freeze the unit.
@@ -15322,11 +15354,14 @@ be=function(b,u){
   let best=null;
   for(const target of sorted){
    // ue() aims at the near edge of the foe, which can sit inside a wall; ring the foe itself and keep the cheapest real route.
+   // Candidates are tried nearest-first and each search is bounded by the best route so far,
+   // so A* stops early instead of flooding the map for every ring point.
    const field=ignoreUnits?[]:all,gap=u.radius+target.radius+6;let mine=null;
-   for(let i=0;i<12;i++){
-    const a=i*Math.PI/6,c={x:target.x+Math.cos(a)*gap,y:target.y+Math.sin(a)*gap};
-    if(!Et(u,c,field,b.terrain))continue;
-    const route=Terrain.route(u,c,field,b.terrain,Infinity);
+   const ring=[];for(let i=0;i<10;i++){const a=i*Math.PI/5,c={x:target.x+Math.cos(a)*gap,y:target.y+Math.sin(a)*gap};if(Et(u,c,field,b.terrain))ring.push(c);}
+   ring.sort((p,o)=>ht(u,p)-ht(u,o));
+   for(const c of ring){
+    const cap=Math.min(mine?mine.distance:Infinity,best?best.distance*1.5:Infinity);if(ht(u,c)>=cap)continue;
+    const route=Terrain.route(u,c,field,b.terrain,cap);
     if(route&&(!mine||route.distance<mine.distance))mine=route;
    }
    if(!mine)continue;
@@ -15347,7 +15382,7 @@ ut("overview").onclick = () => Tt.overview();
 ut("focus").onclick = () => Tt.focus();
 const re = ut("minimap");
 re.onpointerdown = Z => { const Y = re.getBoundingClientRect(); panTo((Z.clientX - Y.left) / Y.width * pt.width, (Z.clientY - Y.top) / Y.height * pt.height, UX.zoom, 300); };
-function xe() { var $; const Z = ut("minimap"); if (document.hidden || !Z.offsetParent) return; const Y = Z.getContext("2d"), b = Z.width / pt.width, H = Z.height / pt.height; Y.clearRect(0, 0, Z.width, Z.height), Y.fillStyle = "#263a37", Y.fillRect(0, 0, Z.width, Z.height); if (Mt.objective && ['defense', 'hold', 'rescue'].includes(q.mission)) { Y.strokeStyle = '#f0d89b', Y.lineWidth = 1.5, Y.setLineDash([3, 2]), Y.beginPath(), Y.arc(Mt.objective.x * b, Mt.objective.y * H, Mt.objective.radius * b, 0, 7), Y.stroke(), Y.setLineDash([]); } else if (['breakthrough', 'escort'].includes(q.mission)) { Y.strokeStyle = '#f0d89b', Y.lineWidth = 1.5, Y.setLineDash([3, 2]), Y.strokeRect(12 * b, 1200 * H, (pt.width - 24) * b, 244 * H), Y.setLineDash([]); } if(Tt.textures.exists('__terrain-surfaces'))Y.drawImage(Tt.textures.get('__terrain-surfaces').getSourceImage(),0,0,Z.width,Z.height);
+function xe() { var $; const Z = ut("minimap"); if (document.hidden || !Z.classList.contains("shown") || !Z.offsetParent) return; /* class test first: offsetParent forces a layout on every HUD render */ const Y = Z.getContext("2d"), b = Z.width / pt.width, H = Z.height / pt.height; Y.clearRect(0, 0, Z.width, Z.height), Y.fillStyle = "#263a37", Y.fillRect(0, 0, Z.width, Z.height); if (Mt.objective && ['defense', 'hold', 'rescue'].includes(q.mission)) { Y.strokeStyle = '#f0d89b', Y.lineWidth = 1.5, Y.setLineDash([3, 2]), Y.beginPath(), Y.arc(Mt.objective.x * b, Mt.objective.y * H, Mt.objective.radius * b, 0, 7), Y.stroke(), Y.setLineDash([]); } else if (['breakthrough', 'escort'].includes(q.mission)) { Y.strokeStyle = '#f0d89b', Y.lineWidth = 1.5, Y.setLineDash([3, 2]), Y.strokeRect(12 * b, 1200 * H, (pt.width - 24) * b, 244 * H), Y.setLineDash([]); } if(Tt.textures.exists('__terrain-surfaces'))Y.drawImage(Tt.textures.get('__terrain-surfaces').getSourceImage(),0,0,Z.width,Z.height);
     for(const p of q.terrain.filter(t=>t.active&&!t.decoration&&t.type&&t.surface!=='bridge')){
      Y.save();Y.translate(p.x*b,p.y*H);Y.rotate((p.angle||0)*Math.PI/180);Y.fillStyle=p.jump?'#b6a27b':'#8c9480';
      if(p.shape==='ellipse'){Y.beginPath();Y.ellipse(0,0,p.w*b/2,p.h*H/2,0,0,Math.PI*2);Y.fill();}else Y.fillRect(-p.w*b/2,-p.h*H/2,p.w*b,p.h*H);Y.restore();
