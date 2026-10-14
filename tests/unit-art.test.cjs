@@ -19,7 +19,7 @@ test('all 492 anatomical spans render to their specified size, independent of ra
 });
 test('banners, staves and spears have anatomical centers independent of their ornament envelopes',()=>{
  assert(context.profiles.dwarf_banner[2]-context.profiles.dwarf_banner[1]<.8);
- assert(context.profiles.gandalf[3]<.6);assert(context.profiles.orc_spear2[3]>.5);
+ assert(context.profiles.gandalf[3]>.5);assert(context.profiles.orc_spear2[3]>.5);
  assert.equal(context.profiles.mt_spear[5],context.profiles.mt_swordshield[5]);
  assert.equal(context.profiles.gandalf_mounted[5],43);assert.equal(context.profiles.dain_boar[5],36);
 });
@@ -36,14 +36,14 @@ test('padding and seated poses do not create multiples of cavalry size',()=>{
  assert(context.profiles.gwaihir[5]>context.profiles.great_eagle[5]);assert(context.profiles.thorondor[5]>context.profiles.gwaihir[5]);
 });
 test('character details do not reveal evolution thresholds or next forms',()=>{
- const ui={};vm.createContext(ui);vm.runInContext(source.slice(source.indexOf('function uiUnitStats('),source.indexOf('function uiConfirm('))+';this.render=uiUnitStats;',ui);
+ const ui={q:{pointCost:()=>165},pointSourceText:()=>''};vm.createContext(ui);vm.runInContext(source.slice(source.indexOf('function uiUnitStats('),source.indexOf('function uiConfirm('))+';this.render=uiUnitStats;',ui);
  for(const kills of [0,99,100]){const html=ui.render({id:'aragorn',kills,traits:['hero'],stats:{move:270,fight:6,strength:4,defence:6,attacks:3,courage:6,wounds:3,might:3},resources:{might:3},currentWounds:3});assert(!/진화|100킬|evolution-progress|aragorn_blackgate/.test(html));assert(html.includes('Might'));}
  const h=require('./campaign-harness.cjs')();h.run("const hiddenAragorn=q.spawn('aragorn','good'); hiddenAragorn.kills=99; this.hiddenHero=hiddenAragorn;");
  assert.equal(h.run('q.evolveHero(hiddenHero)'),false);h.run('hiddenHero.kills=100');assert.equal(h.run('q.evolveHero(hiddenHero)'),true);
  assert.equal(h.run('hiddenHero.id'),'aragorn_blackgate');
 });
 test('lazy-loaded and transformed units anchor rotation and idle at the body, with no stale profile',()=>{
- const data=new Map(),sprite={scaleX:1,scaleY:1,visible:true,getData:k=>data.get(k),setData(k,v){data.set(k,v);return this;},setDisplaySize(w,h){this.width=w;this.height=h;this.scaleX=w/400;this.scaleY=h/500;return this;},setOrigin(x,y){this.originX=x;this.originY=y;return this;},setPosition(x,y){this.x=x;this.y=y;return this;},setVisible(v){this.visible=v;return this;}};
+ const data=new Map(),sprite={scaleX:1,scaleY:1,visible:true,getData:k=>data.get(k),setData(k,v){data.set(k,v);return this;},setDisplaySize(w,h){this.width=w;this.height=h;this.scaleX=w/400;this.scaleY=h/500;return this;},setOrigin(x,y){this.originX=x;this.originY=y;return this;},setFlipX(v){this.flipX=v;return this;},setPosition(x,y){this.x=x;this.y=y;return this;},setVisible(v){this.visible=v;return this;}};
  let loaded=false;const scene={textures:{exists:()=>loaded,get:()=>({getSourceImage:()=>({width:400,height:500})})}};
  context.apply(scene,sprite,{id:'gandalf'});assert.equal(sprite.visible,false);assert.equal(data.has('bodyProfile'),false);
  loaded=true;context.apply(scene,sprite,{id:'gandalf'});assert.equal(sprite.visible,true);assert.equal(sprite.originX,context.profiles.gandalf[3]);assert.equal(sprite.x,0);assert.equal(sprite.y,0);
@@ -69,4 +69,23 @@ test('regressions: empty padding, torso-only foot profiles, and Nazgul class',()
  for(const id of ['hobbit_bounder','hobbit_militia']) assert(context.profiles[id][1]>.5,id);
  for(const id of ['witchking_foot','khamul','nazgul_sword','dark_marshal']) assert.equal(context.profiles[id][5],100,id);
  for(const id of ['witchking_mounted','khamul_mounted','nazgul_mounted']) assert.equal(context.profiles[id][5],50,id);
+});
+
+
+test('fixed painted facing: no directional mirroring or alpha-derived facing remains',()=>{
+ assert(!source.includes('function artDir('));assert(!source.includes('faceDir'));
+ assert(!source.includes('1-_ox'));assert(!source.includes('turnK'));
+ assert(source.includes('.setFlipX(false)'));
+ const directions=[-1,1];for(const a of audit.units)for(const direction of directions){
+  const body=context.layout({id:a.id,angle:direction*90},{width:a.sourceWidth,height:a.sourceHeight});
+  assert.equal(body.originX,a.centerX);assert.equal(body.originY,a.centerY);
+ }
+});
+test('every centre records a visually reviewed body rule, separate from size landmarks',()=>{
+ for(const a of audit.units){
+  assert.equal(a.centerReview.date,'2026-10-14',a.id);
+  const expected=['fellbeast','great-beast','mumak'].includes(a.bodyClass)?'creature-body':a.reference==='rider'?'rider-and-mount':'body';
+  assert.equal(a.centerReview.basis,expected,a.id);
+  assert.equal(a.centerReview.source,'assets/mesbg/'+a.file);
+ }
 });

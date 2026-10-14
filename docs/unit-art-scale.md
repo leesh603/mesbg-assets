@@ -28,3 +28,14 @@ The 99 riding profiles were remeasured. 150 foot/creature profiles had incorrect
 ## 2026-10-14 completion
 
 Recovered onto main 85c1da1 while retaining its UI. Dunhere mounted art was replaced and separately calibrated: helmet crown y63, seated pelvis y201 on the 212×500 source; 43 world pixels. Phaser verified all 492 reference spans and origins. See [actual game comparisons](../review/recovery-20261014/comparison.html) and [verification summary](../review/recovery-20261014/summary.json).
+
+
+## 2026-10-14 fixed facing and base centering (v1.44)
+
+All 492 source rasters were reviewed again for centre placement, independently of their size landmarks. 75 centres were adjusted, including Gandalf, bowmen, several mounted profiles, flying creatures and large beasts. `centerReview` records the rule and source for every profile.
+
+- Walking units: the torso axis and anatomical body middle, excluding equipment.
+- Cavalry: the combined rider and mount body middle, excluding weapons, flags, antlers and tails.
+- Fellbeasts, Mumakil and the Great Beast: the creature torso; riders and platforms do not define the centre.
+- The figure origin and base use the same local (0, 0). Directional mirroring, silhouette-based facing detection and mirrored-origin compensation are removed.
+- Standing/rider height landmarks, scale, tactical position, collision radius and movement rules remain unchanged. Breathing, walking bob and combat lunges return to this origin.
