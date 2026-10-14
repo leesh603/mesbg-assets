@@ -1611,7 +1611,6 @@ root.MESBGTerrain={version:2,TYPES,THEMES,WIDTH,HEIGHT,CELL,contains,signed,bloc
 if(typeof module!=='undefined'&&module.exports)module.exports=root.MESBGTerrain;
 })(typeof window!=='undefined'?window:globalThis);
 
-
 /*__TERRAIN_END__*/
 const Terrain=window.MESBGTerrain;
 // Preserve the established shared functions: AI, push, previews, deployment and
