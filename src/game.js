@@ -1827,6 +1827,7 @@ P.refreshUnit = function (u) {
     if (!u.baseStats)
         return;
     u.stats = structuredClone(u.baseStats);
+    if (u._bossWeakUntil >= this.round && u.side === 'evil') u.stats.defence = Math.max(1, u.stats.defence - 2);
     if (u.side === 'good') {
         if (u.traits.includes('mounted'))
             u.stats.move += 45 * this.rank('horseshoe');
@@ -2269,7 +2270,7 @@ P.startWave = function () {
     if (this.current.modifier === 'ambush')
         this.alive('evil').filter(u => !u.lair && !u.static).forEach((u, i) => { u.x = i % 2 ? 260 + (i % 4) * 140 : 1960 - (i % 4) * 140; u.y = 560 + Math.floor(i / 8) * 160; });
         this._separateUnits(this.alive('evil'));
-    this.commander = this.alive('evil').find(u => u.id === this.current.boss)?.uid || this.alive('evil').filter(u => u.traits.includes('hero')).at(-1)?.uid; this.commanders = (this.current.bossAll || []).map(id => this.alive('evil').find(u => u.id === id)?.uid).filter(Boolean); if (!this.commanders.length && this.commander) this.commanders = [this.commander];
+    this.commander = this.alive('evil').find(u => u.id === this.current.boss)?.uid || this.alive('evil').filter(u => u.traits.includes('hero')).at(-1)?.uid; this.commanders = this.alive('evil').filter(u => (this.current.bossAll || []).includes(u.id)).map(u => u.uid); if (!this.commanders.length && this.commander) this.commanders = [this.commander];
     if (this.challenge === 'dark_horde')
         this.spawnEnemies((this.wave > 8 ? ['uruk_berserker', 'warg_rider'] : this.wave > 4 ? ['uruk_berserker', 'orc_sword'] : ['orc_sword', 'moria_goblin']).filter(id => this.meta.has(id)));
     if (this.challenge === 'reinforce' || this.challenge === 'onslaught')
@@ -2411,6 +2412,7 @@ P.spawnEnemies = function (ids) {
         this.refreshUnit(u);
     }
     this._separateUnits(this.alive('evil'));
+    if (this.current?.bossAll) this.commanders = this.alive('evil').filter(u => this.current.bossAll.includes(u.id)).map(u => u.uid);
 };
 P.beginRound = function () {
     if (this.checkRun())
@@ -2519,7 +2521,7 @@ P.beginRound = function () {
         const _h = this.alive('good').find(u => u.traits.includes('hero') && u.currentWounds === 1 && this.engaged(u));
         if (_h) { this._crisisWarned = true; this.emit('Event', '⚠ ' + _h.name + ' 위기 — 상처 1, 교전 중. 즉시 지원 권장'); }
     }
-    for (const boss of this.alive('evil').filter(u => u.traits.includes('boss')))
+    for (const boss of this.alive('evil').filter(u => u.traits.includes('boss') || BOSS_TACTICS[u.id]))
         this.bossTurn(boss);
     // 나즈굴 특수스킬 — 공포의 발자취: 반경 내 아군 용기 검사, 실패 시 도주
     let _fled = 0;
@@ -2543,150 +2545,174 @@ P.beginRound = function () {
         { v.roundBuff.defence = (v.roundBuff.defence || 0) + 1; this.refreshUnit(v); }
     if (['move', 'shoot'].includes(this.phase)) this.advance();
 };
+// Authored boss encounters: turn-based adaptations of lore/MESBG, not book profiles.
+// Warnings are saveable snapshots: a full player round precedes every damaging pattern.
+const BOSS_TACTICS = {
+    war_troll: ['진형 파괴자', '몸통 후려치기 · 투척', '붉은 원에서 이탈 · 투척 경로 옆으로 이동'],
+    cave_troll: ['동굴의 괴수', '후려치기 · 밀쳐내기', '밀집을 풀고 측면에서 돌격'],
+    saruman: ['오르상크의 주술사', '주술 폭풍 · 명령 · 사루만의 목소리', '직선에서 이탈 · Will 저항 · 우루크 지휘 차단'],
+    witchking_fellbeast: ['나즈굴의 군주', '검은 다트 · 의지 흡수 · 펠비스트 급강하', '습격 경로에서 이탈 · 영웅의 Will 보존'],
+    nazgul_fellbeast: ['검은문의 날개', '교대 급강하 · 몸통 투척', '세 기의 경로를 확인 · 전열 분산'],
+    mouth_of_sauron: ['모란논의 사절', '절망의 말 · 트롤 총공세', 'Will 저항 · 지휘관과 트롤을 분리'],
+    goblin_king: ['고블린 도시의 왕', '고블린 소집 · 거대한 몸통 강타', '소집 차단 · 강타 후 측면 공격'],
+    azog: ['창백한 오크', '결투 지목 · 잔혹한 돌진', '지목된 영웅 이동 · 창병으로 지원'],
+    smaug: ['외로운 산의 용', '화염 부채꼴 · 꼬리 휩쓸기 · 비늘의 틈', '화염 옆으로 이동 · 브레스 직후 약점 사격'],
+    sauron: ['어둠의 군주', '철퇴 휩쓸기 · 영혼 냉각 · 아홉 악령', '철퇴 범위에서 이탈 · Will 저항 · 악령 분산'],
+    glaurung: ['용의 아버지', '용의 눈 · 화염 부채꼴', '시선에 Will 저항 · 화염 측면으로 이동'],
+    scatha: ['북방의 용', '화염 부채꼴 · 꼬리 강타', '날개 없는 용의 측면을 공략'],
+    carcharoth: ['실마릴을 삼킨 늑대', '광란의 돌진 · 불타는 아귀', '돌진 경로에서 이탈 · 포위 유지'],
+    ungoliant: ['빛을 삼키는 자', '암흑의 거미줄 · 탐식', '거미줄 이탈 · 포식 범위 밖에서 공격'],
+    balrog: ['두린의 파멸', '화염 채찍 · 우둔의 불꽃', '채찍 경로 이탈 · 불꽃 범위에서 후퇴'],
+    gothmog_balrog: ['발록의 왕', '화염 채찍 · 검은 도끼 · 발록 지휘', '채찍 회피 · 발록의 협공 분리'],
+    ancalagon: ['분노의 전쟁', '용화 · 날개 돌풍', '부채꼴 측면으로 분산 · 착지 충격 이탈'],
+    morgoth: ['세계의 첫 어둠', '그론드 · 암흑의 권능', '균열 이탈 · 공격 직후 다친 발 공략']
+};
+P.bossAreaContains = function (a, v) {
+    const r = v.radius || 0;
+    if (a.shape === 'lane') {
+        const dx=a.tx-a.ox,dy=a.ty-a.oy,ll=dx*dx+dy*dy;
+        const t=Math.max(0,Math.min(1,((v.x-a.ox)*dx+(v.y-a.oy)*dy)/(ll||1)));
+        return Math.hypot(v.x-a.ox-t*dx,v.y-a.oy-t*dy)<=a.width+r;
+    }
+    if (a.shape === 'cone') {
+        const d=Math.hypot(v.x-a.ox,v.y-a.oy);
+        const diff=Math.atan2(Math.sin(Math.atan2(v.y-a.oy,v.x-a.ox)-a.angle),Math.cos(Math.atan2(v.y-a.oy,v.x-a.ox)-a.angle));
+        return d<=a.length+r && (d<=r || Math.abs(diff)<=a.half+Math.asin(Math.min(1,r/d)));
+    }
+    return ht(v,a)<=a.radius+r;
+};
+P.bossEscape = function (u) {
+    const zones=(this.warnings||[]).filter(a=>this.unit(a.src)?.alive&&(!a.targetOnly||a.target===u.uid));
+    const danger=p=>zones.some(a=>this.bossAreaContains(a,{...u,...p}));
+    if(!danger(u)||this.engaged(u)||this.remaining(u)<12)return null;
+    const all=this.alive(),budget=this.remaining(u),options=[];
+    for(const amount of [budget*.5,budget*.8,budget])for(let i=0;i<16;i++){
+        const angle=i*Math.PI/8,p={x:u.x+Math.cos(angle)*amount,y:u.y+Math.sin(angle)*amount};
+        if(!danger(p)&&Et(u,p,all,this.terrain))options.push(p);
+    }
+    for(const p of options.sort((a,b)=>ht(u,a)-ht(u,b)).slice(0,12)){const plan=ve(u,p,all,this.terrain,budget,{snap:false});if(plan&&!danger(plan.to))return plan.to;}
+    return null;
+};
+P.bossResist = function (u,v,a) {
+    if(!a.magic)return false;
+    // Use the game's existing one-Will, 4+ resistance convention.
+    if((v.resources?.will||0)>0){v.resources.will--;if(Lt(this.rng)>=4){this.emit('Saved',v.name+' · Will 저항',{uid:v.uid,at:v});return true;}}
+    return false;
+};
+P.bossCourage = function (u,v) {
+    if(v.fearless||v.traits.includes('fearless')||v.protected)return true;
+    const leader=this.alive(v.side).some(x=>x!==v&&x.traits.includes('commander')&&ht(x,v)<135);
+    const score=Lt(this.rng)+Lt(this.rng)+v.stats.courage+(leader?1:0);
+    if(score>=10)return true;
+    v.feared=true;this.emit('Terror',v.name+' · 용기 검사 실패',{uid:v.uid,at:v});return false;
+};
+P.bossStrike = function (u,v,a) {
+    if(!u.alive||!v.alive)return false;
+    const roll=Lt(this.rng),needed=v.heroicDef?6:oe(a.strength||6,v.stats.defence);
+    const result=ce('skill',[u,v],u.side);
+    result.strikeResults.push({attacker:u.uid,target:v.uid,roll,needed,wound:roll>=needed,killed:roll>=needed&&v.currentWounds<=1});
+    this.applyCombat(result);this.emit('SkillResolved',undefined,{result});
+    if(v.alive&&a.prone&&!v.traits.includes('monster'))v.prone=true;
+    if(v.alive&&a.push){const from={x:v.x,y:v.y},p=De(v,[{x:a.ox??u.x,y:a.oy??u.y}],this.alive(),this.terrain,a.push);Object.assign(v,p.to);this.emit('UnitMoved',undefined,{uid:v.uid,from,to:p.to});}
+    return result.strikeResults.some(s=>s.wound);
+};
+P.resolveBossPattern = function (u,a) {
+    const from={x:a.ox??u.x,y:a.oy??u.y};
+    this.emit('BossCast',undefined,{uid:u.uid,fx:a.fx||'strike',at:a,from});
+    let targets=this.alive(a.friendlyFire?undefined:'good').filter(v=>v!==u&&!v.static&&!v.lair&&this.bossAreaContains(a,v));
+    if(a.targetOnly)targets=targets.filter(v=>v.uid===a.target);
+    let fed=0;
+    for(const v of targets){
+        if(a.fire&&(v.id==='smaug'||v.id==='balrog'||v.id==='gothmog_balrog'))continue;
+        if(a.los&&_t(from,v,this.terrain)==='blocked')continue;
+        if(this.bossResist(u,v,a))continue;
+        if(a.effect==='fear'){this.bossCourage(u,v);continue;}
+        if(a.effect==='transfix'){v.roundBuff.move=(v.roundBuff.move||0)-135;v.roundBuff.fight=(v.roundBuff.fight||0)-1;this.refreshUnit(v);this.bossCourage(u,v);continue;}
+        if(a.effect==='drain'){v.resources.will=Math.max(0,(v.resources.will||0)-2);v.roundBuff.courage=(v.roundBuff.courage||0)-1;this.refreshUnit(v);continue;}
+        if(a.effect==='web'){v.roundBuff.move=(v.roundBuff.move||0)-135;this.refreshUnit(v);continue;}
+        if(this.bossStrike(u,v,a))fed++;
+    }
+    if(a.effect==='devour'&&fed)u.currentWounds=Math.min(u.stats.wounds,u.currentWounds+1);
+    if(a.landing){const fromPos={x:u.x,y:u.y},p=Be(u,{x:a.tx||a.x,y:a.ty||a.y},this.alive(),this.terrain,180);if(p){Object.assign(u,p);this.emit('UnitMoved',undefined,{uid:u.uid,from:fromPos,to:p});}}
+    if(a.weak){u._bossWeakUntil=this.round;this.refreshUnit(u);this.emit('BossImpact',u.id==='morgoth'?'그론드가 박혔다 · 다친 발 노출':'브레스가 끝났다 · 비늘의 틈 노출',{uid:u.uid,at:u});}
+    this.emit('BossImpact',a.label,{uid:u.uid,at:a});
+    if(a.burning){this.warnings.push({...a,burning:false,weak:false,kind:'embers',round:this.round+1,strength:3,prone:false,push:0,label:'남은 화염',fx:'breath'});}
+};
 P.bossTurn = function (u) {
-    const ratio = u.currentWounds / u.stats.wounds;
-    const phase = u.currentWounds <= Math.ceil(u.stats.wounds * .33) ? 3 : u.currentWounds <= Math.ceil(u.stats.wounds * .66) ? 2 : 1;
-    if (phase > u.bossPhase) {
-        u.bossPhase = phase;
-        u.baseStats.attacks += 1;
-        if (phase === 3)
-            u.baseStats.move += 45;
-        this.refreshUnit(u);
-        this.emit('BossPhase', `${u.name} · ${phase}단계 — 격노 (Attack +1${phase === 3 ? ' · 이동력 상승' : ''})`);
-        if (phase === 2 && this.alive('evil').length < 24)
-            this.spawnEnemies(['orc_sword', 'uruk_berserker']);
-    }
-    // 경고 구역 공통 해결 — src가 이 보스인 경고만 처리 (죽은 보스의 경고는 폐기)
-    if (this.warnings.length) {
-        this.warnings = this.warnings.filter(a => { const s = a.src && this.unit(a.src); return !a.src || (s && s.alive); });
-        const mine = this.warnings.filter(a => a.src === u.uid), rest = this.warnings.filter(a => a.src !== u.uid);
-        for (const area of mine) {
-            this.emit('BossCast', undefined, { fx: area.fx || 'strike', at: area });
-            for (const v of this.alive('good').filter(v => ht(v, area) < area.radius + v.radius)) {
-                this.inflict(u, v, area.dmg || 1);
-                this.emit('BossImpact', area.label || '보스의 일격', { uid: v.uid, at: area });
-            }
-            area.prone && this.alive('good').filter(v => ht(v, area) < area.radius + v.radius).forEach(v => v.prone = true);
-        }
-        this.warnings = rest;
-    }
-    if (u.id === 'morgoth') {
-        const targets = this.alive('good').sort((a, b) => b.stats.attacks - a.stats.attacks).slice(0, phase);
-        this.warnings.push(...targets.map(v => ({ x: v.x, y: v.y, radius: 130, round: this.round + 1, src: u.uid, label: '그론드의 충격', fx: 'crack', dmg: 1 + Number(phase === 3) })));
-        this.emit('BossWarning', '그론드가 내리칩니다. 다음 라운드 전에 붉은 균열에서 벗어나세요.');
-    }
-    else if (u.id === 'saruman') {
-        if (this.round % 3 === 0) {
-            const targets = this.alive('good').slice().sort(() => this.rng() - .5).slice(0, 3);
-            this.warnings.push(...targets.map(v => ({ x: v.x, y: v.y, radius: 150, round: this.round + 1, src: u.uid, label: '번개 폭풍', fx: 'lightning', dmg: 1, prone: true })));
-            this.emit('BossWarning', '사루만이 폭풍을 부립니다 — 표시된 자리에서 벗어나세요.');
-        }
-    }
-    else if (u.id === 'balrog' || u.id === 'gothmog_balrog') {
-        if (this.round % 4 === 0) {
-            const targets = this.alive('good').slice().sort(() => this.rng() - .5).slice(0, 2);
-            this.warnings.push(...targets.map(v => ({ x: v.x, y: v.y, radius: 165, round: this.round + 1, src: u.uid, label: '메테오', fx: 'meteor', dmg: phase >= 3 ? 2 : 1 })));
-            this.emit('BossWarning', '불의 유성이 떨어집니다 — 표시된 자리에서 벗어나세요.');
-        } else if (this.round % 2 === 0) {
-            const target = this.alive('good').filter(v => ht(v, u) < 500).sort((a, b) => ht(a, u) - ht(b, u))[0];
-            if (target) { this.emit('BossCast', undefined, { fx: 'whip', at: target, from: { x: u.x, y: u.y } }); this.inflict(u, target, 1); this.emit('BossImpact', (u.id === 'gothmog_balrog' ? '고스모그' : '발록') + '의 화염 채찍', { uid: target.uid, at: target }); }
-        }
-    }
-    else if (u.id === 'witchking_fellbeast' || u.id === 'nazgul_fellbeast') {
-        if (this.round % 5 === 0 && u.id === 'witchking_fellbeast') {
-            const cand = this.alive('good').filter(v => !v.traits.includes('hero') && !v._dominated);
-            if (cand.length && this.alive('good').length > 1) {
-                const t = cand[Math.floor(this.rng() * cand.length)];
-                t._dominated = true; t.side = 'evil'; t.acted = false;
-                this.emit('BossCast', undefined, { fx: 'dominate', at: t });
-                this.emit('BossImpact', '마술사왕의 지배 — ' + t.name + '이(가) 조종당합니다', { uid: t.uid, at: t });
-            }
-        } else if (this.round % 3 === 0) {
-            const t = this.alive('good').sort((a, b) => a.currentWounds - b.currentWounds || a.stats.defence - b.stats.defence || ht(a, u) - ht(b, u))[0];
-            if (t) {
-                const from = { x: u.x, y: u.y };
-                Object.assign(u, ue(u, t));
-                this.emit('UnitMoved', undefined, { uid: u.uid, from, to: { x: u.x, y: u.y } });
-                this.emit('BossCast', undefined, { fx: 'dive', at: t, from });
-                this.inflict(u, t, t.currentWounds <= 2 ? 2 : 1);
-                t.prone = true;
-                this.emit('BossImpact', '펠비스트 급강하 돌진 — 약한 적을 노립니다', { uid: t.uid, at: t });
-            }
-        }
-    }
-    else if (u.id === 'goblin_king') {
-        if (this.round % 2 === 0 && this.alive('evil').length < 26) {
-            this.spawnEnemies(['moria_goblin', 'moria_goblin', 'moria_goblin']);
-            this.emit('BossCast', undefined, { fx: 'dominate', at: u });
-            this.emit('BossImpact', '고블린 왕의 부름 — 고블린 무리가 쏟아져 나옵니다', { uid: u.uid, at: u });
-        }
-    }
-    else if (u.id === 'ungoliant' && this.round % 3 === 0) {
-        const t = this.alive('good').filter(v => ht(v, u) < 420).sort((a, b) => ht(a, u) - ht(b, u))[0];
-        if (t) { this.inflict(u, t, 1); this.emit('BossImpact', '암흑의 포식', { uid: t.uid, at: t }); }
-        if (this.alive('evil').length < 24) this.spawnEnemies(['moria_goblin', 'moria_goblin']);
-    }
-    else if (u.id === 'sauron') {
-        if (!u._ringSummon && u.currentWounds <= Math.ceil(u.stats.wounds * .5)) {
-            u._ringSummon = true;
-            this.emit('BossCast', undefined, { fx: 'dominate', at: u });
-            let n = 0;
-            const nazIds = ['nazgul_sword', 'nazgul_sword_2', 'nazgul_mace'].filter(id => this.meta.has(id));
-            for (let i = 0; i < 9 && nazIds.length; i++) {
-                const nu = this.spawn(nazIds[i % nazIds.length], 'evil', { x: u.x, y: u.y });
-                let placed = false;
-                for (let ring = 150; ring <= 400 && !placed; ring += 62)
-                    for (let k = 0; k < 14 && !placed; k++) {
-                        const a = (Math.PI * 2 * i / 9) + (k % 2 ? .45 : -.45) * Math.floor(k / 2);
-                        const p = { x: Math.min(2240, Math.max(90, u.x + Math.cos(a) * ring)), y: Math.min(1380, Math.max(90, u.y + Math.sin(a) * ring)) };
-                        if (Et(nu, p, this.alive(), this.terrain)) { Object.assign(nu, p); placed = true; n++; }
-                    }
-                if (!placed) nu.alive = false;
-            }
-            this.emit('BossImpact', '반지의 악령 소환 — 아홉 나즈굴이 모습을 드러냅니다', { uid: u.uid, at: u });
-        }
-        if (this.round % 6 === 0) {
-            const targets = this.alive('good').slice().sort(() => this.rng() - .5).slice(0, 2);
-            this.warnings.push(...targets.map(v => ({ x: v.x, y: v.y, radius: 160, round: this.round + 1, src: u.uid, label: '파멸의 유성', fx: 'meteor', dmg: phase >= 3 ? 2 : 1 })));
-            this.emit('BossWarning', '사우론이 하늘에서 불의 비를 내립니다.');
-        } else if (this.round % 2 === 0) {
-            const t = this.alive('good').sort((a, b) => b.stats.fight - a.stats.fight)[0];
-            if (t) { t.feared = true; this.emit('BossImpact', '사우론의 눈이 응시한다 — 공포', { uid: t.uid, at: t }); }
-        }
-    }
-    else if (u.id === 'smaug' && this.round % 3 === 0) {
-        const _br = this.alive('good').filter(v => ht(v, u) < 520).sort((a, b) => ht(a, u) - ht(b, u)).slice(0, 2);
-        if (_br.length) this.emit('BossCast', undefined, { fx: 'breath', at: _br[0], from: { x: u.x, y: u.y } });
-        for (const t of _br) {
-            this.inflict(u, t, 1); this.emit('BossImpact', '스마우그의 화염 브레스', { uid: t.uid, at: t });
-        }
-    }
-    else if (u.id === 'glaurung') {
-        if (this.round % 3 === 0 && this.round % 6 !== 0) {
-            const t = this.alive('good').sort((a, b) => b.stats.fight - a.stats.fight)[0];
-            if (t) { t.feared = true; t.prone = true; this.emit('BossImpact', '글라우룽의 최면 — 공포·넘어짐', { uid: t.uid, at: t }); }
-        } else if (this.round % 6 === 0) {
-            const _br = this.alive('good').filter(v => ht(v, u) < 520).sort((a, b) => ht(a, u) - ht(b, u)).slice(0, 2);
-            if (_br.length) this.emit('BossCast', undefined, { fx: 'breath', at: _br[0], from: { x: u.x, y: u.y } });
-            for (const t of _br) { this.inflict(u, t, 1); this.emit('BossImpact', '글라우룽의 화염', { uid: t.uid, at: t }); }
-        }
-    }
-    else if (u.id === 'scatha' && this.round % 3 === 0) {
-        const _br = this.alive('good').filter(v => ht(v, u) < 520).sort((a, b) => ht(a, u) - ht(b, u)).slice(0, 2);
-        if (_br.length) this.emit('BossCast', undefined, { fx: 'breath', at: _br[0], from: { x: u.x, y: u.y } });
-        for (const t of _br) { this.inflict(u, t, 1); this.emit('BossImpact', '스카사의 화염 브레스', { uid: t.uid, at: t }); }
-    }
-    else if (u.id === 'carcharoth' && this.round % 2 === 0) {
-        const t = this.alive('good').filter(v => ht(v, u) < 320).sort((a, b) => ht(a, u) - ht(b, u))[0];
-        if (t) { this.inflict(u, t, 1); this.emit('BossImpact', '카르카로스의 발광', { uid: t.uid, at: t }); }
-    }
-    else if (u.id === 'ancalagon' && this.round % 3 === 0) {
-        const targets = this.alive('good').sort((a, b) => ht(a, u) - ht(b, u)).slice(0, phase);
-        if (targets.length) this.emit('BossCast', undefined, { fx: 'breath', at: targets[0], from: { x: u.x, y: u.y } });
-        for (const t of targets) { this.inflict(u, t, 1); this.emit('BossImpact', '앙칼라곤의 용화', { uid: t.uid, at: t }); }
+    if(!u?.alive||u.side!=='evil'||u.x<0||u._bossTurnRound===this.round)return;
+    u._bossTurnRound=this.round;
+    const phase=u.currentWounds<=Math.ceil(u.stats.wounds*.33)?3:u.currentWounds<=Math.ceil(u.stats.wounds*.66)?2:1;
+    if(phase>u.bossPhase){const delta=phase-u.bossPhase;u.bossPhase=phase;u.baseStats.attacks+=delta;if(phase===3)u.baseStats.move+=45;this.refreshUnit(u);this.emit('BossPhase',u.name+' · '+phase+'단계 · Attack +'+delta,{uid:u.uid,at:u});}
+    this.warnings=(this.warnings||[]).filter(a=>!a.src||this.unit(a.src)?.alive);
+    const due=this.warnings.filter(a=>a.src===u.uid&&a.round<=this.round);
+    this.warnings=this.warnings.filter(a=>!due.includes(a));
+    for(const a of due){this.resolveBossPattern(u,a);if(['reward','result'].includes(this.phase)||!u.alive)return;}
+    const foes=this.alive('good').filter(v=>v.x>=0&&!v.static&&!v.lair);
+    if(!foes.length)return;
+    const close=foes.slice().sort((a,b)=>ht(a,u)-ht(b,u))[0];
+    const hero=foes.filter(v=>v.traits.includes('hero')).sort((a,b)=>b.stats.fight-a.stats.fight||ht(a,u)-ht(b,u))[0]||close;
+    const ranged=foes.slice().sort((a,b)=>(b.stats.shootRange||0)-(a.stats.shootRange||0)||ht(a,u)-ht(b,u))[0];
+    const buff=(v,k,n)=>{v.roundBuff[k]=(v.roundBuff[k]||0)+n;this.refreshUnit(v);};
+    const queue=a=>{if(this.warnings.filter(w=>w.src===u.uid&&w.kind!=='embers').length>=2)return;if(a.magic){if((u.resources?.will||0)<1)return;u.resources.will--;u.spellRound=true;}a.round=this.round+1;a.src=u.uid;a.radius=a.radius||90;this.warnings.push(a);this.emit('BossWarning',u.name+' · '+a.label+' — 다음 라운드',{uid:u.uid,at:a});};
+    const circle=(v,label,extra={})=>queue({x:v.x,y:v.y,radius:140,ox:u.x,oy:u.y,label,strength:6,fx:'strike',...extra});
+    const lane=(v,label,extra={})=>{const angle=Math.atan2(v.y-u.y,v.x-u.x),length=Math.min(760,Math.max(320,ht(v,u)+90));queue({shape:'lane',ox:u.x,oy:u.y,tx:u.x+Math.cos(angle)*length,ty:u.y+Math.sin(angle)*length,x:(u.x+v.x)/2,y:(u.y+v.y)/2,width:65,label,strength:6,fx:'dive',...extra});};
+    const cone=(v,label,extra={})=>{const angle=Math.atan2(v.y-u.y,v.x-u.x),length=680;queue({shape:'cone',ox:u.x,oy:u.y,angle,length,half:.42,x:u.x+Math.cos(angle)*length*.6,y:u.y+Math.sin(angle)*length*.6,label,strength:7,fx:'breath',fire:true,friendlyFire:true,los:true,...extra});};
+    const summon=(ids,cap)=>{const room=Math.max(0,cap-this.alive('evil').length-this.delayed.length),add=ids.filter(id=>this.meta.has(id)).slice(0,room);if(add.length){this.spawnEnemies(add);this.emit('ReinforcementsArrived',u.name+' · 증원 '+add.length+'기',{uid:u.uid,at:u});}};
+    const beat=(this.round-1)%4;
+    if(u.id==='saruman'){
+        // The staff grants a bounded free Will; no unlimited spell spam.
+        u.resources.will=Math.min(u.baseStats.will,(u.resources.will||0)+1);
+        if(beat===0)lane(close,'주술 폭풍',{magic:true,strength:6,prone:true,push:135,los:true,fx:'lightning'});
+        if(beat===1)circle(hero,'명령',{magic:true,effect:'transfix',targetOnly:true,target:hero.uid,fx:'dominate',radius:160});
+        if(beat===2){circle(u,'사루만의 목소리',{magic:true,effect:'fear',radius:420,fx:'dominate'});for(const v of this.alive('evil').filter(v=>v!==u&&this.meta.get(v.id)?.faction==='isengard'&&ht(v,u)<450))buff(v,'fight',1);}
+        if(beat===3&&phase>=2&&!u._bossReinforced){u._bossReinforced=true;summon(['uruk_pike','uruk_crossbow'],24);}
+    }else if(u.id==='witchking_fellbeast'){
+        if(beat===0)circle(hero,'검은 다트',{magic:true,targetOnly:true,target:hero.uid,strength:9,los:true,fx:'lightning',radius:140});
+        if(beat===1)lane(ranged,'펠비스트 급강하',{prone:true,push:90,landing:true});
+        if(beat===2)circle(hero,'의지 흡수',{magic:true,effect:'drain',targetOnly:true,target:hero.uid,fx:'dominate',radius:150});
+        if(beat===3)lane(close,'펠비스트 몸통 투척',{prone:true,push:135,fx:'strike'});
+    }else if(u.id==='nazgul_fellbeast'){
+        const flight=this.alive('evil').filter(v=>v.id==='nazgul_fellbeast').sort((a,b)=>a.uid.localeCompare(b.uid));
+        const slot=flight.indexOf(u);
+        if((this.round-1)%3===slot%3)lane(slot%2?hero:ranged,'나즈굴 '+(slot+1)+' · 급강하',{prone:true,push:90,landing:true});
+    }else if(u.id==='mouth_of_sauron'){
+        if(beat===0)circle(hero,'절망의 말',{magic:true,effect:'transfix',targetOnly:true,target:hero.uid,fx:'dominate',radius:180});
+        if(beat===2){for(const v of this.alive('evil').filter(v=>v!==u&&ht(v,u)<550)){buff(v,'fight',1);if(v.traits.includes('monster'))buff(v,'move',90);}this.emit('BossImpact','모란논 총공세 · 트롤 진군',{uid:u.uid,at:u});circle(u,'검은문의 공포',{effect:'fear',radius:450,fx:'dominate'});}
+    }else if(['war_troll','cave_troll','goblin_king'].includes(u.id)){
+        if(beat===0)circle(u,'거대한 몸통 후려치기',{radius:u.radius+145,strength:7,prone:true,push:90});
+        if(beat===2)lane(close,'몸통 투척',{prone:true,push:135,fx:'strike'});
+        if(u.id==='goblin_king'&&beat===3)summon(['moria_goblin','moria_goblin','moria_goblin'],24);
+    }else if(u.id==='azog'){
+        if(beat===0)circle(hero,'참수자의 결투',{targetOnly:true,target:hero.uid,strength:7,radius:150,landing:true});
+        if(beat===2)lane(close,'창백한 오크의 돌진',{strength:7,prone:true,landing:true});
+    }else if(['smaug','scatha','glaurung'].includes(u.id)){
+        if(beat===0)cone(ranged,'용의 화염',{weak:u.id==='smaug',burning:phase>=2});
+        if(beat===2)circle(u,'꼬리 휩쓸기',{radius:u.radius+150,strength:7,prone:true,push:135});
+        if(u.id==='glaurung'&&beat===3)circle(hero,'글라우룽의 시선',{magic:true,effect:'transfix',targetOnly:true,target:hero.uid,radius:180,fx:'dominate'});
+    }else if(u.id==='sauron'){
+        if(beat===0)circle(u,'어둠의 철퇴',{radius:u.radius+170,strength:9,prone:true,push:135});
+        if(beat===2)circle(hero,'영혼 냉각',{magic:true,effect:'transfix',targetOnly:true,target:hero.uid,radius:180,fx:'dominate'});
+        if(!u._ringSummon&&phase>=2){u._ringSummon=true;const ids=['nazgul_sword','nazgul_sword_2','nazgul_mace'];summon(Array.from({length:9},(_,i)=>ids[i%3]),45);}
+    }else if(['balrog','gothmog_balrog'].includes(u.id)){
+        if(beat===0)lane(ranged,'화염 채찍',{strength:7,push:135,prone:true,fx:'whip'});
+        if(beat===2)circle(u,u.id==='balrog'?'우둔의 불꽃':'발록 왕의 검은 도끼',{radius:u.radius+140,strength:8,prone:true,fire:true,friendlyFire:true});
+        if(u.id==='gothmog_balrog'&&beat===3){for(const v of this.alive('evil').filter(v=>v.id==='balrog'&&ht(v,u)<600))buff(v,'fight',1);}
+    }else if(u.id==='carcharoth'){
+        if(beat===0||beat===2)lane(hero,'붉은 아귀의 광란',{strength:7,prone:true,landing:true});
+        if(beat===3)circle(u,'실마릴의 불타는 아귀',{radius:u.radius+100,strength:8,fire:true});
+    }else if(u.id==='ungoliant'){
+        if(beat===0)circle(ranged,'암흑의 거미줄',{effect:'web',radius:180,fx:'dominate'});
+        if(beat===2)circle(u,'끝없는 탐식',{effect:'devour',radius:u.radius+150,strength:8,fx:'strike'});
+    }else if(u.id==='ancalagon'){
+        if(beat===0)cone(hero,'검은 용의 용화',{length:850,half:.5,burning:phase>=2});
+        if(beat===2)circle(u,'산을 무너뜨리는 날개',{radius:u.radius+180,strength:8,push:180,prone:true,fx:'crack'});
+    }else if(u.id==='morgoth'){
+        if(beat===0||beat===2){circle(hero,'그론드의 균열',{radius:170,strength:9,prone:true,weak:true,fx:'crack'});if(phase===3&&ranged!==hero)circle(ranged,'그론드의 여진',{radius:130,strength:7,fx:'crack'});}
+        if(beat===3)circle(u,'암흑의 권능',{radius:470,effect:'fear',fx:'dominate'});
     }
     this.checkRun();
 };
+
 P.inflict = function (attacker, target, n) {
     const result = ce('skill', [attacker, target], attacker.side);
     let wounds = target.currentWounds;
@@ -2758,7 +2784,7 @@ P.checkRun = function () {
         this.endRun(false, '원정대가 전멸했습니다.');
         return true;
     }
-    if (this.mission === 'commander' && ((this.commanders?.length && this.commanders.every(uid => !this.unit(uid)?.alive)) || (!this.commanders?.length && this.commander && !this.unit(this.commander)?.alive))) {
+    if (this.mission === 'commander' && !this.delayed.some(id => (this.current?.bossAll || [this.current?.boss]).includes(id)) && ((this.commanders?.length && this.commanders.every(uid => !this.unit(uid)?.alive)) || (!this.commanders?.length && this.commander && !this.unit(this.commander)?.alive))) {
         this.finishWave();
         return true;
     }
@@ -4623,11 +4649,11 @@ P.refreshUnit=function(u){
 };
 const relicRound=P.beginRound;
 P.beginRound=function(){relicRound.call(this);if(['move','shoot'].includes(this.phase))this.cp+=this.rank('pipeweed');
-    this._roundSnap={units:structuredClone(this.units),cp:this.cp,side:this.side,phase:this.phase,round:this.round,selected:this.selected,capture:this.capture,devices:structuredClone(this.devices||[]),fightQueue:[]};};
+    this._roundSnap={units:structuredClone(this.units),cp:this.cp,side:this.side,phase:this.phase,round:this.round,selected:this.selected,capture:this.capture,devices:structuredClone(this.devices||[]),warnings:structuredClone(this.warnings||[]),commanders:structuredClone(this.commanders||[]),fightQueue:[]};};
 P.undoRound=function(){
     const s=this._roundSnap;
     if(!s||!['move','shoot','fight'].includes(this.phase))return false;
-    Object.assign(this,{units:structuredClone(s.units),cp:s.cp,side:s.side,phase:s.phase,round:s.round,selected:s.selected,capture:s.capture,devices:structuredClone(s.devices||[]),fightQueue:[],activeMoverUid:''});
+    Object.assign(this,{units:structuredClone(s.units),cp:s.cp,side:s.side,phase:s.phase,round:s.round,selected:s.selected,capture:s.capture,devices:structuredClone(s.devices||[]),warnings:structuredClone(s.warnings||[]),commanders:structuredClone(s.commanders||[]),fightQueue:[],activeMoverUid:''});
     this.emit('Event','지휘부가 직전 라운드 지점으로 되돌립니다.');
     return true;
 };
@@ -5134,10 +5160,26 @@ Ve.prototype.drawRings = function () {
                 duo(2.6, 0xf2c45a, .9, () => g.lineBetween(u.x, u.y, v.x, v.y));
     }
     for (const area of b.warnings || []) {
-        g.fillStyle(TARGET, .22);
-        g.fillCircle(area.x, area.y, area.radius);
-        dashCircle(area.x, area.y, area.radius, 5, FOE_HI, 1, 36);
-        label(area.x, area.y, '다음 라운드 · ' + (area.label || '보스 기술'), { color: '#ffd2ab' });
+        if (area.src && !b.unit(area.src)?.alive) continue;
+        g.fillStyle(TARGET, area.kind === 'embers' ? .3 : .22);
+        g.lineStyle(4, FOE_HI, 1);
+        if (area.shape === 'cone' || area.shape === 'lane') {
+            let points=[];
+            if(area.shape === 'cone') {
+                points.push({x:area.ox,y:area.oy});
+                for(let i=0;i<=16;i++){const a=area.angle-area.half+area.half*2*i/16;points.push({x:area.ox+Math.cos(a)*area.length,y:area.oy+Math.sin(a)*area.length});}
+            } else {
+                const angle=Math.atan2(area.ty-area.oy,area.tx-area.ox),nx=-Math.sin(angle)*area.width,ny=Math.cos(angle)*area.width;
+                points=[{x:area.ox+nx,y:area.oy+ny},{x:area.tx+nx,y:area.ty+ny},{x:area.tx-nx,y:area.ty-ny},{x:area.ox-nx,y:area.oy-ny}];
+            }
+            g.fillPoints(points,true);g.strokePoints(points,true);
+            if(area.shape==='lane'){g.lineStyle(2,0xffdfac,.8);g.lineBetween(area.ox,area.oy,area.tx,area.ty);g.strokeCircle(area.ox,area.oy,area.width);g.strokeCircle(area.tx,area.ty,area.width);}
+        } else {g.fillCircle(area.x,area.y,area.radius);dashCircle(area.x,area.y,area.radius,5,FOE_HI,1,36);}
+        label(area.x,area.y,(area.kind==='embers'?'잔불 · ':'다음 라운드 · ')+(area.label||'보스 기술'),{color:'#ffd2ab'});
+    }
+    for(const u of b.alive('evil').filter(u=>u._bossWeakUntil>=b.round)) {
+        dashCircle(u.x,u.y,u.radius+14,4,0xf4df8a,1,24);
+        label(u.x,u.y-u.radius-34,'약점 노출 · Defence −2',{color:'#ffe49b'});
     }
     if (b._eyeZone) {
         g.fillStyle(0x8f1f16, .14);
@@ -5348,6 +5390,9 @@ function bossIntro(id) {
     const cfg = BOSS_INTRO[id] || { tag: '적장 출현', line: '보스를 처치하면 이 전투에서 승리합니다.', accent: '#ffb08a', glow: 'rgba(240,60,30,.8)', cls: '' };
     const el = document.createElement('div'); el.id = 'boss-intro'; el.className = cfg.cls;
     el.innerHTML = `<div class="boss-card"><div class="boss-tag"><img src="icons/ui_warning.png" alt="">${esc(cfg.tag)}</div><h2 style="color:${cfg.accent};text-shadow:0 0 34px ${cfg.glow}">${esc(meta.name_ko)}</h2><div class="boss-art">${unitImage(id)}</div><p>${esc(cfg.line)}</p></div>`;
+    const tactics=BOSS_TACTICS[id];
+    if(tactics){const t=document.createElement('div');t.className='boss-counterplay';const strong=document.createElement('strong'),small=document.createElement('span');strong.textContent=tactics[1];small.textContent=tactics[2];t.append(strong,small);el.querySelector('.boss-card').appendChild(t);}
+    if(id==='mouth_of_sauron'){const flight=document.createElement('div');flight.className='boss-flight';for(let i=0;i<3;i++){const wing=document.createElement('div');wing.innerHTML=unitImage('nazgul_fellbeast');flight.appendChild(wing);}el.querySelector('.boss-art').after(flight);}
     el.onclick = () => el.remove();
     document.body.appendChild(el);
     const _dur = cfg.cls === 'bi-doom' ? 4200 : 3400;
@@ -6090,7 +6135,7 @@ function renderDock(){
     ut('ux-place').innerHTML = esc(place) + _chips;
     { /* header bottom is tracked by a ResizeObserver instead of a forced layout read on every render */ if (!window.__hdrSync) { const h = document.querySelector('header.top'); if (h) { window.__hdrSync = true; let last = ''; const _syncHdr = () => { const v = Math.round(h.getBoundingClientRect().bottom) + 'px'; if (v !== last) { last = v; document.documentElement.style.setProperty('--hdr-b', v); } }; new ResizeObserver(() => requestAnimationFrame(_syncHdr)).observe(h); addEventListener('resize', () => setTimeout(_syncHdr, 60)); requestAnimationFrame(_syncHdr); } } }
     { const _bb = ut('ux-bossbar'); if (_bb && _bb.parentElement !== document.querySelector('header.top')) document.querySelector('header.top')?.appendChild(_bb); if (_bb) {
-        const _boss = ((_info && _info.boss) ? q.alive('evil').find(u => u.id === _info.boss) : null) || q.alive('evil').find(u => u.traits && u.traits.includes('boss'));
+        const _boss = ((_info && _info.boss) ? q.alive('evil').find(u => u.id === _info.boss) : null) || q.alive('evil').find(u => (_info?.bossAll || []).includes(u.id)) || q.alive('evil').find(u => u.traits && u.traits.includes('boss'));
         if (_boss && _boss.alive) {
             const _max = (_boss.baseStats && _boss.baseStats.wounds) || _boss.stats.wounds || 1;
             const _frac = Math.max(0, Math.min(1, _boss.currentWounds / _max));
@@ -6098,11 +6143,18 @@ function renderDock(){
             const _bn = _bb.querySelector('.bossbar-name'); if (_bn) _bn.textContent = (_boss.name || q.meta.get(_boss.id).name_ko || '보스') + (_boss.traits.includes('terror') ? ' · 공포' : '') + ((_boss.bossPhase||1)>1 ? ' · ' + _boss.bossPhase + '단계' : '') + (_boss._enraged ? ' · 격노' : ''); _bb.classList.toggle('enraged', !!_boss._enraged);
             const _bf = _bb.querySelector('.bossbar-fill'); if (_bf) { _bf.style.width = (_frac * 100).toFixed(1) + '%'; _bf.style.background = _frac > .5 ? 'linear-gradient(90deg,#7e1d12,#c63d1e)' : _frac > .25 ? 'linear-gradient(90deg,#8a3a10,#d97a20)' : 'linear-gradient(90deg,#a85a10,#e0a020)'; }
             const _bh = _bb.querySelector('.bossbar-hp'); if (_bh) _bh.textContent = _boss.currentWounds + ' / ' + _max;
+            let tell=_bb.querySelector('.bossbar-pattern');if(!tell){tell=document.createElement('div');tell.className='bossbar-pattern';tell.setAttribute('aria-live','polite');_bb.appendChild(tell);}
+            const warnings=(q.warnings||[]).filter(a=>!a.src||q.unit(a.src)?.alive);
+            const labels=[...new Set(warnings.map(a=>a.label))];
+            const pending=q.alive('evil').filter(v=>(q.current?.bossAll||[]).includes(v.id)).length+q.delayed.filter(id=>(q.current?.bossAll||[]).includes(id)).length;
+            tell.textContent=labels.length?'다음 라운드 · '+labels.slice(0,2).join(' / ')+(labels.length>2?' 외 '+(labels.length-2)+'개':''):_boss._bossWeakUntil>=q.round?'약점 노출 · Defence −2':(BOSS_TACTICS[_boss.id]?.[1]||'');
+            if(q.current?.boss==='mouth_of_sauron')tell.textContent+=' · 적장 '+pending+'기';
+            tell.title=labels.length?labels.join(' / '):(BOSS_TACTICS[_boss.id]?.[2]||'');
         } else _bb.classList.add('hidden');
     } }
     { const _wf = ut('wx-fx'), _mod = (q.current && q.current.modifier) || ''; _wf && (_wf.className = ['rain', 'dark', 'fog', 'snow', 'eclipse', 'gale', 'frost', 'mud'].includes(_mod) ? 'wx-' + _mod : ''); }
     ut('wave').textContent=String(phase==='preparation'?q.wave+1:q.wave||1).padStart(2,'0');
-    const rules={defense:`라운드 끝 · 구역에 적 ${q.breachCount}기면 패배 · 구역 내 아군 결투 +1`,annihilation:'남은 적을 모두 격파',hold:`거점 우세 ${q.capture||0}/3 라운드`,survive:`생존 ${q.round||0}/5 라운드`,breakthrough:'아군 2기를 남쪽 돌파선으로'+(()=>{const n=q.alive('good').filter(u=>u.y>1200).length;return n?' · 돌파 '+Math.min(n,2)+'/2':''})(),rescue:q.rescued?`구출 후 생존 ${q.capture||0}/3`:'포로 구역 확보 후 3라운드 생존',commander:'보스를 처치하면 승리',escort:`보급 호송 — 남쪽 출구까지 호송${q.escortCart&&q.unit(q.escortCart)?.alive?` · 마차 ${Math.round(q.unit(q.escortCart).y)}/1180 · ♥${q.unit(q.escortCart).currentWounds}`:''} · 파괴 시 패배`,scouting:`정보 수습 ${(q.scouts||0)}/3 — 흩어진 정보에 아군 접근`,purge:`소굴 파괴 ${3-((q.purgeLairs||[]).filter(u=>{const w=q.unit(u);return w&&w.alive}).length)}/3 · 소굴은 2라운드마다 적 생성`};
+    const rules={defense:`라운드 끝 · 구역에 적 ${q.breachCount}기면 패배 · 구역 내 아군 결투 +1`,annihilation:'남은 적을 모두 격파',hold:`거점 우세 ${q.capture||0}/3 라운드`,survive:`생존 ${q.round||0}/5 라운드`,breakthrough:'아군 2기를 남쪽 돌파선으로'+(()=>{const n=q.alive('good').filter(u=>u.y>1200).length;return n?' · 돌파 '+Math.min(n,2)+'/2':''})(),rescue:q.rescued?`구출 후 생존 ${q.capture||0}/3`:'포로 구역 확보 후 3라운드 생존',commander:q.current?.boss==='mouth_of_sauron'?'사우론의 입 · 트롤 · 펠비스트 3기 격파':'모든 적장 격파',escort:`보급 호송 — 남쪽 출구까지 호송${q.escortCart&&q.unit(q.escortCart)?.alive?` · 마차 ${Math.round(q.unit(q.escortCart).y)}/1180 · ♥${q.unit(q.escortCart).currentWounds}`:''} · 파괴 시 패배`,scouting:`정보 수습 ${(q.scouts||0)}/3 — 흩어진 정보에 아군 접근`,purge:`소굴 파괴 ${3-((q.purgeLairs||[]).filter(u=>{const w=q.unit(u);return w&&w.alive}).length)}/3 · 소굴은 2라운드마다 적 생성`};
     ut('ux-mission').innerHTML=`<em>${CX.missionNames[q.mission]||'원정 준비'}</em>${esc(rules[q.mission]||'병사를 선택해 전열을 정하세요').replace(/♥/g,'<img src="icons/ui_heart.png" style="width:11px;height:11px;vertical-align:-2px;image-rendering:pixelated">').replace(/★/g,'<img src="icons/ui_star.png" style="width:11px;height:11px;vertical-align:-2px;image-rendering:pixelated">')}${q.bonusObjective?" <small style='color:#f2c75a'>· ★"+esc(q.bonusObjective.text)+" (+"+q.bonusObjective.gold+"금)</small>":''}${q.bonusObjective2?" <small style='color:#f2c75a'>· ★"+esc(q.bonusObjective2.text)+" (+"+q.bonusObjective2.gold+"금)</small>":''}${(['hold','defense','rescue'].includes(q.mission)&&q.alive('evil').some(u=>ht(u,Mt.objective)<=Mt.objective.radius*0.75))?" <small style='color:#ff7a5c;font-weight:800'>· <img src='icons/st_warn.png?v=1.37' style='width:14px;height:14px;vertical-align:-2px;image-rendering:pixelated' alt=''> 목표 위협</small>":''}${['move','shoot','fight'].includes(q.phase)&&!(q.stageDeaths||0)?" <small style='color:#8fd8a0'>· 무결 진행 중 (+25금)</small>":''}`;
     const image=ut('dock-portrait');if(u){const src=Th(q.meta.get(u.id).file);if(image.getAttribute('src')!==src){image.dataset.full=Ut(q.meta.get(u.id).file);image.onerror=function(){this.onerror=null;this.src=this.dataset.full};image.src=src;}image.classList.remove('hidden')}else image.classList.add('hidden');
     ut('dock-eyebrow').textContent=phase==='preparation'?'전열 배치':At?'행동 처리 중':active?'선택 병사':busy?'상대의 차례':phase==='fight'?'근접전 판정':'원정대 지휘';
@@ -7151,13 +7203,18 @@ He = function (b) {
     b.autoSpell(u);
     if (!b.canAct(u)) return;
     const role = window.LWBTactics.role(u, id => b.meta.get(id));
+    if (b.phase === 'move' && u.side === 'good' && !b.engaged(u)) {
+        const escape=b.bossEscape(u);if(escape&&b.move(u.uid,escape))return;
+    }
     if (b.phase === 'move') {
         const foes = b.alive(Ht(u.side));
         const _dst=stanceOf(b,u);if (!u.static && !u.lair && _dst !== 'rear' && !(_dst === 'defense' && !foes.some(v => ht(u,v)<=260)) && role !== 'support' && !b.engaged(u) && (_dst === 'aggressive' || role !== 'archer')) {
             const _dd = b.difficulty || 'normal', _wf = _dd === 'easy' ? 0 : _dd === 'despair' ? 55 : 35;
             const value = v => b.orderPriority(u,v) + ht(u, v) + (role === 'cavalry' ? (v.traits.includes('mounted') ? 130 : v.stats.shootRange ? -100 : 0) : 0) + (role === 'hero' ? b.alive(u.side).filter(f => Vt(f, v)).length * -90 : 0) - Math.min(2, v.stats.wounds-v.currentWounds)*_wf - (_dd === 'despair' ? v.stats.defence*14 : 0) + (v.stats.fight>u.stats.fight+2?65:0);
             for (const foe of foes.filter(v=>u.side!=='good'||b.battleOrder?.mode!=='hold'||ht(v,b.battleOrder.anchor)<=360).sort((a, c) => value(a) - value(c)).slice(0, 5))
-                if (b.charge(u.uid, foe.uid)) return;
+                { const p=chargePlan(u,foe,b.alive(),b.terrain,b.remaining(u));
+                  const unsafe=p&&u.side==='good'&&(b.warnings||[]).some(a=>b.unit(a.src)?.alive&&(!a.targetOnly||a.target===u.uid)&&b.bossAreaContains(a,{...u,...p.to}));
+                  if(!unsafe&&b.charge(u.uid,foe.uid))return; }
         }
         const dest = be(b, u);
         let done = !!dest && b.move(u.uid, dest);
@@ -8974,3 +9031,113 @@ Ve.prototype.play=async function(event){
     return dragonPlay.call(this,event);
 };
 })();
+/*__BOSS_CINEMATICS_BEGIN__*/
+// Pixel keyframes and original synthesis; no copied movie footage, dialogue audio or music.
+(function(){
+const CONFIG={
+ sauron:{sheet:'cinematics/sauron-ring-sheet.png',kind:'ring',name:'SAURON',title:'어둠의 군주 · 사우론',line:'절대반지의 주인이 돌아왔다.',subtitle:'검은 강철 위에, 다시 하나의 반지.',accent:'#edb347'},
+ witchking_fellbeast:{sheet:'cinematics/witchking-flight-sheet.png',kind:'wraith',name:'THE WITCH-KING',title:'앙마르의 마술사왕',line:'No living man may hinder me!',subtitle:'살아 있는 그 어떤 인간도 나를 막을 수 없다!',accent:'#c4d6e6'}
+};
+const CUES={
+ boss_nazgul_shriek:{file:'audio/boss_nazgul_shriek.wav',volume:.66},
+ boss_fell_wing:{file:'audio/boss_fell_wing.wav',volume:.56},
+ boss_ring_seal:{file:'audio/boss_ring_seal.wav',volume:.62},
+ boss_dark_omen:{file:'audio/boss_dark_omen.wav',volume:.5}
+};
+for(const [id,cue]of Object.entries(CUES))Ye[id]={...cue,files:[cue.file]};
+// Preserve user's volume and mood, even when a render reselects the boss music.
+const originalEffVol=We.prototype._effVol;
+We.prototype._effVol=function(value=this.musicVolume){return originalEffVol.call(this,value)*(this._cinematicDuck??1);};
+We.prototype.cinematicCue=async function(id,isCancelled=()=>false){
+ const cue=CUES[id];if(!cue||this.muted||document.hidden||this.sfxVolume<=0||isCancelled())return null;
+ try{
+  await this.unlock();if(!this.context||isCancelled())return null;
+  const buffer=await this._buffer(cue.file);
+  if(this.muted||document.hidden||this.sfxVolume<=0||this.context.state!=='running'||isCancelled())return null;
+  if(this.voices.size>=12){const old=this.voices.values().next().value;try{old.stop();}catch{}this.voices.delete(old);}
+  const source=this.context.createBufferSource(),gain=this.context.createGain();source.buffer=buffer;source.playbackRate.value=1;
+  gain.gain.value=this.sfxVolume*cue.volume;source.connect(gain);gain.connect(this.context.destination);this.voices.add(source);
+  let ended=false;const cleanup=()=>{if(ended)return;ended=true;this.voices.delete(source);source.disconnect();gain.disconnect();};
+  source.onended=cleanup;source.start();
+  let stopping=false;return {stop:()=>{if(ended||stopping)return;stopping=true;try{if(gain.gain.setTargetAtTime){gain.gain.cancelScheduledValues(this.context.currentTime);gain.gain.setTargetAtTime(0,this.context.currentTime,.018);source.stop(this.context.currentTime+.09);}else{source.stop();cleanup();}}catch{cleanup();}}};
+ }catch(error){if(!isCancelled())console.warn('[boss cinematic audio]',id,error.message);return null;}
+};
+let active=null;
+const framePosition=i=>(i%3)*50+'% '+Math.floor(i/3)*100+'%';
+const prepared=new Map();
+function prepareSheet(file){
+ if(prepared.has(file))return prepared.get(file);
+ const promise=new Promise(resolve=>{const im=new Image();let done=false;const settle=ok=>{if(done)return;done=true;clearTimeout(timer);resolve(ok);};const timer=setTimeout(()=>settle(false),1800);im.onload=()=>settle(true);im.onerror=()=>settle(false);im.src=Ut(file);if(im.complete)settle(im.naturalWidth>0);});
+ prepared.set(file,promise);void promise.then(ok=>{if(!ok)prepared.delete(file);});return promise;
+}
+function notify(stage,id,frame){try{window.dispatchEvent(new CustomEvent('lwb-boss-cinematic',{detail:{stage,id,frame}}));}catch{}}
+async function cinematic(scene,id,preview=false){
+ const cfg=CONFIG[id],b=scene.b||q,u=b.alive('evil').find(v=>v.id===id);if(!cfg||(!u&&!preview))return;
+ if(!preview)b._bossCinematicUid=u.uid;
+ if(window._lwbFx||qt>=20)return;
+ const displaced=active;displaced?.cancel();document.getElementById('boss-intro')?.remove();
+ const el=document.createElement('section');el.id='boss-intro';el.className='boss-cinematic bc-'+cfg.kind;el.setAttribute('role','dialog');el.setAttribute('aria-label',cfg.title+' 등장');el.setAttribute('aria-modal','true');el.style.setProperty('--cine-accent',cfg.accent);
+ const view=document.createElement('div');view.className='bc-view';
+ const title=document.createElement('div');title.className='bc-title';title.innerHTML='<span>'+esc(cfg.name)+'</span><strong>'+esc(cfg.title)+'</strong>';
+ const art=document.createElement('div');art.className='bc-art';const cell=document.createElement('div');cell.className='bc-cell';cell.style.backgroundImage='url("'+Ut(cfg.sheet)+'")';cell.style.backgroundPosition=framePosition(0);art.appendChild(cell);
+ const portrait=document.createElement('img');portrait.className='bc-portrait';const meta=b.meta.get(id);portrait.src=Ut(meta.file);portrait.alt=cfg.title;art.appendChild(portrait);
+ const quote=document.createElement('div');quote.className='bc-quote';
+ const line=document.createElement('div');line.className='bc-line';
+ if(cfg.kind==='wraith'){line.innerHTML='<span>No living </span><em>man</em><span> may hinder me!</span>';}else line.textContent=cfg.line;
+ const sub=document.createElement('div');sub.className='bc-sub';sub.textContent=cfg.subtitle;quote.append(line,sub);
+ const counter=document.createElement('div');counter.className='boss-counterplay bc-counter';const tactics=BOSS_TACTICS[id];counter.textContent=tactics?tactics[1]+' · '+tactics[2]:'';
+ const skip=document.createElement('button');skip.type='button';skip.className='bc-skip secondary';skip.textContent='건너뛰기';view.append(title,art,quote,counter,skip);el.appendChild(view);
+ const state={cancelled:false,timers:new Set(),waiters:new Set(),sounds:[],cancel(){if(this.cancelled)return;this.cancelled=true;for(const t of this.timers)clearTimeout(t);this.timers.clear();for(const r of this.waiters)r();this.waiters.clear();for(const s of this.sounds)s.stop();}};
+ active=state;
+ const pause=ms=>new Promise(resolve=>{if(state.cancelled)return resolve();const end=()=>{clearTimeout(timer);state.timers.delete(timer);state.waiters.delete(end);resolve();};const timer=setTimeout(end,ms);state.timers.add(timer);state.waiters.add(end);});
+ const sound=id=>{void wt.cinematicCue(id,()=>state.cancelled).then(h=>{if(!h)return;if(state.cancelled)h.stop();else state.sounds.push(h);});};
+ const showFrame=i=>{if(state.cancelled)return;cell.style.backgroundPosition=framePosition(i);el.dataset.frame=String(i);notify('frame',id,i);};
+ const onKey=e=>{if(e.key==='Escape'){e.preventDefault();state.cancel();}},onHide=()=>{if(document.hidden)state.cancel();};
+ const previousFocus=displaced?.previousFocus||document.activeElement;state.previousFocus=previousFocus;
+ skip.onclick=()=>state.cancel();document.addEventListener('keydown',onKey);document.addEventListener('visibilitychange',onHide);document.body.appendChild(el);skip.focus({preventScroll:true});
+ const music=wt.music;wt._cinematicDuck=.24;wt._cineAudioOwner=state;if(music)music.volume=wt.muted?0:wt._effVol();
+ // Background controls stay inert while the awaited action owns the cinematic.
+ const app=document.getElementById('app'),wasInert=displaced?.appWasInert??app?.inert;state.appWasInert=wasInert;if(app)app.inert=true;
+ const calm=!!UX.reduced,fast=qt>=4,T=ms=>fast?Math.max(100,Math.round(ms*.45)):ms;if(calm)el.classList.add('calm');
+ notify('start',id,0);
+ try{
+  let finishPreload;const preloadCancelled=new Promise(resolve=>{finishPreload=()=>resolve(false);state.waiters.add(finishPreload);});
+  const loaded=await Promise.race([prepareSheet(cfg.sheet),preloadCancelled]);state.waiters.delete(finishPreload);if(state.cancelled)return;
+  if(!loaded){cell.hidden=true;el.classList.add('on','hero','caption');await pause(T(1100));return;}
+  showFrame(0);await pause(30);el.classList.add('on');sound('boss_dark_omen');
+  if(calm){showFrame(cfg.kind==='ring'?4:5);el.classList.add('caption');if(cfg.kind==='wraith')sound('boss_nazgul_shriek');else sound('boss_ring_seal');await pause(T(1500));}
+  else if(cfg.kind==='ring'){
+   await pause(T(720));
+   for(const i of [1,2,3]){showFrame(i);if(i===3)sound('boss_ring_seal');await pause(T(260));}
+   showFrame(4);el.classList.add('seal','caption');await pause(T(760));
+   showFrame(5);await pause(T(650));
+  }else{
+   el.classList.add('shadow');sound('boss_fell_wing');await pause(T(600));
+   el.classList.remove('shadow');el.classList.add('caption');
+   for(const i of [0,1,2,3,4,5,4,3,2,1,0,1,2,3,4,5]){showFrame(i);if(i===3&&!el.classList.contains('scream')){el.classList.add('scream');sound('boss_nazgul_shriek');}await pause(T(150));}
+   await pause(T(700));
+  }
+  if(state.cancelled)return;
+  el.classList.add('hero','caption');notify('reveal',id,5);
+  const cam=scene.cameras?.main;if(u&&cam&&!calm){cam.pan(u.x,u.y,T(500),'Sine.easeInOut');cam.shake(T(250),.003);}
+  await pause(T(1450));el.classList.add('out');await pause(T(240));
+ }finally{
+  state.cancel();document.removeEventListener('keydown',onKey);document.removeEventListener('visibilitychange',onHide);el.remove();
+  if(active===state){if(app)app.inert=wasInert;if(previousFocus?.isConnected&&previousFocus!==skip)previousFocus.focus?.({preventScroll:true});active=null;}
+  if(wt._cineAudioOwner===state){delete wt._cineAudioOwner;delete wt._cinematicDuck;if(wt.music)wt.music.volume=wt.muted?0:wt._effVol();}
+  notify('end',id,5);
+ }
+}
+const priorPlay=Ve.prototype.play;
+Ve.prototype.play=async function(event){
+ await priorPlay.call(this,event);
+ if(event.type==='WaveStarted'&&CONFIG[event.boss])await cinematic(this,event.boss);
+};
+const priorIntro=bossIntro;
+bossIntro=function(id){const u=q.alive('evil').find(v=>v.id===id);if(CONFIG[id]&&u&&q._bossCinematicUid===u.uid)return;return priorIntro(id);};
+// Only warm the relevant sheet in preparation, never all cinematics at boot.
+const priorPrepare=P.prepareStage;
+P.prepareStage=function(){const result=priorPrepare.apply(this,arguments);const cfg=CONFIG[this.next?.boss];if(cfg&&!window._lwbFx)void prepareSheet(cfg.sheet);return result;};
+window.MESBG.bossCinematics={configs:CONFIG,cues:CUES,framePosition,preview:id=>cinematic(Tt,id,true),cancel:()=>active?.cancel(),get active(){return!!active;}};
+})();
+/*__BOSS_CINEMATICS_END__*/
