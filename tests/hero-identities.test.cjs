@@ -53,6 +53,7 @@ for(const p of profiles){
  for(const side of ['good','evil']){
   try{
    const u=h.run(`heroFixture(${JSON.stringify(p.id)},${JSON.stringify(side)})`);
+   u.resources.might=0;u.resources.will=0;u.resources.fate=0;
    const reason=q.skillReason(u);assert.equal(reason,'',p.id+' cannot activate: '+reason);
    const snapshot=()=>JSON.stringify(q.units.map(v=>{const copy=structuredClone(v);delete copy.skillRound;if(v===u)copy.resources[d.resource]=0;return copy;}));
    const before=snapshot(),resource=u.resources[d.resource];
@@ -64,11 +65,11 @@ for(const p of profiles){
    u.skillRound=false;q.phase='reward';const saved=JSON.stringify(q.units);
    assert.equal(q.skill(u.uid),false);assert.equal(JSON.stringify(q.units),saved);
    q.phase=d.phase.split('|')[0];u.alive=false;assert.equal(q.skill(u.uid),false);u.alive=true;
-   if(d.cost){u.resources[d.resource]=0;const poor=JSON.stringify(q.units);assert.equal(q.skill(u.uid),false);assert.equal(JSON.stringify(q.units),poor);}
+   assert.equal(d.cost,0,'identity metadata has no activation resource cost');
   }catch(e){failures.push(p.id+'/'+side+': '+e.message);}
  }
 }
-if(failures.length){console.error(failures.join('\n'));process.exitCode=1;}else console.log('PASS: '+tested.length+' new-profile activations on both sides; phase, death, repeat and cost guards');
+if(failures.length){console.error(failures.join('\n'));process.exitCode=1;}else console.log('PASS: '+tested.length+' new-profile activations on both sides; zero resources, phase, death and repeat guards');
 fs.mkdirSync('review-output',{recursive:true});fs.writeFileSync('review-output/hero-coverage.json',JSON.stringify({profiles:profiles.length,families:217,executions:tested.length,failures},null,2));
 // Retained signatures: every variant, both sides, with a real valid use.
 let retained=0;
@@ -81,7 +82,7 @@ for(const p of profiles.filter(p=>h.run(`!!retainedHeroRoles[${JSON.stringify(p.
   const foe=q.spawn('orc_sword',side==='good'?'evil':'good',{x:1280,y:700});
   if(['legolas','haldir','faramir'].includes(p.family))q.phase='shoot';
   if(p.family==='gimli'){foe.x=u.x+u.radius+foe.radius;q.phase='fight';}
-  if(p.family==='aragorn')u.resources.might=1;
+  u.resources.might=0;u.resources.will=0;u.resources.fate=0;
   if(p.family==='eomer')u.charged=true;
   assert.equal(q.skillReason(u),'',p.id);assert.equal(q.skill(u.uid),true,p.id);retained++;
  }

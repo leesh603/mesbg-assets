@@ -15,7 +15,7 @@ assert.equal(q.skill(healer.uid), false);
 hero.x = 600;
 assert.equal(q.skill(healer.uid), true);
 assert.equal(hero.currentWounds, hero.stats.wounds);
-assert.equal(healer.resources.will, 0);
+assert.equal(healer.resources.will, 1); // Unique healing preserves Will for spells.
 assert.equal(healer._stageHealing, 1);
 assert.equal(q.skill(healer.uid), false);
 const wizard = q.spawn('gandalf', 'good', {x:500,y:500});

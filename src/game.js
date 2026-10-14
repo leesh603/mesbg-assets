@@ -708,8 +708,7 @@ function uiEffect(title, text) {
 }
 function uiSkillBlock(u) {
     const skill = CX.skills && CX.skills[u.id]; if (!skill) return '';
-    const resource = uiCopy(skill[1]), icon = skill[1] === 'will' ? 'res_gem' : 'ui_swords';
-    return '<section class="ui-skill"><div class="ui-section-heading"><h3>' + esc(skill[0]) + '</h3><span class="ui-skill-cost"><img src="icons/' + icon + '.png" alt="">' + esc(resource) + ' ' + skill[2] + '</span></div><p>' + esc(uiCopy(skill[3] || '')) + '</p></section>';
+    return '<section class="ui-skill"><div class="ui-section-heading"><h3>' + esc(skill[0]) + '</h3><span class="ui-skill-cost">자원 소모 없음</span></div><p>' + esc(uiCopy(skill[3] || '')) + '</p><small>라운드당 1회 발동</small></section>';
 }
 function uiInfoDialog(id, title, category, art, body, actions) {
     document.getElementById(id)?.remove();
@@ -3894,8 +3893,7 @@ P.skillReason = function (u) { if (!u || !u.alive) return '생존한 유닛을 �
     return '고유 능력 없음'; if (this.phase !== 'move' && this.phase !== 'shoot' && this.phase !== 'fight')
     return '전투 중 사용'; if (this.side !== u.side && this.phase !== 'fight')
     return '아군 차례에 사용'; if (u.skillRound)
-    return '이번 라운드 사용 완료'; if (u.resources[s[1]] < s[2])
-    return `${({will:'Will',might:'Might',fate:'Fate'})[s[1]] || s[1]} 부족`; if (s[4] && !this.effectTargets(u, s[4]).length) return '범위 안에 유효한 대상이 없습니다'; return ''; };
+    return '이번 라운드 발동 완료'; if (s[4] && !this.effectTargets(u, s[4]).length) return '범위 안에 유효한 대상이 없습니다'; return ''; };
 Object.assign(CX.skills, {
     eowyn: ['나는 남자가 아니다', 'might', 1, 'Attack +1, 결투 +1, 주변 공포 유닛 결투 −1.', { self: { attacks: 1, fight: 1 } }],
     eomer: ['로히림의 돌격', 'might', 1, '이번 라운드 기병 아군 결투 +1, 이동 +90.', { ally: { trait: 'mounted', stats: { fight: 1, move: 90 } } }],
@@ -4090,10 +4088,10 @@ CX.skills.maeglin_mounted = CX.skills.maeglin;
 const __lwbSkillStart = P.start;
 P.start = function (m) {
     __lwbSkillStart.call(this, m);
-    const WIZ = ['마법 화살', 'will', 1, '8인치 내 적 1기에 타격.', { strike: { r: 480, n: 1 } }];
-    const BOW = ['명사수', 'might', 1, '이번 사격 단계 최대 2발.', { shots: 2 }];
-    const LEAD = ['전장 지휘', 'might', 1, '6인치 내 아군 용기 +2.', { ally: { r: 360, stats: { courage: 2 } } }];
-    const DUEL = ['영웅적 돌격', 'might', 1, '이번 라운드 결투 +1.', { self: { fight: 1 } }];
+    const WIZ = ['마법 화살', 'will', 0, '8인치 내 적 1기에 타격.', { strike: { r: 480, n: 1 } }];
+    const BOW = ['명사수', 'might', 0, '이번 사격 단계 최대 2발.', { shots: 2 }];
+    const LEAD = ['전장 지휘', 'might', 0, '6인치 내 아군 용기 +2.', { ally: { r: 360, stats: { courage: 2 } } }];
+    const DUEL = ['영웅적 돌격', 'might', 0, '이번 라운드 결투 +1.', { self: { fight: 1 } }];
     for (const id of Object.keys(zt)) {
         const p = zt[id];
         if (!p || !p.traits.includes('hero') || CX.skills[id])
@@ -4180,8 +4178,7 @@ P.skill = function (uid) {
     const u = this.unit(uid);
     if (this.skillReason(u))
         return false;
-    const [name, resource, cost] = CX.skills[u.id];
-    u.resources[resource] -= cost;
+    const [name] = CX.skills[u.id];
     u.skillRound = true;
     const near = this.alive(u.side).filter(v => ht(v, u) <= 360), foes = this.alive(Ht(u.side)).filter(v => ht(v, u) <= 450);
     const buff = (v, k, n) => { v.roundBuff[k] = (v.roundBuff[k] || 0) + n; this.refreshUnit(v); };
@@ -5385,10 +5382,10 @@ Yt = function () {
         ut('unit').innerHTML = `<div class="unit-head">${unitImage(u.id)}<div><strong>${esc(u.name)}</strong><small>${u.side === 'good' ? '아군' : '적군'} · ${isHeroUnit(u.id)?`<span class="unit-tier tier-${heroGrade(u.id)}" style="display:inline;margin:0">${tierLabel(u.id)}</span>`:(CX.roleNames[meta.role]||meta.role)}</small><small>${q.engaged(u) ? '교전 중' : u.acted ? '행동 완료' : '행동 가능'}</small></div></div><div class="movement-readout"><b>${(q.remaining(u) / 45).toFixed(1)}″</b> / ${(u.stats.move / 45).toFixed(1)}″ 이동 <span>사용 ${(u.movementSpent / 45).toFixed(1)}″</span></div>${uiUnitStats(u)}${(u.equipment || []).length ? `<div class="equip-row">${u.equipment.map(eid => { const a = (typeof LWB_EQUIP !== 'undefined' ? LWB_EQUIP : []).find(x => x.id === eid); return a ? `<button type="button" class="equip-chip" data-eqd="${eid}" aria-label="${esc(a.label)} 상세">${a.iconImg ? `<img src="${a.iconImg}" alt="">` : ''}<span>${esc(a.label)}</span></button>` : ''; }).join('')}</div>` : ''}<div class="traits">${u.traits.includes('flying') ? '비행 · 절벽·낭떠러지 위를 지남' : u.traits.includes('mountain') ? '산악 거주자 · 산 지형 통과' : u.traits.includes('mounted') ? '기병 · 돌격 +1 결투, 보병 넘어뜨리기' : u.traits.includes('spear') ? '창 지원 · 후열에서 아군 베이스 접촉' : u.stats.shootRange ? `사거리 ${(u.stats.shootRange / 45).toFixed(1)}″ · 명중 ${u.stats.shootValue}+` : u.traits.includes('terror') ? '공포 · 돌격하는 적에게 Courage 검사' : '검과 방패 · 전열 유지'}</div><div class="traits" style="margin-top:2px;opacity:.85">${(() => { if (!u.stats) return ''; if (u.side === 'good' && q.bonded && q.bonded(u)) return '유대 · 결투 +1 활성'; const w = (q.meta.get(u.id) || {}).weapon || ''; if (u.stats.shootRange) return '상성 · 원거리 선제 / 근접에 무방비'; if (u.traits.includes('monster')) return '상성 · 소형 보병 압도 / 포위·사격에 취약'; if (u.traits.includes('mounted')) return '상성 · 보병 돌격 강함 / 창병 지원에 취약'; if (u.traits.includes('spear') || /spear|pike/.test(w)) return '상성 · 후열 지원으로 돌격에 강함'; if (u.traits.includes('flying')) return '상성 · 지형 무시 / 방어 취약'; if (u.traits.includes('hero')) return '상성 · 지휘·영웅 결투'; return '상성 · 전열 유지, 창 지원과 함께'; })()}</div>`;
         if (CX.skills[u.id]) {
             const skill = CX.skills[u.id], reason = q.mode === 'ai' && u.side === 'evil' ? 'AI가 조작하는 영웅입니다' : q.skillReason(u);
-            ut('commands').insertAdjacentHTML('afterbegin', `<button class="hero-skill" id="hero-skill" ${At || reason ? 'disabled' : ''} title="${esc(reason || skill[3])}">${unitImage(u.id)}<span><b>${skill[0]}</b><small>${esc(uiCopy(skill[3]))}</small><em>${reason || `${skill[2]} ${({will:'Will',might:'Might',fate:'Fate'})[skill[1]]}`}</em></span></button>`);
+            ut('commands').insertAdjacentHTML('afterbegin', `<button class="hero-skill" id="hero-skill" ${At || reason ? 'disabled' : ''} title="${esc(reason || skill[3])}">${unitImage(u.id)}<span><b>${skill[0]}</b><small>${esc(uiCopy(skill[3]))}</small><em>${reason || '발동 · 자원 소모 없음'}</em></span></button>`);
             ut('hero-skill').onclick = () => {
                 const targets=signatureRules.get(u.id)?.targets(q,u)||q.effectTargets(u,skill[4]);
-                const detail=skill[3]+' · 비용 '+skill[2]+' '+skill[1]+' · 대상 '+targets.map(v=>v.name).join(', ');
+                const detail=skill[3]+' · 자원 소모 없음 · 라운드당 1회 발동 · 대상 '+targets.map(v=>v.name).join(', ');
                 const choose=choice=>setIntent({kind:'skill',uid:u.uid,choice,label:skill[0],detail});
                 _skillInfo(skill[0],detail,()=>choose());
                 if(u.id.startsWith('legolas')){ut('sk-use').textContent='정밀 1발';ut('sk-use').onclick=()=>{Qt=false;Yt();setSheet(false);choose('precise');};ut('sk-cancel').insertAdjacentHTML('beforebegin','<button id="sk-volley">일반 3발</button>');ut('sk-volley').onclick=()=>{Qt=false;Yt();setSheet(false);choose('volley');};}
@@ -5791,7 +5788,7 @@ document.querySelector('.aside').insertAdjacentHTML('afterbegin', '<button id="s
 ut('sheet-toggle').onclick = () => { const a = document.querySelector('.aside'); a.classList.toggle('open'); if (a.classList.contains('open'))
     a.scrollTop = 0; };
 ut('help').onclick = () => { if (At)
-    return; clearTimeout(Jt); Qt = true; ut('overlay').classList.remove('hidden'); ut('overlay').innerHTML = `<div class="modal"><div class="eyebrow">FIELD MANUAL / ENDLESS</div><h2>원정대 야전 지침</h2><div class="help-list"><p><b>배치와 이동</b><br>배치 때 병사를 선택하고 빈 땅을 누르세요. 전투 중 이동력을 나눠 쓸 수 있습니다. 남은 이동력을 쓰거나 이동 종료로 차례를 넘기세요. Q/E로 방향을 정합니다.</p><p><b>돌격과 사격</b><br>선택한 병사로 적을 누르면 돌격 또는 사격합니다. 기병 돌격은 추가 결투 주사위와 보병 넘어짐을 줍니다. 창병은 접촉한 아군을 지원합니다. 아군과 장애물이 사선을 막습니다. 낮은 바리케이드는 탭하여 넘을 수 있습니다. 넘기 주사위 1은 실패, 2–5는 건넌 뒤 이동 종료, 6은 계속 이동합니다.</p><p><b>위협과 상태 표시</b><br>아군 병사를 선택하면 그 병사를 노리는 적이 표시됩니다 — <img src="icons/st_warn.png?v=1.37" style="width:14px;height:14px;vertical-align:-2px;image-rendering:pixelated" alt=""> 이번 턴 돌격 가능, <img src="icons/st_bow.png?v=1.37" style="width:14px;height:14px;vertical-align:-2px;image-rendering:pixelated" alt=""> 사거리 내 궁수. 병사 위 아이콘: <img src="icons/st_fear.png?v=1.37" style="width:14px;height:14px;vertical-align:-2px;image-rendering:pixelated" alt=""> 겁먹음 · <img src="icons/st_prone.png?v=1.37" style="width:14px;height:14px;vertical-align:-2px;image-rendering:pixelated" alt=""> 넘어짐 · <img src="icons/st_shield.png?v=1.37" style="width:14px;height:14px;vertical-align:-2px;image-rendering:pixelated" alt=""> 보호 · <img src="icons/st_aim.png?v=1.37" style="width:14px;height:14px;vertical-align:-2px;image-rendering:pixelated" alt=""> 조준 · <img src="icons/st_snare.png?v=1.37" style="width:14px;height:14px;vertical-align:-2px;image-rendering:pixelated" alt=""> 속박. 보스는 상단 체력바와 발밑 붉은 오라로 표시됩니다.</p><p><b>전장 이벤트</b><br>보물 상자 <img src="icons/node_treasure.png" style="width:12px;height:12px;image-rendering:pixelated;vertical-align:-2px" alt="">와 정보 <img src="icons/relic_map_scroll.png" style="width:12px;height:12px;image-rendering:pixelated;vertical-align:-2px" alt="">는 아군이 가까이 가면 수집됩니다. 폭약통과 함정은 적을 노립니다. 가끔 보라 테두리의 전설 적이 등장 — 처치 시 +25금과 영웅 장비 전리품 기회. 아군은 처치 수가 쌓이면 베테랑<img src="icons/tr_veteran.png" style="width:12px;height:12px;image-rendering:pixelated;vertical-align:-2px" alt="">→챔피언<img src="icons/tr_champion.png" style="width:12px;height:12px;image-rendering:pixelated;vertical-align:-2px" alt="">으로 승급합니다. 패배한 결투의 패자가 3기 이상에게 둘러싸이면 추가 타격을 받습니다. 한 진영이 초기 병력의 절반을 잃으면 전열 붕괴 — 해당 진영 전원 용기 -1. 아군이 결투에 3연속 패배하면 다음 결투부터 주사위 +1 (역전의 기회).</p><p><b>영웅</b><br>선택 패널에서 Might·Will·Fate와 고유 능력을 확인하세요. 능력은 자원을 소비하며, Fate는 상처를 입을 때 자동 판정합니다. 영웅이 전사하면 장비는 유품으로 보관되어 캠프에서 다른 영웅에게 분배할 수 있습니다.</p><p><b>임무와 보상</b><br>매 전투의 목표를 상단에서 확인하세요. 승리하면 금화로 모집·정원 확장·재추첨을 하고 유물 세 장 중 하나를 고릅니다. 이후 재배치하여 다음 전투로 갑니다.</p><p><b>끝없는 원정</b><br>같은 전장에서 다섯 스테이지를 치른 뒤 다음 지도로 이동합니다. 다섯 단계마다 보스가 등장합니다. 25단계 모르고스는 체력에 따라 단계가 변하고 다음 라운드의 강타 위치를 예고합니다. 처치 뒤에도 원정은 계속됩니다.</p><p><b>조작과 저장</b><br>Tab 다음 병사 · F 선택 중심 · Space 행동 종료. 휠로 확대, 빈 땅 드래그로 카메라 이동. 보상·준비 단계에서 자동 저장됩니다. 2P 모드는 한 기기를 번갈아 사용합니다.</p></div><button id="close-help" class="primary">전장으로 돌아가기</button></div>`; ut('close-help').onclick = () => { Qt = false; Yt(); me(); }; };
+    return; clearTimeout(Jt); Qt = true; ut('overlay').classList.remove('hidden'); ut('overlay').innerHTML = `<div class="modal"><div class="eyebrow">FIELD MANUAL / ENDLESS</div><h2>원정대 야전 지침</h2><div class="help-list"><p><b>배치와 이동</b><br>배치 때 병사를 선택하고 빈 땅을 누르세요. 전투 중 이동력을 나눠 쓸 수 있습니다. 남은 이동력을 쓰거나 이동 종료로 차례를 넘기세요. Q/E로 방향을 정합니다.</p><p><b>돌격과 사격</b><br>선택한 병사로 적을 누르면 돌격 또는 사격합니다. 기병 돌격은 추가 결투 주사위와 보병 넘어짐을 줍니다. 창병은 접촉한 아군을 지원합니다. 아군과 장애물이 사선을 막습니다. 낮은 바리케이드는 탭하여 넘을 수 있습니다. 넘기 주사위 1은 실패, 2–5는 건넌 뒤 이동 종료, 6은 계속 이동합니다.</p><p><b>위협과 상태 표시</b><br>아군 병사를 선택하면 그 병사를 노리는 적이 표시됩니다 — <img src="icons/st_warn.png?v=1.37" style="width:14px;height:14px;vertical-align:-2px;image-rendering:pixelated" alt=""> 이번 턴 돌격 가능, <img src="icons/st_bow.png?v=1.37" style="width:14px;height:14px;vertical-align:-2px;image-rendering:pixelated" alt=""> 사거리 내 궁수. 병사 위 아이콘: <img src="icons/st_fear.png?v=1.37" style="width:14px;height:14px;vertical-align:-2px;image-rendering:pixelated" alt=""> 겁먹음 · <img src="icons/st_prone.png?v=1.37" style="width:14px;height:14px;vertical-align:-2px;image-rendering:pixelated" alt=""> 넘어짐 · <img src="icons/st_shield.png?v=1.37" style="width:14px;height:14px;vertical-align:-2px;image-rendering:pixelated" alt=""> 보호 · <img src="icons/st_aim.png?v=1.37" style="width:14px;height:14px;vertical-align:-2px;image-rendering:pixelated" alt=""> 조준 · <img src="icons/st_snare.png?v=1.37" style="width:14px;height:14px;vertical-align:-2px;image-rendering:pixelated" alt=""> 속박. 보스는 상단 체력바와 발밑 붉은 오라로 표시됩니다.</p><p><b>전장 이벤트</b><br>보물 상자 <img src="icons/node_treasure.png" style="width:12px;height:12px;image-rendering:pixelated;vertical-align:-2px" alt="">와 정보 <img src="icons/relic_map_scroll.png" style="width:12px;height:12px;image-rendering:pixelated;vertical-align:-2px" alt="">는 아군이 가까이 가면 수집됩니다. 폭약통과 함정은 적을 노립니다. 가끔 보라 테두리의 전설 적이 등장 — 처치 시 +25금과 영웅 장비 전리품 기회. 아군은 처치 수가 쌓이면 베테랑<img src="icons/tr_veteran.png" style="width:12px;height:12px;image-rendering:pixelated;vertical-align:-2px" alt="">→챔피언<img src="icons/tr_champion.png" style="width:12px;height:12px;image-rendering:pixelated;vertical-align:-2px" alt="">으로 승급합니다. 패배한 결투의 패자가 3기 이상에게 둘러싸이면 추가 타격을 받습니다. 한 진영이 초기 병력의 절반을 잃으면 전열 붕괴 — 해당 진영 전원 용기 -1. 아군이 결투에 3연속 패배하면 다음 결투부터 주사위 +1 (역전의 기회).</p><p><b>영웅</b><br>선택 패널에서 Might·Will·Fate와 고유 능력을 확인하세요. 영웅 고유 능력은 자원 소모 없이 라운드당 1회 발동하며 단계·범위·대상 조건을 따릅니다. 영웅적 행동은 Might, 마법은 Will을 사용하고 Fate는 상처를 입을 때 자동 판정합니다. 영웅이 전사하면 장비는 유품으로 보관되어 캠프에서 다른 영웅에게 분배할 수 있습니다.</p><p><b>임무와 보상</b><br>매 전투의 목표를 상단에서 확인하세요. 승리하면 금화로 모집·정원 확장·재추첨을 하고 유물 세 장 중 하나를 고릅니다. 이후 재배치하여 다음 전투로 갑니다.</p><p><b>끝없는 원정</b><br>같은 전장에서 다섯 스테이지를 치른 뒤 다음 지도로 이동합니다. 다섯 단계마다 보스가 등장합니다. 25단계 모르고스는 체력에 따라 단계가 변하고 다음 라운드의 강타 위치를 예고합니다. 처치 뒤에도 원정은 계속됩니다.</p><p><b>조작과 저장</b><br>Tab 다음 병사 · F 선택 중심 · Space 행동 종료. 휠로 확대, 빈 땅 드래그로 카메라 이동. 보상·준비 단계에서 자동 저장됩니다. 2P 모드는 한 기기를 번갈아 사용합니다.</p></div><button id="close-help" class="primary">전장으로 돌아가기</button></div>`; ut('close-help').onclick = () => { Qt = false; Yt(); me(); }; };
 /* ----------------------------------------------------------------------
  * MIDDLE-EARTH WARBANDS — Mobile clarity 1.1
  * World coordinates/rules are unchanged. CSS pixels, render pixels, and
@@ -6171,7 +6168,7 @@ function registerUnit(def){
     zt[def.id]=p;q.meta.set(def.id,meta);
     UnitCatalog[def.id]={...def,meta,profile:p,points,recruitCost:cost,enabled:def.enabled!==false,rarity:isHeroUnit(def.id,def.meta.role)?heroGrade(def.id,points,'hero'):(def.rarity||'normal'),unlockWave:def.unlockWave??2};
     UnitCatalog[def.id].uniqueKey=def.uniqueKey??(['butterbur','fredegar','lobelia','will_whitfoot'].includes(def.id)?def.id:null)??(p.traits.includes('hero')?def.id.replace(/(_(foot_mace|mounted_sheet|mounted|foot|fellbeast|dismounted|sheet))+$/,''):null);
-    if(def.skill){const k=def.skill;CX.skills[def.id]=[k.name,k.resource,k.cost,k.description];}
+    if(def.skill){const k=def.skill;CX.skills[def.id]=[k.name,k.resource,0,k.description];UnitCatalog[def.id].skill=CX.skills[def.id];}
     if(def.recruitable&&!CX.recruits.includes(def.id))CX.recruits.push(def.id);
     return UnitCatalog[def.id];
 }
@@ -6179,7 +6176,7 @@ const catalogSpawn=P.spawn;
 P.spawn=function(id,side,pos){const u=catalogSpawn.call(this,id,side,pos),d=UnitCatalog[id];if(d){u.points=d.points;u.radius=(d.meta.baseMm||25)*UNIT_RULES.worldPerMm/2;u.visualRadius=d.meta.visualRadius||u.visualRadius;u.artScale=d.meta.artScale||1;}return u;};
 const catalogSkill=P.skill;
 P.skill=function(uid){const u=this.unit(uid),handler=u&&customSkills.get(u.id);if(!handler)return catalogSkill.call(this,uid);if(!u.alive||this.skillReason(u))return false;
-    const [name,resource,cost]=CX.skills[u.id];u.resources[resource]-=cost;u.skillRound=true;handler({battle:this,unit:u});this.emit('HeroSkill',u.name+' · '+name,{uid});return true;};
+    const [name]=CX.skills[u.id];u.skillRound=true;handler({battle:this,unit:u});this.emit('HeroSkill',u.name+' · '+name,{uid});return true;};
 const catalogResume=P.resume;
 P.resume=function(){if(!catalogResume.call(this))return false;for(const u of this.units){const d=UnitCatalog[u.id];if(d){u.points=d.points;u.radius=(d.meta.baseMm||25)*UNIT_RULES.worldPerMm/2;}}this.sanitizeRecruitOffers();return true;};
 P.recruitSelection = function (index) {
@@ -7396,7 +7393,7 @@ function signatureBuff(b,u,stats){for(const k in stats)u.roundBuff[k]=(u.roundBu
 function signature(prefix,name,resource,cost,description,targets,apply){
     for(const d of Object.values(UnitCatalog).filter(d=>d.id===prefix||d.id.startsWith(prefix+'_'))){
         if(!d.profile.traits.includes('hero'))continue;
-        CX.skills[d.id]=[name,resource,cost,description];
+        CX.skills[d.id]=[name,resource,0,description];
         signatureRules.set(d.id,{targets});
         customSkills.set(d.id,({battle:b,unit:u})=>{const selected=targets(b,u);apply(b,u,selected);b.emit('Event',`${name} · ${selected.map(v=>v.name).join(', ')}`,{uid:u.uid,targets:selected.map(v=>v.uid)});});
     }
@@ -7859,6 +7856,14 @@ CX.skills.pippin_citadel=['백색 탑의 수위','might',1,'근접전: 8인치 �
 signatureRules.set('pippin_citadel',{targets:citadelPippinTargets});
 customSkills.set('pippin_citadel',({battle:b,unit:u})=>{for(const v of citadelPippinTargets(b,u))v.mightReroll=true;u.heroicDef=true;});UnitCatalog.pippin_citadel.skill=CX.skills.pippin_citadel;
 
+// Unique abilities have their own once-per-round activation. Heroic actions,
+// spellcasting and Fate prevention keep their separate resource rules.
+for(const [id,skill] of Object.entries(CX.skills)){
+    skill[2]=0;
+    if(UnitCatalog[id])UnitCatalog[id].skill=skill;
+}
+for(const design of heroDesigns.values())design.cost=0;
+
 field.insertAdjacentHTML('beforeend', '<section id="fight-preview" class="hidden" aria-label="교전 참여자"><div class="fight-preview-title"></div><div class="fight-preview-units"></div></section><div id="tactical-legend" class="hidden">이동 범위 · 금색: 돌격 · 사선: 장애물</div>');
 function previewGroup() {
     const all = q.alive(), groups = Oe(all);
@@ -8117,14 +8122,14 @@ function renderUnitVitals(){
 // Action bar: only what the current phase / unit allows
 function muxActions(){
     const ph=ut('act-phase'),endB=ut('act-end'),abB=ut('act-ability'),shB=ut('act-shoot'),prim=ut('dock-primary');if(!ph)return;
-    const phase=q.phase,mine=!AUTO&&!(q.mode==='ai'&&q.side==='evil'),u=q.unit(q.selected),act=actionableUnit();
+    const phase=q.phase,mine=!AUTO&&!(q.mode==='ai'&&q.side==='evil'&&phase!=='fight'),u=q.unit(q.selected),act=actionableUnit();
     const sideKo=q.side==='good'?'아군':'적군',phKo={preparation:'배치',move:'이동',shoot:'사격',fight:'근접전'}[phase]||'';
     ph.textContent=phase==='preparation'?'배치':phase==='fight'?'근접전':phKo?sideKo+' · '+phKo:'';
     ph.className='act-phase '+(phase==='fight'||phase==='preparation'?'neutral':q.side==='good'?'ally':'foe');
     const turnPhase=['move','shoot'].includes(phase)&&mine&&!At&&q.eligible(q.side).length>0;
     endB.classList.toggle('hidden',!turnPhase);if(!turnPhase){endB.classList.remove('confirm');endB.textContent='턴 종료';}
-    const own=u&&u.alive&&u.side===q.side&&mine&&['move','shoot'].includes(phase);
-    const heroReady=own&&!At&&(()=>{const hs=ut('hero-skill');if(hs&&!hs.disabled&&hs.offsetParent!==null)return true;return [...document.querySelectorAll('#commands .heroic-btn')].some(b=>!b.disabled);})();
+    const own=u&&u.alive&&(u.side===q.side||phase==='fight')&&!(q.mode==='ai'&&u.side==='evil')&&mine&&['move','shoot','fight'].includes(phase);
+    const heroReady=own&&!At&&(()=>{if(CX.skills[u.id]&&!q.skillReason(u))return true;return [...document.querySelectorAll('#commands .heroic-btn')].some(b=>!b.disabled);})();
     abB.classList.toggle('hidden',!heroReady||!!UX.intent);
     const canShoot=own&&phase==='shoot'&&!UX.intent&&q.canAct(u)&&u.stats.shootRange>0&&q.validTargets(u).length>0;
     shB.classList.toggle('hidden',!canShoot);
