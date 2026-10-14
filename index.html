@@ -6895,7 +6895,7 @@ class Ve extends Ot.Scene {
         const _bd = Math.max(18, H.radius * .44), _ord = ["prone", "terror", "charge", "clash", "halfmove", "blood"], _on = { prone: !!H.prone, terror: !!H.feared, charge: !!H.charged, clash: this.b.engaged(H), halfmove: H.movementSpent * 2 > H.stats.move, blood: H.currentWounds < H.stats.wounds };
         const _top = (H.alive && !H.escaped && this.b.phase !== "menu") ? _ord.find(nm => _on[nm]) : null;
         for (const nm of _ord) { const el = K.getByName(nm); if (!el) continue; if (nm === _top) el.setVisible(!0).setPosition(0, -H.radius - 14).setDisplaySize(_bd, _bd); else el.setVisible(!1); }
-        const _wt = K.getByName("wounds"); if (_wt) { const _mw = H.stats.wounds > 1 && H.currentWounds < H.stats.wounds && H.currentWounds > 0; _wt.setVisible(!!_mw && H.alive && this.b.phase !== "menu"); if (_mw) _wt.setText(H.currentWounds + "/" + H.stats.wounds); }
+        const _wt = K.getByName("wounds"); if (_wt) { const _mw = H.stats.wounds > 1 && H.currentWounds < H.stats.wounds && H.currentWounds > 0; _wt.setVisible(false); if (_mw) _wt.setText(H.currentWounds + "/" + H.stats.wounds); }
         const $ = K.getByName("token");
         this.tweens.killTweensOf($), this.tween($, { angle: $.angle + Ot.Math.Angle.ShortestBetween($.angle, H.angle) }, 180), H.alive ? K.setDepth(5).setAngle(0) : K.setDepth(1);
     } for (const [H, K] of this.tokens)
@@ -11514,6 +11514,8 @@ Ve.prototype.drawRings = function () {
         return;
     const g = this.rings, b = this.b;
     g.clear();
+    if (!this._hpLayer) this._hpLayer = this.add.graphics().setDepth(7);
+    this._hpLayer.clear();
     this.labels.removeAll(true);
     this.underlay && this.underlay.removeAll(true);
     const font = { fontFamily: 'Pretendard', fontSize: '20px', color: '#eee5c9', backgroundColor: '#1b211cea', padding: { x: 8, y: 5 } };
@@ -11652,14 +11654,20 @@ Ve.prototype.drawRings = function () {
         // A short segmented bar replaces the permanent circular health plate.
         // Healthy unselected models leave the battlefield art unobstructed.
         if (u.stats.wounds > 1 && (u.currentWounds < u.stats.wounds || u.uid === b.selected)) {
-            const body = UNIT_ART_PROFILES[u.id], figureHeight = body ? body[5] / (body[2] - body[1]) : u.radius * 2;
-            const w = Math.min(108, Math.max(28, u.radius * 1.45)), gap = 2 / Z, n = u.stats.wounds;
-            const y = u.y + Math.max(u.radius, figureHeight * (1 - (body?.[4] ?? .5))) + 7 / Z;
+            const hp = this._hpLayer;
+            // Pixel health plate: a small dark bronze-rimmed plate on the front edge of the base,
+            // one cell per wound (filled cells carry a top highlight), constant size on screen.
+            const n = u.stats.wounds, c = Math.max(0, u.currentWounds), low = c / n <= .34;
+            const cw = 9 / Z, ch = 6 / Z, gp = 2 / Z, pad = 2 / Z, W = n * cw + (n - 1) * gp + pad * 2, H = ch + pad * 2;
+            const x = u.x - W / 2, y = u.y + u.radius * 1.02 - H / 2;
+            hp.fillStyle(0x0a0806, .92); hp.fillRect(x - 1 / Z, y - 1 / Z, W + 2 / Z, H + 2 / Z);
+            hp.fillStyle(u.side === 'good' ? 0x8a6a32 : 0x6a2a20, 1); hp.fillRect(x, y, W, H);
+            hp.fillStyle(0x140f0a, 1); hp.fillRect(x + 1 / Z, y + 1 / Z, W - 2 / Z, H - 2 / Z);
+            const on = low ? 0xd9573a : u.side === 'good' ? 0x9cc46a : 0xd8745a, hi = low ? 0xffa27a : u.side === 'good' ? 0xd6f0a0 : 0xffb49a;
             for (let i = 0; i < n; i++) {
-                const x0 = u.x - w / 2 + i * w / n + gap / 2, x1 = u.x - w / 2 + (i + 1) * w / n - gap / 2;
-                g.lineStyle(6 / Z, INK, .8); g.lineBetween(x0, y, x1, y);
-                g.lineStyle(3 / Z, i < u.currentWounds ? (u.currentWounds / n <= .34 ? 0xff6a50 : u.side === 'good' ? 0x7fd36b : FOE_HI) : 0x2b2622, 1);
-                g.lineBetween(x0, y, x1, y);
+                const cx = x + pad + i * (cw + gp), cy = y + pad;
+                if (i < c) { hp.fillStyle(on, 1); hp.fillRect(cx, cy, cw, ch); hp.fillStyle(hi, 1); hp.fillRect(cx, cy, cw, Math.max(1 / Z, ch * .34)); }
+                else { hp.fillStyle(0x2e2620, 1); hp.fillRect(cx, cy, cw, ch); }
             }
         }
         const status = b.engaged(u) ? CHARGE : u.acted ? 0x5f5c54 : u.movementSpent ? AMBER : (u.side === 'good' ? ALLY : FOE);
@@ -17393,6 +17401,41 @@ html body.lwb-polished:is([data-phase="reward"],[data-phase="menu"],[data-phase=
  background:var(--fr-grain),radial-gradient(ellipse at 50% 20%,rgba(255,150,205,.36) 0,transparent 62%),linear-gradient(180deg,#4a1634 0,#2a0c1e 55%,#14060e 100%)!important;
  box-shadow:0 3px 0 rgba(0,0,0,.45),0 0 0 1px rgba(255,160,210,.35),0 0 18px rgba(255,120,190,.45)!important}
 #app#app#app#app#app#app#app#app .shop-card.r-unique::before{background:linear-gradient(115deg,transparent 35%,rgba(255,200,230,.2) 47%,rgba(255,235,245,.34) 50%,rgba(255,200,230,.2) 53%,transparent 65%) no-repeat!important;background-size:250% 100%!important}
+
+/* ready screen: roster as an even grid of identical cards (portrait · name · wounds · equipment row) */
+#app#app#app#app#app#app#app#app .modal .camp-roster{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important;align-items:stretch!important;flex-wrap:nowrap!important;overflow:visible!important;margin:0!important}
+#app#app#app#app#app#app#app#app .modal .camp-roster > button{position:relative!important;display:grid!important;grid-template-rows:56px auto auto 18px!important;justify-items:center!important;align-content:start!important;row-gap:2px!important;
+ width:auto!important;min-width:0!important;height:auto!important;min-height:132px!important;max-height:none!important;padding:8px 6px 6px!important;margin:0!important;text-align:center!important;
+ border:1px solid rgba(201,164,94,.38)!important;border-image:none!important;border-radius:2px!important;background:linear-gradient(180deg,rgba(40,32,20,.9),rgba(14,11,8,.94))!important;box-shadow:inset 0 0 0 1px rgba(0,0,0,.55)!important;overflow:visible!important}
+#app#app#app#app#app#app#app#app .modal .camp-roster > button > img{width:52px!important;height:52px!important;object-fit:contain!important;margin:0!important;align-self:end}
+#app#app#app#app#app#app#app#app .modal .camp-roster > button > small{display:contents!important}
+#app#app#app#app#app#app#app#app .modal .camp-roster .rs-name{display:block!important;font:400 13px/1.25 Galmuri11,var(--body)!important;color:var(--tx)!important;word-break:keep-all;max-width:100%}
+#app#app#app#app#app#app#app#app .modal .camp-roster > button > small{font:500 11px/1.3 var(--body)!important;color:var(--tx-mute)!important}
+#app#app#app#app#app#app#app#app .modal .camp-roster .eq-minis{display:flex!important;justify-content:center!important;gap:3px!important;margin:0!important;height:18px}
+#app#app#app#app#app#app#app#app .modal .camp-roster .eq-minis img{width:16px!important;height:16px!important}
+#app#app#app#app#app#app#app#app .modal .camp-roster .kill-badge{top:4px!important;right:4px!important;left:auto!important;min-width:18px!important;height:18px!important;padding:0 4px!important;border-radius:2px!important;font:700 11px/18px var(--body)!important;background:#9a3a28!important;box-shadow:0 0 0 1px #0a0806!important}
+/* army name, relic chips, set progress */
+#app#app#app#app#app#app#app#app .modal .army-name-row{margin:10px 0 6px!important;padding:0!important;border:0!important;background:none!important;box-shadow:none!important}
+#app#app#app#app#app#app#app#app .modal .army-name-row input{width:100%!important;min-height:44px!important}
+#app#app#app#app#app#app#app#app .modal .result-relics{display:flex!important;flex-wrap:wrap!important;gap:6px!important;margin:6px 0!important}
+#app#app#app#app#app#app#app#app .modal .relic-chip{width:44px!important;height:44px!important;min-height:44px!important;padding:4px!important}
+#app#app#app#app#app#app#app#app .modal .set-progress{display:block!important;margin:0 0 10px!important;padding:6px 10px!important;font:600 12px/1.4 var(--body)!important;color:var(--tx-mute)!important}
+#app#app#app#app#app#app#app#app .modal .set-progress:empty{display:none!important}
+
+/* stage intro / victory card: the painting sits inside the frame and fades into the card body */
+:is(html,#_o#_v#_r#_x) body.lwb-polished #stage-intro .si-card{position:relative!important;overflow:hidden!important;padding:0!important;width:min(400px,88vw)!important}
+:is(html,#_o#_v#_r#_x) body.lwb-polished #stage-intro .si-art{display:block!important;width:100%!important;height:170px!important;object-fit:cover!important;margin:0!important;border:0!important;
+ -webkit-mask-image:linear-gradient(180deg,#000 0,#000 55%,transparent 100%);mask-image:linear-gradient(180deg,#000 0,#000 55%,transparent 100%)}
+:is(html,#_o#_v#_r#_x) body.lwb-polished #stage-intro .si-body{position:relative!important;margin-top:-56px!important;padding:8px 18px 18px!important;background:none!important}
+:is(html,#_o#_v#_r#_x) body.lwb-polished #stage-intro .si-body > *{text-shadow:0 1px 2px #000,0 0 8px rgba(0,0,0,.8)}
+:is(html,#_o#_v#_r#_x) body.lwb-polished #stage-intro .si-mission{display:inline-block!important;margin:4px 3px 0!important;padding:6px 12px!important;border-radius:2px!important;font:600 13px/1.4 var(--body)!important}
+:is(html,#_o#_v#_r#_x) body.lwb-polished #stage-intro .si-card{padding:10px 10px 4px!important}
+:is(html,#_o#_v#_r#_x) body.lwb-polished #stage-intro .si-art{height:160px!important}
+:is(html,#_o#_v#_r#_x) body.lwb-polished #stage-intro .si-card{padding:10px 10px 4px!important}
+:is(html,#_o#_v#_r#_x) body.lwb-polished #stage-intro .si-art{height:160px!important}
+#app#app#app#app#app#app#app#app#app .modal .camp-roster > button{grid-template-columns:minmax(0,1fr)!important;grid-auto-flow:row!important;grid-template-areas:none!important;flex-direction:column!important}
+#app#app#app#app#app#app#app#app#app .modal .camp-roster > button > *{grid-column:1!important;grid-row:auto!important;width:auto!important;text-align:center!important}
+#app#app#app#app#app#app#app#app#app .modal .camp-roster > button > .kill-badge{position:absolute!important;width:auto!important}
 </style></head><body><div id="app"></div><style id="integrated-rework">
 /* Integrated mobile layout: content first, stable controls, original artwork. */
 html body.lwb-polished.ui-rebuilt #app #overlay .t-title .title-controls{display:flex!important;flex-direction:column!important;gap:10px!important}

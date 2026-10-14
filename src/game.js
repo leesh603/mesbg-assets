@@ -262,7 +262,7 @@ class Ve extends Ot.Scene {
         const _bd = Math.max(18, H.radius * .44), _ord = ["prone", "terror", "charge", "clash", "halfmove", "blood"], _on = { prone: !!H.prone, terror: !!H.feared, charge: !!H.charged, clash: this.b.engaged(H), halfmove: H.movementSpent * 2 > H.stats.move, blood: H.currentWounds < H.stats.wounds };
         const _top = (H.alive && !H.escaped && this.b.phase !== "menu") ? _ord.find(nm => _on[nm]) : null;
         for (const nm of _ord) { const el = K.getByName(nm); if (!el) continue; if (nm === _top) el.setVisible(!0).setPosition(0, -H.radius - 14).setDisplaySize(_bd, _bd); else el.setVisible(!1); }
-        const _wt = K.getByName("wounds"); if (_wt) { const _mw = H.stats.wounds > 1 && H.currentWounds < H.stats.wounds && H.currentWounds > 0; _wt.setVisible(!!_mw && H.alive && this.b.phase !== "menu"); if (_mw) _wt.setText(H.currentWounds + "/" + H.stats.wounds); }
+        const _wt = K.getByName("wounds"); if (_wt) { const _mw = H.stats.wounds > 1 && H.currentWounds < H.stats.wounds && H.currentWounds > 0; _wt.setVisible(false); if (_mw) _wt.setText(H.currentWounds + "/" + H.stats.wounds); }
         const $ = K.getByName("token");
         this.tweens.killTweensOf($), this.tween($, { angle: $.angle + Ot.Math.Angle.ShortestBetween($.angle, H.angle) }, 180), H.alive ? K.setDepth(5).setAngle(0) : K.setDepth(1);
     } for (const [H, K] of this.tokens)
@@ -4881,6 +4881,8 @@ Ve.prototype.drawRings = function () {
         return;
     const g = this.rings, b = this.b;
     g.clear();
+    if (!this._hpLayer) this._hpLayer = this.add.graphics().setDepth(7);
+    this._hpLayer.clear();
     this.labels.removeAll(true);
     this.underlay && this.underlay.removeAll(true);
     const font = { fontFamily: 'Pretendard', fontSize: '20px', color: '#eee5c9', backgroundColor: '#1b211cea', padding: { x: 8, y: 5 } };
@@ -5019,14 +5021,20 @@ Ve.prototype.drawRings = function () {
         // A short segmented bar replaces the permanent circular health plate.
         // Healthy unselected models leave the battlefield art unobstructed.
         if (u.stats.wounds > 1 && (u.currentWounds < u.stats.wounds || u.uid === b.selected)) {
-            const body = UNIT_ART_PROFILES[u.id], figureHeight = body ? body[5] / (body[2] - body[1]) : u.radius * 2;
-            const w = Math.min(108, Math.max(28, u.radius * 1.45)), gap = 2 / Z, n = u.stats.wounds;
-            const y = u.y + Math.max(u.radius, figureHeight * (1 - (body?.[4] ?? .5))) + 7 / Z;
+            const hp = this._hpLayer;
+            // Pixel health plate: a small dark bronze-rimmed plate on the front edge of the base,
+            // one cell per wound (filled cells carry a top highlight), constant size on screen.
+            const n = u.stats.wounds, c = Math.max(0, u.currentWounds), low = c / n <= .34;
+            const cw = 9 / Z, ch = 6 / Z, gp = 2 / Z, pad = 2 / Z, W = n * cw + (n - 1) * gp + pad * 2, H = ch + pad * 2;
+            const x = u.x - W / 2, y = u.y + u.radius * 1.02 - H / 2;
+            hp.fillStyle(0x0a0806, .92); hp.fillRect(x - 1 / Z, y - 1 / Z, W + 2 / Z, H + 2 / Z);
+            hp.fillStyle(u.side === 'good' ? 0x8a6a32 : 0x6a2a20, 1); hp.fillRect(x, y, W, H);
+            hp.fillStyle(0x140f0a, 1); hp.fillRect(x + 1 / Z, y + 1 / Z, W - 2 / Z, H - 2 / Z);
+            const on = low ? 0xd9573a : u.side === 'good' ? 0x9cc46a : 0xd8745a, hi = low ? 0xffa27a : u.side === 'good' ? 0xd6f0a0 : 0xffb49a;
             for (let i = 0; i < n; i++) {
-                const x0 = u.x - w / 2 + i * w / n + gap / 2, x1 = u.x - w / 2 + (i + 1) * w / n - gap / 2;
-                g.lineStyle(6 / Z, INK, .8); g.lineBetween(x0, y, x1, y);
-                g.lineStyle(3 / Z, i < u.currentWounds ? (u.currentWounds / n <= .34 ? 0xff6a50 : u.side === 'good' ? 0x7fd36b : FOE_HI) : 0x2b2622, 1);
-                g.lineBetween(x0, y, x1, y);
+                const cx = x + pad + i * (cw + gp), cy = y + pad;
+                if (i < c) { hp.fillStyle(on, 1); hp.fillRect(cx, cy, cw, ch); hp.fillStyle(hi, 1); hp.fillRect(cx, cy, cw, Math.max(1 / Z, ch * .34)); }
+                else { hp.fillStyle(0x2e2620, 1); hp.fillRect(cx, cy, cw, ch); }
             }
         }
         const status = b.engaged(u) ? CHARGE : u.acted ? 0x5f5c54 : u.movementSpent ? AMBER : (u.side === 'good' ? ALLY : FOE);
