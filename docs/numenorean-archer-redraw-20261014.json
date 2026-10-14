@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-14",
+  "sourceCommit": "a28a7ce3cead1f8e7e28b4a6511af968d3b05cf3",
+  "method": "built-in imagegen reference redraw",
+  "references": [
+    "tokens/tauriel.png",
+    "tokens/fingolfin.png",
+    "tokens/imrahil.png",
+    "tokens/numenorean_warrior.png"
+  ],
+  "prompt": "Use case: style-transfer. Asset type: production transparent PNG game sprite for MIDDLE-EARTH WARBANDS. Image 1 is EDIT TARGET, existing Numenorean archer. Images 2 Tauriel, 3 Fingolfin and 4 Imrahil are THREE APPROVED STYLE, CAMERA and FIVE-HEAD PROPORTION references. Image 5 Numenorean warrior is SAME-FACTION EQUIPMENT/PALETTE reference only, not proportions. Completely redraw ONE Numenorean foot archer in the exact detailed 2D pixel-cluster rendering of images 2-4. Adult medium-stocky FIVE HEADS TALL body, compact limbs, anatomically coherent two arms and two separate boots. Camera steep elevated front quarter-view, about 55 degrees looking DOWN, visible helmet crown and shoulders, chin tilted down and face small and shadowed. Do not make a frontal eye-level illustration, a side profile, a 7-8-head realistic tall person, or a 2-3-head chibi. Crisp subtly textured pixel clusters, thin dark outer outline, restrained highlighted metal, muted navy blue cloak and tunic with steel-silver Numenorean armour and restrained brown leather belts. Modest peaked Numenorean steel helmet with ridge and cheek guards, no huge plume. Preserve archer identity with ONE wooden longbow held diagonally beside body and a shoulder quiver with white fletched arrows; right hand preparing one arrow near chest. Not a swordsman, no shield, no sword, no extra weapons. Natural advancing stance, both boots readable, torso/body axis centered in canvas rather than bow or cape. Match the approved sprites' density, head size, shading and downwards perspective so he clearly belongs to their same game. Full single isolated sprite, figure roughly 85-90 percent canvas height with comfortable clear padding around every tip. TRUE transparent background. NO base, round token disc, ground, shadow disc, scenery, text, panels, labels, extra figures, smooth 3D rendering, photoreal miniature, blurry gradients or enlarged visible eyes.",
+  "changes": [
+    "Numenorean archer redrawn with five-head proportions and elevated quarter-view pixel rendering.",
+    "Root/gallery PNG, production/runtime PNG and WebP portrait updated together.",
+    "Helmet-crown-to-boot height and torso midpoint visually reviewed; bow/quiver/cape excluded.",
+    "Existing game stature 77 preserved; cache revision updated for this asset only."
+  ]
+}
