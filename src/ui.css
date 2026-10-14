@@ -1264,6 +1264,28 @@ html body.lwb-polished:is([data-phase="reward"],[data-phase="menu"],[data-phase=
 :is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app #ux-bossbar .bossbar-hp{white-space:nowrap!important}
 /*__DS2_END__*/
 
+/* Troop promotion overlay: independent of battle HUD; body-sized mobile controls. */
+#troop-promotion{position:fixed;inset:0;z-index:95;background:#07100ee8;display:flex;align-items:center;justify-content:center;padding:max(10px,env(safe-area-inset-top)) 10px max(10px,env(safe-area-inset-bottom));font-family:var(--ov-font,inherit);color:#e4e5d9}
+#troop-promotion .troop-promotion-modal{box-sizing:border-box;width:min(100%,720px);max-height:100%;overflow:auto;padding:16px;background:#182322;border:2px solid #ac9867;overscroll-behavior:contain;scrollbar-gutter:stable}
+#troop-promotion h2{font-size:22px;margin:6px 0 14px}#troop-promotion h3{font-size:17px;margin:5px 0;overflow-wrap:anywhere}
+#troop-promotion p,#troop-promotion small,#troop-promotion dd,#troop-promotion dt{font-size:max(14px,var(--fb,14px));line-height:1.5;margin:5px 0}
+#troop-promotion .promotion-current,#troop-promotion header{display:flex;align-items:center;gap:12px}
+#troop-promotion .promotion-current>img,#troop-promotion header>img{width:90px;height:104px;object-fit:contain;image-rendering:pixelated;flex:none;background:none}
+#troop-promotion .promotion-current b{color:#e4c98a;font-size:15px}
+#troop-promotion .promotion-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
+#troop-promotion .promotion-choice{border:1px solid #6c7969;background:#101c1b;padding:12px;min-width:0}
+#troop-promotion dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:12px 0;background:#23302c;padding:8px}
+#troop-promotion dt{color:#b8c6b6}#troop-promotion dd{margin:0;font-weight:700;color:#e6d8b4}
+#troop-promotion button{box-sizing:border-box;min-height:44px;font-size:15px;padding:10px 12px;white-space:normal;line-height:1.4;touch-action:manipulation}
+#troop-promotion .promotion-choice>button{width:100%;margin-top:8px}
+#troop-promotion button:disabled{opacity:1;background:#27302d;color:#aab2a9;border-color:#4e5c51;cursor:default}
+#troop-promotion .promotion-soldiers{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+#troop-promotion [aria-current=true]{border:2px solid #dcc487;color:#ffdfa0}
+#troop-promotion footer{position:sticky;bottom:-16px;background:#182322;padding:12px 0 4px;display:flex;justify-content:flex-end}
+#troop-promotion .promotion-error{color:#e6ad8d}.troop-career{margin:12px 0;border-top:1px solid #77846c;padding-top:10px}.troop-career h3{font-size:16px}.troop-career p,.troop-career li{font-size:14px;line-height:1.5}.troop-career small{display:block}.troop-career ul{padding-left:20px}.troop-career button{min-height:44px;width:100%}
+@media(max-width:560px){#troop-promotion .promotion-choices{grid-template-columns:1fr}#troop-promotion .troop-promotion-modal{padding:12px}#troop-promotion .promotion-current>img{width:76px;height:90px}#troop-promotion footer{bottom:-12px}#troop-promotion .promotion-soldiers button{flex:1 1 120px}}
+
+
 /* Boss encounter tells: same pixel typography, responsive plaques and existing unit art. */
 :is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro .boss-card{width:min(520px,92vw)!important;max-height:90svh!important;overflow:auto!important;padding:calc(var(--px)*6)!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:calc(var(--px)*4)!important}
 :is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro .boss-art img{width:auto!important;height:min(27svh,210px)!important;max-width:76vw!important;object-fit:contain!important;image-rendering:pixelated!important}

@@ -30,7 +30,7 @@ function pointSourceText(id) {
     return '아미북 기준 · '+esc(d.profile)+' '+d.base+'pt'+d.options.map(([name,cost])=>' + '+esc(name)+' '+cost+'pt').join('')+' · '+esc(d.origin);
 }
 P.pointCost = function (id) { return UnitCatalog[id]?.points || 0; };
-P.rosterPoints = function () { return this.permanent().reduce((sum, u) => sum + this.pointCost(u.id), 0); };
+P.rosterPoints = function () { return this.permanent().reduce((sum, u) => sum + (this.unitFormationPoints ? this.unitFormationPoints(u) : this.pointCost(u.id)), 0); };
 P.capacity = function () { return Number.isFinite(this.pointLimit) && this.pointLimit >= WARBAND_POINTS.startLimit ? Math.floor(this.pointLimit) : WARBAND_POINTS.startLimit; };
 P.expandCost = function () { return 45 + Math.max(0, this.capacityBought || 0) * 25; };
 P.pointReason = function (extra) {
@@ -209,3 +209,4 @@ P.dismount=function(u){pointDismount.call(this,u);u.points=this.pointCost(u.id);
 // Earned transformations, rescued troops and revival keep working if they put
 // the roster over budget. Their current profiles count; new paid additions stop.
 if(window.MESBG?.catalog)window.MESBG.catalog.points=WARBAND_POINTS;
+

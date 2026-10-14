@@ -1,0 +1,1191 @@
+[
+  {
+    "id": "citadel_guard_bow",
+    "basis": "citadel_guard",
+    "origin": "official",
+    "points": 10,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 0,
+    "rarity": "normal",
+    "meta": {
+      "id": "citadel_guard_bow",
+      "name_ko": "성채근위 궁병",
+      "name_en": "Citadel Guard with longbow",
+      "side": "good",
+      "faction": "gondor",
+      "role": "infantry",
+      "weapon": "bow",
+      "base": "M",
+      "baseMm": 25,
+      "file": "tokens/citadel_guard_bow.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 38
+    },
+    "profile": {
+      "move": 270,
+      "fight": 4,
+      "strength": 3,
+      "defence": 5,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 5,
+      "shootValue": 4,
+      "shootRange": 850,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "bodyguard"
+      ]
+    },
+    "artProfile": [
+      "human",
+      0.115,
+      0.958,
+      0.486,
+      0.536,
+      86,
+      "body"
+    ],
+    "artAudit": {
+      "originalSize": [
+        1049,
+        1500
+      ],
+      "headOrRiderTop": 0.115,
+      "feetOrRiderBottom": 0.958,
+      "bodyCenter": [
+        0.486,
+        0.536
+      ],
+      "reference": 86,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  },
+  {
+    "id": "osgiliath_spearshield",
+    "basis": "osgiliath_veteran",
+    "origin": "official",
+    "points": 11,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 0,
+    "rarity": "normal",
+    "meta": {
+      "id": "osgiliath_spearshield",
+      "name_ko": "오스길리아스 베테랑 창방",
+      "name_en": "Osgiliath Veteran with spear and shield",
+      "side": "good",
+      "faction": "gondor",
+      "role": "infantry",
+      "weapon": "spear_shield",
+      "base": "M",
+      "baseMm": 25,
+      "file": "tokens/osgiliath_spearshield.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 38
+    },
+    "profile": {
+      "move": 270,
+      "fight": 4,
+      "strength": 3,
+      "defence": 6,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 5,
+      "shootValue": 0,
+      "shootRange": 0,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "veteran",
+        "spear"
+      ]
+    },
+    "artProfile": [
+      "human",
+      0.22,
+      0.958,
+      0.457,
+      0.589,
+      86,
+      "body"
+    ],
+    "artAudit": {
+      "originalSize": [
+        1049,
+        1500
+      ],
+      "headOrRiderTop": 0.22,
+      "feetOrRiderBottom": 0.958,
+      "bodyCenter": [
+        0.457,
+        0.589
+      ],
+      "reference": 86,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  },
+  {
+    "id": "osgiliath_bow",
+    "basis": "osgiliath_veteran",
+    "origin": "official",
+    "points": 10,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 0,
+    "rarity": "normal",
+    "meta": {
+      "id": "osgiliath_bow",
+      "name_ko": "오스길리아스 베테랑 궁병",
+      "name_en": "Osgiliath Veteran with bow",
+      "side": "good",
+      "faction": "gondor",
+      "role": "infantry",
+      "weapon": "bow",
+      "base": "M",
+      "baseMm": 25,
+      "file": "tokens/osgiliath_bow.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 38
+    },
+    "profile": {
+      "move": 270,
+      "fight": 4,
+      "strength": 3,
+      "defence": 5,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 5,
+      "shootValue": 4,
+      "shootRange": 800,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "veteran"
+      ]
+    },
+    "artProfile": [
+      "human",
+      0.13,
+      0.965,
+      0.482,
+      0.547,
+      86,
+      "body"
+    ],
+    "artAudit": {
+      "originalSize": [
+        1049,
+        1500
+      ],
+      "headOrRiderTop": 0.13,
+      "feetOrRiderBottom": 0.965,
+      "bodyCenter": [
+        0.482,
+        0.547
+      ],
+      "reference": 86,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  },
+  {
+    "id": "dol_amroth_swordshield",
+    "basis": "dol_amroth_man_at_arms",
+    "origin": "custom",
+    "points": 8,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 4,
+    "rarity": "elite",
+    "meta": {
+      "id": "dol_amroth_swordshield",
+      "name_ko": "돌 암로스 검방병",
+      "name_en": "Dol Amroth levy swordsman",
+      "side": "good",
+      "faction": "dol_amroth",
+      "role": "infantry",
+      "weapon": "sword_shield",
+      "base": "M",
+      "baseMm": 25,
+      "file": "tokens/dol_amroth_swordshield.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 38
+    },
+    "profile": {
+      "move": 235,
+      "fight": 3,
+      "strength": 3,
+      "defence": 5,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 4,
+      "shootValue": 0,
+      "shootRange": 0,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "shieldwall"
+      ]
+    },
+    "artProfile": [
+      "human",
+      0.132,
+      0.954,
+      0.481,
+      0.543,
+      86,
+      "body"
+    ],
+    "artAudit": {
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "headOrRiderTop": 0.132,
+      "feetOrRiderBottom": 0.954,
+      "bodyCenter": [
+        0.481,
+        0.543
+      ],
+      "reference": 86,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  },
+  {
+    "id": "dol_amroth_knight_foot",
+    "basis": "dol_amroth_knight",
+    "origin": "official",
+    "points": 12,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 0,
+    "rarity": "normal",
+    "meta": {
+      "id": "dol_amroth_knight_foot",
+      "name_ko": "돌 암로스 백조기사 도보",
+      "name_en": "Knight of Dol Amroth on foot",
+      "side": "good",
+      "faction": "dol_amroth",
+      "role": "infantry",
+      "weapon": "sword_shield",
+      "base": "M",
+      "baseMm": 25,
+      "file": "tokens/dol_amroth_knight_foot.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 38
+    },
+    "profile": {
+      "move": 270,
+      "fight": 4,
+      "strength": 4,
+      "defence": 7,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 4,
+      "shootValue": 0,
+      "shootRange": 0,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "bodyguard",
+        "shieldwall"
+      ]
+    },
+    "artProfile": [
+      "human",
+      0.14,
+      0.949,
+      0.477,
+      0.545,
+      86,
+      "body"
+    ],
+    "artAudit": {
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "headOrRiderTop": 0.14,
+      "feetOrRiderBottom": 0.949,
+      "bodyCenter": [
+        0.477,
+        0.545
+      ],
+      "reference": 86,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  },
+  {
+    "id": "rohan_helmingas",
+    "basis": "rohan_swordshield",
+    "origin": "legacy",
+    "points": 9,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 0,
+    "rarity": "normal",
+    "meta": {
+      "id": "rohan_helmingas",
+      "name_ko": "헬밍가 전사",
+      "name_en": "Helmingas",
+      "side": "good",
+      "faction": "rohan",
+      "role": "infantry",
+      "weapon": "axe",
+      "base": "M",
+      "baseMm": 25,
+      "file": "tokens/rohan_helmingas.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 38
+    },
+    "profile": {
+      "move": 270,
+      "fight": 3,
+      "strength": 4,
+      "defence": 5,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 4,
+      "shootValue": 0,
+      "shootRange": 0,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "steadfast"
+      ]
+    },
+    "artProfile": [
+      "human",
+      0.176,
+      0.936,
+      0.477,
+      0.556,
+      86,
+      "body"
+    ],
+    "artAudit": {
+      "originalSize": [
+        1024,
+        1536
+      ],
+      "headOrRiderTop": 0.176,
+      "feetOrRiderBottom": 0.936,
+      "bodyCenter": [
+        0.477,
+        0.556
+      ],
+      "reference": 86,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  },
+  {
+    "id": "rohan_redshield",
+    "basis": "rohan_rider",
+    "origin": "legacy",
+    "points": 17,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 0,
+    "rarity": "normal",
+    "meta": {
+      "id": "rohan_redshield",
+      "name_ko": "웨스트폴드 적색방패 기병",
+      "name_en": "Westfold Redshield",
+      "side": "good",
+      "faction": "rohan",
+      "role": "cavalry",
+      "weapon": "spear",
+      "base": "XL",
+      "baseMm": 40,
+      "file": "tokens/rohan_redshield.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 62
+    },
+    "profile": {
+      "move": 450,
+      "fight": 4,
+      "strength": 3,
+      "defence": 5,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 3,
+      "shootValue": 0,
+      "shootRange": 0,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "mounted",
+        "spear",
+        "steadfast"
+      ]
+    },
+    "artProfile": [
+      "human",
+      0.083,
+      0.367,
+      0.475,
+      0.52,
+      43,
+      "rider"
+    ],
+    "artAudit": {
+      "originalSize": [
+        984,
+        1599
+      ],
+      "headOrRiderTop": 0.083,
+      "feetOrRiderBottom": 0.367,
+      "bodyCenter": [
+        0.475,
+        0.52
+      ],
+      "reference": 43,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  },
+  {
+    "id": "ironhills_warrior",
+    "basis": "dwarf_2haxe",
+    "origin": "official",
+    "points": 12,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 0,
+    "rarity": "normal",
+    "meta": {
+      "id": "ironhills_warrior",
+      "name_ko": "철산 매톡 전사",
+      "name_en": "Iron Hills Warrior with mattock",
+      "side": "good",
+      "faction": "iron_hills",
+      "role": "infantry",
+      "weapon": "twohanded",
+      "base": "M",
+      "baseMm": 25,
+      "file": "tokens/ironhills_warrior.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 38
+    },
+    "profile": {
+      "move": 240,
+      "fight": 4,
+      "strength": 4,
+      "defence": 6,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 5,
+      "shootValue": 0,
+      "shootRange": 0,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "dwarf",
+        "mountain",
+        "twohanded"
+      ]
+    },
+    "artProfile": [
+      "dwarf",
+      0.258,
+      0.9,
+      0.486,
+      0.579,
+      68,
+      "body"
+    ],
+    "artAudit": {
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "headOrRiderTop": 0.258,
+      "feetOrRiderBottom": 0.9,
+      "bodyCenter": [
+        0.486,
+        0.579
+      ],
+      "reference": 68,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  },
+  {
+    "id": "ironhills_spearshield",
+    "basis": "dwarf_axeshield",
+    "origin": "official",
+    "points": 13,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 0,
+    "rarity": "normal",
+    "meta": {
+      "id": "ironhills_spearshield",
+      "name_ko": "철산 창방병",
+      "name_en": "Iron Hills Warrior with spear and shield",
+      "side": "good",
+      "faction": "iron_hills",
+      "role": "infantry",
+      "weapon": "spear_shield",
+      "base": "M",
+      "baseMm": 25,
+      "file": "tokens/ironhills_spearshield.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 38
+    },
+    "profile": {
+      "move": 240,
+      "fight": 4,
+      "strength": 4,
+      "defence": 7,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 5,
+      "shootValue": 0,
+      "shootRange": 0,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "dwarf",
+        "mountain",
+        "spear",
+        "shieldwall"
+      ]
+    },
+    "artProfile": [
+      "dwarf",
+      0.224,
+      0.924,
+      0.482,
+      0.574,
+      68,
+      "body"
+    ],
+    "artAudit": {
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "headOrRiderTop": 0.224,
+      "feetOrRiderBottom": 0.924,
+      "bodyCenter": [
+        0.482,
+        0.574
+      ],
+      "reference": 68,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  },
+  {
+    "id": "ironhills_crossbow",
+    "basis": "dwarf_ranger",
+    "origin": "official",
+    "points": 14,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 0,
+    "rarity": "normal",
+    "meta": {
+      "id": "ironhills_crossbow",
+      "name_ko": "철산 석궁병",
+      "name_en": "Iron Hills Warrior with crossbow",
+      "side": "good",
+      "faction": "iron_hills",
+      "role": "infantry",
+      "weapon": "crossbow",
+      "base": "M",
+      "baseMm": 25,
+      "file": "tokens/ironhills_crossbow.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 38
+    },
+    "profile": {
+      "move": 240,
+      "fight": 4,
+      "strength": 4,
+      "defence": 6,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 5,
+      "shootValue": 4,
+      "shootRange": 900,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "dwarf",
+        "mountain",
+        "crossbow"
+      ]
+    },
+    "artProfile": [
+      "dwarf",
+      0.251,
+      0.901,
+      0.49,
+      0.576,
+      68,
+      "body"
+    ],
+    "artAudit": {
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "headOrRiderTop": 0.251,
+      "feetOrRiderBottom": 0.901,
+      "bodyCenter": [
+        0.49,
+        0.576
+      ],
+      "reference": 68,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  },
+  {
+    "id": "galadhrim_bow",
+    "basis": "galadhrim_warrior",
+    "origin": "official",
+    "points": 10,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 0,
+    "rarity": "normal",
+    "meta": {
+      "id": "galadhrim_bow",
+      "name_ko": "갈라드림 궁수",
+      "name_en": "Galadhrim Warrior with Elf bow",
+      "side": "good",
+      "faction": "lothlorien",
+      "role": "infantry",
+      "weapon": "bow",
+      "base": "M",
+      "baseMm": 25,
+      "file": "tokens/galadhrim_bow.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 38
+    },
+    "profile": {
+      "move": 270,
+      "fight": 5,
+      "strength": 3,
+      "defence": 5,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 6,
+      "shootValue": 3,
+      "shootRange": 830,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "elf"
+      ]
+    },
+    "artProfile": [
+      "human",
+      0.19,
+      0.912,
+      0.465,
+      0.551,
+      86,
+      "body"
+    ],
+    "artAudit": {
+      "originalSize": [
+        1247,
+        1261
+      ],
+      "headOrRiderTop": 0.19,
+      "feetOrRiderBottom": 0.912,
+      "bodyCenter": [
+        0.465,
+        0.551
+      ],
+      "reference": 86,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  },
+  {
+    "id": "galadhrim_elite_bow",
+    "basis": "galadhrim_warrior",
+    "origin": "custom",
+    "points": 13,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 4,
+    "rarity": "elite",
+    "meta": {
+      "id": "galadhrim_elite_bow",
+      "name_ko": "갈라드림 정예 궁병",
+      "name_en": "Galadhrim veteran bowguard",
+      "side": "good",
+      "faction": "lothlorien",
+      "role": "infantry",
+      "weapon": "bow",
+      "base": "M",
+      "baseMm": 25,
+      "file": "tokens/galadhrim_elite_bow.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 38
+    },
+    "profile": {
+      "move": 270,
+      "fight": 5,
+      "strength": 3,
+      "defence": 6,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 6,
+      "shootValue": 3,
+      "shootRange": 880,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "elf",
+        "bodyguard",
+        "sharpshooter"
+      ]
+    },
+    "artProfile": [
+      "human",
+      0.208,
+      0.935,
+      0.474,
+      0.572,
+      86,
+      "body"
+    ],
+    "artAudit": {
+      "originalSize": [
+        1247,
+        1261
+      ],
+      "headOrRiderTop": 0.208,
+      "feetOrRiderBottom": 0.935,
+      "bodyCenter": [
+        0.474,
+        0.572
+      ],
+      "reference": 86,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  },
+  {
+    "id": "mirkwood_ranger",
+    "basis": "silvan_archer",
+    "origin": "official",
+    "points": 14,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 0,
+    "rarity": "normal",
+    "meta": {
+      "id": "mirkwood_ranger",
+      "name_ko": "머크우드 레인저",
+      "name_en": "Mirkwood Ranger",
+      "side": "good",
+      "faction": "mirkwood",
+      "role": "infantry",
+      "weapon": "bow",
+      "base": "M",
+      "baseMm": 25,
+      "file": "tokens/mirkwood_ranger.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 38
+    },
+    "profile": {
+      "move": 290,
+      "fight": 5,
+      "strength": 3,
+      "defence": 3,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 6,
+      "shootValue": 3,
+      "shootRange": 830,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "elf",
+        "woodland",
+        "dagger"
+      ]
+    },
+    "artProfile": [
+      "human",
+      0.178,
+      0.955,
+      0.483,
+      0.566,
+      86,
+      "body"
+    ],
+    "artAudit": {
+      "originalSize": [
+        1080,
+        1457
+      ],
+      "headOrRiderTop": 0.178,
+      "feetOrRiderBottom": 0.955,
+      "bodyCenter": [
+        0.483,
+        0.566
+      ],
+      "reference": 86,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  },
+  {
+    "id": "arnor_knight",
+    "basis": "arnor_warrior",
+    "origin": "official",
+    "points": 18,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 0,
+    "rarity": "normal",
+    "meta": {
+      "id": "arnor_knight",
+      "name_ko": "아르노르 기사",
+      "name_en": "Knight of Arnor",
+      "side": "good",
+      "faction": "arnor",
+      "role": "cavalry",
+      "weapon": "lance",
+      "base": "XL",
+      "baseMm": 40,
+      "file": "tokens/arnor_knight.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 62
+    },
+    "profile": {
+      "move": 430,
+      "fight": 4,
+      "strength": 3,
+      "defence": 6,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 4,
+      "shootValue": 0,
+      "shootRange": 0,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "mounted",
+        "lance",
+        "steadfast"
+      ]
+    },
+    "artProfile": [
+      "human",
+      0.086,
+      0.368,
+      0.479,
+      0.524,
+      43,
+      "rider"
+    ],
+    "artAudit": {
+      "originalSize": [
+        1088,
+        1445
+      ],
+      "headOrRiderTop": 0.086,
+      "feetOrRiderBottom": 0.368,
+      "bodyCenter": [
+        0.479,
+        0.524
+      ],
+      "reference": 43,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  },
+  {
+    "id": "arnor_ranger",
+    "basis": "arnor_archer",
+    "origin": "official",
+    "points": 9,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 0,
+    "rarity": "normal",
+    "meta": {
+      "id": "arnor_ranger",
+      "name_ko": "아르노르 레인저",
+      "name_en": "Ranger of Arnor",
+      "side": "good",
+      "faction": "arnor",
+      "role": "infantry",
+      "weapon": "bow",
+      "base": "M",
+      "baseMm": 25,
+      "file": "tokens/arnor_ranger.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 38
+    },
+    "profile": {
+      "move": 280,
+      "fight": 4,
+      "strength": 3,
+      "defence": 4,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 4,
+      "shootValue": 3,
+      "shootRange": 830,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "woodland"
+      ]
+    },
+    "artProfile": [
+      "human",
+      0.174,
+      0.954,
+      0.486,
+      0.564,
+      86,
+      "body"
+    ],
+    "artAudit": {
+      "originalSize": [
+        1145,
+        1374
+      ],
+      "headOrRiderTop": 0.174,
+      "feetOrRiderBottom": 0.954,
+      "bodyCenter": [
+        0.486,
+        0.564
+      ],
+      "reference": 86,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  },
+  {
+    "id": "morannon_swordshield",
+    "basis": "morannon_orc",
+    "origin": "official",
+    "points": 9,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 0,
+    "rarity": "normal",
+    "meta": {
+      "id": "morannon_swordshield",
+      "name_ko": "모라논 오크 검방",
+      "name_en": "Morannon Orc with sword and shield",
+      "side": "evil",
+      "faction": "mordor",
+      "role": "infantry",
+      "weapon": "sword_shield",
+      "base": "M",
+      "baseMm": 25,
+      "file": "tokens/morannon_swordshield.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 38
+    },
+    "profile": {
+      "move": 250,
+      "fight": 3,
+      "strength": 3,
+      "defence": 5,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 2,
+      "shootValue": 0,
+      "shootRange": 0,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "shieldwall"
+      ]
+    },
+    "artProfile": [
+      "orc",
+      0.21,
+      0.933,
+      0.463,
+      0.572,
+      76,
+      "body"
+    ],
+    "artAudit": {
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "headOrRiderTop": 0.21,
+      "feetOrRiderBottom": 0.933,
+      "bodyCenter": [
+        0.463,
+        0.572
+      ],
+      "reference": 76,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  },
+  {
+    "id": "orc_elite_tracker",
+    "basis": "orc_archer",
+    "origin": "custom",
+    "points": 8,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 4,
+    "rarity": "elite",
+    "meta": {
+      "id": "orc_elite_tracker",
+      "name_ko": "오크 정예 추적궁병",
+      "name_en": "Veteran Orc Tracker",
+      "side": "evil",
+      "faction": "mordor",
+      "role": "infantry",
+      "weapon": "bow",
+      "base": "M",
+      "baseMm": 25,
+      "file": "tokens/orc_elite_tracker.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 38
+    },
+    "profile": {
+      "move": 265,
+      "fight": 3,
+      "strength": 3,
+      "defence": 4,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 3,
+      "shootValue": 4,
+      "shootRange": 800,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "woodland",
+        "sharpshooter"
+      ]
+    },
+    "artProfile": [
+      "orc",
+      0.278,
+      0.927,
+      0.467,
+      0.602,
+      76,
+      "body"
+    ],
+    "artAudit": {
+      "originalSize": [
+        1247,
+        1261
+      ],
+      "headOrRiderTop": 0.278,
+      "feetOrRiderBottom": 0.927,
+      "bodyCenter": [
+        0.467,
+        0.602
+      ],
+      "reference": 76,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  },
+  {
+    "id": "dale_guard",
+    "basis": "dale_warrior",
+    "origin": "official",
+    "points": 10,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 0,
+    "rarity": "normal",
+    "meta": {
+      "id": "dale_guard",
+      "name_ko": "데일 기리온 근위병",
+      "name_en": "Guard of Girion",
+      "side": "good",
+      "faction": "dale",
+      "role": "infantry",
+      "weapon": "sword_shield",
+      "base": "M",
+      "baseMm": 25,
+      "file": "tokens/dale_guard.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 38
+    },
+    "profile": {
+      "move": 270,
+      "fight": 4,
+      "strength": 3,
+      "defence": 6,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 4,
+      "shootValue": 0,
+      "shootRange": 0,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "shieldwall",
+        "steadfast"
+      ]
+    },
+    "artProfile": [
+      "human",
+      0.135,
+      0.944,
+      0.466,
+      0.539,
+      86,
+      "body"
+    ],
+    "artAudit": {
+      "originalSize": [
+        1247,
+        1261
+      ],
+      "headOrRiderTop": 0.135,
+      "feetOrRiderBottom": 0.944,
+      "bodyCenter": [
+        0.466,
+        0.539
+      ],
+      "reference": 86,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  }
+]
