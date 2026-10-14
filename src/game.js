@@ -418,74 +418,191 @@ class Ve extends Ot.Scene {
         }
     } await Promise.all(b.pushVectors.map(async (K) => { const $ = this.tokens.get(K.uid); $ && (this.soundFX.play("push"), await this.tween($, { x: K.to.x, y: K.to.y }, 200)); })); }
 }
-const Ye = {"sword_swing":{"file":"audio/sword_swing.wav","files":["audio/sword_swing.wav","audio/sword_swing_02.wav","audio/sword_swing_03.wav"],"volume":0.75},"sword_armor":{"file":"audio/sword_armor.wav","files":["audio/sword_armor.wav","audio/sword_armor_02.wav","audio/sword_armor_03.wav"],"volume":0.75},"sword_shield":{"file":"audio/sword_shield.wav","files":["audio/sword_shield.wav","audio/sword_shield_02.wav","audio/sword_shield_03.wav"],"volume":0.75},"sword_flesh":{"file":"audio/sword_flesh.wav","files":["audio/sword_flesh.wav","audio/sword_flesh_02.wav","audio/sword_flesh_03.wav"],"volume":0.75},"sword_parry":{"file":"audio/sword_parry.wav","files":["audio/sword_parry.wav","audio/sword_parry_02.wav","audio/sword_parry_03.wav"],"volume":0.75},"critical_hit":{"file":"audio/critical_hit.wav","files":["audio/critical_hit.wav","audio/critical_hit_02.wav","audio/critical_hit_03.wav"],"volume":0.75},"spear_thrust":{"file":"audio/spear_thrust.wav","files":["audio/spear_thrust.wav","audio/spear_thrust_02.wav","audio/spear_thrust_03.wav"],"volume":0.75},"axe_hit":{"file":"audio/axe_hit.wav","files":["audio/axe_hit.wav","audio/axe_hit_02.wav","audio/axe_hit_03.wav"],"volume":0.75},"arrow_release":{"file":"audio/arrow_release.wav","files":["audio/arrow_release.wav","audio/arrow_release_02.wav","audio/arrow_release_03.wav"],"volume":0.75},"arrow_fly":{"file":"audio/arrow_fly.wav","files":["audio/arrow_fly.wav","audio/arrow_fly_02.wav","audio/arrow_fly_03.wav"],"volume":0.75},"arrow_impact":{"file":"audio/arrow_impact.wav","files":["audio/arrow_impact.wav","audio/arrow_impact_02.wav","audio/arrow_impact_03.wav"],"volume":0.75},"base_slide":{"file":"audio/base_slide.wav","files":["audio/base_slide.wav","audio/base_slide_02.wav","audio/base_slide_03.wav"],"volume":0.75},"base_contact":{"file":"audio/base_contact.wav","files":["audio/base_contact.wav","audio/base_contact_02.wav","audio/base_contact_03.wav"],"volume":0.75},"push":{"file":"audio/push.wav","files":["audio/push.wav","audio/push_02.wav"],"volume":0.75},"cavalry_charge":{"file":"audio/cavalry_charge.wav","files":["audio/cavalry_charge.wav","audio/cavalry_charge_02.wav"],"volume":0.75},"dice_roll":{"file":"audio/dice_roll.wav","files":["audio/dice_roll.wav","audio/dice_roll_02.wav","audio/dice_roll_03.wav"],"volume":0.52},"ui_select":{"file":"audio/ui_select.wav","files":["audio/ui_select.wav","audio/ui_select_02.wav","audio/ui_select_03.wav"],"volume":0.75},"ui_confirm":{"file":"audio/ui_confirm.wav","files":["audio/ui_confirm.wav","audio/ui_confirm_02.wav"],"volume":0.75},"ui_cancel":{"file":"audio/ui_cancel.wav","files":["audio/ui_cancel.wav","audio/ui_cancel_02.wav"],"volume":0.75},"ui_error":{"file":"audio/ui_error.wav","files":["audio/ui_error.wav","audio/ui_error_02.wav"],"volume":0.75},"reward_select":{"file":"audio/reward_select.wav","files":["audio/reward_select.wav","audio/reward_select_02.wav"],"volume":0.75},"event":{"file":"audio/event.wav","files":["audio/event.wav","audio/event_02.wav"],"volume":0.75},"death":{"file":"audio/death.wav","files":["audio/death.wav","audio/death_02.wav","audio/death_03.wav"],"volume":0.75},"war_horn":{"file":"audio/war_horn.wav","files":["audio/war_horn.wav","audio/war_horn_02.wav"],"volume":0.75},"cast":{"file":"audio/cast.wav","files":["audio/cast.wav","audio/cast_02.wav"],"volume":0.75},"heal":{"file":"audio/heal.wav","files":["audio/heal.wav","audio/heal_02.wav"],"volume":0.75},"terror":{"file":"audio/terror.wav","files":["audio/terror.wav","audio/terror_02.wav"],"volume":0.75},"monster_hit":{"file":"audio/monster_hit.wav","files":["audio/monster_hit.wav","audio/monster_hit_02.wav"],"volume":0.75},"victory":{"file":"audio/victory.wav","files":["audio/victory.wav"],"volume":0.75},"defeat":{"file":"audio/defeat.wav","files":["audio/defeat.wav"],"volume":0.75}};
-// Original Audio Pack v1. Stream music; decode and cache short effects on demand.
+const Ye = {"sword_swing":{"file":"audio/sword_swing.wav","files":["audio/sword_swing.wav","audio/sword_swing_02.wav","audio/sword_swing_03.wav"],"fastFiles":["audio/fast/sword_swing.wav","audio/fast/sword_swing_02.wav","audio/fast/sword_swing_03.wav"],"group":"swing","priority":20,"volume":0.6},"sword_armor":{"file":"audio/sword_armor.wav","files":["audio/sword_armor.wav","audio/sword_armor_02.wav","audio/sword_armor_03.wav"],"fastFiles":["audio/fast/sword_armor.wav","audio/fast/sword_armor_02.wav","audio/fast/sword_armor_03.wav"],"group":"impact","priority":55,"volume":0.62},"sword_shield":{"file":"audio/sword_shield.wav","files":["audio/sword_shield.wav","audio/sword_shield_02.wav","audio/sword_shield_03.wav"],"fastFiles":["audio/fast/sword_shield.wav","audio/fast/sword_shield_02.wav","audio/fast/sword_shield_03.wav"],"group":"impact","priority":55,"volume":0.62},"sword_flesh":{"file":"audio/sword_flesh.wav","files":["audio/sword_flesh.wav","audio/sword_flesh_02.wav","audio/sword_flesh_03.wav"],"fastFiles":["audio/fast/sword_flesh.wav","audio/fast/sword_flesh_02.wav","audio/fast/sword_flesh_03.wav"],"group":"impact","priority":55,"volume":0.62},"sword_parry":{"file":"audio/sword_parry.wav","files":["audio/sword_parry.wav","audio/sword_parry_02.wav","audio/sword_parry_03.wav"],"fastFiles":["audio/fast/sword_parry.wav","audio/fast/sword_parry_02.wav","audio/fast/sword_parry_03.wav"],"group":"impact","priority":55,"volume":0.62},"critical_hit":{"file":"audio/critical_hit.wav","files":["audio/critical_hit.wav","audio/critical_hit_02.wav","audio/critical_hit_03.wav"],"fastFiles":["audio/fast/critical_hit.wav","audio/fast/critical_hit_02.wav","audio/fast/critical_hit_03.wav"],"group":"impact","priority":55,"volume":0.62},"spear_thrust":{"file":"audio/spear_thrust.wav","files":["audio/spear_thrust.wav","audio/spear_thrust_02.wav","audio/spear_thrust_03.wav"],"fastFiles":["audio/fast/spear_thrust.wav","audio/fast/spear_thrust_02.wav","audio/fast/spear_thrust_03.wav"],"group":"impact","priority":55,"volume":0.62},"axe_hit":{"file":"audio/axe_hit.wav","files":["audio/axe_hit.wav","audio/axe_hit_02.wav","audio/axe_hit_03.wav"],"fastFiles":["audio/fast/axe_hit.wav","audio/fast/axe_hit_02.wav","audio/fast/axe_hit_03.wav"],"group":"impact","priority":55,"volume":0.62},"arrow_release":{"file":"audio/arrow_release.wav","files":["audio/arrow_release.wav","audio/arrow_release_02.wav","audio/arrow_release_03.wav"],"fastFiles":["audio/fast/arrow_release.wav","audio/fast/arrow_release_02.wav","audio/fast/arrow_release_03.wav"],"group":"swing","priority":20,"volume":0.6},"arrow_fly":{"file":"audio/arrow_fly.wav","files":["audio/arrow_fly.wav","audio/arrow_fly_02.wav","audio/arrow_fly_03.wav"],"fastFiles":["audio/fast/arrow_fly.wav","audio/fast/arrow_fly_02.wav","audio/fast/arrow_fly_03.wav"],"group":"swing","priority":20,"volume":0.6},"arrow_impact":{"file":"audio/arrow_impact.wav","files":["audio/arrow_impact.wav","audio/arrow_impact_02.wav","audio/arrow_impact_03.wav"],"fastFiles":["audio/fast/arrow_impact.wav","audio/fast/arrow_impact_02.wav","audio/fast/arrow_impact_03.wav"],"group":"impact","priority":55,"volume":0.62},"base_slide":{"file":"audio/base_slide.wav","files":["audio/base_slide.wav","audio/base_slide_02.wav","audio/base_slide_03.wav"],"fastFiles":["audio/fast/base_slide.wav","audio/fast/base_slide_02.wav","audio/fast/base_slide_03.wav"],"group":"movement","priority":20,"volume":0.6},"base_contact":{"file":"audio/base_contact.wav","files":["audio/base_contact.wav","audio/base_contact_02.wav","audio/base_contact_03.wav"],"fastFiles":["audio/fast/base_contact.wav","audio/fast/base_contact_02.wav","audio/fast/base_contact_03.wav"],"group":"impact","priority":55,"volume":0.62},"push":{"file":"audio/push.wav","files":["audio/push.wav","audio/push_02.wav"],"fastFiles":["audio/fast/push.wav","audio/fast/push_02.wav"],"group":"movement","priority":20,"volume":0.6},"cavalry_charge":{"file":"audio/cavalry_charge.wav","files":["audio/cavalry_charge.wav","audio/cavalry_charge_02.wav"],"fastFiles":["audio/fast/cavalry_charge.wav","audio/fast/cavalry_charge_02.wav"],"group":"impact","priority":55,"volume":0.62},"dice_roll":{"file":"audio/dice_roll.wav","files":["audio/dice_roll.wav","audio/dice_roll_02.wav","audio/dice_roll_03.wav"],"fastFiles":["audio/fast/dice_roll.wav","audio/fast/dice_roll_02.wav","audio/fast/dice_roll_03.wav"],"group":"dice","priority":20,"volume":0.5},"ui_select":{"file":"audio/ui_select.wav","files":["audio/ui_select.wav","audio/ui_select_02.wav","audio/ui_select_03.wav"],"fastFiles":["audio/fast/ui_select.wav","audio/fast/ui_select_02.wav","audio/fast/ui_select_03.wav"],"group":"ui","priority":75,"volume":0.6},"ui_confirm":{"file":"audio/ui_confirm.wav","files":["audio/ui_confirm.wav","audio/ui_confirm_02.wav"],"fastFiles":["audio/fast/ui_confirm.wav","audio/fast/ui_confirm_02.wav"],"group":"ui","priority":75,"volume":0.6},"ui_cancel":{"file":"audio/ui_cancel.wav","files":["audio/ui_cancel.wav","audio/ui_cancel_02.wav"],"fastFiles":["audio/fast/ui_cancel.wav","audio/fast/ui_cancel_02.wav"],"group":"ui","priority":75,"volume":0.6},"ui_error":{"file":"audio/ui_error.wav","files":["audio/ui_error.wav","audio/ui_error_02.wav"],"fastFiles":["audio/fast/ui_error.wav","audio/fast/ui_error_02.wav"],"group":"ui","priority":75,"volume":0.6},"reward_select":{"file":"audio/reward_select.wav","files":["audio/reward_select.wav","audio/reward_select_02.wav"],"fastFiles":["audio/fast/reward_select.wav","audio/fast/reward_select_02.wav"],"group":"notification","priority":90,"volume":0.6},"event":{"file":"audio/event.wav","files":["audio/event.wav","audio/event_02.wav"],"fastFiles":["audio/fast/event.wav","audio/fast/event_02.wav"],"group":"magic","priority":35,"volume":0.6},"death":{"file":"audio/death.wav","files":["audio/death.wav","audio/death_02.wav","audio/death_03.wav"],"fastFiles":["audio/fast/death.wav","audio/fast/death_02.wav","audio/fast/death_03.wav"],"group":"impact","priority":55,"volume":0.62},"war_horn":{"file":"audio/war_horn.wav","files":["audio/war_horn.wav","audio/war_horn_02.wav"],"fastFiles":["audio/fast/war_horn.wav","audio/fast/war_horn_02.wav"],"group":"notification","priority":90,"volume":0.6},"cast":{"file":"audio/cast.wav","files":["audio/cast.wav","audio/cast_02.wav"],"fastFiles":["audio/fast/cast.wav","audio/fast/cast_02.wav"],"group":"magic","priority":35,"volume":0.6},"heal":{"file":"audio/heal.wav","files":["audio/heal.wav","audio/heal_02.wav"],"fastFiles":["audio/fast/heal.wav","audio/fast/heal_02.wav"],"group":"magic","priority":35,"volume":0.6},"terror":{"file":"audio/terror.wav","files":["audio/terror.wav","audio/terror_02.wav"],"fastFiles":["audio/fast/terror.wav","audio/fast/terror_02.wav"],"group":"magic","priority":35,"volume":0.6},"monster_hit":{"file":"audio/monster_hit.wav","files":["audio/monster_hit.wav","audio/monster_hit_02.wav"],"fastFiles":["audio/fast/monster_hit.wav","audio/fast/monster_hit_02.wav"],"group":"impact","priority":55,"volume":0.62},"victory":{"file":"audio/victory.wav","files":["audio/victory.wav"],"fastFiles":["audio/fast/victory.wav"],"group":"notification","priority":90,"volume":0.6},"defeat":{"file":"audio/defeat.wav","files":["audio/defeat.wav"],"fastFiles":["audio/fast/defeat.wav"],"group":"notification","priority":90,"volume":0.6}};
+// Recorded foley mixer: wall-clock budgets are independent of simulation speed.
 class We {
     constructor() {
         this.muted=false; this.sfxVolume=.7; this.musicVolume=.35; this.mood=3;
-        this.asset=Y=>Y; this.buffers=new Map(); this.pending=new Map();
-        this.voices=new Set(); this.lastVariant=new Map(); this.lastPlayed=new Map();
+        this.asset=file=>file; this.buffers=new Map(); this.pending=new Map();
+        this.voices=new Set(); this._voiceInfo=new Map(); this.lastVariant=new Map();
+        this.lastPlayed=new Map(); this._startedGroups=new Map(); this._recent=[];
+        this._effectEpoch=0; this._decodedBytes=0; this._desired='main';
+        this._slots=[]; this._request=0; this._unlocked=false;
     }
-    _effVol(b=this.musicVolume) { return b*(this.mood===0?.7:1); }
-    _url(file) { const url=this.asset(file); return url.startsWith('data:')?url:url+(url.includes('?')?'&':'?')+'audio=lwb-original-1'; }
-    _trackForMood() { return 'audio/'+({0:'lwb-camp',2:'lwb-boss',3:'gate-of-the-west'}[this.mood]||'lwb-battle')+'.mp3'; }
-    _syncMusic() {
-        const track=this._trackForMood();
-        if(!this.music) { this.music=new Audio(); this.music.preload='none'; this.music.loop=true; this.music.id='lwb-background-music'; this.music.hidden=true; document.body.append(this.music);
-            this.music.addEventListener('error',()=>{if(this._format==='ogg'){this._format='mp3';this.music.src=this._url(this._track);this._resumeMusic();}}); }
-        if(this._track!==track) { this._track=track; this._format=this.music.canPlayType('audio/ogg; codecs="vorbis"')?'ogg':'mp3';
-            this.music.src=this._url(track.replace('.mp3','.'+this._format)); }
-        this.music.playbackRate=1; this.music.volume=this.muted?0:this._effVol();
-        const label=document.getElementById('audio-now-playing');if(label)label.textContent='현재 음악 · '+({0:'별빛 야영지',2:'검은 문의 공세',3:'돌아갈 땅'}[this.mood]||'서녘의 맹세');
-        this._resumeMusic();
+    _speed() { try { return Math.max(1,Number(qt)||1); } catch { return 1; } }
+    _effVol(value=this.musicVolume) { return value*(this.mood===0?.7:1); }
+    _url(file) { const url=this.asset(file); return url.startsWith('data:')?url:url+(url.includes('?')?'&':'?')+'audio=lwb-foley-3'; }
+    setScene(phase,map,boss,heroDuel=false) {
+        const region=['helms_deep','edoras','dunharrow','hornburg'].includes(map)?'rohan':
+            ['black_gate','gorgoroth','dol_guldur','angband','isengard','dead_marshes','barad_dur','minas_morgul'].includes(map)?'mordor':'gondor';
+        const menu=!phase||['menu','loading'].includes(phase);
+        this.mood=menu?3:['reward','result'].includes(phase)?0:boss||heroDuel?2:1;
+        const track=menu?'main':['reward','result'].includes(phase)?'aftermath':
+            phase==='preparation'?region:boss||heroDuel?'heroes-bosses':'battle';
+        if(this._desired!==track){this._desired=track;this._syncMusic();}
+        else this._applyMusicVolume();
     }
-    _resumeMusic() { if(!this.music)return; if(this.muted||document.hidden||this.musicVolume<=0)this.music.pause();
-        else if(this._unlocked&&this.music.paused)this.music.play().catch(()=>{}); }
-    setMood(value) { this.mood=value; this._syncMusic(); }
+    setMood(value) { this.mood=value;this._desired=({0:'aftermath',2:'heroes-bosses',3:'main'}[value]||'battle');this._syncMusic(); }
     setAct(value) { this.act=value; }
     setMap(value) { this._mapName=value; }
-    fanfare(won=true) { return this.play(won?'victory':'defeat'); }
-    async unlock() {
-        this._unlocked=true; this._syncMusic(); if(this.muted||document.hidden)return;
-        try { const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;
-            this.context??=new AC();if(this.context.state==='suspended')await this.context.resume(); } catch {}
+    fanfare(won=true) { this.play(won?'victory':'defeat'); }
+    _ensureContext() {
+        const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return false;
+        this.context??=new AC();if(this._musicBus)return true;
+        this._musicBus=this.context.createGain();this._musicBus.gain.value=this.muted?0:this._effVol();
+        this._musicBus.connect(this.context.destination);
+        this._sfxBus=this.context.createGain();this._sfxBus.gain.value=this.muted?0:this.sfxVolume;
+        const highpass=this.context.createBiquadFilter();highpass.type='highpass';highpass.frequency.value=75;
+        const lowpass=this.context.createBiquadFilter();lowpass.type='lowpass';lowpass.frequency.value=6500;lowpass.Q.value=.5;
+        this._sfxLimiter=this.context.createDynamicsCompressor();
+        Object.assign(this._sfxLimiter.threshold,{value:-12});this._sfxLimiter.knee.value=8;
+        this._sfxLimiter.ratio.value=4;this._sfxLimiter.attack.value=.003;this._sfxLimiter.release.value=.12;
+        this._sfxBus.connect(highpass);highpass.connect(lowpass);lowpass.connect(this._sfxLimiter);this._sfxLimiter.connect(this.context.destination);
+        for(let i=0;i<2;i++){
+            const audio=new Audio();audio.preload='none';audio.hidden=true;
+            audio.id='lwb-background-music'+(i?'-next':'');audio.setAttribute('playsinline','');audio.setAttribute('aria-hidden','true');
+            document.body.append(audio);const gain=this.context.createGain();gain.gain.value=0;
+            gain.connect(this._musicBus);const source=this.context.createMediaElementSource(audio);source.connect(gain);
+            this._slots.push({audio,gain,source,track:null});
+        }
+        return true;
     }
-    savePrefs() { try { localStorage.setItem('lwb-audio',JSON.stringify({muted:this.muted,sfxVolume:this.sfxVolume,musicVolume:this.musicVolume})); } catch {} }
-    _stopEffects() { for(const source of this.voices)try{source.stop();}catch{} this.voices.clear(); }
-    setVolumes(sfx,music) { this.sfxVolume=Math.max(0,Math.min(1,Number(sfx)||0));this.musicVolume=Math.max(0,Math.min(1,Number(music)||0));
-        if(this.sfxVolume<=0)this._stopEffects();this._syncMusic();this.savePrefs(); }
-    toggle() { this.muted=!this.muted;if(this.muted){this._stopEffects();this.context?.suspend().catch(()=>{});}else this.unlock();this._syncMusic();this.savePrefs(); }
+    _applyMusicVolume() {
+        if(this._musicBus)this._musicBus.gain.setTargetAtTime(this.muted?0:this._effVol(),this.context.currentTime,.08);
+    }
+    _allowed() { return this._unlocked&&!this.muted&&this.musicVolume>0&&!document.hidden; }
+    unlock() {
+        this._unlocked=true;if(this.muted||document.hidden||!this._ensureContext())return Promise.resolve();
+        const resumed=this.context.state==='suspended'?this.context.resume().catch(()=>{}):Promise.resolve();
+        for(const slot of this._slots)if(!slot.activated){
+            slot.activated=true;
+            slot.audio.src='data:audio/wav;base64,UklGRnQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YVAAAACAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgA==';
+            slot.audio.play().then(()=>{if(!slot.track)slot.audio.pause();}).catch(()=>{});
+        }
+        this._syncMusic();return resumed;
+    }
+    _hold(slot) {
+        const p=slot.gain.gain,now=this.context.currentTime;
+        if(p.cancelAndHoldAtTime)p.cancelAndHoldAtTime(now);
+        else {const value=p.value;p.cancelScheduledValues(now);p.setValueAtTime(value,now);}
+    }
+    _release(slot) {
+        if(!slot)return;slot.audio.onerror=null;slot.audio.pause();slot.audio.removeAttribute('src');slot.audio.load();slot.track=null;
+        slot.gain.gain.cancelScheduledValues(this.context.currentTime);slot.gain.gain.value=0;
+    }
+    _pauseMusic() {
+        ++this._request;clearTimeout(this._cleanup);
+        for(const slot of this._slots)if(slot===this._current){this._hold(slot);slot.audio.pause();slot.gain.gain.value=1;}else this._release(slot);
+        this._incoming=null;
+    }
+    _syncMusic() {
+        this._applyMusicVolume();if(!this._allowed()){this._pauseMusic();return;}
+        if(!this._ensureContext())return;
+        const label=document.getElementById('audio-now-playing');
+        if(label)label.textContent='현재 음악 · '+({main:'중간계의 황혼',rohan:'황금빛 초원의 기병',gondor:'백색 도시의 수호자',mordor:'검은 대지',battle:'검과 방패','heroes-bosses':'최후의 전열',aftermath:'전쟁이 끝난 자리'}[this._desired]);
+        if(this._current?.track===this._desired){
+            if(this._incoming){++this._request;this._release(this._incoming);this._incoming=null;}
+            this._hold(this._current);this._current.gain.gain.linearRampToValueAtTime(1,this.context.currentTime+.12);
+            if(this._current.audio.paused&&!this._current.audio.ended)this._current.audio.play().catch(()=>{});
+            return;
+        }
+        if(this._incoming?.track===this._desired)return;
+        this._switchTrack(this._desired);
+    }
+    _switchTrack(track) {
+        const request=++this._request,old=this._current;clearTimeout(this._cleanup);
+        const slot=this._slots.find(s=>s!==old);this._release(slot);slot.track=track;slot.request=request;this._incoming=slot;
+        const audio=slot.audio;audio.loop=track!=='aftermath';audio.playbackRate=1;audio.volume=1;audio.dataset.ostTrack=track;
+        let format=audio.canPlayType('audio/ogg; codecs="opus"')?'opus':'mp3';
+        const start=()=>{
+            audio.src=this._url('audio/ost/'+track+'.'+format);
+            audio.play().then(()=>{
+                if(request!==this._request||slot.request!==request)return;
+                if(!this._allowed()){this._pauseMusic();return;}
+                this._current=slot;this._incoming=null;this.music=audio;this._track='audio/ost/'+track+'.mp3';
+                const now=this.context.currentTime;slot.gain.gain.setValueAtTime(0,now);slot.gain.gain.linearRampToValueAtTime(1,now+1.25);
+                if(old){this._hold(old);old.gain.gain.linearRampToValueAtTime(0,now+1.25);
+                    this._cleanup=setTimeout(()=>{if(request===this._request&&old!==this._current)this._release(old);},1350);}
+            }).catch(error=>{if(request===this._request&&error.name==='NotAllowedError'){this._release(slot);this._incoming=null;}});
+        };
+        audio.onerror=()=>{if(request!==this._request||slot.request!==request)return;
+            if(format==='opus'){format='mp3';start();}else {this._release(slot);this._incoming=null;console.warn('[OST] load failed',track);}};
+        start();
+    }
+    _resumeMusic() { this._syncMusic(); }
+    visibilityChanged() {
+        if(document.hidden){this._stopEffects();this._pauseMusic();this.context?.suspend().catch(()=>{});}
+        else if(this._unlocked&&!this.muted){this.context?.resume().catch(()=>{});this._syncMusic();}
+    }
+    savePrefs() { try {localStorage.setItem('lwb-audio',JSON.stringify({muted:this.muted,sfxVolume:this.sfxVolume,musicVolume:this.musicVolume}));}catch{} }
+    _stopEffects() {
+        ++this._effectEpoch;for(const source of this.voices)try{source.stop();}catch{}
+        this.voices.clear();this._voiceInfo.clear();this._recent=[];
+    }
+    speedChanged() { this._stopEffects();this.lastPlayed.clear();this._startedGroups.clear(); }
+    setVolumes(sfx,music) {
+        this.sfxVolume=Math.max(0,Math.min(1,Number(sfx)||0));this.musicVolume=Math.max(0,Math.min(1,Number(music)||0));
+        if(this._sfxBus)this._sfxBus.gain.setTargetAtTime(this.muted?0:this.sfxVolume,this.context.currentTime,.04);
+        if(this.sfxVolume<=0)this._stopEffects();if(!this.muted)this.unlock();this._syncMusic();this.savePrefs();
+    }
+    toggle() {
+        this.muted=!this.muted;if(this.muted){this._stopEffects();this._pauseMusic();this.context?.suspend().catch(()=>{});}
+        else this.unlock();if(this._sfxBus)this._sfxBus.gain.setTargetAtTime(this.muted?0:this.sfxVolume,this.context.currentTime,.02);
+        this._syncMusic();this.savePrefs();
+    }
     async _buffer(file) {
-        if(this.buffers.has(file))return this.buffers.get(file);
+        if(this.buffers.has(file)){const value=this.buffers.get(file);this.buffers.delete(file);this.buffers.set(file,value);return value;}
         if(!this.pending.has(file))this.pending.set(file,(async()=>{
-            const res=await fetch(this._url(file));if(!res.ok)throw new Error('Audio '+res.status);
-            const buffer=await this.context.decodeAudioData(await res.arrayBuffer());this.buffers.set(file,buffer);return buffer;
+            const response=await fetch(this._url(file));if(!response.ok)throw new Error('Audio '+response.status);
+            const buffer=await this.context.decodeAudioData(await response.arrayBuffer());
+            const bytes=buffer.length*buffer.numberOfChannels*4;
+            while(this._decodedBytes+bytes>8*1024*1024&&this.buffers.size){const [key,old]=this.buffers.entries().next().value;this.buffers.delete(key);this._decodedBytes-=old.length*old.numberOfChannels*4;}
+            if(bytes<=8*1024*1024){this.buffers.set(file,buffer);this._decodedBytes+=bytes;}
+            return buffer;
         })().finally(()=>this.pending.delete(file)));
         return this.pending.get(file);
     }
+    _gap(group,speed) {
+        const fast=speed>=4;
+        return ({dice:fast?900:240,movement:fast?650:180,swing:fast?300:90,impact:fast?135:65,magic:fast?500:220,ui:70,notification:350,cinematic:1000}[group]||180);
+    }
     async play(id) {
         const effect=Ye[id];if(!effect||this.muted||document.hidden||this.sfxVolume<=0)return;
-        // Fast-forward and simultaneous melee must not create an unbounded sound queue.
-        const now=performance.now(),spd=(()=>{try{return Number(qt)||1}catch{return 1}})(),dice=id==='dice_roll';
-        // At 4x/8x auto the dice rattle fired for every strike; space it out and soften it with speed.
-        const gap=dice?(spd>=8?900:spd>=4?520:spd>=2?220:120):id==='base_slide'?110:(spd>=4?90:45);
-        if(now-(this.lastPlayed.get(id)??-Infinity)<gap)return;
-        if(spd>=4&&!/^(ui_|victory|defeat|war_horn|reward_select)/.test(id)&&now-(this._anySfx||-Infinity)<45)return;
-        this.lastPlayed.set(id,now);this._anySfx=now;
-        const speedVol=dice?(spd>=8?.45:spd>=4?.65:1):(spd>=8?.8:1);
-        try {
+        const speed=this._speed(),fast=speed>=4,group=effect.group||'cinematic',priority=effect.priority||80;
+        const now=performance.now(),gap=Math.max(this._gap(group,speed),id==='war_horn'?1800:0);
+        if(now-(this.lastPlayed.get(group)??-Infinity)<gap||this.pending.size>=6)return;
+        // Result impacts dominate at 8x; movement and swing never compete with a recent hit.
+        if(speed>=8&&['movement','swing'].includes(group)&&now-(this._startedGroups.get('impact')??-Infinity)<350)return;
+        this.lastPlayed.set(group,now);
+        const epoch=this._effectEpoch;
+        try{
             await this.unlock();if(!this.context)return;
-            const files=effect.files,last=this.lastVariant.get(id),choices=files.filter(f=>f!==last),file=(choices.length?choices:files)[Math.floor(Math.random()*(choices.length||files.length))];
-            this.lastVariant.set(id,file);const buffer=await this._buffer(file);
-            if(this.muted||document.hidden||this.sfxVolume<=0||this.context.state!=='running')return;
-            if(this.voices.size>=12){const old=this.voices.values().next().value;try{old.stop();}catch{}this.voices.delete(old);}
+            const files=fast&&effect.fastFiles?.length?effect.fastFiles:(effect.files||[effect.file]);
+            const last=this.lastVariant.get(id),choices=files.filter(file=>file!==last);
+            const file=(choices.length?choices:files)[Math.floor(Math.random()*(choices.length||files.length))];
+            const buffer=await this._buffer(file),start=performance.now();
+            if(epoch!==this._effectEpoch||this.muted||document.hidden||this.sfxVolume<=0||this.context.state!=='running')return;
+            if(start-now>(priority>=75?800:fast?180:350))return; // discard stale loads, never queue audible events
+            if(start-(this._startedGroups.get(group)??-Infinity)<gap)return;
+            this._recent=this._recent.filter(time=>start-time<1000);
+            if(priority<75&&this._recent.length>=(fast?8:20))return;
+            const cap=fast?4:6;
+            if(this.voices.size>=cap){
+                const low=[...this.voices].find(source=>(this._voiceInfo.get(source)?.priority??100)<priority);
+                if(!low)return;try{low.stop();}catch{}this.voices.delete(low);this._voiceInfo.delete(low);
+            }
+            this._startedGroups.set(group,start);this._recent.push(start);this.lastVariant.set(id,file);
             const source=this.context.createBufferSource(),gain=this.context.createGain();source.buffer=buffer;
-            source.playbackRate.value=/^(ui_|victory|defeat|war_horn|reward_select|heal)/.test(id)?1:.98+Math.random()*.04;
-            gain.gain.value=this.sfxVolume*effect.volume*speedVol;source.connect(gain);gain.connect(this.context.destination);this.voices.add(source);
-            source.onended=()=>{this.voices.delete(source);source.disconnect();gain.disconnect();};source.start();
-        } catch(error) { console.warn('[LWB audio]',id,error.message); }
+            source.playbackRate.value=['ui','notification','cinematic'].includes(group)?1:.99+Math.random()*.02;
+            const volume=effect.volume*(fast&&priority<75?.78:1);
+            gain.gain.value=volume;source.connect(gain);gain.connect(this._sfxBus);this.voices.add(source);
+            this._voiceInfo.set(source,{priority,group});
+            source.onended=()=>{this.voices.delete(source);this._voiceInfo.delete(source);source.disconnect();gain.disconnect();};
+            source.start();
+        }catch(error){console.warn('[LWB audio]',id,error.message);}
     }
 }
+
 function be(Z, Y) { if (Z.engaged(Y) || Z.remaining(Y) < 12)
     return null; if (Y.traits.includes('spear')) { if (supportAlly(Y)) return null; const sup = Z.alive(Y.side).filter(v => v !== Y && Z.alive(Ht(Y.side)).some(f => Vt(v, f))).sort((a, c) => ht(Y, a) - ht(Y, c)); for (const v of sup.slice(0, 3)) { const ang = Math.atan2(v.y - Y.y, v.x - Y.x); for (const t of [v.radius + Y.radius + 30, v.radius + Y.radius + 44]) for (let k = 0; k < 14; k++) { const c = ang + (k % 2 === 0 ? 1 : -1) * Math.ceil(k / 2) * Math.PI / 7, o = { x: v.x + Math.cos(c) * t, y: v.y + Math.sin(c) * t }; if (ht(o, v) > v.radius + Y.radius + 48) continue; if (Z.alive(Ht(Y.side)).some(f => ht(o, f) <= Y.radius + f.radius + 3)) continue; if (de(Y, o, Z.alive(), Z.terrain, Z.remaining(Y))) return o; } } } const b = Z.alive(Y.side === "good" ? "evil" : "good"), H = b.map(t => ({ v: t, p: ue(Y, t) })).filter(t => de(Y, t.p, Z.alive(), Z.terrain, Z.remaining(Y))).sort((t, f) => ht(Y, t.v) - ht(Y, f.v)); if (H.length && (!Y.stats.shootRange || ht(Y, H[0].v) < 90))
     return H[0].p; const _ecU = (Z.mission === 'escort' && Z.escortCart) ? Z.unit(Z.escortCart) : null;
@@ -540,7 +657,7 @@ const Th = Z => { const m = /^tokens\/(.+)\.png/.exec(Z || ''); return m ? Ut('t
 pe.textContent = `@font-face{font-family:Pretendard;src:url('${Ut("fonts/PretendardVariable.woff2")}') format('woff2');font-weight:100 900;font-display:swap}`;
 document.head.append(pe);
 (function(){const go=()=>{const seen=new Set(),pool=[];for(const m of window.CAMPAIGN_META||[]){if(m&&m.side==='good'&&m.file&&!seen.has(m.file)){seen.add(m.file);pool.push(m.file);}}let i=0;const step=()=>{for(let k=0;k<24&&i<pool.length;k++){const im=new Image();im.fetchPriority='low';im.src=Th(pool[i++]);}if(i<pool.length)setTimeout(step,60);};step();};const _boot=()=>{if(document.body.classList.contains('assets-ready'))return go();const mo=new MutationObserver(()=>{if(document.body.classList.contains('assets-ready')){mo.disconnect();go();}});mo.observe(document.body,{attributeFilter:['class']});setTimeout(go,9000);};if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',_boot);else _boot();})();
-document.addEventListener("visibilitychange", () => { const Z = document.hidden; if(Z)wt._stopEffects(); Z ? (wt.__resumeOnShow = !!(wt.music && !wt.music.paused), wt.music && wt.music.pause()) : (wt.__resumeOnShow && !wt.muted && wt.music && wt.music.play().catch(() => { }), wt.__resumeOnShow = !1); wt.context && (Z ? wt.context.state === "running" && wt.context.suspend() : !wt.muted && wt.context.state === "suspended" && wt.context.resume().catch(() => { })); });
+document.addEventListener("visibilitychange", () => wt.visibilityChanged());
 const q = new ze(Me.units), wt = new We, Tt = new Ve;
 try { const Z = JSON.parse(localStorage.getItem("lwb-audio")); Z && (Z.muted != null && (wt.muted = !!Z.muted), Z.sfxVolume != null && (wt.sfxVolume = Z.sfxVolume), Z.musicVolume != null && (wt.musicVolume = Z.musicVolume)); }
 catch { }
@@ -556,6 +673,7 @@ let At = !1, Jt, se, Qt = !1, qt = 1;
 function setPlaybackSpeed(value) {
     const speed = [1,2,3,4,8,30].includes(Number(value)) ? Number(value) : 1;
     qt = speed;
+    wt.speedChanged();
     const label = speed === 30 ? '즉시' : speed + '×';
     for (const id of ['speed-toggle','speed-dock']) { const el = ut(id); if (el) el.textContent = label; }
     const select = ut('speed'); if (select) select.value = String(speed);
@@ -1264,8 +1382,8 @@ const MAP_PROP_SETS = {
         [[750,1226,830,230,'hill']] ];
     wt._MAP_TUNING.barad_dur = { shift: -11, drumMul: 1.15, melSkip: .3 }; wt._MAP_TUNING.minas_morgul = { shift: -8, drumMul: .8, melSkip: .5 };
     wt._MAP_TUNING.dale = { shift: 2, drumMul: .85, melSkip: .3 }; wt._MAP_TUNING.hornburg = { shift: 0, drumMul: 1.1, melSkip: .25 }; wt._MAP_TUNING.erebor_hall = { shift: -9, drumMul: .85, melSkip: .35 };
-    wt._MAP_TRACK.barad_dur = 'audio/lwb-mordor.mp3'; wt._MAP_TRACK.minas_morgul = 'audio/lwb-mordor.mp3'; wt._MAP_TRACK.dale = 'audio/lwb-march.mp3';
-    wt._MAP_TRACK.hornburg = 'audio/lwb-rohan.mp3'; wt._MAP_TRACK.erebor_hall = 'audio/lwb-moria.mp3';
+    wt._MAP_TRACK.barad_dur = 'audio/ost/mordor.mp3'; wt._MAP_TRACK.minas_morgul = 'audio/ost/mordor.mp3'; wt._MAP_TRACK.dale = 'audio/ost/gondor.mp3';
+    wt._MAP_TRACK.hornburg = 'audio/ost/rohan.mp3'; wt._MAP_TRACK.erebor_hall = 'audio/ost/gondor.mp3';
     X('barad_dur',
         [['terr_dark_wall', 420, 880, 620, 300, 'block'], ['terr_boulders', 1900, 500, 160, 100], ['terr_orc_totem', 120, 1300, 70, 100]],
         [['terr_dark_wall', 1900, 880, 600, 290, 'block'], ['terr_trebuchet', 150, 400, 130, 110], ['terr_sandbag', 700, 1100, 140, 70]],
@@ -6107,9 +6225,9 @@ ut('next-unit').onclick=nextUnit;
 ut('speed-quick').onclick=()=>{ut('speed-toggle').click();ut('speed-quick').textContent='×'+qt;};
 function renderDock(){
     const order = ut('battle-order'); if(order) { const o=q.battleOrder, target=o&&q.unit(o.target); order.innerHTML='지휘<small>'+(o?.mode==='hold'?'전열 유지':o?.mode==='focus'&&target?.alive?'집중 공격':'자율')+'</small>'; order.title=o?.mode==='focus'&&target?.alive?target.name:'자동 진행 지휘'; }
-    wt.setMood(q.phase==='menu'?3:['reward','result'].includes(q.phase)?0:(q.phase==='preparation'?q.next:q.current)?.boss?2:1);
-    wt.setAct&&wt.setAct(q.wave<=15?0:q.wave<=30?1:q.wave<=40?2:3);
-    wt.setMap&&wt.setMap(CX.maps[visualMapIdx(q.mapIndex||0)]);
+    const nextFight=q.phase==='fight'?(q.fightQueue[0]||[]).map(uid=>q.unit(uid)).filter(unit=>unit?.alive):[];
+    const heroDuel=nextFight.some(ally=>ally.side==='good'&&ally.traits.includes('hero')&&nextFight.some(foe=>foe.side==='evil'&&foe.traits.includes('hero')&&Vt(ally,foe)));
+    wt.setScene(q.initialDraft&&q.phase==='reward'?'preparation':q.phase,CX.maps[visualMapIdx(q.mapIndex||0)],q.current?.boss,heroDuel);
     const _sq=ut('speed-quick');if(_sq)_sq.textContent='×'+qt;
     const active=actionableUnit(),selected=q.unit(q.selected),u=selected?.alive?selected:active,busy=At||q.mode==='ai'&&q.side==='evil'&&['move','shoot'].includes(q.phase);
     const phase=q.phase;
@@ -11424,14 +11542,14 @@ for(const [id,cue]of Object.entries(CUES))Ye[id]={...cue,files:[cue.file]};
 const originalEffVol=We.prototype._effVol;
 We.prototype._effVol=function(value=this.musicVolume){return originalEffVol.call(this,value)*(this._cinematicDuck??1);};
 We.prototype.cinematicCue=async function(id,isCancelled=()=>false){
- const cue=CUES[id];if(!cue||this.muted||document.hidden||this.sfxVolume<=0||isCancelled())return null;
+ const cue=CUES[id],epoch=this._effectEpoch;if(!cue||this.muted||document.hidden||this.sfxVolume<=0||isCancelled())return null;
  try{
   await this.unlock();if(!this.context||isCancelled())return null;
   const buffer=await this._buffer(cue.file);
-  if(this.muted||document.hidden||this.sfxVolume<=0||this.context.state!=='running'||isCancelled())return null;
-  if(this.voices.size>=12){const old=this.voices.values().next().value;try{old.stop();}catch{}this.voices.delete(old);}
+  if(epoch!==this._effectEpoch||this.muted||document.hidden||this.sfxVolume<=0||this.context.state!=='running'||isCancelled())return null;
+  if(this.voices.size>=4){const old=this.voices.values().next().value;try{old.stop();}catch{}this.voices.delete(old);}
   const source=this.context.createBufferSource(),gain=this.context.createGain();source.buffer=buffer;source.playbackRate.value=1;
-  gain.gain.value=this.sfxVolume*cue.volume;source.connect(gain);gain.connect(this.context.destination);this.voices.add(source);
+  gain.gain.value=cue.volume;source.connect(gain);gain.connect(this._sfxBus);this.voices.add(source);
   let ended=false;const cleanup=()=>{if(ended)return;ended=true;this.voices.delete(source);source.disconnect();gain.disconnect();};
   source.onended=cleanup;source.start();
   let stopping=false;return {stop:()=>{if(ended||stopping)return;stopping=true;try{if(gain.gain.setTargetAtTime){gain.gain.cancelScheduledValues(this.context.currentTime);gain.gain.setTargetAtTime(0,this.context.currentTime,.018);source.stop(this.context.currentTime+.09);}else{source.stop();cleanup();}}catch{cleanup();}}};
@@ -11470,7 +11588,7 @@ async function cinematic(scene,id,preview=false){
  const onKey=e=>{if(e.key==='Escape'){e.preventDefault();state.cancel();}},onHide=()=>{if(document.hidden)state.cancel();};
  const previousFocus=displaced?.previousFocus||document.activeElement;state.previousFocus=previousFocus;
  skip.onclick=()=>state.cancel();document.addEventListener('keydown',onKey);document.addEventListener('visibilitychange',onHide);document.body.appendChild(el);skip.focus({preventScroll:true});
- const music=wt.music;wt._cinematicDuck=.24;wt._cineAudioOwner=state;if(music)music.volume=wt.muted?0:wt._effVol();
+ wt._cinematicDuck=.24;wt._cineAudioOwner=state;wt._applyMusicVolume();
  // Background controls stay inert while the awaited action owns the cinematic.
  const app=document.getElementById('app'),wasInert=displaced?.appWasInert??app?.inert;state.appWasInert=wasInert;if(app)app.inert=true;
  const calm=!!UX.reduced,fast=qt>=4,T=ms=>fast?Math.max(100,Math.round(ms*.45)):ms;if(calm)el.classList.add('calm');
@@ -11499,7 +11617,7 @@ async function cinematic(scene,id,preview=false){
  }finally{
   state.cancel();document.removeEventListener('keydown',onKey);document.removeEventListener('visibilitychange',onHide);el.remove();
   if(active===state){if(app)app.inert=wasInert;if(previousFocus?.isConnected&&previousFocus!==skip)previousFocus.focus?.({preventScroll:true});active=null;}
-  if(wt._cineAudioOwner===state){delete wt._cineAudioOwner;delete wt._cinematicDuck;if(wt.music)wt.music.volume=wt.muted?0:wt._effVol();}
+  if(wt._cineAudioOwner===state){delete wt._cineAudioOwner;delete wt._cinematicDuck;wt._applyMusicVolume();}
   notify('end',id,5);
  }
 }

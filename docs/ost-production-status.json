@@ -1,0 +1,238 @@
+{
+  "project": "MIDDLE-EARTH WARBANDS original orchestral OST",
+  "status": "deployment_authorized_browser_smoke_passed",
+  "auditDate": "2026-10-15",
+  "auditedSourceCommit": "741546502e8c3828b54f3a005e352e3b5501ab0e",
+  "branch": "feat/original-orchestral-ost",
+  "runtimeModified": true,
+  "generatedAudioCount": 14,
+  "provider": {
+    "selected": "ACE-Step local",
+    "selectedModel": "acestep-v15-turbo",
+    "codeRevision": "ca1e85fe9430179831e6bc6be790c332190a3866",
+    "modelRevision": "19671f406d603126926c1b7e2adc169acbcade22",
+    "license": "MIT",
+    "documentationUsageRights": "https://huggingface.co/ACE-Step/Ace-Step1.5",
+    "outputFormat": "FLAC master, MP3 and Opus game candidates",
+    "paidServiceUsed": false,
+    "referenceAudioUsed": false,
+    "musicPlanner": "acestep-5Hz-lm-1.7B"
+  },
+  "tracks": [
+    {
+      "id": "main",
+      "title": "중간계의 황혼",
+      "targetSeconds": 120,
+      "instrumentation": [
+        "divisi strings",
+        "solo cello",
+        "French horns",
+        "woodwinds",
+        "wordless mixed choir",
+        "restrained timpani"
+      ],
+      "structure": "0–24 mournful string introduction; 24–64 cello and horn melody; 64–100 expanded orchestra and choir; 100–120 restrained return into loop",
+      "plannedLocation": "main entry screen only",
+      "file": "assets/mesbg/audio/ost/main.mp3",
+      "loopStartSeconds": 0,
+      "loopEndSeconds": 94.75,
+      "status": "integrated; full-track listening review pending",
+      "generatedCandidateExists": true,
+      "gameSeconds": 94.75
+    },
+    {
+      "id": "rohan",
+      "title": "황금빛 초원의 기병",
+      "targetSeconds": 108,
+      "instrumentation": [
+        "solo fiddle",
+        "Nordic bowed folk strings",
+        "violas",
+        "cellos",
+        "French horns",
+        "restrained frame drum"
+      ],
+      "structure": "0–20 exposed lament; 20–56 restrained riding pulse; 56–84 cavalry climax; 84–108 fiddle recollection and loop return",
+      "plannedLocation": "Rohan regional preparation; helms_deep, edoras, dunharrow",
+      "file": "assets/mesbg/audio/ost/rohan.mp3",
+      "loopStartSeconds": 0,
+      "loopEndSeconds": 88.75,
+      "status": "integrated; full-track listening review pending",
+      "generatedCandidateExists": true,
+      "gameSeconds": 88.75
+    },
+    {
+      "id": "gondor",
+      "title": "백색 도시의 수호자",
+      "targetSeconds": 108,
+      "instrumentation": [
+        "horns",
+        "trumpets",
+        "trombones",
+        "male choir",
+        "strings",
+        "restrained snare and timpani"
+      ],
+      "structure": "0–20 solemn brass chorale; 20–52 quieter remembrance; 52–88 final-stand development; 88–108 dignified return",
+      "plannedLocation": "Gondor regional preparation; minas_tirith, osgiliath, pelennor",
+      "file": "assets/mesbg/audio/ost/gondor.mp3",
+      "loopStartSeconds": 0,
+      "loopEndSeconds": 106.75,
+      "status": "integrated; full-track listening review pending",
+      "generatedCandidateExists": true,
+      "gameSeconds": 106.75
+    },
+    {
+      "id": "mordor",
+      "title": "검은 대지",
+      "targetSeconds": 108,
+      "instrumentation": [
+        "basso choir",
+        "bass trombones",
+        "tuba",
+        "contrabassoon",
+        "low strings",
+        "gran cassa and timpani"
+      ],
+      "structure": "0–20 low choral motif; 20–52 accumulating march; 52–88 contrapuntal dissonant expansion; 88–108 ominous return",
+      "plannedLocation": "Mordor regional preparation; black_gate, gorgoroth, dol_guldur, angband",
+      "file": "assets/mesbg/audio/ost/mordor.mp3",
+      "loopStartSeconds": 0,
+      "loopEndSeconds": 106.75,
+      "status": "integrated; full-track listening review pending",
+      "generatedCandidateExists": true,
+      "gameSeconds": 106.75
+    },
+    {
+      "id": "battle",
+      "title": "검과 방패",
+      "targetSeconds": 120,
+      "instrumentation": [
+        "articulated strings",
+        "French horns",
+        "woodwind counterlines",
+        "war drums",
+        "timpani"
+      ],
+      "structure": "0–16 concise entrance; 16–48 rhythmic theme; 48–80 reduced-orchestration variation; 80–112 countertheme; 112–120 loop transition",
+      "plannedLocation": "ordinary active combat; move, shoot, fight and other combat phases after checking the phase model",
+      "file": "assets/mesbg/audio/ost/battle.mp3",
+      "loopStartSeconds": 0,
+      "loopEndSeconds": 130.75,
+      "status": "integrated; full-track listening review pending",
+      "generatedCandidateExists": true,
+      "gameSeconds": 130.75
+    },
+    {
+      "id": "heroes-bosses",
+      "title": "최후의 전열",
+      "targetSeconds": 132,
+      "instrumentation": [
+        "full strings",
+        "brass choir",
+        "mixed wordless choir",
+        "timpani",
+        "restrained bass drum and cymbals"
+      ],
+      "structure": "0–20 threat motif; 20–56 heroic reply; 56–92 confrontation and harmonic development; 92–120 culmination; 120–132 loop return",
+      "plannedLocation": "active boss combat (q.current.boss); hero-duel trigger requires a separately confirmed encounter definition",
+      "file": "assets/mesbg/audio/ost/heroes-bosses.mp3",
+      "loopStartSeconds": 0,
+      "loopEndSeconds": 130.75,
+      "status": "integrated; full-track listening review pending",
+      "generatedCandidateExists": true,
+      "gameSeconds": 130.75
+    },
+    {
+      "id": "aftermath",
+      "title": "전쟁이 끝난 자리",
+      "targetSeconds": 60,
+      "instrumentation": [
+        "soft strings",
+        "solo oboe",
+        "clarinet",
+        "solo cello"
+      ],
+      "structure": "0–36 shared elegy; 36–60 relief or grief ending variants only if the chosen service supports reliable editing",
+      "plannedLocation": "stage clear, reward and run result; play once, then hold silence or an authored sustain without restarting the ending",
+      "file": "assets/mesbg/audio/ost/aftermath.mp3",
+      "loopStartSeconds": null,
+      "loopEndSeconds": null,
+      "status": "integrated; full-track listening review pending",
+      "generatedCandidateExists": true,
+      "gameSeconds": 64.0
+    }
+  ],
+  "releaseGate": {
+    "originalMelodyAndDevelopmentAuditioned": false,
+    "naturalArticulationAndChoirAuditioned": false,
+    "loopPointsAuditioned": false,
+    "loudnessAndTruePeakMeasured": true,
+    "gameEmbeddingAndPublicAssetHostingRightsRecorded": true,
+    "chromePlaybackTested": false,
+    "samsungInternetPlaybackTested": false,
+    "iosSafariPlaybackTested": false
+  },
+  "previousProvider": {
+    "selected": "Runway",
+    "connectionVerified": true,
+    "accountPlan": "Free",
+    "generationAttemptResult": "paid_plan_required; no task created",
+    "observedBrowserState": "Earlier guest browser session; connector authentication subsequently verified",
+    "documentationMusicSupport": "https://help.runwayml.com/hc/en-us/articles/51601639579667-Creating-with-Runway-Agent",
+    "documentationUsageRights": "https://help.runwayml.com/hc/en-us/articles/18927776141715-Usage-rights",
+    "selectedModel": "lyria-3-pro",
+    "modelSpecificTermsVerified": false,
+    "creditsVerified": true,
+    "outputFormat": "MP3",
+    "durationControl": "Fixed by model; no duration parameter",
+    "fullTrackCreditsPerGeneration": 8,
+    "sevenFirstCandidatesCredits": 56,
+    "stemsOrSectionEditingVerified": false
+  },
+  "acceptedAudioCount": 0,
+  "gameIntegratedAudioCount": 7,
+  "reviewDecision": {
+    "firstMainCandidate": "user_rejected",
+    "userFeedback": "전혀 반지의 제왕 같지 않다. 반지의 제왕 느낌과 내 게임에 맞아야 한다.",
+    "remainingFirstDirectionCandidates": "held; not adopted after main direction failed",
+    "revisionScope": "main and Rohan first, with separate music planning and sound rendering",
+    "referenceAudioUsed": false,
+    "gameChanges": "Seven streamable OST tracks and recorded foley mixer integrated on feature branch; graphics and game rules unchanged.",
+    "deployment": "User explicitly authorized main merge and deployment on 2026-10-15",
+    "latestFeedback": "아니다 이런브금좋아. 배경음악, 효과음 등을 다 다시 만들어줘. 보통 자동 8배속."
+  },
+  "revisionCandidates": [
+    {
+      "id": "main-v2",
+      "status": "pending_user_audition",
+      "targetSeconds": 96,
+      "gameIntegrated": false
+    },
+    {
+      "id": "rohan-v2",
+      "status": "pending_user_audition",
+      "targetSeconds": 90,
+      "gameIntegrated": false
+    }
+  ],
+  "acceptedMusicalDirection": "User accepted the presented BGM direction on 2026-10-14 and requested full audio remaster for normal/auto 8x play.",
+  "browserTestBlocker": null,
+  "automatedChecks": [
+    "audio pack: 7 tests",
+    "battle effects: 8 tests",
+    "settings/speed: 1 test",
+    "cinematic audio lifecycle and recorded assets",
+    "build inline-script parse check",
+    "unchanged graphics/UI markup outside compiled source"
+  ],
+  "inAppBrowserPlaybackTest": {
+    "date": "2026-10-15",
+    "initialRecruitment": "region preparation track",
+    "main": "Opus actual playback",
+    "battle": "actual 1x and auto 8x play; music playbackRate=1",
+    "volumeMute": "music volume 0, global mute and unmute verified",
+    "consoleErrors": 0,
+    "externalMobileBrowsers": "Samsung Internet and iOS Safari not tested"
+  }
+}

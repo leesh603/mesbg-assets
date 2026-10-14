@@ -19,7 +19,7 @@ const BEGIN = '/*__LWB_SRC_BEGIN__*/';
 const END = '/*__LWB_SRC_END__*/';
 const STUB = /window\.__MESBG_ASSETS__=\{\};window\.__MESBG_ASSET_KEYS__=\[[^\]]*\];/;
 
-const MIME = { png: 'image/png', jpg: 'image/jpeg', jpeg: 'image/jpeg', webp: 'image/webp', gif: 'image/gif', svg: 'image/svg+xml', wav: 'audio/wav', mp3: 'audio/mpeg', ogg: 'audio/ogg', woff: 'font/woff', woff2: 'font/woff2' };
+const MIME = { png: 'image/png', jpg: 'image/jpeg', jpeg: 'image/jpeg', webp: 'image/webp', gif: 'image/gif', svg: 'image/svg+xml', wav: 'audio/wav', mp3: 'audio/mpeg', ogg: 'audio/ogg', opus: 'audio/ogg', woff: 'font/woff', woff2: 'font/woff2' };
 
 let html = fs.readFileSync(INDEX, 'utf8');
 let src = fs.readFileSync(SRC, 'utf8');

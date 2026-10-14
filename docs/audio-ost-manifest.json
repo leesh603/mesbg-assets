@@ -1,0 +1,345 @@
+{
+  "tracks": [
+    {
+      "id": "aftermath",
+      "seconds": 64.0,
+      "originalSeconds": 64,
+      "loop": false,
+      "loopEdit": "play once",
+      "originalSha256": "70b8d686d327e1e6aff3b5cc75cce0d91cd2ddb80b572c4f572665b2c6939901",
+      "modelRevision": "19671f406d603126926c1b7e2adc169acbcade22",
+      "planner": "acestep-5Hz-lm-1.7B",
+      "referenceAudio": false,
+      "files": {
+        "mp3": {
+          "bytes": 1537296,
+          "sha256": "6d3761afb7bbdfed51a674acc45f9b752ba94ab55f7f672ae85fc37ba546dd20",
+          "measurement": {
+            "input_i": "-20.25",
+            "input_tp": "-3.27",
+            "input_lra": "6.50",
+            "input_thresh": "-31.17",
+            "output_i": "-18.35",
+            "output_tp": "-2.00",
+            "output_lra": "6.20",
+            "output_thresh": "-29.07",
+            "normalization_type": "dynamic",
+            "target_offset": "0.35"
+          }
+        },
+        "opus": {
+          "bytes": 1127655,
+          "sha256": "e9732137fd86abd3ebda8caee7f085a4a549986724419ff47e75fffa1485ec10",
+          "measurement": {
+            "input_i": "-19.99",
+            "input_tp": "-2.76",
+            "input_lra": "6.50",
+            "input_thresh": "-30.90",
+            "output_i": "-18.35",
+            "output_tp": "-2.00",
+            "output_lra": "6.30",
+            "output_thresh": "-29.07",
+            "normalization_type": "dynamic",
+            "target_offset": "0.35"
+          }
+        }
+      }
+    },
+    {
+      "id": "battle",
+      "seconds": 130.75,
+      "originalSeconds": 132,
+      "loop": true,
+      "loopEdit": "1.25s recorded tail/head blend",
+      "originalSha256": "9d06501616e196425740c4f2b51fda65bf0ec8848aea1810fe2113bf20bc5337",
+      "modelRevision": "19671f406d603126926c1b7e2adc169acbcade22",
+      "planner": "acestep-5Hz-lm-1.7B",
+      "referenceAudio": false,
+      "files": {
+        "mp3": {
+          "bytes": 3139752,
+          "sha256": "1567b08c7ee6f87e1d1ff92920d89ffc27d2626a7661965f40d96135b99e3949",
+          "measurement": {
+            "input_i": "-20.28",
+            "input_tp": "-4.17",
+            "input_lra": "7.60",
+            "input_thresh": "-30.70",
+            "output_i": "-18.02",
+            "output_tp": "-2.00",
+            "output_lra": "4.50",
+            "output_thresh": "-28.29",
+            "normalization_type": "dynamic",
+            "target_offset": "0.02"
+          }
+        },
+        "opus": {
+          "bytes": 2410903,
+          "sha256": "d490f58ccc0a33b752bb41ae8d3ec7090297cece15c7899bea028db5a185bd30",
+          "measurement": {
+            "input_i": "-20.02",
+            "input_tp": "-3.59",
+            "input_lra": "7.50",
+            "input_thresh": "-30.44",
+            "output_i": "-18.02",
+            "output_tp": "-2.00",
+            "output_lra": "4.50",
+            "output_thresh": "-28.29",
+            "normalization_type": "dynamic",
+            "target_offset": "0.02"
+          }
+        }
+      }
+    },
+    {
+      "id": "gondor",
+      "seconds": 106.75,
+      "originalSeconds": 108,
+      "loop": true,
+      "loopEdit": "1.25s recorded tail/head blend",
+      "originalSha256": "4208c5f39a9a13912d6b7825985eba5494c88f24e96f4eb571cb35188c0a83e7",
+      "modelRevision": "19671f406d603126926c1b7e2adc169acbcade22",
+      "planner": "acestep-5Hz-lm-1.7B",
+      "referenceAudio": false,
+      "files": {
+        "mp3": {
+          "bytes": 2563595,
+          "sha256": "480138c761c370964d2c710e53210383096191231a7f005d701c8f890985637f",
+          "measurement": {
+            "input_i": "-20.61",
+            "input_tp": "-5.13",
+            "input_lra": "16.30",
+            "input_thresh": "-31.53",
+            "output_i": "-17.74",
+            "output_tp": "-2.00",
+            "output_lra": "6.30",
+            "output_thresh": "-28.01",
+            "normalization_type": "dynamic",
+            "target_offset": "-0.26"
+          }
+        },
+        "opus": {
+          "bytes": 1726812,
+          "sha256": "540e51a8056694236aa21bf2874ca3dc16057eef0f00f6956ca19be7a92a664d",
+          "measurement": {
+            "input_i": "-20.35",
+            "input_tp": "-4.26",
+            "input_lra": "16.20",
+            "input_thresh": "-31.27",
+            "output_i": "-17.75",
+            "output_tp": "-2.00",
+            "output_lra": "6.30",
+            "output_thresh": "-28.01",
+            "normalization_type": "dynamic",
+            "target_offset": "-0.25"
+          }
+        }
+      }
+    },
+    {
+      "id": "heroes-bosses",
+      "seconds": 130.75,
+      "originalSeconds": 132,
+      "loop": true,
+      "loopEdit": "1.25s recorded tail/head blend",
+      "originalSha256": "86a9930a6e1e5f92945f3d5df7a9be008319fc30c3c653f6fee3cebb7d53016a",
+      "modelRevision": "19671f406d603126926c1b7e2adc169acbcade22",
+      "planner": "acestep-5Hz-lm-1.7B",
+      "referenceAudio": false,
+      "files": {
+        "mp3": {
+          "bytes": 3139752,
+          "sha256": "efd14b2989ad640e243a019fec8518ae3b53bfe102e561654d20fbb43c087502",
+          "measurement": {
+            "input_i": "-20.27",
+            "input_tp": "-4.38",
+            "input_lra": "4.80",
+            "input_thresh": "-30.47",
+            "output_i": "-18.14",
+            "output_tp": "-2.00",
+            "output_lra": "4.20",
+            "output_thresh": "-28.31",
+            "normalization_type": "dynamic",
+            "target_offset": "0.14"
+          }
+        },
+        "opus": {
+          "bytes": 2236806,
+          "sha256": "3434498e604d59c6258708a362a8aa5b575c3e63a3e1be3cbd323a02022594b9",
+          "measurement": {
+            "input_i": "-20.01",
+            "input_tp": "-4.05",
+            "input_lra": "4.80",
+            "input_thresh": "-30.21",
+            "output_i": "-18.15",
+            "output_tp": "-2.00",
+            "output_lra": "4.30",
+            "output_thresh": "-28.31",
+            "normalization_type": "dynamic",
+            "target_offset": "0.15"
+          }
+        }
+      }
+    },
+    {
+      "id": "mordor",
+      "seconds": 106.75,
+      "originalSeconds": 108,
+      "loop": true,
+      "loopEdit": "1.25s recorded tail/head blend",
+      "originalSha256": "9194375e1887eea5d5979bf59909aad41e0943a8dc05a25fb3d682ec21299d51",
+      "modelRevision": "19671f406d603126926c1b7e2adc169acbcade22",
+      "planner": "acestep-5Hz-lm-1.7B",
+      "referenceAudio": false,
+      "files": {
+        "mp3": {
+          "bytes": 2563595,
+          "sha256": "6a8a1f702e976dc90466ac45f4ab4036ac379e51d6d4322ee97cdb81fca25f07",
+          "measurement": {
+            "input_i": "-20.29",
+            "input_tp": "-5.13",
+            "input_lra": "3.40",
+            "input_thresh": "-30.43",
+            "output_i": "-18.10",
+            "output_tp": "-2.43",
+            "output_lra": "2.80",
+            "output_thresh": "-28.18",
+            "normalization_type": "dynamic",
+            "target_offset": "0.10"
+          }
+        },
+        "opus": {
+          "bytes": 1855299,
+          "sha256": "4a258be94f845002c56111be9032969db72d1826db157c9b20fdbb59f743fc12",
+          "measurement": {
+            "input_i": "-20.03",
+            "input_tp": "-4.94",
+            "input_lra": "3.50",
+            "input_thresh": "-30.18",
+            "output_i": "-18.10",
+            "output_tp": "-2.11",
+            "output_lra": "2.80",
+            "output_thresh": "-28.19",
+            "normalization_type": "dynamic",
+            "target_offset": "0.10"
+          }
+        }
+      }
+    },
+    {
+      "id": "main",
+      "seconds": 94.75,
+      "originalSeconds": 96,
+      "loop": true,
+      "loopEdit": "1.25s recorded tail/head blend",
+      "originalSha256": "16ef17f9ce7a0277c13a0d8066800ea99eb34221f6d36fa81c462c99915fed64",
+      "modelRevision": "19671f406d603126926c1b7e2adc169acbcade22",
+      "planner": "acestep-5Hz-lm-1.7B",
+      "referenceAudio": false,
+      "files": {
+        "mp3": {
+          "bytes": 2275830,
+          "sha256": "e001838eb96c1e4c31c193ec0d258436d71a47d493381f8e865e3ad71daac6ce",
+          "measurement": {
+            "input_i": "-20.19",
+            "input_tp": "-4.98",
+            "input_lra": "15.70",
+            "input_thresh": "-31.63",
+            "output_i": "-18.33",
+            "output_tp": "-2.77",
+            "output_lra": "10.70",
+            "output_thresh": "-30.22",
+            "normalization_type": "dynamic",
+            "target_offset": "0.33"
+          }
+        },
+        "opus": {
+          "bytes": 1560326,
+          "sha256": "b3c18284e9095a49bd956feb2706e2d52a5ae4863243b5d854d4c390d1840df7",
+          "measurement": {
+            "input_i": "-19.94",
+            "input_tp": "-4.61",
+            "input_lra": "15.80",
+            "input_thresh": "-31.37",
+            "output_i": "-18.34",
+            "output_tp": "-2.76",
+            "output_lra": "10.70",
+            "output_thresh": "-30.22",
+            "normalization_type": "dynamic",
+            "target_offset": "0.34"
+          }
+        }
+      }
+    },
+    {
+      "id": "rohan",
+      "seconds": 88.75,
+      "originalSeconds": 90,
+      "loop": true,
+      "loopEdit": "1.25s recorded tail/head blend",
+      "originalSha256": "aa09b3e23020a2f0f1535a868729efe647d6d475064ab2e27265422f1eb5742d",
+      "modelRevision": "19671f406d603126926c1b7e2adc169acbcade22",
+      "planner": "acestep-5Hz-lm-1.7B",
+      "referenceAudio": false,
+      "files": {
+        "mp3": {
+          "bytes": 2131634,
+          "sha256": "ad71d0ac2679b910917b987bd79c2dba1b2a0d1b3521fe13446076db0c9428a2",
+          "measurement": {
+            "input_i": "-20.53",
+            "input_tp": "-3.79",
+            "input_lra": "15.20",
+            "input_thresh": "-31.32",
+            "output_i": "-16.61",
+            "output_tp": "-2.00",
+            "output_lra": "7.10",
+            "output_thresh": "-26.86",
+            "normalization_type": "dynamic",
+            "target_offset": "-1.39"
+          }
+        },
+        "opus": {
+          "bytes": 1546568,
+          "sha256": "8070d96a311c51a0b7ea2484bda743c773dc7f255b9fd6306746a8d02c92ff03",
+          "measurement": {
+            "input_i": "-20.26",
+            "input_tp": "-3.45",
+            "input_lra": "15.10",
+            "input_thresh": "-31.05",
+            "output_i": "-16.61",
+            "output_tp": "-2.00",
+            "output_lra": "7.10",
+            "output_thresh": "-26.86",
+            "normalization_type": "dynamic",
+            "target_offset": "-1.39"
+          }
+        }
+      }
+    }
+  ],
+  "mixTargetLUFS": -20,
+  "truePeakCeilingDB": -3,
+  "paidService": false,
+  "accents": [
+    {
+      "effect": "war_horn",
+      "sourceOriginalTrack": "gondor",
+      "startSeconds": 38,
+      "seconds": 1.45,
+      "peak": 0.22
+    },
+    {
+      "effect": "victory",
+      "sourceOriginalTrack": "aftermath",
+      "startSeconds": 36,
+      "seconds": 2.1,
+      "peak": 0.22
+    },
+    {
+      "effect": "defeat",
+      "sourceOriginalTrack": "aftermath",
+      "startSeconds": 9,
+      "seconds": 1.65,
+      "peak": 0.2
+    }
+  ]
+}

@@ -2,7 +2,7 @@ const {test}=require('node:test'),assert=require('node:assert/strict'),fs=requir
 const source=fs.readFileSync('src/game.js','utf8');
 test('settings and dock speeds share the same value, persistence and animation rate',()=>{
  const ids=['speed','speed-toggle','speed-dock','speed-quick'],nodes=Object.fromEntries(ids.map(id=>[id,{value:'1',textContent:'1×'}])),store=new Map();
- const ctx={qt:1,ut:id=>nodes[id],localStorage:{setItem:(k,v)=>store.set(k,v)},window:{MESBG:{scene:{tweens:{},time:{}}}},scheduled:0,me(){ctx.scheduled++;}};
+ const ctx={qt:1,ut:id=>nodes[id],localStorage:{setItem:(k,v)=>store.set(k,v)},window:{MESBG:{scene:{tweens:{},time:{}}}},scheduled:0,audioStops:0,wt:{speedChanged(){ctx.audioStops++;}},me(){ctx.scheduled++;}};
  nodes.speed.options=[1,2,3,4,8,30].map(n=>({value:String(n),text:''}));
  vm.createContext(ctx);const start=source.indexOf('function setPlaybackSpeed('),end=source.indexOf('\n}',start)+2;assert.ok(start>=0);
  vm.runInContext(source.slice(start,end),ctx);
@@ -16,5 +16,5 @@ test('settings and dock speeds share the same value, persistence and animation r
  nodes['speed-toggle'].onclick();expect(8,'8×');
  nodes.speed.value='30';nodes.speed.onchange();expect(30,'즉시');
  ctx.setPlaybackSpeed(store.get('lwb_speed'));expect(30,'즉시');
- nodes['speed-toggle'].onclick();expect(1,'1×');assert.equal(ctx.scheduled,5);
+ nodes['speed-toggle'].onclick();expect(1,'1×');assert.equal(ctx.scheduled,5);assert.equal(ctx.audioStops,6);
 });
