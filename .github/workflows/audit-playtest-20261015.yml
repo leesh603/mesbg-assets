@@ -1,0 +1,78 @@
+name: Audit live playtest 20261015
+on:
+  push:
+    branches: [audit/playtest-20261015-e804344]
+    paths: ['.github/workflows/audit-playtest-20261015.yml']
+permissions:
+  contents: read
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Install test browser
+        run: |
+          python -m pip install playwright requests
+          python -m playwright install --with-deps chromium
+      - name: Capture unmodified public game and source
+        env:
+          AUDIT_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p audit-output/source audit-output/evidence
+          cat > /tmp/audit_capture.py <<'PY'
+          import os,json,time,hashlib,traceback,concurrent.futures
+          from pathlib import Path
+          import requests
+          from playwright.sync_api import sync_playwright
+          OUT=Path('audit-output'); REF='e804344617e860324a09ea9c33264fa201783ae0'
+          BASE='https://raw.githubusercontent.com/leesh603/mesbg-assets/'+REF+'/'
+          api=requests.Session(); api.headers['Authorization']='Bearer '+os.environ['AUDIT_TOKEN']
+          tree=api.get('https://api.github.com/repos/leesh603/mesbg-assets/git/trees/'+REF+'?recursive=1',timeout=60).json()
+          (OUT/'tree.json').write_text(json.dumps(tree),encoding='utf-8')
+          entries=tree.get('tree',[])
+          wanted=[x for x in entries if x['type']=='blob' and (x['path'].startswith('src/') or x['path'].startswith('tests/') or x['path'].startswith('tools/') and x['path'].endswith(('.js','.json')) or '/' not in x['path'] and x['path'].endswith(('.js','.json','.md')) or x['path'] in ('index.html','docs/unit-art-audit.json','docs/unit-art-profiles.json')) and x.get('size',0)<12000000]
+          def download(x):
+            p=x['path']; r=requests.get(BASE+p,timeout=60); r.raise_for_status(); dest=OUT/'source'/p; dest.parent.mkdir(parents=True,exist_ok=True); dest.write_bytes(r.content); return p
+          with concurrent.futures.ThreadPoolExecutor(max_workers=8) as ex:
+            for p in ex.map(download,wanted): print('SOURCE',p,flush=True)
+          result={'ref':REF,'sourceFiles':len(wanted),'steps':[],'errors':[],'console':[],'failedRequests':[]}
+          with sync_playwright() as p:
+            browser=p.chromium.launch(headless=True,args=['--no-sandbox'])
+            ctx=browser.new_context(viewport={'width':390,'height':844},device_scale_factor=1,is_mobile=True,has_touch=True,record_har_path=str(OUT/'live.har.zip'),record_har_content='attach',record_har_mode='full')
+            page=ctx.new_page()
+            page.on('pageerror',lambda e:result['errors'].append(str(e)))
+            page.on('console',lambda e:result['console'].append({'type':e.type,'text':e.text}) if e.type in ('error','warning') else None)
+            page.on('requestfailed',lambda r:result['failedRequests'].append({'url':r.url,'error':r.failure}))
+            def snap(name):
+              page.screenshot(path=str(OUT/'evidence'/(name+'.png')),full_page=True)
+              d={'name':name,'text':page.locator('body').inner_text(),'url':page.url}
+              try:
+                d['state']=page.evaluate('''() => { const m=window.MESBG,b=m&&m.battle; return {globals:m?Object.keys(m):[], keys:b?Object.keys(b):[], proto:b?Object.getOwnPropertyNames(Object.getPrototypeOf(b)):[], scalar:b?Object.fromEntries(Object.entries(b).filter(([k,v])=>v===null||['string','number','boolean'].includes(typeof v))):{}, buttons:[...document.querySelectorAll('button')].filter(e=>e.getBoundingClientRect().width).map(e=>({text:e.innerText,id:e.id,disabled:e.disabled}))}; }''')
+              except Exception as e:d['stateError']=str(e)
+              result['steps'].append(d); (OUT/'evidence'/'capture.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8'); print('SNAP',name,d['text'][:1800],flush=True)
+            try:
+              page.goto('https://leesh603.github.io/mesbg-assets/',wait_until='domcontentloaded',timeout=90000)
+              page.wait_for_timeout(15000); snap('01-live-title-mobile')
+              if page.evaluate('!!(window.MESBG&&MESBG.battle)'):
+                result['engineStart']=page.evaluate('''() => {let b=MESBG.battle; if(typeof b.start==='function'){b.start('ai'); if(MESBG.render)MESBG.render();return 'debug start ai invoked (instrumented, not UI click)';} return 'start unavailable';}''')
+                page.wait_for_timeout(15000); snap('02-instrumented-start-mobile')
+              page.set_viewport_size({'width':1365,'height':900}); page.wait_for_timeout(3000);snap('03-desktop')
+              (OUT/'evidence'/'network-summary.json').write_text(json.dumps(page.evaluate('performance.getEntriesByType("resource").map(x=>({name:x.name,duration:x.duration,bytes:x.transferSize}))'),ensure_ascii=False,indent=2),encoding='utf-8')
+            except Exception as e:
+              result['fatal']=traceback.format_exc(); print(result['fatal'],flush=True)
+              try:snap('error-screen')
+              except Exception:pass
+            finally:
+              (OUT/'evidence'/'capture.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
+              ctx.close(); browser.close()
+          print('TOTAL_BYTES',sum(x.stat().st_size for x in OUT.rglob('*') if x.is_file()),flush=True)
+          PY
+          python /tmp/audit_capture.py
+      - name: Upload evidence and replay snapshot
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: warbands-audit-e804344
+          path: audit-output/
+          compression-level: 6
+          retention-days: 3
