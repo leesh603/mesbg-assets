@@ -13635,6 +13635,9 @@ P.stageInfo=function(n){
     const cap=this.difficulty==='despair'?36:this.difficulty==='hard'?30:24;
     const count=Math.min(cap,Math.max(3,Math.round((4+Math.floor(n*.85))*scale)));
     const pick=(pool,i)=>pool&&pool.length?pool[(n*7+i*5+(i>>2))%pool.length]:null;
+    // 카물(Khamul)은 후반부 전용 — 이른 판에서는 일반 검은 나즈굴로 대체
+    const KHAMUL_MIN_WAVE=20;
+    const heroPick=(i)=>{const h=pick(theme.hero,i);return h==='khamul'&&n<KHAMUL_MIN_WAVE?'nazgul_sword':h;};
     const ids=[];
     for(let i=0;i<count;i++){
         const r=(n*13+i*17)%20;
@@ -13643,11 +13646,11 @@ P.stageInfo=function(n){
         if(n>=3 && i%5===3){const spear=(theme.spec||[]).find(k=>/spear|pike/.test(this.meta.get(k)?.weapon||''));if(spear)id=spear;}
         ids.push(id||pick(theme.foot,i));
     }
-    if(n>3)ids.push(pick(theme.hero,n)||'orc_captain');
+    if(n>3)ids.push(heroPick(n)||'orc_captain');
     if(n>9&&n%4===2)ids.push(pick(theme.monster,n)||'mountain_troll');
     if(n>40){const L=window.MESBG_LEGEND_POOL||[];for(let i=0;i<Math.min(3,1+Math.floor((n-40)/10));i++)ids.push(L[(n+i*3)%L.length]);}
     if(info.boss)ids.push(info.boss);
-    else if(info.mission==='commander')ids.push(n>8?(pick(theme.hero,n*2)||'orc_captain'):'orc_captain');
+    else if(info.mission==='commander')ids.push(n>8?(heroPick(n*2)||'orc_captain'):'orc_captain');
     if(info.modifier==='warg')ids.push('warg_rider','warg_rider');
     info.ids=ids;
     return info;
