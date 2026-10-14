@@ -20362,55 +20362,48 @@
       "file": "tokens/numenorean_archer.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.0443,
-      "bottom": 0.99,
-      "centerX": 0.4098,
-      "centerY": 0.5227,
+      "top": 0.065,
+      "bottom": 0.97,
+      "centerX": 0.464,
+      "centerY": 0.5175,
       "worldReferenceSize": 77,
-      "sourceWidth": 218,
-      "sourceHeight": 262,
-      "sourceSHA256": "40320f65469c00714f70c1788e4dd40f6e80b38d5e9c2578715d740409b2f38b",
-      "anatomicalCorrection": false,
+      "sourceWidth": 306,
+      "sourceHeight": 400,
+      "sourceSHA256": "b95cb5b38110f65a47086f21f1583dd99fa32a654e9f83d1d17fad6b2a8f3345",
+      "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 15,
-        "cell": 21,
-        "landmarks": "body-only",
+        "date": "2026-10-14",
+        "landmarks": "helmet crown y26; lowest boot y388; no weapon, fletching or cape in stature",
         "source": "assets/mesbg/tokens/numenorean_archer.png"
       },
-      "calibration": "Body landmarks corrected by visual source review; weapon/plume/empty space excluded.",
+      "calibration": "Reference-based redraw: reviewed helmet crown to lowest boot; torso axis centered independently of bow, quiver and cape.",
       "centerReview": {
         "date": "2026-10-14",
         "basis": "body",
-        "sheet": 14,
-        "cell": 21,
         "source": "assets/mesbg/tokens/numenorean_archer.png",
         "excludes": [
-          "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
-        ]
+          "bow",
+          "quiver",
+          "cape",
+          "arrow"
+        ],
+        "torsoAxisPixels": 142,
+        "bodyMiddlePixels": 207
       },
       "statureCalibration": {
-        "method": "argon-anatomical-20261014",
+        "method": "reference-redraw-20261014",
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "body",
-          "top": 0.055,
-          "bottom": 0.985,
+          "top": 0.065,
+          "bottom": 0.97,
           "worldReferenceSize": 77,
-          "sourceSHA256": "40320f65469c00714f70c1788e4dd40f6e80b38d5e9c2578715d740409b2f38b"
+          "sourceSHA256": "b95cb5b38110f65a47086f21f1583dd99fa32a654e9f83d1d17fad6b2a8f3345"
         },
-        "candidate": {
-          "top": 0.0443,
-          "bottom": 0.99
-        },
-        "applied": "anatomical-candidate",
-        "reason": "candidate-agrees-with-reviewed-anatomy"
+        "applied": "reviewed-landmarks",
+        "reason": "replaced-raster-manually-reviewed"
       }
     },
     {
