@@ -54,7 +54,9 @@ function addFile(rel, asset) {
   const stat = fs.lstatSync(abs);
   if (!stat.isFile() || stat.isSymbolicLink()) throw Error('Not a regular file: ' + rel);
   if (asset && !ALLOWED_ASSET_EXT.has(path.extname(rel).toLowerCase())) {
-    throw Error('Unexpected asset type (review required): ' + rel);
+    // Preserve attribution/license documents; exclude README and other source notes.
+    if (!['assets/mesbg/audio/CREDITS.txt',
+      'assets/mesbg/fonts/galmuri/OFL.md'].includes(rel)) return;
   }
   if (stat.size > MAX_FILE) throw Error('Exceeds Pages 100MB/file limit: ' + rel);
   planned.set(rel, stat.size);
