@@ -12,8 +12,8 @@
       "during": {
         "active": true,
         "busy": true,
-        "frame": "4",
-        "position": "50% 100%",
+        "frame": "5",
+        "position": "100% 100%",
         "line": "절대반지의 주인이 돌아왔다.",
         "rect": {
           "left": 260,
@@ -61,8 +61,8 @@
       "during": {
         "active": true,
         "busy": true,
-        "frame": "3",
-        "position": "0% 100%",
+        "frame": "0",
+        "position": "0% 0%",
         "line": "No living man may hinder me!",
         "rect": {
           "left": 260,
@@ -198,149 +198,6 @@
       "size": {
         "width": 390,
         "height": 844
-      },
-      "id": "witchking_fellbeast",
-      "mode": "normal",
-      "during": {
-        "active": true,
-        "busy": true,
-        "frame": "1",
-        "position": "50% 0%",
-        "line": "No living man may hinder me!",
-        "rect": {
-          "left": 12,
-          "right": 378,
-          "top": 139.609375,
-          "bottom": 704.390625
-        },
-        "appInert": true,
-        "musicVolume": 0.08399999999999999,
-        "duck": 0.24,
-        "decoded": [
-          "audio/boss_dark_omen.wav",
-          "audio/boss_ring_seal.wav",
-          "audio/boss_fell_wing.wav",
-          "audio/boss_nazgul_shriek.wav"
-        ],
-        "voices": 2
-      },
-      "after": {
-        "active": false,
-        "busy": false,
-        "rect": null,
-        "appInert": false,
-        "musicVolume": 0.35,
-        "decoded": [
-          "audio/boss_dark_omen.wav",
-          "audio/boss_ring_seal.wav",
-          "audio/boss_fell_wing.wav",
-          "audio/boss_nazgul_shriek.wav"
-        ],
-        "voices": 2
-      },
-      "frames": [
-        0,
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        4,
-        3,
-        2,
-        1,
-        0,
-        1,
-        2,
-        3,
-        4,
-        5
-      ]
-    },
-    {
-      "size": {
-        "width": 390,
-        "height": 844
-      },
-      "mode": "skip/off/reduced-muted",
-      "calm": {
-        "active": true,
-        "busy": false,
-        "frame": "5",
-        "position": "100% 100%",
-        "line": "No living man may hinder me!",
-        "rect": {
-          "left": 12,
-          "right": 378,
-          "top": 139.609375,
-          "bottom": 704.390625
-        },
-        "appInert": true,
-        "musicVolume": 0,
-        "duck": 0.24,
-        "decoded": [
-          "audio/boss_dark_omen.wav",
-          "audio/boss_ring_seal.wav",
-          "audio/boss_fell_wing.wav",
-          "audio/boss_nazgul_shriek.wav"
-        ],
-        "voices": 0
-      }
-    },
-    {
-      "size": {
-        "width": 844,
-        "height": 390
-      },
-      "id": "sauron",
-      "mode": "normal",
-      "during": {
-        "active": true,
-        "busy": true,
-        "frame": "4",
-        "position": "50% 100%",
-        "line": "절대반지의 주인이 돌아왔다.",
-        "rect": {
-          "left": 42,
-          "right": 802,
-          "top": 32.75,
-          "bottom": 357.234375
-        },
-        "appInert": true,
-        "musicVolume": 0.08399999999999999,
-        "duck": 0.24,
-        "decoded": [
-          "audio/boss_dark_omen.wav",
-          "audio/boss_ring_seal.wav"
-        ],
-        "voices": 2
-      },
-      "after": {
-        "active": false,
-        "busy": false,
-        "rect": null,
-        "appInert": false,
-        "musicVolume": 0.35,
-        "decoded": [
-          "audio/boss_dark_omen.wav",
-          "audio/boss_ring_seal.wav"
-        ],
-        "voices": 2
-      },
-      "frames": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5
-      ]
-    },
-    {
-      "size": {
-        "width": 844,
-        "height": 390
       },
       "id": "witchking_fellbeast",
       "mode": "normal",
@@ -351,6 +208,149 @@
         "position": "100% 0%",
         "line": "No living man may hinder me!",
         "rect": {
+          "left": 12,
+          "right": 378,
+          "top": 139.609375,
+          "bottom": 704.390625
+        },
+        "appInert": true,
+        "musicVolume": 0.08399999999999999,
+        "duck": 0.24,
+        "decoded": [
+          "audio/boss_dark_omen.wav",
+          "audio/boss_ring_seal.wav",
+          "audio/boss_fell_wing.wav",
+          "audio/boss_nazgul_shriek.wav"
+        ],
+        "voices": 2
+      },
+      "after": {
+        "active": false,
+        "busy": false,
+        "rect": null,
+        "appInert": false,
+        "musicVolume": 0.35,
+        "decoded": [
+          "audio/boss_dark_omen.wav",
+          "audio/boss_ring_seal.wav",
+          "audio/boss_fell_wing.wav",
+          "audio/boss_nazgul_shriek.wav"
+        ],
+        "voices": 1
+      },
+      "frames": [
+        0,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "mode": "skip/off/reduced-muted",
+      "calm": {
+        "active": true,
+        "busy": false,
+        "frame": "5",
+        "position": "100% 100%",
+        "line": "No living man may hinder me!",
+        "rect": {
+          "left": 12,
+          "right": 378,
+          "top": 139.609375,
+          "bottom": 704.390625
+        },
+        "appInert": true,
+        "musicVolume": 0,
+        "duck": 0.24,
+        "decoded": [
+          "audio/boss_dark_omen.wav",
+          "audio/boss_ring_seal.wav",
+          "audio/boss_fell_wing.wav",
+          "audio/boss_nazgul_shriek.wav"
+        ],
+        "voices": 0
+      }
+    },
+    {
+      "size": {
+        "width": 844,
+        "height": 390
+      },
+      "id": "sauron",
+      "mode": "normal",
+      "during": {
+        "active": true,
+        "busy": true,
+        "frame": "4",
+        "position": "50% 100%",
+        "line": "절대반지의 주인이 돌아왔다.",
+        "rect": {
+          "left": 42,
+          "right": 802,
+          "top": 32.75,
+          "bottom": 357.234375
+        },
+        "appInert": true,
+        "musicVolume": 0.08399999999999999,
+        "duck": 0.24,
+        "decoded": [
+          "audio/boss_dark_omen.wav",
+          "audio/boss_ring_seal.wav"
+        ],
+        "voices": 2
+      },
+      "after": {
+        "active": false,
+        "busy": false,
+        "rect": null,
+        "appInert": false,
+        "musicVolume": 0.35,
+        "decoded": [
+          "audio/boss_dark_omen.wav",
+          "audio/boss_ring_seal.wav"
+        ],
+        "voices": 2
+      },
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "size": {
+        "width": 844,
+        "height": 390
+      },
+      "id": "witchking_fellbeast",
+      "mode": "normal",
+      "during": {
+        "active": true,
+        "busy": true,
+        "frame": "3",
+        "position": "0% 100%",
+        "line": "No living man may hinder me!",
+        "rect": {
           "left": 42,
           "right": 802,
           "top": 32.75,
@@ -362,8 +362,7 @@
         "decoded": [
           "audio/boss_dark_omen.wav",
           "audio/boss_ring_seal.wav",
-          "audio/boss_fell_wing.wav",
-          "audio/boss_nazgul_shriek.wav"
+          "audio/boss_fell_wing.wav"
         ],
         "voices": 2
       },
