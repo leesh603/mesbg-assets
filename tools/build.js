@@ -36,6 +36,16 @@ if (pa < 0 || pb < pa) throw Error('Warband point markers not found in src/game.
 src = src.slice(0,pa+pointsBegin.length)+'\n'+points+'\n'+src.slice(pb);
 fs.writeFileSync(SRC,src);
 
+// Troop careers and explicit variant profiles are embedded in online/offline builds.
+const troopData=fs.readFileSync(path.join(ROOT,'data','troop-promotions.json'),'utf8');
+const troopUnits=fs.readFileSync(path.join(ROOT,'data','troop-new-units.json'),'utf8');
+let troops=fs.readFileSync(path.join(ROOT,'src','troop-promotions.js'),'utf8');
+troops=troops.replace('/*__TROOP_DATA__*/ {}',()=>troopData.trim()).replace('/*__TROOP_NEW_UNITS__*/ []',()=>troopUnits.trim());
+const ta=src.indexOf('/*__TROOP_PROMOTIONS_BEGIN__*/'),tb=src.indexOf('/*__TROOP_PROMOTIONS_END__*/');
+if(ta<0||tb<ta)throw Error('Troop promotion markers not found');
+src=src.slice(0,ta)+'/*__TROOP_PROMOTIONS_BEGIN__*/\n'+troops+'\n'+src.slice(tb);
+fs.writeFileSync(SRC,src);
+
 const a = html.indexOf(BEGIN), b = html.indexOf(END);
 if (a < 0 || b < 0 || b < a) {
   console.error('markers not found in', INDEX);
@@ -45,6 +55,14 @@ html = html.slice(0, a + BEGIN.length) + '\n' + src.replace(/^\n+|\s+$/g, '') + 
 // keep the served asset key list in sync with files on disk — a unit whose
 // token isn't listed fails the boot-time "Missing unit art" check.
 const onlineOnly = process.argv.includes('--online-only');
+// Preserve the current manifest and append new troop art, including online-only builds.
+{
+  const m=html.match(STUB);
+  if(m){const keys=JSON.parse(m[0].match(/__MESBG_ASSET_KEYS__=(\[[\s\S]*\]);/)[1]);
+    for(const d of JSON.parse(troopUnits))if(!keys.includes(d.meta.file))keys.push(d.meta.file);
+    html=html.slice(0,m.index)+'window.__MESBG_ASSETS__={};window.__MESBG_ASSET_KEYS__='+JSON.stringify(keys)+';'+html.slice(m.index+m[0].length);
+  }
+}
 const _keys = [];
 if (!onlineOnly) {
 (function _walk(dir) {
@@ -107,4 +125,5 @@ const fat = html.replace(STUB, () => 'window.__MESBG_ASSETS__=' + JSON.stringify
 if (fat === html) { console.error('asset stub not found in index.html'); process.exit(1); }
 fs.writeFileSync(FAT, fat);
 console.log(`built offline bundle (${count} assets embedded) → MIDDLE-EARTH-WARBANDS_v1.9.html`, (fat.length / 1048576).toFixed(1) + 'MB');
+
 
