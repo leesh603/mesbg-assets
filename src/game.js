@@ -8868,3 +8868,101 @@ P.applyCombat=function(result){
     }
 };
 
+// ── Dragon arrival: Smaug does not start on the board. When the stage opens a caption plays,
+// his shadow crosses the field, the whole battlefield burns (a Strength 5 hit on every unit of
+// the Fellowship) and only then does he land. Logic resolves synchronously in startWave; the UI
+// plays the 'DragonArrival' / 'DragonLanded' events in order, so wound animations sit between them.
+const DRAGON_ARRIVALS={smaug:{line:'I am fire, I am death!',sub:'나는 불이요, 나는 죽음이다!',strength:5}};
+(function(){
+const dragonBaseStart=P.startWave;
+P.startWave=function(){const r=dragonBaseStart.apply(this,arguments);try{this.dragonArrival();}catch(e){console.error('[dragon]',e);}return r;};
+P.dragonArrival=function(){
+    if(['menu','preparation','reward','result'].includes(this.phase))return;
+    const d=this.alive('evil').find(u=>DRAGON_ARRIVALS[u.id]&&!u._arrived);if(!d)return;
+    const cfg=DRAGON_ARRIVALS[d.id];d._arrived=true;d._arriving=true;
+    this.emit('DragonArrival',undefined,{uid:d.uid,id:d.id,line:cfg.line,sub:cfg.sub,strength:cfg.strength});
+    let hit=0;
+    for(const v of this.alive('good')){
+        const roll=Lt(this.rng),need=oe(cfg.strength,v.stats.defence);if(roll<need)continue;
+        hit++;const result=ce('skill',[d,v],d.side);
+        result.strikeResults.push({attacker:d.uid,target:v.uid,roll,needed:need,wound:true,killed:v.currentWounds-1<=0});
+        this.applyCombat(result);this.emit('SkillResolved',undefined,{result});
+    }
+    this.emit('Event',`🔥 ${d.name}의 화염 — 전장 전체 힘 ${cfg.strength} 타격 · 아군 ${hit}기 피해`);
+    this.emit('DragonLanded',undefined,{uid:d.uid,id:d.id});
+    this.checkRun();
+};
+// Hidden until the landing: no token, no rings/HP arcs at his spot while the cinematic runs.
+const dragonUpdate=Ve.prototype.update;
+Ve.prototype.update=function(t){dragonUpdate.call(this,t);if(!this.tokens||!this.b)return;for(const u of this.b.units)if(u._arriving){if(!At&&!document.getElementById('dragon-cine')){u._arriving=false;this.tokens.get(u.uid)?.setAlpha(1);continue;}const c=this.tokens.get(u.uid);if(c&&c.alpha!==0)c.setAlpha(0);}};
+const dragonRings=Ve.prototype.drawRings;
+Ve.prototype.drawRings=function(){const hid=(this.b?.units||[]).filter(u=>u._arriving&&u.alive);hid.forEach(u=>u.alive=false);try{return dragonRings.apply(this,arguments);}finally{hid.forEach(u=>u.alive=true);}};
+// The stage boss card waits for the landing instead of announcing him up front.
+const dragonBossIntro=bossIntro;
+bossIntro=function(id){if(DRAGON_ARRIVALS[id]&&q.units.some(u=>u.id===id&&u._arriving))return;return dragonBossIntro(id);};
+let dragonCss=false;
+function dragonStyle(){if(dragonCss)return;dragonCss=true;const st=document.createElement('style');st.textContent=`
+#dragon-cine{position:fixed;inset:0;z-index:72;pointer-events:none;overflow:hidden}
+#dragon-cine .dc-veil{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 55%,rgba(40,8,2,.55),rgba(0,0,0,.92) 75%);opacity:0;transition:opacity .45s ease}
+#dragon-cine.on .dc-veil{opacity:1}
+#dragon-cine .dc-cap{position:absolute;left:16px;right:16px;top:40%;transform:translateY(-50%);text-align:center;opacity:0;transition:opacity .5s ease,transform 1.8s cubic-bezier(.2,.7,.2,1)}
+#dragon-cine.cap .dc-cap{opacity:1;transform:translateY(-50%) scale(1.04)}
+#dragon-cine .dc-line{font-family:Galmuri11,Pretendard,serif!important;font-weight:700!important;font-size:clamp(28px,8.6vw,54px)!important;letter-spacing:.03em!important;line-height:1.18!important;color:#ffe9b8!important;text-shadow:0 0 2px #2a0800,0 2px 0 #4a1200,0 0 22px rgba(255,120,30,.85),0 0 48px rgba(255,70,10,.55);word-break:keep-all}
+#dragon-cine .dc-sub{margin-top:12px;font-family:Galmuri11,Pretendard,sans-serif!important;font-size:clamp(13px,3.8vw,18px)!important;letter-spacing:.16em!important;color:#e0ad80!important;text-shadow:0 1px 0 #200}
+#dragon-cine .dc-shadow{position:absolute;left:0;top:0;width:150vmax;height:150vmax;margin:-75vmax 0 0 -75vmax;opacity:0;will-change:transform}
+#dragon-cine .dc-shadow img{width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;object-fit:contain;filter:brightness(0) blur(4px);opacity:.72}
+#dragon-cine.fly .dc-shadow{animation:dcFly 1.9s cubic-bezier(.45,.05,.55,.95) forwards}
+@keyframes dcFly{0%{opacity:0;transform:translate(-40vw,120vh) rotate(-28deg) scale(.9)}12%{opacity:1}88%{opacity:1}100%{opacity:0;transform:translate(140vw,-35vh) rotate(-28deg) scale(1.05)}}
+#dragon-cine .dc-fire{position:absolute;left:-10%;right:-10%;bottom:-5%;height:115%;opacity:0;transform-origin:50% 100%;background:radial-gradient(ellipse 40% 55% at 15% 100%,rgba(255,215,110,.95),transparent 70%),radial-gradient(ellipse 35% 70% at 45% 100%,rgba(255,170,60,.95),transparent 72%),radial-gradient(ellipse 38% 60% at 80% 100%,rgba(255,200,90,.9),transparent 70%),linear-gradient(to top,rgba(255,110,20,.9),rgba(200,40,0,.55) 45%,rgba(90,10,0,.25) 75%,transparent);mix-blend-mode:screen}
+#dragon-cine.burn .dc-fire{animation:dcBurn 1.7s ease-out forwards}
+@keyframes dcBurn{0%{opacity:0;transform:scaleY(.2)}14%{opacity:1;transform:scaleY(1.05)}28%{opacity:.75;transform:scaleY(.9)}42%{opacity:1;transform:scaleY(1.1)}62%{opacity:.8;transform:scaleY(.95)}100%{opacity:0;transform:scaleY(.7)}}
+#dragon-cine .dc-flash{position:absolute;inset:0;background:#fff3d0;opacity:0}
+#dragon-cine.burn .dc-flash{animation:dcFlash .5s ease-out}
+@keyframes dcFlash{0%{opacity:.85}100%{opacity:0}}
+#dragon-cine .dc-ember{position:absolute;bottom:-12px;width:5px;height:5px;background:#ffb347;box-shadow:0 0 6px #ff7a1a;opacity:0}
+#dragon-cine.burn .dc-ember{animation:dcEmber 1.6s ease-out forwards}
+@keyframes dcEmber{0%{opacity:1;transform:translate(0,0)}100%{opacity:0;transform:translate(var(--dx),var(--dy))}}
+#dragon-cine.out{transition:opacity .45s ease;opacity:0}`;document.head.appendChild(st);}
+const wait=ms=>new Promise(r=>setTimeout(r,ms));
+async function dragonCinematic(scene,e){
+    dragonStyle();document.getElementById('dragon-cine')?.remove();
+    const calm=!!UX.reduced,fast=qt>=4||!!window._lwbFx,T=k=>fast?Math.min(k,260):k;
+    const meta=q.meta.get(e.id);const el=document.createElement('div');el.id='dragon-cine';
+    let embers='';for(let i=0;i<(calm?0:26);i++)embers+=`<i class="dc-ember" style="left:${Math.round(Math.random()*100)}%;--dx:${Math.round(Math.random()*80-40)}px;--dy:${-Math.round(260+Math.random()*420)}px;animation-delay:${(Math.random()*.5).toFixed(2)}s"></i>`;
+    el.innerHTML=`<div class="dc-veil"></div><div class="dc-shadow">${meta?`<img src="${Ut(meta.file)}" alt="">`:''}</div><div class="dc-fire"></div><div class="dc-flash"></div>${embers}<div class="dc-cap"><div class="dc-line" style="font-size:clamp(28px,8.6vw,54px)!important;line-height:1.18!important;font-family:Galmuri11,Pretendard,serif!important;text-shadow:0 2px 0 #4a1200,0 0 18px rgba(255,120,30,.9),0 0 42px rgba(255,70,10,.6)!important">${String(e.line).split(/(?<=,)\s+/).map(esc).join('<br>')}</div><div class="dc-sub" style="font-size:clamp(13px,3.8vw,18px)!important;font-family:Galmuri11,Pretendard,sans-serif!important">${esc(e.sub||'')}</div></div>`;
+    document.body.appendChild(el);const cam=scene.cameras?.main;
+    try{
+        // 1. caption
+        await wait(30);el.classList.add('on');scene.soundFX?.play('terror');await wait(T(350));el.classList.add('cap');await wait(T(2100));
+        el.classList.remove('cap');await wait(T(380));
+        // 2. the shadow crosses the field
+        if(!calm){el.classList.add('fly');scene.soundFX?.play('cavalry_charge');cam&&cam.shake(T(1500),.0035);await wait(T(1350));}
+        // 3. the field burns
+        el.classList.remove('on');el.classList.add('burn');scene.soundFX?.play('cast');setTimeout(()=>scene.soundFX?.play('critical_hit'),120);
+        if(cam){cam.shake(T(1100),calm?.004:.016);cam.flash(T(260),255,170,80);}
+        try{const R=scene.add.graphics().setDepth(17);for(const v of q.alive('good')){R.fillStyle(0xff7a1a,.38);R.fillCircle(v.x,v.y,v.radius+34);R.fillStyle(0xffd27a,.5);R.fillCircle(v.x,v.y,v.radius*.7);}
+            scene.tweens.add({targets:R,alpha:0,duration:T(1300),ease:'Quad.easeIn',onComplete:()=>R.destroy()});}catch(_){}
+        await wait(T(1250));
+    }finally{el.classList.add('out');setTimeout(()=>el.remove(),500);}
+}
+async function dragonLanding(scene,e){
+    const u=q.unit(e.uid);if(!u)return;u._arriving=false;
+    const c=scene.tokens?.get(u.uid),cam=scene.cameras?.main,fast=qt>=4||!!window._lwbFx;
+    try{scene.drawRings();}catch(_){}
+    if(cam&&UX.ready){try{panTo(u.x,u.y,UX.zoom,fast?120:520);}catch(_){}}
+    await wait(fast?80:420);
+    if(c){c.setAlpha(0);const sx=c.scaleX,sy=c.scaleY;c.setScale(sx*1.45,sy*1.45);scene.tweens.add({targets:c,alpha:1,scaleX:sx,scaleY:sy,duration:fast?120:520,ease:'Cubic.easeIn'});}
+    scene.soundFX?.play('monster_hit');
+    await wait(fast?120:500);
+    if(cam){cam.shake(fast?150:520,UX.reduced?.004:.012);}
+    try{const g=scene.add.graphics().setDepth(16).setPosition(u.x,u.y);g.lineStyle(10,0xffb060,.8);g.strokeCircle(0,0,(u.radius||80)+10);scene.tweens.add({targets:g,alpha:0,scaleX:1.6,scaleY:1.6,duration:700,onComplete:()=>g.destroy()});}catch(_){}
+    try{dragonBossIntro(e.id);}catch(_){}
+    await wait(fast?100:600);
+}
+const dragonPlay=Ve.prototype.play;
+Ve.prototype.play=async function(event){
+    if(event.type==='DragonArrival')return dragonCinematic(this,event);
+    if(event.type==='DragonLanded')return dragonLanding(this,event);
+    return dragonPlay.call(this,event);
+};
+})();
