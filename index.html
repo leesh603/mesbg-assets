@@ -15502,8 +15502,8 @@ P.applyCombat=function(result){
 };
 
 // ── Dragon arrival: Smaug does not start on the board. When the stage opens a caption plays,
-// his shadow crosses the field, the whole battlefield burns (a Strength 5 hit on every unit of
-// the Fellowship) and only then does he land. Logic resolves synchronously in startWave; the UI
+// his shadow crosses the field, the whole battlefield burns (a Strength 5 hit on every other unit,
+// friend or foe) and only then does he land. Logic resolves synchronously in startWave; the UI
 // plays the 'DragonArrival' / 'DragonLanded' events in order, so wound animations sit between them.
 const DRAGON_ARRIVALS={smaug:{line:'I am fire, I am death!',sub:'나는 불이요, 나는 죽음이다!',strength:5}};
 (function(){
@@ -15514,14 +15514,14 @@ P.dragonArrival=function(){
     const d=this.alive('evil').find(u=>DRAGON_ARRIVALS[u.id]&&!u._arrived);if(!d)return;
     const cfg=DRAGON_ARRIVALS[d.id];d._arrived=true;d._arriving=true;
     this.emit('DragonArrival',undefined,{uid:d.uid,id:d.id,line:cfg.line,sub:cfg.sub,strength:cfg.strength});
-    let hit=0;
-    for(const v of this.alive('good')){
+    let hit=0,foeHit=0;
+    for(const v of this.alive().filter(v=>v.uid!==d.uid&&!v.static&&!v.lair)){
         const roll=Lt(this.rng),need=oe(cfg.strength,v.stats.defence);if(roll<need)continue;
-        hit++;const result=ce('skill',[d,v],d.side);
+        if(v.side==='good')hit++;else foeHit++;const result=ce('skill',[d,v],d.side);
         result.strikeResults.push({attacker:d.uid,target:v.uid,roll,needed:need,wound:true,killed:v.currentWounds-1<=0});
         this.applyCombat(result);this.emit('SkillResolved',undefined,{result});
     }
-    this.emit('Event',`🔥 ${d.name}의 화염 — 전장 전체 힘 ${cfg.strength} 타격 · 아군 ${hit}기 피해`);
+    this.emit('Event',`🔥 ${d.name}의 화염 — 전장 전체 힘 ${cfg.strength} 타격 · 아군 ${hit}기 · 적 ${foeHit}기 피해`);
     this.emit('DragonLanded',undefined,{uid:d.uid,id:d.id});
     this.checkRun();
 };
@@ -15573,7 +15573,7 @@ async function dragonCinematic(scene,e){
         // 3. the field burns
         el.classList.remove('on');el.classList.add('burn');scene.soundFX?.play('cast');setTimeout(()=>scene.soundFX?.play('critical_hit'),120);
         if(cam){cam.shake(T(1100),calm?.004:.016);cam.flash(T(260),255,170,80);}
-        try{const R=scene.add.graphics().setDepth(17);for(const v of q.alive('good')){R.fillStyle(0xff7a1a,.38);R.fillCircle(v.x,v.y,v.radius+34);R.fillStyle(0xffd27a,.5);R.fillCircle(v.x,v.y,v.radius*.7);}
+        try{const R=scene.add.graphics().setDepth(17);for(const v of q.alive().filter(v=>v.uid!==e.uid)){R.fillStyle(0xff7a1a,.38);R.fillCircle(v.x,v.y,v.radius+34);R.fillStyle(0xffd27a,.5);R.fillCircle(v.x,v.y,v.radius*.7);}
             scene.tweens.add({targets:R,alpha:0,duration:T(1300),ease:'Quad.easeIn',onComplete:()=>R.destroy()});}catch(_){}
         await wait(T(1250));
     }finally{el.classList.add('out');setTimeout(()=>el.remove(),500);}
