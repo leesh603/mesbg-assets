@@ -207,7 +207,7 @@ module.exports = [
 { sheet: 'roster-legends-evil-v2.png', side: 'evil', units: [
   ['olog_hai', '올로그하이', 'Olog-hai', { faction: 'mordor', role: 'monster', weapon: 'mace', base: 'XXL' }],
   ['watcher_in_the_water', '물 속의 감시자', 'Watcher in the Water', { traits: ['terror'], faction: 'moria', role: 'monster', weapon: 'none', base: 'XXL' }],
-  ['mirkwood_spider', '미르크우드 거미', 'Mirkwood Spider', { faction: 'dol_guldur', role: 'monster', weapon: 'none', base: 'L' }],
+  ['mirkwood_spider', '머크우드 거미', 'Mirkwood Spider', { faction: 'dol_guldur', role: 'monster', weapon: 'none', base: 'L' }],
   ['harad_chieftain', '하라드 족장', 'Haradrim Chieftain', { faction: 'harad', role: 'hero', weapon: 'sword' }],
   ['uruk_captain', '우룩하이 대장', 'Uruk-hai Captain', { faction: 'isengard', role: 'hero', weapon: 'sword_shield', base: 'L' }],
   ['hill_troll', '언덕 트롤', 'Hill Troll', { faction: 'angmar', role: 'monster', weapon: 'club', base: 'XL' }],
@@ -288,7 +288,7 @@ module.exports = [
 { sheet: 'roster-elf-exp-v2.png', side: 'good', role: 'infantry', base: 'M', units: [
   ['rumil', '루밀', 'Rumil', { faction: 'lothlorien', role: 'hero', weapon: 'bow' }],
   ['orophin', '오로핀', 'Orophin', { faction: 'lothlorien', role: 'hero', weapon: 'spear' }],
-  ['mirkwood_sentinel', '미르크우드 보초', 'Mirkwood Sentinel', { faction: 'elf', weapon: 'pike' }],
+  ['mirkwood_sentinel', '머크우드 보초', 'Mirkwood Sentinel', { faction: 'elf', weapon: 'pike' }],
   ['noldor_warrior', '놀도르 정예병', 'Noldor Warrior', { faction: 'elf', weapon: 'sword_shield', base: 'L' }],
   ['silvan_archer', '실반 궁수', 'Silvan Archer', { faction: 'elf', weapon: 'bow' }],
   ['elven_lancer', '엘프 기창기병', 'Elven Lancer', { faction: 'rivendell', role: 'cavalry', weapon: 'lance', base: 'XL' }],
@@ -622,7 +622,7 @@ module.exports = [
   { sheet:'px-nb-exp-silm3.png', side:'good', faction:'elf', role:'infantry', weapon:'spear', base:'M', traits:[], units:[
     ['gondolin_guard','곤돌린 근위병','Gondolin Guard']] },
   { sheet:'px-nb-exp-silm3.png', side:'good', faction:'elf', role:'hero', weapon:'sword', base:'M', traits:[], units:[
-    ['mirkwood_captain','미르크우드 대장','Mirkwood Captain']] },
+    ['mirkwood_captain','머크우드 대장','Mirkwood Captain']] },
   { sheet:'px-nb-exp-mordor2.png', side:'evil', faction:'mordor', role:'infantry', weapon:'sword', base:'M', traits:[], units:[
     ['mordor_uruk','모르도르 우르크','Mordor Uruk']] },
   { sheet:'px-nb-exp-mordor2.png', side:'evil', faction:'mordor', role:'infantry', weapon:'sword', base:'M', traits:[], units:[
