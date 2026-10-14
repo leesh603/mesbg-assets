@@ -1,0 +1,44 @@
+name: Audit runtime assets 20261015
+on:
+  push:
+    branches: [audit/playtest-20261015-e804344]
+    paths: ['.github/workflows/audit-runtime-assets-20261015.yml']
+permissions:
+  contents: read
+jobs:
+  runtime:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Retrieve runtime-only assets at audited commit
+        env:
+          AUDIT_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import os,json,urllib.request,concurrent.futures,time
+          from pathlib import Path
+          ref='e804344617e860324a09ea9c33264fa201783ae0';root=Path('runtime-assets');root.mkdir()
+          req=urllib.request.Request('https://api.github.com/repos/leesh603/mesbg-assets/git/trees/'+ref+'?recursive=1',headers={'Authorization':'Bearer '+os.environ['AUDIT_TOKEN']})
+          tree=json.load(urllib.request.urlopen(req,timeout=60))['tree']
+          files=[x for x in tree if x['type']=='blob' and x['path'].startswith(('assets/mesbg/','icons/','events/','relics/'))]
+          print('FILES',len(files),'BYTES',sum(x.get('size',0) for x in files),flush=True)
+          def get(x):
+            path=x['path'];dest=root/path;dest.parent.mkdir(parents=True,exist_ok=True)
+            for attempt in range(3):
+              try:
+                with urllib.request.urlopen('https://raw.githubusercontent.com/leesh603/mesbg-assets/'+ref+'/'+path,timeout=60) as r:dest.write_bytes(r.read())
+                return path
+              except Exception:
+                if attempt==2:raise
+                time.sleep(1+attempt)
+          with concurrent.futures.ThreadPoolExecutor(max_workers=16) as ex:
+            for i,path in enumerate(ex.map(get,files)):
+              if i%100==0:print('DOWNLOADED',i,path,flush=True)
+          (root/'AUDIT_REF.txt').write_text(ref+'\nRuntime files only. No game source or main branch changed.\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: warbands-runtime-assets-e804344
+          path: runtime-assets/
+          compression-level: 0
+          retention-days: 3
