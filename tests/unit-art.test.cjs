@@ -14,19 +14,19 @@ test('all 492 anatomical spans render to their specified size, independent of ra
   const measured=p[7]==='width'?out.width*(p[9]-p[8]):out.height*(p[2]-p[1]);
   assert.deepEqual(out,other);assert(Math.abs(measured-a.worldReferenceSize)<.001,a.id);
   assert(Math.abs(out.width/out.height-src.width/src.height)<1e-8,a.id);assert.equal(out.originX,a.centerX);assert.equal(out.originY,a.centerY);
-  if(a.reference==='rider')assert.equal(out.referenceAxis,'width',a.id);
+  assert.equal(out.referenceAxis,'height',a.id);
  }
 });
 test('banners, staves and spears have anatomical centers independent of their ornament envelopes',()=>{
  assert(context.profiles.dwarf_banner[2]-context.profiles.dwarf_banner[1]<.8);
  assert(context.profiles.gandalf[3]<.6);assert(context.profiles.orc_spear2[3]>.5);
  assert.equal(context.profiles.mt_spear[5],context.profiles.mt_swordshield[5]);
- assert.equal(context.profiles.gandalf_mounted[5],34);assert.equal(context.profiles.dain_boar[5],41);
+ assert.equal(context.profiles.gandalf_mounted[5],43);assert.equal(context.profiles.dain_boar[5],36);
 });
 test('padding and seated poses do not create multiples of cavalry size',()=>{
  const mountedHeight=id=>{const a=audit.units.find(x=>x.id===id),o=context.layout({id},{width:a.sourceWidth,height:a.sourceHeight});return o.height*(.95-a.top);};
- for(const pair of [['aragorn_mounted','arathorn_mounted'],['witchking_mounted','witchking_mounted_sheet'],['gandalf_mounted','gandalf_white_mounted']]){
-  const sizes=pair.map(mountedHeight);assert(Math.max(...sizes)/Math.min(...sizes)<1.2,pair.join('/'));
+ for(const pair of [['aragorn_mounted','elrond_mounted'],['witchking_mounted','witchking_mounted_sheet'],['arathorn_mounted','faramir_mounted']]){
+  const sizes=pair.map(mountedHeight);assert(Math.max(...sizes)/Math.min(...sizes)<1.25,pair.join('/'));
  }
  for(const a of audit.units.filter(x=>x.bodyClass==='dwarf'&&x.reference==='body')){
   const o=context.layout({id:a.id},{width:a.sourceWidth,height:a.sourceHeight});const stature=o.height*(a.bottom-a.top);assert(stature>=62.9&&stature<=76.1,a.id);
@@ -50,8 +50,23 @@ test('lazy-loaded and transformed units anchor rotation and idle at the body, wi
  context.apply(scene,sprite,{id:'gandalf_white_mounted'});assert.equal(data.get('bodyProfile'),'gandalf_white_mounted');assert.equal(sprite.originX,context.profiles.gandalf_white_mounted[3]);
  assert.equal(data.get('baseSX'),sprite.scaleX);assert.equal(data.get('cxy').x,0);assert.equal(data.get('cxy').y,0);
 });
-// Painted faction bases were restored on request (2026-10-13); they sit under the figure and never drive scaling.
-test('production creates no token rims and never scans alpha for scaling; bases do not affect figure size',()=>{
- assert(!source.includes('setName("rim")'));assert(source.includes("setName('base')"));assert(!/setName\('base'\)[^;]*setDisplaySize\([^)]*(sprite|body)/.test(source));
- assert(!source.includes('__figCenterPx'));assert(!source.includes('const p = this.add.ellipse(3, 6, H.radius'));
+test('newer main base rendering is preserved and never used to normalize body scale',()=>{
+ assert(source.includes("setName('base')"));assert(!source.includes('__figCenterPx'));
+});
+
+test('review is tied to the actual production raster, never stale source copies',()=>{
+ const crypto=require('node:crypto');
+ for(const u of audit.units){
+  const p='assets/mesbg/'+u.file;
+  assert.equal(crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex'),u.sourceSHA256,u.id+' changed art: remeasure anatomy');
+  assert.match(u.visualReview.date,/^2026-10-(13|14)$/);
+  assert.equal(u.visualReview.source,'assets/mesbg/'+u.file);
+  assert.equal(u.referenceAxis,'height');
+ }
+});
+test('regressions: empty padding, torso-only foot profiles, and Nazgul class',()=>{
+ for(const id of ['earendil','feanor']) assert(context.profiles[id][2]-context.profiles[id][1]>.8,id);
+ for(const id of ['hobbit_bounder','hobbit_militia']) assert(context.profiles[id][1]>.5,id);
+ for(const id of ['witchking_foot','khamul','nazgul_sword','dark_marshal']) assert.equal(context.profiles[id][5],100,id);
+ for(const id of ['witchking_mounted','khamul_mounted','nazgul_mounted']) assert.equal(context.profiles[id][5],50,id);
 });

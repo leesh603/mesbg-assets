@@ -15,3 +15,4 @@ const file='src/game.js',src=fs.readFileSync(file,'utf8'),anchor='const UNIT_ART
 if(a<0||b<0)throw Error('Art profile marker is missing');
 fs.writeFileSync(file,src.slice(0,a)+anchor+JSON.stringify(rows)+src.slice(b));
 console.log('Synced '+data.units.length+' reviewed anatomy profiles. Run node tools/build.js --online-only.');
+

@@ -25,7 +25,11 @@ function ensureSchema(db) {
   return (schemaReady ??= db.batch([
     db.prepare("CREATE TABLE IF NOT EXISTS saves(id TEXT PRIMARY KEY, pw TEXT NOT NULL, data TEXT NOT NULL, updated REAL)"),
     db.prepare("CREATE TABLE IF NOT EXISTS scores(nickname TEXT NOT NULL, stage INTEGER NOT NULL, kills INTEGER NOT NULL, gold INTEGER NOT NULL, t REAL NOT NULL)"),
-  ]));
+  ]).catch((error) => {
+    // A transient D1 error must not poison every subsequent request.
+    schemaReady = undefined;
+    throw error;
+  }));
 }
 
 export default {
@@ -50,14 +54,17 @@ export default {
 
         if (method === "PUT" && !isLoad) {
           const payload = JSON.stringify(body.data ?? null);
-          if (payload.length > MAX_SAVE_BYTES) return json({ detail: "save too large" }, 413);
+          if (new TextEncoder().encode(payload).byteLength > MAX_SAVE_BYTES) return json({ detail: "save too large" }, 413);
           const pwHash = await hash(pw);
           const row = await db.prepare("SELECT pw FROM saves WHERE id=?").bind(sid).first();
           if (row && row.pw !== pwHash) return json({ detail: "wrong password" }, 403);
-          await db.prepare(
+          // The SQL statement must enforce ownership atomically: two initial
+          // SELECTs can both see an absent id before either INSERT executes.
+          const written = await db.prepare(
             "INSERT INTO saves(id,pw,data,updated) VALUES(?,?,?,?)" +
-            " ON CONFLICT(id) DO UPDATE SET pw=excluded.pw,data=excluded.data,updated=excluded.updated"
+            " ON CONFLICT(id) DO UPDATE SET data=excluded.data,updated=excluded.updated WHERE saves.pw=excluded.pw"
           ).bind(sid, pwHash, payload, Date.now() / 1000).run();
+          if (written.meta.changes === 0) return json({ detail: "wrong password" }, 403);
           return json({ ok: true });
         }
 
@@ -88,8 +95,12 @@ export default {
         if (method === "POST") {
           const body = await request.json().catch(() => ({}));
           const nick = String(body.nickname || "무명 전사").trim().slice(0, 16) || "무명 전사";
-          const stage = Math.max(0, body.stage | 0), kills = Math.max(0, body.kills | 0);
-          const gold = Math.max(0, body.gold | 0), now = Date.now() / 1000;
+          const { stage, kills, gold } = body;
+          if (!Number.isInteger(stage) || stage < 0 || stage > 70 ||
+              !Number.isSafeInteger(kills) || kills < 0 || kills > 2147483647 ||
+              !Number.isSafeInteger(gold) || gold < 0 || gold > 2147483647)
+            return json({ detail: "invalid score: stage 0-70; nonnegative integer kills/gold required" }, 422);
+          const now = Date.now() / 1000;
           await db.prepare(
             "INSERT INTO scores(nickname,stage,kills,gold,t) VALUES(?,?,?,?,?)"
           ).bind(nick, stage, kills, gold, now).run();
