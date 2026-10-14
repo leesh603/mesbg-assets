@@ -1263,3 +1263,15 @@ html body.lwb-polished:is([data-phase="reward"],[data-phase="menu"],[data-phase=
 :is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app #ux-bossbar .bossbar-name{white-space:nowrap!important;word-break:keep-all!important;overflow-wrap:normal!important;overflow:visible!important;min-width:0}
 :is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app #ux-bossbar .bossbar-hp{white-space:nowrap!important}
 /*__DS2_END__*/
+
+/* Boss encounter tells: same pixel typography, responsive plaques and existing unit art. */
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro .boss-card{width:min(520px,92vw)!important;max-height:90svh!important;overflow:auto!important;padding:calc(var(--px)*6)!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:calc(var(--px)*4)!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro .boss-art img{width:auto!important;height:min(27svh,210px)!important;max-width:76vw!important;object-fit:contain!important;image-rendering:pixelated!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro .boss-counterplay{display:grid!important;gap:calc(var(--px)*3)!important;text-align:center!important;border-top:var(--hl) solid #86714c!important;padding-top:calc(var(--px)*4)!important;width:100%!important;line-height:1.5!important;word-break:keep-all!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro .boss-counterplay strong{color:#f3d093!important;font-size:var(--fb)!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro .boss-counterplay span{color:#cfcbc1!important;font-size:var(--fb)!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro .boss-flight{display:flex!important;gap:calc(var(--px)*5)!important;justify-content:center!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro .boss-flight img{width:min(19vw,80px)!important;height:auto!important;image-rendering:pixelated!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app #ux-bossbar .bossbar-pattern{grid-column:1/-1!important;color:#f1c28c!important;font-size:var(--fb)!important;line-height:1.4!important;white-space:normal!important;word-break:keep-all!important;min-width:0!important;text-align:left!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro .boss-card{background:#15180ff5!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro h2{font-size:var(--ft)!important;font-weight:700!important;line-height:1.3!important;white-space:normal!important;word-break:keep-all!important}

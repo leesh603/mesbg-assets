@@ -1,0 +1,771 @@
+{
+  "errors": [],
+  "scenarios": [
+    {
+      "size": {
+        "width": 1280,
+        "height": 900
+      },
+      "stage": 10,
+      "selected": {
+        "phase": "move",
+        "id": "saruman",
+        "round": 1,
+        "units": 15,
+        "warnings": [
+          {
+            "label": "거대한 몸통 후려치기",
+            "shape": "circle",
+            "round": 2
+          },
+          {
+            "label": "거대한 몸통 후려치기",
+            "shape": "circle",
+            "round": 2
+          },
+          {
+            "label": "주술 폭풍",
+            "shape": "lane",
+            "round": 2
+          }
+        ],
+        "commanders": 1,
+        "flight": 0
+      },
+      "intro": {
+        "visible": true,
+        "overflow": {
+          "left": 440,
+          "right": 840,
+          "top": 250,
+          "bottom": 650
+        },
+        "counter": "주술 폭풍 · 명령 · 사루만의 목소리직선에서 이탈 · Will 저항 · 우루크 지휘 차단",
+        "flight": 0
+      },
+      "ui": {
+        "tell": "다음 라운드 · 거대한 몸통 후려치기 / 주술 폭풍",
+        "overflow": false,
+        "broken": []
+      },
+      "result": {
+        "casts": 1,
+        "phase": "move",
+        "good": 6,
+        "pending": 3
+      }
+    },
+    {
+      "size": {
+        "width": 1280,
+        "height": 900
+      },
+      "stage": 15,
+      "selected": {
+        "phase": "move",
+        "id": "witchking_fellbeast",
+        "round": 1,
+        "units": 21,
+        "warnings": [
+          {
+            "label": "거대한 몸통 후려치기",
+            "shape": "circle",
+            "round": 2
+          },
+          {
+            "label": "거대한 몸통 후려치기",
+            "shape": "circle",
+            "round": 2
+          },
+          {
+            "label": "검은 다트",
+            "shape": "circle",
+            "round": 2
+          }
+        ],
+        "commanders": 1,
+        "flight": 0
+      },
+      "intro": {
+        "visible": true,
+        "overflow": {
+          "left": 440,
+          "right": 840,
+          "top": 250,
+          "bottom": 650
+        },
+        "counter": "검은 다트 · 의지 흡수 · 펠비스트 급강하습격 경로에서 이탈 · 영웅의 Will 보존",
+        "flight": 0
+      },
+      "ui": {
+        "tell": "다음 라운드 · 거대한 몸통 후려치기 / 검은 다트",
+        "overflow": false,
+        "broken": []
+      },
+      "result": {
+        "casts": 1,
+        "phase": "move",
+        "good": 6,
+        "pending": 3
+      }
+    },
+    {
+      "size": {
+        "width": 1280,
+        "height": 900
+      },
+      "stage": 20,
+      "selected": {
+        "phase": "move",
+        "id": "mouth_of_sauron",
+        "round": 1,
+        "units": 23,
+        "warnings": [
+          {
+            "label": "거대한 몸통 후려치기",
+            "shape": "circle",
+            "round": 2
+          },
+          {
+            "label": "나즈굴 1 · 급강하",
+            "shape": "lane",
+            "round": 2
+          },
+          {
+            "label": "절망의 말",
+            "shape": "circle",
+            "round": 2
+          }
+        ],
+        "commanders": 5,
+        "flight": 3
+      },
+      "intro": {
+        "visible": true,
+        "overflow": {
+          "left": 437.3385009765625,
+          "right": 837.3385009765625,
+          "top": 204.1638946533203,
+          "bottom": 697.1638946533203
+        },
+        "counter": "절망의 말 · 트롤 총공세Will 저항 · 지휘관과 트롤을 분리",
+        "flight": 3
+      },
+      "ui": {
+        "tell": "다음 라운드 · 거대한 몸통 후려치기 / 나즈굴 1 · 급강하 외 1개 · 적장 5기",
+        "overflow": false,
+        "broken": []
+      },
+      "result": {
+        "casts": 3,
+        "phase": "move",
+        "good": 6,
+        "pending": 1
+      }
+    },
+    {
+      "size": {
+        "width": 1280,
+        "height": 900
+      },
+      "stage": 35,
+      "selected": {
+        "phase": "move",
+        "id": "smaug",
+        "round": 1,
+        "units": 14,
+        "warnings": [
+          {
+            "label": "거대한 몸통 후려치기",
+            "shape": "circle",
+            "round": 2
+          },
+          {
+            "label": "거대한 몸통 후려치기",
+            "shape": "circle",
+            "round": 2
+          },
+          {
+            "label": "거대한 몸통 후려치기",
+            "shape": "circle",
+            "round": 2
+          },
+          {
+            "label": "거대한 몸통 후려치기",
+            "shape": "circle",
+            "round": 2
+          },
+          {
+            "label": "거대한 몸통 후려치기",
+            "shape": "circle",
+            "round": 2
+          },
+          {
+            "label": "용의 화염",
+            "shape": "cone",
+            "round": 2
+          }
+        ],
+        "commanders": 1,
+        "flight": 0
+      },
+      "intro": {
+        "visible": true,
+        "overflow": {
+          "left": 440,
+          "right": 840,
+          "top": 250,
+          "bottom": 650
+        },
+        "counter": "화염 부채꼴 · 꼬리 휩쓸기 · 비늘의 틈화염 옆으로 이동 · 브레스 직후 약점 사격",
+        "flight": 0
+      },
+      "ui": {
+        "tell": "다음 라운드 · 거대한 몸통 후려치기 / 용의 화염",
+        "overflow": false,
+        "broken": []
+      },
+      "result": {
+        "casts": 1,
+        "phase": "move",
+        "good": 5,
+        "pending": 5
+      }
+    },
+    {
+      "size": {
+        "width": 1280,
+        "height": 900
+      },
+      "stage": 40,
+      "selected": {
+        "phase": "move",
+        "id": "sauron",
+        "round": 1,
+        "units": 24,
+        "warnings": [
+          {
+            "label": "거대한 몸통 후려치기",
+            "shape": "circle",
+            "round": 2
+          },
+          {
+            "label": "거대한 몸통 후려치기",
+            "shape": "circle",
+            "round": 2
+          },
+          {
+            "label": "거대한 몸통 후려치기",
+            "shape": "circle",
+            "round": 2
+          },
+          {
+            "label": "어둠의 철퇴",
+            "shape": "circle",
+            "round": 2
+          }
+        ],
+        "commanders": 1,
+        "flight": 0
+      },
+      "intro": {
+        "visible": true,
+        "overflow": {
+          "left": 440,
+          "right": 840,
+          "top": 250,
+          "bottom": 650
+        },
+        "counter": "철퇴 휩쓸기 · 영혼 냉각 · 아홉 악령철퇴 범위에서 이탈 · Will 저항 · 악령 분산",
+        "flight": 0
+      },
+      "ui": {
+        "tell": "다음 라운드 · 거대한 몸통 후려치기 / 어둠의 철퇴",
+        "overflow": false,
+        "broken": []
+      },
+      "result": {
+        "casts": 1,
+        "phase": "move",
+        "good": 6,
+        "pending": 3
+      }
+    },
+    {
+      "size": {
+        "width": 1280,
+        "height": 900
+      },
+      "stage": 55,
+      "selected": {
+        "phase": "move",
+        "id": "ungoliant",
+        "round": 1,
+        "units": 28,
+        "warnings": [
+          {
+            "label": "거대한 몸통 후려치기",
+            "shape": "circle",
+            "round": 2
+          },
+          {
+            "label": "암흑의 거미줄",
+            "shape": "circle",
+            "round": 2
+          }
+        ],
+        "commanders": 1,
+        "flight": 0
+      },
+      "intro": {
+        "visible": true,
+        "overflow": {
+          "left": 440,
+          "right": 840,
+          "top": 250,
+          "bottom": 650
+        },
+        "counter": "암흑의 거미줄 · 탐식거미줄 이탈 · 포식 범위 밖에서 공격",
+        "flight": 0
+      },
+      "ui": {
+        "tell": "다음 라운드 · 거대한 몸통 후려치기 / 암흑의 거미줄",
+        "overflow": false,
+        "broken": []
+      },
+      "result": {
+        "casts": 2,
+        "phase": "move",
+        "good": 6,
+        "pending": 0
+      }
+    },
+    {
+      "size": {
+        "width": 1280,
+        "height": 900
+      },
+      "stage": 70,
+      "selected": {
+        "phase": "move",
+        "id": "morgoth",
+        "round": 1,
+        "units": 24,
+        "warnings": [
+          {
+            "label": "그론드의 균열",
+            "shape": "circle",
+            "round": 2
+          }
+        ],
+        "commanders": 1,
+        "flight": 0
+      },
+      "intro": {
+        "visible": true,
+        "overflow": {
+          "left": 436.4969787597656,
+          "right": 836.4970092773438,
+          "top": 251.5012969970703,
+          "bottom": 651.5012969970703
+        },
+        "counter": "그론드 · 암흑의 권능균열 이탈 · 공격 직후 다친 발 공략",
+        "flight": 0
+      },
+      "ui": {
+        "tell": "다음 라운드 · 그론드의 균열",
+        "overflow": false,
+        "broken": []
+      },
+      "result": {
+        "casts": 1,
+        "phase": "move",
+        "good": 5,
+        "pending": 0
+      }
+    },
+    {
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "stage": 10,
+      "selected": {
+        "phase": "move",
+        "id": "saruman",
+        "round": 1,
+        "units": 15,
+        "warnings": [
+          {
+            "label": "거대한 몸통 후려치기",
+            "shape": "circle",
+            "round": 2
+          },
+          {
+            "label": "거대한 몸통 후려치기",
+            "shape": "circle",
+            "round": 2
+          },
+          {
+            "label": "주술 폭풍",
+            "shape": "lane",
+            "round": 2
+          }
+        ],
+        "commanders": 1,
+        "flight": 0
+      },
+      "intro": {
+        "visible": true,
+        "overflow": {
+          "left": 15.59375,
+          "right": 374.390625,
+          "top": 222,
+          "bottom": 622
+        },
+        "counter": "주술 폭풍 · 명령 · 사루만의 목소리직선에서 이탈 · Will 저항 · 우루크 지휘 차단",
+        "flight": 0
+      },
+      "ui": {
+        "tell": "다음 라운드 · 거대한 몸통 후려치기 / 주술 폭풍",
+        "overflow": false,
+        "broken": []
+      },
+      "result": {
+        "casts": 1,
+        "phase": "move",
+        "good": 6,
+        "pending": 3
+      }
+    },
+    {
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "stage": 15,
+      "selected": {
+        "phase": "move",
+        "id": "witchking_fellbeast",
+        "round": 1,
+        "units": 21,
+        "warnings": [
+          {
+            "label": "거대한 몸통 후려치기",
+            "shape": "circle",
+            "round": 2
+          },
+          {
+            "label": "거대한 몸통 후려치기",
+            "shape": "circle",
+            "round": 2
+          },
+          {
+            "label": "검은 다트",
+            "shape": "circle",
+            "round": 2
+          }
+        ],
+        "commanders": 1,
+        "flight": 0
+      },
+      "intro": {
+        "visible": true,
+        "overflow": {
+          "left": 15.59375,
+          "right": 374.390625,
+          "top": 222,
+          "bottom": 622
+        },
+        "counter": "검은 다트 · 의지 흡수 · 펠비스트 급강하습격 경로에서 이탈 · 영웅의 Will 보존",
+        "flight": 0
+      },
+      "ui": {
+        "tell": "다음 라운드 · 거대한 몸통 후려치기 / 검은 다트",
+        "overflow": false,
+        "broken": []
+      },
+      "result": {
+        "casts": 1,
+        "phase": "move",
+        "good": 6,
+        "pending": 3
+      }
+    },
+    {
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "stage": 20,
+      "selected": {
+        "phase": "move",
+        "id": "mouth_of_sauron",
+        "round": 1,
+        "units": 23,
+        "warnings": [
+          {
+            "label": "거대한 몸통 후려치기",
+            "shape": "circle",
+            "round": 2
+          },
+          {
+            "label": "나즈굴 1 · 급강하",
+            "shape": "lane",
+            "round": 2
+          },
+          {
+            "label": "절망의 말",
+            "shape": "circle",
+            "round": 2
+          }
+        ],
+        "commanders": 5,
+        "flight": 3
+      },
+      "intro": {
+        "visible": true,
+        "overflow": {
+          "left": 15.59375,
+          "right": 374.390625,
+          "top": 178.484375,
+          "bottom": 665.515625
+        },
+        "counter": "절망의 말 · 트롤 총공세Will 저항 · 지휘관과 트롤을 분리",
+        "flight": 3
+      },
+      "ui": {
+        "tell": "다음 라운드 · 거대한 몸통 후려치기 / 나즈굴 1 · 급강하 외 1개 · 적장 5기",
+        "overflow": false,
+        "broken": []
+      },
+      "result": {
+        "casts": 3,
+        "phase": "move",
+        "good": 6,
+        "pending": 1
+      }
+    },
+    {
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "stage": 35,
+      "selected": {
+        "phase": "move",
+        "id": "smaug",
+        "round": 1,
+        "units": 17,
+        "warnings": [
+          {
+            "label": "거대한 몸통 후려치기",
+            "shape": "circle",
+            "round": 2
+          },
+          {
+            "label": "거대한 몸통 후려치기",
+            "shape": "circle",
+            "round": 2
+          },
+          {
+            "label": "거대한 몸통 후려치기",
+            "shape": "circle",
+            "round": 2
+          },
+          {
+            "label": "거대한 몸통 후려치기",
+            "shape": "circle",
+            "round": 2
+          },
+          {
+            "label": "거대한 몸통 후려치기",
+            "shape": "circle",
+            "round": 2
+          },
+          {
+            "label": "용의 화염",
+            "shape": "cone",
+            "round": 2
+          }
+        ],
+        "commanders": 1,
+        "flight": 0
+      },
+      "intro": {
+        "visible": true,
+        "overflow": {
+          "left": 15.59375,
+          "right": 374.390625,
+          "top": 222,
+          "bottom": 622
+        },
+        "counter": "화염 부채꼴 · 꼬리 휩쓸기 · 비늘의 틈화염 옆으로 이동 · 브레스 직후 약점 사격",
+        "flight": 0
+      },
+      "ui": {
+        "tell": "다음 라운드 · 거대한 몸통 후려치기 / 용의 화염",
+        "overflow": false,
+        "broken": []
+      },
+      "result": {
+        "casts": 1,
+        "phase": "move",
+        "good": 5,
+        "pending": 5
+      }
+    },
+    {
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "stage": 40,
+      "selected": {
+        "phase": "move",
+        "id": "sauron",
+        "round": 1,
+        "units": 24,
+        "warnings": [
+          {
+            "label": "거대한 몸통 후려치기",
+            "shape": "circle",
+            "round": 2
+          },
+          {
+            "label": "거대한 몸통 후려치기",
+            "shape": "circle",
+            "round": 2
+          },
+          {
+            "label": "거대한 몸통 후려치기",
+            "shape": "circle",
+            "round": 2
+          },
+          {
+            "label": "어둠의 철퇴",
+            "shape": "circle",
+            "round": 2
+          }
+        ],
+        "commanders": 1,
+        "flight": 0
+      },
+      "intro": {
+        "visible": true,
+        "overflow": {
+          "left": 15.59375,
+          "right": 374.390625,
+          "top": 222,
+          "bottom": 622
+        },
+        "counter": "철퇴 휩쓸기 · 영혼 냉각 · 아홉 악령철퇴 범위에서 이탈 · Will 저항 · 악령 분산",
+        "flight": 0
+      },
+      "ui": {
+        "tell": "다음 라운드 · 거대한 몸통 후려치기 / 어둠의 철퇴",
+        "overflow": false,
+        "broken": []
+      },
+      "result": {
+        "casts": 1,
+        "phase": "move",
+        "good": 6,
+        "pending": 3
+      }
+    },
+    {
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "stage": 55,
+      "selected": {
+        "phase": "move",
+        "id": "ungoliant",
+        "round": 1,
+        "units": 28,
+        "warnings": [
+          {
+            "label": "거대한 몸통 후려치기",
+            "shape": "circle",
+            "round": 2
+          },
+          {
+            "label": "암흑의 거미줄",
+            "shape": "circle",
+            "round": 2
+          }
+        ],
+        "commanders": 1,
+        "flight": 0
+      },
+      "intro": {
+        "visible": true,
+        "overflow": {
+          "left": 15.59375,
+          "right": 374.390625,
+          "top": 222,
+          "bottom": 622
+        },
+        "counter": "암흑의 거미줄 · 탐식거미줄 이탈 · 포식 범위 밖에서 공격",
+        "flight": 0
+      },
+      "ui": {
+        "tell": "다음 라운드 · 거대한 몸통 후려치기 / 암흑의 거미줄",
+        "overflow": false,
+        "broken": []
+      },
+      "result": {
+        "casts": 2,
+        "phase": "move",
+        "good": 6,
+        "pending": 0
+      }
+    },
+    {
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "stage": 70,
+      "selected": {
+        "phase": "move",
+        "id": "morgoth",
+        "round": 1,
+        "units": 24,
+        "warnings": [
+          {
+            "label": "그론드의 균열",
+            "shape": "circle",
+            "round": 2
+          }
+        ],
+        "commanders": 1,
+        "flight": 0
+      },
+      "intro": {
+        "visible": true,
+        "overflow": {
+          "left": 14.434760093688965,
+          "right": 373.23163509368896,
+          "top": 222.4967041015625,
+          "bottom": 622.4967041015625
+        },
+        "counter": "그론드 · 암흑의 권능균열 이탈 · 공격 직후 다친 발 공략",
+        "flight": 0
+      },
+      "ui": {
+        "tell": "다음 라운드 · 그론드의 균열",
+        "overflow": false,
+        "broken": []
+      },
+      "result": {
+        "casts": 1,
+        "phase": "move",
+        "good": 4,
+        "pending": 0
+      }
+    }
+  ]
+}
