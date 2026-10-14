@@ -1202,7 +1202,7 @@
       "calibration": "2026-10-14 redraw: visually reviewed crown-to-boot body stature and torso center; swords, helmet crest, shield and cloak excluded",
       "centerReview": {
         "date": "2026-10-14",
-        "basis": "torso center",
+        "basis": "body",
         "source": "assets/mesbg/tokens/arwen.png",
         "excludes": [
           "weapons",
@@ -1217,15 +1217,20 @@
           "top": 0.0887,
           "bottom": 0.9416,
           "worldReferenceSize": 86,
-          "sourceSHA256": "76581a5b0906f8ebf3cd7db1efef7b701031cfef287c762184fb1a6a0d771225"
+          "sourceSHA256": "76581a5b0906f8ebf3cd7db1efef7b701031cfef287c762184fb1a6a0d771225",
+          "bodyClass": "human",
+          "reference": "body"
         },
         "candidate": {
           "top": 0.0541,
           "bottom": 0.9772
         },
+        "pinned": true,
         "applied": "reviewed-landmarks",
-        "reason": "explicit-creature-or-vehicle-anatomy"
-      }
+        "reason": "pinned-by-visual-review"
+      },
+      "bodyClass": "human",
+      "reference": "body"
     },
     {
       "id": "ashrak",
@@ -14696,7 +14701,7 @@
       },
       "centerReview": {
         "date": "2026-10-14",
-        "basis": "rider-and-horse-torso",
+        "basis": "rider-and-mount",
         "source": "assets/mesbg/tokens/harding_mounted.png",
         "excludes": [
           "bow",
@@ -14707,14 +14712,22 @@
         ]
       },
       "statureCalibration": {
-        "method": "visually-reviewed-redrawn-rider-20261014",
+        "method": "argon-anatomical-20261014",
         "reviewedReference": {
           "top": 0.1152,
           "bottom": 0.4074,
           "worldReferenceSize": 43,
-          "sourceSHA256": "43ad775e11c2d3ed52646592cff66dc06de764e9e9e174d45bc5218e90edbfab"
+          "sourceSHA256": "43ad775e11c2d3ed52646592cff66dc06de764e9e9e174d45bc5218e90edbfab",
+          "bodyClass": "human",
+          "reference": "rider"
         },
-        "applied": "reviewed-anatomy"
+        "candidate": {
+          "top": 0.2227,
+          "bottom": 0.4944
+        },
+        "pinned": true,
+        "applied": "reviewed-landmarks",
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -20393,7 +20406,7 @@
         "bodyMiddlePixels": 207
       },
       "statureCalibration": {
-        "method": "reference-redraw-20261014",
+        "method": "argon-anatomical-20261014",
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "body",
@@ -20402,8 +20415,13 @@
           "worldReferenceSize": 77,
           "sourceSHA256": "b95cb5b38110f65a47086f21f1583dd99fa32a654e9f83d1d17fad6b2a8f3345"
         },
+        "candidate": {
+          "top": 0.085,
+          "bottom": 0.99
+        },
+        "pinned": true,
         "applied": "reviewed-landmarks",
-        "reason": "replaced-raster-manually-reviewed"
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -21681,7 +21699,7 @@
       "calibration": "2026-10-14 redraw: visually reviewed crown-to-boot body stature and torso center; swords, helmet crest, shield and cloak excluded",
       "centerReview": {
         "date": "2026-10-14",
-        "basis": "torso center",
+        "basis": "body",
         "source": "assets/mesbg/tokens/orophin.png",
         "excludes": [
           "weapons",
@@ -21696,15 +21714,20 @@
           "top": 0.2233,
           "bottom": 0.9563,
           "worldReferenceSize": 86,
-          "sourceSHA256": "613a4056c3b5e542f712970adc0157c56e14d1eb0c6a3281bcfebd60763eaf8c"
+          "sourceSHA256": "613a4056c3b5e542f712970adc0157c56e14d1eb0c6a3281bcfebd60763eaf8c",
+          "bodyClass": "human",
+          "reference": "body"
         },
         "candidate": {
           "top": 0.5174,
           "bottom": 0.9748
         },
+        "pinned": true,
         "applied": "reviewed-landmarks",
-        "reason": "explicit-creature-or-vehicle-anatomy"
-      }
+        "reason": "pinned-by-visual-review"
+      },
+      "bodyClass": "human",
+      "reference": "body"
     },
     {
       "id": "osgiliath_veteran",
@@ -22926,7 +22949,7 @@
       "calibration": "2026-10-14 redraw: visually reviewed crown-to-boot body stature and torso center; swords, helmet crest, shield and cloak excluded",
       "centerReview": {
         "date": "2026-10-14",
-        "basis": "torso center",
+        "basis": "body",
         "source": "assets/mesbg/tokens/rumil.png",
         "excludes": [
           "weapons",
@@ -22941,15 +22964,20 @@
           "top": 0.1467,
           "bottom": 0.9556,
           "worldReferenceSize": 86,
-          "sourceSHA256": "f6ffc72b51aaa5093123550bc80f7e542094f30c1c463c4b78d8693c98820b2f"
+          "sourceSHA256": "f6ffc72b51aaa5093123550bc80f7e542094f30c1c463c4b78d8693c98820b2f",
+          "bodyClass": "human",
+          "reference": "body"
         },
         "candidate": {
           "top": 0.0371,
           "bottom": 0.99
         },
+        "pinned": true,
         "applied": "reviewed-landmarks",
-        "reason": "explicit-creature-or-vehicle-anatomy"
-      }
+        "reason": "pinned-by-visual-review"
+      },
+      "bodyClass": "human",
+      "reference": "body"
     },
     {
       "id": "samwise",

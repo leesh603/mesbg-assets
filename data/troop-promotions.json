@@ -1,0 +1,919 @@
+{
+  "version": 1,
+  "experience": {
+    "participation": 2,
+    "survival": 4,
+    "kill": 3,
+    "killCapPerBattle": 18
+  },
+  "thresholds": [
+    24,
+    64,
+    112
+  ],
+  "minimumBattles": [
+    3,
+    7,
+    11
+  ],
+  "aliases": {
+    "warrior_minas_tirith": "mt_swordshield",
+    "gondor_archer": "mt_bowman",
+    "orc_sword2": "orc_sword",
+    "orc_spear2": "orc_spearman",
+    "orc_bow": "orc_archer",
+    "uruk_swordshield2": "uruk_swordshield",
+    "uruk_berserker2": "uruk_berserker",
+    "haradrim_spearman": "haradrim_spear"
+  },
+  "groups": {
+    "gondor": [
+      "mt_swordshield",
+      "mt_spear",
+      "mt_spearshield",
+      "mt_bowman",
+      "osgiliath_veteran",
+      "osgiliath_spearshield",
+      "osgiliath_bow",
+      "mt_fountain_guard",
+      "citadel_guard",
+      "citadel_guard_bow",
+      "gondor_knight",
+      "ithilien_ranger",
+      "pelennor_militia",
+      "blackroot_archer",
+      "lossarnach_axeman"
+    ],
+    "dol_amroth": [
+      "dol_amroth_swordshield",
+      "dol_amroth_man_at_arms",
+      "dol_amroth_knight_foot",
+      "dol_amroth_knight"
+    ],
+    "rohan": [
+      "rohan_swordshield",
+      "rohan_spear",
+      "rohan_archer",
+      "rohan_rider",
+      "rohan_outrider",
+      "rohan_royal_guard",
+      "rohan_royal_guard_mounted",
+      "rohan_redshield",
+      "rohan_helmingas",
+      "rohan_yeoman",
+      "sons_of_eorl"
+    ],
+    "khazad_dum": [
+      "dwarf_guardian",
+      "dwarf_axeshield",
+      "dwarf_2haxe",
+      "dwarf_ranger",
+      "khazad_guard",
+      "iron_guard",
+      "vault_warden"
+    ],
+    "iron_hills": [
+      "ironhills_warrior",
+      "ironhills_spearshield",
+      "ironhills_crossbow",
+      "goat_rider"
+    ],
+    "rivendell": [
+      "elf_swordsman",
+      "elf_swordshield",
+      "elf_spear",
+      "elf_bow",
+      "elf_knight",
+      "elven_lancer"
+    ],
+    "lothlorien": [
+      "galadhrim_warrior",
+      "galadhrim_bow",
+      "galadhrim_elite_bow",
+      "galadhrim_knight"
+    ],
+    "mirkwood": [
+      "silvan_archer",
+      "mirkwood_ranger",
+      "mirkwood_sentinel",
+      "palace_guard",
+      "elf_glaive"
+    ],
+    "arnor": [
+      "arnor_warrior",
+      "arnor_archer",
+      "arnor_ranger",
+      "arnor_knight",
+      "ranger_north"
+    ],
+    "mordor": [
+      "orc_sword",
+      "orc_swordshield",
+      "orc_spearman",
+      "orc_twohanded",
+      "orc_archer",
+      "orc_tracker",
+      "orc_elite_tracker",
+      "morannon_orc",
+      "morannon_swordshield",
+      "warg_rider",
+      "mordor_uruk",
+      "black_guard",
+      "morgul_stalker",
+      "morgul_orc",
+      "morgul_rat",
+      "morgul_duellist"
+    ],
+    "mordor_numenoreans": [
+      "black_numenorean",
+      "black_numenorean_mounted",
+      "morgul_knight"
+    ],
+    "isengard": [
+      "uruk_scout",
+      "uruk_scout_archer",
+      "uruk_swordshield",
+      "uruk_pike",
+      "uruk_crossbow",
+      "uruk_berserker",
+      "uruk_sapper"
+    ],
+    "isengard_orcs": [
+      "warg_rider_spear",
+      "warg_rider_bow"
+    ],
+    "gundabad": [
+      "hunter_orc",
+      "gundabad_orc",
+      "gundabad_warg_rider"
+    ],
+    "moria": [
+      "moria_goblin",
+      "goblin_shield",
+      "goblin_spear",
+      "goblin_bow",
+      "goblin_prowler",
+      "goblin_mercenary"
+    ],
+    "harad": [
+      "haradrim_spear",
+      "haradrim_bow",
+      "haradrim_raider",
+      "serpent_guard",
+      "watcher_karna",
+      "abrakhan_guard"
+    ],
+    "far_harad": [
+      "mahud_raider",
+      "mahud_blowpipe",
+      "mahud_camel_raider",
+      "camel_rider"
+    ],
+    "umbar": [
+      "corsair_umbra",
+      "corsair_bosun",
+      "corsair_crossbowman"
+    ],
+    "easterling": [
+      "easterling_swordshield",
+      "easterling_phalanx",
+      "easterling_archer",
+      "easterling_kataphrakt",
+      "easterling_mounted_archer"
+    ],
+    "khand": [
+      "khandish_warrior",
+      "khandish_horseman",
+      "khandish_chariot",
+      "variag_warrior",
+      "variag_horseman"
+    ],
+    "dunland": [
+      "dunlending_warrior",
+      "dunlending_archer",
+      "dunlending_huscarl",
+      "dunlending_berserker",
+      "dunlending_horseman"
+    ],
+    "dale": [
+      "dale_warrior",
+      "esgaroth_archer",
+      "dale_guard"
+    ],
+    "shire": [
+      "hobbit_militia",
+      "hobbit_shirriff",
+      "hobbit_bounder"
+    ],
+    "dead": [
+      "dead_soldier",
+      "dead_spearman",
+      "dead_rider"
+    ],
+    "numenor": [
+      "numenorean_warrior",
+      "numenorean_spearman",
+      "numenorean_archer",
+      "numenorean_knight"
+    ],
+    "first_age": [
+      "noldor_warrior",
+      "doriath_warrior",
+      "falathrim_archer",
+      "nargothrond_ranger",
+      "edain_warrior",
+      "gondolin_guard"
+    ]
+  },
+  "edges": [
+    {
+      "from": "pelennor_militia",
+      "to": [
+        "mt_swordshield",
+        "mt_spearshield"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "mt_swordshield",
+      "to": [
+        "osgiliath_veteran"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "mt_spear",
+      "to": [
+        "osgiliath_spearshield"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "mt_spearshield",
+      "to": [
+        "osgiliath_spearshield"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "mt_bowman",
+      "to": [
+        "osgiliath_bow",
+        "ithilien_ranger"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "osgiliath_veteran",
+      "to": [
+        "mt_fountain_guard",
+        "citadel_guard",
+        "gondor_knight"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "osgiliath_spearshield",
+      "to": [
+        "mt_fountain_guard",
+        "citadel_guard",
+        "gondor_knight"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "osgiliath_bow",
+      "to": [
+        "citadel_guard_bow"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "ithilien_ranger",
+      "to": [
+        "citadel_guard_bow"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "dol_amroth_swordshield",
+      "to": [
+        "dol_amroth_man_at_arms"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "dol_amroth_man_at_arms",
+      "to": [
+        "dol_amroth_knight_foot",
+        "dol_amroth_knight"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "dol_amroth_knight_foot",
+      "to": [
+        "dol_amroth_knight"
+      ],
+      "tier": 3
+    },
+    {
+      "from": "rohan_swordshield",
+      "to": [
+        "rohan_rider",
+        "rohan_royal_guard",
+        "rohan_helmingas"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "rohan_spear",
+      "to": [
+        "rohan_rider",
+        "rohan_royal_guard",
+        "rohan_helmingas"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "rohan_yeoman",
+      "to": [
+        "rohan_royal_guard",
+        "rohan_rider"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "rohan_archer",
+      "to": [
+        "rohan_outrider"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "rohan_rider",
+      "to": [
+        "rohan_royal_guard_mounted",
+        "rohan_redshield"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "rohan_royal_guard",
+      "to": [
+        "rohan_royal_guard_mounted"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "dwarf_guardian",
+      "to": [
+        "khazad_guard",
+        "iron_guard"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "dwarf_axeshield",
+      "to": [
+        "khazad_guard",
+        "iron_guard",
+        "vault_warden"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "dwarf_2haxe",
+      "to": [
+        "khazad_guard",
+        "iron_guard"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "ironhills_warrior",
+      "to": [
+        "ironhills_spearshield",
+        "ironhills_crossbow"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "ironhills_spearshield",
+      "to": [
+        "goat_rider"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "ironhills_crossbow",
+      "to": [
+        "goat_rider"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "elf_swordsman",
+      "to": [
+        "elf_swordshield",
+        "elf_spear"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "elf_swordshield",
+      "to": [
+        "elf_knight"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "elf_spear",
+      "to": [
+        "elven_lancer"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "elf_bow",
+      "to": [
+        "elf_knight"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "galadhrim_warrior",
+      "to": [
+        "galadhrim_bow",
+        "galadhrim_knight"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "galadhrim_bow",
+      "to": [
+        "galadhrim_elite_bow",
+        "galadhrim_knight"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "silvan_archer",
+      "to": [
+        "mirkwood_ranger"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "mirkwood_ranger",
+      "to": [
+        "palace_guard"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "elf_glaive",
+      "to": [
+        "palace_guard"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "mirkwood_sentinel",
+      "to": [
+        "palace_guard"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "arnor_warrior",
+      "to": [
+        "arnor_knight",
+        "arnor_ranger"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "arnor_archer",
+      "to": [
+        "arnor_ranger"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "orc_sword",
+      "to": [
+        "morannon_swordshield",
+        "warg_rider"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "orc_swordshield",
+      "to": [
+        "morannon_swordshield",
+        "warg_rider"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "orc_spearman",
+      "to": [
+        "morannon_orc",
+        "warg_rider"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "orc_twohanded",
+      "to": [
+        "morannon_swordshield"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "orc_archer",
+      "to": [
+        "orc_tracker"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "orc_tracker",
+      "to": [
+        "orc_elite_tracker"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "mordor_uruk",
+      "to": [
+        "black_guard"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "morgul_orc",
+      "to": [
+        "morannon_swordshield",
+        "morgul_stalker"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "morgul_rat",
+      "to": [
+        "morgul_stalker"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "black_numenorean",
+      "to": [
+        "black_numenorean_mounted",
+        "morgul_knight"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "uruk_scout",
+      "to": [
+        "uruk_swordshield",
+        "uruk_pike",
+        "uruk_berserker"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "uruk_scout_archer",
+      "to": [
+        "uruk_crossbow"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "uruk_swordshield",
+      "to": [
+        "uruk_berserker"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "hunter_orc",
+      "to": [
+        "gundabad_orc",
+        "gundabad_warg_rider"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "gundabad_orc",
+      "to": [
+        "gundabad_warg_rider"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "moria_goblin",
+      "to": [
+        "goblin_shield",
+        "goblin_spear",
+        "goblin_prowler"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "goblin_shield",
+      "to": [
+        "goblin_prowler"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "goblin_spear",
+      "to": [
+        "goblin_prowler"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "haradrim_spear",
+      "to": [
+        "serpent_guard",
+        "haradrim_raider",
+        "abrakhan_guard"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "haradrim_bow",
+      "to": [
+        "watcher_karna",
+        "haradrim_raider"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "mahud_raider",
+      "to": [
+        "mahud_camel_raider"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "corsair_umbra",
+      "to": [
+        "corsair_bosun",
+        "corsair_crossbowman"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "easterling_swordshield",
+      "to": [
+        "easterling_phalanx",
+        "easterling_kataphrakt"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "easterling_archer",
+      "to": [
+        "easterling_mounted_archer"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "khandish_warrior",
+      "to": [
+        "khandish_horseman"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "variag_warrior",
+      "to": [
+        "variag_horseman"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "dunlending_warrior",
+      "to": [
+        "dunlending_huscarl",
+        "dunlending_berserker",
+        "dunlending_horseman"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "dunlending_archer",
+      "to": [
+        "dunlending_huscarl"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "dale_warrior",
+      "to": [
+        "dale_guard"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "hobbit_militia",
+      "to": [
+        "hobbit_shirriff",
+        "hobbit_bounder"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "dead_soldier",
+      "to": [
+        "dead_spearman",
+        "dead_rider"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "numenorean_warrior",
+      "to": [
+        "numenorean_spearman",
+        "numenorean_knight"
+      ],
+      "tier": 2
+    }
+  ],
+  "mounts": {
+    "gondor_knight": {
+      "foot": "mt_swordshield",
+      "kind": "horse"
+    },
+    "dol_amroth_knight": {
+      "foot": "dol_amroth_knight_foot",
+      "kind": "horse"
+    },
+    "rohan_rider": {
+      "foot": "rohan_spear",
+      "kind": "horse"
+    },
+    "rohan_outrider": {
+      "foot": "rohan_archer",
+      "kind": "horse"
+    },
+    "rohan_royal_guard_mounted": {
+      "foot": "rohan_royal_guard",
+      "kind": "horse"
+    },
+    "rohan_redshield": {
+      "foot": "rohan_swordshield",
+      "kind": "horse"
+    },
+    "goat_rider": {
+      "foot": "ironhills_spearshield",
+      "kind": "goat"
+    },
+    "elf_knight": {
+      "foot": "elf_swordshield",
+      "kind": "horse"
+    },
+    "elven_lancer": {
+      "foot": "elf_spear",
+      "kind": "horse"
+    },
+    "galadhrim_knight": {
+      "foot": "galadhrim_warrior",
+      "kind": "horse"
+    },
+    "arnor_knight": {
+      "foot": "arnor_warrior",
+      "kind": "horse"
+    },
+    "warg_rider": {
+      "foot": "orc_spearman",
+      "kind": "warg"
+    },
+    "black_numenorean_mounted": {
+      "foot": "black_numenorean",
+      "kind": "horse"
+    },
+    "morgul_knight": {
+      "foot": "black_numenorean",
+      "kind": "horse"
+    },
+    "warg_rider_spear": {
+      "foot": "orc_spearman",
+      "kind": "warg"
+    },
+    "warg_rider_bow": {
+      "foot": "orc_archer",
+      "kind": "warg"
+    },
+    "gundabad_warg_rider": {
+      "foot": "gundabad_orc",
+      "kind": "warg"
+    },
+    "haradrim_raider": {
+      "foot": "haradrim_spear",
+      "kind": "horse"
+    },
+    "mahud_camel_raider": {
+      "foot": "mahud_raider",
+      "kind": "camel"
+    },
+    "camel_rider": {
+      "foot": "mahud_raider",
+      "kind": "camel"
+    },
+    "easterling_kataphrakt": {
+      "foot": "easterling_swordshield",
+      "kind": "horse"
+    },
+    "easterling_mounted_archer": {
+      "foot": "easterling_archer",
+      "kind": "horse"
+    },
+    "khandish_horseman": {
+      "foot": "khandish_warrior",
+      "kind": "horse"
+    },
+    "khandish_chariot": {
+      "foot": "khandish_warrior",
+      "kind": "chariot"
+    },
+    "variag_horseman": {
+      "foot": "variag_warrior",
+      "kind": "horse"
+    },
+    "dunlending_horseman": {
+      "foot": "dunlending_warrior",
+      "kind": "horse"
+    },
+    "dead_rider": {
+      "foot": "dead_soldier",
+      "kind": "spectral"
+    },
+    "numenorean_knight": {
+      "foot": "numenorean_warrior",
+      "kind": "horse"
+    }
+  },
+  "gates": {
+    "rohan_helmingas": {
+      "hero": "grimbold",
+      "wave": 5,
+      "label": "그림볼드 합류 · 공세 5"
+    },
+    "rohan_redshield": {
+      "hero": "erkenbrand",
+      "wave": 7,
+      "label": "에르켄브란드 합류 · 공세 7"
+    },
+    "sons_of_eorl": {
+      "relic": "silmaril",
+      "label": "실마릴 · 에오를 시대"
+    },
+    "numenorean_warrior": {
+      "relic": "silmaril",
+      "label": "실마릴 · 제2시대"
+    },
+    "numenorean_spearman": {
+      "relic": "silmaril",
+      "label": "실마릴 · 제2시대"
+    },
+    "numenorean_archer": {
+      "relic": "silmaril",
+      "label": "실마릴 · 제2시대"
+    },
+    "numenorean_knight": {
+      "relic": "silmaril",
+      "label": "실마릴 · 제2시대"
+    },
+    "noldor_warrior": {
+      "relic": "silmaril",
+      "label": "실마릴 · 제1시대"
+    },
+    "doriath_warrior": {
+      "relic": "silmaril",
+      "label": "실마릴 · 제1시대"
+    },
+    "falathrim_archer": {
+      "relic": "silmaril",
+      "label": "실마릴 · 제1시대"
+    },
+    "nargothrond_ranger": {
+      "relic": "silmaril",
+      "label": "실마릴 · 제1시대"
+    },
+    "edain_warrior": {
+      "relic": "silmaril",
+      "label": "실마릴 · 제1시대"
+    },
+    "gondolin_guard": {
+      "relic": "silmaril",
+      "label": "실마릴 · 제1시대"
+    }
+  },
+  "sourcePolicy": "Existing verified 2024 point table retained. New configurations without a verified 2024 book value use explicit custom estimates even when the troop itself is official. Legacy upgrades are identified separately. No cross-species or cross-kingdom elf promotions."
+}

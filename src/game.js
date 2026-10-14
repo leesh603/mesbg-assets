@@ -174,15 +174,8 @@ Ae=[{id:"warrior_minas_tirith",name_ko:"미나스 티리스 전사",name_en:"War
         b.veteranXP++;
             if (b.traits.includes('hero') && !b._questDone && typeof HERO_QUESTS !== 'undefined' && HERO_QUESTS[b.id] && HERO_QUESTS[b.id].need === 0) { b._questDone = true; _questGrant(this, b); this.emit('Event', '◆ 임무 달성 — ' + b.name + '의 ' + HERO_QUESTS[b.id].label.split(' — ')[0]); }
             
-        if (!b.traits.includes("hero") && !b.traits.includes("veteran") && (b.veteranXP || 0) >= 6) {
-            b.traits.push("veteran"); b.baseStats.fight = (b.baseStats.fight || 0) + 1; b.baseStats.defence = (b.baseStats.defence || 0) + 1; this.refreshUnit(b);
-            this.emit("Event", "★ " + b.name + " 생존 승급 · 베테랑 (결투 +1 Defense +1)");
-            this.unlockAch("promoted");
-        }
-        if (!b.traits.includes("hero") && b.traits.includes("veteran") && !b.traits.includes("champion") && (b.veteranXP || 0) >= 12) {
-            b.traits.push("champion"); b.baseStats.courage = (b.baseStats.courage || 0) + 2; b.baseStats.attacks = (b.baseStats.attacks || 1) + 1; this.refreshUnit(b);
-            this.emit("Event", "★★ " + b.name + " 챔피언 승급 · 공격 +1 용기 +2");
-        }
+        // Troop promotions are chosen after combat; no automatic stat stacking.
+
     } if (this.phase = "reward", this.selected = ((Y = this.alive("good")[0]) == null ? void 0 : Y.uid) || "", this.chosenReward = "", this.rewardChoices = jt.filter(b => !(b.id === "volley" && this.freeVolley) && !(b.id === "hold" && this.steadfast)).map(b => b.id).map(b => ({ id: b, key: this.rng() })).sort((b, H) => b.key - H.key).slice(0, 3).map(b => b.id), this.emit("WaveEnded", `Wave ${this.wave} Defense 성공 · 생존자 ${this.alive("good").length}명`), this.wave === 2) {
         const b = kt[Math.floor(this.rng() * kt.length)];
         this.eventId = b.id, b.id === "broken" && (this.terrain.find(H => H.id === "barricade-l").active = !1), b.id === "morale" && (this.bonusCP += 2), this.emit("Event", b.name + " — " + b.text);
@@ -1827,6 +1820,7 @@ P.refreshUnit = function (u) {
     if (!u.baseStats)
         return;
     u.stats = structuredClone(u.baseStats);
+    if (u._bossWeakUntil >= this.round && u.side === 'evil') u.stats.defence = Math.max(1, u.stats.defence - 2);
     if (u.side === 'good') {
         if (u.traits.includes('mounted'))
             u.stats.move += 45 * this.rank('horseshoe');
@@ -2189,15 +2183,8 @@ P._trkKill = function (k, v) {
         if (k.side === 'good' && k.traits.includes('hero') && !k._questDone && typeof HERO_QUESTS !== 'undefined' && HERO_QUESTS[k.id] && HERO_QUESTS[k.id].need > 0 && k._stageKills >= HERO_QUESTS[k.id].need) { k._questDone = true; _questGrant(this, k); this.emit('Event', '◆ 임무 달성 — ' + k.name + '의 ' + HERO_QUESTS[k.id].label.split(' — ')[0]); }
         if (v.id === 'orc_captain' || v.id === 'goblin_king') { let _n = 0; for (const e2 of this.alive('evil')) { if (ht(e2, v) <= 520 && !e2.traits.includes('boss') && !e2.traits.includes('hero')) { e2.baseStats.courage = Math.max(0, (e2.baseStats.courage || 0) - 1); this.refreshUnit(e2); _n++; } } if (_n) this.emit('Event', '💀 지휘관 전사 — 주변 적 ' + _n + '기 용기 −1'); }
         [3, 5, 8].includes(k._stageKills) && this.emit('Event', `⚔ ${k.name} 연속 처치 ×${k._stageKills}`);
-        if (!k.traits.includes('hero') && !k.traits.includes('veteran') && (k.veteranXP || 0) >= 6) {
-            k.traits.push('veteran'); k.baseStats.fight = (k.baseStats.fight || 0) + 1; k.baseStats.defence = (k.baseStats.defence || 0) + 1; this.refreshUnit(k);
-            this.emit('Event', `★ ${k.name} 베테랑 승급 · 결투 +1 Defense +1`);
-            this.unlockAch('promoted');
-        }
-        if (!k.traits.includes('hero') && k.traits.includes('veteran') && !k.traits.includes('champion') && (k.veteranXP || 0) >= 12) {
-            k.traits.push('champion'); k.baseStats.courage = (k.baseStats.courage || 0) + 2; k.baseStats.attacks = (k.baseStats.attacks || 1) + 1; this.refreshUnit(k);
-            this.emit('Event', `★★ ${k.name} 챔피언 승급 · 공격 +1 용기 +2`);
-        }
+        // Troop promotions are chosen after combat; no automatic stat stacking.
+
     }
     if (v.side === 'good') this.stageDeaths = (this.stageDeaths || 0) + 1;
     if (this.bonusObjective && !this._bonusDone && ['volley','rout','trapper_obj','elite_hunter','headsman'].includes(this.bonusObjective.id) && this.bonusObjective.test(this)) {
@@ -2269,7 +2256,7 @@ P.startWave = function () {
     if (this.current.modifier === 'ambush')
         this.alive('evil').filter(u => !u.lair && !u.static).forEach((u, i) => { u.x = i % 2 ? 260 + (i % 4) * 140 : 1960 - (i % 4) * 140; u.y = 560 + Math.floor(i / 8) * 160; });
         this._separateUnits(this.alive('evil'));
-    this.commander = this.alive('evil').find(u => u.id === this.current.boss)?.uid || this.alive('evil').filter(u => u.traits.includes('hero')).at(-1)?.uid; this.commanders = (this.current.bossAll || []).map(id => this.alive('evil').find(u => u.id === id)?.uid).filter(Boolean); if (!this.commanders.length && this.commander) this.commanders = [this.commander];
+    this.commander = this.alive('evil').find(u => u.id === this.current.boss)?.uid || this.alive('evil').filter(u => u.traits.includes('hero')).at(-1)?.uid; this.commanders = this.alive('evil').filter(u => (this.current.bossAll || []).includes(u.id)).map(u => u.uid); if (!this.commanders.length && this.commander) this.commanders = [this.commander];
     if (this.challenge === 'dark_horde')
         this.spawnEnemies((this.wave > 8 ? ['uruk_berserker', 'warg_rider'] : this.wave > 4 ? ['uruk_berserker', 'orc_sword'] : ['orc_sword', 'moria_goblin']).filter(id => this.meta.has(id)));
     if (this.challenge === 'reinforce' || this.challenge === 'onslaught')
@@ -2411,6 +2398,7 @@ P.spawnEnemies = function (ids) {
         this.refreshUnit(u);
     }
     this._separateUnits(this.alive('evil'));
+    if (this.current?.bossAll) this.commanders = this.alive('evil').filter(u => this.current.bossAll.includes(u.id)).map(u => u.uid);
 };
 P.beginRound = function () {
     if (this.checkRun())
@@ -2519,7 +2507,7 @@ P.beginRound = function () {
         const _h = this.alive('good').find(u => u.traits.includes('hero') && u.currentWounds === 1 && this.engaged(u));
         if (_h) { this._crisisWarned = true; this.emit('Event', '⚠ ' + _h.name + ' 위기 — 상처 1, 교전 중. 즉시 지원 권장'); }
     }
-    for (const boss of this.alive('evil').filter(u => u.traits.includes('boss')))
+    for (const boss of this.alive('evil').filter(u => u.traits.includes('boss') || BOSS_TACTICS[u.id]))
         this.bossTurn(boss);
     // 나즈굴 특수스킬 — 공포의 발자취: 반경 내 아군 용기 검사, 실패 시 도주
     let _fled = 0;
@@ -2543,150 +2531,180 @@ P.beginRound = function () {
         { v.roundBuff.defence = (v.roundBuff.defence || 0) + 1; this.refreshUnit(v); }
     if (['move', 'shoot'].includes(this.phase)) this.advance();
 };
+// Authored boss encounters: turn-based adaptations of lore/MESBG, not book profiles.
+// Warnings are saveable snapshots: a full player round precedes every damaging pattern.
+const BOSS_TACTICS = {
+    war_troll: ['진형 파괴자', '몸통 후려치기 · 투척', '붉은 원에서 이탈 · 투척 경로 옆으로 이동'],
+    cave_troll: ['동굴의 괴수', '후려치기 · 밀쳐내기', '밀집을 풀고 측면에서 돌격'],
+    saruman: ['오르상크의 주술사', '주술 폭풍 · 명령 · 사루만의 목소리', '직선에서 이탈 · Will 저항 · 우루크 지휘 차단'],
+    witchking_fellbeast: ['나즈굴의 군주', '검은 다트 · 의지 흡수 · 펠비스트 급강하', '습격 경로에서 이탈 · 영웅의 Will 보존'],
+    nazgul_fellbeast: ['검은문의 날개', '교대 급강하 · 몸통 투척', '세 기의 경로를 확인 · 전열 분산'],
+    mouth_of_sauron: ['모란논의 사절', '절망의 말 · 트롤 총공세', 'Will 저항 · 지휘관과 트롤을 분리'],
+    goblin_king: ['고블린 도시의 왕', '고블린 소집 · 거대한 몸통 강타', '소집 차단 · 강타 후 측면 공격'],
+    azog: ['창백한 오크', '결투 지목 · 잔혹한 돌진', '지목된 영웅 이동 · 창병으로 지원'],
+    smaug: ['외로운 산의 용', '화염 부채꼴 · 꼬리 휩쓸기 · 비늘의 틈', '화염 옆으로 이동 · 브레스 직후 약점 사격'],
+    sauron: ['어둠의 군주', '철퇴 휩쓸기 · 영혼 냉각 · 아홉 악령', '철퇴 범위에서 이탈 · Will 저항 · 악령 분산'],
+    glaurung: ['용의 아버지', '용의 눈 · 화염 부채꼴', '시선에 Will 저항 · 화염 측면으로 이동'],
+    scatha: ['북방의 용', '화염 부채꼴 · 꼬리 강타', '날개 없는 용의 측면을 공략'],
+    carcharoth: ['실마릴을 삼킨 늑대', '광란의 돌진 · 불타는 아귀', '돌진 경로에서 이탈 · 포위 유지'],
+    ungoliant: ['빛을 삼키는 자', '암흑의 거미줄 · 탐식', '거미줄 이탈 · 포식 범위 밖에서 공격'],
+    balrog: ['두린의 파멸', '화염 채찍 · 우둔의 불꽃', '채찍 경로 이탈 · 불꽃 범위에서 후퇴'],
+    gothmog_balrog: ['발록의 왕', '화염 채찍 · 검은 도끼 · 발록 지휘', '채찍 회피 · 발록의 협공 분리'],
+    ancalagon: ['분노의 전쟁', '용화 · 날개 돌풍', '부채꼴 측면으로 분산 · 착지 충격 이탈'],
+    morgoth: ['세계의 첫 어둠', '그론드 · 암흑의 권능', '균열 이탈 · 공격 직후 다친 발 공략']
+};
+P.bossAreaContains = function (a, v) {
+    const r = v.radius || 0;
+    if (a.shape === 'lane') {
+        const dx=a.tx-a.ox,dy=a.ty-a.oy,ll=dx*dx+dy*dy;
+        const t=Math.max(0,Math.min(1,((v.x-a.ox)*dx+(v.y-a.oy)*dy)/(ll||1)));
+        return Math.hypot(v.x-a.ox-t*dx,v.y-a.oy-t*dy)<=a.width+r;
+    }
+    if (a.shape === 'cone') {
+        const d=Math.hypot(v.x-a.ox,v.y-a.oy);
+        const diff=Math.atan2(Math.sin(Math.atan2(v.y-a.oy,v.x-a.ox)-a.angle),Math.cos(Math.atan2(v.y-a.oy,v.x-a.ox)-a.angle));
+        return d<=a.length+r && (d<=r || Math.abs(diff)<=a.half+Math.asin(Math.min(1,r/d)));
+    }
+    return ht(v,a)<=a.radius+r;
+};
+P.bossEscape = function (u) {
+    const zones=(this.warnings||[]).filter(a=>this.unit(a.src)?.alive&&(!a.targetOnly||a.target===u.uid));
+    const danger=p=>zones.some(a=>this.bossAreaContains(a,{...u,...p}));
+    if(!danger(u)||this.engaged(u)||this.remaining(u)<12)return null;
+    const all=this.alive(),budget=this.remaining(u),options=[];
+    for(const amount of [budget*.5,budget*.8,budget])for(let i=0;i<16;i++){
+        const angle=i*Math.PI/8,p={x:u.x+Math.cos(angle)*amount,y:u.y+Math.sin(angle)*amount};
+        if(!danger(p)&&Et(u,p,all,this.terrain))options.push(p);
+    }
+    for(const p of options.sort((a,b)=>ht(u,a)-ht(u,b)).slice(0,12)){const plan=ve(u,p,all,this.terrain,budget,{snap:false});if(plan&&!danger(plan.to))return plan.to;}
+    return null;
+};
+P.bossResist = function (u,v,a) {
+    if(!a.magic)return false;
+    // Use the game's existing one-Will, 4+ resistance convention.
+    if((v.resources?.will||0)>0){v.resources.will--;if(Lt(this.rng)>=4){this.emit('Saved',v.name+' · Will 저항',{uid:v.uid,at:v});return true;}}
+    return false;
+};
+P.bossCourage = function (u,v) {
+    if(v.fearless||v.traits.includes('fearless')||v.protected)return true;
+    const leader=this.alive(v.side).some(x=>x!==v&&x.traits.includes('commander')&&ht(x,v)<135);
+    const score=Lt(this.rng)+Lt(this.rng)+v.stats.courage+(leader?1:0);
+    if(score>=10)return true;
+    v.feared=true;this.emit('Terror',v.name+' · 용기 검사 실패',{uid:v.uid,at:v});return false;
+};
+P.bossStrike = function (u,v,a) {
+    if(!u.alive||!v.alive)return false;
+    const roll=Lt(this.rng),needed=v.heroicDef?6:oe(a.strength||6,v.stats.defence);
+    const result=ce('skill',[u,v],u.side);
+    result.strikeResults.push({attacker:u.uid,target:v.uid,roll,needed,wound:roll>=needed,killed:roll>=needed&&v.currentWounds<=1});
+    this.applyCombat(result);this.emit('SkillResolved',undefined,{result});
+    if(v.alive&&a.prone&&!v.traits.includes('monster'))v.prone=true;
+    if(v.alive&&a.push){const from={x:v.x,y:v.y},p=De(v,[{x:a.ox??u.x,y:a.oy??u.y}],this.alive(),this.terrain,a.push);Object.assign(v,p.to);this.emit('UnitMoved',undefined,{uid:v.uid,from,to:p.to});}
+    return result.strikeResults.some(s=>s.wound);
+};
+P.resolveBossPattern = function (u,a) {
+    const from={x:a.ox??u.x,y:a.oy??u.y};
+    this.emit('BossCast',undefined,{uid:u.uid,fx:a.fx||'strike',at:a,from});
+    let targets=this.alive(a.friendlyFire?undefined:'good').filter(v=>v!==u&&!v.static&&!v.lair&&this.bossAreaContains(a,v));
+    if(a.targetOnly)targets=targets.filter(v=>v.uid===a.target);
+    let fed=0;
+    for(const v of targets){
+        if(a.fire&&(v.id==='smaug'||v.id==='balrog'||v.id==='gothmog_balrog'))continue;
+        if(a.los&&_t(from,v,this.terrain)==='blocked')continue;
+        if(this.bossResist(u,v,a))continue;
+        if(a.effect==='fear'){this.bossCourage(u,v);continue;}
+        if(a.effect==='transfix'){v.roundBuff.move=(v.roundBuff.move||0)-135;v.roundBuff.fight=(v.roundBuff.fight||0)-1;this.refreshUnit(v);this.bossCourage(u,v);continue;}
+        if(a.effect==='drain'){v.resources.will=Math.max(0,(v.resources.will||0)-2);v.roundBuff.courage=(v.roundBuff.courage||0)-1;this.refreshUnit(v);continue;}
+        if(a.effect==='web'){v.roundBuff.move=(v.roundBuff.move||0)-135;this.refreshUnit(v);continue;}
+        if(this.bossStrike(u,v,a))fed++;
+    }
+    if(a.effect==='devour'&&fed)u.currentWounds=Math.min(u.stats.wounds,u.currentWounds+1);
+    if(a.landing){
+        const fromPos={x:u.x,y:u.y},target={x:a.tx??a.x,y:a.ty??a.y};
+        const distance=Math.hypot(target.x-u.x,target.y-u.y),step=distance>0?Math.min(1,180/distance):0;
+        const destination={x:u.x+(target.x-u.x)*step,y:u.y+(target.y-u.y)*step};
+        const p=Be(u,destination,this.alive(),this.terrain,180);
+        if(p){Object.assign(u,p);this.emit('UnitMoved',undefined,{uid:u.uid,from:fromPos,to:p});}
+    }
+    if(a.weak){u._bossWeakUntil=this.round;this.refreshUnit(u);this.emit('BossImpact',u.id==='morgoth'?'그론드가 박혔다 · 다친 발 노출':'브레스가 끝났다 · 비늘의 틈 노출',{uid:u.uid,at:u});}
+    this.emit('BossImpact',a.label,{uid:u.uid,at:a});
+    if(a.burning){this.warnings.push({...a,burning:false,weak:false,kind:'embers',round:this.round+1,strength:3,prone:false,push:0,label:'남은 화염',fx:'breath'});}
+};
 P.bossTurn = function (u) {
-    const ratio = u.currentWounds / u.stats.wounds;
-    const phase = u.currentWounds <= Math.ceil(u.stats.wounds * .33) ? 3 : u.currentWounds <= Math.ceil(u.stats.wounds * .66) ? 2 : 1;
-    if (phase > u.bossPhase) {
-        u.bossPhase = phase;
-        u.baseStats.attacks += 1;
-        if (phase === 3)
-            u.baseStats.move += 45;
-        this.refreshUnit(u);
-        this.emit('BossPhase', `${u.name} · ${phase}단계 — 격노 (Attack +1${phase === 3 ? ' · 이동력 상승' : ''})`);
-        if (phase === 2 && this.alive('evil').length < 24)
-            this.spawnEnemies(['orc_sword', 'uruk_berserker']);
-    }
-    // 경고 구역 공통 해결 — src가 이 보스인 경고만 처리 (죽은 보스의 경고는 폐기)
-    if (this.warnings.length) {
-        this.warnings = this.warnings.filter(a => { const s = a.src && this.unit(a.src); return !a.src || (s && s.alive); });
-        const mine = this.warnings.filter(a => a.src === u.uid), rest = this.warnings.filter(a => a.src !== u.uid);
-        for (const area of mine) {
-            this.emit('BossCast', undefined, { fx: area.fx || 'strike', at: area });
-            for (const v of this.alive('good').filter(v => ht(v, area) < area.radius + v.radius)) {
-                this.inflict(u, v, area.dmg || 1);
-                this.emit('BossImpact', area.label || '보스의 일격', { uid: v.uid, at: area });
-            }
-            area.prone && this.alive('good').filter(v => ht(v, area) < area.radius + v.radius).forEach(v => v.prone = true);
-        }
-        this.warnings = rest;
-    }
-    if (u.id === 'morgoth') {
-        const targets = this.alive('good').sort((a, b) => b.stats.attacks - a.stats.attacks).slice(0, phase);
-        this.warnings.push(...targets.map(v => ({ x: v.x, y: v.y, radius: 130, round: this.round + 1, src: u.uid, label: '그론드의 충격', fx: 'crack', dmg: 1 + Number(phase === 3) })));
-        this.emit('BossWarning', '그론드가 내리칩니다. 다음 라운드 전에 붉은 균열에서 벗어나세요.');
-    }
-    else if (u.id === 'saruman') {
-        if (this.round % 3 === 0) {
-            const targets = this.alive('good').slice().sort(() => this.rng() - .5).slice(0, 3);
-            this.warnings.push(...targets.map(v => ({ x: v.x, y: v.y, radius: 150, round: this.round + 1, src: u.uid, label: '번개 폭풍', fx: 'lightning', dmg: 1, prone: true })));
-            this.emit('BossWarning', '사루만이 폭풍을 부립니다 — 표시된 자리에서 벗어나세요.');
-        }
-    }
-    else if (u.id === 'balrog' || u.id === 'gothmog_balrog') {
-        if (this.round % 4 === 0) {
-            const targets = this.alive('good').slice().sort(() => this.rng() - .5).slice(0, 2);
-            this.warnings.push(...targets.map(v => ({ x: v.x, y: v.y, radius: 165, round: this.round + 1, src: u.uid, label: '메테오', fx: 'meteor', dmg: phase >= 3 ? 2 : 1 })));
-            this.emit('BossWarning', '불의 유성이 떨어집니다 — 표시된 자리에서 벗어나세요.');
-        } else if (this.round % 2 === 0) {
-            const target = this.alive('good').filter(v => ht(v, u) < 500).sort((a, b) => ht(a, u) - ht(b, u))[0];
-            if (target) { this.emit('BossCast', undefined, { fx: 'whip', at: target, from: { x: u.x, y: u.y } }); this.inflict(u, target, 1); this.emit('BossImpact', (u.id === 'gothmog_balrog' ? '고스모그' : '발록') + '의 화염 채찍', { uid: target.uid, at: target }); }
-        }
-    }
-    else if (u.id === 'witchking_fellbeast' || u.id === 'nazgul_fellbeast') {
-        if (this.round % 5 === 0 && u.id === 'witchking_fellbeast') {
-            const cand = this.alive('good').filter(v => !v.traits.includes('hero') && !v._dominated);
-            if (cand.length && this.alive('good').length > 1) {
-                const t = cand[Math.floor(this.rng() * cand.length)];
-                t._dominated = true; t.side = 'evil'; t.acted = false;
-                this.emit('BossCast', undefined, { fx: 'dominate', at: t });
-                this.emit('BossImpact', '마술사왕의 지배 — ' + t.name + '이(가) 조종당합니다', { uid: t.uid, at: t });
-            }
-        } else if (this.round % 3 === 0) {
-            const t = this.alive('good').sort((a, b) => a.currentWounds - b.currentWounds || a.stats.defence - b.stats.defence || ht(a, u) - ht(b, u))[0];
-            if (t) {
-                const from = { x: u.x, y: u.y };
-                Object.assign(u, ue(u, t));
-                this.emit('UnitMoved', undefined, { uid: u.uid, from, to: { x: u.x, y: u.y } });
-                this.emit('BossCast', undefined, { fx: 'dive', at: t, from });
-                this.inflict(u, t, t.currentWounds <= 2 ? 2 : 1);
-                t.prone = true;
-                this.emit('BossImpact', '펠비스트 급강하 돌진 — 약한 적을 노립니다', { uid: t.uid, at: t });
-            }
-        }
-    }
-    else if (u.id === 'goblin_king') {
-        if (this.round % 2 === 0 && this.alive('evil').length < 26) {
-            this.spawnEnemies(['moria_goblin', 'moria_goblin', 'moria_goblin']);
-            this.emit('BossCast', undefined, { fx: 'dominate', at: u });
-            this.emit('BossImpact', '고블린 왕의 부름 — 고블린 무리가 쏟아져 나옵니다', { uid: u.uid, at: u });
-        }
-    }
-    else if (u.id === 'ungoliant' && this.round % 3 === 0) {
-        const t = this.alive('good').filter(v => ht(v, u) < 420).sort((a, b) => ht(a, u) - ht(b, u))[0];
-        if (t) { this.inflict(u, t, 1); this.emit('BossImpact', '암흑의 포식', { uid: t.uid, at: t }); }
-        if (this.alive('evil').length < 24) this.spawnEnemies(['moria_goblin', 'moria_goblin']);
-    }
-    else if (u.id === 'sauron') {
-        if (!u._ringSummon && u.currentWounds <= Math.ceil(u.stats.wounds * .5)) {
-            u._ringSummon = true;
-            this.emit('BossCast', undefined, { fx: 'dominate', at: u });
-            let n = 0;
-            const nazIds = ['nazgul_sword', 'nazgul_sword_2', 'nazgul_mace'].filter(id => this.meta.has(id));
-            for (let i = 0; i < 9 && nazIds.length; i++) {
-                const nu = this.spawn(nazIds[i % nazIds.length], 'evil', { x: u.x, y: u.y });
-                let placed = false;
-                for (let ring = 150; ring <= 400 && !placed; ring += 62)
-                    for (let k = 0; k < 14 && !placed; k++) {
-                        const a = (Math.PI * 2 * i / 9) + (k % 2 ? .45 : -.45) * Math.floor(k / 2);
-                        const p = { x: Math.min(2240, Math.max(90, u.x + Math.cos(a) * ring)), y: Math.min(1380, Math.max(90, u.y + Math.sin(a) * ring)) };
-                        if (Et(nu, p, this.alive(), this.terrain)) { Object.assign(nu, p); placed = true; n++; }
-                    }
-                if (!placed) nu.alive = false;
-            }
-            this.emit('BossImpact', '반지의 악령 소환 — 아홉 나즈굴이 모습을 드러냅니다', { uid: u.uid, at: u });
-        }
-        if (this.round % 6 === 0) {
-            const targets = this.alive('good').slice().sort(() => this.rng() - .5).slice(0, 2);
-            this.warnings.push(...targets.map(v => ({ x: v.x, y: v.y, radius: 160, round: this.round + 1, src: u.uid, label: '파멸의 유성', fx: 'meteor', dmg: phase >= 3 ? 2 : 1 })));
-            this.emit('BossWarning', '사우론이 하늘에서 불의 비를 내립니다.');
-        } else if (this.round % 2 === 0) {
-            const t = this.alive('good').sort((a, b) => b.stats.fight - a.stats.fight)[0];
-            if (t) { t.feared = true; this.emit('BossImpact', '사우론의 눈이 응시한다 — 공포', { uid: t.uid, at: t }); }
-        }
-    }
-    else if (u.id === 'smaug' && this.round % 3 === 0) {
-        const _br = this.alive('good').filter(v => ht(v, u) < 520).sort((a, b) => ht(a, u) - ht(b, u)).slice(0, 2);
-        if (_br.length) this.emit('BossCast', undefined, { fx: 'breath', at: _br[0], from: { x: u.x, y: u.y } });
-        for (const t of _br) {
-            this.inflict(u, t, 1); this.emit('BossImpact', '스마우그의 화염 브레스', { uid: t.uid, at: t });
-        }
-    }
-    else if (u.id === 'glaurung') {
-        if (this.round % 3 === 0 && this.round % 6 !== 0) {
-            const t = this.alive('good').sort((a, b) => b.stats.fight - a.stats.fight)[0];
-            if (t) { t.feared = true; t.prone = true; this.emit('BossImpact', '글라우룽의 최면 — 공포·넘어짐', { uid: t.uid, at: t }); }
-        } else if (this.round % 6 === 0) {
-            const _br = this.alive('good').filter(v => ht(v, u) < 520).sort((a, b) => ht(a, u) - ht(b, u)).slice(0, 2);
-            if (_br.length) this.emit('BossCast', undefined, { fx: 'breath', at: _br[0], from: { x: u.x, y: u.y } });
-            for (const t of _br) { this.inflict(u, t, 1); this.emit('BossImpact', '글라우룽의 화염', { uid: t.uid, at: t }); }
-        }
-    }
-    else if (u.id === 'scatha' && this.round % 3 === 0) {
-        const _br = this.alive('good').filter(v => ht(v, u) < 520).sort((a, b) => ht(a, u) - ht(b, u)).slice(0, 2);
-        if (_br.length) this.emit('BossCast', undefined, { fx: 'breath', at: _br[0], from: { x: u.x, y: u.y } });
-        for (const t of _br) { this.inflict(u, t, 1); this.emit('BossImpact', '스카사의 화염 브레스', { uid: t.uid, at: t }); }
-    }
-    else if (u.id === 'carcharoth' && this.round % 2 === 0) {
-        const t = this.alive('good').filter(v => ht(v, u) < 320).sort((a, b) => ht(a, u) - ht(b, u))[0];
-        if (t) { this.inflict(u, t, 1); this.emit('BossImpact', '카르카로스의 발광', { uid: t.uid, at: t }); }
-    }
-    else if (u.id === 'ancalagon' && this.round % 3 === 0) {
-        const targets = this.alive('good').sort((a, b) => ht(a, u) - ht(b, u)).slice(0, phase);
-        if (targets.length) this.emit('BossCast', undefined, { fx: 'breath', at: targets[0], from: { x: u.x, y: u.y } });
-        for (const t of targets) { this.inflict(u, t, 1); this.emit('BossImpact', '앙칼라곤의 용화', { uid: t.uid, at: t }); }
+    if(!u?.alive||u.side!=='evil'||u.x<0||u._bossTurnRound===this.round)return;
+    u._bossTurnRound=this.round;
+    const phase=u.currentWounds<=Math.ceil(u.stats.wounds*.33)?3:u.currentWounds<=Math.ceil(u.stats.wounds*.66)?2:1;
+    if(phase>u.bossPhase){const delta=phase-u.bossPhase;u.bossPhase=phase;u.baseStats.attacks+=delta;if(phase===3)u.baseStats.move+=45;this.refreshUnit(u);this.emit('BossPhase',u.name+' · '+phase+'단계 · Attack +'+delta,{uid:u.uid,at:u});}
+    this.warnings=(this.warnings||[]).filter(a=>!a.src||this.unit(a.src)?.alive);
+    const due=this.warnings.filter(a=>a.src===u.uid&&a.round<=this.round);
+    this.warnings=this.warnings.filter(a=>!due.includes(a));
+    for(const a of due){this.resolveBossPattern(u,a);if(['reward','result'].includes(this.phase)||!u.alive)return;}
+    const foes=this.alive('good').filter(v=>v.x>=0&&!v.static&&!v.lair);
+    if(!foes.length)return;
+    const close=foes.slice().sort((a,b)=>ht(a,u)-ht(b,u))[0];
+    const hero=foes.filter(v=>v.traits.includes('hero')).sort((a,b)=>b.stats.fight-a.stats.fight||ht(a,u)-ht(b,u))[0]||close;
+    const ranged=foes.slice().sort((a,b)=>(b.stats.shootRange||0)-(a.stats.shootRange||0)||ht(a,u)-ht(b,u))[0];
+    const buff=(v,k,n)=>{v.roundBuff[k]=(v.roundBuff[k]||0)+n;this.refreshUnit(v);};
+    const queue=a=>{if(this.warnings.filter(w=>w.src===u.uid&&w.kind!=='embers').length>=2)return;if(a.magic){if((u.resources?.will||0)<1)return;u.resources.will--;u.spellRound=true;}a.round=this.round+1;a.src=u.uid;a.radius=a.radius||90;this.warnings.push(a);this.emit('BossWarning',u.name+' · '+a.label+' — 다음 라운드',{uid:u.uid,at:a});};
+    const circle=(v,label,extra={})=>queue({x:v.x,y:v.y,radius:140,ox:u.x,oy:u.y,label,strength:6,fx:'strike',...extra});
+    const lane=(v,label,extra={})=>{const angle=Math.atan2(v.y-u.y,v.x-u.x),length=Math.min(760,Math.max(320,ht(v,u)+90));queue({shape:'lane',ox:u.x,oy:u.y,tx:u.x+Math.cos(angle)*length,ty:u.y+Math.sin(angle)*length,x:(u.x+v.x)/2,y:(u.y+v.y)/2,width:65,label,strength:6,fx:'dive',...extra});};
+    const cone=(v,label,extra={})=>{const angle=Math.atan2(v.y-u.y,v.x-u.x),length=680;queue({shape:'cone',ox:u.x,oy:u.y,angle,length,half:.42,x:u.x+Math.cos(angle)*length*.6,y:u.y+Math.sin(angle)*length*.6,label,strength:7,fx:'breath',fire:true,friendlyFire:true,los:true,...extra});};
+    const summon=(ids,cap)=>{const room=Math.max(0,cap-this.alive('evil').length-this.delayed.length),add=ids.filter(id=>this.meta.has(id)).slice(0,room);if(add.length){this.spawnEnemies(add);this.emit('ReinforcementsArrived',u.name+' · 증원 '+add.length+'기',{uid:u.uid,at:u});}};
+    const beat=(this.round-1)%4;
+    if(u.id==='saruman'){
+        // The staff grants a bounded free Will; no unlimited spell spam.
+        u.resources.will=Math.min(u.baseStats.will,(u.resources.will||0)+1);
+        if(beat===0)lane(close,'주술 폭풍',{magic:true,strength:6,prone:true,push:135,los:true,fx:'lightning'});
+        if(beat===1)circle(hero,'명령',{magic:true,effect:'transfix',targetOnly:true,target:hero.uid,fx:'dominate',radius:160});
+        if(beat===2){circle(u,'사루만의 목소리',{magic:true,effect:'fear',radius:420,fx:'dominate'});for(const v of this.alive('evil').filter(v=>v!==u&&this.meta.get(v.id)?.faction==='isengard'&&ht(v,u)<450))buff(v,'fight',1);}
+        if(beat===3&&phase>=2&&!u._bossReinforced){u._bossReinforced=true;summon(['uruk_pike','uruk_crossbow'],24);}
+    }else if(u.id==='witchking_fellbeast'){
+        if(beat===0)circle(hero,'검은 다트',{magic:true,targetOnly:true,target:hero.uid,strength:9,los:true,fx:'lightning',radius:140});
+        if(beat===1)lane(ranged,'펠비스트 급강하',{prone:true,push:90,landing:true});
+        if(beat===2)circle(hero,'의지 흡수',{magic:true,effect:'drain',targetOnly:true,target:hero.uid,fx:'dominate',radius:150});
+        if(beat===3)lane(close,'펠비스트 몸통 투척',{prone:true,push:135,fx:'strike'});
+    }else if(u.id==='nazgul_fellbeast'){
+        const flight=this.alive('evil').filter(v=>v.id==='nazgul_fellbeast').sort((a,b)=>a.uid.localeCompare(b.uid));
+        const slot=flight.indexOf(u);
+        if((this.round-1)%3===slot%3)lane(slot%2?hero:ranged,'나즈굴 '+(slot+1)+' · 급강하',{prone:true,push:90,landing:true});
+    }else if(u.id==='mouth_of_sauron'){
+        if(beat===0)circle(hero,'절망의 말',{magic:true,effect:'transfix',targetOnly:true,target:hero.uid,fx:'dominate',radius:180});
+        if(beat===2){for(const v of this.alive('evil').filter(v=>v!==u&&ht(v,u)<550)){buff(v,'fight',1);if(v.traits.includes('monster'))buff(v,'move',90);}this.emit('BossImpact','모란논 총공세 · 트롤 진군',{uid:u.uid,at:u});circle(u,'검은문의 공포',{effect:'fear',radius:450,fx:'dominate'});}
+    }else if(['war_troll','cave_troll','goblin_king'].includes(u.id)){
+        if(beat===0)circle(u,'거대한 몸통 후려치기',{radius:u.radius+145,strength:7,prone:true,push:90});
+        if(beat===2)lane(close,'몸통 투척',{prone:true,push:135,fx:'strike'});
+        if(u.id==='goblin_king'&&beat===3)summon(['moria_goblin','moria_goblin','moria_goblin'],24);
+    }else if(u.id==='azog'){
+        if(beat===0)circle(hero,'참수자의 결투',{targetOnly:true,target:hero.uid,strength:7,radius:150,landing:true});
+        if(beat===2)lane(close,'창백한 오크의 돌진',{strength:7,prone:true,landing:true});
+    }else if(['smaug','scatha','glaurung'].includes(u.id)){
+        if(beat===0)cone(ranged,'용의 화염',{weak:u.id==='smaug',burning:phase>=2});
+        if(beat===2)circle(u,'꼬리 휩쓸기',{radius:u.radius+150,strength:7,prone:true,push:135});
+        if(u.id==='glaurung'&&beat===3)circle(hero,'글라우룽의 시선',{magic:true,effect:'transfix',targetOnly:true,target:hero.uid,radius:180,fx:'dominate'});
+    }else if(u.id==='sauron'){
+        if(beat===0)circle(u,'어둠의 철퇴',{radius:u.radius+170,strength:9,prone:true,push:135});
+        if(beat===2)circle(hero,'영혼 냉각',{magic:true,effect:'transfix',targetOnly:true,target:hero.uid,radius:180,fx:'dominate'});
+        if(!u._ringSummon&&phase>=2){u._ringSummon=true;const ids=['nazgul_sword','nazgul_sword_2','nazgul_mace'];summon(Array.from({length:9},(_,i)=>ids[i%3]),45);}
+    }else if(['balrog','gothmog_balrog'].includes(u.id)){
+        if(beat===0)lane(ranged,'화염 채찍',{strength:7,push:135,prone:true,fx:'whip'});
+        if(beat===2)circle(u,u.id==='balrog'?'우둔의 불꽃':'발록 왕의 검은 도끼',{radius:u.radius+140,strength:8,prone:true,fire:true,friendlyFire:true});
+        if(u.id==='gothmog_balrog'&&beat===3){for(const v of this.alive('evil').filter(v=>v.id==='balrog'&&ht(v,u)<600))buff(v,'fight',1);}
+    }else if(u.id==='carcharoth'){
+        if(beat===0||beat===2)lane(hero,'붉은 아귀의 광란',{strength:7,prone:true,landing:true});
+        if(beat===3)circle(u,'실마릴의 불타는 아귀',{radius:u.radius+100,strength:8,fire:true});
+    }else if(u.id==='ungoliant'){
+        if(beat===0)circle(ranged,'암흑의 거미줄',{effect:'web',radius:180,fx:'dominate'});
+        if(beat===2)circle(u,'끝없는 탐식',{effect:'devour',radius:u.radius+150,strength:8,fx:'strike'});
+    }else if(u.id==='ancalagon'){
+        if(beat===0)cone(hero,'검은 용의 용화',{length:850,half:.5,burning:phase>=2});
+        if(beat===2)circle(u,'산을 무너뜨리는 날개',{radius:u.radius+180,strength:8,push:180,prone:true,fx:'crack'});
+    }else if(u.id==='morgoth'){
+        if(beat===0||beat===2){circle(hero,'그론드의 균열',{radius:170,strength:9,prone:true,weak:true,fx:'crack'});if(phase===3&&ranged!==hero)circle(ranged,'그론드의 여진',{radius:130,strength:7,fx:'crack'});}
+        if(beat===3)circle(u,'암흑의 권능',{radius:470,effect:'fear',fx:'dominate'});
     }
     this.checkRun();
 };
+
 P.inflict = function (attacker, target, n) {
     const result = ce('skill', [attacker, target], attacker.side);
     let wounds = target.currentWounds;
@@ -2758,7 +2776,7 @@ P.checkRun = function () {
         this.endRun(false, '원정대가 전멸했습니다.');
         return true;
     }
-    if (this.mission === 'commander' && ((this.commanders?.length && this.commanders.every(uid => !this.unit(uid)?.alive)) || (!this.commanders?.length && this.commander && !this.unit(this.commander)?.alive))) {
+    if (this.mission === 'commander' && !this.delayed.some(id => (this.current?.bossAll || [this.current?.boss]).includes(id)) && ((this.commanders?.length && this.commanders.every(uid => !this.unit(uid)?.alive)) || (!this.commanders?.length && this.commander && !this.unit(this.commander)?.alive))) {
         this.finishWave();
         return true;
     }
@@ -4623,11 +4641,11 @@ P.refreshUnit=function(u){
 };
 const relicRound=P.beginRound;
 P.beginRound=function(){relicRound.call(this);if(['move','shoot'].includes(this.phase))this.cp+=this.rank('pipeweed');
-    this._roundSnap={units:structuredClone(this.units),cp:this.cp,side:this.side,phase:this.phase,round:this.round,selected:this.selected,capture:this.capture,devices:structuredClone(this.devices||[]),fightQueue:[]};};
+    this._roundSnap={units:structuredClone(this.units),cp:this.cp,side:this.side,phase:this.phase,round:this.round,selected:this.selected,capture:this.capture,devices:structuredClone(this.devices||[]),warnings:structuredClone(this.warnings||[]),commanders:structuredClone(this.commanders||[]),fightQueue:[]};};
 P.undoRound=function(){
     const s=this._roundSnap;
     if(!s||!['move','shoot','fight'].includes(this.phase))return false;
-    Object.assign(this,{units:structuredClone(s.units),cp:s.cp,side:s.side,phase:s.phase,round:s.round,selected:s.selected,capture:s.capture,devices:structuredClone(s.devices||[]),fightQueue:[],activeMoverUid:''});
+    Object.assign(this,{units:structuredClone(s.units),cp:s.cp,side:s.side,phase:s.phase,round:s.round,selected:s.selected,capture:s.capture,devices:structuredClone(s.devices||[]),warnings:structuredClone(s.warnings||[]),commanders:structuredClone(s.commanders||[]),fightQueue:[],activeMoverUid:''});
     this.emit('Event','지휘부가 직전 라운드 지점으로 되돌립니다.');
     return true;
 };
@@ -4909,7 +4927,7 @@ Ve.prototype.sync = function () {
 // Row: body class, reference top/bottom, base-centred anatomical origin X/Y, world reference size, mode.
 // A rider's head-to-pelvis span is 56% of its race's standing body height.
 // No alpha envelope, pole, banner, tail or wing span participates in scale/centering.
-const UNIT_ART_PROFILES = {"abrakhan_guard":["human",0.255,0.95,0.4588,0.6025,86,"body"],"alatar":["human",0.01,0.99,0.4792,0.5075,86,"body"],"amdur":["human",0.0694,0.99,0.4844,0.51,86,"body"],"anarion":["human",0.01,0.99,0.4615,0.5,86,"body"],"anarion_mounted":["human",0.04,0.3,0.4625,0.49,39,"rider"],"anborn":["human",0.0557,0.9365,0.5602,0.4818,86,"body"],"ancalagon":["dragon",0.32,0.935,0.5227,0.6275,282,"body"],"angbor":["human",0.01,0.99,0.4609,0.4922,86,"body"],"annatar":["large-human",0.047,0.9765,0.48,0.5137,98,"body"],"aragorn":["human",0.1013,0.99,0.3711,0.5411,89,"body"],"aragorn_blackgate":["human",0.24,0.945,0.4304,0.5925,89,"body"],"aragorn_blackgate_mounted":["human",0.2,0.4,0.48,0.57,32,"rider"],"aragorn_mounted":["human",0.2617,0.5052,0.4453,0.615,44,"rider"],"arathorn":["human",0.0215,0.9785,0.5127,0.4941,86,"body"],"arathorn_mounted":["human",0.1,0.36,0.4562,0.5125,39,"rider"],"arnor_archer":["human",0.069,0.99,0.4924,0.56,86,"body"],"arnor_warrior":["human",0.1094,0.99,0.4492,0.56,86,"body"],"arpharazon":["human",0.01,0.99,0.4843,0.505,86,"body"],"arvedui":["human",0.028,0.99,0.4186,0.4975,86,"body"],"arvedui_mounted":["human",0.16,0.41,0.505,0.55,43,"rider"],"arwen":[null,0.0887,0.9416,0.5069,0.5151,86,null],"ashrak":["orc",0.0312,0.9648,0.4886,0.498,76,"body"],"azaghal":["dwarf",0.2796,0.99,0.4751,0.6465,68,"body"],"azog":["large-human",0.0664,0.3835,0.4712,0.515,53,"rider"],"azog_foot":["large-human",0.3137,0.99,0.4746,0.6404,103,"body"],"azog_warg_rider":["large-human",0.0664,0.3835,0.4712,0.515,53,"rider"],"balin":["dwarf",0.231,0.99,0.4609,0.6211,68,"body"],"balrog":["balrog",0.17,0.94,0.5156,0.555,234,"body"],"bandobras":["hobbit",0.01,0.99,0.4876,0.53,54,"body"],"barahir":["human",0.0525,0.99,0.4486,0.5375,86,"body"],"bard":["human",0.1176,0.99,0.5227,0.5798,70,"body"],"barrow_wight":["human",0.0586,0.9023,0.4556,0.4805,86,"body"],"bat_swarm":["swarm",0.1926,0.6741,0.4773,0.4333,76,"body"],"beechbone":["ent",0.2,0.92,0.4474,0.56,214,"body"],"beleg":["human",0.2325,0.9862,0.5,0.5938,86,"body"],"beleg_mounted":["human",0.082,0.4074,0.3718,0.51,43,"rider"],"beorn":["large-human",0.1849,0.9792,0.5,0.5879,104,"body"],"beorn_bear":["bear",0.0352,0.9375,0.4706,0.4863,165,"body"],"beorning":["large-human",0.2125,0.8969,0.4848,0.572,98,"body"],"beregond":["human",0.0134,0.9788,0.4781,0.498,86,"body"],"beren":["human",0.01,0.99,0.4258,0.5,86,"body"],"betrayer":["large-human",0.1523,0.9727,0.5,0.5625,98,"body"],"betrayer_mounted":["large-human",0.16,0.46,0.5686,0.575,50,"rider"],"bifur":["dwarf",0.231,0.99,0.4922,0.623,68,"body"],"bilbo":["hobbit",0.3384,0.99,0.4924,0.675,54,"body"],"bill_ferny":["human",0.2101,0.9384,0.4766,0.5762,86,"body"],"black_guard":["large-human",0.1914,0.918,0.4531,0.5547,98,"body"],"black_numenorean":["human",0.0456,0.9856,0.5498,0.5137,86,"body"],"black_numenorean_mounted":["human",0.0742,0.3998,0.5294,0.49,43,"rider"],"blackroot_archer":["human",0.0713,0.9521,0.4159,0.5275,86,"body"],"bofur":["dwarf",0.2229,0.99,0.5,0.61,68,"body"],"boldog":["human",0.0312,0.957,0.5159,0.4941,86,"body"],"bolg":["large-human",0.01,0.99,0.4922,0.504,103,"body"],"bolg_mounted":["large-human",0.1602,0.4573,0.486,0.5075,53,"rider"],"bombur":["dwarf",0.01,0.99,0.5075,0.5,68,"body"],"boromir":["human",0.01,0.99,0.5069,0.5,89,"body"],"boromir_mounted":["human",0.207,0.4871,0.4941,0.555,45,"rider"],"buhrdur":["troll",0.0312,0.9688,0.4564,0.5,176,"body"],"butterbur":["human",0.013,0.987,0.5079,0.502,86,"body"],"camel_rider":["human",0.12,0.365,0.4758,0.505,43,"rider"],"carcharoth":["great-wolf",0.0352,0.9648,0.5282,0.5,152,"body"],"castellan":["human",0.0205,0.99,0.4822,0.5117,86,"body"],"cave_drake":["drake",0.0312,0.9414,0.5859,0.4863,170,"body"],"cave_troll":["troll",0.0312,0.9336,0.4767,0.4824,176,"body"],"celeborn":["human",0.0717,0.944,0.4734,0.5078,86,"body"],"celebrimbor":["human",0.01,0.99,0.5051,0.5136,86,"body"],"celegorm":["human",0.086,0.99,0.4818,0.5171,86,"body"],"celegorm_mounted":["human",0.105,0.37,0.5088,0.52,43,"rider"],"cirdan":["human",0.01,0.99,0.5632,0.4941,86,"body"],"cirdan_mounted":["human",0.02,0.3679,0.5234,0.4925,43,"rider"],"cirion":["human",0.0375,0.986,0.4545,0.5137,86,"body"],"cirion_mounted":["human",0.02,0.3679,0.4819,0.4925,43,"rider"],"citadel_guard":["human",0.142,0.99,0.47,0.5825,86,"body"],"corsair_bosun":["human",0.01,0.99,0.5299,0.498,86,"body"],"corsair_captain":["human",0.0469,0.9531,0.5312,0.4824,86,"body"],"corsair_crossbowman":["human",0.043,0.9492,0.5316,0.4961,86,"body"],"corsair_umbra":["human",0.01,0.99,0.422,0.502,86,"body"],"crebain_swarm":["swarm",0.1591,0.8333,0.5,0.4962,76,"body"],"daeron":["human",0.0209,0.99,0.5057,0.5091,86,"body"],"dain":["dwarf",0.2714,0.99,0.5122,0.6426,71,"body"],"dain_boar":["dwarf",0.02,0.3652,0.4573,0.52,37,"rider"],"dalamyr":["human",0.0371,0.99,0.4898,0.5616,86,"body"],"dale_warrior":["human",0.01,0.99,0.4783,0.498,86,"body"],"damrod":["human",0.0629,0.9606,0.5258,0.5,86,"body"],"dark_marshal":["large-human",0.1351,0.99,0.5156,0.5625,98,"body"],"dark_marshal_mounted":["large-human",0.06,0.335,0.5748,0.5075,44,"rider"],"dead_rider":["human",0.1445,0.4473,0.5149,0.5136,43,"rider"],"dead_soldier":["human",0.01,0.99,0.4727,0.498,86,"body"],"dead_spearman":["human",0.1908,0.99,0.4924,0.595,86,"body"],"denethor":["human",0.0941,0.99,0.4694,0.543,86,"body"],"deorwine":["human",0.0215,0.9785,0.491,0.5059,86,"body"],"deorwine_mounted":["human",0.0709,0.3937,0.5038,0.5318,43,"rider"],"derufin":["human",0.01,0.99,0.4534,0.4902,86,"body"],"dervorin":["human",0.1,0.955,0.4955,0.5161,86,"body"],"dol_amroth_knight":["human",0.0586,0.3898,0.5163,0.4975,43,"rider"],"dol_amroth_man_at_arms":["human",0.0368,0.99,0.4727,0.5215,86,"body"],"dori":["dwarf",0.231,0.99,0.457,0.6211,68,"body"],"doriath_warrior":["human",0.1264,0.99,0.4098,0.555,86,"body"],"dragon_knight":["human",0.034,0.966,0.4694,0.5,86,"body"],"draugluin":["great-wolf",0.0352,0.9414,0.5197,0.4883,152,"body"],"duilin":["human",0.0375,0.986,0.4389,0.5145,86,"body"],"duinhir":["human",0.0456,0.9856,0.487,0.5215,86,"body"],"dungeon_keeper":["human",0.0391,0.9258,0.4781,0.4824,86,"body"],"dunhere":["human",0.115,0.94,0.4896,0.5275,86,"body"],"dunhere_mounted":["human",0.0664,0.3975,0.5,0.5,43,"rider"],"dunlending_archer":["human",0.01,0.99,0.5076,0.495,86,"body"],"dunlending_berserker":["large-human",0.0352,0.9805,0.4741,0.5078,88,"body"],"dunlending_horseman":["human",0.1211,0.424,0.479,0.54,43,"rider"],"dunlending_huscarl":["human",0.01,0.99,0.5029,0.4922,86,"body"],"dunlending_shaman":["human",0.135,0.95,0.4274,0.5425,77,"body"],"dunlending_warrior":["human",0.01,0.99,0.451,0.5,86,"body"],"durburz":["goblin",0.0703,0.9531,0.498,0.5117,63,"body"],"durin_vi":["dwarf",0.13,0.97,0.418,0.55,71,"body"],"dwalin":["dwarf",0.2392,0.99,0.4922,0.6211,70,"body"],"dwarf_2haxe":["dwarf",0.395,0.97,0.5096,0.6825,58,"body"],"dwarf_axeshield":["dwarf",0.2656,0.9727,0.5078,0.6191,58,"body"],"dwarf_banner":["dwarf",0.41,0.97,0.3173,0.69,58,"body"],"dwarf_guardian":["dwarf",0.231,0.99,0.4883,0.6211,58,"body"],"dwarf_ranger":["dwarf",0.231,0.99,0.4453,0.6191,58,"body"],"dwarf_shieldbearers":["dwarf",0.2714,0.99,0.4862,0.6445,58,"body"],"dwimmerlaik":["large-human",0.2487,0.99,0.5039,0.623,98,"body"],"dwimmerlaik_mounted":["large-human",0.02,0.3679,0.5053,0.5025,50,"rider"],"earendil":["human",0.01,0.99,0.4521,0.485,86,"body"],"earnur":["human",0.01,0.99,0.4921,0.5,86,"body"],"earnur_mounted":["human",0.02,0.3679,0.494,0.495,43,"rider"],"easterling_archer":["human",0.07,0.96,0.4396,0.515,86,"body"],"easterling_kataphrakt":["human",0.0273,0.3671,0.5956,0.5125,43,"rider"],"easterling_mounted_archer":["human",0.16,0.41,0.3732,0.55,43,"rider"],"easterling_phalanx":["human",0.1348,0.99,0.4783,0.5525,86,"body"],"easterling_priest":["human",0.1104,0.99,0.5556,0.57,86,"body"],"easterling_swordshield":["human",0.0273,0.9766,0.4684,0.502,86,"body"],"easterling_warlord":["human",0.0459,0.9775,0.4297,0.5025,86,"body"],"ecthelion":["human",0.075,0.87,0.5677,0.4725,89,"body"],"ecthelion_mounted":["human",0.04,0.315,0.4836,0.5275,44,"rider"],"edain_warrior":["human",0.0352,0.9609,0.4974,0.498,86,"body"],"elendil":["human",0.0707,0.9684,0.4472,0.4825,90,"body"],"elendil_mounted":["human",0.043,0.3742,0.5,0.5175,45,"rider"],"elendur":["human",0.01,0.99,0.4781,0.4961,86,"body"],"elf_bow":["human",0.12,0.975,0.5231,0.5136,86,"body"],"elf_glaive":["human",0.145,0.955,0.4667,0.55,86,"body"],"elf_knight":["human",0.085,0.36,0.5,0.51,43,"rider"],"elf_seer":["human",0.0961,0.943,0.4472,0.5068,86,"body"],"elf_spear":["human",0.265,0.96,0.5645,0.5227,86,"body"],"elf_swordshield":["human",0.145,0.975,0.5639,0.5273,86,"body"],"elf_swordsman":["human",0.145,0.975,0.4845,0.56,86,"body"],"elfhelm":["human",0.29,0.88,0.4648,0.585,86,"body"],"elfhelm_mounted":["human",0.02,0.3679,0.4903,0.495,43,"rider"],"elladan":["human",0.01,0.99,0.4438,0.5182,86,"body"],"elrohir":["human",0.01,0.99,0.4583,0.5045,86,"body"],"elrond":["human",0.01,0.99,0.4735,0.5,86,"body"],"elrond_mounted":["human",0.02,0.3679,0.4615,0.5175,43,"rider"],"elven_lancer":["human",0.02,0.3679,0.4589,0.5075,43,"rider"],"ent":["ent",0.245,0.95,0.5273,0.5975,214,"body"],"eol":["human",0.01,0.99,0.5097,0.498,86,"body"],"eomer":["human",0.15,0.4,0.5429,0.535,44,"rider"],"eomer_foot":["human",0.2009,0.9631,0.4651,0.5275,89,"body"],"eomund":["human",0.082,0.3991,0.4882,0.525,43,"rider"],"eorl_the_young":["human",0.15,0.395,0.5306,0.5409,43,"rider"],"eorl_the_young_mounted":["human",0.15,0.395,0.5301,0.5475,43,"rider"],"eowyn":["human",0.1212,0.9257,0.502,0.5273,86,"body"],"eowyn_mounted":["human",0.02,0.3652,0.5087,0.4925,43,"rider"],"erestor":["human",0.01,0.99,0.4607,0.5,86,"body"],"erkenbrand":["human",0.19,0.98,0.5,0.585,86,"body"],"erkenbrand_mounted":["human",0.16,0.405,0.4659,0.5325,43,"rider"],"esgaroth_archer":["human",0.0371,0.99,0.4954,0.5227,86,"body"],"falathrim_archer":["human",0.0209,0.99,0.3909,0.5125,86,"body"],"far_harad_chieftain":["human",0.18,0.9,0.511,0.54,86,"body"],"faramir":["human",0.01,0.99,0.5,0.5039,86,"body"],"faramir_mounted":["human",0.043,0.3825,0.5,0.5025,43,"rider"],"farmer_maggot":["hobbit",0.01,0.99,0.451,0.4785,54,"body"],"feanor":["human",0.04,0.965,0.572,0.5,89,"body"],"feanor_mounted":["human",0.055,0.35,0.568,0.5091,44,"rider"],"fellbeast":["fellbeast",0.043,0.9531,0.4449,0.498,220,"body"],"fili":["dwarf",0.01,0.99,0.4805,0.5039,68,"body"],"fimbul":["orc",0.1195,0.9899,0.4773,0.545,76,"body"],"fingolfin":["human",0.01,0.99,0.433,0.502,89,"body"],"fingolfin_mounted":["human",0.1523,0.444,0.4961,0.555,45,"rider"],"fingon":["human",0.305,0.94,0.453,0.6225,86,"body"],"fingon_mounted":["human",0.1758,0.4672,0.5,0.57,43,"rider"],"finrod_felagund":["human",0.01,0.99,0.4685,0.502,86,"body"],"finrod_felagund_mounted":["human",0.1211,0.4324,0.5,0.54,43,"rider"],"forlong":["human",0.029,0.99,0.4802,0.5137,86,"body"],"forsaken":["large-human",0.01,0.99,0.5459,0.4941,98,"body"],"forsaken_mounted":["large-human",0.02,0.3679,0.5969,0.5025,50,"rider"],"frealaf":["human",0.0469,0.957,0.4762,0.502,86,"body"],"frealaf_mounted":["human",0.09,0.39,0.4681,0.52,43,"rider"],"fredegar":["hobbit",0.0938,0.9375,0.5126,0.5156,54,"body"],"frodo":["hobbit",0.01,0.99,0.4727,0.502,54,"body"],"galadhrim_knight":["human",0.082,0.4048,0.5128,0.525,43,"rider"],"galadhrim_warrior":["human",0.2491,0.9774,0.4506,0.6055,86,"body"],"galadriel":["human",0.2006,0.9713,0.4844,0.5859,86,"body"],"galdor":["human",0.1301,0.9658,0.5043,0.5479,86,"body"],"gamling":["human",0.2573,0.9771,0.5185,0.6075,86,"body"],"gamling_mounted":["human",0.295,0.535,0.5513,0.62,43,"rider"],"gandalf":["human",0.0932,0.99,0.5933,0.5773,99,"body"],"gandalf_mounted":["human",0.1211,0.4324,0.5,0.52,43,"rider"],"gandalf_white":["human",0.25,0.96,0.462,0.5409,82,"body"],"gandalf_white_mounted":["human",0.1133,0.4274,0.4881,0.5045,43,"rider"],"ghan_buri_ghan":["human",0.24,0.94,0.517,0.5318,86,"body"],"gil_galad":["human",0.055,0.92,0.4301,0.4875,89,"body"],"gil_galad_mounted":["human",0.025,0.34,0.3636,0.5,45,"rider"],"gildor":["human",0.142,0.99,0.3874,0.565,86,"body"],"gimli":["dwarf",0.2313,0.99,0.4766,0.6152,68,"body"],"glaurung":["dragon",0.0391,0.9258,0.5045,0.4545,282,"body"],"gloin":["dwarf",0.01,0.99,0.4688,0.502,68,"body"],"glorfindel_foot":["human",0.1164,0.9384,0.5039,0.5274,76,"body"],"glorfindel_mounted":["human",0.095,0.38,0.5396,0.5091,44,"rider"],"goat_rider":["dwarf",0.1758,0.4646,0.5104,0.59,36,"rider"],"goblin_bow":["goblin",0.2055,0.9521,0.5281,0.5788,63,"body"],"goblin_drummer":["goblin",0.0234,0.957,0.4609,0.4902,63,"body"],"goblin_king":["giant-humanoid",0.15,0.9,0.5312,0.525,144,"body"],"goblin_mercenary":["goblin",0.0781,0.9453,0.4743,0.5117,63,"body"],"goblin_prowler":["goblin",0.0163,0.9837,0.502,0.4883,63,"body"],"goblin_scribe":["goblin",0.1458,0.987,0.4471,0.5195,63,"body"],"goblin_shaman":["goblin",0.1299,0.9795,0.4021,0.5479,63,"body"],"goblin_shield":["goblin",0.0234,0.9766,0.4615,0.5,63,"body"],"goblin_spear":["goblin",0.3651,0.9708,0.4924,0.665,63,"body"],"goldberry":["human",0.0215,0.9785,0.48,0.502,86,"body"],"golden_king":["human",0.01,0.99,0.449,0.515,86,"body"],"golfimbul":["goblin",0.3077,0.9891,0.4553,0.63,63,"body"],"gollum":["hobbit",0.2187,0.9454,0.4434,0.56,54,"body"],"gondolin_guard":["human",0.16,0.92,0.4803,0.54,86,"body"],"gondor_archer":["human",0.0935,0.99,0.4586,0.4818,86,"body"],"gondor_knight":["human",0.0586,0.3757,0.5099,0.4975,43,"rider"],"gorbag":["orc",0.0352,0.9766,0.5042,0.5059,76,"body"],"gorulf":["human",0.0273,0.9688,0.504,0.498,86,"body"],"gothmog":["orc",0.2171,0.986,0.5985,0.6075,103,"body"],"gothmog_balrog":["balrog",0.19,0.95,0.5091,0.5409,234,"body"],"great_beast_gorgoroth":["great-beast",0.0234,0.9609,0.4824,0.4922,264,"body"],"great_eagle":["eagle",0.3053,0.916,0.5045,0.5342,174,"body"],"grima":["human",0.2094,0.9547,0.5303,0.575,86,"body"],"grimbeorn":["large-human",0.1858,0.9548,0.4805,0.5703,98,"body"],"grimbold":["human",0.0616,0.99,0.4988,0.5,86,"body"],"grimbold_mounted":["human",0.02,0.3679,0.4923,0.4925,43,"rider"],"grishnakh":["orc",0.0356,0.9723,0.4961,0.504,76,"body"],"gulavhar":["bat-monster",0.35,0.96,0.5455,0.5773,154,"body"],"gundabad_orc":["orc",0.0431,0.9529,0.4766,0.498,76,"body"],"gundabad_warg_rider":["orc",0.085,0.4,0.5106,0.5075,39,"rider"],"guritz":["orc",0.0312,0.9648,0.4646,0.498,76,"body"],"guritz_mounted":["orc",0.02,0.3679,0.5069,0.495,39,"rider"],"guthlaf":["human",0.435,0.965,0.4969,0.6136,77,"body"],"guthlaf_mounted":["human",0.2736,0.4961,0.4308,0.5136,35.6,"rider"],"gwaihir":["eagle",0.3014,0.9247,0.5082,0.4955,214,"body"],"gwindor":["human",0.01,0.99,0.4558,0.498,86,"body"],"halbarad":["human",0.2735,0.9765,0.5042,0.6301,86,"body"],"halbarad_mounted":["human",0.285,0.535,0.5323,0.645,43,"rider"],"haldir":["human",0.0541,0.9772,0.4747,0.5227,86,"body"],"haleth":["human",0.082,0.9414,0.498,0.5117,86,"body"],"half_troll":["half-troll",0.0312,0.9492,0.5052,0.4902,118,"body"],"hama":["human",0.01,0.99,0.4645,0.502,86,"body"],"harad_chieftain":["human",0.19,0.98,0.5185,0.585,86,"body"],"haradrim_bow":["human",0.0932,0.99,0.5248,0.555,86,"body"],"haradrim_priest":["human",0.1507,0.9589,0.4463,0.5548,86,"body"],"haradrim_raider":["human",0.207,0.4871,0.4412,0.535,43,"rider"],"haradrim_spear":["human",0.0218,0.9703,0.4595,0.49,86,"body"],"haradrim_spearman":["human",0.1367,0.9805,0.4803,0.5586,86,"body"],"harding":["human",0.0287,0.99,0.4809,0.5175,86,"body"],"harding_mounted":["human",0.1152,0.4074,0.5427,0.5428,43,"rider"],"hasharin":["human",0.01,0.99,0.4821,0.4941,86,"body"],"helm_hammerhand":["large-human",0.01,0.99,0.4403,0.5,98,"body"],"hera":["human",0.01,0.99,0.4,0.4925,86,"body"],"hera_mounted":["human",0.035,0.325,0.4926,0.4925,43,"rider"],"hill_troll":["troll",0.0312,0.957,0.4647,0.4941,176,"body"],"hirgon":["human",0.01,0.99,0.463,0.4725,86,"body"],"hirluin":["human",0.0606,0.99,0.5,0.5449,86,"body"],"hobbit_bounder":["hobbit",0.53,0.96,0.4848,0.745,54,"body"],"hobbit_militia":["hobbit",0.505,0.96,0.4773,0.7325,54,"body"],"hobbit_shirriff":["hobbit",0.3872,0.99,0.5,0.6925,54,"body"],"huan":["hound",0.2466,0.911,0.5608,0.4545,102,"body"],"hunter_orc":["orc",0.0867,0.99,0.4932,0.5273,76,"body"],"huor":["human",0.0362,0.99,0.4869,0.5375,86,"body"],"huorn":["ent",0.23,0.965,0.4902,0.5975,214,"body"],"hurin":["human",0.1355,0.9739,0.4747,0.5605,86,"body"],"hurin_thalion":["human",0.25,0.89,0.4924,0.57,86,"body"],"hurin_thalion_mounted":["human",0.2227,0.4971,0.5046,0.5475,43,"rider"],"imrahil":["human",0.01,0.99,0.4727,0.5039,89,"body"],"imrahil_mounted":["human",0.06,0.335,0.5071,0.4975,44,"rider"],"ingold":["human",0.0218,0.9703,0.5023,0.4961,86,"body"],"irolas":["human",0.15,0.945,0.5156,0.5475,86,"body"],"iron_guard":["dwarf",0.231,0.99,0.4961,0.6191,58,"body"],"iron_hills_captain":["dwarf",0.38,0.98,0.4921,0.6,68,"body"],"isengard_troll":["troll",0.0234,0.9727,0.4741,0.498,176,"body"],"isildur":["human",0.2579,0.9608,0.4479,0.585,89,"body"],"isildur_mounted":["human",0.225,0.42,0.4938,0.565,31.2,"rider"],"ithilien_ranger":["human",0.0876,0.9514,0.4845,0.5182,86,"body"],"kardush":["human",0.105,0.95,0.4924,0.5275,86,"body"],"khamul":["large-human",0.3059,0.99,0.4394,0.675,98,"body"],"khamul_mounted":["large-human",0.2305,0.5021,0.4839,0.5545,50,"rider"],"khandish_chariot":["chariot",0.1055,0.9531,0.5027,0.5293,172,"body"],"khandish_chieftain":["human",0.0664,0.9609,0.5227,0.5045,86,"body"],"khandish_horseman":["human",0.1367,0.4397,0.523,0.565,43,"rider"],"khandish_warrior":["human",0.1514,0.9814,0.4686,0.5364,86,"body"],"khazad_guard":["dwarf",0.2229,0.99,0.4766,0.6172,58,"body"],"kili":["dwarf",0.2718,0.99,0.543,0.625,68,"body"],"king_of_the_dead":["human",0.029,0.99,0.4883,0.5225,86,"body"],"knight_of_umbar":["human",0.1586,0.99,0.4561,0.5879,94.6,"body"],"landroval":["eagle",0.3212,0.9562,0.5047,0.5318,202,"body"],"leaflock":["ent",0.25,0.97,0.4789,0.61,214,"body"],"legolas":["human",0.01,0.99,0.5069,0.5091,86,"body"],"lindir":["human",0.01,0.99,0.401,0.5,86,"body"],"lobelia":["hobbit",0.01,0.99,0.5025,0.5,54,"body"],"lossarnach_axeman":["human",0.1501,0.99,0.4688,0.5762,86,"body"],"lurtz":["large-human",0.0625,0.9805,0.5076,0.5215,102,"body"],"luthien":["human",0.1514,0.9814,0.4727,0.5742,86,"body"],"mablung":["human",0.0945,0.9837,0.456,0.5175,70,"body"],"mablung_sindar":["human",0.1505,0.99,0.494,0.5409,70,"body"],"madril":["human",0.087,0.9677,0.485,0.5254,86,"body"],"maedhros":["human",0.115,0.975,0.5,0.545,86,"body"],"maedhros_mounted":["human",0.135,0.38,0.5055,0.55,39,"rider"],"maeglin":["human",0.01,0.99,0.5169,0.5,86,"body"],"maeglin_mounted":["human",0.025,0.345,0.4908,0.5409,43,"rider"],"maglor":["human",0.01,0.99,0.5321,0.495,86,"body"],"mahud_beastmaster":["human",0.07,0.9847,0.4667,0.5215,86,"body"],"mahud_blowpipe":["human",0.17,0.965,0.5956,0.5455,86,"body"],"mahud_camel_raider":["human",0.0273,0.3643,0.5489,0.5125,43,"rider"],"mahud_chieftain":["human",0.01,0.99,0.53,0.4863,86,"body"],"mahud_raider":["human",0.0215,0.9785,0.5945,0.5059,86,"body"],"malbeth":["human",0.01,0.99,0.5,0.5,86,"body"],"mauhur":["human",0.0117,0.9805,0.4521,0.4961,86,"body"],"melian":["human",0.1348,0.99,0.497,0.55,86,"body"],"melkor":["dark-lord",0.21,0.94,0.51,0.575,248,"body"],"meneldor":["eagle",0.2378,0.9021,0.5123,0.4864,180,"body"],"merry":["hobbit",0.3466,0.99,0.4805,0.6719,54,"body"],"mim":["dwarf",0.01,0.99,0.4567,0.5,68,"body"],"mirkwood_captain":["human",0.2397,0.9521,0.4956,0.5959,86,"body"],"mirkwood_sentinel":["human",0.0619,0.985,0.4819,0.5254,86,"body"],"mirkwood_spider":["spider",0.055,0.95,0.5,0.5025,106,"body"],"morannon_orc":["orc",0.01,0.99,0.4375,0.4941,76,"body"],"mordor_uruk":["large-human",0.0938,0.9258,0.4804,0.5098,98,"body"],"morgoth":["dark-lord",0.21,0.94,0.5044,0.55,248,"body"],"morgul_duellist":["human",0.0352,0.957,0.4509,0.4961,86,"body"],"morgul_knight":["human",0.291,0.905,0.5213,0.598,86,"body"],"morgul_orc":["orc",0.01,0.99,0.4649,0.498,76,"body"],"morgul_rat":["orc",0.0352,0.957,0.4854,0.4961,76,"body"],"morgul_stalker":["orc",0.0352,0.957,0.5146,0.4961,76,"body"],"moria_goblin":["goblin",0.0234,0.9766,0.5079,0.5,63,"body"],"mountain_troll":["troll",0.0586,0.9648,0.4701,0.5117,176,"body"],"mouth_of_sauron":["human",0.0273,0.3726,0.4881,0.485,43,"rider"],"mt_bowman":["human",0.0525,0.99,0.4896,0.5125,86,"body"],"mt_captain":["human",0.0525,0.99,0.5081,0.53,86,"body"],"mt_fountain_guard":["human",0.1257,0.99,0.5,0.565,86,"body"],"mt_spear":["human",0.3475,0.9572,0.4727,0.6426,86,"body"],"mt_spearshield":["human",0.1094,0.99,0.495,0.575,86,"body"],"mt_swordshield":["human",0.01,0.99,0.4972,0.5075,86,"body"],"mumakil":["mumak",0.1704,0.9704,0.4815,0.4273,356,"body"],"muzgur":["orc",0.24,0.93,0.5,0.585,76,"body"],"nain":["dwarf",0.2714,0.99,0.4661,0.6465,68,"body"],"nargothrond_ranger":["human",0.0694,0.99,0.5091,0.5318,86,"body"],"narzug":["orc",0.0219,0.99,0.5076,0.495,76,"body"],"nazgul_fellbeast":["fellbeast",0.3,0.52,0.5023,0.5091,50,"rider"],"nazgul_mace":["large-human",0.293,0.979,0.5,0.636,98,"body"],"nazgul_mounted":["large-human",0.0742,0.4025,0.5078,0.52,50,"rider"],"nazgul_sword":["large-human",0.1186,0.99,0.5566,0.5645,98,"body"],"nazgul_sword_2":["large-human",0.1107,0.99,0.5234,0.5625,98,"body"],"necromancer":["large-human",0.0782,0.99,0.3967,0.53,98,"body"],"noldor_warrior":["human",0.01,0.99,0.4318,0.5137,86,"body"],"nori":["dwarf",0.231,0.99,0.4453,0.6191,68,"body"],"numenorean_archer":["human",0.065,0.97,0.464,0.5175,77,"body"],"numenorean_captain":["human",0.0547,0.9609,0.4451,0.505,86,"body"],"numenorean_knight":["human",0.0898,0.4124,0.447,0.5275,43,"rider"],"numenorean_marshal":["human",0.0127,0.99,0.4118,0.498,86,"body"],"numenorean_spearman":["human",0.1019,0.99,0.4183,0.5475,86,"body"],"numenorean_warrior":["human",0.0283,0.99,0.4368,0.52,86,"body"],"oin":["dwarf",0.231,0.99,0.457,0.6172,68,"body"],"olog_hai":["troll",0.0234,0.9766,0.464,0.5,176,"body"],"orc_archer":["orc",0.12,0.975,0.5778,0.5475,76,"body"],"orc_bow":["orc",0.12,0.975,0.5667,0.5475,76,"body"],"orc_captain":["orc",0.2879,1,0.4318,0.6439,76,"body"],"orc_drummer":["orc",0.0469,0.957,0.5023,0.4273,76,"body"],"orc_sergeant":["orc",0.2408,0.99,0.5215,0.5773,76,"body"],"orc_shaman":["orc",0.0789,0.99,0.5203,0.5636,76,"body"],"orc_spear2":["orc",0.19,0.95,0.5379,0.57,76,"body"],"orc_spearman":["orc",0.19,0.95,0.5379,0.57,76,"body"],"orc_sword":["orc",0.0234,0.9766,0.4868,0.5,76,"body"],"orc_sword2":["orc",0.0234,0.9766,0.4868,0.5,76,"body"],"orc_swordshield":["orc",0.0547,0.9453,0.457,0.5,76,"body"],"orc_taskmaster":["orc",0.0588,0.9569,0.4961,0.5078,76,"body"],"orc_tracker":["orc",0.2105,0.9248,0.4773,0.5677,76,"body"],"orc_twohanded":["orc",0.0547,0.9531,0.4795,0.5182,76,"body"],"ori":["dwarf",0.2555,0.99,0.4609,0.6309,68,"body"],"orophin":[null,0.2233,0.9563,0.4866,0.5898,86,null],"osgiliath_veteran":["human",0.0218,0.9703,0.4685,0.4941,86,"body"],"palace_guard":["human",0.3055,0.99,0.4297,0.6504,86,"body"],"paladin_took":["hobbit",0.0219,0.99,0.4796,0.5078,54,"body"],"pallando":["human",0.01,0.99,0.5342,0.5227,86,"body"],"pelennor_militia":["human",0.2888,0.99,0.5152,0.635,86,"body"],"pippin":["hobbit",0.3303,0.99,0.4766,0.6699,54,"body"],"pippin_citadel":["hobbit",0.0379,0.99,0.4961,0.5156,54,"body"],"quickbeam":["ent",0.0508,0.8789,0.4939,0.4648,214,"body"],"radagast":["human",0.12,0.94,0.5041,0.53,86,"body"],"ranger_north":["human",0.0303,0.9619,0.4808,0.498,86,"body"],"rhosgobel_rabbit":["chariot",0.09,0.96,0.5375,0.55,172,"body"],"rohan_archer":["human",0.0948,0.9755,0.4917,0.5275,86,"body"],"rohan_banner":["human",0.355,0.935,0.4653,0.5955,86,"body"],"rohan_outrider":["human",0.0586,0.3898,0.4161,0.4818,43,"rider"],"rohan_rider":["human",0.02,0.3567,0.4699,0.4909,43,"rider"],"rohan_royal_guard":["human",0.12,0.97,0.4717,0.545,86,"body"],"rohan_royal_guard_mounted":["human",0.0898,0.4098,0.5053,0.5125,43,"rider"],"rohan_spear":["human",0.0287,0.99,0.4924,0.5025,86,"body"],"rohan_swordshield":["human",0.01,0.99,0.4909,0.485,86,"body"],"rohan_yeoman":["human",0.01,0.99,0.5185,0.4941,86,"body"],"ruffian":["human",0.01,0.99,0.4848,0.4975,86,"body"],"rumil":[null,0.1467,0.9556,0.5654,0.5511,86,null],"samwise":["hobbit",0.3384,0.99,0.4844,0.665,54,"body"],"sangarunya":["human",0.0703,0.8867,0.5144,0.4785,86,"body"],"saruman":["human",0.0785,0.9762,0.5,0.5225,86,"body"],"sauron":["giant-humanoid",0.155,0.97,0.513,0.5625,144,"body"],"sauron_wolf":["great-wolf",0.0352,0.9648,0.5714,0.5045,152,"body"],"scatha":["dragon",0.0742,0.957,0.5,0.5156,282,"body"],"serpent_guard":["human",0.01,0.99,0.4773,0.4922,86,"body"],"shadow_lord":["large-human",0.0824,0.902,0.5,0.5075,98,"body"],"shadow_lord_mounted":["large-human",0.025,0.365,0.6761,0.4909,50,"rider"],"shagrat":["large-human",0.0273,0.9805,0.4816,0.5039,98,"body"],"sharku":["orc",0.043,0.3686,0.5195,0.5075,39,"rider"],"shelob":["great-spider",0.0547,0.9297,0.4961,0.4922,186,"body"],"silvan_archer":["human",0.0948,0.9755,0.4414,0.5425,86,"body"],"smaug":["dragon",0.3939,1,0.5182,0.5545,423,"body"],"snaga":["orc",0.2353,0.9366,0.4805,0.5898,76,"body"],"sons_of_eorl":["human",0.1055,0.3999,0.4747,0.505,43,"rider"],"spider_queen":["great-spider",0.0273,0.9336,0.5091,0.3864,186,"body"],"stone_giant":["giant",0.0234,0.9648,0.4414,0.4941,316,"body"],"stone_troll":["troll",0.045,0.94,0.4909,0.4925,176,"body"],"suladan":["human",0.01,0.99,0.4326,0.5,86,"body"],"tainted":["large-human",0.143,0.99,0.4414,0.5742,98,"body"],"tainted_mounted":["large-human",0.06,0.36,0.5114,0.5409,45,"rider"],"targsh":["orc",0.0352,0.9648,0.4766,0.5,76,"body"],"tauriel":["human",0.01,0.99,0.4388,0.5,86,"body"],"theoden":["human",0.245,0.46,0.4713,0.575,43,"rider"],"theoden_foot":["human",0.135,0.945,0.4318,0.54,86,"body"],"theodred":["human",0.02,0.3679,0.4884,0.495,43,"rider"],"thingol":["human",0.01,0.99,0.4898,0.4922,95,"body"],"thingol_mounted":["human",0.02,0.3679,0.4806,0.49,43,"rider"],"thorin":["dwarf",0.01,0.99,0.459,0.4875,70,"body"],"thorondor":["great-eagle",0.3333,0.9773,0.5,0.6553,278,"body"],"thrain":["dwarf",0.01,0.99,0.4467,0.5,68,"body"],"thranduil":["human",0.028,0.99,0.4732,0.5254,86,"body"],"thranduil_mounted":["human",0.085,0.34,0.5,0.52,43,"rider"],"thror":["dwarf",0.01,0.99,0.5113,0.46,68,"body"],"thrydan":["human",0.01,0.99,0.4706,0.5059,86,"body"],"thrydan_mounted":["human",0.1523,0.4523,0.5528,0.5318,43,"rider"],"thuringwethil":["bat",0.09,0.89,0.4796,0.49,74,"body"],"tom_bombadil":["human",0.09,0.94,0.4261,0.515,129,"body"],"troll_shaman":["troll",0.125,0.95,0.5288,0.5909,176,"body"],"tuor":["human",0.0368,0.99,0.5,0.54,95,"body"],"tuor_mounted":["human",0.0273,0.3726,0.4842,0.5125,43,"rider"],"turgon":["human",0.195,0.985,0.438,0.59,86,"body"],"turgon_mounted":["human",0.1289,0.4373,0.4564,0.515,43,"rider"],"turin":["human",0.1687,0.9563,0.4773,0.5273,89,"body"],"turin_mounted":["human",0.04,0.34,0.4706,0.515,44,"rider"],"ufthak":["orc",0.0586,0.9492,0.4948,0.5039,76,"body"],"ugluk":["large-human",0.2466,0.9589,0.4876,0.6027,83,"body"],"undying":["large-human",0.2571,0.99,0.4773,0.6629,98,"body"],"undying_mounted":["large-human",0.145,0.395,0.5966,0.55,40,"rider"],"ungoliant":["great-spider",0.077,0.963,0.4938,0.5201,232,"body"],"uruk_banner":["large-human",0.36,0.975,0.4068,0.6675,98,"body"],"uruk_berserker":["large-human",0.065,0.955,0.5,0.51,98,"body"],"uruk_berserker2":["large-human",0.03,0.94,0.5,0.485,98,"body"],"uruk_captain":["large-human",0.0703,0.9453,0.4634,0.5078,98,"body"],"uruk_crossbow":["large-human",0.0942,0.99,0.497,0.4955,98,"body"],"uruk_pike":["large-human",0.1355,0.99,0.541,0.5525,98,"body"],"uruk_sapper":["large-human",0.105,0.945,0.5911,0.525,98,"body"],"uruk_scout":["large-human",0.0742,0.9648,0.4664,0.5195,98,"body"],"uruk_scout_archer":["large-human",0.0789,0.99,0.3991,0.5,98,"body"],"uruk_swordshield":["large-human",0.0703,0.957,0.4726,0.5137,98,"body"],"uruk_swordshield2":["large-human",0.0391,0.9688,0.4789,0.5039,98,"body"],"variag_horseman":["human",0.105,0.405,0.5049,0.545,43,"rider"],"variag_warrior":["human",0.0287,0.99,0.4921,0.5078,86,"body"],"vault_warden":["dwarf",0.1495,0.99,0.4563,0.5856,58,"body"],"vrasku":["large-human",0.2628,0.9854,0.4621,0.6241,80,"body"],"war_hound":["hound",0.1644,0.9658,0.5048,0.5651,92,"body"],"war_troll":["troll",0.0273,0.9688,0.4741,0.498,176,"body"],"warg":["wolf",0.0352,0.9648,0.4259,0.5,116,"body"],"warg_alpha":["wolf",0.25,0.95,0.5336,0.6,116,"body"],"warg_chieftain":["orc",0.09,0.395,0.5312,0.5125,43,"rider"],"warg_rider":["orc",0.09,0.395,0.5312,0.5125,39,"rider"],"warg_rider_bow":["orc",0.08,0.35,0.4679,0.5136,39,"rider"],"warg_rider_spear":["orc",0.0508,0.3735,0.39,0.49,39,"rider"],"warrior_minas_tirith":["human",0.01,0.99,0.4817,0.4863,86,"body"],"watcher_in_the_water":["watcher",0.0586,0.9727,0.5767,0.5136,202,"body"],"watcher_karna":["watcher",0.0234,0.9688,0.4922,0.4961,202,"body"],"werewolf":["great-wolf",0.285,0.94,0.4953,0.6125,152,"body"],"wild_warg":["wolf",0.1194,0.9254,0.5,0.5224,116,"body"],"wild_warg_alpha":["wolf",0.1096,0.9452,0.5041,0.5274,116,"body"],"will_whitfoot":["hobbit",0.01,0.99,0.476,0.498,54,"body"],"witchking_fellbeast":["fellbeast",0.235,0.43,0.5068,0.4727,50,"rider"],"witchking_foot":["large-human",0.0617,0.99,0.457,0.541,98,"body"],"witchking_foot_mace":["large-human",0.15,0.95,0.5273,0.5409,98,"body"],"witchking_mounted":["large-human",0.0898,0.4098,0.5909,0.4682,50,"rider"],"witchking_mounted_sheet":["large-human",0.1367,0.4227,0.5864,0.4864,50,"rider"],"wulf":["human",0.0137,0.9707,0.4793,0.4863,86,"body"],"yazneg":["orc",0.1691,0.9853,0.514,0.5318,76,"body"],"zagdush":["orc",0.0742,0.9531,0.5359,0.5318,76,"body"]};
+const UNIT_ART_PROFILES = {"abrakhan_guard":["human",0.255,0.95,0.4588,0.6025,86,"body"],"alatar":["human",0.01,0.99,0.4792,0.5075,86,"body"],"amdur":["human",0.0694,0.99,0.4844,0.51,86,"body"],"anarion":["human",0.01,0.99,0.4615,0.5,86,"body"],"anarion_mounted":["human",0.04,0.3,0.4625,0.49,39,"rider"],"anborn":["human",0.0557,0.9365,0.5602,0.4818,86,"body"],"ancalagon":["dragon",0.32,0.935,0.5227,0.6275,282,"body"],"angbor":["human",0.01,0.99,0.4609,0.4922,86,"body"],"annatar":["large-human",0.047,0.9765,0.48,0.5137,98,"body"],"aragorn":["human",0.1013,0.99,0.3711,0.5411,89,"body"],"aragorn_blackgate":["human",0.24,0.945,0.4304,0.5925,89,"body"],"aragorn_blackgate_mounted":["human",0.2,0.4,0.48,0.57,32,"rider"],"aragorn_mounted":["human",0.2617,0.5052,0.4453,0.615,44,"rider"],"arathorn":["human",0.0215,0.9785,0.5127,0.4941,86,"body"],"arathorn_mounted":["human",0.1,0.36,0.4562,0.5125,39,"rider"],"arnor_archer":["human",0.069,0.99,0.4924,0.56,86,"body"],"arnor_warrior":["human",0.1094,0.99,0.4492,0.56,86,"body"],"arpharazon":["human",0.01,0.99,0.4843,0.505,86,"body"],"arvedui":["human",0.028,0.99,0.4186,0.4975,86,"body"],"arvedui_mounted":["human",0.16,0.41,0.505,0.55,43,"rider"],"arwen":["human",0.0887,0.9416,0.5069,0.5151,86,"body"],"ashrak":["orc",0.0312,0.9648,0.4886,0.498,76,"body"],"azaghal":["dwarf",0.2796,0.99,0.4751,0.6465,68,"body"],"azog":["large-human",0.0664,0.3835,0.4712,0.515,53,"rider"],"azog_foot":["large-human",0.3137,0.99,0.4746,0.6404,103,"body"],"azog_warg_rider":["large-human",0.0664,0.3835,0.4712,0.515,53,"rider"],"balin":["dwarf",0.231,0.99,0.4609,0.6211,68,"body"],"balrog":["balrog",0.17,0.94,0.5156,0.555,234,"body"],"bandobras":["hobbit",0.01,0.99,0.4876,0.53,54,"body"],"barahir":["human",0.0525,0.99,0.4486,0.5375,86,"body"],"bard":["human",0.1176,0.99,0.5227,0.5798,70,"body"],"barrow_wight":["human",0.0586,0.9023,0.4556,0.4805,86,"body"],"bat_swarm":["swarm",0.1926,0.6741,0.4773,0.4333,76,"body"],"beechbone":["ent",0.2,0.92,0.4474,0.56,214,"body"],"beleg":["human",0.2325,0.9862,0.5,0.5938,86,"body"],"beleg_mounted":["human",0.082,0.4074,0.3718,0.51,43,"rider"],"beorn":["large-human",0.1849,0.9792,0.5,0.5879,104,"body"],"beorn_bear":["bear",0.0352,0.9375,0.4706,0.4863,165,"body"],"beorning":["large-human",0.2125,0.8969,0.4848,0.572,98,"body"],"beregond":["human",0.0134,0.9788,0.4781,0.498,86,"body"],"beren":["human",0.01,0.99,0.4258,0.5,86,"body"],"betrayer":["large-human",0.1523,0.9727,0.5,0.5625,98,"body"],"betrayer_mounted":["large-human",0.16,0.46,0.5686,0.575,50,"rider"],"bifur":["dwarf",0.231,0.99,0.4922,0.623,68,"body"],"bilbo":["hobbit",0.3384,0.99,0.4924,0.675,54,"body"],"bill_ferny":["human",0.2101,0.9384,0.4766,0.5762,86,"body"],"black_guard":["large-human",0.1914,0.918,0.4531,0.5547,98,"body"],"black_numenorean":["human",0.0456,0.9856,0.5498,0.5137,86,"body"],"black_numenorean_mounted":["human",0.0742,0.3998,0.5294,0.49,43,"rider"],"blackroot_archer":["human",0.0713,0.9521,0.4159,0.5275,86,"body"],"bofur":["dwarf",0.2229,0.99,0.5,0.61,68,"body"],"boldog":["human",0.0312,0.957,0.5159,0.4941,86,"body"],"bolg":["large-human",0.01,0.99,0.4922,0.504,103,"body"],"bolg_mounted":["large-human",0.1602,0.4573,0.486,0.5075,53,"rider"],"bombur":["dwarf",0.01,0.99,0.5075,0.5,68,"body"],"boromir":["human",0.01,0.99,0.5069,0.5,89,"body"],"boromir_mounted":["human",0.207,0.4871,0.4941,0.555,45,"rider"],"buhrdur":["troll",0.0312,0.9688,0.4564,0.5,176,"body"],"butterbur":["human",0.013,0.987,0.5079,0.502,86,"body"],"camel_rider":["human",0.12,0.365,0.4758,0.505,43,"rider"],"carcharoth":["great-wolf",0.0352,0.9648,0.5282,0.5,152,"body"],"castellan":["human",0.0205,0.99,0.4822,0.5117,86,"body"],"cave_drake":["drake",0.0312,0.9414,0.5859,0.4863,170,"body"],"cave_troll":["troll",0.0312,0.9336,0.4767,0.4824,176,"body"],"celeborn":["human",0.0717,0.944,0.4734,0.5078,86,"body"],"celebrimbor":["human",0.01,0.99,0.5051,0.5136,86,"body"],"celegorm":["human",0.086,0.99,0.4818,0.5171,86,"body"],"celegorm_mounted":["human",0.105,0.37,0.5088,0.52,43,"rider"],"cirdan":["human",0.01,0.99,0.5632,0.4941,86,"body"],"cirdan_mounted":["human",0.02,0.3679,0.5234,0.4925,43,"rider"],"cirion":["human",0.0375,0.986,0.4545,0.5137,86,"body"],"cirion_mounted":["human",0.02,0.3679,0.4819,0.4925,43,"rider"],"citadel_guard":["human",0.142,0.99,0.47,0.5825,86,"body"],"corsair_bosun":["human",0.01,0.99,0.5299,0.498,86,"body"],"corsair_captain":["human",0.0469,0.9531,0.5312,0.4824,86,"body"],"corsair_crossbowman":["human",0.043,0.9492,0.5316,0.4961,86,"body"],"corsair_umbra":["human",0.01,0.99,0.422,0.502,86,"body"],"crebain_swarm":["swarm",0.1591,0.8333,0.5,0.4962,76,"body"],"daeron":["human",0.0209,0.99,0.5057,0.5091,86,"body"],"dain":["dwarf",0.2714,0.99,0.5122,0.6426,71,"body"],"dain_boar":["dwarf",0.02,0.3652,0.4573,0.52,37,"rider"],"dalamyr":["human",0.0371,0.99,0.4898,0.5616,86,"body"],"dale_warrior":["human",0.01,0.99,0.4783,0.498,86,"body"],"damrod":["human",0.0629,0.9606,0.5258,0.5,86,"body"],"dark_marshal":["large-human",0.1351,0.99,0.5156,0.5625,98,"body"],"dark_marshal_mounted":["large-human",0.06,0.335,0.5748,0.5075,44,"rider"],"dead_rider":["human",0.1445,0.4473,0.5149,0.5136,43,"rider"],"dead_soldier":["human",0.01,0.99,0.4727,0.498,86,"body"],"dead_spearman":["human",0.1908,0.99,0.4924,0.595,86,"body"],"denethor":["human",0.0941,0.99,0.4694,0.543,86,"body"],"deorwine":["human",0.0215,0.9785,0.491,0.5059,86,"body"],"deorwine_mounted":["human",0.0709,0.3937,0.5038,0.5318,43,"rider"],"derufin":["human",0.01,0.99,0.4534,0.4902,86,"body"],"dervorin":["human",0.1,0.955,0.4955,0.5161,86,"body"],"dol_amroth_knight":["human",0.0586,0.3898,0.5163,0.4975,43,"rider"],"dol_amroth_man_at_arms":["human",0.0368,0.99,0.4727,0.5215,86,"body"],"dori":["dwarf",0.231,0.99,0.457,0.6211,68,"body"],"doriath_warrior":["human",0.1264,0.99,0.4098,0.555,86,"body"],"dragon_knight":["human",0.034,0.966,0.4694,0.5,86,"body"],"draugluin":["great-wolf",0.0352,0.9414,0.5197,0.4883,152,"body"],"duilin":["human",0.0375,0.986,0.4389,0.5145,86,"body"],"duinhir":["human",0.0456,0.9856,0.487,0.5215,86,"body"],"dungeon_keeper":["human",0.0391,0.9258,0.4781,0.4824,86,"body"],"dunhere":["human",0.115,0.94,0.4896,0.5275,86,"body"],"dunhere_mounted":["human",0.0664,0.3975,0.5,0.5,43,"rider"],"dunlending_archer":["human",0.01,0.99,0.5076,0.495,86,"body"],"dunlending_berserker":["large-human",0.0352,0.9805,0.4741,0.5078,88,"body"],"dunlending_horseman":["human",0.1211,0.424,0.479,0.54,43,"rider"],"dunlending_huscarl":["human",0.01,0.99,0.5029,0.4922,86,"body"],"dunlending_shaman":["human",0.135,0.95,0.4274,0.5425,77,"body"],"dunlending_warrior":["human",0.01,0.99,0.451,0.5,86,"body"],"durburz":["goblin",0.0703,0.9531,0.498,0.5117,63,"body"],"durin_vi":["dwarf",0.13,0.97,0.418,0.55,71,"body"],"dwalin":["dwarf",0.2392,0.99,0.4922,0.6211,70,"body"],"dwarf_2haxe":["dwarf",0.395,0.97,0.5096,0.6825,58,"body"],"dwarf_axeshield":["dwarf",0.2656,0.9727,0.5078,0.6191,58,"body"],"dwarf_banner":["dwarf",0.41,0.97,0.3173,0.69,58,"body"],"dwarf_guardian":["dwarf",0.231,0.99,0.4883,0.6211,58,"body"],"dwarf_ranger":["dwarf",0.231,0.99,0.4453,0.6191,58,"body"],"dwarf_shieldbearers":["dwarf",0.2714,0.99,0.4862,0.6445,58,"body"],"dwimmerlaik":["large-human",0.2487,0.99,0.5039,0.623,98,"body"],"dwimmerlaik_mounted":["large-human",0.02,0.3679,0.5053,0.5025,50,"rider"],"earendil":["human",0.01,0.99,0.4521,0.485,86,"body"],"earnur":["human",0.01,0.99,0.4921,0.5,86,"body"],"earnur_mounted":["human",0.02,0.3679,0.494,0.495,43,"rider"],"easterling_archer":["human",0.07,0.96,0.4396,0.515,86,"body"],"easterling_kataphrakt":["human",0.0273,0.3671,0.5956,0.5125,43,"rider"],"easterling_mounted_archer":["human",0.16,0.41,0.3732,0.55,43,"rider"],"easterling_phalanx":["human",0.1348,0.99,0.4783,0.5525,86,"body"],"easterling_priest":["human",0.1104,0.99,0.5556,0.57,86,"body"],"easterling_swordshield":["human",0.0273,0.9766,0.4684,0.502,86,"body"],"easterling_warlord":["human",0.0459,0.9775,0.4297,0.5025,86,"body"],"ecthelion":["human",0.075,0.87,0.5677,0.4725,89,"body"],"ecthelion_mounted":["human",0.04,0.315,0.4836,0.5275,44,"rider"],"edain_warrior":["human",0.0352,0.9609,0.4974,0.498,86,"body"],"elendil":["human",0.0707,0.9684,0.4472,0.4825,90,"body"],"elendil_mounted":["human",0.043,0.3742,0.5,0.5175,45,"rider"],"elendur":["human",0.01,0.99,0.4781,0.4961,86,"body"],"elf_bow":["human",0.12,0.975,0.5231,0.5136,86,"body"],"elf_glaive":["human",0.145,0.955,0.4667,0.55,86,"body"],"elf_knight":["human",0.085,0.36,0.5,0.51,43,"rider"],"elf_seer":["human",0.0961,0.943,0.4472,0.5068,86,"body"],"elf_spear":["human",0.265,0.96,0.5645,0.5227,86,"body"],"elf_swordshield":["human",0.145,0.975,0.5639,0.5273,86,"body"],"elf_swordsman":["human",0.145,0.975,0.4845,0.56,86,"body"],"elfhelm":["human",0.29,0.88,0.4648,0.585,86,"body"],"elfhelm_mounted":["human",0.02,0.3679,0.4903,0.495,43,"rider"],"elladan":["human",0.01,0.99,0.4438,0.5182,86,"body"],"elrohir":["human",0.01,0.99,0.4583,0.5045,86,"body"],"elrond":["human",0.01,0.99,0.4735,0.5,86,"body"],"elrond_mounted":["human",0.02,0.3679,0.4615,0.5175,43,"rider"],"elven_lancer":["human",0.02,0.3679,0.4589,0.5075,43,"rider"],"ent":["ent",0.245,0.95,0.5273,0.5975,214,"body"],"eol":["human",0.01,0.99,0.5097,0.498,86,"body"],"eomer":["human",0.15,0.4,0.5429,0.535,44,"rider"],"eomer_foot":["human",0.2009,0.9631,0.4651,0.5275,89,"body"],"eomund":["human",0.082,0.3991,0.4882,0.525,43,"rider"],"eorl_the_young":["human",0.15,0.395,0.5306,0.5409,43,"rider"],"eorl_the_young_mounted":["human",0.15,0.395,0.5301,0.5475,43,"rider"],"eowyn":["human",0.1212,0.9257,0.502,0.5273,86,"body"],"eowyn_mounted":["human",0.02,0.3652,0.5087,0.4925,43,"rider"],"erestor":["human",0.01,0.99,0.4607,0.5,86,"body"],"erkenbrand":["human",0.19,0.98,0.5,0.585,86,"body"],"erkenbrand_mounted":["human",0.16,0.405,0.4659,0.5325,43,"rider"],"esgaroth_archer":["human",0.0371,0.99,0.4954,0.5227,86,"body"],"falathrim_archer":["human",0.0209,0.99,0.3909,0.5125,86,"body"],"far_harad_chieftain":["human",0.18,0.9,0.511,0.54,86,"body"],"faramir":["human",0.01,0.99,0.5,0.5039,86,"body"],"faramir_mounted":["human",0.043,0.3825,0.5,0.5025,43,"rider"],"farmer_maggot":["hobbit",0.01,0.99,0.451,0.4785,54,"body"],"feanor":["human",0.04,0.965,0.572,0.5,89,"body"],"feanor_mounted":["human",0.055,0.35,0.568,0.5091,44,"rider"],"fellbeast":["fellbeast",0.043,0.9531,0.4449,0.498,220,"body"],"fili":["dwarf",0.01,0.99,0.4805,0.5039,68,"body"],"fimbul":["orc",0.1195,0.9899,0.4773,0.545,76,"body"],"fingolfin":["human",0.01,0.99,0.433,0.502,89,"body"],"fingolfin_mounted":["human",0.1523,0.444,0.4961,0.555,45,"rider"],"fingon":["human",0.305,0.94,0.453,0.6225,86,"body"],"fingon_mounted":["human",0.1758,0.4672,0.5,0.57,43,"rider"],"finrod_felagund":["human",0.01,0.99,0.4685,0.502,86,"body"],"finrod_felagund_mounted":["human",0.1211,0.4324,0.5,0.54,43,"rider"],"forlong":["human",0.029,0.99,0.4802,0.5137,86,"body"],"forsaken":["large-human",0.01,0.99,0.5459,0.4941,98,"body"],"forsaken_mounted":["large-human",0.02,0.3679,0.5969,0.5025,50,"rider"],"frealaf":["human",0.0469,0.957,0.4762,0.502,86,"body"],"frealaf_mounted":["human",0.09,0.39,0.4681,0.52,43,"rider"],"fredegar":["hobbit",0.0938,0.9375,0.5126,0.5156,54,"body"],"frodo":["hobbit",0.01,0.99,0.4727,0.502,54,"body"],"galadhrim_knight":["human",0.082,0.4048,0.5128,0.525,43,"rider"],"galadhrim_warrior":["human",0.2491,0.9774,0.4506,0.6055,86,"body"],"galadriel":["human",0.2006,0.9713,0.4844,0.5859,86,"body"],"galdor":["human",0.1301,0.9658,0.5043,0.5479,86,"body"],"gamling":["human",0.2573,0.9771,0.5185,0.6075,86,"body"],"gamling_mounted":["human",0.295,0.535,0.5513,0.62,43,"rider"],"gandalf":["human",0.0932,0.99,0.5933,0.5773,99,"body"],"gandalf_mounted":["human",0.1211,0.4324,0.5,0.52,43,"rider"],"gandalf_white":["human",0.25,0.96,0.462,0.5409,82,"body"],"gandalf_white_mounted":["human",0.1133,0.4274,0.4881,0.5045,43,"rider"],"ghan_buri_ghan":["human",0.24,0.94,0.517,0.5318,86,"body"],"gil_galad":["human",0.055,0.92,0.4301,0.4875,89,"body"],"gil_galad_mounted":["human",0.025,0.34,0.3636,0.5,45,"rider"],"gildor":["human",0.142,0.99,0.3874,0.565,86,"body"],"gimli":["dwarf",0.2313,0.99,0.4766,0.6152,68,"body"],"glaurung":["dragon",0.0391,0.9258,0.5045,0.4545,282,"body"],"gloin":["dwarf",0.01,0.99,0.4688,0.502,68,"body"],"glorfindel_foot":["human",0.1164,0.9384,0.5039,0.5274,76,"body"],"glorfindel_mounted":["human",0.095,0.38,0.5396,0.5091,44,"rider"],"goat_rider":["dwarf",0.1758,0.4646,0.5104,0.59,36,"rider"],"goblin_bow":["goblin",0.2055,0.9521,0.5281,0.5788,63,"body"],"goblin_drummer":["goblin",0.0234,0.957,0.4609,0.4902,63,"body"],"goblin_king":["giant-humanoid",0.15,0.9,0.5312,0.525,144,"body"],"goblin_mercenary":["goblin",0.0781,0.9453,0.4743,0.5117,63,"body"],"goblin_prowler":["goblin",0.0163,0.9837,0.502,0.4883,63,"body"],"goblin_scribe":["goblin",0.1458,0.987,0.4471,0.5195,63,"body"],"goblin_shaman":["goblin",0.1299,0.9795,0.4021,0.5479,63,"body"],"goblin_shield":["goblin",0.0234,0.9766,0.4615,0.5,63,"body"],"goblin_spear":["goblin",0.3651,0.9708,0.4924,0.665,63,"body"],"goldberry":["human",0.0215,0.9785,0.48,0.502,86,"body"],"golden_king":["human",0.01,0.99,0.449,0.515,86,"body"],"golfimbul":["goblin",0.3077,0.9891,0.4553,0.63,63,"body"],"gollum":["hobbit",0.2187,0.9454,0.4434,0.56,54,"body"],"gondolin_guard":["human",0.16,0.92,0.4803,0.54,86,"body"],"gondor_archer":["human",0.0935,0.99,0.4586,0.4818,86,"body"],"gondor_knight":["human",0.0586,0.3757,0.5099,0.4975,43,"rider"],"gorbag":["orc",0.0352,0.9766,0.5042,0.5059,76,"body"],"gorulf":["human",0.0273,0.9688,0.504,0.498,86,"body"],"gothmog":["orc",0.2171,0.986,0.5985,0.6075,103,"body"],"gothmog_balrog":["balrog",0.19,0.95,0.5091,0.5409,234,"body"],"great_beast_gorgoroth":["great-beast",0.0234,0.9609,0.4824,0.4922,264,"body"],"great_eagle":["eagle",0.3053,0.916,0.5045,0.5342,174,"body"],"grima":["human",0.2094,0.9547,0.5303,0.575,86,"body"],"grimbeorn":["large-human",0.1858,0.9548,0.4805,0.5703,98,"body"],"grimbold":["human",0.0616,0.99,0.4988,0.5,86,"body"],"grimbold_mounted":["human",0.02,0.3679,0.4923,0.4925,43,"rider"],"grishnakh":["orc",0.0356,0.9723,0.4961,0.504,76,"body"],"gulavhar":["bat-monster",0.35,0.96,0.5455,0.5773,154,"body"],"gundabad_orc":["orc",0.0431,0.9529,0.4766,0.498,76,"body"],"gundabad_warg_rider":["orc",0.085,0.4,0.5106,0.5075,39,"rider"],"guritz":["orc",0.0312,0.9648,0.4646,0.498,76,"body"],"guritz_mounted":["orc",0.02,0.3679,0.5069,0.495,39,"rider"],"guthlaf":["human",0.435,0.965,0.4969,0.6136,77,"body"],"guthlaf_mounted":["human",0.2736,0.4961,0.4308,0.5136,35.6,"rider"],"gwaihir":["eagle",0.3014,0.9247,0.5082,0.4955,214,"body"],"gwindor":["human",0.01,0.99,0.4558,0.498,86,"body"],"halbarad":["human",0.2735,0.9765,0.5042,0.6301,86,"body"],"halbarad_mounted":["human",0.285,0.535,0.5323,0.645,43,"rider"],"haldir":["human",0.0541,0.9772,0.4747,0.5227,86,"body"],"haleth":["human",0.082,0.9414,0.498,0.5117,86,"body"],"half_troll":["half-troll",0.0312,0.9492,0.5052,0.4902,118,"body"],"hama":["human",0.01,0.99,0.4645,0.502,86,"body"],"harad_chieftain":["human",0.19,0.98,0.5185,0.585,86,"body"],"haradrim_bow":["human",0.0932,0.99,0.5248,0.555,86,"body"],"haradrim_priest":["human",0.1507,0.9589,0.4463,0.5548,86,"body"],"haradrim_raider":["human",0.207,0.4871,0.4412,0.535,43,"rider"],"haradrim_spear":["human",0.0218,0.9703,0.4595,0.49,86,"body"],"haradrim_spearman":["human",0.1367,0.9805,0.4803,0.5586,86,"body"],"harding":["human",0.0287,0.99,0.4809,0.5175,86,"body"],"harding_mounted":["human",0.1152,0.4074,0.5427,0.5428,43,"rider"],"hasharin":["human",0.01,0.99,0.4821,0.4941,86,"body"],"helm_hammerhand":["large-human",0.01,0.99,0.4403,0.5,98,"body"],"hera":["human",0.01,0.99,0.4,0.4925,86,"body"],"hera_mounted":["human",0.035,0.325,0.4926,0.4925,43,"rider"],"hill_troll":["troll",0.0312,0.957,0.4647,0.4941,176,"body"],"hirgon":["human",0.01,0.99,0.463,0.4725,86,"body"],"hirluin":["human",0.0606,0.99,0.5,0.5449,86,"body"],"hobbit_bounder":["hobbit",0.53,0.96,0.4848,0.745,54,"body"],"hobbit_militia":["hobbit",0.505,0.96,0.4773,0.7325,54,"body"],"hobbit_shirriff":["hobbit",0.3872,0.99,0.5,0.6925,54,"body"],"huan":["hound",0.2466,0.911,0.5608,0.4545,102,"body"],"hunter_orc":["orc",0.0867,0.99,0.4932,0.5273,76,"body"],"huor":["human",0.0362,0.99,0.4869,0.5375,86,"body"],"huorn":["ent",0.23,0.965,0.4902,0.5975,214,"body"],"hurin":["human",0.1355,0.9739,0.4747,0.5605,86,"body"],"hurin_thalion":["human",0.25,0.89,0.4924,0.57,86,"body"],"hurin_thalion_mounted":["human",0.2227,0.4971,0.5046,0.5475,43,"rider"],"imrahil":["human",0.01,0.99,0.4727,0.5039,89,"body"],"imrahil_mounted":["human",0.06,0.335,0.5071,0.4975,44,"rider"],"ingold":["human",0.0218,0.9703,0.5023,0.4961,86,"body"],"irolas":["human",0.15,0.945,0.5156,0.5475,86,"body"],"iron_guard":["dwarf",0.231,0.99,0.4961,0.6191,58,"body"],"iron_hills_captain":["dwarf",0.38,0.98,0.4921,0.6,68,"body"],"isengard_troll":["troll",0.0234,0.9727,0.4741,0.498,176,"body"],"isildur":["human",0.2579,0.9608,0.4479,0.585,89,"body"],"isildur_mounted":["human",0.225,0.42,0.4938,0.565,31.2,"rider"],"ithilien_ranger":["human",0.0876,0.9514,0.4845,0.5182,86,"body"],"kardush":["human",0.105,0.95,0.4924,0.5275,86,"body"],"khamul":["large-human",0.3059,0.99,0.4394,0.675,98,"body"],"khamul_mounted":["large-human",0.2305,0.5021,0.4839,0.5545,50,"rider"],"khandish_chariot":["chariot",0.1055,0.9531,0.5027,0.5293,172,"body"],"khandish_chieftain":["human",0.0664,0.9609,0.5227,0.5045,86,"body"],"khandish_horseman":["human",0.1367,0.4397,0.523,0.565,43,"rider"],"khandish_warrior":["human",0.1514,0.9814,0.4686,0.5364,86,"body"],"khazad_guard":["dwarf",0.2229,0.99,0.4766,0.6172,58,"body"],"kili":["dwarf",0.2718,0.99,0.543,0.625,68,"body"],"king_of_the_dead":["human",0.029,0.99,0.4883,0.5225,86,"body"],"knight_of_umbar":["human",0.1586,0.99,0.4561,0.5879,94.6,"body"],"landroval":["eagle",0.3212,0.9562,0.5047,0.5318,202,"body"],"leaflock":["ent",0.25,0.97,0.4789,0.61,214,"body"],"legolas":["human",0.01,0.99,0.5069,0.5091,86,"body"],"lindir":["human",0.01,0.99,0.401,0.5,86,"body"],"lobelia":["hobbit",0.01,0.99,0.5025,0.5,54,"body"],"lossarnach_axeman":["human",0.1501,0.99,0.4688,0.5762,86,"body"],"lurtz":["large-human",0.0625,0.9805,0.5076,0.5215,102,"body"],"luthien":["human",0.1514,0.9814,0.4727,0.5742,86,"body"],"mablung":["human",0.0945,0.9837,0.456,0.5175,70,"body"],"mablung_sindar":["human",0.1505,0.99,0.494,0.5409,70,"body"],"madril":["human",0.087,0.9677,0.485,0.5254,86,"body"],"maedhros":["human",0.115,0.975,0.5,0.545,86,"body"],"maedhros_mounted":["human",0.135,0.38,0.5055,0.55,39,"rider"],"maeglin":["human",0.01,0.99,0.5169,0.5,86,"body"],"maeglin_mounted":["human",0.025,0.345,0.4908,0.5409,43,"rider"],"maglor":["human",0.01,0.99,0.5321,0.495,86,"body"],"mahud_beastmaster":["human",0.07,0.9847,0.4667,0.5215,86,"body"],"mahud_blowpipe":["human",0.17,0.965,0.5956,0.5455,86,"body"],"mahud_camel_raider":["human",0.0273,0.3643,0.5489,0.5125,43,"rider"],"mahud_chieftain":["human",0.01,0.99,0.53,0.4863,86,"body"],"mahud_raider":["human",0.0215,0.9785,0.5945,0.5059,86,"body"],"malbeth":["human",0.01,0.99,0.5,0.5,86,"body"],"mauhur":["human",0.0117,0.9805,0.4521,0.4961,86,"body"],"melian":["human",0.1348,0.99,0.497,0.55,86,"body"],"melkor":["dark-lord",0.21,0.94,0.51,0.575,248,"body"],"meneldor":["eagle",0.2378,0.9021,0.5123,0.4864,180,"body"],"merry":["hobbit",0.3466,0.99,0.4805,0.6719,54,"body"],"mim":["dwarf",0.01,0.99,0.4567,0.5,68,"body"],"mirkwood_captain":["human",0.2397,0.9521,0.4956,0.5959,86,"body"],"mirkwood_sentinel":["human",0.0619,0.985,0.4819,0.5254,86,"body"],"mirkwood_spider":["spider",0.055,0.95,0.5,0.5025,106,"body"],"morannon_orc":["orc",0.01,0.99,0.4375,0.4941,76,"body"],"mordor_uruk":["large-human",0.0938,0.9258,0.4804,0.5098,98,"body"],"morgoth":["dark-lord",0.21,0.94,0.5044,0.55,248,"body"],"morgul_duellist":["human",0.0352,0.957,0.4509,0.4961,86,"body"],"morgul_knight":["human",0.291,0.905,0.5213,0.598,86,"body"],"morgul_orc":["orc",0.01,0.99,0.4649,0.498,76,"body"],"morgul_rat":["orc",0.0352,0.957,0.4854,0.4961,76,"body"],"morgul_stalker":["orc",0.0352,0.957,0.5146,0.4961,76,"body"],"moria_goblin":["goblin",0.0234,0.9766,0.5079,0.5,63,"body"],"mountain_troll":["troll",0.0586,0.9648,0.4701,0.5117,176,"body"],"mouth_of_sauron":["human",0.0273,0.3726,0.4881,0.485,43,"rider"],"mt_bowman":["human",0.0525,0.99,0.4896,0.5125,86,"body"],"mt_captain":["human",0.0525,0.99,0.5081,0.53,86,"body"],"mt_fountain_guard":["human",0.1257,0.99,0.5,0.565,86,"body"],"mt_spear":["human",0.3475,0.9572,0.4727,0.6426,86,"body"],"mt_spearshield":["human",0.1094,0.99,0.495,0.575,86,"body"],"mt_swordshield":["human",0.01,0.99,0.4972,0.5075,86,"body"],"mumakil":["mumak",0.1704,0.9704,0.4815,0.4273,356,"body"],"muzgur":["orc",0.24,0.93,0.5,0.585,76,"body"],"nain":["dwarf",0.2714,0.99,0.4661,0.6465,68,"body"],"nargothrond_ranger":["human",0.0694,0.99,0.5091,0.5318,86,"body"],"narzug":["orc",0.0219,0.99,0.5076,0.495,76,"body"],"nazgul_fellbeast":["fellbeast",0.3,0.52,0.5023,0.5091,50,"rider"],"nazgul_mace":["large-human",0.293,0.979,0.5,0.636,98,"body"],"nazgul_mounted":["large-human",0.0742,0.4025,0.5078,0.52,50,"rider"],"nazgul_sword":["large-human",0.1186,0.99,0.5566,0.5645,98,"body"],"nazgul_sword_2":["large-human",0.1107,0.99,0.5234,0.5625,98,"body"],"necromancer":["large-human",0.0782,0.99,0.3967,0.53,98,"body"],"noldor_warrior":["human",0.01,0.99,0.4318,0.5137,86,"body"],"nori":["dwarf",0.231,0.99,0.4453,0.6191,68,"body"],"numenorean_archer":["human",0.065,0.97,0.464,0.5175,77,"body"],"numenorean_captain":["human",0.0547,0.9609,0.4451,0.505,86,"body"],"numenorean_knight":["human",0.0898,0.4124,0.447,0.5275,43,"rider"],"numenorean_marshal":["human",0.0127,0.99,0.4118,0.498,86,"body"],"numenorean_spearman":["human",0.1019,0.99,0.4183,0.5475,86,"body"],"numenorean_warrior":["human",0.0283,0.99,0.4368,0.52,86,"body"],"oin":["dwarf",0.231,0.99,0.457,0.6172,68,"body"],"olog_hai":["troll",0.0234,0.9766,0.464,0.5,176,"body"],"orc_archer":["orc",0.12,0.975,0.5778,0.5475,76,"body"],"orc_bow":["orc",0.12,0.975,0.5667,0.5475,76,"body"],"orc_captain":["orc",0.2879,1,0.4318,0.6439,76,"body"],"orc_drummer":["orc",0.0469,0.957,0.5023,0.4273,76,"body"],"orc_sergeant":["orc",0.2408,0.99,0.5215,0.5773,76,"body"],"orc_shaman":["orc",0.0789,0.99,0.5203,0.5636,76,"body"],"orc_spear2":["orc",0.19,0.95,0.5379,0.57,76,"body"],"orc_spearman":["orc",0.19,0.95,0.5379,0.57,76,"body"],"orc_sword":["orc",0.0234,0.9766,0.4868,0.5,76,"body"],"orc_sword2":["orc",0.0234,0.9766,0.4868,0.5,76,"body"],"orc_swordshield":["orc",0.0547,0.9453,0.457,0.5,76,"body"],"orc_taskmaster":["orc",0.0588,0.9569,0.4961,0.5078,76,"body"],"orc_tracker":["orc",0.2105,0.9248,0.4773,0.5677,76,"body"],"orc_twohanded":["orc",0.0547,0.9531,0.4795,0.5182,76,"body"],"ori":["dwarf",0.2555,0.99,0.4609,0.6309,68,"body"],"orophin":["human",0.2233,0.9563,0.4866,0.5898,86,"body"],"osgiliath_veteran":["human",0.0218,0.9703,0.4685,0.4941,86,"body"],"palace_guard":["human",0.3055,0.99,0.4297,0.6504,86,"body"],"paladin_took":["hobbit",0.0219,0.99,0.4796,0.5078,54,"body"],"pallando":["human",0.01,0.99,0.5342,0.5227,86,"body"],"pelennor_militia":["human",0.2888,0.99,0.5152,0.635,86,"body"],"pippin":["hobbit",0.3303,0.99,0.4766,0.6699,54,"body"],"pippin_citadel":["hobbit",0.0379,0.99,0.4961,0.5156,54,"body"],"quickbeam":["ent",0.0508,0.8789,0.4939,0.4648,214,"body"],"radagast":["human",0.12,0.94,0.5041,0.53,86,"body"],"ranger_north":["human",0.0303,0.9619,0.4808,0.498,86,"body"],"rhosgobel_rabbit":["chariot",0.09,0.96,0.5375,0.55,172,"body"],"rohan_archer":["human",0.0948,0.9755,0.4917,0.5275,86,"body"],"rohan_banner":["human",0.355,0.935,0.4653,0.5955,86,"body"],"rohan_outrider":["human",0.0586,0.3898,0.4161,0.4818,43,"rider"],"rohan_rider":["human",0.02,0.3567,0.4699,0.4909,43,"rider"],"rohan_royal_guard":["human",0.12,0.97,0.4717,0.545,86,"body"],"rohan_royal_guard_mounted":["human",0.0898,0.4098,0.5053,0.5125,43,"rider"],"rohan_spear":["human",0.0287,0.99,0.4924,0.5025,86,"body"],"rohan_swordshield":["human",0.01,0.99,0.4909,0.485,86,"body"],"rohan_yeoman":["human",0.01,0.99,0.5185,0.4941,86,"body"],"ruffian":["human",0.01,0.99,0.4848,0.4975,86,"body"],"rumil":["human",0.1467,0.9556,0.5654,0.5511,86,"body"],"samwise":["hobbit",0.3384,0.99,0.4844,0.665,54,"body"],"sangarunya":["human",0.0703,0.8867,0.5144,0.4785,86,"body"],"saruman":["human",0.0785,0.9762,0.5,0.5225,86,"body"],"sauron":["giant-humanoid",0.155,0.97,0.513,0.5625,144,"body"],"sauron_wolf":["great-wolf",0.0352,0.9648,0.5714,0.5045,152,"body"],"scatha":["dragon",0.0742,0.957,0.5,0.5156,282,"body"],"serpent_guard":["human",0.01,0.99,0.4773,0.4922,86,"body"],"shadow_lord":["large-human",0.0824,0.902,0.5,0.5075,98,"body"],"shadow_lord_mounted":["large-human",0.025,0.365,0.6761,0.4909,50,"rider"],"shagrat":["large-human",0.0273,0.9805,0.4816,0.5039,98,"body"],"sharku":["orc",0.043,0.3686,0.5195,0.5075,39,"rider"],"shelob":["great-spider",0.0547,0.9297,0.4961,0.4922,186,"body"],"silvan_archer":["human",0.0948,0.9755,0.4414,0.5425,86,"body"],"smaug":["dragon",0.3939,1,0.5182,0.5545,423,"body"],"snaga":["orc",0.2353,0.9366,0.4805,0.5898,76,"body"],"sons_of_eorl":["human",0.1055,0.3999,0.4747,0.505,43,"rider"],"spider_queen":["great-spider",0.0273,0.9336,0.5091,0.3864,186,"body"],"stone_giant":["giant",0.0234,0.9648,0.4414,0.4941,316,"body"],"stone_troll":["troll",0.045,0.94,0.4909,0.4925,176,"body"],"suladan":["human",0.01,0.99,0.4326,0.5,86,"body"],"tainted":["large-human",0.143,0.99,0.4414,0.5742,98,"body"],"tainted_mounted":["large-human",0.06,0.36,0.5114,0.5409,45,"rider"],"targsh":["orc",0.0352,0.9648,0.4766,0.5,76,"body"],"tauriel":["human",0.01,0.99,0.4388,0.5,86,"body"],"theoden":["human",0.245,0.46,0.4713,0.575,43,"rider"],"theoden_foot":["human",0.135,0.945,0.4318,0.54,86,"body"],"theodred":["human",0.02,0.3679,0.4884,0.495,43,"rider"],"thingol":["human",0.01,0.99,0.4898,0.4922,95,"body"],"thingol_mounted":["human",0.02,0.3679,0.4806,0.49,43,"rider"],"thorin":["dwarf",0.01,0.99,0.459,0.4875,70,"body"],"thorondor":["great-eagle",0.3333,0.9773,0.5,0.6553,278,"body"],"thrain":["dwarf",0.01,0.99,0.4467,0.5,68,"body"],"thranduil":["human",0.028,0.99,0.4732,0.5254,86,"body"],"thranduil_mounted":["human",0.085,0.34,0.5,0.52,43,"rider"],"thror":["dwarf",0.01,0.99,0.5113,0.46,68,"body"],"thrydan":["human",0.01,0.99,0.4706,0.5059,86,"body"],"thrydan_mounted":["human",0.1523,0.4523,0.5528,0.5318,43,"rider"],"thuringwethil":["bat",0.09,0.89,0.4796,0.49,74,"body"],"tom_bombadil":["human",0.09,0.94,0.4261,0.515,129,"body"],"troll_shaman":["troll",0.125,0.95,0.5288,0.5909,176,"body"],"tuor":["human",0.0368,0.99,0.5,0.54,95,"body"],"tuor_mounted":["human",0.0273,0.3726,0.4842,0.5125,43,"rider"],"turgon":["human",0.195,0.985,0.438,0.59,86,"body"],"turgon_mounted":["human",0.1289,0.4373,0.4564,0.515,43,"rider"],"turin":["human",0.1687,0.9563,0.4773,0.5273,89,"body"],"turin_mounted":["human",0.04,0.34,0.4706,0.515,44,"rider"],"ufthak":["orc",0.0586,0.9492,0.4948,0.5039,76,"body"],"ugluk":["large-human",0.2466,0.9589,0.4876,0.6027,83,"body"],"undying":["large-human",0.2571,0.99,0.4773,0.6629,98,"body"],"undying_mounted":["large-human",0.145,0.395,0.5966,0.55,40,"rider"],"ungoliant":["great-spider",0.077,0.963,0.4938,0.5201,232,"body"],"uruk_banner":["large-human",0.36,0.975,0.4068,0.6675,98,"body"],"uruk_berserker":["large-human",0.065,0.955,0.5,0.51,98,"body"],"uruk_berserker2":["large-human",0.03,0.94,0.5,0.485,98,"body"],"uruk_captain":["large-human",0.0703,0.9453,0.4634,0.5078,98,"body"],"uruk_crossbow":["large-human",0.0942,0.99,0.497,0.4955,98,"body"],"uruk_pike":["large-human",0.1355,0.99,0.541,0.5525,98,"body"],"uruk_sapper":["large-human",0.105,0.945,0.5911,0.525,98,"body"],"uruk_scout":["large-human",0.0742,0.9648,0.4664,0.5195,98,"body"],"uruk_scout_archer":["large-human",0.0789,0.99,0.3991,0.5,98,"body"],"uruk_swordshield":["large-human",0.0703,0.957,0.4726,0.5137,98,"body"],"uruk_swordshield2":["large-human",0.0391,0.9688,0.4789,0.5039,98,"body"],"variag_horseman":["human",0.105,0.405,0.5049,0.545,43,"rider"],"variag_warrior":["human",0.0287,0.99,0.4921,0.5078,86,"body"],"vault_warden":["dwarf",0.1495,0.99,0.4563,0.5856,58,"body"],"vrasku":["large-human",0.2628,0.9854,0.4621,0.6241,80,"body"],"war_hound":["hound",0.1644,0.9658,0.5048,0.5651,92,"body"],"war_troll":["troll",0.0273,0.9688,0.4741,0.498,176,"body"],"warg":["wolf",0.0352,0.9648,0.4259,0.5,116,"body"],"warg_alpha":["wolf",0.25,0.95,0.5336,0.6,116,"body"],"warg_chieftain":["orc",0.09,0.395,0.5312,0.5125,43,"rider"],"warg_rider":["orc",0.09,0.395,0.5312,0.5125,39,"rider"],"warg_rider_bow":["orc",0.08,0.35,0.4679,0.5136,39,"rider"],"warg_rider_spear":["orc",0.0508,0.3735,0.39,0.49,39,"rider"],"warrior_minas_tirith":["human",0.01,0.99,0.4817,0.4863,86,"body"],"watcher_in_the_water":["watcher",0.0586,0.9727,0.5767,0.5136,202,"body"],"watcher_karna":["watcher",0.0234,0.9688,0.4922,0.4961,202,"body"],"werewolf":["great-wolf",0.285,0.94,0.4953,0.6125,152,"body"],"wild_warg":["wolf",0.1194,0.9254,0.5,0.5224,116,"body"],"wild_warg_alpha":["wolf",0.1096,0.9452,0.5041,0.5274,116,"body"],"will_whitfoot":["hobbit",0.01,0.99,0.476,0.498,54,"body"],"witchking_fellbeast":["fellbeast",0.235,0.43,0.5068,0.4727,50,"rider"],"witchking_foot":["large-human",0.0617,0.99,0.457,0.541,98,"body"],"witchking_foot_mace":["large-human",0.15,0.95,0.5273,0.5409,98,"body"],"witchking_mounted":["large-human",0.0898,0.4098,0.5909,0.4682,50,"rider"],"witchking_mounted_sheet":["large-human",0.1367,0.4227,0.5864,0.4864,50,"rider"],"wulf":["human",0.0137,0.9707,0.4793,0.4863,86,"body"],"yazneg":["orc",0.1691,0.9853,0.514,0.5318,76,"body"],"zagdush":["orc",0.0742,0.9531,0.5359,0.5318,76,"body"],"citadel_guard_bow":["human",0.115,0.958,0.486,0.536,86,"body"],"osgiliath_spearshield":["human",0.22,0.958,0.457,0.589,86,"body"],"osgiliath_bow":["human",0.13,0.965,0.482,0.547,86,"body"],"dol_amroth_swordshield":["human",0.132,0.954,0.481,0.543,86,"body"],"dol_amroth_knight_foot":["human",0.14,0.949,0.477,0.545,86,"body"],"rohan_helmingas":["human",0.176,0.936,0.477,0.556,86,"body"],"rohan_redshield":["human",0.083,0.367,0.475,0.52,43,"rider"],"ironhills_warrior":["dwarf",0.258,0.9,0.486,0.579,68,"body"],"ironhills_spearshield":["dwarf",0.224,0.924,0.482,0.574,68,"body"],"ironhills_crossbow":["dwarf",0.251,0.901,0.49,0.576,68,"body"],"galadhrim_bow":["human",0.19,0.912,0.465,0.551,86,"body"],"galadhrim_elite_bow":["human",0.208,0.935,0.474,0.572,86,"body"],"mirkwood_ranger":["human",0.178,0.955,0.483,0.566,86,"body"],"arnor_knight":["human",0.086,0.368,0.479,0.524,43,"rider"],"arnor_ranger":["human",0.174,0.954,0.486,0.564,86,"body"],"morannon_swordshield":["orc",0.21,0.933,0.463,0.572,76,"body"],"orc_elite_tracker":["orc",0.278,0.927,0.467,0.602,76,"body"],"dale_guard":["human",0.135,0.944,0.466,0.539,86,"body"]};
 function unitArtLayout(u, source) {
     const profile = UNIT_ART_PROFILES[u.id];
     // Explicit safe fallback for subsequently added art; add a reviewed profile with the art.
@@ -5134,10 +5152,26 @@ Ve.prototype.drawRings = function () {
                 duo(2.6, 0xf2c45a, .9, () => g.lineBetween(u.x, u.y, v.x, v.y));
     }
     for (const area of b.warnings || []) {
-        g.fillStyle(TARGET, .22);
-        g.fillCircle(area.x, area.y, area.radius);
-        dashCircle(area.x, area.y, area.radius, 5, FOE_HI, 1, 36);
-        label(area.x, area.y, '다음 라운드 · ' + (area.label || '보스 기술'), { color: '#ffd2ab' });
+        if (area.src && !b.unit(area.src)?.alive) continue;
+        g.fillStyle(TARGET, area.kind === 'embers' ? .3 : .22);
+        g.lineStyle(4, FOE_HI, 1);
+        if (area.shape === 'cone' || area.shape === 'lane') {
+            let points=[];
+            if(area.shape === 'cone') {
+                points.push({x:area.ox,y:area.oy});
+                for(let i=0;i<=16;i++){const a=area.angle-area.half+area.half*2*i/16;points.push({x:area.ox+Math.cos(a)*area.length,y:area.oy+Math.sin(a)*area.length});}
+            } else {
+                const angle=Math.atan2(area.ty-area.oy,area.tx-area.ox),nx=-Math.sin(angle)*area.width,ny=Math.cos(angle)*area.width;
+                points=[{x:area.ox+nx,y:area.oy+ny},{x:area.tx+nx,y:area.ty+ny},{x:area.tx-nx,y:area.ty-ny},{x:area.ox-nx,y:area.oy-ny}];
+            }
+            g.fillPoints(points,true);g.strokePoints(points,true);
+            if(area.shape==='lane'){g.lineStyle(2,0xffdfac,.8);g.lineBetween(area.ox,area.oy,area.tx,area.ty);g.strokeCircle(area.ox,area.oy,area.width);g.strokeCircle(area.tx,area.ty,area.width);}
+        } else {g.fillCircle(area.x,area.y,area.radius);dashCircle(area.x,area.y,area.radius,5,FOE_HI,1,36);}
+        label(area.x,area.y,(area.kind==='embers'?'잔불 · ':'다음 라운드 · ')+(area.label||'보스 기술'),{color:'#ffd2ab'});
+    }
+    for(const u of b.alive('evil').filter(u=>u._bossWeakUntil>=b.round)) {
+        dashCircle(u.x,u.y,u.radius+14,4,0xf4df8a,1,24);
+        label(u.x,u.y-u.radius-34,'약점 노출 · Defence −2',{color:'#ffe49b'});
     }
     if (b._eyeZone) {
         g.fillStyle(0x8f1f16, .14);
@@ -5348,6 +5382,9 @@ function bossIntro(id) {
     const cfg = BOSS_INTRO[id] || { tag: '적장 출현', line: '보스를 처치하면 이 전투에서 승리합니다.', accent: '#ffb08a', glow: 'rgba(240,60,30,.8)', cls: '' };
     const el = document.createElement('div'); el.id = 'boss-intro'; el.className = cfg.cls;
     el.innerHTML = `<div class="boss-card"><div class="boss-tag"><img src="icons/ui_warning.png" alt="">${esc(cfg.tag)}</div><h2 style="color:${cfg.accent};text-shadow:0 0 34px ${cfg.glow}">${esc(meta.name_ko)}</h2><div class="boss-art">${unitImage(id)}</div><p>${esc(cfg.line)}</p></div>`;
+    const tactics=BOSS_TACTICS[id];
+    if(tactics){const t=document.createElement('div');t.className='boss-counterplay';const strong=document.createElement('strong'),small=document.createElement('span');strong.textContent=tactics[1];small.textContent=tactics[2];t.append(strong,small);el.querySelector('.boss-card').appendChild(t);}
+    if(id==='mouth_of_sauron'){const flight=document.createElement('div');flight.className='boss-flight';for(let i=0;i<3;i++){const wing=document.createElement('div');wing.innerHTML=unitImage('nazgul_fellbeast');flight.appendChild(wing);}el.querySelector('.boss-art').after(flight);}
     el.onclick = () => el.remove();
     document.body.appendChild(el);
     const _dur = cfg.cls === 'bi-doom' ? 4200 : 3400;
@@ -5541,9 +5578,10 @@ Qe = function () {
         box.querySelectorAll('[data-recruit]').forEach(el => el.onclick = e => { const _vn = e.target.closest && e.target.closest('[data-vunit]'); if (_vn) { const _id = _vn.dataset.vunit, _p = zt[_id] || {}, _pu = { id: _id, side: 'good', name: (q.meta.get(_id) || {}).name_ko || _id, stats: { ..._p }, traits: [...(_p.traits || [])], resources: { might: _p.might || 0, will: _p.will || 0, fate: _p.fate || 0 }, equipment: [], kills: 0, currentWounds: _p.wounds || 1, injury: '', alive: true, roundBuff: {} }; unitCardModal(_pu); return; } q.recruit(Number(el.dataset.recruit)); wt.play('reward_select'); Yt(); });
          if (ut('army-name')) ut('army-name').oninput = e => { q.armyName = e.target.value; q.save(); };
          box.querySelectorAll('[data-rename]').forEach(el => el.onclick = () => { const u = q.unit(el.dataset.rename); if (!u) return; const meta = q.meta.get(u.id) || {}; let m = box.querySelector('#camp-profile'); if (!m) { m = document.createElement('div'); m.id = 'camp-profile'; m.style.cssText = 'position:fixed;inset:0;background:rgba(8,12,10,.85);z-index:60;display:flex;align-items:center;justify-content:center;padding:16px'; m.onclick = e => { if (e.target === m) m.remove(); }; box.appendChild(m); }
-            m.innerHTML = `<div class="modal ui-profile" style="max-width:420px;width:100%"><div class="unit-head">${unitImage(u.id)}<div><strong>${esc(u.name)}</strong><small>${u.side === 'good' ? '아군' : '적군'} · ${CX.roleNames[meta.role] || meta.role || ''}</small>${isHeroUnit(u.id) ? `<small class="unit-tier tier-${heroGrade(u.id)}">${tierLabel(u.id)} · ${(UnitCatalog[u.id] || {}).points ?? 0}pt</small>` : ''}</div></div>${uiUnitStats(u)}${(u.equipment || []).length ? `<div class="equip-row">${u.equipment.map(eid => { const a = (typeof LWB_EQUIP !== 'undefined' ? LWB_EQUIP : []).find(x => x.id === eid); const _unq2 = u.side === 'good' && !a.once; return a ? `<button class="equip-chip" data-eqd="${eid}" data-uid="${u.uid}">${a.iconImg ? `<img src="${a.iconImg}" alt="">` : ''}${esc(a.label)}${_unq2 ? ' <em style="font-style:normal;color:#9fc4e8">해제 가능</em>' : ''}</button>` : ''; }).join('')}</div>` : ''}<div class="traits">${[((u.traits || []).includes('champion') ? '<img src="icons/tr_champion.png" class="tr-ic" title="챔피언" alt="">챔피언' : (u.traits || []).includes('veteran') ? '<img src="icons/tr_veteran.png" class="tr-ic" title="베테랑" alt="">베테랑' : ''), u.injury ? '<img src="icons/tr_injury.png" class="tr-ic" title="부상" alt="">부상 ' + u.injury : '', '처치 ' + (u.kills || 0)].filter(Boolean).join(' · ')}</div>${uiSkillBlock(u)}<footer class="ui-profile-actions">${u.side === 'good' && (u.equipment || []).length ? '<button class="secondary" id="cp-gift" style="margin-top:8px;width:100%">장비를 다른 영웅에게 양도</button>' : ''}
+            m.innerHTML = `<div class="modal ui-profile" style="max-width:420px;width:100%"><div class="unit-head">${unitImage(u.id)}<div><strong>${esc(u.name)}</strong><small>${u.side === 'good' ? '아군' : '적군'} · ${CX.roleNames[meta.role] || meta.role || ''}</small>${isHeroUnit(u.id) ? `<small class="unit-tier tier-${heroGrade(u.id)}">${tierLabel(u.id)} · ${(UnitCatalog[u.id] || {}).points ?? 0}pt</small>` : ''}</div></div>${uiUnitStats(u)}${troopProfileSection(u)}${(u.equipment || []).length ? `<div class="equip-row">${u.equipment.map(eid => { const a = (typeof LWB_EQUIP !== 'undefined' ? LWB_EQUIP : []).find(x => x.id === eid); const _unq2 = u.side === 'good' && !a.once; return a ? `<button class="equip-chip" data-eqd="${eid}" data-uid="${u.uid}">${a.iconImg ? `<img src="${a.iconImg}" alt="">` : ''}${esc(a.label)}${_unq2 ? ' <em style="font-style:normal;color:#9fc4e8">해제 가능</em>' : ''}</button>` : ''; }).join('')}</div>` : ''}<div class="traits">${[((u.traits || []).includes('champion') ? '<img src="icons/tr_champion.png" class="tr-ic" title="챔피언" alt="">챔피언' : (u.traits || []).includes('veteran') ? '<img src="icons/tr_veteran.png" class="tr-ic" title="베테랑" alt="">베테랑' : ''), u.injury ? '<img src="icons/tr_injury.png" class="tr-ic" title="부상" alt="">부상 ' + u.injury : '', '처치 ' + (u.kills || 0)].filter(Boolean).join(' · ')}</div>${uiSkillBlock(u)}<footer class="ui-profile-actions">${u.side === 'good' && (u.equipment || []).length ? '<button class="secondary" id="cp-gift" style="margin-top:8px;width:100%">장비를 다른 영웅에게 양도</button>' : ''}
 ${u.side === 'good' ? '<button class="secondary" id="cp-dismiss" style="margin-top:8px;width:100%;border-color:#8f4a3a;color:#e8a08a">부대에서 제명</button>' : ''}<button class="primary" id="camp-profile-close">닫기</button></footer></div>`;
             m.querySelector('#camp-profile-close').onclick = () => m.remove();
+            m.querySelector('[data-troop-career]')?.addEventListener('click',()=>openTroopPromotion(u.uid,true));
             const _ds = m.querySelector('#cp-dismiss'); if (_ds) _ds.onclick = () => { if (!_ds.dataset.arm) { _ds.dataset.arm = '1'; _ds.textContent = '제명 확정 · 장비 함께 삭제'; return; } q.units = q.units.filter(w => w.uid !== u.uid); q.save(); Xt(u.name + '을(를) 부대에서 내보냈습니다.'); m.remove(); Yt(); }; 
             const _gf = m.querySelector('#cp-gift'); if (_gf) _gf.onclick = () => { const _hs = q.alive('good').filter(v => v !== u && v.traits.includes('hero') && (v.equipment || []).length < 2); if (!_hs.length) return Xt('양도할 대상이 없습니다 — 다른 영웅의 장비 슬롯을 확인하세요.'); const _row = document.createElement('div'); _row.style.cssText = 'display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;justify-content:center'; _row.innerHTML = '<small style="width:100%;color:#a89878">받을 영웅을 고르세요</small>' + _hs.map(v => `<button class="secondary mini" data-gt="${v.uid}" style="display:inline-flex;align-items:center;gap:4px">${unitImage(v.id)}${esc(v.name)}</button>`).join(''); m.querySelector('.ui-profile-actions').before(_row); _row.querySelectorAll('[data-gt]').forEach(b2 => b2.onclick = () => { const _t = q.unit(b2.dataset.gt); _row.innerHTML = '<small style="width:100%;color:#a89878">' + esc(_t.name) + '에게 넘길 장비를 고르세요</small>' + (u.equipment || []).map(eid => { const a2 = (typeof LWB_EQUIP !== 'undefined' ? LWB_EQUIP : []).find(x => x.id === eid); return a2 ? `<button class="secondary mini" data-ge="${eid}">${a2.iconImg ? `<img src="${a2.iconImg}" alt="" style="width:16px;height:16px">` : ''}${esc(a2.label)}</button>` : ''; }).join(''); _row.querySelectorAll('[data-ge]').forEach(b3 => b3.onclick = () => Rt(() => { const eid = b3.dataset.ge; u.equipment = u.equipment.filter(x => x !== eid); _t.equipment = (_t.equipment || []).concat(eid); q.refreshUnit(u); q.refreshUnit(_t); q.save(); Xt(u.name + ' → ' + _t.name + ' 장비 양도 완료'); m.remove(); Yt(); })); }); }; });
          box.querySelectorAll('[data-ally]').forEach(el => el.onclick = () => Rt(() => { q.buyAlly(Number(el.dataset.ally)) ? Xt('동맹이 합류했습니다. 다음 전투 한정.') : Xt(q.allyBought ? '이미 동맹이 합류했습니다.' : '금화가 ' + Math.max(1, q.dc(ALLY_PACKS[Number(el.dataset.ally)].cost, 'white_pact') - q.gold) + ' 부족합니다.'); }));
@@ -6090,7 +6128,7 @@ function renderDock(){
     ut('ux-place').innerHTML = esc(place) + _chips;
     { /* header bottom is tracked by a ResizeObserver instead of a forced layout read on every render */ if (!window.__hdrSync) { const h = document.querySelector('header.top'); if (h) { window.__hdrSync = true; let last = ''; const _syncHdr = () => { const v = Math.round(h.getBoundingClientRect().bottom) + 'px'; if (v !== last) { last = v; document.documentElement.style.setProperty('--hdr-b', v); } }; new ResizeObserver(() => requestAnimationFrame(_syncHdr)).observe(h); addEventListener('resize', () => setTimeout(_syncHdr, 60)); requestAnimationFrame(_syncHdr); } } }
     { const _bb = ut('ux-bossbar'); if (_bb && _bb.parentElement !== document.querySelector('header.top')) document.querySelector('header.top')?.appendChild(_bb); if (_bb) {
-        const _boss = ((_info && _info.boss) ? q.alive('evil').find(u => u.id === _info.boss) : null) || q.alive('evil').find(u => u.traits && u.traits.includes('boss'));
+        const _boss = ((_info && _info.boss) ? q.alive('evil').find(u => u.id === _info.boss) : null) || q.alive('evil').find(u => (_info?.bossAll || []).includes(u.id)) || q.alive('evil').find(u => u.traits && u.traits.includes('boss'));
         if (_boss && _boss.alive) {
             const _max = (_boss.baseStats && _boss.baseStats.wounds) || _boss.stats.wounds || 1;
             const _frac = Math.max(0, Math.min(1, _boss.currentWounds / _max));
@@ -6098,11 +6136,18 @@ function renderDock(){
             const _bn = _bb.querySelector('.bossbar-name'); if (_bn) _bn.textContent = (_boss.name || q.meta.get(_boss.id).name_ko || '보스') + (_boss.traits.includes('terror') ? ' · 공포' : '') + ((_boss.bossPhase||1)>1 ? ' · ' + _boss.bossPhase + '단계' : '') + (_boss._enraged ? ' · 격노' : ''); _bb.classList.toggle('enraged', !!_boss._enraged);
             const _bf = _bb.querySelector('.bossbar-fill'); if (_bf) { _bf.style.width = (_frac * 100).toFixed(1) + '%'; _bf.style.background = _frac > .5 ? 'linear-gradient(90deg,#7e1d12,#c63d1e)' : _frac > .25 ? 'linear-gradient(90deg,#8a3a10,#d97a20)' : 'linear-gradient(90deg,#a85a10,#e0a020)'; }
             const _bh = _bb.querySelector('.bossbar-hp'); if (_bh) _bh.textContent = _boss.currentWounds + ' / ' + _max;
+            let tell=_bb.querySelector('.bossbar-pattern');if(!tell){tell=document.createElement('div');tell.className='bossbar-pattern';tell.setAttribute('aria-live','polite');_bb.appendChild(tell);}
+            const warnings=(q.warnings||[]).filter(a=>!a.src||q.unit(a.src)?.alive);
+            const labels=[...new Set(warnings.map(a=>a.label))];
+            const pending=q.alive('evil').filter(v=>(q.current?.bossAll||[]).includes(v.id)).length+q.delayed.filter(id=>(q.current?.bossAll||[]).includes(id)).length;
+            tell.textContent=labels.length?'다음 라운드 · '+labels.slice(0,2).join(' / ')+(labels.length>2?' 외 '+(labels.length-2)+'개':''):_boss._bossWeakUntil>=q.round?'약점 노출 · Defence −2':(BOSS_TACTICS[_boss.id]?.[1]||'');
+            if(q.current?.boss==='mouth_of_sauron')tell.textContent+=' · 적장 '+pending+'기';
+            tell.title=labels.length?labels.join(' / '):(BOSS_TACTICS[_boss.id]?.[2]||'');
         } else _bb.classList.add('hidden');
     } }
     { const _wf = ut('wx-fx'), _mod = (q.current && q.current.modifier) || ''; _wf && (_wf.className = ['rain', 'dark', 'fog', 'snow', 'eclipse', 'gale', 'frost', 'mud'].includes(_mod) ? 'wx-' + _mod : ''); }
     ut('wave').textContent=String(phase==='preparation'?q.wave+1:q.wave||1).padStart(2,'0');
-    const rules={defense:`라운드 끝 · 구역에 적 ${q.breachCount}기면 패배 · 구역 내 아군 결투 +1`,annihilation:'남은 적을 모두 격파',hold:`거점 우세 ${q.capture||0}/3 라운드`,survive:`생존 ${q.round||0}/5 라운드`,breakthrough:'아군 2기를 남쪽 돌파선으로'+(()=>{const n=q.alive('good').filter(u=>u.y>1200).length;return n?' · 돌파 '+Math.min(n,2)+'/2':''})(),rescue:q.rescued?`구출 후 생존 ${q.capture||0}/3`:'포로 구역 확보 후 3라운드 생존',commander:'보스를 처치하면 승리',escort:`보급 호송 — 남쪽 출구까지 호송${q.escortCart&&q.unit(q.escortCart)?.alive?` · 마차 ${Math.round(q.unit(q.escortCart).y)}/1180 · ♥${q.unit(q.escortCart).currentWounds}`:''} · 파괴 시 패배`,scouting:`정보 수습 ${(q.scouts||0)}/3 — 흩어진 정보에 아군 접근`,purge:`소굴 파괴 ${3-((q.purgeLairs||[]).filter(u=>{const w=q.unit(u);return w&&w.alive}).length)}/3 · 소굴은 2라운드마다 적 생성`};
+    const rules={defense:`라운드 끝 · 구역에 적 ${q.breachCount}기면 패배 · 구역 내 아군 결투 +1`,annihilation:'남은 적을 모두 격파',hold:`거점 우세 ${q.capture||0}/3 라운드`,survive:`생존 ${q.round||0}/5 라운드`,breakthrough:'아군 2기를 남쪽 돌파선으로'+(()=>{const n=q.alive('good').filter(u=>u.y>1200).length;return n?' · 돌파 '+Math.min(n,2)+'/2':''})(),rescue:q.rescued?`구출 후 생존 ${q.capture||0}/3`:'포로 구역 확보 후 3라운드 생존',commander:q.current?.boss==='mouth_of_sauron'?'사우론의 입 · 트롤 · 펠비스트 3기 격파':'모든 적장 격파',escort:`보급 호송 — 남쪽 출구까지 호송${q.escortCart&&q.unit(q.escortCart)?.alive?` · 마차 ${Math.round(q.unit(q.escortCart).y)}/1180 · ♥${q.unit(q.escortCart).currentWounds}`:''} · 파괴 시 패배`,scouting:`정보 수습 ${(q.scouts||0)}/3 — 흩어진 정보에 아군 접근`,purge:`소굴 파괴 ${3-((q.purgeLairs||[]).filter(u=>{const w=q.unit(u);return w&&w.alive}).length)}/3 · 소굴은 2라운드마다 적 생성`};
     ut('ux-mission').innerHTML=`<em>${CX.missionNames[q.mission]||'원정 준비'}</em>${esc(rules[q.mission]||'병사를 선택해 전열을 정하세요').replace(/♥/g,'<img src="icons/ui_heart.png" style="width:11px;height:11px;vertical-align:-2px;image-rendering:pixelated">').replace(/★/g,'<img src="icons/ui_star.png" style="width:11px;height:11px;vertical-align:-2px;image-rendering:pixelated">')}${q.bonusObjective?" <small style='color:#f2c75a'>· ★"+esc(q.bonusObjective.text)+" (+"+q.bonusObjective.gold+"금)</small>":''}${q.bonusObjective2?" <small style='color:#f2c75a'>· ★"+esc(q.bonusObjective2.text)+" (+"+q.bonusObjective2.gold+"금)</small>":''}${(['hold','defense','rescue'].includes(q.mission)&&q.alive('evil').some(u=>ht(u,Mt.objective)<=Mt.objective.radius*0.75))?" <small style='color:#ff7a5c;font-weight:800'>· <img src='icons/st_warn.png?v=1.37' style='width:14px;height:14px;vertical-align:-2px;image-rendering:pixelated' alt=''> 목표 위협</small>":''}${['move','shoot','fight'].includes(q.phase)&&!(q.stageDeaths||0)?" <small style='color:#8fd8a0'>· 무결 진행 중 (+25금)</small>":''}`;
     const image=ut('dock-portrait');if(u){const src=Th(q.meta.get(u.id).file);if(image.getAttribute('src')!==src){image.dataset.full=Ut(q.meta.get(u.id).file);image.onerror=function(){this.onerror=null;this.src=this.dataset.full};image.src=src;}image.classList.remove('hidden')}else image.classList.add('hidden');
     ut('dock-eyebrow').textContent=phase==='preparation'?'전열 배치':At?'행동 처리 중':active?'선택 병사':busy?'상대의 차례':phase==='fight'?'근접전 판정':'원정대 지휘';
@@ -7151,13 +7196,18 @@ He = function (b) {
     b.autoSpell(u);
     if (!b.canAct(u)) return;
     const role = window.LWBTactics.role(u, id => b.meta.get(id));
+    if (b.phase === 'move' && u.side === 'good' && !b.engaged(u)) {
+        const escape=b.bossEscape(u);if(escape&&b.move(u.uid,escape))return;
+    }
     if (b.phase === 'move') {
         const foes = b.alive(Ht(u.side));
         const _dst=stanceOf(b,u);if (!u.static && !u.lair && _dst !== 'rear' && !(_dst === 'defense' && !foes.some(v => ht(u,v)<=260)) && role !== 'support' && !b.engaged(u) && (_dst === 'aggressive' || role !== 'archer')) {
             const _dd = b.difficulty || 'normal', _wf = _dd === 'easy' ? 0 : _dd === 'despair' ? 55 : 35;
             const value = v => b.orderPriority(u,v) + ht(u, v) + (role === 'cavalry' ? (v.traits.includes('mounted') ? 130 : v.stats.shootRange ? -100 : 0) : 0) + (role === 'hero' ? b.alive(u.side).filter(f => Vt(f, v)).length * -90 : 0) - Math.min(2, v.stats.wounds-v.currentWounds)*_wf - (_dd === 'despair' ? v.stats.defence*14 : 0) + (v.stats.fight>u.stats.fight+2?65:0);
             for (const foe of foes.filter(v=>u.side!=='good'||b.battleOrder?.mode!=='hold'||ht(v,b.battleOrder.anchor)<=360).sort((a, c) => value(a) - value(c)).slice(0, 5))
-                if (b.charge(u.uid, foe.uid)) return;
+                { const p=chargePlan(u,foe,b.alive(),b.terrain,b.remaining(u));
+                  const unsafe=p&&u.side==='good'&&(b.warnings||[]).some(a=>b.unit(a.src)?.alive&&(!a.targetOnly||a.target===u.uid)&&b.bossAreaContains(a,{...u,...p.to}));
+                  if(!unsafe&&b.charge(u.uid,foe.uid))return; }
         }
         const dest = be(b, u);
         let done = !!dest && b.move(u.uid, dest);
@@ -7935,7 +7985,7 @@ function pointSourceText(id) {
     return '아미북 기준 · '+esc(d.profile)+' '+d.base+'pt'+d.options.map(([name,cost])=>' + '+esc(name)+' '+cost+'pt').join('')+' · '+esc(d.origin);
 }
 P.pointCost = function (id) { return UnitCatalog[id]?.points || 0; };
-P.rosterPoints = function () { return this.permanent().reduce((sum, u) => sum + this.pointCost(u.id), 0); };
+P.rosterPoints = function () { return this.permanent().reduce((sum, u) => sum + (this.unitFormationPoints ? this.unitFormationPoints(u) : this.pointCost(u.id)), 0); };
 P.capacity = function () { return Number.isFinite(this.pointLimit) && this.pointLimit >= WARBAND_POINTS.startLimit ? Math.floor(this.pointLimit) : WARBAND_POINTS.startLimit; };
 P.expandCost = function () { return 45 + Math.max(0, this.capacityBought || 0) * 25; };
 P.pointReason = function (extra) {
@@ -8115,7 +8165,2387 @@ P.dismount=function(u){pointDismount.call(this,u);u.points=this.pointCost(u.id);
 // the roster over budget. Their current profiles count; new paid additions stop.
 if(window.MESBG?.catalog)window.MESBG.catalog.points=WARBAND_POINTS;
 
+
 /*__WARBAND_POINTS_END__*/
+/*__TROOP_PROMOTIONS_BEGIN__*/
+/* Individual troop careers. Embedded by tools/build.js before Phaser preload. */
+const TROOP_PROMOTIONS = {
+  "version": 1,
+  "experience": {
+    "participation": 2,
+    "survival": 4,
+    "kill": 3,
+    "killCapPerBattle": 18
+  },
+  "thresholds": [
+    24,
+    64,
+    112
+  ],
+  "minimumBattles": [
+    3,
+    7,
+    11
+  ],
+  "aliases": {
+    "warrior_minas_tirith": "mt_swordshield",
+    "gondor_archer": "mt_bowman",
+    "orc_sword2": "orc_sword",
+    "orc_spear2": "orc_spearman",
+    "orc_bow": "orc_archer",
+    "uruk_swordshield2": "uruk_swordshield",
+    "uruk_berserker2": "uruk_berserker",
+    "haradrim_spearman": "haradrim_spear"
+  },
+  "groups": {
+    "gondor": [
+      "mt_swordshield",
+      "mt_spear",
+      "mt_spearshield",
+      "mt_bowman",
+      "osgiliath_veteran",
+      "osgiliath_spearshield",
+      "osgiliath_bow",
+      "mt_fountain_guard",
+      "citadel_guard",
+      "citadel_guard_bow",
+      "gondor_knight",
+      "ithilien_ranger",
+      "pelennor_militia",
+      "blackroot_archer",
+      "lossarnach_axeman"
+    ],
+    "dol_amroth": [
+      "dol_amroth_swordshield",
+      "dol_amroth_man_at_arms",
+      "dol_amroth_knight_foot",
+      "dol_amroth_knight"
+    ],
+    "rohan": [
+      "rohan_swordshield",
+      "rohan_spear",
+      "rohan_archer",
+      "rohan_rider",
+      "rohan_outrider",
+      "rohan_royal_guard",
+      "rohan_royal_guard_mounted",
+      "rohan_redshield",
+      "rohan_helmingas",
+      "rohan_yeoman",
+      "sons_of_eorl"
+    ],
+    "khazad_dum": [
+      "dwarf_guardian",
+      "dwarf_axeshield",
+      "dwarf_2haxe",
+      "dwarf_ranger",
+      "khazad_guard",
+      "iron_guard",
+      "vault_warden"
+    ],
+    "iron_hills": [
+      "ironhills_warrior",
+      "ironhills_spearshield",
+      "ironhills_crossbow",
+      "goat_rider"
+    ],
+    "rivendell": [
+      "elf_swordsman",
+      "elf_swordshield",
+      "elf_spear",
+      "elf_bow",
+      "elf_knight",
+      "elven_lancer"
+    ],
+    "lothlorien": [
+      "galadhrim_warrior",
+      "galadhrim_bow",
+      "galadhrim_elite_bow",
+      "galadhrim_knight"
+    ],
+    "mirkwood": [
+      "silvan_archer",
+      "mirkwood_ranger",
+      "mirkwood_sentinel",
+      "palace_guard",
+      "elf_glaive"
+    ],
+    "arnor": [
+      "arnor_warrior",
+      "arnor_archer",
+      "arnor_ranger",
+      "arnor_knight",
+      "ranger_north"
+    ],
+    "mordor": [
+      "orc_sword",
+      "orc_swordshield",
+      "orc_spearman",
+      "orc_twohanded",
+      "orc_archer",
+      "orc_tracker",
+      "orc_elite_tracker",
+      "morannon_orc",
+      "morannon_swordshield",
+      "warg_rider",
+      "mordor_uruk",
+      "black_guard",
+      "morgul_stalker",
+      "morgul_orc",
+      "morgul_rat",
+      "morgul_duellist"
+    ],
+    "mordor_numenoreans": [
+      "black_numenorean",
+      "black_numenorean_mounted",
+      "morgul_knight"
+    ],
+    "isengard": [
+      "uruk_scout",
+      "uruk_scout_archer",
+      "uruk_swordshield",
+      "uruk_pike",
+      "uruk_crossbow",
+      "uruk_berserker",
+      "uruk_sapper"
+    ],
+    "isengard_orcs": [
+      "warg_rider_spear",
+      "warg_rider_bow"
+    ],
+    "gundabad": [
+      "hunter_orc",
+      "gundabad_orc",
+      "gundabad_warg_rider"
+    ],
+    "moria": [
+      "moria_goblin",
+      "goblin_shield",
+      "goblin_spear",
+      "goblin_bow",
+      "goblin_prowler",
+      "goblin_mercenary"
+    ],
+    "harad": [
+      "haradrim_spear",
+      "haradrim_bow",
+      "haradrim_raider",
+      "serpent_guard",
+      "watcher_karna",
+      "abrakhan_guard"
+    ],
+    "far_harad": [
+      "mahud_raider",
+      "mahud_blowpipe",
+      "mahud_camel_raider",
+      "camel_rider"
+    ],
+    "umbar": [
+      "corsair_umbra",
+      "corsair_bosun",
+      "corsair_crossbowman"
+    ],
+    "easterling": [
+      "easterling_swordshield",
+      "easterling_phalanx",
+      "easterling_archer",
+      "easterling_kataphrakt",
+      "easterling_mounted_archer"
+    ],
+    "khand": [
+      "khandish_warrior",
+      "khandish_horseman",
+      "khandish_chariot",
+      "variag_warrior",
+      "variag_horseman"
+    ],
+    "dunland": [
+      "dunlending_warrior",
+      "dunlending_archer",
+      "dunlending_huscarl",
+      "dunlending_berserker",
+      "dunlending_horseman"
+    ],
+    "dale": [
+      "dale_warrior",
+      "esgaroth_archer",
+      "dale_guard"
+    ],
+    "shire": [
+      "hobbit_militia",
+      "hobbit_shirriff",
+      "hobbit_bounder"
+    ],
+    "dead": [
+      "dead_soldier",
+      "dead_spearman",
+      "dead_rider"
+    ],
+    "numenor": [
+      "numenorean_warrior",
+      "numenorean_spearman",
+      "numenorean_archer",
+      "numenorean_knight"
+    ],
+    "first_age": [
+      "noldor_warrior",
+      "doriath_warrior",
+      "falathrim_archer",
+      "nargothrond_ranger",
+      "edain_warrior",
+      "gondolin_guard"
+    ]
+  },
+  "edges": [
+    {
+      "from": "pelennor_militia",
+      "to": [
+        "mt_swordshield",
+        "mt_spearshield"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "mt_swordshield",
+      "to": [
+        "osgiliath_veteran"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "mt_spear",
+      "to": [
+        "osgiliath_spearshield"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "mt_spearshield",
+      "to": [
+        "osgiliath_spearshield"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "mt_bowman",
+      "to": [
+        "osgiliath_bow",
+        "ithilien_ranger"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "osgiliath_veteran",
+      "to": [
+        "mt_fountain_guard",
+        "citadel_guard",
+        "gondor_knight"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "osgiliath_spearshield",
+      "to": [
+        "mt_fountain_guard",
+        "citadel_guard",
+        "gondor_knight"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "osgiliath_bow",
+      "to": [
+        "citadel_guard_bow"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "ithilien_ranger",
+      "to": [
+        "citadel_guard_bow"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "dol_amroth_swordshield",
+      "to": [
+        "dol_amroth_man_at_arms"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "dol_amroth_man_at_arms",
+      "to": [
+        "dol_amroth_knight_foot",
+        "dol_amroth_knight"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "dol_amroth_knight_foot",
+      "to": [
+        "dol_amroth_knight"
+      ],
+      "tier": 3
+    },
+    {
+      "from": "rohan_swordshield",
+      "to": [
+        "rohan_rider",
+        "rohan_royal_guard",
+        "rohan_helmingas"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "rohan_spear",
+      "to": [
+        "rohan_rider",
+        "rohan_royal_guard",
+        "rohan_helmingas"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "rohan_yeoman",
+      "to": [
+        "rohan_royal_guard",
+        "rohan_rider"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "rohan_archer",
+      "to": [
+        "rohan_outrider"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "rohan_rider",
+      "to": [
+        "rohan_royal_guard_mounted",
+        "rohan_redshield"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "rohan_royal_guard",
+      "to": [
+        "rohan_royal_guard_mounted"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "dwarf_guardian",
+      "to": [
+        "khazad_guard",
+        "iron_guard"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "dwarf_axeshield",
+      "to": [
+        "khazad_guard",
+        "iron_guard",
+        "vault_warden"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "dwarf_2haxe",
+      "to": [
+        "khazad_guard",
+        "iron_guard"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "ironhills_warrior",
+      "to": [
+        "ironhills_spearshield",
+        "ironhills_crossbow"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "ironhills_spearshield",
+      "to": [
+        "goat_rider"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "ironhills_crossbow",
+      "to": [
+        "goat_rider"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "elf_swordsman",
+      "to": [
+        "elf_swordshield",
+        "elf_spear"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "elf_swordshield",
+      "to": [
+        "elf_knight"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "elf_spear",
+      "to": [
+        "elven_lancer"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "elf_bow",
+      "to": [
+        "elf_knight"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "galadhrim_warrior",
+      "to": [
+        "galadhrim_bow",
+        "galadhrim_knight"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "galadhrim_bow",
+      "to": [
+        "galadhrim_elite_bow",
+        "galadhrim_knight"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "silvan_archer",
+      "to": [
+        "mirkwood_ranger"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "mirkwood_ranger",
+      "to": [
+        "palace_guard"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "elf_glaive",
+      "to": [
+        "palace_guard"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "mirkwood_sentinel",
+      "to": [
+        "palace_guard"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "arnor_warrior",
+      "to": [
+        "arnor_knight",
+        "arnor_ranger"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "arnor_archer",
+      "to": [
+        "arnor_ranger"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "orc_sword",
+      "to": [
+        "morannon_swordshield",
+        "warg_rider"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "orc_swordshield",
+      "to": [
+        "morannon_swordshield",
+        "warg_rider"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "orc_spearman",
+      "to": [
+        "morannon_orc",
+        "warg_rider"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "orc_twohanded",
+      "to": [
+        "morannon_swordshield"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "orc_archer",
+      "to": [
+        "orc_tracker"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "orc_tracker",
+      "to": [
+        "orc_elite_tracker"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "mordor_uruk",
+      "to": [
+        "black_guard"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "morgul_orc",
+      "to": [
+        "morannon_swordshield",
+        "morgul_stalker"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "morgul_rat",
+      "to": [
+        "morgul_stalker"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "black_numenorean",
+      "to": [
+        "black_numenorean_mounted",
+        "morgul_knight"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "uruk_scout",
+      "to": [
+        "uruk_swordshield",
+        "uruk_pike",
+        "uruk_berserker"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "uruk_scout_archer",
+      "to": [
+        "uruk_crossbow"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "uruk_swordshield",
+      "to": [
+        "uruk_berserker"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "hunter_orc",
+      "to": [
+        "gundabad_orc",
+        "gundabad_warg_rider"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "gundabad_orc",
+      "to": [
+        "gundabad_warg_rider"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "moria_goblin",
+      "to": [
+        "goblin_shield",
+        "goblin_spear",
+        "goblin_prowler"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "goblin_shield",
+      "to": [
+        "goblin_prowler"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "goblin_spear",
+      "to": [
+        "goblin_prowler"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "haradrim_spear",
+      "to": [
+        "serpent_guard",
+        "haradrim_raider",
+        "abrakhan_guard"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "haradrim_bow",
+      "to": [
+        "watcher_karna",
+        "haradrim_raider"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "mahud_raider",
+      "to": [
+        "mahud_camel_raider"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "corsair_umbra",
+      "to": [
+        "corsair_bosun",
+        "corsair_crossbowman"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "easterling_swordshield",
+      "to": [
+        "easterling_phalanx",
+        "easterling_kataphrakt"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "easterling_archer",
+      "to": [
+        "easterling_mounted_archer"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "khandish_warrior",
+      "to": [
+        "khandish_horseman"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "variag_warrior",
+      "to": [
+        "variag_horseman"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "dunlending_warrior",
+      "to": [
+        "dunlending_huscarl",
+        "dunlending_berserker",
+        "dunlending_horseman"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "dunlending_archer",
+      "to": [
+        "dunlending_huscarl"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "dale_warrior",
+      "to": [
+        "dale_guard"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "hobbit_militia",
+      "to": [
+        "hobbit_shirriff",
+        "hobbit_bounder"
+      ],
+      "tier": 1
+    },
+    {
+      "from": "dead_soldier",
+      "to": [
+        "dead_spearman",
+        "dead_rider"
+      ],
+      "tier": 2
+    },
+    {
+      "from": "numenorean_warrior",
+      "to": [
+        "numenorean_spearman",
+        "numenorean_knight"
+      ],
+      "tier": 2
+    }
+  ],
+  "mounts": {
+    "gondor_knight": {
+      "foot": "mt_swordshield",
+      "kind": "horse"
+    },
+    "dol_amroth_knight": {
+      "foot": "dol_amroth_knight_foot",
+      "kind": "horse"
+    },
+    "rohan_rider": {
+      "foot": "rohan_spear",
+      "kind": "horse"
+    },
+    "rohan_outrider": {
+      "foot": "rohan_archer",
+      "kind": "horse"
+    },
+    "rohan_royal_guard_mounted": {
+      "foot": "rohan_royal_guard",
+      "kind": "horse"
+    },
+    "rohan_redshield": {
+      "foot": "rohan_swordshield",
+      "kind": "horse"
+    },
+    "goat_rider": {
+      "foot": "ironhills_spearshield",
+      "kind": "goat"
+    },
+    "elf_knight": {
+      "foot": "elf_swordshield",
+      "kind": "horse"
+    },
+    "elven_lancer": {
+      "foot": "elf_spear",
+      "kind": "horse"
+    },
+    "galadhrim_knight": {
+      "foot": "galadhrim_warrior",
+      "kind": "horse"
+    },
+    "arnor_knight": {
+      "foot": "arnor_warrior",
+      "kind": "horse"
+    },
+    "warg_rider": {
+      "foot": "orc_spearman",
+      "kind": "warg"
+    },
+    "black_numenorean_mounted": {
+      "foot": "black_numenorean",
+      "kind": "horse"
+    },
+    "morgul_knight": {
+      "foot": "black_numenorean",
+      "kind": "horse"
+    },
+    "warg_rider_spear": {
+      "foot": "orc_spearman",
+      "kind": "warg"
+    },
+    "warg_rider_bow": {
+      "foot": "orc_archer",
+      "kind": "warg"
+    },
+    "gundabad_warg_rider": {
+      "foot": "gundabad_orc",
+      "kind": "warg"
+    },
+    "haradrim_raider": {
+      "foot": "haradrim_spear",
+      "kind": "horse"
+    },
+    "mahud_camel_raider": {
+      "foot": "mahud_raider",
+      "kind": "camel"
+    },
+    "camel_rider": {
+      "foot": "mahud_raider",
+      "kind": "camel"
+    },
+    "easterling_kataphrakt": {
+      "foot": "easterling_swordshield",
+      "kind": "horse"
+    },
+    "easterling_mounted_archer": {
+      "foot": "easterling_archer",
+      "kind": "horse"
+    },
+    "khandish_horseman": {
+      "foot": "khandish_warrior",
+      "kind": "horse"
+    },
+    "khandish_chariot": {
+      "foot": "khandish_warrior",
+      "kind": "chariot"
+    },
+    "variag_horseman": {
+      "foot": "variag_warrior",
+      "kind": "horse"
+    },
+    "dunlending_horseman": {
+      "foot": "dunlending_warrior",
+      "kind": "horse"
+    },
+    "dead_rider": {
+      "foot": "dead_soldier",
+      "kind": "spectral"
+    },
+    "numenorean_knight": {
+      "foot": "numenorean_warrior",
+      "kind": "horse"
+    }
+  },
+  "gates": {
+    "rohan_helmingas": {
+      "hero": "grimbold",
+      "wave": 5,
+      "label": "그림볼드 합류 · 공세 5"
+    },
+    "rohan_redshield": {
+      "hero": "erkenbrand",
+      "wave": 7,
+      "label": "에르켄브란드 합류 · 공세 7"
+    },
+    "sons_of_eorl": {
+      "relic": "silmaril",
+      "label": "실마릴 · 에오를 시대"
+    },
+    "numenorean_warrior": {
+      "relic": "silmaril",
+      "label": "실마릴 · 제2시대"
+    },
+    "numenorean_spearman": {
+      "relic": "silmaril",
+      "label": "실마릴 · 제2시대"
+    },
+    "numenorean_archer": {
+      "relic": "silmaril",
+      "label": "실마릴 · 제2시대"
+    },
+    "numenorean_knight": {
+      "relic": "silmaril",
+      "label": "실마릴 · 제2시대"
+    },
+    "noldor_warrior": {
+      "relic": "silmaril",
+      "label": "실마릴 · 제1시대"
+    },
+    "doriath_warrior": {
+      "relic": "silmaril",
+      "label": "실마릴 · 제1시대"
+    },
+    "falathrim_archer": {
+      "relic": "silmaril",
+      "label": "실마릴 · 제1시대"
+    },
+    "nargothrond_ranger": {
+      "relic": "silmaril",
+      "label": "실마릴 · 제1시대"
+    },
+    "edain_warrior": {
+      "relic": "silmaril",
+      "label": "실마릴 · 제1시대"
+    },
+    "gondolin_guard": {
+      "relic": "silmaril",
+      "label": "실마릴 · 제1시대"
+    }
+  },
+  "sourcePolicy": "Existing verified 2024 point table retained. New configurations without a verified 2024 book value use explicit custom estimates even when the troop itself is official. Legacy upgrades are identified separately. No cross-species or cross-kingdom elf promotions."
+};
+const TROOP_NEW_UNITS = [
+  {
+    "id": "citadel_guard_bow",
+    "basis": "citadel_guard",
+    "origin": "official",
+    "points": 10,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 0,
+    "rarity": "normal",
+    "meta": {
+      "id": "citadel_guard_bow",
+      "name_ko": "성채근위 궁병",
+      "name_en": "Citadel Guard with longbow",
+      "side": "good",
+      "faction": "gondor",
+      "role": "infantry",
+      "weapon": "bow",
+      "base": "M",
+      "baseMm": 25,
+      "file": "tokens/citadel_guard_bow.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 38
+    },
+    "profile": {
+      "move": 270,
+      "fight": 4,
+      "strength": 3,
+      "defence": 5,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 5,
+      "shootValue": 4,
+      "shootRange": 850,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "bodyguard"
+      ]
+    },
+    "artProfile": [
+      "human",
+      0.115,
+      0.958,
+      0.486,
+      0.536,
+      86,
+      "body"
+    ],
+    "artAudit": {
+      "originalSize": [
+        1049,
+        1500
+      ],
+      "headOrRiderTop": 0.115,
+      "feetOrRiderBottom": 0.958,
+      "bodyCenter": [
+        0.486,
+        0.536
+      ],
+      "reference": 86,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  },
+  {
+    "id": "osgiliath_spearshield",
+    "basis": "osgiliath_veteran",
+    "origin": "official",
+    "points": 11,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 0,
+    "rarity": "normal",
+    "meta": {
+      "id": "osgiliath_spearshield",
+      "name_ko": "오스길리아스 베테랑 창방",
+      "name_en": "Osgiliath Veteran with spear and shield",
+      "side": "good",
+      "faction": "gondor",
+      "role": "infantry",
+      "weapon": "spear_shield",
+      "base": "M",
+      "baseMm": 25,
+      "file": "tokens/osgiliath_spearshield.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 38
+    },
+    "profile": {
+      "move": 270,
+      "fight": 4,
+      "strength": 3,
+      "defence": 6,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 5,
+      "shootValue": 0,
+      "shootRange": 0,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "veteran",
+        "spear"
+      ]
+    },
+    "artProfile": [
+      "human",
+      0.22,
+      0.958,
+      0.457,
+      0.589,
+      86,
+      "body"
+    ],
+    "artAudit": {
+      "originalSize": [
+        1049,
+        1500
+      ],
+      "headOrRiderTop": 0.22,
+      "feetOrRiderBottom": 0.958,
+      "bodyCenter": [
+        0.457,
+        0.589
+      ],
+      "reference": 86,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  },
+  {
+    "id": "osgiliath_bow",
+    "basis": "osgiliath_veteran",
+    "origin": "official",
+    "points": 10,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 0,
+    "rarity": "normal",
+    "meta": {
+      "id": "osgiliath_bow",
+      "name_ko": "오스길리아스 베테랑 궁병",
+      "name_en": "Osgiliath Veteran with bow",
+      "side": "good",
+      "faction": "gondor",
+      "role": "infantry",
+      "weapon": "bow",
+      "base": "M",
+      "baseMm": 25,
+      "file": "tokens/osgiliath_bow.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 38
+    },
+    "profile": {
+      "move": 270,
+      "fight": 4,
+      "strength": 3,
+      "defence": 5,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 5,
+      "shootValue": 4,
+      "shootRange": 800,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "veteran"
+      ]
+    },
+    "artProfile": [
+      "human",
+      0.13,
+      0.965,
+      0.482,
+      0.547,
+      86,
+      "body"
+    ],
+    "artAudit": {
+      "originalSize": [
+        1049,
+        1500
+      ],
+      "headOrRiderTop": 0.13,
+      "feetOrRiderBottom": 0.965,
+      "bodyCenter": [
+        0.482,
+        0.547
+      ],
+      "reference": 86,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  },
+  {
+    "id": "dol_amroth_swordshield",
+    "basis": "dol_amroth_man_at_arms",
+    "origin": "custom",
+    "points": 8,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 4,
+    "rarity": "elite",
+    "meta": {
+      "id": "dol_amroth_swordshield",
+      "name_ko": "돌 암로스 검방병",
+      "name_en": "Dol Amroth levy swordsman",
+      "side": "good",
+      "faction": "dol_amroth",
+      "role": "infantry",
+      "weapon": "sword_shield",
+      "base": "M",
+      "baseMm": 25,
+      "file": "tokens/dol_amroth_swordshield.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 38
+    },
+    "profile": {
+      "move": 235,
+      "fight": 3,
+      "strength": 3,
+      "defence": 5,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 4,
+      "shootValue": 0,
+      "shootRange": 0,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "shieldwall"
+      ]
+    },
+    "artProfile": [
+      "human",
+      0.132,
+      0.954,
+      0.481,
+      0.543,
+      86,
+      "body"
+    ],
+    "artAudit": {
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "headOrRiderTop": 0.132,
+      "feetOrRiderBottom": 0.954,
+      "bodyCenter": [
+        0.481,
+        0.543
+      ],
+      "reference": 86,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  },
+  {
+    "id": "dol_amroth_knight_foot",
+    "basis": "dol_amroth_knight",
+    "origin": "official",
+    "points": 12,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 0,
+    "rarity": "normal",
+    "meta": {
+      "id": "dol_amroth_knight_foot",
+      "name_ko": "돌 암로스 백조기사 도보",
+      "name_en": "Knight of Dol Amroth on foot",
+      "side": "good",
+      "faction": "dol_amroth",
+      "role": "infantry",
+      "weapon": "sword_shield",
+      "base": "M",
+      "baseMm": 25,
+      "file": "tokens/dol_amroth_knight_foot.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 38
+    },
+    "profile": {
+      "move": 270,
+      "fight": 4,
+      "strength": 4,
+      "defence": 7,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 4,
+      "shootValue": 0,
+      "shootRange": 0,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "bodyguard",
+        "shieldwall"
+      ]
+    },
+    "artProfile": [
+      "human",
+      0.14,
+      0.949,
+      0.477,
+      0.545,
+      86,
+      "body"
+    ],
+    "artAudit": {
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "headOrRiderTop": 0.14,
+      "feetOrRiderBottom": 0.949,
+      "bodyCenter": [
+        0.477,
+        0.545
+      ],
+      "reference": 86,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  },
+  {
+    "id": "rohan_helmingas",
+    "basis": "rohan_swordshield",
+    "origin": "legacy",
+    "points": 9,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 0,
+    "rarity": "normal",
+    "meta": {
+      "id": "rohan_helmingas",
+      "name_ko": "헬밍가 전사",
+      "name_en": "Helmingas",
+      "side": "good",
+      "faction": "rohan",
+      "role": "infantry",
+      "weapon": "axe",
+      "base": "M",
+      "baseMm": 25,
+      "file": "tokens/rohan_helmingas.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 38
+    },
+    "profile": {
+      "move": 270,
+      "fight": 3,
+      "strength": 4,
+      "defence": 5,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 4,
+      "shootValue": 0,
+      "shootRange": 0,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "steadfast"
+      ]
+    },
+    "artProfile": [
+      "human",
+      0.176,
+      0.936,
+      0.477,
+      0.556,
+      86,
+      "body"
+    ],
+    "artAudit": {
+      "originalSize": [
+        1024,
+        1536
+      ],
+      "headOrRiderTop": 0.176,
+      "feetOrRiderBottom": 0.936,
+      "bodyCenter": [
+        0.477,
+        0.556
+      ],
+      "reference": 86,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  },
+  {
+    "id": "rohan_redshield",
+    "basis": "rohan_rider",
+    "origin": "legacy",
+    "points": 17,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 0,
+    "rarity": "normal",
+    "meta": {
+      "id": "rohan_redshield",
+      "name_ko": "웨스트폴드 적색방패 기병",
+      "name_en": "Westfold Redshield",
+      "side": "good",
+      "faction": "rohan",
+      "role": "cavalry",
+      "weapon": "spear",
+      "base": "XL",
+      "baseMm": 40,
+      "file": "tokens/rohan_redshield.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 62
+    },
+    "profile": {
+      "move": 450,
+      "fight": 4,
+      "strength": 3,
+      "defence": 5,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 3,
+      "shootValue": 0,
+      "shootRange": 0,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "mounted",
+        "spear",
+        "steadfast"
+      ]
+    },
+    "artProfile": [
+      "human",
+      0.083,
+      0.367,
+      0.475,
+      0.52,
+      43,
+      "rider"
+    ],
+    "artAudit": {
+      "originalSize": [
+        984,
+        1599
+      ],
+      "headOrRiderTop": 0.083,
+      "feetOrRiderBottom": 0.367,
+      "bodyCenter": [
+        0.475,
+        0.52
+      ],
+      "reference": 43,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  },
+  {
+    "id": "ironhills_warrior",
+    "basis": "dwarf_2haxe",
+    "origin": "official",
+    "points": 12,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 0,
+    "rarity": "normal",
+    "meta": {
+      "id": "ironhills_warrior",
+      "name_ko": "철산 매톡 전사",
+      "name_en": "Iron Hills Warrior with mattock",
+      "side": "good",
+      "faction": "iron_hills",
+      "role": "infantry",
+      "weapon": "twohanded",
+      "base": "M",
+      "baseMm": 25,
+      "file": "tokens/ironhills_warrior.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 38
+    },
+    "profile": {
+      "move": 240,
+      "fight": 4,
+      "strength": 4,
+      "defence": 6,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 5,
+      "shootValue": 0,
+      "shootRange": 0,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "dwarf",
+        "mountain",
+        "twohanded"
+      ]
+    },
+    "artProfile": [
+      "dwarf",
+      0.258,
+      0.9,
+      0.486,
+      0.579,
+      68,
+      "body"
+    ],
+    "artAudit": {
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "headOrRiderTop": 0.258,
+      "feetOrRiderBottom": 0.9,
+      "bodyCenter": [
+        0.486,
+        0.579
+      ],
+      "reference": 68,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  },
+  {
+    "id": "ironhills_spearshield",
+    "basis": "dwarf_axeshield",
+    "origin": "official",
+    "points": 13,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 0,
+    "rarity": "normal",
+    "meta": {
+      "id": "ironhills_spearshield",
+      "name_ko": "철산 창방병",
+      "name_en": "Iron Hills Warrior with spear and shield",
+      "side": "good",
+      "faction": "iron_hills",
+      "role": "infantry",
+      "weapon": "spear_shield",
+      "base": "M",
+      "baseMm": 25,
+      "file": "tokens/ironhills_spearshield.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 38
+    },
+    "profile": {
+      "move": 240,
+      "fight": 4,
+      "strength": 4,
+      "defence": 7,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 5,
+      "shootValue": 0,
+      "shootRange": 0,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "dwarf",
+        "mountain",
+        "spear",
+        "shieldwall"
+      ]
+    },
+    "artProfile": [
+      "dwarf",
+      0.224,
+      0.924,
+      0.482,
+      0.574,
+      68,
+      "body"
+    ],
+    "artAudit": {
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "headOrRiderTop": 0.224,
+      "feetOrRiderBottom": 0.924,
+      "bodyCenter": [
+        0.482,
+        0.574
+      ],
+      "reference": 68,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  },
+  {
+    "id": "ironhills_crossbow",
+    "basis": "dwarf_ranger",
+    "origin": "official",
+    "points": 14,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 0,
+    "rarity": "normal",
+    "meta": {
+      "id": "ironhills_crossbow",
+      "name_ko": "철산 석궁병",
+      "name_en": "Iron Hills Warrior with crossbow",
+      "side": "good",
+      "faction": "iron_hills",
+      "role": "infantry",
+      "weapon": "crossbow",
+      "base": "M",
+      "baseMm": 25,
+      "file": "tokens/ironhills_crossbow.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 38
+    },
+    "profile": {
+      "move": 240,
+      "fight": 4,
+      "strength": 4,
+      "defence": 6,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 5,
+      "shootValue": 4,
+      "shootRange": 900,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "dwarf",
+        "mountain",
+        "crossbow"
+      ]
+    },
+    "artProfile": [
+      "dwarf",
+      0.251,
+      0.901,
+      0.49,
+      0.576,
+      68,
+      "body"
+    ],
+    "artAudit": {
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "headOrRiderTop": 0.251,
+      "feetOrRiderBottom": 0.901,
+      "bodyCenter": [
+        0.49,
+        0.576
+      ],
+      "reference": 68,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  },
+  {
+    "id": "galadhrim_bow",
+    "basis": "galadhrim_warrior",
+    "origin": "official",
+    "points": 10,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 0,
+    "rarity": "normal",
+    "meta": {
+      "id": "galadhrim_bow",
+      "name_ko": "갈라드림 궁수",
+      "name_en": "Galadhrim Warrior with Elf bow",
+      "side": "good",
+      "faction": "lothlorien",
+      "role": "infantry",
+      "weapon": "bow",
+      "base": "M",
+      "baseMm": 25,
+      "file": "tokens/galadhrim_bow.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 38
+    },
+    "profile": {
+      "move": 270,
+      "fight": 5,
+      "strength": 3,
+      "defence": 5,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 6,
+      "shootValue": 3,
+      "shootRange": 830,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "elf"
+      ]
+    },
+    "artProfile": [
+      "human",
+      0.19,
+      0.912,
+      0.465,
+      0.551,
+      86,
+      "body"
+    ],
+    "artAudit": {
+      "originalSize": [
+        1247,
+        1261
+      ],
+      "headOrRiderTop": 0.19,
+      "feetOrRiderBottom": 0.912,
+      "bodyCenter": [
+        0.465,
+        0.551
+      ],
+      "reference": 86,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  },
+  {
+    "id": "galadhrim_elite_bow",
+    "basis": "galadhrim_warrior",
+    "origin": "custom",
+    "points": 13,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 4,
+    "rarity": "elite",
+    "meta": {
+      "id": "galadhrim_elite_bow",
+      "name_ko": "갈라드림 정예 궁병",
+      "name_en": "Galadhrim veteran bowguard",
+      "side": "good",
+      "faction": "lothlorien",
+      "role": "infantry",
+      "weapon": "bow",
+      "base": "M",
+      "baseMm": 25,
+      "file": "tokens/galadhrim_elite_bow.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 38
+    },
+    "profile": {
+      "move": 270,
+      "fight": 5,
+      "strength": 3,
+      "defence": 6,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 6,
+      "shootValue": 3,
+      "shootRange": 880,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "elf",
+        "bodyguard",
+        "sharpshooter"
+      ]
+    },
+    "artProfile": [
+      "human",
+      0.208,
+      0.935,
+      0.474,
+      0.572,
+      86,
+      "body"
+    ],
+    "artAudit": {
+      "originalSize": [
+        1247,
+        1261
+      ],
+      "headOrRiderTop": 0.208,
+      "feetOrRiderBottom": 0.935,
+      "bodyCenter": [
+        0.474,
+        0.572
+      ],
+      "reference": 86,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  },
+  {
+    "id": "mirkwood_ranger",
+    "basis": "silvan_archer",
+    "origin": "official",
+    "points": 14,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 0,
+    "rarity": "normal",
+    "meta": {
+      "id": "mirkwood_ranger",
+      "name_ko": "머크우드 레인저",
+      "name_en": "Mirkwood Ranger",
+      "side": "good",
+      "faction": "mirkwood",
+      "role": "infantry",
+      "weapon": "bow",
+      "base": "M",
+      "baseMm": 25,
+      "file": "tokens/mirkwood_ranger.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 38
+    },
+    "profile": {
+      "move": 290,
+      "fight": 5,
+      "strength": 3,
+      "defence": 3,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 6,
+      "shootValue": 3,
+      "shootRange": 830,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "elf",
+        "woodland",
+        "dagger"
+      ]
+    },
+    "artProfile": [
+      "human",
+      0.178,
+      0.955,
+      0.483,
+      0.566,
+      86,
+      "body"
+    ],
+    "artAudit": {
+      "originalSize": [
+        1080,
+        1457
+      ],
+      "headOrRiderTop": 0.178,
+      "feetOrRiderBottom": 0.955,
+      "bodyCenter": [
+        0.483,
+        0.566
+      ],
+      "reference": 86,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  },
+  {
+    "id": "arnor_knight",
+    "basis": "arnor_warrior",
+    "origin": "official",
+    "points": 18,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 0,
+    "rarity": "normal",
+    "meta": {
+      "id": "arnor_knight",
+      "name_ko": "아르노르 기사",
+      "name_en": "Knight of Arnor",
+      "side": "good",
+      "faction": "arnor",
+      "role": "cavalry",
+      "weapon": "lance",
+      "base": "XL",
+      "baseMm": 40,
+      "file": "tokens/arnor_knight.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 62
+    },
+    "profile": {
+      "move": 430,
+      "fight": 4,
+      "strength": 3,
+      "defence": 6,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 4,
+      "shootValue": 0,
+      "shootRange": 0,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "mounted",
+        "lance",
+        "steadfast"
+      ]
+    },
+    "artProfile": [
+      "human",
+      0.086,
+      0.368,
+      0.479,
+      0.524,
+      43,
+      "rider"
+    ],
+    "artAudit": {
+      "originalSize": [
+        1088,
+        1445
+      ],
+      "headOrRiderTop": 0.086,
+      "feetOrRiderBottom": 0.368,
+      "bodyCenter": [
+        0.479,
+        0.524
+      ],
+      "reference": 43,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  },
+  {
+    "id": "arnor_ranger",
+    "basis": "arnor_archer",
+    "origin": "official",
+    "points": 9,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 0,
+    "rarity": "normal",
+    "meta": {
+      "id": "arnor_ranger",
+      "name_ko": "아르노르 레인저",
+      "name_en": "Ranger of Arnor",
+      "side": "good",
+      "faction": "arnor",
+      "role": "infantry",
+      "weapon": "bow",
+      "base": "M",
+      "baseMm": 25,
+      "file": "tokens/arnor_ranger.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 38
+    },
+    "profile": {
+      "move": 280,
+      "fight": 4,
+      "strength": 3,
+      "defence": 4,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 4,
+      "shootValue": 3,
+      "shootRange": 830,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "woodland"
+      ]
+    },
+    "artProfile": [
+      "human",
+      0.174,
+      0.954,
+      0.486,
+      0.564,
+      86,
+      "body"
+    ],
+    "artAudit": {
+      "originalSize": [
+        1145,
+        1374
+      ],
+      "headOrRiderTop": 0.174,
+      "feetOrRiderBottom": 0.954,
+      "bodyCenter": [
+        0.486,
+        0.564
+      ],
+      "reference": 86,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  },
+  {
+    "id": "morannon_swordshield",
+    "basis": "morannon_orc",
+    "origin": "official",
+    "points": 9,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 0,
+    "rarity": "normal",
+    "meta": {
+      "id": "morannon_swordshield",
+      "name_ko": "모라논 오크 검방",
+      "name_en": "Morannon Orc with sword and shield",
+      "side": "evil",
+      "faction": "mordor",
+      "role": "infantry",
+      "weapon": "sword_shield",
+      "base": "M",
+      "baseMm": 25,
+      "file": "tokens/morannon_swordshield.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 38
+    },
+    "profile": {
+      "move": 250,
+      "fight": 3,
+      "strength": 3,
+      "defence": 5,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 2,
+      "shootValue": 0,
+      "shootRange": 0,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "shieldwall"
+      ]
+    },
+    "artProfile": [
+      "orc",
+      0.21,
+      0.933,
+      0.463,
+      0.572,
+      76,
+      "body"
+    ],
+    "artAudit": {
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "headOrRiderTop": 0.21,
+      "feetOrRiderBottom": 0.933,
+      "bodyCenter": [
+        0.463,
+        0.572
+      ],
+      "reference": 76,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  },
+  {
+    "id": "orc_elite_tracker",
+    "basis": "orc_archer",
+    "origin": "custom",
+    "points": 8,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 4,
+    "rarity": "elite",
+    "meta": {
+      "id": "orc_elite_tracker",
+      "name_ko": "오크 정예 추적궁병",
+      "name_en": "Veteran Orc Tracker",
+      "side": "evil",
+      "faction": "mordor",
+      "role": "infantry",
+      "weapon": "bow",
+      "base": "M",
+      "baseMm": 25,
+      "file": "tokens/orc_elite_tracker.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 38
+    },
+    "profile": {
+      "move": 265,
+      "fight": 3,
+      "strength": 3,
+      "defence": 4,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 3,
+      "shootValue": 4,
+      "shootRange": 800,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "woodland",
+        "sharpshooter"
+      ]
+    },
+    "artProfile": [
+      "orc",
+      0.278,
+      0.927,
+      0.467,
+      0.602,
+      76,
+      "body"
+    ],
+    "artAudit": {
+      "originalSize": [
+        1247,
+        1261
+      ],
+      "headOrRiderTop": 0.278,
+      "feetOrRiderBottom": 0.927,
+      "bodyCenter": [
+        0.467,
+        0.602
+      ],
+      "reference": 76,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  },
+  {
+    "id": "dale_guard",
+    "basis": "dale_warrior",
+    "origin": "official",
+    "points": 10,
+    "recruitCost": 20,
+    "recruitable": true,
+    "enabled": true,
+    "unlockWave": 0,
+    "rarity": "normal",
+    "meta": {
+      "id": "dale_guard",
+      "name_ko": "데일 기리온 근위병",
+      "name_en": "Guard of Girion",
+      "side": "good",
+      "faction": "dale",
+      "role": "infantry",
+      "weapon": "sword_shield",
+      "base": "M",
+      "baseMm": 25,
+      "file": "tokens/dale_guard.png",
+      "sheet": "troop-promotions-20261014",
+      "visualRadius": 38
+    },
+    "profile": {
+      "move": 270,
+      "fight": 4,
+      "strength": 3,
+      "defence": 6,
+      "attacks": 1,
+      "wounds": 1,
+      "courage": 4,
+      "shootValue": 0,
+      "shootRange": 0,
+      "might": 0,
+      "will": 0,
+      "fate": 0,
+      "traits": [
+        "shieldwall",
+        "steadfast"
+      ]
+    },
+    "artProfile": [
+      "human",
+      0.135,
+      0.944,
+      0.466,
+      0.539,
+      86,
+      "body"
+    ],
+    "artAudit": {
+      "originalSize": [
+        1247,
+        1261
+      ],
+      "headOrRiderTop": 0.135,
+      "feetOrRiderBottom": 0.944,
+      "bodyCenter": [
+        0.466,
+        0.539
+      ],
+      "reference": 86,
+      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+    }
+  }
+];
+const troopGroup = new Map(), troopEdges = new Map();
+for (const [group, ids] of Object.entries(TROOP_PROMOTIONS.groups)) for (const id of ids) troopGroup.set(id, group);
+for (const edge of TROOP_PROMOTIONS.edges) troopEdges.set(edge.from, edge);
+function troopId(id) { return TROOP_PROMOTIONS.aliases[id] || id; }
+function isCareerTroop(u) {
+    const d = UnitCatalog[typeof u === 'string' ? u : u?.id];
+    return !!d && !isHeroUnit(d.id, d.meta.role) && !d.uniqueKey && !d.profile.traits.some(t => ['hero','monster','boss','wizard'].includes(t)) && ['infantry','cavalry'].includes(d.meta.role);
+}
+for (const def of TROOP_NEW_UNITS) {
+    registerUnit(def);
+    WARBAND_POINTS.profiles[def.id] = {points:def.points,kind:'custom',basis:def.basis,note:'공식 포인트 미검증 · 게임 프로필 자체 산정',origin:def.origin};
+    if(typeof UNIT_ART_PROFILES!=='undefined')UNIT_ART_PROFILES[def.id] = def.artProfile;
+}
+// Ranger of the North is a minor Hero profile, distinct from the ordinary Ranger of Arnor.
+if(UnitCatalog.ranger_north){UnitCatalog.ranger_north.meta.role='hero';q.meta.get('ranger_north').role='hero';UnitCatalog.ranger_north.uniqueKey='ranger_north';}
+// Resolve duplicated recruitment entries without deleting any existing sprite or save ID.
+for (const [alias, canonical] of Object.entries(TROOP_PROMOTIONS.aliases)) {
+    if (UnitCatalog[alias]) { UnitCatalog[alias].recruitable=false; UnitCatalog[alias].troopAlias=canonical; }
+    for (let i=CX.recruits.length-1;i>=0;i--) if(CX.recruits[i]===alias) CX.recruits.splice(i,1);
+    if (troopGroup.has(canonical)) troopGroup.set(alias,troopGroup.get(canonical));
+}
+for (const [id, group] of troopGroup) {
+    const d=UnitCatalog[id]; if(!d)continue;
+    d.career={group,tier:0,origin:'existing',official:WARBAND_POINTS.profiles[id]?.kind==='book',terminal:!troopEdges.has(troopId(id))};
+    if (['rivendell','lothlorien','mirkwood','iron_hills','dol_amroth','dale','umbar'].includes(group)) {
+        d.meta.faction=group;q.meta.get(id).faction=group;
+    }
+}
+for(const def of TROOP_NEW_UNITS) UnitCatalog[def.id].career.origin=def.origin;
+// Translate displayed specialist tags to rules the existing battle solver actually consumes.
+for(const id of TROOP_NEW_UNITS.map(d=>d.id).concat('palace_guard')){
+    const p=zt[id],d=UnitCatalog[id];if(!p||!d)continue;
+    if(p.traits.includes('woodland')&&!p.traits.includes('ranger'))p.traits.push('ranger');
+    if(p.traits.includes('sharpshooter')&&!p.traits.includes('veteran'))p.traits.push('veteran');
+    d.profile=structuredClone(p);
+}
+for (const edge of TROOP_PROMOTIONS.edges) for(const id of edge.to) if(UnitCatalog[id]?.career) UnitCatalog[id].career.tier=Math.max(UnitCatalog[id].career.tier,edge.tier);
+// The existing tracker drawing already carries a bow and quiver; correct the melee-only profile.
+for(const p of [zt.orc_tracker,UnitCatalog.orc_tracker?.profile]) if(p) Object.assign(p,{strength:3,defence:3,shootValue:4,shootRange:740,traits:[]});
+if(UnitCatalog.orc_tracker){UnitCatalog.orc_tracker.meta.weapon='bow';q.meta.get('orc_tracker').weapon='bow';}
+// Existing High Elf and Palace Guard profiles were misclassified as generic Elves.
+for(const id of ['elf_swordshield','elf_spear','elf_bow'])for(const p of [zt[id],UnitCatalog[id]?.profile])if(p)p.defence=id==='elf_swordshield'?6:5;
+for(const p of [zt.palace_guard,UnitCatalog.palace_guard?.profile])if(p)Object.assign(p,{fight:5,defence:6,traits:[...new Set([...p.traits,'elf','bodyguard'])]});
+for(const id of ['gondor_knight','dol_amroth_knight','elf_knight','elven_lancer','galadhrim_knight'])for(const p of [zt[id],UnitCatalog[id]?.profile])if(p&&!p.traits.includes('lance'))p.traits.push('lance');
+Object.assign(FACTION_KO,{dol_amroth:'돌 암로스',iron_hills:'철산',mirkwood:'머크우드',dale:'데일'});
+
+P.troopGateReason=function(id){
+    const d=UnitCatalog[id],gate=TROOP_PROMOTIONS.gates[id];
+    if(d?.meta.side==='evil'&&!this.rank('darkpact'))return '어둠의 계약 유물 필요';
+    if(gate&&((gate.relic&&!this.rank(gate.relic))||(gate.wave&&this.wave<gate.wave)||(gate.hero&&!this.permanent().some(u=>(UnitCatalog[u.id]?.uniqueKey||u.id).startsWith(gate.hero)))))return gate.label;
+    return '';
+};
+P.initTroopCareer=function(u,legacy=false){
+    if(!isCareerTroop(u))return u;
+    const old=zt[u.id];
+    if(legacy&&!u.careerVersion){
+        // Remove only the old automatic rank increments; retain equipment, event gains and injury.
+        if(u.traits.includes('veteran')&&!old.traits.includes('veteran')){
+            for(const k of ['fight','defence'])u.baseStats[k]=Math.max(0,u.baseStats[k]-1);
+            u.traits=u.traits.filter(t=>t!=='veteran');
+        }
+        if(u.traits.includes('champion')&&!old.traits.includes('champion')){
+            u.baseStats.courage=Math.max(0,u.baseStats.courage-2);
+            if(u.injuryBackup?.attacks!=null)u.injuryBackup.attacks=Math.max(1,u.injuryBackup.attacks-1);
+            else u.baseStats.attacks=Math.max(1,u.baseStats.attacks-1);
+            u.traits=u.traits.filter(t=>t!=='champion');
+        }
+        u.xp=Math.min(112,Math.max(0,Math.floor(u.veteranXP||0))*3);
+        u.battlesParticipated=Math.min(11,Math.floor((u.veteranXP||0)/3));
+    }
+    u.entryUnitId=isCareerTroop(u.entryUnitId)?u.entryUnitId:(u.promotionHistory?.[0]?.from||u.id);
+    if(!Number.isSafeInteger(u.entryPoints)||u.entryPoints<=0||u.entryPoints>1000||(u.entryPointVersion===WARBAND_POINTS.version&&u.entryPoints!==this.pointCost(u.entryUnitId)))u.entryPoints=this.pointCost(u.entryUnitId);
+    // Preserve a legitimate historical entry cost if a later point table changes its profile.
+    u.entryPointVersion=u.entryPointVersion??WARBAND_POINTS.version;
+    u.xp=Number.isSafeInteger(u.xp)&&u.xp>=0?u.xp:0;
+    u.battlesParticipated=Number.isSafeInteger(u.battlesParticipated)&&u.battlesParticipated>=0?u.battlesParticipated:0;
+    u.promotionHistory=Array.isArray(u.promotionHistory)?u.promotionHistory:[];
+    u.currentTroopId=u.id;u.careerVersion=1;u.points=u.entryPoints;
+    return u;
+};
+const troopSpawn=P.spawn;
+P.spawn=function(id,side,pos){return this.initTroopCareer(troopSpawn.call(this,id,side,pos));};
+P.unitFormationPoints=function(u){return isCareerTroop(u)?this.initTroopCareer(u).entryPoints:this.pointCost(u.id);};
+P.rosterPoints=function(){return this.permanent().reduce((sum,u)=>sum+this.unitFormationPoints(u),0);};
+const troopValidTargets=P.validTargets;
+P.validTargets=function(u){if(u&&isCareerTroop(u)&&this.meta.get(u.id)?.weapon==='crossbow'&&(u.moved||u.movementSpent>0))return [];return troopValidTargets.call(this,u);};
+const troopShoot=P.shoot;
+P.shoot=function(uid,target){const u=this.unit(uid);if(u&&isCareerTroop(u)&&this.meta.get(u.id)?.weapon==='crossbow'&&(u.moved||u.movementSpent>0))return false;return troopShoot.call(this,uid,target);};
+const careerShot=Xe;
+Xe=function(a,target,terrain,rng,all){const prior=a.eqRerollHit;if(isCareerTroop(a)&&a.traits.includes('sharpshooter')&&!a.moved)a.eqRerollHit=true;try{return careerShot(a,target,terrain,rng,all);}finally{a.eqRerollHit=prior;}};
+P.careerBodyguard=function(u){return !!u?.traits.includes('bodyguard')&&this.alive(u.side).some(v=>v!==u&&isHeroUnit(v.id));};
+for(const method of ['move','charge']){
+    const action=P[method];if(!action)continue;
+    P[method]=function(uid,...args){const u=this.unit(uid),prior=u?.fearless;if(u&&this.careerBodyguard(u))u.fearless=true;try{return action.call(this,uid,...args);}finally{if(u)u.fearless=prior;}};
+}
+const careerRound=P.beginRound;
+P.beginRound=function(){const guarded=this.alive().filter(u=>this.careerBodyguard(u)).map(u=>[u,u.fearless]);for(const[u]of guarded)u.fearless=true;try{return careerRound.call(this);}finally{for(const[u,prior]of guarded)u.fearless=prior;}};
+const troopRoll=P.rollRecruits;
+P.rollRecruits=function(){
+    const disabled=[];
+    for(const d of Object.values(UnitCatalog))if(isCareerTroop(d.id)&&this.troopGateReason(d.id)&&d.enabled){disabled.push(d);d.enabled=false;}
+    try{return troopRoll.call(this);}finally{for(const d of disabled)d.enabled=true;}
+};
+const troopSelection=P.recruitSelection;
+P.recruitSelection=function(i){const id=this.recruitOffers?.[i]?.id,reason=id&&isCareerTroop(id)&&this.troopGateReason(id);return reason?{reason}:troopSelection.call(this,i);};
+const troopDraftReason=P.draftReason;
+P.draftReason=function(draft,quantities){for(const i of draft||[]){const id=this.recruitOffers?.[i]?.id,reason=id&&isCareerTroop(id)&&this.troopGateReason(id);if(reason)return reason;}return troopDraftReason.call(this,draft,quantities);};
+
+P.troopPromotionOptions=function(u){
+    if(!u||!isCareerTroop(u)||u.temporary)return [];
+    this.initTroopCareer(u);
+    if(u.careerMountLost)return [{id:u.careerMountLost,tier:0,xp:0,battles:0,cost:30,mount:TROOP_PROMOTIONS.mounts[u.careerMountLost]?.kind||'horse',remount:true}];
+    const edge=troopEdges.get(troopId(u.id));if(!edge)return [];
+    const tier=Math.max(edge.tier,(u.promotionHistory.length||0)+1);if(tier>3)return [];
+    return edge.to.filter(id=>isCareerTroop(id)&&UnitCatalog[id].enabled).map(id=>{
+        const mounted=UnitCatalog[id].profile.traits.includes('mounted')&&!u.traits.includes('mounted');
+        return {id,tier,xp:TROOP_PROMOTIONS.thresholds[tier-1],battles:TROOP_PROMOTIONS.minimumBattles[tier-1],cost:25+tier*20+(mounted?35:0),mount:mounted?(TROOP_PROMOTIONS.mounts[id]?.kind||'horse'):null};
+    });
+};
+P.promotionReason=function(u,o){
+    if(!u?.alive||u.side!=='good'||u.temporary||!isCareerTroop(u))return '영구 편성 병사만 승급할 수 있습니다';
+    if(!['reward','preparation'].includes(this.phase))return '전투가 끝난 뒤 선택하세요';
+    const gate=this.troopGateReason(o.id);if(gate&&(!o.remount||UnitCatalog[o.id]?.meta.side==='evil'))return gate;
+    if(u.xp<o.xp)return '경험치 '+u.xp+'/'+o.xp;
+    if(u.battlesParticipated<o.battles)return '전투 참여 '+u.battlesParticipated+'/'+o.battles+'회';
+    if(this.gold<o.cost)return '금화 '+o.cost+' 필요';
+    if(o.mount&&o.mount!=='spectral'){
+        const count=o.mount==='horse'?this.horses:this.troopMounts?.[o.mount];
+        if(!(count>0))return ({horse:'군마',warg:'와르그',goat:'산양',camel:'낙타',chariot:'전차'}[o.mount]||'탈것')+' 1 필요';
+    }
+    return '';
+};
+P.pendingTroopPromotions=function(){return this.permanent().filter(u=>this.troopPromotionOptions(u).some(o=>u.xp>=o.xp&&u.battlesParticipated>=o.battles));};
+P.buyTroopMount=function(kind){
+    const cost={horse:40,warg:50,goat:55,camel:50,chariot:90}[kind];
+    if(!cost||!['reward','preparation'].includes(this.phase)||this.gold<cost||(kind==='warg'&&!this.rank('darkpact')))return false;
+    this.gold-=cost;
+    if(kind==='horse')this.horses=(this.horses||0)+1;else{this.troopMounts=this.troopMounts||{};this.troopMounts[kind]=(this.troopMounts[kind]||0)+1;}
+    this.save();return true;
+};
+P.applyTroopProfile=function(u,target){
+    const prev=zt[u.id],next=zt[target],d=UnitCatalog[target];if(!prev||!next||!d)return false;
+    const base=structuredClone(u.baseStats),hp=u.currentWounds;
+    if(u.injuryBackup)for(const [k,n]of Object.entries(u.injuryBackup))if(Number.isFinite(n))base[k]=n;
+    const replacement=structuredClone(next);
+    for(const k of Object.keys(next))if(Number.isFinite(next[k])&&Number.isFinite(prev[k])&&Number.isFinite(base[k]))replacement[k]+=base[k]-prev[k];
+    if(u.injury==='leg'){u.injuryBackup={...u.injuryBackup,move:replacement.move};replacement.move=Math.round(replacement.move*.75);}
+    if(u.injury==='arm'){u.injuryBackup={...u.injuryBackup,attacks:replacement.attacks};replacement.attacks=Math.max(1,replacement.attacks-1);}
+    u.traits=[...new Set([...u.traits.filter(t=>!prev.traits.includes(t)&&!['mounted','dismounted','champion','veteran'].includes(t)),...next.traits])];
+    u.id=target;u.currentTroopId=target;u.name=d.meta.name_ko;u.baseStats=replacement;
+    u.radius=(d.meta.baseMm||25)*UNIT_RULES.worldPerMm/2;u.visualRadius=d.meta.visualRadius||u.radius;u.artScale=d.meta.artScale||1;
+    this.refreshUnit(u);u.currentWounds=Math.min(hp,u.stats.wounds);u.points=u.entryPoints;
+    return true;
+};
+P.promoteTroop=function(uid,target){
+    const u=this.unit(uid),o=this.troopPromotionOptions(u).find(o=>o.id===target);if(!o)return false;
+    this.promotionError=this.promotionReason(u,o);if(this.promotionError)return false;
+    const before=structuredClone(u),from=u.id,budget=this.rosterPoints();
+    this.applyTroopProfile(u,target);
+    // A larger cavalry footprint must have a legal place before resources are charged.
+    const pos=Be(u,{x:u.x,y:u.y},this.alive(),this.terrain||[],160);
+    if(!pos||this.rosterPoints()!==budget){Object.keys(u).forEach(k=>delete u[k]);Object.assign(u,before);this.promotionError='기병 배치 공간이 부족합니다. 병사를 옮긴 뒤 다시 선택하세요';return false;}
+    Object.assign(u,pos);this.gold-=o.cost;
+    if(o.mount&&o.mount!=='spectral'){if(o.mount==='horse')this.horses--;else this.troopMounts[o.mount]--;}
+    if(o.remount)delete u.careerMountLost;
+    else u.promotionHistory.push({from,to:target,xp:u.xp,kills:u.kills||0,wave:this.wave,tier:o.tier,entryPoints:u.entryPoints});
+    this.unlockAch('promoted');this.emit('TroopPromoted',UnitCatalog[from].meta.name_ko+' → '+u.name+' · 최초 '+u.entryPoints+'pt 유지',{uid,from,to:target});
+    this.save();return true;
+};
+const troopMountReason=P.mountPointReason;
+P.mountPointReason=function(u,v){return isCareerTroop(u)?'병종 승급 창에서 기병 전직을 선택하세요':troopMountReason.call(this,u,v);};
+const troopDismount=P.dismount;
+P.dismount=function(u){
+    const mount=TROOP_PROMOTIONS.mounts[u?.id];
+    if(isCareerTroop(u)&&u.traits.includes('mounted')&&mount){
+        const mountedId=u.id;this.initTroopCareer(u);this.applyTroopProfile(u,mount.foot);u.careerMountLost=mountedId;
+        u.traits.push('dismounted');this.emit('UnitDismounted',u.name+' 낙마 · 최초 '+u.entryPoints+'pt 유지',{uid:u.uid});return;
+    }
+    troopDismount.call(this,u);
+};
+const troopKill=P._trkKill;
+P._trkKill=function(k,v){
+    troopKill.call(this,k,v);
+    if(k.side==='good'&&v.side==='evil'&&isCareerTroop(k)&&!k.temporary){
+        this.initTroopCareer(k);const prior=k.careerKillWave===this.wave?(k.careerKillXP||0):0;
+        const amount=Math.min(TROOP_PROMOTIONS.experience.kill,TROOP_PROMOTIONS.experience.killCapPerBattle-prior);
+        k.xp+=Math.max(0,amount);k.careerKillWave=this.wave;k.careerKillXP=prior+Math.max(0,amount);
+    }
+};
+const troopStartWave=P.startWave;
+P.startWave=function(){
+    const was=this.phase,nextWave=this.wave+1;
+    // Count the deployed army before the round starts (a one-round victory may finish immediately).
+    if(was==='preparation')for(const u of this.permanent())if(isCareerTroop(u)&&u.careerParticipationWave!==nextWave){
+        this.initTroopCareer(u);u.xp+=TROOP_PROMOTIONS.experience.participation;u.battlesParticipated++;u.careerParticipationWave=this.wave;
+        u.careerParticipationWave=nextWave;
+    }
+    troopStartWave.call(this);
+};
+const troopFinish=P.finishWave;
+P.finishWave=function(){
+    if(this.phase==='reward'||this.phase==='result')return;
+    for(const u of this.permanent())if(isCareerTroop(u)&&u.careerParticipationWave===this.wave&&u.careerSurvivalWave!==this.wave){
+        this.initTroopCareer(u);u.xp+=TROOP_PROMOTIONS.experience.survival;u.careerSurvivalWave=this.wave;
+    }
+    troopFinish.call(this);this.save();
+};
+const troopState=P._saveState;
+P._saveState=function(){return {...troopState.call(this),troopPromotionVersion:1,troopMounts:structuredClone(this.troopMounts||{}),promotionDeferredWave:this.promotionDeferredWave??-1};};
+const troopResume=P.resume;
+P.resume=function(){
+    // Migrate incoming units before older point-budget wrappers call rosterPoints().
+    const incoming=this._incomingSaveRaw;let state;
+    try{state=JSON.parse(incoming??localStorage.getItem('mesbg-endless-save'));}catch{return false;}
+    if(Array.isArray(state?.units))for(const u of state.units)if(u&&isCareerTroop(u)){
+        u.baseStats=u.baseStats||structuredClone(zt[u.id]);u.traits=Array.isArray(u.traits)?u.traits:zt[u.id].traits.slice();this.initTroopCareer(u,true);
+    }
+    this._incomingSaveRaw=JSON.stringify(state);let ok;
+    try{ok=troopResume.call(this);}finally{if(incoming===undefined)delete this._incomingSaveRaw;else this._incomingSaveRaw=incoming;}
+    if(!ok)return false;
+    for(const u of this.units)if(isCareerTroop(u)){this.initTroopCareer(u,true);this.refreshUnit(u);}
+    this.troopMounts=this.troopMounts||{};
+    for(const kind of Object.keys(this.troopMounts))if(!Number.isSafeInteger(this.troopMounts[kind])||this.troopMounts[kind]<0)this.troopMounts[kind]=0;
+    return true;
+};
+const troopStart=P.start;
+P.start=function(mode){this.troopMounts={};this.promotionDeferredWave=-1;return troopStart.call(this,mode);};
+function troopTreeText(id,depth=0,seen=new Set()){
+    if(depth>3||seen.has(id))return '';seen.add(id);const e=troopEdges.get(troopId(id));
+    return e?e.to.map(to=>'<li>'+esc(UnitCatalog[to]?.meta.name_ko||to)+' · '+(UnitCatalog[to]?.profile.traits.includes('mounted')?'기병':'보병')+'<small>'+esc(q.troopGateReason(to))+'</small><ul>'+troopTreeText(to,depth+1,new Set(seen))+'</ul></li>').join(''):'';
+}
+function troopProfileSection(u){
+    if(!isCareerTroop(u)||u.temporary)return '';
+    q.initTroopCareer(u);
+    return '<section class="troop-career"><h3>현재 병종 · '+esc(q.meta.get(u.id).name_ko)+'</h3><p>최초 영입 '+u.entryPoints+'pt 유지 · 경험치 '+u.xp+' · 전투 '+u.battlesParticipated+'회</p><p>'+u.promotionHistory.map(h=>esc(UnitCatalog[h.to]?.meta.name_ko||h.to)).join(' → ')+'</p><ul>'+troopTreeText(u.id)+'</ul><button type="button" class="secondary" data-troop-career="'+u.uid+'">승급 선택 / 조건 확인</button></section>';
+}
+const careerWeaponNames={sword:'검',sword_shield:'검·방패',spear:'창',spear_shield:'창·방패',bow:'활',crossbow:'석궁',pike:'장창',twohanded:'양손무기',axe:'도끼',lance:'기창',dagger:'단검'};
+const careerTraitNames={mounted:'기병 돌격',spear:'창 지원',lance:'기창 돌격',shieldwall:'인접 방벽 · 방어 +1',steadfast:'견고한 전열 · 밀림 감소',bodyguard:'지휘 영웅 생존 시 공포 면역',elf:'엘프',dwarf:'난쟁이',veteran:'결투 최저 주사위 재굴림',sharpshooter:'정지 사격 명중 재굴림',ranger:'이동 사격 페널티 없음',woodland:'숲 정찰',mountain:'산 지형 통과',crossbow:'이동 후 사격 불가',twohanded:'양손무기',fearless:'공포 면역',dagger:'단검',terror:'공포'};
+function openTroopPromotion(uid,manual=false){
+    if(!['reward','preparation'].includes(q.phase))return;
+    const ready=q.pendingTroopPromotions(),u=q.unit(uid)||ready[0];if(!u||!isCareerTroop(u))return;
+    let box=document.getElementById('troop-promotion');
+    if(!box){box=document.createElement('div');box.id='troop-promotion';box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');box.setAttribute('aria-labelledby','troop-promotion-title');document.body.appendChild(box);}
+    const options=q.troopPromotionOptions(u),stats=['fight','strength','defence','attacks','courage','move'],labels=['결투','힘','방어','공격','용기','이동'];
+    box.innerHTML='<div class="modal troop-promotion-modal"><div class="eyebrow">병사의 전직 · '+ready.length+'명 승급 가능</div><h2 id="troop-promotion-title">전장에서 쌓은 경험</h2><div class="promotion-current">'+unitImage(u.id)+'<div><strong>'+esc(q.meta.get(u.id).name_ko)+'</strong><p>경험치 '+u.xp+' · '+u.battlesParticipated+'회 참전 · '+(u.kills||0)+'처치</p><b>최초 '+u.entryPoints+'pt → 전직 후 '+u.entryPoints+'pt</b></div></div><div class="promotion-soldiers">'+ready.map(v=>'<button type="button" class="secondary" data-career-uid="'+v.uid+'"'+(v.uid===u.uid?' aria-current="true"':'')+'>'+esc(v.name)+'</button>').join('')+'</div><div class="promotion-choices">'+options.map(o=>{
+        const d=UnitCatalog[o.id],p=d.profile,reason=q.promotionReason(u,o);
+        return '<article class="promotion-choice"><header>'+unitImage(o.id)+'<div><small>'+ (p.traits.includes('mounted')?'기병 · 돌격':'보병 · '+(p.shootRange?'사격':p.traits.includes('spear')?'창 지원':'전열'))+'</small><h3>'+esc(d.meta.name_ko)+'</h3><p>'+esc(careerWeaponNames[d.meta.weapon]||d.meta.weapon)+' · '+o.cost+'금 · '+(d.career?.origin==='custom'?'게임 확장':d.career?.origin==='legacy'?'구판 병종':'MESBG 병종')+'</p></div></header><dl>'+stats.map((s,i)=>'<div><dt>'+labels[i]+'</dt><dd>'+zt[u.id][s]+' → '+p[s]+'</dd></div>').join('')+'</dl><p>무장 '+esc(careerWeaponNames[d.meta.weapon]||d.meta.weapon)+' · '+(p.shootRange?'사거리 '+p.shootRange+' / 명중 '+p.shootValue+'+':'근접')+'</p><p>능력 '+esc(p.traits.map(t=>careerTraitNames[t]||t).join(' · ')||'기본 전투')+'</p><p>필요 경험치 '+o.xp+' · 참전 '+o.battles+'회'+(o.mount?' · 탈것 1':'')+'</p><button type="button" class="primary" data-promote="'+o.id+'"'+(reason?' disabled':'')+'>'+esc(reason||'전직 · '+u.entryPoints+'pt 유지')+'</button>'+(o.mount&&o.mount!=='spectral'?'<button type="button" class="secondary" data-career-mount="'+o.mount+'">'+esc(({horse:'군마',warg:'와르그',goat:'산양',camel:'낙타',chariot:'전차'})[o.mount])+' 확보 · '+({horse:40,warg:50,goat:55,camel:50,chariot:90})[o.mount]+'금</button>':'')+'</article>';
+    }).join('')+'</div><p class="promotion-error" role="status">'+esc(q.promotionError||(!options.length?'현재 병종은 이 계통의 최종 병종입니다':''))+'</p><footer><button type="button" class="secondary" id="promotion-defer">'+(manual?'닫기':'이번에는 보류')+'</button></footer></div>';
+    box.querySelectorAll('[data-promote]').forEach(btn=>btn.onclick=()=>{if(q.promoteTroop(u.uid,btn.dataset.promote)){box.remove();Yt();}else openTroopPromotion(u.uid,manual);});
+    box.querySelectorAll('[data-career-uid]').forEach(btn=>btn.onclick=()=>openTroopPromotion(btn.dataset.careerUid,manual));
+    box.querySelectorAll('[data-career-mount]').forEach(btn=>btn.onclick=()=>{q.promotionError=q.buyTroopMount(btn.dataset.careerMount)?'':'금화 또는 해금 조건을 확인하세요';openTroopPromotion(u.uid,manual);});
+    box.querySelector('#promotion-defer').onclick=()=>{q.promotionDeferredWave=q.wave;q.promotionError='';q.save();box.remove();};
+}
+function renderTroopPromotions(){
+    if(q.phase==='reward'&&q.promotionDeferredWave!==q.wave&&!document.getElementById('troop-promotion')&&q.pendingTroopPromotions().length)openTroopPromotion();
+    if(!['reward','preparation'].includes(q.phase))document.getElementById('troop-promotion')?.remove();
+}
+if(typeof Yt==='function'){
+    const troopRender=Yt;Yt=function(){troopRender();renderTroopPromotions();};
+}
+if(typeof unitCardModal==='function'){
+    const troopCard=unitCardModal;
+    unitCardModal=function(u){troopCard(u);const card=document.querySelector('#unit-profile .modal');if(card&&isCareerTroop(u)&&u.uid){card.querySelector('footer')?.insertAdjacentHTML('beforebegin',troopProfileSection(u));card.querySelector('[data-troop-career]')?.addEventListener('click',()=>openTroopPromotion(u.uid,true));}};
+}
+if(window.MESBG){window.MESBG.troopPromotions=TROOP_PROMOTIONS;window.MESBG.isCareerTroop=isCareerTroop;}
+
+/*__TROOP_PROMOTIONS_END__*/
 
 field.insertAdjacentHTML('beforeend', '<section id="fight-preview" class="hidden" aria-label="교전 참여자"><div class="fight-preview-title"></div><div class="fight-preview-units"></div></section><div id="tactical-legend" class="hidden">이동 범위 · 금색: 돌격 · 사선: 장애물</div>');
 function previewGroup() {
