@@ -20985,6 +20985,10 @@ html body.lwb-polished:is([data-phase="reward"],[data-phase="menu"],[data-phase=
 :is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro.boss-cinematic.calm *{transition:none!important;animation:none!important}
 :is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro.boss-cinematic .bc-skip{background:none!important;border-style:solid!important;border-color:transparent!important;border-width:0 calc(var(--px)*9)!important;border-image:var(--kit-plaque-iron-s) 0 9 fill / 0 calc(var(--px)*9) stretch!important;border-radius:0!important;padding:var(--hl) calc(var(--px)*3) calc(var(--px)*3)!important;outline:none!important;box-shadow:none!important;image-rendering:pixelated!important}
 :is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro.boss-cinematic .bc-skip:focus-visible{outline:var(--hl) solid #d2b67c!important;outline-offset:calc(var(--px)*2)!important}
+
+/* Main-screen settings sheet: full-viewport overlay so the whole sheet is visible on phones (was rendered inline and cut off) */
+#app#app#app#app#app .t-title #t-menu:not(.hidden){position:fixed!important;inset:0!important;z-index:200!important;display:flex!important;align-items:center!important;justify-content:center!important;padding:8px!important;box-sizing:border-box!important;background:rgba(0,0,0,.62)!important;transform:none!important}
+#app#app#app#app#app .t-title #t-menu .t-sheet{max-height:calc(100dvh - 16px)!important;overflow-y:auto!important;-webkit-overflow-scrolling:touch}
 </style></head><body><div id="app"></div><style id="integrated-rework">
 /* Integrated mobile layout: content first, stable controls, original artwork. */
 html body.lwb-polished.ui-rebuilt #app #overlay .t-title .title-controls{display:flex!important;flex-direction:column!important;gap:10px!important}
