@@ -7,7 +7,7 @@ phones with fractional devicePixelRatio. Writes assets/mesbg/ui/kit/:
   plaque-<gold|iron>-s[-down].png small (action bar) version, no gems
   medal.png                       round ring for icon buttons
 Usage: python3 tools/make_ui_kit.py
-9-slice for a plaque: border-image-slice 0 (CAP+4) fill; big plaques CAP=14 (slice 18), small CAP=8 (slice 12)."""
+9-slice for a plaque: border-image-slice 0 (CAP+4) fill; big plaques CAP=14 (slice 18), small CAP=6 LEAD=3 (slice 9)."""
 import os, math
 from PIL import Image
 
@@ -27,10 +27,9 @@ def band(t, bands):
     return rgb(bands[-1][1])
 
 
-def plaque(name, H, CAP, plate, cap, gem=None, pressed=False):
+def plaque(name, H, CAP, plate, cap, gem=None, pressed=False, LEAD=4):
     """plate/cap: dict(bands=[(frac, colour)...], hi, lo, edge, lip=(a,b)); gem: (dark, mid, light)."""
     MID = 4                      # uniform middle sample; slice = CAP + LEAD on each side
-    LEAD = 4
     W = (CAP + LEAD) * 2 + MID
     im = Image.new('RGBA', (W, H), CLEAR); px = im.load()
     LIP = 1 if pressed else 3
@@ -68,7 +67,7 @@ def plaque(name, H, CAP, plate, cap, gem=None, pressed=False):
             if px[lx, y][3] and px[lx, y] != INK and y - top < fh - 1: px[lx, y] = rgb(plate['hi'])
     # plate engraving: inset rectangle with notched corners and a light underline
     e0, e1 = top + 3, top + fh - 4
-    x0, x1 = CAP + 2, W - CAP - 3
+    x0 = CAP + LEAD - 2; x1 = W - 1 - x0
     for x in range(x0 + 1, x1):
         px[x, e0] = rgb(plate['edge']); px[x, e0 + 1] = rgb(plate['hi'])
         px[x, e1] = rgb(plate['edge']); px[x, e1 + 1] = rgb(plate['hi'])
@@ -110,8 +109,8 @@ for down, sfx in ((False, ''), (True, '-down')):
     plaque(f'plaque-gold{sfx}.png', 30, 14, GOLD, BRONZE, RUBY, down)
     plaque(f'plaque-iron{sfx}.png', 30, 14, IRON, BRONZE, SAPPHIRE, down)
     plaque(f'plaque-gold-l{sfx}.png', 38, 14, GOLD, BRONZE, RUBY, down)
-    plaque(f'plaque-gold-s{sfx}.png', 22, 8, GOLD, BRONZE, None, down)
-    plaque(f'plaque-iron-s{sfx}.png', 22, 8, IRON, STEEL_CAP, None, down)
+    plaque(f'plaque-gold-s{sfx}.png', 22, 6, GOLD, BRONZE, None, down, LEAD=3)
+    plaque(f'plaque-iron-s{sfx}.png', 22, 6, IRON, STEEL_CAP, None, down, LEAD=3)
 
 
 WELL_DARK = ('#3c2c1c', '#2a1e13', '#1c140c', '#120c07')
@@ -142,3 +141,18 @@ def medal(name, R=14, well=WELL_DARK):
 
 medal('medal.png')
 medal('medal-gold.png', 21, WELL_GOLD)
+
+
+# tier gems (7x7 cut diamond) shown before tier names instead of a filled label box
+GEMS = {'normal': ('#4a4f53', '#9aa0a4', '#e4e8ea'), 'elite': ('#1f5a2c', '#5fbf72', '#d2f5c8'),
+        'rare': ('#173d72', '#4f8fe0', '#d0e6ff'), 'epic': ('#43206e', '#a066e0', '#ecd6ff'),
+        'unique': ('#6a1440', '#e05ca3', '#ffd6ec'), 'legendary': ('#7a4a08', '#f0b43a', '#fff3c4')}
+for k, (d, m, l) in GEMS.items():
+    g = Image.new('RGBA', (7, 7), CLEAR); px = g.load()
+    for y in range(7):
+        for x in range(7):
+            r = abs(x - 3) + abs(y - 3)
+            if r == 3: px[x, y] = INK
+            elif r < 3: px[x, y] = rgb(m if y <= 3 else d)
+    px[2, 2] = rgb(l); px[3, 1] = rgb(l); px[3, 2] = rgb(l)
+    g.save(os.path.join(OUT, f'gem-{k}.png')); print('wrote', f'gem-{k}.png')

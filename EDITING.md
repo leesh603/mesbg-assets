@@ -141,3 +141,10 @@ MESBG.render()                        // 화면 갱신
 - `node tools/sync-unit-art-profiles.cjs` → `node tools/build.js --online-only` → `node tests/unit-art.test.cjs`. 인게임 화면에서도 검증한다.
 - 자동 알파 외곽·무기 외곽 정규화로 이 표를 덮어쓰지 않는다. 전투용 충돌 반경과 이동·전투 규칙은 시각 크기와 별도로 유지한다.
 
+
+## Design system v2 (pixel type, plaque buttons)
+- `src/game.js` sets the type/art scale on `<html data-ds>` from `devicePixelRatio`: `--fb/--fh/--ft` font sizes, `--px` (one UI-art pixel), `--hl` (hairline). Each is a whole number of device pixels per font/art pixel, so Galmuri stays sharp on 2.625× phones. Use these variables instead of fixed px for text, borders and art sizes.
+- The DS v2 rules are the block between `/*__DS2_BEGIN__*/` and `/*__DS2_END__*/` at the end of `src/ui.css`. Every rule there starts with the same 12-id `[data-ds]` prefix and uses `:where()` lists, so later rules in the block win by order.
+- Typography: Galmuri11 only. Body `--fb`, headings `--fh`, bold for names, numbers and buttons. Never go below `--fb`.
+- Buttons are 3-slice plaques from `assets/mesbg/ui/kit/` (`tools/make_ui_kit.py`): iron = secondary, gold = the forward action, the tall jewelled ones for big CTAs. Tier labels are a gem (`gem-<tier>.png`) plus the coloured word, never a filled box.
+- Spacing: a box that holds text keeps at least one art pixel above/below and three at the sides (`--pad-y`, `--pad-x`).
