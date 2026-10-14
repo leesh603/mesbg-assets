@@ -1,0 +1,86 @@
+name: Audit gameplay 20261015
+on:
+  push:
+    branches: [audit/playtest-20261015-e804344]
+    paths: ['.github/workflows/audit-gameplay-20261015.yml']
+permissions:
+  contents: read
+jobs:
+  gameplay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - run: |
+          python -m pip install playwright requests
+          python -m playwright install --with-deps chromium
+      - name: Exercise unmodified live UI and rules
+        run: |
+          mkdir -p audit-play/evidence
+          cat > /tmp/play.py <<'PY'
+          import json,time,traceback,requests,re,hashlib
+          from pathlib import Path
+          from playwright.sync_api import sync_playwright
+          out=Path('audit-play');evdir=out/'evidence';events=[];errors=[]
+          ref='e804344617e860324a09ea9c33264fa201783ae0'
+          source=requests.get('https://raw.githubusercontent.com/leesh603/mesbg-assets/'+ref+'/src/game.js',timeout=60).text
+          (out/'source-anchors.txt').write_text('\n\n'.join(k+'\n'+source[max(0,source.rfind('\n',0,source.find(k))):source.find(k)+6000] for k in ['P.chooseEvent =','P.commitRecruits =','draft-confirm','MESBG.auto','function unitRole','function recruitRole','P.startWave =','P.finishWave =','P.reward =']),encoding='utf-8')
+          STATE='''() => {const m=MESBG,b=m.battle; return {phase:b.phase,wave:b.wave,round:b.round,turn:b.turn,selected:b.selected,mode:b.mode,gold:b.gold,points:b.rosterPoints(),capacity:b.capacity(),mission:b.mission,stage:b.currentStage,keys:Object.keys(b),scalar:Object.fromEntries(Object.entries(b).filter(([k,v])=>v===null||['number','string','boolean'].includes(typeof v))),units:b.units.map(u=>({uid:u.uid,id:u.id,side:u.side,alive:u.alive,x:u.x,y:u.y,hp:u.currentWounds,points:u.entryPoints,xp:u.xp,moved:u.moved,shot:u.shot})),buttons:[...document.querySelectorAll('button')].filter(e=>e.getBoundingClientRect().width&&e.getBoundingClientRect().height).map(e=>({id:e.id,text:e.innerText,disabled:e.disabled,attr:[...e.attributes].filter(a=>a.name.startsWith('data-')).map(a=>[a.name,a.value]),rect:JSON.parse(JSON.stringify(e.getBoundingClientRect()))}))};}'''
+          def write(): (out/'report.json').write_text(json.dumps({'ref':ref,'events':events,'errors':errors},ensure_ascii=False,indent=2),encoding='utf-8')
+          with sync_playwright() as pw:
+            browser=pw.chromium.launch(headless=True,args=['--no-sandbox','--enable-unsafe-swiftshader'])
+            context=browser.new_context(viewport={'width':390,'height':844},device_scale_factor=1,is_mobile=True,has_touch=True)
+            page=context.new_page();page.on('pageerror',lambda e:errors.append(str(e)))
+            def snap(name,extra=None):
+              s=page.evaluate(STATE);s['text']=page.locator('body').inner_text();s['name']=name;s['extra']=extra;events.append(s);write();page.screenshot(path=str(evdir/(name+'.png')),full_page=True);print('SNAP',name,json.dumps({k:s[k] for k in ['phase','wave','round','turn','gold','points','capacity']},ensure_ascii=False),'TEXT',s['text'][:1300],flush=True);return s
+            try:
+              resp=page.goto('https://leesh603.github.io/mesbg-assets/',wait_until='domcontentloaded',timeout=90000);page.wait_for_timeout(12000)
+              events.append({'name':'live-version','sha256':hashlib.sha256(resp.body()).hexdigest(),'status':resp.status})
+              page.locator('#start-ai').click();page.wait_for_timeout(1500);snap('01-ui-draft')
+              offers=page.evaluate('''() => MESBG.battle.recruitOffers.map((o,i)=>({i,id:o.id,role:MESBG.battle.meta.get(o.id)?.role,p:MESBG.profiles[o.id]}))''');events.append({'name':'offers','offers':offers})
+              page.locator('[data-draft="0"]').click()
+              for o in offers[2:]:
+                if o['p']['wounds']==1 and o['role'] not in ['hero','monster','boss']:
+                  for _ in range(2):
+                    b=page.locator('[data-qty="'+str(o['i'])+'"][data-delta="1"]')
+                    if b.count() and b.is_enabled():b.click();page.wait_for_timeout(100)
+              snap('02-ui-draft-selected');page.locator('#draft-confirm').click();page.wait_for_timeout(1500);s=snap('03-ui-after-recruit')
+              (out/'runtime-methods.json').write_text(json.dumps(page.evaluate('''() => ({autoKeys:Object.keys(MESBG.auto||{}),auto:String(MESBG.auto),uiKeys:Object.keys(MESBG.ui||{}),methods:Object.fromEntries(['startWave','advance','wait','finishActivation','fightNext','chooseEvent','leaveCamp','reward','save','resume','commitRecruits','command','move','shoot'].map(k=>[k,String(MESBG.battle[k])])),profilePairs:Object.entries(MESBG.profiles).filter(([id,p])=>id.endsWith('_mounted')&&MESBG.profiles[id.replace(/_mounted$/,'')]?.shootRange>0).map(([id,p])=>({id,foot:MESBG.profiles[id.replace(/_mounted$/,'')],mounted:p})),catalogKeys:Object.keys(MESBG.catalog.units)})'''),ensure_ascii=False,indent=2),encoding='utf-8')
+              if s['phase']=='preparation':
+                visible=page.locator('button').filter(has_text=re.compile('^(출전|전투 시작|전투 개시|출격|전장으로)'))
+                clicked=False
+                for i in range(visible.count()):
+                  b=visible.nth(i)
+                  if b.is_visible() and b.is_enabled(): b.click();clicked=True;break
+                if not clicked:
+                  events.append({'name':'instrumentation','note':'No uniquely resolved start button; invoked ordinary startWave method without changing unit stats/resources.'});page.evaluate('MESBG.act(()=>MESBG.battle.startWave())')
+              page.wait_for_timeout(3000);s=snap('04-battle-start')
+              # Attempt a real battlefield selection tap on an existing player unit.
+              point=page.evaluate('''() => {const u=MESBG.battle.alive('good')[0],c=MESBG.scene.cameras.main,canvas=MESBG.scene.game.canvas,r=canvas.getBoundingClientRect();return u?{x:r.x+(u.x-c.scrollX)*c.zoom*r.width/canvas.width,y:r.y+(u.y-c.scrollY)*c.zoom*r.height/canvas.height,uid:u.uid}:null;}''')
+              if point and 0<=point['x']<390 and 0<=point['y']<844:page.mouse.click(point['x'],point['y']);page.wait_for_timeout(500);snap('05-real-unit-tap',point)
+              # Save/reload on the genuine live origin, not mocked storage.
+              saved=page.evaluate('''() => {MESBG.battle.save();return {raw:localStorage.getItem('mesbg-endless-save'),phase:MESBG.battle.phase,wave:MESBG.battle.wave,units:MESBG.battle.units.map(u=>({uid:u.uid,id:u.id,hp:u.currentWounds,alive:u.alive,x:u.x,y:u.y}))};}''');(out/'save-before.json').write_text(json.dumps(saved,ensure_ascii=False,indent=2),encoding='utf-8')
+              page.reload(wait_until='domcontentloaded');page.wait_for_timeout(7000);snap('06-reload-title')
+              resumeButtons=page.locator('button').filter(has_text=re.compile('계속|이어'))
+              resumed=False
+              for i in range(resumeButtons.count()):
+                b=resumeButtons.nth(i)
+                if b.is_visible() and b.is_enabled(): b.click();resumed=True;break
+              if not resumed:resumed=page.evaluate('''() => {const ok=MESBG.battle.resume();MESBG.render();return ok;}''');events.append({'name':'instrumented-resume','ok':resumed})
+              page.wait_for_timeout(2000);snap('07-resumed')
+              # Rules-driven combat, explicitly instrumented. No forced wins, HP, gold or wave edits.
+              summary=page.evaluate('''async () => {let b=MESBG.battle,log=[],stuck=0,prev='';for(let i=0;i<1000;i++){if(['reward','result','preparation','menu'].includes(b.phase))break;let t=performance.now(),before=JSON.stringify([b.phase,b.round,b.turn,b.selected,b.units.map(u=>[u.uid,u.x,u.y,u.alive,u.currentWounds,u.moved,u.shot,u.acted])]);try{if(b.phase==='fight')b.fightNext();else MESBG.ai();}catch(e){log.push({i,error:String(e),stack:e.stack});break;}let after=JSON.stringify([b.phase,b.round,b.turn,b.selected,b.units.map(u=>[u.uid,u.x,u.y,u.alive,u.currentWounds,u.moved,u.shot,u.acted])]);if(i%10===0)log.push({i,phase:b.phase,round:b.round,turn:b.turn,good:b.alive('good').length,evil:b.alive('evil').length,ms:performance.now()-t});stuck=before===after?stuck+1:0;if(stuck>=12){log.push({i,stuck:true,phase:b.phase,eligible:b.eligible().map(u=>u.uid),keys:Object.keys(b)});break;}if(i%8===0){MESBG.render();await new Promise(r=>setTimeout(r,30));}}MESBG.render();return log;}''');events.append({'name':'rules-combat-trace','trace':summary});write();page.wait_for_timeout(1500);snap('08-combat-outcome')
+              page.set_viewport_size({'width':1365,'height':900});page.wait_for_timeout(1000);snap('09-desktop-outcome')
+              # Read-only catalog consistency inspection.
+              audit=page.evaluate('''() => {const cat=MESBG.catalog.units,p=MESBG.profiles,b=MESBG.battle;return {unitCount:Object.keys(cat).length,units:Object.entries(cat).map(([id,d])=>({id,name:d.meta?.name_ko,role:d.meta?.role,weapon:d.meta?.weapon,faction:d.meta?.faction,points:b.pointCost(id),profile:p[id],career:d.career,skill:d.skill,effects:d.effects})),state:b._saveState(),network:performance.getEntriesByType('resource').map(x=>({name:x.name,duration:x.duration,bytes:x.transferSize})),body:{width:document.body.scrollWidth,view:innerWidth},errors:[]};}''');(out/'catalog-audit.json').write_text(json.dumps(audit,ensure_ascii=False,indent=2),encoding='utf-8')
+              print('COMBAT_TRACE',json.dumps(summary,ensure_ascii=False),flush=True)
+              print('FINAL_STATE',json.dumps(page.evaluate(STATE),ensure_ascii=False),flush=True)
+            except Exception:events.append({'name':'fatal','trace':traceback.format_exc()});print(traceback.format_exc(),flush=True)
+            finally:write();context.close();browser.close()
+          PY
+          python /tmp/play.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: warbands-gameplay-e804344
+          path: audit-play/
+          retention-days: 3
