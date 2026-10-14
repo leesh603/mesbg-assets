@@ -1020,3 +1020,12 @@ html body.lwb-polished:is([data-phase="reward"],[data-phase="menu"],[data-phase=
 #app#app#app#app#app#app#app#app#app .modal .camp-roster > button{grid-template-columns:minmax(0,1fr)!important;grid-auto-flow:row!important;grid-template-areas:none!important;flex-direction:column!important}
 #app#app#app#app#app#app#app#app#app .modal .camp-roster > button > *{grid-column:1!important;grid-row:auto!important;width:auto!important;text-align:center!important}
 #app#app#app#app#app#app#app#app#app .modal .camp-roster > button > .kill-badge{position:absolute!important;width:auto!important}
+/* Point-budget recruitment: each troop card owns an accessible quantity row. */
+#app#app#app#app#app#app#app#app .recruit-choice{display:flex;flex-direction:column;min-width:0;gap:8px}
+#app#app#app#app#app#app#app#app .recruit-choice > .recruit-card{width:100%;height:100%;margin:0;flex:1}
+#app#app#app#app#app#app#app#app .recruit-quantity{display:grid;grid-template-columns:44px minmax(0,1fr) 44px;align-items:center;gap:4px;border:1px solid var(--ov-line,#726345);border-radius:8px;background:rgba(18,26,23,.85);padding:3px}
+#app#app#app#app#app#app#app#app .recruit-quantity button{min-width:44px;min-height:44px;padding:0;font-size:23px;color:var(--ov-ivory,#ecdfc7)}
+#app#app#app#app#app#app#app#app .recruit-quantity b{text-align:center;font:700 15px/1.3 var(--ov-font,sans-serif);color:var(--ov-ivory,#ecdfc7)}
+#app#app#app#app#app#app#app#app .point-source{font:400 13px/1.5 var(--ov-font,sans-serif);color:var(--ov-muted,#b7b5a5);overflow-wrap:anywhere;margin:8px 0 14px}
+
+#app#app#app#app#app#app#app#app .recruit-points{display:block!important;font:600 13px/1.4 var(--ov-font,sans-serif)!important;color:var(--ov-ivory,#ecdfc7)!important;margin-top:4px}

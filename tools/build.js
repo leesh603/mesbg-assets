@@ -28,6 +28,14 @@ const terrain = fs.readFileSync(path.join(ROOT,'src','tactical-terrain.js'),'utf
 src=src.replace(/\/\*__TERRAIN_BEGIN__\*\/[\s\S]*?\/\*__TERRAIN_END__\*\//,()=> '/*__TERRAIN_BEGIN__*/\n'+terrain+'\n/*__TERRAIN_END__*/');
 fs.writeFileSync(SRC,src);
 
+// Fixed point costs and the point-budget rules share the online/offline build.
+const points = fs.readFileSync(path.join(ROOT,'src','warband-points.js'),'utf8');
+const pointsBegin = '/*__WARBAND_POINTS_BEGIN__*/', pointsEnd = '/*__WARBAND_POINTS_END__*/';
+const pa = src.indexOf(pointsBegin), pb = src.indexOf(pointsEnd);
+if (pa < 0 || pb < pa) throw Error('Warband point markers not found in src/game.js');
+src = src.slice(0,pa+pointsBegin.length)+'\n'+points+'\n'+src.slice(pb);
+fs.writeFileSync(SRC,src);
+
 const a = html.indexOf(BEGIN), b = html.indexOf(END);
 if (a < 0 || b < 0 || b < a) {
   console.error('markers not found in', INDEX);
