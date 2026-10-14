@@ -7106,8 +7106,13 @@ class We {
     async play(id) {
         const effect=Ye[id];if(!effect||this.muted||document.hidden||this.sfxVolume<=0)return;
         // Fast-forward and simultaneous melee must not create an unbounded sound queue.
-        const now=performance.now();if(now-(this.lastPlayed.get(id)??-Infinity)<(id==='base_slide'?110:45))return;
-        this.lastPlayed.set(id,now);
+        const now=performance.now(),spd=(()=>{try{return Number(qt)||1}catch{return 1}})(),dice=id==='dice_roll';
+        // At 4x/8x auto the dice rattle fired for every strike; space it out and soften it with speed.
+        const gap=dice?(spd>=8?900:spd>=4?520:spd>=2?220:120):id==='base_slide'?110:(spd>=4?90:45);
+        if(now-(this.lastPlayed.get(id)??-Infinity)<gap)return;
+        if(spd>=4&&!/^(ui_|victory|defeat|war_horn|reward_select)/.test(id)&&now-(this._anySfx||-Infinity)<45)return;
+        this.lastPlayed.set(id,now);this._anySfx=now;
+        const speedVol=dice?(spd>=8?.45:spd>=4?.65:1):(spd>=8?.8:1);
         try {
             await this.unlock();if(!this.context)return;
             const files=effect.files,last=this.lastVariant.get(id),choices=files.filter(f=>f!==last),file=(choices.length?choices:files)[Math.floor(Math.random()*(choices.length||files.length))];
@@ -7116,7 +7121,7 @@ class We {
             if(this.voices.size>=12){const old=this.voices.values().next().value;try{old.stop();}catch{}this.voices.delete(old);}
             const source=this.context.createBufferSource(),gain=this.context.createGain();source.buffer=buffer;
             source.playbackRate.value=/^(ui_|victory|defeat|war_horn|reward_select|heal)/.test(id)?1:.98+Math.random()*.04;
-            gain.gain.value=this.sfxVolume*effect.volume;source.connect(gain);gain.connect(this.context.destination);this.voices.add(source);
+            gain.gain.value=this.sfxVolume*effect.volume*speedVol;source.connect(gain);gain.connect(this.context.destination);this.voices.add(source);
             source.onended=()=>{this.voices.delete(source);source.disconnect();gain.disconnect();};source.start();
         } catch(error) { console.warn('[LWB audio]',id,error.message); }
     }
