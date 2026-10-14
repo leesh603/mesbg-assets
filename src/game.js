@@ -1618,7 +1618,6 @@ root.MESBGTerrain={version:2,TYPES,THEMES,WIDTH,HEIGHT,CELL,contains,signed,bloc
 if(typeof module!=='undefined'&&module.exports)module.exports=root.MESBGTerrain;
 })(typeof window!=='undefined'?window:globalThis);
 
-
 /*__TERRAIN_END__*/
 const Terrain=window.MESBGTerrain;
 // Preserve the established shared functions: AI, push, previews, deployment and
@@ -8074,7 +8073,6 @@ P.dismount=function(u){pointDismount.call(this,u);u.points=this.pointCost(u.id);
 // Earned transformations, rescued troops and revival keep working if they put
 // the roster over budget. Their current profiles count; new paid additions stop.
 if(window.MESBG?.catalog)window.MESBG.catalog.points=WARBAND_POINTS;
-
 
 /*__WARBAND_POINTS_END__*/
 
