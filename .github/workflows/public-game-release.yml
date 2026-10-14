@@ -1,0 +1,118 @@
+name: Build safe public game release
+on:
+  push:
+    branches:
+      - security/private-source-split-20261014
+    paths:
+      - tools/build-public.js
+      - .github/workflows/public-game-release.yml
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: "Publish to the NEW public leesh603/mesbg-assets repository (private source repository only)"
+        required: true
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mesbg-public-release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout ONLY runtime assets and release tooling
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /.nojekyll
+            /index.html
+            /gallery.html
+            /gallery-preview.html
+            /gallery-preview-runtime.js
+            /codex.html
+            /token-idle.js
+            /mesbg-stats.js
+            /manifest.webmanifest
+            /units.json
+            /dice.json
+            /favicon-32.png
+            /favicon-192.png
+            /favicon-512.png
+            /apple-touch-icon.png
+            /assets/mesbg/
+            /tokens/
+            /backgrounds/
+            /icons/
+            /effects/
+            /bases/
+            /relics/
+            /dice-faces/
+            /events/
+            /tools/build-public.js
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate public site allowlist and size
+        run: |
+          node --check tools/build-public.js
+          node tools/build-public.js --audit
+      - name: Assemble public site, without source/master assets
+        run: |
+          node tools/build-public.js
+          test -s .public-site/index.html
+          test ! -e .public-site/src
+          test ! -e .public-site/tokens_painted
+          test ! -e .public-site/art-src
+          test ! -e .public-site/lwb-worker
+
+      # Never deploy from the current public source checkout. This becomes
+      # usable only AFTER the original repository is renamed and made private,
+      # a fresh public mesbg-assets repo is created, and the scoped token is set.
+      - name: Validate private-source deployment gate
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.publish }}
+        env:
+          REPO_PRIVATE: ${{ github.event.repository.private }}
+          PUBLIC_DEPLOY_TOKEN: ${{ secrets.PUBLIC_DEPLOY_TOKEN }}
+        run: |
+          if [ "$REPO_PRIVATE" != "true" ]; then
+            echo "::error::Refusing to publish from a public source repository."
+            exit 1
+          fi
+          if [ -z "$PUBLIC_DEPLOY_TOKEN" ]; then
+            echo "::error::Missing PUBLIC_DEPLOY_TOKEN secret (scoped to public release repo Contents: write)."
+            exit 1
+          fi
+
+      - name: Checkout the NEW public release repository
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.publish && github.event.repository.private }}
+        uses: actions/checkout@v4
+        with:
+          repository: leesh603/mesbg-assets
+          token: ${{ secrets.PUBLIC_DEPLOY_TOKEN }}
+          ref: main
+          fetch-depth: 1
+          path: .publish-target
+
+      - name: Publish allowlisted files only
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.publish && github.event.repository.private }}
+        run: |
+          rsync -a --delete --exclude='.git/' .public-site/ .publish-target/
+          cd .publish-target
+          git config user.name 'MESBG Release Bot'
+          git config user.email '80437622+leesh603@users.noreply.github.com'
+          git add -A
+          if git diff --cached --quiet; then
+            echo 'Release already up-to-date.'
+          else
+            git commit -m "Publish verified game build from ${GITHUB_SHA}"
+            git push origin HEAD:main
+          fi
