@@ -8678,13 +8678,30 @@ be=function(b,u){
  if(u.static||u.lair||b.engaged(u)||b.remaining(u)<12)return null;
  const foes=b.alive(Ht(u.side)),stance=stanceOf(b,u),ranged=!!u.stats.shootRange;
  if(!foes.length||stance==='rear'||stance==='defense'||(u.side==='good'&&b.battleOrder?.mode==='hold')||(ranged&&b.validTargets(u).length))return tacticalLocalAI(b,u);
- const target=foes.slice().sort((a,c)=>ht(u,a)-ht(u,c))[0],all=b.alive();
- if(Terrain.line(u,u,ue(u,target),[],b.terrain))return tacticalLocalAI(b,u);
- const contact=Be(u,ue(u,target),all,b.terrain,118);
- if(contact){const route=Terrain.route(u,contact,all,b.terrain,Infinity);if(route){
-  const budget=ranged?Math.min(b.remaining(u),Math.max(0,u.stats.move/2-(u.movementSpent||0))):b.remaining(u),to=Terrain.prefix(u,route.path,b.terrain,budget);
-  const legal=ve(u,to,all,b.terrain,budget,{snap:false});if(legal&&legal.distance>=12)return legal.to;
- }}
+ const sorted=foes.slice().sort((a,c)=>ht(u,a)-ht(u,c)).slice(0,6),all=b.alive();
+ if(Terrain.line(u,u,ue(u,sorted[0]),[],b.terrain)){const direct=tacticalLocalAI(b,u);if(direct)return direct;}
+ const budget=ranged?Math.min(b.remaining(u),Math.max(0,u.stats.move/2-(u.movementSpent||0))):b.remaining(u);
+ // Walk the planned route as far as it is legal; a blocked tail (units, wall corners) must not freeze the unit.
+ const walk=route=>{for(const f of [1,.8,.6,.4,.25]){const to=Terrain.prefix(u,route.path,b.terrain,budget*f),legal=ve(u,to,all,b.terrain,budget,{snap:false});if(legal&&legal.distance>=12)return legal.to;}return null;};
+ // Wall-hugging fix: if the nearest enemy cannot be reached, go around to whichever enemy has a real route,
+ // and if other units clog the only gap, plan through them and stop short.
+ for(const ignoreUnits of [false,true]){
+  let best=null;
+  for(const target of sorted){
+   // ue() aims at the near edge of the foe, which can sit inside a wall; ring the foe itself and keep the cheapest real route.
+   const field=ignoreUnits?[]:all,gap=u.radius+target.radius+6;let mine=null;
+   for(let i=0;i<12;i++){
+    const a=i*Math.PI/6,c={x:target.x+Math.cos(a)*gap,y:target.y+Math.sin(a)*gap};
+    if(!Et(u,c,field,b.terrain))continue;
+    const route=Terrain.route(u,c,field,b.terrain,Infinity);
+    if(route&&(!mine||route.distance<mine.distance))mine=route;
+   }
+   if(!mine)continue;
+   if(!best||mine.distance<best.distance)best=mine;
+   if(!ignoreUnits&&target===sorted[0]){const to=walk(mine);if(to)return to;}
+  }
+  if(best){const to=walk(best);if(to)return to;}
+ }
  return tacticalLocalAI(b,u);
 };
 window.MESBG.terrain=Terrain;window.MESBG.legal=Et;window.MESBG.plan=ve;window.MESBG.path=bt;
