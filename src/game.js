@@ -2899,7 +2899,7 @@ const LWB_EQUIP = [
     { id: 'dragon_helm', label: '용투구', cost: 360, rare: 2, desc: '유니크 · 도르로민의 용투구 · 방어 +1 · 적의 상처 필요값 +1 · 공포 면역', iconImg: 'icons/eq_dragon_helm.png?v=1.37', req: u => u.traits.includes('hero'), fx: u => { u.stats.defence += 1; u.fearless = 1; u.eqDhelm = 1; } },
     { id: 'gurthang', label: '구르상', cost: 360, rare: 2, desc: '유니크 · 투린의 흑검 · 괴수·보스 상처 필요값 −2', iconImg: 'icons/eq_gurthang.png?v=1.37', req: u => u.traits.includes('hero'), fx: u => { u.eqGurthang = 1; } },
     { id: 'black_arrow', label: '흑화살', cost: 330, rare: 2, desc: '유니크 · 바르드의 화살 · 궁수 영웅 전용 · 괴수·보스 상처 필요값 −2', iconImg: 'icons/eq_black_arrow.png?v=1.37', req: u => u.traits.includes('hero') && u.stats.shootRange > 0, fx: u => { u.eqBlackArrow = 1; } },
-    { id: 'red_arrow', label: '붉은 화살', cost: 310, rare: 2, desc: '유니크 · 곤도르의 구원 신호 · 매 전투 로한 기수 1기 합류', iconImg: 'icons/eq_red_arrow.png?v=1.37', fx: u => { u.eqRedArrow = 1; } },
+    { id: 'red_arrow', label: '붉은 화살', cost: 310, rare: 2, desc: '유니크 · 곤도르의 구원 신호 · 매 전투 로한 기수 3기 합류', iconImg: 'icons/eq_red_arrow.png?v=1.37', fx: u => { u.eqRedArrow = 1; } },
     { id: 'angrist', label: '앵그리스트', cost: 340, rare: 2, desc: '유니크 · 베렌의 단도 · 상처 필요값 −2 (철도 끊음)', iconImg: 'icons/eq_angrist.png?v=1.37', req: u => u.traits.includes('hero'), fx: u => { u.eqPierce = 2; } },
     { id: 'elendilmir', label: '엘렌디미르', cost: 320, rare: 2, desc: '유니크 · 왕의 별 · 매 라운드 Might 회복 +1', iconImg: 'icons/eq_elendilmir.png?v=1.37', req: u => u.traits.includes('hero'), fx: u => { u.eqElm = 1; } }
 ];
@@ -7083,9 +7083,11 @@ P.prepareStage = function () {
         this.emit('Event', '아르켄스톤의 부름 — 드워프 지원군 2기 합류');
     }
     if (this.alive('good').some(u => u.eqRedArrow) && this.meta.has('rohan_rider')) {
-        const _ra = this.spawn('rohan_rider', 'good', { x: -1000, y: -1000 });
-        _ra.temporary = true; _ra.autoAlly = true; this.placeInDeployment(_ra);
-        this.emit('Event', '붉은 화살의 부름 — 로한 기수 1기 합류');
+        for (let _ri = 0; _ri < 3; _ri++) {
+            const _ra = this.spawn('rohan_rider', 'good', { x: -1000, y: -1000 });
+            _ra.temporary = true; _ra.autoAlly = true; this.placeInDeployment(_ra);
+        }
+        this.emit('Event', '붉은 화살의 부름 — 로한 기수 3기 합류');
     }
     const _tp = [[1000, 470], [1330, 470], [1165, 600], [820, 560], [1510, 560]];
     for (const [i, d] of (this.devices || []).entries()) {
