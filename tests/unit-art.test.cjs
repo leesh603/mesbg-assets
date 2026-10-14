@@ -34,7 +34,7 @@ test('padding and seated poses do not create multiples of cavalry size',()=>{
   // Dwarf heroes keep the 67-70 reference; dwarf soldiers are drawn clearly shorter than human soldiers (86).
   assert(hero?stature>=62.9&&stature<=76.1:stature>=52&&stature<=62.5,a.id);
  }
- assert.equal(context.profiles.warg_chieftain[6],'body');assert.equal(context.profiles.rhosgobel_rabbit[6],'body');
+ assert.equal(context.profiles.warg_chieftain[6],'rider');assert.equal(context.profiles.rhosgobel_rabbit[6],'body');
  assert.equal(context.profiles.witchking_fellbeast[6],'rider');
  assert(context.profiles.gwaihir[5]>context.profiles.great_eagle[5]);assert(context.profiles.thorondor[5]>context.profiles.gwaihir[5]);
 });
