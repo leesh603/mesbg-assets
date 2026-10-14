@@ -30,3 +30,6 @@ px-nb-single-*.png
 !favicon-*.png
 !apple-touch-icon.png
 review-output/
+
+# Generated public-only release; never commit this folder to source repo
+.public-site/
