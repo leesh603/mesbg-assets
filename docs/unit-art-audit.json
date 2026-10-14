@@ -1183,8 +1183,6 @@
       "id": "arwen",
       "name": "아르웬",
       "file": "tokens/arwen.png",
-      "bodyClass": "human",
-      "reference": "body",
       "top": 0.0887,
       "bottom": 0.9416,
       "centerX": 0.5069,
@@ -1214,14 +1212,19 @@
         ]
       },
       "statureCalibration": {
-        "method": "visually-reviewed-redrawn-body-20261014",
+        "method": "argon-anatomical-20261014",
         "reviewedReference": {
           "top": 0.0887,
           "bottom": 0.9416,
           "worldReferenceSize": 86,
           "sourceSHA256": "76581a5b0906f8ebf3cd7db1efef7b701031cfef287c762184fb1a6a0d771225"
         },
-        "applied": "reviewed-anatomy"
+        "candidate": {
+          "top": 0.0541,
+          "bottom": 0.9772
+        },
+        "applied": "reviewed-landmarks",
+        "reason": "explicit-creature-or-vehicle-anatomy"
       }
     },
     {
@@ -1747,7 +1750,7 @@
       "bottom": 0.99,
       "centerX": 0.5227,
       "centerY": 0.5798,
-      "worldReferenceSize": 86,
+      "worldReferenceSize": 70,
       "sourceWidth": 320,
       "sourceHeight": 274,
       "sourceSHA256": "8da1c0c6f7d28e1c13ba0208baadcdb42786b25efc9abcf25054c74b612ec400",
@@ -1783,7 +1786,7 @@
           "reference": "body",
           "top": 0.125,
           "bottom": 0.92,
-          "worldReferenceSize": 86,
+          "worldReferenceSize": 70,
           "sourceSHA256": "8da1c0c6f7d28e1c13ba0208baadcdb42786b25efc9abcf25054c74b612ec400"
         },
         "candidate": {
@@ -1973,7 +1976,7 @@
       "reference": "body",
       "top": 0.2325,
       "bottom": 0.9862,
-      "centerX": 0.582,
+      "centerX": 0.5,
       "centerY": 0.5938,
       "worldReferenceSize": 86,
       "sourceWidth": 440,
@@ -5617,29 +5620,27 @@
       "name": "드래곤 나이트",
       "file": "tokens/dragon_knight.png",
       "bodyClass": "human",
-      "reference": "rider",
-      "top": 0.0586,
-      "bottom": 0.387,
-      "centerX": 0.4667,
-      "centerY": 0.5275,
-      "worldReferenceSize": 43,
+      "reference": "body",
+      "top": 0.034,
+      "bottom": 0.966,
+      "centerX": 0.4694,
+      "centerY": 0.5,
+      "worldReferenceSize": 86,
       "sourceWidth": 418,
       "sourceHeight": 419,
       "sourceSHA256": "827bed712e2d991dd4007b200e3588e5034730e5e8de3db0c839ed37f550870b",
       "anatomicalCorrection": true,
-      "riderSaddleLandmark": true,
+      "riderSaddleLandmark": false,
       "referenceAxis": "height",
-      "calibration": "Individual visual crown-to-seated-pelvis measurement; excludes weapon, plume, cloak width and mount. Horse/body silhouette cross-check required.",
+      "calibration": "2026-10-14 art is a foot knight: standing reference, not a rider.",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 0,
-        "cell": 21,
-        "landmarks": "crown-pelvis",
+        "date": "2026-10-14",
+        "landmarks": "body-only",
         "source": "assets/mesbg/tokens/dragon_knight.png"
       },
       "centerReview": {
         "date": "2026-10-14",
-        "basis": "rider-and-mount",
+        "basis": "body",
         "sheet": 4,
         "cell": 2,
         "source": "assets/mesbg/tokens/dragon_knight.png",
@@ -5655,18 +5656,19 @@
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
           "bodyClass": "human",
-          "reference": "rider",
-          "top": 0.08,
-          "bottom": 0.395,
-          "worldReferenceSize": 43,
+          "reference": "body",
+          "top": 0.034,
+          "bottom": 0.966,
+          "worldReferenceSize": 86,
           "sourceSHA256": "827bed712e2d991dd4007b200e3588e5034730e5e8de3db0c839ed37f550870b"
         },
         "candidate": {
-          "top": 0.0586,
-          "bottom": 0.387
+          "top": 0.0205,
+          "bottom": 0.99
         },
-        "applied": "anatomical-candidate",
-        "reason": "candidate-agrees-with-reviewed-anatomy"
+        "pinned": true,
+        "applied": "reviewed-landmarks",
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -6533,7 +6535,7 @@
       "bottom": 0.97,
       "centerX": 0.5096,
       "centerY": 0.6825,
-      "worldReferenceSize": 68,
+      "worldReferenceSize": 58,
       "sourceWidth": 176,
       "sourceHeight": 246,
       "sourceSHA256": "980378e6b73782c36594f95b71a5c7f8ed24759c970ad2ab8bf66d7b87fea502",
@@ -6569,7 +6571,7 @@
           "reference": "body",
           "top": 0.395,
           "bottom": 0.97,
-          "worldReferenceSize": 67,
+          "worldReferenceSize": 58,
           "sourceSHA256": "980378e6b73782c36594f95b71a5c7f8ed24759c970ad2ab8bf66d7b87fea502"
         },
         "candidate": {
@@ -6590,7 +6592,7 @@
       "bottom": 0.9727,
       "centerX": 0.5078,
       "centerY": 0.6191,
-      "worldReferenceSize": 68,
+      "worldReferenceSize": 58,
       "sourceWidth": 440,
       "sourceHeight": 440,
       "sourceSHA256": "cab80e4dbbcef248a51d61620ec51aa339897606cfcc9c49625e6fad0103dc0b",
@@ -6626,7 +6628,7 @@
           "reference": "body",
           "top": 0.2656,
           "bottom": 0.9727,
-          "worldReferenceSize": 67,
+          "worldReferenceSize": 58,
           "sourceSHA256": "cab80e4dbbcef248a51d61620ec51aa339897606cfcc9c49625e6fad0103dc0b"
         },
         "candidate": {
@@ -6647,7 +6649,7 @@
       "bottom": 0.97,
       "centerX": 0.3173,
       "centerY": 0.69,
-      "worldReferenceSize": 68,
+      "worldReferenceSize": 58,
       "sourceWidth": 234,
       "sourceHeight": 329,
       "sourceSHA256": "42d962b71d9fc72ccfe92851123aac628af725976327808af95e22a372488e3e",
@@ -6683,7 +6685,7 @@
           "reference": "body",
           "top": 0.41,
           "bottom": 0.97,
-          "worldReferenceSize": 67,
+          "worldReferenceSize": 58,
           "sourceSHA256": "42d962b71d9fc72ccfe92851123aac628af725976327808af95e22a372488e3e"
         },
         "candidate": {
@@ -6704,7 +6706,7 @@
       "bottom": 0.99,
       "centerX": 0.4883,
       "centerY": 0.6211,
-      "worldReferenceSize": 68,
+      "worldReferenceSize": 58,
       "sourceWidth": 440,
       "sourceHeight": 440,
       "sourceSHA256": "ac0079e97aa273b53fbf5725e3dea2dd67d9818b063a3f84b4e56aef67067318",
@@ -6740,7 +6742,7 @@
           "reference": "body",
           "top": 0.2656,
           "bottom": 0.9766,
-          "worldReferenceSize": 67,
+          "worldReferenceSize": 58,
           "sourceSHA256": "ac0079e97aa273b53fbf5725e3dea2dd67d9818b063a3f84b4e56aef67067318"
         },
         "candidate": {
@@ -6761,7 +6763,7 @@
       "bottom": 0.99,
       "centerX": 0.4453,
       "centerY": 0.6191,
-      "worldReferenceSize": 68,
+      "worldReferenceSize": 58,
       "sourceWidth": 440,
       "sourceHeight": 440,
       "sourceSHA256": "fdce881afbde495f9875b8bec520047e145d2b5490e3467defbfd18787817115",
@@ -6797,7 +6799,7 @@
           "reference": "body",
           "top": 0.2617,
           "bottom": 0.9766,
-          "worldReferenceSize": 67,
+          "worldReferenceSize": 58,
           "sourceSHA256": "fdce881afbde495f9875b8bec520047e145d2b5490e3467defbfd18787817115"
         },
         "candidate": {
@@ -6818,7 +6820,7 @@
       "bottom": 0.99,
       "centerX": 0.4862,
       "centerY": 0.6445,
-      "worldReferenceSize": 68,
+      "worldReferenceSize": 58,
       "sourceWidth": 358,
       "sourceHeight": 420,
       "sourceSHA256": "13e9c1140a57955953a018e092b1d638e25e3024a52c80416cbebedca5dfeaf2",
@@ -6854,7 +6856,7 @@
           "reference": "body",
           "top": 0.3086,
           "bottom": 0.9805,
-          "worldReferenceSize": 67,
+          "worldReferenceSize": 58,
           "sourceSHA256": "13e9c1140a57955953a018e092b1d638e25e3024a52c80416cbebedca5dfeaf2"
         },
         "candidate": {
@@ -6985,14 +6987,14 @@
       "file": "tokens/earendil.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.0215,
-      "bottom": 0.9711,
+      "top": 0.01,
+      "bottom": 0.99,
       "centerX": 0.4521,
       "centerY": 0.485,
       "worldReferenceSize": 86,
       "sourceWidth": 269,
       "sourceHeight": 366,
-      "sourceSHA256": "f32beadc6aa59cc4479a98d19b5446112b032aec8d72cc04fa1cb59db601dc4b",
+      "sourceSHA256": "395e227a6781dbdb7f742e63f807178aaece747abc00b9935fea978e1c928259",
       "anatomicalCorrection": false,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
@@ -7026,11 +7028,11 @@
           "top": 0.01,
           "bottom": 0.96,
           "worldReferenceSize": 86,
-          "sourceSHA256": "f32beadc6aa59cc4479a98d19b5446112b032aec8d72cc04fa1cb59db601dc4b"
+          "sourceSHA256": "395e227a6781dbdb7f742e63f807178aaece747abc00b9935fea978e1c928259"
         },
         "candidate": {
-          "top": 0.0215,
-          "bottom": 0.9711
+          "top": 0.01,
+          "bottom": 0.99
         },
         "applied": "anatomical-candidate",
         "reason": "candidate-agrees-with-reviewed-anatomy"
@@ -9721,25 +9723,23 @@
       "file": "tokens/feanor.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.0898,
-      "bottom": 0.918,
-      "centerX": 0.2768,
-      "centerY": 0.5275,
+      "top": 0.04,
+      "bottom": 0.965,
+      "centerX": 0.572,
+      "centerY": 0.5,
       "worldReferenceSize": 89,
       "sourceWidth": 320,
       "sourceHeight": 366,
-      "sourceSHA256": "6fcb211f4faac894998c0913ab2a3ef837293c79b61ea9c2fe4ca21b768d6bc4",
-      "anatomicalCorrection": false,
+      "sourceSHA256": "8b659e507588b265d4f3a258ced478f2ee8f4314506a7ac6bc5a20840768dd48",
+      "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 9,
-        "cell": 12,
+        "date": "2026-10-14",
         "landmarks": "body-only",
         "source": "assets/mesbg/tokens/feanor.png"
       },
-      "calibration": "Body landmarks corrected by visual source review; weapon/plume/empty space excluded.",
+      "calibration": "2026-10-14 repaired broken alpha; torso centre re-measured on the repaired art.",
       "centerReview": {
         "date": "2026-10-14",
         "basis": "body",
@@ -9759,17 +9759,18 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "body",
-          "top": 0.095,
-          "bottom": 0.96,
-          "worldReferenceSize": 86,
-          "sourceSHA256": "6fcb211f4faac894998c0913ab2a3ef837293c79b61ea9c2fe4ca21b768d6bc4"
+          "top": 0.04,
+          "bottom": 0.965,
+          "worldReferenceSize": 89,
+          "sourceSHA256": "8b659e507588b265d4f3a258ced478f2ee8f4314506a7ac6bc5a20840768dd48"
         },
         "candidate": {
-          "top": 0.0898,
-          "bottom": 0.918
+          "top": 0.01,
+          "bottom": 0.99
         },
-        "applied": "anatomical-candidate",
-        "reason": "candidate-agrees-with-reviewed-anatomy"
+        "pinned": true,
+        "applied": "reviewed-landmarks",
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -11091,7 +11092,7 @@
       "bottom": 0.99,
       "centerX": 0.5933,
       "centerY": 0.5773,
-      "worldReferenceSize": 86,
+      "worldReferenceSize": 99,
       "sourceWidth": 246,
       "sourceHeight": 362,
       "sourceSHA256": "5082a8699f494a3e003a73f613bf3c0b3ebad22d64f07d5faf9b3530d0165590",
@@ -11127,7 +11128,7 @@
           "reference": "body",
           "top": 0.1438,
           "bottom": 0.9726,
-          "worldReferenceSize": 86,
+          "worldReferenceSize": 99,
           "sourceSHA256": "5082a8699f494a3e003a73f613bf3c0b3ebad22d64f07d5faf9b3530d0165590"
         },
         "candidate": {
@@ -11202,10 +11203,10 @@
       "bodyClass": "human",
       "reference": "body",
       "top": 0.25,
-      "bottom": 0.86,
+      "bottom": 0.96,
       "centerX": 0.462,
       "centerY": 0.5409,
-      "worldReferenceSize": 86,
+      "worldReferenceSize": 82,
       "sourceWidth": 284,
       "sourceHeight": 366,
       "sourceSHA256": "6a11a50cedf82deb5366dd13c6368b375b5c9606e41a014efdb5ef2b533405c6",
@@ -11213,9 +11214,7 @@
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 10,
-        "cell": 5,
+        "date": "2026-10-14",
         "landmarks": "body-only",
         "source": "assets/mesbg/tokens/gandalf_white.png"
       },
@@ -11240,16 +11239,17 @@
           "bodyClass": "human",
           "reference": "body",
           "top": 0.25,
-          "bottom": 0.86,
-          "worldReferenceSize": 86,
+          "bottom": 0.96,
+          "worldReferenceSize": 82,
           "sourceSHA256": "6a11a50cedf82deb5366dd13c6368b375b5c9606e41a014efdb5ef2b533405c6"
         },
         "candidate": {
           "top": 0.2153,
           "bottom": 0.99
         },
+        "pinned": true,
         "applied": "reviewed-landmarks",
-        "reason": "automatic-landmark-outlier"
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -11718,7 +11718,7 @@
       "bottom": 0.9384,
       "centerX": 0.5039,
       "centerY": 0.5274,
-      "worldReferenceSize": 89,
+      "worldReferenceSize": 76,
       "sourceWidth": 319,
       "sourceHeight": 366,
       "sourceSHA256": "9dcb71e7b2455c8d7e7f068047023f141cb5711389c3b351dfbf6ba3cb5fa0db",
@@ -11754,7 +11754,7 @@
           "reference": "body",
           "top": 0.1164,
           "bottom": 0.9384,
-          "worldReferenceSize": 86,
+          "worldReferenceSize": 76,
           "sourceSHA256": "9dcb71e7b2455c8d7e7f068047023f141cb5711389c3b351dfbf6ba3cb5fa0db"
         },
         "candidate": {
@@ -12915,7 +12915,7 @@
       "bottom": 0.986,
       "centerX": 0.5985,
       "centerY": 0.6075,
-      "worldReferenceSize": 76,
+      "worldReferenceSize": 103,
       "sourceWidth": 440,
       "sourceHeight": 440,
       "sourceSHA256": "c9329ff3040c4a2c3f889d53cb17f195edc5f637716abd279fb6dde9b2ad3927",
@@ -12951,7 +12951,7 @@
           "reference": "body",
           "top": 0.29,
           "bottom": 0.925,
-          "worldReferenceSize": 78,
+          "worldReferenceSize": 103,
           "sourceSHA256": "c9329ff3040c4a2c3f889d53cb17f195edc5f637716abd279fb6dde9b2ad3927"
         },
         "candidate": {
@@ -15935,7 +15935,7 @@
       "bottom": 0.99,
       "centerX": 0.4961,
       "centerY": 0.6191,
-      "worldReferenceSize": 68,
+      "worldReferenceSize": 58,
       "sourceWidth": 440,
       "sourceHeight": 440,
       "sourceSHA256": "6748d8d70de7bfd5b0b0ecada3b9d73fce14bd6361c8d6a585d776d1d0b8b331",
@@ -15971,7 +15971,7 @@
           "reference": "body",
           "top": 0.2617,
           "bottom": 0.9766,
-          "worldReferenceSize": 67,
+          "worldReferenceSize": 58,
           "sourceSHA256": "6748d8d70de7bfd5b0b0ecada3b9d73fce14bd6361c8d6a585d776d1d0b8b331"
         },
         "candidate": {
@@ -16676,7 +16676,7 @@
       "bottom": 0.99,
       "centerX": 0.4766,
       "centerY": 0.6172,
-      "worldReferenceSize": 68,
+      "worldReferenceSize": 58,
       "sourceWidth": 440,
       "sourceHeight": 440,
       "sourceSHA256": "0af922d91c673e5965425a52772d93d5714344d6187e88f21bb39017b0a98bc1",
@@ -16712,7 +16712,7 @@
           "reference": "body",
           "top": 0.2617,
           "bottom": 0.9727,
-          "worldReferenceSize": 67,
+          "worldReferenceSize": 58,
           "sourceSHA256": "0af922d91c673e5965425a52772d93d5714344d6187e88f21bb39017b0a98bc1"
         },
         "candidate": {
@@ -17360,7 +17360,7 @@
       "bottom": 0.9837,
       "centerX": 0.456,
       "centerY": 0.5175,
-      "worldReferenceSize": 86,
+      "worldReferenceSize": 70,
       "sourceWidth": 359,
       "sourceHeight": 420,
       "sourceSHA256": "c7bf2b8837545f83e82a3061098651e4890685865ef0fd4321c628f03c1a45f0",
@@ -17396,7 +17396,7 @@
           "reference": "body",
           "top": 0.115,
           "bottom": 0.92,
-          "worldReferenceSize": 86,
+          "worldReferenceSize": 70,
           "sourceSHA256": "c7bf2b8837545f83e82a3061098651e4890685865ef0fd4321c628f03c1a45f0"
         },
         "candidate": {
@@ -17417,7 +17417,7 @@
       "bottom": 0.99,
       "centerX": 0.494,
       "centerY": 0.5409,
-      "worldReferenceSize": 86,
+      "worldReferenceSize": 70,
       "sourceWidth": 280,
       "sourceHeight": 366,
       "sourceSHA256": "ffb4a9f38dd82e586782128206b65761216916478da76031b81b3d24ce587c8a",
@@ -17453,7 +17453,7 @@
           "reference": "body",
           "top": 0.2055,
           "bottom": 0.9795,
-          "worldReferenceSize": 86,
+          "worldReferenceSize": 70,
           "sourceSHA256": "ffb4a9f38dd82e586782128206b65761216916478da76031b81b3d24ce587c8a"
         },
         "candidate": {
@@ -18270,23 +18270,21 @@
       "reference": "body",
       "top": 0.21,
       "bottom": 0.94,
-      "centerX": 0.4924,
+      "centerX": 0.51,
       "centerY": 0.575,
       "worldReferenceSize": 248,
-      "sourceWidth": 596,
-      "sourceHeight": 597,
-      "sourceSHA256": "d7f23a8838b6dfe8e320835daddbbcb2671eb3038f90e71b3d4e10c4fb9e25a9",
+      "sourceWidth": 308,
+      "sourceHeight": 320,
+      "sourceSHA256": "62218186a7dfaf0a77584945888f46a3f57ea69078aa240b75e26af180204b24",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 14,
-        "cell": 12,
+        "date": "2026-10-14",
         "landmarks": "body-only",
         "source": "assets/mesbg/tokens/melkor.png"
       },
-      "calibration": "Body landmarks corrected by visual source review; weapon/plume/empty space excluded.",
+      "calibration": "2026-10-14 restored the approved silver-and-crimson Melkor art; crown-to-foot reference unchanged.",
       "centerReview": {
         "date": "2026-10-14",
         "basis": "body",
@@ -18309,14 +18307,15 @@
           "top": 0.21,
           "bottom": 0.94,
           "worldReferenceSize": 248,
-          "sourceSHA256": "d7f23a8838b6dfe8e320835daddbbcb2671eb3038f90e71b3d4e10c4fb9e25a9"
+          "sourceSHA256": "62218186a7dfaf0a77584945888f46a3f57ea69078aa240b75e26af180204b24"
         },
         "candidate": {
-          "top": 0.0898,
-          "bottom": 0.9492
+          "top": 0.4648,
+          "bottom": 0.98
         },
+        "pinned": true,
         "applied": "reviewed-landmarks",
-        "reason": "explicit-creature-or-vehicle-anatomy"
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -18783,23 +18782,21 @@
       "reference": "body",
       "top": 0.21,
       "bottom": 0.94,
-      "centerX": 0.4609,
-      "centerY": 0.575,
+      "centerX": 0.5044,
+      "centerY": 0.55,
       "worldReferenceSize": 248,
-      "sourceWidth": 596,
-      "sourceHeight": 597,
-      "sourceSHA256": "d7f23a8838b6dfe8e320835daddbbcb2671eb3038f90e71b3d4e10c4fb9e25a9",
-      "anatomicalCorrection": false,
+      "sourceWidth": 425,
+      "sourceHeight": 513,
+      "sourceSHA256": "294889135f41f3618a9d69bfce0ed88ccfabaf051e0db1866ed13ee7ad9b4990",
+      "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 14,
-        "cell": 21,
+        "date": "2026-10-14",
         "landmarks": "body-only",
         "source": "assets/mesbg/tokens/morgoth.png"
       },
-      "calibration": "Body landmarks corrected by visual source review; weapon/plume/empty space excluded.",
+      "calibration": "2026-10-14 restored the approved crimson-cloaked Morgoth art; crown-to-foot reference unchanged.",
       "centerReview": {
         "date": "2026-10-14",
         "basis": "body",
@@ -18822,14 +18819,15 @@
           "top": 0.21,
           "bottom": 0.94,
           "worldReferenceSize": 248,
-          "sourceSHA256": "d7f23a8838b6dfe8e320835daddbbcb2671eb3038f90e71b3d4e10c4fb9e25a9"
+          "sourceSHA256": "294889135f41f3618a9d69bfce0ed88ccfabaf051e0db1866ed13ee7ad9b4990"
         },
         "candidate": {
-          "top": 0.0898,
-          "bottom": 0.9492
+          "top": 0.1289,
+          "bottom": 0.9648
         },
+        "pinned": true,
         "applied": "reviewed-landmarks",
-        "reason": "explicit-creature-or-vehicle-anatomy"
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -18894,29 +18892,27 @@
       "name": "모르굴 기사",
       "file": "tokens/morgul_knight.png",
       "bodyClass": "human",
-      "reference": "rider",
-      "top": 0.3164,
-      "bottom": 0.5287,
-      "centerX": 0.4961,
-      "centerY": 0.6175,
-      "worldReferenceSize": 43,
+      "reference": "body",
+      "top": 0.291,
+      "bottom": 0.905,
+      "centerX": 0.5213,
+      "centerY": 0.598,
+      "worldReferenceSize": 86,
       "sourceWidth": 440,
       "sourceHeight": 440,
       "sourceSHA256": "2689e3d8859f04ed5414141649400df2bed7fbc051f7032b68101533b9b94353",
       "anatomicalCorrection": true,
-      "riderSaddleLandmark": true,
+      "riderSaddleLandmark": false,
       "referenceAxis": "height",
-      "calibration": "Individual visual crown-to-seated-pelvis measurement; excludes weapon, plume, cloak width and mount. Horse/body silhouette cross-check required.",
+      "calibration": "2026-10-14 art is a foot knight: standing reference, not a rider.",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 2,
-        "cell": 23,
-        "landmarks": "crown-pelvis",
+        "date": "2026-10-14",
+        "landmarks": "body-only",
         "source": "assets/mesbg/tokens/morgul_knight.png"
       },
       "centerReview": {
         "date": "2026-10-14",
-        "basis": "rider-and-mount",
+        "basis": "body",
         "sheet": 13,
         "cell": 19,
         "source": "assets/mesbg/tokens/morgul_knight.png",
@@ -18932,18 +18928,19 @@
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
           "bodyClass": "human",
-          "reference": "rider",
-          "top": 0.295,
-          "bottom": 0.49,
-          "worldReferenceSize": 43,
+          "reference": "body",
+          "top": 0.291,
+          "bottom": 0.905,
+          "worldReferenceSize": 86,
           "sourceSHA256": "2689e3d8859f04ed5414141649400df2bed7fbc051f7032b68101533b9b94353"
         },
         "candidate": {
           "top": 0.3164,
           "bottom": 0.5287
         },
-        "applied": "anatomical-candidate",
-        "reason": "candidate-agrees-with-reviewed-anatomy"
+        "pinned": true,
+        "applied": "reviewed-landmarks",
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -19979,25 +19976,23 @@
       "file": "tokens/nazgul_mace.png",
       "bodyClass": "large-human",
       "reference": "body",
-      "top": 0.3222,
-      "bottom": 0.99,
-      "centerX": 0.5152,
-      "centerY": 0.6825,
+      "top": 0.293,
+      "bottom": 0.979,
+      "centerX": 0.5,
+      "centerY": 0.636,
       "worldReferenceSize": 98,
       "sourceWidth": 440,
-      "sourceHeight": 440,
-      "sourceSHA256": "81182744570e200a0dc844c468bd314de38e9906a25debf0b92abc9013453402",
+      "sourceHeight": 529,
+      "sourceSHA256": "d9154e4d79952ce99a646d6d3a89eeb1a42dd1ec7204bb67f2cff4aa656ee7c0",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 15,
-        "cell": 15,
+        "date": "2026-10-14",
         "landmarks": "body-only",
         "source": "assets/mesbg/tokens/nazgul_mace.png"
       },
-      "calibration": "Body landmarks corrected by visual source review; weapon/plume/empty space excluded.",
+      "calibration": "2026-10-14 robe lengthened for a 5-head-tall silhouette; hood-to-foot reference unchanged.",
       "centerReview": {
         "date": "2026-10-14",
         "basis": "body",
@@ -20017,17 +20012,18 @@
         "reviewedReference": {
           "bodyClass": "large-human",
           "reference": "body",
-          "top": 0.395,
-          "bottom": 0.97,
-          "worldReferenceSize": 100,
-          "sourceSHA256": "81182744570e200a0dc844c468bd314de38e9906a25debf0b92abc9013453402"
+          "top": 0.293,
+          "bottom": 0.979,
+          "worldReferenceSize": 98,
+          "sourceSHA256": "d9154e4d79952ce99a646d6d3a89eeb1a42dd1ec7204bb67f2cff4aa656ee7c0"
         },
         "candidate": {
-          "top": 0.3222,
+          "top": 0.2243,
           "bottom": 0.99
         },
-        "applied": "anatomical-candidate",
-        "reason": "candidate-agrees-with-reviewed-anatomy"
+        "pinned": true,
+        "applied": "reviewed-landmarks",
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -21290,25 +21286,23 @@
       "file": "tokens/orc_sword.png",
       "bodyClass": "orc",
       "reference": "body",
-      "top": 0.082,
-      "bottom": 0.9453,
-      "centerX": 0.505,
-      "centerY": 0.5137,
+      "top": 0.0234,
+      "bottom": 0.9766,
+      "centerX": 0.4868,
+      "centerY": 0.5,
       "worldReferenceSize": 76,
-      "sourceWidth": 264,
-      "sourceHeight": 335,
-      "sourceSHA256": "1eba5722b859815efbfe50a258a678495d452684b0e60d433e2d6718760d36b3",
-      "anatomicalCorrection": false,
+      "sourceWidth": 326,
+      "sourceHeight": 366,
+      "sourceSHA256": "d2f2009d7f213f165535557a17a35f72603a4b0f3a9d677b989d2158485ca260",
+      "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 16,
-        "cell": 12,
+        "date": "2026-10-14",
         "landmarks": "body-only",
         "source": "assets/mesbg/tokens/orc_sword.png"
       },
-      "calibration": "Individual source visually checked; existing body landmarks retained.",
+      "calibration": "2026-10-14 sword-only Mordor orc (shield removed, blackened armour).",
       "centerReview": {
         "date": "2026-10-14",
         "basis": "body",
@@ -21328,17 +21322,18 @@
         "reviewedReference": {
           "bodyClass": "orc",
           "reference": "body",
-          "top": 0.082,
-          "bottom": 0.9453,
-          "worldReferenceSize": 78,
-          "sourceSHA256": "1eba5722b859815efbfe50a258a678495d452684b0e60d433e2d6718760d36b3"
+          "top": 0.0234,
+          "bottom": 0.9766,
+          "worldReferenceSize": 76,
+          "sourceSHA256": "d2f2009d7f213f165535557a17a35f72603a4b0f3a9d677b989d2158485ca260"
         },
         "candidate": {
-          "top": 0.3804,
-          "bottom": 0.9634
+          "top": 0.3384,
+          "bottom": 0.99
         },
+        "pinned": true,
         "applied": "reviewed-landmarks",
-        "reason": "automatic-landmark-outlier"
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -21354,18 +21349,16 @@
       "worldReferenceSize": 76,
       "sourceWidth": 326,
       "sourceHeight": 366,
-      "sourceSHA256": "405402113203846d5c914aeb7c4c9dfed1816c3a868ecfb129899634d7cc94db",
-      "anatomicalCorrection": false,
+      "sourceSHA256": "2852c8f6935438f9310b2370619aad48e197447f4c846a897cda40801c85e63f",
+      "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 16,
-        "cell": 13,
+        "date": "2026-10-14",
         "landmarks": "body-only",
         "source": "assets/mesbg/tokens/orc_sword2.png"
       },
-      "calibration": "Individual source visually checked; existing body landmarks retained.",
+      "calibration": "2026-10-14 sword-only orc (shield removed).",
       "centerReview": {
         "date": "2026-10-14",
         "basis": "body",
@@ -21387,15 +21380,16 @@
           "reference": "body",
           "top": 0.0234,
           "bottom": 0.9766,
-          "worldReferenceSize": 78,
-          "sourceSHA256": "405402113203846d5c914aeb7c4c9dfed1816c3a868ecfb129899634d7cc94db"
+          "worldReferenceSize": 76,
+          "sourceSHA256": "2852c8f6935438f9310b2370619aad48e197447f4c846a897cda40801c85e63f"
         },
         "candidate": {
-          "top": 0.4116,
+          "top": 0.3384,
           "bottom": 0.99
         },
+        "pinned": true,
         "applied": "reviewed-landmarks",
-        "reason": "automatic-landmark-outlier"
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -21687,8 +21681,6 @@
       "id": "orophin",
       "name": "오로핀",
       "file": "tokens/orophin.png",
-      "bodyClass": "human",
-      "reference": "body",
       "top": 0.2233,
       "bottom": 0.9563,
       "centerX": 0.4866,
@@ -21718,14 +21710,19 @@
         ]
       },
       "statureCalibration": {
-        "method": "visually-reviewed-redrawn-body-20261014",
+        "method": "argon-anatomical-20261014",
         "reviewedReference": {
           "top": 0.2233,
           "bottom": 0.9563,
           "worldReferenceSize": 86,
           "sourceSHA256": "613a4056c3b5e542f712970adc0157c56e14d1eb0c6a3281bcfebd60763eaf8c"
         },
-        "applied": "reviewed-anatomy"
+        "candidate": {
+          "top": 0.5174,
+          "bottom": 0.9748
+        },
+        "applied": "reviewed-landmarks",
+        "reason": "explicit-creature-or-vehicle-anatomy"
       }
     },
     {
@@ -22929,8 +22926,6 @@
       "id": "rumil",
       "name": "루밀",
       "file": "tokens/rumil.png",
-      "bodyClass": "human",
-      "reference": "body",
       "top": 0.1467,
       "bottom": 0.9556,
       "centerX": 0.5654,
@@ -22960,14 +22955,19 @@
         ]
       },
       "statureCalibration": {
-        "method": "visually-reviewed-redrawn-body-20261014",
+        "method": "argon-anatomical-20261014",
         "reviewedReference": {
           "top": 0.1467,
           "bottom": 0.9556,
           "worldReferenceSize": 86,
           "sourceSHA256": "f6ffc72b51aaa5093123550bc80f7e542094f30c1c463c4b78d8693c98820b2f"
         },
-        "applied": "reviewed-anatomy"
+        "candidate": {
+          "top": 0.0371,
+          "bottom": 0.99
+        },
+        "applied": "reviewed-landmarks",
+        "reason": "explicit-creature-or-vehicle-anatomy"
       }
     },
     {
@@ -23721,7 +23721,7 @@
       "bottom": 1,
       "centerX": 0.5182,
       "centerY": 0.5545,
-      "worldReferenceSize": 282,
+      "worldReferenceSize": 423,
       "sourceWidth": 440,
       "sourceHeight": 440,
       "sourceSHA256": "b9cd1be09b0882f2854840332aeee29aad298288d5486d82470555bbfded09e3",
@@ -23757,7 +23757,7 @@
           "reference": "body",
           "top": 0.3939,
           "bottom": 1,
-          "worldReferenceSize": 278,
+          "worldReferenceSize": 423,
           "sourceSHA256": "b9cd1be09b0882f2854840332aeee29aad298288d5486d82470555bbfded09e3"
         },
         "candidate": {
@@ -24519,7 +24519,7 @@
       "bottom": 0.99,
       "centerX": 0.4898,
       "centerY": 0.4922,
-      "worldReferenceSize": 86,
+      "worldReferenceSize": 95,
       "sourceWidth": 280,
       "sourceHeight": 366,
       "sourceSHA256": "262bb94bce1bd5ef91be9aa6deea93637b8c1f93f1b968a3cb77fa404ab8d3cb",
@@ -24555,7 +24555,7 @@
           "reference": "body",
           "top": 0.043,
           "bottom": 0.9414,
-          "worldReferenceSize": 86,
+          "worldReferenceSize": 95,
           "sourceSHA256": "262bb94bce1bd5ef91be9aa6deea93637b8c1f93f1b968a3cb77fa404ab8d3cb"
         },
         "candidate": {
@@ -25146,7 +25146,7 @@
       "bottom": 0.94,
       "centerX": 0.4261,
       "centerY": 0.515,
-      "worldReferenceSize": 86,
+      "worldReferenceSize": 129,
       "sourceWidth": 332,
       "sourceHeight": 420,
       "sourceSHA256": "50d79b336bc6404b25a94fc81de7287e4c90dcde0d5a515494517206207e9d49",
@@ -25182,7 +25182,7 @@
           "reference": "body",
           "top": 0.09,
           "bottom": 0.94,
-          "worldReferenceSize": 86,
+          "worldReferenceSize": 129,
           "sourceSHA256": "50d79b336bc6404b25a94fc81de7287e4c90dcde0d5a515494517206207e9d49"
         },
         "candidate": {
@@ -25260,7 +25260,7 @@
       "bottom": 0.99,
       "centerX": 0.5,
       "centerY": 0.54,
-      "worldReferenceSize": 86,
+      "worldReferenceSize": 95,
       "sourceWidth": 271,
       "sourceHeight": 366,
       "sourceSHA256": "7ae88ccaccf63817ed453ba2b7a8cf7d6d6f2b65288eaef5b0622207ad68f27f",
@@ -25296,7 +25296,7 @@
           "reference": "body",
           "top": 0.11,
           "bottom": 0.97,
-          "worldReferenceSize": 86,
+          "worldReferenceSize": 95,
           "sourceSHA256": "7ae88ccaccf63817ed453ba2b7a8cf7d6d6f2b65288eaef5b0622207ad68f27f"
         },
         "candidate": {
@@ -25659,7 +25659,7 @@
       "bottom": 0.9589,
       "centerX": 0.4876,
       "centerY": 0.6027,
-      "worldReferenceSize": 101,
+      "worldReferenceSize": 83,
       "sourceWidth": 304,
       "sourceHeight": 366,
       "sourceSHA256": "4d542d633e0babc31b8bbc17caf4e809a46af56d38fe1c3f6cd4bec6ef04bac8",
@@ -25695,7 +25695,7 @@
           "reference": "body",
           "top": 0.2466,
           "bottom": 0.9589,
-          "worldReferenceSize": 100,
+          "worldReferenceSize": 83,
           "sourceSHA256": "4d542d633e0babc31b8bbc17caf4e809a46af56d38fe1c3f6cd4bec6ef04bac8"
         },
         "candidate": {
@@ -25826,25 +25826,23 @@
       "file": "tokens/ungoliant.png",
       "bodyClass": "great-spider",
       "reference": "body",
-      "top": 0.043,
-      "bottom": 0.9492,
-      "centerX": 0.502,
-      "centerY": 0.4961,
-      "worldReferenceSize": 186,
-      "sourceWidth": 542,
-      "sourceHeight": 545,
-      "sourceSHA256": "4472235e4363b6eac559706709cd888ca8a29f1d87f88565090fdc74d3229491",
-      "anatomicalCorrection": false,
+      "top": 0.077,
+      "bottom": 0.963,
+      "centerX": 0.4938,
+      "centerY": 0.5201,
+      "worldReferenceSize": 232,
+      "sourceWidth": 578,
+      "sourceHeight": 597,
+      "sourceSHA256": "4a1cc90bdab91bb1be2aab920963cd7486b5116b382aef853fe29494e16f0bbd",
+      "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 19,
-        "cell": 4,
+        "date": "2026-10-14",
         "landmarks": "body-only",
         "source": "assets/mesbg/tokens/ungoliant.png"
       },
-      "calibration": "Individual source visually checked; existing body landmarks retained.",
+      "calibration": "2026-10-14 restored the symmetric top-down Ungoliant; enlarged 1.25x.",
       "centerReview": {
         "date": "2026-10-14",
         "basis": "body",
@@ -25864,17 +25862,18 @@
         "reviewedReference": {
           "bodyClass": "great-spider",
           "reference": "body",
-          "top": 0.043,
-          "bottom": 0.9492,
-          "worldReferenceSize": 186,
-          "sourceSHA256": "4472235e4363b6eac559706709cd888ca8a29f1d87f88565090fdc74d3229491"
+          "top": 0.077,
+          "bottom": 0.963,
+          "worldReferenceSize": 232,
+          "sourceSHA256": "4a1cc90bdab91bb1be2aab920963cd7486b5116b382aef853fe29494e16f0bbd"
         },
         "candidate": {
-          "top": 0.0898,
-          "bottom": 0.9492
+          "top": 0.0742,
+          "bottom": 0.957
         },
+        "pinned": true,
         "applied": "reviewed-landmarks",
-        "reason": "explicit-creature-or-vehicle-anatomy"
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -26628,7 +26627,7 @@
       "bottom": 0.99,
       "centerX": 0.4563,
       "centerY": 0.5856,
-      "worldReferenceSize": 68,
+      "worldReferenceSize": 58,
       "sourceWidth": 179,
       "sourceHeight": 253,
       "sourceSHA256": "67efb16663a8eea78989c0a19688d1a349e1bfa64793e0199fe408ac474cf9b1",
@@ -26664,7 +26663,7 @@
           "reference": "body",
           "top": 0.2055,
           "bottom": 0.9658,
-          "worldReferenceSize": 67,
+          "worldReferenceSize": 58,
           "sourceSHA256": "67efb16663a8eea78989c0a19688d1a349e1bfa64793e0199fe408ac474cf9b1"
         },
         "candidate": {
@@ -26685,7 +26684,7 @@
       "bottom": 0.9854,
       "centerX": 0.4621,
       "centerY": 0.6241,
-      "worldReferenceSize": 98,
+      "worldReferenceSize": 80,
       "sourceWidth": 364,
       "sourceHeight": 377,
       "sourceSHA256": "85d2bd4946845011f7ca0c38f6c5daad0662c0620256899d8f22954d6bd5d89e",
@@ -26721,7 +26720,7 @@
           "reference": "body",
           "top": 0.2628,
           "bottom": 0.9854,
-          "worldReferenceSize": 100,
+          "worldReferenceSize": 80,
           "sourceSHA256": "85d2bd4946845011f7ca0c38f6c5daad0662c0620256899d8f22954d6bd5d89e"
         },
         "candidate": {
@@ -27589,7 +27588,7 @@
     },
     {
       "id": "witchking_fellbeast",
-      "name": "마술왕(펠비스트)",
+      "name": "마술사왕(펠비스트)",
       "file": "tokens/witchking_fellbeast.png",
       "bodyClass": "fellbeast",
       "reference": "rider",
@@ -27647,7 +27646,7 @@
     },
     {
       "id": "witchking_foot",
-      "name": "마술왕(도보)",
+      "name": "마술사왕(도보)",
       "file": "tokens/witchking_foot.png",
       "bodyClass": "large-human",
       "reference": "body",
@@ -27704,7 +27703,7 @@
     },
     {
       "id": "witchking_foot_mace",
-      "name": "마술왕(철퇴)",
+      "name": "마술사왕(투구)",
       "file": "tokens/witchking_foot_mace.png",
       "bodyClass": "large-human",
       "reference": "body",
@@ -27761,7 +27760,7 @@
     },
     {
       "id": "witchking_mounted",
-      "name": "마술왕(기마)",
+      "name": "마술사왕(기마)",
       "file": "tokens/witchking_mounted.png",
       "bodyClass": "large-human",
       "reference": "rider",
@@ -27818,7 +27817,7 @@
     },
     {
       "id": "witchking_mounted_sheet",
-      "name": "마술왕(기마·예비)",
+      "name": "마술사왕(기마·예비)",
       "file": "tokens/witchking_mounted_sheet.png",
       "bodyClass": "large-human",
       "reference": "rider",
@@ -28102,8 +28101,8 @@
       "chariot": 172,
       "swarm": 76
     },
-    "applied": 286,
-    "retained": 206,
+    "applied": 279,
+    "retained": 213,
     "policy": "Bounded anatomical candidates; explicit creature/rider/species references and separately reviewed centres preserved."
   }
 }

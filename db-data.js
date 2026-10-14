@@ -7,7 +7,7 @@ module.exports = [
   ['aragorn', '아라곤', 'Aragorn'],
   ['gandalf', '간달프', 'Gandalf the Grey', { faction: 'maiar', weapon: 'staff' }],
   ['warrior_minas_tirith', '미나스 티리스 전사', 'Warrior of Minas Tirith', { role: 'infantry', weapon: 'sword_shield', base: 'M' }],
-  ['witchking_foot', '마술왕(두건)', 'Witch-king hooded', { traits: ['terror'], side: 'evil', faction: 'angmar', weapon: 'sword' }],
+  ['witchking_foot', '마술사왕(두건)', 'Witch-king hooded', { traits: ['terror'], side: 'evil', faction: 'angmar', weapon: 'sword' }],
   ['orc_sword', '모르도르 오크(검)', 'Mordor Orc, sword', { side: 'evil', faction: 'mordor', role: 'infantry', base: 'S' }],
   ['cave_troll', '동굴 트롤', 'Cave Troll', { side: 'evil', faction: 'moria', role: 'monster', weapon: 'club', base: 'XXL' }],
 ]},
@@ -16,13 +16,13 @@ module.exports = [
   ['glorfindel_mounted', '글로르핀델(기마)', 'Glorfindel mounted', { role: 'hero', base: 'XL', artScale: 1.11 }],
 ]},
 { sheet: 'fellbeast-topdown-v2.png', side: 'evil', faction: 'angmar', role: 'monster', base: 'XXL', units: [
-  ['witchking_fellbeast', '마술왕(펠비스트)', 'Witch-king on Fell Beast', { traits: ['fly','terror'], weapon: 'sword' }],
+  ['witchking_fellbeast', '마술사왕(펠비스트)', 'Witch-king on Fell Beast', { traits: ['fly','terror'], weapon: 'sword' }],
 ]},
 { sheet: 'witchking-mounted-topdown-v1.png', side: 'evil', faction: 'angmar', role: 'cavalry', weapon: 'sword', base: 'XL', units: [
-  ['witchking_mounted', '마술왕(기마)', 'Witch-king mounted', { role: 'hero', traits: ['terror'] }],
+  ['witchking_mounted', '마술사왕(기마)', 'Witch-king mounted', { role: 'hero', traits: ['terror'] }],
 ]},
 { sheet: 'roster-enemy-heroes-v1.png', side: 'evil', faction: 'mordor', role: 'hero', weapon: 'sword', units: [
-  ['witchking_foot_mace', '마술왕(투구)', 'Witch-king, crowned with mace', { traits: ['terror'], faction: 'angmar', weapon: 'mace', base: 'L' }],
+  ['witchking_foot_mace', '마술사왕(투구)', 'Witch-king, crowned with mace', { traits: ['terror'], faction: 'angmar', weapon: 'mace', base: 'L' }],
   ['nazgul_sword', '나즈굴(검)', 'Nazgul, sword', { traits: ['terror'], faction: 'angmar', base: 'L', artScale: 1.15 }],
   ['saruman', '사루만', 'Saruman the White', { faction: 'isengard', weapon: 'staff', base: 'L' }],
   ['orc_shaman', '오크 주술사', 'Orc Shaman', { faction: 'moria', role: 'support', weapon: 'staff', base: 'S' }],

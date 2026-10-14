@@ -318,7 +318,9 @@ function calibrateUnit(u, targets, riderTargets, buffer) {
   const humanoid = !!ANATOMICAL_RATIOS[prior.bodyClass];
   // Existing creature/rider measurements and unique species remain explicit.
   // Automatic silhouettes cannot distinguish wings, flags, cloaks or riders.
-  const useCandidate = humanoid && resolved.mode === prior.reference &&
+  // A unit pinned by a visual review keeps its reviewed landmarks (art changes, hand-measured silhouettes).
+  const pinned = u.statureCalibration?.pinned === true;
+  const useCandidate = humanoid && !pinned && resolved.mode === prior.reference &&
     spanRatio >= .8 && spanRatio <= 1.25 &&
     !(prior.top >= .5 && candidate.top < prior.top) &&
     Math.abs(candidate.top - prior.top) <= .10 && Math.abs(candidate.bottom - prior.bottom) <= .10;
@@ -336,8 +338,9 @@ function calibrateUnit(u, targets, riderTargets, buffer) {
     statureCalibration: {
       method: 'argon-anatomical-20261014', reviewedReference: prior,
       candidate: { top: candidate.top, bottom: candidate.bottom },
+      ...(pinned ? { pinned: true } : {}),
       applied: useCandidate ? 'anatomical-candidate' : 'reviewed-landmarks',
-      reason: useCandidate ? 'candidate-agrees-with-reviewed-anatomy' :
+      reason: pinned ? 'pinned-by-visual-review' : useCandidate ? 'candidate-agrees-with-reviewed-anatomy' :
         !humanoid ? 'explicit-creature-or-vehicle-anatomy' :
         resolved.mode !== prior.reference ? 'preserve-reviewed-rider-reference' : 'automatic-landmark-outlier'
     }
