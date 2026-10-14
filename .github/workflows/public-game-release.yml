@@ -3,7 +3,22 @@ on:
   push:
     branches:
       - security/private-source-split-20261014
+      - main
     paths:
+      - index.html
+      - gallery.html
+      - gallery-preview.html
+      - gallery-preview-runtime.js
+      - codex.html
+      - assets/mesbg/**
+      - tokens/**
+      - backgrounds/**
+      - icons/**
+      - effects/**
+      - bases/**
+      - relics/**
+      - dice-faces/**
+      - events/**
       - tools/build-public.js
       - .github/workflows/public-game-release.yml
   workflow_dispatch:
@@ -74,11 +89,12 @@ jobs:
           test ! -e .public-site/art-src
           test ! -e .public-site/lwb-worker
 
+      # Auto-publish main pushes only after this source repository becomes Private.
       # Never deploy from the current public source checkout. This becomes
       # usable only AFTER the original repository is renamed and made private,
       # a fresh public mesbg-assets repo is created, and the scoped token is set.
       - name: Validate private-source deployment gate
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.publish }}
+        if: ${{ github.event.repository.private && ((github.event_name == 'workflow_dispatch' && inputs.publish) || (github.event_name == 'push' && github.ref == 'refs/heads/main')) }}
         env:
           REPO_PRIVATE: ${{ github.event.repository.private }}
           PUBLIC_DEPLOY_TOKEN: ${{ secrets.PUBLIC_DEPLOY_TOKEN }}
@@ -93,7 +109,7 @@ jobs:
           fi
 
       - name: Checkout the NEW public release repository
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.publish && github.event.repository.private }}
+        if: ${{ github.event.repository.private && ((github.event_name == 'workflow_dispatch' && inputs.publish) || (github.event_name == 'push' && github.ref == 'refs/heads/main')) }}
         uses: actions/checkout@v4
         with:
           repository: leesh603/mesbg-assets
@@ -103,7 +119,7 @@ jobs:
           path: .publish-target
 
       - name: Publish allowlisted files only
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.publish && github.event.repository.private }}
+        if: ${{ github.event.repository.private && ((github.event_name == 'workflow_dispatch' && inputs.publish) || (github.event_name == 'push' && github.ref == 'refs/heads/main')) }}
         run: |
           rsync -a --delete --exclude='.git/' .public-site/ .publish-target/
           cd .publish-target
