@@ -44,3 +44,15 @@ test('new archers fire, melee infantry cannot shoot, and crossbows cannot fire a
 test('all new PNGs have true alpha, sensible dimensions and measured body profiles',()=>{
  const defs=JSON.parse(fs.readFileSync('data/troop-new-units.json'));for(const d of defs){const p='assets/mesbg/'+d.meta.file,b=fs.readFileSync(p);assert.equal(b.readUInt32BE(16)<=384,true,p);assert.equal(b.readUInt32BE(20)<=384,true,p);assert.equal(b[25],6,p);assert.ok(d.artAudit.method.includes('anatomical'));assert.ok(d.artProfile[2]>d.artProfile[1]);assert.ok(fs.existsSync('art-src/troop-promotions/'+d.id+'.png'));}
 });
+test('deployed troops earn participation and survival once per actual wave',()=>{
+ const{q}=camp();q.units=[];q.wave=0;q.phase='preparation';const u=ready(q,'mt_swordshield');u.xp=0;u.battlesParticipated=0;q.prepareStage();q.startWave();assert.equal(u.careerParticipationWave,1);assert.equal(u.xp,2);assert.equal(u.battlesParticipated,1);q.finishWave();assert.equal(u.xp,6);q.finishWave();assert.equal(u.xp,6);q.save();q.resume();assert.equal(q.unit(u.uid).xp,6);
+});
+test('stationary elite archers use their live shooting rule and bodyguards need a living hero',()=>{
+ const h=camp(),q=h.q,u=ready(q,'galadhrim_elite_bow'),t=q.spawn('orc_sword','evil',{x:1450,y:600});u.moved=false;
+ // Dice 1 misses, 6 rerolls the hit, 6 wounds: exercises the existing shot solver.
+ h.run('this.careerAttacker=q.unit('+JSON.stringify(u.uid)+');this.careerTarget=q.unit('+JSON.stringify(t.uid)+');');
+ const r=h.run('(()=>{const rolls=[1/6,5/6,5/6];return Xe(careerAttacker,careerTarget,[],()=>rolls.shift()??5/6,q.alive());})()');assert.equal(r.strikeResults[0].rerolled,true);assert.equal(q.careerBodyguard(u),false);q.spawn('aragorn','good',{x:800,y:600});assert.equal(q.careerBodyguard(u),true);
+});
+test('a later version of the cost table does not reprice an existing trained soldier',()=>{
+ const h=camp(),q=h.q,u=ready(q,'mt_swordshield');assert.equal(u.entryPoints,9);assert.equal(u.entryPointVersion,1);h.run('WARBAND_POINTS.version=2;UnitCatalog.mt_swordshield.points=11;');assert.equal(q.rosterPoints(),9);q.save();assert.equal(q.resume(),true);assert.equal(q.unit(u.uid).entryPoints,9);assert.equal(q.rosterPoints(),9);
+});

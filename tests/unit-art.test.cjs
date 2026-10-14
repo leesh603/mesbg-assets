@@ -24,12 +24,15 @@ test('banners, staves and spears have anatomical centers independent of their or
  assert.equal(context.profiles.gandalf_mounted[5],43);assert.equal(context.profiles.dain_boar[5],37);
 });
 test('padding and seated poses do not create multiples of cavalry size',()=>{
+ const heroRole=Object.fromEntries(require('./campaign-harness.cjs')().run(`Array.from(q.meta.values()).filter(m=>m.side!=='terrain').map(m=>[m.id,m.role])`));
  const mountedHeight=id=>{const a=audit.units.find(x=>x.id===id),o=context.layout({id},{width:a.sourceWidth,height:a.sourceHeight});return o.height*(.95-a.top);};
  for(const pair of [['aragorn_mounted','elrond_mounted'],['witchking_mounted','witchking_mounted_sheet'],['arathorn_mounted','faramir_mounted']]){
   const sizes=pair.map(mountedHeight);assert(Math.max(...sizes)/Math.min(...sizes)<1.25,pair.join('/'));
  }
  for(const a of audit.units.filter(x=>x.bodyClass==='dwarf'&&x.reference==='body')){
-  const o=context.layout({id:a.id},{width:a.sourceWidth,height:a.sourceHeight});const stature=o.height*(a.bottom-a.top);assert(stature>=62.9&&stature<=76.1,a.id);
+  const o=context.layout({id:a.id},{width:a.sourceWidth,height:a.sourceHeight});const stature=o.height*(a.bottom-a.top),hero=/^(hero)$/.test(heroRole[a.id]);
+  // Dwarf heroes keep the 67-70 reference; dwarf soldiers are drawn clearly shorter than human soldiers (86).
+  assert(hero?stature>=62.9&&stature<=76.1:stature>=52&&stature<=62.5,a.id);
  }
  assert.equal(context.profiles.warg_chieftain[6],'body');assert.equal(context.profiles.rhosgobel_rabbit[6],'body');
  assert.equal(context.profiles.witchking_fellbeast[6],'rider');

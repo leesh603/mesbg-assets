@@ -14,6 +14,8 @@ for (const def of TROOP_NEW_UNITS) {
     WARBAND_POINTS.profiles[def.id] = {points:def.points,kind:'custom',basis:def.basis,note:'공식 포인트 미검증 · 게임 프로필 자체 산정',origin:def.origin};
     if(typeof UNIT_ART_PROFILES!=='undefined')UNIT_ART_PROFILES[def.id] = def.artProfile;
 }
+// Ranger of the North is a minor Hero profile, distinct from the ordinary Ranger of Arnor.
+if(UnitCatalog.ranger_north){UnitCatalog.ranger_north.meta.role='hero';q.meta.get('ranger_north').role='hero';UnitCatalog.ranger_north.uniqueKey='ranger_north';}
 // Resolve duplicated recruitment entries without deleting any existing sprite or save ID.
 for (const [alias, canonical] of Object.entries(TROOP_PROMOTIONS.aliases)) {
     if (UnitCatalog[alias]) { UnitCatalog[alias].recruitable=false; UnitCatalog[alias].troopAlias=canonical; }
@@ -70,7 +72,9 @@ P.initTroopCareer=function(u,legacy=false){
         u.battlesParticipated=Math.min(11,Math.floor((u.veteranXP||0)/3));
     }
     u.entryUnitId=isCareerTroop(u.entryUnitId)?u.entryUnitId:(u.promotionHistory?.[0]?.from||u.id);
-    if(!Number.isSafeInteger(u.entryPoints)||u.entryPoints<=0||u.entryPoints>1000||u.entryPoints!==this.pointCost(u.entryUnitId))u.entryPoints=this.pointCost(u.entryUnitId);
+    if(!Number.isSafeInteger(u.entryPoints)||u.entryPoints<=0||u.entryPoints>1000||(u.entryPointVersion===WARBAND_POINTS.version&&u.entryPoints!==this.pointCost(u.entryUnitId)))u.entryPoints=this.pointCost(u.entryUnitId);
+    // Preserve a legitimate historical entry cost if a later point table changes its profile.
+    u.entryPointVersion=u.entryPointVersion??WARBAND_POINTS.version;
     u.xp=Number.isSafeInteger(u.xp)&&u.xp>=0?u.xp:0;
     u.battlesParticipated=Number.isSafeInteger(u.battlesParticipated)&&u.battlesParticipated>=0?u.battlesParticipated:0;
     u.promotionHistory=Array.isArray(u.promotionHistory)?u.promotionHistory:[];

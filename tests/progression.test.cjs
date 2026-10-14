@@ -4,7 +4,7 @@ function field(){const h=load(),q=h.q;q.start('hotseat');q.units=[];q.events=[];
 test('action lock releases after render error, missing dice and rejected async action',async()=>{
  const code=source.split('\n').find(s=>s.startsWith('Rt=async function(fn){if(At)return;wt.unlock();'));
  for(const fault of ['render','dice','action']){
-  const node={classList:{add(){}}},ctx={At:false,Jt:0,Tt:{},wt:{unlock(){}},clearTimeout(){},resetGestures(){},renderDock(){if(fault==='render')throw Error('render');},q:{drain:()=>[]},ut:id=>fault==='dice'&&id==='dice'?null:node,console:{error(){}},localStorage:{setItem(){}},Xt(){},Yt(){},scheduled:0,me(){ctx.scheduled++;}};
+  const node={classList:{add(){}}},ctx={At:false,Jt:0,Tt:{},wt:{unlock(){},play(){}},clearTimeout(){},resetGestures(){},renderDock(){if(fault==='render')throw Error('render');},q:{drain:()=>[]},ut:id=>fault==='dice'&&id==='dice'?null:node,console:{error(){}},localStorage:{setItem(){}},Xt(){},Yt(){},scheduled:0,me(){ctx.scheduled++;}};
   vm.createContext(ctx);vm.runInContext(code,ctx);await ctx.Rt(async()=>{if(fault==='action')throw Error('action');});assert.equal(ctx.At,false);assert.equal(ctx.Tt.busy,false);assert.equal(ctx.scheduled,1);
  }
 });
@@ -61,6 +61,7 @@ test('failed token load releases its queue and allows a later successful retry',
 });
 test('cloud restore passes both menu and camp loads through the action renderer',async()=>{
  for(const line of source.split('\n').filter(s=>s.includes("ut('cloud-load').onclick = async"))){
-  const nodes={'cloud-load':{},'cloud-id':{value:'test'},'cloud-pw':{value:'test'},'cloud-msg':{}},ctx={ut:id=>nodes[id],LWB_API:'https://test.invalid',fetch:async()=>({ok:true,json:async()=>({data:{version:1}})}),localStorage:{setItem(){}},q:{resume:()=>true},Xt(){},renders:0,Rt:async fn=>{fn();ctx.renders++;}};vm.createContext(ctx);vm.runInContext(line,ctx);await nodes['cloud-load'].onclick();assert.equal(ctx.renders,1);
+  const nodes={'cloud-load':{},'cloud-id':{value:'test'},'cloud-pw':{value:'test'},'cloud-msg':{}},ctx={ut:id=>nodes[id],LWB_API:'https://test.invalid',fetch:async()=>({ok:true,json:async()=>({data:{version:1}})}),localStorage:{setItem(){}},q:{importSave:()=>true},Xt(){},renders:0,Rt:async fn=>{fn();ctx.renders++;}};vm.createContext(ctx);vm.runInContext(line,ctx);await nodes['cloud-load'].onclick();assert.equal(ctx.renders,1);
  }
 });
+

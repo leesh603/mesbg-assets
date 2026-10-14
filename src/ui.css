@@ -557,7 +557,7 @@ html body.lwb-polished{--fr-w:12px;
 #app#app#app #hud-mission .hm-line{font:12px/1.2 var(--px11)!important;color:var(--tx-gold)!important;letter-spacing:.04em}
 #app#app#app #hud-mission .hm-sub{max-width:100%;font:12px/1.2 var(--px11)!important;color:var(--tx-mute)!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #app#app#app #hud-mission:not(.has-sub) .hm-sub{display:none}
-#app#app#app header.top .top-play{position:fixed!important;top:calc(60px + var(--safe-t,0px));right:6px;z-index:12;display:flex!important;flex-direction:column!important;gap:6px!important}
+#app#app#app header.top .top-play{position:fixed!important;top:calc(var(--hdr-b,60px) + 6px);right:6px;z-index:12;display:flex!important;flex-direction:column!important;gap:6px!important}
 #app#app#app header.top .top-play .act-btn{width:40px!important;min-width:40px!important;height:40px!important;min-height:40px!important;font:12px/1.1 var(--px11)!important;opacity:.92}
 #app#app#app header.top .top-play .act-btn::after{content:"";position:absolute;inset:-3px}
 #app#app#app header.top .top-play .act-btn{position:relative}
@@ -1256,6 +1256,12 @@ html body.lwb-polished:is([data-phase="reward"],[data-phase="menu"],[data-phase=
 :is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-actions{height:calc(var(--px)*22)!important;flex:0 0 auto!important}
 :is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-tip{display:none!important}
 :is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .diff-btn.active small{color:#e2cc98!important}
+/* top bar: names never break mid-word; the boss bar takes its own full-width row under the bar */
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app header.top{flex-wrap:wrap!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app header.top #hud-mission .hm-line{white-space:nowrap!important;word-break:keep-all!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app header.top #ux-bossbar:not(.hidden){order:30!important;flex:0 0 100%!important;width:100%!important;box-sizing:border-box!important;display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;align-items:center!important;column-gap:calc(var(--px)*3)!important;row-gap:calc(var(--px)*2)!important;margin:0!important;padding:calc(var(--px)*2) calc(var(--px)*3)!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app #ux-bossbar .bossbar-name{white-space:nowrap!important;word-break:keep-all!important;overflow-wrap:normal!important;overflow:visible!important;min-width:0}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app #ux-bossbar .bossbar-hp{white-space:nowrap!important}
 /*__DS2_END__*/
 
 

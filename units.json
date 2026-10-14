@@ -92,7 +92,7 @@
     },
     {
       "id": "witchking_foot",
-      "name_ko": "마술왕(두건)",
+      "name_ko": "마술사왕(두건)",
       "name_en": "Witch-king hooded",
       "side": "evil",
       "faction": "angmar",
@@ -235,7 +235,7 @@
     },
     {
       "id": "witchking_fellbeast",
-      "name_ko": "마술왕(펠비스트)",
+      "name_ko": "마술사왕(펠비스트)",
       "name_en": "Witch-king on Fell Beast",
       "side": "evil",
       "faction": "angmar",
@@ -274,7 +274,7 @@
     },
     {
       "id": "witchking_mounted",
-      "name_ko": "마술왕(기마)",
+      "name_ko": "마술사왕(기마)",
       "name_en": "Witch-king mounted",
       "side": "evil",
       "faction": "angmar",
@@ -312,7 +312,7 @@
     },
     {
       "id": "witchking_foot_mace",
-      "name_ko": "마술왕(투구)",
+      "name_ko": "마술사왕(투구)",
       "name_en": "Witch-king, crowned with mace",
       "side": "evil",
       "faction": "angmar",
@@ -2753,19 +2753,13 @@
       "name_en": "Ranger of the North",
       "side": "good",
       "faction": "arnor",
-      "role": "infantry",
+      "role": "hero",
       "weapon": "sword",
       "base": "M",
       "sheet": "roster-free-special-v1.png",
       "file": "tokens/ranger_north.png",
       "base_mm": "25mm",
-      "points": 25,
-      "troopPromotion": {
-        "group": "arnor",
-        "aliasOf": null,
-        "targets": [],
-        "gate": null
-      }
+      "points": 25
     },
     {
       "id": "theoden",

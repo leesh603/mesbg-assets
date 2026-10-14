@@ -7,7 +7,7 @@ module.exports = [
   ['aragorn', '아라곤', 'Aragorn'],
   ['gandalf', '간달프', 'Gandalf the Grey', { faction: 'maiar', weapon: 'staff' }],
   ['warrior_minas_tirith', '미나스 티리스 전사', 'Warrior of Minas Tirith', { role: 'infantry', weapon: 'sword_shield', base: 'M' }],
-  ['witchking_foot', '마술왕(두건)', 'Witch-king hooded', { traits: ['terror'], side: 'evil', faction: 'angmar', weapon: 'sword' }],
+  ['witchking_foot', '마술사왕(두건)', 'Witch-king hooded', { traits: ['terror'], side: 'evil', faction: 'angmar', weapon: 'sword' }],
   ['orc_sword', '모르도르 오크(검)', 'Mordor Orc, sword', { side: 'evil', faction: 'mordor', role: 'infantry', base: 'S' }],
   ['cave_troll', '동굴 트롤', 'Cave Troll', { side: 'evil', faction: 'moria', role: 'monster', weapon: 'club', base: 'XXL' }],
 ]},
@@ -16,13 +16,13 @@ module.exports = [
   ['glorfindel_mounted', '글로르핀델(기마)', 'Glorfindel mounted', { role: 'hero', base: 'XL', artScale: 1.11 }],
 ]},
 { sheet: 'fellbeast-topdown-v2.png', side: 'evil', faction: 'angmar', role: 'monster', base: 'XXL', units: [
-  ['witchking_fellbeast', '마술왕(펠비스트)', 'Witch-king on Fell Beast', { traits: ['fly','terror'], weapon: 'sword' }],
+  ['witchking_fellbeast', '마술사왕(펠비스트)', 'Witch-king on Fell Beast', { traits: ['fly','terror'], weapon: 'sword' }],
 ]},
 { sheet: 'witchking-mounted-topdown-v1.png', side: 'evil', faction: 'angmar', role: 'cavalry', weapon: 'sword', base: 'XL', units: [
-  ['witchking_mounted', '마술왕(기마)', 'Witch-king mounted', { role: 'hero', traits: ['terror'] }],
+  ['witchking_mounted', '마술사왕(기마)', 'Witch-king mounted', { role: 'hero', traits: ['terror'] }],
 ]},
 { sheet: 'roster-enemy-heroes-v1.png', side: 'evil', faction: 'mordor', role: 'hero', weapon: 'sword', units: [
-  ['witchking_foot_mace', '마술왕(투구)', 'Witch-king, crowned with mace', { traits: ['terror'], faction: 'angmar', weapon: 'mace', base: 'L' }],
+  ['witchking_foot_mace', '마술사왕(투구)', 'Witch-king, crowned with mace', { traits: ['terror'], faction: 'angmar', weapon: 'mace', base: 'L' }],
   ['nazgul_sword', '나즈굴(검)', 'Nazgul, sword', { traits: ['terror'], faction: 'angmar', base: 'L', artScale: 1.15 }],
   ['saruman', '사루만', 'Saruman the White', { faction: 'isengard', weapon: 'staff', base: 'L' }],
   ['orc_shaman', '오크 주술사', 'Orc Shaman', { faction: 'moria', role: 'support', weapon: 'staff', base: 'S' }],
@@ -835,3 +835,10 @@ module.exports = [
 
 /*__TROOP_DB__*/
 module.exports.push({sheet:"troop-promotions-20261014",units:[["citadel_guard_bow","성채근위 궁병","Citadel Guard with longbow",{"side":"good","faction":"gondor","role":"infantry","weapon":"bow","base":"M","troopOrigin":"official","points":10}],["osgiliath_spearshield","오스길리아스 베테랑 창방","Osgiliath Veteran with spear and shield",{"side":"good","faction":"gondor","role":"infantry","weapon":"spear_shield","base":"M","troopOrigin":"official","points":11}],["osgiliath_bow","오스길리아스 베테랑 궁병","Osgiliath Veteran with bow",{"side":"good","faction":"gondor","role":"infantry","weapon":"bow","base":"M","troopOrigin":"official","points":10}],["dol_amroth_swordshield","돌 암로스 검방병","Dol Amroth levy swordsman",{"side":"good","faction":"dol_amroth","role":"infantry","weapon":"sword_shield","base":"M","troopOrigin":"custom","points":8}],["dol_amroth_knight_foot","돌 암로스 백조기사 도보","Knight of Dol Amroth on foot",{"side":"good","faction":"dol_amroth","role":"infantry","weapon":"sword_shield","base":"M","troopOrigin":"official","points":12}],["rohan_helmingas","헬밍가 전사","Helmingas",{"side":"good","faction":"rohan","role":"infantry","weapon":"axe","base":"M","troopOrigin":"legacy","points":9}],["rohan_redshield","웨스트폴드 적색방패 기병","Westfold Redshield",{"side":"good","faction":"rohan","role":"cavalry","weapon":"spear","base":"XL","troopOrigin":"legacy","points":17}],["ironhills_warrior","철산 매톡 전사","Iron Hills Warrior with mattock",{"side":"good","faction":"iron_hills","role":"infantry","weapon":"twohanded","base":"M","troopOrigin":"official","points":12}],["ironhills_spearshield","철산 창방병","Iron Hills Warrior with spear and shield",{"side":"good","faction":"iron_hills","role":"infantry","weapon":"spear_shield","base":"M","troopOrigin":"official","points":13}],["ironhills_crossbow","철산 석궁병","Iron Hills Warrior with crossbow",{"side":"good","faction":"iron_hills","role":"infantry","weapon":"crossbow","base":"M","troopOrigin":"official","points":14}],["galadhrim_bow","갈라드림 궁수","Galadhrim Warrior with Elf bow",{"side":"good","faction":"lothlorien","role":"infantry","weapon":"bow","base":"M","troopOrigin":"official","points":10}],["galadhrim_elite_bow","갈라드림 정예 궁병","Galadhrim veteran bowguard",{"side":"good","faction":"lothlorien","role":"infantry","weapon":"bow","base":"M","troopOrigin":"custom","points":13}],["mirkwood_ranger","미르크우드 레인저","Mirkwood Ranger",{"side":"good","faction":"mirkwood","role":"infantry","weapon":"bow","base":"M","troopOrigin":"official","points":14}],["arnor_knight","아르노르 기사","Knight of Arnor",{"side":"good","faction":"arnor","role":"cavalry","weapon":"lance","base":"XL","troopOrigin":"official","points":18}],["arnor_ranger","아르노르 레인저","Ranger of Arnor",{"side":"good","faction":"arnor","role":"infantry","weapon":"bow","base":"M","troopOrigin":"official","points":9}],["morannon_swordshield","모라논 오크 검방","Morannon Orc with sword and shield",{"side":"evil","faction":"mordor","role":"infantry","weapon":"sword_shield","base":"M","troopOrigin":"official","points":9}],["orc_elite_tracker","오크 정예 추적궁병","Veteran Orc Tracker",{"side":"evil","faction":"mordor","role":"infantry","weapon":"bow","base":"M","troopOrigin":"custom","points":8}],["dale_guard","데일 기리온 근위병","Guard of Girion",{"side":"good","faction":"dale","role":"infantry","weapon":"sword_shield","base":"M","troopOrigin":"official","points":10}]]});
+
+// Keep source metadata consistent while retaining historical alias IDs for saved games.
+const __troopRows = new Map(require('./units.json').units.map(u => [u.id,u]));
+for(const sheet of module.exports)for(const row of sheet.units){const u=__troopRows.get(row[0]);if(!u)continue;const current=row[3]||(row[3]={});
+ if(u.troopPromotion){current.faction=u.faction;current.troopPromotion=u.troopPromotion;if(u.troopPromotion.aliasOf)current.recruitable=false;}
+ if(u.role==='hero')current.role='hero';if(u.id==='orc_tracker')current.weapon='bow';
+}

@@ -2,6 +2,7 @@
 const fs=require('fs'),path=require('path');
 const create=require('../tests/campaign-harness.cjs');const h=create();
 const data=JSON.parse(fs.readFileSync('data/troop-promotions.json','utf8'));
+const previousDefs=new Map((fs.existsSync('data/troop-new-units.json')?JSON.parse(fs.readFileSync('data/troop-new-units.json')):[]).map(d=>[d.id,d]));
 const rows=[
  ['citadel_guard_bow','성채근위 궁병','Citadel Guard with longbow','gondor','bow','citadel_guard',10,'official',{fight:4,defence:5,shootValue:4,shootRange:850,traits:['bodyguard']}],
  ['osgiliath_spearshield','오스길리아스 베테랑 창방','Osgiliath Veteran with spear and shield','gondor','spear_shield','osgiliath_veteran',11,'official',{traits:['veteran','spear']}],
@@ -29,6 +30,7 @@ const defs=rows.map(([id,ko,en,faction,weapon,basis,points,origin,changes])=>{
  const mounted=profile.traits.includes('mounted'),dwarf=faction==='iron_hills',orc=faction==='mordor';
  return {id,basis,origin,points,recruitCost:Math.max(20,Math.round(points*.8/5)*5),recruitable:true,enabled:true,unlockWave:origin==='custom'?4:0,rarity:origin==='custom'?'elite':'normal',meta:{id,name_ko:ko,name_en:en,side:base.meta.side,faction,role:mounted?'cavalry':'infantry',weapon,base:mounted?'XL':'M',baseMm:mounted?40:25,file:'tokens/'+id+'.png',sheet:'troop-promotions-20261014',visualRadius:mounted?62:38},profile,artProfile:[dwarf?'dwarf':orc?'orc':'human',.12,.9,.5,.51,mounted?43:dwarf?68:orc?76:86,mounted?'rider':'body']};
 });
+for(const d of defs){const previous=previousDefs.get(d.id);if(previous?.artAudit){d.artProfile=previous.artProfile;d.artAudit=previous.artAudit;}}
 fs.writeFileSync('data/troop-new-units.json',JSON.stringify(defs,null,2)+'\n');
 const catalog=JSON.parse(fs.readFileSync('units.json','utf8'));
 for(const def of defs)if(!catalog.units.some(u=>u.id===def.id))catalog.units.push({id:def.id,name_ko:def.meta.name_ko,name_en:def.meta.name_en,side:def.meta.side,faction:def.meta.faction,role:def.meta.role,weapon:def.meta.weapon,base:def.meta.base,file:def.meta.file,sheet:def.meta.sheet,points:def.points,pointSource:'custom-estimate-unverified-2024',troopOrigin:def.origin});
