@@ -21,7 +21,7 @@ test('banners, staves and spears have anatomical centers independent of their or
  assert(context.profiles.dwarf_banner[2]-context.profiles.dwarf_banner[1]<.8);
  assert(context.profiles.gandalf[3]>.5);assert(context.profiles.orc_spear2[3]>.5);
  assert.equal(context.profiles.mt_spear[5],context.profiles.mt_swordshield[5]);
- assert.equal(context.profiles.gandalf_mounted[5],43);assert.equal(context.profiles.dain_boar[5],36);
+ assert.equal(context.profiles.gandalf_mounted[5],43);assert.equal(context.profiles.dain_boar[5],37);
 });
 test('padding and seated poses do not create multiples of cavalry size',()=>{
  const mountedHeight=id=>{const a=audit.units.find(x=>x.id===id),o=context.layout({id},{width:a.sourceWidth,height:a.sourceHeight});return o.height*(.95-a.top);};
@@ -67,7 +67,7 @@ test('review is tied to the actual production raster, never stale source copies'
 test('regressions: empty padding, torso-only foot profiles, and Nazgul class',()=>{
  for(const id of ['earendil','feanor']) assert(context.profiles[id][2]-context.profiles[id][1]>.8,id);
  for(const id of ['hobbit_bounder','hobbit_militia']) assert(context.profiles[id][1]>.5,id);
- for(const id of ['witchking_foot','khamul','nazgul_sword','dark_marshal']) assert.equal(context.profiles[id][5],100,id);
+ for(const id of ['witchking_foot','khamul','nazgul_sword','dark_marshal']) assert.equal(context.profiles[id][5],98,id);
  for(const id of ['witchking_mounted','khamul_mounted','nazgul_mounted']) assert.equal(context.profiles[id][5],50,id);
 });
 
@@ -88,4 +88,28 @@ test('every centre records a visually reviewed body rule, separate from size lan
   assert.equal(a.centerReview.basis,expected,a.id);
   assert.equal(a.centerReview.source,'assets/mesbg/'+a.file);
  }
+});
+
+test('stature calibration keeps flags, half-body detections and creature species from corrupting scale',()=>{
+ const byId=Object.fromEntries(audit.units.map(u=>[u.id,u]));
+ for(const id of ['radagast','gorulf','orc_swordshield','dwarf_banner']){
+  const a=byId[id],p=a.statureCalibration.reviewedReference;
+  assert.equal(a.statureCalibration.applied,'reviewed-landmarks',id);
+  assert.equal(a.top,p.top,id);assert.equal(a.bottom,p.bottom,id);
+ }
+ for(const id of ['gwaihir','thorondor','watcher_in_the_water','rhosgobel_rabbit','nazgul_fellbeast']){
+  const a=byId[id],p=a.statureCalibration.reviewedReference;
+  assert.equal(a.reference,p.reference,id);assert.equal(a.worldReferenceSize,p.worldReferenceSize,id);
+  assert.equal(a.top,p.top,id);assert.equal(a.bottom,p.bottom,id);
+ }
+});
+
+test('calibrator dry run is idempotent and cannot write or push implicitly',()=>{
+ const crypto=require('node:crypto'),{runCalibration,calibrateUnit}=require('../tools/calibrate-unit-stature.cjs');
+ const hash=path=>crypto.createHash('sha256').update(fs.readFileSync(path)).digest('hex');
+ const paths=['src/game.js','index.html','docs/unit-art-audit.json'];const before=paths.map(hash);
+ assert.deepEqual(runCalibration(process.cwd()),audit.units);
+ assert.deepEqual(paths.map(hash),before);
+ const a=audit.units.find(u=>u.id==='gandalf');
+ assert.throws(()=>calibrateUnit({...a,sourceSHA256:'stale'},audit.targets,audit.measurementPolicy.riderTargets,fs.readFileSync('assets/mesbg/'+a.file)),/Changed source requires anatomical review/);
 });

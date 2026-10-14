@@ -148,3 +148,10 @@ MESBG.render()                        // 화면 갱신
 - Typography: Galmuri11 only. Body `--fb`, headings `--fh`, bold for names, numbers and buttons. Never go below `--fb`.
 - Buttons are 3-slice plaques from `assets/mesbg/ui/kit/` (`tools/make_ui_kit.py`): iron = secondary, gold = the forward action, the tall jewelled ones for big CTAs. Tier labels are a gem (`gem-<tier>.png`) plus the coloured word, never a filled box.
 - Spacing: a box that holds text keeps at least one art pixel above/below and three at the sides (`--pad-y`, `--pad-x`).
+
+### 첨부 크기 보정 도구 적용 (v1.45)
+
+`tools/calibrate-unit-stature.cjs`는 사용자가 제공한 아르곤의 보정 도구를 통합한 버전이다. 몸통/면적 비율과 기수 분석은 오프라인에서 계산하며 기존 눈검수 기준과 맞는 후보만 사용한다. 검출 오류, 빈 여백, 괴수·전차·독수리 개별 체급은 기존 기준을 유지한다. 표준 체급은 첨부 기준(난쟁이 68, 인간 86, 큰 인간 98, 인간 기수 43, 큰 인간 기수 50)과 지정 영웅 체형 보정을 따른다. 오늘 검수한 중심점·좌우 반전 제거는 유지한다.
+
+기본 실행은 미리보기이며 `--write`로만 표를 갱신한다. `node tools/build.js --online-only` 후 유닛 크기 테스트와 실제 게임 화면을 확인한다. 자동 커밋·푸시는 하지 않으며 원본 이미지 해시가 달라지면 새로 몸체 기준을 검수해야 한다. 자세한 적용/보존 정책은 `docs/unit-art-scale.md` 참조.
+

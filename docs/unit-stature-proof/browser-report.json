@@ -1,0 +1,35 @@
+{
+  "errors": [],
+  "checked": 492,
+  "directions": [
+    {
+      "dir": -1,
+      "flipX": false,
+      "originX": 0.4453,
+      "originY": 0.615,
+      "x": 630,
+      "y": 400,
+      "to": {
+        "x": 630,
+        "y": 400
+      }
+    },
+    {
+      "dir": 1,
+      "flipX": false,
+      "originX": 0.4453,
+      "originY": 0.615,
+      "x": 750,
+      "y": 400,
+      "to": {
+        "x": 750,
+        "y": 400
+      }
+    }
+  ],
+  "normalPlay": {
+    "phase": "move",
+    "round": 2,
+    "wave": 1
+  }
+}

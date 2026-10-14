@@ -39,3 +39,13 @@ All 492 source rasters were reviewed again for centre placement, independently o
 - Fellbeasts, Mumakil and the Great Beast: the creature torso; riders and platforms do not define the centre.
 - The figure origin and base use the same local (0, 0). Directional mirroring, silhouette-based facing detection and mirrored-origin compensation are removed.
 - Standing/rider height landmarks, scale, tactical position, collision radius and movement rules remain unchanged. Breathing, walking bob and combat lunges return to this origin.
+
+## 2026-10-14 supplied stature calibration (v1.45)
+
+Integrated the anatomical mask, trunk/area harmonization, rider analysis and physique targets from `gemini-code-1791945887714.js` as `tools/calibrate-unit-stature.cjs`. All 492 production rasters are checked against their reviewed source hash and dimensions before calibration. The game consumes only the precomputed profiles; no image analysis runs during gameplay.
+
+286 humanoid/rider candidates agree with the reviewed anatomical landmarks and are applied. 206 profiles retain their reviewed landmarks: automatic landmark outliers, padded Hobbits, creatures and vehicles. In particular, the supplied detector mistakes some flags for bodies and some half-body silhouettes for complete stature. These candidates are recorded for review, never blindly applied. Unsupported creature targets, individual eagle species sizes, and giant mounted creature references are preserved. The supplied class targets and named physique adjustments apply where a unit uses that class's standard target.
+
+The 492 separately reviewed centre points and fixed facing from v1.44 remain intact. Size measurements and centre measurements are independent. Existing source aspect ratios, collision radii and combat logic remain intact.
+
+`node tools/calibrate-unit-stature.cjs` previews without writing. `--write` updates the audit and profiles; then run `node tools/build.js --online-only`. The tool does not commit or push. Stored original reviewed references make repeated calibration idempotent, and changed rasters require a new anatomical review.
