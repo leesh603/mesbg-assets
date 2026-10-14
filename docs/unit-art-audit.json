@@ -14677,55 +14677,44 @@
       "file": "tokens/harding_mounted.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.065,
-      "bottom": 0.335,
-      "centerX": 0.4571,
-      "centerY": 0.5,
+      "top": 0.1152,
+      "bottom": 0.4074,
+      "centerX": 0.5427,
+      "centerY": 0.5428,
       "worldReferenceSize": 43,
-      "sourceWidth": 244,
+      "sourceWidth": 442,
       "sourceHeight": 508,
-      "sourceSHA256": "67208e4cc70be5617f55faf12500241a467a4bf63b053459cf49f1734d705096",
+      "sourceSHA256": "43ad775e11c2d3ed52646592cff66dc06de764e9e9e174d45bc5218e90edbfab",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Individual visual crown-to-seated-pelvis measurement; excludes weapon, plume, cloak width and mount. Horse/body silhouette cross-check required.",
+      "calibration": "2026-10-14 redraw: individually reviewed helmet crown-to-seated-pelvis stature; center of rider and horse torso; bow, quiver, arrow and tail excluded",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 2,
-        "cell": 13,
-        "landmarks": "crown-pelvis",
+        "date": "2026-10-14",
+        "landmarks": "crown-to-seated-pelvis",
         "source": "assets/mesbg/tokens/harding_mounted.png"
       },
       "centerReview": {
         "date": "2026-10-14",
-        "basis": "rider-and-mount",
-        "sheet": 10,
-        "cell": 17,
+        "basis": "rider-and-horse-torso",
         "source": "assets/mesbg/tokens/harding_mounted.png",
         "excludes": [
-          "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "bow",
+          "arrow",
+          "quiver",
+          "cloak",
+          "tail"
         ]
       },
       "statureCalibration": {
-        "method": "argon-anatomical-20261014",
+        "method": "visually-reviewed-redrawn-rider-20261014",
         "reviewedReference": {
-          "bodyClass": "human",
-          "reference": "rider",
-          "top": 0.065,
-          "bottom": 0.335,
+          "top": 0.1152,
+          "bottom": 0.4074,
           "worldReferenceSize": 43,
-          "sourceSHA256": "67208e4cc70be5617f55faf12500241a467a4bf63b053459cf49f1734d705096"
+          "sourceSHA256": "43ad775e11c2d3ed52646592cff66dc06de764e9e9e174d45bc5218e90edbfab"
         },
-        "candidate": {
-          "top": 0.1602,
-          "bottom": 0.4573
-        },
-        "applied": "reviewed-landmarks",
-        "reason": "automatic-landmark-outlier"
+        "applied": "reviewed-anatomy"
       }
     },
     {
