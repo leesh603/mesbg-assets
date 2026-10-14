@@ -33,10 +33,8 @@
    Pages가 중단될 수 있다. 이 시점부터 배포 완료 전까지 짧은 서비스 중단을 예상한다.
 3. 신규 저장소 leesh603/mesbg-assets를 **Public**으로 생성한다.
    생성할 때 README를 추가하여 main 브랜치를 초기화한다.
-4. PRIVATE 소스 저장소의 security/private-source-split-20261014 브랜치를
-   검증 후 main으로 병합한다. 바로 병합하지 않아도 브랜치에서
-   Actions > Build safe public game release > Run workflow를 실행할 수 있다
-   (수동 실행 UI 표시를 위해 워크플로를 기본 브랜치에 먼저 올려야 할 수 있다).
+4. PRIVATE 소스 저장소에서 배포 준비 브랜치와 main의 최신 변경사항을
+   확인한다. 아직 배포용 secret이 없으면 준비 브랜치를 병합하지 않는다.
 5. https://github.com/settings/personal-access-tokens 에서 Fine-grained PAT를 만든다.
    접근할 리포는 신규 공개 mesbg-assets **한 개만 선택**.
    Permissions > Repository permissions > Contents = Read and write.
@@ -44,9 +42,12 @@
    Settings > Secrets and variables > Actions에서
    PUBLIC_DEPLOY_TOKEN 이름의 Actions secret으로 저장한다.
    토큰을 코드나 채팅에 붙여넣지 않는다.
-6. Private 소스 저장소 Actions > Build safe public game release >
-   Run workflow에서 publish=true로 실행한다.
-   워크플로는 source repository private 여부를 확인하고, 화이트리스트 빌드만
+6. PRIVATE 소스 저장소의 security/private-source-split-20261014 브랜치를
+   검증 후 main에 병합한다. **private main에 병합되는 순간 자동으로**
+   배포 워크플로가 실행된다. 이후에는 public 런타임 파일이 바뀐 main push가
+   자동으로 릴리스된다. 필요하면 Actions > Build safe public game release >
+   Run workflow에서 publish=true로 수동 재실행할 수 있다.
+   워크플로는 원본 repository가 private인지 검증하고 화이트리스트 빌드만
    새 public repository의 main에 커밋한다.
 7. 신규 Public mesbg-assets > Settings > Pages > Build and deployment에서
    Deploy from a branch, Branch: main, Folder: / (root)를 선택한다.
