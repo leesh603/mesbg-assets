@@ -6061,6 +6061,7 @@ function renderDock(){
     if (q.weeklySeed) { const _wk = ['적 대군', '보스 러시', '근접전', '베테랑', '기병 전성', '모르도르의 광기', '강철의 전장', '궁술 경연', '긴 밤', '비열한 날', '강행군', '피의 전장'][q.weeklySeed % 12]; _chips += '<span class="hud-mod" style="border-color:#c9a84caa;color:#e8d08a">주간 · ' + _wk + '</span>'; }
     if (q.challenge) { const _chl = (CHALLENGES.find(c=>c.id===q.challenge)||{}).label || q.challenge; _chips += '<span class="hud-mod" style="border-color:#b8452faa;color:#e8a88a">의뢰 · ' + _chl + '</span>'; }
     ut('ux-place').innerHTML = esc(place) + _chips;
+    { const _syncHdr = () => { const h = document.querySelector('header.top'); if (h) document.documentElement.style.setProperty('--hdr-b', Math.round(h.getBoundingClientRect().bottom) + 'px'); }; requestAnimationFrame(_syncHdr); setTimeout(_syncHdr, 250); if (!window.__hdrSync) { window.__hdrSync = true; addEventListener('resize', () => setTimeout(_syncHdr, 60)); } }
     { const _bb = ut('ux-bossbar'); if (_bb && _bb.parentElement !== document.querySelector('header.top')) document.querySelector('header.top')?.appendChild(_bb); if (_bb) {
         const _boss = ((_info && _info.boss) ? q.alive('evil').find(u => u.id === _info.boss) : null) || q.alive('evil').find(u => u.traits && u.traits.includes('boss'));
         if (_boss && _boss.alive) {
