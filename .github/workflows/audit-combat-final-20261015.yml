@@ -1,0 +1,33 @@
+name: Audit complete combat 20261015
+on:
+  push:
+    branches: [audit/playtest-20261015-e804344]
+    paths: ['.github/workflows/audit-combat-final-20261015.yml']
+permissions:
+  contents: read
+jobs:
+  combat:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - run: |
+          python -m pip install playwright requests pyyaml
+          python -m playwright install --with-deps chromium
+      - name: Reuse captured test and complete combat
+        run: |
+          python - <<'PY'
+          import requests,yaml,subprocess
+          workflow=requests.get('https://raw.githubusercontent.com/leesh603/mesbg-assets/16257cd1246c26b9363339ea9a05efd489c8d41f/.github/workflows/audit-gameplay-20261015.yml',timeout=60).text
+          spec=yaml.safe_load(workflow)
+          command=next(x['run'] for x in spec['jobs']['gameplay']['steps'] if x.get('name')=='Exercise unmodified live UI and rules')
+          command=command.replace("page.wait_for_timeout(2000);snap('07-resumed')", "page.wait_for_timeout(2000);snap('07-resumed')\n    if page.evaluate(\"MESBG.battle.phase==='preparation'\"):\n      page.locator('button').filter(has_text=re.compile('^전투 시작')).first.click();page.wait_for_timeout(1500)\n    snap('07b-restarted-battle')")
+          command=command.replace("page.set_viewport_size({'width':1365,'height':900});page.wait_for_timeout(1000);snap('09-desktop-outcome')", "page.evaluate('async()=>{if(document.fullscreenElement)await document.exitFullscreen()}');page.wait_for_timeout(500);snap('09-after-combat')")
+          command=command.replace("print('COMBAT_TRACE',json.dumps(summary,ensure_ascii=False),flush=True)", "print('COMBAT_TRACE',json.dumps(summary,ensure_ascii=False),flush=True)\n    print('PROFILE_PAIRS',json.dumps(json.loads((out/'runtime-methods.json').read_text())['profilePairs'],ensure_ascii=False),flush=True)\n    print('METHODS',json.dumps(json.loads((out/'runtime-methods.json').read_text())['methods'],ensure_ascii=False),flush=True)\n    print('SOURCE_ANCHORS', (out/'source-anchors.txt').read_text(),flush=True)")
+          subprocess.run(['bash','-e','-c',command],check=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: warbands-combat-final-e804344
+          path: audit-play/
+          retention-days: 3
