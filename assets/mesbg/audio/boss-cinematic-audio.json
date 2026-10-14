@@ -1,38 +1,45 @@
 {
-  "generator": "make-boss-cinematic-audio.py",
-  "original": true,
+  "recordedFoley": true,
   "cues": [
     {
       "file": "audio/boss_nazgul_shriek.wav",
       "seconds": 4.2,
-      "peak": 0.68,
-      "rms": 0.17033944299079104,
       "sampleRate": 22050,
-      "channels": 2
+      "channels": 2,
+      "peak": 0.27,
+      "rms": 0.043856632589328606,
+      "source": "rpg/Audio/creak1.ogg",
+      "license": "CC0-1.0"
     },
     {
       "file": "audio/boss_fell_wing.wav",
       "seconds": 1.5,
-      "peak": 0.68,
-      "rms": 0.18013105188466946,
       "sampleRate": 22050,
-      "channels": 2
+      "channels": 2,
+      "peak": 0.25,
+      "rms": 0.021645352482875052,
+      "source": "rpg/Audio/cloth1.ogg",
+      "license": "CC0-1.0"
     },
     {
       "file": "audio/boss_ring_seal.wav",
       "seconds": 2.5,
-      "peak": 0.68,
-      "rms": 0.1238546945001318,
       "sampleRate": 22050,
-      "channels": 2
+      "channels": 2,
+      "peak": 0.26,
+      "rms": 0.044981344854987386,
+      "source": "impact/Audio/impactMetal_medium_000.ogg",
+      "license": "CC0-1.0"
     },
     {
       "file": "audio/boss_dark_omen.wav",
       "seconds": 6.5,
-      "peak": 0.68,
-      "rms": 0.23988296334814263,
       "sampleRate": 22050,
-      "channels": 2
+      "channels": 2,
+      "peak": 0.24,
+      "rms": 0.041383257101564534,
+      "source": "rpg/Audio/creak1.ogg",
+      "license": "CC0-1.0"
     }
   ]
 }

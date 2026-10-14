@@ -1,657 +1,509 @@
 {
-  "version": 1,
-  "title": "LAST WAR BAND Original Audio Pack",
-  "sample_rate": 48000,
+  "version": 3,
+  "title": "MIDDLE-EARTH WARBANDS orchestral OST and recorded foley",
   "music": [
     {
-      "seconds": 101.052625,
-      "notes": 398,
-      "boundary_delta": 0.0026600282182940825,
-      "id": "gate-of-the-west",
-      "title": "돌아갈 땅",
-      "bpm": 76,
-      "bars": 32,
-      "ogg": "music/gate-of-the-west.ogg",
-      "mp3": "music/gate-of-the-west.mp3",
-      "loop_start": 0,
-      "loop_end": 4850526,
-      "sample_rate": 48000,
-      "channels": 2,
-      "integrated_lufs": -20.0,
-      "true_peak_dbfs": -6.6
+      "id": "aftermath",
+      "mp3": "audio/ost/aftermath.mp3",
+      "opus": "audio/ost/aftermath.opus",
+      "seconds": 64.0,
+      "loop": false
     },
     {
-      "seconds": 80.0,
-      "notes": 370,
-      "boundary_delta": 0.005792787695470031,
-      "id": "lwb-camp",
-      "title": "별빛 야영지",
-      "bpm": 72,
-      "bars": 32,
-      "ogg": "music/lwb-camp.ogg",
-      "mp3": "music/lwb-camp.mp3",
-      "loop_start": 0,
-      "loop_end": 3840000,
-      "sample_rate": 48000,
-      "channels": 2,
-      "integrated_lufs": -22.0,
-      "true_peak_dbfs": -9.6
+      "id": "battle",
+      "mp3": "audio/ost/battle.mp3",
+      "opus": "audio/ost/battle.opus",
+      "seconds": 130.75,
+      "loop": true
     },
     {
-      "seconds": 120.0,
-      "notes": 1186,
-      "boundary_delta": 0.004148778390353186,
-      "id": "lwb-battle",
-      "title": "서녘의 맹세",
-      "bpm": 96,
-      "bars": 48,
-      "ogg": "music/lwb-battle.ogg",
-      "mp3": "music/lwb-battle.mp3",
-      "loop_start": 0,
-      "loop_end": 5760000,
-      "sample_rate": 48000,
-      "channels": 2,
-      "integrated_lufs": -19.0,
-      "true_peak_dbfs": -5.3
+      "id": "gondor",
+      "mp3": "audio/ost/gondor.mp3",
+      "opus": "audio/ost/gondor.opus",
+      "seconds": 106.75,
+      "loop": true
     },
     {
-      "seconds": 102.85714583333333,
-      "notes": 1374,
-      "boundary_delta": 0.011232317732357125,
-      "id": "lwb-boss",
-      "title": "검은 문의 공세",
-      "bpm": 112,
-      "bars": 48,
-      "ogg": "music/lwb-boss.ogg",
-      "mp3": "music/lwb-boss.mp3",
-      "loop_start": 0,
-      "loop_end": 4937143,
-      "sample_rate": 48000,
-      "channels": 2,
-      "integrated_lufs": -18.5,
-      "true_peak_dbfs": -3.0
+      "id": "heroes-bosses",
+      "mp3": "audio/ost/heroes-bosses.mp3",
+      "opus": "audio/ost/heroes-bosses.opus",
+      "seconds": 130.75,
+      "loop": true
+    },
+    {
+      "id": "mordor",
+      "mp3": "audio/ost/mordor.mp3",
+      "opus": "audio/ost/mordor.opus",
+      "seconds": 106.75,
+      "loop": true
+    },
+    {
+      "id": "main",
+      "mp3": "audio/ost/main.mp3",
+      "opus": "audio/ost/main.opus",
+      "seconds": 94.75,
+      "loop": true
+    },
+    {
+      "id": "rohan",
+      "mp3": "audio/ost/rohan.mp3",
+      "opus": "audio/ost/rohan.opus",
+      "seconds": 88.75,
+      "loop": true
     }
   ],
-  "sfx": [
-    {
-      "id": "sword_swing",
-      "label": "검 휘두르기",
-      "variants": [
-        {
-          "file": "sfx/sword_swing.wav",
-          "seconds": 0.28,
-          "peak_dbfs": -2.85
-        },
-        {
-          "file": "sfx/sword_swing_02.wav",
-          "seconds": 0.28,
-          "peak_dbfs": -2.85
-        },
-        {
-          "file": "sfx/sword_swing_03.wav",
-          "seconds": 0.28,
-          "peak_dbfs": -2.85
-        }
+  "effects": {
+    "sword_swing": {
+      "file": "audio/sword_swing.wav",
+      "files": [
+        "audio/sword_swing.wav",
+        "audio/sword_swing_02.wav",
+        "audio/sword_swing_03.wav"
       ],
-      "gain": 0.75
+      "fastFiles": [
+        "audio/fast/sword_swing.wav",
+        "audio/fast/sword_swing_02.wav",
+        "audio/fast/sword_swing_03.wav"
+      ],
+      "group": "swing",
+      "priority": 20,
+      "volume": 0.6
     },
-    {
-      "id": "sword_armor",
-      "label": "검·갑옷 충돌",
-      "variants": [
-        {
-          "file": "sfx/sword_armor.wav",
-          "seconds": 0.42,
-          "peak_dbfs": -2.85
-        },
-        {
-          "file": "sfx/sword_armor_02.wav",
-          "seconds": 0.42,
-          "peak_dbfs": -2.85
-        },
-        {
-          "file": "sfx/sword_armor_03.wav",
-          "seconds": 0.42,
-          "peak_dbfs": -2.85
-        }
+    "sword_armor": {
+      "file": "audio/sword_armor.wav",
+      "files": [
+        "audio/sword_armor.wav",
+        "audio/sword_armor_02.wav",
+        "audio/sword_armor_03.wav"
       ],
-      "gain": 0.75
+      "fastFiles": [
+        "audio/fast/sword_armor.wav",
+        "audio/fast/sword_armor_02.wav",
+        "audio/fast/sword_armor_03.wav"
+      ],
+      "group": "impact",
+      "priority": 55,
+      "volume": 0.62
     },
-    {
-      "id": "sword_shield",
-      "label": "검·방패 충돌",
-      "variants": [
-        {
-          "file": "sfx/sword_shield.wav",
-          "seconds": 0.34,
-          "peak_dbfs": -2.85
-        },
-        {
-          "file": "sfx/sword_shield_02.wav",
-          "seconds": 0.34,
-          "peak_dbfs": -2.85
-        },
-        {
-          "file": "sfx/sword_shield_03.wav",
-          "seconds": 0.34,
-          "peak_dbfs": -2.85
-        }
+    "sword_shield": {
+      "file": "audio/sword_shield.wav",
+      "files": [
+        "audio/sword_shield.wav",
+        "audio/sword_shield_02.wav",
+        "audio/sword_shield_03.wav"
       ],
-      "gain": 0.75
+      "fastFiles": [
+        "audio/fast/sword_shield.wav",
+        "audio/fast/sword_shield_02.wav",
+        "audio/fast/sword_shield_03.wav"
+      ],
+      "group": "impact",
+      "priority": 55,
+      "volume": 0.62
     },
-    {
-      "id": "sword_flesh",
-      "label": "몸에 맞는 둔탁한 타격",
-      "variants": [
-        {
-          "file": "sfx/sword_flesh.wav",
-          "seconds": 0.3,
-          "peak_dbfs": -2.85
-        },
-        {
-          "file": "sfx/sword_flesh_02.wav",
-          "seconds": 0.3,
-          "peak_dbfs": -2.85
-        },
-        {
-          "file": "sfx/sword_flesh_03.wav",
-          "seconds": 0.3,
-          "peak_dbfs": -2.85
-        }
+    "sword_flesh": {
+      "file": "audio/sword_flesh.wav",
+      "files": [
+        "audio/sword_flesh.wav",
+        "audio/sword_flesh_02.wav",
+        "audio/sword_flesh_03.wav"
       ],
-      "gain": 0.75
+      "fastFiles": [
+        "audio/fast/sword_flesh.wav",
+        "audio/fast/sword_flesh_02.wav",
+        "audio/fast/sword_flesh_03.wav"
+      ],
+      "group": "impact",
+      "priority": 55,
+      "volume": 0.62
     },
-    {
-      "id": "sword_parry",
-      "label": "검으로 받아내기",
-      "variants": [
-        {
-          "file": "sfx/sword_parry.wav",
-          "seconds": 0.42,
-          "peak_dbfs": -2.85
-        },
-        {
-          "file": "sfx/sword_parry_02.wav",
-          "seconds": 0.42,
-          "peak_dbfs": -2.85
-        },
-        {
-          "file": "sfx/sword_parry_03.wav",
-          "seconds": 0.42,
-          "peak_dbfs": -2.85
-        }
+    "sword_parry": {
+      "file": "audio/sword_parry.wav",
+      "files": [
+        "audio/sword_parry.wav",
+        "audio/sword_parry_02.wav",
+        "audio/sword_parry_03.wav"
       ],
-      "gain": 0.75
+      "fastFiles": [
+        "audio/fast/sword_parry.wav",
+        "audio/fast/sword_parry_02.wav",
+        "audio/fast/sword_parry_03.wav"
+      ],
+      "group": "impact",
+      "priority": 55,
+      "volume": 0.62
     },
-    {
-      "id": "critical_hit",
-      "label": "강한 결정타",
-      "variants": [
-        {
-          "file": "sfx/critical_hit.wav",
-          "seconds": 0.45,
-          "peak_dbfs": -2.85
-        },
-        {
-          "file": "sfx/critical_hit_02.wav",
-          "seconds": 0.45,
-          "peak_dbfs": -2.85
-        },
-        {
-          "file": "sfx/critical_hit_03.wav",
-          "seconds": 0.45,
-          "peak_dbfs": -2.85
-        }
+    "critical_hit": {
+      "file": "audio/critical_hit.wav",
+      "files": [
+        "audio/critical_hit.wav",
+        "audio/critical_hit_02.wav",
+        "audio/critical_hit_03.wav"
       ],
-      "gain": 0.75
+      "fastFiles": [
+        "audio/fast/critical_hit.wav",
+        "audio/fast/critical_hit_02.wav",
+        "audio/fast/critical_hit_03.wav"
+      ],
+      "group": "impact",
+      "priority": 55,
+      "volume": 0.62
     },
-    {
-      "id": "spear_thrust",
-      "label": "창 찌르기",
-      "variants": [
-        {
-          "file": "sfx/spear_thrust.wav",
-          "seconds": 0.25,
-          "peak_dbfs": -2.85
-        },
-        {
-          "file": "sfx/spear_thrust_02.wav",
-          "seconds": 0.25,
-          "peak_dbfs": -2.85
-        },
-        {
-          "file": "sfx/spear_thrust_03.wav",
-          "seconds": 0.25,
-          "peak_dbfs": -2.85
-        }
+    "spear_thrust": {
+      "file": "audio/spear_thrust.wav",
+      "files": [
+        "audio/spear_thrust.wav",
+        "audio/spear_thrust_02.wav",
+        "audio/spear_thrust_03.wav"
       ],
-      "gain": 0.75
+      "fastFiles": [
+        "audio/fast/spear_thrust.wav",
+        "audio/fast/spear_thrust_02.wav",
+        "audio/fast/spear_thrust_03.wav"
+      ],
+      "group": "impact",
+      "priority": 55,
+      "volume": 0.62
     },
-    {
-      "id": "axe_hit",
-      "label": "도끼 타격",
-      "variants": [
-        {
-          "file": "sfx/axe_hit.wav",
-          "seconds": 0.43,
-          "peak_dbfs": -2.85
-        },
-        {
-          "file": "sfx/axe_hit_02.wav",
-          "seconds": 0.43,
-          "peak_dbfs": -2.85
-        },
-        {
-          "file": "sfx/axe_hit_03.wav",
-          "seconds": 0.43,
-          "peak_dbfs": -2.85
-        }
+    "axe_hit": {
+      "file": "audio/axe_hit.wav",
+      "files": [
+        "audio/axe_hit.wav",
+        "audio/axe_hit_02.wav",
+        "audio/axe_hit_03.wav"
       ],
-      "gain": 0.75
+      "fastFiles": [
+        "audio/fast/axe_hit.wav",
+        "audio/fast/axe_hit_02.wav",
+        "audio/fast/axe_hit_03.wav"
+      ],
+      "group": "impact",
+      "priority": 55,
+      "volume": 0.62
     },
-    {
-      "id": "arrow_release",
-      "label": "활시위·발사",
-      "variants": [
-        {
-          "file": "sfx/arrow_release.wav",
-          "seconds": 0.34,
-          "peak_dbfs": -2.85
-        },
-        {
-          "file": "sfx/arrow_release_02.wav",
-          "seconds": 0.34,
-          "peak_dbfs": -2.85
-        },
-        {
-          "file": "sfx/arrow_release_03.wav",
-          "seconds": 0.34,
-          "peak_dbfs": -2.85
-        }
+    "arrow_release": {
+      "file": "audio/arrow_release.wav",
+      "files": [
+        "audio/arrow_release.wav",
+        "audio/arrow_release_02.wav",
+        "audio/arrow_release_03.wav"
       ],
-      "gain": 0.75
+      "fastFiles": [
+        "audio/fast/arrow_release.wav",
+        "audio/fast/arrow_release_02.wav",
+        "audio/fast/arrow_release_03.wav"
+      ],
+      "group": "swing",
+      "priority": 20,
+      "volume": 0.6
     },
-    {
-      "id": "arrow_fly",
-      "label": "화살 비행",
-      "variants": [
-        {
-          "file": "sfx/arrow_fly.wav",
-          "seconds": 0.28,
-          "peak_dbfs": -2.85
-        },
-        {
-          "file": "sfx/arrow_fly_02.wav",
-          "seconds": 0.28,
-          "peak_dbfs": -2.85
-        },
-        {
-          "file": "sfx/arrow_fly_03.wav",
-          "seconds": 0.28,
-          "peak_dbfs": -2.85
-        }
+    "arrow_fly": {
+      "file": "audio/arrow_fly.wav",
+      "files": [
+        "audio/arrow_fly.wav",
+        "audio/arrow_fly_02.wav",
+        "audio/arrow_fly_03.wav"
       ],
-      "gain": 0.75
+      "fastFiles": [
+        "audio/fast/arrow_fly.wav",
+        "audio/fast/arrow_fly_02.wav",
+        "audio/fast/arrow_fly_03.wav"
+      ],
+      "group": "swing",
+      "priority": 20,
+      "volume": 0.6
     },
-    {
-      "id": "arrow_impact",
-      "label": "화살 명중",
-      "variants": [
-        {
-          "file": "sfx/arrow_impact.wav",
-          "seconds": 0.34,
-          "peak_dbfs": -2.85
-        },
-        {
-          "file": "sfx/arrow_impact_02.wav",
-          "seconds": 0.34,
-          "peak_dbfs": -2.85
-        },
-        {
-          "file": "sfx/arrow_impact_03.wav",
-          "seconds": 0.34,
-          "peak_dbfs": -2.85
-        }
+    "arrow_impact": {
+      "file": "audio/arrow_impact.wav",
+      "files": [
+        "audio/arrow_impact.wav",
+        "audio/arrow_impact_02.wav",
+        "audio/arrow_impact_03.wav"
       ],
-      "gain": 0.75
+      "fastFiles": [
+        "audio/fast/arrow_impact.wav",
+        "audio/fast/arrow_impact_02.wav",
+        "audio/fast/arrow_impact_03.wav"
+      ],
+      "group": "impact",
+      "priority": 55,
+      "volume": 0.62
     },
-    {
-      "id": "base_slide",
-      "label": "이동·장비 마찰",
-      "variants": [
-        {
-          "file": "sfx/base_slide.wav",
-          "seconds": 0.42,
-          "peak_dbfs": -6.38
-        },
-        {
-          "file": "sfx/base_slide_02.wav",
-          "seconds": 0.42,
-          "peak_dbfs": -6.38
-        },
-        {
-          "file": "sfx/base_slide_03.wav",
-          "seconds": 0.42,
-          "peak_dbfs": -6.38
-        }
+    "base_slide": {
+      "file": "audio/base_slide.wav",
+      "files": [
+        "audio/base_slide.wav",
+        "audio/base_slide_02.wav",
+        "audio/base_slide_03.wav"
       ],
-      "gain": 0.75
+      "fastFiles": [
+        "audio/fast/base_slide.wav",
+        "audio/fast/base_slide_02.wav",
+        "audio/fast/base_slide_03.wav"
+      ],
+      "group": "movement",
+      "priority": 20,
+      "volume": 0.6
     },
-    {
-      "id": "base_contact",
-      "label": "착지·접촉",
-      "variants": [
-        {
-          "file": "sfx/base_contact.wav",
-          "seconds": 0.28,
-          "peak_dbfs": -6.38
-        },
-        {
-          "file": "sfx/base_contact_02.wav",
-          "seconds": 0.28,
-          "peak_dbfs": -6.38
-        },
-        {
-          "file": "sfx/base_contact_03.wav",
-          "seconds": 0.28,
-          "peak_dbfs": -6.38
-        }
+    "base_contact": {
+      "file": "audio/base_contact.wav",
+      "files": [
+        "audio/base_contact.wav",
+        "audio/base_contact_02.wav",
+        "audio/base_contact_03.wav"
       ],
-      "gain": 0.75
+      "fastFiles": [
+        "audio/fast/base_contact.wav",
+        "audio/fast/base_contact_02.wav",
+        "audio/fast/base_contact_03.wav"
+      ],
+      "group": "impact",
+      "priority": 55,
+      "volume": 0.62
     },
-    {
-      "id": "push",
-      "label": "밀려나기",
-      "variants": [
-        {
-          "file": "sfx/push.wav",
-          "seconds": 0.48,
-          "peak_dbfs": -2.85
-        },
-        {
-          "file": "sfx/push_02.wav",
-          "seconds": 0.48,
-          "peak_dbfs": -2.85
-        }
+    "push": {
+      "file": "audio/push.wav",
+      "files": [
+        "audio/push.wav",
+        "audio/push_02.wav"
       ],
-      "gain": 0.75
+      "fastFiles": [
+        "audio/fast/push.wav",
+        "audio/fast/push_02.wav"
+      ],
+      "group": "movement",
+      "priority": 20,
+      "volume": 0.6
     },
-    {
-      "id": "cavalry_charge",
-      "label": "기병 돌격·말발굽",
-      "variants": [
-        {
-          "file": "sfx/cavalry_charge.wav",
-          "seconds": 1.22,
-          "peak_dbfs": -2.85
-        },
-        {
-          "file": "sfx/cavalry_charge_02.wav",
-          "seconds": 1.22,
-          "peak_dbfs": -2.85
-        }
+    "cavalry_charge": {
+      "file": "audio/cavalry_charge.wav",
+      "files": [
+        "audio/cavalry_charge.wav",
+        "audio/cavalry_charge_02.wav"
       ],
-      "gain": 0.75
+      "fastFiles": [
+        "audio/fast/cavalry_charge.wav",
+        "audio/fast/cavalry_charge_02.wav"
+      ],
+      "group": "impact",
+      "priority": 55,
+      "volume": 0.62
     },
-    {
-      "id": "dice_roll",
-      "label": "주사위 굴림",
-      "variants": [
-        {
-          "file": "sfx/dice_roll.wav",
-          "seconds": 0.86,
-          "peak_dbfs": -6.38
-        },
-        {
-          "file": "sfx/dice_roll_02.wav",
-          "seconds": 0.86,
-          "peak_dbfs": -6.38
-        },
-        {
-          "file": "sfx/dice_roll_03.wav",
-          "seconds": 0.86,
-          "peak_dbfs": -6.38
-        }
+    "dice_roll": {
+      "file": "audio/dice_roll.wav",
+      "files": [
+        "audio/dice_roll.wav",
+        "audio/dice_roll_02.wav",
+        "audio/dice_roll_03.wav"
       ],
-      "gain": 0.52
+      "fastFiles": [
+        "audio/fast/dice_roll.wav",
+        "audio/fast/dice_roll_02.wav",
+        "audio/fast/dice_roll_03.wav"
+      ],
+      "group": "dice",
+      "priority": 20,
+      "volume": 0.5
     },
-    {
-      "id": "ui_select",
-      "label": "선택",
-      "variants": [
-        {
-          "file": "sfx/ui_select.wav",
-          "seconds": 0.1,
-          "peak_dbfs": -10.46
-        },
-        {
-          "file": "sfx/ui_select_02.wav",
-          "seconds": 0.1,
-          "peak_dbfs": -10.46
-        },
-        {
-          "file": "sfx/ui_select_03.wav",
-          "seconds": 0.1,
-          "peak_dbfs": -10.46
-        }
+    "ui_select": {
+      "file": "audio/ui_select.wav",
+      "files": [
+        "audio/ui_select.wav",
+        "audio/ui_select_02.wav",
+        "audio/ui_select_03.wav"
       ],
-      "gain": 0.75
+      "fastFiles": [
+        "audio/fast/ui_select.wav",
+        "audio/fast/ui_select_02.wav",
+        "audio/fast/ui_select_03.wav"
+      ],
+      "group": "ui",
+      "priority": 75,
+      "volume": 0.6
     },
-    {
-      "id": "ui_confirm",
-      "label": "확인",
-      "variants": [
-        {
-          "file": "sfx/ui_confirm.wav",
-          "seconds": 0.24,
-          "peak_dbfs": -10.46
-        },
-        {
-          "file": "sfx/ui_confirm_02.wav",
-          "seconds": 0.24,
-          "peak_dbfs": -10.46
-        }
+    "ui_confirm": {
+      "file": "audio/ui_confirm.wav",
+      "files": [
+        "audio/ui_confirm.wav",
+        "audio/ui_confirm_02.wav"
       ],
-      "gain": 0.75
+      "fastFiles": [
+        "audio/fast/ui_confirm.wav",
+        "audio/fast/ui_confirm_02.wav"
+      ],
+      "group": "ui",
+      "priority": 75,
+      "volume": 0.6
     },
-    {
-      "id": "ui_cancel",
-      "label": "취소",
-      "variants": [
-        {
-          "file": "sfx/ui_cancel.wav",
-          "seconds": 0.14,
-          "peak_dbfs": -10.46
-        },
-        {
-          "file": "sfx/ui_cancel_02.wav",
-          "seconds": 0.14,
-          "peak_dbfs": -10.46
-        }
+    "ui_cancel": {
+      "file": "audio/ui_cancel.wav",
+      "files": [
+        "audio/ui_cancel.wav",
+        "audio/ui_cancel_02.wav"
       ],
-      "gain": 0.75
+      "fastFiles": [
+        "audio/fast/ui_cancel.wav",
+        "audio/fast/ui_cancel_02.wav"
+      ],
+      "group": "ui",
+      "priority": 75,
+      "volume": 0.6
     },
-    {
-      "id": "ui_error",
-      "label": "선택 불가",
-      "variants": [
-        {
-          "file": "sfx/ui_error.wav",
-          "seconds": 0.22,
-          "peak_dbfs": -10.46
-        },
-        {
-          "file": "sfx/ui_error_02.wav",
-          "seconds": 0.22,
-          "peak_dbfs": -10.46
-        }
+    "ui_error": {
+      "file": "audio/ui_error.wav",
+      "files": [
+        "audio/ui_error.wav",
+        "audio/ui_error_02.wav"
       ],
-      "gain": 0.75
+      "fastFiles": [
+        "audio/fast/ui_error.wav",
+        "audio/fast/ui_error_02.wav"
+      ],
+      "group": "ui",
+      "priority": 75,
+      "volume": 0.6
     },
-    {
-      "id": "reward_select",
-      "label": "보상·유물 획득",
-      "variants": [
-        {
-          "file": "sfx/reward_select.wav",
-          "seconds": 1.08,
-          "peak_dbfs": -7.33
-        },
-        {
-          "file": "sfx/reward_select_02.wav",
-          "seconds": 1.08,
-          "peak_dbfs": -7.33
-        }
+    "reward_select": {
+      "file": "audio/reward_select.wav",
+      "files": [
+        "audio/reward_select.wav",
+        "audio/reward_select_02.wav"
       ],
-      "gain": 0.75
+      "fastFiles": [
+        "audio/fast/reward_select.wav",
+        "audio/fast/reward_select_02.wav"
+      ],
+      "group": "notification",
+      "priority": 90,
+      "volume": 0.6
     },
-    {
-      "id": "event",
-      "label": "이벤트 알림",
-      "variants": [
-        {
-          "file": "sfx/event.wav",
-          "seconds": 0.78,
-          "peak_dbfs": -7.33
-        },
-        {
-          "file": "sfx/event_02.wav",
-          "seconds": 0.78,
-          "peak_dbfs": -7.33
-        }
+    "event": {
+      "file": "audio/event.wav",
+      "files": [
+        "audio/event.wav",
+        "audio/event_02.wav"
       ],
-      "gain": 0.75
+      "fastFiles": [
+        "audio/fast/event.wav",
+        "audio/fast/event_02.wav"
+      ],
+      "group": "magic",
+      "priority": 35,
+      "volume": 0.6
     },
-    {
-      "id": "death",
-      "label": "쓰러짐·장비 낙하",
-      "variants": [
-        {
-          "file": "sfx/death.wav",
-          "seconds": 0.8,
-          "peak_dbfs": -2.85
-        },
-        {
-          "file": "sfx/death_02.wav",
-          "seconds": 0.8,
-          "peak_dbfs": -2.85
-        },
-        {
-          "file": "sfx/death_03.wav",
-          "seconds": 0.8,
-          "peak_dbfs": -2.85
-        }
+    "death": {
+      "file": "audio/death.wav",
+      "files": [
+        "audio/death.wav",
+        "audio/death_02.wav",
+        "audio/death_03.wav"
       ],
-      "gain": 0.75
+      "fastFiles": [
+        "audio/fast/death.wav",
+        "audio/fast/death_02.wav",
+        "audio/fast/death_03.wav"
+      ],
+      "group": "impact",
+      "priority": 55,
+      "volume": 0.62
     },
-    {
-      "id": "war_horn",
-      "label": "전쟁 뿔피리",
-      "variants": [
-        {
-          "file": "sfx/war_horn.wav",
-          "seconds": 3.03,
-          "peak_dbfs": -5.19
-        },
-        {
-          "file": "sfx/war_horn_02.wav",
-          "seconds": 3.03,
-          "peak_dbfs": -5.19
-        }
+    "war_horn": {
+      "file": "audio/war_horn.wav",
+      "files": [
+        "audio/war_horn.wav",
+        "audio/war_horn_02.wav"
       ],
-      "gain": 0.75
+      "fastFiles": [
+        "audio/fast/war_horn.wav",
+        "audio/fast/war_horn_02.wav"
+      ],
+      "group": "notification",
+      "priority": 90,
+      "volume": 0.6
     },
-    {
-      "id": "cast",
-      "label": "마법 시전",
-      "variants": [
-        {
-          "file": "sfx/cast.wav",
-          "seconds": 0.93,
-          "peak_dbfs": -2.85
-        },
-        {
-          "file": "sfx/cast_02.wav",
-          "seconds": 0.93,
-          "peak_dbfs": -2.85
-        }
+    "cast": {
+      "file": "audio/cast.wav",
+      "files": [
+        "audio/cast.wav",
+        "audio/cast_02.wav"
       ],
-      "gain": 0.75
+      "fastFiles": [
+        "audio/fast/cast.wav",
+        "audio/fast/cast_02.wav"
+      ],
+      "group": "magic",
+      "priority": 35,
+      "volume": 0.6
     },
-    {
-      "id": "heal",
-      "label": "회복",
-      "variants": [
-        {
-          "file": "sfx/heal.wav",
-          "seconds": 1.06,
-          "peak_dbfs": -7.33
-        },
-        {
-          "file": "sfx/heal_02.wav",
-          "seconds": 1.06,
-          "peak_dbfs": -7.33
-        }
+    "heal": {
+      "file": "audio/heal.wav",
+      "files": [
+        "audio/heal.wav",
+        "audio/heal_02.wav"
       ],
-      "gain": 0.75
+      "fastFiles": [
+        "audio/fast/heal.wav",
+        "audio/fast/heal_02.wav"
+      ],
+      "group": "magic",
+      "priority": 35,
+      "volume": 0.6
     },
-    {
-      "id": "terror",
-      "label": "공포",
-      "variants": [
-        {
-          "file": "sfx/terror.wav",
-          "seconds": 1.12,
-          "peak_dbfs": -5.19
-        },
-        {
-          "file": "sfx/terror_02.wav",
-          "seconds": 1.12,
-          "peak_dbfs": -5.19
-        }
+    "terror": {
+      "file": "audio/terror.wav",
+      "files": [
+        "audio/terror.wav",
+        "audio/terror_02.wav"
       ],
-      "gain": 0.75
+      "fastFiles": [
+        "audio/fast/terror.wav",
+        "audio/fast/terror_02.wav"
+      ],
+      "group": "magic",
+      "priority": 35,
+      "volume": 0.6
     },
-    {
-      "id": "monster_hit",
-      "label": "괴물의 큰 타격",
-      "variants": [
-        {
-          "file": "sfx/monster_hit.wav",
-          "seconds": 0.65,
-          "peak_dbfs": -2.85
-        },
-        {
-          "file": "sfx/monster_hit_02.wav",
-          "seconds": 0.65,
-          "peak_dbfs": -2.85
-        }
+    "monster_hit": {
+      "file": "audio/monster_hit.wav",
+      "files": [
+        "audio/monster_hit.wav",
+        "audio/monster_hit_02.wav"
       ],
-      "gain": 0.75
+      "fastFiles": [
+        "audio/fast/monster_hit.wav",
+        "audio/fast/monster_hit_02.wav"
+      ],
+      "group": "impact",
+      "priority": 55,
+      "volume": 0.62
     },
-    {
-      "id": "victory",
-      "label": "승리",
-      "variants": [
-        {
-          "file": "sfx/victory.wav",
-          "seconds": 2.65,
-          "peak_dbfs": -5.19
-        }
+    "victory": {
+      "file": "audio/victory.wav",
+      "files": [
+        "audio/victory.wav"
       ],
-      "gain": 0.75
+      "fastFiles": [
+        "audio/fast/victory.wav"
+      ],
+      "group": "notification",
+      "priority": 90,
+      "volume": 0.6
     },
-    {
-      "id": "defeat",
-      "label": "패배",
-      "variants": [
-        {
-          "file": "sfx/defeat.wav",
-          "seconds": 2.7,
-          "peak_dbfs": -5.19
-        }
+    "defeat": {
+      "file": "audio/defeat.wav",
+      "files": [
+        "audio/defeat.wav"
       ],
-      "gain": 0.75
+      "fastFiles": [
+        "audio/fast/defeat.wav"
+      ],
+      "group": "notification",
+      "priority": 90,
+      "volume": 0.6
     }
-  ]
+  },
+  "recordedSources": "Kenney RPG Audio, Impact Sounds, Casino Audio (CC0)",
+  "generatedMusic": "ACE-Step 1.5 MIT; official model card permits commercial generated music",
+  "speedPolicy": "music always 1x; short effects at simulation speed >=4x; at most four SFX voices in fast play",
+  "browserPlaybackVerified": false
 }
