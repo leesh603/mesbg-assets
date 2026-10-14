@@ -1,5 +1,13 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
 const {setup}=require('./audio-harness.cjs');const flush=()=>new Promise(r=>setImmediate(r));
+test('initial army recruitment uses preparation music, while actual battle rewards use aftermath',async()=>{
+ const {engine:e,context:c,source}=setup();const vm=require('node:vm');
+ Object.assign(c,{wt:e,q:{phase:'reward',initialDraft:true,mapIndex:0,current:{}},CX:{maps:['minas_tirith']},visualMapIdx:()=>0,Vt:()=>false});
+ const start=source.indexOf("    const nextFight=q.phase==='fight'"),end=source.indexOf('\n    const _sq=',start);assert(start>=0&&end>start);
+ const route=()=>vm.runInContext('(function(){'+source.slice(start,end)+'})()',c);
+ route();await e.unlock();await flush();assert.equal(e.music.dataset.ostTrack,'gondor');
+ c.q.initialDraft=false;route();await flush();assert.equal(e.music.dataset.ostTrack,'aftermath');
+});
 test('seven scenes load lazily, music stays at natural speed and two transports suffice',async()=>{
  const {engine:e,context:c}=setup();e.setScene('preparation','edoras',false);assert.equal(e._slots.length,0);await e.unlock();await flush();assert.equal(e.music.dataset.ostTrack,'rohan');
  for(const [phase,map,boss,duel,track] of [['menu','',false,false,'main'],['preparation','minas_tirith',false,false,'gondor'],['preparation','black_gate',false,false,'mordor'],['move','',false,false,'battle'],['fight','',true,false,'heroes-bosses'],['fight','',false,true,'heroes-bosses'],['result','',false,false,'aftermath']]){e.setScene(phase,map,boss,duel);await flush();assert.equal(e.music.dataset.ostTrack,track);assert.equal(e.music.playbackRate,1);}

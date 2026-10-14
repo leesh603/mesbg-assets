@@ -12860,7 +12860,7 @@ function renderDock(){
     const order = ut('battle-order'); if(order) { const o=q.battleOrder, target=o&&q.unit(o.target); order.innerHTML='지휘<small>'+(o?.mode==='hold'?'전열 유지':o?.mode==='focus'&&target?.alive?'집중 공격':'자율')+'</small>'; order.title=o?.mode==='focus'&&target?.alive?target.name:'자동 진행 지휘'; }
     const nextFight=q.phase==='fight'?(q.fightQueue[0]||[]).map(uid=>q.unit(uid)).filter(unit=>unit?.alive):[];
     const heroDuel=nextFight.some(ally=>ally.side==='good'&&ally.traits.includes('hero')&&nextFight.some(foe=>foe.side==='evil'&&foe.traits.includes('hero')&&Vt(ally,foe)));
-    wt.setScene(q.phase,CX.maps[visualMapIdx(q.mapIndex||0)],q.current?.boss,heroDuel);
+    wt.setScene(q.initialDraft&&q.phase==='reward'?'preparation':q.phase,CX.maps[visualMapIdx(q.mapIndex||0)],q.current?.boss,heroDuel);
     const _sq=ut('speed-quick');if(_sq)_sq.textContent='×'+qt;
     const active=actionableUnit(),selected=q.unit(q.selected),u=selected?.alive?selected:active,busy=At||q.mode==='ai'&&q.side==='evil'&&['move','shoot'].includes(q.phase);
     const phase=q.phase;
