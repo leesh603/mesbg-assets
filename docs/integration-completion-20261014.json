@@ -1,0 +1,35 @@
+{
+  "baseMain": "4f0114ff382c3200dc8f3f7135519f2229974a48",
+  "pullRequests": [
+    28,
+    29
+  ],
+  "coreTests": {
+    "pass": 79,
+    "fail": 0
+  },
+  "bossTests": {
+    "pass": 15,
+    "fail": 0
+  },
+  "bodyProfileTests": {
+    "pass": 13,
+    "fail": 0
+  },
+  "promotionLayouts": [
+    360,
+    390,
+    1280
+  ],
+  "promotionErrors": [],
+  "bossScenarios": 14,
+  "bossErrors": [],
+  "changes": [
+    "troop careers and 18 new sprites",
+    "fixed original troop point costs",
+    "18 boss encounters",
+    "bounded legal Fell Beast landing movement",
+    "preserve all current main artwork",
+    "repair missing body-reference metadata without changing pixel geometry"
+  ]
+}

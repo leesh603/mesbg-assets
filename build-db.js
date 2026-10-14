@@ -1,5 +1,5 @@
 // Build units.csv (Excel, UTF-8 BOM), units.json (engine), gallery.html (visual check).
-const fs = require('fs');
+const fs = require('fs');const CB = Math.floor(Date.now()/1000);
 const path = require('path');
 const sheets = require('./db-data.js');
 const SRC = __dirname;
@@ -131,8 +131,8 @@ const dispWH = r => {
   const E = mm * 3.04 * art;
   const { ratio, fx, fy } = figInfo(r.id);
   let dw, dh;
-  if (ratio >= 1) { dw = Math.min(E / Math.max(.35, fx || 1), E * 1.95); dh = dw / ratio; }
-  else { dh = Math.min(E / Math.max(.35, fy || 1), E * 1.95); dw = dh * ratio; }
+  // 피겨 높이 기준 통일 — 같은 베이스급은 화면상 피겨 높이가 같아야 함
+  dh = Math.min(E / Math.max(.35, fy || 1), E * 1.95); dw = dh * ratio;
   const mx = E * 1.3, lg = Math.max(dw, dh);
   if (lg > mx) { const k = mx / lg; dw *= k; dh *= k; }
   return [Math.round(dw), Math.round(dh), mm * 3.04]; // [표시폭, 표시높이, 베이스 직경]
@@ -155,14 +155,14 @@ const facOf = r => { const gm = gameMeta.get(r.id) || {}; return gm.faction || r
 // 팩션 내 유닛도 엔진 메타 기준으로 병합해 이름/역할 표시
 const TABS = [['good', '자유민족'], ['evil', '악의 세력'], ['terrain', '지형지물']].filter(([k]) => groups[k]);
 const card = (r, fh) => {
-  const [w, h, baseD] = dispWH(r);
+  let [w, h, baseD] = dispWH(r);
   const gm = gameMeta.get(r.id) || {};
   const art = gm.artScale ?? r.artScale;
   const st = r.stats ? '<div class="meta" style="color:#d8c98a">F' + r.stats.f + ' S' + r.stats.s + ' D' + r.stats.d + ' A' + r.stats.a + ' W' + r.stats.w + ' C' + r.stats.c + ' · M' + r.stats.might + ' W' + r.stats.will + ' F' + r.stats.fate + '</div>' : '';
   const rl = (r.rules && r.rules.length) ? '<div class="meta" style="color:#9a8ac0">' + r.rules.join(' · ') + '</div>' : '';
-  const baseRing = baseD ? `<i class="basering" style="width:${baseD}px;height:${baseD}px"></i>` : '';
-  const szLine = r.role === 'terrain' ? '' : `<div class="meta" style="color:#8fb3d9">${gm.baseMm || parseInt(r.base_mm) || '?'}mm${art && art !== 1 ? ' · 스케일 ' + art : ''} · 표시 ${w}×${h}px</div>`;
-  return `<div class="card ucard" style="height:${fh + 132}px"><div class="fig" style="height:${fh}px">${baseRing}<img src="tokens/${r.id}.png" loading="lazy" style="width:${w}px;height:${h}px"></div><div class="id">${r.id}</div><div class="ko">${r.name_ko}</div><div class="meta">${ROLE_KO[r.role] || r.role} · ${r.weapon}${(r.traits && r.traits.length) ? " · " + r.traits.join("·") : ""}</div>${szLine}${st}${rl}</div>`;
+    const _cap = Math.min(h, 150) / h; w = Math.round(w * _cap); h = Math.round(h * _cap);
+  const szLine = r.role === 'terrain' ? '' : `<div class="meta" style="color:#8fb3d9">${gm.baseMm || parseInt(r.base_mm) || '?'}mm${art && art !== 1 ? ' · 스케일 ' + art : ''}</div>`;
+  return `<div class="card ucard" style="height:${fh + 132}px"><div class="fig" style="height:${fh}px"><img src="tokens/${r.id}.png?v=${CB}" loading="lazy" style="width:${w}px;height:${h}px"></div><div class="id">${r.id}</div><div class="ko">${r.name_ko}</div><div class="meta">${ROLE_KO[r.role] || r.role} · ${r.weapon}${(r.traits && r.traits.length) ? " · " + r.traits.join("·") : ""}</div>${szLine}${st}${rl}</div>`;
 };
 // 팩션 그룹 → 역할 소그룹 → 카드. fig 높이는 팩션 최대치로 통일.
 const factionGrid = list => {
@@ -203,7 +203,7 @@ try {
   }).join('');
   TABS.push(['maps', '전장 맵']);
 } catch (e) { /* no backgrounds dir */ }
-const html = `<!doctype html><html lang="ko"><head><meta charset="utf-8"><title>에셋 매칭 갤러리</title><style>
+const html = `<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><meta name="viewport" content="width=device-width,initial-scale=1"><title>에셋 매칭 갤러리</title><style>
 :root{--bg:#0f120c;--panel:#1a1d14;--panel2:#232718;--line:#5d5233;--gold:#c9a959;--gold2:#efe0ae;--txt:#ece4cd;--dim:#a89d7f}
 *{box-sizing:border-box}
 body{background:radial-gradient(ellipse at 50% -5%,#26301b 0%,#141a10 45%,#0f120c 100%);color:var(--txt);font-family:'Malgun Gothic',Georgia,serif;margin:0;padding:24px}
@@ -229,10 +229,62 @@ h3{font-family:Georgia,serif;font-size:13px;margin:18px 0 8px;color:var(--gold2)
 .ko{font-size:13px;font-weight:600;margin-top:2px;color:var(--txt)}
 .meta{font-size:10px;color:var(--dim);margin-top:3px}
 </style></head><body>
-<h1>MESBG 에셋 갤러리 — 인게임 표시 크기 · ${rows.length}종 <button id="vsw" onclick="let p=document.querySelectorAll('img'),pt=document.body.dataset.pt!=='1';document.body.dataset.pt=pt?'1':'0';p.forEach(i=>i.src=i.src.replace(pt?'tokens/':'tokens_painted/',pt?'tokens_painted/':'tokens/'));this.textContent=pt?'보는중: 도색 (클릭→픽셀)':'보는중: 픽셀 (클릭→도색)';" style="font-size:12px;padding:4px 10px;cursor:pointer">보는중: 픽셀 (클릭→도색)</button></h1>
-<div class="tabs">${TABS.map(([k, n], i) => `<button data-t="${k}" class="${i ? '' : 'on'}" onclick="document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('on'));this.classList.add('on');document.querySelectorAll('.tabpane').forEach(p=>p.style.display=p.dataset.t===this.dataset.t?'block':'none')">${n} — ${k === 'relics' ? relicCount : (k === 'maps' ? mapsCount : groups[k].length)}</button>`).join('')}</div>
+<h1>MESBG 에셋 갤러리 — 인게임 표시 크기 · <span style="font-size:11px;color:#8a8">#${CB.toString(36).toUpperCase()}</span> · ${rows.length}종 <button id="vsw" onclick="let p=document.querySelectorAll('img'),pt=document.body.dataset.pt!=='1';document.body.dataset.pt=pt?'1':'0';p.forEach(i=>i.src=i.src.replace(pt?'tokens/':'tokens_painted/',pt?'tokens_painted/':'tokens/'));this.textContent=pt?'보는중: 도색 (클릭→픽셀)':'보는중: 픽셀 (클릭→도색)';" style="font-size:12px;padding:4px 10px;cursor:pointer">보는중: 픽셀 (클릭→도색)</button></h1>
+<div class="tabs"><button data-t="preview" onclick="document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('on'));this.classList.add('on');document.querySelectorAll('.tabpane').forEach(p=>p.style.display=p.dataset.t===this.dataset.t?'block':'none');const f=document.getElementById('ingame-preview');if(!f.src)f.src='gallery-preview.html'">인게임 맵 · 크기 테스트</button>${TABS.map(([k, n], i) => `<button data-t="${k}" class="${i ? '' : 'on'}" onclick="document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('on'));this.classList.add('on');document.querySelectorAll('.tabpane').forEach(p=>p.style.display=p.dataset.t===this.dataset.t?'block':'none')">${n} — ${k === 'relics' ? relicCount : (k === 'maps' ? mapsCount : groups[k].length)}</button>`).join('')}</div>
 ${TABS.map(([k, n], i) => `<div class="tabpane" data-t="${k}" style="display:${i ? 'none' : 'block'}"><h2>${n} — ${k === 'relics' ? relicCount : (k === 'maps' ? mapsCount : groups[k].length)}</h2>${k === 'relics' ? relicHtml : (k === 'maps' ? mapsHtml : factionGrid(groups[k]))}</div>`).join('')}
-</body></html>`;
+<div class="tabpane" data-t="preview" style="display:none"><p style="color:var(--dim)">실제 게임 맵과 캐릭터 크기로 비교 · <a href="gallery-preview.html" target="_blank" rel="noopener" style="color:var(--gold)">전체 화면으로 열기 ↗</a></p><iframe id="ingame-preview" title="인게임 맵 및 캐릭터 크기 테스트" style="width:100%;height:1100px;max-height:none;border:1px solid var(--line);border-radius:8px" allow="fullscreen"></iframe></div></body></html>`;
 fs.writeFileSync(path.join(SRC, 'gallery.html'), html);
 
-console.log(`OK: ${rows.length} rows -> units.csv / units.json / gallery.html`);
+// gallery2.html — 그림체 통일 작업 전용 별도 갤러리 (메인 gallery.html 과 독립).
+// 인게임 표시 크기가 아니라 아트 스타일 비교가 목적이므로 타일 높이를 균일하게 맞춤.
+const card2 = (r, fh) => card(r, fh);
+// 나즈굴·위치킹 계열은 팩션 무관하게 한 묶음으로 (앙그마르·모르도르·하라드 흩어짐 방지)
+const NAZGUL_SET = new Set(['nazgul_sword','nazgul_sword_2','nazgul_mace','nazgul_mounted','nazgul_fellbeast','witchking_foot','witchking_foot_mace','witchking_spear','witchking_mounted','witchking_fellbeast','khamul','dwimmerlaik','dark_marshal','betrayer','tainted','undying','knight_of_umbar','shadow_lord','muzgur']);
+const NAZGUL_ORDER = ['witchking_foot','witchking_foot_mace','witchking_spear','witchking_mounted','witchking_fellbeast','khamul','dwimmerlaik','dark_marshal','shadow_lord','betrayer','tainted','undying','knight_of_umbar','muzgur','nazgul_sword','nazgul_sword_2','nazgul_mace','nazgul_mounted','nazgul_fellbeast'];
+const factionGrid2 = list => {
+  const nazgul = list.filter(r => NAZGUL_SET.has(r.id)).sort((a, b) => NAZGUL_ORDER.indexOf(a.id) - NAZGUL_ORDER.indexOf(b.id));
+  const rest = list.filter(r => !NAZGUL_SET.has(r.id));
+  const facs = {};
+  for (const r of rest) { (facs[facOf(r)] ??= []).push(r); }
+  const order = facOrder(list[0] && list[0].side === 'evil' ? 'evil' : 'good');
+  const keys = [...order.filter(f => facs[f]), ...Object.keys(facs).filter(f => !order.includes(f)).sort()];
+  const fh = us => Math.min(340, Math.max(...us.map(r => dispWH(r)[1]))) + 10;
+  const roleGrid = us => ROLE_ORDER.filter(ro => us.some(r => grp(r) === ro)).map(ro =>
+    `<h3>${ROLE_KO[ro] || ro} — ${us.filter(r => grp(r) === ro).length}</h3><div class="grid">${us.filter(r => grp(r) === ro).map(r => card2(r, fh(us))).join('')}</div>`).join('');
+  const nazHtml = nazgul.length ? `<h2>나즈굴 — ${nazgul.length}</h2><div class="grid">${nazgul.map(r => card2(r, fh(nazgul))).join('')}</div>` : '';
+  return nazHtml + keys.map(f => `<h2>${FACTION_KO[f] || f} — ${facs[f].length}</h2>${roleGrid(facs[f])}`).join('');
+};
+// 위치킹 버전 비교 — 도보(두건/A안/가시왕관)·기마·펠비스트 복수 버전 나란히
+const wkRow = (file, label) => `<div class="card ucard"><div class="fig" style="height:150px"><img src="${file}?v=${CB}" loading="lazy" style="max-height:140px;max-width:170px;height:auto;width:auto"></div><div class="id">${label}</div></div>`;
+const wkHtml = `<h2>위치킹 버전 비교 — 도보</h2><div class="grid">${wkRow('tokens/witchking_foot.png', '도보 · 두건(현재)')}${wkRow('tokens/witchking_foot_mace.png', '도보 · 투구A안')}${wkRow('alt/witchking_foot_moviecrown.png', '도보 · 가시왕관')}${wkRow('alt/witchking_foot_scale_dome.png', '도보 · 비늘돔')}</div>` +
+  `<h2>위치킹 버전 비교 — 기마</h2><div class="grid">${wkRow('tokens/witchking_mounted.png', '기마 · A안(현재)')}${wkRow('alt/witchking_mounted_moviecrown.png', '기마 · 가시왕관')}</div>` +
+  `<h2>위치킹 버전 비교 — 펠비스트</h2><div class="grid">${wkRow('tokens/witchking_fellbeast.png', '펠비스트 · A안(현재)')}${wkRow('alt/witchking_fellbeast_moviecrown.png', '펠비스트 · 가시왕관')}</div>`;
+const html2fixed = `<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><title>그림체 통일 갤러리</title><style>
+:root{--bg:#0f120c;--panel:#1a1d14;--panel2:#232718;--line:#5d5233;--gold:#c9a959;--gold2:#efe0ae;--txt:#ece4cd;--dim:#a89d7f}
+*{box-sizing:border-box}
+body{background:radial-gradient(ellipse at 50% -5%,#26301b 0%,#141a10 45%,#0f120c 100%);color:var(--txt);font-family:'Malgun Gothic',Georgia,serif;margin:0;padding:24px}
+h1{font-family:Georgia,serif;font-size:20px;color:var(--gold2);letter-spacing:2px;font-variant:small-caps;text-shadow:0 0 12px rgba(201,169,89,.3)}
+h2{font-family:Georgia,serif;font-size:15px;margin:28px 0 10px;color:var(--gold);border-bottom:1px solid var(--line);padding-bottom:6px;letter-spacing:1px}
+h3{font-family:Georgia,serif;font-size:12px;margin:16px 0 6px;color:var(--gold2);letter-spacing:1px}
+.tabs{display:flex;gap:8px;margin:14px 0 4px;position:sticky;top:0;background:var(--bg);padding:8px 0;z-index:10;flex-wrap:wrap}
+.tabs button{background:var(--panel);border:1px solid var(--line);color:var(--dim);padding:8px 18px;border-radius:6px;cursor:pointer;font-size:13px}
+.tabs button.on{background:var(--gold);color:#1a150f;border-color:var(--gold);font-weight:700}
+.grid{display:flex;flex-wrap:wrap;gap:14px}
+.card{background:linear-gradient(170deg,#20241a,#181b12);border:1px solid var(--line);border-radius:8px;padding:12px;text-align:center;position:relative;flex:none}
+.card::before{content:'';position:absolute;inset:3px;border:1px solid rgba(201,169,89,.15);border-radius:5px;pointer-events:none}
+.fig{display:flex;align-items:flex-end;justify-content:center;position:relative;width:100%}
+.ucard{width:195px;overflow:hidden}
+@media (max-width:760px){.fig{zoom:1.9}.ucard{width:auto;flex:1 1 46%}}
+.card img{image-rendering:auto;object-fit:contain;display:block;position:relative;filter:drop-shadow(0 3px 4px rgba(0,0,0,.6))}
+.id{font-size:11px;color:#7fa3cc;word-break:break-all;margin-top:8px;max-width:170px}
+.ko{font-size:13px;font-weight:600;margin-top:2px;color:var(--txt)}
+.meta{font-size:10px;color:var(--dim);margin-top:3px}
+</style></head><body>
+<h1>MESBG 통일 작업 갤러리 — 아트 스타일 검수 · <span style="font-size:11px;color:#8a8">#${CB.toString(36).toUpperCase()}</span> · ${rows.length}종</h1>
+<div class="tabs">${TABS.filter(([k]) => k === 'good' || k === 'evil').map(([k, n], i) => `<button data-t="${k}" class="${i ? '' : 'on'}" onclick="document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('on'));this.classList.add('on');document.querySelectorAll('.tabpane').forEach(p=>p.style.display=p.dataset.t===this.dataset.t?'block':'none')">${n} — ${groups[k].length}</button>`).join('')}</div>
+${TABS.filter(([k]) => k === 'good' || k === 'evil').map(([k, n], i) => `<div class="tabpane" data-t="${k}" style="display:${i ? 'none' : 'block'}"><h2>${n} — ${groups[k].length}</h2>${k === 'evil' ? wkHtml : ''}${factionGrid2(groups[k])}</div>`).join('')}
+</body></html>`;
+fs.writeFileSync(path.join(SRC, 'gallery2.html'), html2fixed);
+
+console.log(`OK: ${rows.length} rows -> units.csv / units.json / gallery.html / gallery2.html`);
+

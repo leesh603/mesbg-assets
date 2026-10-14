@@ -7,13 +7,30 @@ description: MESBG pixel-token generation rules — approved style, composition,
 
 User-approved style. Do not deviate without explicit instruction.
 
+## PERMANENT RULE (locked 2026-10-11 — user demand, never violate)
+- On ANY character modify/redraw request: FIRST study the live asset gallery (gallery.html / tokens/*.png) — quarter-view camera, head/body ratio, pixel rendering. Produce drafts ONLY on that baseline.
+- EVERY generation MUST pass 2-3 approved live tokens as input_image_paths references. Text-prompt-only generation is FORBIDDEN — it produces wrong-angle/front-view slop.
+
 ## Camera & proportions (MOST IMPORTANT — user repeats this)
 - **Steep top-down quarter view** — camera looks DOWN on the figure. Top of head/shoulders dominate the upper frame; body foreshortened below. NOT front view, NOT 45°, NOT side view.
-- Chunky retro JRPG overworld-sprite proportions (Final Fantasy Tactics). **Updated 2026-10-07 (final lock): medium-stocky heroic build — head ≈ 1/4 of figure height. Reference tokens: barahir (ranger), huor (axeman), thrydan (burly).** NOT realistic 7-head proportions and NOT super-squat — the goal is the barahir/huor silhouette.
+- Chunky retro JRPG overworld-sprite proportions (Final Fantasy Tactics). **Head ≈ 1/5 of figure height (~5등신 (머리≈1/5), 짧은 다리) — measured on parent's shipped tokens (wave24: hurin_thalion, warrior_minas_tirith, doriath_warrior, gondolin_guard ~330-350px, fill ~90%) and canon refs.** Do NOT make shorter chibi — user rejected 2.5등신 explicitly. Keep medium-stocky build.
+- **GOLD-STANDARD references (user-supplied 2026-10-11, "이게 기준"): `.devin/skills/token-style/refs/ref_boromir_ranger.png`, `ref_uruk.png`, `ref_swordsman.png`, `ref_knight_green.png`, `ref_gandalfs.png` — feed 2-3 of these as input_image_paths for every generation. They show the true target: head ≈ 1/4~1/5, detailed painterly pixel-cluster shading, thin dark outline, quarter-view, faces shadowed.**
+- Live-token references: `tokens/maglor.png`, `tokens/gwindor.png`, `tokens/celebrimbor.png`, `tokens/imrahil.png`, `tokens/aragorn_blackgate.png`, `tokens/fingolfin.png` and parent's wave24 (hurin_thalion, warrior_minas_tirith, doriath_warrior). NEVER reference tokens_painted/ for style.
+- Parent-session confirmed spec: ~55° top-down, low-saturation palette, dark outline, face minimal — buried in helm shadow, static forward-advance poses preferred.
 - Build VARIES per character — keep each unit's personality: burly/brawny characters (thrydan-type) → wider mass; normal warriors → barahir/huor medium; elves → slightly slimmer; monsters/mounts → fill frame. Do NOT force one numeric ratio on everyone; uniformity is in the PIXEL STYLE, not identical bodies.
 - NEVER stretch or squash a sprite by resizing — regenerate at the right proportions instead (pixel-mangling is forbidden).
 - Figure fills ~80–95% of frame height; feet toward the BOTTOM edge.
-- Faces: hair/face visible for unhooded characters — dark hair must read as HAIR (strand texture), not blend into a hood mass. Only characters that canonically wear hoods (Nazgul etc.) get hoods. Aragorn = NO hood (wavy hair + face).
+
+## Faces (PERMANENT RULE — added 2026-10-11 after many rejections)
+- **EYES ARE NEVER DRAWN.** The head is tilted DOWN (chin toward chest) so the steep top-down view shows mostly hair/helm top; only the small lower face is visible and eyes read as 1-2 tiny dark shadow pixels at most. Approved examples: maglor, gwindor, celebrimbor, fingolfin v9.
+- NEVER generate realistic detailed faces with visible eyeballs/nose/lips — that reads as "anime slop" and gets rejected.
+- NEVER "fix" visible eyes by painting a dark band/shade over the eye area — that looks like censored holes. Regenerate with the head angled down instead.
+- Unhooded characters show hair + brow + hint of lower face; hair must read as HAIR (strand texture). Only canonical hoods (Nazgul) get hoods. Aragorn = NO hood.
+
+## Individuality (PERMANENT RULE — added 2026-10-11)
+- Matching proportions does NOT mean identical silhouettes — every character must differ in armor shape, cloak drape, weapon angle, stance, and heraldry. Two tokens that read as "the same guy recolored" get rejected (elfhelm vs eomer_foot incident).
+- Mounted variants MUST share the foot design exactly, but two different CHARACTERS must never share a body design.
+- Heraldry must be lore-correct: Noldor = eight-pointed star; swan = Dol Amroth ONLY; white tree = Gondor; horse = Rohan. Never guess motifs.
 
 ## Mounted figures
 - ONE unified figure: rider's head/shoulders at TOP, FULL mount below — thick neck, rounded head, ears, muzzle pointing at BOTTOM edge.

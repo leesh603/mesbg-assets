@@ -1,0 +1,420 @@
+{
+  "method": "built-in image_gen; one independent generation per unit; transparent_background=true",
+  "style": "Production transparent PNG sprite for MIDDLE-EARTH WARBANDS. References are art-style references only. Match fine hand-drawn crisp pixel clusters, dark outlines, restrained rich colours, upper-left light, overhead quarter view looking down at helmet and shoulders, facing screen bottom. One complete full-body adult character and weapons within wide transparent margins. Body centred. No base, floor, cast shadow, text or oversized head. Draw a complete new anatomy/armour/pose; no pasted weapons or recolouring. LOTR/GW MESBG equipment.",
+  "units": [
+    {
+      "id": "citadel_guard_bow",
+      "subject": "Citadel Guard with longbow",
+      "faction": "gondor",
+      "weapon": "bow",
+      "origin": "official",
+      "original": "art-src/troop-promotions/citadel_guard_bow.png",
+      "deployment": "assets/mesbg/tokens/citadel_guard_bow.png",
+      "bodyAudit": {
+        "originalSize": [
+          1049,
+          1500
+        ],
+        "headOrRiderTop": 0.115,
+        "feetOrRiderBottom": 0.958,
+        "bodyCenter": [
+          0.486,
+          0.536
+        ],
+        "reference": 86,
+        "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      }
+    },
+    {
+      "id": "osgiliath_spearshield",
+      "subject": "Osgiliath Veteran with spear and shield",
+      "faction": "gondor",
+      "weapon": "spear_shield",
+      "origin": "official",
+      "original": "art-src/troop-promotions/osgiliath_spearshield.png",
+      "deployment": "assets/mesbg/tokens/osgiliath_spearshield.png",
+      "bodyAudit": {
+        "originalSize": [
+          1049,
+          1500
+        ],
+        "headOrRiderTop": 0.22,
+        "feetOrRiderBottom": 0.958,
+        "bodyCenter": [
+          0.457,
+          0.589
+        ],
+        "reference": 86,
+        "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      }
+    },
+    {
+      "id": "osgiliath_bow",
+      "subject": "Osgiliath Veteran with bow",
+      "faction": "gondor",
+      "weapon": "bow",
+      "origin": "official",
+      "original": "art-src/troop-promotions/osgiliath_bow.png",
+      "deployment": "assets/mesbg/tokens/osgiliath_bow.png",
+      "bodyAudit": {
+        "originalSize": [
+          1049,
+          1500
+        ],
+        "headOrRiderTop": 0.13,
+        "feetOrRiderBottom": 0.965,
+        "bodyCenter": [
+          0.482,
+          0.547
+        ],
+        "reference": 86,
+        "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      }
+    },
+    {
+      "id": "dol_amroth_swordshield",
+      "subject": "Dol Amroth levy swordsman",
+      "faction": "dol_amroth",
+      "weapon": "sword_shield",
+      "origin": "custom",
+      "original": "art-src/troop-promotions/dol_amroth_swordshield.png",
+      "deployment": "assets/mesbg/tokens/dol_amroth_swordshield.png",
+      "bodyAudit": {
+        "originalSize": [
+          1254,
+          1254
+        ],
+        "headOrRiderTop": 0.132,
+        "feetOrRiderBottom": 0.954,
+        "bodyCenter": [
+          0.481,
+          0.543
+        ],
+        "reference": 86,
+        "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      }
+    },
+    {
+      "id": "dol_amroth_knight_foot",
+      "subject": "Knight of Dol Amroth on foot",
+      "faction": "dol_amroth",
+      "weapon": "sword_shield",
+      "origin": "official",
+      "original": "art-src/troop-promotions/dol_amroth_knight_foot.png",
+      "deployment": "assets/mesbg/tokens/dol_amroth_knight_foot.png",
+      "bodyAudit": {
+        "originalSize": [
+          1254,
+          1254
+        ],
+        "headOrRiderTop": 0.14,
+        "feetOrRiderBottom": 0.949,
+        "bodyCenter": [
+          0.477,
+          0.545
+        ],
+        "reference": 86,
+        "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      }
+    },
+    {
+      "id": "rohan_helmingas",
+      "subject": "Helmingas",
+      "faction": "rohan",
+      "weapon": "axe",
+      "origin": "legacy",
+      "original": "art-src/troop-promotions/rohan_helmingas.png",
+      "deployment": "assets/mesbg/tokens/rohan_helmingas.png",
+      "bodyAudit": {
+        "originalSize": [
+          1024,
+          1536
+        ],
+        "headOrRiderTop": 0.176,
+        "feetOrRiderBottom": 0.936,
+        "bodyCenter": [
+          0.477,
+          0.556
+        ],
+        "reference": 86,
+        "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      }
+    },
+    {
+      "id": "rohan_redshield",
+      "subject": "Westfold Redshield",
+      "faction": "rohan",
+      "weapon": "spear",
+      "origin": "legacy",
+      "original": "art-src/troop-promotions/rohan_redshield.png",
+      "deployment": "assets/mesbg/tokens/rohan_redshield.png",
+      "bodyAudit": {
+        "originalSize": [
+          984,
+          1599
+        ],
+        "headOrRiderTop": 0.083,
+        "feetOrRiderBottom": 0.367,
+        "bodyCenter": [
+          0.475,
+          0.52
+        ],
+        "reference": 43,
+        "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      }
+    },
+    {
+      "id": "ironhills_warrior",
+      "subject": "Iron Hills Warrior with mattock",
+      "faction": "iron_hills",
+      "weapon": "twohanded",
+      "origin": "official",
+      "original": "art-src/troop-promotions/ironhills_warrior.png",
+      "deployment": "assets/mesbg/tokens/ironhills_warrior.png",
+      "bodyAudit": {
+        "originalSize": [
+          1254,
+          1254
+        ],
+        "headOrRiderTop": 0.258,
+        "feetOrRiderBottom": 0.9,
+        "bodyCenter": [
+          0.486,
+          0.579
+        ],
+        "reference": 68,
+        "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      }
+    },
+    {
+      "id": "ironhills_spearshield",
+      "subject": "Iron Hills Warrior with spear and shield",
+      "faction": "iron_hills",
+      "weapon": "spear_shield",
+      "origin": "official",
+      "original": "art-src/troop-promotions/ironhills_spearshield.png",
+      "deployment": "assets/mesbg/tokens/ironhills_spearshield.png",
+      "bodyAudit": {
+        "originalSize": [
+          1254,
+          1254
+        ],
+        "headOrRiderTop": 0.224,
+        "feetOrRiderBottom": 0.924,
+        "bodyCenter": [
+          0.482,
+          0.574
+        ],
+        "reference": 68,
+        "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      }
+    },
+    {
+      "id": "ironhills_crossbow",
+      "subject": "Iron Hills Warrior with crossbow",
+      "faction": "iron_hills",
+      "weapon": "crossbow",
+      "origin": "official",
+      "original": "art-src/troop-promotions/ironhills_crossbow.png",
+      "deployment": "assets/mesbg/tokens/ironhills_crossbow.png",
+      "bodyAudit": {
+        "originalSize": [
+          1254,
+          1254
+        ],
+        "headOrRiderTop": 0.251,
+        "feetOrRiderBottom": 0.901,
+        "bodyCenter": [
+          0.49,
+          0.576
+        ],
+        "reference": 68,
+        "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      }
+    },
+    {
+      "id": "galadhrim_bow",
+      "subject": "Galadhrim Warrior with Elf bow",
+      "faction": "lothlorien",
+      "weapon": "bow",
+      "origin": "official",
+      "original": "art-src/troop-promotions/galadhrim_bow.png",
+      "deployment": "assets/mesbg/tokens/galadhrim_bow.png",
+      "bodyAudit": {
+        "originalSize": [
+          1247,
+          1261
+        ],
+        "headOrRiderTop": 0.19,
+        "feetOrRiderBottom": 0.912,
+        "bodyCenter": [
+          0.465,
+          0.551
+        ],
+        "reference": 86,
+        "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      }
+    },
+    {
+      "id": "galadhrim_elite_bow",
+      "subject": "Galadhrim veteran bowguard",
+      "faction": "lothlorien",
+      "weapon": "bow",
+      "origin": "custom",
+      "original": "art-src/troop-promotions/galadhrim_elite_bow.png",
+      "deployment": "assets/mesbg/tokens/galadhrim_elite_bow.png",
+      "bodyAudit": {
+        "originalSize": [
+          1247,
+          1261
+        ],
+        "headOrRiderTop": 0.208,
+        "feetOrRiderBottom": 0.935,
+        "bodyCenter": [
+          0.474,
+          0.572
+        ],
+        "reference": 86,
+        "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      }
+    },
+    {
+      "id": "mirkwood_ranger",
+      "subject": "Mirkwood Ranger",
+      "faction": "mirkwood",
+      "weapon": "bow",
+      "origin": "official",
+      "original": "art-src/troop-promotions/mirkwood_ranger.png",
+      "deployment": "assets/mesbg/tokens/mirkwood_ranger.png",
+      "bodyAudit": {
+        "originalSize": [
+          1080,
+          1457
+        ],
+        "headOrRiderTop": 0.178,
+        "feetOrRiderBottom": 0.955,
+        "bodyCenter": [
+          0.483,
+          0.566
+        ],
+        "reference": 86,
+        "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      }
+    },
+    {
+      "id": "arnor_knight",
+      "subject": "Knight of Arnor",
+      "faction": "arnor",
+      "weapon": "lance",
+      "origin": "official",
+      "original": "art-src/troop-promotions/arnor_knight.png",
+      "deployment": "assets/mesbg/tokens/arnor_knight.png",
+      "bodyAudit": {
+        "originalSize": [
+          1088,
+          1445
+        ],
+        "headOrRiderTop": 0.086,
+        "feetOrRiderBottom": 0.368,
+        "bodyCenter": [
+          0.479,
+          0.524
+        ],
+        "reference": 43,
+        "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      }
+    },
+    {
+      "id": "arnor_ranger",
+      "subject": "Ranger of Arnor",
+      "faction": "arnor",
+      "weapon": "bow",
+      "origin": "official",
+      "original": "art-src/troop-promotions/arnor_ranger.png",
+      "deployment": "assets/mesbg/tokens/arnor_ranger.png",
+      "bodyAudit": {
+        "originalSize": [
+          1145,
+          1374
+        ],
+        "headOrRiderTop": 0.174,
+        "feetOrRiderBottom": 0.954,
+        "bodyCenter": [
+          0.486,
+          0.564
+        ],
+        "reference": 86,
+        "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      }
+    },
+    {
+      "id": "morannon_swordshield",
+      "subject": "Morannon Orc with sword and shield",
+      "faction": "mordor",
+      "weapon": "sword_shield",
+      "origin": "official",
+      "original": "art-src/troop-promotions/morannon_swordshield.png",
+      "deployment": "assets/mesbg/tokens/morannon_swordshield.png",
+      "bodyAudit": {
+        "originalSize": [
+          1254,
+          1254
+        ],
+        "headOrRiderTop": 0.21,
+        "feetOrRiderBottom": 0.933,
+        "bodyCenter": [
+          0.463,
+          0.572
+        ],
+        "reference": 76,
+        "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      }
+    },
+    {
+      "id": "orc_elite_tracker",
+      "subject": "Veteran Orc Tracker",
+      "faction": "mordor",
+      "weapon": "bow",
+      "origin": "custom",
+      "original": "art-src/troop-promotions/orc_elite_tracker.png",
+      "deployment": "assets/mesbg/tokens/orc_elite_tracker.png",
+      "bodyAudit": {
+        "originalSize": [
+          1247,
+          1261
+        ],
+        "headOrRiderTop": 0.278,
+        "feetOrRiderBottom": 0.927,
+        "bodyCenter": [
+          0.467,
+          0.602
+        ],
+        "reference": 76,
+        "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      }
+    },
+    {
+      "id": "dale_guard",
+      "subject": "Guard of Girion",
+      "faction": "dale",
+      "weapon": "sword_shield",
+      "origin": "official",
+      "original": "art-src/troop-promotions/dale_guard.png",
+      "deployment": "assets/mesbg/tokens/dale_guard.png",
+      "bodyAudit": {
+        "originalSize": [
+          1247,
+          1261
+        ],
+        "headOrRiderTop": 0.135,
+        "feetOrRiderBottom": 0.944,
+        "bodyCenter": [
+          0.466,
+          0.539
+        ],
+        "reference": 86,
+        "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      }
+    }
+  ]
+}

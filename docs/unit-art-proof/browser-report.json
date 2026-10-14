@@ -1,0 +1,827 @@
+{
+  "errors": [],
+  "failedRequests": [
+    {
+      "version": "before",
+      "url": "http://127.0.0.1:8146/baseline/assets/mesbg/audio/lwb-camp.mp3?v=a19",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "version": "after",
+      "url": "http://127.0.0.1:8146/assets/mesbg/dice-faces/mordor-3.png?v=a19",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "version": "after",
+      "url": "http://127.0.0.1:8146/assets/mesbg/dice-faces/mordor-1.png?v=a19",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "version": "after",
+      "url": "http://127.0.0.1:8146/assets/mesbg/dice-faces/minastirith-1.png?v=a19",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "version": "after",
+      "url": "http://127.0.0.1:8146/assets/mesbg/dice-faces/minastirith-4.png?v=a19",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "version": "after",
+      "url": "http://127.0.0.1:8146/assets/mesbg/dice-faces/mordor-5.png?v=a19",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "version": "after",
+      "url": "http://127.0.0.1:8146/assets/mesbg/dice-faces/minastirith-2.png?v=a19",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "version": "after",
+      "url": "http://127.0.0.1:8146/assets/mesbg/dice-faces/mordor-1.png?v=a19",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "version": "after",
+      "url": "http://127.0.0.1:8146/assets/mesbg/dice-faces/mordor-2.png?v=a19",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "version": "after",
+      "url": "http://127.0.0.1:8146/assets/mesbg/dice-faces/mordor-4.png?v=a19",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "version": "after",
+      "url": "http://127.0.0.1:8146/assets/mesbg/dice-faces/mordor-2.png?v=a19",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "version": "after",
+      "url": "http://127.0.0.1:8146/assets/mesbg/dice-faces/minastirith-3.png?v=a19",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "version": "after",
+      "url": "http://127.0.0.1:8146/assets/mesbg/dice-faces/mordor-4.png?v=a19",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "version": "after",
+      "url": "http://127.0.0.1:8146/assets/mesbg/dice-faces/minastirith-5.png?v=a19",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "version": "after",
+      "url": "http://127.0.0.1:8146/assets/mesbg/dice-faces/mordor-3.png?v=a19",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "version": "after",
+      "url": "http://127.0.0.1:8146/assets/mesbg/dice-faces/mordor-5.png?v=a19",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "version": "after",
+      "url": "http://127.0.0.1:8146/assets/mesbg/dice-faces/mordor-3.png?v=a19",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "version": "after",
+      "url": "http://127.0.0.1:8146/assets/mesbg/dice-faces/mordor-2.png?v=a19",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "version": "after",
+      "url": "http://127.0.0.1:8146/assets/mesbg/dice-faces/mordor-1.png?v=a19",
+      "error": "net::ERR_ABORTED"
+    }
+  ],
+  "samples": [
+    {
+      "version": "before",
+      "units": [
+        {
+          "id": "mt_swordshield",
+          "uid": "g4",
+          "radius": 38,
+          "width": 69.10601092896175,
+          "height": 98.8,
+          "baseHeight": 98.8,
+          "originX": 0.5,
+          "originY": 0.5,
+          "bases": [
+            "base",
+            "rim"
+          ],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "mt_spear",
+          "uid": "g5",
+          "radius": 38,
+          "width": 98.8,
+          "height": 98.8,
+          "baseHeight": 98.8,
+          "originX": 0.5,
+          "originY": 0.5,
+          "bases": [
+            "base",
+            "rim"
+          ],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "warrior_minas_tirith",
+          "uid": "g6",
+          "radius": 38,
+          "width": 84.22295081967214,
+          "height": 98.8,
+          "baseHeight": 98.8,
+          "originX": 0.5,
+          "originY": 0.5,
+          "bases": [
+            "base",
+            "rim"
+          ],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "gondor_archer",
+          "uid": "g7",
+          "radius": 38,
+          "width": 70.72568306010929,
+          "height": 98.8,
+          "baseHeight": 98.8,
+          "originX": 0.5,
+          "originY": 0.5,
+          "bases": [
+            "base",
+            "rim"
+          ],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "arnor_warrior",
+          "uid": "g8",
+          "radius": 38,
+          "width": 98.8,
+          "height": 98.33175355450236,
+          "baseHeight": 98.33175355450236,
+          "originX": 0.5,
+          "originY": 0.5,
+          "bases": [
+            "base",
+            "rim"
+          ],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "dwarf_banner",
+          "uid": "g9",
+          "radius": 38,
+          "width": 59.73045592705167,
+          "height": 83.97999999999998,
+          "baseHeight": 83.97999999999998,
+          "originX": 0.5,
+          "originY": 0.5,
+          "bases": [
+            "base",
+            "rim"
+          ],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "gandalf",
+          "uid": "g10",
+          "radius": 38,
+          "width": 67.14033149171271,
+          "height": 98.80000000000001,
+          "baseHeight": 98.80000000000001,
+          "originX": 0.5,
+          "originY": 0.5,
+          "bases": [
+            "base",
+            "rim"
+          ],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "boromir",
+          "uid": "g11",
+          "radius": 38,
+          "width": 97.38857142857144,
+          "height": 98.8,
+          "baseHeight": 98.8,
+          "originX": 0.5,
+          "originY": 0.5,
+          "bases": [
+            "base",
+            "rim"
+          ],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "frodo",
+          "uid": "g12",
+          "radius": 38,
+          "width": 49.4,
+          "height": 49.4,
+          "baseHeight": 49.4,
+          "originX": 0.5,
+          "originY": 0.5,
+          "bases": [
+            "base",
+            "rim"
+          ],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "samwise",
+          "uid": "g13",
+          "radius": 38,
+          "width": 49.4,
+          "height": 49.4,
+          "baseHeight": 49.4,
+          "originX": 0.5,
+          "originY": 0.5,
+          "bases": [
+            "base",
+            "rim"
+          ],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "pippin_citadel",
+          "uid": "g14",
+          "radius": 38,
+          "width": 49.4,
+          "height": 49.4,
+          "baseHeight": 49.4,
+          "originX": 0.5,
+          "originY": 0.5,
+          "bases": [
+            "base",
+            "rim"
+          ],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "gimli",
+          "uid": "g15",
+          "radius": 38,
+          "width": 88.92000000000002,
+          "height": 88.92000000000002,
+          "baseHeight": 88.92000000000002,
+          "originX": 0.5,
+          "originY": 0.5,
+          "bases": [
+            "base",
+            "rim"
+          ],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "dwarf_axeshield",
+          "uid": "g16",
+          "radius": 38,
+          "width": 83.97999999999999,
+          "height": 83.97999999999999,
+          "baseHeight": 83.97999999999999,
+          "originX": 0.5,
+          "originY": 0.5,
+          "bases": [
+            "base",
+            "rim"
+          ],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "beorn",
+          "uid": "g17",
+          "radius": 38,
+          "width": 98.8,
+          "height": 98.8,
+          "baseHeight": 98.8,
+          "originX": 0.5,
+          "originY": 0.5,
+          "bases": [
+            "base",
+            "rim"
+          ],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "uruk_pike",
+          "uid": "e18",
+          "radius": 38,
+          "width": 82.6643216080402,
+          "height": 98.8,
+          "baseHeight": 98.8,
+          "originX": 0.5,
+          "originY": 0.5,
+          "bases": [
+            "base",
+            "rim"
+          ],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "sauron",
+          "uid": "e19",
+          "radius": 60.8,
+          "width": 119.05195020746886,
+          "height": 158.07999999999998,
+          "baseHeight": 158.07999999999998,
+          "originX": 0.5,
+          "originY": 0.5,
+          "bases": [
+            "base",
+            "rim"
+          ],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "boromir_mounted",
+          "uid": "g20",
+          "radius": 60.8,
+          "width": 91.99737704918032,
+          "height": 158.07999999999998,
+          "baseHeight": 158.07999999999998,
+          "originX": 0.5,
+          "originY": 0.5,
+          "bases": [
+            "base",
+            "rim"
+          ],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "gandalf_white_mounted",
+          "uid": "g21",
+          "radius": 60.8,
+          "width": 120.50360655737703,
+          "height": 158.07999999999998,
+          "baseHeight": 158.07999999999998,
+          "originX": 0.5,
+          "originY": 0.5,
+          "bases": [
+            "base",
+            "rim"
+          ],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "imrahil_mounted",
+          "uid": "g22",
+          "radius": 60.8,
+          "width": 90.68883870967743,
+          "height": 165.984,
+          "baseHeight": 165.984,
+          "originX": 0.5,
+          "originY": 0.5,
+          "bases": [
+            "base",
+            "rim"
+          ],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "rohan_rider",
+          "uid": "g23",
+          "radius": 60.8,
+          "width": 119.05195020746886,
+          "height": 158.07999999999998,
+          "baseHeight": 158.07999999999998,
+          "originX": 0.5,
+          "originY": 0.5,
+          "bases": [
+            "base",
+            "rim"
+          ],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "dain_boar",
+          "uid": "g24",
+          "radius": 60.8,
+          "width": 104.61508571428571,
+          "height": 134.368,
+          "baseHeight": 134.368,
+          "originX": 0.5,
+          "originY": 0.5,
+          "bases": [
+            "base",
+            "rim"
+          ],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "azog",
+          "uid": "e25",
+          "radius": 38,
+          "width": 70.1037037037037,
+          "height": 98.8,
+          "baseHeight": 98.8,
+          "originX": 0.5,
+          "originY": 0.5,
+          "bases": [
+            "base",
+            "rim"
+          ],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "cave_troll",
+          "uid": "e26",
+          "radius": 76,
+          "width": 223.40127388535035,
+          "height": 296.40000000000003,
+          "baseHeight": 296.40000000000003,
+          "originX": 0.5,
+          "originY": 0.5,
+          "bases": [
+            "base",
+            "rim"
+          ],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "great_eagle",
+          "uid": "g27",
+          "radius": 91.2,
+          "width": 237.11999999999998,
+          "height": 235.99620853080566,
+          "baseHeight": 235.99620853080566,
+          "originX": 0.5,
+          "originY": 0.5,
+          "bases": [
+            "base",
+            "rim"
+          ],
+          "alpha": 1,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "version": "after",
+      "units": [
+        {
+          "id": "mt_swordshield",
+          "uid": "g8",
+          "radius": 38,
+          "width": 63.627041955236805,
+          "height": 90.96678654537762,
+          "baseHeight": 90.96678654537762,
+          "originX": 0.4972,
+          "originY": 0.5039,
+          "bases": [],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "mt_spear",
+          "uid": "g9",
+          "radius": 38,
+          "width": 145.81213970837572,
+          "height": 145.81213970837572,
+          "baseHeight": 145.81213970837572,
+          "originX": 0.4727,
+          "originY": 0.6426,
+          "bases": [],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "warrior_minas_tirith",
+          "uid": "g10",
+          "radius": 38,
+          "width": 79.85999499982141,
+          "height": 93.68191721132897,
+          "baseHeight": 93.68191721132897,
+          "originX": 0.4817,
+          "originY": 0.4863,
+          "bases": [],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "gondor_archer",
+          "uid": "g11",
+          "radius": 38,
+          "width": 64.58544012804725,
+          "height": 90.22240872849349,
+          "baseHeight": 90.22240872849349,
+          "originX": 0.3169,
+          "originY": 0.5,
+          "bases": [],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "arnor_warrior",
+          "uid": "g12",
+          "radius": 38,
+          "width": 101.53880588663198,
+          "height": 101.05757931844889,
+          "baseHeight": 101.05757931844889,
+          "originX": 0.4492,
+          "originY": 0.5745,
+          "bases": [],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "dwarf_banner",
+          "uid": "g13",
+          "radius": 38,
+          "width": 76.45354635124257,
+          "height": 107.49237927161882,
+          "baseHeight": 107.49237927161882,
+          "originX": 0.3173,
+          "originY": 0.6541,
+          "bases": [],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "gandalf",
+          "uid": "g14",
+          "radius": 38,
+          "width": 70.51398280680048,
+          "height": 103.76447876447877,
+          "baseHeight": 103.76447876447877,
+          "originX": 0.3434,
+          "originY": 0.5582,
+          "bases": [],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "boromir",
+          "uid": "g15",
+          "radius": 38,
+          "width": 86.8026096369328,
+          "height": 88.06061847225067,
+          "baseHeight": 88.06061847225067,
+          "originX": 0.4603,
+          "originY": 0.4961,
+          "bases": [],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "frodo",
+          "uid": "g16",
+          "radius": 38,
+          "width": 58.33423355298693,
+          "height": 58.33423355298693,
+          "baseHeight": 58.33423355298693,
+          "originX": 0.4727,
+          "originY": 0.502,
+          "bases": [],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "samwise",
+          "uid": "g17",
+          "radius": 38,
+          "width": 89.18249380677128,
+          "height": 89.18249380677128,
+          "baseHeight": 89.18249380677128,
+          "originX": 0.4844,
+          "originY": 0.6699,
+          "bases": [],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "pippin_citadel",
+          "uid": "g18",
+          "radius": 38,
+          "width": 60.10685663401603,
+          "height": 60.10685663401603,
+          "baseHeight": 60.10685663401603,
+          "originX": 0.4961,
+          "originY": 0.5156,
+          "bases": [],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "gimli",
+          "uid": "g19",
+          "radius": 38,
+          "width": 94.75321736670908,
+          "height": 94.75321736670908,
+          "baseHeight": 94.75321736670908,
+          "originX": 0.4766,
+          "originY": 0.6152,
+          "bases": [],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "dwarf_axeshield",
+          "uid": "g20",
+          "radius": 38,
+          "width": 94.75321736670908,
+          "height": 94.75321736670908,
+          "baseHeight": 94.75321736670908,
+          "originX": 0.5078,
+          "originY": 0.6191,
+          "bases": [],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "beorn",
+          "uid": "g21",
+          "radius": 38,
+          "width": 136.91128148959476,
+          "height": 136.91128148959476,
+          "baseHeight": 136.91128148959476,
+          "originX": 0.5,
+          "originY": 0.5879,
+          "bases": [],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "uruk_pike",
+          "uid": "e22",
+          "radius": 38,
+          "width": 102.64794713353298,
+          "height": 122.68433321064902,
+          "baseHeight": 122.68433321064902,
+          "originX": 0.541,
+          "originY": 0.5445,
+          "bases": [],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "sauron",
+          "uid": "e23",
+          "radius": 60.8,
+          "width": 127.93624681623751,
+          "height": 169.87677951908123,
+          "baseHeight": 169.87677951908123,
+          "originX": 0.513,
+          "originY": 0.5391,
+          "bases": [],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "boromir_mounted",
+          "uid": "g24",
+          "radius": 60.8,
+          "width": 87.04205274411976,
+          "height": 149.56521739130437,
+          "baseHeight": 149.56521739130437,
+          "originX": 0.4941,
+          "originY": 0.5548,
+          "bases": [],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "gandalf_white_mounted",
+          "uid": "g25",
+          "radius": 60.8,
+          "width": 95.7042000717961,
+          "height": 125.54744525547446,
+          "baseHeight": 125.54744525547446,
+          "originX": 0.4324,
+          "originY": 0.5685,
+          "bases": [],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "imrahil_mounted",
+          "uid": "g26",
+          "radius": 60.8,
+          "width": 60.00735645713024,
+          "height": 109.82896237172177,
+          "baseHeight": 109.82896237172177,
+          "originX": 0.5071,
+          "originY": 0.5039,
+          "bases": [],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "rohan_rider",
+          "uid": "g27",
+          "radius": 60.8,
+          "width": 86.79080047540607,
+          "height": 115.24288107202679,
+          "baseHeight": 115.24288107202679,
+          "originX": 0.5285,
+          "originY": 0.4883,
+          "bases": [],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "dain_boar",
+          "uid": "g28",
+          "radius": 60.8,
+          "width": 72.09279368213228,
+          "height": 92.59624876604147,
+          "baseHeight": 92.59624876604147,
+          "originX": 0.4573,
+          "originY": 0.4961,
+          "bases": [],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "azog",
+          "uid": "e29",
+          "radius": 38,
+          "width": 126.10248425110872,
+          "height": 177.7213582989527,
+          "baseHeight": 177.7213582989527,
+          "originX": 0.4712,
+          "originY": 0.4486,
+          "bases": [],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "cave_troll",
+          "uid": "e30",
+          "radius": 76,
+          "width": 145.33078104530875,
+          "height": 192.81914893617022,
+          "baseHeight": 192.81914893617022,
+          "originX": 0.4767,
+          "originY": 0.4824,
+          "bases": [],
+          "alpha": 1,
+          "visible": true
+        },
+        {
+          "id": "great_eagle",
+          "uid": "g31",
+          "radius": 91.2,
+          "width": 207.3030948092353,
+          "height": 206.32061568691665,
+          "baseHeight": 206.32061568691665,
+          "originX": 0.5,
+          "originY": 0.6107,
+          "bases": [],
+          "alpha": 1,
+          "visible": true
+        }
+      ]
+    }
+  ],
+  "unitsChecked": 492,
+  "versions": [
+    "before",
+    "after"
+  ],
+  "normalPlay": {
+    "phase": "move",
+    "round": 3,
+    "wave": 1,
+    "log": [
+      "고블린 궁수 · 남은 이동력 158",
+      "오크 궁수 · 남은 이동력 117",
+      "👁 사우론의 눈이 전장을 비춥니다 — 범위 내 적 결투 재굴림 · 아군 용기 −1",
+      "라운드 3 · 모르도르 우선권",
+      "── 라운드 3 ──",
+      "라운드 2 종료"
+    ],
+    "moved": 3
+  }
+}

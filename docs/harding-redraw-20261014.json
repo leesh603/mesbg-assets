@@ -1,0 +1,17 @@
+{
+  "sourceCommit": "af4d04201f303e4f64ad7fa722b193d0d6a6df63",
+  "method": "built-in imagegen reference edit",
+  "references": [
+    "tokens/harding_mounted.png",
+    "tokens/harding.png",
+    "tokens/deorwine_mounted.png"
+  ],
+  "prompt": "Use case: precise-object-edit. Image 1 EDIT TARGET is Harding mounted from the game: badly elongated frontal horse and rider seated on the neck. Image 2 IDENTITY reference is Harding on foot. Image 3 Deorwine mounted is the REQUIRED successful game's style, compact horse anatomy and elevated front three-quarter camera reference. Redraw ONE Harding mounted GAME SPRITE. Preserve identity EXACTLY: dark steel/silver simple Rohan helmet with silver vertical ridge and small cheek guards, short brown beard, forest green cloak with modest gold edging, brown leather and chainmail armour, green split skirt with tiny gold plant motifs, brown boots, simple wooden recurved bow and quiver of pale fletched arrows over the shoulder. No shield and no extravagant gold plate armour. Give him an anatomically coherent seated archer pose: pelvis in a visible saddle BEHIND horse withers, two bent legs straddling the barrel with boots in stirrups, rider naturally upright. Left hand holds bow, right hand pulls the taut string and nocked arrow back close to face; hands and arrow form a plausible shooting line, no extra fingers/arms, no bent arrow. Bow stays compact and readable. His arrow aims slightly toward viewer-left, not vertically down into his horse. Normal adult proportions, same torso and head scale as game adults, no oversized head. Chestnut/brown Rohan horse with darker mane, very modest green cloth tack and simple brown bridle. Rebuild horse with realistic compact barrel, hindquarters and neck, distinct coherent four legs and hooves, readable three-quarter front view with visible flank and tail, controlled walking/advancing pose, not rearing. Match image 3's slightly elevated game camera and crisp detailed 2D pixel clusters, restrained textured shading, outline thickness and lighting. No smooth painting, no photoreal or 3D miniature. No exaggerated vertical foreshortening, skinny horse or rider pasted onto neck. Full single mounted sprite centered with all hooves, bow, quiver and tail uncropped. True transparent background. No disk base, pedestal, ground, cast shadow disc, scenery, lettering, labels, UI or panels. Maintain useful silhouette at real small game size.",
+  "changes": [
+    "Horse compact barrel and hindquarters, four coherent legs, elevated front three-quarter camera.",
+    "Rider seated behind withers, bent knees, saddle and stirrups.",
+    "Harding silver helmet, beard, green cape, leather/chainmail, bow and quiver retained.",
+    "Crown-to-seated-pelvis stature and combined torso center visually reviewed.",
+    "Runtime PNG, gallery PNG, DOM thumbnail, cache revisions and embedded source updated."
+  ]
+}

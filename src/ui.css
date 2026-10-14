@@ -1,0 +1,1328 @@
+/* MIDDLE-EARTH WARBANDS — shared mobile UI rules (spliced into index.html as <style id="ui-overhaul"> by tools/build.js).
+   Sits on top of the older style blocks: selectors start with #app#app#app (or a doubled class) so they win without
+   touching those blocks. Readable text uses Pretendard; the pixel face (Galmuri) is kept for titles and short labels
+   at its native sizes (11px font at 24px, 14px font at 15px) so it stays crisp. */
+
+/* ---------- tokens ---------- */
+html body.lwb-polished{
+ --ov-ink:#0b0d0a; --ov-bg:#12150f; --ov-panel:#171b14; --ov-raised:#20261c; --ov-line:#3a3f2c; --ov-line-hi:#6b6440;
+ --ov-gold:#c9a24e; --ov-gold-hi:#f2d58a; --ov-ivory:#f1ead6; --ov-text:#e3ddca; --ov-muted:#aeac99; --ov-dim:#7f7d6e;
+ --ov-ally:#8fd0ff; --ov-foe:#ff9d8a; --ov-danger:#d65a4a; --ov-ok:#8fd27a;
+ --ov-font:Pretendard,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+ --ov-pixel:Galmuri11,Pretendard,sans-serif; --ov-pixel-14:Galmuri14,Galmuri11,Pretendard,sans-serif;
+ --ov-xs:13px; --ov-s:14px; --ov-m:15px; --ov-l:17px; --ov-xl:20px;
+ --ov-tap:44px; --ov-r:0px;
+ --px11:Galmuri11,"Apple SD Gothic Neo",sans-serif; --px14:Galmuri14,Galmuri11,sans-serif;
+ /* the older blocks read these */
+ --ui-font:var(--px11); --ui-body:15px; --ui-meta:12px; --ui-title:15px;
+}
+html body.lwb-polished,html body.lwb-polished #app#app#app{font-family:var(--px11)!important;font-synthesis:none;-webkit-text-size-adjust:100%}
+#app#app#app :is(p,li,small,span,em,b,strong,label,input,select,textarea,button,td,th,div){font-family:var(--px11)}
+#app#app#app :is(button,select,input){font-family:var(--px11)!important}
+#app#app#app :is(b,strong){font-variant-numeric:tabular-nums}
+
+/* buttons: one rule set — primary (gold fill), secondary (bronze), quiet; pressed and disabled states */
+#app#app#app :is(button.primary,.dock-primary,#draft-confirm,#leave-camp,#camp-choice-confirm){min-height:var(--ov-tap)!important;border:0!important;border-image:none!important;border-radius:var(--ov-r)!important;
+ font:400 15px/1.2 var(--px14)!important;letter-spacing:.02em;color:#251703!important;text-shadow:none!important;
+ background:linear-gradient(180deg,#f7e3a4 0,#e2bd62 55%,#c99b3c 100%)!important;box-shadow:inset 0 -2px 0 #8a6421,0 0 0 1px #0b0d0a,0 0 0 2px #7a5c22!important}
+#app#app#app :is(button.secondary,.act-btn,.camp-secondary button,.save-slots button){min-height:var(--ov-tap)!important;border:0!important;border-image:none!important;border-radius:var(--ov-r)!important;
+ font:400 15px/1.2 var(--px14)!important;color:var(--ov-ivory)!important;text-shadow:none!important;
+ background:linear-gradient(180deg,#2d3324,#1d2218)!important;box-shadow:inset 0 1px 0 rgba(255,240,200,.08),0 0 0 1px #0b0d0a,0 0 0 2px var(--ov-line-hi)!important}
+#app#app#app :is(button,.act-btn):not([disabled]):active{transform:translateY(1px);filter:brightness(1.12)}
+#app#app#app :is(button.primary,.dock-primary,#draft-confirm,#leave-camp,#camp-choice-confirm,button.secondary,.act-btn)[disabled]{
+ filter:none!important;opacity:1!important;color:var(--ov-dim)!important;background:#1a1d16!important;box-shadow:0 0 0 1px #0b0d0a,0 0 0 2px #2c3024!important;cursor:not-allowed}
+
+/* ---------- battle HUD: top bar ---------- */
+#app#app#app header.top{display:grid!important;grid-template-columns:auto minmax(0,1fr) auto auto 44px!important;grid-template-rows:44px!important;column-gap:6px!important;row-gap:0!important;align-items:stretch!important;
+ height:calc(52px + var(--safe-t,0px))!important;min-height:calc(52px + var(--safe-t,0px))!important;max-height:none!important;padding:calc(4px + var(--safe-t,0px)) 6px 4px!important;
+ background:linear-gradient(180deg,#191d15,#11140e)!important;border:0!important;box-shadow:inset 0 -1px 0 var(--ov-line-hi),0 1px 0 #000!important}
+#app#app#app header.top :is(.metric,#hud-mission,#settings-toggle){height:44px!important;min-height:44px!important;margin:0!important;border:0!important;border-image:none!important;border-radius:var(--ov-r)!important;
+ background:rgba(0,0,0,.35)!important;box-shadow:inset 0 0 0 1px var(--ov-line)!important}
+#app#app#app header.top .metric{min-width:46px!important;padding:2px 6px!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:0!important}
+#app#app#app header.top .metric small{font:600 12px/1.1 var(--px11)!important;color:var(--ov-muted)!important;letter-spacing:.02em}
+#app#app#app header.top .metric strong{font:400 15px/1.1 var(--px14)!important;color:var(--ov-gold-hi)!important;text-shadow:none!important}
+#app#app#app header.top .metric :is(img,.hud-icon){width:14px!important;height:14px!important}
+#app#app#app #hud-mission{min-width:0!important;overflow:hidden!important;padding:0 8px!important;display:flex!important;align-items:center!important}
+#app#app#app #hud-mission .hm-line{font:400 15px/1.2 var(--px14)!important;color:var(--ov-ivory)!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;min-width:0!important;max-width:100%!important}
+#app#app#app #settings-toggle{width:44px!important;min-width:44px!important;padding:0!important}
+
+/* ---------- battle HUD: command dock ---------- */
+#app#app#app #command-dock{padding:6px 8px calc(6px + env(safe-area-inset-bottom))!important;gap:6px!important;border:0!important;
+ background:linear-gradient(180deg,#191d15,#10130d)!important;box-shadow:inset 0 1px 0 var(--ov-line-hi),0 -1px 0 #000!important}
+#app#app#app #u-panel{display:grid!important;grid-template-columns:52px minmax(0,1fr) auto!important;grid-template-rows:auto auto!important;column-gap:10px!important;row-gap:6px!important;align-items:center!important;
+ min-height:0!important;height:auto!important;padding:6px 8px!important;border:0!important;border-image:none!important;border-radius:var(--ov-r)!important;background:rgba(0,0,0,.28)!important;box-shadow:inset 0 0 0 1px var(--ov-line)!important}
+#app#app#app #u-panel .dock-portrait{grid-column:1;grid-row:1;width:52px!important;height:52px!important;margin:0!important;border:0!important;border-radius:var(--ov-r)!important;object-fit:contain;
+ background:radial-gradient(circle at 50% 60%,#2b3324 0 45%,#151912 75%)!important;box-shadow:inset 0 0 0 1px var(--ov-line-hi)!important}
+#app#app#app #u-panel .u-id{grid-column:2;grid-row:1;min-width:0!important;display:flex!important;flex-direction:column!important;gap:3px!important}
+#app#app#app #dock-name{font:400 15px/1.2 var(--px14)!important;color:var(--ov-ivory)!important;text-shadow:none!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#app#app#app #u-hp{display:flex!important;align-items:center!important;gap:6px!important;height:auto!important}
+#app#app#app #u-hp > b{font:400 15px/1 var(--px14)!important;color:var(--ov-ivory)!important}
+#app#app#app #u-hp > b small{font:500 12px/1 var(--px11)!important;color:var(--ov-muted)!important}
+#app#app#app #u-hp .hpbar{width:56px!important;height:6px!important;border-radius:0!important;background:#0b0d0a!important;box-shadow:0 0 0 1px #3a3f2c!important}
+#app#app#app #u-hp .hpbar i{height:100%!important;border-radius:0!important}
+#app#app#app #u-hp .mv{font:500 12px/1 var(--px11)!important;color:var(--ov-muted)!important;white-space:nowrap}
+#app#app#app #u-states:empty{display:none!important}
+/* Might / Will / Fate: compact column at the right of the name row */
+#app#app#app #u-res{grid-column:3;grid-row:1;display:flex!important;flex-direction:column!important;gap:2px!important;width:auto!important;min-width:0!important}
+#app#app#app #u-res.hidden{display:none!important}
+#app#app#app #u-res > span{display:flex!important;align-items:center!important;gap:4px!important;width:auto!important;min-width:0!important;height:16px!important}
+#app#app#app #u-res em{font:600 12px/1 var(--px11)!important;font-style:normal!important;color:var(--ov-muted)!important;width:30px;text-align:left}
+#app#app#app #u-res .res-count{font:700 12px/1 var(--px11)!important;color:var(--ov-ivory)!important;min-width:24px}
+#app#app#app #u-res .resource-pips{display:none!important}
+/* F S D A: one row of four chips under the name */
+#app#app#app #u-stats{grid-column:1 / -1;grid-row:2;display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:6px!important;height:auto!important;margin:0!important}
+#app#app#app #u-stats > span{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:4px!important;height:34px!important;padding:0 8px 0 6px!important;border:0!important;border-radius:var(--ov-r)!important;background:#0f120c!important;box-shadow:inset 0 0 0 1px var(--ov-line)!important}
+#app#app#app #u-stats > span img{width:16px!important;height:16px!important;image-rendering:pixelated;flex:0 0 16px}
+#app#app#app #u-stats .stat-label{font:600 12px/1 var(--px11)!important;color:var(--ov-muted)!important;margin-right:auto}
+#app#app#app #u-stats > span b{font:400 15px/1 var(--px14)!important;color:var(--ov-ivory)!important}
+#app#app#app #u-panel .u-grab{top:2px!important}
+/* action row: phase · end turn · ability/shoot · primary (fills the rest) */
+#app#app#app .u-actions{display:flex!important;align-items:stretch!important;gap:6px!important;height:auto!important;min-height:var(--ov-tap)!important}
+#app#app#app .u-actions :is(.action-context,.action-commands){display:contents!important}
+#app#app#app #act-phase{flex:0 0 auto;display:flex!important;align-items:center!important;justify-content:center!important;min-width:60px;min-height:var(--ov-tap)!important;padding:0 8px!important;border:0!important;border-radius:var(--ov-r)!important;
+ font:700 12px/1.15 var(--px11)!important;color:var(--ov-text)!important;text-align:center;background:#0f120c!important;box-shadow:inset 0 0 0 1px var(--ov-line),inset 3px 0 0 var(--ov-gold)!important}
+#app#app#app #act-phase.ally{color:var(--ov-ally)!important;box-shadow:inset 0 0 0 1px #2c4a63,inset 3px 0 0 var(--ov-ally)!important}
+#app#app#app #act-phase.foe{color:var(--ov-foe)!important;box-shadow:inset 0 0 0 1px #5c2c25,inset 3px 0 0 var(--ov-foe)!important}
+#app#app#app #act-phase:empty{display:none!important}
+#app#app#app .u-actions .act-btn{flex:0 0 auto;min-width:60px!important;width:auto!important;padding:0 12px!important}
+#app#app#app .u-actions .act-btn.hidden{display:none!important}
+#app#app#app #act-end{color:#f3d9c8!important}
+#app#app#app #act-end.confirm{color:#fff!important;background:linear-gradient(180deg,#8a3226,#5a1d15)!important;box-shadow:0 0 0 1px #0b0d0a,0 0 0 2px #e07a5f!important}
+#app#app#app .u-actions #dock-primary{flex:1 1 auto!important;order:20;width:auto!important;min-width:96px!important;max-width:none!important;margin:0!important;padding:0 12px!important}
+/* auto & speed: playback toggles, moved by game.js into header.top as .top-play (left of the gear) */
+#app#app#app header.top .top-play{display:flex;gap:6px;grid-column:3;grid-row:1}
+#app#app#app header.top .metric:has(#wave){grid-column:1;grid-row:1;display:flex!important;flex-flow:row wrap!important;align-content:center!important;justify-content:center!important;column-gap:4px!important;row-gap:1px!important;min-width:60px!important}
+#app#app#app header.top .metric:has(#wave) small{font:600 12px/1 var(--px11)!important;align-self:baseline}
+#app#app#app header.top .metric:has(#wave) strong{align-self:baseline;line-height:1!important}
+#app#app#app header.top .metric:has(#wave)::after{flex:0 0 100%;text-align:center;font:600 12px/1 var(--px11)!important;color:var(--ov-ally)!important;position:static!important;margin:0!important;padding:0!important;background:none!important;border:0!important}
+#app#app#app header.top .metric:has(#wave):not([data-round]),#app#app#app header.top .metric:has(#wave)[data-round=""]{row-gap:0!important}
+#app#app#app header.top #hud-mission{grid-column:2;grid-row:1}
+#app#app#app header.top .metric:has(#cp){grid-column:4;grid-row:1;min-width:48px!important}
+#app#app#app header.top .top-play .act-btn{width:44px!important;min-width:44px!important;height:44px!important;min-height:44px!important;padding:0!important;
+ font:700 12px/1.05 var(--px11)!important;background:rgba(0,0,0,.35)!important;box-shadow:inset 0 0 0 1px var(--ov-line)!important;color:var(--ov-text)!important;white-space:normal}
+#app#app#app header.top .top-play #auto-dock.on{color:#251703!important;background:linear-gradient(180deg,#f7e3a4,#d8ac4e)!important;box-shadow:0 0 0 1px #0b0d0a!important}
+#app#app#app header.top #settings-toggle{grid-column:5;grid-row:1}
+
+/* ---------- battlefield labels ---------- */
+#app#app#app #active-tag,#app#app#app .active-tag{font:700 12px/1.2 var(--px11)!important;padding:4px 8px!important}
+@media (max-width:379px){
+ #app#app#app header.top{column-gap:4px!important;padding-left:4px!important;padding-right:4px!important}
+ #app#app#app header.top .metric:has(#wave){min-width:54px!important;padding:2px 4px!important}
+ #app#app#app #hud-mission .hm-line{font-size:15px!important;font-family:var(--px14)!important}
+ #app#app#app header.top .top-play{gap:4px}
+}
+
+/* ---------- type: one readable face everywhere, pixel face only for screen titles ---------- */
+#app#app#app *:not(svg):not(svg *){font-family:var(--px11)!important}
+html body.lwb-polished.lwb-polished.lwb-polished :is(.ui-popover,.ui-dialog,.unit-tooltip,#u-tip,#eq-detail,#chal-tip,.toast,[role="dialog"]) *{font-family:var(--px11)!important}
+#app#app#app .modal > h2,#app#app#app .t-sheet-title,#app#app#app .settings-head h2,#app#app#app .audio-head h2{font-family:var(--ov-pixel)!important;font-weight:700!important;font-size:24px!important;line-height:1.25!important;letter-spacing:.02em;color:var(--ov-gold-hi)!important;text-shadow:0 2px 0 #000!important}
+#app#app#app .t-title :is(.logo-ko,.t-touch,.t-touch *){font-family:var(--ov-pixel-14)!important}
+#app#app#app .t-title .logo-ko{font-family:var(--ov-pixel)!important}
+
+/* ---------- modal shell (camp, recruit, results) ---------- */
+#app#app#app .modal{color:var(--ov-text)!important}
+#app#app#app .modal > .eyebrow{font:600 12px/1.35 var(--px11)!important;letter-spacing:.02em!important;color:var(--ov-muted)!important;text-transform:none!important}
+#app#app#app .modal > p,#app#app#app .modal .draft-help{font-size:15px!important;font-family:var(--px14)!important;line-height:1.55!important;color:var(--ov-text)!important}
+#app#app#app .modal .battle-recap{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:6px 0 2px;padding:8px 10px;background:rgba(0,0,0,.3);box-shadow:inset 0 0 0 1px var(--ov-line)}
+#app#app#app .modal .battle-recap > span{font:500 12px/1.4 var(--px11)!important;color:var(--ov-muted)!important;min-width:0}
+#app#app#app .modal .battle-recap .share-btn{flex:0 0 auto;min-height:36px!important;padding:0 10px!important;margin:0!important;font-size:12px!important;font-family:var(--px11)!important;display:inline-flex!important;align-items:center;gap:4px}
+#app#app#app .modal .battle-recap .share-btn img{width:14px;height:14px;image-rendering:pixelated}
+/* camp steps: four tabs, current one filled */
+#app#app#app .camp-steps > *{font:400 15px/1.2 var(--px14)!important}
+#app#app#app .camp-steps > .current{color:#251703!important}
+/* choice cards (events, relics) */
+#app#app#app .modal .reward{text-align:left!important}
+#app#app#app .modal .reward b{font:400 15px/1.35 var(--px14)!important;color:var(--ov-ivory)!important}
+#app#app#app .modal .reward p{font:400 15px/1.5 var(--px14)!important;color:var(--ov-text)!important}
+#app#app#app .modal .reward small{font:600 12px/1.3 var(--px11)!important}
+#app#app#app .modal .reward.is-picked{outline:2px solid var(--ov-gold-hi)!important;outline-offset:2px}
+#app#app#app .modal .reward.is-picked::after{content:"✓ 선택됨"!important;position:absolute!important;top:8px!important;right:8px!important;left:auto!important;bottom:auto!important;width:auto!important;height:auto!important;
+ display:block!important;padding:3px 8px!important;font:700 12px/1.2 var(--px11)!important;color:#251703!important;background:var(--ov-gold-hi)!important;border:0!important;border-radius:2px!important;box-shadow:none!important;z-index:2}
+#app#app#app .modal .reward{position:relative!important}
+/* confirm bar: what is chosen on the left, cancel / confirm on the right */
+#app#app#app .camp-confirm{display:flex!important;flex-wrap:wrap!important;align-items:center!important;gap:8px!important}
+#app#app#app .camp-confirm > span:first-child,#app#app#app #camp-choice-summary{flex:1 1 100%;font:400 15px/1.35 var(--px14)!important;color:var(--ov-ivory)!important}
+#app#app#app .camp-confirm > button{flex:1 1 0!important;min-height:48px!important}
+#app#app#app .camp-confirm > button.secondary{flex:0 0 33%!important}
+
+/* recruit summary: three numbers, then capacity */
+#app#app#app .recruit-summary{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:6px 10px!important;padding:10px 12px!important}
+#app#app#app .recruit-summary > span{display:flex!important;flex-direction:column!important;gap:2px!important}
+#app#app#app .recruit-summary small{font:600 12px/1.2 var(--px11)!important;color:var(--ov-muted)!important}
+#app#app#app .recruit-summary b{font:700 24px/1.15 var(--px11)!important;color:var(--ov-gold-hi)!important}
+#app#app#app .recruit-summary .draft-capacity{grid-column:1 / -1;flex-direction:row!important;font:400 15px/1.3 var(--px14)!important;color:var(--ov-ivory)!important;padding-top:6px;border-top:1px solid var(--ov-line)}
+
+/* recruit card: portrait left; grade · name · role · stats · skill right; price and pick state on the last row */
+#app#app#app .recruit-card[data-draft]{display:grid!important;grid-template-columns:68px minmax(0,1fr) auto!important;
+ grid-template-areas:"pic grade pick" "pic name name" "pic role role" "pic skill skill" "pic stats price"!important;column-gap:12px!important;row-gap:2px!important;align-items:center!important;
+ min-height:0!important;padding:10px 12px!important;text-align:left!important}
+#app#app#app .recruit-card[data-draft] > *{position:static!important;margin:0!important;transform:none!important}
+#app#app#app .recruit-card[data-draft] .recruit-portrait{grid-area:pic!important;align-self:center!important;width:68px!important;height:68px!important;display:grid!important;place-items:center}
+#app#app#app .recruit-card[data-draft] .recruit-portrait img{width:64px!important;height:64px!important;max-width:none!important;object-fit:contain}
+#app#app#app .recruit-card[data-draft] .recruit-grade{grid-area:grade!important;justify-self:start!important;font:700 12px/1.2 var(--px11)!important}
+#app#app#app .recruit-card[data-draft] .recruit-name{grid-area:name!important;font:400 15px/1.3 var(--px14)!important;text-align:left!important;color:var(--ov-ivory)!important;text-shadow:none!important;white-space:normal!important}
+#app#app#app .recruit-card[data-draft] .recruit-role{grid-area:role!important;font:500 12px/1.3 var(--px11)!important;color:var(--ov-muted)!important}
+#app#app#app .recruit-card[data-draft] > p{grid-area:skill!important;font:400 15px/1.4 var(--px14)!important;color:var(--ov-text)!important;text-align:left!important}
+#app#app#app .recruit-card[data-draft] .recruit-combat{grid-area:stats!important;display:flex!important;gap:12px!important;justify-content:flex-start!important}
+#app#app#app .recruit-card[data-draft] .recruit-combat span{display:inline-flex!important;align-items:center!important;gap:4px!important;font:400 15px/1 var(--px14)!important;color:var(--ov-ivory)!important}
+#app#app#app .recruit-card[data-draft] .recruit-combat img{width:16px!important;height:16px!important}
+#app#app#app .recruit-card[data-draft] > em{grid-area:price!important;justify-self:end!important;font:400 15px/1.2 var(--px14)!important;font-style:normal!important;color:var(--ov-gold-hi)!important;white-space:nowrap}
+#app#app#app .recruit-card[data-draft] .pick-mark{grid-area:pick!important;justify-self:end!important;padding:3px 8px!important;font:700 12px/1.2 var(--px11)!important;color:var(--ov-muted)!important;background:transparent!important;box-shadow:inset 0 0 0 1px var(--ov-line)!important;border-radius:2px!important}
+#app#app#app .recruit-card[data-draft].is-picked{outline:2px solid var(--ov-gold-hi)!important;outline-offset:1px}
+#app#app#app .recruit-card[data-draft].is-picked .pick-mark{color:#251703!important;background:var(--ov-gold-hi)!important;box-shadow:none!important}
+#app#app#app .recruit-card[data-draft].is-picked .pick-mark::before{content:"✓ "}
+#app#app#app .recruit-card[data-draft][disabled]:not(.is-picked){opacity:.62!important;filter:grayscale(.6)!important}
+#app#app#app .recruit-card[data-draft] .pick-mark.why{color:var(--ov-foe)!important;box-shadow:inset 0 0 0 1px #5c2c25!important}
+#app#app#app .camp-secondary{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+#app#app#app .camp-secondary button{width:100%!important;margin:0!important}
+
+/* ---------- title screen ---------- */
+#app#app#app .t-title .t-ver{font:600 12px/1.35 var(--px11)!important;color:#e9e1cc!important;text-shadow:0 1px 2px #000!important}
+#app#app#app .t-title .t-tip,#app#app#app .t-title .menu-notes,#app#app#app .t-title .menu-notes *{font:500 12px/1.4 var(--px11)!important;color:#ddd5c0!important;text-shadow:0 1px 2px #000!important}
+#app#app#app .t-title .t-btn{font:400 15px/1.2 var(--px14)!important;min-height:var(--ov-tap)!important}
+/* the one main action: gold, the four below stay quiet */
+#app#app#app .t-title #start-ai{color:#251703!important;background:linear-gradient(180deg,#f7e3a4 0,#e2bd62 55%,#c99b3c 100%)!important;border:0!important;border-image:none!important;
+ box-shadow:inset 0 -3px 0 #8a6421,0 0 0 1px #0b0d0a,0 0 0 2px #7a5c22,0 6px 18px rgba(0,0,0,.55)!important;text-shadow:none!important}
+#app#app#app .t-title #start-ai *{color:#251703!important;text-shadow:none!important;font-size:24px!important;font-family:var(--px11)!important}
+#app#app#app .t-title #start-ai img{filter:none!important}
+/* menu sheet */
+#app#app#app .t-sheet .to-item{font:400 15px/1.3 var(--px14)!important;min-height:52px!important}
+#app#app#app .t-sheet .to-item small{display:block;margin-top:2px;font:400 12px/1.35 var(--px11)!important;color:var(--ov-muted)!important}
+#app#app#app .t-sheet .diff-row > span{font:400 15px/1.3 var(--px14)!important}
+#app#app#app .t-sheet .diff-btn{font:400 15px/1.25 var(--px14)!important;text-align:left!important}
+#app#app#app .t-sheet .diff-btn small{display:block;font:500 12px/1.35 var(--px11)!important;color:var(--ov-muted)!important}
+#app#app#app .t-sheet .diff-btn.active,#app#app#app .t-sheet .diff-btn.active small{color:#251703!important}
+#app#app#app .t-sheet .diff-btn.active::after{content:"✓";float:right;font-weight:800}
+#app#app#app :is(.cloud-box,.save-wrap) summary{font:400 15px/1.3 var(--px14)!important;min-height:var(--ov-tap);display:flex;align-items:center}
+#app#app#app :is(.cloud-field span,label.cloud-field){font:600 12px/1.3 var(--px11)!important}
+
+/* ---------- unit detail sheet ---------- */
+#app#app#app #battle-sheet .section-label{font:700 12px/1.3 var(--px11)!important;letter-spacing:.02em!important;color:var(--ov-gold)!important}
+#app#app#app #battle-sheet h3{font:400 15px/1.3 var(--px14)!important;color:var(--ov-ivory)!important}
+#app#app#app #battle-sheet p{font:400 15px/1.55 var(--px14)!important}
+#app#app#app #battle-sheet #objective span{font-size:12px!important;font-family:var(--px11)!important;color:var(--ov-muted)!important}
+#app#app#app #battle-sheet .unit-head strong{font:400 15px/1.3 var(--px14)!important}
+#app#app#app #battle-sheet .unit-head small,#app#app#app #battle-sheet .unit-tier{font:600 12px/1.4 var(--px11)!important}
+#app#app#app #battle-sheet .movement-readout{font:400 15px/1.3 var(--px14)!important}
+#app#app#app #battle-sheet .movement-readout span{font-size:12px!important;font-family:var(--px11)!important}
+#app#app#app #battle-sheet .ui-stat-grid small,#app#app#app #battle-sheet .ui-resources small{font:600 12px/1.2 var(--px11)!important}
+#app#app#app #battle-sheet .ui-stat-grid b,#app#app#app #battle-sheet .ui-resources b{font:700 24px/1.15 var(--px11)!important}
+#app#app#app #battle-sheet .ui-resources b small{display:inline!important;font-size:12px!important;font-family:var(--px11)!important;color:var(--ov-muted)!important}
+#app#app#app #battle-sheet .traits{font:400 15px/1.45 var(--px14)!important}
+#app#app#app #battle-sheet :is(.command,.hero-skill) b{font:400 15px/1.3 var(--px14)!important}
+#app#app#app #battle-sheet :is(.command,.hero-skill) :is(small,em){font:500 12px/1.35 var(--px11)!important}
+#app#app#app #sheet-toggle{min-height:var(--ov-tap)!important;font:400 15px/1 var(--px14)!important}
+#app#app#app #battle-sheet .mini{font-size:12px!important;font-family:var(--px11)!important}
+
+/* ---------- settings drawer ---------- */
+#app#app#app .top-actions.open .iconbtn,#app#app#app .top-actions.open select{font:400 15px/1.2 var(--px14)!important;min-height:48px!important}
+#app#app#app .top-actions.open .settings-speed span{font:400 15px/1.2 var(--px14)!important}
+#app#app#app #settings-close{min-width:56px!important;min-height:var(--ov-tap)!important;font:400 15px/1 var(--px14)!important}
+
+/* ---------- camp: event options read top-down, ready screen numbers ---------- */
+#app#app#app .modal .reward[data-evopt]{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:4px!important;padding:12px 14px!important;min-height:0!important}
+#app#app#app .modal .reward[data-evopt] > :is(b,p){width:100%!important;text-align:left!important;margin:0!important}
+#app#app#app .modal .army-summary small,#app#app#app .modal .army-note,#app#app#app .modal .set-progress{font:600 12px/1.35 var(--px11)!important;color:var(--ov-muted)!important}
+#app#app#app .modal .army-summary b{font:700 24px/1.2 var(--px11)!important;color:var(--ov-ivory)!important}
+#app#app#app .modal .ready-ledger span{font:400 15px/1.2 var(--px14)!important}
+#app#app#app .modal .next-stage > span{font:600 12px/1.3 var(--px11)!important;color:var(--ov-muted)!important}
+#app#app#app .modal .next-stage h3{font:700 24px/1.3 var(--px11)!important;color:var(--ov-gold-hi)!important}
+#app#app#app .modal .next-stage p{font:400 15px/1.5 var(--px14)!important}
+#app#app#app .modal .camp-roster small,#app#app#app .modal .camp-roster .rs-name{font:600 12px/1.25 var(--px11)!important}
+#app#app#app .modal .camp-roster .rs-name{display:block;font-size:12px!important;font-family:var(--px11)!important;color:var(--ov-ivory)!important}
+#app#app#app .modal .route-branch button{font:400 15px/1.3 var(--px14)!important}
+#app#app#app .modal .chal-ic em{font:400 15px/1.3 var(--px14)!important;font-style:normal!important}
+#app#app#app .modal #leave-camp{min-height:52px!important;font-size:15px!important;font-family:var(--px14)!important}
+/* battle result card */
+#app#app#app .modal:not(.camp) > .eyebrow{font-size:12px!important;font-family:var(--px11)!important}
+
+/* ---------- toasts, score, notices ---------- */
+html body.lwb-polished.lwb-polished .toast{font:400 15px/1.4 var(--px14)!important}
+html body.lwb-polished.lwb-polished #lwb-score{font:700 12px/1.3 var(--px11)!important;top:calc(60px + var(--safe-t,0px))!important}
+html body.lwb-polished.lwb-polished:has(#battle-notices > :not(.hidden)) #lwb-score{opacity:0!important}
+/* off-screen unit markers: 28px look, 44px touch area */
+#app#app#app .os-mark::after{content:"";position:absolute;inset:-8px}
+#app#app#app .modal .camp-roster{align-items:flex-start!important;row-gap:10px!important}
+#app#app#app .modal .camp-roster > button{height:auto!important;min-height:0!important;max-height:none!important;overflow:visible!important;padding-bottom:6px!important}
+#app#app#app .modal .camp-roster > button > small{position:static!important;display:block!important}
+
+/* ---------- dialogs (unit profile, patch notes, help) — some are attached to <body>, outside #app ---------- */
+:is(html,#_o#_v#_r) body.lwb-polished .modal *:not(svg):not(svg *){font-family:var(--px11)!important}
+:is(html,#_o#_v#_r) body.lwb-polished .modal > h2,:is(html,#_o#_v#_r) body.lwb-polished .modal .ui-info-head h2{font-family:var(--ov-pixel)!important}
+:is(html,#_o#_v#_r) body.lwb-polished .modal:not(.camp) :is(.eyebrow,h3,.section-label){font:700 12px/1.35 var(--px11)!important;letter-spacing:.02em!important}
+:is(html,#_o#_v#_r) body.lwb-polished .modal :is(li,p,.traits){font-size:15px!important;font-family:var(--px14)!important;line-height:1.55!important}
+:is(html,#_o#_v#_r) body.lwb-polished .modal :is(small,.unit-tier,.ui-skill-cost){font-size:12px!important;font-family:var(--px11)!important}
+:is(html,#_o#_v#_r) body.lwb-polished .modal.ui-profile strong{font-size:24px!important;font-family:var(--px11)!important}
+:is(html,#_o#_v#_r) body.lwb-polished .modal button{min-height:var(--ov-tap)}
+:is(html,#_o#_v#_r) body.lwb-polished #patch-pop *:not(svg):not(svg *){font-family:var(--px11)!important}
+:is(html,#_o#_v#_r) body.lwb-polished #patch-pop h2{font-family:var(--ov-pixel)!important;font-size:24px!important}
+:is(html,#_o#_v#_r) body.lwb-polished #patch-pop .eyebrow{font:700 12px/1.35 var(--px11)!important}
+:is(html,#_o#_v#_r) body.lwb-polished #patch-pop li{font:400 15px/1.55 var(--px14)!important}
+:is(html,#_o#_v#_r) body.lwb-polished #patch-pop summary{font:400 15px/1.3 var(--px14)!important;min-height:var(--ov-tap)}
+html body.lwb-polished.lwb-polished #lwb-killfeed .kill-feed-item,html body.lwb-polished.lwb-polished #lwb-killfeed .kill-feed-item *{font:600 12px/1.3 var(--px11)!important}
+
+/* recruit list: one card per row on phones (two columns only on wide screens) */
+#app#app#app .modal .recruit-cards:has(.recruit-card[data-draft]){display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:10px!important}
+@media (min-width:760px){#app#app#app .modal .recruit-cards:has(.recruit-card[data-draft]){grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+#app#app#app .recruit-card[data-draft] > em{white-space:normal!important;text-align:right!important;max-width:100%}
+#app#app#app .recruit-card[data-draft] .recruit-role{white-space:normal!important}
+
+/* action row with the battle-order button: keep it to one row — two-line labels on the small chips */
+#app#app#app .u-actions #battle-order{flex:0 0 auto!important;width:56px!important;min-width:56px!important;padding:0 4px!important;white-space:normal!important;font:600 12px/1.15 var(--px11)!important;word-break:keep-all}
+#app#app#app .u-actions:has(#battle-order) #act-phase{width:56px!important;min-width:56px!important;padding:0 4px!important;white-space:normal!important;word-break:keep-all}
+#app#app#app .u-actions{flex-wrap:nowrap!important}
+#app#app#app .u-actions .act-btn:not(#battle-order){padding:0 10px!important;min-width:56px!important}
+#app#app#app .u-actions #dock-primary{min-width:84px!important;white-space:normal!important;line-height:1.15!important}
+/* sticky confirm bar: solid, and covers the modal's bottom padding so cards don't show through underneath */
+#app#app#app .modal.camp .camp-confirm{background:#151a12!important;box-shadow:0 -1px 0 var(--ov-line-hi),0 24px 0 0 #151a12!important;z-index:5}
+
+/* =====================================================================================
+   SKIN — pixel metal frames (assets/mesbg/ui/frames, made by tools/make_ui_frames.py; URLs come in as
+   --fr-* from game.js so the offline bundle works too), translucent graded panels with a faint grain,
+   tier-coloured cards. Frames are 18px images with a 6px slice drawn at 2x (12px) and kept pixel-sharp.
+   ===================================================================================== */
+html body.lwb-polished{--fr-w:12px;
+ --surf:var(--fr-grain),linear-gradient(180deg,rgba(40,33,22,.90) 0,rgba(22,18,12,.93) 55%,rgba(14,11,8,.95) 100%);
+ --surf-deep:var(--fr-grain),linear-gradient(180deg,rgba(18,15,11,.88),rgba(10,8,6,.92));
+ --tx:#efe4c6; --tx-mute:#b3a684; --tx-gold:#f4d98c; --tx-dim:#7c7258}
+/* shared frame mixins (as classes of selectors) */
+#app#app#app :is(.modal,header.top,#command-dock,#battle-sheet,.top-actions.open,.t-sheet),
+:is(html,#_o#_v#_r) body.lwb-polished :is(.modal,#patch-pop .patch-inner,.ui-popover,#u-tip,.toast){
+ border:0 solid transparent!important;border-image:var(--fr-panel) 6 / var(--fr-w) / 0 stretch!important;image-rendering:pixelated;
+ background:var(--surf)!important;background-repeat:repeat,no-repeat!important;box-shadow:0 10px 28px rgba(0,0,0,.55)!important;border-radius:0!important}
+#app#app#app header.top{box-shadow:0 4px 10px rgba(0,0,0,.5)!important}
+#app#app#app #command-dock{box-shadow:0 -4px 12px rgba(0,0,0,.5)!important}
+#app#app#app .modal,:is(html,#_o#_v#_r) body.lwb-polished .modal{padding:16px 16px 0!important}
+#app#app#app .modal{color:var(--tx)!important}
+/* inner wells: summaries, notes, stat chips, inputs, phase chip */
+#app#app#app :is(.recruit-summary,.event-result,.battle-recap,.army-summary,.ready-overview,.next-stage,.save-slots,.cloud-box,.save-wrap,#u-panel,#hud-mission,header.top .metric,header.top .top-play .act-btn,#settings-toggle,#u-stats > span,#act-phase,.camp-steps > *,input,select,.chal-ic,.set-progress,.route-branch button){
+ border:0 solid transparent!important;border-image:var(--fr-chip) 6 / var(--fr-w) / 0 stretch!important;image-rendering:pixelated;border-radius:0!important;
+ background:var(--surf-deep)!important;box-shadow:none!important}
+#app#app#app :is(.recruit-summary,.event-result,.battle-recap,.army-summary,.next-stage,#u-panel){padding:12px 14px!important}
+#app#app#app .next-stage{border-image:var(--fr-card-legendary) 6 / var(--fr-w) / 0 stretch!important;background:var(--fr-grain),linear-gradient(180deg,rgba(70,22,16,.55),rgba(20,10,8,.9))!important}
+#app#app#app .event-result{background:var(--fr-grain),linear-gradient(90deg,rgba(120,90,30,.28),rgba(14,11,8,.9) 60%)!important}
+/* buttons: gold primary, bronze secondary — pixel bevel frames with filled centres */
+#app#app#app :is(button.primary,.dock-primary,#draft-confirm,#leave-camp,#camp-choice-confirm,.t-title #start-ai),
+:is(html,#_o#_v#_r) body.lwb-polished .modal button.primary{
+ border:0 solid transparent!important;border-image:var(--fr-btn-gold) 6 fill / var(--fr-w) / 0 stretch!important;background:none!important;box-shadow:0 3px 0 rgba(0,0,0,.45)!important;
+ color:#2b1a04!important;text-shadow:0 1px 0 rgba(255,244,200,.55)!important;font:400 15px/1.2 var(--px14)!important;image-rendering:pixelated;border-radius:0!important}
+#app#app#app :is(button.primary,.dock-primary,#draft-confirm,#leave-camp,#camp-choice-confirm):not([disabled]):active{border-image-source:var(--fr-btn-gold-down)!important;transform:translateY(2px);box-shadow:0 1px 0 rgba(0,0,0,.45)!important;filter:none}
+#app#app#app :is(button.secondary,.act-btn,.camp-secondary button,.save-slots button,.t-btn,.to-item,.diff-btn,.t-close,#settings-close,.top-actions.open .iconbtn,#sheet-toggle,.share-btn),
+:is(html,#_o#_v#_r) body.lwb-polished .modal button:not(.primary):not(.recruit-card):not(.reward){
+ border:0 solid transparent!important;border-image:var(--fr-btn-bronze) 6 fill / var(--fr-w) / 0 stretch!important;background:none!important;box-shadow:0 3px 0 rgba(0,0,0,.4)!important;
+ color:var(--tx)!important;text-shadow:0 1px 0 #000!important;font:400 15px/1.2 var(--px14)!important;image-rendering:pixelated;border-radius:0!important}
+#app#app#app :is(button,.act-btn)[disabled]{filter:grayscale(.85) brightness(.62)!important;color:#d8ccaa!important;box-shadow:none!important}
+#app#app#app #act-end.confirm{border-image-source:var(--fr-card-epic)!important;background:linear-gradient(180deg,#7c2a1e,#4a160f)!important;background-clip:padding-box!important;color:#ffe6d6!important}
+#app#app#app .t-sheet .diff-btn.active{border-image-source:var(--fr-btn-gold)!important;color:#2b1a04!important;text-shadow:none!important}
+#app#app#app .t-sheet .diff-btn.active small{color:#5a3c10!important}
+/* titles keep the 24px pixel face with a gold emboss */
+#app#app#app .modal > h2,:is(html,#_o#_v#_r) body.lwb-polished .modal > h2{font:700 24px/1.25 var(--px11)!important;color:var(--tx-gold)!important;text-shadow:0 2px 0 #2a1600,2px 0 0 #2a1600,-2px 0 0 #2a1600,0 -2px 0 #2a1600,0 4px 0 rgba(0,0,0,.5)!important}
+#app#app#app .modal > h2::after{content:"";display:block;height:6px;margin-top:6px;background:linear-gradient(90deg,transparent,#8a6a32 15%,#e2c27a 50%,#8a6a32 85%,transparent) center/100% 2px no-repeat,radial-gradient(circle,#e2c27a 0 3px,transparent 3.5px) center/8px 6px no-repeat}
+#app#app#app .modal > .eyebrow{color:var(--tx-mute)!important}
+/* camp step tabs: current one gold */
+#app#app#app .camp-steps > .current{border-image-source:var(--fr-btn-gold)!important;border-image-slice:6 fill!important;background:none!important;color:#2b1a04!important}
+
+/* ---------- top bar & dock details ---------- */
+#app#app#app header.top .metric strong,#app#app#app header.top .metric small{text-shadow:0 1px 0 #000!important}
+#app#app#app header.top .metric strong{font:700 24px/1 var(--px11)!important}
+#app#app#app header.top .metric:has(#wave) strong{font:400 15px/1 var(--px14)!important}
+#app#app#app #dock-name{font:400 15px/1.2 var(--px14)!important;color:var(--tx-gold)!important;text-shadow:0 1px 0 #000!important}
+#app#app#app #u-panel .dock-portrait{box-shadow:none!important;border:0 solid transparent!important;border-image:var(--fr-chip) 6 / 8px / 0 stretch!important;image-rendering:pixelated}
+#app#app#app #u-stats > span b,#app#app#app #u-hp > b{font:400 15px/1 var(--px14)!important}
+#app#app#app #act-phase{border-image-source:var(--fr-chip)!important}
+#app#app#app #act-phase.ally{border-image-source:var(--fr-card-rare)!important;color:#cfe4ff!important}
+#app#app#app #act-phase.foe{border-image-source:var(--fr-card-legendary)!important;color:#ffd0c0!important}
+#app#app#app #u-hp .hpbar{background:#0a0806!important;box-shadow:0 0 0 1px #3f3624!important}
+#app#app#app #u-hp .hpbar i{background:linear-gradient(180deg,#c9e08e 0 50%,#7fa451 50%)!important}
+
+/* ---------- recruit: compact cards sized to the art, colour by tier, faction shown ---------- */
+#app#app#app .modal .recruit-cards:has(.recruit-card[data-draft]){grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+@media (min-width:760px){#app#app#app .modal .recruit-cards:has(.recruit-card[data-draft]){grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+#app#app#app .recruit-card[data-draft]{--tc:#8e979c;--tcd:#26292b;--card:var(--fr-card-normal);
+ display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;grid-template-areas:"grade pick" "pic pic" "name name" "fac fac" "skill skill" "stats price"!important;
+ column-gap:6px!important;row-gap:3px!important;align-items:center!important;padding:10px 10px 10px!important;min-height:0!important;text-align:left!important;
+ border:0 solid transparent!important;border-image:var(--card) 6 / var(--fr-w) / 0 stretch!important;image-rendering:pixelated;border-radius:0!important;outline:0!important;
+ background:var(--fr-grain),radial-gradient(ellipse at 50% 34%,color-mix(in srgb,var(--tc) 30%,transparent) 0,transparent 62%),linear-gradient(180deg,color-mix(in srgb,var(--tcd) 85%,#000) 0,#0d0b08 100%)!important;
+ box-shadow:0 4px 0 rgba(0,0,0,.45)!important;transform:none}
+#app#app#app .recruit-card[data-draft].tier-elite{--tc:#6fb27e;--tcd:#183020;--card:var(--fr-card-elite)}
+#app#app#app .recruit-card[data-draft].tier-rare{--tc:#5e95d6;--tcd:#142439;--card:var(--fr-card-rare)}
+#app#app#app .recruit-card[data-draft].tier-epic{--tc:#a874e0;--tcd:#28163a;--card:var(--fr-card-epic)}
+#app#app#app .recruit-card[data-draft].tier-legendary{--tc:#f0b440;--tcd:#3d2706;--card:var(--fr-card-legendary);box-shadow:0 4px 0 rgba(0,0,0,.45),0 0 14px rgba(240,180,64,.35)!important}
+#app#app#app .recruit-card[data-draft]::before,#app#app#app .recruit-card[data-draft]::after{display:none!important}
+#app#app#app .recruit-card[data-draft] .recruit-grade{grid-area:grade!important;justify-self:start!important;display:inline-flex!important;align-items:center;gap:3px;padding:2px 6px!important;
+ font:12px/1.2 var(--px11)!important;color:#140d04!important;background:var(--tc)!important;box-shadow:inset 0 -2px 0 rgba(0,0,0,.3)!important;white-space:nowrap;max-width:100%;overflow:hidden}
+#app#app#app .recruit-card[data-draft] .recruit-grade img{width:12px;height:12px}
+#app#app#app .recruit-card[data-draft] .pick-mark{grid-area:pick!important;padding:2px 6px!important;font:12px/1.2 var(--px11)!important;color:var(--tx-mute)!important;background:rgba(0,0,0,.45)!important;box-shadow:none!important}
+#app#app#app .recruit-card[data-draft] .recruit-portrait{grid-area:pic!important;justify-self:center!important;width:96px!important;height:96px!important;margin:2px 0!important}
+#app#app#app .recruit-card[data-draft] .recruit-portrait img{width:92px!important;height:92px!important;background:none!important;filter:drop-shadow(0 4px 2px rgba(0,0,0,.6))}
+#app#app#app .recruit-card[data-draft] .recruit-name{grid-area:name!important;font:400 15px/1.3 var(--px14)!important;color:#fff4d6!important;text-shadow:0 1px 0 #000!important;text-align:center!important}
+#app#app#app .recruit-card[data-draft].tier-elite .recruit-name{color:#d8f2cc!important}
+#app#app#app .recruit-card[data-draft].tier-rare .recruit-name{color:#d6e8ff!important}
+#app#app#app .recruit-card[data-draft].tier-epic .recruit-name{color:#ecd8ff!important}
+#app#app#app .recruit-card[data-draft].tier-legendary .recruit-name{color:#ffe7a6!important}
+#app#app#app .recruit-card[data-draft] .recruit-faction{grid-area:fac!important;justify-self:center!important;font:12px/1.3 var(--px11)!important;color:var(--tx-gold)!important}
+#app#app#app .recruit-card[data-draft] .recruit-faction::before{content:"◆ ";color:var(--tc)}
+#app#app#app .recruit-card[data-draft] .recruit-role{display:none!important}
+#app#app#app .recruit-card[data-draft] > p{grid-area:skill!important;font:12px/1.35 var(--px11)!important;color:var(--tx-mute)!important;text-align:center!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
+#app#app#app .recruit-card[data-draft] .recruit-combat{grid-area:stats!important;gap:8px!important}
+#app#app#app .recruit-card[data-draft] .recruit-combat span{font:12px/1 var(--px11)!important;color:var(--tx)!important}
+#app#app#app .recruit-card[data-draft] .recruit-combat img{width:14px!important;height:14px!important;image-rendering:pixelated}
+#app#app#app .recruit-card[data-draft] > em{grid-area:price!important;font:12px/1.2 var(--px11)!important;color:var(--tx-gold)!important}
+#app#app#app .recruit-card[data-draft] > em::before{content:"";display:inline-block;width:8px;height:8px;margin-right:4px;background:#ffd24a;box-shadow:inset -2px -2px 0 #b8801c,inset 2px 2px 0 #fff1a8}
+#app#app#app .recruit-card[data-draft].is-picked{border-image-source:var(--fr-btn-gold)!important;border-image-slice:6!important;box-shadow:0 4px 0 rgba(0,0,0,.45),0 0 0 2px #0a0806,0 0 16px rgba(246,221,150,.45)!important;transform:translateY(-2px)}
+#app#app#app .recruit-card[data-draft].is-picked .pick-mark{color:#2b1a04!important;background:#f6dd96!important}
+#app#app#app .recruit-card[data-draft] .pick-mark.why{color:#ffb4a0!important}
+#app#app#app .recruit-summary b{font:700 24px/1.1 var(--px11)!important}
+
+/* ---------- reward / event / relic cards: same card frames, by rarity ---------- */
+#app#app#app .modal .reward{--tc:#8e979c;--card:var(--fr-card-normal);border:0 solid transparent!important;border-image:var(--card) 6 / var(--fr-w) / 0 stretch!important;image-rendering:pixelated;border-radius:0!important;outline:0!important;
+ background:var(--fr-grain),linear-gradient(100deg,color-mix(in srgb,var(--tc) 20%,transparent) 0,transparent 55%),linear-gradient(180deg,rgba(24,20,14,.92),rgba(12,10,7,.95))!important;box-shadow:0 4px 0 rgba(0,0,0,.45)!important}
+#app#app#app .modal .reward.rarity-1{--tc:#5e95d6;--card:var(--fr-card-rare)}
+#app#app#app .modal .reward.rarity-2{--tc:#a874e0;--card:var(--fr-card-epic)}
+#app#app#app .modal .reward.rarity-3{--tc:#f0b440;--card:var(--fr-card-legendary)}
+#app#app#app .modal .reward[data-evopt]{--tc:#c9a45e;--card:var(--fr-panel)}
+#app#app#app .modal .reward.is-picked{border-image-source:var(--fr-btn-gold)!important;border-image-slice:6!important;outline:0!important;box-shadow:0 4px 0 rgba(0,0,0,.45),0 0 14px rgba(246,221,150,.4)!important}
+#app#app#app .modal .reward b{font:400 15px/1.35 var(--px14)!important;color:#fff4d6!important;text-shadow:0 1px 0 #000}
+#app#app#app .modal .reward small{color:color-mix(in srgb,var(--tc) 70%,#fff)!important}
+
+/* ---------- title screen keeps its painting; its menu sheet and buttons use the same frames ---------- */
+#app#app#app .t-title{border-image:none!important;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,0) 58%,rgba(0,0,0,.6) 78%,rgba(0,0,0,.88) 100%),var(--title-bg,var(--ui-bg)) center 60%/cover no-repeat,#060403!important;box-shadow:none!important}
+#app#app#app .t-title #start-ai{font:400 15px/1.2 var(--px14)!important;min-height:52px!important}
+#app#app#app .t-title #start-ai *{font-size:15px!important;font-family:var(--px14)!important;color:#2b1a04!important}
+
+/* ---------- small things ---------- */
+#app#app#app .os-mark{border:0 solid transparent!important;border-image:var(--fr-chip) 6 / 8px / 0 stretch!important;background:rgba(10,8,6,.85)!important;border-radius:0!important;image-rendering:pixelated}
+#app#app#app .os-mark.ally{border-image-source:var(--fr-card-elite)!important}
+#app#app#app .os-mark.foe{border-image-source:var(--fr-card-legendary)!important}
+#app#app#app #active-tag,#app#app#app .active-tag{font:12px/1.2 var(--px11)!important;color:#2b1a04!important;border:0 solid transparent!important;border-image:var(--fr-btn-gold) 6 fill / 8px / 0 stretch!important;background:none!important;padding:5px 10px!important;image-rendering:pixelated;box-shadow:0 2px 0 rgba(0,0,0,.5)!important}
+/* recruit header: summary stays put while the list scrolls — give it a solid ground */
+#app#app#app .modal .recruit-summary{background:var(--fr-grain),linear-gradient(180deg,#221b12,#130f0a)!important;box-shadow:0 6px 12px rgba(0,0,0,.55)!important}
+#app#app#app .modal .recruit-summary small{font:12px/1.2 var(--px11)!important;color:var(--tx-mute)!important}
+#app#app#app .modal .recruit-summary .draft-capacity{border-top:1px solid rgba(201,164,94,.25)!important;font:12px/1.3 var(--px11)!important;color:var(--tx)!important}
+#app#app#app .warband-composition{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:6px!important;margin:10px 0!important}
+#app#app#app .warband-composition span{display:flex!important;justify-content:space-between;align-items:center;padding:6px 8px!important;font:12px/1 var(--px11)!important;color:var(--tx)!important;
+ border:0 solid transparent!important;border-image:var(--fr-chip) 6 / 10px / 0 stretch!important;background:rgba(10,8,6,.7)!important;box-shadow:none!important;image-rendering:pixelated}
+#app#app#app .warband-composition span b{font:400 15px/1 var(--px14)!important;color:var(--tx-gold)!important}
+#app#app#app .warband-composition span.missing{color:var(--tx-dim)!important}
+#app#app#app .warband-composition span.missing b{color:var(--tx-dim)!important}
+#app#app#app .modal .draft-help,#app#app#app .modal .bond-line{font:12px/1.5 var(--px11)!important;color:var(--tx-mute)!important}
+/* grade ribbon: icon and text on one line */
+#app#app#app .recruit-card[data-draft] .recruit-grade{flex-direction:row!important;flex-wrap:nowrap!important}
+#app#app#app .recruit-card[data-draft] .recruit-grade > *{display:inline-block!important;margin:0!important;vertical-align:middle}
+#app#app#app .recruit-card[data-draft] > p{text-align:center!important;justify-self:stretch}
+/* sticky confirm bar on every camp step */
+#app#app#app .modal.camp .camp-confirm{border:0!important;background:var(--fr-grain),linear-gradient(180deg,#221b12,#100c08)!important;box-shadow:0 -2px 0 #8a6a32,0 -3px 0 #0a0806,0 24px 0 0 #100c08!important}
+#app#app#app .modal.camp .camp-confirm > span:first-child,#app#app#app #camp-choice-summary{font:12px/1.4 var(--px11)!important;color:var(--tx)!important}
+/* the whole card selects; the small (i) opens the profile (44px touch area around a 20px mark) */
+#app#app#app .recruit-card[data-draft] .recruit-portrait{position:relative!important}
+#app#app#app .recruit-card[data-draft] .recruit-info{position:absolute!important;right:-26px;bottom:-4px;width:22px;height:22px;display:grid;place-items:center;font:700 12px/1 var(--px11)!important;color:var(--tx-gold)!important;
+ background:rgba(10,8,6,.85);box-shadow:0 0 0 2px #0a0806,inset 0 0 0 1px #8a6a32}
+#app#app#app .recruit-card[data-draft] .recruit-info::after{content:"";position:absolute;inset:-11px}
+/* fixes after first skin pass */
+#app#app#app .camp-steps > .current,#app#app#app .camp-steps > .current *{color:#2b1a04!important;text-shadow:0 1px 0 rgba(255,244,200,.5)!important}
+#app#app#app .camp-steps > *{font:12px/1.2 var(--px11)!important;color:var(--tx)!important}
+/* picked card keeps its tier frame; the gold ring + badge mark the pick */
+#app#app#app .recruit-card[data-draft].is-picked{border-image-source:var(--card)!important;box-shadow:0 0 0 2px #0a0806,0 0 0 4px #f6dd96,0 0 0 6px #0a0806,0 0 18px rgba(246,221,150,.5)!important}
+#app#app#app .modal .reward.is-picked{border-image-source:var(--card)!important;box-shadow:0 0 0 2px #0a0806,0 0 0 4px #f6dd96,0 0 0 6px #0a0806,0 0 16px rgba(246,221,150,.45)!important}
+/* price on its own line so it never clips in two columns */
+#app#app#app .recruit-card[data-draft]{grid-template-areas:"grade pick" "pic pic" "name name" "fac fac" "skill skill" "stats price"!important}
+#app#app#app .recruit-card[data-draft] .recruit-combat{gap:6px!important;min-width:0}
+#app#app#app .recruit-card[data-draft] > em{white-space:nowrap!important;font-size:12px!important}
+#app#app#app .recruit-card[data-draft] > em::before{margin-right:2px!important}
+@media (max-width:420px){#app#app#app .recruit-card[data-draft]{grid-template-areas:"grade pick" "pic pic" "name name" "fac fac" "skill skill" "stats stats" "price price"!important}
+ #app#app#app .recruit-card[data-draft] .recruit-combat{justify-content:center!important}
+ #app#app#app .recruit-card[data-draft] > em{justify-self:center!important;margin-top:2px!important}}
+/* top-bar toggles: one frame only */
+#app#app#app header.top .top-play .act-btn{border-image:var(--fr-btn-bronze) 6 fill / 10px / 0 stretch!important;background:none!important;font:12px/1.1 var(--px11)!important}
+#app#app#app header.top .top-play #auto-dock.on{border-image-source:var(--fr-btn-gold)!important;color:#2b1a04!important}
+/* unit sheet and other leftover green panels */
+#app#app#app #battle-sheet section,#app#app#app #battle-sheet .unit-card,#app#app#app #battle-sheet .ui-profile-section{background:none!important;border:0!important;box-shadow:none!important}
+#app#app#app #battle-sheet :is(.ui-stat-grid > span,.ui-resources > span,.movement-readout,.command,.hero-skill,.sheet-st,.sheet-eq){border:0 solid transparent!important;border-image:var(--fr-chip) 6 / 10px / 0 stretch!important;background:var(--surf-deep)!important;box-shadow:none!important;border-radius:0!important;image-rendering:pixelated}
+#app#app#app #battle-sheet .hero-skill{border-image-source:var(--fr-card-legendary)!important}
+#app#app#app #battle-sheet .section-label{font:12px/1.3 var(--px11)!important;color:var(--tx-gold)!important}
+#app#app#app #battle-sheet :is(h3,.unit-head strong){font:400 15px/1.3 var(--px14)!important;color:var(--tx)!important}
+#app#app#app .modal :is(details,.camp-dock,.chal-wrap,.ready-ledger){background:var(--surf-deep)!important;border-color:transparent!important;box-shadow:none!important}
+#app#app#app .modal details > summary{font:12px/1.3 var(--px11)!important;color:var(--tx)!important}
+#app#app#app .camp-steps > .current{background:linear-gradient(180deg,#fbe9b0,#d9ad52)!important;background-clip:padding-box!important;border-image-source:var(--fr-btn-gold)!important}
+#app#app#app .modal .camp-dock{background:var(--fr-grain),linear-gradient(180deg,#221b12,#100c08)!important;box-shadow:0 -2px 0 #8a6a32,0 -3px 0 #0a0806,0 24px 0 0 #100c08!important;z-index:5}
+/* stage cards (stage intro / victory) are attached to <body> */
+:is(html,#_o#_v#_r) body.lwb-polished #stage-intro .si-card{border:0 solid transparent!important;border-image:var(--fr-card-legendary) 6 / 12px / 0 stretch!important;image-rendering:pixelated;border-radius:0!important;
+ background:var(--fr-grain),radial-gradient(ellipse at 50% 0,rgba(240,180,64,.22),transparent 70%),linear-gradient(180deg,rgba(34,27,18,.96),rgba(14,11,8,.97))!important}
+:is(html,#_o#_v#_r) body.lwb-polished #stage-intro .si-card *{font-family:var(--px11)!important}
+:is(html,#_o#_v#_r) body.lwb-polished #stage-intro .si-card h2{font:700 24px/1.25 var(--px11)!important;color:#f4d98c!important;text-shadow:0 2px 0 #2a1600,2px 0 0 #2a1600,-2px 0 0 #2a1600,0 -2px 0 #2a1600!important}
+:is(html,#_o#_v#_r) body.lwb-polished #stage-intro .si-card .eyebrow{font:12px/1.3 var(--px11)!important;background:none!important;border:0!important;color:#e8c45c!important;letter-spacing:.2em}
+:is(html,#_o#_v#_r) body.lwb-polished #stage-intro .si-mission{font:12px/1.5 var(--px11)!important;color:#efe4c6!important;background:rgba(0,0,0,.35)!important;border:0!important;box-shadow:inset 0 0 0 1px rgba(201,164,94,.35)!important}
+/* off-screen unit markers: small bronze plaque, team-coloured arrow */
+#app#app#app .os-mark{width:30px!important;height:30px!important;border-image:var(--fr-chip) 6 / 8px / 0 stretch!important;background:rgba(14,11,8,.9)!important;box-shadow:0 2px 0 rgba(0,0,0,.5)!important}
+#app#app#app .os-mark.ally{border-image-source:var(--fr-btn-bronze)!important}
+#app#app#app .os-mark.foe{border-image-source:var(--fr-card-legendary)!important}
+#app#app#app .os-mark i{border-color:transparent!important}
+#app#app#app .os-mark.ally i{background:#c9d9a8!important}
+#app#app#app .os-mark.foe i{background:#f2a68c!important}
+#app#app#app .os-mark b{font:12px/1 var(--px11)!important;color:var(--tx)!important}
+#app#app#app .t-sheet .diff-btn.active,#app#app#app .t-sheet .diff-btn.active *{color:#2b1a04!important;text-shadow:0 1px 0 rgba(255,244,200,.5)!important}
+#app#app#app .t-sheet .diff-btn.active{border-image-source:var(--fr-btn-gold)!important}
+#app#app#app .os-mark.ally i{background:#e2c27a!important}
+:is(html,#_o#_v#_r) body.lwb-polished #patch-pop details{border:0 solid transparent!important;border-image:var(--fr-chip) 6 / 10px / 0 stretch!important;background:var(--surf-deep)!important;box-shadow:none!important;border-radius:0!important;image-rendering:pixelated}
+:is(html,#_o#_v#_r) body.lwb-polished #patch-pop details[open]{border-image-source:var(--fr-panel)!important}
+:is(html,#_o#_v#_r) body.lwb-polished .modal :is(.ui-dialog-actions,.modal-actions,footer){background:linear-gradient(180deg,transparent,#100c08 40%)!important;border:0!important;box-shadow:none!important}
+/* narrow phones: keep the action row on one line */
+@media (max-width:379px){
+ #app#app#app .u-actions{gap:4px!important}
+ #app#app#app .u-actions .act-btn:not(#battle-order){padding:0 6px!important;min-width:48px!important;font:12px/1.15 var(--px11)!important;white-space:nowrap!important}
+ #app#app#app .u-actions #battle-order,#app#app#app .u-actions:has(#battle-order) #act-phase{width:48px!important;min-width:48px!important;font:12px/1.15 var(--px11)!important}
+ #app#app#app .u-actions #dock-primary{min-width:72px!important;font:12px/1.15 var(--px11)!important;white-space:nowrap!important;padding:0 6px!important}
+}
+
+/* =====================================================================================
+   PASS 3 — calmer type (no heavy bold, nothing above 15px except screen titles), ornate corner
+   brackets on panels and cards, title dividers, equal-height choice cards, ledger-style stats.
+   ===================================================================================== */
+#app#app#app *,:is(html,#_o#_v#_r) body.lwb-polished :is(.modal,#patch-pop,#stage-intro) *{font-weight:400!important}
+/* screen titles: 15px pixel caps-like spacing in gold, then an ornamental divider */
+#app#app#app .modal > h2,:is(html,#_o#_v#_r) body.lwb-polished .modal > h2,:is(html,#_o#_v#_r) body.lwb-polished #patch-pop h2,#app#app#app .t-sheet-title,#app#app#app .settings-head h2{
+ font:400 15px/1.4 var(--px14)!important;letter-spacing:.12em!important;color:var(--tx-gold)!important;text-align:center!important;
+ text-shadow:0 1px 0 #000,0 0 10px rgba(246,221,150,.25)!important;margin:2px 0 10px!important}
+#app#app#app .modal > h2::after,:is(html,#_o#_v#_r) body.lwb-polished .modal > h2::after,:is(html,#_o#_v#_r) body.lwb-polished #patch-pop h2::after{
+ content:""!important;display:block!important;width:240px;max-width:90%;height:18px;margin:6px auto 0!important;background:var(--fr-divider) center/240px 18px no-repeat!important;image-rendering:pixelated}
+#app#app#app .modal > .eyebrow{text-align:center!important;display:block!important;font:12px/1.3 var(--px11)!important;letter-spacing:.08em}
+#app#app#app .modal > .eyebrow::before{content:none!important}
+/* numbers and labels: 15 / 12 only */
+#app#app#app .recruit-summary b,#app#app#app .modal .army-summary b,#app#app#app header.top .metric strong,#app#app#app #battle-sheet :is(.ui-stat-grid,.ui-resources) b,
+:is(html,#_o#_v#_r) body.lwb-polished .modal :is(.ui-stat-grid,.ui-resources) b{font:400 15px/1.2 var(--px14)!important}
+#app#app#app .modal .next-stage h3,#app#app#app #stage-intro h2{font:400 15px/1.4 var(--px14)!important;letter-spacing:.06em}
+:is(html,#_o#_v#_r) body.lwb-polished #stage-intro .si-card h2{font:400 15px/1.4 var(--px14)!important;letter-spacing:.1em}
+#app#app#app :is(button.primary,.dock-primary,#draft-confirm,#leave-camp,#camp-choice-confirm,.t-title #start-ai){letter-spacing:.06em!important}
+
+/* ornate frames: dialogs, sheets, panels (corner brackets + jewel), crest on the top edge of dialogs */
+#app#app#app .modal,:is(html,#_o#_v#_r) body.lwb-polished :is(.modal,#patch-pop .patch-inner),#app#app#app :is(.t-sheet,.top-actions.open,#battle-sheet){
+ border-image:var(--fr-panel-ornate) 12 / 24px / 0 stretch!important;
+ background:var(--fr-crest) center 0/52px 28px no-repeat,var(--fr-grain),linear-gradient(180deg,rgba(40,33,22,.92) 0,rgba(22,18,12,.94) 55%,rgba(14,11,8,.96) 100%)!important;
+ background-origin:border-box!important}
+#app#app#app .modal,:is(html,#_o#_v#_r) body.lwb-polished .modal{padding:6px 4px 0!important}
+#app#app#app .t-title.modal{border-image:none!important;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,0) 58%,rgba(0,0,0,.6) 78%,rgba(0,0,0,.88) 100%),var(--title-bg,var(--ui-bg)) center 60%/cover no-repeat,#060403!important;padding:0!important}
+#app#app#app .modal.camp .camp-confirm,#app#app#app .modal .camp-dock{margin-left:-4px!important;margin-right:-4px!important}
+/* inner wells keep the plain chip frame (no ornament clutter on small boxes) */
+
+/* recruit & reward cards: ornate corners in the tier colour */
+#app#app#app .recruit-card[data-draft]{--card:var(--fr-card-ornate-normal);border-image:var(--card) 12 / 24px / 0 stretch!important;padding:2px 2px 4px!important}
+#app#app#app .recruit-card[data-draft].tier-elite{--card:var(--fr-card-ornate-elite)}
+#app#app#app .recruit-card[data-draft].tier-rare{--card:var(--fr-card-ornate-rare)}
+#app#app#app .recruit-card[data-draft].tier-epic{--card:var(--fr-card-ornate-epic)}
+#app#app#app .recruit-card[data-draft].tier-legendary{--card:var(--fr-card-ornate-legendary)}
+#app#app#app .recruit-card[data-draft] .recruit-grade{margin:-12px 0 0 -12px!important}
+#app#app#app .recruit-card[data-draft] .pick-mark{margin:-12px -12px 0 0!important}
+#app#app#app .recruit-card[data-draft] .recruit-info{right:-20px!important}
+#app#app#app .modal .reward{--card:var(--fr-card-ornate-normal);border-image:var(--card) 12 / 24px / 0 stretch!important;padding:2px 4px!important}
+#app#app#app .modal .reward.rarity-1{--card:var(--fr-card-ornate-rare)}
+#app#app#app .modal .reward.rarity-2{--card:var(--fr-card-ornate-epic)}
+#app#app#app .modal .reward.rarity-3{--card:var(--fr-card-ornate-legendary)}
+#app#app#app .modal .reward[data-evopt]{--card:var(--fr-panel-ornate)}
+#app#app#app .modal .reward.is-picked::after{top:-10px!important;right:-10px!important}
+/* every choice card in a list is the same height (tallest wins); long text is clamped to 3 lines */
+#app#app#app .modal .reward-cards{display:grid!important;grid-template-columns:minmax(0,1fr)!important;grid-auto-rows:1fr!important;gap:10px!important}
+#app#app#app .modal .reward-cards .reward{height:100%!important;min-height:0!important;display:grid!important;grid-template-columns:auto minmax(0,1fr)!important;grid-template-rows:auto auto 1fr!important;column-gap:12px!important;row-gap:2px!important;align-content:start!important;align-items:start!important}
+#app#app#app .modal .reward-cards .reward > .choice-art{grid-column:1;grid-row:1 / span 3;align-self:center}
+#app#app#app .modal .reward-cards .reward > :not(.choice-art){grid-column:2}
+#app#app#app .modal .reward-cards .reward p{display:-webkit-box!important;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden!important;font:12px/1.5 var(--px11)!important;color:var(--tx)!important}
+#app#app#app .modal .reward-cards .reward > :is(.relic-detail,.relic-note,small:last-child:not(:first-of-type),.reward-note){font:12px/1.4 var(--px11)!important}
+#app#app#app .modal .reward-cards .reward[data-evopt]{grid-template-columns:minmax(0,1fr)!important}
+#app#app#app .modal .reward-cards .reward[data-evopt] > *{grid-column:1!important}
+#app#app#app .modal .reward-cards .reward b{font:400 15px/1.35 var(--px14)!important}
+
+/* unit detail: stats as a two-column ledger with thin rules instead of a grid of boxes */
+#app#app#app #battle-sheet .ui-stat-grid,:is(html,#_o#_v#_r) body.lwb-polished .modal .ui-stat-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;column-gap:18px!important;row-gap:0!important;margin:4px 0 8px!important}
+#app#app#app #battle-sheet .ui-stat-grid > span,:is(html,#_o#_v#_r) body.lwb-polished .modal .ui-stat-grid > span{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:6px!important;min-height:34px!important;padding:0 2px!important;
+ border:0!important;border-image:none!important;background:none!important;box-shadow:inset 0 -1px 0 rgba(201,164,94,.22)!important}
+#app#app#app #battle-sheet .ui-stat-grid > span small,:is(html,#_o#_v#_r) body.lwb-polished .modal .ui-stat-grid > span small{display:flex!important;align-items:center;gap:6px;font:12px/1 var(--px11)!important;color:var(--tx-mute)!important;margin:0!important}
+#app#app#app #battle-sheet .ui-stat-grid > span small img,:is(html,#_o#_v#_r) body.lwb-polished .modal .ui-stat-grid > span small img{width:16px!important;height:16px!important;image-rendering:pixelated}
+#app#app#app #battle-sheet .ui-stat-grid > span b,:is(html,#_o#_v#_r) body.lwb-polished .modal .ui-stat-grid > span b{color:var(--tx)!important;text-align:right!important}
+#app#app#app #battle-sheet .ui-resources,:is(html,#_o#_v#_r) body.lwb-polished .modal .ui-resources{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}
+#app#app#app #battle-sheet .ui-resources > span,:is(html,#_o#_v#_r) body.lwb-polished .modal .ui-resources > span{display:flex!important;flex-direction:column!important;align-items:center!important;gap:4px!important;padding:8px 4px!important;
+ border:0 solid transparent!important;border-image:var(--fr-chip) 6 / 12px / 0 stretch!important;background:var(--surf-deep)!important;box-shadow:none!important;image-rendering:pixelated}
+#app#app#app #battle-sheet .ui-resources > span small,:is(html,#_o#_v#_r) body.lwb-polished .modal .ui-resources > span small{display:flex!important;align-items:center;gap:4px;font:12px/1 var(--px11)!important;color:var(--tx-mute)!important}
+#app#app#app #battle-sheet .ui-resources > span b small,:is(html,#_o#_v#_r) body.lwb-polished .modal .ui-resources > span b small{display:inline!important;color:var(--tx-dim)!important}
+#app#app#app #battle-sheet :is(.ui-profile-section > h3,.section-label),:is(html,#_o#_v#_r) body.lwb-polished .modal .ui-profile-section > h3{
+ display:flex!important;align-items:center;gap:8px;font:12px/1.3 var(--px11)!important;color:var(--tx-gold)!important;letter-spacing:.08em;margin:10px 0 4px!important;border:0!important;background:none!important}
+#app#app#app #battle-sheet .ui-profile-section > h3::after,#app#app#app #battle-sheet .section-label::after,:is(html,#_o#_v#_r) body.lwb-polished .modal .ui-profile-section > h3::after{content:"";flex:1;height:2px;background:linear-gradient(90deg,rgba(201,164,94,.55),transparent)}
+#app#app#app #battle-sheet .movement-readout{display:flex!important;align-items:baseline;gap:6px;padding:8px 10px!important}
+#app#app#app #battle-sheet .movement-readout b{font:400 15px/1 var(--px14)!important;color:var(--tx-gold)!important}
+#app#app#app #battle-sheet .movement-readout span{margin-left:auto}
+
+/* top bar: mission name + live rule on two lines; auto/speed move to the field's top-right corner */
+#app#app#app header.top{grid-template-columns:auto minmax(0,1fr) auto 44px!important}
+#app#app#app header.top .metric:has(#cp){grid-column:3!important}
+#app#app#app header.top #settings-toggle{grid-column:4!important}
+#app#app#app #hud-mission{flex-direction:column!important;align-items:flex-start!important;justify-content:center!important;gap:2px!important;padding:0 10px!important}
+#app#app#app #hud-mission .hm-line{font:12px/1.2 var(--px11)!important;color:var(--tx-gold)!important;letter-spacing:.04em}
+#app#app#app #hud-mission .hm-sub{max-width:100%;font:12px/1.2 var(--px11)!important;color:var(--tx-mute)!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#app#app#app #hud-mission:not(.has-sub) .hm-sub{display:none}
+#app#app#app header.top .top-play{position:fixed!important;top:calc(var(--hdr-b,60px) + 6px);right:6px;z-index:12;display:flex!important;flex-direction:column!important;gap:6px!important}
+#app#app#app header.top .top-play .act-btn{width:40px!important;min-width:40px!important;height:40px!important;min-height:40px!important;font:12px/1.1 var(--px11)!important;opacity:.92}
+#app#app#app header.top .top-play .act-btn::after{content:"";position:absolute;inset:-3px}
+#app#app#app header.top .top-play .act-btn{position:relative}
+html body.lwb-polished:not([data-phase="move"]):not([data-phase="shoot"]):not([data-phase="fight"]):not([data-phase="preparation"]) #app#app#app header.top .top-play{display:none!important}
+/* pass 3 fixes: keep content inside the ornate frames */
+#app#app#app .modal,:is(html,#_o#_v#_r) body.lwb-polished .modal{padding:24px 20px 0!important}
+:is(html,#_o#_v#_r) body.lwb-polished #patch-pop .patch-inner{padding:24px 20px 16px!important}
+#app#app#app :is(.t-sheet,.top-actions.open){padding:24px 20px calc(16px + var(--safe-b,0px))!important}
+#app#app#app #battle-sheet{padding-left:16px!important;padding-right:16px!important}
+#app#app#app .modal.camp .camp-confirm,#app#app#app .modal .camp-dock{margin-left:-20px!important;margin-right:-20px!important;padding-left:20px!important;padding-right:20px!important}
+#app#app#app .recruit-card[data-draft]{padding:14px 14px 12px!important}
+#app#app#app .recruit-card[data-draft] :is(.recruit-grade,.pick-mark){margin:0!important}
+#app#app#app .recruit-card[data-draft] .recruit-info{right:-18px!important}
+#app#app#app .modal .reward{padding:14px 16px!important}
+#app#app#app .modal .reward.is-picked::after{top:4px!important;right:4px!important}
+#app#app#app .modal .reward-cards .reward > small{font:12px/1.3 var(--px11)!important}
+/* stat ledger rows: label left, value right */
+#app#app#app #battle-sheet .ui-stat-grid > span,:is(html,#_o#_v#_r) body.lwb-polished .modal .ui-stat-grid > span{flex-direction:row!important;text-align:left!important}
+#app#app#app #battle-sheet .ui-stat-grid > span > small,:is(html,#_o#_v#_r) body.lwb-polished .modal .ui-stat-grid > span > small{flex:1 1 auto;justify-content:flex-start!important}
+#app#app#app #battle-sheet .ui-stat-grid > span > b,:is(html,#_o#_v#_r) body.lwb-polished .modal .ui-stat-grid > span > b{flex:0 0 auto;margin:0!important}
+/* selected tabs and difficulty: solid gold plate */
+#app#app#app .camp-steps > .current,#app#app#app .t-sheet .diff-btn.active{border-image:var(--fr-btn-gold) 6 fill / 12px / 0 stretch!important;background:none!important}
+#app#app#app .camp-steps > .current,#app#app#app .camp-steps > .current *,#app#app#app .t-sheet .diff-btn.active,#app#app#app .t-sheet .diff-btn.active *{color:#2b1a04!important;text-shadow:none!important}
+#app#app#app#app#app .camp-steps > .current,#app#app#app#app#app .t-sheet .diff-btn.active{border-image:var(--fr-btn-gold) 6 fill / 12px / 0 stretch!important;background:none!important}
+#app#app#app#app#app .camp-steps > .current,#app#app#app#app#app .camp-steps > .current *,#app#app#app#app#app .t-sheet .diff-btn.active,#app#app#app#app#app .t-sheet .diff-btn.active *{color:#2b1a04!important;text-shadow:none!important}
+#app#app#app .recruit-card[data-draft]{padding-bottom:18px!important}
+#app#app#app .modal .reward{padding-right:22px!important}
+:is(html,#_o#_v#_r) body.lwb-polished .modal.ui-profile strong,:is(html,#_o#_v#_r) body.lwb-polished .modal .ui-info-head :is(h2,strong){font:400 15px/1.3 var(--px14)!important;letter-spacing:.06em;color:var(--tx-gold)!important}
+:is(html,#_o#_v#_r) body.lwb-polished #patch-pop > button,:is(html,#_o#_v#_r) body.lwb-polished #patch-pop .patch-close,:is(html,#_o#_v#_r) body.lwb-polished #patch-pop button:last-child{border:0 solid transparent!important;border-image:var(--fr-btn-bronze) 6 fill / 12px / 0 stretch!important;background:none!important;font:400 15px/1.2 var(--px14)!important;color:var(--tx)!important;image-rendering:pixelated}
+
+/* =====================================================================================
+   RELIC CARDS — icon left (fixed 64px plaque), name big and in the tier colour, family under it,
+   tier as a small plate in the top-right gap, pick shown by a gold ring + check on the icon.
+   Event options: text kept clear of the corner brackets.
+   ===================================================================================== */
+#app#app#app#app#app .modal .reward.relic-card{position:relative!important;display:grid!important;grid-template-columns:72px minmax(0,1fr)!important;grid-template-rows:none!important;column-gap:12px!important;align-items:start!important;
+ padding:20px 22px 18px 20px!important;text-align:left!important}
+#app#app#app#app#app .modal .reward.relic-card > .choice-art{grid-column:1!important;grid-row:1!important;align-self:start!important;position:relative;width:72px!important;height:72px!important;margin:0!important;display:grid!important;place-items:center;
+ border:0 solid transparent!important;border-image:var(--fr-chip) 6 / 12px / 0 stretch!important;background:radial-gradient(circle at 50% 45%,color-mix(in srgb,var(--tc) 35%,transparent),rgba(8,6,4,.9) 72%)!important;image-rendering:pixelated}
+#app#app#app#app#app .modal .reward.relic-card > .choice-art :is(img,.relic-icon){width:52px!important;height:52px!important;max-width:none!important;margin:0!important;background:none!important;box-shadow:none!important;border:0!important;image-rendering:pixelated}
+#app#app#app#app#app .modal .reward.relic-card > .choice-art .relic-icon img{width:100%!important;height:100%!important}
+#app#app#app#app#app .modal .reward.relic-card > .rc-body{grid-column:2!important;grid-row:1!important;display:flex!important;flex-direction:column!important;gap:3px!important;min-width:0;padding-right:44px}
+#app#app#app#app#app .modal .reward.relic-card .rc-name{font:400 15px/1.3 var(--px14)!important;letter-spacing:.04em;color:color-mix(in srgb,var(--tc) 45%,#fff6dc)!important;text-shadow:0 1px 0 #000,0 0 8px color-mix(in srgb,var(--tc) 40%,transparent)!important}
+#app#app#app#app#app .modal .reward.relic-card .rc-family{font:12px/1.3 var(--px11)!important;color:var(--tx-mute)!important}
+#app#app#app#app#app .modal .reward.relic-card .rc-family::before{content:"◆ ";color:var(--tc)}
+#app#app#app#app#app .modal .reward.relic-card p{margin:4px 0 0!important;font:12px/1.55 var(--px11)!important;color:var(--tx)!important;-webkit-line-clamp:3}
+#app#app#app#app#app .modal .reward.relic-card .rc-note{margin-top:4px;padding-top:4px;border-top:1px solid rgba(201,164,94,.18);font:12px/1.4 var(--px11)!important;color:color-mix(in srgb,var(--tc) 55%,#cfc3a4)!important;
+ display:-webkit-box!important;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+/* tier plate in the top-right gap */
+#app#app#app#app#app .modal .reward.relic-card .rc-tier{position:absolute!important;top:16px;right:18px;padding:2px 8px;font:12px/1.3 var(--px11)!important;color:#140d04!important;background:var(--tc)!important;
+ box-shadow:0 0 0 2px #0a0806,inset 0 -2px 0 rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.35)!important}
+#app#app#app#app#app .modal .reward.relic-card.relic-pass{--tc:#d8b45e}
+/* picked: gold ring around the card (tier frame kept) + check medallion on the icon; no corner sticker */
+#app#app#app#app#app .modal .reward.relic-card.is-picked::after{content:none!important;display:none!important}
+#app#app#app#app#app .modal .reward.relic-card.is-picked > .choice-art::after{content:"✓";position:absolute;right:-8px;bottom:-8px;width:22px;height:22px;display:grid;place-items:center;font:12px/1 var(--px11);color:#2b1a04;
+ background:#f6dd96;box-shadow:0 0 0 2px #0a0806,inset 0 -2px 0 #b8892e}
+#app#app#app#app#app .modal .reward.relic-card.is-picked{transform:none!important;box-shadow:0 0 0 2px #0a0806,0 0 0 4px #f6dd96,0 0 0 6px #0a0806,0 0 18px rgba(246,221,150,.4)!important}
+#app#app#app#app#app .modal .reward.relic-card.is-picked > .choice-art{border-image-source:var(--fr-btn-gold)!important}
+/* event options: keep text clear of the bracket corners */
+#app#app#app#app#app .modal .reward[data-evopt]{padding:20px 24px!important;gap:4px!important}
+#app#app#app#app#app .modal .reward[data-evopt] b{font:400 15px/1.35 var(--px14)!important;color:#fff4d6!important}
+#app#app#app#app#app .modal .reward[data-evopt] p{font:12px/1.5 var(--px11)!important;color:var(--tx-mute)!important}
+#app#app#app#app#app .modal .reward[data-evopt].is-picked::after{top:8px!important;right:10px!important}
+#app#app#app#app#app .modal .reward.relic-card .rc-tier{bottom:auto!important;left:auto!important;width:auto!important;height:auto!important;min-height:0!important;grid-area:auto!important;display:block!important;margin:0!important;line-height:1.3!important}
+#app#app#app#app#app .modal .reward.relic-card{height:auto!important;max-height:none!important;min-height:100%!important;overflow:visible!important}
+#app#app#app#app#app .modal .reward.relic-card .rc-note{display:block!important;-webkit-line-clamp:unset!important}
+#app#app#app#app#app .modal .reward.relic-card > .rc-body{padding-right:0!important}
+#app#app#app#app#app .modal .reward.relic-card .rc-name{padding-right:56px}
+#app#app#app#app#app .modal .reward.relic-card p{display:block!important;-webkit-line-clamp:unset!important}
+#app#app#app#app#app .modal .reward::before,#app#app#app#app#app .modal .reward.is-picked::before{content:none!important;display:none!important}
+#app#app#app#app#app .modal .reward[data-evopt].is-picked::after{content:none!important;display:none!important}
+#app#app#app#app#app .modal .reward[data-evopt].is-picked{box-shadow:0 0 0 2px #0a0806,0 0 0 4px #f6dd96,0 0 0 6px #0a0806,0 0 16px rgba(246,221,150,.4)!important;outline:0!important}
+#app#app#app#app#app .modal .reward[data-evopt].is-picked b{color:#f6dd96!important}
+#app#app#app#app#app .modal .reward[data-evopt].is-picked b::before{content:"✓ "}
+#app#app#app#app#app .modal .reward-cards:has(.relic-card),#app#app#app#app#app .modal .reward-cards:has([data-evopt]){grid-auto-rows:1fr!important}
+#app#app#app#app#app .modal .reward.is-picked,#app#app#app#app#app .recruit-card[data-draft].is-picked{border-image-slice:12!important;border-image-width:24px!important}
+/* relic cards: icon plaque centred vertically; picking tints the whole card gold (icon untouched) */
+#app#app#app#app#app .modal .reward.relic-card{align-items:center!important}
+#app#app#app#app#app .modal .reward.relic-card > .choice-art{align-self:center!important}
+#app#app#app#app#app .modal .reward.relic-card.is-picked > .choice-art{border-image-source:var(--fr-chip)!important}
+#app#app#app#app#app .modal .reward.relic-card.is-picked > .choice-art::after{content:none!important;display:none!important}
+#app#app#app#app#app .modal .reward.relic-card.is-picked{box-shadow:0 4px 0 rgba(0,0,0,.45),0 0 16px rgba(246,221,150,.35)!important;
+ background:var(--fr-grain),linear-gradient(180deg,rgba(150,112,40,.62) 0,rgba(96,68,22,.72) 55%,rgba(58,40,12,.85) 100%)!important}
+#app#app#app#app#app .modal .reward.relic-card.is-picked .rc-name{color:#fff1c4!important}
+#app#app#app#app#app .modal .reward.relic-card.is-picked :is(p,.rc-family,.rc-note){color:#f3e6c4!important}
+/* event options pick the same way */
+#app#app#app#app#app .modal .reward[data-evopt].is-picked{box-shadow:0 4px 0 rgba(0,0,0,.45),0 0 16px rgba(246,221,150,.35)!important;
+ background:var(--fr-grain),linear-gradient(180deg,rgba(150,112,40,.62) 0,rgba(96,68,22,.72) 55%,rgba(58,40,12,.85) 100%)!important}
+#app#app#app#app#app .modal .reward[data-evopt].is-picked p{color:#f3e6c4!important}
+
+/* no "…" truncation anywhere in the UI: text wraps by word instead */
+#app#app#app#app#app :is(.recruit-card,.reward,.modal,#hud-mission,#command-dock,#battle-sheet,.camp-confirm,.camp-dock) :is(p,small,span,b,em,div,strong){
+ text-overflow:clip!important;-webkit-line-clamp:unset!important;overflow-wrap:break-word;word-break:keep-all}
+#app#app#app#app#app .recruit-card[data-draft] > p,#app#app#app#app#app .recruit-card[data-draft] .recruit-name,#app#app#app#app#app .modal .reward-cards .reward p,
+#app#app#app#app#app #hud-mission :is(.hm-line,.hm-sub),#app#app#app#app#app #dock-name,#app#app#app#app#app .camp-confirm > span:first-child,#app#app#app#app#app #camp-choice-summary{
+ white-space:normal!important;overflow:visible!important;text-overflow:clip!important;display:block!important;-webkit-line-clamp:unset!important}
+/* the top bar grows to fit a wrapped mission rule */
+#app#app#app#app#app header.top{height:auto!important;max-height:none!important;grid-template-rows:auto!important;align-items:stretch!important}
+#app#app#app#app#app header.top :is(.metric,#hud-mission,#settings-toggle){height:auto!important;min-height:44px!important}
+#app#app#app#app#app #hud-mission{padding:5px 10px!important}
+
+/* ---------- fixes after merging into main ---------- */
+/* title keeps its painting (the panel skin must not cover it) */
+#app#app#app#app#app#app .t-title.modal{border-image:none!important;border:0!important;
+ background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,0) 58%,rgba(0,0,0,.6) 78%,rgba(0,0,0,.88) 100%),var(--title-bg,var(--ui-bg)) center 60%/cover no-repeat,#060403!important;padding:0!important}
+/* top bar: mission name only — tap for the rule */
+#app#app#app#app#app #hud-mission .hm-sub{display:none!important}
+#app#app#app#app#app #hud-mission{cursor:pointer;justify-content:center!important}
+#app#app#app#app#app #hud-mission .hm-line{font:400 15px/1.2 var(--px14)!important;color:var(--tx-gold)!important;white-space:nowrap!important}
+#app#app#app#app#app #hud-mission::after{content:"ⓘ";position:absolute;right:8px;top:50%;transform:translateY(-50%);font:12px/1 var(--px11);color:var(--tx-mute)}
+#app#app#app#app#app #hud-mission{position:relative!important;padding-right:24px!important}
+#app#app#app#app#app header.top{height:calc(52px + var(--safe-t,0px))!important;grid-template-rows:44px!important}
+#app#app#app#app#app header.top :is(.metric,#hud-mission,#settings-toggle){height:44px!important}
+/* playback toggles: label never wraps */
+#app#app#app#app#app header.top .top-play .act-btn{width:auto!important;min-width:44px!important;padding:0 8px!important;white-space:nowrap!important;font:12px/1 var(--px11)!important}
+/* off-screen markers: round dark plaque, team ring, arrow outside, count inside */
+#app#app#app#app#app .os-mark{width:30px!important;height:30px!important;border:0!important;border-image:none!important;border-radius:50%!important;
+ background:radial-gradient(circle,#1c1610 0 55%,#0a0806 56%)!important;box-shadow:0 0 0 2px #0a0806,0 0 0 4px #c9d9a8,0 2px 6px rgba(0,0,0,.6)!important}
+#app#app#app#app#app .os-mark.foe{box-shadow:0 0 0 2px #0a0806,0 0 0 4px #e0907a,0 2px 6px rgba(0,0,0,.6)!important}
+#app#app#app#app#app .os-mark i{background:none!important;inset:0!important}
+#app#app#app#app#app .os-mark i::after{right:-12px!important;border-left-color:#c9d9a8!important;border-width:5px 0 5px 7px!important;margin-top:-5px!important}
+#app#app#app#app#app .os-mark.foe i::after{border-left-color:#e0907a!important}
+#app#app#app#app#app .os-mark b{font:12px/1 var(--px11)!important;color:#f6e8c8!important}
+#app#app#app#app#app .os-mark b:empty::before{width:8px!important;height:8px!important;border-radius:50%;background:#c9d9a8!important}
+#app#app#app#app#app .os-mark.foe b:empty::before{background:#e0907a!important}
+/* settings: speed and doctrine are labelled rows with bronze selects */
+#app#app#app#app#app .top-actions.open :is(.settings-speed){grid-column:1 / -1;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:10px!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important}
+#app#app#app#app#app .top-actions.open .settings-speed > span{display:flex;align-items:center;gap:6px;font:400 15px/1.2 var(--px14)!important;color:var(--tx)!important}
+#app#app#app#app#app .top-actions.open .settings-speed > span img{width:16px;height:16px;image-rendering:pixelated}
+#app#app#app#app#app .top-actions.open select{appearance:none;-webkit-appearance:none;min-width:150px;min-height:44px!important;padding:0 30px 0 12px!important;
+ border:0 solid transparent!important;border-image:var(--fr-btn-bronze) 6 fill / 12px / 0 stretch!important;background:none!important;color:var(--tx)!important;font:400 15px/1.2 var(--px14)!important;image-rendering:pixelated;
+ background-image:linear-gradient(45deg,transparent 50%,var(--tx-gold) 50%),linear-gradient(135deg,var(--tx-gold) 50%,transparent 50%)!important;background-position:calc(100% - 16px) 50%,calc(100% - 11px) 50%!important;background-size:5px 5px!important;background-repeat:no-repeat!important}
+#app#app#app#app#app .top-actions.open > select#doctrine{display:none!important}
+/* mission / info dialogs (attached to <body>) */
+:is(html,#_o#_v#_r) body.lwb-polished dialog.ui-info-dialog{max-width:min(92vw,420px);padding:28px 24px 20px!important;border:0 solid transparent!important;border-image:var(--fr-panel-ornate) 12 / 24px / 0 stretch!important;image-rendering:pixelated;border-radius:0!important;
+ background:var(--fr-crest) center 0/52px 28px no-repeat,var(--fr-grain),linear-gradient(180deg,rgba(40,33,22,.97),rgba(14,11,8,.98))!important;color:var(--tx)!important;box-shadow:0 18px 40px rgba(0,0,0,.6)!important}
+:is(html,#_o#_v#_r) body.lwb-polished dialog.ui-info-dialog::backdrop{background:rgba(0,0,0,.6)}
+:is(html,#_o#_v#_r) body.lwb-polished dialog.ui-info-dialog *{font-family:var(--px11)!important;font-weight:400!important}
+:is(html,#_o#_v#_r) body.lwb-polished dialog.ui-info-dialog h2{font:400 15px/1.4 var(--px14)!important;letter-spacing:.12em;color:var(--tx-gold)!important;text-align:center;margin:0 0 10px!important}
+:is(html,#_o#_v#_r) body.lwb-polished dialog.ui-info-dialog h2::after{content:"";display:block;width:240px;max-width:90%;height:18px;margin:6px auto 0;background:var(--fr-divider) center/240px 18px no-repeat;image-rendering:pixelated}
+:is(html,#_o#_v#_r) body.lwb-polished dialog.ui-info-dialog :is(p,.mission-rule,label){font:12px/1.6 var(--px11)!important;color:var(--tx)!important;white-space:normal}
+:is(html,#_o#_v#_r) body.lwb-polished dialog.ui-info-dialog .mission-rule img{width:12px;height:12px;vertical-align:-2px;image-rendering:pixelated}
+:is(html,#_o#_v#_r) body.lwb-polished dialog.ui-info-dialog button{display:block;width:100%;min-height:44px;margin-top:10px;border:0 solid transparent!important;border-image:var(--fr-btn-bronze) 6 fill / 12px / 0 stretch!important;background:none!important;color:var(--tx)!important;font:400 15px/1.2 var(--px14)!important;image-rendering:pixelated}
+:is(html,#_o#_v#_r) body.lwb-polished dialog.ui-info-dialog button.primary{border-image-source:var(--fr-btn-gold)!important;color:#2b1a04!important}
+:is(html,#_o#_v#_r) body.lwb-polished dialog.ui-info-dialog select{width:100%;min-height:44px;margin-top:6px;border:0 solid transparent!important;border-image:var(--fr-chip) 6 fill / 12px / 0 stretch!important;background:none!important;color:var(--tx)!important;font:12px var(--px11)!important}
+/* nothing inside a scrolling panel stays pinned while scrolling: summaries and confirm bars scroll with the content */
+#app#app#app#app#app#app .modal :is(.recruit-summary,.camp-confirm,.camp-dock,.camp-steps,.warband-composition,.ready-overview,.mount-head,.camp-secondary),
+#app#app#app#app#app#app .modal > *,:is(html,#_o#_v#_r) body.lwb-polished .modal :is(.ui-dialog-actions,.modal-actions,footer){position:static!important;top:auto!important;bottom:auto!important}
+#app#app#app#app#app#app .modal.camp .camp-confirm,#app#app#app#app#app#app .modal .camp-dock{box-shadow:none!important;margin-top:14px!important;margin-bottom:14px!important}
+#app#app#app#app#app#app #battle-sheet #sheet-toggle{position:static!important}
+/* title: logo high over the painting, controls at the bottom */
+#app#app#app#app#app#app .t-title.modal{display:flex!important;flex-direction:column!important;justify-content:space-between!important;padding:calc(64px + var(--safe-t,0px)) 16px calc(16px + var(--safe-b,0px))!important}
+#app#app#app#app#app#app .t-title .t-ver{position:absolute!important;left:12px;top:calc(10px + var(--safe-t,0px));font:12px/1.4 var(--px11)!important;color:#e9e1cc!important;text-shadow:0 1px 2px #000!important}
+#app#app#app#app#app#app .t-title .intro-layout{margin:0!important;position:static!important}
+/* settings row labels never wrap */
+#app#app#app#app#app#app .top-actions.open .settings-speed > span{white-space:nowrap!important;flex:0 0 auto}
+#app#app#app#app#app#app .top-actions.open .settings-speed select{flex:1 1 auto;min-width:0!important}
+/* off-screen markers: just a team-coloured arrowhead pointing at the hidden units (+count), no plate */
+#app#app#app#app#app#app .os-mark{width:28px!important;height:28px!important;background:none!important;box-shadow:none!important;border:0!important;border-image:none!important;border-radius:0!important;opacity:.95}
+#app#app#app#app#app#app .os-mark i{position:absolute!important;inset:0!important;background:none!important}
+#app#app#app#app#app#app .os-mark i::after{content:""!important;position:absolute!important;left:50%!important;top:50%!important;right:auto!important;margin:-9px 0 0 -6px!important;width:0;height:0;
+ border-style:solid!important;border-width:9px 0 9px 14px!important;border-color:transparent transparent transparent #d9e8c4!important;filter:drop-shadow(0 0 1px #0a0806) drop-shadow(0 0 1px #0a0806) drop-shadow(0 2px 2px rgba(0,0,0,.6))}
+#app#app#app#app#app#app .os-mark.foe i::after{border-left-color:#f2a68c!important}
+#app#app#app#app#app#app .os-mark b{position:absolute!important;left:50%;top:50%;transform:translate(-50%,-50%);font:12px/1 var(--px11)!important;color:#fff!important;text-shadow:0 0 2px #000,0 0 2px #000!important}
+#app#app#app#app#app#app .os-mark b:empty::before{content:none!important;display:none!important}
+/* the command dock keeps one height in every phase, so the battlefield canvas never resizes (no black flash) */
+#app#app#app#app#app#app #u-panel{min-height:112px!important;height:112px!important;max-height:112px!important;box-sizing:border-box!important;overflow:hidden!important}
+#app#app#app#app#app#app #command-dock{flex:0 0 auto!important}
+#app#app#app#app#app#app #command-dock > :not(#u-panel):not(.u-actions):not(.u-tip):not(.mux-legacy){display:none!important}
+#app#app#app#app#app#app #u-panel.empty{display:grid!important;place-items:center!important;grid-template-columns:1fr!important}
+#app#app#app#app#app#app #u-panel.empty #dock-name{grid-column:1!important;text-align:center!important}
+#app#app#app#app#app#app #u-panel.empty :is(.dock-portrait,#u-stats,#u-res){display:none!important}
+#app#app#app#app#app#app .u-actions{height:44px!important;min-height:44px!important;max-height:44px!important}
+
+/* =====================================================================================
+   PASS 5 — phone polish (checked at 352 css px / dpr 2.625)
+   1. Type: crisp Pretendard for body and small labels; the pixel face only for titles, names,
+      buttons and big numbers (≥15px), where it stays legible on fractional-DPR screens.
+   2. Small boxes drop the 9-slice chip frame (it misaligned and spilled at small sizes) for a
+      clean 1px brass rule with an inner shadow. Pixel frames stay on dialogs, cards and buttons.
+   3. Overlaps fixed: dialog crest vs. title, version vs. logo, grade ribbon wrap, ledger icons.
+   ===================================================================================== */
+html body.lwb-polished{--body:Pretendard,"Apple SD Gothic Neo","Malgun Gothic",sans-serif}
+#app#app#app#app#app#app#app *:not(svg):not(svg *),:is(html,#_o#_v#_r#_x) body.lwb-polished :is(.modal,#patch-pop,#stage-intro,dialog,.toast,.ui-popover) *{font-family:var(--body)!important}
+/* pixel face, deliberately */
+#app#app#app#app#app#app#app :is(.modal > h2,.t-sheet-title,.settings-head h2,.logo-ko,
+ button,.act-btn,.t-btn,.to-item,.diff-btn,.camp-steps > *,
+ .recruit-name,.rc-name,.reward b,#dock-name,#hud-mission .hm-line,header.top .metric strong,
+ .recruit-summary b,.army-summary b,.ready-ledger span,.next-stage h3,#u-stats > span b,#u-hp > b,.warband-composition b,.ui-stat-grid b,.ui-resources b),
+:is(html,#_o#_v#_r#_x) body.lwb-polished :is(.modal > h2,dialog h2,dialog button,.modal button,#stage-intro h2,#patch-pop h2){font-family:Galmuri14,Galmuri11,var(--body)!important}
+#app#app#app#app#app#app#app :is(button,.act-btn,.t-btn,.to-item,.diff-btn) :is(small,em,span.sub){font-family:var(--body)!important}
+/* body sizes */
+#app#app#app#app#app#app#app :is(p,small,label,li,.eyebrow,.draft-help,.bond-line,.rc-family,.rc-note,.recruit-faction,.recruit-role,.section-label,summary,.mv,.stat-label,#act-phase,.army-note,.set-progress){font-size:13px!important;line-height:1.5!important;letter-spacing:0!important}
+#app#app#app#app#app#app#app .modal p{font-size:14px!important}
+
+/* small wells: clean brass rule instead of the pixel chip frame */
+#app#app#app#app#app#app#app :is(.recruit-summary,.event-result,.battle-recap,.army-summary,.ready-overview,.next-stage,.save-slots,.cloud-box,.save-wrap,.camp-dock,
+ #u-panel,#hud-mission,header.top .metric,#settings-toggle,#u-stats > span,#act-phase,.warband-composition span,.chal-ic,.set-progress,input,.ui-resources > span,.movement-readout,.command,.hero-skill,.sheet-st,.sheet-eq){
+ border-image:none!important;border:1px solid rgba(201,164,94,.38)!important;border-radius:2px!important;
+ background:linear-gradient(180deg,rgba(34,27,18,.88),rgba(14,11,8,.92))!important;box-shadow:inset 0 0 0 1px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,230,170,.06)!important}
+#app#app#app#app#app#app#app .next-stage{border-color:rgba(201,94,64,.55)!important;background:linear-gradient(180deg,rgba(60,22,16,.55),rgba(14,10,8,.92))!important}
+#app#app#app#app#app#app#app #act-phase.ally{border-color:rgba(143,190,240,.6)!important}
+#app#app#app#app#app#app#app #act-phase.foe{border-color:rgba(240,150,130,.6)!important}
+#app#app#app#app#app#app#app .warband-composition span{padding:6px 10px!important}
+/* ready ledger: icons inside, shop button aligned */
+#app#app#app#app#app#app#app .ready-overview{display:flex!important;align-items:center!important;gap:10px!important;padding:8px 8px 8px 12px!important;overflow:hidden}
+#app#app#app#app#app#app#app .ready-ledger{display:flex!important;flex:1 1 auto;gap:16px!important;align-items:center!important;margin:0!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important}
+#app#app#app#app#app#app#app .ready-ledger span{display:inline-flex!important;align-items:center!important;gap:6px!important;font-size:15px!important;color:var(--tx)!important;white-space:nowrap}
+#app#app#app#app#app#app#app .ready-ledger img{position:static!important;width:18px!important;height:18px!important;margin:0!important;image-rendering:pixelated}
+#app#app#app#app#app#app#app #to-shop{flex:0 0 auto;display:inline-flex!important;align-items:center!important;gap:6px!important;min-height:40px!important;padding:0 12px!important;position:static!important}
+#app#app#app#app#app#app#app #to-shop img{width:20px!important;height:20px!important;position:static!important;margin:0!important}
+#app#app#app#app#app#app#app .route-branch button{width:100%!important;display:flex!important;align-items:center;justify-content:center;gap:6px}
+#app#app#app#app#app#app#app .route-branch button img{width:16px;height:16px;position:static!important}
+
+/* dialog crest never sits on the title */
+#app#app#app#app#app#app#app .modal,:is(html,#_o#_v#_r#_x) body.lwb-polished .modal{padding-top:36px!important}
+#app#app#app#app#app#app#app .t-title.modal{padding-top:calc(56px + var(--safe-t,0px))!important}
+
+/* title: version line at the foot, never over the logo; one clear primary */
+#app#app#app#app#app#app#app .t-title .t-ver{position:static!important;order:99;margin:6px 0 0!important;text-align:center!important;font:12px/1.4 var(--body)!important;color:#b8ae98!important}
+#app#app#app#app#app#app#app .t-title .title-controls{display:flex!important;flex-direction:column!important;gap:12px!important}
+#app#app#app#app#app#app#app .t-title #start-ai{opacity:1!important;filter:none!important}
+#app#app#app#app#app#app#app .t-title #resume{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:2px!important;min-height:56px!important;padding:6px 12px!important;
+ border:0 solid transparent!important;border-image:var(--fr-btn-gold) 6 fill / 12px / 0 stretch!important;background:none!important;color:#2b1a04!important;text-decoration:none!important;image-rendering:pixelated;box-shadow:0 3px 0 rgba(0,0,0,.45)!important}
+#app#app#app#app#app#app#app .t-title #resume :is(strong,small){text-decoration:none!important;border:0!important;color:#2b1a04!important;text-shadow:none!important}
+#app#app#app#app#app#app#app .t-title #resume strong{font:400 15px/1.2 Galmuri14,var(--body)!important}
+#app#app#app#app#app#app#app .t-title #resume small{font:500 12px/1.3 var(--body)!important;opacity:.8}
+#app#app#app#app#app#app#app .t-title #resume ~ #start-ai,#app#app#app#app#app#app#app .t-title #start-ai:has(~ #resume){border-image-source:var(--fr-btn-bronze)!important;color:var(--tx)!important}
+#app#app#app#app#app#app#app .t-title #start-ai:has(~ #resume) *{color:var(--tx)!important}
+#app#app#app#app#app#app#app .t-title #resume{order:-1}
+
+/* recruit cards: tidy header row, bigger art, compact body */
+#app#app#app#app#app#app#app .recruit-card[data-draft]{grid-template-columns:minmax(0,1fr) auto!important;row-gap:2px!important;padding:16px 14px 18px!important}
+#app#app#app#app#app#app#app .recruit-card[data-draft] .recruit-grade{max-width:100%;white-space:nowrap!important;overflow:hidden;padding:2px 6px!important;font:700 11px/1.3 var(--body)!important;letter-spacing:0!important;gap:3px!important}
+#app#app#app#app#app#app#app .recruit-card[data-draft] .recruit-grade img{width:12px!important;height:12px!important;flex:0 0 12px}
+#app#app#app#app#app#app#app .recruit-card[data-draft] .pick-mark{white-space:nowrap!important;font:700 11px/1.3 var(--body)!important;padding:2px 6px!important}
+#app#app#app#app#app#app#app .recruit-card[data-draft] .recruit-portrait{width:100%!important;height:104px!important}
+#app#app#app#app#app#app#app .recruit-card[data-draft] .recruit-portrait img{width:100px!important;height:100px!important}
+#app#app#app#app#app#app#app .recruit-card[data-draft] .recruit-info{right:0!important;bottom:0!important;width:24px;height:24px;font:700 12px/1 var(--body)!important}
+#app#app#app#app#app#app#app .recruit-card[data-draft] .recruit-name{font-size:15px!important;line-height:1.3!important}
+#app#app#app#app#app#app#app .recruit-card[data-draft] > p{font-size:12px!important;line-height:1.4!important;color:var(--tx-mute)!important}
+#app#app#app#app#app#app#app .recruit-card[data-draft] .recruit-combat span{font:600 13px/1 var(--body)!important}
+#app#app#app#app#app#app#app .recruit-card[data-draft] > em{font:700 13px/1.2 var(--body)!important}
+/* recruit: the grade ribbon owns the header row; selection is a small round ✓ seal on the corner */
+#app#app#app#app#app#app#app .recruit-card[data-draft]{grid-template-areas:"grade grade" "pic pic" "name name" "fac fac" "skill skill" "stats stats" "price price"!important}
+#app#app#app#app#app#app#app .recruit-card[data-draft] .recruit-grade{justify-self:center!important}
+#app#app#app#app#app#app#app .recruit-card[data-draft] .recruit-combat{justify-content:center!important}
+#app#app#app#app#app#app#app .recruit-card[data-draft] > em{justify-self:center!important}
+#app#app#app#app#app#app#app .recruit-card[data-draft] .pick-mark:not(.why){display:none!important}
+#app#app#app#app#app#app#app .recruit-card[data-draft].is-picked .pick-mark{display:grid!important;place-items:center;position:absolute!important;top:-8px!important;right:-8px!important;left:auto!important;width:26px!important;height:26px!important;padding:0!important;
+ border-radius:50%!important;font-size:0!important;color:transparent!important;background:radial-gradient(circle at 35% 30%,#fff6cf,#e7c068 55%,#a67a22)!important;box-shadow:0 0 0 2px #0a0806,0 2px 4px rgba(0,0,0,.6)!important;z-index:3}
+#app#app#app#app#app#app#app .recruit-card[data-draft].is-picked .pick-mark::before{content:"✓"!important;font:700 15px/1 var(--body);color:#3a2404}
+#app#app#app#app#app#app#app .recruit-card[data-draft] .pick-mark.why{grid-area:price!important;justify-self:center!important;background:none!important;box-shadow:none!important}
+#app#app#app#app#app#app#app .recruit-card[data-draft]{overflow:visible!important}
+/* top bar wave box: one face */
+#app#app#app#app#app#app#app header.top .metric:has(#wave) :is(small,strong){font-family:var(--body)!important}
+#app#app#app#app#app#app#app header.top .metric:has(#wave) strong{font:700 15px/1 var(--body)!important}
+#app#app#app#app#app#app#app header.top .metric:has(#wave)::after{font:600 12px/1 var(--body)!important}
+#app#app#app#app#app#app#app .t-title.modal{justify-content:flex-start!important}
+#app#app#app#app#app#app#app .t-title .title-controls{margin-top:auto!important}
+#app#app#app#app#app#app#app .t-title .t-ver{margin-top:10px!important}
+
+/* floating notices never stack: while a stage/victory card is up, the notice bar and dice tray wait;
+   the notice bar stays clear of the playback buttons on the right */
+html body.lwb-polished:has(#stage-intro) #app :is(#battle-notices,#dice,.toast,#lwb-score,#lwb-killfeed){visibility:hidden!important}
+#app#app#app#app#app#app#app #battle-notices{left:8px!important;right:62px!important;width:auto!important;max-width:none!important}
+#app#app#app#app#app#app#app #battle-notices > *{font:600 13px/1.4 var(--body)!important;border-image:none!important;border:1px solid rgba(201,164,94,.38)!important;border-radius:2px!important;background:rgba(14,11,8,.86)!important;box-shadow:0 2px 6px rgba(0,0,0,.5)!important;padding:6px 10px!important;white-space:normal!important}
+#app#app#app#app#app#app#app #dice{left:8px!important;right:62px!important;width:auto!important}
+html body.lwb-polished:has(#battle-notices > :not(.hidden)) #app #dice{top:auto!important}
+
+/* =====================================================================================
+   PASS 6
+   ===================================================================================== */
+/* dialogs scroll as one piece: the framed panel grows with its content and the page behind it scrolls,
+   so the ornate frame moves with the text instead of content sliding under a fixed frame */
+#app#app#app#app#app#app#app .overlay:not(.hidden){overflow-y:auto!important;overflow-x:hidden!important;align-items:flex-start!important;justify-content:center!important;padding:10px 8px calc(10px + var(--safe-b,0px))!important;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+#app#app#app#app#app#app#app .overlay > .modal:not(.t-title){max-height:none!important;height:auto!important;overflow:visible!important;margin:0 auto!important;flex:0 0 auto!important}
+#app#app#app#app#app#app#app .overlay:has(> .t-title){padding:0!important;overflow:hidden!important}
+
+/* shop: target heroes/units as an even grid of small cards (no ragged list) */
+#app#app#app#app#app#app#app .shop-target{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(88px,1fr))!important;gap:6px!important;align-items:stretch!important;margin:8px 0 12px!important}
+#app#app#app#app#app#app#app .shop-target > b{grid-column:1 / -1;align-self:start!important;font:600 13px/1.3 var(--body)!important;color:var(--tx-gold)!important}
+#app#app#app#app#app#app#app .shop-target .unit-chip{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:flex-start!important;gap:2px!important;width:auto!important;min-width:0!important;min-height:96px!important;height:auto!important;padding:8px 6px!important;text-align:center!important;
+ border:1px solid rgba(201,164,94,.38)!important;border-image:none!important;border-radius:2px!important;background:linear-gradient(180deg,rgba(34,27,18,.88),rgba(14,11,8,.92))!important;box-shadow:inset 0 0 0 1px rgba(0,0,0,.55)!important}
+#app#app#app#app#app#app#app .shop-target .unit-chip img{width:44px!important;height:44px!important;margin:0!important;object-fit:contain}
+#app#app#app#app#app#app#app .shop-target .unit-chip span{font:400 13px/1.25 Galmuri11,var(--body)!important;color:var(--tx)!important;white-space:normal!important;word-break:keep-all}
+#app#app#app#app#app#app#app .shop-target .unit-chip small{font:500 11px/1.3 var(--body)!important;color:var(--tx-mute)!important;white-space:normal!important}
+#app#app#app#app#app#app#app .shop-target .unit-chip.active{border-color:#f6dd96!important;box-shadow:0 0 0 1px #f6dd96,0 0 12px rgba(246,221,150,.35)!important;background:linear-gradient(180deg,rgba(120,88,30,.6),rgba(40,28,10,.9))!important}
+
+/* in-battle notices: one stack at the top-left of the field (clear of the playback buttons),
+   kill reports join that stack in the same plate style; the roll tray moves to the bottom of the field */
+#app#app#app#app#app#app#app #battle-notices{position:absolute!important;top:8px!important;left:8px!important;right:62px!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:6px!important;pointer-events:none;z-index:24}
+#app#app#app#app#app#app#app #battle-notices > *{position:static!important;margin:0!important;transform:none!important;max-width:none!important}
+#app#app#app#app#app#app#app #lwb-killfeed{position:static!important;top:auto!important;right:auto!important;align-items:flex-start!important;gap:4px!important}
+#app#app#app#app#app#app#app #lwb-killfeed .kill-feed-item,#app#app#app#app#app#app#app #battle-notices .kill-feed-item{display:flex!important;align-items:center!important;gap:6px!important;max-width:100%!important;padding:4px 10px 4px 8px!important;border-radius:2px!important;
+ font:600 12px/1.35 var(--body)!important;color:#efe4c6!important;white-space:normal!important;overflow:visible!important;text-overflow:clip!important;
+ background:rgba(14,11,8,.86)!important;border:1px solid rgba(201,164,94,.38)!important;box-shadow:inset 3px 0 0 #d9e8c4,0 2px 6px rgba(0,0,0,.5)!important}
+#app#app#app#app#app#app#app .kill-feed-item[data-side="good"]{box-shadow:inset 3px 0 0 #f2a68c,0 2px 6px rgba(0,0,0,.5)!important;color:#f6d6c8!important}
+#app#app#app#app#app#app#app .kill-feed-item img{width:14px!important;height:14px!important}
+html body.lwb-polished #lwb-score{display:none!important}
+#app#app#app#app#app#app#app #dice{top:auto!important;bottom:8px!important;left:8px!important;right:8px!important;transform:none!important}
+html body.lwb-polished:has(#stage-intro) #app #battle-notices{visibility:hidden!important}
+#app#app#app#app#app#app#app #battle-notices .kill-feed-item{width:fit-content!important;align-self:flex-start}
+
+/* shop targets: one horizontal row that swipes sideways when the warband grows */
+#app#app#app#app#app#app#app .shop-target{display:flex!important;flex-wrap:nowrap!important;overflow-x:auto!important;overflow-y:hidden!important;gap:8px!important;padding:2px 2px 8px!important;margin:8px -4px 12px!important;
+ scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#8a6a32 transparent}
+#app#app#app#app#app#app#app .shop-target::-webkit-scrollbar{height:4px}
+#app#app#app#app#app#app#app .shop-target::-webkit-scrollbar-thumb{background:#8a6a32}
+#app#app#app#app#app#app#app .shop-target > b{flex:0 0 auto;writing-mode:horizontal-tb;align-self:center!important;margin-right:2px}
+#app#app#app#app#app#app#app .shop-target .unit-chip{flex:0 0 88px!important;width:88px!important;scroll-snap-align:start}
+
+/* shop items: two per row, room to breathe */
+#app#app#app#app#app#app#app .shop-cards{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+@media (min-width:600px){#app#app#app#app#app#app#app .shop-cards{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+#app#app#app#app#app#app#app .shop-card{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:6px!important;padding:14px 12px 12px!important;min-height:0!important;height:auto!important;text-align:left!important}
+#app#app#app#app#app#app#app .shop-card .shop-icon{align-self:center!important;width:56px!important;height:56px!important;margin:0 0 4px!important}
+#app#app#app#app#app#app#app .shop-card .shop-icon img{width:100%!important;height:100%!important;object-fit:contain}
+#app#app#app#app#app#app#app .shop-card > b{font:400 15px/1.3 Galmuri14,var(--body)!important;color:#fff4d6!important;text-align:center!important;margin:0!important}
+#app#app#app#app#app#app#app .shop-card > small{display:block!important;font:400 13px/1.55 var(--body)!important;color:var(--tx)!important;margin:0!important;white-space:normal!important;word-break:keep-all}
+#app#app#app#app#app#app#app .shop-card > small + small{margin-top:2px!important;padding-top:6px!important;border-top:1px solid rgba(201,164,94,.22);font-size:12px!important;color:var(--tx-mute)!important}
+#app#app#app#app#app#app#app .shop-card > em{margin-top:auto!important;padding:6px 8px!important;text-align:center!important;font:700 13px/1.3 var(--body)!important;font-style:normal!important;white-space:normal!important}
+
+/* =====================================================================================
+   PASS 7 — shop tiers, extra challenges, save/continue
+   ===================================================================================== */
+/* shop item tiers: frame, glow, badge and name colour follow the tier; unique = gold, legend = bright gold */
+#app#app#app#app#app#app#app .shop-card{--tc:#8e979c;--tcd:#26292b;position:relative!important;border:0 solid transparent!important;border-image:var(--fr-card-ornate-normal) 12 / 24px / 0 stretch!important;image-rendering:pixelated;border-radius:0!important;
+ background:var(--fr-grain),radial-gradient(ellipse at 50% 22%,color-mix(in srgb,var(--tc) 26%,transparent) 0,transparent 60%),linear-gradient(180deg,color-mix(in srgb,var(--tcd) 80%,#000),#0d0b08)!important;box-shadow:0 3px 0 rgba(0,0,0,.45)!important;padding:18px 14px 14px!important}
+#app#app#app#app#app#app#app .shop-card.r-magic{--tc:#5e95d6;--tcd:#142439;border-image-source:var(--fr-card-ornate-rare)!important}
+#app#app#app#app#app#app#app .shop-card.r-rare{--tc:#a874e0;--tcd:#28163a;border-image-source:var(--fr-card-ornate-epic)!important}
+#app#app#app#app#app#app#app .shop-card.r-unique{--tc:#e8b84a;--tcd:#3d2706;border-image-source:var(--fr-card-ornate-legendary)!important;box-shadow:0 3px 0 rgba(0,0,0,.45),0 0 14px rgba(240,180,64,.35)!important}
+#app#app#app#app#app#app#app .shop-card.r-legend{--tc:#ffd66a;--tcd:#4a2f04;border-image-source:var(--fr-card-ornate-legendary)!important;box-shadow:0 3px 0 rgba(0,0,0,.45),0 0 0 2px rgba(255,214,106,.5),0 0 22px rgba(255,200,80,.55)!important}
+#app#app#app#app#app#app#app .shop-card .sc-tier{position:absolute!important;top:8px;right:10px;padding:1px 7px;font:700 11px/1.35 var(--body)!important;color:#140d04!important;background:var(--tc)!important;box-shadow:0 0 0 2px #0a0806,inset 0 -2px 0 rgba(0,0,0,.28)!important;z-index:2}
+#app#app#app#app#app#app#app .shop-card.r-common .sc-tier{color:#e8e2d0!important;background:#4a4f54!important}
+#app#app#app#app#app#app#app .shop-card > b{color:color-mix(in srgb,var(--tc) 45%,#fff6dc)!important;text-shadow:0 1px 0 #000,0 0 8px color-mix(in srgb,var(--tc) 40%,transparent)!important}
+#app#app#app#app#app#app#app .shop-card .shop-icon{filter:drop-shadow(0 0 6px color-mix(in srgb,var(--tc) 45%,transparent))}
+#app#app#app#app#app#app#app .shop-card[disabled]{filter:saturate(.45) brightness(.72)!important;opacity:1!important}
+#app#app#app#app#app#app#app .shop-card.sold-out{filter:grayscale(1) brightness(.6)!important}
+#app#app#app#app#app#app#app .shop-card.stash-card{--tc:#9fb08a;--tcd:#1c2414}
+
+/* collapsible sections on the ready screen (extra challenge, save/continue, roster, honour roll): one style */
+#app#app#app#app#app#app#app .modal :is(details.camp-challenges,details.save-wrap,details.warband-roster-details,details.honor-details){display:block!important;margin:10px 0!important;padding:0!important;
+ border:1px solid rgba(201,164,94,.38)!important;border-image:none!important;border-radius:2px!important;background:linear-gradient(180deg,rgba(34,27,18,.88),rgba(14,11,8,.92))!important;box-shadow:inset 0 0 0 1px rgba(0,0,0,.55)!important;position:static!important}
+#app#app#app#app#app#app#app .modal details > summary{list-style:none!important;display:flex!important;align-items:center!important;gap:8px!important;min-height:46px!important;padding:0 14px!important;cursor:pointer;
+ font:400 15px/1.3 Galmuri14,var(--body)!important;color:var(--tx)!important;background:none!important;border:0!important}
+#app#app#app#app#app#app#app .modal details > summary::-webkit-details-marker{display:none}
+#app#app#app#app#app#app#app .modal details > summary::after{content:"";margin-left:auto;width:8px;height:8px;border-right:2px solid var(--tx-gold);border-bottom:2px solid var(--tx-gold);transform:rotate(45deg) translateY(-2px);transition:transform .15s}
+#app#app#app#app#app#app#app .modal details[open] > summary::after{transform:rotate(-135deg) translateY(-2px)}
+#app#app#app#app#app#app#app .modal details > summary img{width:18px;height:18px;image-rendering:pixelated}
+#app#app#app#app#app#app#app .modal details[open] > summary{border-bottom:1px solid rgba(201,164,94,.22)!important}
+#app#app#app#app#app#app#app .modal details > :not(summary){padding:12px 14px 14px!important;margin:0!important}
+/* extra challenge choices: three even cards with icon, name and reward */
+#app#app#app#app#app#app#app .modal .chal-icons{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important;position:static!important;flex-wrap:nowrap!important}
+#app#app#app#app#app#app#app .modal .chal-ic{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:flex-start!important;gap:4px!important;min-height:92px!important;width:auto!important;height:auto!important;padding:10px 6px!important;position:relative!important;
+ border:0 solid transparent!important;border-image:var(--fr-btn-bronze) 6 fill / 12px / 0 stretch!important;background:none!important;box-shadow:0 3px 0 rgba(0,0,0,.4)!important;image-rendering:pixelated}
+#app#app#app#app#app#app#app .modal .chal-ic img{width:28px!important;height:28px!important;position:static!important;margin:0!important}
+#app#app#app#app#app#app#app .modal .chal-ic em{position:static!important;font:600 13px/1.25 var(--body)!important;font-style:normal!important;color:var(--tx)!important;text-align:center;white-space:normal!important;word-break:keep-all;background:none!important;padding:0!important}
+#app#app#app#app#app#app#app .modal .chal-ic i{position:static!important;font:700 12px/1.2 var(--body)!important;font-style:normal!important;color:var(--tx-gold)!important;background:none!important;padding:0!important;border:0!important}
+#app#app#app#app#app#app#app .modal .chal-ic.on{border-image-source:var(--fr-btn-gold)!important}
+#app#app#app#app#app#app#app .modal .chal-ic.on :is(em,i){color:#2b1a04!important}
+#app#app#app#app#app#app#app .modal .chal-icons > .secondary{grid-column:1 / -1;min-height:40px!important}
+/* save / continue: slot buttons in one row, cloud fields stacked with labels */
+#app#app#app#app#app#app#app .modal details.save-wrap .save-slots{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important;border:0!important;background:none!important;box-shadow:none!important;padding:0!important;margin:0 0 12px!important}
+#app#app#app#app#app#app#app .modal details.save-wrap .save-slots > b{grid-column:1 / -1;font:600 13px/1.3 var(--body)!important;color:var(--tx-gold)!important;margin:0!important}
+#app#app#app#app#app#app#app .modal details.save-wrap [data-saveslot]{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:2px!important;min-height:56px!important;padding:6px 4px!important}
+#app#app#app#app#app#app#app .modal details.save-wrap [data-saveslot] span{font:400 15px/1.2 Galmuri14,var(--body)!important}
+#app#app#app#app#app#app#app .modal details.save-wrap [data-saveslot] small{font:500 11px/1.3 var(--body)!important;color:var(--tx-mute)!important}
+#app#app#app#app#app#app#app .modal details.save-wrap .cloud-save{grid-template-columns:repeat(2,minmax(0,1fr))!important;margin:0!important}
+#app#app#app#app#app#app#app .modal details.save-wrap .cloud-field{grid-column:1 / -1;display:flex!important;flex-direction:column!important;gap:4px!important}
+#app#app#app#app#app#app#app .modal details.save-wrap .cloud-field span{font:600 12px/1.3 var(--body)!important;color:var(--tx-mute)!important}
+#app#app#app#app#app#app#app .modal details.save-wrap .cloud-field input{width:100%!important;min-height:42px!important;padding:0 10px!important;font:500 14px var(--body)!important;color:var(--tx)!important}
+#app#app#app#app#app#app#app .modal details.save-wrap #cloud-msg{grid-column:1 / -1;font:500 12px/1.4 var(--body)!important;color:var(--tx-mute)!important;text-align:center}
+#app#app#app#app#app#app#app .modal .camp-dock{margin:10px 0!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important}
+#app#app#app#app#app#app#app .modal details > summary::before{content:none!important;display:none!important}
+#app#app#app#app#app#app#app .modal details.save-wrap > .save-slots{padding:12px 14px 4px!important}
+#app#app#app#app#app#app#app .modal details.save-wrap > .save-slots.cloud-save{padding:8px 14px 14px!important;border-top:1px solid rgba(201,164,94,.18)!important}
+#app#app#app#app#app#app#app#app#app .modal .camp-dock,#app#app#app#app#app#app#app#app#app .modal details.save-wrap > .save-slots{border:0!important;background:none!important;box-shadow:none!important}
+#app#app#app#app#app#app#app#app#app .modal details.save-wrap > .save-slots.cloud-save{border-top:1px solid rgba(201,164,94,.18)!important}
+
+/* =====================================================================================
+   PASS 8
+   ===================================================================================== */
+/* kill feed container is not a notice plate itself (it showed as an empty thin bar) */
+#app#app#app#app#app#app#app#app #battle-notices > #lwb-killfeed{border:0!important;background:none!important;box-shadow:none!important;padding:0!important;min-height:0!important}
+#app#app#app#app#app#app#app#app #battle-notices > #lwb-killfeed:empty,#app#app#app#app#app#app#app#app #battle-notices > :empty{display:none!important}
+
+/* auto-run note sits inside the camp panel under the step tabs, never over the choices */
+html body.lwb-polished[data-auto="1"][data-phase="reward"] #app#app#app#app#app#app#app .modal.camp .camp-steps::after{content:"자동 진행 중 · 영입과 유물은 직접 선택하세요";grid-column:1 / -1;display:block;margin-top:8px;padding:6px 10px;
+ font:600 12px/1.4 var(--body);color:#2b1a04;text-align:center;background:linear-gradient(180deg,#f6dd96,#d9ac4e);box-shadow:0 0 0 1px #0a0806}
+
+/* shop tiers escalate: common plain → magic blue ornate → rare violet + glow → unique gold, gilded ground, shimmer
+   → legend: gilded frame on a deep crimson-gold ground, double glow, travelling sheen and sparkles */
+#app#app#app#app#app#app#app .shop-card{overflow:hidden!important;isolation:isolate}
+#app#app#app#app#app#app#app .shop-card.r-common{border-image:none!important;border:1px solid rgba(160,166,170,.4)!important;background:linear-gradient(180deg,rgba(32,32,30,.9),rgba(14,12,10,.94))!important}
+#app#app#app#app#app#app#app .shop-card.r-rare{box-shadow:0 3px 0 rgba(0,0,0,.45),0 0 12px rgba(168,116,224,.35)!important}
+#app#app#app#app#app#app#app .shop-card.r-unique{
+ background:var(--fr-grain),radial-gradient(ellipse at 50% 20%,rgba(255,214,120,.38) 0,transparent 62%),linear-gradient(180deg,#4a3410 0,#2a1d08 55%,#140d04 100%)!important;
+ box-shadow:0 3px 0 rgba(0,0,0,.45),0 0 0 1px rgba(255,214,120,.35),0 0 18px rgba(240,180,64,.45)!important}
+#app#app#app#app#app#app#app .shop-card.r-legend{border-image-source:var(--fr-card-ornate-legendary)!important;border-image-slice:12!important;border-image-width:24px!important;
+ background:var(--fr-grain),radial-gradient(ellipse at 50% 18%,rgba(255,236,170,.55) 0,transparent 58%),radial-gradient(ellipse at 50% 120%,rgba(200,60,30,.45),transparent 60%),linear-gradient(180deg,#5a2a0c 0,#3a1606 50%,#1a0904 100%)!important;
+ box-shadow:0 3px 0 rgba(0,0,0,.5),0 0 0 2px #0a0806,0 0 0 4px #ffd66a,0 0 26px rgba(255,190,70,.7),0 0 46px rgba(255,140,40,.35)!important;padding:20px 16px 16px!important}
+#app#app#app#app#app#app#app .shop-card.r-legend > b{color:#fff3c4!important;text-shadow:0 1px 0 #3a1606,0 0 10px rgba(255,214,106,.9)!important}
+#app#app#app#app#app#app#app .shop-card.r-legend > small{color:#f6e6c4!important}
+#app#app#app#app#app#app#app .shop-card.r-legend .sc-tier{background:linear-gradient(180deg,#fff6cf,#ffd66a 50%,#d79a26)!important;color:#3a1606!important}
+#app#app#app#app#app#app#app .shop-card.r-legend .shop-icon{filter:drop-shadow(0 0 8px rgba(255,214,106,.95)) drop-shadow(0 0 2px #fff)!important}
+#app#app#app#app#app#app#app .shop-card:is(.r-unique,.r-legend)::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+ background:linear-gradient(115deg,transparent 35%,rgba(255,240,190,.22) 47%,rgba(255,255,230,.38) 50%,rgba(255,240,190,.22) 53%,transparent 65%) no-repeat;background-size:250% 100%;animation:scSheen 3.6s ease-in-out infinite}
+#app#app#app#app#app#app#app .shop-card.r-legend::before{animation-duration:2.4s}
+#app#app#app#app#app#app#app .shop-card.r-legend::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.9;
+ background-image:radial-gradient(circle,#fff 0 1px,transparent 1.5px),radial-gradient(circle,#ffe7a0 0 1px,transparent 1.5px),radial-gradient(circle,#fff 0 1px,transparent 1.5px);
+ background-size:61px 53px,47px 71px,83px 67px;background-position:7px 11px,29px 37px,51px 5px;animation:scTwinkle 1.8s steps(3) infinite}
+@keyframes scSheen{0%{background-position:150% 0}55%,100%{background-position:-60% 0}}
+@keyframes scTwinkle{0%{opacity:.25}50%{opacity:.95}100%{opacity:.4}}
+@media (prefers-reduced-motion:reduce){#app .shop-card::before,#app .shop-card::after{animation:none!important}}
+/* camp: battle kill reports are done; other notices become one slim bar pinned to the very top edge (over the frame, not the choices) */
+html body.lwb-polished:is([data-phase="reward"],[data-phase="menu"],[data-phase="result"]) #lwb-killfeed{display:none!important}
+:is(html,#_o#_v#_r#_x) body.lwb-polished #battle-notices.camp-notices{position:fixed!important;top:calc(4px + var(--safe-t,0px))!important;left:50%!important;right:auto!important;transform:translateX(-50%)!important;width:max-content!important;max-width:calc(100vw - 24px)!important;
+ z-index:80!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:4px!important;pointer-events:none}
+:is(html,#_o#_v#_r#_x) body.lwb-polished #battle-notices.camp-notices > :not(#lwb-killfeed){position:static!important;transform:none!important;margin:0!important;padding:5px 12px!important;font:600 12px/1.4 var(--body)!important;color:#2b1a04!important;
+ background:linear-gradient(180deg,#f6dd96,#d9ac4e)!important;border:0!important;border-image:none!important;border-radius:2px!important;box-shadow:0 0 0 1px #0a0806,0 3px 8px rgba(0,0,0,.5)!important;white-space:normal!important;text-align:center}
+:is(html,#_o#_v#_r#_x) body.lwb-polished #battle-notices.camp-notices > * *{color:#2b1a04!important;font:inherit!important}
+/* unique = rose/pink (gold stays for legendary only) */
+#app#app#app#app#app#app#app#app .shop-card.r-unique{--tc:#ff8cc6;--tcd:#3a0f28;border-image-source:var(--fr-card-ornate-unique)!important;
+ background:var(--fr-grain),radial-gradient(ellipse at 50% 20%,rgba(255,150,205,.36) 0,transparent 62%),linear-gradient(180deg,#4a1634 0,#2a0c1e 55%,#14060e 100%)!important;
+ box-shadow:0 3px 0 rgba(0,0,0,.45),0 0 0 1px rgba(255,160,210,.35),0 0 18px rgba(255,120,190,.45)!important}
+#app#app#app#app#app#app#app#app .shop-card.r-unique::before{background:linear-gradient(115deg,transparent 35%,rgba(255,200,230,.2) 47%,rgba(255,235,245,.34) 50%,rgba(255,200,230,.2) 53%,transparent 65%) no-repeat!important;background-size:250% 100%!important}
+
+/* ready screen: roster as an even grid of identical cards (portrait · name · wounds · equipment row) */
+#app#app#app#app#app#app#app#app .modal .camp-roster{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important;align-items:stretch!important;flex-wrap:nowrap!important;overflow:visible!important;margin:0!important}
+#app#app#app#app#app#app#app#app .modal .camp-roster > button{position:relative!important;display:grid!important;grid-template-rows:56px auto auto 18px!important;justify-items:center!important;align-content:start!important;row-gap:2px!important;
+ width:auto!important;min-width:0!important;height:auto!important;min-height:132px!important;max-height:none!important;padding:8px 6px 6px!important;margin:0!important;text-align:center!important;
+ border:1px solid rgba(201,164,94,.38)!important;border-image:none!important;border-radius:2px!important;background:linear-gradient(180deg,rgba(40,32,20,.9),rgba(14,11,8,.94))!important;box-shadow:inset 0 0 0 1px rgba(0,0,0,.55)!important;overflow:visible!important}
+#app#app#app#app#app#app#app#app .modal .camp-roster > button > img{width:52px!important;height:52px!important;object-fit:contain!important;margin:0!important;align-self:end}
+#app#app#app#app#app#app#app#app .modal .camp-roster > button > small{display:contents!important}
+#app#app#app#app#app#app#app#app .modal .camp-roster .rs-name{display:block!important;font:400 13px/1.25 Galmuri11,var(--body)!important;color:var(--tx)!important;word-break:keep-all;max-width:100%}
+#app#app#app#app#app#app#app#app .modal .camp-roster > button > small{font:500 11px/1.3 var(--body)!important;color:var(--tx-mute)!important}
+#app#app#app#app#app#app#app#app .modal .camp-roster .eq-minis{display:flex!important;justify-content:center!important;gap:3px!important;margin:0!important;height:18px}
+#app#app#app#app#app#app#app#app .modal .camp-roster .eq-minis img{width:16px!important;height:16px!important}
+#app#app#app#app#app#app#app#app .modal .camp-roster .kill-badge{top:4px!important;right:4px!important;left:auto!important;min-width:18px!important;height:18px!important;padding:0 4px!important;border-radius:2px!important;font:700 11px/18px var(--body)!important;background:#9a3a28!important;box-shadow:0 0 0 1px #0a0806!important}
+/* army name, relic chips, set progress */
+#app#app#app#app#app#app#app#app .modal .army-name-row{margin:10px 0 6px!important;padding:0!important;border:0!important;background:none!important;box-shadow:none!important}
+#app#app#app#app#app#app#app#app .modal .army-name-row input{width:100%!important;min-height:44px!important}
+#app#app#app#app#app#app#app#app .modal .result-relics{display:flex!important;flex-wrap:wrap!important;gap:6px!important;margin:6px 0!important}
+#app#app#app#app#app#app#app#app .modal .relic-chip{width:44px!important;height:44px!important;min-height:44px!important;padding:4px!important}
+#app#app#app#app#app#app#app#app .modal .set-progress{display:block!important;margin:0 0 10px!important;padding:6px 10px!important;font:600 12px/1.4 var(--body)!important;color:var(--tx-mute)!important}
+#app#app#app#app#app#app#app#app .modal .set-progress:empty{display:none!important}
+
+/* stage intro / victory card: the painting sits inside the frame and fades into the card body */
+:is(html,#_o#_v#_r#_x) body.lwb-polished #stage-intro .si-card{position:relative!important;overflow:hidden!important;padding:0!important;width:min(400px,88vw)!important}
+:is(html,#_o#_v#_r#_x) body.lwb-polished #stage-intro .si-art{display:block!important;width:100%!important;height:170px!important;object-fit:cover!important;margin:0!important;border:0!important;
+ -webkit-mask-image:linear-gradient(180deg,#000 0,#000 55%,transparent 100%);mask-image:linear-gradient(180deg,#000 0,#000 55%,transparent 100%)}
+:is(html,#_o#_v#_r#_x) body.lwb-polished #stage-intro .si-body{position:relative!important;margin-top:-56px!important;padding:8px 18px 18px!important;background:none!important}
+:is(html,#_o#_v#_r#_x) body.lwb-polished #stage-intro .si-body > *{text-shadow:0 1px 2px #000,0 0 8px rgba(0,0,0,.8)}
+:is(html,#_o#_v#_r#_x) body.lwb-polished #stage-intro .si-mission{display:inline-block!important;margin:4px 3px 0!important;padding:6px 12px!important;border-radius:2px!important;font:600 13px/1.4 var(--body)!important}
+:is(html,#_o#_v#_r#_x) body.lwb-polished #stage-intro .si-card{padding:10px 10px 4px!important}
+:is(html,#_o#_v#_r#_x) body.lwb-polished #stage-intro .si-art{height:160px!important}
+:is(html,#_o#_v#_r#_x) body.lwb-polished #stage-intro .si-card{padding:10px 10px 4px!important}
+:is(html,#_o#_v#_r#_x) body.lwb-polished #stage-intro .si-art{height:160px!important}
+#app#app#app#app#app#app#app#app#app .modal .camp-roster > button{grid-template-columns:minmax(0,1fr)!important;grid-auto-flow:row!important;grid-template-areas:none!important;flex-direction:column!important}
+#app#app#app#app#app#app#app#app#app .modal .camp-roster > button > *{grid-column:1!important;grid-row:auto!important;width:auto!important;text-align:center!important}
+#app#app#app#app#app#app#app#app#app .modal .camp-roster > button > .kill-badge{position:absolute!important;width:auto!important}
+/* Point-budget recruitment: each troop card owns an accessible quantity row. */
+#app#app#app#app#app#app#app#app .recruit-choice{display:flex;flex-direction:column;min-width:0;gap:8px}
+#app#app#app#app#app#app#app#app .recruit-choice > .recruit-card{width:100%;height:100%;margin:0;flex:1}
+#app#app#app#app#app#app#app#app .recruit-quantity{display:grid;grid-template-columns:44px minmax(0,1fr) 44px;align-items:center;gap:4px;border:1px solid var(--ov-line,#726345);border-radius:8px;background:rgba(18,26,23,.85);padding:3px}
+#app#app#app#app#app#app#app#app .recruit-quantity button{min-width:44px;min-height:44px;padding:0;font-size:23px;color:var(--ov-ivory,#ecdfc7)}
+#app#app#app#app#app#app#app#app .recruit-quantity b{text-align:center;font:700 15px/1.3 var(--ov-font,sans-serif);color:var(--ov-ivory,#ecdfc7)}
+#app#app#app#app#app#app#app#app .point-source{font:400 13px/1.5 var(--ov-font,sans-serif);color:var(--ov-muted,#b7b5a5);overflow-wrap:anywhere;margin:8px 0 14px}
+
+#app#app#app#app#app#app#app#app .recruit-points{display:block!important;font:600 13px/1.4 var(--ov-font,sans-serif)!important;color:var(--ov-ivory,#ecdfc7)!important;margin-top:4px}
+
+/*__DS2_BEGIN__*/
+/* =====================================================================================
+   DESIGN SYSTEM v2 — pixel type that stays sharp on phones, plaque buttons, gem tier labels.
+   Sizes come from game.js (--fb body, --fh heading, --fn number, --ft title, --px art pixel, --hl hairline), each a
+   whole number of device pixels per font/art pixel. Every rule here is scoped by the root [data-ds] the script sets,
+   with a 12-id prefix so it sits above the older layers without further escalation.
+   Spacing rule: a box that holds text keeps at least --hl above/below and one art pixel x3 at the sides.
+   ===================================================================================== */
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds]{--ds-ink:#0b0806;--ds-text:#efe4cc;--ds-muted:#b4a486;--ds-dim:#7f7158;--ds-brass:#c9a24e;--ds-brass-l:#f3d891;--ds-well:#0f0b08;
+ --tier-normal:#a3a9ad;--tier-elite:#72c483;--tier-rare:#6aa6ec;--tier-epic:#b585ea;--tier-unique:#ef78b6;--tier-legendary:#f4bf4a;
+ --pad-y:var(--px);--pad-x:calc(var(--px)*3)}
+
+/* ---------- type: Galmuri11 everywhere, at the body size; hierarchy by weight, colour and the few sizes below ---------- */
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body,:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :where(*:not(svg,svg *,canvas,img)){font-family:Galmuri11,sans-serif!important;font-size:var(--fb)!important;line-height:var(--lb)!important;
+ font-weight:400!important;font-style:normal!important;letter-spacing:0!important;word-spacing:0!important;text-transform:none!important;
+ -webkit-font-smoothing:none!important;-moz-osx-font-smoothing:auto!important;font-synthesis:none!important;text-shadow:none!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :where(b,strong,th,button,summary,.recruit-name,.rc-name,.rs-name,.hm-line,.eyebrow,.section-label,.stat-label,legend){font-weight:700!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :where(button,.act-phase,.recruit-grade,.rc-tier,.sc-tier,.unit-tier,.kill-badge,.pick-mark,.active-tag,.toast,.metric){line-height:var(--lt)!important}
+/* headings */
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :where(h1,h2,h3,.t-sheet-title,.si-card h2,.ui-profile .unit-head strong,#dock-name,.hm-line,.bossbar-name){font-weight:700!important;font-size:var(--fh)!important;line-height:var(--lh)!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :where(.modal.camp > h2,.modal > h2,.patch-inner h2,.ui-info-dialog h2,#patch-pop h2){color:var(--ds-brass-l)!important;text-shadow:0 var(--sb) 0 #000!important}
+/* numbers: Galmuri11 bold — the thin Galmuri14 read poorly at phone size */
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :where(.u-stats b,.u-hp > b,.metric strong,#wave,#cp,#gold-count,.recruit-summary b,.recruit-combat b,.recruit-points b,.dx-n,.bossbar-hp,.ready-ledger b){font-weight:700!important;font-variant-numeric:tabular-nums}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :where(#wave,#cp,.recruit-summary b){font-size:var(--fh)!important;line-height:var(--lh)!important}
+/* muted small print stays body size; colour does the work */
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :where(small,.mini,.stat-label,.recruit-role,.rc-family,.rc-note,.t-ver,.menu-notes,.hm-sub,em){color:var(--ds-muted)}
+/* legible over art: a one-font-pixel drop shadow (whole device pixels) */
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :where(.logo-ko,.t-ver,.menu-notes,.map-label,.c-hero *,#stage-intro *,.si-card *,.dock-it span){text-shadow:0 var(--sb) 0 #000!important}
+
+/* ---------- plaque buttons: 3-slice art, end caps keep their pixels, plate stretches ---------- */
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :where(button.secondary,button.act-btn,.t-btn,button.primary,#dock-primary,#camp-choice-cancel,#camp-choice-confirm,#draft-confirm,#leave-camp,#start-ai,#resume,.t-close,#settings-close,#patch-close,.shop-mini,#to-shop,#draft-menu,#draft-clear,#draft-reroll,#draft-expand,#deploy-all,#undo,#cloud-load,#cloud-save){
+ align-items:center!important;justify-content:center!important;flex-direction:column;gap:0!important;
+ min-height:calc(var(--px)*22)!important;height:auto!important;min-width:calc(var(--px)*36)!important;
+ padding:var(--hl) calc(var(--px)*3) calc(var(--px)*3)!important;
+ border-style:solid!important;border-color:transparent!important;border-width:0 calc(var(--px)*9)!important;border-radius:0!important;
+ border-image:var(--kit-plaque-iron-s) 0 9 fill / 0 calc(var(--px)*9) stretch!important;
+ background:none!important;box-shadow:none!important;outline:0!important;color:#f2e2bc!important;text-shadow:0 var(--sb) 0 #000!important;
+ image-rendering:pixelated;text-align:center!important;white-space:normal!important;word-break:keep-all!important;transform:none!important;filter:none}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :where(button.secondary,button.act-btn,.t-btn,button.primary,#dock-primary,#camp-choice-cancel,#camp-choice-confirm,.t-close,#settings-close,#patch-close,.shop-mini,#to-shop,#draft-menu,#draft-clear,#draft-reroll,#draft-expand,#deploy-all,#undo,#cloud-load,#cloud-save):active{border-image-source:var(--kit-plaque-iron-s-down)!important;padding-top:calc(var(--px)*2)!important;padding-bottom:calc(var(--px)*1)!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :where(button.secondary,button.act-btn,.t-btn,button.primary,#dock-primary)::before,:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :where(button.secondary,button.act-btn,.t-btn,button.primary,#dock-primary)::after{content:none!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :where(button.secondary,button.act-btn,.t-btn,button.primary,#dock-primary) img{width:calc(var(--px)*7)!important;height:calc(var(--px)*7)!important;margin:0!important;image-rendering:pixelated}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :where(button.secondary,button.act-btn,.t-btn,button.primary,#dock-primary,#camp-choice-cancel,#camp-choice-confirm,#draft-confirm,#leave-camp,#start-ai,#resume,.t-close,#settings-close,#patch-close,.shop-mini,#to-shop,#draft-menu,#draft-clear,#draft-reroll,#draft-expand,#deploy-all,#undo,#cloud-load,#cloud-save):not(.hidden):not([hidden]){display:inline-flex!important}
+/* gold: the one forward action on each screen */
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :where(button.primary,#dock-primary,#camp-choice-confirm){border-image-source:var(--kit-plaque-gold-s)!important;color:#3a2006!important;text-shadow:0 var(--sb) 0 rgba(255,246,214,.7)!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :where(button.primary,#dock-primary,#camp-choice-confirm):active{border-image-source:var(--kit-plaque-gold-s-down)!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :where(button.primary,#dock-primary,#camp-choice-confirm) small{color:#5a3608!important}
+/* big CTAs: tall plaque with jewelled end caps */
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :where(#start-ai,#resume,#draft-confirm,#leave-camp){min-height:calc(var(--px)*30)!important;padding:var(--hl) var(--px) calc(var(--px)*4)!important;border-width:0 calc(var(--px)*18)!important;
+ border-image:var(--kit-plaque-iron) 0 18 fill / 0 calc(var(--px)*18) stretch!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :where(#start-ai,#resume,#draft-confirm,#leave-camp) > :is(span,strong):first-child,:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :where(#draft-confirm,#leave-camp){font-size:var(--fh)!important;line-height:var(--lh)!important;font-weight:700!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :where(#draft-confirm,#leave-camp){border-image-source:var(--kit-plaque-gold)!important;color:#3a2006!important;text-shadow:0 var(--sb) 0 rgba(255,246,214,.7)!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :where(#draft-confirm,#leave-camp):active{border-image-source:var(--kit-plaque-gold-down)!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :where(button,.btn):disabled{filter:grayscale(.7) brightness(.62)!important;cursor:default}
+
+/* ---------- tier labels: gem + coloured word, never a filled box ---------- */
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :where(.recruit-grade,.rc-tier,.sc-tier,.unit-tier){display:inline-flex!important;align-items:center!important;gap:calc(var(--px)*2)!important;width:auto!important;height:auto!important;
+ margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;color:var(--tc,var(--tier-normal))!important;
+ font-weight:700!important;text-shadow:0 var(--sb) 0 #000!important;position:static!important;transform:none!important;white-space:nowrap!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :where(.recruit-grade,.rc-tier,.sc-tier,.unit-tier)::before{content:""!important;display:block!important;flex:0 0 auto;width:calc(var(--px)*7)!important;height:calc(var(--px)*7)!important;
+ position:static!important;margin:0!important;border:0!important;box-shadow:none!important;transform:none!important;background:var(--gem,var(--kit-gem-normal)) 0 0/100% 100% no-repeat!important;image-rendering:pixelated}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .recruit-grade img.rg-ic{display:none!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :where(.tier-normal,.rarity-common,.rarity-0,.r-common){--tc:var(--tier-normal);--gem:var(--kit-gem-normal)}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :where(.tier-elite){--tc:var(--tier-elite);--gem:var(--kit-gem-elite)}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :where(.tier-rare,.rarity-1,.r-magic){--tc:var(--tier-rare);--gem:var(--kit-gem-rare)}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :where(.tier-epic,.rarity-2,.r-rare){--tc:var(--tier-epic);--gem:var(--kit-gem-epic)}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :where(.r-unique){--tc:var(--tier-unique);--gem:var(--kit-gem-unique)}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :where(.tier-legendary,.rarity-3,.r-legend){--tc:var(--tier-legendary);--gem:var(--kit-gem-legendary)}
+
+/* ---------- small boxed labels: breathing room so text never touches its edge ---------- */
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :where(.kill-badge,.pick-mark,.act-phase,.active-tag,.toast,.map-label,.mv,.tab em,.share-btn,.relic-chip,.c-next,#hud-mission .hm-line){padding:var(--pad-y) var(--pad-x)!important;min-height:0!important;height:auto!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .kill-badge{border-radius:0!important}
+
+/* ---------- title: painting, logo, two plaques, four medallions ---------- */
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .t-title.modal{display:flex!important;flex-direction:column!important;justify-content:space-between!important;align-items:stretch!important;gap:calc(var(--px)*6)!important;
+ padding:calc(var(--px)*28 + env(safe-area-inset-top,0px)) calc(var(--px)*10) calc(var(--px)*5 + env(safe-area-inset-bottom,0px))!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .t-title .intro-layout{display:flex!important;flex-direction:column!important;align-items:center!important;gap:calc(var(--px)*5)!important;margin:0!important;padding:0!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .t-title h1.logo{margin:0!important;padding:0!important;line-height:0!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .t-title h1.logo img{display:block;width:min(calc(var(--px)*156),84vw)!important;height:auto!important;filter:drop-shadow(0 calc(var(--px)*2) 0 rgba(0,0,0,.7))!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .t-title .t-rule{display:block;width:calc(var(--px)*120);height:calc(var(--px)*9);background:var(--fr-divider) 0 0/100% 100% no-repeat;image-rendering:pixelated}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .t-title .logo-ko{margin:0!important;font-size:var(--fh)!important;line-height:var(--lh)!important;font-weight:700!important;color:var(--ds-brass-l)!important;letter-spacing:0!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .t-title .title-controls{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:calc(var(--px)*6)!important;margin:0!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .t-title .t-cta{width:100%!important;margin:0!important;opacity:1!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .t-title .t-cta strong{font-size:var(--fh)!important;line-height:var(--lh)!important;font-weight:700!important;color:inherit!important;background:none!important;border:0!important;text-decoration:none!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .t-title .t-cta small{font-size:var(--fb)!important;line-height:var(--lt)!important;color:#cdbb92!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .t-title .t-cta.t-gold,:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .t-title #start-ai.t-gold,:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .t-title #resume{min-height:calc(var(--px)*38)!important;padding-bottom:calc(var(--px)*5)!important;border-image-source:var(--kit-plaque-gold-l)!important;color:#3a2006!important;text-shadow:0 var(--sb) 0 rgba(255,246,214,.7)!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .t-title .t-cta.t-gold:active,:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .t-title #resume:active{border-image-source:var(--kit-plaque-gold-l-down)!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .t-title .t-cta.t-gold small,:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .t-title #resume small{color:#4a2a06!important;text-shadow:none!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .t-title .t-dock{display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;justify-content:center!important;gap:calc(var(--px)*10)!important;margin:calc(var(--px)*4) 0 0!important;padding:0!important;background:none!important;border:0!important;grid-template-columns:none!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .t-title .t-dock .dock-it{display:flex!important;flex-direction:column!important;align-items:center!important;gap:var(--hl)!important;width:auto!important;min-width:0!important;min-height:0!important;height:auto!important;margin:0!important;padding:0!important;
+ border:0!important;border-image:none!important;background:none!important;box-shadow:none!important;color:#e8d8b4!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .t-title .t-dock .dock-it .medal{display:grid!important;place-items:center;width:calc(var(--px)*31);height:calc(var(--px)*31);background:var(--kit-medal) 0 0/100% 100% no-repeat;image-rendering:pixelated}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .t-title .t-dock .dock-it:active .medal{filter:brightness(1.25)}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .pxi{display:block;width:calc(var(--px)*var(--w));height:calc(var(--px)*var(--h))}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .t-title :is(.menu-notes,.t-ver){position:static!important;order:99;margin:0!important;padding:0!important;text-align:center!important;color:var(--ds-dim)!important;background:none!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .t-title .menu-notes{margin-top:calc(var(--px)*3)!important}
+
+/* ---------- battle: top bar — wave medallion, mission name, command points, gear ---------- */
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app header.top{display:flex!important;align-items:center!important;gap:calc(var(--px)*4)!important;min-height:0!important;height:auto!important;
+ padding:calc(var(--px)*3 + env(safe-area-inset-top,0px)) calc(var(--px)*5) calc(var(--px)*4)!important;grid-template-columns:none!important;grid-template-areas:none!important;
+ background:linear-gradient(180deg,#17110c,#0f0b08)!important;border:0!important;border-image:none!important;box-shadow:0 var(--hl) 0 #0a0604,0 var(--px) 0 #6b4e1e!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app header.top > :is(.sigil,.brand){display:none!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app header.top .runmeta{display:contents!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app header.top .metric{display:none!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app header.top .metric:where([data-round],:has(#cp)){display:flex!important;align-items:center!important;justify-content:center!important;gap:var(--px)!important;margin:0!important;padding:0 calc(var(--px)*3)!important;
+ min-width:0!important;height:calc(var(--px)*17)!important;background:#0f0b08!important;border:0!important;border-image:none!important;border-radius:0!important;box-shadow:0 0 0 var(--hl) #0a0604,inset 0 0 0 var(--hl) #6b4e1e!important;order:0;position:relative}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app header.top .metric[data-round]{order:-2;flex-direction:column!important;gap:0!important;width:calc(var(--pxs)*31)!important;height:calc(var(--pxs)*31)!important;padding:0!important;
+ background:var(--kit-medal) 0 0/100% 100% no-repeat!important;box-shadow:none!important;image-rendering:pixelated}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app header.top .metric[data-round] small{display:none!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app header.top .metric[data-round] strong{color:var(--ds-brass-l)!important;text-shadow:0 var(--sb) 0 #000!important;background:none!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app header.top .metric[data-round]::after{content:attr(data-round)!important;display:block!important;position:absolute!important;left:50%!important;top:auto!important;right:auto!important;bottom:calc(var(--px)*-3)!important;transform:translateX(-50%);padding:0 var(--px);
+ font:400 var(--fb)/var(--lt) Galmuri11,sans-serif!important;color:#1a1000!important;background:var(--ds-brass-l)!important;box-shadow:0 0 0 var(--hl) #0a0604!important;white-space:nowrap;border:0!important;width:auto!important;height:auto!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app header.top .metric:has(#cp){order:5}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app header.top .metric:has(#cp) small{font-size:0!important;line-height:0!important;color:transparent!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app header.top .metric:has(#cp) small img{width:calc(var(--px)*6)!important;height:calc(var(--px)*6)!important;margin:0!important;vertical-align:middle}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app header.top .metric #cp{color:var(--ds-brass-l)!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app header.top #hud-mission{order:-1;flex:1 1 auto!important;min-width:0!important;display:flex!important;align-items:center!important;gap:var(--px)!important;margin:0!important;padding:0 var(--px)!important;
+ background:none!important;border:0!important;border-image:none!important;box-shadow:none!important;height:auto!important;min-height:0!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app header.top #hud-mission > img{display:none!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app header.top #hud-mission .hm-line{padding:0!important;color:var(--ds-brass-l)!important;text-shadow:0 var(--sb) 0 #000!important;background:none!important;border:0!important;white-space:normal!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app header.top #hud-mission .hm-line::after{content:" ›";color:var(--ds-dim)}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app header.top .top-actions{order:9}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app header.top #settings-toggle{order:10;display:grid!important;place-items:center!important;width:calc(var(--px)*17)!important;height:calc(var(--px)*17)!important;min-width:0!important;min-height:0!important;margin:0!important;padding:0!important;
+ background:#0f0b08!important;border:0!important;border-image:none!important;border-radius:0!important;box-shadow:0 0 0 var(--hl) #0a0604,inset 0 0 0 var(--hl) #6b4e1e!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app header.top #settings-toggle img{width:calc(var(--px)*8)!important;height:calc(var(--px)*8)!important;margin:0!important}
+/* playback chips on the field (auto / speed): small framed squares, not plaques */
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .top-play .act-btn{display:inline-flex!important;flex-direction:column;align-items:center!important;justify-content:center!important;min-width:calc(var(--px)*20)!important;min-height:calc(var(--px)*17)!important;height:auto!important;
+ padding:var(--hl) calc(var(--px)*2)!important;border:0!important;border-image:none!important;border-radius:0!important;background:rgba(15,11,8,.88)!important;color:#efe4cc!important;
+ box-shadow:0 0 0 var(--hl) #0a0604,inset 0 0 0 var(--hl) #6b4e1e!important;white-space:nowrap!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .top-play .act-btn.on,:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .top-play .act-btn[aria-pressed=true]{color:#2a1600!important;background:var(--ds-brass-l)!important}
+
+/* ---------- battle: dock — portrait strip / selected unit line / action plaques; phase banner sits on top ---------- */
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock{position:relative!important;display:flex!important;flex-direction:column!important;gap:calc(var(--px)*3)!important;height:auto!important;min-height:0!important;max-height:none!important;
+ padding:calc(var(--px)*4) calc(var(--px)*5) calc(var(--px)*4 + env(safe-area-inset-bottom,0px))!important;background:linear-gradient(180deg,#1c140d,#0e0a07)!important;
+ border:0!important;border-image:none!important;border-radius:0!important;box-shadow:0 calc(-1*var(--hl)) 0 #0a0604,0 calc(-1*var(--px)) 0 #8a6a32!important;overflow:visible!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock > *{margin:0!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .ds-strip{display:flex!important;flex-wrap:nowrap!important;gap:calc(var(--px)*3)!important;overflow-x:auto!important;overflow-y:visible!important;scrollbar-width:none;
+ padding:var(--px) var(--px) var(--px)!important;margin:0!important;height:auto!important;position:static!important;visibility:visible!important;opacity:1!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .ds-strip::-webkit-scrollbar{display:none}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .ds-strip .roster-unit{position:relative!important;flex:0 0 calc(var(--px)*24)!important;width:calc(var(--px)*24)!important;height:calc(var(--px)*27)!important;min-width:0!important;min-height:0!important;margin:0!important;padding:0!important;
+ display:flex!important;justify-content:center!important;align-items:flex-start!important;border:0!important;border-image:none!important;border-radius:0!important;
+ background:#140e09!important;box-shadow:0 0 0 var(--hl) #0a0604,inset 0 0 0 var(--hl) color-mix(in srgb,var(--tc) 55%,#2a2016)!important;opacity:1;transform:none!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .ds-strip .roster-unit img{width:calc(var(--px)*22)!important;height:calc(var(--px)*22)!important;margin:var(--hl) 0 0!important;object-fit:contain!important;border:0!important;border-radius:0!important;background:none!important;image-rendering:pixelated}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .ds-strip .roster-unit .rs-hp{position:absolute!important;left:calc(var(--px)*3)!important;bottom:calc(var(--px)*2)!important;height:calc(var(--px)*2)!important;max-width:calc(100% - var(--px)*6)!important;border-radius:0!important;box-shadow:0 0 0 var(--hl) #0a0604!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .ds-strip .roster-unit.is-spent{opacity:.45}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .ds-strip .roster-unit:is(.is-selected,.is-active){background:#2c1f10!important;box-shadow:0 0 0 var(--hl) #0a0604,0 0 0 var(--px) var(--ds-brass-l),inset 0 0 0 var(--hl) #8a6a32!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .ds-strip .roster-unit:is(.tier-legendary,.tier-epic)::after{content:""!important;position:absolute!important;top:calc(var(--px)*-2);right:calc(var(--px)*-2);width:calc(var(--px)*7);height:calc(var(--px)*7);background:var(--gem) 0 0/100% 100% no-repeat!important;border:0!important;image-rendering:pixelated}
+/* selected unit: one compact line, no boxes */
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-panel{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;grid-template-rows:auto auto!important;grid-template-areas:"id res" "stats res"!important;align-items:center!important;column-gap:calc(var(--px)*5)!important;row-gap:0!important;
+ height:auto!important;min-height:0!important;max-height:none!important;margin:0!important;padding:calc(var(--px)*2) calc(var(--px)*5)!important;background:#0f0b08!important;border:0!important;border-image:none!important;border-radius:0!important;box-shadow:inset 0 0 0 var(--hl) #3a2c1a!important;overflow:visible!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-panel .dock-portrait,:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-panel .u-grab{display:none!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-panel .u-id{grid-area:id;display:flex!important;flex-wrap:wrap!important;align-items:baseline!important;column-gap:calc(var(--px)*4)!important;min-width:0!important;margin:0!important;padding:0!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-panel #dock-name{font-size:var(--fb)!important;line-height:var(--lb)!important;color:var(--ds-text)!important;white-space:normal!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-panel .u-hp{display:flex!important;align-items:center!important;gap:calc(var(--px)*3)!important;margin:0!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-panel .u-hp img{width:calc(var(--px)*5)!important;height:calc(var(--px)*5)!important;margin:0!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-panel .u-hp > b{font-family:Galmuri11,sans-serif!important;font-size:var(--fb)!important;font-weight:700!important;color:var(--ds-text)!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-panel .u-hp .hpbar{width:calc(var(--px)*20)!important;height:calc(var(--px)*2)!important;border-radius:0!important;background:#3a2418!important;box-shadow:0 0 0 var(--hl) #0a0604!important;margin:0!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-panel .u-hp .hpbar i{border-radius:0!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-panel .u-hp .mv{padding:0!important;background:none!important;box-shadow:none!important;color:var(--ds-muted)!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-panel .u-states{display:contents!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-panel .u-stats{grid-area:stats;display:flex!important;flex-wrap:wrap!important;column-gap:calc(var(--px)*5)!important;row-gap:0!important;margin:0!important;padding:0!important;grid-template-columns:none!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-panel .u-stats > span{display:inline-flex!important;align-items:baseline!important;gap:var(--hl)!important;width:auto!important;min-width:0!important;height:auto!important;min-height:0!important;margin:0!important;padding:0!important;
+ background:none!important;border:0!important;border-image:none!important;box-shadow:none!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-panel .u-stats > span img{display:none!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-panel .u-stats .stat-label{color:var(--ds-muted)!important;font-weight:400!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-panel .u-stats b{color:var(--ds-text)!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-panel .u-res{grid-area:res;display:flex!important;flex-direction:column!important;align-items:flex-end!important;gap:var(--hl)!important;margin:0!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-panel .u-res > span{display:flex!important;align-items:center!important;gap:var(--hl)!important;margin:0!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important;min-height:0!important;height:auto!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-panel .u-res :is(em,.res-count){display:none!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-panel .u-res > span::before{content:"M";color:var(--ds-muted);margin-right:var(--hl);font:400 var(--fb)/var(--lt) Galmuri11,sans-serif}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-panel .u-res > .res-will::before{content:"W"}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-panel .u-res > .res-fate::before{content:"F"}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-panel .resource-pips{display:flex!important;gap:var(--hl)!important;margin:0!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-panel .resource-pips i{width:calc(var(--px)*3)!important;height:calc(var(--px)*3)!important;border-radius:0!important;border:0!important;transform:none!important;background:#2a2016!important;box-shadow:0 0 0 var(--hl) #0a0604!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-panel .res-might .resource-pips i.on{background:#d4563f!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-panel .res-will .resource-pips i.on{background:#6fb3d9!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-panel .res-fate .resource-pips i.on{background:#ffd66b!important}
+/* action row: plaques share the width, primary a little wider */
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-actions{display:flex!important;flex-wrap:nowrap!important;align-items:stretch!important;gap:calc(var(--px)*3)!important;margin:0!important;padding:0!important;height:auto!important;background:none!important;border:0!important;box-shadow:none!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-actions :is(.action-context,.action-commands){display:contents!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-actions button:not(.hidden){flex:1 1 0!important;min-width:0!important;max-width:none!important;width:auto!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-actions #dock-primary{flex:1.6 1 0!important}
+/* phase banner: sits just above the dock, centred over the field */
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .act-phase{position:absolute!important;left:0!important;right:0!important;bottom:calc(100% + var(--px))!important;top:auto!important;display:flex!important;justify-content:center!important;align-items:center!important;gap:calc(var(--px)*3)!important;
+ width:auto!important;max-width:none!important;min-width:0!important;height:auto!important;margin:0!important;padding:var(--px) 0!important;pointer-events:none;white-space:nowrap!important;border:0!important;border-radius:0!important;box-shadow:none!important;
+ background:linear-gradient(90deg,transparent,rgba(10,7,5,.88) 24%,rgba(10,7,5,.88) 76%,transparent)!important;color:var(--ds-brass-l)!important;font-weight:700!important;text-shadow:0 var(--sb) 0 #000!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .act-phase::before{content:""!important;display:block!important;width:calc(var(--px)*3);height:calc(var(--px)*3);background:#6fb3d9;box-shadow:0 0 0 var(--hl) #0a0604}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .act-phase.foe::before{background:#d4563f}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .act-phase.neutral::before{background:var(--ds-brass-l)}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .act-phase:empty{display:none!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-actions button small{display:block;font-weight:400!important;color:#cdbb92!important;line-height:var(--lt)!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app header.top .metric:has(#cp){flex-direction:row!important;width:auto!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app header.top .metric:has(#cp) small{display:block!important}
+/* difficulty: framed choices, the current one gold */
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .diff-row{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:calc(var(--px)*3)!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .diff-row > span{grid-column:1/-1}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .diff-btn{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:0!important;min-height:0!important;height:auto!important;margin:0!important;padding:calc(var(--px)*3) calc(var(--px)*5)!important;
+ border:0!important;border-image:none!important;border-radius:0!important;background:#15100b!important;box-shadow:0 0 0 var(--hl) #0a0604,inset 0 0 0 var(--hl) #5a4428!important;color:var(--ds-text)!important;text-align:left!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .diff-btn.active{background:#3a2a12!important;box-shadow:0 0 0 var(--hl) #0a0604,inset 0 0 0 var(--px) var(--ds-brass-l)!important;color:var(--ds-brass-l)!important}
+/* relic tier: gem + word as the first line of the card text, clear of the corner ornaments */
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .relic-card .rc-body > .rc-tier{display:flex!important;margin:0 0 var(--px)!important}
+/* camp steps: a row of tabs — done ones dimmed with a tick, the current one lit with a gold rule; no boxes */
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .modal.camp .camp-steps{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:0!important;margin:0 0 calc(var(--px)*6)!important;padding:0!important;
+ background:none!important;border:0!important;box-shadow:inset 0 calc(-1*var(--hl)) 0 #5a4428!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .modal.camp .camp-steps > span{border-image:none!important;outline:0!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:var(--hl)!important;min-height:0!important;height:auto!important;margin:0!important;padding:calc(var(--px)*2) 0 calc(var(--px)*3)!important;
+ background:none!important;border:0!important;border-radius:0!important;box-shadow:none!important;color:var(--ds-dim)!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .modal.camp .camp-steps > span img{width:calc(var(--px)*8)!important;height:calc(var(--px)*8)!important;margin:0!important;opacity:.55;image-rendering:pixelated}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .modal.camp .camp-steps > span.done{color:var(--ds-muted)!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .modal.camp .camp-steps > span.done::after{content:"✓"!important;position:static!important;color:var(--tier-elite);background:none!important;border:0!important;width:auto!important;height:auto!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .modal.camp .camp-steps > span.current{color:var(--ds-brass-l)!important;font-weight:700!important;background:none!important;box-shadow:inset 0 calc(-1*var(--px)) 0 var(--ds-brass-l)!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .modal.camp .camp-steps > span.current img{opacity:1}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .modal.camp > .eyebrow{color:var(--ds-muted)!important;padding:0!important;background:none!important;border:0!important}
+/* spacing fixes found by the cramped-text audit */
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .pick-mark{width:auto!important;max-width:none!important;white-space:nowrap!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :is(.ui-stat-grid,.stats) > span{padding-left:calc(var(--px)*3)!important;padding-right:calc(var(--px)*3)!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body :is(.traits,.rc-note,.draft-capacity,.event-result,.next-mission){padding-left:calc(var(--px)*4)!important;padding-right:calc(var(--px)*4)!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-actions button:not(.hidden){padding-left:var(--px)!important;padding-right:var(--px)!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app header.top .metric::before,:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app header.top .metric:has(#cp) small::before{content:none!important;display:none!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app header.top :is(#settings-toggle,.metric){outline:0!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-panel .u-stats{column-gap:calc(var(--px)*6)!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-panel .u-stats > span{gap:calc(var(--px)*2)!important}
+/* the dock keeps one height in every phase so the battlefield canvas never resizes mid-battle */
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .ds-strip{height:calc(var(--px)*29)!important;flex:0 0 auto!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-panel{height:calc(var(--lb)*3 + var(--px)*4)!important;flex:0 0 auto!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-actions{height:calc(var(--px)*22)!important;flex:0 0 auto!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #command-dock .u-tip{display:none!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .diff-btn.active small{color:#e2cc98!important}
+/* top bar: names never break mid-word; the boss bar takes its own full-width row under the bar */
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app header.top{flex-wrap:wrap!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app header.top #hud-mission .hm-line{white-space:nowrap!important;word-break:keep-all!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app header.top #ux-bossbar:not(.hidden){order:30!important;flex:0 0 100%!important;width:100%!important;box-sizing:border-box!important;display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;align-items:center!important;column-gap:calc(var(--px)*3)!important;row-gap:calc(var(--px)*2)!important;margin:0!important;padding:calc(var(--px)*2) calc(var(--px)*3)!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app #ux-bossbar .bossbar-name{white-space:nowrap!important;word-break:keep-all!important;overflow-wrap:normal!important;overflow:visible!important;min-width:0}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app #ux-bossbar .bossbar-hp{white-space:nowrap!important}
+/*__DS2_END__*/
+
+/* Troop promotion overlay: independent of battle HUD; body-sized mobile controls. */
+#troop-promotion{position:fixed;inset:0;z-index:95;background:#07100ee8;display:flex;align-items:center;justify-content:center;padding:max(10px,env(safe-area-inset-top)) 10px max(10px,env(safe-area-inset-bottom));font-family:var(--ov-font,inherit);color:#e4e5d9}
+#troop-promotion .troop-promotion-modal{box-sizing:border-box;width:min(100%,720px);max-height:100%;overflow:auto;padding:16px;background:#182322;border:2px solid #ac9867;overscroll-behavior:contain;scrollbar-gutter:stable}
+#troop-promotion h2{font-size:22px;margin:6px 0 14px}#troop-promotion h3{font-size:17px;margin:5px 0;overflow-wrap:anywhere}
+#troop-promotion p,#troop-promotion small,#troop-promotion dd,#troop-promotion dt{font-size:max(14px,var(--fb,14px));line-height:1.5;margin:5px 0}
+#troop-promotion .promotion-current,#troop-promotion header{display:flex;align-items:center;gap:12px}
+#troop-promotion .promotion-current>img,#troop-promotion header>img{width:90px;height:104px;object-fit:contain;image-rendering:pixelated;flex:none;background:none}
+#troop-promotion .promotion-current b{color:#e4c98a;font-size:15px}
+#troop-promotion .promotion-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
+#troop-promotion .promotion-choice{border:1px solid #6c7969;background:#101c1b;padding:12px;min-width:0}
+#troop-promotion dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:12px 0;background:#23302c;padding:8px}
+#troop-promotion dt{color:#b8c6b6}#troop-promotion dd{margin:0;font-weight:700;color:#e6d8b4}
+#troop-promotion button{box-sizing:border-box;min-height:44px;font-size:15px;padding:10px 12px;white-space:normal;line-height:1.4;touch-action:manipulation}
+#troop-promotion .promotion-choice>button{width:100%;margin-top:8px}
+#troop-promotion button:disabled{opacity:1;background:#27302d;color:#aab2a9;border-color:#4e5c51;cursor:default}
+#troop-promotion .promotion-soldiers{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+#troop-promotion [aria-current=true]{border:2px solid #dcc487;color:#ffdfa0}
+#troop-promotion footer{position:sticky;bottom:-16px;background:#182322;padding:12px 0 4px;display:flex;justify-content:flex-end}
+#troop-promotion .promotion-error{color:#e6ad8d}.troop-career{margin:12px 0;border-top:1px solid #77846c;padding-top:10px}.troop-career h3{font-size:16px}.troop-career p,.troop-career li{font-size:14px;line-height:1.5}.troop-career small{display:block}.troop-career ul{padding-left:20px}.troop-career button{min-height:44px;width:100%}
+@media(max-width:560px){#troop-promotion .promotion-choices{grid-template-columns:1fr}#troop-promotion .troop-promotion-modal{padding:12px}#troop-promotion .promotion-current>img{width:76px;height:90px}#troop-promotion footer{bottom:-12px}#troop-promotion .promotion-soldiers button{flex:1 1 120px}}
+
+
+/* Boss encounter tells: same pixel typography, responsive plaques and existing unit art. */
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro .boss-card{width:min(520px,92vw)!important;max-height:90svh!important;overflow:auto!important;padding:calc(var(--px)*6)!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:calc(var(--px)*4)!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro .boss-art img{width:auto!important;height:min(27svh,210px)!important;max-width:76vw!important;object-fit:contain!important;image-rendering:pixelated!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro .boss-counterplay{display:grid!important;gap:calc(var(--px)*3)!important;text-align:center!important;border-top:var(--hl) solid #86714c!important;padding-top:calc(var(--px)*4)!important;width:100%!important;line-height:1.5!important;word-break:keep-all!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro .boss-counterplay strong{color:#f3d093!important;font-size:var(--fb)!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro .boss-counterplay span{color:#cfcbc1!important;font-size:var(--fb)!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro .boss-flight{display:flex!important;gap:calc(var(--px)*5)!important;justify-content:center!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro .boss-flight img{width:min(19vw,80px)!important;height:auto!important;image-rendering:pixelated!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #app #ux-bossbar .bossbar-pattern{grid-column:1/-1!important;color:#f1c28c!important;font-size:var(--fb)!important;line-height:1.4!important;white-space:normal!important;word-break:keep-all!important;min-width:0!important;text-align:left!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro .boss-card{background:#15180ff5!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro h2{font-size:var(--ft)!important;font-weight:700!important;line-height:1.3!important;white-space:normal!important;word-break:keep-all!important}
+
+/* Pixel boss cinematics, owned by the action queue. */
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro.boss-cinematic{position:fixed!important;inset:0!important;width:100%!important;height:100svh!important;margin:0!important;display:grid!important;place-items:center!important;padding:max(12px,env(safe-area-inset-top)) 12px max(12px,env(safe-area-inset-bottom))!important;background:#030403f7!important;animation:none!important;overflow:hidden!important;z-index:76!important;box-sizing:border-box!important;--cine-art:min(76vw,48svh,420px)}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro.boss-cinematic .bc-view{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:calc(var(--px)*5)!important;width:min(760px,100%)!important;max-height:100%!important;text-align:center!important;padding:0!important;position:relative!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro.boss-cinematic .bc-title{display:grid!important;gap:calc(var(--px)*3)!important;color:var(--cine-accent)!important;opacity:.5;transition:opacity .4s;line-height:1.3!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro.boss-cinematic .bc-title span{font-size:var(--ft)!important;font-weight:700!important;letter-spacing:.12em!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro.boss-cinematic .bc-title strong{font-size:var(--fb)!important;color:#c6c1b7!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro.boss-cinematic .bc-art{width:var(--cine-art)!important;height:var(--cine-art)!important;position:relative!important;flex:none!important;isolation:isolate!important;opacity:0;transition:opacity .3s}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro.boss-cinematic .bc-cell{position:absolute!important;inset:0!important;background-size:300% 200%!important;background-repeat:no-repeat!important;image-rendering:pixelated!important;transition:filter .3s,opacity .25s!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro.boss-cinematic .bc-portrait{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;object-fit:contain!important;image-rendering:pixelated!important;opacity:0!important;filter:none!important;animation:none!important;transition:opacity .35s!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro.boss-cinematic .bc-quote{display:grid!important;gap:calc(var(--px)*4)!important;width:100%!important;opacity:0;transition:opacity .35s;min-height:calc(var(--fb)*5)!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro.boss-cinematic .bc-line{font-size:var(--ft)!important;line-height:1.35!important;color:#e3e7e8!important;font-weight:700!important;letter-spacing:0!important;word-break:keep-all!important;text-shadow:0 var(--sb) #000!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro.boss-cinematic .bc-line span{font-size:inherit!important;line-height:inherit!important;display:inline!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro.boss-cinematic .bc-line em{font-size:inherit!important;line-height:inherit!important;font-style:normal!important;color:#f4d58f!important;text-shadow:0 0 10px #dcb26377!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro.boss-cinematic .bc-sub{font-size:var(--fb)!important;line-height:1.45!important;color:#aba99f!important;word-break:keep-all!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro.boss-cinematic .bc-counter{font-size:var(--fb)!important;line-height:1.5!important;max-width:620px!important;width:100%!important;padding:0!important;border:0!important;color:#d6c597!important;word-break:keep-all!important;visibility:hidden!important;min-height:calc(var(--fb)*2)!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro.boss-cinematic .bc-skip{font-size:var(--fb)!important;flex:none!important;min-height:44px!important;min-width:108px!important;color:#b7b3a7!important;touch-action:manipulation!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro.boss-cinematic.on :where(.bc-art,.bc-title),:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro.boss-cinematic.caption .bc-quote{opacity:1!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro.boss-cinematic.shadow .bc-cell{filter:brightness(.18)!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro.boss-cinematic.seal .bc-art{filter:drop-shadow(0 0 12px #a568203f)!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro.boss-cinematic.hero .bc-cell{opacity:0!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro.boss-cinematic.hero .bc-portrait{opacity:1!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro.boss-cinematic.hero .bc-counter{visibility:visible!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro.boss-cinematic.out{opacity:0!important;transition:opacity .2s!important}
+@media(max-height:600px){:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro.boss-cinematic{--cine-art:min(48vw,34svh,240px)}:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro.boss-cinematic .bc-view{gap:calc(var(--px)*2)!important}}
+@media(prefers-reduced-motion:reduce){#boss-intro.boss-cinematic *{transition:none!important;animation:none!important}}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro.boss-cinematic.calm *{transition:none!important;animation:none!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro.boss-cinematic .bc-skip{background:none!important;border-style:solid!important;border-color:transparent!important;border-width:0 calc(var(--px)*9)!important;border-image:var(--kit-plaque-iron-s) 0 9 fill / 0 calc(var(--px)*9) stretch!important;border-radius:0!important;padding:var(--hl) calc(var(--px)*3) calc(var(--px)*3)!important;outline:none!important;box-shadow:none!important;image-rendering:pixelated!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #boss-intro.boss-cinematic .bc-skip:focus-visible{outline:var(--hl) solid #d2b67c!important;outline-offset:calc(var(--px)*2)!important}

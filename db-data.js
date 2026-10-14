@@ -7,7 +7,7 @@ module.exports = [
   ['aragorn', '아라곤', 'Aragorn'],
   ['gandalf', '간달프', 'Gandalf the Grey', { faction: 'maiar', weapon: 'staff' }],
   ['warrior_minas_tirith', '미나스 티리스 전사', 'Warrior of Minas Tirith', { role: 'infantry', weapon: 'sword_shield', base: 'M' }],
-  ['witchking_foot', '마술왕(두건)', 'Witch-king hooded', { traits: ['terror'], side: 'evil', faction: 'angmar', weapon: 'sword' }],
+  ['witchking_foot', '마술사왕(두건)', 'Witch-king hooded', { traits: ['terror'], side: 'evil', faction: 'angmar', weapon: 'sword' }],
   ['orc_sword', '모르도르 오크(검)', 'Mordor Orc, sword', { side: 'evil', faction: 'mordor', role: 'infantry', base: 'S' }],
   ['cave_troll', '동굴 트롤', 'Cave Troll', { side: 'evil', faction: 'moria', role: 'monster', weapon: 'club', base: 'XXL' }],
 ]},
@@ -16,14 +16,14 @@ module.exports = [
   ['glorfindel_mounted', '글로르핀델(기마)', 'Glorfindel mounted', { role: 'hero', base: 'XL', artScale: 1.11 }],
 ]},
 { sheet: 'fellbeast-topdown-v2.png', side: 'evil', faction: 'angmar', role: 'monster', base: 'XXL', units: [
-  ['witchking_fellbeast', '마술왕(펠비스트)', 'Witch-king on Fell Beast', { traits: ['fly','terror'], weapon: 'sword' }],
+  ['witchking_fellbeast', '마술사왕(펠비스트)', 'Witch-king on Fell Beast', { traits: ['fly','terror'], weapon: 'sword' }],
 ]},
 { sheet: 'witchking-mounted-topdown-v1.png', side: 'evil', faction: 'angmar', role: 'cavalry', weapon: 'sword', base: 'XL', units: [
-  ['witchking_mounted', '마술왕(기마)', 'Witch-king mounted', { role: 'hero', traits: ['terror'] }],
+  ['witchking_mounted', '마술사왕(기마)', 'Witch-king mounted', { role: 'hero', traits: ['terror'] }],
 ]},
 { sheet: 'roster-enemy-heroes-v1.png', side: 'evil', faction: 'mordor', role: 'hero', weapon: 'sword', units: [
-  ['witchking_foot_mace', '마술왕(투구)', 'Witch-king, crowned with mace', { traits: ['terror'], faction: 'angmar', weapon: 'mace', base: 'L' }],
-  ['nazgul_sword', '나즈굴(검)', 'Nazgul, sword', { traits: ['terror'], faction: 'angmar', base: 'L' }],
+  ['witchking_foot_mace', '마술사왕(투구)', 'Witch-king, crowned with mace', { traits: ['terror'], faction: 'angmar', weapon: 'mace', base: 'L' }],
+  ['nazgul_sword', '나즈굴(검)', 'Nazgul, sword', { traits: ['terror'], faction: 'angmar', base: 'L', artScale: 1.15 }],
   ['saruman', '사루만', 'Saruman the White', { faction: 'isengard', weapon: 'staff', base: 'L' }],
   ['orc_shaman', '오크 주술사', 'Orc Shaman', { faction: 'moria', role: 'support', weapon: 'staff', base: 'S' }],
   ['orc_captain', '오크 대장', 'Orc Captain', { base: 'M' }],
@@ -62,12 +62,11 @@ module.exports = [
 ]},
 { sheet: 'roster-sauron-nazgul-v1.png', side: 'evil', role: 'hero', base: 'L', units: [
   ['sauron', '사우론', 'Sauron', { traits: ['terror'], faction: 'mordor', role: 'monster', weapon: 'mace', base: 'XXL' }],
-  ['nazgul_sword_2', '나즈굴(검·B)', 'Nazgul, sword (v2)', { traits: ['terror'], faction: 'angmar', weapon: 'sword' }],
-  ['nazgul_mace', '나즈굴(철퇴)', 'Nazgul, mace', { traits: ['terror'], faction: 'angmar', weapon: 'mace' }],
+  ['nazgul_sword_2', '나즈굴(검·B)', 'Nazgul, sword (v2)', { traits: ['terror'], faction: 'angmar', weapon: 'sword', artScale: 1.15 }],
+  ['nazgul_mace', '나즈굴(철퇴)', 'Nazgul, mace', { traits: ['terror'], faction: 'angmar', weapon: 'mace', artScale: 1.15 }],
   ['nazgul_mounted', '나즈굴(기마)', 'Nazgul mounted', { role: 'hero', traits: ['terror'], faction: 'angmar', weapon: 'sword', base: 'XL' }],
   ['morgul_knight', '모르굴 기사', 'Morgul Knight', { faction: 'mordor', role: 'cavalry', weapon: 'lance', base: 'XL' }],
   ['dwimmerlaik', '드위머레이크(갑옷 나즈굴)', 'Dwimmerlaik', { faction: 'angmar', weapon: 'twohanded', base: 'L' }],
-  ['witchking_spear', '마술왕(창)', 'Witch-king, crowned with spear', { traits: ['terror'], faction: 'angmar', weapon: 'twohanded', base: 'L' }],
 ]},
 { sheet: 'roster-minastirith-variants-v1.png', side: 'good', faction: 'gondor', role: 'infantry', base: 'M', units: [
   ['mt_swordshield', '미나스 티리스 검방', 'MT sword & shield', { weapon: 'sword_shield' }],
@@ -170,7 +169,7 @@ module.exports = [
   ['faramir', '파라미르', 'Faramir', { faction: 'gondor', weapon: 'bow' }],
   ['haldir', '할디르', 'Haldir', { faction: 'lothlorien', weapon: 'twohanded' }],
   ['galadriel', '갈라드리엘', 'Galadriel', { faction: 'lothlorien', weapon: 'none' }],
-  ['gamling', '감링(기수)', 'Gamling with banner', { faction: 'rohan', weapon: 'banner' }],
+  ['gamling', '감링', 'Gamling', { faction: 'rohan', weapon: 'banner' }],
   ['samwise', '샘와이즈', 'Samwise Gamgee', { faction: 'shire', weapon: 'dagger', base: 'S' }],
 ]},
 { sheet: 'roster-evil-heroes-exp-v1.png', side: 'evil', role: 'hero', units: [
@@ -208,7 +207,7 @@ module.exports = [
 { sheet: 'roster-legends-evil-v2.png', side: 'evil', units: [
   ['olog_hai', '올로그하이', 'Olog-hai', { faction: 'mordor', role: 'monster', weapon: 'mace', base: 'XXL' }],
   ['watcher_in_the_water', '물 속의 감시자', 'Watcher in the Water', { traits: ['terror'], faction: 'moria', role: 'monster', weapon: 'none', base: 'XXL' }],
-  ['mirkwood_spider', '미르크우드 거미', 'Mirkwood Spider', { faction: 'dol_guldur', role: 'monster', weapon: 'none', base: 'L' }],
+  ['mirkwood_spider', '머크우드 거미', 'Mirkwood Spider', { faction: 'dol_guldur', role: 'monster', weapon: 'none', base: 'L' }],
   ['harad_chieftain', '하라드 족장', 'Haradrim Chieftain', { faction: 'harad', role: 'hero', weapon: 'sword' }],
   ['uruk_captain', '우룩하이 대장', 'Uruk-hai Captain', { faction: 'isengard', role: 'hero', weapon: 'sword_shield', base: 'L' }],
   ['hill_troll', '언덕 트롤', 'Hill Troll', { faction: 'angmar', role: 'monster', weapon: 'club', base: 'XL' }],
@@ -240,7 +239,7 @@ module.exports = [
 { sheet: 'roster-hobbit-evil-v1.png', side: 'evil', units: [
   ['azog', '아조그', 'Azog the Defiler', { faction: 'gundabad', role: 'hero', weapon: 'mace', base: 'XL' }],
   ['azog_warg_rider', '아조그(흰 와르그)', 'Azog on white warg', { faction: 'gundabad', role: 'cavalry', weapon: 'mace', base: 'XL' }],
-  ['azog_foot', '아조그(도보)', 'Azog the Defiler on foot', { faction: 'gundabad', role: 'hero', weapon: 'mace', base: 'L' }],
+  ['azog_foot', '아조그(도보)', 'Azog the Defiler on foot', { faction: 'gundabad', role: 'hero', weapon: 'mace', base: 'L', artScale: 1.2 }],
   ['necromancer', '네크로맨서', 'The Necromancer', { faction: 'dol_guldur', role: 'hero', weapon: 'staff', base: 'L' }],
   ['hunter_orc', '헌터 오크', 'Hunter Orc', { faction: 'gundabad', role: 'infantry', weapon: 'bow' }],
   ['gundabad_orc', '군다바드 오크', 'Gundabad Orc', { faction: 'gundabad', role: 'infantry', weapon: 'sword_shield' }],
@@ -265,16 +264,16 @@ module.exports = [
 { sheet: 'roster-hobbit-company-v1.png', side: 'good', faction: 'dwarf', role: 'infantry', base: 'M', units: [
   ['balin', '발린', 'Balin', { role: 'hero', weapon: 'sword' }],
   ['dwalin', '드왈린', 'Dwalin', { role: 'hero', weapon: 'axe' }],
-  ['gloin', '글로인', 'Gloin', { weapon: 'axe' }],
-  ['oin', '오인', 'Oin', { weapon: 'club' }],
-  ['nori', '노리', 'Nori', { weapon: 'sword' }],
-  ['ori', '오리', 'Ori', { weapon: 'sword' }],
+  ['gloin', '글로인', 'Gloin', { weapon: 'axe' , role: 'hero' }],
+  ['oin', '오인', 'Oin', { weapon: 'club' , role: 'hero' }],
+  ['nori', '노리', 'Nori', { weapon: 'sword' , role: 'hero' }],
+  ['ori', '오리', 'Ori', { weapon: 'sword' , role: 'hero' }],
 ]},
 { sheet: 'roster-hobbit-exp-v1.png', side: 'good', faction: 'dwarf', role: 'infantry', base: 'M', units: [
-  ['dori', '도리', 'Dori', { weapon: 'sword' }],
-  ['bifur', '비푸르', 'Bifur', { weapon: 'spear' }],
-  ['bofur', '보푸르', 'Bofur', { weapon: 'club' }],
-  ['bombur', '봄부르', 'Bombur', { weapon: 'club' }],
+  ['dori', '도리', 'Dori', { weapon: 'sword' , role: 'hero' }],
+  ['bifur', '비푸르', 'Bifur', { weapon: 'spear' , role: 'hero' }],
+  ['bofur', '보푸르', 'Bofur', { weapon: 'club' , role: 'hero' }],
+  ['bombur', '봄부르', 'Bombur', { weapon: 'club' , role: 'hero' }],
   ['goat_rider', '산양 기수', 'Iron Hills Goat Rider', { role: 'cavalry', weapon: 'lance', base: 'XL' }],
   ['gollum', '골룸', 'Gollum', { side: 'evil', faction: 'moria', role: 'beast', weapon: 'none' }],
 ]},
@@ -289,7 +288,7 @@ module.exports = [
 { sheet: 'roster-elf-exp-v2.png', side: 'good', role: 'infantry', base: 'M', units: [
   ['rumil', '루밀', 'Rumil', { faction: 'lothlorien', role: 'hero', weapon: 'bow' }],
   ['orophin', '오로핀', 'Orophin', { faction: 'lothlorien', role: 'hero', weapon: 'spear' }],
-  ['mirkwood_sentinel', '미르크우드 보초', 'Mirkwood Sentinel', { faction: 'elf', weapon: 'pike' }],
+  ['mirkwood_sentinel', '머크우드 보초', 'Mirkwood Sentinel', { faction: 'elf', weapon: 'pike' }],
   ['noldor_warrior', '놀도르 정예병', 'Noldor Warrior', { faction: 'elf', weapon: 'sword_shield', base: 'L' }],
   ['silvan_archer', '실반 궁수', 'Silvan Archer', { faction: 'elf', weapon: 'bow' }],
   ['elven_lancer', '엘프 기창기병', 'Elven Lancer', { faction: 'rivendell', role: 'cavalry', weapon: 'lance', base: 'XL' }],
@@ -623,7 +622,7 @@ module.exports = [
   { sheet:'px-nb-exp-silm3.png', side:'good', faction:'elf', role:'infantry', weapon:'spear', base:'M', traits:[], units:[
     ['gondolin_guard','곤돌린 근위병','Gondolin Guard']] },
   { sheet:'px-nb-exp-silm3.png', side:'good', faction:'elf', role:'hero', weapon:'sword', base:'M', traits:[], units:[
-    ['mirkwood_captain','미르크우드 대장','Mirkwood Captain']] },
+    ['mirkwood_captain','머크우드 대장','Mirkwood Captain']] },
   { sheet:'px-nb-exp-mordor2.png', side:'evil', faction:'mordor', role:'infantry', weapon:'sword', base:'M', traits:[], units:[
     ['mordor_uruk','모르도르 우르크','Mordor Uruk']] },
   { sheet:'px-nb-exp-mordor2.png', side:'evil', faction:'mordor', role:'infantry', weapon:'sword', base:'M', traits:[], units:[
@@ -734,11 +733,9 @@ module.exports = [
   { sheet:null, side:'good', faction:'rohan', role:'hero', weapon:'lance', base:'XL', traits:['mounted'], units:[
     ['eomund','에오문드','Eomund, Marshal of the Riddermark']] },
   { sheet:null, side:'good', faction:'rohan', role:'infantry', weapon:'spear', base:'M', traits:[], units:[
-    ['guthlaf','구슬라프','Guthlaf, banner-bearer of Rohan']] },
+    ['guthlaf','구슬라프','Guthlaf, banner-bearer of Rohan', { role: 'hero' }]] },
   { sheet:null, side:'good', faction:'gondor', role:'infantry', weapon:'spear', base:'M', traits:[], units:[
     ['ingold','잉골드','Ingold, gate-guard of Minas Tirith']] },
-  { sheet:null, side:'good', faction:'rohan', role:'hero', weapon:'sword', base:'XL', traits:['mounted'], units:[
-    ['theoden_mounted','세오덴 기마','King Theoden of Rohan, mounted']] },
   { sheet:null, side:'evil', faction:'angband', role:'monster', weapon:'twohanded', base:'XXL', traits:[], units:[
     ['morgoth','모르고스','Morgoth, the Dark Enemy']] },
   { sheet:null, side:'evil', faction:'angmar', role:'hero', weapon:'sword', base:'XL', traits:['mounted'], units:[
@@ -782,4 +779,66 @@ module.exports = [
     ['morgul_duellist','모르굴 결투사','Morgul Duellist']] },
   { sheet:'px-nb-roster-varied-v2.png', side:'evil', faction:'mordor', role:'monster', weapon:'staff', base:'L', traits:[], units:[
     ['troll_shaman','트롤 주술사','Troll Shaman']] },
+
+  // --- 영웅 기마 확장 (승인 2026-10-12): 로한 5 + 실마릴리온 9 ---
+  { sheet:null, side:'good', faction:'rohan', role:'hero', weapon:'sword', base:'XL', traits:['mounted'], units:[
+    ['deorwine_mounted','데오르바인(기마)','Deorwine, mounted',{ weapon:'sword_shield' }],
+    ['grimbold_mounted','그림볼드(기마)','Grimbold, mounted'],
+    ['harding_mounted','하딩(기마)','Harding, mounted',{ weapon:'bow' }],
+    ['dunhere_mounted','둔헤레(기마)','Dunhere, mounted',{ weapon:'spear' }],
+    ['guthlaf_mounted','구슬라프(기마)','Guthlaf, mounted',{ weapon:'banner' }],
+    ['gamling_mounted','감링(기마)','Gamling, mounted',{ weapon:'banner' }],
+    ['erkenbrand_mounted','에르켄브란드(기마)','Erkenbrand, mounted',{ weapon:'sword_shield' }],
+    ['eorl_the_young_mounted','에오를(기마)','Eorl the Young, mounted',{ weapon:'spear' }],
+    ['frealaf_mounted','프레알라프(기마)','Frealaf, mounted',{ weapon:'axe' }],
+    ['thrydan_mounted','트리단(기마)','Thrydan Wolfsbane, mounted',{ faction:'dunland', weapon:'twohanded' }],
+    ['hera_mounted','헤라(기마)','Hera, mounted',{ weapon:'axe' }]] },
+  { sheet:null, side:'good', faction:'gondor', role:'hero', weapon:'mixed', base:'XL', units:[
+    ['elendil_mounted','엘렌딜(기마)','Elendil, mounted',{ faction:'arnor', weapon:'sword' }],
+    ['isildur_mounted','이실두르(기마)','Isildur, mounted',{ faction:'gondor', weapon:'sword' }],
+    ['anarion_mounted','아나리온(기마)','Anarion, mounted',{ faction:'numenor', weapon:'sword' }],
+    ['cirion_mounted','키리온(기마)','Cirion, mounted',{ faction:'gondor', weapon:'sword' }],
+    ['earnur_mounted','에아르누르(기마)','Earnur, mounted',{ faction:'gondor', weapon:'sword' }],
+    ['arvedui_mounted','아르베두이(기마)','Arvedui, mounted',{ faction:'arnor', weapon:'sword' }],
+    ['arathorn_mounted','아라손(기마)','Arathorn, mounted',{ faction:'arnor', weapon:'sword' }],
+    ['halbarad_mounted','할바라드(기마)','Halbarad, mounted',{ faction:'arnor', weapon:'banner' }]] },
+  { sheet:null, side:'evil', faction:'angmar', role:'hero', weapon:'mixed', base:'XL', units:[
+    ['khamul_mounted','카물(기마)','Khamul, mounted',{ faction:'angmar', weapon:'mace' }],
+    ['dark_marshal_mounted','다크 마샬(기마)','The Dark Marshal, mounted',{ faction:'angmar', weapon:'sword' }],
+    ['dwimmerlaik_mounted','드위머레이크(기마)','The Dwimmerlaik, mounted',{ faction:'angmar', weapon:'twohanded' }],
+    ['shadow_lord_mounted','섀도 로드(기마)','The Shadow Lord, mounted',{ faction:'angmar', weapon:'sword' }],
+    ['forsaken_mounted','포세이큰(기마)','The Forsaken, mounted',{ faction:'dol_guldur', weapon:'sword' }],
+    ['tainted_mounted','테인티드(기마)','The Tainted, mounted',{ faction:'angmar', weapon:'dagger' }],
+    ['undying_mounted','언다잉(기마)','The Undying, mounted',{ faction:'angmar', weapon:'staff' }],
+    ['betrayer_mounted','배신자(기마)','The Betrayer, mounted',{ faction:'angmar', weapon:'mace' }],
+    ['bolg_mounted','볼그(와르그)','Bolg, warg rider',{ faction:'gundabad', weapon:'mace' }],
+    ['guritz_mounted','구리츠(와르그)','Guritz, warg rider',{ faction:'mordor', weapon:'twohanded' }]] },
+  { sheet:null, side:'good', faction:'elf', role:'hero', weapon:'mixed', base:'XL', units:[
+    ['feanor_mounted','페아노르(기마)','Feanor, mounted',{ faction:'elf', weapon:'sword' }],
+    ['turin_mounted','투린(기마)','Turin Turambar, mounted',{ faction:'men', weapon:'sword' }],
+    ['tuor_mounted','투오르(기마)','Tuor, mounted',{ faction:'men', weapon:'sword' }],
+    ['beleg_mounted','벨레그(기마)','Beleg Cuthalion, mounted',{ faction:'doriath', weapon:'bow' }],
+    ['hurin_thalion_mounted','후린 탈리온(기마)','Hurin Thalion, mounted',{ faction:'men', weapon:'sword' }],
+    ['maeglin_mounted','매글린(기마)','Maeglin, mounted',{ faction:'elf', weapon:'sword' }]] },
+  { sheet:null, side:'good', faction:'elf', role:'hero', weapon:'sword', base:'XL', traits:['mounted'], units:[
+    ['fingon_mounted','핑곤(기마)','Fingon, mounted'],
+    ['ecthelion_mounted','엑텔리온(기마)','Ecthelion, mounted'],
+    ['finrod_felagund_mounted','핀로드(기마)','Finrod Felagund, mounted'],
+    ['maedhros_mounted','마이드로스(기마)','Maedhros, mounted'],
+    ['celegorm_mounted','켈레고름(기마)','Celegorm, mounted',{ weapon:'spear' }],
+    ['turgon_mounted','투르곤(기마)','Turgon, mounted'],
+    ['cirdan_mounted','키르단(기마)','Cirdan, mounted'],
+    ['gil_galad_mounted','길갈라드(기마)','Gil-galad, mounted',{ weapon:'spear' }],
+    ['thingol_mounted','싱골(기마)','Thingol, mounted',{ faction:'doriath' }]] },
 ];
+
+
+/*__TROOP_DB__*/
+module.exports.push({sheet:"troop-promotions-20261014",units:[["citadel_guard_bow","성채근위 궁병","Citadel Guard with longbow",{"side":"good","faction":"gondor","role":"infantry","weapon":"bow","base":"M","troopOrigin":"official","points":10}],["osgiliath_spearshield","오스길리아스 베테랑 창방","Osgiliath Veteran with spear and shield",{"side":"good","faction":"gondor","role":"infantry","weapon":"spear_shield","base":"M","troopOrigin":"official","points":11}],["osgiliath_bow","오스길리아스 베테랑 궁병","Osgiliath Veteran with bow",{"side":"good","faction":"gondor","role":"infantry","weapon":"bow","base":"M","troopOrigin":"official","points":10}],["dol_amroth_swordshield","돌 암로스 검방병","Dol Amroth levy swordsman",{"side":"good","faction":"dol_amroth","role":"infantry","weapon":"sword_shield","base":"M","troopOrigin":"custom","points":8}],["dol_amroth_knight_foot","돌 암로스 백조기사 도보","Knight of Dol Amroth on foot",{"side":"good","faction":"dol_amroth","role":"infantry","weapon":"sword_shield","base":"M","troopOrigin":"official","points":12}],["rohan_helmingas","헬밍가 전사","Helmingas",{"side":"good","faction":"rohan","role":"infantry","weapon":"axe","base":"M","troopOrigin":"legacy","points":9}],["rohan_redshield","웨스트폴드 적색방패 기병","Westfold Redshield",{"side":"good","faction":"rohan","role":"cavalry","weapon":"spear","base":"XL","troopOrigin":"legacy","points":17}],["ironhills_warrior","철산 매톡 전사","Iron Hills Warrior with mattock",{"side":"good","faction":"iron_hills","role":"infantry","weapon":"twohanded","base":"M","troopOrigin":"official","points":12}],["ironhills_spearshield","철산 창방병","Iron Hills Warrior with spear and shield",{"side":"good","faction":"iron_hills","role":"infantry","weapon":"spear_shield","base":"M","troopOrigin":"official","points":13}],["ironhills_crossbow","철산 석궁병","Iron Hills Warrior with crossbow",{"side":"good","faction":"iron_hills","role":"infantry","weapon":"crossbow","base":"M","troopOrigin":"official","points":14}],["galadhrim_bow","갈라드림 궁수","Galadhrim Warrior with Elf bow",{"side":"good","faction":"lothlorien","role":"infantry","weapon":"bow","base":"M","troopOrigin":"official","points":10}],["galadhrim_elite_bow","갈라드림 정예 궁병","Galadhrim veteran bowguard",{"side":"good","faction":"lothlorien","role":"infantry","weapon":"bow","base":"M","troopOrigin":"custom","points":13}],["mirkwood_ranger","머크우드 레인저","Mirkwood Ranger",{"side":"good","faction":"mirkwood","role":"infantry","weapon":"bow","base":"M","troopOrigin":"official","points":14}],["arnor_knight","아르노르 기사","Knight of Arnor",{"side":"good","faction":"arnor","role":"cavalry","weapon":"lance","base":"XL","troopOrigin":"official","points":18}],["arnor_ranger","아르노르 레인저","Ranger of Arnor",{"side":"good","faction":"arnor","role":"infantry","weapon":"bow","base":"M","troopOrigin":"official","points":9}],["morannon_swordshield","모라논 오크 검방","Morannon Orc with sword and shield",{"side":"evil","faction":"mordor","role":"infantry","weapon":"sword_shield","base":"M","troopOrigin":"official","points":9}],["orc_elite_tracker","오크 정예 추적궁병","Veteran Orc Tracker",{"side":"evil","faction":"mordor","role":"infantry","weapon":"bow","base":"M","troopOrigin":"custom","points":8}],["dale_guard","데일 기리온 근위병","Guard of Girion",{"side":"good","faction":"dale","role":"infantry","weapon":"sword_shield","base":"M","troopOrigin":"official","points":10}]]});
+
+// Keep source metadata consistent while retaining historical alias IDs for saved games.
+const __troopRows = new Map(require('./units.json').units.map(u => [u.id,u]));
+for(const sheet of module.exports)for(const row of sheet.units){const u=__troopRows.get(row[0]);if(!u)continue;const current=row[3]||(row[3]={});
+ if(u.troopPromotion){current.faction=u.faction;current.troopPromotion=u.troopPromotion;if(u.troopPromotion.aliasOf)current.recruitable=false;}
+ if(u.role==='hero')current.role='hero';if(u.id==='orc_tracker')current.weapon='bow';
+}

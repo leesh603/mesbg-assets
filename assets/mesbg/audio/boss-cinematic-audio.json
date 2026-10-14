@@ -1,0 +1,38 @@
+{
+  "generator": "make-boss-cinematic-audio.py",
+  "original": true,
+  "cues": [
+    {
+      "file": "audio/boss_nazgul_shriek.wav",
+      "seconds": 4.2,
+      "peak": 0.68,
+      "rms": 0.17033944299079104,
+      "sampleRate": 22050,
+      "channels": 2
+    },
+    {
+      "file": "audio/boss_fell_wing.wav",
+      "seconds": 1.5,
+      "peak": 0.68,
+      "rms": 0.18013105188466946,
+      "sampleRate": 22050,
+      "channels": 2
+    },
+    {
+      "file": "audio/boss_ring_seal.wav",
+      "seconds": 2.5,
+      "peak": 0.68,
+      "rms": 0.1238546945001318,
+      "sampleRate": 22050,
+      "channels": 2
+    },
+    {
+      "file": "audio/boss_dark_omen.wav",
+      "seconds": 6.5,
+      "peak": 0.68,
+      "rms": 0.23988296334814263,
+      "sampleRate": 22050,
+      "channels": 2
+    }
+  ]
+}

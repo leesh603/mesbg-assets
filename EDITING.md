@@ -25,6 +25,14 @@
 - 타이틀 배경 그림: `assets/mesbg/ui/title-bg.jpg`.
 - 타이틀·로딩·등급 색 CSS는 index.html의 `<style id="ui-extras">`에 있다.
 
+## 공통 UI 규칙 — `src/ui.css`
+
+모바일 UI·HUD의 공통 디자인 규칙(색·글꼴 크기·버튼·터치 영역 44px·전투 HUD 배치)은 **`src/ui.css`** 한 파일에 있다. `node tools/build.js`가 이 파일을 index.html의 `<style id="ui-overhaul">`(head 맨 끝)로 넣는다 — 그 블록을 직접 고치지 말고 `src/ui.css`를 고칠 것.
+- 앞쪽의 오래된 style 블록 위에 덮어쓰는 층이라, 선택자가 `#app#app#app …`(또는 `:is(html,#_o#_v#_r) body …`)로 시작한다. 새 규칙도 같은 접두어를 쓰면 앞 블록보다 우선한다.
+- 글꼴: 본문·수치는 Pretendard(`--ov-font`), 도트 글꼴(갈무리)은 화면 제목(24px)에만 쓴다. 글자 크기는 `--ov-xs`(13) `--ov-s`(14) `--ov-m`(15) `--ov-l`(17) 토큰을 쓴다.
+- 버튼: 주 행동 = 금색 채움, 보조 = 청동 테두리, 사용 불가 = 어둡게 + 이유 문구.
+- CSS만 반복해서 고칠 때는 `node tools/build.js --no-bundle`로 오프라인 번들 생성을 건너뛸 수 있다.
+
 ## UI 스타일(CSS) 수정 — index.html 직접 수정 가능 영역
 
 `index.html`에서 `/*__LWB_SRC_END__*/` 마커 **이후**에 나오는 `<style>` 블록들은 빌드로 덮어쓰이지 않는다 — **여기만 HTML을 직접 고쳐도 된다**. HUD/패널/버튼의 색·크기·레이아웃 같은 순수 스타일 변경은 이 구간의 CSS를 수정하면 된다. (index.html이 원본 문서라 새 클론에서도 바로 편집 가능)
@@ -121,3 +129,29 @@ MESBG.render()                        // 화면 갱신
 - `git push origin main` 만으로 자동 배포 — GitHub Pages가 main 브랜치를 서빙
 - 라이브: https://leesh603.github.io/mesbg-assets/ (푸시 후 반영까지 ~1-5분)
 - 구 주소(https://c--users-administrator-mesbg-d-ggxmnwtm.devinapps.com)는 수동 배포라 갱신 안 됨
+
+## 유닛 크기·중앙 정렬 — 몸체 기준 고정
+
+- 유닛 아래 발판(세력 원판 `bases/*.png` + 옅은 그림자)은 2026-10-13 요청으로 복구했다. 발판 그림은 `python3 tools/make_bases.py`로 만든다(세력별 지면·금속 테두리·문장 상감, 원본 평면 문장은 `art-src/bases-flat/`). 발판은 그림 크기·중심 계산에 쓰지 않는다(크기는 UNIT_ART_PROFILES 기준). 상시 둘레 링은 붙이지 않는다.
+- 표시 크기는 충돌 반경, 티어, 영웅 여부, 이미지 전체 외곽, 알파 질량으로 계산하지 않는다.
+- 기준: 인간 86, 호빗 54, 난쟁이 67, 큰 인간 100 월드 픽셀. 오크·고블린·괴수는 `docs/unit-art-audit.json`의 체급을 따른다.
+- 일반 보행은 장식물을 제외한 머리–발 몸체를 쓴다. 기마와 난쟁이는 직접 검토한 가슴·어깨 폭(`referenceAxis: width`, `left/right`)을 쓴다. 앉은 자세와 투구 장식 때문에 머리–골반 세로 구간만으로 기마 크기를 정하지 않는다. 인간 기수 몸통 폭 34, 큰 인간 40, 오크 31 월드 픽셀. 난쟁이는 체형·복장에 따른 폭을 쓰되 보행 몸체 높이는 63–76 안으로 보정한다. 창·깃발·탈것은 기수의 측정 구간에 포함하지 않는다.
+- 중심점은 몸체 중심이며 Phaser `origin`으로 지정한다. 회전·대기 동작도 이 점을 따른다.
+- 새 원화·교체 원화는 눈으로 몸체와 기수 기준점을 확인해 `docs/unit-art-audit.json`의 해당 유닛을 갱신한다. 원화 크기·SHA256도 함께 갱신한다.
+- `node tools/sync-unit-art-profiles.cjs` → `node tools/build.js --online-only` → `node tests/unit-art.test.cjs`. 인게임 화면에서도 검증한다.
+- 자동 알파 외곽·무기 외곽 정규화로 이 표를 덮어쓰지 않는다. 전투용 충돌 반경과 이동·전투 규칙은 시각 크기와 별도로 유지한다.
+
+
+## Design system v2 (pixel type, plaque buttons)
+- `src/game.js` sets the type/art scale on `<html data-ds>` from `devicePixelRatio`: `--fb/--fh/--ft` font sizes, `--px` (one UI-art pixel), `--hl` (hairline). Each is a whole number of device pixels per font/art pixel, so Galmuri stays sharp on 2.625× phones. Use these variables instead of fixed px for text, borders and art sizes.
+- The DS v2 rules are the block between `/*__DS2_BEGIN__*/` and `/*__DS2_END__*/` at the end of `src/ui.css`. Every rule there starts with the same 12-id `[data-ds]` prefix and uses `:where()` lists, so later rules in the block win by order.
+- Typography: Galmuri11 only. Body `--fb`, headings `--fh`, bold for names, numbers and buttons. Never go below `--fb`.
+- Buttons are 3-slice plaques from `assets/mesbg/ui/kit/` (`tools/make_ui_kit.py`): iron = secondary, gold = the forward action, the tall jewelled ones for big CTAs. Tier labels are a gem (`gem-<tier>.png`) plus the coloured word, never a filled box.
+- Spacing: a box that holds text keeps at least one art pixel above/below and three at the sides (`--pad-y`, `--pad-x`).
+
+### 첨부 크기 보정 도구 적용 (v1.45)
+
+`tools/calibrate-unit-stature.cjs`는 사용자가 제공한 아르곤의 보정 도구를 통합한 버전이다. 몸통/면적 비율과 기수 분석은 오프라인에서 계산하며 기존 눈검수 기준과 맞는 후보만 사용한다. 검출 오류, 빈 여백, 괴수·전차·독수리 개별 체급은 기존 기준을 유지한다. 표준 체급은 첨부 기준(난쟁이 68, 인간 86, 큰 인간 98, 인간 기수 43, 큰 인간 기수 50)과 지정 영웅 체형 보정을 따른다. 오늘 검수한 중심점·좌우 반전 제거는 유지한다.
+
+기본 실행은 미리보기이며 `--write`로만 표를 갱신한다. `node tools/build.js --online-only` 후 유닛 크기 테스트와 실제 게임 화면을 확인한다. 자동 커밋·푸시는 하지 않으며 원본 이미지 해시가 달라지면 새로 몸체 기준을 검수해야 한다. 자세한 적용/보존 정책은 `docs/unit-art-scale.md` 참조.
+

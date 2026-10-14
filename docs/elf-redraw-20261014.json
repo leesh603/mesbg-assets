@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-14",
+  "sourceCommit": "39438cbf5cde46096b952d585d77b265b6a672bc",
+  "method": "built-in imagegen reference edits",
+  "officialReference": "https://www.warhammer-community.com/en-gb/articles/KNIccgFZ/middle-earth-strategy-battle-game-warhammer-preview-online-mighty-elven-heroes-arrive/",
+  "officialImage": "https://assets.warhammer-community.com/articles/b4c28afe-3eb7-4377-923f-9173d56456d4/8cfuieuoil4bmlz7.jpg",
+  "prompts": [
+    {
+      "id": "arwen",
+      "prompt": "Use case: precise-object-edit. EDIT TARGET image 1: the current Arwen standing game sprite. STYLE ONLY references image 2 Haldir and image 3 Imrahil are same game's adult characters. Redraw Arwen with the same detailed 2D pixel sprite style, same slightly elevated front three-quarter game camera, same white/silver long gown, understated gold trim, long dark brown hair, delicate silver diadem with small blue jewel, modest narrow silver sword held down in right hand. PRIMARY REQUIRED FIX: existing head and hair dome are much too oversized. Reduce anatomical head width and height by approximately 25 percent relative to her BODY, give her a normal slender adult elf body, small refined head like reference adults. DO NOT just shrink entire sprite; fix internal head-to-body proportions. No chibi, oversized eyes or toy proportions. Long hair should follow shoulders without a huge helmet-shaped mound. Natural neck, narrow shoulders, adult-length limbs, readable waist and boots. Keep her recognisable Arwen identity, palette, body stance, elegance and modest attire. Crisp pixel clusters and restrained textured shading matching the game, not smooth modern painterly art, not a photo or 3D mini. Full single sprite with entire feet and sword visible, transparent background, NO pedestal, base, floor, shadow disc, scenery, labels, words or UI. No extra objects. Body dominates visual scale, sword does not."
+    },
+    {
+      "id": "rumil",
+      "prompt": "Use case: precise-object-edit. EDIT TARGET image 1 is current Rumil game sprite, which has WRONG clothing and weapon loadout. Image 2 is official Games Workshop/Forge World miniature identity reference: RUMIL IS THE RIGHT HAND MINIATURE WITH SHIELD, NOT the left dual swords elf. Images 3 Haldir and 4 Imrahil are PIXEL ART and elevated GAME CAMERA references ONLY. Completely redraw Rumil to match the official RIGHT miniature's character design: ornate restrained warm GOLD Galadhrim segmented leaf/scalemail armour over muted blue sleeves, muted burgundy sash, long brown lower tunic, dark blue flowing cape with light thin edging. Golden pointed Galadhrim helmet with one small pale grey horsehair crest arching behind it, no fantasy horns or huge wings. Long pointed golden bronze elongated leaf shield with raised graceful swirling elven ornament and central oval boss on left arm; one curved slender Elven sword wielded forward in right hand in a defensive advancing stance. No bow, no second sword. Blonde hair partly visible below helmet, slender normal adult elf proportions with small head. Use EXACT game's crisp detailed 2D pixel clusters, outline density, restrained textured shading and colour rendering. Same slightly elevated front-facing three-quarter camera as Haldir, NOT side-view tabletop photo, NOT low camera, NOT photoreal 3D miniature. Clearly readable full body, centered chest/torso, entire crest, shield tip, sword and boots visible in one isolated sprite. Actual transparent background. NO circular miniature base, ground, shadow disc, scenic accessories, text, labels, logos, comparison layout or UI."
+    },
+    {
+      "id": "orophin",
+      "prompt": "Use case: precise-object-edit. EDIT TARGET image 1 is current Orophin game sprite, which has WRONG clothing and weapon loadout. Image 2 official Games Workshop/Forge World miniature identity reference: OROPHIN IS THE LEFT HAND BLOND ELF WITH TWO SWORDS, NOT the right shield elf. Images 3 Haldir and 4 Imrahil are PIXEL ART and elevated GAME CAMERA references ONLY. Completely redraw Orophin to match official LEFT miniature character design: restrained GOLD segmented leaf/scalemail Galadhrim armour over muted blue sleeves, muted burgundy waist sash, long brown lower tunic, flowing dark blue cape with narrow pale edging. Long blond hair pushed back from forehead, gold delicate V-shaped browband, NO helmet. Two distinct curved slender silver Elven swords: one in his raised right hand above his shoulder, the other in his left hand extended across front at waist height, clear natural believable twin-sword advancing pose. No shield, no bow, no spear. Small head and realistic slender adult elf proportions, no chibi. Use EXACT game's crisp detailed 2D pixel clusters, outline density, restrained textured shading and colour rendering. Same slightly elevated front three-quarter camera as Haldir, NOT side-view tabletop photo, NOT low camera, NOT photoreal 3D mini. Full body with complete boots and both blades visible, torso centered, no excessive weapon reach and no huge decorative hair. One isolated sprite on actual transparent background. NO circular miniature base, ground, shadow disc, scenic accessories, text, labels, logos, comparison layout or UI."
+    }
+  ],
+  "changes": [
+    "Arwen anatomical head-to-body ratio reduced; dress, circlet and dark hair retained.",
+    "Rumil redrawn from right-hand GW miniature: gold armour, blue cape, sword, long shield and helmet crest.",
+    "Orophin redrawn from left-hand GW miniature: gold armour, blue cape, blond hair and twin swords.",
+    "All three use individually reviewed body heights and torso centers; equipment excluded.",
+    "Root gallery tokens, runtime tokens and DOM thumbnails updated."
+  ]
+}

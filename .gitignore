@@ -13,3 +13,20 @@ _*
 
 # fat single-file build (over GitHub 100MB limit; build locally via node tools/build.js)
 MIDDLE-EARTH-WARBANDS_v1.9.html
+
+# Pages 배포 대상 축소 — 사이트가 1GB 초과로 빌드 실패하던 것 수정
+survey/
+art_drafts/
+asset_archive_helm/
+fingolfin-assets/
+LAST-WAR-BAND_*.html
+asset-archive/
+px-nb-single-*.png
+
+# root-level sprite sheets are generation sources, not site files — keep untracked
+/*.png
+/*.webp
+/*.jpg
+!favicon-*.png
+!apple-touch-icon.png
+review-output/

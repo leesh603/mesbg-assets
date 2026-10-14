@@ -37,10 +37,10 @@ test('wave 100 infantry retains original wounds and attacks',()=>{
  assert.ok(e);assert.equal(e.stats.wounds,h.zt.orc_sword.wounds);assert.equal(e.stats.attacks,h.zt.orc_sword.attacks);
  assert.ok(e.stats.fight<=h.zt.orc_sword.fight+2);
 });
-test('heroic movement adds exactly 2 inches after partial movement',()=>{
+test('heroic movement adds exactly 3 inches after partial movement',()=>{
  q.start('hotseat');q.units=[];q.terrain=[];const u=q.spawn('aragorn','good',{x:600,y:600});q.spawn('orc_sword','evil',{x:1800,y:1100});
  q.phase='move';q.side='good';q.activeMoverUid='';q.move(u.uid,{x:690,y:600});const before=q.remaining(u),spent=u.movementSpent;
- assert.equal(q.heroic(u.uid,'move'),true);assert.equal(q.remaining(u)-before,90);assert.equal(u.movementSpent,spent);
+ assert.equal(q.heroic(u.uid,'move'),true);assert.equal(q.remaining(u)-before,135);assert.equal(u.movementSpent,spent);
 });
 test('new expeditions do not inherit old camp drafts, horses or queued buffs',()=>{
  camp();q.selectCampChoice('0');q.horses=3;q.bonusCP=7;q.nextRoundBuffs=[{stat:'move',n:90}];q.start('hotseat');

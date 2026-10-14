@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "count": 527,
+  "count": 587,
   "units": [
     {
       "id": "aragorn",
@@ -77,11 +77,19 @@
       "base": "M",
       "sheet": "lotr-tokens-v1.png",
       "file": "tokens/warrior_minas_tirith.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "gondor",
+        "aliasOf": "mt_swordshield",
+        "targets": [
+          "osgiliath_veteran"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "witchking_foot",
-      "name_ko": "마술왕(두건)",
+      "name_ko": "마술사왕(두건)",
       "name_en": "Witch-king hooded",
       "side": "evil",
       "faction": "angmar",
@@ -127,7 +135,17 @@
       "base": "S",
       "sheet": "lotr-tokens-v1.png",
       "file": "tokens/orc_sword.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "mordor",
+        "aliasOf": null,
+        "targets": [
+          "morannon_swordshield",
+          "mordor_uruk",
+          "warg_rider"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "cave_troll",
@@ -209,11 +227,11 @@
     },
     {
       "id": "witchking_fellbeast",
-      "name_ko": "마술왕(펠비스트)",
+      "name_ko": "마술사왕(펠비스트)",
       "name_en": "Witch-king on Fell Beast",
       "side": "evil",
       "faction": "angmar",
-      "role": "monster",
+      "role": "hero",
       "weapon": "sword",
       "base": "XXL",
       "sheet": "fellbeast-topdown-v2.png",
@@ -247,7 +265,7 @@
     },
     {
       "id": "witchking_mounted",
-      "name_ko": "마술왕(기마)",
+      "name_ko": "마술사왕(기마)",
       "name_en": "Witch-king mounted",
       "side": "evil",
       "faction": "angmar",
@@ -284,7 +302,7 @@
     },
     {
       "id": "witchking_foot_mace",
-      "name_ko": "마술왕(투구)",
+      "name_ko": "마술사왕(투구)",
       "name_en": "Witch-king, crowned with mace",
       "side": "evil",
       "faction": "angmar",
@@ -333,6 +351,7 @@
       "traits": [
         "terror"
       ],
+      "artScale": 1.15,
       "stats": {
         "f": 5,
         "s": 4,
@@ -442,7 +461,16 @@
       "base": "S",
       "sheet": "roster-enemy-troops-v1.png",
       "file": "tokens/orc_spearman.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "mordor",
+        "aliasOf": null,
+        "targets": [
+          "morannon_orc",
+          "warg_rider"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "orc_archer",
@@ -455,7 +483,15 @@
       "base": "S",
       "sheet": "roster-enemy-troops-v1.png",
       "file": "tokens/orc_archer.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "mordor",
+        "aliasOf": null,
+        "targets": [
+          "orc_tracker"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "uruk_swordshield",
@@ -468,7 +504,15 @@
       "base": "M",
       "sheet": "roster-enemy-troops-v1.png",
       "file": "tokens/uruk_swordshield.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "isengard",
+        "aliasOf": null,
+        "targets": [
+          "uruk_berserker"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "morannon_orc",
@@ -481,7 +525,13 @@
       "base": "M",
       "sheet": "roster-enemy-troops-v1.png",
       "file": "tokens/morannon_orc.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "mordor",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "warg_rider",
@@ -495,7 +545,13 @@
       "sheet": "roster-enemy-troops-v1.png",
       "file": "tokens/warg_rider.png",
       "artScale": 1.3,
-      "base_mm": "40mm"
+      "base_mm": "40mm",
+      "troopPromotion": {
+        "group": "mordor",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "haradrim_spearman",
@@ -508,7 +564,17 @@
       "base": "M",
       "sheet": "roster-enemy-troops-v1.png",
       "file": "tokens/haradrim_spearman.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "harad",
+        "aliasOf": "haradrim_spear",
+        "targets": [
+          "serpent_guard",
+          "haradrim_raider",
+          "abrakhan_guard"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "legolas",
@@ -715,20 +781,38 @@
       "base": "M",
       "sheet": "roster-free-troops-v1.png",
       "file": "tokens/gondor_archer.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "gondor",
+        "aliasOf": "mt_bowman",
+        "targets": [
+          "osgiliath_bow",
+          "ithilien_ranger"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "elf_swordsman",
       "name_ko": "엘프 검사",
       "name_en": "Elf Swordsman",
       "side": "good",
-      "faction": "elf",
+      "faction": "rivendell",
       "role": "infantry",
       "weapon": "sword",
       "base": "M",
       "sheet": "roster-free-troops-v1.png",
       "file": "tokens/elf_swordsman.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "rivendell",
+        "aliasOf": null,
+        "targets": [
+          "elf_swordshield",
+          "elf_spear"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "dwarf_guardian",
@@ -741,7 +825,16 @@
       "base": "M",
       "sheet": "roster-free-troops-v1.png",
       "file": "tokens/dwarf_guardian.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "khazad_dum",
+        "aliasOf": null,
+        "targets": [
+          "khazad_guard",
+          "iron_guard"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "rohan_royal_guard",
@@ -754,7 +847,15 @@
       "base": "M",
       "sheet": "roster-free-troops-v1.png",
       "file": "tokens/rohan_royal_guard.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "rohan",
+        "aliasOf": null,
+        "targets": [
+          "rohan_royal_guard_mounted"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "ithilien_ranger",
@@ -767,7 +868,15 @@
       "base": "M",
       "sheet": "roster-free-troops-v1.png",
       "file": "tokens/ithilien_ranger.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "gondor",
+        "aliasOf": null,
+        "targets": [
+          "citadel_guard_bow"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "rohan_rider",
@@ -781,7 +890,16 @@
       "sheet": "roster-free-troops-v1.png",
       "file": "tokens/rohan_rider.png",
       "artScale": 1.1,
-      "base_mm": "40mm"
+      "base_mm": "40mm",
+      "troopPromotion": {
+        "group": "rohan",
+        "aliasOf": null,
+        "targets": [
+          "rohan_royal_guard_mounted",
+          "rohan_redshield"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "balrog",
@@ -895,7 +1013,17 @@
       "base": "S",
       "sheet": "roster-monsters-v1.png",
       "file": "tokens/moria_goblin.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "moria",
+        "aliasOf": null,
+        "targets": [
+          "goblin_shield",
+          "goblin_spear",
+          "goblin_prowler"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "uruk_berserker",
@@ -908,7 +1036,13 @@
       "base": "M",
       "sheet": "roster-monsters-v1.png",
       "file": "tokens/uruk_berserker.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "isengard",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "sauron",
@@ -916,7 +1050,7 @@
       "name_en": "Sauron",
       "side": "evil",
       "faction": "mordor",
-      "role": "monster",
+      "role": "hero",
       "weapon": "mace",
       "base": "XXL",
       "sheet": "roster-sauron-nazgul-v1.png",
@@ -961,6 +1095,7 @@
       "traits": [
         "terror"
       ],
+      "artScale": 1.15,
       "stats": {
         "f": 5,
         "s": 4,
@@ -998,6 +1133,7 @@
       "traits": [
         "terror"
       ],
+      "artScale": 1.15,
       "stats": {
         "f": 5,
         "s": 4,
@@ -1069,7 +1205,13 @@
       "base": "XL",
       "sheet": "roster-sauron-nazgul-v1.png",
       "file": "tokens/morgul_knight.png",
-      "base_mm": "40mm"
+      "base_mm": "40mm",
+      "troopPromotion": {
+        "group": "mordor_numenoreans",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "dwimmerlaik",
@@ -1106,22 +1248,6 @@
       "base_mm": "25mm"
     },
     {
-      "id": "witchking_spear",
-      "name_ko": "마술왕(창)",
-      "name_en": "Witch-king, crowned with spear",
-      "side": "evil",
-      "faction": "angmar",
-      "role": "hero",
-      "weapon": "twohanded",
-      "base": "L",
-      "sheet": "roster-sauron-nazgul-v1.png",
-      "file": "tokens/witchking_spear.png",
-      "traits": [
-        "terror"
-      ],
-      "base_mm": "25mm"
-    },
-    {
       "id": "mt_swordshield",
       "name_ko": "미나스 티리스 검방",
       "name_en": "MT sword & shield",
@@ -1132,7 +1258,15 @@
       "base": "M",
       "sheet": "roster-minastirith-variants-v1.png",
       "file": "tokens/mt_swordshield.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "gondor",
+        "aliasOf": null,
+        "targets": [
+          "osgiliath_veteran"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "mt_spear",
@@ -1145,7 +1279,15 @@
       "base": "M",
       "sheet": "roster-minastirith-variants-v1.png",
       "file": "tokens/mt_spear.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "gondor",
+        "aliasOf": null,
+        "targets": [
+          "osgiliath_spearshield"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "mt_spearshield",
@@ -1158,7 +1300,15 @@
       "base": "M",
       "sheet": "roster-minastirith-variants-v1.png",
       "file": "tokens/mt_spearshield.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "gondor",
+        "aliasOf": null,
+        "targets": [
+          "osgiliath_spearshield"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "mt_bowman",
@@ -1171,7 +1321,16 @@
       "base": "M",
       "sheet": "roster-minastirith-variants-v1.png",
       "file": "tokens/mt_bowman.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "gondor",
+        "aliasOf": null,
+        "targets": [
+          "osgiliath_bow",
+          "ithilien_ranger"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "mt_captain",
@@ -1197,7 +1356,13 @@
       "base": "M",
       "sheet": "roster-minastirith-variants-v1.png",
       "file": "tokens/mt_fountain_guard.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "gondor",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "orc_sword2",
@@ -1210,7 +1375,17 @@
       "base": "S",
       "sheet": "roster-orc-variants-v1.png",
       "file": "tokens/orc_sword2.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "mordor",
+        "aliasOf": "orc_sword",
+        "targets": [
+          "morannon_swordshield",
+          "mordor_uruk",
+          "warg_rider"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "orc_swordshield",
@@ -1223,7 +1398,16 @@
       "base": "S",
       "sheet": "roster-orc-variants-v1.png",
       "file": "tokens/orc_swordshield.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "mordor",
+        "aliasOf": null,
+        "targets": [
+          "morannon_swordshield",
+          "warg_rider"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "orc_spear2",
@@ -1236,7 +1420,16 @@
       "base": "S",
       "sheet": "roster-orc-variants-v1.png",
       "file": "tokens/orc_spear2.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "mordor",
+        "aliasOf": "orc_spearman",
+        "targets": [
+          "morannon_orc",
+          "warg_rider"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "orc_twohanded",
@@ -1249,7 +1442,15 @@
       "base": "S",
       "sheet": "roster-orc-variants-v1.png",
       "file": "tokens/orc_twohanded.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "mordor",
+        "aliasOf": null,
+        "targets": [
+          "mordor_uruk"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "orc_bow",
@@ -1262,7 +1463,15 @@
       "base": "S",
       "sheet": "roster-orc-variants-v1.png",
       "file": "tokens/orc_bow.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "mordor",
+        "aliasOf": "orc_archer",
+        "targets": [
+          "orc_tracker"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "orc_drummer",
@@ -1288,7 +1497,17 @@
       "base": "M",
       "sheet": "roster-dwarf-variants-v1.png",
       "file": "tokens/dwarf_axeshield.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "khazad_dum",
+        "aliasOf": null,
+        "targets": [
+          "khazad_guard",
+          "iron_guard",
+          "vault_warden"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "dwarf_2haxe",
@@ -1301,7 +1520,16 @@
       "base": "M",
       "sheet": "roster-dwarf-variants-v1.png",
       "file": "tokens/dwarf_2haxe.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "khazad_dum",
+        "aliasOf": null,
+        "targets": [
+          "khazad_guard",
+          "iron_guard"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "dwarf_ranger",
@@ -1314,7 +1542,13 @@
       "base": "M",
       "sheet": "roster-dwarf-variants-v1.png",
       "file": "tokens/dwarf_ranger.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "khazad_dum",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "khazad_guard",
@@ -1327,7 +1561,13 @@
       "base": "M",
       "sheet": "roster-dwarf-variants-v1.png",
       "file": "tokens/khazad_guard.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "khazad_dum",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "iron_guard",
@@ -1340,7 +1580,13 @@
       "base": "M",
       "sheet": "roster-dwarf-variants-v1.png",
       "file": "tokens/iron_guard.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "khazad_dum",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "dwarf_banner",
@@ -1360,52 +1606,84 @@
       "name_ko": "엘프 검방",
       "name_en": "Elf, sword & shield",
       "side": "good",
-      "faction": "elf",
+      "faction": "rivendell",
       "role": "infantry",
       "weapon": "sword_shield",
       "base": "M",
       "sheet": "roster-elf-variants-v1.png",
       "file": "tokens/elf_swordshield.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "rivendell",
+        "aliasOf": null,
+        "targets": [
+          "elf_knight"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "elf_spear",
       "name_ko": "엘프 창병",
       "name_en": "Elf, spear",
       "side": "good",
-      "faction": "elf",
+      "faction": "rivendell",
       "role": "infantry",
       "weapon": "spear",
       "base": "M",
       "sheet": "roster-elf-variants-v1.png",
       "file": "tokens/elf_spear.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "rivendell",
+        "aliasOf": null,
+        "targets": [
+          "elven_lancer"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "elf_bow",
       "name_ko": "엘프 궁수",
       "name_en": "Elf, bow",
       "side": "good",
-      "faction": "elf",
+      "faction": "rivendell",
       "role": "infantry",
       "weapon": "bow",
       "base": "M",
       "sheet": "roster-elf-variants-v1.png",
       "file": "tokens/elf_bow.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "rivendell",
+        "aliasOf": null,
+        "targets": [
+          "elf_knight"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "elf_glaive",
       "name_ko": "엘프 글레이브",
       "name_en": "Elf, glaive",
       "side": "good",
-      "faction": "elf",
+      "faction": "mirkwood",
       "role": "infantry",
       "weapon": "twohanded",
       "base": "M",
       "sheet": "roster-elf-variants-v1.png",
       "file": "tokens/elf_glaive.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "mirkwood",
+        "aliasOf": null,
+        "targets": [
+          "palace_guard"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "galadhrim_warrior",
@@ -1418,7 +1696,16 @@
       "base": "M",
       "sheet": "roster-elf-variants-v1.png",
       "file": "tokens/galadhrim_warrior.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "lothlorien",
+        "aliasOf": null,
+        "targets": [
+          "galadhrim_bow",
+          "galadhrim_knight"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "elf_knight",
@@ -1431,7 +1718,13 @@
       "base": "XL",
       "sheet": "roster-elf-variants-v1.png",
       "file": "tokens/elf_knight.png",
-      "base_mm": "40mm"
+      "base_mm": "40mm",
+      "troopPromotion": {
+        "group": "rivendell",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "uruk_swordshield2",
@@ -1444,7 +1737,15 @@
       "base": "M",
       "sheet": "roster-uruk-variants-v1.png",
       "file": "tokens/uruk_swordshield2.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "isengard",
+        "aliasOf": "uruk_swordshield",
+        "targets": [
+          "uruk_berserker"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "uruk_pike",
@@ -1457,7 +1758,13 @@
       "base": "M",
       "sheet": "roster-uruk-variants-v1.png",
       "file": "tokens/uruk_pike.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "isengard",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "uruk_crossbow",
@@ -1470,7 +1777,13 @@
       "base": "M",
       "sheet": "roster-uruk-variants-v1.png",
       "file": "tokens/uruk_crossbow.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "isengard",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "uruk_scout",
@@ -1483,7 +1796,17 @@
       "base": "M",
       "sheet": "roster-uruk-variants-v1.png",
       "file": "tokens/uruk_scout.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "isengard",
+        "aliasOf": null,
+        "targets": [
+          "uruk_swordshield",
+          "uruk_pike",
+          "uruk_berserker"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "uruk_berserker2",
@@ -1496,7 +1819,13 @@
       "base": "M",
       "sheet": "roster-uruk-variants-v1.png",
       "file": "tokens/uruk_berserker2.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "isengard",
+        "aliasOf": "uruk_berserker",
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "uruk_banner",
@@ -1522,7 +1851,17 @@
       "base": "M",
       "sheet": "roster-haradrim-easterling-v1.png",
       "file": "tokens/haradrim_spear.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "harad",
+        "aliasOf": null,
+        "targets": [
+          "serpent_guard",
+          "haradrim_raider",
+          "abrakhan_guard"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "haradrim_bow",
@@ -1535,7 +1874,16 @@
       "base": "M",
       "sheet": "roster-haradrim-easterling-v1.png",
       "file": "tokens/haradrim_bow.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "harad",
+        "aliasOf": null,
+        "targets": [
+          "watcher_karna",
+          "haradrim_raider"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "haradrim_priest",
@@ -1561,7 +1909,13 @@
       "base": "M",
       "sheet": "roster-haradrim-easterling-v1.png",
       "file": "tokens/easterling_phalanx.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "easterling",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "easterling_swordshield",
@@ -1574,7 +1928,16 @@
       "base": "M",
       "sheet": "roster-haradrim-easterling-v1.png",
       "file": "tokens/easterling_swordshield.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "easterling",
+        "aliasOf": null,
+        "targets": [
+          "easterling_phalanx",
+          "easterling_kataphrakt"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "easterling_kataphrakt",
@@ -1587,20 +1950,32 @@
       "base": "XL",
       "sheet": "roster-haradrim-easterling-v1.png",
       "file": "tokens/easterling_kataphrakt.png",
-      "base_mm": "40mm"
+      "base_mm": "40mm",
+      "troopPromotion": {
+        "group": "easterling",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "dol_amroth_knight",
       "name_ko": "돌 암로스 백조기사",
       "name_en": "Knight of Dol Amroth",
       "side": "good",
-      "faction": "gondor",
+      "faction": "dol_amroth",
       "role": "cavalry",
       "weapon": "lance",
       "base": "XL",
       "sheet": "roster-gondor-exp-v1.png",
       "file": "tokens/dol_amroth_knight.png",
-      "base_mm": "40mm"
+      "base_mm": "40mm",
+      "troopPromotion": {
+        "group": "dol_amroth",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "gondor_knight",
@@ -1613,7 +1988,13 @@
       "base": "XL",
       "sheet": "roster-gondor-exp-v1.png",
       "file": "tokens/gondor_knight.png",
-      "base_mm": "40mm"
+      "base_mm": "40mm",
+      "troopPromotion": {
+        "group": "gondor",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "osgiliath_veteran",
@@ -1626,7 +2007,17 @@
       "base": "M",
       "sheet": "roster-gondor-exp-v1.png",
       "file": "tokens/osgiliath_veteran.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "gondor",
+        "aliasOf": null,
+        "targets": [
+          "mt_fountain_guard",
+          "citadel_guard",
+          "gondor_knight"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "lossarnach_axeman",
@@ -1639,7 +2030,13 @@
       "base": "M",
       "sheet": "roster-gondor-exp-v1.png",
       "file": "tokens/lossarnach_axeman.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "gondor",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "citadel_guard",
@@ -1652,7 +2049,13 @@
       "base": "M",
       "sheet": "roster-gondor-exp-v1.png",
       "file": "tokens/citadel_guard.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "gondor",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "pelennor_militia",
@@ -1665,7 +2068,16 @@
       "base": "M",
       "sheet": "roster-gondor-exp-v1.png",
       "file": "tokens/pelennor_militia.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "gondor",
+        "aliasOf": null,
+        "targets": [
+          "mt_swordshield",
+          "mt_spearshield"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "rohan_swordshield",
@@ -1678,7 +2090,17 @@
       "base": "M",
       "sheet": "roster-rohan-exp-v1.png",
       "file": "tokens/rohan_swordshield.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "rohan",
+        "aliasOf": null,
+        "targets": [
+          "rohan_rider",
+          "rohan_royal_guard",
+          "rohan_helmingas"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "rohan_spear",
@@ -1691,7 +2113,17 @@
       "base": "M",
       "sheet": "roster-rohan-exp-v1.png",
       "file": "tokens/rohan_spear.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "rohan",
+        "aliasOf": null,
+        "targets": [
+          "rohan_rider",
+          "rohan_royal_guard",
+          "rohan_helmingas"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "rohan_archer",
@@ -1704,7 +2136,15 @@
       "base": "M",
       "sheet": "roster-rohan-exp-v1.png",
       "file": "tokens/rohan_archer.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "rohan",
+        "aliasOf": null,
+        "targets": [
+          "rohan_outrider"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "eomer",
@@ -1749,7 +2189,13 @@
       "base": "XL",
       "sheet": "roster-rohan-exp-v1.png",
       "file": "tokens/rohan_outrider.png",
-      "base_mm": "40mm"
+      "base_mm": "40mm",
+      "troopPromotion": {
+        "group": "rohan",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "rohan_banner",
@@ -1775,7 +2221,16 @@
       "base": "M",
       "sheet": "roster-mordor-elite-v1.png",
       "file": "tokens/black_numenorean.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "mordor_numenoreans",
+        "aliasOf": null,
+        "targets": [
+          "black_numenorean_mounted",
+          "morgul_knight"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "black_numenorean_mounted",
@@ -1788,7 +2243,13 @@
       "base": "XL",
       "sheet": "roster-mordor-elite-v1.png",
       "file": "tokens/black_numenorean_mounted.png",
-      "base_mm": "40mm"
+      "base_mm": "40mm",
+      "troopPromotion": {
+        "group": "mordor_numenoreans",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "orc_tracker",
@@ -1797,11 +2258,19 @@
       "side": "evil",
       "faction": "mordor",
       "role": "infantry",
-      "weapon": "twohanded",
+      "weapon": "bow",
       "base": "S",
       "sheet": "roster-mordor-elite-v1.png",
       "file": "tokens/orc_tracker.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "mordor",
+        "aliasOf": null,
+        "targets": [
+          "orc_elite_tracker"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "war_troll",
@@ -1827,7 +2296,13 @@
       "base": "M",
       "sheet": "roster-mordor-elite-v1.png",
       "file": "tokens/black_guard.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "mordor",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "orc_taskmaster",
@@ -1835,7 +2310,7 @@
       "name_en": "Orc Taskmaster",
       "side": "evil",
       "faction": "mordor",
-      "role": "support",
+      "role": "hero",
       "weapon": "whip",
       "base": "M",
       "sheet": "roster-mordor-elite-v1.png",
@@ -1853,7 +2328,15 @@
       "base": "S",
       "sheet": "roster-goblin-v1.png",
       "file": "tokens/goblin_spear.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "moria",
+        "aliasOf": null,
+        "targets": [
+          "goblin_prowler"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "goblin_shield",
@@ -1866,7 +2349,15 @@
       "base": "S",
       "sheet": "roster-goblin-v1.png",
       "file": "tokens/goblin_shield.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "moria",
+        "aliasOf": null,
+        "targets": [
+          "goblin_prowler"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "goblin_bow",
@@ -1879,7 +2370,13 @@
       "base": "S",
       "sheet": "roster-goblin-v1.png",
       "file": "tokens/goblin_bow.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "moria",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "goblin_prowler",
@@ -1892,7 +2389,13 @@
       "base": "S",
       "sheet": "roster-goblin-v1.png",
       "file": "tokens/goblin_prowler.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "moria",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "goblin_king",
@@ -1900,7 +2403,7 @@
       "name_en": "Goblin King",
       "side": "evil",
       "faction": "moria",
-      "role": "monster",
+      "role": "hero",
       "weapon": "club",
       "base": "L",
       "sheet": "roster-goblin-v1.png",
@@ -1931,7 +2434,17 @@
       "base": "M",
       "sheet": "roster-isengard-exp-v1.png",
       "file": "tokens/dunlending_warrior.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "dunland",
+        "aliasOf": null,
+        "targets": [
+          "dunlending_huscarl",
+          "dunlending_berserker",
+          "dunlending_horseman"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "dunlending_huscarl",
@@ -1944,7 +2457,13 @@
       "base": "M",
       "sheet": "roster-isengard-exp-v1.png",
       "file": "tokens/dunlending_huscarl.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "dunland",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "warg",
@@ -1970,7 +2489,13 @@
       "base": "M",
       "sheet": "roster-isengard-exp-v1.png",
       "file": "tokens/uruk_sapper.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "isengard",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "uruk_scout_archer",
@@ -1983,7 +2508,15 @@
       "base": "M",
       "sheet": "roster-isengard-exp-v1.png",
       "file": "tokens/uruk_scout_archer.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "isengard",
+        "aliasOf": null,
+        "targets": [
+          "uruk_crossbow"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "crebain_swarm",
@@ -2012,7 +2545,13 @@
       "base": "S",
       "sheet": "roster-free-special-v1.png",
       "file": "tokens/hobbit_shirriff.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "shire",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "hobbit_bounder",
@@ -2025,7 +2564,13 @@
       "base": "S",
       "sheet": "roster-free-special-v1.png",
       "file": "tokens/hobbit_bounder.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "shire",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "great_eagle",
@@ -2092,7 +2637,7 @@
       "name_en": "Ranger of the North",
       "side": "good",
       "faction": "arnor",
-      "role": "infantry",
+      "role": "hero",
       "weapon": "sword",
       "base": "M",
       "sheet": "roster-free-special-v1.png",
@@ -2211,8 +2756,8 @@
     },
     {
       "id": "gamling",
-      "name_ko": "감링(기수)",
-      "name_en": "Gamling with banner",
+      "name_ko": "감링",
+      "name_en": "Gamling",
       "side": "good",
       "faction": "rohan",
       "role": "hero",
@@ -2369,7 +2914,7 @@
       "name_en": "Sharku on warg",
       "side": "evil",
       "faction": "isengard",
-      "role": "cavalry",
+      "role": "hero",
       "weapon": "spear",
       "base": "XL",
       "sheet": "roster-evil-heroes-exp-v1.png",
@@ -2636,7 +3181,7 @@
       "name_en": "Melkor (Morgoth)",
       "side": "evil",
       "faction": "angband",
-      "role": "monster",
+      "role": "hero",
       "weapon": "mace",
       "base": "XXL",
       "sheet": "roster-legends-evil-v1.png",
@@ -2962,7 +3507,16 @@
       "traits": [
         "terror"
       ],
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "dead",
+        "aliasOf": null,
+        "targets": [
+          "dead_spearman",
+          "dead_rider"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "olog_hai",
@@ -2995,7 +3549,7 @@
     },
     {
       "id": "mirkwood_spider",
-      "name_ko": "미르크우드 거미",
+      "name_ko": "머크우드 거미",
       "name_en": "Mirkwood Spider",
       "side": "evil",
       "faction": "dol_guldur",
@@ -3247,7 +3801,7 @@
       "name_en": "Huan the Hound",
       "side": "good",
       "faction": "valinor",
-      "role": "beast",
+      "role": "hero",
       "weapon": "none",
       "base": "L",
       "sheet": "roster-silmarillion-good-v1.png",
@@ -3294,7 +3848,7 @@
       "name_en": "Carcharoth",
       "side": "evil",
       "faction": "angband",
-      "role": "monster",
+      "role": "hero",
       "weapon": "none",
       "base": "L",
       "sheet": "roster-silmarillion-evil-v1.png",
@@ -3675,7 +4229,7 @@
       "name_en": "Azog on white warg",
       "side": "evil",
       "faction": "gundabad",
-      "role": "cavalry",
+      "role": "hero",
       "weapon": "mace",
       "base": "XL",
       "sheet": "roster-hobbit-evil-v1.png",
@@ -3693,6 +4247,7 @@
       "base": "L",
       "sheet": "roster-hobbit-evil-v1.png",
       "file": "tokens/azog_foot.png",
+      "artScale": 1.2,
       "base_mm": "25mm"
     },
     {
@@ -3740,7 +4295,16 @@
       "base": "",
       "sheet": "roster-hobbit-evil-v1.png",
       "file": "tokens/hunter_orc.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "gundabad",
+        "aliasOf": null,
+        "targets": [
+          "gundabad_orc",
+          "gundabad_warg_rider"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "gundabad_orc",
@@ -3753,7 +4317,15 @@
       "base": "",
       "sheet": "roster-hobbit-evil-v1.png",
       "file": "tokens/gundabad_orc.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "gundabad",
+        "aliasOf": null,
+        "targets": [
+          "gundabad_warg_rider"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "goblin_mercenary",
@@ -3766,7 +4338,13 @@
       "base": "",
       "sheet": "roster-hobbit-evil-v1.png",
       "file": "tokens/goblin_mercenary.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "moria",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "halbarad",
@@ -3972,13 +4550,22 @@
       "name_ko": "움바르 해적",
       "name_en": "Corsair of Umbar",
       "side": "evil",
-      "faction": "harad",
+      "faction": "umbar",
       "role": "infantry",
       "weapon": "sword",
       "base": "",
       "sheet": "roster-exp-evil-v1.png",
       "file": "tokens/corsair_umbra.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "umbar",
+        "aliasOf": null,
+        "targets": [
+          "corsair_bosun",
+          "corsair_crossbowman"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "variag_horseman",
@@ -3991,7 +4578,13 @@
       "base": "XL",
       "sheet": "roster-exp-evil-v1.png",
       "file": "tokens/variag_horseman.png",
-      "base_mm": "40mm"
+      "base_mm": "40mm",
+      "troopPromotion": {
+        "group": "khand",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "shagrat",
@@ -4136,7 +4729,7 @@
       "name_en": "Gloin",
       "side": "good",
       "faction": "dwarf",
-      "role": "infantry",
+      "role": "hero",
       "weapon": "axe",
       "base": "M",
       "sheet": "roster-hobbit-company-v1.png",
@@ -4149,7 +4742,7 @@
       "name_en": "Oin",
       "side": "good",
       "faction": "dwarf",
-      "role": "infantry",
+      "role": "hero",
       "weapon": "club",
       "base": "M",
       "sheet": "roster-hobbit-company-v1.png",
@@ -4162,7 +4755,7 @@
       "name_en": "Nori",
       "side": "good",
       "faction": "dwarf",
-      "role": "infantry",
+      "role": "hero",
       "weapon": "sword",
       "base": "M",
       "sheet": "roster-hobbit-company-v1.png",
@@ -4175,7 +4768,7 @@
       "name_en": "Ori",
       "side": "good",
       "faction": "dwarf",
-      "role": "infantry",
+      "role": "hero",
       "weapon": "sword",
       "base": "M",
       "sheet": "roster-hobbit-company-v1.png",
@@ -4188,7 +4781,7 @@
       "name_en": "Dori",
       "side": "good",
       "faction": "dwarf",
-      "role": "infantry",
+      "role": "hero",
       "weapon": "sword",
       "base": "M",
       "sheet": "roster-hobbit-exp-v1.png",
@@ -4201,7 +4794,7 @@
       "name_en": "Bifur",
       "side": "good",
       "faction": "dwarf",
-      "role": "infantry",
+      "role": "hero",
       "weapon": "spear",
       "base": "M",
       "sheet": "roster-hobbit-exp-v1.png",
@@ -4214,7 +4807,7 @@
       "name_en": "Bofur",
       "side": "good",
       "faction": "dwarf",
-      "role": "infantry",
+      "role": "hero",
       "weapon": "club",
       "base": "M",
       "sheet": "roster-hobbit-exp-v1.png",
@@ -4227,7 +4820,7 @@
       "name_en": "Bombur",
       "side": "good",
       "faction": "dwarf",
-      "role": "infantry",
+      "role": "hero",
       "weapon": "club",
       "base": "M",
       "sheet": "roster-hobbit-exp-v1.png",
@@ -4239,13 +4832,19 @@
       "name_ko": "산양 기수",
       "name_en": "Iron Hills Goat Rider",
       "side": "good",
-      "faction": "dwarf",
+      "faction": "iron_hills",
       "role": "cavalry",
       "weapon": "lance",
       "base": "XL",
       "sheet": "roster-hobbit-exp-v1.png",
       "file": "tokens/goat_rider.png",
-      "base_mm": "40mm"
+      "base_mm": "40mm",
+      "troopPromotion": {
+        "group": "iron_hills",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "gollum",
@@ -4491,16 +5090,24 @@
     },
     {
       "id": "mirkwood_sentinel",
-      "name_ko": "미르크우드 보초",
+      "name_ko": "머크우드 보초",
       "name_en": "Mirkwood Sentinel",
       "side": "good",
-      "faction": "elf",
+      "faction": "mirkwood",
       "role": "infantry",
       "weapon": "pike",
       "base": "M",
       "sheet": "roster-elf-exp-v2.png",
       "file": "tokens/mirkwood_sentinel.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "mirkwood",
+        "aliasOf": null,
+        "targets": [
+          "palace_guard"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "noldor_warrior",
@@ -4513,20 +5120,37 @@
       "base": "L",
       "sheet": "roster-elf-exp-v2.png",
       "file": "tokens/noldor_warrior.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "first_age",
+        "aliasOf": null,
+        "targets": [],
+        "gate": {
+          "relic": "silmaril",
+          "label": "실마릴 · 제1시대"
+        }
+      }
     },
     {
       "id": "silvan_archer",
       "name_ko": "실반 궁수",
       "name_en": "Silvan Archer",
       "side": "good",
-      "faction": "elf",
+      "faction": "mirkwood",
       "role": "infantry",
       "weapon": "bow",
       "base": "M",
       "sheet": "roster-elf-exp-v2.png",
       "file": "tokens/silvan_archer.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "mirkwood",
+        "aliasOf": null,
+        "targets": [
+          "mirkwood_ranger"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "elven_lancer",
@@ -4539,7 +5163,13 @@
       "base": "XL",
       "sheet": "roster-elf-exp-v2.png",
       "file": "tokens/elven_lancer.png",
-      "base_mm": "40mm"
+      "base_mm": "40mm",
+      "troopPromotion": {
+        "group": "rivendell",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "imrahil_mounted",
@@ -4663,7 +5293,13 @@
       "base": "M",
       "sheet": "roster-mounted-heroes-v1.png",
       "file": "tokens/blackroot_archer.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "gondor",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "half_troll",
@@ -5841,7 +6477,7 @@
       "name_en": "Dain Ironfoot on war boar",
       "side": "good",
       "faction": "dwarf",
-      "role": "cavalry",
+      "role": "hero",
       "weapon": "mace",
       "base": "XL",
       "sheet": "roster-good-fill-v2.png",
@@ -5966,7 +6602,13 @@
       "base": "XL",
       "sheet": "roster-warg-riders-v1.png",
       "file": "tokens/warg_rider_spear.png",
-      "base_mm": "40mm"
+      "base_mm": "40mm",
+      "troopPromotion": {
+        "group": "isengard_orcs",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "warg_rider_bow",
@@ -5979,7 +6621,13 @@
       "base": "XL",
       "sheet": "roster-warg-riders-v1.png",
       "file": "tokens/warg_rider_bow.png",
-      "base_mm": "40mm"
+      "base_mm": "40mm",
+      "troopPromotion": {
+        "group": "isengard_orcs",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "warg_chieftain",
@@ -6624,7 +7272,13 @@
       "base": "XL",
       "sheet": "exp-rohan.png",
       "file": "tokens/rohan_royal_guard_mounted.png",
-      "base_mm": "40mm"
+      "base_mm": "40mm",
+      "troopPromotion": {
+        "group": "rohan",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "arvedui",
@@ -6727,7 +7381,19 @@
       "base": "M",
       "sheet": "exp-numenor-arnor.png",
       "file": "tokens/numenorean_warrior.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "numenor",
+        "aliasOf": null,
+        "targets": [
+          "numenorean_spearman",
+          "numenorean_knight"
+        ],
+        "gate": {
+          "relic": "silmaril",
+          "label": "실마릴 · 제2시대"
+        }
+      }
     },
     {
       "id": "numenorean_spearman",
@@ -6740,7 +7406,16 @@
       "base": "M",
       "sheet": "exp-numenor-arnor.png",
       "file": "tokens/numenorean_spearman.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "numenor",
+        "aliasOf": null,
+        "targets": [],
+        "gate": {
+          "relic": "silmaril",
+          "label": "실마릴 · 제2시대"
+        }
+      }
     },
     {
       "id": "arnor_warrior",
@@ -6753,7 +7428,16 @@
       "base": "M",
       "sheet": "exp-numenor-arnor.png",
       "file": "tokens/arnor_warrior.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "arnor",
+        "aliasOf": null,
+        "targets": [
+          "arnor_knight",
+          "arnor_ranger"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "hasharin",
@@ -6860,7 +7544,13 @@
       "base": "M",
       "sheet": "exp-harad.png",
       "file": "tokens/watcher_karna.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "harad",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "haradrim_raider",
@@ -6873,7 +7563,13 @@
       "base": "XL",
       "sheet": "exp-harad.png",
       "file": "tokens/haradrim_raider.png",
-      "base_mm": "40mm"
+      "base_mm": "40mm",
+      "troopPromotion": {
+        "group": "harad",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "mahud_camel_raider",
@@ -6886,7 +7582,13 @@
       "base": "XL",
       "sheet": "exp-harad.png",
       "file": "tokens/mahud_camel_raider.png",
-      "base_mm": "40mm"
+      "base_mm": "40mm",
+      "troopPromotion": {
+        "group": "far_harad",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "amdur",
@@ -6955,7 +7657,15 @@
       "base": "M",
       "sheet": "exp-easterling.png",
       "file": "tokens/easterling_archer.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "easterling",
+        "aliasOf": null,
+        "targets": [
+          "easterling_mounted_archer"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "variag_warrior",
@@ -6968,7 +7678,15 @@
       "base": "M",
       "sheet": "exp-easterling.png",
       "file": "tokens/variag_warrior.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "khand",
+        "aliasOf": null,
+        "targets": [
+          "variag_horseman"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "khandish_horseman",
@@ -6981,7 +7699,13 @@
       "base": "XL",
       "sheet": "exp-easterling.png",
       "file": "tokens/khandish_horseman.png",
-      "base_mm": "40mm"
+      "base_mm": "40mm",
+      "troopPromotion": {
+        "group": "khand",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "forsaken",
@@ -7083,7 +7807,7 @@
       "name_en": "Kardush the Firecaller",
       "side": "evil",
       "faction": "mordor",
-      "role": "support",
+      "role": "hero",
       "weapon": "staff",
       "base": "S",
       "sheet": "exp-dolguldur.png",
@@ -7101,7 +7825,13 @@
       "base": "S",
       "sheet": "exp-dolguldur.png",
       "file": "tokens/morgul_stalker.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "mordor",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "numenorean_marshal",
@@ -7206,7 +7936,13 @@
       "base": "M",
       "sheet": "exp-dunland.png",
       "file": "tokens/dunlending_berserker.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "dunland",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "dunlending_shaman",
@@ -7232,7 +7968,15 @@
       "base": "M",
       "sheet": "exp-dunland.png",
       "file": "tokens/dunlending_archer.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "dunland",
+        "aliasOf": null,
+        "targets": [
+          "dunlending_huscarl"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "ruffian",
@@ -7383,7 +8127,13 @@
       "traits": [
         "terror"
       ],
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "dead",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "stone_giant",
@@ -7409,7 +8159,13 @@
       "base": "XL",
       "sheet": "exp-wargs.png",
       "file": "tokens/gundabad_warg_rider.png",
-      "base_mm": "40mm"
+      "base_mm": "40mm",
+      "troopPromotion": {
+        "group": "gundabad",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "terr_stone_barricade",
@@ -8177,7 +8933,13 @@
       "traits": [
         "terror"
       ],
-      "base_mm": "40mm"
+      "base_mm": "40mm",
+      "troopPromotion": {
+        "group": "dead",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "dervorin",
@@ -8214,13 +8976,22 @@
       "name_ko": "돌 암로스 병사",
       "name_en": "Man-at-Arms of Dol Amroth",
       "side": "good",
-      "faction": "gondor",
+      "faction": "dol_amroth",
       "role": "infantry",
       "weapon": "spear",
       "base": "M",
       "sheet": "nb-exp-troops2.png",
       "file": "tokens/dol_amroth_man_at_arms.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "dol_amroth",
+        "aliasOf": null,
+        "targets": [
+          "dol_amroth_knight_foot",
+          "dol_amroth_knight"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "numenorean_archer",
@@ -8233,7 +9004,16 @@
       "base": "M",
       "sheet": "nb-exp-troops2.png",
       "file": "tokens/numenorean_archer.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "numenor",
+        "aliasOf": null,
+        "targets": [],
+        "gate": {
+          "relic": "silmaril",
+          "label": "실마릴 · 제2시대"
+        }
+      }
     },
     {
       "id": "sons_of_eorl",
@@ -8246,7 +9026,16 @@
       "base": "XL",
       "sheet": "nb-exp-troops2.png",
       "file": "tokens/sons_of_eorl.png",
-      "base_mm": "40mm"
+      "base_mm": "40mm",
+      "troopPromotion": {
+        "group": "rohan",
+        "aliasOf": null,
+        "targets": [],
+        "gate": {
+          "relic": "silmaril",
+          "label": "실마릴 · 에오를 시대"
+        }
+      }
     },
     {
       "id": "vault_warden",
@@ -8259,20 +9048,32 @@
       "base": "M",
       "sheet": "nb-exp-troops2.png",
       "file": "tokens/vault_warden.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "khazad_dum",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "palace_guard",
       "name_ko": "궁정 근위병",
       "name_en": "Mirkwood Palace Guard",
       "side": "good",
-      "faction": "elf",
+      "faction": "mirkwood",
       "role": "infantry",
       "weapon": "sword",
       "base": "M",
       "sheet": "nb-exp-troops2.png",
       "file": "tokens/palace_guard.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "mirkwood",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "hobbit_militia",
@@ -8285,7 +9086,16 @@
       "base": "S",
       "sheet": "nb-exp-troops2.png",
       "file": "tokens/hobbit_militia.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "shire",
+        "aliasOf": null,
+        "targets": [
+          "hobbit_shirriff",
+          "hobbit_bounder"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "guritz",
@@ -8461,7 +9271,13 @@
       "base": "XL",
       "sheet": "nb-exp-harad2.png",
       "file": "tokens/khandish_chariot.png",
-      "base_mm": "40mm"
+      "base_mm": "40mm",
+      "troopPromotion": {
+        "group": "khand",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "great_beast_gorgoroth",
@@ -8517,7 +9333,13 @@
       "base": "M",
       "sheet": "nb-exp-harad2.png",
       "file": "tokens/abrakhan_guard.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "harad",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "corsair_bosun",
@@ -8530,7 +9352,13 @@
       "base": "M",
       "sheet": "nb-exp-harad2.png",
       "file": "tokens/corsair_bosun.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "umbar",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "spider_queen",
@@ -8940,7 +9768,16 @@
       "base": "M",
       "sheet": "px-nb-exp-silm3.png",
       "file": "tokens/doriath_warrior.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "first_age",
+        "aliasOf": null,
+        "targets": [],
+        "gate": {
+          "relic": "silmaril",
+          "label": "실마릴 · 제1시대"
+        }
+      }
     },
     {
       "id": "falathrim_archer",
@@ -8953,7 +9790,16 @@
       "base": "M",
       "sheet": "px-nb-exp-silm3.png",
       "file": "tokens/falathrim_archer.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "first_age",
+        "aliasOf": null,
+        "targets": [],
+        "gate": {
+          "relic": "silmaril",
+          "label": "실마릴 · 제1시대"
+        }
+      }
     },
     {
       "id": "nargothrond_ranger",
@@ -8966,7 +9812,16 @@
       "base": "M",
       "sheet": "px-nb-exp-silm3.png",
       "file": "tokens/nargothrond_ranger.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "first_age",
+        "aliasOf": null,
+        "targets": [],
+        "gate": {
+          "relic": "silmaril",
+          "label": "실마릴 · 제1시대"
+        }
+      }
     },
     {
       "id": "edain_warrior",
@@ -8979,7 +9834,16 @@
       "base": "M",
       "sheet": "px-nb-exp-silm3.png",
       "file": "tokens/edain_warrior.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "first_age",
+        "aliasOf": null,
+        "targets": [],
+        "gate": {
+          "relic": "silmaril",
+          "label": "실마릴 · 제1시대"
+        }
+      }
     },
     {
       "id": "gondolin_guard",
@@ -8992,11 +9856,20 @@
       "base": "M",
       "sheet": "px-nb-exp-silm3.png",
       "file": "tokens/gondolin_guard.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "first_age",
+        "aliasOf": null,
+        "targets": [],
+        "gate": {
+          "relic": "silmaril",
+          "label": "실마릴 · 제1시대"
+        }
+      }
     },
     {
       "id": "mirkwood_captain",
-      "name_ko": "미르크우드 대장",
+      "name_ko": "머크우드 대장",
       "name_en": "Mirkwood Captain",
       "side": "good",
       "faction": "elf",
@@ -9035,7 +9908,15 @@
       "base": "M",
       "sheet": "px-nb-exp-mordor2.png",
       "file": "tokens/mordor_uruk.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "mordor",
+        "aliasOf": null,
+        "targets": [
+          "black_guard"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "morgul_orc",
@@ -9048,7 +9929,16 @@
       "base": "M",
       "sheet": "px-nb-exp-mordor2.png",
       "file": "tokens/morgul_orc.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "mordor",
+        "aliasOf": null,
+        "targets": [
+          "morannon_swordshield",
+          "morgul_stalker"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "morgul_rat",
@@ -9061,7 +9951,15 @@
       "base": "S",
       "sheet": "px-nb-exp-mordor2.png",
       "file": "tokens/morgul_rat.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "mordor",
+        "aliasOf": null,
+        "targets": [
+          "morgul_stalker"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "ufthak",
@@ -9179,7 +10077,13 @@
       "base": "XL",
       "sheet": "px-nb-exp-wotr.png",
       "file": "tokens/dunlending_horseman.png",
-      "base_mm": "40mm"
+      "base_mm": "40mm",
+      "troopPromotion": {
+        "group": "dunland",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "wulf",
@@ -9282,7 +10186,16 @@
       "base": "M",
       "sheet": "px-nb-exp-wotr.png",
       "file": "tokens/rohan_yeoman.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "rohan",
+        "aliasOf": null,
+        "targets": [
+          "rohan_royal_guard",
+          "rohan_rider"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "serpent_guard",
@@ -9295,7 +10208,13 @@
       "base": "M",
       "sheet": "px-nb-exp-harad3.png",
       "file": "tokens/serpent_guard.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "harad",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "corsair_crossbowman",
@@ -9308,7 +10227,13 @@
       "base": "M",
       "sheet": "px-nb-exp-harad3.png",
       "file": "tokens/corsair_crossbowman.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "umbar",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "mahud_blowpipe",
@@ -9321,7 +10246,13 @@
       "base": "M",
       "sheet": "px-nb-exp-harad3.png",
       "file": "tokens/mahud_blowpipe.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "far_harad",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "khandish_warrior",
@@ -9334,7 +10265,16 @@
       "base": "M",
       "sheet": "px-nb-exp-harad3.png",
       "file": "tokens/khandish_warrior.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "khand",
+        "aliasOf": null,
+        "targets": [
+          "khandish_horseman",
+          "khandish_chariot"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "easterling_mounted_archer",
@@ -9347,7 +10287,13 @@
       "base": "XL",
       "sheet": "px-nb-exp-harad3.png",
       "file": "tokens/easterling_mounted_archer.png",
-      "base_mm": "40mm"
+      "base_mm": "40mm",
+      "troopPromotion": {
+        "group": "easterling",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "far_harad_chieftain",
@@ -9390,7 +10336,16 @@
       "base": "XL",
       "sheet": "px-nb-exp-gondor2.png",
       "file": "tokens/numenorean_knight.png",
-      "base_mm": "40mm"
+      "base_mm": "40mm",
+      "troopPromotion": {
+        "group": "numenor",
+        "aliasOf": null,
+        "targets": [],
+        "gate": {
+          "relic": "silmaril",
+          "label": "실마릴 · 제2시대"
+        }
+      }
     },
     {
       "id": "arnor_archer",
@@ -9403,7 +10358,15 @@
       "base": "M",
       "sheet": "px-nb-exp-gondor2.png",
       "file": "tokens/arnor_archer.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "arnor",
+        "aliasOf": null,
+        "targets": [
+          "arnor_ranger"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "duilin",
@@ -9535,7 +10498,7 @@
       "name_en": "Beorn, Bear Form",
       "side": "good",
       "faction": "beorning",
-      "role": "monster",
+      "role": "hero",
       "weapon": "claws",
       "base": "XL",
       "sheet": "px-nb-exp-wild.png",
@@ -9739,7 +10702,7 @@
       "name_en": "Sauron, wolf form",
       "side": "evil",
       "faction": "mordor",
-      "role": "monster",
+      "role": "hero",
       "weapon": "claws",
       "base": "XL",
       "sheet": null,
@@ -9752,7 +10715,7 @@
       "name_en": "Landroval",
       "side": "good",
       "faction": "eagle",
-      "role": "monster",
+      "role": "hero",
       "weapon": "talons",
       "base": "XL",
       "sheet": null,
@@ -9765,7 +10728,7 @@
       "name_en": "Meneldor",
       "side": "good",
       "faction": "eagle",
-      "role": "monster",
+      "role": "hero",
       "weapon": "talons",
       "base": "XL",
       "sheet": null,
@@ -10077,7 +11040,7 @@
       "name_en": "Guthlaf, banner-bearer of Rohan",
       "side": "good",
       "faction": "rohan",
-      "role": "infantry",
+      "role": "hero",
       "weapon": "spear",
       "base": "M",
       "sheet": null,
@@ -10090,7 +11053,7 @@
       "name_en": "Ingold, gate-guard of Minas Tirith",
       "side": "good",
       "faction": "gondor",
-      "role": "infantry",
+      "role": "hero",
       "weapon": "spear",
       "base": "M",
       "sheet": null,
@@ -10098,25 +11061,12 @@
       "base_mm": "25mm"
     },
     {
-      "id": "theoden_mounted",
-      "name_ko": "세오덴 기마",
-      "name_en": "King Theoden of Rohan, mounted",
-      "side": "good",
-      "faction": "rohan",
-      "role": "hero",
-      "weapon": "sword",
-      "base": "XL",
-      "sheet": null,
-      "file": "tokens/theoden_mounted.png",
-      "base_mm": "40mm"
-    },
-    {
       "id": "morgoth",
       "name_ko": "모르고스",
       "name_en": "Morgoth, the Dark Enemy",
       "side": "evil",
       "faction": "angband",
-      "role": "monster",
+      "role": "hero",
       "weapon": "twohanded",
       "base": "XXL",
       "sheet": null,
@@ -10296,7 +11246,13 @@
       "base": "XL",
       "sheet": "px-nb-roster-varied-v1.png",
       "file": "tokens/galadhrim_knight.png",
-      "base_mm": "40mm"
+      "base_mm": "40mm",
+      "troopPromotion": {
+        "group": "lothlorien",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "mahud_raider",
@@ -10309,7 +11265,15 @@
       "base": "M",
       "sheet": "px-nb-roster-varied-v1.png",
       "file": "tokens/mahud_raider.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "far_harad",
+        "aliasOf": null,
+        "targets": [
+          "mahud_camel_raider"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "camel_rider",
@@ -10322,33 +11286,53 @@
       "base": "XL",
       "sheet": "px-nb-roster-varied-v1.png",
       "file": "tokens/camel_rider.png",
-      "base_mm": "40mm"
+      "base_mm": "40mm",
+      "troopPromotion": {
+        "group": "far_harad",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "dale_warrior",
       "name_ko": "데일 전사",
       "name_en": "Warrior of Dale",
       "side": "good",
-      "faction": "men",
+      "faction": "dale",
       "role": "infantry",
       "weapon": "sword_shield",
       "base": "M",
       "sheet": "px-nb-roster-varied-v2.png",
       "file": "tokens/dale_warrior.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "dale",
+        "aliasOf": null,
+        "targets": [
+          "dale_guard"
+        ],
+        "gate": null
+      }
     },
     {
       "id": "esgaroth_archer",
       "name_ko": "에스가로스 궁수",
       "name_en": "Esgaroth Archer",
       "side": "good",
-      "faction": "men",
+      "faction": "dale",
       "role": "infantry",
       "weapon": "bow",
       "base": "M",
       "sheet": "px-nb-roster-varied-v2.png",
       "file": "tokens/esgaroth_archer.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "dale",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "thorondor",
@@ -10356,7 +11340,7 @@
       "name_en": "Thorondor, King of Eagles",
       "side": "good",
       "faction": "eagle",
-      "role": "monster",
+      "role": "hero",
       "weapon": "talons",
       "base": "XXL",
       "sheet": "px-nb-roster-varied-v2.png",
@@ -10387,7 +11371,13 @@
       "base": "M",
       "sheet": "px-nb-roster-varied-v2.png",
       "file": "tokens/morgul_duellist.png",
-      "base_mm": "25mm"
+      "base_mm": "25mm",
+      "troopPromotion": {
+        "group": "mordor",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     },
     {
       "id": "troll_shaman",
@@ -10401,6 +11391,986 @@
       "sheet": "px-nb-roster-varied-v2.png",
       "file": "tokens/troll_shaman.png",
       "base_mm": "50mm"
+    },
+    {
+      "id": "deorwine_mounted",
+      "name_ko": "데오르바인(기마)",
+      "name_en": "Deorwine, mounted",
+      "side": "good",
+      "faction": "rohan",
+      "role": "hero",
+      "weapon": "sword_shield",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/deorwine_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "grimbold_mounted",
+      "name_ko": "그림볼드(기마)",
+      "name_en": "Grimbold, mounted",
+      "side": "good",
+      "faction": "rohan",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/grimbold_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "harding_mounted",
+      "name_ko": "하딩(기마)",
+      "name_en": "Harding, mounted",
+      "side": "good",
+      "faction": "rohan",
+      "role": "hero",
+      "weapon": "bow",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/harding_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "dunhere_mounted",
+      "name_ko": "둔헤레(기마)",
+      "name_en": "Dunhere, mounted",
+      "side": "good",
+      "faction": "rohan",
+      "role": "hero",
+      "weapon": "spear",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/dunhere_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "guthlaf_mounted",
+      "name_ko": "구슬라프(기마)",
+      "name_en": "Guthlaf, mounted",
+      "side": "good",
+      "faction": "rohan",
+      "role": "hero",
+      "weapon": "banner",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/guthlaf_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "gamling_mounted",
+      "name_ko": "감링(기마)",
+      "name_en": "Gamling, mounted",
+      "side": "good",
+      "faction": "rohan",
+      "role": "hero",
+      "weapon": "banner",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/gamling_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "erkenbrand_mounted",
+      "name_ko": "에르켄브란드(기마)",
+      "name_en": "Erkenbrand, mounted",
+      "side": "good",
+      "faction": "rohan",
+      "role": "hero",
+      "weapon": "sword_shield",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/erkenbrand_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "eorl_the_young_mounted",
+      "name_ko": "에오를(기마)",
+      "name_en": "Eorl the Young, mounted",
+      "side": "good",
+      "faction": "rohan",
+      "role": "hero",
+      "weapon": "spear",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/eorl_the_young_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "frealaf_mounted",
+      "name_ko": "프레알라프(기마)",
+      "name_en": "Frealaf, mounted",
+      "side": "good",
+      "faction": "rohan",
+      "role": "hero",
+      "weapon": "axe",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/frealaf_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "thrydan_mounted",
+      "name_ko": "트리단(기마)",
+      "name_en": "Thrydan Wolfsbane, mounted",
+      "side": "good",
+      "faction": "dunland",
+      "role": "hero",
+      "weapon": "twohanded",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/thrydan_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "hera_mounted",
+      "name_ko": "헤라(기마)",
+      "name_en": "Hera, mounted",
+      "side": "good",
+      "faction": "rohan",
+      "role": "hero",
+      "weapon": "axe",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/hera_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "elendil_mounted",
+      "name_ko": "엘렌딜(기마)",
+      "name_en": "Elendil, mounted",
+      "side": "good",
+      "faction": "arnor",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/elendil_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "isildur_mounted",
+      "name_ko": "이실두르(기마)",
+      "name_en": "Isildur, mounted",
+      "side": "good",
+      "faction": "gondor",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/isildur_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "anarion_mounted",
+      "name_ko": "아나리온(기마)",
+      "name_en": "Anarion, mounted",
+      "side": "good",
+      "faction": "numenor",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/anarion_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "cirion_mounted",
+      "name_ko": "키리온(기마)",
+      "name_en": "Cirion, mounted",
+      "side": "good",
+      "faction": "gondor",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/cirion_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "earnur_mounted",
+      "name_ko": "에아르누르(기마)",
+      "name_en": "Earnur, mounted",
+      "side": "good",
+      "faction": "gondor",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/earnur_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "arvedui_mounted",
+      "name_ko": "아르베두이(기마)",
+      "name_en": "Arvedui, mounted",
+      "side": "good",
+      "faction": "arnor",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/arvedui_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "arathorn_mounted",
+      "name_ko": "아라손(기마)",
+      "name_en": "Arathorn, mounted",
+      "side": "good",
+      "faction": "arnor",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/arathorn_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "halbarad_mounted",
+      "name_ko": "할바라드(기마)",
+      "name_en": "Halbarad, mounted",
+      "side": "good",
+      "faction": "arnor",
+      "role": "hero",
+      "weapon": "banner",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/halbarad_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "khamul_mounted",
+      "name_ko": "카물(기마)",
+      "name_en": "Khamul, mounted",
+      "side": "evil",
+      "faction": "angmar",
+      "role": "hero",
+      "weapon": "mace",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/khamul_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "dark_marshal_mounted",
+      "name_ko": "다크 마샬(기마)",
+      "name_en": "The Dark Marshal, mounted",
+      "side": "evil",
+      "faction": "angmar",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/dark_marshal_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "dwimmerlaik_mounted",
+      "name_ko": "드위머레이크(기마)",
+      "name_en": "The Dwimmerlaik, mounted",
+      "side": "evil",
+      "faction": "angmar",
+      "role": "hero",
+      "weapon": "twohanded",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/dwimmerlaik_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "shadow_lord_mounted",
+      "name_ko": "섀도 로드(기마)",
+      "name_en": "The Shadow Lord, mounted",
+      "side": "evil",
+      "faction": "angmar",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/shadow_lord_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "forsaken_mounted",
+      "name_ko": "포세이큰(기마)",
+      "name_en": "The Forsaken, mounted",
+      "side": "evil",
+      "faction": "dol_guldur",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/forsaken_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "tainted_mounted",
+      "name_ko": "테인티드(기마)",
+      "name_en": "The Tainted, mounted",
+      "side": "evil",
+      "faction": "angmar",
+      "role": "hero",
+      "weapon": "dagger",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/tainted_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "undying_mounted",
+      "name_ko": "언다잉(기마)",
+      "name_en": "The Undying, mounted",
+      "side": "evil",
+      "faction": "angmar",
+      "role": "hero",
+      "weapon": "staff",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/undying_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "betrayer_mounted",
+      "name_ko": "배신자(기마)",
+      "name_en": "The Betrayer, mounted",
+      "side": "evil",
+      "faction": "angmar",
+      "role": "hero",
+      "weapon": "mace",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/betrayer_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "bolg_mounted",
+      "name_ko": "볼그(와르그)",
+      "name_en": "Bolg, warg rider",
+      "side": "evil",
+      "faction": "gundabad",
+      "role": "hero",
+      "weapon": "mace",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/bolg_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "guritz_mounted",
+      "name_ko": "구리츠(와르그)",
+      "name_en": "Guritz, warg rider",
+      "side": "evil",
+      "faction": "mordor",
+      "role": "hero",
+      "weapon": "twohanded",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/guritz_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "feanor_mounted",
+      "name_ko": "페아노르(기마)",
+      "name_en": "Feanor, mounted",
+      "side": "good",
+      "faction": "elf",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/feanor_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "turin_mounted",
+      "name_ko": "투린(기마)",
+      "name_en": "Turin Turambar, mounted",
+      "side": "good",
+      "faction": "men",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/turin_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "tuor_mounted",
+      "name_ko": "투오르(기마)",
+      "name_en": "Tuor, mounted",
+      "side": "good",
+      "faction": "men",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/tuor_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "beleg_mounted",
+      "name_ko": "벨레그(기마)",
+      "name_en": "Beleg Cuthalion, mounted",
+      "side": "good",
+      "faction": "doriath",
+      "role": "hero",
+      "weapon": "bow",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/beleg_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "hurin_thalion_mounted",
+      "name_ko": "후린 탈리온(기마)",
+      "name_en": "Hurin Thalion, mounted",
+      "side": "good",
+      "faction": "men",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/hurin_thalion_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "maeglin_mounted",
+      "name_ko": "매글린(기마)",
+      "name_en": "Maeglin, mounted",
+      "side": "good",
+      "faction": "elf",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/maeglin_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "fingon_mounted",
+      "name_ko": "핑곤(기마)",
+      "name_en": "Fingon, mounted",
+      "side": "good",
+      "faction": "elf",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/fingon_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "ecthelion_mounted",
+      "name_ko": "엑텔리온(기마)",
+      "name_en": "Ecthelion, mounted",
+      "side": "good",
+      "faction": "elf",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/ecthelion_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "finrod_felagund_mounted",
+      "name_ko": "핀로드(기마)",
+      "name_en": "Finrod Felagund, mounted",
+      "side": "good",
+      "faction": "elf",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/finrod_felagund_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "maedhros_mounted",
+      "name_ko": "마이드로스(기마)",
+      "name_en": "Maedhros, mounted",
+      "side": "good",
+      "faction": "elf",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/maedhros_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "celegorm_mounted",
+      "name_ko": "켈레고름(기마)",
+      "name_en": "Celegorm, mounted",
+      "side": "good",
+      "faction": "elf",
+      "role": "hero",
+      "weapon": "spear",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/celegorm_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "turgon_mounted",
+      "name_ko": "투르곤(기마)",
+      "name_en": "Turgon, mounted",
+      "side": "good",
+      "faction": "elf",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/turgon_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "cirdan_mounted",
+      "name_ko": "키르단(기마)",
+      "name_en": "Cirdan, mounted",
+      "side": "good",
+      "faction": "elf",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/cirdan_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "gil_galad_mounted",
+      "name_ko": "길갈라드(기마)",
+      "name_en": "Gil-galad, mounted",
+      "side": "good",
+      "faction": "elf",
+      "role": "hero",
+      "weapon": "spear",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/gil_galad_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "thingol_mounted",
+      "name_ko": "싱골(기마)",
+      "name_en": "Thingol, mounted",
+      "side": "good",
+      "faction": "doriath",
+      "role": "hero",
+      "weapon": "sword",
+      "base": "XL",
+      "sheet": null,
+      "file": "tokens/thingol_mounted.png",
+      "base_mm": "40mm"
+    },
+    {
+      "id": "citadel_guard_bow",
+      "name_ko": "성채근위 궁병",
+      "name_en": "Citadel Guard with longbow",
+      "side": "good",
+      "faction": "gondor",
+      "role": "infantry",
+      "weapon": "bow",
+      "base": "M",
+      "file": "tokens/citadel_guard_bow.png",
+      "sheet": "troop-promotions-20261014",
+      "points": 10,
+      "pointSource": "custom-estimate-unverified-2024",
+      "troopOrigin": "official",
+      "troopPromotion": {
+        "group": "gondor",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
+    },
+    {
+      "id": "osgiliath_spearshield",
+      "name_ko": "오스길리아스 베테랑 창방",
+      "name_en": "Osgiliath Veteran with spear and shield",
+      "side": "good",
+      "faction": "gondor",
+      "role": "infantry",
+      "weapon": "spear_shield",
+      "base": "M",
+      "file": "tokens/osgiliath_spearshield.png",
+      "sheet": "troop-promotions-20261014",
+      "points": 11,
+      "pointSource": "custom-estimate-unverified-2024",
+      "troopOrigin": "official",
+      "troopPromotion": {
+        "group": "gondor",
+        "aliasOf": null,
+        "targets": [
+          "mt_fountain_guard",
+          "citadel_guard",
+          "gondor_knight"
+        ],
+        "gate": null
+      }
+    },
+    {
+      "id": "osgiliath_bow",
+      "name_ko": "오스길리아스 베테랑 궁병",
+      "name_en": "Osgiliath Veteran with bow",
+      "side": "good",
+      "faction": "gondor",
+      "role": "infantry",
+      "weapon": "bow",
+      "base": "M",
+      "file": "tokens/osgiliath_bow.png",
+      "sheet": "troop-promotions-20261014",
+      "points": 10,
+      "pointSource": "custom-estimate-unverified-2024",
+      "troopOrigin": "official",
+      "troopPromotion": {
+        "group": "gondor",
+        "aliasOf": null,
+        "targets": [
+          "citadel_guard_bow"
+        ],
+        "gate": null
+      }
+    },
+    {
+      "id": "dol_amroth_swordshield",
+      "name_ko": "돌 암로스 검방병",
+      "name_en": "Dol Amroth levy swordsman",
+      "side": "good",
+      "faction": "dol_amroth",
+      "role": "infantry",
+      "weapon": "sword_shield",
+      "base": "M",
+      "file": "tokens/dol_amroth_swordshield.png",
+      "sheet": "troop-promotions-20261014",
+      "points": 8,
+      "pointSource": "custom-estimate-unverified-2024",
+      "troopOrigin": "custom",
+      "troopPromotion": {
+        "group": "dol_amroth",
+        "aliasOf": null,
+        "targets": [
+          "dol_amroth_man_at_arms"
+        ],
+        "gate": null
+      }
+    },
+    {
+      "id": "dol_amroth_knight_foot",
+      "name_ko": "돌 암로스 백조기사 도보",
+      "name_en": "Knight of Dol Amroth on foot",
+      "side": "good",
+      "faction": "dol_amroth",
+      "role": "infantry",
+      "weapon": "sword_shield",
+      "base": "M",
+      "file": "tokens/dol_amroth_knight_foot.png",
+      "sheet": "troop-promotions-20261014",
+      "points": 12,
+      "pointSource": "custom-estimate-unverified-2024",
+      "troopOrigin": "official",
+      "troopPromotion": {
+        "group": "dol_amroth",
+        "aliasOf": null,
+        "targets": [
+          "dol_amroth_knight"
+        ],
+        "gate": null
+      }
+    },
+    {
+      "id": "rohan_helmingas",
+      "name_ko": "헬밍가 전사",
+      "name_en": "Helmingas",
+      "side": "good",
+      "faction": "rohan",
+      "role": "infantry",
+      "weapon": "axe",
+      "base": "M",
+      "file": "tokens/rohan_helmingas.png",
+      "sheet": "troop-promotions-20261014",
+      "points": 9,
+      "pointSource": "custom-estimate-unverified-2024",
+      "troopOrigin": "legacy",
+      "troopPromotion": {
+        "group": "rohan",
+        "aliasOf": null,
+        "targets": [],
+        "gate": {
+          "hero": "grimbold",
+          "wave": 5,
+          "label": "그림볼드 합류 · 공세 5"
+        }
+      }
+    },
+    {
+      "id": "rohan_redshield",
+      "name_ko": "웨스트폴드 적색방패 기병",
+      "name_en": "Westfold Redshield",
+      "side": "good",
+      "faction": "rohan",
+      "role": "cavalry",
+      "weapon": "spear",
+      "base": "XL",
+      "file": "tokens/rohan_redshield.png",
+      "sheet": "troop-promotions-20261014",
+      "points": 17,
+      "pointSource": "custom-estimate-unverified-2024",
+      "troopOrigin": "legacy",
+      "troopPromotion": {
+        "group": "rohan",
+        "aliasOf": null,
+        "targets": [],
+        "gate": {
+          "hero": "erkenbrand",
+          "wave": 7,
+          "label": "에르켄브란드 합류 · 공세 7"
+        }
+      }
+    },
+    {
+      "id": "ironhills_warrior",
+      "name_ko": "철산 매톡 전사",
+      "name_en": "Iron Hills Warrior with mattock",
+      "side": "good",
+      "faction": "iron_hills",
+      "role": "infantry",
+      "weapon": "twohanded",
+      "base": "M",
+      "file": "tokens/ironhills_warrior.png",
+      "sheet": "troop-promotions-20261014",
+      "points": 12,
+      "pointSource": "custom-estimate-unverified-2024",
+      "troopOrigin": "official",
+      "troopPromotion": {
+        "group": "iron_hills",
+        "aliasOf": null,
+        "targets": [
+          "ironhills_spearshield",
+          "ironhills_crossbow"
+        ],
+        "gate": null
+      }
+    },
+    {
+      "id": "ironhills_spearshield",
+      "name_ko": "철산 창방병",
+      "name_en": "Iron Hills Warrior with spear and shield",
+      "side": "good",
+      "faction": "iron_hills",
+      "role": "infantry",
+      "weapon": "spear_shield",
+      "base": "M",
+      "file": "tokens/ironhills_spearshield.png",
+      "sheet": "troop-promotions-20261014",
+      "points": 13,
+      "pointSource": "custom-estimate-unverified-2024",
+      "troopOrigin": "official",
+      "troopPromotion": {
+        "group": "iron_hills",
+        "aliasOf": null,
+        "targets": [
+          "goat_rider"
+        ],
+        "gate": null
+      }
+    },
+    {
+      "id": "ironhills_crossbow",
+      "name_ko": "철산 석궁병",
+      "name_en": "Iron Hills Warrior with crossbow",
+      "side": "good",
+      "faction": "iron_hills",
+      "role": "infantry",
+      "weapon": "crossbow",
+      "base": "M",
+      "file": "tokens/ironhills_crossbow.png",
+      "sheet": "troop-promotions-20261014",
+      "points": 14,
+      "pointSource": "custom-estimate-unverified-2024",
+      "troopOrigin": "official",
+      "troopPromotion": {
+        "group": "iron_hills",
+        "aliasOf": null,
+        "targets": [
+          "goat_rider"
+        ],
+        "gate": null
+      }
+    },
+    {
+      "id": "galadhrim_bow",
+      "name_ko": "갈라드림 궁수",
+      "name_en": "Galadhrim Warrior with Elf bow",
+      "side": "good",
+      "faction": "lothlorien",
+      "role": "infantry",
+      "weapon": "bow",
+      "base": "M",
+      "file": "tokens/galadhrim_bow.png",
+      "sheet": "troop-promotions-20261014",
+      "points": 10,
+      "pointSource": "custom-estimate-unverified-2024",
+      "troopOrigin": "official",
+      "troopPromotion": {
+        "group": "lothlorien",
+        "aliasOf": null,
+        "targets": [
+          "galadhrim_elite_bow",
+          "galadhrim_knight"
+        ],
+        "gate": null
+      }
+    },
+    {
+      "id": "galadhrim_elite_bow",
+      "name_ko": "갈라드림 정예 궁병",
+      "name_en": "Galadhrim veteran bowguard",
+      "side": "good",
+      "faction": "lothlorien",
+      "role": "infantry",
+      "weapon": "bow",
+      "base": "M",
+      "file": "tokens/galadhrim_elite_bow.png",
+      "sheet": "troop-promotions-20261014",
+      "points": 13,
+      "pointSource": "custom-estimate-unverified-2024",
+      "troopOrigin": "custom",
+      "troopPromotion": {
+        "group": "lothlorien",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
+    },
+    {
+      "id": "mirkwood_ranger",
+      "name_ko": "머크우드 레인저",
+      "name_en": "Mirkwood Ranger",
+      "side": "good",
+      "faction": "mirkwood",
+      "role": "infantry",
+      "weapon": "bow",
+      "base": "M",
+      "file": "tokens/mirkwood_ranger.png",
+      "sheet": "troop-promotions-20261014",
+      "points": 14,
+      "pointSource": "custom-estimate-unverified-2024",
+      "troopOrigin": "official",
+      "troopPromotion": {
+        "group": "mirkwood",
+        "aliasOf": null,
+        "targets": [
+          "palace_guard"
+        ],
+        "gate": null
+      }
+    },
+    {
+      "id": "arnor_knight",
+      "name_ko": "아르노르 기사",
+      "name_en": "Knight of Arnor",
+      "side": "good",
+      "faction": "arnor",
+      "role": "cavalry",
+      "weapon": "lance",
+      "base": "XL",
+      "file": "tokens/arnor_knight.png",
+      "sheet": "troop-promotions-20261014",
+      "points": 18,
+      "pointSource": "custom-estimate-unverified-2024",
+      "troopOrigin": "official",
+      "troopPromotion": {
+        "group": "arnor",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
+    },
+    {
+      "id": "arnor_ranger",
+      "name_ko": "아르노르 레인저",
+      "name_en": "Ranger of Arnor",
+      "side": "good",
+      "faction": "arnor",
+      "role": "infantry",
+      "weapon": "bow",
+      "base": "M",
+      "file": "tokens/arnor_ranger.png",
+      "sheet": "troop-promotions-20261014",
+      "points": 9,
+      "pointSource": "custom-estimate-unverified-2024",
+      "troopOrigin": "official",
+      "troopPromotion": {
+        "group": "arnor",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
+    },
+    {
+      "id": "morannon_swordshield",
+      "name_ko": "모라논 오크 검방",
+      "name_en": "Morannon Orc with sword and shield",
+      "side": "evil",
+      "faction": "mordor",
+      "role": "infantry",
+      "weapon": "sword_shield",
+      "base": "M",
+      "file": "tokens/morannon_swordshield.png",
+      "sheet": "troop-promotions-20261014",
+      "points": 9,
+      "pointSource": "custom-estimate-unverified-2024",
+      "troopOrigin": "official",
+      "troopPromotion": {
+        "group": "mordor",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
+    },
+    {
+      "id": "orc_elite_tracker",
+      "name_ko": "오크 정예 추적궁병",
+      "name_en": "Veteran Orc Tracker",
+      "side": "evil",
+      "faction": "mordor",
+      "role": "infantry",
+      "weapon": "bow",
+      "base": "M",
+      "file": "tokens/orc_elite_tracker.png",
+      "sheet": "troop-promotions-20261014",
+      "points": 8,
+      "pointSource": "custom-estimate-unverified-2024",
+      "troopOrigin": "custom",
+      "troopPromotion": {
+        "group": "mordor",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
+    },
+    {
+      "id": "dale_guard",
+      "name_ko": "데일 기리온 근위병",
+      "name_en": "Guard of Girion",
+      "side": "good",
+      "faction": "dale",
+      "role": "infantry",
+      "weapon": "sword_shield",
+      "base": "M",
+      "file": "tokens/dale_guard.png",
+      "sheet": "troop-promotions-20261014",
+      "points": 10,
+      "pointSource": "custom-estimate-unverified-2024",
+      "troopOrigin": "official",
+      "troopPromotion": {
+        "group": "dale",
+        "aliasOf": null,
+        "targets": [],
+        "gate": null
+      }
     }
   ]
 }

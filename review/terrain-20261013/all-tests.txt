@@ -1,0 +1,92 @@
+✔ new expedition clears stash, inherited equipment and shop history, not persistent progress (97.659241ms)
+✔ repeated new expeditions own fresh inventory arrays in both game modes (67.074596ms)
+✔ same-expedition unequip, save, reload and re-equip preserve the real item exactly once (68.313451ms)
+✔ actual combat death produces legacy within a run, then a new run removes it (61.111313ms)
+✔ save slots restore their own stash and legacy rather than current-session inventory (52.286763ms)
+✔ old saves without inventory fields cannot inherit inventory from the current battle object (55.272816ms)
+✔ null or malformed optional inventory fields normalize to empty collections (56.235915ms)
+✔ loading a save discards a different run's non-persisted buyback history (42.808487ms)
+✔ invalid save rejection leaves the current expedition inventory untouched (34.632065ms)
+PASS: 534 new-profile activations on both sides; phase, death, repeat and cost guards
+PASS: all 293 profiles execute on both sides (586 total)
+PASS: Azog hero hunting changes actual wound dice; heroic defence remains 6+
+PASS: five 99→100 kill evolution paths, no prevented/corpse credit, preserved state, save/resume and recruitment/mount gates
+✔ tests/hero-identities.test.cjs (1037.941917ms)
+PASS: heal validity/resource, spell effect/resource, save choices, named recruitment, hero swap
+PASS: equipment stacking/removal/healing/save, unique legacy relics, hero variants, command invariants, initial resume, expedition consequences
+PASS: purchased reinforcements persist until the promised battle
+PASS: lethal relic prevention precedes casualties and kill rewards
+PASS: spear relic changes support-strike threshold
+PASS: camp damage stays nonlethal and treatment restores lost stats
+PASS: named variants share identity while ordinary troops remain repeatable
+PASS: over-capacity event armies can skip recruitment without losing units or gold
+✔ tests/integrated-rework.test.cjs (247.323161ms)
+✔ camp event preview/cancel has no effect; confirmed effect survives reload and applies once (15.89987ms)
+✔ relic preview can change or cancel and confirmation awards only the final choice (6.033267ms)
+✔ stale camp drafts and choices outside camp cannot commit (8.243533ms)
+✔ saved priority and command-point rewards persist then affect next battle (13.899371ms)
+✔ relic offers expose three different build directions without owned unique repeats (13.05145ms)
+✔ recruit roster contains frontline, support and archer options (4.251327ms)
+✔ wave 100 infantry retains original wounds and attacks (2.220632ms)
+✔ heroic movement adds exactly 3 inches after partial movement (5.592151ms)
+✔ new expeditions do not inherit old camp drafts, horses or queued buffs (6.642296ms)
+✔ action lock releases after render error, missing dice and rejected async action (6.154329ms)
+✔ enabled dock action reaches wait even when legacy button is disabled (3.689389ms)
+✔ one-phase auto handles an ordinary ally and completes its activation (107.003286ms)
+✔ production support adds one duel die and one own-strength strike (54.996775ms)
+✔ static structures retain zero attacks, reject movement and displacement (48.941114ms)
+✔ fear exhausting the priority side hands control to the enemy (44.224694ms)
+✔ fellbeast dive emits valid animation endpoints (50.881373ms)
+✔ boss phase bonus survives refresh and round reset; Glaurung breath fires on six (64.319145ms)
+✔ weather persists through buffs without compounding across refreshes (38.481375ms)
+✔ preparation resume preserves alternate route, terrain and placement (43.142641ms)
+✔ rear stance retreats rather than charging a reachable enemy (39.577229ms)
+✔ Eye zone applies courage and duel reroll only for its round (52.411491ms)
+✔ visible event option selects a preview without awarding it before confirm (2.567656ms)
+✔ turn end forfeits every remaining friendly activation before enemy play (52.980471ms)
+✔ failed token load releases its queue and allows a later successful retry (1.137887ms)
+✔ cloud restore passes both menu and camp loads through the action renderer (4.328504ms)
+✔ all 268 registry entries retain original token and faction-base assets (2.480794ms)
+✔ physical footprints retain current unit sizes, independent of hero rarity (0.188244ms)
+✔ 1v1, 2v1 and 3v1 preserve all combatants (2.929982ms)
+✔ one spear per front uses own Fight and Strength, is never a target (1.273282ms)
+✔ two pike ranks are allowed, third rank and distant support excluded (4.284918ms)
+✔ engaged, spent, prone, mounted or obstructed supporters are excluded (0.336047ms)
+✔ cavalry charge grants duel die and knockdown against infantry only (0.739036ms)
+✔ support cannot strike an opponent outside front-line contact (1.842762ms)
+✔ AI roles and archer distance score differ from infantry (3.807247ms)
+✔ partial movement spends only used distance (12.569603ms)
+✔ ally yielding never leaves overlapping endpoints (9.528883ms)
+✔ shooting respects allies and blocked terrain (4.129103ms)
+✔ recruit cancel and confirm are reversible and charge once (12.675883ms)
+✔ heroic action requires battle and consumes resource once (12.247587ms)
+✔ production Fight uses distinct spear attacker and consumes support (6.341542ms)
+✔ 60 stage definitions preserve bosses and gradual role unlocks (2.913187ms)
+✔ 20 camp scenario cycles preserve event, relic and save state (1107.115657ms)
+✔ enemy deployment has cavalry wings and ranged rear, without overlaps (3.115743ms)
+✔ repository terrain is connected; casualty follows combat presentation (2.198629ms)
+✔ all embedded scripts parse and original image block only gains asset keys (96.122781ms)
+{"map":"osgiliath","phase":"reward","round":9,"steps":137,"survivors":4}
+{"map":"moria","phase":"reward","round":13,"steps":184,"survivors":2}
+{"map":"fangorn","phase":"reward","round":7,"steps":109,"survivors":4}
+{"map":"mirkwood","phase":"reward","round":15,"steps":230,"survivors":3}
+✔ 27 regions place normal units, escort carts and purge lairs on legal ground (15090.712552ms)
+✔ river, chasm and forest combat complete through the production AI without terrain shortcuts (16812.762082ms)
+✔ preparation save carries a versioned authored layout and unchanged placements (37.280182ms)
+✔ shallow water doubles traversed movement cost, not the entire move (11.740271ms)
+✔ deep river rejects endpoints and complete segments; swimming/mountain never bypass it (9.966414ms)
+✔ bridge opens only its deck for the full unit footprint; bank clipping forbidden (0.415687ms)
+✔ path finds off-axis bridge without water shortcuts, using real weighted cost (9.889377ms)
+✔ trees/rocks/ruined walls block, low fences require crossing but cannot be landing sites (1.138299ms)
+✔ no disappearing stable landmarks over progress, rubble is visibly slow and passable (3.565271ms)
+✔ all 27 regions / five progress steps have a traversable deployment-to-objective route for infantry and large ground units (7139.616446ms)
+✔ AI waypoint never exceeds the movement budget even in a ford (23.277657ms)
+✔ water does not block arrows but walls and woods do (1.134483ms)
+ℹ tests 68
+ℹ suites 0
+ℹ pass 68
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 32102.789615

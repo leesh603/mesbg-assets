@@ -1,0 +1,562 @@
+{
+  "errors": [],
+  "layouts": [
+    {
+      "width": 360,
+      "overflow": false,
+      "rect": {
+        "left": 10,
+        "right": 350,
+        "top": 57,
+        "bottom": 787
+      },
+      "buttons": [
+        {
+          "height": 44,
+          "text": "미나스 티리스 검방"
+        },
+        {
+          "height": 44,
+          "text": "전직 · 9pt 유지"
+        },
+        {
+          "height": 44,
+          "text": "이번에는 보류"
+        }
+      ],
+      "text": "병사의 전직 · 1명 승급 가능전장에서 쌓은 경험미나스 티리스 검방경험치 64 · 7회 참전 · 18처치최초 9pt → 전직 후 9pt미나스 티리스 검방보병 · 전열오스길리아스 베테랑검·방패 · 45금 · MESBG 병종결투4 → 4힘3 → 3방어6 → 6공격1 → 1용기4 → 5이동270 → 270무장 검·방패 · 근접능력 결투 최저 주사위 재굴림필요 경험치 24 · 참전 3회전직 · 9pt 유지이번에는 보류"
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "rect": {
+        "left": 10,
+        "right": 380,
+        "top": 57,
+        "bottom": 787
+      },
+      "buttons": [
+        {
+          "height": 44,
+          "text": "미나스 티리스 검방"
+        },
+        {
+          "height": 44,
+          "text": "전직 · 9pt 유지"
+        },
+        {
+          "height": 44,
+          "text": "이번에는 보류"
+        }
+      ],
+      "text": "병사의 전직 · 1명 승급 가능전장에서 쌓은 경험미나스 티리스 검방경험치 64 · 7회 참전 · 18처치최초 9pt → 전직 후 9pt미나스 티리스 검방보병 · 전열오스길리아스 베테랑검·방패 · 45금 · MESBG 병종결투4 → 4힘3 → 3방어6 → 6공격1 → 1용기4 → 5이동270 → 270무장 검·방패 · 근접능력 결투 최저 주사위 재굴림필요 경험치 24 · 참전 3회전직 · 9pt 유지이번에는 보류"
+    },
+    {
+      "width": 1280,
+      "overflow": false,
+      "rect": {
+        "left": 380,
+        "right": 900,
+        "top": 119,
+        "bottom": 881
+      },
+      "buttons": [
+        {
+          "height": 44,
+          "text": "미나스 티리스 검방"
+        },
+        {
+          "height": 44,
+          "text": "전직 · 9pt 유지"
+        },
+        {
+          "height": 44,
+          "text": "이번에는 보류"
+        }
+      ],
+      "text": "병사의 전직 · 1명 승급 가능전장에서 쌓은 경험미나스 티리스 검방경험치 64 · 7회 참전 · 18처치최초 9pt → 전직 후 9pt미나스 티리스 검방보병 · 전열오스길리아스 베테랑검·방패 · 45금 · MESBG 병종결투4 → 4힘3 → 3방어6 → 6공격1 → 1용기4 → 5이동270 → 270무장 검·방패 · 근접능력 결투 최저 주사위 재굴림필요 경험치 24 · 참전 3회전직 · 9pt 유지이번에는 보류"
+    }
+  ],
+  "textures": [
+    {
+      "id": "citadel_guard_bow",
+      "loaded": true,
+      "visible": true,
+      "width": 71.46475879794386,
+      "height": 102.01660735468565,
+      "origin": [
+        0.486,
+        0.536
+      ],
+      "body": 86,
+      "expectedBody": 86,
+      "point": 10
+    },
+    {
+      "id": "osgiliath_spearshield",
+      "loaded": true,
+      "visible": true,
+      "width": 81.63250903342367,
+      "height": 116.53116531165313,
+      "origin": [
+        0.457,
+        0.589
+      ],
+      "body": 86,
+      "expectedBody": 86,
+      "point": 11
+    },
+    {
+      "id": "osgiliath_bow",
+      "loaded": true,
+      "visible": true,
+      "width": 72.1494510978044,
+      "height": 102.99401197604791,
+      "origin": [
+        0.482,
+        0.547
+      ],
+      "body": 86,
+      "expectedBody": 86,
+      "point": 10
+    },
+    {
+      "id": "dol_amroth_swordshield",
+      "loaded": true,
+      "visible": true,
+      "width": 104.62287104622874,
+      "height": 104.62287104622874,
+      "origin": [
+        0.481,
+        0.543
+      ],
+      "body": 86,
+      "expectedBody": 86.00000000000001,
+      "point": 8
+    },
+    {
+      "id": "dol_amroth_knight_foot",
+      "loaded": true,
+      "visible": true,
+      "width": 106.30407911001238,
+      "height": 106.30407911001238,
+      "origin": [
+        0.477,
+        0.545
+      ],
+      "body": 86,
+      "expectedBody": 86.00000000000001,
+      "point": 12
+    },
+    {
+      "id": "rohan_helmingas",
+      "loaded": true,
+      "visible": true,
+      "width": 75.43859649122807,
+      "height": 113.15789473684211,
+      "origin": [
+        0.477,
+        0.556
+      ],
+      "body": 86,
+      "expectedBody": 86,
+      "point": 9
+    },
+    {
+      "id": "rohan_redshield",
+      "loaded": true,
+      "visible": true,
+      "width": 93.05311032863851,
+      "height": 151.40845070422537,
+      "origin": [
+        0.475,
+        0.52
+      ],
+      "body": 43,
+      "expectedBody": 43,
+      "point": 17
+    },
+    {
+      "id": "ironhills_warrior",
+      "loaded": true,
+      "visible": true,
+      "width": 105.91900311526479,
+      "height": 105.91900311526479,
+      "origin": [
+        0.486,
+        0.579
+      ],
+      "body": 68,
+      "expectedBody": 68,
+      "point": 12
+    },
+    {
+      "id": "ironhills_spearshield",
+      "loaded": true,
+      "visible": true,
+      "width": 97.14285714285717,
+      "height": 97.14285714285714,
+      "origin": [
+        0.482,
+        0.574
+      ],
+      "body": 68,
+      "expectedBody": 68,
+      "point": 13
+    },
+    {
+      "id": "ironhills_crossbow",
+      "loaded": true,
+      "visible": true,
+      "width": 104.61538461538461,
+      "height": 104.61538461538461,
+      "origin": [
+        0.49,
+        0.576
+      ],
+      "body": 68,
+      "expectedBody": 68,
+      "point": 14
+    },
+    {
+      "id": "galadhrim_bow",
+      "loaded": true,
+      "visible": true,
+      "width": 117.87280701754386,
+      "height": 119.11357340720222,
+      "origin": [
+        0.465,
+        0.551
+      ],
+      "body": 86,
+      "expectedBody": 86,
+      "point": 10
+    },
+    {
+      "id": "galadhrim_elite_bow",
+      "loaded": true,
+      "visible": true,
+      "width": 117.06212746446585,
+      "height": 118.29436038514443,
+      "origin": [
+        0.474,
+        0.572
+      ],
+      "body": 86,
+      "expectedBody": 86.00000000000001,
+      "point": 13
+    },
+    {
+      "id": "mirkwood_ranger",
+      "loaded": true,
+      "visible": true,
+      "width": 82.14687902187904,
+      "height": 110.6821106821107,
+      "origin": [
+        0.483,
+        0.566
+      ],
+      "body": 86,
+      "expectedBody": 86.00000000000001,
+      "point": 14
+    },
+    {
+      "id": "arnor_knight",
+      "loaded": true,
+      "visible": true,
+      "width": 114.7587913711584,
+      "height": 152.4822695035461,
+      "origin": [
+        0.479,
+        0.524
+      ],
+      "body": 43,
+      "expectedBody": 43,
+      "point": 18
+    },
+    {
+      "id": "arnor_ranger",
+      "loaded": true,
+      "visible": true,
+      "width": 91.88034188034192,
+      "height": 110.25641025641028,
+      "origin": [
+        0.486,
+        0.564
+      ],
+      "body": 86,
+      "expectedBody": 86.00000000000001,
+      "point": 9
+    },
+    {
+      "id": "morannon_swordshield",
+      "loaded": true,
+      "visible": true,
+      "width": 105.11756569847853,
+      "height": 105.11756569847853,
+      "origin": [
+        0.463,
+        0.572
+      ],
+      "body": 76,
+      "expectedBody": 75.99999999999999,
+      "point": 9
+    },
+    {
+      "id": "orc_elite_tracker",
+      "loaded": true,
+      "visible": true,
+      "width": 115.88341037493579,
+      "height": 117.10323574730354,
+      "origin": [
+        0.467,
+        0.602
+      ],
+      "body": 76,
+      "expectedBody": 76,
+      "point": 8
+    },
+    {
+      "id": "dale_guard",
+      "loaded": true,
+      "visible": true,
+      "width": 105.19674495261641,
+      "height": 106.30407911001238,
+      "origin": [
+        0.466,
+        0.539
+      ],
+      "body": 86,
+      "expectedBody": 86.00000000000001,
+      "point": 10
+    },
+    {
+      "id": "mt_swordshield",
+      "loaded": true,
+      "visible": true,
+      "width": 61.38061782089885,
+      "height": 87.75510204081633,
+      "origin": [
+        0.4972,
+        0.5075
+      ],
+      "body": 86,
+      "expectedBody": 86,
+      "point": 9
+    },
+    {
+      "id": "osgiliath_veteran",
+      "loaded": true,
+      "visible": true,
+      "width": 89.80595928408263,
+      "height": 90.66947812335266,
+      "origin": [
+        0.4685,
+        0.4941
+      ],
+      "body": 86,
+      "expectedBody": 86,
+      "point": 9
+    },
+    {
+      "id": "gondor_knight",
+      "loaded": true,
+      "visible": true,
+      "width": 133.75266251427456,
+      "height": 135.60391043834755,
+      "origin": [
+        0.5099,
+        0.4975
+      ],
+      "body": 43,
+      "expectedBody": 43.00000000000001,
+      "point": 15
+    },
+    {
+      "id": "dol_amroth_knight_foot",
+      "loaded": true,
+      "visible": true,
+      "width": 106.30407911001238,
+      "height": 106.30407911001238,
+      "origin": [
+        0.477,
+        0.545
+      ],
+      "body": 86,
+      "expectedBody": 86.00000000000001,
+      "point": 12
+    },
+    {
+      "id": "rohan_redshield",
+      "loaded": true,
+      "visible": true,
+      "width": 93.05311032863851,
+      "height": 151.40845070422537,
+      "origin": [
+        0.475,
+        0.52
+      ],
+      "body": 43,
+      "expectedBody": 43,
+      "point": 17
+    },
+    {
+      "id": "ironhills_crossbow",
+      "loaded": true,
+      "visible": true,
+      "width": 104.61538461538461,
+      "height": 104.61538461538461,
+      "origin": [
+        0.49,
+        0.576
+      ],
+      "body": 68,
+      "expectedBody": 68,
+      "point": 14
+    }
+  ],
+  "performance": [
+    {
+      "averageFrameMs": 32.71833333335196,
+      "p95FrameMs": 50,
+      "heap": 53500000
+    }
+  ],
+  "play": [
+    {
+      "width": 360,
+      "after": {
+        "id": "gondor_knight",
+        "points": 9,
+        "entry": 9,
+        "hist": [
+          {
+            "from": "mt_swordshield",
+            "to": "osgiliath_veteran",
+            "xp": 64,
+            "kills": 18,
+            "wave": 7,
+            "tier": 1,
+            "entryPoints": 9
+          },
+          {
+            "from": "osgiliath_veteran",
+            "to": "gondor_knight",
+            "xp": 64,
+            "kills": 18,
+            "wave": 7,
+            "tier": 2,
+            "entryPoints": 9
+          }
+        ],
+        "kills": 18,
+        "mounted": true
+      }
+    },
+    {
+      "width": 390,
+      "after": {
+        "id": "gondor_knight",
+        "points": 9,
+        "entry": 9,
+        "hist": [
+          {
+            "from": "mt_swordshield",
+            "to": "osgiliath_veteran",
+            "xp": 64,
+            "kills": 18,
+            "wave": 7,
+            "tier": 1,
+            "entryPoints": 9
+          },
+          {
+            "from": "osgiliath_veteran",
+            "to": "gondor_knight",
+            "xp": 64,
+            "kills": 18,
+            "wave": 7,
+            "tier": 2,
+            "entryPoints": 9
+          }
+        ],
+        "kills": 18,
+        "mounted": true
+      }
+    },
+    {
+      "width": 390,
+      "combat": {
+        "phase": "fight",
+        "round": 4,
+        "wave": 8,
+        "good": 4,
+        "evil": 15,
+        "kills": 1,
+        "log": [
+          "1 대 2 · 모르도르 승리",
+          "역전의 기회 — 연속 결투 패배 보정: 아군 결투 주사위 +1",
+          "1 대 1 · 모르도르 승리",
+          "★ 보너스 목표 달성 — 함정으로 2기 처치",
+          "1 대 2 · 모르도르 승리",
+          "오크 대장 — 영웅적 일격 (AI)"
+        ],
+        "career": [
+          {
+            "id": "ironhills_crossbow",
+            "xp": 2,
+            "participated": 1,
+            "entry": 14,
+            "shots": 0,
+            "strikes": 0
+          },
+          {
+            "id": "mt_swordshield",
+            "xp": 2,
+            "participated": 1,
+            "entry": 9,
+            "shots": 0,
+            "strikes": 0
+          },
+          {
+            "id": "mt_swordshield",
+            "xp": 2,
+            "participated": 1,
+            "entry": 9,
+            "shots": 0,
+            "strikes": 0
+          }
+        ]
+      }
+    },
+    {
+      "width": 1280,
+      "after": {
+        "id": "gondor_knight",
+        "points": 9,
+        "entry": 9,
+        "hist": [
+          {
+            "from": "mt_swordshield",
+            "to": "osgiliath_veteran",
+            "xp": 64,
+            "kills": 18,
+            "wave": 7,
+            "tier": 1,
+            "entryPoints": 9
+          },
+          {
+            "from": "osgiliath_veteran",
+            "to": "gondor_knight",
+            "xp": 64,
+            "kills": 18,
+            "wave": 7,
+            "tier": 2,
+            "entryPoints": 9
+          }
+        ],
+        "kills": 18,
+        "mounted": true
+      }
+    }
+  ]
+}
