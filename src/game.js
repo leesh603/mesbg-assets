@@ -11404,3 +11404,113 @@ Ve.prototype.play=async function(event){
     return dragonPlay.call(this,event);
 };
 })();
+/*__BOSS_CINEMATICS_BEGIN__*/
+// Pixel keyframes and original synthesis; no copied movie footage, dialogue audio or music.
+(function(){
+const CONFIG={
+ sauron:{sheet:'cinematics/sauron-ring-sheet.png',kind:'ring',name:'SAURON',title:'어둠의 군주 · 사우론',line:'절대반지의 주인이 돌아왔다.',subtitle:'검은 강철 위에, 다시 하나의 반지.',accent:'#edb347'},
+ witchking_fellbeast:{sheet:'cinematics/witchking-flight-sheet.png',kind:'wraith',name:'THE WITCH-KING',title:'앙마르의 마술사왕',line:'No living man may hinder me!',subtitle:'살아 있는 그 어떤 인간도 나를 막을 수 없다!',accent:'#c4d6e6'}
+};
+const CUES={
+ boss_nazgul_shriek:{file:'audio/boss_nazgul_shriek.wav',volume:.66},
+ boss_fell_wing:{file:'audio/boss_fell_wing.wav',volume:.56},
+ boss_ring_seal:{file:'audio/boss_ring_seal.wav',volume:.62},
+ boss_dark_omen:{file:'audio/boss_dark_omen.wav',volume:.5}
+};
+for(const [id,cue]of Object.entries(CUES))Ye[id]={...cue,files:[cue.file]};
+// Preserve user's volume and mood, even when a render reselects the boss music.
+const originalEffVol=We.prototype._effVol;
+We.prototype._effVol=function(value=this.musicVolume){return originalEffVol.call(this,value)*(this._cinematicDuck??1);};
+We.prototype.cinematicCue=async function(id,isCancelled=()=>false){
+ const cue=CUES[id];if(!cue||this.muted||document.hidden||this.sfxVolume<=0||isCancelled())return null;
+ try{
+  await this.unlock();if(!this.context||isCancelled())return null;
+  const buffer=await this._buffer(cue.file);
+  if(this.muted||document.hidden||this.sfxVolume<=0||this.context.state!=='running'||isCancelled())return null;
+  if(this.voices.size>=12){const old=this.voices.values().next().value;try{old.stop();}catch{}this.voices.delete(old);}
+  const source=this.context.createBufferSource(),gain=this.context.createGain();source.buffer=buffer;source.playbackRate.value=1;
+  gain.gain.value=this.sfxVolume*cue.volume;source.connect(gain);gain.connect(this.context.destination);this.voices.add(source);
+  let ended=false;const cleanup=()=>{if(ended)return;ended=true;this.voices.delete(source);source.disconnect();gain.disconnect();};
+  source.onended=cleanup;source.start();
+  let stopping=false;return {stop:()=>{if(ended||stopping)return;stopping=true;try{if(gain.gain.setTargetAtTime){gain.gain.cancelScheduledValues(this.context.currentTime);gain.gain.setTargetAtTime(0,this.context.currentTime,.018);source.stop(this.context.currentTime+.09);}else{source.stop();cleanup();}}catch{cleanup();}}};
+ }catch(error){if(!isCancelled())console.warn('[boss cinematic audio]',id,error.message);return null;}
+};
+let active=null;
+const framePosition=i=>(i%3)*50+'% '+Math.floor(i/3)*100+'%';
+const prepared=new Map();
+function prepareSheet(file){
+ if(prepared.has(file))return prepared.get(file);
+ const promise=new Promise(resolve=>{const im=new Image();let done=false;const settle=ok=>{if(done)return;done=true;clearTimeout(timer);resolve(ok);};const timer=setTimeout(()=>settle(false),1800);im.onload=()=>settle(true);im.onerror=()=>settle(false);im.src=Ut(file);if(im.complete)settle(im.naturalWidth>0);});
+ prepared.set(file,promise);void promise.then(ok=>{if(!ok)prepared.delete(file);});return promise;
+}
+function notify(stage,id,frame){try{window.dispatchEvent(new CustomEvent('lwb-boss-cinematic',{detail:{stage,id,frame}}));}catch{}}
+async function cinematic(scene,id,preview=false){
+ const cfg=CONFIG[id],b=scene.b||q,u=b.alive('evil').find(v=>v.id===id);if(!cfg||(!u&&!preview))return;
+ if(!preview)b._bossCinematicUid=u.uid;
+ if(window._lwbFx||qt>=20)return;
+ const displaced=active;displaced?.cancel();document.getElementById('boss-intro')?.remove();
+ const el=document.createElement('section');el.id='boss-intro';el.className='boss-cinematic bc-'+cfg.kind;el.setAttribute('role','dialog');el.setAttribute('aria-label',cfg.title+' 등장');el.setAttribute('aria-modal','true');el.style.setProperty('--cine-accent',cfg.accent);
+ const view=document.createElement('div');view.className='bc-view';
+ const title=document.createElement('div');title.className='bc-title';title.innerHTML='<span>'+esc(cfg.name)+'</span><strong>'+esc(cfg.title)+'</strong>';
+ const art=document.createElement('div');art.className='bc-art';const cell=document.createElement('div');cell.className='bc-cell';cell.style.backgroundImage='url("'+Ut(cfg.sheet)+'")';cell.style.backgroundPosition=framePosition(0);art.appendChild(cell);
+ const portrait=document.createElement('img');portrait.className='bc-portrait';const meta=b.meta.get(id);portrait.src=Ut(meta.file);portrait.alt=cfg.title;art.appendChild(portrait);
+ const quote=document.createElement('div');quote.className='bc-quote';
+ const line=document.createElement('div');line.className='bc-line';
+ if(cfg.kind==='wraith'){line.innerHTML='<span>No living </span><em>man</em><span> may hinder me!</span>';}else line.textContent=cfg.line;
+ const sub=document.createElement('div');sub.className='bc-sub';sub.textContent=cfg.subtitle;quote.append(line,sub);
+ const counter=document.createElement('div');counter.className='boss-counterplay bc-counter';const tactics=BOSS_TACTICS[id];counter.textContent=tactics?tactics[1]+' · '+tactics[2]:'';
+ const skip=document.createElement('button');skip.type='button';skip.className='bc-skip secondary';skip.textContent='건너뛰기';view.append(title,art,quote,counter,skip);el.appendChild(view);
+ const state={cancelled:false,timers:new Set(),waiters:new Set(),sounds:[],cancel(){if(this.cancelled)return;this.cancelled=true;for(const t of this.timers)clearTimeout(t);this.timers.clear();for(const r of this.waiters)r();this.waiters.clear();for(const s of this.sounds)s.stop();}};
+ active=state;
+ const pause=ms=>new Promise(resolve=>{if(state.cancelled)return resolve();const end=()=>{clearTimeout(timer);state.timers.delete(timer);state.waiters.delete(end);resolve();};const timer=setTimeout(end,ms);state.timers.add(timer);state.waiters.add(end);});
+ const sound=id=>{void wt.cinematicCue(id,()=>state.cancelled).then(h=>{if(!h)return;if(state.cancelled)h.stop();else state.sounds.push(h);});};
+ const showFrame=i=>{if(state.cancelled)return;cell.style.backgroundPosition=framePosition(i);el.dataset.frame=String(i);notify('frame',id,i);};
+ const onKey=e=>{if(e.key==='Escape'){e.preventDefault();state.cancel();}},onHide=()=>{if(document.hidden)state.cancel();};
+ const previousFocus=displaced?.previousFocus||document.activeElement;state.previousFocus=previousFocus;
+ skip.onclick=()=>state.cancel();document.addEventListener('keydown',onKey);document.addEventListener('visibilitychange',onHide);document.body.appendChild(el);skip.focus({preventScroll:true});
+ const music=wt.music;wt._cinematicDuck=.24;wt._cineAudioOwner=state;if(music)music.volume=wt.muted?0:wt._effVol();
+ // Background controls stay inert while the awaited action owns the cinematic.
+ const app=document.getElementById('app'),wasInert=displaced?.appWasInert??app?.inert;state.appWasInert=wasInert;if(app)app.inert=true;
+ const calm=!!UX.reduced,fast=qt>=4,T=ms=>fast?Math.max(100,Math.round(ms*.45)):ms;if(calm)el.classList.add('calm');
+ notify('start',id,0);
+ try{
+  let finishPreload;const preloadCancelled=new Promise(resolve=>{finishPreload=()=>resolve(false);state.waiters.add(finishPreload);});
+  const loaded=await Promise.race([prepareSheet(cfg.sheet),preloadCancelled]);state.waiters.delete(finishPreload);if(state.cancelled)return;
+  if(!loaded){cell.hidden=true;el.classList.add('on','hero','caption');await pause(T(1100));return;}
+  showFrame(0);await pause(30);el.classList.add('on');sound('boss_dark_omen');
+  if(calm){showFrame(cfg.kind==='ring'?4:5);el.classList.add('caption');if(cfg.kind==='wraith')sound('boss_nazgul_shriek');else sound('boss_ring_seal');await pause(T(1500));}
+  else if(cfg.kind==='ring'){
+   await pause(T(720));
+   for(const i of [1,2,3]){showFrame(i);if(i===3)sound('boss_ring_seal');await pause(T(260));}
+   showFrame(4);el.classList.add('seal','caption');await pause(T(760));
+   showFrame(5);await pause(T(650));
+  }else{
+   el.classList.add('shadow');sound('boss_fell_wing');await pause(T(600));
+   el.classList.remove('shadow');el.classList.add('caption');
+   for(const i of [0,1,2,3,4,5,4,3,2,1,0,1,2,3,4,5]){showFrame(i);if(i===3&&!el.classList.contains('scream')){el.classList.add('scream');sound('boss_nazgul_shriek');}await pause(T(150));}
+   await pause(T(700));
+  }
+  if(state.cancelled)return;
+  el.classList.add('hero','caption');notify('reveal',id,5);
+  const cam=scene.cameras?.main;if(u&&cam&&!calm){cam.pan(u.x,u.y,T(500),'Sine.easeInOut');cam.shake(T(250),.003);}
+  await pause(T(1450));el.classList.add('out');await pause(T(240));
+ }finally{
+  state.cancel();document.removeEventListener('keydown',onKey);document.removeEventListener('visibilitychange',onHide);el.remove();
+  if(active===state){if(app)app.inert=wasInert;if(previousFocus?.isConnected&&previousFocus!==skip)previousFocus.focus?.({preventScroll:true});active=null;}
+  if(wt._cineAudioOwner===state){delete wt._cineAudioOwner;delete wt._cinematicDuck;if(wt.music)wt.music.volume=wt.muted?0:wt._effVol();}
+  notify('end',id,5);
+ }
+}
+const priorPlay=Ve.prototype.play;
+Ve.prototype.play=async function(event){
+ await priorPlay.call(this,event);
+ if(event.type==='WaveStarted'&&CONFIG[event.boss])await cinematic(this,event.boss);
+};
+const priorIntro=bossIntro;
+bossIntro=function(id){const u=q.alive('evil').find(v=>v.id===id);if(CONFIG[id]&&u&&q._bossCinematicUid===u.uid)return;return priorIntro(id);};
+// Only warm the relevant sheet in preparation, never all cinematics at boot.
+const priorPrepare=P.prepareStage;
+P.prepareStage=function(){const result=priorPrepare.apply(this,arguments);const cfg=CONFIG[this.next?.boss];if(cfg&&!window._lwbFx)void prepareSheet(cfg.sheet);return result;};
+window.MESBG.bossCinematics={configs:CONFIG,cues:CUES,framePosition,preview:id=>cinematic(Tt,id,true),cancel:()=>active?.cancel(),get active(){return!!active;}};
+})();
+/*__BOSS_CINEMATICS_END__*/

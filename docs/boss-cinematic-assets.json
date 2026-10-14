@@ -1,0 +1,35 @@
+{
+  "tool": "Built-in image_gen (imagegen skill)",
+  "sheets": {
+    "sauron": {
+      "file": "assets/mesbg/cinematics/sauron-ring-sheet.png",
+      "width": 1536,
+      "height": 1024,
+      "columns": 3,
+      "rows": 2,
+      "frameWidth": 512,
+      "frameHeight": 512,
+      "reference": "assets/mesbg/tokens/sauron.png"
+    },
+    "witchking": {
+      "file": "assets/mesbg/cinematics/witchking-flight-sheet.png",
+      "width": 1536,
+      "height": 1024,
+      "columns": 3,
+      "rows": 2,
+      "frameWidth": 512,
+      "frameHeight": 512,
+      "reference": "assets/mesbg/tokens/witchking_fellbeast.png"
+    }
+  },
+  "prompts": [
+    {
+      "key": "sauron",
+      "prompt": "Use case: stylized-concept. Create a production pixel-art animation SPRITE SHEET for a dark Middle-earth tactical game. Reference image is only the existing game's armor/material/style reference, NOT an edit target. New subject: an extreme close-up of SAURON'S black steel segmented gauntlet, back of hand facing viewer, index finger rising diagonally toward upper right, other fingers curled. A thick bright gold One Ring is lowered onto the index finger. SIX sequential keyframes arranged in EXACTLY THREE equal columns and TWO equal rows on a transparent landscape 1536x1024 canvas; each 512x512 cell contains the same fixed camera, same wrist at bottom center, same hand at same scale and same anchor. Read left-to-right, top-to-bottom. Frame 1: ring floats a little above bare fingertip; frame 2: ring descends to tip; frame 3: ring slides halfway down finger; frame 4: ring settles at finger base above knuckle; frame 5: the gold ring shines with tiny angular amber rune-like marks; frame 6: gauntlet closes into a menacing fist while ring remains visibly worn and glowing. Visible dark silver pixel edge lighting ensures black armor reads clearly on dark backgrounds. Style: high quality hand-crafted 16-bit pixel game cinematic art, a native 128x128 pixel drawing per cell enlarged with hard square pixel clusters, restricted charcoal/gunmetal/silver/dark burgundy/amber palette, no antialiasing, no blur, no gradients, no painterly surfaces. Center the entire hand within each cell with 10 percent empty padding; don't spill into adjacent cells. Maintain consistent hand design through all SIX frames. No full character, no text, no UI, no grid borders, no labels, no numbers, no checkerboard: true transparent alpha background. This is a sprite sheet, not a storyboard painting."
+    },
+    {
+      "key": "witchking",
+      "prompt": "Use case: stylized-concept. Create a production pixel-art animation SPRITE SHEET for a dark Middle-earth tactical game. The input is a style and mount anatomy reference only, NOT an edit target. New subject: the Witch-king of Angmar on a terrible dark gray Fell Beast, shown head-on three-quarter frontal, rider's black hood with an unmistakable tall silver angular SPIKED CROWN, EMPTY BLACK VOID beneath the crown (not Sauron's closed helmet). Ragged black cloak, enormous bat-like bone-colored torn membrane wings, snake neck and open toothed jaws. SIX sequential animation keyframes in EXACTLY THREE equal columns and TWO equal rows on a transparent landscape 1536x1024 canvas; each cell is 512x512, camera and rider/mount body remain fixed at exactly the same center and scale. Read left to right top to bottom. Frame 1 wings folded downward, head low; frame 2 wings half raised; frame 3 wings fully raised overhead, rider lifts burning sword; frame 4 wings sweep strongly outward, head and jaws thrust forward in an unearthly scream; frame 5 wings downstroke and jaws still open; frame 6 wings extend, beast recovers head, rider sword held out. The changes must be visible meaningful animation poses but consistent anatomy and proportions. Keep whole creature inside each cell, 8 percent transparent margin, no wing clipping or overlaps between cells. Style is highly detailed handcrafted 16-bit PIXEL ART with crisp square 4x4 pixel clusters corresponding to native 128x128 art per frame, limited charcoal, aged bone, slate silver, cold blue and small amber flame palette. No antialiasing, no blur, no gradient, no soft illustration. No text, captions, UI, grid borders, labels, frame numbers, checkerboard, or scenery; real transparent alpha background."
+    }
+  ]
+}
