@@ -66,7 +66,17 @@ function signed(p,t){
  }
  const dx=Math.abs(q.x)-w,dy=Math.abs(q.y)-h;return Math.hypot(Math.max(0,dx),Math.max(0,dy))+Math.min(Math.max(dx,dy),0);
 }
-const contains=(p,t,pad=0)=>signed(p,t)<pad;
+// Cheap bounding reject before the exact signed distance (identical results, far fewer trig calls).
+// Rect: true distance >= centre distance - circumradius. Ellipse (radial approximation):
+// signed >= (d/M-1)*m for half-axes M>=m, so d >= M*(1+pad/m) can never be inside.
+const contains=(p,t,pad=0)=>{
+ if(t.shape!=='ribbon'&&t.w>0&&t.h>0){
+  const P=Math.max(0,pad),M=Math.max(t.w,t.h)/2,m=Math.min(t.w,t.h)/2;
+  const R=(t.shape==='ellipse'?M*(1+P/m):Math.hypot(t.w,t.h)/2+P)+1,dx=p.x-t.x,dy=p.y-t.y;
+  if(dx>R||dx<-R||dy>R||dy<-R||dx*dx+dy*dy>R*R)return false;
+ }
+ return signed(p,t)<pad;
+};
 function corridor(p,terrain,pad=0,kind){return terrain.some(t=>t.active&&t.surface==='bridge'&&(!kind||t.over===kind)&&signed(p,t)<=-pad);}
 function blocks(u,p,t,terrain,pad=u?.radius||0,passJump=false){
  if(!t.active||t.decoration||flying(u)||t.surface==='bridge'||t.surface==='shallow'||t.surface==='rubble'||t.z==='hill')return false;

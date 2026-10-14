@@ -27,11 +27,11 @@ test('static structures retain zero attacks, reject movement and displacement',(
 test('fear exhausting the priority side hands control to the enemy',()=>{
  const h=field(),q=h.q,u=q.spawn('warrior_minas_tirith','good',{x:500,y:500});q.spawn('nazgul_sword','evil',{x:700,y:500});u.baseStats.courage=1;q.priorityForce='good';q.rng=()=>0;q.beginRound();assert.equal(u.acted,true);assert.equal(q.side,'evil');assert.ok(q.eligible().length);
 });
-test('fellbeast dive emits valid animation endpoints',()=>{
- const h=field(),q=h.q,b=q.spawn('witchking_fellbeast','evil',{x:1400,y:1000});q.spawn('aragorn','good',{x:900,y:700});q.round=3;q.bossTurn(b);const e=q.events.find(e=>e.type==='UnitMoved');assert.ok(e);for(const p of [e.from,e.to])assert.ok(Number.isFinite(p.x)&&Number.isFinite(p.y));
+test('fellbeast dive warns for a full round before emitting valid animation endpoints',()=>{
+ const h=field(),q=h.q,b=q.spawn('witchking_fellbeast','evil',{x:1400,y:1000});q.spawn('aragorn','good',{x:900,y:700});q.round=2;q.bossTurn(b);assert.ok(q.warnings.some(a=>a.src===b.uid&&a.round===3&&a.landing));assert(!q.events.some(e=>e.type==='UnitMoved'));q.round=3;q.bossTurn(b);const e=q.events.find(e=>e.type==='UnitMoved'&&e.uid===b.uid);assert.ok(e);for(const p of [e.from,e.to])assert.ok(Number.isFinite(p.x)&&Number.isFinite(p.y));
 });
-test('boss phase bonus survives refresh and round reset; Glaurung breath fires on six',()=>{
- const h=field(),q=h.q,b=q.spawn('glaurung','evil',{x:850,y:700}),u=q.spawn('aragorn','good',{x:1100,y:700});q.round=6;u.resources.fate=0;q.rng=()=>0;b.currentWounds=Math.ceil(b.stats.wounds*.6);const before=b.stats.attacks;q.bossTurn(b);assert.equal(b.stats.attacks,before+1);q.refreshUnit(b);assert.equal(b.stats.attacks,before+1);assert.ok(q.events.some(e=>e.type==='BossCast'&&e.fx==='breath'));assert.ok(u.currentWounds<u.stats.wounds);
+test('boss phase bonus survives refresh; Glaurung breath warns on five and resolves on six',()=>{
+ const h=field(),q=h.q,b=q.spawn('glaurung','evil',{x:850,y:700}),u=q.spawn('aragorn','good',{x:1100,y:700});q.round=5;u.resources.fate=0;q.rng=()=>.999;b.currentWounds=Math.ceil(b.stats.wounds*.6);const before=b.stats.attacks;q.bossTurn(b);assert.equal(b.stats.attacks,before+1);q.refreshUnit(b);assert.equal(b.stats.attacks,before+1);assert.ok(q.warnings.some(a=>a.src===b.uid&&a.round===6&&a.fx==='breath'));assert.equal(u.currentWounds,u.stats.wounds);q.round=6;q.bossTurn(b);assert.ok(q.events.some(e=>e.type==='BossCast'&&e.fx==='breath'));assert.ok(u.currentWounds<u.stats.wounds);
 });
 test('weather persists through buffs without compounding across refreshes',()=>{
  const h=field(),q=h.q,u=q.spawn('gondor_archer','good',{x:500,y:500});q.spawn('orc_sword','evil',{x:1900,y:1300});q.current.modifier='rain';q.refreshUnit(u);const range=u.stats.shootRange;u.roundBuff.defence=1;for(let n=0;n<3;n++)q.refreshUnit(u);assert.equal(u.stats.shootRange,range);assert.ok(range<u.baseStats.shootRange);

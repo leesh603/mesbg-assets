@@ -5,8 +5,9 @@ const context={};vm.createContext(context);vm.runInContext(source.slice(begin,en
 const audit=JSON.parse(fs.readFileSync('docs/unit-art-audit.json','utf8'));
 test('every production combat token has an explicit anatomical reference',()=>{
  const h=require('./campaign-harness.cjs')();const models=h.run(`Array.from(q.meta.values()).filter(m=>m.side!=='terrain'&&!m.id.startsWith('terr_')).map(m=>m.id)`);
- assert.equal(models.length,492);assert.equal(Object.keys(context.profiles).length,492);
- assert.deepEqual([...models].sort(),Object.keys(context.profiles).sort());assert.equal(audit.units.length,492);
+ const additions=JSON.parse(fs.readFileSync('data/troop-new-units.json','utf8'));const ids=new Set(additions.map(u=>u.id));
+ assert.equal(models.length,audit.units.length+additions.length);assert.equal(Object.keys(context.profiles).length,models.length);
+ assert.deepEqual([...models].sort(),Object.keys(context.profiles).sort());assert.deepEqual([...models].filter(id=>!ids.has(id)).sort(),audit.units.map(u=>u.id).sort());assert.equal(audit.units.length,492);
 });
 test('all 492 anatomical spans render to their specified size, independent of radius and artScale',()=>{
  for(const a of audit.units){const p=context.profiles[a.id];assert(p[1]>=0&&p[2]>p[1]&&p[2]<=1);assert(p[3]>=0&&p[3]<=1&&p[4]>=0&&p[4]<=1);
@@ -34,7 +35,7 @@ test('padding and seated poses do not create multiples of cavalry size',()=>{
   // Dwarf heroes keep the 67-70 reference; dwarf soldiers are drawn clearly shorter than human soldiers (86).
   assert(hero?stature>=62.9&&stature<=76.1:stature>=52&&stature<=62.5,a.id);
  }
- assert.equal(context.profiles.warg_chieftain[6],'body');assert.equal(context.profiles.rhosgobel_rabbit[6],'body');
+ assert.equal(context.profiles.warg_chieftain[6],'rider');assert.equal(context.profiles.rhosgobel_rabbit[6],'body');
  assert.equal(context.profiles.witchking_fellbeast[6],'rider');
  assert(context.profiles.gwaihir[5]>context.profiles.great_eagle[5]);assert(context.profiles.thorondor[5]>context.profiles.gwaihir[5]);
 });

@@ -70,7 +70,7 @@
 | elf_swordshield | 엘프 검방 | 리븐델 | infantry | sword_shield | normal | 9 | elf_knight |
 | elf_spear | 엘프 창병 | 리븐델 | infantry | spear | normal | 9 | elven_lancer |
 | elf_bow | 엘프 궁수 | 리븐델 | infantry | bow | normal | 10 | elf_knight |
-| elf_glaive | 엘프 글레이브 | 미르크우드 | infantry | twohanded | normal | 11 | palace_guard |
+| elf_glaive | 엘프 글레이브 | 머크우드 | infantry | twohanded | normal | 11 | palace_guard |
 | galadhrim_warrior | 갈라드림 전사 | 로스로리엔 | infantry | sword | elite | 9 | galadhrim_bow, galadhrim_knight |
 | elf_knight | 엘프 기마기사 | 리븐델 | cavalry | lance | elite | 20 | 최종·지원 병종 |
 | uruk_swordshield2 | 우르크하이 검방 | 아이센가드 우르크 | infantry | sword_shield | normal | 10 | 중복 → uruk_swordshield |
@@ -153,7 +153,7 @@
 | dead_soldier | 망자 병사 | 망자 | infantry | spear | elite | 15 | dead_spearman, dead_rider |
 | olog_hai | 올로그하이 | 모르도르 오크 | monster | mace | epic | 90 | 영웅·괴수·비병사 |
 | watcher_in_the_water | 물 속의 감시자 | 모리아 | monster | none | epic | 200 | 영웅·괴수·비병사 |
-| mirkwood_spider | 미르크우드 거미 | dol_guldur | monster | none | elite | 20 | 영웅·괴수·비병사 |
+| mirkwood_spider | 머크우드 거미 | dol_guldur | monster | none | elite | 20 | 영웅·괴수·비병사 |
 | harad_chieftain | 하라드 족장 | 하라드 | hero | sword | rare | 50 | 영웅·괴수·비병사 |
 | uruk_captain | 우룩하이 대장 | 아이센가드 우르크 | hero | sword_shield | rare | 65 | 영웅·괴수·비병사 |
 | hill_troll | 언덕 트롤 | angmar | monster | club | elite | 75 | 영웅·괴수·비병사 |
@@ -214,9 +214,9 @@
 | elf_seer | 엘프 선견자 | 로스로리엔 | support | staff | normal | 105 | 영웅·괴수·비병사 |
 | rumil | 루밀 | 로스로리엔 | hero | bow | rare | 85 | 영웅·괴수·비병사 |
 | orophin | 오로핀 | 로스로리엔 | hero | spear | rare | 85 | 영웅·괴수·비병사 |
-| mirkwood_sentinel | 미르크우드 보초 | 미르크우드 | infantry | pike | normal | 25 | palace_guard |
+| mirkwood_sentinel | 머크우드 보초 | 머크우드 | infantry | pike | normal | 25 | palace_guard |
 | noldor_warrior | 놀도르 정예병 | 제1시대 | infantry | sword_shield | elite | 12 | 최종·지원 병종 |
-| silvan_archer | 실반 궁수 | 미르크우드 | infantry | bow | normal | 13 | mirkwood_ranger |
+| silvan_archer | 실반 궁수 | 머크우드 | infantry | bow | normal | 13 | mirkwood_ranger |
 | elven_lancer | 엘프 기창기병 | 리븐델 | cavalry | lance | elite | 20 | 최종·지원 병종 |
 | imrahil_mounted | 임라힐(기마) | 미나스 티리스·곤도르 | cavalry | lance | epic | 170 | 영웅·괴수·비병사 |
 | gandalf_mounted | 간달프(섀도우팩스) | maiar | hero | sword | legendary | 220 | 영웅·괴수·비병사 |
@@ -414,7 +414,7 @@
 | numenorean_archer | 누메노르 궁병 | 누메노르 | infantry | bow | normal | 10 | 최종·지원 병종 |
 | sons_of_eorl | 에오를의 아들들 | 로한 | cavalry | spear | rare | 20 | 최종·지원 병종 |
 | vault_warden | 철언덕 방벽병 | 카자드둠 | infantry | spear | normal | 9 | 최종·지원 병종 |
-| palace_guard | 궁정 근위병 | 미르크우드 | infantry | sword | normal | 12 | 최종·지원 병종 |
+| palace_guard | 궁정 근위병 | 머크우드 | infantry | sword | normal | 12 | 최종·지원 병종 |
 | hobbit_militia | 호빗 민병대 | 샤이어 | infantry | club | normal | 4 | hobbit_shirriff, hobbit_bounder |
 | guritz | 구리츠 | 모르도르 오크 | hero | twohanded | rare | 65 | 영웅·괴수·비병사 |
 | targsh | 타르그쉬 | 아이센가드 우르크 | hero | spear | epic | 80 | 영웅·괴수·비병사 |
@@ -445,7 +445,7 @@
 | nargothrond_ranger | 나르고스론드 레인저 | 제1시대 | infantry | bow | normal | 16 | 최종·지원 병종 |
 | edain_warrior | 에다인 전사 | 제1시대 | infantry | sword | normal | 11 | 최종·지원 병종 |
 | gondolin_guard | 곤돌린 근위병 | 제1시대 | infantry | spear | normal | 9 | 최종·지원 병종 |
-| mirkwood_captain | 미르크우드 대장 | elf | hero | sword | rare | 75 | 영웅·괴수·비병사 |
+| mirkwood_captain | 머크우드 대장 | elf | hero | sword | rare | 75 | 영웅·괴수·비병사 |
 | mordor_uruk | 모르도르 우르크 | 모르도르 오크 | infantry | sword | normal | 8 | black_guard |
 | morgul_orc | 모르굴 오크 | 모르도르 오크 | infantry | sword | normal | 7 | morannon_swordshield, morgul_stalker |
 | morgul_rat | 모르굴 추적병 | 모르도르 오크 | infantry | dagger | normal | 4 | morgul_stalker |
@@ -585,7 +585,7 @@
 | ironhills_crossbow | 철산 석궁병 | 철산 | infantry | crossbow | normal | 14 | goat_rider |
 | galadhrim_bow | 갈라드림 궁수 | 로스로리엔 | infantry | bow | normal | 10 | galadhrim_elite_bow, galadhrim_knight |
 | galadhrim_elite_bow | 갈라드림 정예 궁병 | 로스로리엔 | infantry | bow | elite | 13 | 최종·지원 병종 |
-| mirkwood_ranger | 미르크우드 레인저 | 미르크우드 | infantry | bow | normal | 14 | palace_guard |
+| mirkwood_ranger | 머크우드 레인저 | 머크우드 | infantry | bow | normal | 14 | palace_guard |
 | arnor_knight | 아르노르 기사 | 아르노르 | cavalry | lance | normal | 18 | 최종·지원 병종 |
 | arnor_ranger | 아르노르 레인저 | 아르노르 | infantry | bow | normal | 9 | 최종·지원 병종 |
 | morannon_swordshield | 모라논 오크 검방 | 모르도르 오크 | infantry | sword_shield | normal | 9 | 최종·지원 병종 |

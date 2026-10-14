@@ -16,7 +16,7 @@ const rows=[
  ['ironhills_crossbow','철산 석궁병','Iron Hills Warrior with crossbow','iron_hills','crossbow','dwarf_ranger',14,'official',{move:240,fight:4,strength:4,defence:6,courage:5,shootValue:4,shootRange:900,traits:['dwarf','mountain','crossbow']}],
  ['galadhrim_bow','갈라드림 궁수','Galadhrim Warrior with Elf bow','lothlorien','bow','galadhrim_warrior',10,'official',{shootValue:3,shootRange:830,traits:['elf']}],
  ['galadhrim_elite_bow','갈라드림 정예 궁병','Galadhrim veteran bowguard','lothlorien','bow','galadhrim_warrior',13,'custom',{fight:5,defence:6,shootValue:3,shootRange:880,traits:['elf','bodyguard','sharpshooter']}],
- ['mirkwood_ranger','미르크우드 레인저','Mirkwood Ranger','mirkwood','bow','silvan_archer',14,'official',{move:290,fight:5,defence:3,shootValue:3,shootRange:830,traits:['elf','woodland','dagger']}],
+ ['mirkwood_ranger','머크우드 레인저','Mirkwood Ranger','mirkwood','bow','silvan_archer',14,'official',{move:290,fight:5,defence:3,shootValue:3,shootRange:830,traits:['elf','woodland','dagger']}],
  ['arnor_knight','아르노르 기사','Knight of Arnor','arnor','lance','arnor_warrior',18,'official',{move:430,fight:4,defence:6,traits:['mounted','lance','steadfast']}],
  ['arnor_ranger','아르노르 레인저','Ranger of Arnor','arnor','bow','arnor_archer',9,'official',{move:280,fight:4,defence:4,shootValue:3,shootRange:830,traits:['woodland']}],
  ['morannon_swordshield','모라논 오크 검방','Morannon Orc with sword and shield','mordor','sword_shield','morannon_orc',9,'official',{traits:['shieldwall']}],

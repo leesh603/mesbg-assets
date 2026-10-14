@@ -32,8 +32,7 @@
         "Hero of Legend",
         "Anduril Flame of the West"
       ],
-      "base_mm": "25mm",
-      "points": 165
+      "base_mm": "25mm"
     },
     {
       "id": "gandalf",
@@ -65,8 +64,7 @@
         "Istari",
         "Glamdring"
       ],
-      "base_mm": "25mm",
-      "points": 170
+      "base_mm": "25mm"
     },
     {
       "id": "warrior_minas_tirith",
@@ -80,7 +78,6 @@
       "sheet": "lotr-tokens-v1.png",
       "file": "tokens/warrior_minas_tirith.png",
       "base_mm": "25mm",
-      "points": 9,
       "troopPromotion": {
         "group": "gondor",
         "aliasOf": "mt_swordshield",
@@ -125,8 +122,7 @@
         "The Morgul Lord",
         "Black Breath"
       ],
-      "base_mm": "25mm",
-      "points": 150
+      "base_mm": "25mm"
     },
     {
       "id": "orc_sword",
@@ -140,7 +136,6 @@
       "sheet": "lotr-tokens-v1.png",
       "file": "tokens/orc_sword.png",
       "base_mm": "25mm",
-      "points": 5,
       "troopPromotion": {
         "group": "mordor",
         "aliasOf": null,
@@ -163,8 +158,7 @@
       "base": "XXL",
       "sheet": "lotr-tokens-v1.png",
       "file": "tokens/cave_troll.png",
-      "base_mm": "60mm",
-      "points": 75
+      "base_mm": "60mm"
     },
     {
       "id": "glorfindel_foot",
@@ -196,8 +190,7 @@
         "Balrog-slayer",
         "Elf-lord Reborn"
       ],
-      "base_mm": "25mm",
-      "points": 160
+      "base_mm": "25mm"
     },
     {
       "id": "glorfindel_mounted",
@@ -230,8 +223,7 @@
         "Balrog-slayer",
         "Asfaloth"
       ],
-      "base_mm": "40mm",
-      "points": 180
+      "base_mm": "40mm"
     },
     {
       "id": "witchking_fellbeast",
@@ -269,8 +261,7 @@
         "The Morgul Lord",
         "Fell Beast"
       ],
-      "base_mm": "60mm",
-      "points": 200
+      "base_mm": "60mm"
     },
     {
       "id": "witchking_mounted",
@@ -307,8 +298,7 @@
         "The Morgul Lord",
         "Black Breath"
       ],
-      "base_mm": "40mm",
-      "points": 170
+      "base_mm": "40mm"
     },
     {
       "id": "witchking_foot_mace",
@@ -345,8 +335,7 @@
         "The Morgul Lord",
         "Mace of the Morgul Vale"
       ],
-      "base_mm": "25mm",
-      "points": 155
+      "base_mm": "25mm"
     },
     {
       "id": "nazgul_sword",
@@ -384,8 +373,7 @@
         "Ringwraith",
         "Unseen"
       ],
-      "base_mm": "25mm",
-      "points": 120
+      "base_mm": "25mm"
     },
     {
       "id": "saruman",
@@ -417,8 +405,7 @@
         "Istari",
         "Voice of Saruman"
       ],
-      "base_mm": "25mm",
-      "points": 170
+      "base_mm": "25mm"
     },
     {
       "id": "orc_shaman",
@@ -431,8 +418,7 @@
       "base": "S",
       "sheet": "roster-enemy-heroes-v1.png",
       "file": "tokens/orc_shaman.png",
-      "base_mm": "25mm",
-      "points": 50
+      "base_mm": "25mm"
     },
     {
       "id": "orc_captain",
@@ -462,8 +448,7 @@
       "rules": [
         "Orc Captain"
       ],
-      "base_mm": "25mm",
-      "points": 45
+      "base_mm": "25mm"
     },
     {
       "id": "orc_spearman",
@@ -477,7 +462,6 @@
       "sheet": "roster-enemy-troops-v1.png",
       "file": "tokens/orc_spearman.png",
       "base_mm": "25mm",
-      "points": 6,
       "troopPromotion": {
         "group": "mordor",
         "aliasOf": null,
@@ -500,7 +484,6 @@
       "sheet": "roster-enemy-troops-v1.png",
       "file": "tokens/orc_archer.png",
       "base_mm": "25mm",
-      "points": 6,
       "troopPromotion": {
         "group": "mordor",
         "aliasOf": null,
@@ -522,7 +505,6 @@
       "sheet": "roster-enemy-troops-v1.png",
       "file": "tokens/uruk_swordshield.png",
       "base_mm": "25mm",
-      "points": 10,
       "troopPromotion": {
         "group": "isengard",
         "aliasOf": null,
@@ -544,7 +526,6 @@
       "sheet": "roster-enemy-troops-v1.png",
       "file": "tokens/morannon_orc.png",
       "base_mm": "25mm",
-      "points": 9,
       "troopPromotion": {
         "group": "mordor",
         "aliasOf": null,
@@ -565,7 +546,6 @@
       "file": "tokens/warg_rider.png",
       "artScale": 1.3,
       "base_mm": "40mm",
-      "points": 12,
       "troopPromotion": {
         "group": "mordor",
         "aliasOf": null,
@@ -585,7 +565,6 @@
       "sheet": "roster-enemy-troops-v1.png",
       "file": "tokens/haradrim_spearman.png",
       "base_mm": "25mm",
-      "points": 7,
       "troopPromotion": {
         "group": "harad",
         "aliasOf": "haradrim_spear",
@@ -627,8 +606,7 @@
         "Deadly Shot",
         "Elven Eyesight"
       ],
-      "base_mm": "25mm",
-      "points": 100
+      "base_mm": "25mm"
     },
     {
       "id": "gimli",
@@ -660,8 +638,7 @@
         "Dwarf",
         "Champion of Erebor"
       ],
-      "base_mm": "25mm",
-      "points": 100
+      "base_mm": "25mm"
     },
     {
       "id": "boromir",
@@ -693,8 +670,7 @@
         "Horn of Gondor",
         "Captain of the White Tower"
       ],
-      "base_mm": "25mm",
-      "points": 165
+      "base_mm": "25mm"
     },
     {
       "id": "eowyn",
@@ -726,8 +702,7 @@
         "Shieldmaiden of Rohan",
         "I Am No Man"
       ],
-      "base_mm": "25mm",
-      "points": 60
+      "base_mm": "25mm"
     },
     {
       "id": "frodo",
@@ -761,8 +736,7 @@
         "Mithril Shirt",
         "Sting"
       ],
-      "base_mm": "25mm",
-      "points": 55
+      "base_mm": "25mm"
     },
     {
       "id": "elrond",
@@ -794,8 +768,7 @@
         "Lord of Rivendell",
         "Vilya"
       ],
-      "base_mm": "25mm",
-      "points": 170
+      "base_mm": "25mm"
     },
     {
       "id": "gondor_archer",
@@ -809,7 +782,6 @@
       "sheet": "roster-free-troops-v1.png",
       "file": "tokens/gondor_archer.png",
       "base_mm": "25mm",
-      "points": 9,
       "troopPromotion": {
         "group": "gondor",
         "aliasOf": "mt_bowman",
@@ -832,7 +804,6 @@
       "sheet": "roster-free-troops-v1.png",
       "file": "tokens/elf_swordsman.png",
       "base_mm": "25mm",
-      "points": 8,
       "troopPromotion": {
         "group": "rivendell",
         "aliasOf": null,
@@ -855,7 +826,6 @@
       "sheet": "roster-free-troops-v1.png",
       "file": "tokens/dwarf_guardian.png",
       "base_mm": "25mm",
-      "points": 12,
       "troopPromotion": {
         "group": "khazad_dum",
         "aliasOf": null,
@@ -878,7 +848,6 @@
       "sheet": "roster-free-troops-v1.png",
       "file": "tokens/rohan_royal_guard.png",
       "base_mm": "25mm",
-      "points": 13,
       "troopPromotion": {
         "group": "rohan",
         "aliasOf": null,
@@ -900,7 +869,6 @@
       "sheet": "roster-free-troops-v1.png",
       "file": "tokens/ithilien_ranger.png",
       "base_mm": "25mm",
-      "points": 8,
       "troopPromotion": {
         "group": "gondor",
         "aliasOf": null,
@@ -923,7 +891,6 @@
       "file": "tokens/rohan_rider.png",
       "artScale": 1.1,
       "base_mm": "40mm",
-      "points": 16,
       "troopPromotion": {
         "group": "rohan",
         "aliasOf": null,
@@ -969,8 +936,7 @@
         "Terror",
         "Whip of Flame"
       ],
-      "base_mm": "100mm",
-      "points": 350
+      "base_mm": "100mm"
     },
     {
       "id": "mountain_troll",
@@ -983,8 +949,7 @@
       "base": "XXL",
       "sheet": "roster-monsters-v1.png",
       "file": "tokens/mountain_troll.png",
-      "base_mm": "60mm",
-      "points": 90
+      "base_mm": "60mm"
     },
     {
       "id": "shelob",
@@ -1000,8 +965,7 @@
       "traits": [
         "terror"
       ],
-      "base_mm": "60mm",
-      "points": 100
+      "base_mm": "60mm"
     },
     {
       "id": "barrow_wight",
@@ -1036,8 +1000,7 @@
         "Terror",
         "Drain Will"
       ],
-      "base_mm": "25mm",
-      "points": 50
+      "base_mm": "25mm"
     },
     {
       "id": "moria_goblin",
@@ -1051,7 +1014,6 @@
       "sheet": "roster-monsters-v1.png",
       "file": "tokens/moria_goblin.png",
       "base_mm": "25mm",
-      "points": 4,
       "troopPromotion": {
         "group": "moria",
         "aliasOf": null,
@@ -1075,7 +1037,6 @@
       "sheet": "roster-monsters-v1.png",
       "file": "tokens/uruk_berserker.png",
       "base_mm": "25mm",
-      "points": 15,
       "troopPromotion": {
         "group": "isengard",
         "aliasOf": null,
@@ -1118,8 +1079,7 @@
         "Terror",
         "Mace of Sauron"
       ],
-      "base_mm": "60mm",
-      "points": 400
+      "base_mm": "60mm"
     },
     {
       "id": "nazgul_sword_2",
@@ -1157,8 +1117,7 @@
         "Ringwraith",
         "Unseen"
       ],
-      "base_mm": "25mm",
-      "points": 120
+      "base_mm": "25mm"
     },
     {
       "id": "nazgul_mace",
@@ -1196,8 +1155,7 @@
         "Ringwraith",
         "Unseen"
       ],
-      "base_mm": "25mm",
-      "points": 120
+      "base_mm": "25mm"
     },
     {
       "id": "nazgul_mounted",
@@ -1234,8 +1192,7 @@
         "Ringwraith",
         "Unseen"
       ],
-      "base_mm": "40mm",
-      "points": 140
+      "base_mm": "40mm"
     },
     {
       "id": "morgul_knight",
@@ -1249,7 +1206,6 @@
       "sheet": "roster-sauron-nazgul-v1.png",
       "file": "tokens/morgul_knight.png",
       "base_mm": "40mm",
-      "points": 20,
       "troopPromotion": {
         "group": "mordor_numenoreans",
         "aliasOf": null,
@@ -1289,8 +1245,7 @@
         "Ringwraith",
         "The Dwimmerlaik"
       ],
-      "base_mm": "25mm",
-      "points": 130
+      "base_mm": "25mm"
     },
     {
       "id": "mt_swordshield",
@@ -1304,7 +1259,6 @@
       "sheet": "roster-minastirith-variants-v1.png",
       "file": "tokens/mt_swordshield.png",
       "base_mm": "25mm",
-      "points": 9,
       "troopPromotion": {
         "group": "gondor",
         "aliasOf": null,
@@ -1326,7 +1280,6 @@
       "sheet": "roster-minastirith-variants-v1.png",
       "file": "tokens/mt_spear.png",
       "base_mm": "25mm",
-      "points": 10,
       "troopPromotion": {
         "group": "gondor",
         "aliasOf": null,
@@ -1348,7 +1301,6 @@
       "sheet": "roster-minastirith-variants-v1.png",
       "file": "tokens/mt_spearshield.png",
       "base_mm": "25mm",
-      "points": 10,
       "troopPromotion": {
         "group": "gondor",
         "aliasOf": null,
@@ -1370,7 +1322,6 @@
       "sheet": "roster-minastirith-variants-v1.png",
       "file": "tokens/mt_bowman.png",
       "base_mm": "25mm",
-      "points": 9,
       "troopPromotion": {
         "group": "gondor",
         "aliasOf": null,
@@ -1392,8 +1343,7 @@
       "base": "M",
       "sheet": "roster-minastirith-variants-v1.png",
       "file": "tokens/mt_captain.png",
-      "base_mm": "25mm",
-      "points": 60
+      "base_mm": "25mm"
     },
     {
       "id": "mt_fountain_guard",
@@ -1407,7 +1357,6 @@
       "sheet": "roster-minastirith-variants-v1.png",
       "file": "tokens/mt_fountain_guard.png",
       "base_mm": "25mm",
-      "points": 10,
       "troopPromotion": {
         "group": "gondor",
         "aliasOf": null,
@@ -1427,7 +1376,6 @@
       "sheet": "roster-orc-variants-v1.png",
       "file": "tokens/orc_sword2.png",
       "base_mm": "25mm",
-      "points": 5,
       "troopPromotion": {
         "group": "mordor",
         "aliasOf": "orc_sword",
@@ -1451,7 +1399,6 @@
       "sheet": "roster-orc-variants-v1.png",
       "file": "tokens/orc_swordshield.png",
       "base_mm": "25mm",
-      "points": 6,
       "troopPromotion": {
         "group": "mordor",
         "aliasOf": null,
@@ -1474,7 +1421,6 @@
       "sheet": "roster-orc-variants-v1.png",
       "file": "tokens/orc_spear2.png",
       "base_mm": "25mm",
-      "points": 6,
       "troopPromotion": {
         "group": "mordor",
         "aliasOf": "orc_spearman",
@@ -1497,7 +1443,6 @@
       "sheet": "roster-orc-variants-v1.png",
       "file": "tokens/orc_twohanded.png",
       "base_mm": "25mm",
-      "points": 6,
       "troopPromotion": {
         "group": "mordor",
         "aliasOf": null,
@@ -1519,7 +1464,6 @@
       "sheet": "roster-orc-variants-v1.png",
       "file": "tokens/orc_bow.png",
       "base_mm": "25mm",
-      "points": 6,
       "troopPromotion": {
         "group": "mordor",
         "aliasOf": "orc_archer",
@@ -1540,8 +1484,7 @@
       "base": "S",
       "sheet": "roster-orc-variants-v1.png",
       "file": "tokens/orc_drummer.png",
-      "base_mm": "25mm",
-      "points": 30
+      "base_mm": "25mm"
     },
     {
       "id": "dwarf_axeshield",
@@ -1555,7 +1498,6 @@
       "sheet": "roster-dwarf-variants-v1.png",
       "file": "tokens/dwarf_axeshield.png",
       "base_mm": "25mm",
-      "points": 9,
       "troopPromotion": {
         "group": "khazad_dum",
         "aliasOf": null,
@@ -1579,7 +1521,6 @@
       "sheet": "roster-dwarf-variants-v1.png",
       "file": "tokens/dwarf_2haxe.png",
       "base_mm": "25mm",
-      "points": 9,
       "troopPromotion": {
         "group": "khazad_dum",
         "aliasOf": null,
@@ -1602,7 +1543,6 @@
       "sheet": "roster-dwarf-variants-v1.png",
       "file": "tokens/dwarf_ranger.png",
       "base_mm": "25mm",
-      "points": 9,
       "troopPromotion": {
         "group": "khazad_dum",
         "aliasOf": null,
@@ -1622,7 +1562,6 @@
       "sheet": "roster-dwarf-variants-v1.png",
       "file": "tokens/khazad_guard.png",
       "base_mm": "25mm",
-      "points": 12,
       "troopPromotion": {
         "group": "khazad_dum",
         "aliasOf": null,
@@ -1642,7 +1581,6 @@
       "sheet": "roster-dwarf-variants-v1.png",
       "file": "tokens/iron_guard.png",
       "base_mm": "25mm",
-      "points": 15,
       "troopPromotion": {
         "group": "khazad_dum",
         "aliasOf": null,
@@ -1661,8 +1599,7 @@
       "base": "M",
       "sheet": "roster-dwarf-variants-v1.png",
       "file": "tokens/dwarf_banner.png",
-      "base_mm": "25mm",
-      "points": 33
+      "base_mm": "25mm"
     },
     {
       "id": "elf_swordshield",
@@ -1676,7 +1613,6 @@
       "sheet": "roster-elf-variants-v1.png",
       "file": "tokens/elf_swordshield.png",
       "base_mm": "25mm",
-      "points": 9,
       "troopPromotion": {
         "group": "rivendell",
         "aliasOf": null,
@@ -1698,7 +1634,6 @@
       "sheet": "roster-elf-variants-v1.png",
       "file": "tokens/elf_spear.png",
       "base_mm": "25mm",
-      "points": 9,
       "troopPromotion": {
         "group": "rivendell",
         "aliasOf": null,
@@ -1720,7 +1655,6 @@
       "sheet": "roster-elf-variants-v1.png",
       "file": "tokens/elf_bow.png",
       "base_mm": "25mm",
-      "points": 10,
       "troopPromotion": {
         "group": "rivendell",
         "aliasOf": null,
@@ -1742,7 +1676,6 @@
       "sheet": "roster-elf-variants-v1.png",
       "file": "tokens/elf_glaive.png",
       "base_mm": "25mm",
-      "points": 11,
       "troopPromotion": {
         "group": "mirkwood",
         "aliasOf": null,
@@ -1764,7 +1697,6 @@
       "sheet": "roster-elf-variants-v1.png",
       "file": "tokens/galadhrim_warrior.png",
       "base_mm": "25mm",
-      "points": 9,
       "troopPromotion": {
         "group": "lothlorien",
         "aliasOf": null,
@@ -1787,7 +1719,6 @@
       "sheet": "roster-elf-variants-v1.png",
       "file": "tokens/elf_knight.png",
       "base_mm": "40mm",
-      "points": 20,
       "troopPromotion": {
         "group": "rivendell",
         "aliasOf": null,
@@ -1807,7 +1738,6 @@
       "sheet": "roster-uruk-variants-v1.png",
       "file": "tokens/uruk_swordshield2.png",
       "base_mm": "25mm",
-      "points": 10,
       "troopPromotion": {
         "group": "isengard",
         "aliasOf": "uruk_swordshield",
@@ -1829,7 +1759,6 @@
       "sheet": "roster-uruk-variants-v1.png",
       "file": "tokens/uruk_pike.png",
       "base_mm": "25mm",
-      "points": 10,
       "troopPromotion": {
         "group": "isengard",
         "aliasOf": null,
@@ -1849,7 +1778,6 @@
       "sheet": "roster-uruk-variants-v1.png",
       "file": "tokens/uruk_crossbow.png",
       "base_mm": "25mm",
-      "points": 11,
       "troopPromotion": {
         "group": "isengard",
         "aliasOf": null,
@@ -1869,7 +1797,6 @@
       "sheet": "roster-uruk-variants-v1.png",
       "file": "tokens/uruk_scout.png",
       "base_mm": "25mm",
-      "points": 8,
       "troopPromotion": {
         "group": "isengard",
         "aliasOf": null,
@@ -1893,7 +1820,6 @@
       "sheet": "roster-uruk-variants-v1.png",
       "file": "tokens/uruk_berserker2.png",
       "base_mm": "25mm",
-      "points": 15,
       "troopPromotion": {
         "group": "isengard",
         "aliasOf": "uruk_berserker",
@@ -1912,8 +1838,7 @@
       "base": "M",
       "sheet": "roster-uruk-variants-v1.png",
       "file": "tokens/uruk_banner.png",
-      "base_mm": "25mm",
-      "points": 34
+      "base_mm": "25mm"
     },
     {
       "id": "haradrim_spear",
@@ -1927,7 +1852,6 @@
       "sheet": "roster-haradrim-easterling-v1.png",
       "file": "tokens/haradrim_spear.png",
       "base_mm": "25mm",
-      "points": 7,
       "troopPromotion": {
         "group": "harad",
         "aliasOf": null,
@@ -1951,7 +1875,6 @@
       "sheet": "roster-haradrim-easterling-v1.png",
       "file": "tokens/haradrim_bow.png",
       "base_mm": "25mm",
-      "points": 7,
       "troopPromotion": {
         "group": "harad",
         "aliasOf": null,
@@ -1973,8 +1896,7 @@
       "base": "M",
       "sheet": "roster-haradrim-easterling-v1.png",
       "file": "tokens/haradrim_priest.png",
-      "base_mm": "25mm",
-      "points": 6
+      "base_mm": "25mm"
     },
     {
       "id": "easterling_phalanx",
@@ -1988,7 +1910,6 @@
       "sheet": "roster-haradrim-easterling-v1.png",
       "file": "tokens/easterling_phalanx.png",
       "base_mm": "25mm",
-      "points": 10,
       "troopPromotion": {
         "group": "easterling",
         "aliasOf": null,
@@ -2008,7 +1929,6 @@
       "sheet": "roster-haradrim-easterling-v1.png",
       "file": "tokens/easterling_swordshield.png",
       "base_mm": "25mm",
-      "points": 9,
       "troopPromotion": {
         "group": "easterling",
         "aliasOf": null,
@@ -2031,7 +1951,6 @@
       "sheet": "roster-haradrim-easterling-v1.png",
       "file": "tokens/easterling_kataphrakt.png",
       "base_mm": "40mm",
-      "points": 15,
       "troopPromotion": {
         "group": "easterling",
         "aliasOf": null,
@@ -2051,7 +1970,6 @@
       "sheet": "roster-gondor-exp-v1.png",
       "file": "tokens/dol_amroth_knight.png",
       "base_mm": "40mm",
-      "points": 20,
       "troopPromotion": {
         "group": "dol_amroth",
         "aliasOf": null,
@@ -2071,7 +1989,6 @@
       "sheet": "roster-gondor-exp-v1.png",
       "file": "tokens/gondor_knight.png",
       "base_mm": "40mm",
-      "points": 15,
       "troopPromotion": {
         "group": "gondor",
         "aliasOf": null,
@@ -2091,7 +2008,6 @@
       "sheet": "roster-gondor-exp-v1.png",
       "file": "tokens/osgiliath_veteran.png",
       "base_mm": "25mm",
-      "points": 9,
       "troopPromotion": {
         "group": "gondor",
         "aliasOf": null,
@@ -2115,7 +2031,6 @@
       "sheet": "roster-gondor-exp-v1.png",
       "file": "tokens/lossarnach_axeman.png",
       "base_mm": "25mm",
-      "points": 9,
       "troopPromotion": {
         "group": "gondor",
         "aliasOf": null,
@@ -2135,7 +2050,6 @@
       "sheet": "roster-gondor-exp-v1.png",
       "file": "tokens/citadel_guard.png",
       "base_mm": "25mm",
-      "points": 9,
       "troopPromotion": {
         "group": "gondor",
         "aliasOf": null,
@@ -2155,7 +2069,6 @@
       "sheet": "roster-gondor-exp-v1.png",
       "file": "tokens/pelennor_militia.png",
       "base_mm": "25mm",
-      "points": 10,
       "troopPromotion": {
         "group": "gondor",
         "aliasOf": null,
@@ -2178,7 +2091,6 @@
       "sheet": "roster-rohan-exp-v1.png",
       "file": "tokens/rohan_swordshield.png",
       "base_mm": "25mm",
-      "points": 7,
       "troopPromotion": {
         "group": "rohan",
         "aliasOf": null,
@@ -2202,7 +2114,6 @@
       "sheet": "roster-rohan-exp-v1.png",
       "file": "tokens/rohan_spear.png",
       "base_mm": "25mm",
-      "points": 9,
       "troopPromotion": {
         "group": "rohan",
         "aliasOf": null,
@@ -2226,7 +2137,6 @@
       "sheet": "roster-rohan-exp-v1.png",
       "file": "tokens/rohan_archer.png",
       "base_mm": "25mm",
-      "points": 7,
       "troopPromotion": {
         "group": "rohan",
         "aliasOf": null,
@@ -2266,8 +2176,7 @@
         "Marshal of the Riddermark",
         "Guthwine"
       ],
-      "base_mm": "40mm",
-      "points": 130
+      "base_mm": "40mm"
     },
     {
       "id": "rohan_outrider",
@@ -2281,7 +2190,6 @@
       "sheet": "roster-rohan-exp-v1.png",
       "file": "tokens/rohan_outrider.png",
       "base_mm": "40mm",
-      "points": 13,
       "troopPromotion": {
         "group": "rohan",
         "aliasOf": null,
@@ -2300,8 +2208,7 @@
       "base": "M",
       "sheet": "roster-rohan-exp-v1.png",
       "file": "tokens/rohan_banner.png",
-      "base_mm": "25mm",
-      "points": 31
+      "base_mm": "25mm"
     },
     {
       "id": "black_numenorean",
@@ -2315,7 +2222,6 @@
       "sheet": "roster-mordor-elite-v1.png",
       "file": "tokens/black_numenorean.png",
       "base_mm": "25mm",
-      "points": 10,
       "troopPromotion": {
         "group": "mordor_numenoreans",
         "aliasOf": null,
@@ -2338,7 +2244,6 @@
       "sheet": "roster-mordor-elite-v1.png",
       "file": "tokens/black_numenorean_mounted.png",
       "base_mm": "40mm",
-      "points": 20,
       "troopPromotion": {
         "group": "mordor_numenoreans",
         "aliasOf": null,
@@ -2358,7 +2263,6 @@
       "sheet": "roster-mordor-elite-v1.png",
       "file": "tokens/orc_tracker.png",
       "base_mm": "25mm",
-      "points": 6,
       "troopPromotion": {
         "group": "mordor",
         "aliasOf": null,
@@ -2379,8 +2283,7 @@
       "base": "XXL",
       "sheet": "roster-mordor-elite-v1.png",
       "file": "tokens/war_troll.png",
-      "base_mm": "60mm",
-      "points": 90
+      "base_mm": "60mm"
     },
     {
       "id": "black_guard",
@@ -2394,7 +2297,6 @@
       "sheet": "roster-mordor-elite-v1.png",
       "file": "tokens/black_guard.png",
       "base_mm": "25mm",
-      "points": 12,
       "troopPromotion": {
         "group": "mordor",
         "aliasOf": null,
@@ -2413,8 +2315,7 @@
       "base": "M",
       "sheet": "roster-mordor-elite-v1.png",
       "file": "tokens/orc_taskmaster.png",
-      "base_mm": "25mm",
-      "points": 45
+      "base_mm": "25mm"
     },
     {
       "id": "goblin_spear",
@@ -2428,7 +2329,6 @@
       "sheet": "roster-goblin-v1.png",
       "file": "tokens/goblin_spear.png",
       "base_mm": "25mm",
-      "points": 5,
       "troopPromotion": {
         "group": "moria",
         "aliasOf": null,
@@ -2450,7 +2350,6 @@
       "sheet": "roster-goblin-v1.png",
       "file": "tokens/goblin_shield.png",
       "base_mm": "25mm",
-      "points": 5,
       "troopPromotion": {
         "group": "moria",
         "aliasOf": null,
@@ -2472,7 +2371,6 @@
       "sheet": "roster-goblin-v1.png",
       "file": "tokens/goblin_bow.png",
       "base_mm": "25mm",
-      "points": 5,
       "troopPromotion": {
         "group": "moria",
         "aliasOf": null,
@@ -2492,7 +2390,6 @@
       "sheet": "roster-goblin-v1.png",
       "file": "tokens/goblin_prowler.png",
       "base_mm": "25mm",
-      "points": 7,
       "troopPromotion": {
         "group": "moria",
         "aliasOf": null,
@@ -2511,8 +2408,7 @@
       "base": "L",
       "sheet": "roster-goblin-v1.png",
       "file": "tokens/goblin_king.png",
-      "base_mm": "50mm",
-      "points": 150
+      "base_mm": "50mm"
     },
     {
       "id": "goblin_shaman",
@@ -2525,8 +2421,7 @@
       "base": "S",
       "sheet": "roster-goblin-v1.png",
       "file": "tokens/goblin_shaman.png",
-      "base_mm": "25mm",
-      "points": 45
+      "base_mm": "25mm"
     },
     {
       "id": "dunlending_warrior",
@@ -2540,7 +2435,6 @@
       "sheet": "roster-isengard-exp-v1.png",
       "file": "tokens/dunlending_warrior.png",
       "base_mm": "25mm",
-      "points": 7,
       "troopPromotion": {
         "group": "dunland",
         "aliasOf": null,
@@ -2564,7 +2458,6 @@
       "sheet": "roster-isengard-exp-v1.png",
       "file": "tokens/dunlending_huscarl.png",
       "base_mm": "25mm",
-      "points": 11,
       "troopPromotion": {
         "group": "dunland",
         "aliasOf": null,
@@ -2583,8 +2476,7 @@
       "base": "M",
       "sheet": "roster-isengard-exp-v1.png",
       "file": "tokens/warg.png",
-      "base_mm": "50mm",
-      "points": 7
+      "base_mm": "50mm"
     },
     {
       "id": "uruk_sapper",
@@ -2598,7 +2490,6 @@
       "sheet": "roster-isengard-exp-v1.png",
       "file": "tokens/uruk_sapper.png",
       "base_mm": "25mm",
-      "points": 80,
       "troopPromotion": {
         "group": "isengard",
         "aliasOf": null,
@@ -2618,7 +2509,6 @@
       "sheet": "roster-isengard-exp-v1.png",
       "file": "tokens/uruk_scout_archer.png",
       "base_mm": "25mm",
-      "points": 9,
       "troopPromotion": {
         "group": "isengard",
         "aliasOf": null,
@@ -2642,8 +2532,7 @@
       "traits": [
         "fly"
       ],
-      "base_mm": "25mm",
-      "points": 20
+      "base_mm": "25mm"
     },
     {
       "id": "hobbit_shirriff",
@@ -2657,7 +2546,6 @@
       "sheet": "roster-free-special-v1.png",
       "file": "tokens/hobbit_shirriff.png",
       "base_mm": "25mm",
-      "points": 5,
       "troopPromotion": {
         "group": "shire",
         "aliasOf": null,
@@ -2677,7 +2565,6 @@
       "sheet": "roster-free-special-v1.png",
       "file": "tokens/hobbit_bounder.png",
       "base_mm": "25mm",
-      "points": 7,
       "troopPromotion": {
         "group": "shire",
         "aliasOf": null,
@@ -2699,8 +2586,7 @@
       "traits": [
         "fly"
       ],
-      "base_mm": "60mm",
-      "points": 100
+      "base_mm": "60mm"
     },
     {
       "id": "ent",
@@ -2713,8 +2599,7 @@
       "base": "XXL",
       "sheet": "roster-free-special-v1.png",
       "file": "tokens/ent.png",
-      "base_mm": "60mm",
-      "points": 100
+      "base_mm": "60mm"
     },
     {
       "id": "beorning",
@@ -2744,8 +2629,7 @@
       "rules": [
         "Beorning"
       ],
-      "base_mm": "25mm",
-      "points": 90
+      "base_mm": "25mm"
     },
     {
       "id": "ranger_north",
@@ -2758,8 +2642,7 @@
       "base": "M",
       "sheet": "roster-free-special-v1.png",
       "file": "tokens/ranger_north.png",
-      "base_mm": "25mm",
-      "points": 25
+      "base_mm": "25mm"
     },
     {
       "id": "theoden",
@@ -2773,8 +2656,7 @@
       "sheet": "roster-free-heroes-exp-v1.png",
       "file": "tokens/theoden.png",
       "artScale": 1.44,
-      "base_mm": "40mm",
-      "points": 110
+      "base_mm": "40mm"
     },
     {
       "id": "faramir",
@@ -2806,8 +2688,7 @@
         "Captain of the Rangers",
         "Woodcraft"
       ],
-      "base_mm": "25mm",
-      "points": 100
+      "base_mm": "25mm"
     },
     {
       "id": "haldir",
@@ -2837,8 +2718,7 @@
       "rules": [
         "Marchwarden of Lorien"
       ],
-      "base_mm": "25mm",
-      "points": 70
+      "base_mm": "25mm"
     },
     {
       "id": "galadriel",
@@ -2872,8 +2752,7 @@
         "Nenya",
         "Mirror of Galadriel"
       ],
-      "base_mm": "25mm",
-      "points": 125
+      "base_mm": "25mm"
     },
     {
       "id": "gamling",
@@ -2903,8 +2782,7 @@
       "rules": [
         "Royal Standard"
       ],
-      "base_mm": "25mm",
-      "points": 55
+      "base_mm": "25mm"
     },
     {
       "id": "samwise",
@@ -2936,8 +2814,7 @@
         "Fellowship",
         "Loyal Guardian"
       ],
-      "base_mm": "25mm",
-      "points": 40
+      "base_mm": "25mm"
     },
     {
       "id": "mouth_of_sauron",
@@ -2969,8 +2846,7 @@
         "Lieutenant of Barad-dur",
         "Sorcerer"
       ],
-      "base_mm": "40mm",
-      "points": 100
+      "base_mm": "40mm"
     },
     {
       "id": "gothmog",
@@ -3000,8 +2876,7 @@
       "rules": [
         "Lieutenant of Morgul"
       ],
-      "base_mm": "25mm",
-      "points": 125
+      "base_mm": "25mm"
     },
     {
       "id": "lurtz",
@@ -3031,8 +2906,7 @@
       "rules": [
         "First of the Uruk-hai"
       ],
-      "base_mm": "25mm",
-      "points": 100
+      "base_mm": "25mm"
     },
     {
       "id": "sharku",
@@ -3045,8 +2919,7 @@
       "base": "XL",
       "sheet": "roster-evil-heroes-exp-v1.png",
       "file": "tokens/sharku.png",
-      "base_mm": "40mm",
-      "points": 70
+      "base_mm": "40mm"
     },
     {
       "id": "grima",
@@ -3078,8 +2951,7 @@
         "Wormtongue",
         "Spy"
       ],
-      "base_mm": "25mm",
-      "points": 25
+      "base_mm": "25mm"
     },
     {
       "id": "khamul",
@@ -3113,8 +2985,7 @@
         "Ringwraith",
         "Shadow of the East"
       ],
-      "base_mm": "25mm",
-      "points": 130
+      "base_mm": "25mm"
     },
     {
       "id": "fingolfin",
@@ -3146,8 +3017,7 @@
         "High King of the Noldor",
         "Wounded Morgoth Seven Times"
       ],
-      "base_mm": "25mm",
-      "points": 210
+      "base_mm": "25mm"
     },
     {
       "id": "imrahil",
@@ -3179,8 +3049,7 @@
         "Prince of Dol Amroth",
         "Swan Knight"
       ],
-      "base_mm": "25mm",
-      "points": 140
+      "base_mm": "25mm"
     },
     {
       "id": "merry",
@@ -3210,8 +3079,7 @@
       "rules": [
         "Esquire of Rohan"
       ],
-      "base_mm": "25mm",
-      "points": 10
+      "base_mm": "25mm"
     },
     {
       "id": "pippin",
@@ -3241,8 +3109,7 @@
       "rules": [
         "Guard of the Citadel"
       ],
-      "base_mm": "25mm",
-      "points": 10
+      "base_mm": "25mm"
     },
     {
       "id": "beorn",
@@ -3274,8 +3141,7 @@
         "Skin-changer",
         "Bear Form"
       ],
-      "base_mm": "25mm",
-      "points": 200
+      "base_mm": "25mm"
     },
     {
       "id": "elendil",
@@ -3307,8 +3173,7 @@
         "High King of Arnor",
         "Narsil"
       ],
-      "base_mm": "25mm",
-      "points": 175
+      "base_mm": "25mm"
     },
     {
       "id": "melkor",
@@ -3321,8 +3186,7 @@
       "base": "XXL",
       "sheet": "roster-legends-evil-v1.png",
       "file": "tokens/melkor.png",
-      "base_mm": "60mm",
-      "points": 600
+      "base_mm": "60mm"
     },
     {
       "id": "mumakil",
@@ -3338,8 +3202,7 @@
       "traits": [
         "terror"
       ],
-      "base_mm": "100mm",
-      "points": 250
+      "base_mm": "100mm"
     },
     {
       "id": "smaug",
@@ -3373,8 +3236,7 @@
         "Terror",
         "Golden Armour"
       ],
-      "base_mm": "120mm",
-      "points": 700
+      "base_mm": "120mm"
     },
     {
       "id": "ungoliant",
@@ -3408,8 +3270,7 @@
         "Unlight",
         "Terror"
       ],
-      "base_mm": "60mm",
-      "points": 740
+      "base_mm": "60mm"
     },
     {
       "id": "bolg",
@@ -3439,8 +3300,7 @@
       "rules": [
         "Spawn of Azog"
       ],
-      "base_mm": "25mm",
-      "points": 175
+      "base_mm": "25mm"
     },
     {
       "id": "easterling_warlord",
@@ -3470,8 +3330,7 @@
       "rules": [
         "Easterling Warlord"
       ],
-      "base_mm": "25mm",
-      "points": 70
+      "base_mm": "25mm"
     },
     {
       "id": "radagast",
@@ -3503,8 +3362,7 @@
         "Istari",
         "Friend of Beasts"
       ],
-      "base_mm": "25mm",
-      "points": 145
+      "base_mm": "25mm"
     },
     {
       "id": "thranduil",
@@ -3536,8 +3394,7 @@
         "Elvenking",
         "Circlet of the Elvenking"
       ],
-      "base_mm": "25mm",
-      "points": 130
+      "base_mm": "25mm"
     },
     {
       "id": "celeborn",
@@ -3567,8 +3424,7 @@
       "rules": [
         "Lord of Lothlorien"
       ],
-      "base_mm": "25mm",
-      "points": 125
+      "base_mm": "25mm"
     },
     {
       "id": "bilbo",
@@ -3600,8 +3456,7 @@
         "Ring-bearer",
         "Sting"
       ],
-      "base_mm": "25mm",
-      "points": 55
+      "base_mm": "25mm"
     },
     {
       "id": "king_of_the_dead",
@@ -3636,8 +3491,7 @@
         "Terror",
         "Oathbreaker King"
       ],
-      "base_mm": "25mm",
-      "points": 100
+      "base_mm": "25mm"
     },
     {
       "id": "dead_soldier",
@@ -3654,7 +3508,6 @@
         "terror"
       ],
       "base_mm": "25mm",
-      "points": 15,
       "troopPromotion": {
         "group": "dead",
         "aliasOf": null,
@@ -3676,8 +3529,7 @@
       "base": "XXL",
       "sheet": "roster-legends-evil-v2.png",
       "file": "tokens/olog_hai.png",
-      "base_mm": "60mm",
-      "points": 90
+      "base_mm": "60mm"
     },
     {
       "id": "watcher_in_the_water",
@@ -3693,12 +3545,11 @@
       "traits": [
         "terror"
       ],
-      "base_mm": "100mm",
-      "points": 200
+      "base_mm": "100mm"
     },
     {
       "id": "mirkwood_spider",
-      "name_ko": "미르크우드 거미",
+      "name_ko": "머크우드 거미",
       "name_en": "Mirkwood Spider",
       "side": "evil",
       "faction": "dol_guldur",
@@ -3707,8 +3558,7 @@
       "base": "L",
       "sheet": "roster-legends-evil-v2.png",
       "file": "tokens/mirkwood_spider.png",
-      "base_mm": "50mm",
-      "points": 20
+      "base_mm": "50mm"
     },
     {
       "id": "harad_chieftain",
@@ -3738,8 +3588,7 @@
       "rules": [
         "Haradrim Chieftain"
       ],
-      "base_mm": "25mm",
-      "points": 50
+      "base_mm": "25mm"
     },
     {
       "id": "uruk_captain",
@@ -3769,8 +3618,7 @@
       "rules": [
         "Uruk-hai Captain"
       ],
-      "base_mm": "25mm",
-      "points": 65
+      "base_mm": "25mm"
     },
     {
       "id": "hill_troll",
@@ -3783,8 +3631,7 @@
       "base": "XL",
       "sheet": "roster-legends-evil-v2.png",
       "file": "tokens/hill_troll.png",
-      "base_mm": "50mm",
-      "points": 75
+      "base_mm": "50mm"
     },
     {
       "id": "feanor",
@@ -3816,8 +3663,7 @@
         "Greatest of the Noldor",
         "Silmarils"
       ],
-      "base_mm": "25mm",
-      "points": 170
+      "base_mm": "25mm"
     },
     {
       "id": "luthien",
@@ -3851,8 +3697,7 @@
         "Power of Song",
         "Lulled Morgoth"
       ],
-      "base_mm": "25mm",
-      "points": 150
+      "base_mm": "25mm"
     },
     {
       "id": "beren",
@@ -3882,8 +3727,7 @@
       "rules": [
         "The One-handed"
       ],
-      "base_mm": "25mm",
-      "points": 115
+      "base_mm": "25mm"
     },
     {
       "id": "turin",
@@ -3917,8 +3761,7 @@
         "Bane of Glaurung",
         "Ill-fated"
       ],
-      "base_mm": "25mm",
-      "points": 170
+      "base_mm": "25mm"
     },
     {
       "id": "beleg",
@@ -3950,8 +3793,7 @@
         "Belthronding",
         "Greatest Archer"
       ],
-      "base_mm": "25mm",
-      "points": 45
+      "base_mm": "25mm"
     },
     {
       "id": "huan",
@@ -3964,8 +3806,7 @@
       "base": "L",
       "sheet": "roster-silmarillion-good-v1.png",
       "file": "tokens/huan.png",
-      "base_mm": "50mm",
-      "points": 85
+      "base_mm": "50mm"
     },
     {
       "id": "glaurung",
@@ -3999,8 +3840,7 @@
         "Terror",
         "Hypnotic Gaze"
       ],
-      "base_mm": "120mm",
-      "points": 670
+      "base_mm": "120mm"
     },
     {
       "id": "carcharoth",
@@ -4032,8 +3872,7 @@
         "Wolf of Angband",
         "Silmaril-maddened"
       ],
-      "base_mm": "50mm",
-      "points": 255
+      "base_mm": "50mm"
     },
     {
       "id": "gothmog_balrog",
@@ -4070,8 +3909,7 @@
         "Terror",
         "Slew Feanor and Ecthelion"
       ],
-      "base_mm": "100mm",
-      "points": 355
+      "base_mm": "100mm"
     },
     {
       "id": "draugluin",
@@ -4101,8 +3939,7 @@
       "rules": [
         "Sire of Werewolves"
       ],
-      "base_mm": "50mm",
-      "points": 145
+      "base_mm": "50mm"
     },
     {
       "id": "thuringwethil",
@@ -4134,8 +3971,7 @@
         "Bat-herald of Sauron",
         "Terror"
       ],
-      "base_mm": "50mm",
-      "points": 185
+      "base_mm": "50mm"
     },
     {
       "id": "boldog",
@@ -4167,8 +4003,7 @@
         "Orc-form Maia",
         "Orc Hero"
       ],
-      "base_mm": "25mm",
-      "points": 195
+      "base_mm": "25mm"
     },
     {
       "id": "thorin",
@@ -4200,8 +4035,7 @@
         "Oakenshield",
         "Thorin's Company"
       ],
-      "base_mm": "25mm",
-      "points": 115
+      "base_mm": "25mm"
     },
     {
       "id": "tauriel",
@@ -4233,8 +4067,7 @@
         "Captain of the Guard",
         "Knives of Tauriel"
       ],
-      "base_mm": "25mm",
-      "points": 90
+      "base_mm": "25mm"
     },
     {
       "id": "bard",
@@ -4266,8 +4099,7 @@
         "Dragonslayer",
         "Black Arrow"
       ],
-      "base_mm": "25mm",
-      "points": 130
+      "base_mm": "25mm"
     },
     {
       "id": "dain",
@@ -4297,8 +4129,7 @@
       "rules": [
         "Lord of the Iron Hills"
       ],
-      "base_mm": "25mm",
-      "points": 160
+      "base_mm": "25mm"
     },
     {
       "id": "fili",
@@ -4328,8 +4159,7 @@
       "rules": [
         "Thorin's Company"
       ],
-      "base_mm": "25mm",
-      "points": 50
+      "base_mm": "25mm"
     },
     {
       "id": "kili",
@@ -4359,8 +4189,7 @@
       "rules": [
         "Thorin's Company"
       ],
-      "base_mm": "25mm",
-      "points": 50
+      "base_mm": "25mm"
     },
     {
       "id": "azog",
@@ -4392,8 +4221,7 @@
         "The Defiler",
         "Pale Orc"
       ],
-      "base_mm": "40mm",
-      "points": 175
+      "base_mm": "40mm"
     },
     {
       "id": "azog_warg_rider",
@@ -4406,8 +4234,7 @@
       "base": "XL",
       "sheet": "roster-hobbit-evil-v1.png",
       "file": "tokens/azog_warg_rider.png",
-      "base_mm": "40mm",
-      "points": 225
+      "base_mm": "40mm"
     },
     {
       "id": "azog_foot",
@@ -4421,8 +4248,7 @@
       "sheet": "roster-hobbit-evil-v1.png",
       "file": "tokens/azog_foot.png",
       "artScale": 1.2,
-      "base_mm": "25mm",
-      "points": 175
+      "base_mm": "25mm"
     },
     {
       "id": "necromancer",
@@ -4456,8 +4282,7 @@
         "Terror",
         "Sauron in Disguise"
       ],
-      "base_mm": "25mm",
-      "points": 200
+      "base_mm": "25mm"
     },
     {
       "id": "hunter_orc",
@@ -4471,7 +4296,6 @@
       "sheet": "roster-hobbit-evil-v1.png",
       "file": "tokens/hunter_orc.png",
       "base_mm": "25mm",
-      "points": 8,
       "troopPromotion": {
         "group": "gundabad",
         "aliasOf": null,
@@ -4494,7 +4318,6 @@
       "sheet": "roster-hobbit-evil-v1.png",
       "file": "tokens/gundabad_orc.png",
       "base_mm": "25mm",
-      "points": 9,
       "troopPromotion": {
         "group": "gundabad",
         "aliasOf": null,
@@ -4516,7 +4339,6 @@
       "sheet": "roster-hobbit-evil-v1.png",
       "file": "tokens/goblin_mercenary.png",
       "base_mm": "25mm",
-      "points": 6,
       "troopPromotion": {
         "group": "moria",
         "aliasOf": null,
@@ -4554,8 +4376,7 @@
         "Grey Company",
         "Standard of Arwen"
       ],
-      "base_mm": "25mm",
-      "points": 70
+      "base_mm": "25mm"
     },
     {
       "id": "beregond",
@@ -4585,8 +4406,7 @@
       "rules": [
         "Guard of the Citadel"
       ],
-      "base_mm": "25mm",
-      "points": 65
+      "base_mm": "25mm"
     },
     {
       "id": "elladan",
@@ -4618,8 +4438,7 @@
         "Sons of Elrond",
         "Grey Company"
       ],
-      "base_mm": "25mm",
-      "points": 80
+      "base_mm": "25mm"
     },
     {
       "id": "elrohir",
@@ -4651,8 +4470,7 @@
         "Sons of Elrond",
         "Grey Company"
       ],
-      "base_mm": "25mm",
-      "points": 80
+      "base_mm": "25mm"
     },
     {
       "id": "grimbeorn",
@@ -4682,8 +4500,7 @@
       "rules": [
         "Beorning Chieftain"
       ],
-      "base_mm": "25mm",
-      "points": 200
+      "base_mm": "25mm"
     },
     {
       "id": "ghan_buri_ghan",
@@ -4696,8 +4513,7 @@
       "base": "S",
       "sheet": "roster-exp-good-v1.png",
       "file": "tokens/ghan_buri_ghan.png",
-      "base_mm": "25mm",
-      "points": 65
+      "base_mm": "25mm"
     },
     {
       "id": "suladan",
@@ -4727,8 +4543,7 @@
       "rules": [
         "Serpent Lord"
       ],
-      "base_mm": "25mm",
-      "points": 120
+      "base_mm": "25mm"
     },
     {
       "id": "corsair_umbra",
@@ -4742,7 +4557,6 @@
       "sheet": "roster-exp-evil-v1.png",
       "file": "tokens/corsair_umbra.png",
       "base_mm": "25mm",
-      "points": 8,
       "troopPromotion": {
         "group": "umbar",
         "aliasOf": null,
@@ -4765,7 +4579,6 @@
       "sheet": "roster-exp-evil-v1.png",
       "file": "tokens/variag_horseman.png",
       "base_mm": "40mm",
-      "points": 14,
       "troopPromotion": {
         "group": "khand",
         "aliasOf": null,
@@ -4801,8 +4614,7 @@
       "rules": [
         "Captain of Cirith Ungol"
       ],
-      "base_mm": "25mm",
-      "points": 110
+      "base_mm": "25mm"
     },
     {
       "id": "gorbag",
@@ -4832,8 +4644,7 @@
       "rules": [
         "Minas Morgul Garrison"
       ],
-      "base_mm": "25mm",
-      "points": 60
+      "base_mm": "25mm"
     },
     {
       "id": "warg_alpha",
@@ -4846,8 +4657,7 @@
       "base": "XL",
       "sheet": "roster-exp-evil-v1.png",
       "file": "tokens/warg_alpha.png",
-      "base_mm": "50mm",
-      "points": 10
+      "base_mm": "50mm"
     },
     {
       "id": "balin",
@@ -4879,8 +4689,7 @@
         "Thorin's Company",
         "Lord of Moria"
       ],
-      "base_mm": "25mm",
-      "points": 40
+      "base_mm": "25mm"
     },
     {
       "id": "dwalin",
@@ -4912,8 +4721,7 @@
         "Thorin's Company",
         "Dwalin's Axes"
       ],
-      "base_mm": "25mm",
-      "points": 95
+      "base_mm": "25mm"
     },
     {
       "id": "gloin",
@@ -4926,8 +4734,7 @@
       "base": "M",
       "sheet": "roster-hobbit-company-v1.png",
       "file": "tokens/gloin.png",
-      "base_mm": "25mm",
-      "points": 85
+      "base_mm": "25mm"
     },
     {
       "id": "oin",
@@ -4940,8 +4747,7 @@
       "base": "M",
       "sheet": "roster-hobbit-company-v1.png",
       "file": "tokens/oin.png",
-      "base_mm": "25mm",
-      "points": 50
+      "base_mm": "25mm"
     },
     {
       "id": "nori",
@@ -4954,8 +4760,7 @@
       "base": "M",
       "sheet": "roster-hobbit-company-v1.png",
       "file": "tokens/nori.png",
-      "base_mm": "25mm",
-      "points": 55
+      "base_mm": "25mm"
     },
     {
       "id": "ori",
@@ -4968,8 +4773,7 @@
       "base": "M",
       "sheet": "roster-hobbit-company-v1.png",
       "file": "tokens/ori.png",
-      "base_mm": "25mm",
-      "points": 40
+      "base_mm": "25mm"
     },
     {
       "id": "dori",
@@ -4982,8 +4786,7 @@
       "base": "M",
       "sheet": "roster-hobbit-exp-v1.png",
       "file": "tokens/dori.png",
-      "base_mm": "25mm",
-      "points": 55
+      "base_mm": "25mm"
     },
     {
       "id": "bifur",
@@ -4996,8 +4799,7 @@
       "base": "M",
       "sheet": "roster-hobbit-exp-v1.png",
       "file": "tokens/bifur.png",
-      "base_mm": "25mm",
-      "points": 45
+      "base_mm": "25mm"
     },
     {
       "id": "bofur",
@@ -5010,8 +4812,7 @@
       "base": "M",
       "sheet": "roster-hobbit-exp-v1.png",
       "file": "tokens/bofur.png",
-      "base_mm": "25mm",
-      "points": 45
+      "base_mm": "25mm"
     },
     {
       "id": "bombur",
@@ -5024,8 +4825,7 @@
       "base": "M",
       "sheet": "roster-hobbit-exp-v1.png",
       "file": "tokens/bombur.png",
-      "base_mm": "25mm",
-      "points": 45
+      "base_mm": "25mm"
     },
     {
       "id": "goat_rider",
@@ -5039,7 +4839,6 @@
       "sheet": "roster-hobbit-exp-v1.png",
       "file": "tokens/goat_rider.png",
       "base_mm": "40mm",
-      "points": 20,
       "troopPromotion": {
         "group": "iron_hills",
         "aliasOf": null,
@@ -5058,8 +4857,7 @@
       "base": "M",
       "sheet": "roster-hobbit-exp-v1.png",
       "file": "tokens/gollum.png",
-      "base_mm": "50mm",
-      "points": 40
+      "base_mm": "50mm"
     },
     {
       "id": "gil_galad",
@@ -5091,8 +4889,7 @@
         "Last High King",
         "Aeglos"
       ],
-      "base_mm": "25mm",
-      "points": 175
+      "base_mm": "25mm"
     },
     {
       "id": "cirdan",
@@ -5126,8 +4923,7 @@
         "Narya",
         "Foreseeing"
       ],
-      "base_mm": "25mm",
-      "points": 75
+      "base_mm": "25mm"
     },
     {
       "id": "arwen",
@@ -5157,8 +4953,7 @@
       "rules": [
         "Evenstar"
       ],
-      "base_mm": "25mm",
-      "points": 70
+      "base_mm": "25mm"
     },
     {
       "id": "lindir",
@@ -5188,8 +4983,7 @@
       "rules": [
         "Elf of Rivendell"
       ],
-      "base_mm": "25mm",
-      "points": 70
+      "base_mm": "25mm"
     },
     {
       "id": "erestor",
@@ -5219,8 +5013,7 @@
       "rules": [
         "Elf of Rivendell"
       ],
-      "base_mm": "25mm",
-      "points": 85
+      "base_mm": "25mm"
     },
     {
       "id": "elf_seer",
@@ -5233,8 +5026,7 @@
       "base": "M",
       "sheet": "roster-elf-exp-v1.png",
       "file": "tokens/elf_seer.png",
-      "base_mm": "25mm",
-      "points": 105
+      "base_mm": "25mm"
     },
     {
       "id": "rumil",
@@ -5264,8 +5056,7 @@
       "rules": [
         "Lorien Archer"
       ],
-      "base_mm": "25mm",
-      "points": 85
+      "base_mm": "25mm"
     },
     {
       "id": "orophin",
@@ -5295,12 +5086,11 @@
       "rules": [
         "Lorien Archer"
       ],
-      "base_mm": "25mm",
-      "points": 85
+      "base_mm": "25mm"
     },
     {
       "id": "mirkwood_sentinel",
-      "name_ko": "미르크우드 보초",
+      "name_ko": "머크우드 보초",
       "name_en": "Mirkwood Sentinel",
       "side": "good",
       "faction": "mirkwood",
@@ -5310,7 +5100,6 @@
       "sheet": "roster-elf-exp-v2.png",
       "file": "tokens/mirkwood_sentinel.png",
       "base_mm": "25mm",
-      "points": 25,
       "troopPromotion": {
         "group": "mirkwood",
         "aliasOf": null,
@@ -5332,7 +5121,6 @@
       "sheet": "roster-elf-exp-v2.png",
       "file": "tokens/noldor_warrior.png",
       "base_mm": "25mm",
-      "points": 12,
       "troopPromotion": {
         "group": "first_age",
         "aliasOf": null,
@@ -5355,7 +5143,6 @@
       "sheet": "roster-elf-exp-v2.png",
       "file": "tokens/silvan_archer.png",
       "base_mm": "25mm",
-      "points": 13,
       "troopPromotion": {
         "group": "mirkwood",
         "aliasOf": null,
@@ -5377,7 +5164,6 @@
       "sheet": "roster-elf-exp-v2.png",
       "file": "tokens/elven_lancer.png",
       "base_mm": "40mm",
-      "points": 20,
       "troopPromotion": {
         "group": "rivendell",
         "aliasOf": null,
@@ -5396,8 +5182,7 @@
       "base": "XL",
       "sheet": "roster-mounted-heroes-v1.png",
       "file": "tokens/imrahil_mounted.png",
-      "base_mm": "40mm",
-      "points": 170
+      "base_mm": "40mm"
     },
     {
       "id": "gandalf_mounted",
@@ -5431,8 +5216,7 @@
         "Glamdring",
         "Shadowfax"
       ],
-      "base_mm": "40mm",
-      "points": 220
+      "base_mm": "40mm"
     },
     {
       "id": "thranduil_mounted",
@@ -5464,8 +5248,7 @@
         "Elvenking",
         "Elk Mount"
       ],
-      "base_mm": "40mm",
-      "points": 160
+      "base_mm": "40mm"
     },
     {
       "id": "aragorn_mounted",
@@ -5497,8 +5280,7 @@
         "Hero of Legend",
         "Anduril"
       ],
-      "base_mm": "40mm",
-      "points": 185
+      "base_mm": "40mm"
     },
     {
       "id": "blackroot_archer",
@@ -5512,7 +5294,6 @@
       "sheet": "roster-mounted-heroes-v1.png",
       "file": "tokens/blackroot_archer.png",
       "base_mm": "25mm",
-      "points": 8,
       "troopPromotion": {
         "group": "gondor",
         "aliasOf": null,
@@ -5531,8 +5312,7 @@
       "base": "L",
       "sheet": "roster-mordor-monsters-v1.png",
       "file": "tokens/half_troll.png",
-      "base_mm": "50mm",
-      "points": 25
+      "base_mm": "50mm"
     },
     {
       "id": "cave_drake",
@@ -5545,8 +5325,7 @@
       "base": "XL",
       "sheet": "roster-mordor-monsters-v1.png",
       "file": "tokens/cave_drake.png",
-      "base_mm": "50mm",
-      "points": 150
+      "base_mm": "50mm"
     },
     {
       "id": "bat_swarm",
@@ -5562,8 +5341,7 @@
       "traits": [
         "fly"
       ],
-      "base_mm": "50mm",
-      "points": 35
+      "base_mm": "50mm"
     },
     {
       "id": "muzgur",
@@ -5597,8 +5375,7 @@
         "Ringwraith",
         "Muzgur"
       ],
-      "base_mm": "25mm",
-      "points": 70
+      "base_mm": "25mm"
     },
     {
       "id": "buhrdur",
@@ -5611,8 +5388,7 @@
       "base": "XL",
       "sheet": "roster-mordor-monsters-v1.png",
       "file": "tokens/buhrdur.png",
-      "base_mm": "60mm",
-      "points": 130
+      "base_mm": "60mm"
     },
     {
       "id": "mahud_chieftain",
@@ -5642,8 +5418,7 @@
       "rules": [
         "Mahud Chief"
       ],
-      "base_mm": "25mm",
-      "points": 55
+      "base_mm": "25mm"
     },
     {
       "id": "eowyn_mounted",
@@ -5656,8 +5431,7 @@
       "base": "XL",
       "sheet": "roster-west-heroes-v1.png",
       "file": "tokens/eowyn_mounted.png",
-      "base_mm": "40mm",
-      "points": 80
+      "base_mm": "40mm"
     },
     {
       "id": "forlong",
@@ -5687,8 +5461,7 @@
       "rules": [
         "Lord of Lossarnach"
       ],
-      "base_mm": "25mm",
-      "points": 90
+      "base_mm": "25mm"
     },
     {
       "id": "erkenbrand",
@@ -5718,8 +5491,7 @@
       "rules": [
         "Marshal of the West-mark"
       ],
-      "base_mm": "25mm",
-      "points": 70
+      "base_mm": "25mm"
     },
     {
       "id": "damrod",
@@ -5749,8 +5521,7 @@
       "rules": [
         "Ithilien Ranger"
       ],
-      "base_mm": "25mm",
-      "points": 40
+      "base_mm": "25mm"
     },
     {
       "id": "mablung",
@@ -5780,8 +5551,7 @@
       "rules": [
         "Chief of the March-wardens"
       ],
-      "base_mm": "25mm",
-      "points": 40
+      "base_mm": "25mm"
     },
     {
       "id": "duinhir",
@@ -5811,8 +5581,7 @@
       "rules": [
         "Lord of Blackroot Vale"
       ],
-      "base_mm": "25mm",
-      "points": 65
+      "base_mm": "25mm"
     },
     {
       "id": "ugluk",
@@ -5842,8 +5611,7 @@
       "rules": [
         "Uruk-hai Scout Captain"
       ],
-      "base_mm": "25mm",
-      "points": 75
+      "base_mm": "25mm"
     },
     {
       "id": "mauhur",
@@ -5873,8 +5641,7 @@
       "rules": [
         "Uruk-hai"
       ],
-      "base_mm": "25mm",
-      "points": 65
+      "base_mm": "25mm"
     },
     {
       "id": "vrasku",
@@ -5904,8 +5671,7 @@
       "rules": [
         "Crossbow Captain"
       ],
-      "base_mm": "25mm",
-      "points": 70
+      "base_mm": "25mm"
     },
     {
       "id": "stone_troll",
@@ -5918,8 +5684,7 @@
       "base": "XL",
       "sheet": "roster-east-monsters-v1.png",
       "file": "tokens/stone_troll.png",
-      "base_mm": "50mm",
-      "points": 75
+      "base_mm": "50mm"
     },
     {
       "id": "werewolf",
@@ -5935,8 +5700,7 @@
       "traits": [
         "terror"
       ],
-      "base_mm": "50mm",
-      "points": 25
+      "base_mm": "50mm"
     },
     {
       "id": "gulavhar",
@@ -5949,8 +5713,7 @@
       "base": "XXL",
       "sheet": "roster-east-monsters-v1.png",
       "file": "tokens/gulavhar.png",
-      "base_mm": "60mm",
-      "points": 200
+      "base_mm": "60mm"
     },
     {
       "id": "terr_catapult",
@@ -6374,8 +6137,7 @@
         "Ringwraith",
         "The Dark Marshal"
       ],
-      "base_mm": "25mm",
-      "points": 130
+      "base_mm": "25mm"
     },
     {
       "id": "shadow_lord",
@@ -6412,8 +6174,7 @@
         "Ringwraith",
         "The Shadow Lord"
       ],
-      "base_mm": "25mm",
-      "points": 130
+      "base_mm": "25mm"
     },
     {
       "id": "betrayer",
@@ -6447,8 +6208,7 @@
         "Ringwraith",
         "The Betrayer"
       ],
-      "base_mm": "25mm",
-      "points": 130
+      "base_mm": "25mm"
     },
     {
       "id": "tainted",
@@ -6482,8 +6242,7 @@
         "Ringwraith",
         "The Tainted"
       ],
-      "base_mm": "25mm",
-      "points": 130
+      "base_mm": "25mm"
     },
     {
       "id": "undying",
@@ -6517,8 +6276,7 @@
         "Ringwraith",
         "The Undying"
       ],
-      "base_mm": "25mm",
-      "points": 130
+      "base_mm": "25mm"
     },
     {
       "id": "knight_of_umbar",
@@ -6531,8 +6289,7 @@
       "base": "L",
       "sheet": "roster-nazgul-nine-v1.png",
       "file": "tokens/knight_of_umbar.png",
-      "base_mm": "25mm",
-      "points": 130
+      "base_mm": "25mm"
     },
     {
       "id": "isildur",
@@ -6564,8 +6321,7 @@
         "Ring-bearer",
         "Cut the Ring"
       ],
-      "base_mm": "25mm",
-      "points": 130
+      "base_mm": "25mm"
     },
     {
       "id": "gandalf_white",
@@ -6599,8 +6355,7 @@
         "Glamdring",
         "The White Rider"
       ],
-      "base_mm": "25mm",
-      "points": 200
+      "base_mm": "25mm"
     },
     {
       "id": "denethor",
@@ -6630,8 +6385,7 @@
       "rules": [
         "Steward of Gondor"
       ],
-      "base_mm": "25mm",
-      "points": 50
+      "base_mm": "25mm"
     },
     {
       "id": "huorn",
@@ -6644,8 +6398,7 @@
       "base": "XL",
       "sheet": "roster-good-fill-v1.png",
       "file": "tokens/huorn.png",
-      "base_mm": "50mm",
-      "points": 85
+      "base_mm": "50mm"
     },
     {
       "id": "boromir_mounted",
@@ -6658,8 +6411,7 @@
       "base": "XL",
       "sheet": "roster-good-fill-v1.png",
       "file": "tokens/boromir_mounted.png",
-      "base_mm": "40mm",
-      "points": 185
+      "base_mm": "40mm"
     },
     {
       "id": "elrond_mounted",
@@ -6672,8 +6424,7 @@
       "base": "XL",
       "sheet": "roster-good-fill-v1.png",
       "file": "tokens/elrond_mounted.png",
-      "base_mm": "40mm",
-      "points": 190
+      "base_mm": "40mm"
     },
     {
       "id": "gandalf_white_mounted",
@@ -6686,8 +6437,7 @@
       "base": "XL",
       "sheet": "roster-good-fill-v2.png",
       "file": "tokens/gandalf_white_mounted.png",
-      "base_mm": "40mm",
-      "points": 225
+      "base_mm": "40mm"
     },
     {
       "id": "theoden_foot",
@@ -6719,8 +6469,7 @@
         "King of Rohan",
         "Herugrim"
       ],
-      "base_mm": "25mm",
-      "points": 85
+      "base_mm": "25mm"
     },
     {
       "id": "dain_boar",
@@ -6733,8 +6482,7 @@
       "base": "XL",
       "sheet": "roster-good-fill-v2.png",
       "file": "tokens/dain_boar.png",
-      "base_mm": "40mm",
-      "points": 185
+      "base_mm": "40mm"
     },
     {
       "id": "faramir_mounted",
@@ -6747,8 +6495,7 @@
       "base": "XL",
       "sheet": "roster-good-fill-v2.png",
       "file": "tokens/faramir_mounted.png",
-      "base_mm": "40mm",
-      "points": 120
+      "base_mm": "40mm"
     },
     {
       "id": "eomer_foot",
@@ -6780,8 +6527,7 @@
         "Marshal of the Riddermark",
         "Guthwine"
       ],
-      "base_mm": "25mm",
-      "points": 110
+      "base_mm": "25mm"
     },
     {
       "id": "elfhelm",
@@ -6811,8 +6557,7 @@
       "rules": [
         "Marshal of the East-mark"
       ],
-      "base_mm": "25mm",
-      "points": 60
+      "base_mm": "25mm"
     },
     {
       "id": "elfhelm_mounted",
@@ -6844,8 +6589,7 @@
         "Marshal of the East-mark",
         "Mounted"
       ],
-      "base_mm": "40mm",
-      "points": 80
+      "base_mm": "40mm"
     },
     {
       "id": "warg_rider_spear",
@@ -6859,7 +6603,6 @@
       "sheet": "roster-warg-riders-v1.png",
       "file": "tokens/warg_rider_spear.png",
       "base_mm": "40mm",
-      "points": 12,
       "troopPromotion": {
         "group": "isengard_orcs",
         "aliasOf": null,
@@ -6879,7 +6622,6 @@
       "sheet": "roster-warg-riders-v1.png",
       "file": "tokens/warg_rider_bow.png",
       "base_mm": "40mm",
-      "points": 12,
       "troopPromotion": {
         "group": "isengard_orcs",
         "aliasOf": null,
@@ -6915,8 +6657,7 @@
       "rules": [
         "Warg-pack Leader"
       ],
-      "base_mm": "40mm",
-      "points": 80
+      "base_mm": "40mm"
     },
     {
       "id": "wild_warg",
@@ -6929,8 +6670,7 @@
       "base": "L",
       "sheet": "roster-warg-riders-v1.png",
       "file": "tokens/wild_warg.png",
-      "base_mm": "50mm",
-      "points": 7
+      "base_mm": "50mm"
     },
     {
       "id": "wild_warg_alpha",
@@ -6943,8 +6683,7 @@
       "base": "XL",
       "sheet": "roster-warg-riders-v1.png",
       "file": "tokens/wild_warg_alpha.png",
-      "base_mm": "50mm",
-      "points": 10
+      "base_mm": "50mm"
     },
     {
       "id": "ancalagon",
@@ -6976,8 +6715,7 @@
         "Mightiest Winged Dragon",
         "Terror"
       ],
-      "base_mm": "120mm",
-      "points": 790
+      "base_mm": "120mm"
     },
     {
       "id": "terr_ruined_gate",
@@ -7093,8 +6831,7 @@
         "Ringwraith",
         "Fell Beast"
       ],
-      "base_mm": "60mm",
-      "points": 170
+      "base_mm": "60mm"
     },
     {
       "id": "fellbeast",
@@ -7111,8 +6848,7 @@
         "fly",
         "terror"
       ],
-      "base_mm": "60mm",
-      "points": 175
+      "base_mm": "60mm"
     },
     {
       "id": "quickbeam",
@@ -7125,8 +6861,7 @@
       "base": "XL",
       "sheet": "ents.png",
       "file": "tokens/quickbeam.png",
-      "base_mm": "50mm",
-      "points": 100
+      "base_mm": "50mm"
     },
     {
       "id": "aragorn_blackgate",
@@ -7160,8 +6895,7 @@
         "Anduril",
         "King Elessar"
       ],
-      "base_mm": "25mm",
-      "points": 225
+      "base_mm": "25mm"
     },
     {
       "id": "aragorn_blackgate_mounted",
@@ -7195,8 +6929,7 @@
         "Anduril",
         "King Elessar"
       ],
-      "base_mm": "40mm",
-      "points": 250
+      "base_mm": "40mm"
     },
     {
       "id": "anborn",
@@ -7226,8 +6959,7 @@
       "rules": [
         "Ithilien Ranger"
       ],
-      "base_mm": "25mm",
-      "points": 40
+      "base_mm": "25mm"
     },
     {
       "id": "hirluin",
@@ -7257,8 +6989,7 @@
       "rules": [
         "Lord of Pinnath Gelin"
       ],
-      "base_mm": "25mm",
-      "points": 80
+      "base_mm": "25mm"
     },
     {
       "id": "madril",
@@ -7288,8 +7019,7 @@
       "rules": [
         "Captain of Ithilien Rangers"
       ],
-      "base_mm": "25mm",
-      "points": 60
+      "base_mm": "25mm"
     },
     {
       "id": "irolas",
@@ -7319,8 +7049,7 @@
       "rules": [
         "Captain of the Guard"
       ],
-      "base_mm": "25mm",
-      "points": 65
+      "base_mm": "25mm"
     },
     {
       "id": "hurin",
@@ -7350,8 +7079,7 @@
       "rules": [
         "Warden of the Keys"
       ],
-      "base_mm": "25mm",
-      "points": 80
+      "base_mm": "25mm"
     },
     {
       "id": "cirion",
@@ -7381,8 +7109,7 @@
       "rules": [
         "Steward's Heir"
       ],
-      "base_mm": "25mm",
-      "points": 65
+      "base_mm": "25mm"
     },
     {
       "id": "theodred",
@@ -7412,8 +7139,7 @@
       "rules": [
         "Prince of Rohan"
       ],
-      "base_mm": "25mm",
-      "points": 105
+      "base_mm": "25mm"
     },
     {
       "id": "hama",
@@ -7443,8 +7169,7 @@
       "rules": [
         "Doorward of Meduseld"
       ],
-      "base_mm": "25mm",
-      "points": 60
+      "base_mm": "25mm"
     },
     {
       "id": "deorwine",
@@ -7474,8 +7199,7 @@
       "rules": [
         "Chief of the King's Knights"
       ],
-      "base_mm": "25mm",
-      "points": 70
+      "base_mm": "25mm"
     },
     {
       "id": "grimbold",
@@ -7505,8 +7229,7 @@
       "rules": [
         "Marshal of the West-mark"
       ],
-      "base_mm": "25mm",
-      "points": 65
+      "base_mm": "25mm"
     },
     {
       "id": "harding",
@@ -7536,8 +7259,7 @@
       "rules": [
         "Master of the Harrowfields"
       ],
-      "base_mm": "25mm",
-      "points": 70
+      "base_mm": "25mm"
     },
     {
       "id": "rohan_royal_guard_mounted",
@@ -7551,7 +7273,6 @@
       "sheet": "exp-rohan.png",
       "file": "tokens/rohan_royal_guard_mounted.png",
       "base_mm": "40mm",
-      "points": 18,
       "troopPromotion": {
         "group": "rohan",
         "aliasOf": null,
@@ -7587,8 +7308,7 @@
       "rules": [
         "Last King of Arnor"
       ],
-      "base_mm": "25mm",
-      "points": 80
+      "base_mm": "25mm"
     },
     {
       "id": "malbeth",
@@ -7618,8 +7338,7 @@
       "rules": [
         "The Seer"
       ],
-      "base_mm": "25mm",
-      "points": 80
+      "base_mm": "25mm"
     },
     {
       "id": "numenorean_captain",
@@ -7649,8 +7368,7 @@
       "rules": [
         "Numenorean"
       ],
-      "base_mm": "25mm",
-      "points": 70
+      "base_mm": "25mm"
     },
     {
       "id": "numenorean_warrior",
@@ -7664,7 +7382,6 @@
       "sheet": "exp-numenor-arnor.png",
       "file": "tokens/numenorean_warrior.png",
       "base_mm": "25mm",
-      "points": 10,
       "troopPromotion": {
         "group": "numenor",
         "aliasOf": null,
@@ -7690,7 +7407,6 @@
       "sheet": "exp-numenor-arnor.png",
       "file": "tokens/numenorean_spearman.png",
       "base_mm": "25mm",
-      "points": 11,
       "troopPromotion": {
         "group": "numenor",
         "aliasOf": null,
@@ -7713,7 +7429,6 @@
       "sheet": "exp-numenor-arnor.png",
       "file": "tokens/arnor_warrior.png",
       "base_mm": "25mm",
-      "points": 8,
       "troopPromotion": {
         "group": "arnor",
         "aliasOf": null,
@@ -7754,8 +7469,7 @@
         "Assassin",
         "Poisoned Blades"
       ],
-      "base_mm": "25mm",
-      "points": 80
+      "base_mm": "25mm"
     },
     {
       "id": "golden_king",
@@ -7785,8 +7499,7 @@
       "rules": [
         "King of Abrakhan"
       ],
-      "base_mm": "25mm",
-      "points": 130
+      "base_mm": "25mm"
     },
     {
       "id": "mahud_beastmaster",
@@ -7818,8 +7531,7 @@
         "Beastmaster",
         "Controls Mumak"
       ],
-      "base_mm": "25mm",
-      "points": 50
+      "base_mm": "25mm"
     },
     {
       "id": "watcher_karna",
@@ -7833,7 +7545,6 @@
       "sheet": "exp-harad.png",
       "file": "tokens/watcher_karna.png",
       "base_mm": "25mm",
-      "points": 9,
       "troopPromotion": {
         "group": "harad",
         "aliasOf": null,
@@ -7853,7 +7564,6 @@
       "sheet": "exp-harad.png",
       "file": "tokens/haradrim_raider.png",
       "base_mm": "40mm",
-      "points": 11,
       "troopPromotion": {
         "group": "harad",
         "aliasOf": null,
@@ -7873,7 +7583,6 @@
       "sheet": "exp-harad.png",
       "file": "tokens/mahud_camel_raider.png",
       "base_mm": "40mm",
-      "points": 18,
       "troopPromotion": {
         "group": "far_harad",
         "aliasOf": null,
@@ -7909,8 +7618,7 @@
       "rules": [
         "Lord of Blades"
       ],
-      "base_mm": "25mm",
-      "points": 135
+      "base_mm": "25mm"
     },
     {
       "id": "dragon_knight",
@@ -7923,8 +7631,7 @@
       "base": "XL",
       "sheet": "exp-easterling.png",
       "file": "tokens/dragon_knight.png",
-      "base_mm": "40mm",
-      "points": 20
+      "base_mm": "40mm"
     },
     {
       "id": "easterling_priest",
@@ -7937,8 +7644,7 @@
       "base": "M",
       "sheet": "exp-easterling.png",
       "file": "tokens/easterling_priest.png",
-      "base_mm": "25mm",
-      "points": 60
+      "base_mm": "25mm"
     },
     {
       "id": "easterling_archer",
@@ -7952,7 +7658,6 @@
       "sheet": "exp-easterling.png",
       "file": "tokens/easterling_archer.png",
       "base_mm": "25mm",
-      "points": 9,
       "troopPromotion": {
         "group": "easterling",
         "aliasOf": null,
@@ -7974,7 +7679,6 @@
       "sheet": "exp-easterling.png",
       "file": "tokens/variag_warrior.png",
       "base_mm": "25mm",
-      "points": 8,
       "troopPromotion": {
         "group": "khand",
         "aliasOf": null,
@@ -7996,7 +7700,6 @@
       "sheet": "exp-easterling.png",
       "file": "tokens/khandish_horseman.png",
       "base_mm": "40mm",
-      "points": 14,
       "troopPromotion": {
         "group": "khand",
         "aliasOf": null,
@@ -8036,8 +7739,7 @@
         "Ringwraith",
         "The Forsaken"
       ],
-      "base_mm": "25mm",
-      "points": 80
+      "base_mm": "25mm"
     },
     {
       "id": "castellan",
@@ -8067,8 +7769,7 @@
       "rules": [
         "Castellan of Dol Guldur"
       ],
-      "base_mm": "25mm",
-      "points": 50
+      "base_mm": "25mm"
     },
     {
       "id": "dungeon_keeper",
@@ -8098,8 +7799,7 @@
       "rules": [
         "Keeper of the Dungeons"
       ],
-      "base_mm": "25mm",
-      "points": 80
+      "base_mm": "25mm"
     },
     {
       "id": "kardush",
@@ -8112,8 +7812,7 @@
       "base": "S",
       "sheet": "exp-dolguldur.png",
       "file": "tokens/kardush.png",
-      "base_mm": "25mm",
-      "points": 65
+      "base_mm": "25mm"
     },
     {
       "id": "morgul_stalker",
@@ -8127,7 +7826,6 @@
       "sheet": "exp-dolguldur.png",
       "file": "tokens/morgul_stalker.png",
       "base_mm": "25mm",
-      "points": 10,
       "troopPromotion": {
         "group": "mordor",
         "aliasOf": null,
@@ -8165,8 +7863,7 @@
         "Numenorean",
         "Marshal"
       ],
-      "base_mm": "25mm",
-      "points": 70
+      "base_mm": "25mm"
     },
     {
       "id": "thrydan",
@@ -8196,8 +7893,7 @@
       "rules": [
         "Chief of Dunland"
       ],
-      "base_mm": "25mm",
-      "points": 90
+      "base_mm": "25mm"
     },
     {
       "id": "gorulf",
@@ -8227,8 +7923,7 @@
       "rules": [
         "Dunland Champion"
       ],
-      "base_mm": "25mm",
-      "points": 70
+      "base_mm": "25mm"
     },
     {
       "id": "dunlending_berserker",
@@ -8242,7 +7937,6 @@
       "sheet": "exp-dunland.png",
       "file": "tokens/dunlending_berserker.png",
       "base_mm": "25mm",
-      "points": 4,
       "troopPromotion": {
         "group": "dunland",
         "aliasOf": null,
@@ -8261,8 +7955,7 @@
       "base": "M",
       "sheet": "exp-dunland.png",
       "file": "tokens/dunlending_shaman.png",
-      "base_mm": "25mm",
-      "points": 55
+      "base_mm": "25mm"
     },
     {
       "id": "dunlending_archer",
@@ -8276,7 +7969,6 @@
       "sheet": "exp-dunland.png",
       "file": "tokens/dunlending_archer.png",
       "base_mm": "25mm",
-      "points": 9,
       "troopPromotion": {
         "group": "dunland",
         "aliasOf": null,
@@ -8297,8 +7989,7 @@
       "base": "M",
       "sheet": "exp-dunland.png",
       "file": "tokens/ruffian.png",
-      "base_mm": "25mm",
-      "points": 5
+      "base_mm": "25mm"
     },
     {
       "id": "paladin_took",
@@ -8328,8 +8019,7 @@
       "rules": [
         "Thain of the Shire"
       ],
-      "base_mm": "25mm",
-      "points": 30
+      "base_mm": "25mm"
     },
     {
       "id": "farmer_maggot",
@@ -8361,8 +8051,7 @@
         "Farmer",
         "Dogs"
       ],
-      "base_mm": "25mm",
-      "points": 50
+      "base_mm": "25mm"
     },
     {
       "id": "fredegar",
@@ -8392,8 +8081,7 @@
       "rules": [
         "Fatty Bolger"
       ],
-      "base_mm": "25mm",
-      "points": 10
+      "base_mm": "25mm"
     },
     {
       "id": "durin_vi",
@@ -8423,8 +8111,7 @@
       "rules": [
         "King under the Mountain"
       ],
-      "base_mm": "25mm",
-      "points": 165
+      "base_mm": "25mm"
     },
     {
       "id": "dead_spearman",
@@ -8441,7 +8128,6 @@
         "terror"
       ],
       "base_mm": "25mm",
-      "points": 15,
       "troopPromotion": {
         "group": "dead",
         "aliasOf": null,
@@ -8460,8 +8146,7 @@
       "base": "XXL",
       "sheet": "exp-misc.png",
       "file": "tokens/stone_giant.png",
-      "base_mm": "60mm",
-      "points": 145
+      "base_mm": "60mm"
     },
     {
       "id": "gundabad_warg_rider",
@@ -8475,7 +8160,6 @@
       "sheet": "exp-wargs.png",
       "file": "tokens/gundabad_warg_rider.png",
       "base_mm": "40mm",
-      "points": 10,
       "troopPromotion": {
         "group": "gundabad",
         "aliasOf": null,
@@ -8962,8 +8646,7 @@
       "base": "M",
       "sheet": "nb-exp-heroes2.png",
       "file": "tokens/arathorn.png",
-      "base_mm": "25mm",
-      "points": 80
+      "base_mm": "25mm"
     },
     {
       "id": "angbor",
@@ -8976,8 +8659,7 @@
       "base": "M",
       "sheet": "nb-exp-heroes2.png",
       "file": "tokens/angbor.png",
-      "base_mm": "25mm",
-      "points": 70
+      "base_mm": "25mm"
     },
     {
       "id": "dunhere",
@@ -8990,8 +8672,7 @@
       "base": "M",
       "sheet": "nb-exp-heroes2.png",
       "file": "tokens/dunhere.png",
-      "base_mm": "25mm",
-      "points": 100
+      "base_mm": "25mm"
     },
     {
       "id": "haleth",
@@ -9004,8 +8685,7 @@
       "base": "M",
       "sheet": "nb-exp-heroes2.png",
       "file": "tokens/haleth.png",
-      "base_mm": "25mm",
-      "points": 30
+      "base_mm": "25mm"
     },
     {
       "id": "bandobras",
@@ -9018,8 +8698,7 @@
       "base": "S",
       "sheet": "nb-exp-heroes2.png",
       "file": "tokens/bandobras.png",
-      "base_mm": "25mm",
-      "points": 50
+      "base_mm": "25mm"
     },
     {
       "id": "gildor",
@@ -9032,8 +8711,7 @@
       "base": "M",
       "sheet": "nb-exp-heroes2.png",
       "file": "tokens/gildor.png",
-      "base_mm": "25mm",
-      "points": 70
+      "base_mm": "25mm"
     },
     {
       "id": "grishnakh",
@@ -9046,8 +8724,7 @@
       "base": "M",
       "sheet": "nb-exp-evil2.png",
       "file": "tokens/grishnakh.png",
-      "base_mm": "25mm",
-      "points": 55
+      "base_mm": "25mm"
     },
     {
       "id": "snaga",
@@ -9060,8 +8737,7 @@
       "base": "S",
       "sheet": "nb-exp-evil2.png",
       "file": "tokens/snaga.png",
-      "base_mm": "25mm",
-      "points": 50
+      "base_mm": "25mm"
     },
     {
       "id": "zagdush",
@@ -9074,8 +8750,7 @@
       "base": "M",
       "sheet": "nb-exp-evil2.png",
       "file": "tokens/zagdush.png",
-      "base_mm": "25mm",
-      "points": 60
+      "base_mm": "25mm"
     },
     {
       "id": "dalamyr",
@@ -9088,8 +8763,7 @@
       "base": "M",
       "sheet": "nb-exp-evil2.png",
       "file": "tokens/dalamyr.png",
-      "base_mm": "25mm",
-      "points": 100
+      "base_mm": "25mm"
     },
     {
       "id": "goblin_drummer",
@@ -9102,8 +8776,7 @@
       "base": "M",
       "sheet": "nb-exp-evil2.png",
       "file": "tokens/goblin_drummer.png",
-      "base_mm": "25mm",
-      "points": 75
+      "base_mm": "25mm"
     },
     {
       "id": "yazneg",
@@ -9116,8 +8789,7 @@
       "base": "M",
       "sheet": "nb-exp-evil2.png",
       "file": "tokens/yazneg.png",
-      "base_mm": "25mm",
-      "points": 55
+      "base_mm": "25mm"
     },
     {
       "id": "eorl_the_young",
@@ -9149,8 +8821,7 @@
         "First King of Rohan",
         "Oath of Eorl"
       ],
-      "base_mm": "40mm",
-      "points": 120
+      "base_mm": "40mm"
     },
     {
       "id": "helm_hammerhand",
@@ -9182,8 +8853,7 @@
         "Hammerhand",
         "Terror of Dunland"
       ],
-      "base_mm": "25mm",
-      "points": 160
+      "base_mm": "25mm"
     },
     {
       "id": "tom_bombadil",
@@ -9217,8 +8887,7 @@
         "The Ring Has No Power Over Him",
         "Eldest"
       ],
-      "base_mm": "25mm",
-      "points": 120
+      "base_mm": "25mm"
     },
     {
       "id": "goldberry",
@@ -9248,8 +8917,7 @@
       "rules": [
         "River-daughter"
       ],
-      "base_mm": "25mm",
-      "points": 80
+      "base_mm": "25mm"
     },
     {
       "id": "dead_rider",
@@ -9266,7 +8934,6 @@
         "terror"
       ],
       "base_mm": "40mm",
-      "points": 25,
       "troopPromotion": {
         "group": "dead",
         "aliasOf": null,
@@ -9302,8 +8969,7 @@
       "rules": [
         "Lord of Ringlo Vale"
       ],
-      "base_mm": "25mm",
-      "points": 55
+      "base_mm": "25mm"
     },
     {
       "id": "dol_amroth_man_at_arms",
@@ -9317,7 +8983,6 @@
       "sheet": "nb-exp-troops2.png",
       "file": "tokens/dol_amroth_man_at_arms.png",
       "base_mm": "25mm",
-      "points": 10,
       "troopPromotion": {
         "group": "dol_amroth",
         "aliasOf": null,
@@ -9340,7 +9005,6 @@
       "sheet": "nb-exp-troops2.png",
       "file": "tokens/numenorean_archer.png",
       "base_mm": "25mm",
-      "points": 10,
       "troopPromotion": {
         "group": "numenor",
         "aliasOf": null,
@@ -9363,7 +9027,6 @@
       "sheet": "nb-exp-troops2.png",
       "file": "tokens/sons_of_eorl.png",
       "base_mm": "40mm",
-      "points": 20,
       "troopPromotion": {
         "group": "rohan",
         "aliasOf": null,
@@ -9386,7 +9049,6 @@
       "sheet": "nb-exp-troops2.png",
       "file": "tokens/vault_warden.png",
       "base_mm": "25mm",
-      "points": 9,
       "troopPromotion": {
         "group": "khazad_dum",
         "aliasOf": null,
@@ -9406,7 +9068,6 @@
       "sheet": "nb-exp-troops2.png",
       "file": "tokens/palace_guard.png",
       "base_mm": "25mm",
-      "points": 12,
       "troopPromotion": {
         "group": "mirkwood",
         "aliasOf": null,
@@ -9426,7 +9087,6 @@
       "sheet": "nb-exp-troops2.png",
       "file": "tokens/hobbit_militia.png",
       "base_mm": "25mm",
-      "points": 4,
       "troopPromotion": {
         "group": "shire",
         "aliasOf": null,
@@ -9465,8 +9125,7 @@
       "rules": [
         "Mordor Overseer"
       ],
-      "base_mm": "25mm",
-      "points": 65
+      "base_mm": "25mm"
     },
     {
       "id": "targsh",
@@ -9496,8 +9155,7 @@
       "rules": [
         "Black Uruk Champion"
       ],
-      "base_mm": "25mm",
-      "points": 80
+      "base_mm": "25mm"
     },
     {
       "id": "durburz",
@@ -9527,8 +9185,7 @@
       "rules": [
         "Goblin King of Moria"
       ],
-      "base_mm": "25mm",
-      "points": 75
+      "base_mm": "25mm"
     },
     {
       "id": "goblin_scribe",
@@ -9541,8 +9198,7 @@
       "base": "S",
       "sheet": "nb-exp-evil3.png",
       "file": "tokens/goblin_scribe.png",
-      "base_mm": "25mm",
-      "points": 50
+      "base_mm": "25mm"
     },
     {
       "id": "fimbul",
@@ -9572,8 +9228,7 @@
       "rules": [
         "Warg-rider Captain"
       ],
-      "base_mm": "25mm",
-      "points": 50
+      "base_mm": "25mm"
     },
     {
       "id": "narzug",
@@ -9603,8 +9258,7 @@
       "rules": [
         "Hunter Captain"
       ],
-      "base_mm": "25mm",
-      "points": 55
+      "base_mm": "25mm"
     },
     {
       "id": "khandish_chariot",
@@ -9618,7 +9272,6 @@
       "sheet": "nb-exp-harad2.png",
       "file": "tokens/khandish_chariot.png",
       "base_mm": "40mm",
-      "points": 40,
       "troopPromotion": {
         "group": "khand",
         "aliasOf": null,
@@ -9637,8 +9290,7 @@
       "base": "XXL",
       "sheet": "nb-exp-harad2.png",
       "file": "tokens/great_beast_gorgoroth.png",
-      "base_mm": "60mm",
-      "points": 175
+      "base_mm": "60mm"
     },
     {
       "id": "khandish_chieftain",
@@ -9668,8 +9320,7 @@
       "rules": [
         "Chieftain of Khand"
       ],
-      "base_mm": "40mm",
-      "points": 75
+      "base_mm": "40mm"
     },
     {
       "id": "abrakhan_guard",
@@ -9683,7 +9334,6 @@
       "sheet": "nb-exp-harad2.png",
       "file": "tokens/abrakhan_guard.png",
       "base_mm": "25mm",
-      "points": 9,
       "troopPromotion": {
         "group": "harad",
         "aliasOf": null,
@@ -9703,7 +9353,6 @@
       "sheet": "nb-exp-harad2.png",
       "file": "tokens/corsair_bosun.png",
       "base_mm": "25mm",
-      "points": 50,
       "troopPromotion": {
         "group": "umbar",
         "aliasOf": null,
@@ -9722,8 +9371,7 @@
       "base": "XL",
       "sheet": "nb-exp-harad2.png",
       "file": "tokens/spider_queen.png",
-      "base_mm": "50mm",
-      "points": 120
+      "base_mm": "50mm"
     },
     {
       "id": "turgon",
@@ -9755,8 +9403,7 @@
         "King of Gondolin",
         "Glamdring"
       ],
-      "base_mm": "25mm",
-      "points": 165
+      "base_mm": "25mm"
     },
     {
       "id": "fingon",
@@ -9788,8 +9435,7 @@
         "Valour of the Noldor",
         "Rescued Maedhros"
       ],
-      "base_mm": "25mm",
-      "points": 225
+      "base_mm": "25mm"
     },
     {
       "id": "ecthelion",
@@ -9821,8 +9467,7 @@
         "Lord of the Fountain",
         "Bane of Gothmog"
       ],
-      "base_mm": "25mm",
-      "points": 150
+      "base_mm": "25mm"
     },
     {
       "id": "finrod_felagund",
@@ -9856,8 +9501,7 @@
         "Ring of Barahir",
         "Song-duel with Sauron"
       ],
-      "base_mm": "25mm",
-      "points": 140
+      "base_mm": "25mm"
     },
     {
       "id": "tuor",
@@ -9887,8 +9531,7 @@
       "rules": [
         "Chosen of Ulmo"
       ],
-      "base_mm": "25mm",
-      "points": 160
+      "base_mm": "25mm"
     },
     {
       "id": "hurin_thalion",
@@ -9922,8 +9565,7 @@
         "Unyielding",
         "Greatest Warrior of Men"
       ],
-      "base_mm": "25mm",
-      "points": 150
+      "base_mm": "25mm"
     },
     {
       "id": "maedhros",
@@ -9955,8 +9597,7 @@
         "Eldest Son of Feanor",
         "Strife with Angband"
       ],
-      "base_mm": "25mm",
-      "points": 160
+      "base_mm": "25mm"
     },
     {
       "id": "celegorm",
@@ -9988,8 +9629,7 @@
         "Oath of Feanor",
         "Master of Hounds"
       ],
-      "base_mm": "25mm",
-      "points": 135
+      "base_mm": "25mm"
     },
     {
       "id": "thingol",
@@ -10021,8 +9661,7 @@
         "Elu Thingol",
         "King of Doriath"
       ],
-      "base_mm": "25mm",
-      "points": 135
+      "base_mm": "25mm"
     },
     {
       "id": "mablung_sindar",
@@ -10052,8 +9691,7 @@
       "rules": [
         "Chief of the March-wardens"
       ],
-      "base_mm": "25mm",
-      "points": 40
+      "base_mm": "25mm"
     },
     {
       "id": "melian",
@@ -10085,8 +9723,7 @@
         "Girdle of Melian",
         "Maia"
       ],
-      "base_mm": "25mm",
-      "points": 110
+      "base_mm": "25mm"
     },
     {
       "id": "mim",
@@ -10118,8 +9755,7 @@
         "Petty-dwarf",
         "Grudge"
       ],
-      "base_mm": "25mm",
-      "points": 60
+      "base_mm": "25mm"
     },
     {
       "id": "doriath_warrior",
@@ -10133,7 +9769,6 @@
       "sheet": "px-nb-exp-silm3.png",
       "file": "tokens/doriath_warrior.png",
       "base_mm": "25mm",
-      "points": 10,
       "troopPromotion": {
         "group": "first_age",
         "aliasOf": null,
@@ -10156,7 +9791,6 @@
       "sheet": "px-nb-exp-silm3.png",
       "file": "tokens/falathrim_archer.png",
       "base_mm": "25mm",
-      "points": 16,
       "troopPromotion": {
         "group": "first_age",
         "aliasOf": null,
@@ -10179,7 +9813,6 @@
       "sheet": "px-nb-exp-silm3.png",
       "file": "tokens/nargothrond_ranger.png",
       "base_mm": "25mm",
-      "points": 16,
       "troopPromotion": {
         "group": "first_age",
         "aliasOf": null,
@@ -10202,7 +9835,6 @@
       "sheet": "px-nb-exp-silm3.png",
       "file": "tokens/edain_warrior.png",
       "base_mm": "25mm",
-      "points": 11,
       "troopPromotion": {
         "group": "first_age",
         "aliasOf": null,
@@ -10225,7 +9857,6 @@
       "sheet": "px-nb-exp-silm3.png",
       "file": "tokens/gondolin_guard.png",
       "base_mm": "25mm",
-      "points": 9,
       "troopPromotion": {
         "group": "first_age",
         "aliasOf": null,
@@ -10238,7 +9869,7 @@
     },
     {
       "id": "mirkwood_captain",
-      "name_ko": "미르크우드 대장",
+      "name_ko": "머크우드 대장",
       "name_en": "Mirkwood Captain",
       "side": "good",
       "faction": "elf",
@@ -10264,8 +9895,7 @@
       "rules": [
         "Woodland Realm"
       ],
-      "base_mm": "25mm",
-      "points": 75
+      "base_mm": "25mm"
     },
     {
       "id": "mordor_uruk",
@@ -10279,7 +9909,6 @@
       "sheet": "px-nb-exp-mordor2.png",
       "file": "tokens/mordor_uruk.png",
       "base_mm": "25mm",
-      "points": 8,
       "troopPromotion": {
         "group": "mordor",
         "aliasOf": null,
@@ -10301,7 +9930,6 @@
       "sheet": "px-nb-exp-mordor2.png",
       "file": "tokens/morgul_orc.png",
       "base_mm": "25mm",
-      "points": 7,
       "troopPromotion": {
         "group": "mordor",
         "aliasOf": null,
@@ -10324,7 +9952,6 @@
       "sheet": "px-nb-exp-mordor2.png",
       "file": "tokens/morgul_rat.png",
       "base_mm": "25mm",
-      "points": 4,
       "troopPromotion": {
         "group": "mordor",
         "aliasOf": null,
@@ -10362,8 +9989,7 @@
       "rules": [
         "Captured by Shelob"
       ],
-      "base_mm": "25mm",
-      "points": 75
+      "base_mm": "25mm"
     },
     {
       "id": "orc_sergeant",
@@ -10393,8 +10019,7 @@
       "rules": [
         "Warband Leader"
       ],
-      "base_mm": "25mm",
-      "points": 55
+      "base_mm": "25mm"
     },
     {
       "id": "ashrak",
@@ -10426,8 +10051,7 @@
         "The Spider Knight",
         "Terror"
       ],
-      "base_mm": "25mm",
-      "points": 60
+      "base_mm": "25mm"
     },
     {
       "id": "isengard_troll",
@@ -10440,8 +10064,7 @@
       "base": "XL",
       "sheet": "px-nb-exp-wotr.png",
       "file": "tokens/isengard_troll.png",
-      "base_mm": "50mm",
-      "points": 100
+      "base_mm": "50mm"
     },
     {
       "id": "dunlending_horseman",
@@ -10455,7 +10078,6 @@
       "sheet": "px-nb-exp-wotr.png",
       "file": "tokens/dunlending_horseman.png",
       "base_mm": "40mm",
-      "points": 12,
       "troopPromotion": {
         "group": "dunland",
         "aliasOf": null,
@@ -10491,8 +10113,7 @@
       "rules": [
         "Reclaimer of Edoras"
       ],
-      "base_mm": "25mm",
-      "points": 110
+      "base_mm": "25mm"
     },
     {
       "id": "hera",
@@ -10522,8 +10143,7 @@
       "rules": [
         "Shieldmaiden of the Wold"
       ],
-      "base_mm": "25mm",
-      "points": 70
+      "base_mm": "25mm"
     },
     {
       "id": "frealaf",
@@ -10553,8 +10173,7 @@
       "rules": [
         "Avenger of Helm"
       ],
-      "base_mm": "25mm",
-      "points": 100
+      "base_mm": "25mm"
     },
     {
       "id": "rohan_yeoman",
@@ -10568,7 +10187,6 @@
       "sheet": "px-nb-exp-wotr.png",
       "file": "tokens/rohan_yeoman.png",
       "base_mm": "25mm",
-      "points": 7,
       "troopPromotion": {
         "group": "rohan",
         "aliasOf": null,
@@ -10591,7 +10209,6 @@
       "sheet": "px-nb-exp-harad3.png",
       "file": "tokens/serpent_guard.png",
       "base_mm": "25mm",
-      "points": 8,
       "troopPromotion": {
         "group": "harad",
         "aliasOf": null,
@@ -10611,7 +10228,6 @@
       "sheet": "px-nb-exp-harad3.png",
       "file": "tokens/corsair_crossbowman.png",
       "base_mm": "25mm",
-      "points": 10,
       "troopPromotion": {
         "group": "umbar",
         "aliasOf": null,
@@ -10631,7 +10247,6 @@
       "sheet": "px-nb-exp-harad3.png",
       "file": "tokens/mahud_blowpipe.png",
       "base_mm": "25mm",
-      "points": 9,
       "troopPromotion": {
         "group": "far_harad",
         "aliasOf": null,
@@ -10651,7 +10266,6 @@
       "sheet": "px-nb-exp-harad3.png",
       "file": "tokens/khandish_warrior.png",
       "base_mm": "25mm",
-      "points": 8,
       "troopPromotion": {
         "group": "khand",
         "aliasOf": null,
@@ -10674,7 +10288,6 @@
       "sheet": "px-nb-exp-harad3.png",
       "file": "tokens/easterling_mounted_archer.png",
       "base_mm": "40mm",
-      "points": 15,
       "troopPromotion": {
         "group": "easterling",
         "aliasOf": null,
@@ -10710,8 +10323,7 @@
       "rules": [
         "Far Harad"
       ],
-      "base_mm": "25mm",
-      "points": 55
+      "base_mm": "25mm"
     },
     {
       "id": "numenorean_knight",
@@ -10725,7 +10337,6 @@
       "sheet": "px-nb-exp-gondor2.png",
       "file": "tokens/numenorean_knight.png",
       "base_mm": "40mm",
-      "points": 20,
       "troopPromotion": {
         "group": "numenor",
         "aliasOf": null,
@@ -10748,7 +10359,6 @@
       "sheet": "px-nb-exp-gondor2.png",
       "file": "tokens/arnor_archer.png",
       "base_mm": "25mm",
-      "points": 14,
       "troopPromotion": {
         "group": "arnor",
         "aliasOf": null,
@@ -10788,8 +10398,7 @@
         "Lord of Morthond",
         "Dead-eye Shot"
       ],
-      "base_mm": "25mm",
-      "points": 70
+      "base_mm": "25mm"
     },
     {
       "id": "derufin",
@@ -10819,8 +10428,7 @@
       "rules": [
         "Son of Duinhir"
       ],
-      "base_mm": "25mm",
-      "points": 70
+      "base_mm": "25mm"
     },
     {
       "id": "hirgon",
@@ -10850,8 +10458,7 @@
       "rules": [
         "Bearer of the Red Arrow"
       ],
-      "base_mm": "25mm",
-      "points": 30
+      "base_mm": "25mm"
     },
     {
       "id": "pippin_citadel",
@@ -10883,8 +10490,7 @@
         "Guard of the Citadel",
         "Tookish Courage"
       ],
-      "base_mm": "25mm",
-      "points": 25
+      "base_mm": "25mm"
     },
     {
       "id": "beorn_bear",
@@ -10897,8 +10503,7 @@
       "base": "XL",
       "sheet": "px-nb-exp-wild.png",
       "file": "tokens/beorn_bear.png",
-      "base_mm": "50mm",
-      "points": 200
+      "base_mm": "50mm"
     },
     {
       "id": "gwaihir",
@@ -10911,8 +10516,7 @@
       "base": "XL",
       "sheet": "px-nb-exp-wild.png",
       "file": "tokens/gwaihir.png",
-      "base_mm": "40mm",
-      "points": 200
+      "base_mm": "40mm"
     },
     {
       "id": "lobelia",
@@ -10942,8 +10546,7 @@
       "rules": [
         "Umbrella of Doom"
       ],
-      "base_mm": "25mm",
-      "points": 20
+      "base_mm": "25mm"
     },
     {
       "id": "will_whitfoot",
@@ -10973,8 +10576,7 @@
       "rules": [
         "Mayor of Michel Delving"
       ],
-      "base_mm": "25mm",
-      "points": 40
+      "base_mm": "25mm"
     },
     {
       "id": "dwarf_shieldbearers",
@@ -10987,8 +10589,7 @@
       "base": "M",
       "sheet": "px-nb-exp-wild.png",
       "file": "tokens/dwarf_shieldbearers.png",
-      "base_mm": "25mm",
-      "points": 12
+      "base_mm": "25mm"
     },
     {
       "id": "iron_hills_captain",
@@ -11020,8 +10621,7 @@
         "Iron Hills",
         "Stubborn"
       ],
-      "base_mm": "25mm",
-      "points": 80
+      "base_mm": "25mm"
     },
     {
       "id": "fingolfin_mounted",
@@ -11055,8 +10655,7 @@
         "Wounded Morgoth Seven Times",
         "Rochallor"
       ],
-      "base_mm": "40mm",
-      "points": 230
+      "base_mm": "40mm"
     },
     {
       "id": "pallando",
@@ -11069,8 +10668,7 @@
       "base": "L",
       "sheet": null,
       "file": "tokens/pallando.png",
-      "base_mm": "25mm",
-      "points": 110
+      "base_mm": "25mm"
     },
     {
       "id": "alatar",
@@ -11083,8 +10681,7 @@
       "base": "L",
       "sheet": null,
       "file": "tokens/alatar.png",
-      "base_mm": "25mm",
-      "points": 110
+      "base_mm": "25mm"
     },
     {
       "id": "annatar",
@@ -11097,8 +10694,7 @@
       "base": "L",
       "sheet": null,
       "file": "tokens/annatar.png",
-      "base_mm": "25mm",
-      "points": 110
+      "base_mm": "25mm"
     },
     {
       "id": "sauron_wolf",
@@ -11111,8 +10707,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/sauron_wolf.png",
-      "base_mm": "50mm",
-      "points": 180
+      "base_mm": "50mm"
     },
     {
       "id": "landroval",
@@ -11125,8 +10720,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/landroval.png",
-      "base_mm": "50mm",
-      "points": 155
+      "base_mm": "50mm"
     },
     {
       "id": "meneldor",
@@ -11139,8 +10733,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/meneldor.png",
-      "base_mm": "50mm",
-      "points": 155
+      "base_mm": "50mm"
     },
     {
       "id": "leaflock",
@@ -11153,8 +10746,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/leaflock.png",
-      "base_mm": "50mm",
-      "points": 150
+      "base_mm": "50mm"
     },
     {
       "id": "beechbone",
@@ -11167,8 +10759,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/beechbone.png",
-      "base_mm": "50mm",
-      "points": 150
+      "base_mm": "50mm"
     },
     {
       "id": "azaghal",
@@ -11181,8 +10772,7 @@
       "base": "L",
       "sheet": null,
       "file": "tokens/azaghal.png",
-      "base_mm": "25mm",
-      "points": 170
+      "base_mm": "25mm"
     },
     {
       "id": "nain",
@@ -11195,8 +10785,7 @@
       "base": "L",
       "sheet": null,
       "file": "tokens/nain.png",
-      "base_mm": "25mm",
-      "points": 105
+      "base_mm": "25mm"
     },
     {
       "id": "maglor",
@@ -11209,8 +10798,7 @@
       "base": "L",
       "sheet": null,
       "file": "tokens/maglor.png",
-      "base_mm": "25mm",
-      "points": 140
+      "base_mm": "25mm"
     },
     {
       "id": "gwindor",
@@ -11223,8 +10811,7 @@
       "base": "L",
       "sheet": null,
       "file": "tokens/gwindor.png",
-      "base_mm": "25mm",
-      "points": 130
+      "base_mm": "25mm"
     },
     {
       "id": "celebrimbor",
@@ -11237,8 +10824,7 @@
       "base": "L",
       "sheet": null,
       "file": "tokens/celebrimbor.png",
-      "base_mm": "25mm",
-      "points": 105
+      "base_mm": "25mm"
     },
     {
       "id": "daeron",
@@ -11251,8 +10837,7 @@
       "base": "L",
       "sheet": null,
       "file": "tokens/daeron.png",
-      "base_mm": "25mm",
-      "points": 70
+      "base_mm": "25mm"
     },
     {
       "id": "earnur",
@@ -11265,8 +10850,7 @@
       "base": "L",
       "sheet": null,
       "file": "tokens/earnur.png",
-      "base_mm": "25mm",
-      "points": 110
+      "base_mm": "25mm"
     },
     {
       "id": "sangarunya",
@@ -11279,8 +10863,7 @@
       "base": "L",
       "sheet": null,
       "file": "tokens/sangarunya.png",
-      "base_mm": "25mm",
-      "points": 70
+      "base_mm": "25mm"
     },
     {
       "id": "huor",
@@ -11293,8 +10876,7 @@
       "base": "L",
       "sheet": null,
       "file": "tokens/huor.png",
-      "base_mm": "25mm",
-      "points": 155
+      "base_mm": "25mm"
     },
     {
       "id": "barahir",
@@ -11307,8 +10889,7 @@
       "base": "L",
       "sheet": null,
       "file": "tokens/barahir.png",
-      "base_mm": "25mm",
-      "points": 65
+      "base_mm": "25mm"
     },
     {
       "id": "elendur",
@@ -11321,8 +10902,7 @@
       "base": "L",
       "sheet": null,
       "file": "tokens/elendur.png",
-      "base_mm": "25mm",
-      "points": 65
+      "base_mm": "25mm"
     },
     {
       "id": "arpharazon",
@@ -11335,8 +10915,7 @@
       "base": "L",
       "sheet": null,
       "file": "tokens/arpharazon.png",
-      "base_mm": "25mm",
-      "points": 75
+      "base_mm": "25mm"
     },
     {
       "id": "anarion",
@@ -11349,8 +10928,7 @@
       "base": "L",
       "sheet": null,
       "file": "tokens/anarion.png",
-      "base_mm": "25mm",
-      "points": 75
+      "base_mm": "25mm"
     },
     {
       "id": "earendil",
@@ -11363,8 +10941,7 @@
       "base": "L",
       "sheet": null,
       "file": "tokens/earendil.png",
-      "base_mm": "25mm",
-      "points": 150
+      "base_mm": "25mm"
     },
     {
       "id": "maeglin",
@@ -11377,8 +10954,7 @@
       "base": "L",
       "sheet": null,
       "file": "tokens/maeglin.png",
-      "base_mm": "25mm",
-      "points": 115
+      "base_mm": "25mm"
     },
     {
       "id": "eol",
@@ -11391,8 +10967,7 @@
       "base": "L",
       "sheet": null,
       "file": "tokens/eol.png",
-      "base_mm": "25mm",
-      "points": 175
+      "base_mm": "25mm"
     },
     {
       "id": "galdor",
@@ -11405,8 +10980,7 @@
       "base": "L",
       "sheet": null,
       "file": "tokens/galdor.png",
-      "base_mm": "25mm",
-      "points": 110
+      "base_mm": "25mm"
     },
     {
       "id": "thrain",
@@ -11419,8 +10993,7 @@
       "base": "GS",
       "sheet": null,
       "file": "tokens/thrain.png",
-      "base_mm": "25mm",
-      "points": 130
+      "base_mm": "25mm"
     },
     {
       "id": "thror",
@@ -11433,8 +11006,7 @@
       "base": "GS",
       "sheet": null,
       "file": "tokens/thror.png",
-      "base_mm": "25mm",
-      "points": 130
+      "base_mm": "25mm"
     },
     {
       "id": "golfimbul",
@@ -11447,8 +11019,7 @@
       "base": "L",
       "sheet": null,
       "file": "tokens/golfimbul.png",
-      "base_mm": "25mm",
-      "points": 45
+      "base_mm": "25mm"
     },
     {
       "id": "eomund",
@@ -11461,8 +11032,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/eomund.png",
-      "base_mm": "40mm",
-      "points": 130
+      "base_mm": "40mm"
     },
     {
       "id": "guthlaf",
@@ -11475,8 +11045,7 @@
       "base": "M",
       "sheet": null,
       "file": "tokens/guthlaf.png",
-      "base_mm": "25mm",
-      "points": 35
+      "base_mm": "25mm"
     },
     {
       "id": "ingold",
@@ -11489,8 +11058,7 @@
       "base": "M",
       "sheet": null,
       "file": "tokens/ingold.png",
-      "base_mm": "25mm",
-      "points": 70
+      "base_mm": "25mm"
     },
     {
       "id": "morgoth",
@@ -11503,8 +11071,7 @@
       "base": "XXL",
       "sheet": null,
       "file": "tokens/morgoth.png",
-      "base_mm": "60mm",
-      "points": 580
+      "base_mm": "60mm"
     },
     {
       "id": "witchking_mounted_sheet",
@@ -11536,8 +11103,7 @@
         "Terror",
         "The Morgul Lord"
       ],
-      "base_mm": "40mm",
-      "points": 170
+      "base_mm": "40mm"
     },
     {
       "id": "corsair_captain",
@@ -11550,8 +11116,7 @@
       "base": "L",
       "sheet": null,
       "file": "tokens/corsair_captain.png",
-      "base_mm": "25mm",
-      "points": 55
+      "base_mm": "25mm"
     },
     {
       "id": "butterbur",
@@ -11564,8 +11129,7 @@
       "base": "M",
       "sheet": null,
       "file": "tokens/butterbur.png",
-      "base_mm": "25mm",
-      "points": 45
+      "base_mm": "25mm"
     },
     {
       "id": "bill_ferny",
@@ -11578,8 +11142,7 @@
       "base": "M",
       "sheet": null,
       "file": "tokens/bill_ferny.png",
-      "base_mm": "25mm",
-      "points": 40
+      "base_mm": "25mm"
     },
     {
       "id": "scatha",
@@ -11592,8 +11155,7 @@
       "base": "XXL",
       "sheet": null,
       "file": "tokens/scatha.png",
-      "base_mm": "100mm",
-      "points": 200
+      "base_mm": "100mm"
     },
     {
       "id": "war_hound",
@@ -11606,8 +11168,7 @@
       "base": "GS",
       "sheet": null,
       "file": "tokens/war_hound.png",
-      "base_mm": "50mm",
-      "points": 4
+      "base_mm": "50mm"
     },
     {
       "id": "terr_palantir",
@@ -11686,7 +11247,6 @@
       "sheet": "px-nb-roster-varied-v1.png",
       "file": "tokens/galadhrim_knight.png",
       "base_mm": "40mm",
-      "points": 18,
       "troopPromotion": {
         "group": "lothlorien",
         "aliasOf": null,
@@ -11706,7 +11266,6 @@
       "sheet": "px-nb-roster-varied-v1.png",
       "file": "tokens/mahud_raider.png",
       "base_mm": "25mm",
-      "points": 9,
       "troopPromotion": {
         "group": "far_harad",
         "aliasOf": null,
@@ -11728,7 +11287,6 @@
       "sheet": "px-nb-roster-varied-v1.png",
       "file": "tokens/camel_rider.png",
       "base_mm": "40mm",
-      "points": 18,
       "troopPromotion": {
         "group": "far_harad",
         "aliasOf": null,
@@ -11748,7 +11306,6 @@
       "sheet": "px-nb-roster-varied-v2.png",
       "file": "tokens/dale_warrior.png",
       "base_mm": "25mm",
-      "points": 7,
       "troopPromotion": {
         "group": "dale",
         "aliasOf": null,
@@ -11770,7 +11327,6 @@
       "sheet": "px-nb-roster-varied-v2.png",
       "file": "tokens/esgaroth_archer.png",
       "base_mm": "25mm",
-      "points": 8,
       "troopPromotion": {
         "group": "dale",
         "aliasOf": null,
@@ -11789,8 +11345,7 @@
       "base": "XXL",
       "sheet": "px-nb-roster-varied-v2.png",
       "file": "tokens/thorondor.png",
-      "base_mm": "60mm",
-      "points": 280
+      "base_mm": "60mm"
     },
     {
       "id": "rhosgobel_rabbit",
@@ -11803,8 +11358,7 @@
       "base": "L",
       "sheet": "px-nb-roster-varied-v2.png",
       "file": "tokens/rhosgobel_rabbit.png",
-      "base_mm": "50mm",
-      "points": 15
+      "base_mm": "50mm"
     },
     {
       "id": "morgul_duellist",
@@ -11818,7 +11372,6 @@
       "sheet": "px-nb-roster-varied-v2.png",
       "file": "tokens/morgul_duellist.png",
       "base_mm": "25mm",
-      "points": 20,
       "troopPromotion": {
         "group": "mordor",
         "aliasOf": null,
@@ -11837,8 +11390,7 @@
       "base": "L",
       "sheet": "px-nb-roster-varied-v2.png",
       "file": "tokens/troll_shaman.png",
-      "base_mm": "50mm",
-      "points": 45
+      "base_mm": "50mm"
     },
     {
       "id": "deorwine_mounted",
@@ -11851,8 +11403,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/deorwine_mounted.png",
-      "base_mm": "40mm",
-      "points": 90
+      "base_mm": "40mm"
     },
     {
       "id": "grimbold_mounted",
@@ -11865,8 +11416,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/grimbold_mounted.png",
-      "base_mm": "40mm",
-      "points": 90
+      "base_mm": "40mm"
     },
     {
       "id": "harding_mounted",
@@ -11879,8 +11429,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/harding_mounted.png",
-      "base_mm": "40mm",
-      "points": 95
+      "base_mm": "40mm"
     },
     {
       "id": "dunhere_mounted",
@@ -11893,8 +11442,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/dunhere_mounted.png",
-      "base_mm": "40mm",
-      "points": 125
+      "base_mm": "40mm"
     },
     {
       "id": "guthlaf_mounted",
@@ -11907,8 +11455,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/guthlaf_mounted.png",
-      "base_mm": "40mm",
-      "points": 60
+      "base_mm": "40mm"
     },
     {
       "id": "gamling_mounted",
@@ -11921,8 +11468,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/gamling_mounted.png",
-      "base_mm": "40mm",
-      "points": 75
+      "base_mm": "40mm"
     },
     {
       "id": "erkenbrand_mounted",
@@ -11935,8 +11481,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/erkenbrand_mounted.png",
-      "base_mm": "40mm",
-      "points": 90
+      "base_mm": "40mm"
     },
     {
       "id": "eorl_the_young_mounted",
@@ -11949,8 +11494,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/eorl_the_young_mounted.png",
-      "base_mm": "40mm",
-      "points": 120
+      "base_mm": "40mm"
     },
     {
       "id": "frealaf_mounted",
@@ -11963,8 +11507,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/frealaf_mounted.png",
-      "base_mm": "40mm",
-      "points": 120
+      "base_mm": "40mm"
     },
     {
       "id": "thrydan_mounted",
@@ -11977,8 +11520,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/thrydan_mounted.png",
-      "base_mm": "40mm",
-      "points": 110
+      "base_mm": "40mm"
     },
     {
       "id": "hera_mounted",
@@ -11991,8 +11533,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/hera_mounted.png",
-      "base_mm": "40mm",
-      "points": 90
+      "base_mm": "40mm"
     },
     {
       "id": "elendil_mounted",
@@ -12005,8 +11546,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/elendil_mounted.png",
-      "base_mm": "40mm",
-      "points": 205
+      "base_mm": "40mm"
     },
     {
       "id": "isildur_mounted",
@@ -12019,8 +11559,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/isildur_mounted.png",
-      "base_mm": "40mm",
-      "points": 150
+      "base_mm": "40mm"
     },
     {
       "id": "anarion_mounted",
@@ -12033,8 +11572,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/anarion_mounted.png",
-      "base_mm": "40mm",
-      "points": 95
+      "base_mm": "40mm"
     },
     {
       "id": "cirion_mounted",
@@ -12047,8 +11585,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/cirion_mounted.png",
-      "base_mm": "40mm",
-      "points": 50
+      "base_mm": "40mm"
     },
     {
       "id": "earnur_mounted",
@@ -12061,8 +11598,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/earnur_mounted.png",
-      "base_mm": "40mm",
-      "points": 140
+      "base_mm": "40mm"
     },
     {
       "id": "arvedui_mounted",
@@ -12075,8 +11611,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/arvedui_mounted.png",
-      "base_mm": "40mm",
-      "points": 105
+      "base_mm": "40mm"
     },
     {
       "id": "arathorn_mounted",
@@ -12089,8 +11624,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/arathorn_mounted.png",
-      "base_mm": "40mm",
-      "points": 105
+      "base_mm": "40mm"
     },
     {
       "id": "halbarad_mounted",
@@ -12103,8 +11637,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/halbarad_mounted.png",
-      "base_mm": "40mm",
-      "points": 135
+      "base_mm": "40mm"
     },
     {
       "id": "khamul_mounted",
@@ -12117,8 +11650,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/khamul_mounted.png",
-      "base_mm": "40mm",
-      "points": 150
+      "base_mm": "40mm"
     },
     {
       "id": "dark_marshal_mounted",
@@ -12131,8 +11663,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/dark_marshal_mounted.png",
-      "base_mm": "40mm",
-      "points": 150
+      "base_mm": "40mm"
     },
     {
       "id": "dwimmerlaik_mounted",
@@ -12145,8 +11676,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/dwimmerlaik_mounted.png",
-      "base_mm": "40mm",
-      "points": 150
+      "base_mm": "40mm"
     },
     {
       "id": "shadow_lord_mounted",
@@ -12159,8 +11689,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/shadow_lord_mounted.png",
-      "base_mm": "40mm",
-      "points": 150
+      "base_mm": "40mm"
     },
     {
       "id": "forsaken_mounted",
@@ -12173,8 +11702,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/forsaken_mounted.png",
-      "base_mm": "40mm",
-      "points": 125
+      "base_mm": "40mm"
     },
     {
       "id": "tainted_mounted",
@@ -12187,8 +11715,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/tainted_mounted.png",
-      "base_mm": "40mm",
-      "points": 150
+      "base_mm": "40mm"
     },
     {
       "id": "undying_mounted",
@@ -12201,8 +11728,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/undying_mounted.png",
-      "base_mm": "40mm",
-      "points": 150
+      "base_mm": "40mm"
     },
     {
       "id": "betrayer_mounted",
@@ -12215,8 +11741,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/betrayer_mounted.png",
-      "base_mm": "40mm",
-      "points": 150
+      "base_mm": "40mm"
     },
     {
       "id": "bolg_mounted",
@@ -12229,8 +11754,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/bolg_mounted.png",
-      "base_mm": "40mm",
-      "points": 195
+      "base_mm": "40mm"
     },
     {
       "id": "guritz_mounted",
@@ -12243,8 +11767,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/guritz_mounted.png",
-      "base_mm": "40mm",
-      "points": 90
+      "base_mm": "40mm"
     },
     {
       "id": "feanor_mounted",
@@ -12257,8 +11780,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/feanor_mounted.png",
-      "base_mm": "40mm",
-      "points": 195
+      "base_mm": "40mm"
     },
     {
       "id": "turin_mounted",
@@ -12271,8 +11793,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/turin_mounted.png",
-      "base_mm": "40mm",
-      "points": 195
+      "base_mm": "40mm"
     },
     {
       "id": "tuor_mounted",
@@ -12285,8 +11806,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/tuor_mounted.png",
-      "base_mm": "40mm",
-      "points": 185
+      "base_mm": "40mm"
     },
     {
       "id": "beleg_mounted",
@@ -12299,8 +11819,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/beleg_mounted.png",
-      "base_mm": "40mm",
-      "points": 70
+      "base_mm": "40mm"
     },
     {
       "id": "hurin_thalion_mounted",
@@ -12313,8 +11832,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/hurin_thalion_mounted.png",
-      "base_mm": "40mm",
-      "points": 175
+      "base_mm": "40mm"
     },
     {
       "id": "maeglin_mounted",
@@ -12327,8 +11845,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/maeglin_mounted.png",
-      "base_mm": "40mm",
-      "points": 140
+      "base_mm": "40mm"
     },
     {
       "id": "fingon_mounted",
@@ -12341,8 +11858,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/fingon_mounted.png",
-      "base_mm": "40mm",
-      "points": 250
+      "base_mm": "40mm"
     },
     {
       "id": "ecthelion_mounted",
@@ -12355,8 +11871,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/ecthelion_mounted.png",
-      "base_mm": "40mm",
-      "points": 175
+      "base_mm": "40mm"
     },
     {
       "id": "finrod_felagund_mounted",
@@ -12369,8 +11884,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/finrod_felagund_mounted.png",
-      "base_mm": "40mm",
-      "points": 165
+      "base_mm": "40mm"
     },
     {
       "id": "maedhros_mounted",
@@ -12383,8 +11897,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/maedhros_mounted.png",
-      "base_mm": "40mm",
-      "points": 185
+      "base_mm": "40mm"
     },
     {
       "id": "celegorm_mounted",
@@ -12397,8 +11910,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/celegorm_mounted.png",
-      "base_mm": "40mm",
-      "points": 160
+      "base_mm": "40mm"
     },
     {
       "id": "turgon_mounted",
@@ -12411,8 +11923,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/turgon_mounted.png",
-      "base_mm": "40mm",
-      "points": 190
+      "base_mm": "40mm"
     },
     {
       "id": "cirdan_mounted",
@@ -12425,8 +11936,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/cirdan_mounted.png",
-      "base_mm": "40mm",
-      "points": 90
+      "base_mm": "40mm"
     },
     {
       "id": "gil_galad_mounted",
@@ -12439,8 +11949,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/gil_galad_mounted.png",
-      "base_mm": "40mm",
-      "points": 185
+      "base_mm": "40mm"
     },
     {
       "id": "thingol_mounted",
@@ -12453,8 +11962,7 @@
       "base": "XL",
       "sheet": null,
       "file": "tokens/thingol_mounted.png",
-      "base_mm": "40mm",
-      "points": 160
+      "base_mm": "40mm"
     },
     {
       "id": "citadel_guard_bow",
@@ -12738,7 +12246,7 @@
     },
     {
       "id": "mirkwood_ranger",
-      "name_ko": "미르크우드 레인저",
+      "name_ko": "머크우드 레인저",
       "name_en": "Mirkwood Ranger",
       "side": "good",
       "faction": "mirkwood",

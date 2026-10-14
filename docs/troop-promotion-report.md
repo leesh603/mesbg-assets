@@ -3,8 +3,8 @@
 시작 main: `5d238187b6f29e4ee318d21adc39df114bed365d`  
 작업 브랜치: `feature/troop-promotion-system`  
 첫 구현 원격 커밋: `366074a49a8e76ac49386a0d3bfd798bb2d18ef1`  
-최종 통합 main: `ca3f272ab488a67f4b2added6bdf09524f6e77d9` (다른 작업자의 신규 원화·크기·UI 변경 보존).
-main 병합 및 본섭 배포 없음.
+최종 통합 기준 main: `4f0114ff382c3200dc8f3f7135519f2229974a48` (기존 원화·크기·음향·UI·지형과 머크우드 표기 보존).
+병종 승급 PR #28과 보스 PR #29를 한 통합 커밋으로 반영한다. 원격 병합/배포 상태는 해당 PR 및 GitHub Actions 기록을 기준으로 확인한다.
 
 ## 구현 결과
 
@@ -29,7 +29,7 @@ main 병합 및 본섭 배포 없음.
 | 철산 | 매톡·창방·석궁 신규, 산양기병 기존 재사용. 카자드둠과 별도 계통 |
 | 리븐델 | 기존 엘프 검·검방·창·활을 왕국별로 재분류하고 재사용. 방패/중장갑 방어 프로필 교정 |
 | 로스로리엔 | 갈라드림 궁수·정예 궁병 신규 |
-| 미르크우드 | 레인저 신규, 기존 보초·궁정근위병 재분류 |
+| 머크우드 | 레인저 신규, 기존 보초·궁정근위병 재분류 |
 | 아르노르 | 기사·일반 레인저 신규. 기존 북부 레인저는 하급 영웅으로 별도 구분 |
 | 모르도르 | 모라논 검방·정예 추적궁병 신규, 기존 모라논 창방 재사용. 활을 든 오크 추적자의 근접 전용 프로필 교정 |
 | 데일 | 기리온 근위병 신규 |
@@ -57,7 +57,7 @@ main 병합 및 본섭 배포 없음.
 | ironhills_crossbow | 철산 석궁병 | official | 14 | [PNG](../assets/mesbg/tokens/ironhills_crossbow.png) · [원본](../art-src/troop-promotions/ironhills_crossbow.png) |
 | galadhrim_bow | 갈라드림 궁수 | official | 10 | [PNG](../assets/mesbg/tokens/galadhrim_bow.png) · [원본](../art-src/troop-promotions/galadhrim_bow.png) |
 | galadhrim_elite_bow | 갈라드림 정예 궁병 | custom | 13 | [PNG](../assets/mesbg/tokens/galadhrim_elite_bow.png) · [원본](../art-src/troop-promotions/galadhrim_elite_bow.png) |
-| mirkwood_ranger | 미르크우드 레인저 | official | 14 | [PNG](../assets/mesbg/tokens/mirkwood_ranger.png) · [원본](../art-src/troop-promotions/mirkwood_ranger.png) |
+| mirkwood_ranger | 머크우드 레인저 | official | 14 | [PNG](../assets/mesbg/tokens/mirkwood_ranger.png) · [원본](../art-src/troop-promotions/mirkwood_ranger.png) |
 | arnor_knight | 아르노르 기사 | official | 18 | [PNG](../assets/mesbg/tokens/arnor_knight.png) · [원본](../art-src/troop-promotions/arnor_knight.png) |
 | arnor_ranger | 아르노르 레인저 | official | 9 | [PNG](../assets/mesbg/tokens/arnor_ranger.png) · [원본](../art-src/troop-promotions/arnor_ranger.png) |
 | morannon_swordshield | 모라논 오크 검방 | official | 9 | [PNG](../assets/mesbg/tokens/morannon_swordshield.png) · [원본](../art-src/troop-promotions/morannon_swordshield.png) |
@@ -77,7 +77,7 @@ main 병합 및 본섭 배포 없음.
 | 기사 전직 후 9pt 유지 | [390px](troop-promotion-proof/390-promotion-after.png) |
 | 신규 곤도르·돌 암로스·헬밍가 | [실제 렌더](troop-promotion-proof/new-units-1.png) |
 | 신규 적색방패·철산·갈라드림 | [실제 렌더](troop-promotion-proof/new-units-2.png) |
-| 신규 미르크우드·아르노르·오크·데일 | [실제 렌더](troop-promotion-proof/new-units-3.png) |
+| 신규 머크우드·아르노르·오크·데일 | [실제 렌더](troop-promotion-proof/new-units-3.png) |
 | 병종 전후·기병·난쟁이 크기 비교 | [실제 렌더](troop-promotion-proof/career-in-game.png) |
 | 자동 전투 | [모바일 390px](troop-promotion-proof/390-normal-combat.png) |
 

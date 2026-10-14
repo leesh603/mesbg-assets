@@ -363,6 +363,8 @@ function runCalibration(repoRoot, write = false) {
     return calibrateUnit(u, targets, riderTargets, fs.readFileSync(filename));
   });
   const profiles = Object.fromEntries(units.map(u => [u.id, [u.bodyClass, u.top, u.bottom, u.centerX, u.centerY, u.worldReferenceSize, u.reference]]));
+  const troopPath = path.join(repoRoot, 'data', 'troop-new-units.json');
+  if (fs.existsSync(troopPath)) for (const troop of JSON.parse(fs.readFileSync(troopPath, 'utf8'))) profiles[troop.id] = troop.artProfile;
   const source = fs.readFileSync(gamePath, 'utf8'), anchor = 'const UNIT_ART_PROFILES = ';
   const start = source.indexOf(anchor), end = source.indexOf(';', start);
   if (start < 0 || end < start || source.indexOf(anchor, start + anchor.length) >= 0) throw Error('Missing or duplicate profile marker');

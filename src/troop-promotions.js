@@ -45,7 +45,7 @@ if(UnitCatalog.orc_tracker){UnitCatalog.orc_tracker.meta.weapon='bow';q.meta.get
 for(const id of ['elf_swordshield','elf_spear','elf_bow'])for(const p of [zt[id],UnitCatalog[id]?.profile])if(p)p.defence=id==='elf_swordshield'?6:5;
 for(const p of [zt.palace_guard,UnitCatalog.palace_guard?.profile])if(p)Object.assign(p,{fight:5,defence:6,traits:[...new Set([...p.traits,'elf','bodyguard'])]});
 for(const id of ['gondor_knight','dol_amroth_knight','elf_knight','elven_lancer','galadhrim_knight'])for(const p of [zt[id],UnitCatalog[id]?.profile])if(p&&!p.traits.includes('lance'))p.traits.push('lance');
-Object.assign(FACTION_KO,{dol_amroth:'돌 암로스',iron_hills:'철산',mirkwood:'미르크우드',dale:'데일'});
+Object.assign(FACTION_KO,{dol_amroth:'돌 암로스',iron_hills:'철산',mirkwood:'머크우드',dale:'데일'});
 
 P.troopGateReason=function(id){
     const d=UnitCatalog[id],gate=TROOP_PROMOTIONS.gates[id];
