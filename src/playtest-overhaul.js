@@ -6,6 +6,41 @@ P.unitRole=function(value){
     return u?window.LWBTactics.role(u,id=>this.meta.get(id)):'infantry';
 };
 P.unitRoleLabel=function(u){return QA_ROLE_NAMES[this.unitRole(u)]||'전열';};
+// Objective movement uses the same legal paths and per-unit movement budgets as player orders.
+const qaOrderPriority=P.orderPriority;
+P.orderPriority=function(u,target){
+    if(u.side==='good'&&this.battleOrder?.mode==='focus')return this.battleOrder.target===target.uid?-5000:0;
+    const prior=qaOrderPriority.call(this,u,target);
+    if(u.side==='good'&&this.mission==='purge'&&target.lair)return prior-1000;
+    if(u.side==='evil'&&this.mission==='osgiliath_retreat'&&target._evacuee)return prior-120;
+    return prior;
+};
+P.missionMovePlan=function(u){
+    if(this.phase!=='move'||u.side!=='good'||!this.canAct(u)||u.static||u.lair||this.engaged(u)||this.battleOrder)return null;
+    const role=this.unitRole(u),stance=stanceOf(this,u);if(['rear','defense'].includes(stance)||role==='support')return null;
+    let goal,target;
+    if(this.mission==='purge'){
+        target=this.alive('evil').filter(v=>v.lair).sort((a,b)=>ht(u,a)-ht(u,b))[0];if(!target)return null;
+        if(role==='archer'&&this.validTargets(u).includes(target))return {wait:true};
+        const d=ht(u,target)||1,gap=u.radius+target.radius+8;goal={x:target.x+(u.x-target.x)/d*gap,y:target.y+(u.y-target.y)/d*gap};
+    }else if(this.mission==='scouting'){
+        goal=(this.devices||[]).filter(d=>d.type==='intel'&&d.armed).sort((a,b)=>ht(u,a)-ht(u,b))[0];
+    }else if(['hold','rescue'].includes(this.mission)){
+        if(ht(u,Mt.objective)<Mt.objective.radius-20&&!this.alive('evil').some(v=>ht(v,Mt.objective)<Mt.objective.radius+80))return {wait:true};
+        goal=Mt.objective;
+    }else if(this.mission==='osgiliath_retreat'&&role!=='cavalry'){
+        const convoy=this.alive('good').filter(v=>v._evacuee).sort((a,b)=>ht(u,a)-ht(u,b))[0];if(convoy)goal={x:convoy.x,y:Math.max(260,convoy.y-(role==='archer'?260:150))};
+    }else if(this.mission==='escort'&&role!=='cavalry'){
+        const cart=this.unit(this.escortCart);if(cart?.alive&&ht(u,cart)>260)goal={x:cart.x,y:Math.min(1250,cart.y+160)};
+    }
+    if(!goal)return null;
+    const all=this.alive(),position=Et(u,goal,all,this.terrain)?goal:Be(u,goal,all,this.terrain,180);
+    const budget=role==='archer'?Math.min(this.remaining(u),Math.max(0,u.stats.move/2-(u.movementSpent||0))):this.remaining(u);
+    if(!position||budget<12)return null;
+    const route=Terrain.route(u,position,all,this.terrain,Infinity)||Terrain.route(u,position,[],this.terrain,Infinity);if(!route)return null;
+    for(const fraction of [1,.75,.5,.25]){const to=Terrain.prefix(u,route.path,this.terrain,budget*fraction),plan=ve(u,to,all,this.terrain,budget,{snap:false});if(plan&&plan.distance>=12)return{to:plan.to,target:target?.uid};}
+    return target?{target:target.uid}:null;
+};
 P.recruitGateReason=function(id,initial=false){
     const d=UnitCatalog[id];
     if(!d?.enabled||!this.meta.has(id))return '영입 불가';
@@ -65,9 +100,19 @@ P.economicTransaction=function(effect,label='야영지 구매'){
 };
 const qaSave=P.save;
 P.save=function(){return this._economicDepth?true:qaSave.call(this);};
-P.purchase=function(cost,effect){const reason=this.costReason(cost);if(reason){this.economicError=reason;return false;}return this.economicTransaction(()=>{this.gold-=cost;return effect();});};
+P.purchase=function(cost,effect,label='야영지 구매'){const reason=this.costReason(cost);if(reason){this.economicError=reason;return false;}return this.economicTransaction(()=>{this.gold-=cost;return effect();},label);};
+P.buyInjuryTreatment=function(uid){const u=this.unit(uid);if(this.phase!=='reward'||!u?.alive||u.side!=='good'||!u.injury)return false;return this.purchase(20,()=>{restoreWarbandInjury(u);this.refreshUnit(u);return true;},'부상 치료');};
+P.rerollShop=function(){
+    if(this.phase!=='reward'||this.campStep!=='shop')return false;
+    return this.purchase(8,()=>{
+        const pool=LWB_EQUIP.map((a,i)=>i).filter(i=>!NAMED_MOUNT_HEROES[LWB_EQUIP[i].id]);
+        for(let i=pool.length-1;i>0;i--){const j=Math.floor(this.rng()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]];}
+        const selected=pool.filter(i=>!LWB_EQUIP[i].rare||this.rng()<(LWB_EQUIP[i].rare>=3?.08:.18));
+        this.shopStock=selected.concat(pool.filter(i=>!selected.includes(i))).slice(0,Math.min(4,pool.length));this._soldOut=[];return true;
+    },'상점 재진열');
+};
 // Existing shops already validate contextual rules. Add the same atomic rollback boundary.
-for(const method of ['buyEquip','buybackEquip','buyTrap','buyAlly','buyHorse','buyNamedMount','buySpecialMount','assignMount','buyTroopMount','promoteTroop','commitRecruits','recruit','reroll','expand']){
+for(const method of ['buyEquip','sellEquip','buybackEquip','buyTrap','buyAlly','buyHorse','buyNamedMount','buySpecialMount','assignMount','buyTroopMount','promoteTroop','commitRecruits','recruit','reroll','expand']){
     const labels={buyEquip:'장비·치료',buybackEquip:'장비 되사기',buyTrap:'방어 장치',buyAlly:'지원군 고용',buyHorse:'군마 구매',buyNamedMount:'고유 탈것',buySpecialMount:'탈것 전환',buyTroopMount:'병사 탈것',promoteTroop:'병종 승급',commitRecruits:'동료 영입',recruit:'동료 영입',reroll:'모집 재추첨',expand:'편성 한도 확장'};
     const action=P[method];if(action)P[method]=function(...args){return this.economicTransaction(()=>action.apply(this,args),labels[method]);};
 }
@@ -84,24 +129,32 @@ P.chooseEvent=function(i){
         this.campResult=event.title+' — '+op.label+' → '+text;
         this.eventOutcome={eventId:event.id,title:event.title,label:op.label,result:text,health:changes,relics:Object.keys(this.relics).filter(id=>(this.relics[id]||0)>(beforeRelics[id]||0))};
         this.lastGold=this.rewardTotal();this.campEvent=null;this.campDraft=null;this.emit('CampEvent',this.campResult);return true;
-    });
+    },event.title);
 };
 P.eventDamage=function(u,amount,nonlethal=false){
     if(!u?.alive||!Number.isSafeInteger(amount)||amount<0)return false;
     const n=Math.min(amount,Math.max(0,u.currentWounds-(nonlethal?1:0)));
     // Direct environmental damage uses the retained casualty/legacy path without Fate rolls.
-    for(let i=0;i<n;i++){
+    let dealt=0;
+    for(let i=0;i<n&&u.alive&&u.currentWounds>(nonlethal?1:0);i++){
         const killed=u.currentWounds===1;
-        oldApply.call(this,{strikeResults:[{attacker:u.uid,target:u.uid,wound:true,killed}],pushVectors:[]});
+        oldApply.call(this,{strikeResults:[{attacker:u.uid,target:u.uid,wound:true,killed}],pushVectors:[]});dealt++;
         if(killed){this._trkKill(u,u);const fallen=this.fallen?.find(f=>f.uid===u.uid);if(fallen)Object.assign(fallen,{xp:u.xp,entryPoints:u.entryPoints,merit:structuredClone(u.merit||{}),promotionHistory:structuredClone(u.promotionHistory||[])});}
     }
-    return n;
+    return dealt;
+};
+P.applyCampaignInjury=function(u,kind){
+    if(!u?.alive||u.injury||!['leg','arm'].includes(kind))return false;
+    u.injury=kind;u.injuryCount=(u.injuryCount||0)+1;(u.injuryHistory=u.injuryHistory||[]).push({wave:this.wave,injury:kind});
+    if(kind==='leg'){u.injuryBackup={move:u.baseStats.move};u.baseStats.move=Math.round(u.baseStats.move*.75);}
+    else{u.injuryBackup={attacks:u.baseStats.attacks};u.baseStats.attacks=Math.max(1,u.baseStats.attacks-1);}
+    this.refreshUnit(u);this.emit('Event',u.name+' 부상 — '+(kind==='leg'?'다리 · 이동 25%↓':'팔 · Attack −1')+' (야영지 치료 가능)');return true;
 };
 P.rewardBook=function(){if(!this.rewardLedger||this.rewardLedger.wave!==this.wave)this.rewardLedger={wave:this.wave,openingGold:this.gold,entries:[],spending:[]};return this.rewardLedger;};
 P.grantGold=function(id,label,amount,scope='battle'){
     if(!Number.isSafeInteger(amount)||amount<0)throw Error('Invalid gold reward');
     const book=this.rewardBook(),key=scope+':'+id;if(book.entries.some(e=>e.key===key))return false;
-    book.entries.push({key,label,amount,scope});this.gold+=amount;return true;
+    book.entries.push({key,label,amount,scope});this.gold+=amount;if(this.phase==='reward'&&this.settledWave===this.wave)this.lastGold=this.rewardTotal();return true;
 };
 P.rewardTotal=function(scope){return this.rewardBook().entries.filter(e=>!scope||e.scope===scope).reduce((sum,e)=>sum+e.amount,0);};
 P.captureBattleRecord=function(){
@@ -122,6 +175,15 @@ P.finalizeBattleRecord=function(){
     record.nextEffects=[this.expeditionReport,this.linkedOperation?.report].filter(Boolean);
     this.lastGold=this.rewardTotal();this.settledWave=this.wave;record.rewards=structuredClone(this.rewardBook().entries);
     record.promotions=this.pendingTroopPromotions().map(u=>({uid:u.uid,name:u.name}));
+};
+const qaEndRun=P.endRun;
+P.endRun=function(victory,message){
+    if(['move','shoot','fight'].includes(this.phase)){
+        this.captureBattleRecord();const r=this.battleRecord;r.injuries=r.units.filter(u=>u.alive&&u.injury).length;
+        r.objectives=[this.bonusObjective,this.bonusObjective2].filter(Boolean).map(o=>({id:o.id,text:o.text,passed:!!o.test(this)}));
+        r.rewards=structuredClone(this.rewardBook().entries);r.promotions=[];
+    }
+    this.stopAutoForChoice('원정 결과');return qaEndRun.call(this,victory,message);
 };
 const qaFinish=P.finishWave;
 P.finishWave=function(){
@@ -158,7 +220,7 @@ P.awardMerit=function(u,kind,receipt){
     if((u.merit.total||0)>=20)u.decoration='전열의 버팀목';if((u.merit.support||0)>=20)u.decoration='전우의 창';
     return true;
 };
-P.meritSummary=function(u){return (u.decoration?u.decoration+' · ':'')+'생존 '+(u.survivedBattles||0)+'전 · 전공 '+(u.merit?.total||0)+' · 지원 '+(u.merit?.support||0);};
+P.meritSummary=function(u){return (u.decoration?u.decoration+' · ':'')+'생존 '+(u.survivedBattles||0)+'전 · 전공 '+(u.merit?.total||0)+' · 지원 '+(u.merit?.support||0)+' · 부상 '+(u.injuryCount||0)+'회';};
 P.tacticalLog=function(kind,u,text){
     this.tacticalEvents=this.tacticalEvents||[];
     if(this.tacticalEvents.length<36)this.tacticalEvents.push({round:this.round,kind,uid:u?.uid||'',text});
@@ -204,7 +266,7 @@ P.autoPauseReason=function(){
 };
 P.checkAutoRisk=function(){
     const risk=this.autoPauseReason();if(!risk||this._autoRiskReceipt===risk.key)return false;
-    if(typeof AUTO!=='undefined'&&AUTO){this._autoRiskReceipt=risk.key;AUTO=false;AUTO_STEP=false;if(typeof Jt!=='undefined')clearTimeout(Jt);this.emit('AutoPaused',risk.text);if(typeof Xt==='function')Xt(risk.text);return true;}return false;
+    if(typeof AUTO!=='undefined'&&AUTO){this._autoRiskReceipt=risk.key;AUTO=false;AUTO_STEP=false;if(typeof Jt!=='undefined')clearTimeout(Jt);this.emit('AutoPaused',risk.text);if(document.body.dataset)document.body.dataset.auto='';for(const id of ['auto','auto-dock']){const button=document.getElementById(id);if(button){button.textContent='자동';button.classList.remove('on');button.title=risk.text;}}if(typeof renderDock==='function')renderDock();if(typeof Xt==='function')Xt(risk.text);return true;}return false;
 };
 P.stopAutoForChoice=function(text){
     if((this.autoPauseSettings?.choice??true)&&typeof AUTO!=='undefined'){AUTO=false;AUTO_STEP=false;if(typeof Jt!=='undefined')clearTimeout(Jt);}
@@ -235,16 +297,17 @@ P.actionForecast=function(intent){
     const u=this.unit(intent?.uid);if(!u)return {allowed:false,text:'병사를 선택하세요'};
     const target=this.unit(intent.target);
     if(['move','charge'].includes(intent.kind)){
+        if(this.phase!=='move'||!this.canAct(u)||this.engaged(u))return {allowed:false,text:'현재 이동·돌격할 수 없는 병사입니다'};
         const plan=intent.kind==='charge'?chargePlan(u,target,this.alive(),this.terrain,this.remaining(u)):ve(u,intent.to,this.alive(),this.terrain,this.remaining(u));
         if(!plan)return {allowed:false,text:'경로 차단 또는 이동력 부족'};
         const slow=plan.distance>(plan.travel??plan.distance)+1,bridge=this.pathCrossesBridge(plan.path);
         const parts=[(plan.distance/45).toFixed(1)+'″ 소모','잔여 '+Math.max(0,(this.remaining(u)-plan.distance)/45).toFixed(1)+'″'];
         if(slow)parts.push('얕은 물·험지 이동속도 50%');if(bridge)parts.push('다리 경로');
-        if(intent.kind==='charge'){parts.push(this.chargeBonus(u,target,plan).reason);const copy={...u,...plan.to},links=supportFor([copy,target],this.alive().map(v=>v.uid===u.uid?copy:v)).filter(l=>l.unit.side===u.side);if(links.length)parts.push('지원 '+links.map(l=>l.unit.name).join('·'));}
+        if(intent.kind==='charge'){parts.push(this.chargeBonus(u,target,plan).reason);if(target?.traits.includes('terror')&&!u.fearless&&!u.traits.includes('fearless')&&!this.careerBodyguard(u))parts.push('공포 검사 필요 · 실패 시 돌격 중지');const copy={...u,...plan.to},links=supportFor([copy,target],this.alive().map(v=>v.uid===u.uid?copy:v)).filter(l=>l.unit.side===u.side);if(links.length)parts.push('지원 '+links.map(l=>l.unit.name).join('·'));}
         return {allowed:true,text:parts.join(' · '),plan};
     }
     if(intent.kind==='shoot'){
-        const allowed=!!target&&this.validTargets(u).some(v=>v.uid===target.uid),los=target?_t(u,target,this.terrain):'blocked';
+        const allowed=this.phase==='shoot'&&this.canAct(u)&&!!target&&this.validTargets(u).some(v=>v.uid===target.uid),los=target?_t(u,target,this.terrain):'blocked';
         const allies=target&&this.alive(u.side).filter(v=>v!==u&&Vt(v,target));
         return {allowed,text:!allowed?'사거리·사선·이동 제한으로 사격 불가':(los==='cover'?'엄폐물 통과 판정':'사선 확보')+(allies?.length?' · 아군 교전 중 · 현재 사격 규칙 적용':' · 아군 오사 경로 없음')};
     }
@@ -337,7 +400,7 @@ P.spawnEvacuees=function(){
 const qaWave=P.startWave;
 P.startWave=function(){
     if(this.phase!=='preparation')return;
-    this.rewardLedger={wave:this.wave+1,openingGold:this.gold,entries:[],spending:[]};this.battleRecord=null;this.tacticalEvents=[];this._appliedCombats=new WeakSet();this._autoRiskReceipt='';
+    this.rewardLedger={wave:this.wave+1,openingGold:this.gold,entries:[],spending:[]};this.battleRecord=null;this.tacticalEvents=[];this._appliedCombats=new WeakSet();this._autoRiskReceipt='';this._meritRoundReceipt='';
     for(const u of this.permanent()){u.battleMerit={};u.battleMeritXP=0;u.meritReceipts=[];u.meritWave=this.wave+1;u.damageTaken=0;u.chargeOpen=undefined;}
     qaWave.call(this);
     if(this.mission==='osgiliath_retreat')this.spawnEvacuees();

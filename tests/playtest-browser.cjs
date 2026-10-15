@@ -46,16 +46,20 @@ async function auto(page){
 }
 async function campStep(page,s){
  if(s.step==='event'){if(!await click(page,'#ev-next')){for(const option of await page.locator('[data-evopt]').all())if(await option.isEnabled()){await option.click();break;}await click(page,'#camp-choice-confirm');}}
- else if(s.step==='recruit')await click(page,'#draft-confirm');
+ else if(s.step==='recruit'){for(let round=0;round<4;round++){const counts=await page.evaluate(()=>({current:MESBG.battle.permanent().length,drafted:MESBG.battle.draftTotals().count,gold:MESBG.battle.gold,cost:MESBG.battle.draftTotals().gold}));if(counts.current+counts.drafted>=14||counts.gold-counts.cost<70)break;for(const plus of await page.locator('[data-qty][data-delta="1"]').all())if(await plus.isEnabled())await plus.click();}await click(page,'#draft-confirm');}
  else if(s.step==='relic'){await click(page,'[data-relic="pass"]');await click(page,'#camp-choice-confirm');await click(page,'#relic-next');}
- else if(s.step==='ready'){await click(page,'#promotion-defer');await click(page,'#leave-camp');}
+ else if(s.step==='ready'){for(let n=0;n<2;n++){const choice=page.locator('[data-promote]:not([disabled])').first();if(await choice.isVisible()){const id=await choice.getAttribute('data-promote');await choice.click();(report.promotions=report.promotions||[]).push({wave:s.wave,to:id});}else break;}await click(page,'#promotion-defer');await click(page,'#leave-camp');}
 }
 async function manualMove(page){
- await page.waitForFunction(()=>{const b=MESBG.battle,u=b.unit(MESBG.ui.active());return b.phase==='move'&&b.side==='good'&&u&&b.canAct(u)&&!b.engaged(u);},null,{timeout:90000}).catch(()=>{});
+ await page.waitForFunction(()=>{const b=MESBG.battle,u=b.unit(MESBG.ui.active());return b.phase==='move'&&b.side==='good'&&u&&b.canAct(u)&&!b.engaged(u)&&!document.querySelector('#dock-primary').disabled&&document.querySelector('#overlay').classList.contains('hidden')&&!document.querySelector('#stage-intro');},null,{timeout:90000}).catch(()=>{});
  const aim=await page.evaluate(()=>{const b=MESBG.battle,u=b.unit(MESBG.ui.active());if(b.phase!=='move'||b.side!=='good'||!u||!b.canAct(u)||b.engaged(u))return null;
-  for(const [dx,dy]of[[0,70],[70,0],[-70,0],[0,-70]]){const plan=MESBG.plan(u,{x:u.x+dx,y:u.y+dy},b.alive(),b.terrain,b.remaining(u));if(plan){const screen=MESBG.ui.worldToScreen(plan.to.x,plan.to.y);const rect=document.querySelector('canvas').getBoundingClientRect();screen.x+=rect.left;screen.y+=rect.top;if(screen.x>10&&screen.x<innerWidth-10&&screen.y>80&&screen.y<innerHeight-130)return {uid:u.uid,x:screen.x,y:screen.y,before:{x:u.x,y:u.y}};}}return null;});
- if(!aim){report.manual={status:'unverified',reason:'No on-screen legal manual move'};return;}
- await page.mouse.click(aim.x,aim.y);const preview=await page.locator('#intent-cancel').isVisible();if(!preview){report.manual={status:'failed',reason:'No action preview'};return;}
+  const canvas=MESBG.scene.game.canvas,rect=canvas.getBoundingClientRect();
+  for(const distance of [170,240,120])for(let i=0;i<16;i++){const a=i*Math.PI/8,plan=MESBG.plan(u,{x:u.x+Math.cos(a)*distance,y:u.y+Math.sin(a)*distance},b.alive(),b.terrain,b.remaining(u));if(!plan||MESBG.scene.hit(plan.to))continue;
+   const screen=MESBG.ui.worldToScreen(plan.to.x,plan.to.y);screen.x=rect.left+screen.x*rect.width/MESBG.ui.state.width;screen.y=rect.top+screen.y*rect.height/MESBG.ui.state.height;
+   if(document.elementFromPoint(screen.x,screen.y)===canvas&&screen.x>rect.left+16&&screen.x<rect.right-16&&screen.y>rect.top+70&&screen.y<rect.bottom-90)return {uid:u.uid,x:screen.x,y:screen.y,to:plan.to,before:{x:u.x,y:u.y},canvas:{x:rect.x,y:rect.y,width:rect.width,height:rect.height},ui:{width:MESBG.ui.state.width,height:MESBG.ui.state.height}};
+  }return null;});
+ if(!aim){report.manual={status:'unverified',reason:'No on-screen legal background destination'};return;}
+ await page.mouse.click(aim.x,aim.y);const preview=await page.locator('#intent-cancel').isVisible();if(!preview){report.manual={status:'failed',reason:'No action preview',aim,dom:await page.locator('body').innerText()};await shot(page,'manual-preview-failed');return;}
  await shot(page,'after-manual-preview');await click(page,'#intent-cancel');const unchanged=await page.evaluate(uid=>{const u=MESBG.battle.unit(uid);return{x:u.x,y:u.y};},aim.uid);
  await page.mouse.click(aim.x,aim.y);await click(page,'#dock-primary');await page.waitForTimeout(800);const moved=await page.evaluate(uid=>{const u=MESBG.battle.unit(uid);return{x:u.x,y:u.y};},aim.uid);
  report.manual={status:unchanged.x===aim.before.x&&unchanged.y===aim.before.y&&(moved.x!==aim.before.x||moved.y!==aim.before.y)?'passed':'failed',aim,unchanged,moved};
@@ -71,7 +75,7 @@ function fixture(full=true){const h=require('./campaign-harness.cjs')(),q=h.q;q.
    if(version==='after'){if(view.overflow)throw Error('Page overflow '+width);if(width<600&&view.columns?.split(' ').length!==2)throw Error('Mobile recruitment must use two columns');const gate=await page.evaluate(()=>MESBG.battle.recruitOffers.map(o=>MESBG.battle.recruitGateReason(o.id,true)));if(gate.some(Boolean))throw Error('Locked initial offer');}
    await ctx.close();persist();console.log('viewport',version,width,height);
   }
-  {const {page,ctx}=await open(browser,390,844);await click(page,'#start-ai');await page.waitForSelector('[data-draft]');await recruit(page);await shot(page,'after-deployment');await click(page,'#dock-primary');await manualMove(page);await auto(page);
+  {const {page,ctx}=await open(browser,390,844);await click(page,'#start-ai');await page.waitForSelector('[data-draft]');await recruit(page);await shot(page,'after-deployment');await click(page,'#dock-primary');await manualMove(page);if(report.manual?.status!=='passed')throw Error('Manual input verification failed: '+JSON.stringify(report.manual));await auto(page);
    const deadline=Date.now()+12*60000;let last='',savedResume=false,completed=0;
    while(Date.now()<deadline){await page.waitForTimeout(700);const s=await state(page);const key=[s.phase,s.step,s.wave,s.round,s.enemyCount].join(':');if(key!==last){last=key;report.campaign.push(s);persist();console.log('campaign',s.wave,s.round,s.phase,s.step,s.units.length,s.enemyCount);}
     if(s.phase==='result'){await shot(page,'after-campaign-result');break;}
@@ -83,9 +87,10 @@ function fixture(full=true){const h=require('./campaign-harness.cjs')(),q=h.q;q.
   }
   for(const full of [true,false]){const {page,ctx}=await open(browser,390,844,'after',fixture(full));if(!await click(page,'#resume'))await click(page,'#continue-run');await shot(page,'retreat-'+(full?'strong':'weak')+'-preparation');await click(page,'#dock-primary');await auto(page);const start=Date.now();let final;
    while(Date.now()-start<6*60000){await page.waitForTimeout(700);final=await state(page);if(['reward','result'].includes(final.phase))break;if(!final.auto)await auto(page);}
-   report.missions.push({fixture:full?'mixed-party':'one-guard',status:full?(final.phase==='reward'?'passed':'failed'):(final.phase==='result'?'passed':'failed'),final});await shot(page,'retreat-'+(full?'success':'failure'));await ctx.close();persist();
+   await page.locator(final.phase==='reward'?'.modal.camp':'.result-modal').waitFor({state:'visible',timeout:20000}).catch(()=>{});report.missions.push({fixture:full?'mixed-party':'one-guard',status:full?(final.phase==='reward'?'passed':'failed'):(final.phase==='result'?'passed':'failed'),final});await shot(page,'retreat-'+(full?'success':'failure'));await ctx.close();persist();
   }
-  report.status=report.errors.length||report.fiveStages?.status!=='passed'||report.missions.some(m=>m.status!=='passed')?'failed':'passed';
+  report.status=report.errors.length||report.manual?.status!=='passed'||report.resume?.status!=='passed'||report.fiveStages?.status!=='passed'||report.missions.some(m=>m.status!=='passed')?'failed':'passed';
+  if(report.status==='failed')process.exitCode=1;
  }catch(error){report.status='failed';report.fatal=error.stack;console.error(error.stack);process.exitCode=1;}
  finally{persist();if(browser)await browser.close();server.close();}
 })();

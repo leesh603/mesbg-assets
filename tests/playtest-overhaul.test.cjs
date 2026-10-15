@@ -43,7 +43,7 @@ test('lethal environmental damage preserves fallen careers and equipment exactly
 test('postbattle injury precedes shield_wall, streak is counted and rewards cannot replay after resume',()=>{
  const h=camp(),q=h.q;const u=h.u;delete u.injury;delete u.injuryBackup;u.currentWounds=1;q.phase='move';q.round=3;q._flawless=2;q.bonusObjective=h.run("BONUS_OBJECTIVES.find(x=>x.id==='shield_wall')");q.bonusObjective2=null;q.finishWave();
  assert.ok(u.injury);assert.equal(q.battleRecord.objectives[0].passed,false);assert.equal(q.rewardBook().entries.some(e=>e.key==='battle:objective:shield_wall'),false);
- assert.equal(q.gold,q.rewardTotal());assert.equal(q.lastGold,q.gold);assert.equal(q.rewardBook().entries.find(e=>e.key==='battle:streak').amount,25);assert.equal(q.gold,126);
+ assert.equal(q.gold,q.rewardTotal());assert.equal(q.lastGold,q.gold);assert.equal(q.rewardBook().entries.find(e=>e.key==='battle:streak').amount,25);assert.equal(q.gold,126);assert.equal(q.events.find(e=>e.type==='StageCleared').gold,q.lastGold);assert.match(q.events.find(e=>e.type==='WaveEnded').message,/126/);
  const snapshot=()=>JSON.stringify({gold:q.gold,rewards:q.rewardLedger,units:q.units.map(u=>({id:u.id,hp:u.currentWounds,base:u.baseStats,x:u.x,y:u.y,xp:u.xp,entry:u.entryPoints,equipment:u.equipment||[]}))});const saved=snapshot(),gold=q.gold;assert.equal(q.resume(),true);q.phase='move';q.finishWave();assert.equal(q.gold,gold);q.phase='reward';assert.equal(snapshot(),saved);
 });
 test('combat health objective is evaluated before lembas recovery and injury remains in history',()=>{
@@ -91,4 +91,32 @@ test('optional linked operation respects boss slots, saves choice, then returns 
 });
 test('auto interruption can be disabled and only triggers a concrete critical situation',()=>{
  const h=camp(),q=h.q;q.terrain=[];q.units=[h.u];h.u.currentWounds=1;h.u.resources.fate=0;h.u.x=1000;h.u.y=700;for(const x of [1000-h.u.radius-38,1000+h.u.radius+38])q.spawn('orc_sword','evil',{x,y:700});assert.match(q.autoPauseReason().text,/포위/);q.autoPauseSettings={hero:false,objective:false,choice:false};assert.equal(q.autoPauseReason(),null);
+});
+test('event IDs are unique; legacy duplicate IDs migrate by title and option without changing effects',()=>{
+ const h=camp(),q=h.q,ids=h.LWB_EVENTS.map(e=>e.id);assert.equal(new Set(ids).size,ids.length);
+ q.campEvent=h.LWB_EVENTS.find(e=>e.id==='gollum_track');q.save();const s=JSON.parse(h.store.get('mesbg-endless-save'));s.campEvent.id='gollum';h.store.set('mesbg-endless-save',JSON.stringify(s));assert.equal(q.resume(),true);assert.equal(q.campEvent.id,'gollum_track');
+});
+test('event movement inches, campaign injury and restoration match their descriptions',()=>{
+ const h=camp(),q=h.q;q.nextRoundBuffs=[];pick(q,h.LWB_EVENTS.find(e=>e.id==='nazgul'),0);assert.equal(q.nextRoundBuffs[0].n,-90);q.nextRoundBuffs=[];pick(q,h.LWB_EVENTS.find(e=>e.id==='eagle'),1);assert.equal(q.nextRoundBuffs[0].n,45);
+ const u=q.units[1],move=u.baseStats.move;q.units=[u];pick(q,h.LWB_EVENTS.find(e=>e.id==='broken_cart'),1);assert.equal(u.baseStats.move,Math.round(move*.75));assert.equal(u.injuryHistory.length,1);
+ const v=q.spawn('mt_swordshield','good',{x:1200,y:400});const original=v.baseStats.move;assert.equal(q.applyCampaignInjury(v,'leg'),true);assert.equal(v.stats.move,Math.round(original*.75));assert.equal(v.injuryHistory.length,1);
+ q.campEvent=h.LWB_EVENTS.find(e=>e.id==='elven_healer');q.units=q.units.filter(u=>u.uid===v.uid);q.gold=100;assert.equal(pick(q,q.campEvent,0),true);assert.equal(v.baseStats.move,original);assert.equal(v.injury,undefined);
+});
+test('successful bridge control expands next defense deployment; supplies add an actual support unit',()=>{
+ const h=retreat(),q=h.q;q.retreatMission.evacuated=2;q.retreatMission.bridgeTicks=[2,0];q.retreatMission.supplies=true;q.finishWave();q.campStep='ready';q.leaveCamp();assert.equal(q.next.mission,'defense');assert.equal(q.deploymentAllowed({x:760,y:590}),true);assert.equal(q.deploymentAllowed({x:760,y:610}),false);
+ const u=q.permanent()[0],p=h.run('Be(q.units[0],{x:760,y:550},q.alive(),q.terrain,200,p=>q.deploymentAllowed(p))');assert.ok(p);assert.equal(q.deploy(u.uid,p),true);q.startWave();assert.equal(q.alive('good').filter(u=>u._stageSupport==='anduin').length,1);
+});
+test('shop refresh and treatment share atomic payments, boundary checks and effect rollback',()=>{
+ for(const balance of [0,19,20,21]){const h=camp(),q=h.q;q.gold=balance;const u=h.u,move=u.baseStats.move;q.campStep='ready';assert.equal(q.buyInjuryTreatment(u.uid),balance>=20);assert.equal(q.gold,balance>=20?balance-20:balance);if(balance>=20){assert.equal(u.injury,undefined);assert.equal(q.buyInjuryTreatment(u.uid),false);}else assert.equal(u.baseStats.move,move);}
+ const h=camp(),q=h.q;q.campStep='shop';q.gold=7;assert.equal(q.rerollShop(),false);q.gold=8;assert.equal(q.rerollShop(),true);assert.equal(q.gold,0);assert.equal(q.shopStock.length,4);q.gold=8;const stock=JSON.stringify(q.shopStock),state=q.rng.getState();h.run('localStorage.setItem=()=>{throw Error("quota")}');assert.equal(q.rerollShop(),false);assert.equal(q.gold,8);assert.equal(JSON.stringify(q.shopStock),stock);assert.equal(q.rng.getState(),state);
+});
+test('resurrection starts a new casualty receipt without cloning legacy equipment',()=>{
+ const h=camp(),q=h.q,u=q.units[1];u.equipment=['whetstone'];q.eventDamage(u,1,false);assert.equal(q.stageDeaths,1);assert.equal(u.equipment.length,0);assert.equal(q.legacy.filter(id=>id==='whetstone').length,1);assert.ok(q._reviveFallen(u.uid));assert.equal(u.alive,true);q.eventDamage(u,1,false);assert.equal(q.stageDeaths,2);assert.equal(q.legacy.filter(id=>id==='whetstone').length,1);
+});
+test('selling, buying back and reselling a legitimate item pays once each time',()=>{
+ const h=camp(),q=h.q,u=h.u;q.campStep='shop';u.equipment=['whetstone'];const index=h.run("LWB_EQUIP.findIndex(a=>a.id==='whetstone')");q.gold=0;assert.equal(q.sellEquip(index,u.uid),true);const gold=q.gold;assert.ok(gold>0);assert.equal(q.sellEquip(index,u.uid),false);assert.equal(q.buybackEquip(0),true);assert.equal(q.gold,0);assert.equal(q.sellEquip(index,u.uid),true);assert.equal(q.gold,gold);assert.equal(q.rewardTotal('camp'),gold*2);
+});
+test('objective AI targets the actual lair and honors an explicit player hold order',()=>{
+ const h=camp(),q=h.q;q.units=[];q.terrain=[];q.phase='move';q.side='good';q.mission='purge';q.battleOrder=null;const u=q.spawn('mt_swordshield','good',{x:400,y:600}),foe=q.spawn('orc_sword','evil',{x:900,y:900}),lair=q.spawn('orc_sword','evil',{x:1600,y:600});lair.lair=true;lair.static=true;
+ assert.ok(q.orderPriority(u,lair)<q.orderPriority(u,foe));const plan=q.missionMovePlan(u);assert.ok(plan);assert.equal(plan.target,lair.uid);assert.ok(Math.hypot(plan.to.x-u.x,plan.to.y-u.y)<=q.remaining(u)+.1);assert.ok(h.Et(u,plan.to,q.alive(),q.terrain));q.setBattleOrder('hold');assert.equal(q.missionMovePlan(u),null);
 });
