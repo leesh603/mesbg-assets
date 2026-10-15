@@ -125,3 +125,7 @@ test('deployment drawings and resume use the same mission bounds; scouting merit
  const u=q.permanent().find(u=>!u.traits.includes('hero'));u.x=500;u.y=500;u.xp=0;u.battleMeritXP=0;u.battleMerit={};u.meritReceipts=[];q.mission='scouting';q.recordRoundMerit();assert.equal(u.xp,0);
  q.devices=[{type:'intel',armed:true,x:500,y:500,trigger:60}];q.checkTraps(u);assert.equal(q.scouts,1);assert.equal(u.xp,3);q.checkTraps(u);assert.equal(u.xp,3);
 });
+
+test('campaign boundaries stop auto even when optional choice interruptions are disabled',()=>{
+ const h=camp(),q=h.q;q.autoPauseSettings={hero:false,objective:false,choice:false};h.run('AUTO=true;AUTO_STEP=true');q.stopAutoForChoice('evolution');assert.equal(h.run('AUTO'),true);q.stopAutoForChoice('camp',true);assert.equal(h.run('AUTO'),false);assert.equal(h.run('AUTO_STEP'),false);
+});

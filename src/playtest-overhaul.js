@@ -181,12 +181,12 @@ P.endRun=function(victory,message){
         r.objectives=[this.bonusObjective,this.bonusObjective2].filter(Boolean).map(o=>({id:o.id,text:o.text,passed:!!o.test(this)}));
         r.rewards=structuredClone(this.rewardBook().entries);r.promotions=[];
     }
-    this.stopAutoForChoice('원정 결과');return qaEndRun.call(this,victory,message);
+    this.stopAutoForChoice('원정 결과',true);return qaEndRun.call(this,victory,message);
 };
 const qaFinish=P.finishWave;
 P.finishWave=function(){
     if(this.settledWave===this.wave||['reward','result'].includes(this.phase))return;
-    this.stopAutoForChoice('전투 결과와 야영지 선택');
+    this.stopAutoForChoice('전투 결과와 야영지 선택',true);
     return qaFinish.call(this);
 };
 const qaNewRun=P.start;
@@ -203,7 +203,7 @@ P.resume=function(){
     this.autoPauseSettings=state.autoPauseSettings||{hero:true,objective:true,choice:true};
     this._appliedCombats=new WeakSet();this.tacticalEvents=[];
     if(this.rewardLedger?.wave===this.wave)this.lastGold=this.rewardTotal();
-    this.stopAutoForChoice('저장한 원정 재개');return true;
+    this.stopAutoForChoice('저장한 원정 재개',true);return true;
 };
 
 const MERIT_RULES={support:{xp:2,cap:8,label:'창·결투 지원'},line:{xp:2,cap:6,label:'방어선 유지'},objective:{xp:3,cap:9,label:'임무 수비'},escort:{xp:2,cap:6,label:'호송 보호'},intercept:{xp:2,cap:6,label:'위협 저지'}};
@@ -266,8 +266,8 @@ P.checkAutoRisk=function(){
     const risk=this.autoPauseReason();if(!risk||this._autoRiskReceipt===risk.key)return false;
     if(typeof AUTO!=='undefined'&&AUTO){this._autoRiskReceipt=risk.key;AUTO=false;AUTO_STEP=false;if(typeof Jt!=='undefined')clearTimeout(Jt);this.emit('AutoPaused',risk.text);if(document.body.dataset)document.body.dataset.auto='';for(const id of ['auto','auto-dock']){const button=document.getElementById(id);if(button){button.textContent='자동';button.classList.remove('on');button.title=risk.text;}}if(typeof renderDock==='function')renderDock();if(typeof Xt==='function')Xt(risk.text);return true;}return false;
 };
-P.stopAutoForChoice=function(text){
-    if((this.autoPauseSettings?.choice??true)&&typeof AUTO!=='undefined'){AUTO=false;AUTO_STEP=false;if(typeof Jt!=='undefined')clearTimeout(Jt);}
+P.stopAutoForChoice=function(text,boundary=false){
+    if((boundary||(this.autoPauseSettings?.choice??true))&&typeof AUTO!=='undefined'){AUTO=false;AUTO_STEP=false;if(typeof Jt!=='undefined')clearTimeout(Jt);}
 };
 
 P.chargeBonus=function(u,target,plan){
