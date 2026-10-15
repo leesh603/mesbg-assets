@@ -1,0 +1,90 @@
+name: Audit regressions 20261015
+on:
+  push:
+    branches: [audit/playtest-20261015-e804344]
+    paths: ['.github/workflows/audit-regressions-20261015.yml']
+permissions:
+  contents: write
+jobs:
+  regressions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - run: |
+          python -m pip install playwright requests
+          python -m playwright install --with-deps chromium
+      - name: Verify economic and reward defects plus subsequent gameplay
+        env:
+          AUDIT_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p tests audit-detail
+          cat > /tmp/detail.py <<'PY'
+          import requests,json,subprocess,os,base64,traceback,time,re
+          from pathlib import Path
+          from playwright.sync_api import sync_playwright
+          ref='e804344617e860324a09ea9c33264fa201783ae0';branch='audit/playtest-20261015-e804344';raw='https://raw.githubusercontent.com/leesh603/mesbg-assets/'
+          for p in ['index.html','src/game.js','tests/campaign-harness.cjs']:
+            f=Path(p);f.parent.mkdir(parents=True,exist_ok=True);r=requests.get(raw+ref+'/'+p,timeout=60);r.raise_for_status();f.write_text(r.text)
+          script=r'''
+          const fs=require('fs'),h=require(process.cwd()+'/tests/campaign-harness.cjs')(),q=h.q,R={ref:'e804344617e860324a09ea9c33264fa201783ae0',tests:[],anchors:[]};
+          const run=(name,f)=>{try{R.tests.push({name,result:f()});}catch(e){R.tests.push({name,error:e.stack});}};
+          function fixture(){q.start('ai');q.units=[];const u=q.spawn('aragorn','good',{x:1090,y:345});q.gold=0;q.relics={};q.phase='reward';q.campStep='event';u.currentWounds=1;return u;}
+          run('zero-gold-payment-events',()=>{let a=[];for(const e of h.LWB_EVENTS)for(let i=0;i<e.options.length;i++){const o=e.options[i],m=String(o.fx).match(/gold\s*-\s*(\d+)/);if(!m)continue;const u=fixture();q.campEvent=e;const before={hp:u.currentWounds,courage:u.stats.courage,cp:q.bonusCP,attack:u.stats.attacks};const ok=q.chooseEvent(i);a.push({event:e.id,label:o.label,optionFields:Object.fromEntries(Object.entries(o).filter(([k,v])=>typeof v!=='function')),nominalCost:+m[1],ok,gold:q.gold,before,after:{hp:u.currentWounds,courage:u.stats.courage,cp:q.bonusCP,attack:u.stats.attacks},outcome:q.eventOutcome});}return a;});
+          run('night-raid-damage-sign',()=>{const u=fixture(),before=u.currentWounds;q.campEvent=h.LWB_EVENTS.find(e=>e.id==='nightraid');const definition=q.campEvent.options[0];q.chooseEvent(0);return{beforeHp:before,afterHp:u.currentWounds,gold:q.gold,definition:Object.fromEntries(Object.entries(definition).filter(([k,v])=>typeof v!=='function')),outcome:q.eventOutcome};});
+          run('postbattle-injury-bonus-order',()=>{const u=fixture();q.phase='move';q.wave=2;q.round=4;q.stageDeaths=0;q.stageKills=0;q.eliteKills=0;q._flawless=0;q.bonusObjective=h.run("BONUS_OBJECTIVES.find(x=>x.id==='shield_wall')");q.bonusObjective2=null;const before={injury:u.injury||null,hp:u.currentWounds,passes:q.bonusObjective.test(q)};q.finishWave();return{before,after:{injury:u.injury,hp:u.currentWounds,gold:q.gold,lastGold:q.lastGold,passes:q.bonusObjective.test(q)},objectiveText:q.bonusObjective.text,log:q.log.slice(0,18)};});
+          run('promotion-layout-read',()=>({upgradeReason:String(q.promotionReason),skillsFree:String(q.skillReason)}));
+          const lines=fs.readFileSync('src/game.js','utf8').split(/\r?\n/);
+          for(const term of ['id: \'refugees\'','id: \'nightraid\'','shield_wall','_flawless','recruit-role','P.rollInitialRecruits =','P.confirmCampChoice =','P.rollCampEvent =','P.checkEnd ='])for(const i of lines.map((s,i)=>s.includes(term)?i:-1).filter(i=>i>=0).slice(0,3))R.anchors.push({term,line:i+1,text:lines.slice(Math.max(0,i-2),i+15).map((s,j)=>(Math.max(0,i-2)+j+1)+': '+s).join('\n')});
+          fs.writeFileSync('audit-detail/regressions.json',JSON.stringify(R,null,2));console.log('REGRESSION_SUMMARY',JSON.stringify(R.tests));
+          '''
+          Path('/tmp/detail.cjs').write_text(script);subprocess.run(['node','/tmp/detail.cjs'],check=True)
+          inspection=requests.get(raw+branch+'/reports/audit-20261015/inspection.json',timeout=60).json();original=requests.get(raw+branch+'/reports/audit-20261015/report.json',timeout=60).json()
+          compact={'build':ref,'firstPlay':[{'name':e.get('name'),'phase':e.get('phase'),'wave':e.get('wave'),'round':e.get('round'),'gold':e.get('gold'),'points':e.get('points'),'text':e.get('text'),'trace':e.get('trace'),'extra':e.get('extra')} for e in original['events']],'firstErrors':original['errors'],'extended':[],'fixtureUI':[],'errors':[]}
+          with sync_playwright() as pw:
+            browser=pw.chromium.launch(headless=True,args=['--no-sandbox','--enable-unsafe-swiftshader'])
+            ctx=browser.new_context(viewport={'width':390,'height':844},is_mobile=True,has_touch=True)
+            page=ctx.new_page();page.on('pageerror',lambda e:compact['errors'].append(str(e)))
+            page.goto('https://leesh603.github.io/mesbg-assets/',wait_until='domcontentloaded',timeout=90000);page.wait_for_timeout(10000)
+            page.evaluate('(s)=>localStorage.setItem("mesbg-endless-save",JSON.stringify(s))',inspection['state']);page.reload(wait_until='domcontentloaded');page.wait_for_timeout(6000)
+            page.get_by_role('button',name=re.compile('이어하기')).first.click();page.wait_for_timeout(1500)
+            deadline=time.time()+150;lastwave=1
+            while time.time()<deadline:
+              s=page.evaluate("() => ({phase:MESBG.battle.phase,wave:MESBG.battle.wave,round:MESBG.battle.round,side:MESBG.battle.side,campStep:MESBG.battle.campStep,good:MESBG.battle.alive('good').length,evil:MESBG.battle.alive('evil').length,gold:MESBG.battle.gold,log:MESBG.battle.log.slice(0,4),auto:MESBG.auto()})")
+              compact['extended'].append(s)
+              if s['phase']=='result' or s['wave']>=4:break
+              if s['phase']=='reward':
+                if page.locator('#promotion-defer').count():page.locator('#promotion-defer').click()
+                action=page.evaluate("() => {let b=MESBG.battle,r='';if(b.campStep==='event'){if(b.eventOutcome){b.eventOutcome=null;b.campStep='recruit';r='instrumented existing event result acknowledgement';}else{b.selectCampChoice(0);r=b.confirmCampChoice();}}else if(b.campStep==='recruit'){b.recruitDraft=[];b.recruitQuantities={};r=b.commitRecruits();}else if(b.campStep==='relic'){b.selectCampChoice(b.relicChoices[0]);r=b.confirmCampChoice();}else if(b.campStep==='ready')r=b.leaveCamp();else r='unknown '+b.campStep;MESBG.render();return r;}")
+                compact['extended'].append({'instrumentedCampAction':action});page.wait_for_timeout(600)
+              elif s['phase']=='preparation':page.locator('#dock-primary').click();page.wait_for_timeout(1000)
+              else:
+                if not s['auto']:page.locator('#auto-dock').click()
+                page.wait_for_timeout(2500)
+              if s['wave']>lastwave:
+                lastwave=s['wave'];page.screenshot(path='audit-detail/extended-wave-'+str(lastwave)+'.png',full_page=True)
+            page.screenshot(path='audit-detail/extended-outcome.png',full_page=True)
+            compact['extendedFinalText']=page.locator('body').inner_text()
+            # Deliberately isolated zero-gold camp state; no claim this was encountered naturally.
+            for wanted in ['refugees','nightraid']:
+              setup=page.evaluate("(id)=>{const b=MESBG.battle;MESBG.auto(false);b.phase='reward';b.campStep='event';b.gold=0;b.eventOutcome=null;b.campDraft=null;b.campEvent=null;for(let i=0;i<500;i++){b.rollCampEvent();if(b.campEvent?.id===id)break;}const u=b.alive('good')[0];if(u)u.currentWounds=1;MESBG.render();return {id:b.campEvent?.id,u:u?{hp:u.currentWounds,courage:u.stats.courage}:null};}",wanted)
+              page.wait_for_timeout(500)
+              visible=page.evaluate("() => [...document.querySelectorAll('button')].filter(e=>{const r=e.getBoundingClientRect();return r.width&&r.height&&r.top<innerHeight&&r.bottom>0}).map(e=>({id:e.id,text:e.innerText,disabled:e.disabled,attrs:[...e.attributes].filter(a=>a.name.startsWith('data-')).map(a=>[a.name,a.value])}))")
+              compact['fixtureUI'].append({'wanted':wanted,'setup':setup,'text':page.locator('body').inner_text(),'buttons':visible})
+              page.screenshot(path='audit-detail/fixture-'+wanted+'.png',full_page=True)
+            ctx.close();browser.close()
+          Path('audit-detail/compact-evidence.json').write_text(json.dumps(compact,ensure_ascii=False,indent=2));print('EXTENDED_SUMMARY',json.dumps(compact['extended'],ensure_ascii=False),flush=True)
+          api='https://api.github.com/repos/leesh603/mesbg-assets';s=requests.Session();s.headers.update({'Authorization':'Bearer '+os.environ['AUDIT_TOKEN']})
+          def call(m,p,d=None):
+            r=s.request(m,api+p,json=d,timeout=60);r.raise_for_status();return r.json()
+          head=call('GET','/git/ref/heads/'+branch)['object']['sha'];tree=call('GET','/git/commits/'+head)['tree']['sha'];ent=[]
+          for f in Path('audit-detail').glob('*'):
+            b=call('POST','/git/blobs',{'content':base64.b64encode(f.read_bytes()).decode(),'encoding':'base64'});ent.append({'path':'reports/audit-20261015/'+f.name,'mode':'100644','type':'blob','sha':b['sha']})
+          tree=call('POST','/git/trees',{'base_tree':tree,'tree':ent})['sha'];commit=call('POST','/git/commits',{'message':'test: persist event-cost and injury-order reproductions and extended play','tree':tree,'parents':[head]})['sha'];call('PATCH','/git/refs/heads/'+branch,{'sha':commit,'force':False});print('EVIDENCE_COMMIT',commit,flush=True)
+          PY
+          python /tmp/detail.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: warbands-regressions-e804344
+          path: audit-detail/
+          retention-days: 30
