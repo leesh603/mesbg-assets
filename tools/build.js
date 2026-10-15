@@ -46,6 +46,13 @@ if(ta<0||tb<ta)throw Error('Troop promotion markers not found');
 src=src.slice(0,ta)+'/*__TROOP_PROMOTIONS_BEGIN__*/\n'+troops+'\n'+src.slice(tb);
 fs.writeFileSync(SRC,src);
 
+// QA improvements share the exact served/offline implementation.
+const overhaul=fs.readFileSync(path.join(ROOT,'src','playtest-overhaul.js'),'utf8');
+const oa=src.indexOf('/*__PLAYTEST_OVERHAUL_BEGIN__*/'),ob=src.indexOf('/*__PLAYTEST_OVERHAUL_END__*/');
+if(oa<0||ob<oa)throw Error('Playtest overhaul markers not found');
+src=src.slice(0,oa)+'/*__PLAYTEST_OVERHAUL_BEGIN__*/\n'+overhaul+'\n'+src.slice(ob);
+fs.writeFileSync(SRC,src);
+
 const a = html.indexOf(BEGIN), b = html.indexOf(END);
 if (a < 0 || b < 0 || b < a) {
   console.error('markers not found in', INDEX);

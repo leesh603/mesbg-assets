@@ -53,10 +53,10 @@ const THEMES={
  hornburg:{ground:'stone',layout:'court',palette:['stone','palisade','rock'],title:'혼부르크 대전당',story:'로한 석조 회랑과 방책 사이 전열'},
  erebor_hall:{ground:'stone',layout:'court',palette:['ruin','rock','whitewall'],title:'두린의 돌기둥 전당',story:'드워프 석주와 방벽 사이의 넓고 좁은 회랑'}
 };
-const caches=new WeakMap();
+const caches=new WeakMap(),rotations=new WeakMap();
 const dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
 const flying=u=>!!u?.traits?.includes('flying');
-function local(p,t){const a=-(t.angle||0)*Math.PI/180,c=Math.cos(a),s=Math.sin(a),x=p.x-t.x,y=p.y-t.y;return{x:x*c-y*s,y:x*s+y*c};}
+function local(p,t){const angle=t.angle||0;let r=rotations.get(t);if(!r||r.angle!==angle){const a=-angle*Math.PI/180;r={angle,c:Math.cos(a),s:Math.sin(a)};rotations.set(t,r);}const x=p.x-t.x,y=p.y-t.y;return{x:x*r.c-y*r.s,y:x*r.s+y*r.c};}
 function segmentDistance(p,a,b){const dx=b[0]-a[0],dy=b[1]-a[1],q=Math.max(0,Math.min(1,((p.x-a[0])*dx+(p.y-a[1])*dy)/(dx*dx+dy*dy||1)));return Math.hypot(p.x-a[0]-q*dx,p.y-a[1]-q*dy);}
 function signed(p,t){
  if(t.shape==='ribbon'){let d=Infinity;for(let i=1;i<t.points.length;i++)d=Math.min(d,segmentDistance(p,t.points[i-1],t.points[i]));return d-t.w/2;}

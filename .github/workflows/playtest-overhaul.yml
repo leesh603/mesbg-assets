@@ -1,0 +1,38 @@
+name: Playtest overhaul regression and browser QA
+on:
+  push:
+    branches: [feat/playtest-overhaul-20261015]
+    paths: ['src/**', 'data/troop-promotions.json', 'index.html', 'tests/**', 'tools/build.js', '.github/workflows/playtest-overhaul.yml']
+permissions:
+  contents: read
+concurrency:
+  group: playtest-overhaul-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            src
+            tests
+            tools
+            data
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save --package-lock=false playwright
+      - run: npx playwright install --with-deps chromium
+      - run: node tools/build.js --online-only
+      - run: node --test tests/playtest-overhaul.test.cjs tests/free-hero-activation.test.cjs tests/qa-state.test.cjs tests/warband-points.test.cjs tests/terrain.test.cjs
+      - run: node tests/playtest-browser.cjs
+        env:
+          BASE_SHA: e804344617e860324a09ea9c33264fa201783ae0
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playtest-overhaul-${{ github.sha }}
+          path: reports/playtest-overhaul-20261015/browser/
+          retention-days: 14

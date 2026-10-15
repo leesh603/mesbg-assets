@@ -98,12 +98,6 @@ for(const method of ['move','charge']){
 }
 const careerRound=P.beginRound;
 P.beginRound=function(){const guarded=this.alive().filter(u=>this.careerBodyguard(u)).map(u=>[u,u.fearless]);for(const[u]of guarded)u.fearless=true;try{return careerRound.call(this);}finally{for(const[u,prior]of guarded)u.fearless=prior;}};
-const troopRoll=P.rollRecruits;
-P.rollRecruits=function(){
-    const disabled=[];
-    for(const d of Object.values(UnitCatalog))if(isCareerTroop(d.id)&&this.troopGateReason(d.id)&&d.enabled){disabled.push(d);d.enabled=false;}
-    try{return troopRoll.call(this);}finally{for(const d of disabled)d.enabled=true;}
-};
 const troopSelection=P.recruitSelection;
 P.recruitSelection=function(i){const id=this.recruitOffers?.[i]?.id,reason=id&&isCareerTroop(id)&&this.troopGateReason(id);return reason?{reason}:troopSelection.call(this,i);};
 const troopDraftReason=P.draftReason;
@@ -183,6 +177,7 @@ P.dismount=function(u){
 };
 const troopKill=P._trkKill;
 P._trkKill=function(k,v){
+    if(v._killCredited)return;
     troopKill.call(this,k,v);
     if(k.side==='good'&&v.side==='evil'&&isCareerTroop(k)&&!k.temporary){
         this.initTroopCareer(k);const prior=k.careerKillWave===this.wave?(k.careerKillXP||0):0;
@@ -235,7 +230,7 @@ function troopTreeText(id,depth=0,seen=new Set()){
 function troopProfileSection(u){
     if(!isCareerTroop(u)||u.temporary)return '';
     q.initTroopCareer(u);
-    return '<section class="troop-career"><h3>현재 병종 · '+esc(q.meta.get(u.id).name_ko)+'</h3><p>최초 영입 '+u.entryPoints+'pt 유지 · 경험치 '+u.xp+' · 전투 '+u.battlesParticipated+'회</p><p>'+u.promotionHistory.map(h=>esc(UnitCatalog[h.to]?.meta.name_ko||h.to)).join(' → ')+'</p><ul>'+troopTreeText(u.id)+'</ul><button type="button" class="secondary" data-troop-career="'+u.uid+'">승급 선택 / 조건 확인</button></section>';
+    return '<section class="troop-career"><h3>현재 병종 · '+esc(q.meta.get(u.id).name_ko)+'</h3><p>최초 영입 '+u.entryPoints+'pt 유지 · 경험치 '+u.xp+' · 전투 '+u.battlesParticipated+'회</p><p>'+u.promotionHistory.map(h=>esc(UnitCatalog[h.to]?.meta.name_ko||h.to)).join(' → ')+' · '+esc(q.meritSummary(u))+'</p><ul>'+troopTreeText(u.id)+'</ul><button type="button" class="secondary" data-troop-career="'+u.uid+'">승급 선택 / 조건 확인</button></section>';
 }
 const careerWeaponNames={sword:'검',sword_shield:'검·방패',spear:'창',spear_shield:'창·방패',bow:'활',crossbow:'석궁',pike:'장창',twohanded:'양손무기',axe:'도끼',lance:'기창',dagger:'단검'};
 const careerTraitNames={mounted:'기병 돌격',spear:'창 지원',lance:'기창 돌격',shieldwall:'인접 방벽 · 방어 +1',steadfast:'견고한 전열 · 밀림 감소',bodyguard:'지휘 영웅 생존 시 공포 면역',elf:'엘프',dwarf:'난쟁이',veteran:'결투 최저 주사위 재굴림',sharpshooter:'정지 사격 명중 재굴림',ranger:'이동 사격 페널티 없음',woodland:'숲 정찰',mountain:'산 지형 통과',crossbow:'이동 후 사격 불가',twohanded:'양손무기',fearless:'공포 면역',dagger:'단검',terror:'공포'};
@@ -255,7 +250,7 @@ function openTroopPromotion(uid,manual=false){
     box.querySelector('#promotion-defer').onclick=()=>{q.promotionDeferredWave=q.wave;q.promotionError='';q.save();box.remove();};
 }
 function renderTroopPromotions(){
-    if(q.phase==='reward'&&q.promotionDeferredWave!==q.wave&&!document.getElementById('troop-promotion')&&q.pendingTroopPromotions().length)openTroopPromotion();
+    if(q.phase==='reward'&&q.campStep==='ready'&&q.promotionDeferredWave!==q.wave&&!document.getElementById('troop-promotion')&&q.pendingTroopPromotions().length)openTroopPromotion();
     if(!['reward','preparation'].includes(q.phase))document.getElementById('troop-promotion')?.remove();
 }
 if(typeof Yt==='function'){
