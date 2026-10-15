@@ -1345,7 +1345,7 @@ html body.lwb-polished:is([data-phase="reward"],[data-phase="menu"],[data-phase=
 :is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #qa-auto-pause{margin:8px 0!important;padding:8px!important;border:1px solid #756345!important}
 :is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #qa-auto-pause label{display:flex!important;align-items:center!important;gap:8px!important;min-height:44px!important;font-size:var(--fb)!important}
 :is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #qa-auto-pause input{width:20px!important;height:20px!important;flex:none!important}
-:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #qa-mission{position:absolute!important;top:8px!important;left:8px!important;max-width:min(340px,calc(100% - 16px))!important;z-index:12!important;background:#1b271ff0!important;border:1px solid #897045!important;padding:5px 9px!important;color:#eadfc0!important;font-size:var(--fb)!important;line-height:1.5!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #qa-mission{display:block!important;position:absolute!important;top:8px!important;left:8px!important;max-width:min(340px,calc(100% - 16px))!important;z-index:12!important;background:#1b271ff0!important;border:1px solid #897045!important;padding:5px 9px!important;color:#eadfc0!important;font-size:var(--fb)!important;line-height:1.5!important}
 :is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #qa-mission[hidden]{display:none!important}
 :is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #qa-mission summary{min-height:32px!important;cursor:pointer!important}
 :is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #qa-mission p{margin:6px 0!important;overflow-wrap:anywhere!important}
@@ -1355,3 +1355,6 @@ html body.lwb-polished:is([data-phase="reward"],[data-phase="menu"],[data-phase=
 :is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .reward:disabled{opacity:.6!important;cursor:not-allowed!important}
 :is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .recruit-card .recruit-role{white-space:normal!important;line-height:1.5!important}
 @media(max-width:600px){:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .recruit-cards{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .recruit-card{min-width:0!important;width:100%!important}:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .camp-confirm>span{flex:1!important;min-width:90px!important;white-space:normal!important}}
+
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #qa-mission [hidden],:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #qa-forecast[hidden]{display:none!important}
+:is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body #qa-forecast{display:block!important;grid-column:1 / -1!important;margin:0 0 5px!important;padding:5px 8px!important;font-size:12px!important;line-height:1.4!important;color:#f6e3a6!important;background:#1b271f!important;white-space:normal!important;max-height:5.6em!important;overflow:auto!important}

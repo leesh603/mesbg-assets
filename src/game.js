@@ -3213,6 +3213,7 @@ P.checkTraps = function (u) {
             if (u.side !== 'good') continue;
             d.armed = false;
             this.scouts = (this.scouts || 0) + 1;
+            this.awardMerit(u,'objective','intel:'+d.x+':'+d.y);
             this.emit('Event', '📜 정보 수집 — ' + u.name + ' (' + this.scouts + '/3)', { at: d });
             continue;
         }
@@ -5114,8 +5115,9 @@ Ve.prototype.drawRings = function () {
     const dashCircle = (x, y, r, w, color, alpha, n = 40) => { for (let i = 0; i < n; i++) { const a0 = i * Math.PI * 2 / n, a1 = a0 + Math.PI / n * 1.15; duo(w, color, alpha, () => { g.beginPath(); g.arc(x, y, r, a0, a1); g.strokePath(); }); } };
     if (b.phase === 'preparation') {
         g.fillStyle(ALLY, .13);
-        g.fillRect(24, 285, pt.width - 48, pt.deployY - 285);
-        for (let x = 24; x < pt.width - 24; x += 34) { const x2 = Math.min(x + 20, pt.width - 24); duo(3, ALLY_HI, .95, () => g.lineBetween(x, pt.deployY, x2, pt.deployY)); }
+        const zone=b.deploymentBounds();
+        g.fillRect(24, zone.minY, pt.width - 48, zone.maxY-zone.minY);
+        for (let x = 24; x < pt.width - 24; x += 34) { const x2 = Math.min(x + 20, pt.width - 24); duo(3, ALLY_HI, .95, () => g.lineBetween(x, zone.maxY, x2, zone.maxY)); }
         
         if (b.current?.modifier === 'ambush') {
             g.fillStyle(FOE, .09);
@@ -5134,6 +5136,7 @@ Ve.prototype.drawRings = function () {
             
         }
     }
+    renderRetreatGuide(this);
     if (['hold', 'defense', 'rescue'].includes(b.mission)) {
         if (b.phase === 'preparation') {
             g.fillStyle(FOE, .035);
@@ -10678,8 +10681,6 @@ P.missionMovePlan=function(u){
     }else if(['hold','rescue'].includes(this.mission)){
         if(ht(u,Mt.objective)<Mt.objective.radius-20&&!this.alive('evil').some(v=>ht(v,Mt.objective)<Mt.objective.radius+80))return {wait:true};
         goal=Mt.objective;
-    }else if(this.mission==='osgiliath_retreat'&&role!=='cavalry'){
-        const convoy=this.alive('good').filter(v=>v._evacuee).sort((a,b)=>ht(u,a)-ht(u,b))[0];if(convoy)goal={x:convoy.x,y:Math.max(260,convoy.y-(role==='archer'?260:150))};
     }else if(this.mission==='escort'&&role!=='cavalry'){
         const cart=this.unit(this.escortCart);if(cart?.alive&&ht(u,cart)>260)goal={x:cart.x,y:Math.min(1250,cart.y+160)};
     }
@@ -10892,7 +10893,7 @@ P.applyCombat=function(r){
 P.recordRoundMerit=function(){
     for(const u of this.permanent()){
         if(!isCareerTroop(u))continue;
-        if(['hold','defense','rescue','scouting'].includes(this.mission)&&ht(u,Mt.objective)<=Mt.objective.radius&&!this.alive('evil').some(v=>ht(v,u)<180))this.awardMerit(u,'objective','round:'+this.round);
+        if(['hold','defense','rescue'].includes(this.mission)&&ht(u,Mt.objective)<=Mt.objective.radius&&!this.alive('evil').some(v=>ht(v,u)<180))this.awardMerit(u,'objective','round:'+this.round);
         const convoy=this.mission==='osgiliath_retreat'?this.alive('good').filter(v=>v._evacuee):[this.unit(this.escortCart)].filter(v=>v?.alive);
         if(convoy.some(v=>ht(v,u)<220)&&this.alive('evil').some(v=>ht(v,u)<420))this.awardMerit(u,'escort','round:'+this.round);
     }
@@ -10998,10 +10999,16 @@ P.operationStage=function(n){
 };
 const qaStageInfo=P.stageInfo;
 P.stageInfo=function(n){return this.operationStage(n)||qaStageInfo.call(this,n);};
-P.deploymentAllowed=function(p){
-    if(this.mission==='osgiliath_retreat')return p.y>=960&&p.y<=1185;
-    if(this.linkedOperation?.active&&this.linkedOperation.step===2&&this.linkedOperation.bridgeHeld)return p.y>=285&&p.y<=600;
-    return p.y>=285&&p.y<=pt.deployY;
+P.deploymentBounds=function(){
+    if(this.mission==='osgiliath_retreat')return {minY:960,maxY:1185};
+    return {minY:285,maxY:this.linkedOperation?.active&&this.linkedOperation.step===2&&this.linkedOperation.bridgeHeld?600:pt.deployY};
+};
+P.deploymentAllowed=function(p){const zone=this.deploymentBounds();return p.y>=zone.minY&&p.y<=zone.maxY;};
+const qaPlaceDeployment=P.placeInDeployment;
+P.placeInDeployment=function(u){
+    if(this.mission!=='osgiliath_retreat'&&!(this.linkedOperation?.active&&this.linkedOperation.step===2&&this.linkedOperation.bridgeHeld))return qaPlaceDeployment.call(this,u);
+    const zone=this.deploymentBounds(),p=Be(u,{x:pt.width/2,y:(zone.minY+zone.maxY)/2},this.alive(),this.terrain,pt.width,p=>this.deploymentAllowed(p));
+    if(!p)return false;Object.assign(u,p);return true;
 };
 P.arrangeRetreatArmy=function(){
     const bridges=this.terrain.filter(t=>t.active&&t.surface==='bridge'),main=bridges[this.linkedOperation?.bridge||0]||bridges[0];if(!main)return;
@@ -11031,8 +11038,21 @@ P.prepareStage=function(){
 };
 P.retreatBrief=function(){
     const m=this.retreatMission;if(!m)return '';
-    return '피난 보급대 '+m.evacuated+'/'+m.total+' 철수 · 최소 '+m.required+'대 · 북쪽 후방 y≤260 · 제한 '+m.deadline+'라운드 · '+(this.linkedOperation?.scoutSuccess?'적 증원 R3 동쪽/R6 서쪽':'추격 경로 미확인 · 도착 1라운드 전 전조')+' · 보급품(1150,520) 2라운드 수비';
+    return '피난 보급대 '+m.evacuated+'/'+m.total+' 철수 · 최소 '+m.required+'대 · 다리를 건너 북쪽 금색 철수선까지 엄호 · 제한 '+m.deadline+'라운드 · '+(this.linkedOperation?.scoutSuccess?'적 증원 R3 동쪽/R6 서쪽':'추격 경로 미확인 · 도착 1라운드 전 전조')+' · 북쪽 중앙 보급품을 2라운드 수비하면 다음 전투 창병 지원';
 };
+// Reuse approved terrain art. Routes and zones are UI overlays on the real collision map.
+function renderRetreatGuide(scene){
+    const b=scene.b,m=b.retreatMission;if(b.mission!=='osgiliath_retreat'||!m||!['preparation','move','shoot','fight'].includes(b.phase))return;
+    const g=scene.rings,bridges=b.terrain.filter(t=>t.active&&t.surface==='bridge'),font={fontFamily:'Pretendard',fontSize:'22px',color:'#f6e3a6',backgroundColor:'#17251be6',padding:{x:8,y:5}};
+    g.lineStyle(5,0xf6e3a6,.9);g.lineBetween(60,260,pt.width-60,260);
+    scene.labels.add(scene.add.text(pt.width/2,220,'북쪽 후방 · 철수선',font).setOrigin(.5));
+    for(const bridge of bridges){for(let y=340;y<1200;y+=90){g.lineStyle(3,0xf6e3a6,.55);g.lineBetween(bridge.x,y,bridge.x,y+36);g.lineBetween(bridge.x,y,bridge.x-12,y+16);g.lineBetween(bridge.x,y,bridge.x+12,y+16);}}
+    const art=scene.textures.exists('terr_loot_bag')?'terr_loot_bag':'terr_chest_closed';
+    if(scene.textures.exists(art))scene.labels.add(scene.add.image(1150,520,art).setDisplaySize(70,60));
+    g.lineStyle(3,0xd8b45e,.7);g.strokeCircle(1150,520,190);
+    scene.labels.add(scene.add.text(1150,450,m.supplies?'보급품 회수 완료':'보급품 · 수비 '+m.supplyTicks+'/2R',font).setOrigin(.5));
+    for(const[round,index]of[[3,1],[6,0]])if(!m.reinforced.includes(round)&&(b.linkedOperation?.scoutSuccess||b.round>=round-1))scene.labels.add(scene.add.text(bridges[index].x,1340,'R'+round+' 추격대 도착', {...font,color:'#ffb09a'}).setOrigin(.5));
+}
 P.spawnEvacuees=function(){
     const m=this.retreatMission;if(!m||m.convoys.length)return;
     const bridges=this.terrain.filter(t=>t.active&&t.surface==='bridge');
@@ -11064,7 +11084,8 @@ P.moveEvacuees=function(){
     m.roundReceipt=this.round;
     for(const uid of m.convoys){
         const u=this.unit(uid);if(!u?.alive||u.escaped||this.engaged(u))continue;
-        const route=Terrain.route(u,u.goal,this.alive(),this.terrain,Infinity)||Terrain.route(u,u.goal,[],this.terrain,Infinity);if(!route)continue;
+        const goal=Et(u,u.goal,this.alive(),this.terrain)?u.goal:Be(u,u.goal,this.alive(),this.terrain,220,p=>p.y<=260);if(!goal)continue;
+        const route=Terrain.route(u,goal,this.alive(),this.terrain,Infinity)||Terrain.route(u,goal,[],this.terrain,Infinity);if(!route)continue;
         let plan;for(const fraction of [1,.75,.5,.25]){const to=Terrain.prefix(u,route.path,this.terrain,u.stats.move*fraction);plan=ve(u,to,this.alive(),this.terrain,u.stats.move,{snap:false});if(plan&&plan.distance>2)break;}
         if(plan){const from={x:u.x,y:u.y};Object.assign(u,plan.to);this.emit('UnitMoved',undefined,{uid,from,to:plan.to,path:plan.path});}
         if(u.y<=260){u.escaped=true;u.alive=false;m.evacuated++;this.emit('Mission',u.name+' 철수 성공 · '+m.evacuated+'/'+m.total);this.tacticalLog('evacuation',u,u.name+'이 북쪽 후방까지 철수했습니다.');}
@@ -11151,7 +11172,7 @@ function installPlaytestUI(){
             const withdraw=mission.querySelector('#qa-withdraw');withdraw.hidden=q.mission!=='osgiliath_retreat'||q.phase==='preparation';withdraw.disabled=(q.retreatMission?.evacuated||0)<2;withdraw.textContent='지금 철수 · '+(q.retreatMission?.evacuated||0)+'/2대';withdraw.onclick=()=>Rt(()=>q.earlyWithdraw());
         }
     };
-    const qaDock=renderDock;renderDock=function(){qaDock();if(UX.intent){const forecast=q.actionForecast(UX.intent);const status=document.getElementById('dock-status');if(status&&forecast.text)status.textContent=forecast.text;const button=document.getElementById('dock-primary');if(button)button.disabled=!forecast.allowed;}};
+    const qaDock=renderDock;renderDock=function(){qaDock();let panel=document.getElementById('qa-forecast');const actions=document.querySelector('#command-dock .u-actions');if(!panel&&actions){panel=document.createElement('p');panel.id='qa-forecast';panel.setAttribute('aria-live','polite');actions.prepend(panel);}if(panel)panel.hidden=!UX.intent;if(UX.intent){const forecast=q.actionForecast(UX.intent);if(panel)panel.textContent=forecast.text;const button=document.getElementById('dock-primary');if(button)button.disabled=!forecast.allowed;}};
     const qaAuto=me;me=function(){if(q.checkAutoRisk())return;return qaAuto();};
     const qaEvolve=P.evolveHero;P.evolveHero=function(u){const changed=qaEvolve.call(this,u);if(changed)this.stopAutoForChoice(u.name+' 진화');return changed;};
 }
@@ -11748,7 +11769,7 @@ P.resume=function(){
   if(saved?.version===2&&saved.battlefield?.key===key){this.battlefield=saved.battlefield;this.terrain=saved.terrain;}
   else{this.battlefield=Terrain.build(key,this.next?.n||this.wave+1);this.terrain=this.battlefield.terrain;}
   for(const u of this.alive('good'))if(!Et(u,u,this.alive(),this.terrain)){
-   const p=Be(u,u,this.alive(),this.terrain,118,q=>q.y>=285&&q.y<=pt.deployY);if(p)Object.assign(u,p);else this.placeInDeployment(u);
+   const p=Be(u,u,this.alive(),this.terrain,118,p=>this.deploymentAllowed(p));if(p)Object.assign(u,p);else this.placeInDeployment(u);
   }
  }
  return true;

@@ -120,3 +120,8 @@ test('objective AI targets the actual lair and honors an explicit player hold or
  const h=camp(),q=h.q;q.units=[];q.terrain=[];q.phase='move';q.side='good';q.mission='purge';q.battleOrder=null;const u=q.spawn('mt_swordshield','good',{x:400,y:600}),foe=q.spawn('orc_sword','evil',{x:900,y:900}),lair=q.spawn('orc_sword','evil',{x:1600,y:600});lair.lair=true;lair.static=true;
  assert.ok(q.orderPriority(u,lair)<q.orderPriority(u,foe));const plan=q.missionMovePlan(u);assert.ok(plan);assert.equal(plan.target,lair.uid);assert.ok(Math.hypot(plan.to.x-u.x,plan.to.y-u.y)<=q.remaining(u)+.1);assert.ok(h.Et(u,plan.to,q.alive(),q.terrain));q.setBattleOrder('hold');assert.equal(q.missionMovePlan(u),null);
 });
+test('deployment drawings and resume use the same mission bounds; scouting merit needs actual intel',()=>{
+ const h=retreat(),q=h.q;assert.deepEqual(JSON.parse(JSON.stringify(q.deploymentBounds())),{minY:960,maxY:1185});for(const y of [959,960,1185,1186])assert.equal(q.deploymentAllowed({x:760,y}),y>=960&&y<=1185);
+ const u=q.permanent().find(u=>!u.traits.includes('hero'));u.x=500;u.y=500;u.xp=0;u.battleMeritXP=0;u.battleMerit={};u.meritReceipts=[];q.mission='scouting';q.recordRoundMerit();assert.equal(u.xp,0);
+ q.devices=[{type:'intel',armed:true,x:500,y:500,trigger:60}];q.checkTraps(u);assert.equal(q.scouts,1);assert.equal(u.xp,3);q.checkTraps(u);assert.equal(u.xp,3);
+});
