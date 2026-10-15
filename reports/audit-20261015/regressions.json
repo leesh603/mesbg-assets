@@ -1,0 +1,783 @@
+{
+  "ref": "e804344617e860324a09ea9c33264fa201783ae0",
+  "tests": [
+    {
+      "name": "zero-gold-payment-events",
+      "result": [
+        {
+          "event": "refugees",
+          "label": "식량을 나눈다",
+          "optionFields": {
+            "label": "식량을 나눈다",
+            "sub": "금화 −15 · 아군 전원 용기 +1 (영구)"
+          },
+          "nominalCost": 15,
+          "ok": true,
+          "gold": 0,
+          "before": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "after": {
+            "hp": 1,
+            "courage": 7,
+            "cp": 0,
+            "attack": 3
+          },
+          "outcome": {
+            "eventId": "refugees",
+            "title": "피난민 행렬",
+            "label": "식량을 나눈다",
+            "result": "선택 완료",
+            "relics": []
+          }
+        },
+        {
+          "event": "arsenal",
+          "label": "수리에 비용을 쓴다",
+          "optionFields": {
+            "label": "수리에 비용을 쓴다",
+            "sub": "금화 −25"
+          },
+          "nominalCost": 25,
+          "ok": true,
+          "gold": 0,
+          "before": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "after": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "outcome": {
+            "eventId": "arsenal",
+            "title": "훼손된 무기고",
+            "label": "수리에 비용을 쓴다",
+            "result": "선택 완료",
+            "relics": []
+          }
+        },
+        {
+          "event": "rider",
+          "label": "치료해준다",
+          "optionFields": {
+            "label": "치료해준다",
+            "sub": "금화 −20 · 다음 라운드 CP +2"
+          },
+          "nominalCost": 20,
+          "ok": true,
+          "gold": 0,
+          "before": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "after": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 2,
+            "attack": 3
+          },
+          "outcome": {
+            "eventId": "rider",
+            "title": "부상당한 기수",
+            "label": "치료해준다",
+            "result": "선택 완료",
+            "relics": []
+          }
+        },
+        {
+          "event": "priest",
+          "label": "전원 치료를 부탁한다",
+          "optionFields": {
+            "label": "전원 치료를 부탁한다",
+            "sub": "금화 −30 · 상처 입은 아군 전원 완치"
+          },
+          "nominalCost": 30,
+          "ok": true,
+          "gold": 0,
+          "before": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "after": {
+            "hp": 3,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "outcome": {
+            "eventId": "priest",
+            "title": "성속의 사제",
+            "label": "전원 치료를 부탁한다",
+            "result": "선택 완료",
+            "relics": []
+          }
+        },
+        {
+          "event": "apothecary",
+          "label": "전원 수술을 부탁한다",
+          "optionFields": {
+            "label": "전원 수술을 부탁한다",
+            "sub": "금화 −40 · 부상 아군 전원 완치"
+          },
+          "nominalCost": 40,
+          "ok": true,
+          "gold": 0,
+          "before": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "after": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "outcome": {
+            "eventId": "apothecary",
+            "title": "방랑 약제사",
+            "label": "전원 수술을 부탁한다",
+            "result": "선택 완료",
+            "relics": []
+          }
+        },
+        {
+          "event": "nazgul",
+          "label": "빠르게 빠져나간다",
+          "optionFields": {
+            "label": "빠르게 빠져나간다",
+            "sub": "금화 −20"
+          },
+          "nominalCost": 20,
+          "ok": true,
+          "gold": 0,
+          "before": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "after": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "outcome": {
+            "eventId": "nazgul",
+            "title": "나즈굴의 추격",
+            "label": "빠르게 빠져나간다",
+            "result": "선택 완료",
+            "relics": []
+          }
+        },
+        {
+          "event": "marshes",
+          "label": "늪지를 아는 자에게 길을 묻는다",
+          "optionFields": {
+            "label": "늪지를 아는 자에게 길을 묻는다",
+            "sub": "금화 −15"
+          },
+          "nominalCost": 15,
+          "ok": true,
+          "gold": 0,
+          "before": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "after": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "outcome": {
+            "eventId": "marshes",
+            "title": "죽음의 늪지",
+            "label": "늪지를 아는 자에게 길을 묻는다",
+            "result": "선택 완료",
+            "relics": []
+          }
+        },
+        {
+          "event": "breakfast",
+          "label": "푸짐하게 차려낸다",
+          "optionFields": {
+            "label": "푸짐하게 차려낸다",
+            "sub": "금화 −8 · 상처 입은 아군 전원 상처 1 회복"
+          },
+          "nominalCost": 8,
+          "ok": true,
+          "gold": 0,
+          "before": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "after": {
+            "hp": 2,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "outcome": {
+            "eventId": "breakfast",
+            "title": "두 번째 아침식사",
+            "label": "푸짐하게 차려낸다",
+            "result": "선택 완료",
+            "relics": []
+          }
+        },
+        {
+          "event": "dunedain",
+          "label": "합류를 환영한다",
+          "optionFields": {
+            "label": "합류를 환영한다",
+            "sub": "금화 −20 · 무작위 아군 결투·힘 +1 (영구)"
+          },
+          "nominalCost": 20,
+          "ok": true,
+          "gold": 0,
+          "before": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "after": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "outcome": {
+            "eventId": "dunedain",
+            "title": "두네다인의 합류",
+            "label": "합류를 환영한다",
+            "result": "아라곤 결투·힘 +1 · 금화 −20",
+            "relics": []
+          }
+        },
+        {
+          "event": "redarrow",
+          "label": "즉시 응한다",
+          "optionFields": {
+            "label": "즉시 응한다",
+            "sub": "다음 전투 CP +2 · 금화 −10"
+          },
+          "nominalCost": 10,
+          "ok": true,
+          "gold": 0,
+          "before": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "after": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 2,
+            "attack": 3
+          },
+          "outcome": {
+            "eventId": "redarrow",
+            "title": "붉은 화살",
+            "label": "즉시 응한다",
+            "result": "선택 완료",
+            "relics": []
+          }
+        },
+        {
+          "event": "bombadil",
+          "label": "함께 쉬어간다",
+          "optionFields": {
+            "label": "함께 쉬어간다",
+            "sub": "금화 −10 · 상처 입은 아군 전원 상처 1 회복"
+          },
+          "nominalCost": 10,
+          "ok": true,
+          "gold": 0,
+          "before": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "after": {
+            "hp": 2,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "outcome": {
+            "eventId": "bombadil",
+            "title": "톰 봄바딜의 오두막",
+            "label": "함께 쉬어간다",
+            "result": "선택 완료",
+            "relics": []
+          }
+        },
+        {
+          "event": "minstrel",
+          "label": "주머니를 털어준다",
+          "optionFields": {
+            "label": "주머니를 털어준다",
+            "sub": "금화 −5 · 무작위 아군 결투 +1 (영구)"
+          },
+          "nominalCost": 5,
+          "ok": true,
+          "gold": 0,
+          "before": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "after": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "outcome": {
+            "eventId": "minstrel",
+            "title": "방랑 음유시인",
+            "label": "주머니를 털어준다",
+            "result": "아라곤 결투 +1 · 금화 −5",
+            "relics": []
+          }
+        },
+        {
+          "event": "grima",
+          "label": "속삭임을 끊는다",
+          "optionFields": {
+            "label": "속삭임을 끊는다",
+            "sub": "금화 −10"
+          },
+          "nominalCost": 10,
+          "ok": true,
+          "gold": 0,
+          "before": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "after": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "outcome": {
+            "eventId": "grima",
+            "title": "회색 속삭임",
+            "label": "속삭임을 끊는다",
+            "result": "선택 완료",
+            "relics": []
+          }
+        },
+        {
+          "event": "dwarven_smith",
+          "label": "갑주를 맡긴다",
+          "optionFields": {
+            "label": "갑주를 맡긴다",
+            "sub": "금화 −15 · 무작위 아군 방어 +1 (영구)"
+          },
+          "nominalCost": 15,
+          "ok": true,
+          "gold": 0,
+          "before": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "after": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "outcome": {
+            "eventId": "dwarven_smith",
+            "title": "드워프 대장장이",
+            "label": "갑주를 맡긴다",
+            "result": "아라곤 방어 +1 · 금화 −15",
+            "relics": []
+          }
+        },
+        {
+          "event": "haradrim_spy",
+          "label": "정보를 캐낸다",
+          "optionFields": {
+            "label": "정보를 캐낸다",
+            "sub": "금화 −10 · 다음 전투 첫 라운드 적 전원 용기 −1"
+          },
+          "nominalCost": 10,
+          "ok": true,
+          "gold": 0,
+          "before": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "after": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "outcome": {
+            "eventId": "haradrim_spy",
+            "title": "하라드림 첩자",
+            "label": "정보를 캐낸다",
+            "result": "선택 완료",
+            "relics": []
+          }
+        },
+        {
+          "event": "beorn_feast",
+          "label": "배불리 먹는다",
+          "optionFields": {
+            "label": "배불리 먹는다",
+            "sub": "금화 −12 · 상처 입은 아군 전원 상처 1 회복"
+          },
+          "nominalCost": 12,
+          "ok": true,
+          "gold": 0,
+          "before": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "after": {
+            "hp": 2,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "outcome": {
+            "eventId": "beorn_feast",
+            "title": "베오른의 식탁",
+            "label": "배불리 먹는다",
+            "result": "선택 완료",
+            "relics": []
+          }
+        },
+        {
+          "event": "gondor_signal",
+          "label": "응답한다",
+          "optionFields": {
+            "label": "응답한다",
+            "sub": "금화 −15 · 다음 전투 CP +3"
+          },
+          "nominalCost": 15,
+          "ok": true,
+          "gold": 0,
+          "before": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "after": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 3,
+            "attack": 3
+          },
+          "outcome": {
+            "eventId": "gondor_signal",
+            "title": "곤도르의 신호등",
+            "label": "응답한다",
+            "result": "선택 완료",
+            "relics": []
+          }
+        },
+        {
+          "event": "forgotten_shrine",
+          "label": "제물을 바친다",
+          "optionFields": {
+            "label": "제물을 바친다",
+            "sub": "금화 −20 · 무작위 영웅 Might·Will +1 (영구)"
+          },
+          "nominalCost": 20,
+          "ok": true,
+          "gold": 0,
+          "before": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "after": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "outcome": {
+            "eventId": "forgotten_shrine",
+            "title": "잊힌 제단",
+            "label": "제물을 바친다",
+            "result": "아라곤 Might·Will +1",
+            "relics": []
+          }
+        },
+        {
+          "event": "wargs_hunt",
+          "label": "미끼를 던지고 도망친다",
+          "optionFields": {
+            "label": "미끼를 던지고 도망친다",
+            "sub": "금화 −15"
+          },
+          "nominalCost": 15,
+          "ok": true,
+          "gold": 0,
+          "before": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "after": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "outcome": {
+            "eventId": "wargs_hunt",
+            "title": "와르그의 사냥",
+            "label": "미끼를 던지고 도망친다",
+            "result": "선택 완료",
+            "relics": []
+          }
+        },
+        {
+          "event": "dwarf_pact",
+          "label": "고용한다",
+          "optionFields": {
+            "label": "고용한다",
+            "sub": "금화 −60 · 다음 전투 아군 전원 방어 +1"
+          },
+          "nominalCost": 60,
+          "ok": true,
+          "gold": 0,
+          "before": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "after": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "outcome": {
+            "eventId": "dwarf_pact",
+            "title": "드워프 용병단",
+            "label": "고용한다",
+            "result": "드워프 용병 고용 · 다음 전투 전열 방어 +1",
+            "relics": []
+          }
+        },
+        {
+          "event": "beorning_hall",
+          "label": "함께 쉬어간다",
+          "optionFields": {
+            "label": "함께 쉬어간다",
+            "sub": "금화 −15 · 아군 전원 상처 1 회복"
+          },
+          "nominalCost": 15,
+          "ok": true,
+          "gold": 0,
+          "before": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "after": {
+            "hp": 2,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "outcome": {
+            "eventId": "beorning_hall",
+            "title": "베오르닝의 환대",
+            "label": "함께 쉬어간다",
+            "result": "선택 완료",
+            "relics": []
+          }
+        },
+        {
+          "event": "south_merchant",
+          "label": "희귀품을 산다",
+          "optionFields": {
+            "label": "희귀품을 산다",
+            "sub": "금화 −40 · 무작위 유물 1개 획득"
+          },
+          "nominalCost": 40,
+          "ok": true,
+          "gold": 0,
+          "before": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "after": {
+            "hp": 1,
+            "courage": 6,
+            "cp": 0,
+            "attack": 3
+          },
+          "outcome": {
+            "eventId": "south_merchant",
+            "title": "남쪽 상인",
+            "label": "희귀품을 산다",
+            "result": "유물 획득: 엘렛사르",
+            "relics": [
+              "elessar"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "night-raid-damage-sign",
+      "result": {
+        "beforeHp": 1,
+        "afterHp": 2,
+        "gold": 50,
+        "definition": {
+          "label": "흩어져 싸운다",
+          "sub": "무작위 아군 1기 상처 +1 · 금화 +50"
+        },
+        "outcome": {
+          "eventId": "nightraid",
+          "title": "야영지 습격",
+          "label": "흩어져 싸운다",
+          "result": "아라곤 상처 +1 · 금화 +50",
+          "relics": []
+        }
+      }
+    },
+    {
+      "name": "postbattle-injury-bonus-order",
+      "result": {
+        "before": {
+          "injury": null,
+          "hp": 1,
+          "passes": true
+        },
+        "after": {
+          "injury": "leg",
+          "hp": 1,
+          "gold": 126,
+          "lastGold": 126,
+          "passes": false
+        },
+        "objectiveText": "아군 무사 승리 (전투 후 부상 0)",
+        "log": [
+          "STAGE 2 완료 · 금화 +76",
+          "업적 달성 — 무결의 방어",
+          "아라곤 부상 — 다리 · 이동 25%↓ (야영지에서 치료 가능)",
+          "STAGE 2 클리어",
+          "무결 수비 · 전사자 없이 스테이지 클리어 · +25금",
+          "보너스 목표 달성 · +25 금화",
+          "출정할 원정대를 고르세요. 영웅 1기와 병사들을 금화 안에서 선택합니다.",
+          "푸른 배치 구역에서 병력을 배치하세요."
+        ]
+      }
+    },
+    {
+      "name": "promotion-layout-read",
+      "result": {
+        "upgradeReason": "function(u,o){\n    if(!u?.alive||u.side!=='good'||u.temporary||!isCareerTroop(u))return '영구 편성 병사만 승급할 수 있습니다';\n    if(!['reward','preparation'].includes(this.phase))return '전투가 끝난 뒤 선택하세요';\n    const gate=this.troopGateReason(o.id);if(gate&&(!o.remount||UnitCatalog[o.id]?.meta.side==='evil'))return gate;\n    if(u.xp<o.xp)return '경험치 '+u.xp+'/'+o.xp;\n    if(u.battlesParticipated<o.battles)return '전투 참여 '+u.battlesParticipated+'/'+o.battles+'회';\n    if(this.gold<o.cost)return '금화 '+o.cost+' 필요';\n    if(o.mount&&o.mount!=='spectral'){\n        const count=o.mount==='horse'?this.horses:this.troopMounts?.[o.mount];\n        if(!(count>0))return ({horse:'군마',warg:'와르그',goat:'산양',camel:'낙타',chariot:'전차'}[o.mount]||'탈것')+' 1 필요';\n    }\n    return '';\n}",
+        "skillsFree": "function(u){const reason=reviewSkillReason.call(this,u);if(reason)return reason;const rule=signatureRules.get(u.id);return rule&&!rule.targets(this,u).length?'발동 조건을 만족하는 대상이 없습니다':'';}"
+      }
+    }
+  ],
+  "anchors": [
+    {
+      "term": "id: 'refugees'",
+      "line": 3458,
+      "text": "3456: }\n3457: const LWB_EVENTS = [\n3458:     { id: 'refugees', title: '피난민 행렬', text: '곤도르 피난민 행렬이 성문을 지나치려 몰려듭니다.', options: [\n3459:         { label: '식량을 나눈다', sub: '금화 −15 · 아군 전원 용기 +1 (영구)', fx: q => { q.gold = Math.max(0, q.gold - 15); q.alive('good').forEach(u => { u.baseStats.courage = (u.baseStats.courage || 0) + 1; q.refreshUnit(u); }); } },\n3460:         { label: '대열을 재촉한다', sub: '금화 +10', fx: q => q.gold += 10 }] },\n3461:     { id: 'arsenal', title: '훼손된 무기고', text: '성벽 아래 무기고가 침수되었습니다.', options: [\n3462:         { label: '수리에 비용을 쓴다', sub: '금화 −25', fx: q => q.gold = Math.max(0, q.gold - 25) },\n3463:         { label: '버리고 간다', sub: '무작위 아군 1기 Attack −1 (영구)', fx: q => { const u = q.alive('good').filter(u2 => u2.stats.attacks > 1); const t = u[Math.floor(q.rng() * u.length)]; if (t) { t.baseStats.attacks = Math.max(1, t.baseStats.attacks - 1); q.refreshUnit(t); } return t ? `${t.name} Attack −1` : '대상 없음'; } }] },\n3464:     { id: 'omen', title: '전조의 별', text: '밤하늘에 서쪽의 별이 유난히 밝습니다.', options: [\n3465:         { label: '기도를 올린다', sub: '다음 전투 첫 라운드 우선권 확보', fx: q => q.priorityForce = 'good' },\n3466:         { label: '무시하고 행군한다', sub: '금화 +15', fx: q => q.gold += 15 }] },\n3467:     { id: 'mithril', title: '미스릴 파편', text: '쓰러진 기사의 갑옷 속에서 빛나는 금속 조각이 발견됩니다.', options: [\n3468:         { label: '유물로 벼려낸다', sub: '무작위 유물 1개 획득', fx: q => { const r = q.randomAvailableRelic(); if (r) q.relics[r.id] = (q.relics[r.id] || 0) + 1; return r ? `유물 획득: ${r.name}(${CX.rarityNames[r.rarity]}) — ${r.text}` : '유물 없음'; } },\n3469:         { label: '상인에게 판다', sub: '금화 +45', fx: q => q.gold += 45 }] },\n3470:     { id: 'rider', title: '부상당한 기수', text: '로한 기수가 쓰러진 채 발견됩니다. 다음 전투에 대한 소식을 알고 있습니다.', options: [\n3471:         { label: '치료해준다', sub: '금화 −20 · 다음 라운드 CP +2', fx: q => { q.gold = Math.max(0, q.gold - 20); q.bonusCP += 2; } },\n3472:         { label: '지나친다', sub: '아무 일도 없다', fx: q => { } }] },"
+    },
+    {
+      "term": "id: 'nightraid'",
+      "line": 3473,
+      "text": "3471:         { label: '치료해준다', sub: '금화 −20 · 다음 라운드 CP +2', fx: q => { q.gold = Math.max(0, q.gold - 20); q.bonusCP += 2; } },\n3472:         { label: '지나친다', sub: '아무 일도 없다', fx: q => { } }] },\n3473:     { id: 'nightraid', title: '야영지 습격', text: '밤중에 워그 무리가 야영지를 기습합니다.', options: [\n3474:         { label: '흩어져 싸운다', sub: '무작위 아군 1기 상처 +1 · 금화 +50', fx: q => { const u = q.alive('good'); const t = u[Math.floor(q.rng() * u.length)]; if (t) t.currentWounds = Math.min(t.stats.wounds, t.currentWounds + 1); q.gold += 50; return (t ? `${t.name} 상처 +1` : '피해 없음') + ' · 금화 +50'; } },\n3475:         { label: '전열을 지킨다', sub: '피해 없음', fx: q => { } }] },\n3476:     { id: 'priest', title: '성속의 사제', text: '백탑의 사제가 부상병들을 돌보겠다고 합니다.', cond: q => q.alive('good').some(u => u.currentWounds < u.stats.wounds), options: [\n3477:         { label: '전원 치료를 부탁한다', sub: '금화 −30 · 상처 입은 아군 전원 완치', fx: q => { q.gold = Math.max(0, q.gold - 30); q.alive('good').forEach(u => u.currentWounds = u.stats.wounds); } },\n3478:         { label: '가장 위독한 이만 부탁한다', sub: '상처 가장 큰 아군 1기 완치', fx: q => { const u = q.alive('good').filter(u2 => u2.currentWounds < u2.stats.wounds).sort((a, b) => (b.stats.wounds - b.currentWounds) - (a.stats.wounds - a.currentWounds))[0]; if (u) u.currentWounds = u.stats.wounds; return u ? `${u.name} 완치` : '대상 없음'; } }] },\n3479:     { id: 'valar_grace', title: '발라의 은총', text: '바람이 잠시 멈추고, 쓰러진 전우들의 이름이 야영지에 울립니다.', cond: q => q.fallen && q.fallen.length > 0, options: [\n3480:         { label: '영혼의 기도를 올린다', sub: '전사한 영웅 1명이 부활 (상처 1)', fx: q => { if (!(q.fallen || []).length) return '부활할 영웅 없음'; if (q.fallen.length > 1) { q._valarPick = 1; return '부활할 영혼을 골라주세요'; } return `${q._reviveFallen(q.fallen[0].uid) || '영웅'} 부활`; } },\n3481:         { label: '그들의 명예를 기린다', sub: '금화 +25', fx: q => q.gold += 25 }] },\n3482:     { id: 'apothecary', title: '방랑 약제사', text: '낡은 가방을 멘 약제사가 부상병들을 살핍니다.', cond: q => q.alive('good').some(u => u.injury), options: [\n3483:         { label: '전원 수술을 부탁한다', sub: '금화 −40 · 부상 아군 전원 완치', fx: q => { q.gold = Math.max(0, q.gold - 40); q.alive('good').forEach(u => { if (u.injury) { for (const k in u.injuryBackup || {}) u.baseStats[k] = u.injuryBackup[k]; delete u.injury; delete u.injuryBackup; q.refreshUnit(u); } }); } },\n3484:         { label: '가장 심한 이만 부탁한다', sub: '부상 아군 1기 완치', fx: q => { const u = q.alive('good').filter(u2 => u2.injury)[0]; if (u) { for (const k in u.injuryBackup || {}) u.baseStats[k] = u.injuryBackup[k]; delete u.injury; delete u.injuryBackup; q.refreshUnit(u); } return u ? `${u.name} 부상 완치` : '대상 없음'; } }] },\n3485:     { id: 'council', title: '전쟁 회의', text: '파라미르의 척후병이 적의 배치도를 가져왔습니다.', options: [\n3486:         { label: '정찰을 강화한다', sub: '다음 전투 편성 공개 · 첫 라운드 우선권 확보 (1회)', fx: q => { q.expeditionIntel = q.wave + 1; return q.expeditionReport = '척후병의 보고 — 다음 전투 편성 공개 · 첫 라운드 우선권'; } },\n3487:         { label: '여비만 받는다', sub: '금화 +20', fx: q => q.gold += 20 }] },"
+    },
+    {
+      "term": "shield_wall",
+      "line": 2204,
+      "text": "2202:     { id: 'elite_hunter', text: '엘리트 적 2기 처치', gold: 25, cond: q => q.alive('evil').some(u => u.elite), test: q => (q.stageEliteKills || 0) >= 2 },\n2203:     { id: 'untouchable', text: '아군 전사 없이 승리', gold: 30, test: q => (q.stageDeaths || 0) === 0 },\n2204:     { id: 'shield_wall', text: '아군 무사 승리 (전투 후 부상 0)', gold: 25, test: q => q.alive('good').every(u => !u.injury) },\n2205:     { id: 'trapper_obj', text: '함정으로 2기 처치', gold: 25, cond: q => (q.devices || []).length > 0, test: q => (q.stageTrapKills || 0) >= 2 },\n2206:     { id: 'safe_cart', text: '무사 호송 — 마차 무손상', gold: 30, cond: q => q.mission === 'escort', test: q => { const c = q.unit(q.escortCart); return c && c.alive && c.currentWounds >= c.stats.wounds; } },\n2207:     { id: 'swift_scout', text: '신속 정찰 — 3라운드 내 정보 전부 수습', gold: 25, cond: q => q.mission === 'scouting', test: q => (q.scouts || 0) >= 3 && q.round <= 3 },\n2208:     { id: 'lair_buster', text: '급습 — 3라운드 내 소굴 1곳 파괴', gold: 25, cond: q => q.mission === 'purge', test: q => (q._lairDownAt || 99) <= 3 },\n2209: ];\n2210: const HERO_QUESTS = {\n2211:     aragorn: { label: '왕의 귀환 — 3처치', need: 3, buff: 'fight' },\n2212:     legolas: { label: '엘프의 정수 — 3처치', need: 3, buff: 'fight' },\n2213:     gimli: { label: '난쟁이의 자존심 — 4처치', need: 4, buff: 'attacks' },\n2214:     gandalf: { label: '회색 순례자 — 3처치', need: 3, buff: 'courage2' },\n2215:     boromir: { label: '곤도르의 방패 — 4처치', need: 4, buff: 'defence' },\n2216:     eowyn: { label: '나는 남자가 아니다 — 3처치', need: 3, buff: 'fight' },\n2217:     eomer: { label: '마식의 맹세 — 3처치', need: 3, buff: 'courage' },\n2218:     faramir: { label: '이실리엔의 총통 — 3처치', need: 3, buff: 'courage' },"
+    },
+    {
+      "term": "shield_wall",
+      "line": 5565,
+      "text": "5563:     const counts = `아군 ${q.alive('good').length} · 적 ${q.alive('evil').length}`;\n5564:     const rules = { defense: `라운드 종료 시 Defense 구역에 적 ${q.breachCount}명이 모이면 패배. 적을 전멸시키세요.`, annihilation: '적 부대를 전멸시키세요.', hold: `거점에서 아군이 수적 우세인 라운드 3회. 진행 ${q.capture || 0}/3.`, survive: `5라운드까지 살아남으세요. 현재 ${q.round}/5.`, breakthrough: '아군 2기를 남쪽 돌파선에 보낸 뒤 라운드를 종료하세요.', rescue: `포로 지점을 아군만 점유한 뒤 3라운드 생존. ${q.rescued ? '구출 완료 · ' + q.capture + '/3' : '아직 구출되지 않음'}`, commander: `${q.meta.get(q.current?.boss)?.name_ko || '적 지휘관'}을 처치하세요. 호위병은 남아도 됩니다.`, purge: `적 소굴을 모두 파괴하세요 — 소굴은 2라운드마다 적을 끌어모읍니다. 남은 소굴 ${(q.purgeLairs||[]).filter(u=>{const w=q.unit(u);return w&&w.alive}).length}/3` };\n5565:     return `${rules[q.mission] || rules.defense}<br><b>${counts}</b>` + (q.bonusObjective ? `<br><b class='gold'>보너스 · ${q.bonusObjective.text} (+${q.bonusObjective.gold}금)${(({volley:(q.stageShootKills||0)+'/4',rout:(q.stageKills||0)+'/8',trapper_obj:(q.stageTrapKills||0)+'/2',safe_cart:(()=>{const c=q.unit(q.escortCart);return c?c.currentWounds+'/'+c.stats.wounds:''})(),elite_hunter:(q.stageEliteKills||0)+'/2',headsman:(q.stageHeroKills||q.stageHeroSlayer?'완료':'진행 중'),blitz:(q.round||0)+'/4라운드',flawless:(q.stageDeaths?'실패':'진행 중'),untouchable:(q.stageDeaths?'실패':'진행 중'),linehold:'진행 중',shield_wall:'진행 중'})[q.bonusObjective.id]||'')?' · '+(({volley:(q.stageShootKills||0)+'/4',rout:(q.stageKills||0)+'/8',trapper_obj:(q.stageTrapKills||0)+'/2',safe_cart:(()=>{const c=q.unit(q.escortCart);return c?c.currentWounds+'/'+c.stats.wounds:''})(),elite_hunter:(q.stageEliteKills||0)+'/2',headsman:(q.stageHeroKills||q.stageHeroSlayer?'완료':'진행 중'),blitz:(q.round||0)+'/4라운드',flawless:(q.stageDeaths?'실패':'진행 중'),untouchable:(q.stageDeaths?'실패':'진행 중'),linehold:'진행 중',shield_wall:'진행 중'})[q.bonusObjective.id]||''):''}</b>` : '') + (q.alive('evil').some(u => u.elite) ? `<br><b class='gold'>엘리트 ${q.alive('evil').filter(u => u.elite).length}기 — 처치 시 각 +8금</b>` : '') + (q._bondLine || '');\n5566: }\n5567: const baseRender = Yt;\n5568: Yt = function () {\n5569:     baseRender();\n5570:     ut('wave').textContent = String(q.phase === 'preparation' ? q.wave + 1 : q.wave || 1).padStart(2, '0') + ' / ∞';\n5571:     ut('gold-count').textContent = q.gold ?? 35;\n5572:     ut('roster-count').textContent = `${q.rosterPoints()}/${q.capacity()}pt`;\n5573:     ut('objective').innerHTML = objectiveText();\n5574:     document.querySelector('.objective h3').textContent = CX.missionNames[q.mission] || '원정대';\n5575:     const info = q.phase === 'preparation' ? q.next : q.current;\n5576:     const mod = { clear: '맑음', rain: '폭우 · 사거리 감소', dark: '어둠 · 사거리 감소', reinforce: '적 증원 · 3라운드마다', warg: '와르그 사냥대', ambush: '기습 · 측면 포위', cavalry: '기병 돌격', swarm: '고블린 떼', snow: '눈보라 · 사거리↓ 이동↓', eclipse: '일식 · 용기↓', mud: '진창 · 보병 이동↓', gale: '강풍 · 궁수 명중↓', frost: '서리 · 힘↓' };\n5577:     const _zn=MAP_ZONE_NAMES[CX.maps[visualMapIdx(q.mapIndex)]],_zv=mapVariant(q.wave||1);\n5578:     document.querySelector('.map-label').innerHTML = `<b>${CX.mapNames[visualMapIdx(q.mapIndex)]}${_zn?.[_zv]?' · '+_zn[_zv]:''}</b>${mod[info?.modifier || 'clear']}`;\n5579:     ut('action').textContent = q.phase === 'preparation' ? `스테이지 ${q.wave + 1} 출전 →` : q.phase === 'fight' ? q.fightQueue.length ? `교전 해결 · ${q.fightQueue.length}곳` : '라운드 종료 →' : '전투 진행 중';"
+    },
+    {
+      "term": "_flawless",
+      "line": 1983,
+      "text": "1981:     this.chestsOpened = 0; this.eliteKills = 0;\n1982:     this.shopStock = null; this._stockFor = null; this._soldOut = [];\n1983:     this.allyBought = false; this._flawless = 0; this.challenge = '';\n1984:     this._routeChoice = null; this._altRoute = null; this._altRoute2 = null;\n1985:     this.current = null; this.nextRelicRare = false; this.noAmbushNext = false;\n1986:     this.gold = mode === 'ai' ? 600 : 35;\n1987:     try {\n1988:         const _ls = Number(localStorage.getItem('lwb_loss_streak') || 0);\n1989:         if (_ls > 0) {\n1990:             const _bonus = Math.min(75, _ls * 25);\n1991:             this.gold += _bonus;\n1992:             this.emit('Event', '재기의 응원 — 연속 ' + _ls + '회 패배 보상 · 금화 +' + _bonus);\n1993:         }\n1994:     } catch (e) { }\n1995:     this.relics = {};\n1996:     this.capacityBought = 0;\n1997:     this.totalKills = 0;"
+    },
+    {
+      "term": "_flawless",
+      "line": 3008,
+      "text": "3006:     for (const u of this.alive('good')) u._mvp = false;\n3007:     { const _sv = this.alive('good').filter(u => !u.autoAlly); const _mvp = _sv.sort((x, y) => (y._stageKills || 0) - (x._stageKills || 0))[0]; if (_mvp && (_mvp._stageKills || 0) >= 2) _mvp._mvp = true; }\n3008:     if (!this.stageDeaths) { this._flawless = (this._flawless || 0) + 1; if (this._flawless >= 3) { const _fg = 10 + 5 * this._flawless; this.gold += _fg; this.emit('Event', '✦ 불패의 기운 — 무결 ' + this._flawless + '연승 · 금화 +' + _fg); } } else this._flawless = 0;\n3009:     this.rollRecruits();\n3010:     this.rollRelics();\n3011:     this.checkAchievements();\n3012:     this.emit('WaveEnded', `STAGE ${this.wave} 완료 · 금화 +${bounty}`);\n3013:     this.best = Math.max(this.best || 0, this.wave);\n3014:     try {\n3015:         localStorage.setItem('mesbg-endless-best', String(this.best));\n3016:     }\n3017:     catch { }\n3018:     this.save();\n3019: };\n3020: P.price = function (id) { const s = zt[id], p = estimatePoints(s), base = s.traits.includes('hero') ? 40 : s.traits.includes('monster') || s.traits.includes('flying') ? 30 : s.traits.includes('mounted') ? 25 : s.shootRange ? 25 : 20; return Math.max(30, Math.round((base + p * .5) / 5) * 5); };\n3021: P.rollRecruits = function () {\n3022:     let pool = CX.recruits.filter(id => this.meta.has(id) && (!zt[id].traits.includes('hero') || this.wave >= 2 && !this.permanent().some(u => u.id === id)));"
+    },
+    {
+      "term": "_flawless",
+      "line": 3881,
+      "text": "3879: };\n3880: P._saveState = function () {\n3881:     const keys = ['gold', 'relics', 'capacityBought', 'totalKills', 'mithrilSpent', 'wave', 'cleared', 'units', 'counter', 'mode', 'best', 'campStep', 'campEvent', 'nextRoundBuffs', 'recruitOffers', 'relicChoices', 'chosenRelic', 'rerolls', 'lastGold', 'recruitDraft', 'initialDraft', 'horses', 'campDraft', 'campResult', 'eventOutcome', 'priorityForce', 'bonusCP', 'fallen', 'difficulty', 'armyName', 'allyBought', 'dailySeed', 'devices', 'weeklySeed', 'bonusId', 'escortCart', 'purgeLairs', '_lairDownAt', 'nextRelicRare', 'noAmbushNext', 'stageDeaths', 'stageHeroKills', 'stageShootKills', 'stageChargeKills', 'stageCavKills', 'stageMonsterKills', 'stageHeroSlayer', 'stageEliteKills', 'stageKills', 'challenge', 'eliteKills', '_routeChoice', '_altRoute', '_altRoute2', 'chestsOpened', 'legacy', '_flawless', 'bonusId2', '_bonusDone2', 'stash', 'shopStock', 'doctrine', '_stockFor', '_soldOut','_legendStreak', '_chalPool', '_valarPick', 'expeditionIntel', 'expeditionSupport', 'expeditionReport', '_retrySnapshot'];\n3882:     const state = { version: CX.version };\n3883:     for (const k of keys)\n3884:         state[k] = this[k];\n3885:     state.phase = this.phase;\n3886:     state.rngState = typeof this.rng?.getState === 'function' ? this.rng.getState() : undefined;\n3887:     state.tactical = { version: 2, mapIndex: this.mapIndex, mission: this.mission, current: this.current, next: this.next, terrain: this.terrain, battlefield: this.battlefield };\n3888:     return state;\n3889: };\n3890: P.save = function () {\n3891:     if (!['reward', 'preparation'].includes(this.phase))\n3892:         return false;\n3893:     try {\n3894:         localStorage.setItem('mesbg-endless-save', JSON.stringify(this._saveState()));\n3895:         return true;"
+    },
+    {
+      "term": "recruit-role",
+      "line": 6556,
+      "text": "6554:     const selected=q.recruitDraft||[],totals=q.draftTotals(),sum=totals.gold||0,selectedCount=totals.count||0,capacity=q.capacity()-q.rosterPoints()-(totals.points||0);\n6555:     const box=ut('overlay');\n6556:     box.innerHTML=`<div class=\"modal camp\"><div class=\"eyebrow\">${q.initialDraft ? '출정 · 원정대 편성' : '공세 ' + q.wave + ' · 야영지'}</div><h2>${q.initialDraft ? '원정대 편성' : '동료 영입'}</h2><div class=\"recruit-summary\"><span><small>보유</small><b><img src=\"icons/coin.png\" alt=\"금화\"> ${q.gold}</b></span><span><small>선택 비용</small><b>${sum}</b></span><span><small>남은 금화</small><b>${q.gold-sum}</b></span><span class=\"draft-capacity\">편성 ${q.rosterPoints()+(totals.points||0)} / ${q.capacity()}pt · ${capacity<0?'초과 '+(-capacity)+'pt':'잔여 '+capacity+'pt'} · ${selectedCount}명 선택</span></div>${warbandComposition(q.permanent().map(u=>u.id).concat(selected.flatMap(i=>Array(q.draftQuantity(i)).fill(q.recruitOffers[i].id))))}${bondHint()}${q.initialDraft?'<p class=\"draft-help\">시작 영웅 최대 1기 · 병사는 +/−로 수량 선택 · 금화는 영입 비용, pt는 편성 한도</p>':''}<div class=\"recruit-cards\">${(q.recruitOffers||[]).map((o,i)=>{const d=UnitCatalog[o.id]||{rarity:'normal'},m=q.meta.get(o.id)||{},p=zt[o.id]||{traits:[]},on=selected.includes(i),cost=q.price(o.id),reason=!on?q.recruitSelection(i).reason:'',disabled=o.bought;return `<div class=\"recruit-choice\"><button type=\"button\" class=\"recruit-card tier-${d.rarity} ${on?'is-picked':''}\" data-draft=\"${i}\" aria-pressed=\"${on}\" ${disabled?'disabled':''}><span class=\"pick-mark${reason?' why':''}\">${on?'선택됨':(reason?'영입 조건 확인':'선택')}</span><span class=\"recruit-portrait\">${q.meta.get(o.id)?unitImage(o.id):''}<span class=\"recruit-info\" data-vunit=\"${o.id}\" role=\"button\" aria-label=\"프로필 보기\">i</span></span><span class=\"recruit-grade\">${_gic(isHeroUnit(o.id)?tierLabel(o.id):({normal:'일반',elite:'정예',rare:'희귀',epic:'영웅급',legendary:'전설'})[d.rarity]||tierLabel(o.id))}</span>${FACTION_LABEL(o.id)?`<span class=\"recruit-faction\">${esc(FACTION_LABEL(o.id))}</span>`:''}<b class=\"recruit-name\">${esc(m.name_ko)}</b><small class=\"recruit-role\">${warbandRole(o.id)} · <b>${q.pointCost(o.id)}pt</b>${d.pointSource?.kind!=='book'?' · 자체 산정':''}</small><div class=\"recruit-combat\"><span title=\"공격\"><img src=\"icons/ui_swords.png\" alt=\"공격\">${p.attacks}</span><span title=\"방어\"><img src=\"icons/cmd_hold.png?v=1.37\" alt=\"방어\">${p.defence}</span></div><p>${esc(CX.skills[o.id]?.[0]||'전열')}</p><em>${o.bought?'합류 완료':(reason||cost+' 금화 / 1기')}<span class=\"recruit-points\">${q.pointCost(o.id)}pt${d.pointSource?.kind!=='book'?' · 자체 산정':''}</span></em></button>${!isHeroUnit(o.id)&&!d.uniqueKey?'<div class=\"recruit-quantity\"><button type=\"button\" data-qty=\"'+i+'\" data-delta=\"-1\" aria-label=\"'+esc(m.name_ko)+' 수량 감소\" '+(!q.draftQuantity(i)||o.bought?'disabled':'')+'>−</button><b aria-live=\"polite\">'+q.draftQuantity(i)+'기</b><button type=\"button\" data-qty=\"'+i+'\" data-delta=\"1\" aria-label=\"'+esc(m.name_ko)+' 수량 증가\" '+(o.bought?'disabled':'')+'>+</button></div>':''}</div>`}).join('')}</div><div class=\"camp-secondary\"><button id=\"draft-menu\">← 메뉴</button><button id=\"draft-clear\" ${selected.length?'':'disabled'}>선택 취소</button><button id=\"draft-reroll\" ${q.gold<q.rerollCost()?'disabled':''}>후보 교체 · ${q.rerollCost()}</button><button id=\"draft-expand\" ${q.gold<q.expandCost()?'disabled':''}>한도 +50pt · ${q.gold < q.expandCost() ? `금화 ${q.expandCost() - q.gold} 부족` : q.expandCost() + ' 금화'}</button></div><div class=\"camp-confirm\"><span>${selectedCount?selectedCount+'명 · '+(totals.points||0)+'pt · '+sum+' 금화':(q.initialDraft?'1명 이상 선택':'영입 없이 진행 가능')}</span><button id=\"draft-confirm\" class=\"primary\" ${q.initialDraft&&!selected.length?'disabled':''}>${selected.length?'영입 확정':(q.initialDraft?'출정 준비':'건너뛰기')} →</button></div></div>`;\n6557:     box.querySelectorAll('[data-draft]').forEach(el=>el.onclick=e=>{const _vn=e.target.closest&&e.target.closest('[data-vunit]');if(_vn){const _id=_vn.dataset.vunit,_p=zt[_id]||{},_pu={id:_id,side:'good',name:(q.meta.get(_id)||{}).name_ko||_id,stats:{..._p},traits:[...(_p.traits||[])],resources:{might:_p.might||0,will:_p.will||0,fate:_p.fate||0},equipment:[],kills:0,currentWounds:_p.wounds||1,injury:'',alive:true,roundBuff:{}};unitCardModal(_pu);return;}if(q.toggleRecruit(Number(el.dataset.draft)))wt.play('ui_select');else {wt.play('ui_error');Xt(q.recruitReason||'선택할 수 없습니다');}Yt();});\n6558:     box.querySelectorAll('[data-qty]').forEach(el=>el.onclick=()=>{if(q.adjustRecruit(Number(el.dataset.qty),Number(el.dataset.delta)))wt.play('ui_select');else {wt.play('ui_error');Xt(q.recruitReason||'수량을 바꿀 수 없습니다');}Yt();});\n6559:     ut('draft-menu').onclick=async()=>{if(await uiConfirm('현재 편성은 저장됩니다. 메뉴로 나갈까요?')){q.save();q.phase='menu';Yt();}};ut('draft-clear').onclick=()=>{q.recruitDraft=[];q.recruitQuantities={};q.save();Yt();};\n6560:     ut('draft-reroll').onclick=()=>{q.reroll();Yt();};ut('draft-expand').onclick=()=>{q.expand();Yt();};\n6561:     ut('draft-confirm').onclick=()=>{if(q.commitRecruits())wt.play('reward_select');else Xt(q.recruitReason||'금화·편성 포인트·배치 공간을 확인하세요.');Yt();};\n6562:     box.querySelectorAll('[data-mount]').forEach(el=>el.onclick=()=>{const[uid,vid]=el.dataset.mount.split('|');if(q.assignMount(uid,vid))wt.play('reward_select');else Xt(q.recruitReason||'군마·편성 포인트를 확인하세요');Yt();});\n6563:     box.querySelectorAll('[data-buymount]').forEach(el=>el.onclick=()=>{const[uid,vid]=el.dataset.buymount.split('|');if(q.buySpecialMount(uid,vid))wt.play('reward_select');Yt();});box.querySelectorAll('[data-nmount]').forEach(el=>el.onclick=()=>{const[uid,mid]=el.dataset.nmount.split('|');if(q.buyNamedMount(uid,mid)){wt.play('reward_select');Xt('명마에 올랐습니다!');}Yt();});\n6564:     const mb=ut('mount-buy');if(mb)mb.onclick=()=>{if(q.buyHorse()){wt.play('reward_select');Xt('군마 1필 획득 — 아래 기마 지정에서 올릴 영웅을 고르세요.');const _fl=document.createElement('div');_fl.className='mount-pop';_fl.innerHTML='<img src=\"icons/horse.png\" alt=\"\">';document.body.appendChild(_fl);setTimeout(()=>_fl.classList.add('on'),20);setTimeout(()=>{ _fl.classList.remove('on');setTimeout(()=>_fl.remove(),400);},1100);}else Xt('금화가 부족합니다.');Yt();};\n6565: }\n6566: \n6567: // One shared, collision-safe contact solver for AI, preview and committed charge.\n6568: const exactPlan=ve;\n6569: let chargeCache=new Map();\n6570: function chargePlan(u,target,units,terrain,budget){"
+    },
+    {
+      "term": "P.rollInitialRecruits =",
+      "line": 2045,
+      "text": "2043:         this.emit('Preparation', '아라곤과 다섯 병사. 병사를 선택해 전열을 정하세요.');\n2044: };\n2045: P.rollInitialRecruits = function () {\n2046:     this.rng || (this.rng = Ne(Date.now()));\n2047:     const isH = d => (d.profile.traits || []).includes('hero') || d.meta.role === 'hero';\n2048:     const base = Object.values(UnitCatalog).filter(d => d.enabled && !d.evolutionOnly && d.meta.side === 'good' && this.meta.has(d.id) && (0 >= (d.unlockWave || 0) || isH(d)));\n2049:     const heroes = base.filter(d => isH(d) && (!SILMARIL_HEROES.has(d.uniqueKey || d.id) || this.rank(\"silmaril\"))).map(d => ({ id: d.id, r: this.rng() })).sort((a, b) => a.r - b.r).slice(0, 2);\n2050:     const troops = base.filter(d => d.recruitable && !isH(d)).map(d => ({ id: d.id, r: this.rng() })).sort((a, b) => a.r - b.r).slice(0, 4);\n2051:     this.recruitOffers = [...heroes, ...troops].map(d => ({ id: d.id, bought: false }));\n2052: };\n2053: P.readBest = function () { try {\n2054:     return Number(localStorage.getItem('mesbg-endless-best')) || 0;\n2055: }\n2056: catch {\n2057:     return 0;\n2058: } };\n2059: const STAGE_BOSSES = { 5: 'war_troll', 10: 'saruman', 15: 'witchking_fellbeast', 20: 'mouth_of_sauron', 25: 'goblin_king', 30: 'azog', 35: 'smaug', 40: 'sauron', 45: 'glaurung', 50: 'carcharoth', 55: 'ungoliant', 60: 'gothmog_balrog', 65: 'ancalagon', 70: 'morgoth' };"
+    },
+    {
+      "term": "P.confirmCampChoice =",
+      "line": 3827,
+      "text": "3825:     this.save(); return true;\n3826: };\n3827: P.confirmCampChoice = function () {\n3828:     const d = this.campDraft;\n3829:     if (!d || d.step !== this.campStep || this.phase !== 'reward') return false;\n3830:     return d.step === 'event' ? this.chooseEvent(Number(d.key)) : this.chooseRelic(d.key);\n3831: };\n3832: P.leaveCamp = function () { if (this.phase !== 'reward' || this.campStep !== 'ready')\n3833:     return false; this.campResult = null; this.units = this.units.filter(u => u.side === 'good' && u.alive && (!u.temporary || u._pendingAlly)); const runState = JSON.parse(JSON.stringify(this._saveState())); delete runState._retrySnapshot; this.prepareStage(); this._retrySnapshot = { wave: this.wave, cleared: this.cleared, gold: this.gold, relics: structuredClone(this.relics), fallen: structuredClone(this.fallen || []), units: structuredClone(this.units), devices: structuredClone(this.devices || []), runState }; this.save(); return true; };\n3834: // Retry rolls back the entire stage, including earned loot and run statistics.\n3835: // Gold remains the checkpoint balance minus every retry/retreat fee.\n3836: P._restoreRetryState = function (snapshot) {\n3837:     const state = snapshot.runState;\n3838:     if (!state) return; // Legacy checkpoints retain their original supported fields.\n3839:     for (const key of Object.keys(this._saveState())) {\n3840:         if (['version', 'phase', 'tactical', 'gold', '_retrySnapshot', 'rngState'].includes(key)) continue;\n3841:         if (Object.prototype.hasOwnProperty.call(state, key)) this[key] = structuredClone(state[key]);"
+    },
+    {
+      "term": "P.rollCampEvent =",
+      "line": 3718,
+      "text": "3716:     return f.name || '영웅';\n3717: };\n3718: P.rollCampEvent = function () {\n3719:     this.rng || (this.rng = Ne(Date.now()));\n3720:     const pool = LWB_EVENTS.filter(e => !e.cond || e.cond(this));\n3721:     this.campEvent = pool[Math.floor(this.rng() * pool.length)] || null;\n3722:     this.campResult = null;\n3723: };\n3724: P.chooseEvent = function (i) {\n3725:     if (this.phase !== 'reward' || this.campStep !== 'event' || !this.campEvent)\n3726:         return false;\n3727:     const op = this.campEvent.options[i];\n3728:     if (!op)\n3729:         return false;\n3730:     const beforeRelics = Object.assign({}, this.relics);\n3731:     const result = op.fx ? op.fx(this) : '';\n3732:     const resultText = typeof result === 'string' && result ? result : '선택 완료';"
+    }
+  ]
+}

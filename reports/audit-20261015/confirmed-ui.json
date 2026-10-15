@@ -1,0 +1,702 @@
+{
+  "build": "e804344617e860324a09ea9c33264fa201783ae0",
+  "firstPlay": [
+    {
+      "name": "live-version",
+      "phase": null,
+      "wave": null,
+      "round": null,
+      "gold": null,
+      "points": null,
+      "text": null,
+      "trace": null
+    },
+    {
+      "name": "01-ui-draft",
+      "phase": "reward",
+      "wave": 0,
+      "round": 0,
+      "gold": 600,
+      "points": 0,
+      "text": "01\n지휘력\n0\n방어선 수호\n병사를 선택하세요\n지휘\n자율\n사격 대기\n출정 · 원정대 편성\n원정대 편성\n보유\n 600\n선택 비용\n0\n남은 금화\n600\n편성 0 / 300pt · 잔여 300pt · 0명 선택\n전열\n0\n지원\n0\n사격\n0\n기동\n0\n\n시작 영웅 최대 1기 · 병사는 +/−로 수량 선택 · 금화는 영입 비용, pt는 편성 한도\n\ni\n용맹의 영웅\n엘프\n트란두일\n3\n5\n\n어둠숲의 검무\n\n105 금화 / 1기\n130pt\ni\n강인의 영웅\n샤이어\n프로도\n1\n4\n\n반지 운반자의 결의\n\n45 금화 / 1기\n55pt\ni\n일반\n머크우드\n머크우드 레인저\n1\n3\n\n전열\n\n20 금화 / 1기\n14pt · 자체 산정\n−\n0기\n+\ni\n일반\n난쟁이\n드워프 레인저\n1\n7\n\n전열\n\n20 금화 / 1기\n9pt\n−\n0기\n+\n영입 조건 확인\ni\n일반\n로한\n헬밍가 전사\n1\n5\n\n전열\n\n그림볼드 합류 · 공세 5\n9pt · 자체 산정\n−\n0기\n+\ni\n일반\n돌 암로스\n돌 암로스 병사\n1\n5\n\n전열\n\n20 금화 / 1기\n10pt\n−\n0기\n+\n← 메뉴\n선택 취소\n후보 교체 · 10\n한도 +50pt · 45 금화\n1명 이상 선택\n출정 준비 →",
+      "trace": null
+    },
+    {
+      "name": "offers",
+      "phase": null,
+      "wave": null,
+      "round": null,
+      "gold": null,
+      "points": null,
+      "text": null,
+      "trace": null
+    },
+    {
+      "name": "02-ui-draft-selected",
+      "phase": "reward",
+      "wave": 0,
+      "round": 0,
+      "gold": 600,
+      "points": 0,
+      "text": "01\n지휘력\n0\n방어선 수호\n병사를 선택하세요\n지휘\n자율\n사격 대기\n출정 · 원정대 편성\n원정대 편성\n보유\n 600\n선택 비용\n225\n남은 금화\n375\n편성 196 / 300pt · 잔여 104pt · 7명 선택\n전열\n1\n지원\n2\n사격\n4\n기동\n0\n\n시작 영웅 최대 1기 · 병사는 +/−로 수량 선택 · 금화는 영입 비용, pt는 편성 한도\n\n선택됨\ni\n용맹의 영웅\n엘프\n트란두일\n3\n5\n\n어둠숲의 검무\n\n105 금화 / 1기\n130pt\ni\n강인의 영웅\n샤이어\n프로도\n1\n4\n\n반지 운반자의 결의\n\n45 금화 / 1기\n55pt\n선택됨\ni\n일반\n머크우드\n머크우드 레인저\n1\n3\n\n전열\n\n20 금화 / 1기\n14pt · 자체 산정\n−\n2기\n+\n선택됨\ni\n일반\n난쟁이\n드워프 레인저\n1\n7\n\n전열\n\n20 금화 / 1기\n9pt\n−\n2기\n+\n영입 조건 확인\ni\n일반\n로한\n헬밍가 전사\n1\n5\n\n전열\n\n그림볼드 합류 · 공세 5\n9pt · 자체 산정\n−\n0기\n+\n선택됨\ni\n일반\n돌 암로스\n돌 암로스 병사\n1\n5\n\n전열\n\n20 금화 / 1기\n10pt\n−\n2기\n+\n← 메뉴\n선택 취소\n후보 교체 · 10\n한도 +50pt · 45 금화\n7명 · 196pt · 225 금화\n영입 확정 →\n그림볼드 합류 · 공세 5",
+      "trace": null
+    },
+    {
+      "name": "03-ui-after-recruit",
+      "phase": "preparation",
+      "wave": 0,
+      "round": 0,
+      "gold": 375,
+      "points": 196,
+      "text": "01\n지휘력\n0\n방어선 수호\n자동\n1×\n접근\n밝은 물 · 이동 50%\n짙은 물·절벽 · 차단\n다리 · 통행\n트란두일 · 배치\n2\n2\n트란두일\n3/3\n이동 6.2″\n결투\n7\n힘\n4\n방어\n5\n공격\n3\n지휘\n자율\n배치\n전투 시작 →\n그림볼드 합류 · 공세 5",
+      "trace": null
+    },
+    {
+      "name": "04-battle-start",
+      "phase": "move",
+      "wave": 1,
+      "round": 1,
+      "gold": 375,
+      "points": 196,
+      "text": "01\n지휘력\n2\n방어선 수호\n자동\n1×\n접근\n밝은 물 · 이동 50%\n짙은 물·절벽 · 차단\n다리 · 통행\n트란두일 · 이동 차례\n2\n2\n4\n🛡 방어선 의지 — 구역 내 아군 2기 결투 +1\n트란두일\n3/3\n이동 6.2″\n결투\n8\n힘\n4\n방어\n6\n공격\n3\n지휘\n자율\n아군 · 이동\n턴 종료\n능력\n이동 종료",
+      "trace": null
+    },
+    {
+      "name": "05-real-unit-tap",
+      "phase": "move",
+      "wave": 1,
+      "round": 1,
+      "gold": 375,
+      "points": 196,
+      "text": "01\n지휘력\n2\n방어선 수호\n자동\n1×\n접근\n밝은 물 · 이동 50%\n짙은 물·절벽 · 차단\n다리 · 통행\n트란두일 · 이동 차례\n2\n2\n4\n트란두일\n3/3\n이동 6.2″\n결투\n8\n힘\n4\n방어\n6\n공격\n3\n지휘\n자율\n아군 · 이동\n턴 종료\n취소\n이동 확정",
+      "trace": null
+    },
+    {
+      "name": "06-ui-move-confirmed",
+      "phase": "move",
+      "wave": 1,
+      "round": 1,
+      "gold": 375,
+      "points": 196,
+      "text": "01\n지휘력\n2\n방어선 수호\n자동\n1×\n접근\n밝은 물 · 이동 50%\n짙은 물·절벽 · 차단\n다리 · 통행\n트란두일 · 이동 차례\n2\n2\n4\n트란두일\n3/3\n이동 4.5″\n결투\n8\n힘\n4\n방어\n6\n공격\n3\n지휘\n자율\n아군 · 이동\n턴 종료\n능력\n이동 종료",
+      "trace": null
+    },
+    {
+      "name": "07-ui-autoplay-enabled",
+      "phase": "move",
+      "wave": 1,
+      "round": 1,
+      "gold": 375,
+      "points": 196,
+      "text": "01\n지휘력\n2\n방어선 수호\n자동 중\n4×\n접근\n밝은 물 · 이동 50%\n짙은 물·절벽 · 차단\n다리 · 통행\n2\n2\n4\n자동 진행 시작 — 아군 턴도 AI가 맡습니다. 보상 화면에서는 멈춥니다.\n오크 궁수\n1/1\n이동 2.6″\n결투\n2\n힘\n3\n방어\n3\n공격\n1\n지휘\n자율\n적군 · 이동\n처리 중…",
+      "trace": null
+    },
+    {
+      "name": "08-midbattle-5",
+      "phase": "move",
+      "wave": 1,
+      "round": 2,
+      "gold": 375,
+      "points": 196,
+      "text": "01\n지휘력\n4\n방어선 수호\n자동 중\n4×\n접근\n밝은 물 · 이동 50%\n짙은 물·절벽 · 차단\n다리 · 통행\n3\n머크우드 레인저\n1/1\n이동 6.4″\n결투\n5\n힘\n3\n방어\n3\n공격\n1\n지휘\n자율\n아군 · 이동\n이동 종료\n행동 안내\n\n재생 속도 ×1·×2·×4·×8",
+      "trace": null
+    },
+    {
+      "name": "ordinary-ui-autoplay-trace",
+      "phase": null,
+      "wave": null,
+      "round": null,
+      "gold": null,
+      "points": null,
+      "text": null,
+      "trace": [
+        {
+          "phase": "move",
+          "wave": 1,
+          "round": 1,
+          "side": "good",
+          "good": 7,
+          "evil": 4,
+          "auto": true,
+          "log": [
+            "⚠ 엘리트 1기 발견 — 처치 시 금화·장비 보상",
+            "◆ 신규 적 발견 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "적 편성 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "원정대 결성 — 196/300pt · 전열을 정하세요",
+            "출정할 원정대를 고르세요. 영웅 1기와 병사들을 금화 안에서 선택합니다.",
+            "푸른 배치 구역에서 병력을 배치하세요."
+          ]
+        },
+        {
+          "phase": "shoot",
+          "wave": 1,
+          "round": 1,
+          "side": "evil",
+          "good": 7,
+          "evil": 4,
+          "auto": true,
+          "log": [
+            "⚠ 엘리트 1기 발견 — 처치 시 금화·장비 보상",
+            "◆ 신규 적 발견 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "적 편성 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "원정대 결성 — 196/300pt · 전열을 정하세요",
+            "출정할 원정대를 고르세요. 영웅 1기와 병사들을 금화 안에서 선택합니다.",
+            "푸른 배치 구역에서 병력을 배치하세요."
+          ]
+        },
+        {
+          "phase": "shoot",
+          "wave": 1,
+          "round": 1,
+          "side": "evil",
+          "good": 7,
+          "evil": 4,
+          "auto": true,
+          "log": [
+            "⚠ 엘리트 1기 발견 — 처치 시 금화·장비 보상",
+            "◆ 신규 적 발견 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "적 편성 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "원정대 결성 — 196/300pt · 전열을 정하세요",
+            "출정할 원정대를 고르세요. 영웅 1기와 병사들을 금화 안에서 선택합니다.",
+            "푸른 배치 구역에서 병력을 배치하세요."
+          ]
+        },
+        {
+          "phase": "fight",
+          "wave": 1,
+          "round": 1,
+          "side": "good",
+          "good": 7,
+          "evil": 4,
+          "auto": true,
+          "log": [
+            "⚠ 엘리트 1기 발견 — 처치 시 금화·장비 보상",
+            "◆ 신규 적 발견 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "적 편성 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "원정대 결성 — 196/300pt · 전열을 정하세요",
+            "출정할 원정대를 고르세요. 영웅 1기와 병사들을 금화 안에서 선택합니다.",
+            "푸른 배치 구역에서 병력을 배치하세요."
+          ]
+        },
+        {
+          "phase": "move",
+          "wave": 1,
+          "round": 2,
+          "side": "evil",
+          "good": 7,
+          "evil": 4,
+          "auto": true,
+          "log": [
+            "⚠ 엘리트 1기 발견 — 처치 시 금화·장비 보상",
+            "◆ 신규 적 발견 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "적 편성 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "원정대 결성 — 196/300pt · 전열을 정하세요",
+            "출정할 원정대를 고르세요. 영웅 1기와 병사들을 금화 안에서 선택합니다.",
+            "푸른 배치 구역에서 병력을 배치하세요."
+          ]
+        },
+        {
+          "phase": "move",
+          "wave": 1,
+          "round": 2,
+          "side": "good",
+          "good": 7,
+          "evil": 4,
+          "auto": true,
+          "log": [
+            "⚠ 엘리트 1기 발견 — 처치 시 금화·장비 보상",
+            "◆ 신규 적 발견 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "적 편성 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "원정대 결성 — 196/300pt · 전열을 정하세요",
+            "출정할 원정대를 고르세요. 영웅 1기와 병사들을 금화 안에서 선택합니다.",
+            "푸른 배치 구역에서 병력을 배치하세요."
+          ]
+        },
+        {
+          "phase": "shoot",
+          "wave": 1,
+          "round": 2,
+          "side": "evil",
+          "good": 7,
+          "evil": 4,
+          "auto": true,
+          "log": [
+            "⚠ 엘리트 1기 발견 — 처치 시 금화·장비 보상",
+            "◆ 신규 적 발견 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "적 편성 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "원정대 결성 — 196/300pt · 전열을 정하세요",
+            "출정할 원정대를 고르세요. 영웅 1기와 병사들을 금화 안에서 선택합니다.",
+            "푸른 배치 구역에서 병력을 배치하세요."
+          ]
+        },
+        {
+          "phase": "shoot",
+          "wave": 1,
+          "round": 2,
+          "side": "good",
+          "good": 7,
+          "evil": 4,
+          "auto": true,
+          "log": [
+            "⚠ 엘리트 1기 발견 — 처치 시 금화·장비 보상",
+            "◆ 신규 적 발견 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "적 편성 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "원정대 결성 — 196/300pt · 전열을 정하세요",
+            "출정할 원정대를 고르세요. 영웅 1기와 병사들을 금화 안에서 선택합니다.",
+            "푸른 배치 구역에서 병력을 배치하세요."
+          ]
+        },
+        {
+          "phase": "move",
+          "wave": 1,
+          "round": 3,
+          "side": "good",
+          "good": 7,
+          "evil": 3,
+          "auto": true,
+          "log": [
+            "⚠ 엘리트 1기 발견 — 처치 시 금화·장비 보상",
+            "◆ 신규 적 발견 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "적 편성 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "원정대 결성 — 196/300pt · 전열을 정하세요",
+            "출정할 원정대를 고르세요. 영웅 1기와 병사들을 금화 안에서 선택합니다.",
+            "푸른 배치 구역에서 병력을 배치하세요."
+          ]
+        },
+        {
+          "phase": "move",
+          "wave": 1,
+          "round": 3,
+          "side": "good",
+          "good": 7,
+          "evil": 3,
+          "auto": true,
+          "log": [
+            "⚠ 엘리트 1기 발견 — 처치 시 금화·장비 보상",
+            "◆ 신규 적 발견 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "적 편성 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "원정대 결성 — 196/300pt · 전열을 정하세요",
+            "출정할 원정대를 고르세요. 영웅 1기와 병사들을 금화 안에서 선택합니다.",
+            "푸른 배치 구역에서 병력을 배치하세요."
+          ]
+        },
+        {
+          "phase": "move",
+          "wave": 1,
+          "round": 3,
+          "side": "good",
+          "good": 7,
+          "evil": 3,
+          "auto": true,
+          "log": [
+            "⚠ 엘리트 1기 발견 — 처치 시 금화·장비 보상",
+            "◆ 신규 적 발견 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "적 편성 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "원정대 결성 — 196/300pt · 전열을 정하세요",
+            "출정할 원정대를 고르세요. 영웅 1기와 병사들을 금화 안에서 선택합니다.",
+            "푸른 배치 구역에서 병력을 배치하세요."
+          ]
+        },
+        {
+          "phase": "shoot",
+          "wave": 1,
+          "round": 3,
+          "side": "evil",
+          "good": 7,
+          "evil": 3,
+          "auto": true,
+          "log": [
+            "⚠ 엘리트 1기 발견 — 처치 시 금화·장비 보상",
+            "◆ 신규 적 발견 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "적 편성 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "원정대 결성 — 196/300pt · 전열을 정하세요",
+            "출정할 원정대를 고르세요. 영웅 1기와 병사들을 금화 안에서 선택합니다.",
+            "푸른 배치 구역에서 병력을 배치하세요."
+          ]
+        },
+        {
+          "phase": "fight",
+          "wave": 1,
+          "round": 3,
+          "side": "good",
+          "good": 7,
+          "evil": 3,
+          "auto": true,
+          "log": [
+            "⚠ 엘리트 1기 발견 — 처치 시 금화·장비 보상",
+            "◆ 신규 적 발견 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "적 편성 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "원정대 결성 — 196/300pt · 전열을 정하세요",
+            "출정할 원정대를 고르세요. 영웅 1기와 병사들을 금화 안에서 선택합니다.",
+            "푸른 배치 구역에서 병력을 배치하세요."
+          ]
+        },
+        {
+          "phase": "move",
+          "wave": 1,
+          "round": 4,
+          "side": "evil",
+          "good": 7,
+          "evil": 3,
+          "auto": true,
+          "log": [
+            "⚠ 엘리트 1기 발견 — 처치 시 금화·장비 보상",
+            "◆ 신규 적 발견 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "적 편성 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "원정대 결성 — 196/300pt · 전열을 정하세요",
+            "출정할 원정대를 고르세요. 영웅 1기와 병사들을 금화 안에서 선택합니다.",
+            "푸른 배치 구역에서 병력을 배치하세요."
+          ]
+        },
+        {
+          "phase": "move",
+          "wave": 1,
+          "round": 4,
+          "side": "good",
+          "good": 7,
+          "evil": 3,
+          "auto": true,
+          "log": [
+            "⚠ 엘리트 1기 발견 — 처치 시 금화·장비 보상",
+            "◆ 신규 적 발견 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "적 편성 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "원정대 결성 — 196/300pt · 전열을 정하세요",
+            "출정할 원정대를 고르세요. 영웅 1기와 병사들을 금화 안에서 선택합니다.",
+            "푸른 배치 구역에서 병력을 배치하세요."
+          ]
+        },
+        {
+          "phase": "shoot",
+          "wave": 1,
+          "round": 4,
+          "side": "evil",
+          "good": 7,
+          "evil": 3,
+          "auto": true,
+          "log": [
+            "⚠ 엘리트 1기 발견 — 처치 시 금화·장비 보상",
+            "◆ 신규 적 발견 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "적 편성 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "원정대 결성 — 196/300pt · 전열을 정하세요",
+            "출정할 원정대를 고르세요. 영웅 1기와 병사들을 금화 안에서 선택합니다.",
+            "푸른 배치 구역에서 병력을 배치하세요."
+          ]
+        },
+        {
+          "phase": "shoot",
+          "wave": 1,
+          "round": 4,
+          "side": "good",
+          "good": 7,
+          "evil": 2,
+          "auto": true,
+          "log": [
+            "⚠ 엘리트 1기 발견 — 처치 시 금화·장비 보상",
+            "◆ 신규 적 발견 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "적 편성 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "원정대 결성 — 196/300pt · 전열을 정하세요",
+            "출정할 원정대를 고르세요. 영웅 1기와 병사들을 금화 안에서 선택합니다.",
+            "푸른 배치 구역에서 병력을 배치하세요."
+          ]
+        },
+        {
+          "phase": "move",
+          "wave": 1,
+          "round": 5,
+          "side": "good",
+          "good": 7,
+          "evil": 1,
+          "auto": true,
+          "log": [
+            "⚠ 엘리트 1기 발견 — 처치 시 금화·장비 보상",
+            "◆ 신규 적 발견 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "적 편성 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "원정대 결성 — 196/300pt · 전열을 정하세요",
+            "출정할 원정대를 고르세요. 영웅 1기와 병사들을 금화 안에서 선택합니다.",
+            "푸른 배치 구역에서 병력을 배치하세요."
+          ]
+        },
+        {
+          "phase": "move",
+          "wave": 1,
+          "round": 5,
+          "side": "good",
+          "good": 7,
+          "evil": 1,
+          "auto": true,
+          "log": [
+            "⚠ 엘리트 1기 발견 — 처치 시 금화·장비 보상",
+            "◆ 신규 적 발견 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "적 편성 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "원정대 결성 — 196/300pt · 전열을 정하세요",
+            "출정할 원정대를 고르세요. 영웅 1기와 병사들을 금화 안에서 선택합니다.",
+            "푸른 배치 구역에서 병력을 배치하세요."
+          ]
+        },
+        {
+          "phase": "reward",
+          "wave": 1,
+          "round": 5,
+          "side": "evil",
+          "good": 7,
+          "evil": 0,
+          "auto": true,
+          "log": [
+            "⚠ 엘리트 1기 발견 — 처치 시 금화·장비 보상",
+            "◆ 신규 적 발견 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "적 편성 — 오크 궁수, 고블린 궁수, 헌터 오크, 군다바드 오크",
+            "원정대 결성 — 196/300pt · 전열을 정하세요",
+            "출정할 원정대를 고르세요. 영웅 1기와 병사들을 금화 안에서 선택합니다.",
+            "푸른 배치 구역에서 병력을 배치하세요."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "09-ordinary-ui-outcome",
+      "phase": "reward",
+      "wave": 1,
+      "round": 5,
+      "gold": 516,
+      "points": 196,
+      "text": "01\n지휘력\n4\n방어선 수호\n자동 중\n4×\n접근\n밝은 물 · 이동 50%\n짙은 물·절벽 · 차단\n다리 · 통행\n병사를 선택하세요\n지휘\n자율\n처리 중…\n행동 안내\n\n재생 속도 ×1·×2·×4·×8\n\n무결 수비 · 전사자 없이 스테이지 클리어 · +25금\n헌터 오크 처치\n승전\n공세 1 완료\n보상 +131금 · 무결 수비 · 야영지로 이동합니다",
+      "trace": null
+    }
+  ],
+  "firstErrors": [],
+  "steps": [
+    {
+      "phase": "reward",
+      "wave": 1,
+      "round": 0,
+      "side": "good",
+      "campStep": "event",
+      "campDraft": null,
+      "eventOutcome": null,
+      "eventLabel": "석판을 읽는다",
+      "good": 7,
+      "evil": 0,
+      "gold": 516,
+      "auto": false,
+      "primary": {
+        "text": "사격 대기",
+        "disabled": true
+      },
+      "buttons": [
+        {
+          "i": 14,
+          "id": "settings-toggle",
+          "text": "",
+          "disabled": false,
+          "handler": "()=>{const a=document.querySelector('.top-actions'),on=!a.classList.contains('open');a.classList.toggle('open',on);ut('settings-toggle').setAttribute('aria-expanded',String(on));}",
+          "visible": true
+        },
+        {
+          "i": 21,
+          "id": "",
+          "text": "",
+          "disabled": false,
+          "handler": "()=>{if(At||Qt)return;Zt(btn.dataset.unit);const v=q.unit(btn.dataset.unit);if(v?.alive){const p=screenAt(v.x,v.y);if(p.x<40||p.x>UX.width-40||p.y<48||p.y>UX.height-48)panTo(v.x,v.y,UX.cameraMode==='overview'?.78:UX.zoom,280)}}",
+          "visible": true
+        },
+        {
+          "i": 22,
+          "id": "",
+          "text": "",
+          "disabled": false,
+          "handler": "()=>{if(At||Qt)return;Zt(btn.dataset.unit);const v=q.unit(btn.dataset.unit);if(v?.alive){const p=screenAt(v.x,v.y);if(p.x<40||p.x>UX.width-40||p.y<48||p.y>UX.height-48)panTo(v.x,v.y,UX.cameraMode==='overview'?.78:UX.zoom,280)}}",
+          "visible": true
+        },
+        {
+          "i": 23,
+          "id": "",
+          "text": "",
+          "disabled": false,
+          "handler": "()=>{if(At||Qt)return;Zt(btn.dataset.unit);const v=q.unit(btn.dataset.unit);if(v?.alive){const p=screenAt(v.x,v.y);if(p.x<40||p.x>UX.width-40||p.y<48||p.y>UX.height-48)panTo(v.x,v.y,UX.cameraMode==='overview'?.78:UX.zoom,280)}}",
+          "visible": true
+        },
+        {
+          "i": 24,
+          "id": "",
+          "text": "",
+          "disabled": false,
+          "handler": "()=>{if(At||Qt)return;Zt(btn.dataset.unit);const v=q.unit(btn.dataset.unit);if(v?.alive){const p=screenAt(v.x,v.y);if(p.x<40||p.x>UX.width-40||p.y<48||p.y>UX.height-48)panTo(v.x,v.y,UX.cameraMode==='overview'?.78:UX.zoom,280)}}",
+          "visible": true
+        },
+        {
+          "i": 25,
+          "id": "",
+          "text": "",
+          "disabled": false,
+          "handler": "()=>{if(At||Qt)return;Zt(btn.dataset.unit);const v=q.unit(btn.dataset.unit);if(v?.alive){const p=screenAt(v.x,v.y);if(p.x<40||p.x>UX.width-40||p.y<48||p.y>UX.height-48)panTo(v.x,v.y,UX.cameraMode==='overview'?.78:UX.zoom,280)}}",
+          "visible": true
+        },
+        {
+          "i": 26,
+          "id": "",
+          "text": "",
+          "disabled": false,
+          "handler": "()=>{if(At||Qt)return;Zt(btn.dataset.unit);const v=q.unit(btn.dataset.unit);if(v?.alive){const p=screenAt(v.x,v.y);if(p.x<40||p.x>UX.width-40||p.y<48||p.y>UX.height-48)panTo(v.x,v.y,UX.cameraMode==='overview'?.78:UX.zoom,280)}}",
+          "visible": true
+        },
+        {
+          "i": 27,
+          "id": "",
+          "text": "",
+          "disabled": false,
+          "handler": "()=>{if(At||Qt)return;Zt(btn.dataset.unit);const v=q.unit(btn.dataset.unit);if(v?.alive){const p=screenAt(v.x,v.y);if(p.x<40||p.x>UX.width-40||p.y<48||p.y>UX.height-48)panTo(v.x,v.y,UX.cameraMode==='overview'?.78:UX.zoom,280)}}",
+          "visible": true
+        },
+        {
+          "i": 28,
+          "id": "battle-order",
+          "text": "지휘\n자율",
+          "disabled": false,
+          "handler": "() => {\n    const d=document.createElement('dialog'); d.className='ui-info-dialog';\n    d.innerHTML='<h2>원정대 지휘</h2><p>자동 진행의 행동 우선순위를 바꿉니다. 이동력과 행동 횟수는 그대로입니다.</p><button data-order=\"auto\">자율 교전 · 지휘 해제</button><button data-order=\"hold\">현재 전열 유지</button><label>집중 공격 대상<select id=\"order-target\"><option value=\"\">적을 선택하세요</option>'+q.alive('evil').map(u=>'<option value=\"'+u.uid+'\">'+esc(u.name)+' · 체력 '+u.currentWounds+'</option>').join('')+'</select></label><button data-order=\"focus\">선택한 적 집중 공격</button><button data-close>닫기</button>';\n    document.body.appendChild(d);d.querySelectorAll('[data-order]').forEach(b=>b.onclick=()=>{if(q.setBattleOrder(b.dataset.order,d.querySelector('select').value)){d.close();Yt();}else Xt('전투 중 생존한 대상을 선택하세요');});d.querySelector('[data-close]').onclick=()=>d.close();d.onclose=()=>d.remove();d.showModal();\n}",
+          "visible": true
+        },
+        {
+          "i": 33,
+          "id": "dock-primary",
+          "text": "사격 대기",
+          "disabled": true,
+          "handler": "()=>{const p=UX.intent;if(!p){defaultPrimary();return;}if(At||Qt)return;clearIntent();setSheet(false);Rt(()=>{\n    let ok=false;if(p.kind==='move')ok=q.move(p.uid,p.to);if(p.kind==='charge')ok=q.charge(p.uid,p.target);if(p.kind==='shoot')ok=q.shoot(p.uid,p.target);if(p.kind==='deploy'){ok=q.deploy(p.uid,p.to);if(ok){const _n=q.alive('good').find(u=>u.x<0);if(_n)q.selected=_n.uid;}}\n    if(p.kind==='switch'){ok=q.wait(p.uid);if(ok)q.selected=p.target;}\n    if(p.kind==='skill')ok=q.skill(p.uid,p.choice);\n    if(p.kind==='heroic')ok=q.heroic(p.uid,p.key);\n    if(p.kind==='spell')ok=q.castSpell(p.uid,p.key);\n    if(!ok)Xt('명령을 실행하지 못했습니다. 위치와 차례를 다시 확인하세요.');\n});}",
+          "visible": true
+        },
+        {
+          "i": 36,
+          "id": "sheet-toggle",
+          "text": "",
+          "disabled": false,
+          "handler": "()=>setSheet(false)",
+          "visible": true
+        },
+        {
+          "i": 37,
+          "id": "hero-skill",
+          "text": "",
+          "disabled": true,
+          "handler": "() => {\n                const targets=signatureRules.get(u.id)?.targets(q,u)||q.effectTargets(u,skill[4]);\n                const detail=skill[3]+' · 자원 소모 없음 · 라운드당 1회 발동 · 대상 '+targets.map(v=>v.name).join(', ');\n                const choose=choice=>setIntent({kind:'skill',uid:u.uid,choice,label:skill[0],detail});\n                _skillInfo(skill[0],detail,()=>choose());\n                if(u.id.startsWith('legolas')){ut('sk-use').textContent='정밀 1발';ut('sk-use').onclick=()=>{Qt=false;Yt();setSheet(false);choose('precise');};ut('sk-cancel').insertAdjacentHTML('beforebegin','<button id=\"sk-volley\">일반 3발</button>');ut('sk-volley').onclick=()=>{Qt=false;Yt();setSheet(false);choose('volley');};}\n            }",
+          "visible": true
+        },
+        {
+          "i": 38,
+          "id": "",
+          "text": "",
+          "disabled": true,
+          "handler": "() => Rt(() => { q.command(t.dataset.command) || Xt(\"이 병사에게 사용할 수 없는 명령입니다.\"); })",
+          "visible": true
+        },
+        {
+          "i": 39,
+          "id": "",
+          "text": "",
+          "disabled": true,
+          "handler": "() => Rt(() => { q.command(t.dataset.command) || Xt(\"이 병사에게 사용할 수 없는 명령입니다.\"); })",
+          "visible": true
+        },
+        {
+          "i": 40,
+          "id": "",
+          "text": "",
+          "disabled": true,
+          "handler": "() => Rt(() => { q.command(t.dataset.command) || Xt(\"이 병사에게 사용할 수 없는 명령입니다.\"); })",
+          "visible": true
+        },
+        {
+          "i": 41,
+          "id": "",
+          "text": "",
+          "disabled": true,
+          "handler": "() => Rt(() => { q.command(t.dataset.command) || Xt(\"이 병사에게 사용할 수 없는 명령입니다.\"); })",
+          "visible": true
+        },
+        {
+          "i": 42,
+          "id": "",
+          "text": "",
+          "disabled": true,
+          "handler": "() => Rt(() => { q.command(t.dataset.command) || Xt(\"이 병사에게 사용할 수 없는 명령입니다.\"); })",
+          "visible": true
+        },
+        {
+          "i": 43,
+          "id": "",
+          "text": "",
+          "disabled": true,
+          "handler": "() => Rt(() => { q.command(t.dataset.command) || Xt(\"이 병사에게 사용할 수 없는 명령입니다.\"); })",
+          "visible": true
+        },
+        {
+          "i": 44,
+          "id": "",
+          "text": "",
+          "disabled": true,
+          "handler": "() => Rt(() => { q.command(t.dataset.command) || Xt(\"이 병사에게 사용할 수 없는 명령입니다.\"); })",
+          "visible": true
+        },
+        {
+          "i": 45,
+          "id": "action",
+          "text": "",
+          "disabled": true,
+          "handler": "() => Rt(() => { q.phase === \"preparation\" ? q.startWave() : q.fightNext(); })",
+          "visible": true
+        },
+        {
+          "i": 49,
+          "id": "",
+          "text": "전적 공유",
+          "disabled": false,
+          "handler": "function onclick(event) {\n_shareResult()\n}",
+          "visible": true
+        },
+        {
+          "i": 50,
+          "id": "",
+          "text": "석판을 읽는다\n\n무작위 영웅 Will +1 (영구)",
+          "disabled": false,
+          "handler": "() => { q.selectCampChoice(el.dataset.evopt); wt.play('ui_select'); Yt(); }",
+          "visible": true
+        },
+        {
+          "i": 51,
+          "id": "",
+          "text": "유물 조각을 챙긴다\n\n다음 유물 선택지에서 희귀 이상 1개 확정",
+          "disabled": false,
+          "handler": "() => { q.selectCampChoice(el.dataset.evopt); wt.play('ui_select'); Yt(); }",
+          "visible": true
+        },
+        {
+          "i": 52,
+          "id": "camp-menu",
+          "text": "메뉴로 나가기",
+          "disabled": false,
+          "handler": "async () => { if (await uiConfirm('현재 진행은 저장됩니다. 메뉴로 나갈까요?')) { q.save(); q.phase = 'menu'; Yt(); } }",
+          "visible": true
+        },
+        {
+          "i": 53,
+          "id": "camp-choice-cancel",
+          "text": "취소",
+          "disabled": true,
+          "handler": "()=>{q.campDraft=null;q.save();Yt();}",
+          "visible": true
+        },
+        {
+          "i": 54,
+          "id": "camp-choice-confirm",
+          "text": "선택 확정",
+          "disabled": true,
+          "handler": "()=>{if(q.confirmCampChoice())wt.play('reward_select');Yt();}",
+          "visible": true
+        }
+      ],
+      "name": "10-genuine-save-resumed",
+      "text": "01\n지휘력\n0\n방어선 수호\n병사를 선택하세요\n지휘\n자율\n사격 대기\n공세 1 완료 · 보상 131 금화\n이번 전투 · 처치 4 · 전사 0 · 생존 7 · 다부인 머크우드 레인저 2기\n전적 공유\n누메노르의 잔해\n사건\n모집\n유물\n출전\n\n검은 현무암 기둥 아래, 왕들의 별이 새겨진 석판이 있습니다. 촉촉한 곳에 묻힌 유물의 기운이 남아 있습니다.\n\n석판을 읽는다\n\n무작위 영웅 Will +1 (영구)\n\n유물 조각을 챙긴다\n\n다음 유물 선택지에서 희귀 이상 1개 확정\n\n메뉴로 나가기\n위에서 하나를 고르면 확정할 수 있습니다\n취소\n선택 확정"
+    }
+  ],
+  "errors": [],
+  "note": "Live origin; restored the genuine first-victory save; subsequent camp operations use visible UI buttons only. No forced victories or stat edits.",
+  "fatal": "Traceback (most recent call last):\n  File \"/tmp/final.py\", line 27, in <module>\n    if not page.evaluate('MESBG.auto()'):page.locator('#auto-dock').click();page.wait_for_timeout(300)\n                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/playwright/sync_api/_generated.py\", line 11021, in click\n    self._sync(\n  File \"/home/runner/.local/lib/python3.12/site-packages/playwright/_impl/_sync_base.py\", line 111, in _sync\n    return task.result()\n           ^^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/playwright/_impl/_locator.py\", line 174, in click\n    return await self._frame._click(self._selector, strict=True, **params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/playwright/_impl/_frame.py\", line 598, in _click\n    await self._channel.send(\"click\", self._timeout, locals_to_params(locals()))\n  File \"/home/runner/.local/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 78, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 636, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TimeoutError: Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"#auto-dock\")\n    - locator resolved to <button type=\"button\" id=\"auto-dock\" class=\"act-btn\" title=\"자동 진행 온/오프\" aria-label=\"자동 진행 온/오프\">자동</button>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is not visible\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is not visible\n    - retrying click action\n      - waiting 100ms\n    55 × waiting for element to be visible, enabled and stable\n       - element is not visible\n     - retrying click action\n       - waiting 500ms\n    - waiting for element to be visible, enabled and stable\n\n"
+}
