@@ -1,0 +1,91 @@
+name: Audit verified play 20261015
+on:
+  push:
+    branches: [audit/playtest-20261015-e804344]
+    paths: ['.github/workflows/audit-verified-play-20261015.yml']
+permissions:
+  contents: write
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Install browser
+        run: |
+          python -m pip install playwright requests pyyaml
+          python -m playwright install --with-deps chromium
+      - name: Real UI play and source-grounded probes
+        env:
+          AUDIT_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p audit-play/evidence tests
+          cat > /tmp/verify.py <<'PY'
+          import requests,yaml,subprocess,json,os,traceback,re
+          from pathlib import Path
+          ref='e804344617e860324a09ea9c33264fa201783ae0';base='https://raw.githubusercontent.com/leesh603/mesbg-assets/'+ref+'/'
+          for p in ['index.html','tests/campaign-harness.cjs','src/game.js']:
+            d=Path(p);d.parent.mkdir(parents=True,exist_ok=True);r=requests.get(base+p,timeout=60);r.raise_for_status();d.write_text(r.text)
+          workflow=requests.get('https://raw.githubusercontent.com/leesh603/mesbg-assets/16257cd1246c26b9363339ea9a05efd489c8d41f/.github/workflows/audit-gameplay-20261015.yml',timeout=60).text
+          spec=yaml.safe_load(workflow);command=next(x['run'] for x in spec['jobs']['gameplay']['steps'] if x.get('name')=='Exercise unmodified live UI and rules')
+          code=command.split("<<'PY'\n",1)[1].rsplit('\nPY',1)[0]
+          start=code.index('    # Save/reload');end=code.index('  except Exception:events.append',start)
+          replacement='''    # Use only the normal visible autoplay controls. No rule/stat/resource overrides.
+              if '확정' in page.locator('#dock-primary').inner_text():
+                page.locator('#dock-primary').click();page.wait_for_timeout(600);snap('06-ui-move-confirmed')
+              page.locator('#auto-dock').click();page.wait_for_timeout(500)
+              for _ in range(2):page.locator('#speed-dock').click();page.wait_for_timeout(150)
+              snap('07-ui-autoplay-enabled',{'auto':page.evaluate('MESBG.auto()')})
+              trace=[]
+              for tick in range(75):
+                page.wait_for_timeout(2000)
+                d=page.evaluate("() => ({phase:MESBG.battle.phase,wave:MESBG.battle.wave,round:MESBG.battle.round,side:MESBG.battle.side,good:MESBG.battle.alive('good').length,evil:MESBG.battle.alive('evil').length,auto:MESBG.auto(),log:MESBG.battle.log.slice(-6)})")
+                trace.append(d)
+                if tick in [5,20,40]:snap('08-midbattle-'+str(tick))
+                if d['phase'] in ['reward','result']:break
+              events.append({'name':'ordinary-ui-autoplay-trace','trace':trace});write();snap('09-ordinary-ui-outcome')
+              inspection=page.evaluate("() => ({state:MESBG.battle._saveState(),events:MESBG.battle.events.slice(-70),log:MESBG.battle.log.slice(-70),auto:MESBG.auto(),buttons:[...document.querySelectorAll('button')].filter(e=>{const r=e.getBoundingClientRect();return r.width>0&&r.height>0&&r.top<innerHeight&&r.bottom>0}).map(e=>({id:e.id,text:e.innerText,disabled:e.disabled,attrs:[...e.attributes].filter(a=>a.name.startsWith('data-')).map(a=>[a.name,a.value])})),units:Object.entries(MESBG.catalog.units).map(([id,d])=>({id,meta:d.meta,points:d.points,rarity:d.rarity,profile:MESBG.profiles[id]})),methods:Object.fromEntries(['confirmCampChoice','rollInitialRecruits','rollCampEvent','checkEnd','endRound','skillReason','promoteTroop','troopGateReason'].map(k=>[k,String(MESBG.battle[k])]))})")
+              (out/'inspection.json').write_text(json.dumps(inspection,ensure_ascii=False,indent=2))
+              print('ACTUAL_UI_TRACE',json.dumps(trace,ensure_ascii=False),flush=True)
+              print('ACTUAL_UI_ERRORS',json.dumps(errors,ensure_ascii=False),flush=True)
+          '''
+          # replacement is embedded at four-space indentation in the original try block.
+          replacement='\n'.join(line[10:] if line.startswith('          ') else line for line in replacement.splitlines())+'\n'
+          code=code[:start]+replacement+code[end:];Path('/tmp/ui-play.py').write_text(code);subprocess.run(['python','/tmp/ui-play.py'],check=True)
+          probe=r'''
+          const fs=require('fs'),h=require(process.cwd()+'/tests/campaign-harness.cjs')(),q=h.q;
+          const result={ref:'e804344617e860324a09ea9c33264fa201783ae0',tests:[],eventDefinitions:[],sourceAnchors:[]};
+          const test=(name,f)=>{try{result.tests.push({name,result:f()});}catch(e){result.tests.push({name,error:e.stack});}};
+          const src=fs.readFileSync('src/game.js','utf8').split('\n');
+          for(const term of ['refugees','no_injury','shield_wall','_flawless','function warbandRole','recruit-role','function He','function me','rollInitialRecruits','P.skill =','supply']){
+            const indices=src.map((s,i)=>s.includes(term)?i:-1).filter(i=>i>=0).slice(0,8);
+            for(const i of indices)result.sourceAnchors.push({term,line:i+1,text:src.slice(Math.max(0,i-4),i+15).map((s,j)=>(Math.max(0,i-4)+j+1)+': '+s).join('\n')});
+          }
+          result.eventDefinitions=h.LWB_EVENTS.map(e=>({id:e.id,title:e.title,options:e.options.map(o=>({label:o.label,text:o.text,desc:o.desc,cost:o.cost,fx:String(o.fx)}))}));
+          test('starter-gated-slots-100-draws',()=>{let total=0,locked=0,allLocked=0,examples=[];for(let i=0;i<100;i++){q.start('ai');const offers=q.recruitOffers.map((o,j)=>({id:o.id,hero:h.zt[o.id].traits.includes('hero'),reason:q.recruitSelection(j).reason}));const troops=offers.filter(x=>!x.hero),bad=troops.filter(x=>x.reason);total+=troops.length;locked+=bad.length;if(troops.length&&bad.length===troops.length)allLocked++;if(bad.length&&examples.length<8)examples.push(offers);}return{draws:100,totalTroopSlots:total,lockedSlots:locked,allTroopsLockedDraws:allLocked,examples};});
+          test('payment-events-zero-gold-fixture',()=>{const found=[];for(const e of h.LWB_EVENTS)for(let i=0;i<e.options.length;i++){const o=e.options[i];if(!String(o.fx).includes('gold')||!/(15|20|30|40|50|60|80|100)/.test(o.label||''))continue;q.start('ai');q.units=[];q.spawn('aragorn','good',{x:1090,y:345});q.gold=0;q.phase='reward';q.campStep='event';q.campEvent=e;const before={gold:q.gold,relics:{...q.relics},units:q.units.map(u=>({id:u.id,base:{...u.baseStats},stats:{...u.stats}}))};const ok=q.chooseEvent(i);found.push({event:e.id,label:o.label,ok,before,after:{gold:q.gold,relics:q.relics,units:q.units.map(u=>({id:u.id,base:u.baseStats,stats:u.stats}))},outcome:q.eventOutcome});}return found;});
+          test('flawless-reward-accounting-fixture',()=>{q.start('ai');q.units=[];q.spawn('aragorn','good',{x:1090,y:345});q.phase='move';q.wave=3;q._flawless=2;q.gold=0;q.bonusObjective=null;q.bonusObjective2=null;q.stageDeaths=0;q.stageKills=0;q.eliteKills=0;q.finishWave();return{gold:q.gold,lastGold:q.lastGold,streak:q._flawless,campResult:q.campResult,log:q.log.slice(-12)};});
+          test('objective-definition-read',()=>h.run("({names:Object.keys(typeof BONUS_OBJECTIVES!=='undefined'?BONUS_OBJECTIVES:{}),bonus:typeof BONUS_OBJECTIVES!=='undefined'?BONUS_OBJECTIVES.map(x=>({id:x.id,text:x.text,test:String(x.test)})):null})"));
+          fs.writeFileSync('audit-play/probes.json',JSON.stringify(result,null,2));console.log('PROBE_SUMMARY',JSON.stringify(result.tests));
+          '''
+          Path('/tmp/probes.cjs').write_text(probe);subprocess.run(['node','/tmp/probes.cjs'],check=False)
+          # Persist concise evidence plus actual screenshots only on the audit branch.
+          session=requests.Session();session.headers.update({'Authorization':'Bearer '+os.environ['AUDIT_TOKEN'],'Accept':'application/vnd.github+json'})
+          api='https://api.github.com/repos/leesh603/mesbg-assets';branch='audit/playtest-20261015-e804344'
+          def call(method,path,data=None):
+            r=session.request(method,api+path,json=data,timeout=60);r.raise_for_status();return r.json()
+          head=call('GET','/git/ref/heads/'+branch)['object']['sha'];tree=call('GET','/git/commits/'+head)['tree']['sha'];entries=[]
+          import base64
+          for path in [Path('audit-play/report.json'),Path('audit-play/inspection.json'),Path('audit-play/probes.json'),*Path('audit-play/evidence').glob('*.png')]:
+            if not path.exists():continue
+            blob=call('POST','/git/blobs',{'content':base64.b64encode(path.read_bytes()).decode(),'encoding':'base64'})
+            entries.append({'path':'reports/audit-20261015/'+str(path.relative_to('audit-play')),'mode':'100644','type':'blob','sha':blob['sha']})
+          newtree=call('POST','/git/trees',{'base_tree':tree,'tree':entries})['sha'];commit=call('POST','/git/commits',{'message':'test: preserve genuine UI gameplay captures and isolated probe results','tree':newtree,'parents':[head]})['sha']
+          call('PATCH','/git/refs/heads/'+branch,{'sha':commit,'force':False});print('EVIDENCE_COMMIT',commit,'FILES',len(entries),flush=True)
+          PY
+          python /tmp/verify.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: warbands-verified-play-e804344
+          path: audit-play/
+          retention-days: 30
