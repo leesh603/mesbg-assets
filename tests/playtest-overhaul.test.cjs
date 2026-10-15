@@ -129,3 +129,14 @@ test('deployment drawings and resume use the same mission bounds; scouting merit
 test('campaign boundaries stop auto even when optional choice interruptions are disabled',()=>{
  const h=camp(),q=h.q;q.autoPauseSettings={hero:false,objective:false,choice:false};h.run('AUTO=true;AUTO_STEP=true');q.stopAutoForChoice('evolution');assert.equal(h.run('AUTO'),true);q.stopAutoForChoice('camp',true);assert.equal(h.run('AUTO'),false);assert.equal(h.run('AUTO_STEP'),false);
 });
+
+test('resurrection after corpse cleanup restores the original ID and complete soldier career, without legacy duplication',()=>{
+ const h=camp(),q=h.q,u=q.units[1];u.xp=200;u.battlesParticipated=8;q.wave=8;q.gold=500;q.campStep='ready';assert.equal(q.promoteTroop(u.uid,'osgiliath_veteran'),true);u.survivedBattles=7;u.merit={total:24,support:12};u.injuryHistory=[{wave:4,injury:'arm'}];u.equipment=['whetstone'];u.baseStats.strength++;q.refreshUnit(u);const before={uid:u.uid,points:u.entryPoints,xp:u.xp,strength:u.baseStats.strength,history:JSON.stringify(u.promotionHistory)};
+ q.eventDamage(u,1,false);assert.ok(q.fallen[0].unitState);q.units=q.units.filter(v=>v.uid!==u.uid);assert.ok(q._reviveFallen(u.uid));const v=q.unit(before.uid);assert.ok(v);assert.equal(v.entryPoints,before.points);assert.equal(v.xp,before.xp);assert.equal(v.baseStats.strength,before.strength);assert.equal(JSON.stringify(v.promotionHistory),before.history);assert.equal(v.survivedBattles,7);assert.equal(v.merit.total,24);assert.equal(v.injuryHistory.length,1);assert.equal(v.equipment.length,0);assert.equal(q.legacy.filter(id=>id==='whetstone').length,1);assert.equal(q._reviveFallen(u.uid),null);q.save();q.resume();assert.equal(q.unit(before.uid).survivedBattles,7);
+});
+
+test('linked operation and pursuit formations use real production IDs, including enemy spear support',()=>{
+ const h=camp(),q=h.q;for(const startWave of [2,7,12])for(const step of [0,1,2]){q.linkedOperation={active:true,startWave,step};const stage=q.operationStage(startWave+step);assert.ok(stage);for(const id of stage.ids){assert.ok(q.meta.has(id),id);assert.ok(h.UnitCatalog[id],id);assert.ok(h.zt[id],id);}}
+ q.linkedOperation={active:true,startWave:2,step:1};assert.ok(q.operationStage(3).ids.includes('orc_spearman'));assert.ok(!q.operationStage(3).ids.includes('orc_spear'));
+ const fs=require('node:fs'),line=fs.readFileSync('src/game.js','utf8').split('\n').find(l=>l.startsWith('function unitImage('));h.run(line);assert.match(h.run("unitImage('missing-profile')"),/미확인 병종/);
+});

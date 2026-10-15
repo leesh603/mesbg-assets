@@ -159,7 +159,7 @@ Ae=[{id:"warrior_minas_tirith",name_ko:"미나스 티리스 전사",name_en:"War
     } this.checkRun(); }
     applyCombat(Y) { for (const b of Y.strikeResults) {
         const H = this.unit(b.target), K = this.unit(b.attacker);
-        b.wound && (H.currentWounds--, K.side !== H.side && (K.dmgDealt = (K.dmgDealt || 0) + 1), this.meta.has(H.id.replace(/_mounted$/, "_foot")) && this.dismount(H), this.emit("UnitWounded", void 0, { uid: H.uid })), b.wound && H.traits.includes('boss') && !H._enraged && H.currentWounds > 0 && H.currentWounds * 2 <= H.stats.wounds && (H._enraged = !0, H.stats.attacks = (H.stats.attacks || 1) + 1, this.emit('Event', esc(H.name) + ' 격노 — 공격 +1', { uid: H.uid })), b.killed && (H.alive = !1, K.side !== H.side && (K.kills++, K.veteranXP += 2, H.traits.includes('boss') && (K._bossSlain = H.name, this.emit('Event', esc(K.name) + ' · 보스 사냥꾼 — ' + esc(H.name) + ' 처치', { uid: K.uid })), this._trkKill && this._trkKill(K, H)), K.side === 'good' && H.traits.includes('hero') && (this.cp = Math.min(pt.maxCP, this.cp + 2), this.emit('Event', '영웅 처치 · 지휘력 +2 CP')), H.side === "good" && !H._evacuee && this.fallen && this.fallen.push({ id: H.id, uid: H.uid, kills: H.kills, wave: this.wave, name: H.name, eq: (H.equipment || []).slice() }), this.emit("UnitKilled", void 0, { uid: H.uid }), H.side === "good" && (H.equipment || []).length && (() => { (this.legacy = this.legacy || []).push(...H.equipment); const inherited=H.equipment.length; H.equipment=[]; this.emit("Event", "유품 — " + H.name + "의 장비 " + inherited + "점이 보관됐습니다 (캠프에서 분배)"); })());
+        b.wound && (H.currentWounds--, K.side !== H.side && (K.dmgDealt = (K.dmgDealt || 0) + 1), this.meta.has(H.id.replace(/_mounted$/, "_foot")) && this.dismount(H), this.emit("UnitWounded", void 0, { uid: H.uid })), b.wound && H.traits.includes('boss') && !H._enraged && H.currentWounds > 0 && H.currentWounds * 2 <= H.stats.wounds && (H._enraged = !0, H.stats.attacks = (H.stats.attacks || 1) + 1, this.emit('Event', esc(H.name) + ' 격노 — 공격 +1', { uid: H.uid })), b.killed && (H.alive = !1, K.side !== H.side && (K.kills++, K.veteranXP += 2, H.traits.includes('boss') && (K._bossSlain = H.name, this.emit('Event', esc(K.name) + ' · 보스 사냥꾼 — ' + esc(H.name) + ' 처치', { uid: K.uid })), this._trkKill && this._trkKill(K, H)), K.side === 'good' && H.traits.includes('hero') && (this.cp = Math.min(pt.maxCP, this.cp + 2), this.emit('Event', '영웅 처치 · 지휘력 +2 CP')), H.side === "good" && !H._evacuee && this.fallen && this.fallen.push({ id: H.id, uid: H.uid, kills: H.kills, wave: this.wave, name: H.name, eq: (H.equipment || []).slice(), unitState: { ...structuredClone(H), equipment: [] } }), this.emit("UnitKilled", void 0, { uid: H.uid }), H.side === "good" && (H.equipment || []).length && (() => { (this.legacy = this.legacy || []).push(...H.equipment); const inherited=H.equipment.length; H.equipment=[]; this.emit("Event", "유품 — " + H.name + "의 장비 " + inherited + "점이 보관됐습니다 (캠프에서 분배)"); })());
     } for (const b of Y.pushVectors) {
         const H = this.unit(b.uid);
         Object.assign(H, b.to), this.emit("UnitPushed", void 0, { uid: H.uid });
@@ -3710,12 +3710,21 @@ const LWB_EVENTS = [
         { label: '지나치고 행군한다', sub: '금화 +5', fx: q => q.gold += 5 }] },
 ];
 P._reviveFallen = function (uid) {
-    const i = (this.fallen || []).findIndex(f => f.uid === uid);
-    const f = i >= 0 ? this.fallen.splice(i, 1)[0] : null;
-    if (!f) return null;
-    const u = this.units.find(u2 => u2.uid === f.uid);
-    if (u) { u.alive = true; delete u._killCredited; u.currentWounds = 1; u.feared = false; u.prone = false; this.refreshUnit(u); }
-    else if (this.meta.has(f.id)) { const nu = this.spawn(f.id, 'good', { x: -1000, y: -1000 }); nu.currentWounds = 1; nu.kills = f.kills || 0; }
+    const i = (this.fallen || []).findIndex(f => f.uid === uid), f = this.fallen?.[i];
+    if (!f || !this.meta.has(f.id)) return null;
+    let u = this.unit(f.uid);
+    if (!u) {
+        u = this.spawn(f.id, 'good', { x: -1000, y: -1000 });
+        if (f.unitState) Object.assign(u, structuredClone(f.unitState));
+        else for (const key of ['xp','entryPoints','merit','promotionHistory']) if (f[key] !== undefined) u[key] = structuredClone(f[key]);
+        u.uid = f.uid || u.uid; u.kills = f.kills || 0;
+        // Equipment already belongs to legacy inventory; resurrection never copies it back.
+        u.equipment = [];
+    }
+    this.fallen.splice(i, 1);
+    u.alive = true; delete u._killCredited; u.currentWounds = 1; u.feared = false; u.prone = false;
+    this.refreshUnit(u);
+    if (u.x < 0 || u.y < 0 || !Et(u,u,this.alive(),this.terrain)) this.placeInDeployment(u);
     this.save();
     return f.name || '영웅';
 };
@@ -5472,7 +5481,7 @@ function relicIcon(r,size=72){
     const _rc=['#6b6f52','#8a9a4a','#c9a53b','#a06bd0'][Math.min(3,r.rarity||0)];
     return `<span class="relic-icon" style="width:${size}px;height:${size}px;display:inline-flex;align-items:center;justify-content:center;color:#e6d3a0;font-size:${Math.round(size*.4)}px" aria-hidden="true"><img src="${iconSrc}" alt="" style="width:92%;height:92%;object-fit:contain;image-rendering:pixelated" onerror="this.onerror=null;this.src='${Ut('icons/res_gem.png')}'"></span>`;
 }
-function unitImage(id) { const f = q.meta.get(id).file; return `<img src="${Th(f)}" data-full="${Ut(f)}" onerror="${ThFallback}" decoding="async" fetchpriority="high" alt="${esc(q.meta.get(id).name_ko)}">`; }
+function unitImage(id) { const meta=q.meta.get(id); if(!meta?.file)return '<span class="unit-unknown">미확인 병종</span>'; const f = meta.file; return `<img src="${Th(f)}" data-full="${Ut(f)}" onerror="${ThFallback}" decoding="async" fetchpriority="high" alt="${esc(q.meta.get(id)?.name_ko||id)}">`; }
 let __bossStyle = false;
 const BOSS_INTRO = {
     cave_troll: { tag: '모리아의 괴수', line: '동굴에서 무언가가 기어나온다 — 트롤이다.', accent: '#b9a98a', glow: 'rgba(160,140,100,.5)', cls: 'bi-doom' },
@@ -10995,7 +11004,7 @@ P.operationStage=function(n){
     const info=qaStageInfo.call(this,n);if(info.boss)return null;
     return {...info,map:CX.maps.indexOf('osgiliath'),mission:['scouting','osgiliath_retreat','defense'][op.step],modifier:'clear',linkedStep:op.step,
         title:['안두인 작전 · 정찰전','오스길리아스 철수전','안두인 작전 · 후방 방어전'][op.step],
-        ids:op.step===1?['orc_sword','orc_sword','orc_spear','orc_archer','warg_rider','moria_goblin']:info.ids};
+        ids:op.step===1?['orc_sword','orc_sword','orc_spearman','orc_archer','warg_rider','moria_goblin']:info.ids};
 };
 const qaStageInfo=P.stageInfo;
 P.stageInfo=function(n){return this.operationStage(n)||qaStageInfo.call(this,n);};
@@ -11094,7 +11103,7 @@ P.moveEvacuees=function(){
     if(guards.length&&!danger&&!m.supplies){m.supplyTicks++;for(const u of guards)this.awardMerit(u,'objective','supply:'+this.round);if(m.supplyTicks>=2){m.supplies=true;this.emit('Mission','보급품 회수 완료 · 다음 방어전 창병 지원');}}
     const bridges=this.terrain.filter(t=>t.active&&t.surface==='bridge');
     bridges.forEach((bridge,i)=>{const guard=this.permanent().find(u=>!u.traits.includes('mounted')&&Math.abs(u.x-bridge.x)<bridge.w/2&&u.y<bridge.y&&ht(u,bridge)<230),foe=this.alive('evil').some(u=>ht(u,bridge)<230);if(guard&&!foe){m.bridgeTicks[i]++;this.awardMerit(guard,'line','bridge:'+this.round);}});
-    for(const [round,index,ids] of [[3,1,['warg_rider','orc_sword']],[6,0,['orc_spear','orc_archer']]]){
+    for(const [round,index,ids] of [[3,1,['warg_rider','orc_sword']],[6,0,['orc_spearman','orc_archer']]]){
         if(this.round===round-1)this.emit('Mission','다음 라운드 '+(index?'동쪽':'서쪽')+' 강변에 추격대 도착');
         if(this.round>=round&&!m.reinforced.includes(round)){
             m.reinforced.push(round);const before=new Set(this.units.map(u=>u.uid));this.spawnEnemies(ids);

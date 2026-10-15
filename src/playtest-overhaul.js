@@ -342,7 +342,7 @@ P.operationStage=function(n){
     const info=qaStageInfo.call(this,n);if(info.boss)return null;
     return {...info,map:CX.maps.indexOf('osgiliath'),mission:['scouting','osgiliath_retreat','defense'][op.step],modifier:'clear',linkedStep:op.step,
         title:['안두인 작전 · 정찰전','오스길리아스 철수전','안두인 작전 · 후방 방어전'][op.step],
-        ids:op.step===1?['orc_sword','orc_sword','orc_spear','orc_archer','warg_rider','moria_goblin']:info.ids};
+        ids:op.step===1?['orc_sword','orc_sword','orc_spearman','orc_archer','warg_rider','moria_goblin']:info.ids};
 };
 const qaStageInfo=P.stageInfo;
 P.stageInfo=function(n){return this.operationStage(n)||qaStageInfo.call(this,n);};
@@ -441,7 +441,7 @@ P.moveEvacuees=function(){
     if(guards.length&&!danger&&!m.supplies){m.supplyTicks++;for(const u of guards)this.awardMerit(u,'objective','supply:'+this.round);if(m.supplyTicks>=2){m.supplies=true;this.emit('Mission','보급품 회수 완료 · 다음 방어전 창병 지원');}}
     const bridges=this.terrain.filter(t=>t.active&&t.surface==='bridge');
     bridges.forEach((bridge,i)=>{const guard=this.permanent().find(u=>!u.traits.includes('mounted')&&Math.abs(u.x-bridge.x)<bridge.w/2&&u.y<bridge.y&&ht(u,bridge)<230),foe=this.alive('evil').some(u=>ht(u,bridge)<230);if(guard&&!foe){m.bridgeTicks[i]++;this.awardMerit(guard,'line','bridge:'+this.round);}});
-    for(const [round,index,ids] of [[3,1,['warg_rider','orc_sword']],[6,0,['orc_spear','orc_archer']]]){
+    for(const [round,index,ids] of [[3,1,['warg_rider','orc_sword']],[6,0,['orc_spearman','orc_archer']]]){
         if(this.round===round-1)this.emit('Mission','다음 라운드 '+(index?'동쪽':'서쪽')+' 강변에 추격대 도착');
         if(this.round>=round&&!m.reinforced.includes(round)){
             m.reinforced.push(round);const before=new Set(this.units.map(u=>u.uid));this.spawnEnemies(ids);
