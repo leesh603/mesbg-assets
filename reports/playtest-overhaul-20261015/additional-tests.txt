@@ -1,0 +1,50 @@
+PASS all authored encounters schedule distinct attacks with a response round
+PASS fixed lane misses a target that moved sideways; cannot resolve early or twice
+PASS Strength/Defence wound rolls and Fate are honored
+PASS Will resistance prevents magic and spends exactly one Will
+PASS fearless and protected units pass courage automatically
+PASS cone containment includes bases at the edge and excludes rear/sides
+PASS Smaug breath hurts both sides, opens weak point and leaves bounded embers
+PASS dead caster loses its pending warnings
+PASS three Nazgul alternate dives instead of striking together
+PASS Black Gate roster has precisely three Fell Beasts and all five commander identities
+PASS Black Gate cannot finish with a surviving duplicate or delayed commander
+PASS Sauron summons all nine once even with a full normal-stage roster
+PASS reinforcements respect live + delayed population cap
+PASS AI escape finds a legal safe destination
+PASS round undo restores warning snapshots
+15 boss encounter checks passed
+✔ tests/boss-patterns.test.cjs (1409.80064ms)
+✔ new expedition clears stash, inherited equipment and shop history, not persistent progress (76.096321ms)
+✔ repeated new expeditions own fresh inventory arrays in both game modes (47.593738ms)
+✔ same-expedition unequip, save, reload and re-equip preserve the real item exactly once (52.035578ms)
+✔ actual combat death produces legacy within a run, then a new run removes it (41.275788ms)
+✔ save slots restore their own stash and legacy rather than current-session inventory (50.070305ms)
+✔ old saves without inventory fields cannot inherit inventory from the current battle object (42.072644ms)
+✔ null or malformed optional inventory fields normalize to empty collections (44.97453ms)
+✔ loading a save discards a different run's non-persisted buyback history (57.217811ms)
+✔ invalid save rejection leaves the current expedition inventory untouched (60.765891ms)
+✔ action lock releases after render error, missing dice and rejected async action (5.138028ms)
+✔ enabled dock action reaches wait even when legacy button is disabled (3.047411ms)
+✔ one-phase auto handles an ordinary ally and completes its activation (85.591594ms)
+✔ production support adds one duel die and one own-strength strike (44.973629ms)
+✔ static structures retain zero attacks, reject movement and displacement (42.405105ms)
+✔ fear exhausting the priority side hands control to the enemy (41.034921ms)
+✔ fellbeast dive warns for a full round before emitting valid animation endpoints (58.839581ms)
+✔ boss phase bonus survives refresh; Glaurung breath warns on five and resolves on six (39.519764ms)
+✔ weather persists through buffs without compounding across refreshes (41.483904ms)
+✔ preparation resume preserves alternate route, terrain and placement (46.658366ms)
+✔ rear stance retreats rather than charging a reachable enemy (45.436021ms)
+✔ Eye zone applies courage and duel reroll only for its round (46.829118ms)
+✔ visible event option selects a preview without awarding it before confirm (2.292236ms)
+✔ turn end forfeits every remaining friendly activation before enemy play (43.528805ms)
+✔ failed token load releases its queue and allows a later successful retry (1.293791ms)
+✔ cloud restore passes both menu and camp loads through the action renderer (3.835885ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1422.492569

@@ -1,0 +1,57 @@
+{
+  "sourceCommit": "afac537a9df5f826e51cfdcdabd0e34c9abc70a0",
+  "run": 38681811571,
+  "scope": "full",
+  "status": "passed",
+  "regressionTestsPassed": 109,
+  "eventsExecuted": 334,
+  "initialRecruitmentTrials": 1000,
+  "illegalOffers": 0,
+  "viewportActions": [
+    {
+      "width": 360,
+      "height": 780,
+      "status": "passed"
+    },
+    {
+      "width": 1365,
+      "height": 900,
+      "status": "passed"
+    }
+  ],
+  "manual390": "passed",
+  "resume": "passed",
+  "campaign": {
+    "status": "passed",
+    "played": 5,
+    "completed": 4,
+    "outcome": "defeat"
+  },
+  "supportAtActualDefenseStart": {
+    "status": "passed",
+    "next": "defense",
+    "operation": {
+      "id": "anduin",
+      "active": true,
+      "startWave": 2,
+      "step": 2,
+      "bridge": 0,
+      "report": "조기 철수 · 선택한 다리 후방에 집결 · 다리 확보: 후방 방어전 전진 배치(y≤600)·양쪽 다리 선택 · 다음 전투 창병 지원",
+      "supplies": true,
+      "bridgeHeld": true,
+      "evacuated": 2
+    },
+    "zone": {
+      "minY": 285,
+      "maxY": 600
+    },
+    "supportUnits": 1,
+    "expectedSupport": 1,
+    "startedWave": 4
+  },
+  "consoleExceptions": 0,
+  "consoleErrors": 0,
+  "httpFailures": [],
+  "cancelledAudioRequests": 4,
+  "physicalAndroidIOS": "unverified"
+}

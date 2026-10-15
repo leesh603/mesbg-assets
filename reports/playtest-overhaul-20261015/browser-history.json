@@ -1,0 +1,156 @@
+[
+  {
+    "run": 38672441928,
+    "commit": "bd5e923ae7ad367d71bd7d8888939a20adb57f7c",
+    "url": "https://github.com/leesh603/mesbg-assets/actions/runs/38672441928",
+    "actualReportStatus": "failed",
+    "clearedWaves": [],
+    "reachedWave": 0,
+    "manual": "failed",
+    "resume": null,
+    "missionResults": [],
+    "fatal": "locator.uncheck: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('#qa-auto-pause input').first()\n    - locator resolved to <input type=\"checkbox\" data-auto-pause=\"hero\"/>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is not visible\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enable"
+  },
+  {
+    "run": 38672943616,
+    "commit": "29fcb591ac174a128ddc6eec23e807149ba19675",
+    "url": "https://github.com/leesh603/mesbg-assets/actions/runs/38672943616",
+    "actualReportStatus": "failed",
+    "clearedWaves": [
+      1,
+      2,
+      3
+    ],
+    "reachedWave": 4,
+    "manual": "failed",
+    "resume": "passed",
+    "missionResults": [
+      {
+        "fixture": "mixed-party",
+        "status": "passed",
+        "round": 8,
+        "phase": "reward",
+        "evacuated": 3
+      },
+      {
+        "fixture": "one-guard",
+        "status": "passed",
+        "round": 7,
+        "phase": "result",
+        "evacuated": 0
+      }
+    ],
+    "fatal": ""
+  },
+  {
+    "run": 38674921597,
+    "commit": "416292a57f7f6bc662ed7556151b4e3e468cf867",
+    "url": "https://github.com/leesh603/mesbg-assets/actions/runs/38674921597",
+    "actualReportStatus": "failed",
+    "clearedWaves": [
+      1,
+      2,
+      3
+    ],
+    "reachedWave": 4,
+    "manual": "passed",
+    "resume": "passed",
+    "missionResults": [
+      {
+        "fixture": "mixed-party",
+        "status": "failed",
+        "round": 10,
+        "phase": "result",
+        "evacuated": 1
+      },
+      {
+        "fixture": "one-guard",
+        "status": "passed",
+        "round": 5,
+        "phase": "result",
+        "evacuated": 0
+      }
+    ],
+    "fatal": ""
+  },
+  {
+    "run": 38676136694,
+    "commit": "09c2e380116db45be3d6d7f372df1c765aaffed0",
+    "url": "https://github.com/leesh603/mesbg-assets/actions/runs/38676136694",
+    "actualReportStatus": "failed",
+    "clearedWaves": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "reachedWave": 4,
+    "manual": "passed",
+    "resume": "passed",
+    "missionResults": [],
+    "fatal": "locator.click: Timeout 5000ms exceeded.\nCall log:\n  - waiting for locator('#settings-toggle').first()\n    - locator resolved to <button class=\"iconbtn\" aria-label=\"설정\" id=\"settings-toggle\" aria-expanded=\"false\">…</button>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n   "
+  },
+  {
+    "run": 38677222085,
+    "commit": "daceabf2b371132dc2243ac6b55c77fc9ac4d5d3",
+    "actualReportStatus": "failed",
+    "clearedWaves": [
+      1,
+      2
+    ],
+    "failure": "Scout-success camp render: invalid enemy ID orc_spear; console captured. Corrected to orc_spearman in next source.",
+    "missionResults": [
+      {
+        "fixture": "mixed-party",
+        "status": "passed",
+        "round": 7,
+        "evacuated": 2,
+        "early": true
+      },
+      {
+        "fixture": "one-guard",
+        "status": "passed",
+        "round": 9,
+        "evacuated": 1,
+        "early": null
+      }
+    ]
+  },
+  {
+    "run": 38678869537,
+    "commit": "4a1fdd708e1aa2a74fcc0687d5d6bf0d8b9f0468",
+    "actualReportStatus": "passed",
+    "clearedWaves": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "reachedWave": 5,
+    "outcome": "defeat",
+    "caveat": "Support count was read before an awaited start. Followup exposed actual placement failure."
+  },
+  {
+    "run": 38680211747,
+    "commit": "a1fab10689b7baf4165a05f9c6c1aa485f0048e9",
+    "suite": "carryover",
+    "actualReportStatus": "failed",
+    "reason": "After defense wave 4 actually started, expected support 1, actual 0. Local snap helper only searched 118 despite a larger radius argument."
+  },
+  {
+    "run": 38681811571,
+    "commit": "afac537a9df5f826e51cfdcdabd0e34c9abc70a0",
+    "suite": "full",
+    "actualReportStatus": "passed",
+    "clearedWaves": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "reachedWave": 5,
+    "outcome": "defeat",
+    "supportAtDefenseStart": 1,
+    "recoveryAndBridgeOrders": "issued through UI; actual completion and carryover asserted"
+  }
+]
