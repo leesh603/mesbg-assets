@@ -140,3 +140,15 @@ test('linked operation and pursuit formations use real production IDs, including
  q.linkedOperation={active:true,startWave:2,step:1};assert.ok(q.operationStage(3).ids.includes('orc_spearman'));assert.ok(!q.operationStage(3).ids.includes('orc_spear'));
  const fs=require('node:fs'),line=fs.readFileSync('src/game.js','utf8').split('\n').find(l=>l.startsWith('function unitImage('));h.run(line);assert.match(h.run("unitImage('missing-profile')"),/미확인 병종/);
 });
+test('crowded mission deployments search the whole zone and leave room for earned support',()=>{
+ const h=create(),q=h.q;q.start('ai');q.initialDraft=false;q.units=[];q.wave=2;q.linkedOperation={active:true,startWave:2,step:1,bridge:0};for(let i=0;i<20;i++)q.spawn('mt_swordshield','good',{x:-1000,y:-1000});q.prepareStage();
+ for(const u of q.permanent()){assert.ok(q.deploymentAllowed(u));assert.ok(h.Et(u,u,q.alive(),q.terrain));}
+ q.startWave();q.retreatMission.evacuated=2;q.retreatMission.supplies=true;q.retreatMission.bridgeTicks=[2,0];q.finishWave();q.campStep='ready';q.leaveCamp();assert.equal(q.mission,'defense');
+ for(const u of q.permanent()){assert.ok(q.deploymentAllowed(u),u.uid+' '+u.y);assert.ok(h.Et(u,u,q.alive(),q.terrain));}
+ q.startWave();const support=q.alive('good').filter(u=>u._stageSupport==='anduin');assert.equal(support.length,1);assert.ok(h.Et(support[0],support[0],q.alive(),q.terrain));
+});
+test('a player recovery order uses legal movement and two actual uncontested round checks',()=>{
+ const h=retreat(),q=h.q;q.phase='move';q.side='good';q.activeMoverUid='';q.battleOrder=null;const u=q.spawn('rohan_rider','good',{x:-1000,y:-1000});assert.ok(q.placeInDeployment(u),'rider placement');u.acted=false;assert.ok(h.Et(u,u,q.alive(),q.terrain),'legal initial rider');const gold=q.gold;assert.equal(q.orderRetreatTask(u.uid,'supplies'),true);assert.equal(q.gold,gold);
+ const plan=q.missionMovePlan(u);assert.ok(plan?.to,'recovery waypoint');assert.ok(h.ve(u,plan.to,q.alive(),q.terrain,q.remaining(u)));const at=h.run('Be(q.units[q.units.length-1],{x:1150,y:520},q.alive(),q.terrain,118)');assert.ok(at);Object.assign(u,at);assert.equal(q.missionMovePlan(u).wait,true);assert.match(q.retreatOrderReason(u.uid,'bridge'),/도보/);
+ q.round=1;q.moveEvacuees();assert.equal(q.retreatMission.supplies,false);q.round=2;q.moveEvacuees();assert.equal(q.retreatMission.supplies,true);assert.match(q.retreatOrderReason(u.uid,'supplies'),/완료/);
+});

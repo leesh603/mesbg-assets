@@ -10679,9 +10679,12 @@ P.orderPriority=function(u,target){
 };
 P.missionMovePlan=function(u){
     if(this.phase!=='move'||u.side!=='good'||!this.canAct(u)||u.static||u.lair||this.engaged(u)||this.battleOrder)return null;
-    const role=this.unitRole(u),stance=stanceOf(this,u);if(['rear','defense'].includes(stance)||role==='support')return null;
+    const role=this.unitRole(u),stance=stanceOf(this,u),bridgeIndex=this.linkedOperation?.bridge||0,task=this.mission==='osgiliath_retreat'&&u.retreatTask,supplyTask=task==='supplies'&&!this.retreatMission?.supplies,bridgeTask=task==='bridge'&&(this.retreatMission?.bridgeTicks[bridgeIndex]||0)<2;
+    if(!supplyTask&&!bridgeTask&&(['rear','defense'].includes(stance)||role==='support'))return null;
     let goal,target;
-    if(this.mission==='purge'){
+    if(supplyTask){if(ht(u,{x:1150,y:520})<180)return {wait:true};goal={x:1150,y:520};}
+    else if(bridgeTask){const bridge=this.terrain.filter(t=>t.active&&t.surface==='bridge')[bridgeIndex];if(!bridge)return null;goal={x:bridge.x-bridge.w/2+u.radius+12,y:bridge.y-140};if(ht(u,goal)<30)return {wait:true};}
+    else if(this.mission==='purge'){
         target=this.alive('evil').filter(v=>v.lair).sort((a,b)=>ht(u,a)-ht(u,b))[0];if(!target)return null;
         if(role==='archer'&&this.validTargets(u).includes(target))return {wait:true};
         const d=ht(u,target)||1,gap=u.radius+target.radius+8;goal={x:target.x+(u.x-target.x)/d*gap,y:target.y+(u.y-target.y)/d*gap};
@@ -10995,7 +10998,7 @@ P.chooseOperationBridge=function(index){
     if(this.mission==='osgiliath_retreat')this.arrangeRetreatArmy();
     else if(this.linkedOperation.step===2&&this.linkedOperation.bridgeHeld){
         const bridge=this.terrain.filter(t=>t.active&&t.surface==='bridge')[index];
-        for(const u of this.permanent()){const p=Be(u,{x:bridge.x,y:bridge.y-230},this.alive(),this.terrain,230,p=>this.deploymentAllowed(p));if(p)Object.assign(u,p);}
+        for(const u of this.permanent()){const p=this.findMissionDeployment(u,{x:bridge.x,y:bridge.y-230});if(p)Object.assign(u,p);}
     }
     this.save();return true;
 };
@@ -11013,19 +11016,33 @@ P.deploymentBounds=function(){
     return {minY:285,maxY:this.linkedOperation?.active&&this.linkedOperation.step===2&&this.linkedOperation.bridgeHeld?600:pt.deployY};
 };
 P.deploymentAllowed=function(p){const zone=this.deploymentBounds();return p.y>=zone.minY&&p.y<=zone.maxY;};
+P.findMissionDeployment=function(u,preferred,zone=this.deploymentBounds()){
+    const center=preferred||{x:pt.width/2,y:(zone.minY+zone.maxY)/2},all=this.alive(),bridges=this.terrain.filter(t=>t.active&&t.surface==='bridge');
+    const allowed=p=>p.y>=zone.minY&&p.y<=zone.maxY&&!(this.mission==='osgiliath_retreat'&&!u._evacuee&&bridges.some(b=>Math.abs(p.x-b.x)<u.radius+80&&p.y>990));
+    const near=Be(u,center,all,this.terrain,118,allowed);if(near)return near;
+    // Be is a local snap helper capped at 118. A crowded deployment needs a whole-zone search.
+    const step=Math.max(48,u.radius*2+12),xs=[],ys=[];
+    for(let x=u.radius+12;x<=pt.width-u.radius-12;x+=step)xs.push(x);
+    for(let y=zone.minY;y<=zone.maxY;y+=step)ys.push(y);
+    xs.sort((a,b)=>Math.abs(a-center.x)-Math.abs(b-center.x));ys.sort((a,b)=>Math.abs(a-center.y)-Math.abs(b-center.y));
+    for(const y of ys)for(const x of xs){const p={x,y};if(allowed(p)&&Et(u,p,all,this.terrain))return p;}
+    return null;
+};
 const qaPlaceDeployment=P.placeInDeployment;
 P.placeInDeployment=function(u){
     if(this.mission!=='osgiliath_retreat'&&!(this.linkedOperation?.active&&this.linkedOperation.step===2&&this.linkedOperation.bridgeHeld))return qaPlaceDeployment.call(this,u);
-    const zone=this.deploymentBounds(),p=Be(u,{x:pt.width/2,y:(zone.minY+zone.maxY)/2},this.alive(),this.terrain,pt.width,p=>this.deploymentAllowed(p));
+    const p=this.findMissionDeployment(u);
     if(!p)return false;Object.assign(u,p);return true;
 };
 P.arrangeRetreatArmy=function(){
     const bridges=this.terrain.filter(t=>t.active&&t.surface==='bridge'),main=bridges[this.linkedOperation?.bridge||0]||bridges[0];if(!main)return;
     for(const u of this.alive('good').filter(u=>!u._evacuee)){u.x=-1000;u.y=-1000;}
     const all=this.alive('good').filter(u=>!u._evacuee);
+    const counts=new Map();
     for(let i=0;i<all.length;i++){
-        const u=all[i],bridge=this.unitRole(u)==='cavalry'?bridges[1-(this.linkedOperation?.bridge||0)]||main:main,
-            pos=Be(u,{x:bridge.x+(i%3-1)*135,y:1030+Math.floor(i/3)*100},this.alive(),this.terrain,280,p=>this.deploymentAllowed(p));
+        const u=all[i],bridge=this.unitRole(u)==='cavalry'?bridges[1-(this.linkedOperation?.bridge||0)]||main:main,n=counts.get(bridge.x)||0;
+        counts.set(bridge.x,n+1);
+        const pos=this.findMissionDeployment(u,{x:bridge.x+(n%3-1)*125,y:Math.min(1170,1030+Math.floor(n/3)*80)});
         if(pos)Object.assign(u,pos);else this.placeInDeployment(u);
     }
 };
@@ -11038,6 +11055,7 @@ P.deploy=function(uid,p){
 const qaPrepare=P.prepareStage;
 P.prepareStage=function(){
     qaPrepare.call(this);
+    for(const u of this.permanent())delete u.retreatTask;
     this.retreatMission=null;
     if(this.linkedOperation?.active){this._altRoute=null;this._altRoute2=null;}
     if(this.mission==='osgiliath_retreat'){
@@ -11048,6 +11066,20 @@ P.prepareStage=function(){
 P.retreatBrief=function(){
     const m=this.retreatMission;if(!m)return '';
     return '피난 보급대 '+m.evacuated+'/'+m.total+' 철수 · 최소 '+m.required+'대 · 다리를 건너 북쪽 금색 철수선까지 엄호 · 제한 '+m.deadline+'라운드 · '+(this.linkedOperation?.scoutSuccess?'적 증원 R3 동쪽/R6 서쪽':'추격 경로 미확인 · 도착 1라운드 전 전조')+' · 북쪽 중앙 보급품을 2라운드 수비하면 다음 전투 창병 지원';
+};
+P.retreatOrderReason=function(uid,task){
+    if(this.mission!=='osgiliath_retreat'||!['preparation','move','shoot','fight'].includes(this.phase))return '철수전에서만 지시할 수 있습니다';
+    if(!['supplies','bridge'].includes(task))return '지시할 임무를 선택하세요';
+    if(task==='supplies'&&this.retreatMission?.supplies)return '보급품 회수 완료';
+    if(!this.permanent().some(u=>u.uid===uid))return '지시할 병사를 선택하세요';
+    if(task==='bridge'&&this.unit(uid).traits.includes('mounted'))return '다리 수비는 도보 병사에게 지시하세요';
+    if(this.battleOrder)return '전체 명령을 해제한 뒤 개별 회수를 지시하세요';
+    return '';
+};
+P.orderRetreatTask=function(uid,task){
+    if(this.retreatOrderReason(uid,task))return false;
+    const u=this.unit(uid);if(u.retreatTask===task)delete u.retreatTask;else u.retreatTask=task;
+    this.emit('Mission',u.name+' · '+(u.retreatTask?(task==='supplies'?'보급품 회수':'선택 다리 북측 수비')+' 지시 · 정상 이동력으로 이동 후 2라운드 수비':'개별 임무 지시 해제'));this.save();return true;
 };
 // Reuse approved terrain art. Routes and zones are UI overlays on the real collision map.
 function renderRetreatGuide(scene){
@@ -11070,7 +11102,7 @@ P.spawnEvacuees=function(){
         u.name='피난 보급대 '+(i+1);u._evacuee=true;u.temporary=true;u.autoAlly=true;u.static=true;u.escortee=true;
         u.traits=[];Object.assign(u.baseStats,{move:145,fight:1,strength:2,defence:5,attacks:0,wounds:3,courage:10,might:0,will:0,fate:0,shootRange:0});
         u.resources={might:0,will:0,fate:0};u.currentWounds=3;this.refreshUnit(u);u.goal={x:bridge.x,y:210};
-        const pos=Be(u,{x:bridge.x,y:1120+(i===1?90:0)},this.alive(),this.terrain,250,p=>p.y>990&&p.y<1330);
+        const pos=this.findMissionDeployment(u,{x:bridge.x,y:1120+(i===1?90:0)},{minY:990,maxY:1330});
         if(!pos){this.units=this.units.filter(v=>v!==u);this.endRun(false,'피난 보급대 배치 공간을 확보하지 못했습니다.');return;}
         Object.assign(u,pos);m.convoys.push(u.uid);
     }
@@ -11084,8 +11116,9 @@ P.startWave=function(){
     qaWave.call(this);
     if(this.mission==='osgiliath_retreat')this.spawnEvacuees();
     if(this.linkedOperation?.active&&this.linkedOperation.step===2&&this.linkedOperation.supplies){
-        const u=this.spawn('mt_spearshield','good',{x:-1000,y:-1000});u.temporary=true;u.autoAlly=true;u._stageSupport='anduin';if(!this.placeInDeployment(u))this.units=this.units.filter(v=>v!==u);
-        this.emit('Mission','회수한 보급품으로 창병 지원대가 후방 방어전에 합류했습니다.');
+        const u=this.spawn('mt_spearshield','good',{x:-1000,y:-1000});u.temporary=true;u.autoAlly=true;u._stageSupport='anduin';
+        if(this.placeInDeployment(u))this.emit('Mission','회수한 보급품으로 창병 지원대가 후방 방어전에 합류했습니다.');
+        else{this.units=this.units.filter(v=>v!==u);this.emit('Mission','지원병의 배치 공간이 부족합니다.');}
     }
 };
 P.moveEvacuees=function(){
@@ -11167,7 +11200,7 @@ function installPlaytestUI(){
         box.querySelectorAll('input').forEach(input=>{let saved;try{saved=JSON.parse(localStorage.getItem('lwb-auto-pause')||'null');}catch{}q.autoPauseSettings=q.autoPauseSettings||saved||{hero:true,objective:true,choice:true};input.checked=q.autoPauseSettings[input.dataset.autoPause]!==false;input.onchange=()=>{q.autoPauseSettings[input.dataset.autoPause]=input.checked;localStorage.setItem('lwb-auto-pause',JSON.stringify(q.autoPauseSettings));q.save();};});
     }
     const field=document.querySelector('#app .field');
-    if(field&&!document.getElementById('qa-mission'))field.insertAdjacentHTML('beforeend','<details id="qa-mission" hidden><summary>안두인 작전</summary><p></p><div class="qa-bridge-choice"><button type="button" data-bridge-choice="0">서쪽 다리 집결</button><button type="button" data-bridge-choice="1">동쪽 다리 집결</button></div><button type="button" id="qa-withdraw">지금 철수</button></details>');
+    if(field&&!document.getElementById('qa-mission'))field.insertAdjacentHTML('beforeend','<details id="qa-mission" hidden><summary>안두인 작전</summary><p></p><div class="qa-bridge-choice"><button type="button" data-bridge-choice="0">서쪽 다리 집결</button><button type="button" data-bridge-choice="1">동쪽 다리 집결</button></div><button type="button" id="qa-supplies">선택 병사 · 보급 회수 명령</button><button type="button" id="qa-bridge-guard">선택 보병 · 다리 수비 명령</button><button type="button" id="qa-withdraw">지금 철수</button></details>');
     const qaRender=Yt;Yt=function(){
         qaRender();
         const op=document.getElementById('anduin-operation');if(op)op.onclick=()=>Rt(()=>q.chooseAnduinOperation());
@@ -11178,6 +11211,8 @@ function installPlaytestUI(){
             mission.querySelector('p').textContent=q.retreatBrief()||q.linkedOperation?.report||'';
             mission.querySelector('.qa-bridge-choice').hidden=q.phase!=='preparation'||!(q.mission==='osgiliath_retreat'||q.linkedOperation?.step===2&&q.linkedOperation.bridgeHeld);
             mission.querySelectorAll('[data-bridge-choice]').forEach(button=>{button.setAttribute('aria-pressed',String(q.linkedOperation?.bridge===Number(button.dataset.bridgeChoice)));button.onclick=()=>Rt(()=>q.chooseOperationBridge(Number(button.dataset.bridgeChoice)));});
+            const supply=mission.querySelector('#qa-supplies'),reason=q.retreatOrderReason(q.selected,'supplies');supply.hidden=q.mission!=='osgiliath_retreat';supply.disabled=!!reason;supply.title=reason||'자동전투 우선순위 · CP/Might 소모 없음 · 정상 이동력 사용';supply.textContent=q.unit(q.selected)?.retreatTask==='supplies'?'보급 회수 명령 해제':'선택 병사 · 보급 회수 명령';supply.onclick=()=>Rt(()=>q.orderRetreatTask(q.selected,'supplies'));
+            const guard=mission.querySelector('#qa-bridge-guard');guard.hidden=q.mission!=='osgiliath_retreat';guard.disabled=!!q.retreatOrderReason(q.selected,'bridge');guard.title=q.retreatOrderReason(q.selected,'bridge')||'무료 전술 지시 · 정상 이동력으로 다리 북측 이동 후 2라운드 수비';guard.textContent=q.unit(q.selected)?.retreatTask==='bridge'?'다리 수비 명령 해제':'선택 보병 · 다리 수비 명령';guard.onclick=()=>Rt(()=>q.orderRetreatTask(q.selected,'bridge'));
             const withdraw=mission.querySelector('#qa-withdraw');withdraw.hidden=q.mission!=='osgiliath_retreat'||q.phase==='preparation';withdraw.disabled=(q.retreatMission?.evacuated||0)<2;withdraw.textContent='지금 철수 · '+(q.retreatMission?.evacuated||0)+'/2대';withdraw.onclick=()=>Rt(()=>q.earlyWithdraw());
         }
     };
