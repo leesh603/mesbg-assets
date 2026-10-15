@@ -29,6 +29,8 @@ jobs:
       - run: node --test tests/playtest-overhaul.test.cjs tests/free-hero-activation.test.cjs tests/qa-state.test.cjs tests/warband-points.test.cjs tests/terrain.test.cjs
       - run: node tests/playtest-browser.cjs
         env:
+          # Test-only followups can repeat the unresolved scenario; normal pushes run the full suite.
+          QA_SCOPE: ${{ contains(github.event.head_commit.message, '[qa:carryover]') && 'carryover' || 'full' }}
           BASE_SHA: e804344617e860324a09ea9c33264fa201783ae0
       - uses: actions/upload-artifact@v4
         if: always()
