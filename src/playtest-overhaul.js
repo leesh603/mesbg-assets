@@ -133,8 +133,11 @@ const qaNewRun=P.start;
 P.start=function(mode){this.rewardLedger=null;this.battleRecord=null;this.settledWave=-1;this.linkedOperation=null;this.retreatMission=null;this.tacticalEvents=[];this._appliedCombats=new WeakSet();return qaNewRun.call(this,mode);};
 const qaResume=P.resume;
 P.resume=function(){
-    if(!qaResume.call(this))return false;
-    let state;try{state=JSON.parse(this._incomingSaveRaw??localStorage.getItem('mesbg-endless-save'));}catch{return false;}
+    const incoming=this._incomingSaveRaw;let state;
+    try{state=JSON.parse(incoming??localStorage.getItem('mesbg-endless-save'));}catch{return false;}
+    if(state?.campEvent){const event=LWB_EVENTS.find(e=>e.title===state.campEvent.title&&e.options[0]?.label===state.campEvent.options?.[0]?.label);if(event)state.campEvent.id=event.id;}
+    this._incomingSaveRaw=JSON.stringify(state);
+    try{if(!qaResume.call(this))return false;}finally{if(incoming===undefined)delete this._incomingSaveRaw;else this._incomingSaveRaw=incoming;}
     for(const key of ['rewardLedger','battleRecord','linkedOperation','retreatMission'])this[key]=state[key]||null;
     this.settledWave=state.settledWave??(this.phase==='reward'&&!this.initialDraft?this.wave:-1);
     this.autoPauseSettings=state.autoPauseSettings||{hero:true,objective:true,choice:true};
@@ -267,6 +270,10 @@ P.chooseOperationBridge=function(index){
     if(!this.linkedOperation?.active||this.phase!=='preparation'||![0,1].includes(index))return false;
     this.linkedOperation.bridge=index;
     if(this.mission==='osgiliath_retreat')this.arrangeRetreatArmy();
+    else if(this.linkedOperation.step===2&&this.linkedOperation.bridgeHeld){
+        const bridge=this.terrain.filter(t=>t.active&&t.surface==='bridge')[index];
+        for(const u of this.permanent()){const p=Be(u,{x:bridge.x,y:bridge.y-230},this.alive(),this.terrain,230,p=>this.deploymentAllowed(p));if(p)Object.assign(u,p);}
+    }
     this.save();return true;
 };
 P.operationStage=function(n){
@@ -278,7 +285,11 @@ P.operationStage=function(n){
 };
 const qaStageInfo=P.stageInfo;
 P.stageInfo=function(n){return this.operationStage(n)||qaStageInfo.call(this,n);};
-P.deploymentAllowed=function(p){return this.mission==='osgiliath_retreat'?p.y>=960&&p.y<=1185:p.y>=285&&p.y<=pt.deployY;};
+P.deploymentAllowed=function(p){
+    if(this.mission==='osgiliath_retreat')return p.y>=960&&p.y<=1185;
+    if(this.linkedOperation?.active&&this.linkedOperation.step===2&&this.linkedOperation.bridgeHeld)return p.y>=285&&p.y<=600;
+    return p.y>=285&&p.y<=pt.deployY;
+};
 P.arrangeRetreatArmy=function(){
     const bridges=this.terrain.filter(t=>t.active&&t.surface==='bridge'),main=bridges[this.linkedOperation?.bridge||0]||bridges[0];if(!main)return;
     for(const u of this.alive('good').filter(u=>!u._evacuee)){u.x=-1000;u.y=-1000;}
@@ -291,7 +302,7 @@ P.arrangeRetreatArmy=function(){
 };
 const qaDeploy=P.deploy;
 P.deploy=function(uid,p){
-    if(this.mission!=='osgiliath_retreat')return qaDeploy.call(this,uid,p);
+    if(this.mission!=='osgiliath_retreat'&&!(this.linkedOperation?.active&&this.linkedOperation.step===2&&this.linkedOperation.bridgeHeld))return qaDeploy.call(this,uid,p);
     const u=this.unit(uid);if(this.phase!=='preparation'||!u?.alive||u.side!=='good'||!this.deploymentAllowed(p)||!Et(u,p,this.alive(),this.terrain))return false;
     Object.assign(u,p);return true;
 };
@@ -307,7 +318,7 @@ P.prepareStage=function(){
 };
 P.retreatBrief=function(){
     const m=this.retreatMission;if(!m)return '';
-    return '피난 보급대 '+m.evacuated+'/'+m.total+' 철수 · 최소 '+m.required+'대 · 북쪽 후방 y≤260 · 제한 '+m.deadline+'라운드 · 적 증원 R3 동쪽/R6 서쪽 · 보급품(1150,520) 2라운드 수비';
+    return '피난 보급대 '+m.evacuated+'/'+m.total+' 철수 · 최소 '+m.required+'대 · 북쪽 후방 y≤260 · 제한 '+m.deadline+'라운드 · '+(this.linkedOperation?.scoutSuccess?'적 증원 R3 동쪽/R6 서쪽':'추격 경로 미확인 · 도착 1라운드 전 전조')+' · 보급품(1150,520) 2라운드 수비';
 };
 P.spawnEvacuees=function(){
     const m=this.retreatMission;if(!m||m.convoys.length)return;
@@ -395,7 +406,7 @@ P.resolveLinkedBattle=function(){
         const m=this.retreatMission;op.supplies=!!m.supplies;op.bridgeHeld=m.bridgeTicks.some(n=>n>=2);op.evacuated=m.evacuated;
         if(m.supplies)this.grantGold('anduin-supplies','철수 보급품',25);
         if(m.evacuated===m.total)this.grantGold('anduin-full-evac','보급대 전원 철수',20);
-        op.report=(m.early?'조기 철수 · 선택한 다리 후방에 집결':m.evacuated===m.total?'전원 철수 · 양쪽 다리 배치 선택':'일부 철수 · 안전한 다리 후방에 집결')+(m.supplies?' · 다음 전투 창병 지원':' · 보급대 추가 없이 기존 병력 방어');
+        op.report=(m.early?'조기 철수 · 선택한 다리 후방에 집결':m.evacuated===m.total?'전원 철수':'일부 철수')+(op.bridgeHeld?' · 다리 확보: 후방 방어전 전진 배치(y≤600)·양쪽 다리 선택':' · 기존 배치 구역에서 후방 방어')+(m.supplies?' · 다음 전투 창병 지원':' · 보급대 추가 없이 기존 병력 방어');
     }else{
         op.active=false;op.cooldownWave=this.wave+5;op.report='안두인 작전 종료 · 다음 스테이지부터 일반 원정';
     }
@@ -422,7 +433,7 @@ function installPlaytestUI(){
             mission.hidden=!q.linkedOperation?.active||!['preparation','move','shoot','fight'].includes(q.phase);
             mission.querySelector('summary').textContent=q.mission==='osgiliath_retreat'?'철수 '+(q.retreatMission?.evacuated||0)+'/3 · '+q.round+'/10R':CX.missionNames[q.mission]+' · 연계 '+(q.linkedOperation?.step+1)+'/3';
             mission.querySelector('p').textContent=q.retreatBrief()||q.linkedOperation?.report||'';
-            mission.querySelector('.qa-bridge-choice').hidden=q.phase!=='preparation'||q.mission!=='osgiliath_retreat';
+            mission.querySelector('.qa-bridge-choice').hidden=q.phase!=='preparation'||!(q.mission==='osgiliath_retreat'||q.linkedOperation?.step===2&&q.linkedOperation.bridgeHeld);
             mission.querySelectorAll('[data-bridge-choice]').forEach(button=>{button.setAttribute('aria-pressed',String(q.linkedOperation?.bridge===Number(button.dataset.bridgeChoice)));button.onclick=()=>Rt(()=>q.chooseOperationBridge(Number(button.dataset.bridgeChoice)));});
             const withdraw=mission.querySelector('#qa-withdraw');withdraw.hidden=q.mission!=='osgiliath_retreat'||q.phase==='preparation';withdraw.disabled=(q.retreatMission?.evacuated||0)<2;withdraw.textContent='지금 철수 · '+(q.retreatMission?.evacuated||0)+'/2대';withdraw.onclick=()=>Rt(()=>q.earlyWithdraw());
         }

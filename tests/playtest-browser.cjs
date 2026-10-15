@@ -18,13 +18,13 @@ const server=http.createServer(async(req,res)=>{try{
  }catch(e){res.writeHead(502);res.end(String(e));}});
 const state=page=>page.evaluate(()=>{const b=window.MESBG?.battle;return b?{phase:b.phase,wave:b.wave,round:b.round,step:b.campStep,gold:b.gold,auto:MESBG.auto(),result:b.result,mission:b.mission,evacuated:b.retreatMission?.evacuated,offers:b.recruitOffers,units:b.alive('good').map(u=>({uid:u.uid,id:u.id,hp:u.currentWounds})),enemyCount:b.alive('evil').length}:null;});
 async function click(page,selector){const node=page.locator(selector).first();if(await node.isVisible()&&await node.isEnabled()){await node.click({timeout:5000});return true;}return false;}
-async function shot(page,name){await page.screenshot({path:out+'/'+name+'.png'});const view=await page.evaluate(()=>({width:innerWidth,height:innerHeight,overflow:document.documentElement.scrollWidth>innerWidth,columns:document.querySelector('.recruit-cards')?getComputedStyle(document.querySelector('.recruit-cards')).gridTemplateColumns:null,broken:[...document.images].filter(i=>i.getBoundingClientRect().width&&i.complete&&!i.naturalWidth).map(i=>i.src)}));report.views.push({name,...view});return view;}
+async function shot(page,name){await page.screenshot({path:out+'/'+name+'.png'});const view=await page.evaluate(()=>({performance:{bootMs:performance.getEntriesByType('navigation')[0]?.domContentLoadedEventEnd,heapBytes:performance.memory?.usedJSHeapSize,fps:MESBG.scene?.game?.loop?.actualFps},width:innerWidth,height:innerHeight,overflow:document.documentElement.scrollWidth>innerWidth,columns:document.querySelector('.recruit-cards')?getComputedStyle(document.querySelector('.recruit-cards')).gridTemplateColumns:null,broken:[...document.images].filter(i=>i.getBoundingClientRect().width&&i.complete&&!i.naturalWidth).map(i=>i.src)}));report.views.push({name,...view});return view;}
 function persist(){fs.writeFileSync(out+'/report.json',JSON.stringify(report,null,2));}
 async function open(browser,width,height,version='after',fixture){
  const ctx=await browser.newContext({viewport:{width,height},deviceScaleFactor:1});
  await ctx.route('**/*',route=>route.request().method()==='GET'&&!/workers\.dev/.test(route.request().url())?route.continue():route.abort());
  await ctx.addInitScript(saved=>{Element.prototype.requestFullscreen=async()=>{};if(saved)localStorage.setItem('mesbg-endless-save',saved);},fixture?JSON.stringify(fixture):null);
- const page=await ctx.newPage();page.on('pageerror',e=>report.errors.push({version,width,error:e.message}));page.on('requestfailed',req=>{if(!/workers\.dev/.test(req.url()))report.failedResources.push({version,width,url:req.url(),error:req.failure()?.errorText});});
+ const page=await ctx.newPage();page.on('pageerror',e=>report.errors.push({version,width,error:e.message}));page.on('response',response=>{if(response.status()>=400&&!/workers\.dev/.test(response.url()))report.failedResources.push({version,width,url:response.url(),status:response.status()});});page.on('requestfailed',req=>{if(!/workers\.dev/.test(req.url()))report.failedResources.push({version,width,url:req.url(),error:req.failure()?.errorText});});
  await page.goto('http://127.0.0.1:8139/'+(version==='before'?'baseline/':''),{waitUntil:'domcontentloaded'});
  await page.waitForFunction(()=>window.MESBG?.scene?.sys?.isActive(),null,{timeout:180000});return{page,ctx};
 }
@@ -51,7 +51,8 @@ async function campStep(page,s){
  else if(s.step==='ready'){await click(page,'#promotion-defer');await click(page,'#leave-camp');}
 }
 async function manualMove(page){
- const aim=await page.evaluate(()=>{const b=MESBG.battle,u=b.unit(b.selected);if(b.phase!=='move'||!u||b.engaged(u))return null;
+ await page.waitForFunction(()=>{const b=MESBG.battle,u=b.unit(MESBG.ui.active());return b.phase==='move'&&b.side==='good'&&u&&b.canAct(u)&&!b.engaged(u);},null,{timeout:90000}).catch(()=>{});
+ const aim=await page.evaluate(()=>{const b=MESBG.battle,u=b.unit(MESBG.ui.active());if(b.phase!=='move'||b.side!=='good'||!u||!b.canAct(u)||b.engaged(u))return null;
   for(const [dx,dy]of[[0,70],[70,0],[-70,0],[0,-70]]){const plan=MESBG.plan(u,{x:u.x+dx,y:u.y+dy},b.alive(),b.terrain,b.remaining(u));if(plan){const screen=MESBG.ui.worldToScreen(plan.to.x,plan.to.y);const rect=document.querySelector('canvas').getBoundingClientRect();screen.x+=rect.left;screen.y+=rect.top;if(screen.x>10&&screen.x<innerWidth-10&&screen.y>80&&screen.y<innerHeight-130)return {uid:u.uid,x:screen.x,y:screen.y,before:{x:u.x,y:u.y}};}}return null;});
  if(!aim){report.manual={status:'unverified',reason:'No on-screen legal manual move'};return;}
  await page.mouse.click(aim.x,aim.y);const preview=await page.locator('#intent-cancel').isVisible();if(!preview){report.manual={status:'failed',reason:'No action preview'};return;}
@@ -72,7 +73,7 @@ function fixture(full=true){const h=require('./campaign-harness.cjs')(),q=h.q;q.
   }
   {const {page,ctx}=await open(browser,390,844);await click(page,'#start-ai');await page.waitForSelector('[data-draft]');await recruit(page);await shot(page,'after-deployment');await click(page,'#dock-primary');await manualMove(page);await auto(page);
    const deadline=Date.now()+12*60000;let last='',savedResume=false,completed=0;
-   while(Date.now()<deadline){await page.waitForTimeout(700);const s=await state(page);const key=[s.phase,s.step,s.wave,s.round,s.enemyCount].join(':');if(key!==last){last=key;report.campaign.push(s);persist();}
+   while(Date.now()<deadline){await page.waitForTimeout(700);const s=await state(page);const key=[s.phase,s.step,s.wave,s.round,s.enemyCount].join(':');if(key!==last){last=key;report.campaign.push(s);persist();console.log('campaign',s.wave,s.round,s.phase,s.step,s.units.length,s.enemyCount);}
     if(s.phase==='result'){await shot(page,'after-campaign-result');break;}
     if(s.phase==='reward'){completed=Math.max(completed,s.wave);if(s.step==='event')await shot(page,'after-stage-'+s.wave+'-recap');if(s.wave>=5){report.fiveStages={status:'passed',completed};break;}await campStep(page,s);}
     else if(s.phase==='preparation'){if(!savedResume){const before=await page.evaluate(()=>({gold:MESBG.battle.gold,units:MESBG.battle.units.map(u=>({uid:u.uid,id:u.id,hp:u.currentWounds,x:u.x,y:u.y,points:u.entryPoints}))}));await page.reload();await page.waitForFunction(()=>MESBG.scene?.sys?.isActive());if(!await click(page,'#resume'))await click(page,'#continue-run');const after=await page.evaluate(()=>({gold:MESBG.battle.gold,units:MESBG.battle.units.map(u=>({uid:u.uid,id:u.id,hp:u.currentWounds,x:u.x,y:u.y,points:u.entryPoints}))}));report.resume={status:JSON.stringify(before)===JSON.stringify(after)?'passed':'failed',before,after};savedResume=true;}await click(page,'#dock-primary');await auto(page);}
