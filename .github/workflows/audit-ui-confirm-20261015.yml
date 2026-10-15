@@ -1,0 +1,105 @@
+name: Audit final UI confirmation 20261015
+on:
+  push:
+    branches: [audit/playtest-20261015-e804344]
+    paths: ['.github/workflows/audit-ui-confirm-20261015.yml']
+permissions:
+  contents: write
+  actions: read
+jobs:
+  confirm:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - run: |
+          python -m pip install playwright requests pyyaml
+          python -m playwright install --with-deps chromium
+      - name: Confirm ordinary UI camp transitions and preserve evidence
+        env:
+          AUDIT_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p final-evidence
+          cat > /tmp/final.py <<'PY'
+          import requests,json,os,zipfile,io,yaml,traceback,re,time,base64
+          from pathlib import Path
+          from playwright.sync_api import sync_playwright
+          ref='e804344617e860324a09ea9c33264fa201783ae0';branch='audit/playtest-20261015-e804344';raw='https://raw.githubusercontent.com/leesh603/mesbg-assets/';api='https://api.github.com/repos/leesh603/mesbg-assets'
+          out=Path('final-evidence');ses=requests.Session();ses.headers['Authorization']='Bearer '+os.environ['AUDIT_TOKEN']
+          r=ses.get(api+'/actions/artifacts/11937334502/zip',timeout=60);r.raise_for_status()
+          for name in zipfile.ZipFile(io.BytesIO(r.content)).namelist():
+            if name.endswith(('.json','.png')):(out/Path(name).name).write_bytes(zipfile.ZipFile(io.BytesIO(r.content)).read(name))
+          # Condense already completed genuine UI gameplay instead of repeating its first battle.
+          evidence=requests.get(raw+branch+'/reports/audit-20261015/report.json',timeout=60).json()
+          inspection=requests.get(raw+branch+'/reports/audit-20261015/inspection.json',timeout=60).json()
+          report={'build':ref,'firstPlay':[{'name':e.get('name'),'phase':e.get('phase'),'wave':e.get('wave'),'round':e.get('round'),'gold':e.get('gold'),'points':e.get('points'),'text':e.get('text'),'trace':e.get('trace')} for e in evidence['events']],'firstErrors':evidence['errors'],'steps':[],'errors':[],'note':'Live origin; restored the genuine first-victory save; subsequent camp operations use visible UI buttons only. No forced victories or stat edits.'}
+          def write(): (out/'confirmed-ui.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
+          with sync_playwright() as pw:
+            browser=pw.chromium.launch(headless=True,args=['--no-sandbox','--enable-unsafe-swiftshader'])
+            ctx=browser.new_context(viewport={'width':390,'height':844},is_mobile=True,has_touch=True)
+            page=ctx.new_page();page.on('pageerror',lambda e:report['errors'].append(str(e)))
+            def state():return page.evaluate("() => {const b=MESBG.battle;return {phase:b.phase,wave:b.wave,round:b.round,side:b.side,campStep:b.campStep,campDraft:b.campDraft,eventOutcome:b.eventOutcome,eventLabel:b.campEvent?.options?.[0]?.label,good:b.alive('good').length,evil:b.alive('evil').length,gold:b.gold,auto:MESBG.auto(),primary:{text:document.querySelector('#dock-primary').innerText,disabled:document.querySelector('#dock-primary').disabled},buttons:[...document.querySelectorAll('button')].map((e,i)=>({i,id:e.id,text:e.innerText,disabled:e.disabled,handler:String(e.onclick),visible:!!(e.getBoundingClientRect().width&&e.getBoundingClientRect().height)})).filter(x=>x.visible)}}")
+            def snap(name):
+              d=state();d['name']=name;d['text']=page.locator('body').inner_text();report['steps'].append(d);write();page.screenshot(path=str(out/(name+'.png')),full_page=True);return d
+            try:
+              page.goto('https://leesh603.github.io/mesbg-assets/',wait_until='domcontentloaded',timeout=90000);page.wait_for_timeout(10000)
+              page.evaluate('(s)=>localStorage.setItem("mesbg-endless-save",JSON.stringify(s))',inspection['state']);page.reload(wait_until='domcontentloaded');page.wait_for_timeout(6000)
+              page.get_by_role('button',name=re.compile('이어하기')).first.click();page.wait_for_timeout(1000)
+              snap('10-genuine-save-resumed')
+              # Enable normal auto mode here to reproduce leaving a completed autoplay battle.
+              if not page.evaluate('MESBG.auto()'):page.locator('#auto-dock').click();page.wait_for_timeout(300)
+              deadline=time.time()+110;last=None
+              for n in range(100):
+                if time.time()>deadline:break
+                s=state();key=(s['phase'],s['wave'],s['campStep'],str(s['campDraft']),bool(s['eventOutcome']))
+                if key!=last:
+                  s['name']='transition-'+str(n);report['steps'].append(s);write();last=key
+                if s['wave']>=3 or s['phase']=='result':break
+                if s['phase']=='preparation':
+                  if s['primary']['disabled']:
+                    snap('11-preparation-button-disabled');page.wait_for_timeout(8000);a=snap('12-preparation-still-disabled')
+                    report['autoOffRecovery']={'before':a['primary'],'auto':a['auto']}
+                    if a['auto']:page.locator('#auto-dock').click();page.wait_for_timeout(500)
+                    report['autoOffRecovery']['after']=state()['primary'];write()
+                  if not page.locator('#dock-primary').is_enabled():break
+                  page.locator('#dock-primary').click();page.wait_for_timeout(1000)
+                elif s['phase']=='reward':
+                  if page.locator('#promotion-defer').count():page.locator('#promotion-defer').click();page.wait_for_timeout(300);continue
+                  button=None
+                  if s['campStep']=='recruit':button=next((b for b in s['buttons'] if b['id']=='draft-confirm'),None)
+                  else:
+                    h=''
+                    if s['campStep']=='event' and s['eventOutcome']:h='recruit'
+                    elif s['campStep'] in ['event','relic']:h='confirmCampChoice' if s['campDraft'] is not None else 'selectCampChoice'
+                    elif s['campStep']=='ready':h='leaveCamp'
+                    button=next((b for b in s['buttons'] if not b['disabled'] and h and h in b['handler']),None)
+                    if not button and s['eventLabel'] and s['campStep']=='event' and not s['eventOutcome']:
+                      button=next((b for b in s['buttons'] if not b['disabled'] and s['eventLabel'] in b['text']),None)
+                    if not button:button=next((b for b in s['buttons'] if not b['disabled'] and re.search('^(계속|다음|확인|선택 확정|정비 완료|출전 준비)',b['text'])),None)
+                  if not button:snap('13-unresolved-ui-stop');break
+                  report['steps'].append({'click':button,'n':n});write();page.locator('button').nth(button['i']).click();page.wait_for_timeout(500)
+                else:
+                  if not s['auto']:page.locator('#auto-dock').click()
+                  page.wait_for_timeout(1500)
+              snap('14-final-ui-state')
+              report['methods']=page.evaluate("() => Object.fromEntries(['confirmCampChoice','chooseEvent','rollCampEvent','leaveCamp'].map(k=>[k,String(MESBG.battle[k])]))")
+            except Exception:report['fatal']=traceback.format_exc();print(report['fatal'],flush=True)
+            finally:
+              write()
+              try:page.screenshot(path=str(out/'final-browser.png'),full_page=True)
+              except Exception:pass
+              ctx.close();browser.close()
+          print('CONFIRMED_UI_SUMMARY',json.dumps({'last':report['steps'][-1] if report['steps'] else None,'autoOffRecovery':report.get('autoOffRecovery'),'fatal':report.get('fatal'),'errors':report['errors']},ensure_ascii=False),flush=True)
+          def call(m,p,d=None):
+            r=ses.request(m,api+p,json=d,timeout=60);r.raise_for_status();return r.json()
+          head=call('GET','/git/ref/heads/'+branch)['object']['sha'];tree=call('GET','/git/commits/'+head)['tree']['sha'];entries=[]
+          for f in out.glob('*'):
+            b=call('POST','/git/blobs',{'content':base64.b64encode(f.read_bytes()).decode(),'encoding':'base64'});entries.append({'path':'reports/audit-20261015/'+f.name,'mode':'100644','type':'blob','sha':b['sha']})
+          tree=call('POST','/git/trees',{'base_tree':tree,'tree':entries})['sha'];commit=call('POST','/git/commits',{'message':'test: persist exact economic reproductions and visible camp-transition evidence','tree':tree,'parents':[head]})['sha'];call('PATCH','/git/refs/heads/'+branch,{'sha':commit,'force':False});print('EVIDENCE_COMMIT',commit,'FILES',len(entries),flush=True)
+          PY
+          python /tmp/final.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: warbands-confirmed-e804344
+          path: final-evidence/
+          retention-days: 30
