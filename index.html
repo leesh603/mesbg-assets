@@ -12979,18 +12979,32 @@ P.rollRecruits=function(){
     // 영웅은 유니크 — 전사한 영웅도 영입 후보에서 제외 (발라의 은총 부활로만 복귀)
     const owned=this.ownedUniqueKeys();
     const base=Object.values(UnitCatalog).filter(d=>d.enabled&&!d.evolutionOnly&&this.meta.has(d.id)&&(d.meta.side==='good'||this.relics.darkpact&&d.meta.side==='evil'));
-    // 지역 파벌 가중치 — 그 땅의 군대가 영입 후보에 우선 등장 (로한 땅엔 로한군 등)
+    // 영입은 현재 원정대의 영웅·병사 진영을 우선하며, 전장 지역은 보조 가중치만 준다.
+    // 엘론드/글로르핀델처럼 리븐델 출신은 로스로리엔·엘프 병종과 같은 진영군이다.
     const _facs=(FACTION_BY_MAP[CX.maps[visualMapIdx(this.mapIndex)]]||[]);
+    const _family=f=>({rivendell:'elf',lothlorien:'elf',mirkwood:'elf',lindon:'elf',
+        minastirith:'gondor',dolamroth:'gondor',ithilien:'gondor',erebor:'dwarf',khazaddum:'dwarf'})[f]||f||'';
+    const _armyFavor=new Map();
+    for(const u of this.permanent()){
+        const d=UnitCatalog[u.id],f=_family(d?.meta.faction);
+        if(!f)continue;
+        _armyFavor.set(f,(_armyFavor.get(f)||0)+(isH(d)?3:0.4));
+    }
     const _isfac=d=>_facs.includes(d.meta.faction)&&!RECRUIT_NOFAM.has(d.id);
     const _RW={normal:1,elite:.5,rare:.32,epic:.22,legendary:.3};
-    const _wgt=d=>{const g=UnitCatalog[d.id]?.rarity||'normal';const w=(_RW[g]||1)*(_isfac(UnitCatalog[d.id])?2.2:1);return w*this.rng();};
+    const _wgt=d=>{
+        const g=d.rarity||'normal',f=_family(d.meta.faction);
+        const army=1+Math.min(3.5,(_armyFavor.get(f)||0)*.65);
+        const region=_isfac(d)?(_armyFavor.size?1.25:2.2):1;
+        return (_RW[g]||1)*army*region*this.rng();
+    };
     const heroPool=base.filter(d=>isH(d)&&this.wave>=(d.unlockWave||0)&&!owned.has(d.uniqueKey||d.id)&&(!SILMARIL_HEROES.has(d.uniqueKey||d.id)||this.rank("silmaril"))).map(d=>({id:d.id,r:_wgt(d)})).sort((a,b)=>b.r-a.r);
     const _heroes=[],_seenFam=new Set();
     for(const d of heroPool){const f=RECRUIT_FAMILY[d.id];if(f&&_seenFam.has(f))continue;_heroes.push(d);if(f)_seenFam.add(f);if(_heroes.length>=2)break;}
     const _hasLeg=_heroes.some(d=>(UnitCatalog[d.id]?.rarity)==='legendary'); if(_hasLeg)this._legendStreak=0; else this._legendStreak=(this._legendStreak||0)+1; if(!_hasLeg&&this._legendStreak>=3){const _leg=heroPool.find(d=>UnitCatalog[d.id]?.rarity==='legendary'&&!_heroes.includes(d));if(_leg){_heroes.pop();_heroes.push(_leg);this._legendStreak=0;}} const heroes=_heroes;
     const candidates=base.filter(d=>d.recruitable&&!isH(d)&&(!d.uniqueKey||!owned.has(d.uniqueKey))).map(d=>({id:d.id,r:_wgt(d),fac:_isfac(d),role:d.profile.traits.includes('mounted')?'cavalry':d.profile.shootRange?'archer':d.profile.traits.includes('spear')?'support':'infantry'})).sort((a,b)=>b.r-a.r);
     const troops=[];
-    for(const role of ['infantry','support','archer','cavalry']){const d=candidates.find(d=>d.role===role&&d.fac)||candidates.find(d=>d.role===role);if(d)troops.push(d);}
+    for(const role of ['infantry','support','archer','cavalry']){const d=candidates.find(d=>d.role===role);if(d)troops.push(d);}
     for(const d of candidates)if(troops.length<4&&!troops.includes(d))troops.push(d);
     this.recruitOffers=[...heroes,...troops].map(d=>({id:d.id,bought:false}));
 };
