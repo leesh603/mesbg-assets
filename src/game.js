@@ -6339,27 +6339,56 @@ P.sanitizeRecruitOffers=function(){
     for(const o of (this.recruitOffers||[])){const k=UnitCatalog[o.id]?.uniqueKey;if(k&&owned.has(k))o.bought=true;}
     this.recruitDraft=(this.recruitDraft||[]).filter(i=>this.recruitOffers?.[i]&&!this.recruitOffers[i].bought);
 };
-const FACTION_BY_MAP={minas_tirith:['gondor','minastirith'],osgiliath:['gondor','minastirith'],pelennor:['gondor','minastirith'],amon_sul:['arnor','bree'],helms_deep:['rohan'],edoras:['rohan'],dunharrow:['rohan'],fangorn:['rohan','elf'],moria:['dwarf','erebor'],erebor:['dwarf','erebor'],isengard:['rohan','gondor'],black_gate:['gondor','numenor'],gorgoroth:['gondor','numenor'],rivendell:['rivendell','elf'],lothlorien:['lothlorien','elf'],dead_marshes:['gondor','arnor']};
+const FACTION_BY_MAP={minas_tirith:['gondor','minastirith'],osgiliath:['gondor','minastirith'],pelennor:['gondor','minastirith'],amon_sul:['arnor','bree'],helms_deep:['rohan'],edoras:['rohan'],dunharrow:['rohan'],fangorn:['rohan','elf'],moria:['dwarf','erebor'],erebor:['dwarf','erebor'],isengard:['rohan','gondor'],black_gate:['gondor','numenor'],gorgoroth:['gondor','numenor'],rivendell:['rivendell','elf'],lothlorien:['lothlorien','elf'],mirkwood:['mirkwood','elf'],gondolin:['elf'],dead_marshes:['gondor','arnor']};
+// A hero's home army drives recruitment more strongly than the current battlefield.
+const RECRUIT_FACTION_FAMILY={rivendell:'elf',lothlorien:'elf',mirkwood:'elf',doriath:'elf',gondolin:'elf',elf:'elf',gondor:'gondor',minastirith:'gondor',dol_amroth:'gondor',numenor:'gondor',rohan:'rohan',dwarf:'dwarf',erebor:'dwarf',iron_hills:'dwarf',arnor:'arnor',bree:'arnor',shire:'shire'};
 P.rollRecruits=function(){
     this.recruitDraft=[];
     const isH=d=>(d.profile.traits||[]).includes('hero')||d.meta.role==='hero';
-    // 영웅은 유니크 — 전사한 영웅도 영입 후보에서 제외 (발라의 은총 부활로만 복귀)
     const owned=this.ownedUniqueKeys();
     const base=Object.values(UnitCatalog).filter(d=>d.enabled&&!d.evolutionOnly&&this.meta.has(d.id)&&(d.meta.side==='good'||this.relics.darkpact&&d.meta.side==='evil'));
-    // 지역 파벌 가중치 — 그 땅의 군대가 영입 후보에 우선 등장 (로한 땅엔 로한군 등)
-    const _facs=(FACTION_BY_MAP[CX.maps[visualMapIdx(this.mapIndex)]]||[]);
+    const _facs=FACTION_BY_MAP[CX.maps[visualMapIdx(this.mapIndex)]]||[];
     const _isfac=d=>_facs.includes(d.meta.faction)&&!RECRUIT_NOFAM.has(d.id);
+    const _family=d=>RECRUIT_FACTION_FAMILY[d.meta.faction]||d.meta.faction;
+    const _leaderFamilies=new Map(),_leaderFactions=new Map();
+    for(const u of this.permanent()){
+        if(u.autoAlly)continue;
+        const d=UnitCatalog[u.id];
+        if(!d||!isH(d)||d.meta.side!=='good')continue;
+        const family=_family(d),faction=d.meta.faction;
+        _leaderFamilies.set(family,(_leaderFamilies.get(family)||0)+1);
+        _leaderFactions.set(faction,(_leaderFactions.get(faction)||0)+1);
+    }
+    const [dominantFamily,dominantCount]=[..._leaderFamilies].sort((a,b)=>b[1]-a[1])[0]||[];
     const _RW={normal:1,elite:.5,rare:.32,epic:.22,legendary:.3};
-    const _wgt=d=>{const g=UnitCatalog[d.id]?.rarity||'normal';const w=(_RW[g]||1)*(_isfac(UnitCatalog[d.id])?2.2:1);return w*this.rng();};
-    const heroPool=base.filter(d=>isH(d)&&this.wave>=(d.unlockWave||0)&&!owned.has(d.uniqueKey||d.id)&&(!SILMARIL_HEROES.has(d.uniqueKey||d.id)||this.rank("silmaril"))).map(d=>({id:d.id,r:_wgt(d)})).sort((a,b)=>b.r-a.r);
+    const _wgt=d=>{
+        const family=_family(d),sameFamily=_leaderFamilies.get(family)||0,sameFaction=_leaderFactions.get(d.meta.faction)||0;
+        const commanderBonus=1+sameFamily*1.6+sameFaction*.45;
+        const regionBonus=_isfac(d)?1.45:1;
+        return (_RW[d.rarity||'normal']||1)*commanderBonus*regionBonus*this.rng();
+    };
+    const heroPool=base.filter(d=>isH(d)&&this.wave>=(d.unlockWave||0)&&!owned.has(d.uniqueKey||d.id)&&(!SILMARIL_HEROES.has(d.uniqueKey||d.id)||this.rank('silmaril'))).map(d=>({id:d.id,r:_wgt(d)})).sort((a,b)=>b.r-a.r);
     const _heroes=[],_seenFam=new Set();
     for(const d of heroPool){const f=RECRUIT_FAMILY[d.id];if(f&&_seenFam.has(f))continue;_heroes.push(d);if(f)_seenFam.add(f);if(_heroes.length>=2)break;}
-    const _hasLeg=_heroes.some(d=>(UnitCatalog[d.id]?.rarity)==='legendary'); if(_hasLeg)this._legendStreak=0; else this._legendStreak=(this._legendStreak||0)+1; if(!_hasLeg&&this._legendStreak>=3){const _leg=heroPool.find(d=>UnitCatalog[d.id]?.rarity==='legendary'&&!_heroes.includes(d));if(_leg){_heroes.pop();_heroes.push(_leg);this._legendStreak=0;}} const heroes=_heroes;
-    const candidates=base.filter(d=>d.recruitable&&!isH(d)&&(!d.uniqueKey||!owned.has(d.uniqueKey))).map(d=>({id:d.id,r:_wgt(d),fac:_isfac(d),role:d.profile.traits.includes('mounted')?'cavalry':d.profile.shootRange?'archer':d.profile.traits.includes('spear')?'support':'infantry'})).sort((a,b)=>b.r-a.r);
+    const _hasLeg=_heroes.some(d=>UnitCatalog[d.id]?.rarity==='legendary');
+    if(_hasLeg)this._legendStreak=0;else this._legendStreak=(this._legendStreak||0)+1;
+    if(!_hasLeg&&this._legendStreak>=3){const _leg=heroPool.find(d=>UnitCatalog[d.id]?.rarity==='legendary'&&!_heroes.includes(d));if(_leg){_heroes.pop();_heroes.push(_leg);this._legendStreak=0;}}
+    const candidates=base.filter(d=>d.recruitable&&!isH(d)&&(!d.uniqueKey||!owned.has(d.uniqueKey))).map(d=>({id:d.id,r:_wgt(d),family:_family(d),role:d.profile.traits.includes('mounted')?'cavalry':d.profile.shootRange?'archer':d.profile.traits.includes('spear')?'support':'infantry'})).sort((a,b)=>b.r-a.r);
     const troops=[];
-    for(const role of ['infantry','support','archer','cavalry']){const d=candidates.find(d=>d.role===role&&d.fac)||candidates.find(d=>d.role===role);if(d)troops.push(d);}
+    // Keep the four combat roles, but do not hard-lock their slots to the map's faction.
+    for(const role of ['infantry','support','archer','cavalry']){const d=candidates.find(d=>d.role===role);if(d)troops.push(d);}
     for(const d of candidates)if(troops.length<4&&!troops.includes(d))troops.push(d);
-    this.recruitOffers=[...heroes,...troops].map(d=>({id:d.id,bought:false}));
+    // Two commanders from one people should reliably see at least two of their troops.
+    const minimum=dominantCount>=2?Math.min(2,troops.length,candidates.filter(d=>d.family===dominantFamily).length):0;
+    while(troops.filter(d=>d.family===dominantFamily).length<minimum){
+        const preferred=candidates.find(d=>d.family===dominantFamily&&!troops.includes(d));
+        if(!preferred)break;
+        let replace=troops.findIndex(d=>d.family!==dominantFamily&&d.role===preferred.role);
+        if(replace<0)replace=troops.findIndex(d=>d.family!==dominantFamily);
+        if(replace<0)break;
+        troops[replace]=preferred;
+    }
+    this.recruitOffers=[..._heroes,...troops].map(d=>({id:d.id,bought:false}));
 };
 const SILMARIL_HEROES=new Set("fingolfin feanor turgon fingon ecthelion maedhros finrod_felagund celegorm tuor hurin_thalion thingol tom_bombadil goldberry luthien beren turin beleg huan gil_galad cirdan mablung_sindar daeron melian maglor gwindor celebrimbor huor barahir azaghal elendil isildur elendur arpharazon earendil maeglin eol galdor anarion fingon_mounted ecthelion_mounted finrod_felagund_mounted maedhros_mounted celegorm_mounted thingol_mounted turgon_mounted cirdan_mounted feanor_mounted turin_mounted tuor_mounted beleg_mounted hurin_thalion_mounted maeglin_mounted gil_galad_mounted".split(" "));
 // 영입 화면 중복 방지 — 같은 인물 변형·같은 패밀리는 한 화면에 1종만
