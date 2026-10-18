@@ -1,0 +1,2354 @@
+[
+  {
+    "id": "aragorn",
+    "name": "아라곤",
+    "catalogFaction": "gondor",
+    "recruitArmy": "gondor",
+    "identity": "aragorn",
+    "eraGate": false
+  },
+  {
+    "id": "gandalf",
+    "name": "간달프",
+    "catalogFaction": "maiar",
+    "recruitArmy": "maiar",
+    "identity": "gandalf",
+    "eraGate": false
+  },
+  {
+    "id": "glorfindel_foot",
+    "name": "글로르핀델(도보)",
+    "catalogFaction": "rivendell",
+    "recruitArmy": "rivendell",
+    "identity": "glorfindel",
+    "eraGate": false
+  },
+  {
+    "id": "glorfindel_mounted",
+    "name": "글로르핀델(기마)",
+    "catalogFaction": "rivendell",
+    "recruitArmy": "rivendell",
+    "identity": "glorfindel",
+    "eraGate": false
+  },
+  {
+    "id": "witchking_fellbeast",
+    "name": "마술왕(펠비스트)",
+    "catalogFaction": "angmar",
+    "recruitArmy": "angmar",
+    "identity": "witchking",
+    "eraGate": false
+  },
+  {
+    "id": "saruman",
+    "name": "사루만",
+    "catalogFaction": "isengard",
+    "recruitArmy": "isengard",
+    "identity": "saruman",
+    "eraGate": false
+  },
+  {
+    "id": "orc_captain",
+    "name": "오크 대장",
+    "catalogFaction": "mordor",
+    "recruitArmy": "mordor",
+    "identity": null,
+    "eraGate": false
+  },
+  {
+    "id": "legolas",
+    "name": "레골라스",
+    "catalogFaction": "elf",
+    "recruitArmy": "mirkwood",
+    "identity": "legolas",
+    "eraGate": false
+  },
+  {
+    "id": "gimli",
+    "name": "김리",
+    "catalogFaction": "dwarf",
+    "recruitArmy": "khazad_dum",
+    "identity": "gimli",
+    "eraGate": false
+  },
+  {
+    "id": "boromir",
+    "name": "보로미르",
+    "catalogFaction": "gondor",
+    "recruitArmy": "gondor",
+    "identity": "boromir",
+    "eraGate": false
+  },
+  {
+    "id": "elrond",
+    "name": "엘론드",
+    "catalogFaction": "rivendell",
+    "recruitArmy": "rivendell",
+    "identity": "elrond",
+    "eraGate": false
+  },
+  {
+    "id": "sauron",
+    "name": "사우론",
+    "catalogFaction": "mordor",
+    "recruitArmy": "mordor",
+    "identity": "sauron",
+    "eraGate": false
+  },
+  {
+    "id": "theoden",
+    "name": "세오덴(기마)",
+    "catalogFaction": "rohan",
+    "recruitArmy": "rohan",
+    "identity": "theoden",
+    "eraGate": false
+  },
+  {
+    "id": "gothmog",
+    "name": "고스모그",
+    "catalogFaction": "mordor",
+    "recruitArmy": "mordor",
+    "identity": "gothmog",
+    "eraGate": false
+  },
+  {
+    "id": "morgoth",
+    "name": "모르고스",
+    "catalogFaction": "mordor",
+    "recruitArmy": "mordor",
+    "identity": "morgoth",
+    "eraGate": false
+  },
+  {
+    "id": "khandish_chieftain",
+    "name": "칸드 족장",
+    "catalogFaction": "rhun",
+    "recruitArmy": "easterling",
+    "identity": "khandish_chieftain",
+    "eraGate": false
+  },
+  {
+    "id": "fingolfin_mounted",
+    "name": "핑골핀 (로칼로르)",
+    "catalogFaction": "elf",
+    "recruitArmy": "first_age",
+    "identity": "fingolfin",
+    "eraGate": true
+  },
+  {
+    "id": "turgon",
+    "name": "투르곤",
+    "catalogFaction": "elf",
+    "recruitArmy": "first_age",
+    "identity": "turgon",
+    "eraGate": true
+  },
+  {
+    "id": "fingon",
+    "name": "핑곤",
+    "catalogFaction": "elf",
+    "recruitArmy": "first_age",
+    "identity": "fingon",
+    "eraGate": true
+  },
+  {
+    "id": "ecthelion",
+    "name": "엑텔리온",
+    "catalogFaction": "elf",
+    "recruitArmy": "first_age",
+    "identity": "ecthelion",
+    "eraGate": true
+  },
+  {
+    "id": "maedhros",
+    "name": "마이드로스",
+    "catalogFaction": "elf",
+    "recruitArmy": "first_age",
+    "identity": "maedhros",
+    "eraGate": true
+  },
+  {
+    "id": "finrod_felagund",
+    "name": "핀로드 펠라군드",
+    "catalogFaction": "elf",
+    "recruitArmy": "first_age",
+    "identity": "finrod_felagund",
+    "eraGate": true
+  },
+  {
+    "id": "celegorm",
+    "name": "켈레고름",
+    "catalogFaction": "elf",
+    "recruitArmy": "first_age",
+    "identity": "celegorm",
+    "eraGate": true
+  },
+  {
+    "id": "tuor",
+    "name": "투오르",
+    "catalogFaction": "men",
+    "recruitArmy": "first_age",
+    "identity": "tuor",
+    "eraGate": true
+  },
+  {
+    "id": "hurin_thalion",
+    "name": "후린 탈리온",
+    "catalogFaction": "men",
+    "recruitArmy": "first_age",
+    "identity": "hurin_thalion",
+    "eraGate": true
+  },
+  {
+    "id": "thingol",
+    "name": "싱골",
+    "catalogFaction": "elf",
+    "recruitArmy": "first_age",
+    "identity": "thingol",
+    "eraGate": true
+  },
+  {
+    "id": "tom_bombadil",
+    "name": "톰 봄바딜",
+    "catalogFaction": "other",
+    "recruitArmy": "other",
+    "identity": "tom_bombadil",
+    "eraGate": true
+  },
+  {
+    "id": "goldberry",
+    "name": "골드베리",
+    "catalogFaction": "other",
+    "recruitArmy": "other",
+    "identity": "goldberry",
+    "eraGate": true
+  },
+  {
+    "id": "witchking_foot",
+    "name": "마술사왕(도보)",
+    "catalogFaction": "angmar",
+    "recruitArmy": "angmar",
+    "identity": "witchking",
+    "eraGate": false
+  },
+  {
+    "id": "witchking_mounted",
+    "name": "마술사왕(기마)",
+    "catalogFaction": "angmar",
+    "recruitArmy": "angmar",
+    "identity": "witchking",
+    "eraGate": false
+  },
+  {
+    "id": "witchking_mounted_sheet",
+    "name": "마술사왕(기마·예비)",
+    "catalogFaction": "angmar",
+    "recruitArmy": "angmar",
+    "identity": "witchking",
+    "eraGate": false
+  },
+  {
+    "id": "witchking_foot_mace",
+    "name": "마술사왕(투구)",
+    "catalogFaction": "angmar",
+    "recruitArmy": "angmar",
+    "identity": "witchking",
+    "eraGate": false
+  },
+  {
+    "id": "nazgul_sword",
+    "name": "나즈굴(검)",
+    "catalogFaction": "angmar",
+    "recruitArmy": "angmar",
+    "identity": "nazgul",
+    "eraGate": false
+  },
+  {
+    "id": "eowyn",
+    "name": "에오윈",
+    "catalogFaction": "rohan",
+    "recruitArmy": "rohan",
+    "identity": "eowyn",
+    "eraGate": false
+  },
+  {
+    "id": "frodo",
+    "name": "프로도",
+    "catalogFaction": "shire",
+    "recruitArmy": "shire",
+    "identity": "frodo",
+    "eraGate": false
+  },
+  {
+    "id": "barrow_wight",
+    "name": "고분 망령",
+    "catalogFaction": "angmar",
+    "recruitArmy": "angmar",
+    "identity": "barrow_wight",
+    "eraGate": false
+  },
+  {
+    "id": "nazgul_sword_2",
+    "name": "나즈굴(검·B)",
+    "catalogFaction": "angmar",
+    "recruitArmy": "angmar",
+    "identity": "nazgul",
+    "eraGate": false
+  },
+  {
+    "id": "nazgul_mace",
+    "name": "나즈굴(철퇴)",
+    "catalogFaction": "angmar",
+    "recruitArmy": "angmar",
+    "identity": "nazgul",
+    "eraGate": false
+  },
+  {
+    "id": "nazgul_mounted",
+    "name": "나즈굴(기마)",
+    "catalogFaction": "angmar",
+    "recruitArmy": "angmar",
+    "identity": "nazgul",
+    "eraGate": false
+  },
+  {
+    "id": "dwimmerlaik",
+    "name": "드위머레이크(갑옷 나즈굴)",
+    "catalogFaction": "angmar",
+    "recruitArmy": "angmar",
+    "identity": "dwimmerlaik",
+    "eraGate": false
+  },
+  {
+    "id": "mt_captain",
+    "name": "미나스 티리스 장교",
+    "catalogFaction": "gondor",
+    "recruitArmy": "gondor",
+    "identity": "mt_captain",
+    "eraGate": false
+  },
+  {
+    "id": "eomer",
+    "name": "에오메르(기마)",
+    "catalogFaction": "rohan",
+    "recruitArmy": "rohan",
+    "identity": "eomer",
+    "eraGate": false
+  },
+  {
+    "id": "orc_taskmaster",
+    "name": "오크 두목",
+    "catalogFaction": "mordor",
+    "recruitArmy": "mordor",
+    "identity": "orc_taskmaster",
+    "eraGate": false
+  },
+  {
+    "id": "goblin_king",
+    "name": "고블린 왕",
+    "catalogFaction": "moria",
+    "recruitArmy": "moria",
+    "identity": "goblin_king",
+    "eraGate": false
+  },
+  {
+    "id": "beorning",
+    "name": "베오르닝 전사",
+    "catalogFaction": "beorning",
+    "recruitArmy": "beorning",
+    "identity": "beorning",
+    "eraGate": false
+  },
+  {
+    "id": "ranger_north",
+    "name": "북부 레인저",
+    "catalogFaction": "arnor",
+    "recruitArmy": "arnor",
+    "identity": "ranger_north",
+    "eraGate": false
+  },
+  {
+    "id": "faramir",
+    "name": "파라미르",
+    "catalogFaction": "gondor",
+    "recruitArmy": "gondor",
+    "identity": "faramir",
+    "eraGate": false
+  },
+  {
+    "id": "haldir",
+    "name": "할디르",
+    "catalogFaction": "lothlorien",
+    "recruitArmy": "lothlorien",
+    "identity": "haldir",
+    "eraGate": false
+  },
+  {
+    "id": "galadriel",
+    "name": "갈라드리엘",
+    "catalogFaction": "lothlorien",
+    "recruitArmy": "lothlorien",
+    "identity": "galadriel",
+    "eraGate": false
+  },
+  {
+    "id": "gamling",
+    "name": "감링",
+    "catalogFaction": "rohan",
+    "recruitArmy": "rohan",
+    "identity": "gamling",
+    "eraGate": false
+  },
+  {
+    "id": "samwise",
+    "name": "샘와이즈",
+    "catalogFaction": "shire",
+    "recruitArmy": "shire",
+    "identity": "samwise",
+    "eraGate": false
+  },
+  {
+    "id": "mouth_of_sauron",
+    "name": "사우론의 입(기마)",
+    "catalogFaction": "mordor",
+    "recruitArmy": "mordor",
+    "identity": "mouth_of_sauron",
+    "eraGate": false
+  },
+  {
+    "id": "lurtz",
+    "name": "루르츠",
+    "catalogFaction": "isengard",
+    "recruitArmy": "isengard",
+    "identity": "lurtz",
+    "eraGate": false
+  },
+  {
+    "id": "sharku",
+    "name": "샤르쿠(와르그)",
+    "catalogFaction": "isengard",
+    "recruitArmy": "isengard",
+    "identity": "sharku",
+    "eraGate": false
+  },
+  {
+    "id": "grima",
+    "name": "그리마 웜텅",
+    "catalogFaction": "isengard",
+    "recruitArmy": "isengard",
+    "identity": "grima",
+    "eraGate": false
+  },
+  {
+    "id": "khamul",
+    "name": "카물",
+    "catalogFaction": "angmar",
+    "recruitArmy": "angmar",
+    "identity": "khamul",
+    "eraGate": false
+  },
+  {
+    "id": "fingolfin",
+    "name": "핑골핀",
+    "catalogFaction": "elf",
+    "recruitArmy": "first_age",
+    "identity": "fingolfin",
+    "eraGate": true
+  },
+  {
+    "id": "imrahil",
+    "name": "임라힐",
+    "catalogFaction": "gondor",
+    "recruitArmy": "dol_amroth",
+    "identity": "imrahil",
+    "eraGate": false
+  },
+  {
+    "id": "merry",
+    "name": "메리아독",
+    "catalogFaction": "shire",
+    "recruitArmy": "shire",
+    "identity": "merry",
+    "eraGate": false
+  },
+  {
+    "id": "pippin",
+    "name": "피핀",
+    "catalogFaction": "shire",
+    "recruitArmy": "shire",
+    "identity": "pippin",
+    "eraGate": false
+  },
+  {
+    "id": "beorn",
+    "name": "베오른",
+    "catalogFaction": "beorning",
+    "recruitArmy": "beorning",
+    "identity": "beorn",
+    "eraGate": false
+  },
+  {
+    "id": "elendil",
+    "name": "엘렌딜",
+    "catalogFaction": "arnor",
+    "recruitArmy": "numenor",
+    "identity": "elendil",
+    "eraGate": true
+  },
+  {
+    "id": "melkor",
+    "name": "멜코르",
+    "catalogFaction": "angband",
+    "recruitArmy": "angband",
+    "identity": "morgoth",
+    "eraGate": false
+  },
+  {
+    "id": "bolg",
+    "name": "볼그",
+    "catalogFaction": "gundabad",
+    "recruitArmy": "gundabad",
+    "identity": "bolg",
+    "eraGate": false
+  },
+  {
+    "id": "easterling_warlord",
+    "name": "이스터링 장군",
+    "catalogFaction": "easterling",
+    "recruitArmy": "easterling",
+    "identity": "easterling_warlord",
+    "eraGate": false
+  },
+  {
+    "id": "radagast",
+    "name": "라다가스트",
+    "catalogFaction": "maiar",
+    "recruitArmy": "maiar",
+    "identity": "radagast",
+    "eraGate": false
+  },
+  {
+    "id": "thranduil",
+    "name": "트란두일",
+    "catalogFaction": "elf",
+    "recruitArmy": "mirkwood",
+    "identity": "thranduil",
+    "eraGate": false
+  },
+  {
+    "id": "celeborn",
+    "name": "켈레보른",
+    "catalogFaction": "lothlorien",
+    "recruitArmy": "lothlorien",
+    "identity": "celeborn",
+    "eraGate": false
+  },
+  {
+    "id": "bilbo",
+    "name": "빌보",
+    "catalogFaction": "shire",
+    "recruitArmy": "shire",
+    "identity": "bilbo",
+    "eraGate": false
+  },
+  {
+    "id": "king_of_the_dead",
+    "name": "망자의 왕",
+    "catalogFaction": "dead",
+    "recruitArmy": "dead",
+    "identity": "king_of_the_dead",
+    "eraGate": false
+  },
+  {
+    "id": "harad_chieftain",
+    "name": "하라드 족장",
+    "catalogFaction": "harad",
+    "recruitArmy": "harad",
+    "identity": "harad_chieftain",
+    "eraGate": false
+  },
+  {
+    "id": "uruk_captain",
+    "name": "우룩하이 대장",
+    "catalogFaction": "isengard",
+    "recruitArmy": "isengard",
+    "identity": "uruk_captain",
+    "eraGate": false
+  },
+  {
+    "id": "feanor",
+    "name": "페아노르",
+    "catalogFaction": "elf",
+    "recruitArmy": "first_age",
+    "identity": "feanor",
+    "eraGate": true
+  },
+  {
+    "id": "luthien",
+    "name": "루시엔",
+    "catalogFaction": "doriath",
+    "recruitArmy": "first_age",
+    "identity": "luthien",
+    "eraGate": true
+  },
+  {
+    "id": "beren",
+    "name": "베렌",
+    "catalogFaction": "men",
+    "recruitArmy": "first_age",
+    "identity": "beren",
+    "eraGate": true
+  },
+  {
+    "id": "turin",
+    "name": "투린",
+    "catalogFaction": "men",
+    "recruitArmy": "first_age",
+    "identity": "turin",
+    "eraGate": true
+  },
+  {
+    "id": "beleg",
+    "name": "벨레그",
+    "catalogFaction": "doriath",
+    "recruitArmy": "first_age",
+    "identity": "beleg",
+    "eraGate": true
+  },
+  {
+    "id": "huan",
+    "name": "훈",
+    "catalogFaction": "valinor",
+    "recruitArmy": "first_age",
+    "identity": "huan",
+    "eraGate": true
+  },
+  {
+    "id": "carcharoth",
+    "name": "카르하로스",
+    "catalogFaction": "angband",
+    "recruitArmy": "angband",
+    "identity": "carcharoth",
+    "eraGate": false
+  },
+  {
+    "id": "boldog",
+    "name": "볼독",
+    "catalogFaction": "angband",
+    "recruitArmy": "angband",
+    "identity": "boldog",
+    "eraGate": false
+  },
+  {
+    "id": "thorin",
+    "name": "토린 오큰실드",
+    "catalogFaction": "dwarf",
+    "recruitArmy": "khazad_dum",
+    "identity": "thorin",
+    "eraGate": false
+  },
+  {
+    "id": "tauriel",
+    "name": "타우리엘",
+    "catalogFaction": "elf",
+    "recruitArmy": "mirkwood",
+    "identity": "tauriel",
+    "eraGate": false
+  },
+  {
+    "id": "bard",
+    "name": "바드",
+    "catalogFaction": "men",
+    "recruitArmy": "dale",
+    "identity": "bard",
+    "eraGate": false
+  },
+  {
+    "id": "dain",
+    "name": "데인",
+    "catalogFaction": "dwarf",
+    "recruitArmy": "iron_hills",
+    "identity": "dain",
+    "eraGate": false
+  },
+  {
+    "id": "fili",
+    "name": "필리",
+    "catalogFaction": "dwarf",
+    "recruitArmy": "khazad_dum",
+    "identity": "fili",
+    "eraGate": false
+  },
+  {
+    "id": "kili",
+    "name": "킬리",
+    "catalogFaction": "dwarf",
+    "recruitArmy": "khazad_dum",
+    "identity": "kili",
+    "eraGate": false
+  },
+  {
+    "id": "azog",
+    "name": "아조그",
+    "catalogFaction": "gundabad",
+    "recruitArmy": "gundabad",
+    "identity": "azog",
+    "eraGate": false
+  },
+  {
+    "id": "azog_warg_rider",
+    "name": "아조그(흰 와르그)",
+    "catalogFaction": "gundabad",
+    "recruitArmy": "gundabad",
+    "identity": "azog",
+    "eraGate": false
+  },
+  {
+    "id": "necromancer",
+    "name": "네크로맨서",
+    "catalogFaction": "dol_guldur",
+    "recruitArmy": "dol_guldur",
+    "identity": "necromancer",
+    "eraGate": false
+  },
+  {
+    "id": "halbarad",
+    "name": "할바라드",
+    "catalogFaction": "arnor",
+    "recruitArmy": "arnor",
+    "identity": "halbarad",
+    "eraGate": false
+  },
+  {
+    "id": "beregond",
+    "name": "베레곤드",
+    "catalogFaction": "gondor",
+    "recruitArmy": "gondor",
+    "identity": "beregond",
+    "eraGate": false
+  },
+  {
+    "id": "elladan",
+    "name": "엘라단",
+    "catalogFaction": "rivendell",
+    "recruitArmy": "rivendell",
+    "identity": "elladan",
+    "eraGate": false
+  },
+  {
+    "id": "elrohir",
+    "name": "엘로히르",
+    "catalogFaction": "rivendell",
+    "recruitArmy": "rivendell",
+    "identity": "elrohir",
+    "eraGate": false
+  },
+  {
+    "id": "grimbeorn",
+    "name": "그림베오른",
+    "catalogFaction": "beorning",
+    "recruitArmy": "beorning",
+    "identity": "grimbeorn",
+    "eraGate": false
+  },
+  {
+    "id": "suladan",
+    "name": "술라단",
+    "catalogFaction": "harad",
+    "recruitArmy": "harad",
+    "identity": "suladan",
+    "eraGate": false
+  },
+  {
+    "id": "shagrat",
+    "name": "샤그랏",
+    "catalogFaction": "mordor",
+    "recruitArmy": "mordor",
+    "identity": "shagrat",
+    "eraGate": false
+  },
+  {
+    "id": "gorbag",
+    "name": "고르바그",
+    "catalogFaction": "mordor",
+    "recruitArmy": "mordor",
+    "identity": "gorbag",
+    "eraGate": false
+  },
+  {
+    "id": "balin",
+    "name": "발린",
+    "catalogFaction": "dwarf",
+    "recruitArmy": "khazad_dum",
+    "identity": "balin",
+    "eraGate": false
+  },
+  {
+    "id": "dwalin",
+    "name": "드왈린",
+    "catalogFaction": "dwarf",
+    "recruitArmy": "khazad_dum",
+    "identity": "dwalin",
+    "eraGate": false
+  },
+  {
+    "id": "gloin",
+    "name": "글로인",
+    "catalogFaction": "dwarf",
+    "recruitArmy": "khazad_dum",
+    "identity": "gloin",
+    "eraGate": false
+  },
+  {
+    "id": "oin",
+    "name": "오인",
+    "catalogFaction": "dwarf",
+    "recruitArmy": "khazad_dum",
+    "identity": "oin",
+    "eraGate": false
+  },
+  {
+    "id": "nori",
+    "name": "노리",
+    "catalogFaction": "dwarf",
+    "recruitArmy": "khazad_dum",
+    "identity": "nori",
+    "eraGate": false
+  },
+  {
+    "id": "ori",
+    "name": "오리",
+    "catalogFaction": "dwarf",
+    "recruitArmy": "khazad_dum",
+    "identity": "ori",
+    "eraGate": false
+  },
+  {
+    "id": "dori",
+    "name": "도리",
+    "catalogFaction": "dwarf",
+    "recruitArmy": "khazad_dum",
+    "identity": "dori",
+    "eraGate": false
+  },
+  {
+    "id": "bifur",
+    "name": "비푸르",
+    "catalogFaction": "dwarf",
+    "recruitArmy": "khazad_dum",
+    "identity": "bifur",
+    "eraGate": false
+  },
+  {
+    "id": "bofur",
+    "name": "보푸르",
+    "catalogFaction": "dwarf",
+    "recruitArmy": "khazad_dum",
+    "identity": "bofur",
+    "eraGate": false
+  },
+  {
+    "id": "bombur",
+    "name": "봄부르",
+    "catalogFaction": "dwarf",
+    "recruitArmy": "khazad_dum",
+    "identity": "bombur",
+    "eraGate": false
+  },
+  {
+    "id": "gil_galad",
+    "name": "길갈라드",
+    "catalogFaction": "elf",
+    "recruitArmy": "rivendell",
+    "identity": "gil_galad",
+    "eraGate": true
+  },
+  {
+    "id": "cirdan",
+    "name": "키르단",
+    "catalogFaction": "elf",
+    "recruitArmy": "rivendell",
+    "identity": "cirdan",
+    "eraGate": true
+  },
+  {
+    "id": "arwen",
+    "name": "아르웬",
+    "catalogFaction": "rivendell",
+    "recruitArmy": "rivendell",
+    "identity": "arwen",
+    "eraGate": false
+  },
+  {
+    "id": "lindir",
+    "name": "린디르",
+    "catalogFaction": "rivendell",
+    "recruitArmy": "rivendell",
+    "identity": "lindir",
+    "eraGate": false
+  },
+  {
+    "id": "erestor",
+    "name": "에레스토르",
+    "catalogFaction": "rivendell",
+    "recruitArmy": "rivendell",
+    "identity": "erestor",
+    "eraGate": false
+  },
+  {
+    "id": "rumil",
+    "name": "루밀",
+    "catalogFaction": "lothlorien",
+    "recruitArmy": "lothlorien",
+    "identity": "rumil",
+    "eraGate": false
+  },
+  {
+    "id": "orophin",
+    "name": "오로핀",
+    "catalogFaction": "lothlorien",
+    "recruitArmy": "lothlorien",
+    "identity": "orophin",
+    "eraGate": false
+  },
+  {
+    "id": "imrahil_mounted",
+    "name": "임라힐(기마)",
+    "catalogFaction": "gondor",
+    "recruitArmy": "dol_amroth",
+    "identity": "imrahil",
+    "eraGate": false
+  },
+  {
+    "id": "gandalf_mounted",
+    "name": "간달프(섀도우팩스)",
+    "catalogFaction": "maiar",
+    "recruitArmy": "maiar",
+    "identity": "gandalf",
+    "eraGate": false
+  },
+  {
+    "id": "thranduil_mounted",
+    "name": "스란두일(기마)",
+    "catalogFaction": "elf",
+    "recruitArmy": "mirkwood",
+    "identity": "thranduil",
+    "eraGate": false
+  },
+  {
+    "id": "aragorn_mounted",
+    "name": "아라곤(기마)",
+    "catalogFaction": "gondor",
+    "recruitArmy": "gondor",
+    "identity": "aragorn",
+    "eraGate": false
+  },
+  {
+    "id": "muzgur",
+    "name": "무즈구르",
+    "catalogFaction": "angmar",
+    "recruitArmy": "angmar",
+    "identity": "muzgur",
+    "eraGate": false
+  },
+  {
+    "id": "mahud_chieftain",
+    "name": "마후드 족장",
+    "catalogFaction": "harad",
+    "recruitArmy": "harad",
+    "identity": "mahud_chieftain",
+    "eraGate": false
+  },
+  {
+    "id": "eowyn_mounted",
+    "name": "에오윈(기마)",
+    "catalogFaction": "rohan",
+    "recruitArmy": "rohan",
+    "identity": "eowyn",
+    "eraGate": false
+  },
+  {
+    "id": "forlong",
+    "name": "포를롱",
+    "catalogFaction": "gondor",
+    "recruitArmy": "gondor",
+    "identity": "forlong",
+    "eraGate": false
+  },
+  {
+    "id": "erkenbrand",
+    "name": "에르켄브란트",
+    "catalogFaction": "rohan",
+    "recruitArmy": "rohan",
+    "identity": "erkenbrand",
+    "eraGate": false
+  },
+  {
+    "id": "damrod",
+    "name": "담로드",
+    "catalogFaction": "gondor",
+    "recruitArmy": "gondor",
+    "identity": "damrod",
+    "eraGate": false
+  },
+  {
+    "id": "mablung",
+    "name": "마블룽",
+    "catalogFaction": "gondor",
+    "recruitArmy": "gondor",
+    "identity": "mablung",
+    "eraGate": false
+  },
+  {
+    "id": "duinhir",
+    "name": "두인히르",
+    "catalogFaction": "gondor",
+    "recruitArmy": "gondor",
+    "identity": "duinhir",
+    "eraGate": false
+  },
+  {
+    "id": "ugluk",
+    "name": "우글룩",
+    "catalogFaction": "isengard",
+    "recruitArmy": "isengard",
+    "identity": "ugluk",
+    "eraGate": false
+  },
+  {
+    "id": "mauhur",
+    "name": "마우후르",
+    "catalogFaction": "isengard",
+    "recruitArmy": "isengard",
+    "identity": "mauhur",
+    "eraGate": false
+  },
+  {
+    "id": "vrasku",
+    "name": "브라스쿠",
+    "catalogFaction": "isengard",
+    "recruitArmy": "isengard",
+    "identity": "vrasku",
+    "eraGate": false
+  },
+  {
+    "id": "dark_marshal",
+    "name": "어둠의 장군",
+    "catalogFaction": "angmar",
+    "recruitArmy": "angmar",
+    "identity": "dark_marshal",
+    "eraGate": false
+  },
+  {
+    "id": "shadow_lord",
+    "name": "그림자 군주",
+    "catalogFaction": "angmar",
+    "recruitArmy": "angmar",
+    "identity": "shadow_lord",
+    "eraGate": false
+  },
+  {
+    "id": "betrayer",
+    "name": "배신자",
+    "catalogFaction": "angmar",
+    "recruitArmy": "angmar",
+    "identity": "betrayer",
+    "eraGate": false
+  },
+  {
+    "id": "tainted",
+    "name": "타락한 자",
+    "catalogFaction": "angmar",
+    "recruitArmy": "angmar",
+    "identity": "tainted",
+    "eraGate": false
+  },
+  {
+    "id": "undying",
+    "name": "죽지 않는 자",
+    "catalogFaction": "angmar",
+    "recruitArmy": "angmar",
+    "identity": "undying",
+    "eraGate": false
+  },
+  {
+    "id": "knight_of_umbar",
+    "name": "움바르의 기사",
+    "catalogFaction": "harad",
+    "recruitArmy": "harad",
+    "identity": "knight_of_umbar",
+    "eraGate": false
+  },
+  {
+    "id": "isildur",
+    "name": "이실두르",
+    "catalogFaction": "gondor",
+    "recruitArmy": "numenor",
+    "identity": "isildur",
+    "eraGate": true
+  },
+  {
+    "id": "gandalf_white",
+    "name": "간달프(백색)",
+    "catalogFaction": "maiar",
+    "recruitArmy": "maiar",
+    "identity": "gandalf",
+    "eraGate": false
+  },
+  {
+    "id": "denethor",
+    "name": "데네소르",
+    "catalogFaction": "gondor",
+    "recruitArmy": "gondor",
+    "identity": "denethor",
+    "eraGate": false
+  },
+  {
+    "id": "boromir_mounted",
+    "name": "보로미르(기마)",
+    "catalogFaction": "gondor",
+    "recruitArmy": "gondor",
+    "identity": "boromir",
+    "eraGate": false
+  },
+  {
+    "id": "elrond_mounted",
+    "name": "엘론드(기마)",
+    "catalogFaction": "rivendell",
+    "recruitArmy": "rivendell",
+    "identity": "elrond",
+    "eraGate": false
+  },
+  {
+    "id": "gandalf_white_mounted",
+    "name": "간달프 백색(기마)",
+    "catalogFaction": "maiar",
+    "recruitArmy": "maiar",
+    "identity": "gandalf",
+    "eraGate": false
+  },
+  {
+    "id": "theoden_foot",
+    "name": "세오덴(도보)",
+    "catalogFaction": "rohan",
+    "recruitArmy": "rohan",
+    "identity": "theoden",
+    "eraGate": false
+  },
+  {
+    "id": "dain_boar",
+    "name": "다인(맷돼지)",
+    "catalogFaction": "dwarf",
+    "recruitArmy": "iron_hills",
+    "identity": "dain",
+    "eraGate": false
+  },
+  {
+    "id": "faramir_mounted",
+    "name": "파라미르(기마)",
+    "catalogFaction": "gondor",
+    "recruitArmy": "gondor",
+    "identity": "faramir",
+    "eraGate": false
+  },
+  {
+    "id": "eomer_foot",
+    "name": "에오메르(도보)",
+    "catalogFaction": "rohan",
+    "recruitArmy": "rohan",
+    "identity": "eomer",
+    "eraGate": false
+  },
+  {
+    "id": "elfhelm",
+    "name": "엘프헬름",
+    "catalogFaction": "rohan",
+    "recruitArmy": "rohan",
+    "identity": "elfhelm",
+    "eraGate": false
+  },
+  {
+    "id": "elfhelm_mounted",
+    "name": "엘프헬름(기마)",
+    "catalogFaction": "rohan",
+    "recruitArmy": "rohan",
+    "identity": "elfhelm",
+    "eraGate": false
+  },
+  {
+    "id": "warg_chieftain",
+    "name": "와르그 우두머리 기병",
+    "catalogFaction": "isengard",
+    "recruitArmy": "isengard",
+    "identity": "warg_chieftain",
+    "eraGate": false
+  },
+  {
+    "id": "aragorn_blackgate",
+    "name": "아라곤(검은문)",
+    "catalogFaction": "gondor",
+    "recruitArmy": "gondor",
+    "identity": "aragorn",
+    "eraGate": false
+  },
+  {
+    "id": "aragorn_blackgate_mounted",
+    "name": "아라곤(검은문·기마)",
+    "catalogFaction": "gondor",
+    "recruitArmy": "gondor",
+    "identity": "aragorn",
+    "eraGate": false
+  },
+  {
+    "id": "azog_foot",
+    "name": "아조그(도보)",
+    "catalogFaction": "gundabad",
+    "recruitArmy": "gundabad",
+    "identity": "azog",
+    "eraGate": false
+  },
+  {
+    "id": "anborn",
+    "name": "안보른",
+    "catalogFaction": "gondor",
+    "recruitArmy": "gondor",
+    "identity": "anborn",
+    "eraGate": false
+  },
+  {
+    "id": "hirluin",
+    "name": "히를루인",
+    "catalogFaction": "gondor",
+    "recruitArmy": "gondor",
+    "identity": "hirluin",
+    "eraGate": false
+  },
+  {
+    "id": "madril",
+    "name": "마드릴",
+    "catalogFaction": "gondor",
+    "recruitArmy": "gondor",
+    "identity": "madril",
+    "eraGate": false
+  },
+  {
+    "id": "irolas",
+    "name": "이롤라스",
+    "catalogFaction": "gondor",
+    "recruitArmy": "gondor",
+    "identity": "irolas",
+    "eraGate": false
+  },
+  {
+    "id": "hurin",
+    "name": "후린",
+    "catalogFaction": "gondor",
+    "recruitArmy": "gondor",
+    "identity": "hurin",
+    "eraGate": false
+  },
+  {
+    "id": "cirion",
+    "name": "키리온",
+    "catalogFaction": "gondor",
+    "recruitArmy": "gondor",
+    "identity": "cirion",
+    "eraGate": false
+  },
+  {
+    "id": "theodred",
+    "name": "테오드레드",
+    "catalogFaction": "rohan",
+    "recruitArmy": "rohan",
+    "identity": "theodred",
+    "eraGate": false
+  },
+  {
+    "id": "hama",
+    "name": "하마",
+    "catalogFaction": "rohan",
+    "recruitArmy": "rohan",
+    "identity": "hama",
+    "eraGate": false
+  },
+  {
+    "id": "deorwine",
+    "name": "데오르바인",
+    "catalogFaction": "rohan",
+    "recruitArmy": "rohan",
+    "identity": "deorwine",
+    "eraGate": false
+  },
+  {
+    "id": "grimbold",
+    "name": "그림볼드",
+    "catalogFaction": "rohan",
+    "recruitArmy": "rohan",
+    "identity": "grimbold",
+    "eraGate": false
+  },
+  {
+    "id": "harding",
+    "name": "하딩",
+    "catalogFaction": "rohan",
+    "recruitArmy": "rohan",
+    "identity": "harding",
+    "eraGate": false
+  },
+  {
+    "id": "arvedui",
+    "name": "아르베두이",
+    "catalogFaction": "arnor",
+    "recruitArmy": "arnor",
+    "identity": "arvedui",
+    "eraGate": false
+  },
+  {
+    "id": "malbeth",
+    "name": "말베스",
+    "catalogFaction": "arnor",
+    "recruitArmy": "arnor",
+    "identity": "malbeth",
+    "eraGate": false
+  },
+  {
+    "id": "numenorean_captain",
+    "name": "누메노르 대장",
+    "catalogFaction": "gondor",
+    "recruitArmy": "numenor",
+    "identity": "numenorean_captain",
+    "eraGate": false
+  },
+  {
+    "id": "hasharin",
+    "name": "하샤린",
+    "catalogFaction": "harad",
+    "recruitArmy": "harad",
+    "identity": "hasharin",
+    "eraGate": false
+  },
+  {
+    "id": "golden_king",
+    "name": "아브라칸의 황금왕",
+    "catalogFaction": "harad",
+    "recruitArmy": "harad",
+    "identity": "golden_king",
+    "eraGate": false
+  },
+  {
+    "id": "mahud_beastmaster",
+    "name": "마후드 야수조련사",
+    "catalogFaction": "harad",
+    "recruitArmy": "harad",
+    "identity": "mahud_beastmaster",
+    "eraGate": false
+  },
+  {
+    "id": "amdur",
+    "name": "암두르 검의 군주",
+    "catalogFaction": "easterling",
+    "recruitArmy": "easterling",
+    "identity": "amdur",
+    "eraGate": false
+  },
+  {
+    "id": "forsaken",
+    "name": "버려진 자(나즈굴)",
+    "catalogFaction": "dol_guldur",
+    "recruitArmy": "dol_guldur",
+    "identity": "forsaken",
+    "eraGate": false
+  },
+  {
+    "id": "castellan",
+    "name": "돌 굴두르 성주",
+    "catalogFaction": "dol_guldur",
+    "recruitArmy": "dol_guldur",
+    "identity": "castellan",
+    "eraGate": false
+  },
+  {
+    "id": "dungeon_keeper",
+    "name": "감옥지기",
+    "catalogFaction": "dol_guldur",
+    "recruitArmy": "dol_guldur",
+    "identity": "dungeon_keeper",
+    "eraGate": false
+  },
+  {
+    "id": "kardush",
+    "name": "카두쉬 화염술사",
+    "catalogFaction": "mordor",
+    "recruitArmy": "mordor",
+    "identity": "kardush",
+    "eraGate": false
+  },
+  {
+    "id": "numenorean_marshal",
+    "name": "검은 누메노르 사령관",
+    "catalogFaction": "mordor",
+    "recruitArmy": "mordor",
+    "identity": "numenorean_marshal",
+    "eraGate": false
+  },
+  {
+    "id": "thrydan",
+    "name": "트리단 울프스베인",
+    "catalogFaction": "dunland",
+    "recruitArmy": "dunland",
+    "identity": "thrydan",
+    "eraGate": false
+  },
+  {
+    "id": "gorulf",
+    "name": "고룰프 아이언스킨",
+    "catalogFaction": "dunland",
+    "recruitArmy": "dunland",
+    "identity": "gorulf",
+    "eraGate": false
+  },
+  {
+    "id": "paladin_took",
+    "name": "팔라딘 툭",
+    "catalogFaction": "shire",
+    "recruitArmy": "shire",
+    "identity": "paladin_took",
+    "eraGate": false
+  },
+  {
+    "id": "farmer_maggot",
+    "name": "농부 매곳",
+    "catalogFaction": "shire",
+    "recruitArmy": "shire",
+    "identity": "farmer_maggot",
+    "eraGate": false
+  },
+  {
+    "id": "fredegar",
+    "name": "프레데가르 볼저",
+    "catalogFaction": "shire",
+    "recruitArmy": "shire",
+    "identity": "fredegar",
+    "eraGate": false
+  },
+  {
+    "id": "durin_vi",
+    "name": "두린 6세",
+    "catalogFaction": "dwarf",
+    "recruitArmy": "khazad_dum",
+    "identity": "durin_vi",
+    "eraGate": false
+  },
+  {
+    "id": "arathorn",
+    "name": "아라손",
+    "catalogFaction": "arnor",
+    "recruitArmy": "arnor",
+    "identity": "arathorn",
+    "eraGate": false
+  },
+  {
+    "id": "angbor",
+    "name": "앵보르 무서운 자",
+    "catalogFaction": "gondor",
+    "recruitArmy": "gondor",
+    "identity": "angbor",
+    "eraGate": false
+  },
+  {
+    "id": "dunhere",
+    "name": "둔헤레",
+    "catalogFaction": "rohan",
+    "recruitArmy": "rohan",
+    "identity": "dunhere",
+    "eraGate": false
+  },
+  {
+    "id": "haleth",
+    "name": "할레스",
+    "catalogFaction": "rohan",
+    "recruitArmy": "rohan",
+    "identity": "haleth",
+    "eraGate": false
+  },
+  {
+    "id": "bandobras",
+    "name": "반도브라스 툭",
+    "catalogFaction": "shire",
+    "recruitArmy": "shire",
+    "identity": "bandobras",
+    "eraGate": false
+  },
+  {
+    "id": "gildor",
+    "name": "길도르",
+    "catalogFaction": "rivendell",
+    "recruitArmy": "rivendell",
+    "identity": "gildor",
+    "eraGate": false
+  },
+  {
+    "id": "grishnakh",
+    "name": "그리쉬나크",
+    "catalogFaction": "mordor",
+    "recruitArmy": "mordor",
+    "identity": "grishnakh",
+    "eraGate": false
+  },
+  {
+    "id": "snaga",
+    "name": "스나가",
+    "catalogFaction": "isengard",
+    "recruitArmy": "isengard",
+    "identity": "snaga",
+    "eraGate": false
+  },
+  {
+    "id": "zagdush",
+    "name": "자그두쉬",
+    "catalogFaction": "moria",
+    "recruitArmy": "moria",
+    "identity": "zagdush",
+    "eraGate": false
+  },
+  {
+    "id": "dalamyr",
+    "name": "달라미르",
+    "catalogFaction": "umbar",
+    "recruitArmy": "umbar",
+    "identity": "dalamyr",
+    "eraGate": false
+  },
+  {
+    "id": "yazneg",
+    "name": "야즈네그",
+    "catalogFaction": "gundabad",
+    "recruitArmy": "gundabad",
+    "identity": "yazneg",
+    "eraGate": false
+  },
+  {
+    "id": "eorl_the_young",
+    "name": "에오를",
+    "catalogFaction": "rohan",
+    "recruitArmy": "rohan",
+    "identity": "eorl_the_young",
+    "eraGate": false
+  },
+  {
+    "id": "helm_hammerhand",
+    "name": "헬름 해머핸드",
+    "catalogFaction": "rohan",
+    "recruitArmy": "rohan",
+    "identity": "helm_hammerhand",
+    "eraGate": false
+  },
+  {
+    "id": "dervorin",
+    "name": "데르보린",
+    "catalogFaction": "gondor",
+    "recruitArmy": "gondor",
+    "identity": "dervorin",
+    "eraGate": false
+  },
+  {
+    "id": "guritz",
+    "name": "구리츠",
+    "catalogFaction": "mordor",
+    "recruitArmy": "mordor",
+    "identity": "guritz",
+    "eraGate": false
+  },
+  {
+    "id": "targsh",
+    "name": "타르그쉬",
+    "catalogFaction": "isengard",
+    "recruitArmy": "isengard",
+    "identity": "targsh",
+    "eraGate": false
+  },
+  {
+    "id": "durburz",
+    "name": "두르부르즈",
+    "catalogFaction": "moria",
+    "recruitArmy": "moria",
+    "identity": "durburz",
+    "eraGate": false
+  },
+  {
+    "id": "fimbul",
+    "name": "핌불",
+    "catalogFaction": "gundabad",
+    "recruitArmy": "gundabad",
+    "identity": "fimbul",
+    "eraGate": false
+  },
+  {
+    "id": "narzug",
+    "name": "나르주그",
+    "catalogFaction": "gundabad",
+    "recruitArmy": "gundabad",
+    "identity": "narzug",
+    "eraGate": false
+  },
+  {
+    "id": "mablung_sindar",
+    "name": "마블룽",
+    "catalogFaction": "doriath",
+    "recruitArmy": "first_age",
+    "identity": "mablung_sindar",
+    "eraGate": true
+  },
+  {
+    "id": "melian",
+    "name": "멜리안",
+    "catalogFaction": "maiar",
+    "recruitArmy": "first_age",
+    "identity": "melian",
+    "eraGate": true
+  },
+  {
+    "id": "mim",
+    "name": "밈",
+    "catalogFaction": "dwarf",
+    "recruitArmy": "khazad_dum",
+    "identity": "mim",
+    "eraGate": false
+  },
+  {
+    "id": "mirkwood_captain",
+    "name": "머크우드 대장",
+    "catalogFaction": "elf",
+    "recruitArmy": "mirkwood",
+    "identity": "mirkwood_captain",
+    "eraGate": false
+  },
+  {
+    "id": "ufthak",
+    "name": "우프탁",
+    "catalogFaction": "mordor",
+    "recruitArmy": "mordor",
+    "identity": "ufthak",
+    "eraGate": false
+  },
+  {
+    "id": "orc_sergeant",
+    "name": "오크 하사",
+    "catalogFaction": "mordor",
+    "recruitArmy": "mordor",
+    "identity": "orc_sergeant",
+    "eraGate": false
+  },
+  {
+    "id": "ashrak",
+    "name": "아슈라크",
+    "catalogFaction": "dol_guldur",
+    "recruitArmy": "dol_guldur",
+    "identity": "ashrak",
+    "eraGate": false
+  },
+  {
+    "id": "wulf",
+    "name": "울프",
+    "catalogFaction": "dunland",
+    "recruitArmy": "dunland",
+    "identity": "wulf",
+    "eraGate": false
+  },
+  {
+    "id": "hera",
+    "name": "헤라",
+    "catalogFaction": "rohan",
+    "recruitArmy": "rohan",
+    "identity": "hera",
+    "eraGate": false
+  },
+  {
+    "id": "frealaf",
+    "name": "프레알라프",
+    "catalogFaction": "rohan",
+    "recruitArmy": "rohan",
+    "identity": "frealaf",
+    "eraGate": false
+  },
+  {
+    "id": "far_harad_chieftain",
+    "name": "먼 하라드 족장",
+    "catalogFaction": "harad",
+    "recruitArmy": "harad",
+    "identity": "far_harad_chieftain",
+    "eraGate": false
+  },
+  {
+    "id": "duilin",
+    "name": "두일린",
+    "catalogFaction": "gondor",
+    "recruitArmy": "gondor",
+    "identity": "duilin",
+    "eraGate": false
+  },
+  {
+    "id": "derufin",
+    "name": "데루핀",
+    "catalogFaction": "gondor",
+    "recruitArmy": "gondor",
+    "identity": "derufin",
+    "eraGate": false
+  },
+  {
+    "id": "hirgon",
+    "name": "히르곤",
+    "catalogFaction": "gondor",
+    "recruitArmy": "gondor",
+    "identity": "hirgon",
+    "eraGate": false
+  },
+  {
+    "id": "pippin_citadel",
+    "name": "성채 근위병 피핀",
+    "catalogFaction": "gondor",
+    "recruitArmy": "gondor",
+    "identity": "pippin",
+    "eraGate": false
+  },
+  {
+    "id": "beorn_bear",
+    "name": "베오른 (곰)",
+    "catalogFaction": "beorning",
+    "recruitArmy": "beorning",
+    "identity": "beorn",
+    "eraGate": false
+  },
+  {
+    "id": "gwaihir",
+    "name": "그와이히르",
+    "catalogFaction": "eagle",
+    "recruitArmy": "eagle",
+    "identity": "gwaihir",
+    "eraGate": false
+  },
+  {
+    "id": "lobelia",
+    "name": "로벨리아",
+    "catalogFaction": "shire",
+    "recruitArmy": "shire",
+    "identity": "lobelia",
+    "eraGate": false
+  },
+  {
+    "id": "will_whitfoot",
+    "name": "윌 휫풋",
+    "catalogFaction": "shire",
+    "recruitArmy": "shire",
+    "identity": "will_whitfoot",
+    "eraGate": false
+  },
+  {
+    "id": "iron_hills_captain",
+    "name": "아이언 힐즈 대장",
+    "catalogFaction": "dwarf",
+    "recruitArmy": "iron_hills",
+    "identity": "iron_hills_captain",
+    "eraGate": false
+  },
+  {
+    "id": "pallando",
+    "name": "팔란도",
+    "catalogFaction": "maiar",
+    "recruitArmy": "maiar",
+    "identity": "pallando",
+    "eraGate": false
+  },
+  {
+    "id": "alatar",
+    "name": "알라타르",
+    "catalogFaction": "maiar",
+    "recruitArmy": "maiar",
+    "identity": "alatar",
+    "eraGate": false
+  },
+  {
+    "id": "annatar",
+    "name": "안나타르",
+    "catalogFaction": "mordor",
+    "recruitArmy": "mordor",
+    "identity": "sauron",
+    "eraGate": false
+  },
+  {
+    "id": "sauron_wolf",
+    "name": "사우론 (늑대인간)",
+    "catalogFaction": "mordor",
+    "recruitArmy": "mordor",
+    "identity": "sauron",
+    "eraGate": false
+  },
+  {
+    "id": "landroval",
+    "name": "란드로발",
+    "catalogFaction": "eagle",
+    "recruitArmy": "eagle",
+    "identity": "landroval",
+    "eraGate": false
+  },
+  {
+    "id": "meneldor",
+    "name": "메넬도르",
+    "catalogFaction": "eagle",
+    "recruitArmy": "eagle",
+    "identity": "meneldor",
+    "eraGate": false
+  },
+  {
+    "id": "azaghal",
+    "name": "아자갈",
+    "catalogFaction": "dwarf",
+    "recruitArmy": "first_age",
+    "identity": "azaghal",
+    "eraGate": true
+  },
+  {
+    "id": "nain",
+    "name": "나인",
+    "catalogFaction": "dwarf",
+    "recruitArmy": "iron_hills",
+    "identity": "nain",
+    "eraGate": false
+  },
+  {
+    "id": "maglor",
+    "name": "마글로르",
+    "catalogFaction": "elf",
+    "recruitArmy": "first_age",
+    "identity": "maglor",
+    "eraGate": true
+  },
+  {
+    "id": "gwindor",
+    "name": "그윈도르",
+    "catalogFaction": "elf",
+    "recruitArmy": "first_age",
+    "identity": "gwindor",
+    "eraGate": true
+  },
+  {
+    "id": "celebrimbor",
+    "name": "켈레브림보르",
+    "catalogFaction": "elf",
+    "recruitArmy": "first_age",
+    "identity": "celebrimbor",
+    "eraGate": true
+  },
+  {
+    "id": "daeron",
+    "name": "다에론",
+    "catalogFaction": "doriath",
+    "recruitArmy": "first_age",
+    "identity": "daeron",
+    "eraGate": true
+  },
+  {
+    "id": "earnur",
+    "name": "에아르누르",
+    "catalogFaction": "gondor",
+    "recruitArmy": "gondor",
+    "identity": "earnur",
+    "eraGate": false
+  },
+  {
+    "id": "sangarunya",
+    "name": "상가루냐",
+    "catalogFaction": "umbar",
+    "recruitArmy": "umbar",
+    "identity": "sangarunya",
+    "eraGate": false
+  },
+  {
+    "id": "huor",
+    "name": "후오르",
+    "catalogFaction": "men",
+    "recruitArmy": "first_age",
+    "identity": "huor",
+    "eraGate": true
+  },
+  {
+    "id": "barahir",
+    "name": "바라히르",
+    "catalogFaction": "men",
+    "recruitArmy": "first_age",
+    "identity": "barahir",
+    "eraGate": true
+  },
+  {
+    "id": "elendur",
+    "name": "엘렌두르",
+    "catalogFaction": "numenor",
+    "recruitArmy": "numenor",
+    "identity": "elendur",
+    "eraGate": true
+  },
+  {
+    "id": "arpharazon",
+    "name": "아르파라존",
+    "catalogFaction": "numenor",
+    "recruitArmy": "numenor",
+    "identity": "arpharazon",
+    "eraGate": true
+  },
+  {
+    "id": "thorondor",
+    "name": "톨론도르",
+    "catalogFaction": "eagle",
+    "recruitArmy": "eagle",
+    "identity": "thorondor",
+    "eraGate": false
+  },
+  {
+    "id": "anarion",
+    "name": "아나리온",
+    "catalogFaction": "numenor",
+    "recruitArmy": "numenor",
+    "identity": "anarion",
+    "eraGate": true
+  },
+  {
+    "id": "earendil",
+    "name": "에아렌딜",
+    "catalogFaction": "elf",
+    "recruitArmy": "first_age",
+    "identity": "earendil",
+    "eraGate": true
+  },
+  {
+    "id": "maeglin",
+    "name": "매글린",
+    "catalogFaction": "elf",
+    "recruitArmy": "first_age",
+    "identity": "maeglin",
+    "eraGate": true
+  },
+  {
+    "id": "eol",
+    "name": "에올",
+    "catalogFaction": "elf",
+    "recruitArmy": "first_age",
+    "identity": "eol",
+    "eraGate": true
+  },
+  {
+    "id": "galdor",
+    "name": "갈도르",
+    "catalogFaction": "elf",
+    "recruitArmy": "first_age",
+    "identity": "galdor",
+    "eraGate": true
+  },
+  {
+    "id": "thrain",
+    "name": "스라인",
+    "catalogFaction": "dwarf",
+    "recruitArmy": "khazad_dum",
+    "identity": "thrain",
+    "eraGate": false
+  },
+  {
+    "id": "thror",
+    "name": "스로르",
+    "catalogFaction": "dwarf",
+    "recruitArmy": "khazad_dum",
+    "identity": "thror",
+    "eraGate": false
+  },
+  {
+    "id": "golfimbul",
+    "name": "골핌불",
+    "catalogFaction": "moria",
+    "recruitArmy": "moria",
+    "identity": "golfimbul",
+    "eraGate": false
+  },
+  {
+    "id": "eomund",
+    "name": "에오문드",
+    "catalogFaction": "rohan",
+    "recruitArmy": "rohan",
+    "identity": "eomund",
+    "eraGate": false
+  },
+  {
+    "id": "guthlaf",
+    "name": "구슬라프",
+    "catalogFaction": "rohan",
+    "recruitArmy": "rohan",
+    "identity": "guthlaf",
+    "eraGate": false
+  },
+  {
+    "id": "corsair_captain",
+    "name": "움바 선장",
+    "catalogFaction": "umbar",
+    "recruitArmy": "umbar",
+    "identity": "corsair_captain",
+    "eraGate": false
+  },
+  {
+    "id": "ingold",
+    "name": "인골드",
+    "catalogFaction": "gondor",
+    "recruitArmy": "gondor",
+    "identity": "ingold",
+    "eraGate": false
+  },
+  {
+    "id": "deorwine_mounted",
+    "name": "데오르바인(기마)",
+    "catalogFaction": "rohan",
+    "recruitArmy": "rohan",
+    "identity": "deorwine",
+    "eraGate": false
+  },
+  {
+    "id": "grimbold_mounted",
+    "name": "그림볼드(기마)",
+    "catalogFaction": "rohan",
+    "recruitArmy": "rohan",
+    "identity": "grimbold",
+    "eraGate": false
+  },
+  {
+    "id": "harding_mounted",
+    "name": "하딩(기마)",
+    "catalogFaction": "rohan",
+    "recruitArmy": "rohan",
+    "identity": "harding",
+    "eraGate": false
+  },
+  {
+    "id": "dunhere_mounted",
+    "name": "둔헤레(기마)",
+    "catalogFaction": "rohan",
+    "recruitArmy": "rohan",
+    "identity": "dunhere",
+    "eraGate": false
+  },
+  {
+    "id": "guthlaf_mounted",
+    "name": "구슬라프(기마)",
+    "catalogFaction": "rohan",
+    "recruitArmy": "rohan",
+    "identity": "guthlaf",
+    "eraGate": false
+  },
+  {
+    "id": "fingon_mounted",
+    "name": "핑곤(기마)",
+    "catalogFaction": "elf",
+    "recruitArmy": "first_age",
+    "identity": "fingon",
+    "eraGate": true
+  },
+  {
+    "id": "ecthelion_mounted",
+    "name": "엑텔리온(기마)",
+    "catalogFaction": "elf",
+    "recruitArmy": "first_age",
+    "identity": "ecthelion",
+    "eraGate": true
+  },
+  {
+    "id": "finrod_felagund_mounted",
+    "name": "핀로드 펠라군드(기마)",
+    "catalogFaction": "elf",
+    "recruitArmy": "first_age",
+    "identity": "finrod_felagund",
+    "eraGate": true
+  },
+  {
+    "id": "maedhros_mounted",
+    "name": "마이드로스(기마)",
+    "catalogFaction": "elf",
+    "recruitArmy": "first_age",
+    "identity": "maedhros",
+    "eraGate": true
+  },
+  {
+    "id": "celegorm_mounted",
+    "name": "켈레고름(기마)",
+    "catalogFaction": "elf",
+    "recruitArmy": "first_age",
+    "identity": "celegorm",
+    "eraGate": true
+  },
+  {
+    "id": "thingol_mounted",
+    "name": "싱골(기마)",
+    "catalogFaction": "doriath",
+    "recruitArmy": "first_age",
+    "identity": "thingol",
+    "eraGate": true
+  },
+  {
+    "id": "turgon_mounted",
+    "name": "투르곤(기마)",
+    "catalogFaction": "elf",
+    "recruitArmy": "first_age",
+    "identity": "turgon",
+    "eraGate": true
+  },
+  {
+    "id": "cirdan_mounted",
+    "name": "키르단(기마)",
+    "catalogFaction": "elf",
+    "recruitArmy": "rivendell",
+    "identity": "cirdan",
+    "eraGate": true
+  },
+  {
+    "id": "gil_galad_mounted",
+    "name": "길갈라드(기마)",
+    "catalogFaction": "elf",
+    "recruitArmy": "rivendell",
+    "identity": "gil_galad",
+    "eraGate": true
+  },
+  {
+    "id": "gamling_mounted",
+    "name": "감링(기마)",
+    "catalogFaction": "rohan",
+    "recruitArmy": "rohan",
+    "identity": "gamling",
+    "eraGate": false
+  },
+  {
+    "id": "erkenbrand_mounted",
+    "name": "에르켄브란드(기마)",
+    "catalogFaction": "rohan",
+    "recruitArmy": "rohan",
+    "identity": "erkenbrand",
+    "eraGate": false
+  },
+  {
+    "id": "eorl_the_young_mounted",
+    "name": "에오를(기마)",
+    "catalogFaction": "rohan",
+    "recruitArmy": "rohan",
+    "identity": "eorl_the_young",
+    "eraGate": false
+  },
+  {
+    "id": "frealaf_mounted",
+    "name": "프레알라프(기마)",
+    "catalogFaction": "rohan",
+    "recruitArmy": "rohan",
+    "identity": "frealaf",
+    "eraGate": false
+  },
+  {
+    "id": "thrydan_mounted",
+    "name": "트리단(기마)",
+    "catalogFaction": "dunland",
+    "recruitArmy": "dunland",
+    "identity": "thrydan",
+    "eraGate": false
+  },
+  {
+    "id": "hera_mounted",
+    "name": "헤라(기마)",
+    "catalogFaction": "rohan",
+    "recruitArmy": "rohan",
+    "identity": "hera",
+    "eraGate": false
+  },
+  {
+    "id": "elendil_mounted",
+    "name": "엘렌딜(기마)",
+    "catalogFaction": "arnor",
+    "recruitArmy": "numenor",
+    "identity": "elendil",
+    "eraGate": true
+  },
+  {
+    "id": "isildur_mounted",
+    "name": "이실두르(기마)",
+    "catalogFaction": "gondor",
+    "recruitArmy": "numenor",
+    "identity": "isildur",
+    "eraGate": true
+  },
+  {
+    "id": "anarion_mounted",
+    "name": "아나리온(기마)",
+    "catalogFaction": "numenor",
+    "recruitArmy": "numenor",
+    "identity": "anarion",
+    "eraGate": true
+  },
+  {
+    "id": "cirion_mounted",
+    "name": "키리온(기마)",
+    "catalogFaction": "gondor",
+    "recruitArmy": "gondor",
+    "identity": "cirion",
+    "eraGate": false
+  },
+  {
+    "id": "earnur_mounted",
+    "name": "에아르누르(기마)",
+    "catalogFaction": "gondor",
+    "recruitArmy": "gondor",
+    "identity": "earnur",
+    "eraGate": false
+  },
+  {
+    "id": "arvedui_mounted",
+    "name": "아르베두이(기마)",
+    "catalogFaction": "arnor",
+    "recruitArmy": "arnor",
+    "identity": "arvedui",
+    "eraGate": false
+  },
+  {
+    "id": "arathorn_mounted",
+    "name": "아라손(기마)",
+    "catalogFaction": "arnor",
+    "recruitArmy": "arnor",
+    "identity": "arathorn",
+    "eraGate": false
+  },
+  {
+    "id": "halbarad_mounted",
+    "name": "할바라드(기마)",
+    "catalogFaction": "arnor",
+    "recruitArmy": "arnor",
+    "identity": "halbarad",
+    "eraGate": false
+  },
+  {
+    "id": "khamul_mounted",
+    "name": "카물(기마)",
+    "catalogFaction": "angmar",
+    "recruitArmy": "angmar",
+    "identity": "khamul",
+    "eraGate": false
+  },
+  {
+    "id": "dark_marshal_mounted",
+    "name": "다크 마샬(기마)",
+    "catalogFaction": "angmar",
+    "recruitArmy": "angmar",
+    "identity": "dark_marshal",
+    "eraGate": false
+  },
+  {
+    "id": "dwimmerlaik_mounted",
+    "name": "드위머레이크(기마)",
+    "catalogFaction": "angmar",
+    "recruitArmy": "angmar",
+    "identity": "dwimmerlaik",
+    "eraGate": false
+  },
+  {
+    "id": "shadow_lord_mounted",
+    "name": "섀도 로드(기마)",
+    "catalogFaction": "angmar",
+    "recruitArmy": "angmar",
+    "identity": "shadow_lord",
+    "eraGate": false
+  },
+  {
+    "id": "forsaken_mounted",
+    "name": "포세이큰(기마)",
+    "catalogFaction": "dol_guldur",
+    "recruitArmy": "dol_guldur",
+    "identity": "forsaken",
+    "eraGate": false
+  },
+  {
+    "id": "tainted_mounted",
+    "name": "테인티드(기마)",
+    "catalogFaction": "angmar",
+    "recruitArmy": "angmar",
+    "identity": "tainted",
+    "eraGate": false
+  },
+  {
+    "id": "undying_mounted",
+    "name": "언다잉(기마)",
+    "catalogFaction": "angmar",
+    "recruitArmy": "angmar",
+    "identity": "undying",
+    "eraGate": false
+  },
+  {
+    "id": "betrayer_mounted",
+    "name": "배신자(기마)",
+    "catalogFaction": "angmar",
+    "recruitArmy": "angmar",
+    "identity": "betrayer",
+    "eraGate": false
+  },
+  {
+    "id": "bolg_mounted",
+    "name": "볼그(와르그)",
+    "catalogFaction": "gundabad",
+    "recruitArmy": "gundabad",
+    "identity": "bolg",
+    "eraGate": false
+  },
+  {
+    "id": "guritz_mounted",
+    "name": "구리츠(와르그)",
+    "catalogFaction": "mordor",
+    "recruitArmy": "mordor",
+    "identity": "guritz",
+    "eraGate": false
+  },
+  {
+    "id": "feanor_mounted",
+    "name": "페아노르(기마)",
+    "catalogFaction": "elf",
+    "recruitArmy": "first_age",
+    "identity": "feanor",
+    "eraGate": true
+  },
+  {
+    "id": "turin_mounted",
+    "name": "투린(기마)",
+    "catalogFaction": "men",
+    "recruitArmy": "first_age",
+    "identity": "turin",
+    "eraGate": true
+  },
+  {
+    "id": "tuor_mounted",
+    "name": "투오르(기마)",
+    "catalogFaction": "men",
+    "recruitArmy": "first_age",
+    "identity": "tuor",
+    "eraGate": true
+  },
+  {
+    "id": "beleg_mounted",
+    "name": "벨레그(기마)",
+    "catalogFaction": "doriath",
+    "recruitArmy": "first_age",
+    "identity": "beleg",
+    "eraGate": true
+  },
+  {
+    "id": "hurin_thalion_mounted",
+    "name": "후린 탈리온(기마)",
+    "catalogFaction": "men",
+    "recruitArmy": "first_age",
+    "identity": "hurin_thalion",
+    "eraGate": true
+  },
+  {
+    "id": "maeglin_mounted",
+    "name": "매글린(기마)",
+    "catalogFaction": "elf",
+    "recruitArmy": "first_age",
+    "identity": "maeglin",
+    "eraGate": true
+  }
+]
