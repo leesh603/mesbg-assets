@@ -6363,7 +6363,7 @@ P.rollRecruits=function(){
         const g=d.rarity||'normal',f=_family(d.meta.faction);
         const army=1+Math.min(3.5,(_armyFavor.get(f)||0)*.65);
         const region=_isfac(d)?(_armyFavor.size?1.25:2.2):1;
-        return (_RW[g]||1)*army*region*this.rng();
+        return Math.log(Math.max(1e-12,this.rng()))/((_RW[g]||1)*army*region);
     };
     const heroPool=base.filter(d=>isH(d)&&this.wave>=(d.unlockWave||0)&&!owned.has(d.uniqueKey||d.id)&&(!SILMARIL_HEROES.has(d.uniqueKey||d.id)||this.rank("silmaril"))).map(d=>({id:d.id,r:_wgt(d)})).sort((a,b)=>b.r-a.r);
     const _heroes=[],_seenFam=new Set();
