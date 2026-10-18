@@ -46,6 +46,13 @@ if(ta<0||tb<ta)throw Error('Troop promotion markers not found');
 src=src.slice(0,ta)+'/*__TROOP_PROMOTIONS_BEGIN__*/\n'+troops+'\n'+src.slice(tb);
 fs.writeFileSync(SRC,src);
 
+// Recruitment and dark-event rules execute after every catalog and career registration.
+const encounterBegin='/*__RECRUIT_DARK_EVENTS_BEGIN__*/',encounterEnd='/*__RECRUIT_DARK_EVENTS_END__*/';
+const ea=src.indexOf(encounterBegin),eb=src.indexOf(encounterEnd);
+if(ea<0||eb<ea)throw Error('Recruit/dark-event markers not found');
+src=src.slice(0,ea+encounterBegin.length)+'\n'+fs.readFileSync(path.join(ROOT,'src','recruit-dark-events.js'),'utf8')+'\n'+src.slice(eb);
+fs.writeFileSync(SRC,src);
+
 const a = html.indexOf(BEGIN), b = html.indexOf(END);
 if (a < 0 || b < 0 || b < a) {
   console.error('markers not found in', INDEX);
@@ -125,5 +132,6 @@ const fat = html.replace(STUB, () => 'window.__MESBG_ASSETS__=' + JSON.stringify
 if (fat === html) { console.error('asset stub not found in index.html'); process.exit(1); }
 fs.writeFileSync(FAT, fat);
 console.log(`built offline bundle (${count} assets embedded) → MIDDLE-EARTH-WARBANDS_v1.9.html`, (fat.length / 1048576).toFixed(1) + 'MB');
+
 
 
