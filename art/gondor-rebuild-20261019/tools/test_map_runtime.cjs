@@ -32,6 +32,9 @@ const context = vm.createContext({structuredClone, Map, setTimeout() { throw Err
 vm.runInContext(`const Ft=${expressionAfter('Ft=')};const zt=${expressionAfter('zt=')};const $t=${expressionAfter('$t=')};`, context);
 vm.runInContext(`const newProfiles=${expressionAfter('const newProfiles = ')};for(const [id,p] of Object.entries(newProfiles))zt[id]={...structuredClone(Ft),...structuredClone(p)};`, context);
 vm.runInContext(`const extra=${expressionAfter('window.MESBG_EXTRA_UNITS=', '[', ']')};for(const d of extra)zt[d.id]={...structuredClone(Ft),...structuredClone(d.profile)};`, context);
+for (const suffix of ['2', '3']) {
+  vm.runInContext(`for(const d of ${expressionAfter('window.MESBG_EXTRA_UNITS' + suffix + '=', '[', ']')})zt[d.id]={...structuredClone(Ft),...structuredClone(d.profile)};`, context);
+}
 // New troop profiles are registered after the game's original profile table.
 vm.runInContext(`const TROOP_NEW_UNITS=${expressionAfter('const TROOP_NEW_UNITS = ', '[', ']')};for(const d of TROOP_NEW_UNITS)zt[d.id]={...structuredClone(Ft),...structuredClone(d.profile)};`, context);
 context.q = {meta: new Map(roster.map(m => [m.id, structuredClone(m)])), units: [], counter: 0, steadfast: false};

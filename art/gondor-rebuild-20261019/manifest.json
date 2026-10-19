@@ -2,7 +2,7 @@
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
   "branch": "art/gondor-body-variants-20261019",
   "total": 59,
-  "complete": 5,
+  "complete": 59,
   "units": [
     {
       "id": "aragorn",
@@ -13,13 +13,14 @@
       "faction": "gondor",
       "body": "마른 장신·단단한 몸통",
       "pose": "검을 낮게 잡은 측면 버팀",
-      "stature": 90,
+      "stature": 96,
       "top": 0.15,
       "bottom": 0.964,
       "centerX": 0.52,
       "centerY": 0.56,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
       "review": "하이앵글 프론트 기준과 육안 대조. 머리카락·수염·무기 제외 신체 비율과 픽셀 질감 확인. 최종 채택 전 검토본.",
+      "sizeNote": "사용자 피드백: 작게 읽히는 체형을 원화 비율 변경 없이 표시 신장 90→96(+6.7%)로 비교 보정.",
       "status": "ready",
       "old": "references/aragorn.png",
       "image": "units/aragorn.png",
@@ -119,12 +120,13 @@
       "body": "약간 작은 가벼운 궁수",
       "pose": "활을 낮추고 화살을 얹는 자세",
       "stature": 82,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.16,
+      "bottom": 0.965,
+      "centerX": 0.53,
+      "centerY": 0.56,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트·기준 5등신·픽셀톤 육안 검토. 무기·장식 제외 머리/발 또는 기수 골반 기준점 수동 기록. 최종 채택 전 검토본.",
+      "status": "ready",
       "old": "references/gondor_archer.png",
       "image": "units/gondor_archer.png",
       "thumb": "thumbs/gondor_archer.webp",
@@ -136,7 +138,12 @@
         0.555,
         86,
         "body"
-      ]
+      ],
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "b95eb842eb21495a60eba889bcb437ece98c0f718fa5fb62f25ae08d3609754b"
     },
     {
       "id": "ithilien_ranger",
@@ -148,12 +155,13 @@
       "body": "길고 날씬한 레인저",
       "pose": "활을 잡고 몸을 낮춰 측면 경계",
       "stature": 88,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.13,
+      "bottom": 0.952,
+      "centerX": 0.53,
+      "centerY": 0.55,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트·5등신·픽셀톤 육안 대조 및 무기 제외 몸체 기준점 검토",
+      "status": "ready",
       "old": "references/ithilien_ranger.png",
       "image": "units/ithilien_ranger.png",
       "thumb": "thumbs/ithilien_ranger.webp",
@@ -165,7 +173,12 @@
         0.5182,
         86,
         "body"
-      ]
+      ],
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "33c138b77787c7105ea080a20890f359f929814ca5eec30a2793ded8282a1573"
     },
     {
       "id": "mt_swordshield",
@@ -177,12 +190,13 @@
       "body": "조금 짧고 건장한 보병",
       "pose": "방패를 전면으로 내밀고 검 찌르기 준비",
       "stature": 83,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.12,
+      "bottom": 0.955,
+      "centerX": 0.52,
+      "centerY": 0.55,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트·5등신·픽셀톤 육안 대조 및 무기 제외 몸체 기준점 검토",
+      "status": "ready",
       "old": "references/mt_swordshield.png",
       "image": "units/mt_swordshield.png",
       "thumb": "thumbs/mt_swordshield.webp",
@@ -194,7 +208,12 @@
         0.5075,
         86,
         "body"
-      ]
+      ],
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "46392cfcaf8332b9cb0e3b4908cef112e23e614cdb7d86142a8d3bbb4f179e81"
     },
     {
       "id": "mt_spear",
@@ -206,12 +225,13 @@
       "body": "키 크고 가느다란 창병",
       "pose": "창을 양손으로 대각선 전방에 겨눔",
       "stature": 90,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.21,
+      "bottom": 0.966,
+      "centerX": 0.53,
+      "centerY": 0.59,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트·기준 5등신·픽셀톤 육안 검토. 무기·장식 제외 머리/발 또는 기수 골반 기준점 수동 기록. 최종 채택 전 검토본.",
+      "status": "ready",
       "old": "references/mt_spear.png",
       "image": "units/mt_spear.png",
       "thumb": "thumbs/mt_spear.webp",
@@ -223,7 +243,12 @@
         0.6426,
         86,
         "body"
-      ]
+      ],
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "1cdd5459060c670e0cd1789d66a6418d357bc26d4e888c3637a12a6441d61bad"
     },
     {
       "id": "mt_spearshield",
@@ -235,12 +260,13 @@
       "body": "균형형·단단한 하체",
       "pose": "방패 위로 창을 낮춰 전열 유지",
       "stature": 86,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.12,
+      "bottom": 0.918,
+      "centerX": 0.52,
+      "centerY": 0.52,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트·5등신·픽셀톤 육안 대조 및 무기 제외 몸체 기준점 검토",
+      "status": "ready",
       "old": "references/mt_spearshield.png",
       "image": "units/mt_spearshield.png",
       "thumb": "thumbs/mt_spearshield.webp",
@@ -252,7 +278,12 @@
         0.575,
         86,
         "body"
-      ]
+      ],
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "6bffb1d0cf1f3c1cbdf51cb16eed9c9a6a6394396f93d047b8213a33bb3990a7"
     },
     {
       "id": "mt_bowman",
@@ -264,12 +295,13 @@
       "body": "마른 보통 키 궁수",
       "pose": "상체를 비틀어 활을 당김",
       "stature": 85,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.12,
+      "bottom": 0.97,
+      "centerX": 0.52,
+      "centerY": 0.55,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트·5등신·픽셀톤 육안 대조 및 무기 제외 몸체 기준점 검토",
+      "status": "ready",
       "old": "references/mt_bowman.png",
       "image": "units/mt_bowman.png",
       "thumb": "thumbs/mt_bowman.webp",
@@ -281,7 +313,12 @@
         0.5125,
         86,
         "body"
-      ]
+      ],
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "7cb94b32146176a1017f42443da21e6d3837ebb8fe27c55acfad804d0d180674"
     },
     {
       "id": "mt_captain",
@@ -293,12 +330,13 @@
       "body": "넓은 어깨·평균 키",
       "pose": "검을 앞으로 내밀어 지휘",
       "stature": 87,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.13,
+      "bottom": 0.96,
+      "centerX": 0.54,
+      "centerY": 0.55,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트·기준 5등신·픽셀톤 육안 검토. 무기·장식 제외 머리/발 또는 기수 골반 기준점 수동 기록. 최종 채택 전 검토본.",
+      "status": "ready",
       "old": "references/mt_captain.png",
       "image": "units/mt_captain.png",
       "thumb": "thumbs/mt_captain.webp",
@@ -310,7 +348,12 @@
         0.53,
         86,
         "body"
-      ]
+      ],
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "46e0335d9bec1a995828137ca3c9e22f081c8534fa8d16286c981e28d2a88e74"
     },
     {
       "id": "mt_fountain_guard",
@@ -322,12 +365,13 @@
       "body": "키 큰 절제된 근위 체형",
       "pose": "직립해 창을 수직으로 붙들고 방패는 옆",
       "stature": 91,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.21,
+      "bottom": 0.95,
+      "centerX": 0.53,
+      "centerY": 0.59,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트·기준 5등신·픽셀톤 육안 검토. 무기·장식 제외 머리/발 또는 기수 골반 기준점 수동 기록. 최종 채택 전 검토본.",
+      "status": "ready",
       "old": "references/mt_fountain_guard.png",
       "image": "units/mt_fountain_guard.png",
       "thumb": "thumbs/mt_fountain_guard.webp",
@@ -339,7 +383,12 @@
         0.565,
         86,
         "body"
-      ]
+      ],
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "b9f309aa87bb19c02ea7b6528b2d2013748d5cc95e09dacdc2f1aab2b448da89"
     },
     {
       "id": "dol_amroth_knight",
@@ -350,14 +399,15 @@
       "faction": "dol_amroth",
       "body": "장신의 날렵한 기수",
       "pose": "랜스를 위로 기울인 억제된 기마 전진",
-      "stature": 52,
-      "top": 0.08,
-      "bottom": 0.42,
-      "centerX": 0.5,
+      "stature": 45,
+      "top": 0.135,
+      "bottom": 0.43,
+      "centerX": 0.53,
       "centerY": 0.54,
       "rider": true,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트·기준 5등신·픽셀톤 육안 검토. 무기·장식 제외 머리/발 또는 기수 골반 기준점 수동 기록. 최종 채택 전 검토본.",
+      "status": "ready",
       "old": "references/dol_amroth_knight.png",
       "image": "units/dol_amroth_knight.png",
       "thumb": "thumbs/dol_amroth_knight.webp",
@@ -369,7 +419,12 @@
         0.52,
         43,
         "rider"
-      ]
+      ],
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "277ec8d034a315329ea5117a75581a4a9a3243e0099e9d43520861af31ed5b2e"
     },
     {
       "id": "gondor_knight",
@@ -380,14 +435,15 @@
       "faction": "gondor",
       "body": "넓은 어깨의 보통 키 기수",
       "pose": "랜스를 낮춘 전방 돌입 준비",
-      "stature": 49,
-      "top": 0.08,
-      "bottom": 0.42,
-      "centerX": 0.5,
-      "centerY": 0.54,
+      "stature": 43,
+      "top": 0.12,
+      "bottom": 0.43,
+      "centerX": 0.53,
+      "centerY": 0.55,
       "rider": true,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트·기준 5등신·픽셀톤 육안 검토. 무기·장식 제외 머리/발 또는 기수 골반 기준점 수동 기록. 최종 채택 전 검토본.",
+      "status": "ready",
       "old": "references/gondor_knight.png",
       "image": "units/gondor_knight.png",
       "thumb": "thumbs/gondor_knight.webp",
@@ -399,7 +455,12 @@
         0.52,
         43,
         "rider"
-      ]
+      ],
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "c3a4e40de908982080edcdc0122cc4ddbf852e133181e0da2618138d611bc746"
     },
     {
       "id": "osgiliath_veteran",
@@ -411,12 +472,13 @@
       "body": "다부진 중년·해진 갑옷",
       "pose": "방패 뒤 웅크려 검을 뒤로 당김",
       "stature": 84,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.105,
+      "bottom": 0.958,
+      "centerX": 0.53,
+      "centerY": 0.54,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트·기준 5등신·픽셀톤 육안 검토. 무기·장식 제외 머리/발 또는 기수 골반 기준점 수동 기록. 최종 채택 전 검토본.",
+      "status": "ready",
       "old": "references/osgiliath_veteran.png",
       "image": "units/osgiliath_veteran.png",
       "thumb": "thumbs/osgiliath_veteran.webp",
@@ -428,7 +490,12 @@
         0.53,
         86,
         "body"
-      ]
+      ],
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "b664076f5c9770d078d812d6f09cfa240a4e9d22e2f74a46bde7edefdd551a62"
     },
     {
       "id": "lossarnach_axeman",
@@ -440,12 +507,13 @@
       "body": "굵고 낮은 농병 체형",
       "pose": "큰 도끼를 양손으로 옆에 들고 회전 준비",
       "stature": 82,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.105,
+      "bottom": 0.93,
+      "centerX": 0.51,
+      "centerY": 0.52,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트·기준 5등신·픽셀톤 육안 검토. 무기·장식 제외 머리/발 또는 기수 골반 기준점 수동 기록. 최종 채택 전 검토본.",
+      "status": "ready",
       "old": "references/lossarnach_axeman.png",
       "image": "units/lossarnach_axeman.png",
       "thumb": "thumbs/lossarnach_axeman.webp",
@@ -457,7 +525,12 @@
         0.5762,
         86,
         "body"
-      ]
+      ],
+      "dimensions": [
+        1190,
+        1322
+      ],
+      "sha256": "2a247f4c7163cdd4fb8477c0839551e0a14a1159b19820adce603ba7efd2685d"
     },
     {
       "id": "citadel_guard",
@@ -469,12 +542,13 @@
       "body": "장신·단단한 근위병",
       "pose": "창을 기울여 입구를 막는 버팀",
       "stature": 90,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.165,
+      "bottom": 0.965,
+      "centerX": 0.53,
+      "centerY": 0.56,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트·기준 5등신·픽셀톤 육안 검토. 무기·장식 제외 머리/발 또는 기수 골반 기준점 수동 기록. 최종 채택 전 검토본.",
+      "status": "ready",
       "old": "references/citadel_guard.png",
       "image": "units/citadel_guard.png",
       "thumb": "thumbs/citadel_guard.webp",
@@ -486,7 +560,12 @@
         0.5825,
         86,
         "body"
-      ]
+      ],
+      "dimensions": [
+        1189,
+        1323
+      ],
+      "sha256": "472f082d4ebb459355f0d44067bebd29ef5ff45b6edead24ea0bc64f0cdb0e9b"
     },
     {
       "id": "pelennor_militia",
@@ -498,12 +577,13 @@
       "body": "작고 여윈 농민",
       "pose": "불안하지만 결연하게 창을 두 손으로 잡음",
       "stature": 80,
-      "top": 0.08,
-      "bottom": 0.94,
+      "top": 0.235,
+      "bottom": 0.96,
       "centerX": 0.5,
-      "centerY": 0.53,
+      "centerY": 0.6,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트·기준 5등신·픽셀톤 육안 검토. 무기·장식 제외 머리/발 또는 기수 골반 기준점 수동 기록. 최종 채택 전 검토본.",
+      "status": "ready",
       "old": "references/pelennor_militia.png",
       "image": "units/pelennor_militia.png",
       "thumb": "thumbs/pelennor_militia.webp",
@@ -515,7 +595,12 @@
         0.635,
         86,
         "body"
-      ]
+      ],
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "8355534fbf01e345cfb2140f49f1dc30cbbbfbf82b2dad820f76a2f8c9cd2745"
     },
     {
       "id": "faramir",
@@ -562,12 +647,13 @@
       "body": "키 크고 날렵한 기사 체형",
       "pose": "백조 문장 방패와 우아한 지휘 자세",
       "stature": 92,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.16,
+      "bottom": 0.965,
+      "centerX": 0.53,
+      "centerY": 0.56,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트·기준 5등신·픽셀톤 육안 검토. 무기·장식 제외 머리/발 또는 기수 골반 기준점 수동 기록. 최종 채택 전 검토본.",
+      "status": "ready",
       "old": "references/imrahil.png",
       "image": "units/imrahil.png",
       "thumb": "thumbs/imrahil.webp",
@@ -579,7 +665,12 @@
         0.49,
         86,
         "body"
-      ]
+      ],
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "12e098698b95b3d72b847859fa2caa4be4ca5483096a2bdf775c48675793d113"
     },
     {
       "id": "beregond",
@@ -591,12 +682,13 @@
       "body": "평균 키·단단한 경비병",
       "pose": "방패를 몸 옆에 붙이고 검을 낮춘 정중한 경계",
       "stature": 85,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
+      "top": 0.1,
+      "bottom": 0.955,
+      "centerX": 0.53,
       "centerY": 0.53,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트·기준 5등신·픽셀톤 육안 검토. 무기·장식 제외 머리/발 또는 기수 골반 기준점 수동 기록. 최종 채택 전 검토본.",
+      "status": "ready",
       "old": "references/beregond.png",
       "image": "units/beregond.png",
       "thumb": "thumbs/beregond.webp",
@@ -608,7 +700,12 @@
         0.498,
         86,
         "body"
-      ]
+      ],
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "6c941d3691e5afc8afb3e7135600e5ac5d050554cd1749d2c12b9f3090785de6"
     },
     {
       "id": "imrahil_mounted",
@@ -619,14 +716,15 @@
       "faction": "gondor",
       "body": "키 크고 날렵한 기사 체형",
       "pose": "백조 문장 방패와 우아한 지휘 자세",
-      "stature": 52,
-      "top": 0.08,
-      "bottom": 0.42,
-      "centerX": 0.5,
+      "stature": 46,
+      "top": 0.09,
+      "bottom": 0.39,
+      "centerX": 0.53,
       "centerY": 0.54,
       "rider": true,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트·기준 5등신·픽셀톤 육안 검토. 무기·장식 제외 머리/발 또는 기수 골반 기준점 수동 기록. 최종 채택 전 검토본.",
+      "status": "ready",
       "old": "references/imrahil_mounted.png",
       "image": "units/imrahil_mounted.png",
       "thumb": "thumbs/imrahil_mounted.webp",
@@ -638,7 +736,12 @@
         0.52,
         43,
         "rider"
-      ]
+      ],
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "0d168c9e001ca72962fff80db6f394fce13a792c69e8228c435fc299e2895d36"
     },
     {
       "id": "aragorn_mounted",
@@ -649,14 +752,15 @@
       "faction": "gondor",
       "body": "마른 장신·단단한 몸통",
       "pose": "검을 낮게 잡은 측면 버팀",
-      "stature": 50,
-      "top": 0.08,
-      "bottom": 0.42,
-      "centerX": 0.5,
+      "stature": 48,
+      "top": 0.1,
+      "bottom": 0.4,
+      "centerX": 0.53,
       "centerY": 0.54,
       "rider": true,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트·기준 5등신·픽셀톤 육안 검토. 무기·장식 제외 머리/발 또는 기수 골반 기준점 수동 기록. 최종 채택 전 검토본.",
+      "status": "ready",
       "old": "references/aragorn_mounted.png",
       "image": "units/aragorn_mounted.png",
       "thumb": "thumbs/aragorn_mounted.webp",
@@ -668,7 +772,12 @@
         0.615,
         43,
         "rider"
-      ]
+      ],
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "058b45db4385819a4c4c11a489200b551a5869d5f751f4101fbb709ac95a2240"
     },
     {
       "id": "blackroot_archer",
@@ -680,12 +789,13 @@
       "body": "마른 장신 사냥꾼",
       "pose": "한쪽 발에 체중을 싣고 긴 활 당김",
       "stature": 88,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.145,
+      "bottom": 0.95,
+      "centerX": 0.54,
+      "centerY": 0.55,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트·기준 5등신·픽셀톤 육안 검토. 무기·장식 제외 머리/발 또는 기수 골반 기준점 수동 기록. 최종 채택 전 검토본.",
+      "status": "ready",
       "old": "references/blackroot_archer.png",
       "image": "units/blackroot_archer.png",
       "thumb": "thumbs/blackroot_archer.webp",
@@ -697,7 +807,12 @@
         0.5275,
         86,
         "body"
-      ]
+      ],
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "e6b900ad91e360a3a732d406c90b35f32a37fa0ebc0d87a9e78a40cf9940ecb3"
     },
     {
       "id": "forlong",
@@ -744,12 +859,13 @@
       "body": "가볍고 마른 레인저",
       "pose": "활을 낮추고 무릎을 굽힌 정찰",
       "stature": 84,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.11,
+      "bottom": 0.965,
+      "centerX": 0.53,
+      "centerY": 0.54,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트·기준 5등신·픽셀톤 육안 검토. 무기·장식 제외 머리/발 또는 기수 골반 기준점 수동 기록. 최종 채택 전 검토본.",
+      "status": "ready",
       "old": "references/damrod.png",
       "image": "units/damrod.png",
       "thumb": "thumbs/damrod.webp",
@@ -761,7 +877,12 @@
         0.5,
         86,
         "body"
-      ]
+      ],
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "0d1705c814a19edb8521785bfd1cfcaaccaa00b5ef8d088ad9fb849a9f334abf"
     },
     {
       "id": "mablung",
@@ -773,12 +894,13 @@
       "body": "넓은 등·실용적인 레인저 체형",
       "pose": "검을 역대각으로 세우고 뒤를 살피는 자세",
       "stature": 86,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.19,
+      "bottom": 0.96,
+      "centerX": 0.53,
+      "centerY": 0.58,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트·기준 5등신·픽셀톤 육안 검토. 무기·장식 제외 머리/발 또는 기수 골반 기준점 수동 기록. 최종 채택 전 검토본.",
+      "status": "ready",
       "old": "references/mablung.png",
       "image": "units/mablung.png",
       "thumb": "thumbs/mablung.webp",
@@ -790,7 +912,12 @@
         0.55,
         86,
         "body"
-      ]
+      ],
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "afef6c8333ed33d548e16369aad6160996912f7e2e35c372f721228eaa794632"
     },
     {
       "id": "duinhir",
@@ -802,12 +929,13 @@
       "body": "노련한 마른 장신 궁수",
       "pose": "긴 활을 세우고 전방을 가리킴",
       "stature": 89,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.185,
+      "bottom": 0.95,
+      "centerX": 0.52,
+      "centerY": 0.57,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트·기준 5등신·픽셀톤 육안 검토. 무기·장식 제외 머리/발 또는 기수 골반 기준점 수동 기록. 최종 채택 전 검토본.",
+      "status": "ready",
       "old": "references/duinhir.png",
       "image": "units/duinhir.png",
       "thumb": "thumbs/duinhir.webp",
@@ -819,7 +947,12 @@
         0.5215,
         86,
         "body"
-      ]
+      ],
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "6b28da82caec5a4102156b300d3d139c9fa2e97fd2fb7e8a77227b1bb085c75a"
     },
     {
       "id": "isildur",
@@ -831,12 +964,13 @@
       "body": "장신·장대한 누메노르 체형",
       "pose": "검을 몸 앞에 높여 강하게 버팀",
       "stature": 95,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.18,
+      "bottom": 0.96,
+      "centerX": 0.54,
+      "centerY": 0.57,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트·기준 5등신·픽셀톤 육안 검토. 무기·장식 제외 머리/발 또는 기수 골반 기준점 수동 기록. 최종 채택 전 검토본.",
+      "status": "ready",
       "old": "references/isildur.png",
       "image": "units/isildur.png",
       "thumb": "thumbs/isildur.webp",
@@ -848,7 +982,12 @@
         0.56,
         86,
         "body"
-      ]
+      ],
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "bc1db0394ad56a2a8f05b515bfcc567ad518c5cb49b6d005147e5af38c31150e"
     },
     {
       "id": "denethor",
@@ -860,12 +999,13 @@
       "body": "여윈 노년·좁은 어깨",
       "pose": "정적인 곧은 자세, 지팡이를 짚고 한 손을 내밈",
       "stature": 85,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.2,
+      "bottom": 0.95,
+      "centerX": 0.51,
+      "centerY": 0.57,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트·기준 5등신·픽셀톤 육안 검토. 무기·장식 제외 머리/발 또는 기수 골반 기준점 수동 기록. 최종 채택 전 검토본.",
+      "status": "ready",
       "old": "references/denethor.png",
       "image": "units/denethor.png",
       "thumb": "thumbs/denethor.webp",
@@ -877,7 +1017,12 @@
         0.543,
         86,
         "body"
-      ]
+      ],
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "039177c4794771d50d67caf5f246d03391f5d71e614476fd9be52c8d7002a5c2"
     },
     {
       "id": "boromir_mounted",
@@ -888,14 +1033,15 @@
       "faction": "gondor",
       "body": "넓은 어깨·두꺼운 팔의 건장형",
       "pose": "방패를 높여 전열을 지키는 자세",
-      "stature": 49,
-      "top": 0.08,
-      "bottom": 0.42,
-      "centerX": 0.5,
-      "centerY": 0.54,
+      "stature": 44,
+      "top": 0.16,
+      "bottom": 0.44,
+      "centerX": 0.53,
+      "centerY": 0.55,
       "rider": true,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트·기준 5등신·픽셀톤 육안 검토. 무기·장식 제외 머리/발 또는 기수 골반 기준점 수동 기록. 최종 채택 전 검토본.",
+      "status": "ready",
       "old": "references/boromir_mounted.png",
       "image": "units/boromir_mounted.png",
       "thumb": "thumbs/boromir_mounted.webp",
@@ -907,7 +1053,12 @@
         0.52,
         43,
         "rider"
-      ]
+      ],
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "ab68449ab299b964c5fd2dd397158ace21f197337ac3cfebf3fb6b4b6ca012d7"
     },
     {
       "id": "faramir_mounted",
@@ -918,14 +1069,15 @@
       "faction": "gondor",
       "body": "날씬한 궁수 체형",
       "pose": "몸통을 틀어 활을 겨누는 자세",
-      "stature": 49,
-      "top": 0.08,
-      "bottom": 0.42,
-      "centerX": 0.5,
+      "stature": 43.5,
+      "top": 0.1,
+      "bottom": 0.39,
+      "centerX": 0.53,
       "centerY": 0.54,
       "rider": true,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트·기준 5등신·픽셀톤 육안 검토. 무기·장식 제외 머리/발 또는 기수 골반 기준점 수동 기록. 최종 채택 전 검토본.",
+      "status": "ready",
       "old": "references/faramir_mounted.png",
       "image": "units/faramir_mounted.png",
       "thumb": "thumbs/faramir_mounted.webp",
@@ -937,7 +1089,12 @@
         0.5025,
         43,
         "rider"
-      ]
+      ],
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "f5e1204f7887ae13e06c72a1134731dac5637fd9868eebeb137b6c9605f02dd0"
     },
     {
       "id": "aragorn_blackgate",
@@ -948,13 +1105,14 @@
       "faction": "gondor",
       "body": "마른 장신 왕·기존 아라곤 체형 유지",
       "pose": "안두릴을 한 손 높여 진군 지시",
-      "stature": 90,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "stature": 96,
+      "top": 0.34,
+      "bottom": 0.965,
+      "centerX": 0.53,
+      "centerY": 0.65,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트·기준 5등신·픽셀톤 육안 검토. 무기·장식 제외 머리/발 또는 기수 골반 기준점 수동 기록. 최종 채택 전 검토본.",
+      "status": "ready",
       "old": "references/aragorn_blackgate.png",
       "image": "units/aragorn_blackgate.png",
       "thumb": "thumbs/aragorn_blackgate.webp",
@@ -966,7 +1124,12 @@
         0.5925,
         86,
         "body"
-      ]
+      ],
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "2e0f5789096909c643e84271a15d2a86e35247ac6498522e042f77b5acdfe19e"
     },
     {
       "id": "aragorn_blackgate_mounted",
@@ -977,14 +1140,15 @@
       "faction": "gondor",
       "body": "마른 장신 왕·기존 아라곤 체형 유지",
       "pose": "안두릴을 한 손 높여 진군 지시",
-      "stature": 50,
-      "top": 0.08,
-      "bottom": 0.42,
-      "centerX": 0.5,
-      "centerY": 0.54,
+      "stature": 48,
+      "top": 0.22,
+      "bottom": 0.49,
+      "centerX": 0.55,
+      "centerY": 0.57,
       "rider": true,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트·기준 5등신·픽셀톤 육안 검토. 무기·장식 제외 머리/발 또는 기수 골반 기준점 수동 기록. 최종 채택 전 검토본.",
+      "status": "ready",
       "old": "references/aragorn_blackgate_mounted.png",
       "image": "units/aragorn_blackgate_mounted.png",
       "thumb": "thumbs/aragorn_blackgate_mounted.webp",
@@ -996,7 +1160,12 @@
         0.52,
         43,
         "rider"
-      ]
+      ],
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "d8ab295947c9327715ea13094761e17c209579bbe5a6d19317a9066c306c655f"
     },
     {
       "id": "anborn",
@@ -1007,13 +1176,14 @@
       "faction": "gondor",
       "body": "키가 약간 큰 여윈 추적자",
       "pose": "허리를 낮추고 화살을 꺼내는 자세",
-      "stature": 88,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "stature": 85,
+      "top": 0.125,
+      "bottom": 0.89,
+      "centerX": 0.53,
+      "centerY": 0.51,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트·기준 5등신·픽셀톤 육안 검토. 무기·장식 제외 머리/발 또는 기수 골반 기준점 수동 기록. 최종 채택 전 검토본.",
+      "status": "ready",
       "old": "references/anborn.png",
       "image": "units/anborn.png",
       "thumb": "thumbs/anborn.webp",
@@ -1025,7 +1195,12 @@
         0.4818,
         86,
         "body"
-      ]
+      ],
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "6cd43adb251b4ee7b47b568fe96b8d9da58e907099c5aa74d413aea09f01b793"
     },
     {
       "id": "hirluin",
@@ -1035,14 +1210,15 @@
       "weapon": "sword_shield",
       "faction": "gondor",
       "body": "젊은 장신·기사 체형",
-      "pose": "방패를 옆으로 열고 검으로 전진 지시",
+      "pose": "창을 한 손에 세우고 녹색 방패로 전열을 지키는 자세",
       "stature": 89,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.16,
+      "bottom": 0.95,
+      "centerX": 0.53,
+      "centerY": 0.55,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트·기준 5등신·픽셀톤 육안 검토. 무기·장식 제외 머리/발 또는 기수 골반 기준점 수동 기록. 최종 채택 전 검토본.",
+      "status": "ready",
       "old": "references/hirluin.png",
       "image": "units/hirluin.png",
       "thumb": "thumbs/hirluin.webp",
@@ -1054,7 +1230,12 @@
         0.5449,
         86,
         "body"
-      ]
+      ],
+      "dimensions": [
+        1205,
+        1305
+      ],
+      "sha256": "77897ffcaeaea16e8fc106bdb9181a343c1515809d873f88bd351aaf2b574953"
     },
     {
       "id": "madril",
@@ -1066,12 +1247,13 @@
       "body": "나이 든 탄탄한 중간 체형",
       "pose": "반쯤 낮춘 검으로 옆을 살피며 한 손으로 신호",
       "stature": 84,
-      "top": 0.08,
+      "top": 0.135,
       "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "centerX": 0.53,
+      "centerY": 0.54,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트·기준 5등신·픽셀톤 육안 검토. 무기·장식 제외 머리/발 또는 기수 골반 기준점 수동 기록. 최종 채택 전 검토본.",
+      "status": "ready",
       "old": "references/madril.png",
       "image": "units/madril.png",
       "thumb": "thumbs/madril.webp",
@@ -1083,7 +1265,12 @@
         0.5254,
         86,
         "body"
-      ]
+      ],
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "85deb42930cf448f80557bf3cbf58e07cbf0409ce858bc4ebe313cf732e9a429"
     },
     {
       "id": "irolas",
@@ -1095,12 +1282,13 @@
       "body": "날렵한 장교",
       "pose": "몸을 돌려 검으로 길을 가리킴",
       "stature": 87,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.15,
+      "bottom": 0.95,
+      "centerX": 0.53,
+      "centerY": 0.55,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트·기준 5등신·픽셀톤 육안 검토. 무기·장식 제외 머리/발 또는 기수 골반 기준점 수동 기록. 최종 채택 전 검토본.",
+      "status": "ready",
       "old": "references/irolas.png",
       "image": "units/irolas.png",
       "thumb": "thumbs/irolas.webp",
@@ -1112,7 +1300,12 @@
         0.5475,
         86,
         "body"
-      ]
+      ],
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "9f4cfbe56938d9d08ac3eb75c69f9f9a26dea1b2043b5c2d47842e504986d0a3"
     },
     {
       "id": "hurin",
@@ -1124,12 +1317,12 @@
       "body": "넓고 육중한 근위 장교",
       "pose": "곤봉을 한 손에 수직으로 세운 버팀",
       "stature": 89,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.09,
+      "bottom": 0.935,
+      "centerX": 0.53,
+      "centerY": 0.51,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "status": "ready",
       "old": "references/hurin.png",
       "image": "units/hurin.png",
       "thumb": "thumbs/hurin.webp",
@@ -1141,7 +1334,13 @@
         0.5605,
         86,
         "body"
-      ]
+      ],
+      "review": "하이앵글 프론트·5등신·픽셀톤과 무장/자세 육안 검수. 무기·장식 제외 몸체 또는 기수 머리–골반 기준점 기록. 최종 채택 전 검토본.",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "3f2bb23468912a8fca127462bcd9f424eea3e9f48f54d599e96793ddcf65e628"
     },
     {
       "id": "cirion",
@@ -1153,12 +1352,12 @@
       "body": "중년의 균형 잡힌 장신",
       "pose": "검으로 대각선 지휘",
       "stature": 88,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
+      "top": 0.1,
+      "bottom": 0.95,
+      "centerX": 0.53,
       "centerY": 0.53,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "status": "ready",
       "old": "references/cirion.png",
       "image": "units/cirion.png",
       "thumb": "thumbs/cirion.webp",
@@ -1170,7 +1369,13 @@
         0.5137,
         86,
         "body"
-      ]
+      ],
+      "review": "하이앵글 프론트·5등신·픽셀톤과 무장/자세 육안 검수. 무기·장식 제외 몸체 또는 기수 머리–골반 기준점 기록. 최종 채택 전 검토본.",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "fd931938125adff0c61d8da8e97a96d563fba6a66d4b49a56687b8b78f17205d"
     },
     {
       "id": "numenorean_captain",
@@ -1182,12 +1387,12 @@
       "body": "장신·넓은 갑옷",
       "pose": "긴 검을 들어 부대를 이끔",
       "stature": 94,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.185,
+      "bottom": 0.95,
+      "centerX": 0.54,
+      "centerY": 0.57,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "status": "ready",
       "old": "references/numenorean_captain.png",
       "image": "units/numenorean_captain.png",
       "thumb": "thumbs/numenorean_captain.webp",
@@ -1199,7 +1404,13 @@
         0.505,
         86,
         "body"
-      ]
+      ],
+      "review": "하이앵글 프론트·5등신·픽셀톤과 무장/자세 육안 검수. 무기·장식 제외 몸체 또는 기수 머리–골반 기준점 기록. 최종 채택 전 검토본.",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "06326c684cc129bd1a71aa7e9cdf6c57700a565b1cbb7a6bc51c4506f71b2bf6"
     },
     {
       "id": "numenorean_warrior",
@@ -1211,12 +1422,12 @@
       "body": "큰 키·단단한 고대인 체형",
       "pose": "방패를 내밀고 검을 높은 역대각으로 듦",
       "stature": 93,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.185,
+      "bottom": 0.96,
+      "centerX": 0.53,
+      "centerY": 0.57,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "status": "ready",
       "old": "references/numenorean_warrior.png",
       "image": "units/numenorean_warrior.png",
       "thumb": "thumbs/numenorean_warrior.webp",
@@ -1228,7 +1439,13 @@
         0.52,
         86,
         "body"
-      ]
+      ],
+      "review": "하이앵글 프론트·5등신·픽셀톤과 무장/자세 육안 검수. 무기·장식 제외 몸체 또는 기수 머리–골반 기준점 기록. 최종 채택 전 검토본.",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "c6d1388e46178f936cf8faee9b69a99161c0a59d333d6fa5be1c0806c8c0a860"
     },
     {
       "id": "numenorean_spearman",
@@ -1240,12 +1457,12 @@
       "body": "큰 키·날씬한 고대 창병",
       "pose": "창을 양손으로 길게 뻗어 경계",
       "stature": 95,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
+      "top": 0.15,
+      "bottom": 0.9,
+      "centerX": 0.53,
       "centerY": 0.53,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "status": "ready",
       "old": "references/numenorean_spearman.png",
       "image": "units/numenorean_spearman.png",
       "thumb": "thumbs/numenorean_spearman.webp",
@@ -1257,7 +1474,13 @@
         0.5475,
         86,
         "body"
-      ]
+      ],
+      "review": "하이앵글 프론트·5등신·픽셀톤과 무장/자세 육안 검수. 무기·장식 제외 몸체 또는 기수 머리–골반 기준점 기록. 최종 채택 전 검토본.",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "6fd9eb125bd6cd3b626f4297ea0a1467d434ff5db46e2df3c6d9fc93ec838211"
     },
     {
       "id": "angbor",
@@ -1269,12 +1492,12 @@
       "body": "굵은 팔·넓은 가슴·큰 체격",
       "pose": "양손검을 뒤로 들고 몸통을 돌려 내려치기 준비",
       "stature": 91,
-      "top": 0.08,
+      "top": 0.12,
       "bottom": 0.94,
-      "centerX": 0.5,
+      "centerX": 0.53,
       "centerY": 0.53,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "status": "ready",
       "old": "references/angbor.png",
       "image": "units/angbor.png",
       "thumb": "thumbs/angbor.webp",
@@ -1286,7 +1509,13 @@
         0.4922,
         86,
         "body"
-      ]
+      ],
+      "review": "하이앵글 프론트·5등신·픽셀톤과 무장/자세 육안 검수. 무기·장식 제외 몸체 또는 기수 머리–골반 기준점 기록. 최종 채택 전 검토본.",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "cb4538d4ee0db7c4e0eb91ddcd040801b1be92412026ad80c282aaf67e38fda6"
     },
     {
       "id": "dervorin",
@@ -1298,12 +1527,12 @@
       "body": "평균 키·넓은 어깨",
       "pose": "검을 어깨 가까이 들고 반걸음 버팀",
       "stature": 85,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.17,
+      "bottom": 0.96,
+      "centerX": 0.53,
+      "centerY": 0.56,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "status": "ready",
       "old": "references/dervorin.png",
       "image": "units/dervorin.png",
       "thumb": "thumbs/dervorin.webp",
@@ -1315,7 +1544,13 @@
         0.5161,
         86,
         "body"
-      ]
+      ],
+      "review": "하이앵글 프론트·5등신·픽셀톤과 무장/자세 육안 검수. 무기·장식 제외 몸체 또는 기수 머리–골반 기준점 기록. 최종 채택 전 검토본.",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "3027f84a8029bac5ed27bf6435a2df353a0144f61a7d1c24f0e6326371fdfe18"
     },
     {
       "id": "dol_amroth_man_at_arms",
@@ -1327,12 +1562,12 @@
       "body": "길고 날씬한 장창병",
       "pose": "장창을 세우고 한 발을 뒤로 고정",
       "stature": 89,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.19,
+      "bottom": 0.96,
+      "centerX": 0.53,
+      "centerY": 0.57,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "status": "ready",
       "old": "references/dol_amroth_man_at_arms.png",
       "image": "units/dol_amroth_man_at_arms.png",
       "thumb": "thumbs/dol_amroth_man_at_arms.webp",
@@ -1344,7 +1579,13 @@
         0.5215,
         86,
         "body"
-      ]
+      ],
+      "review": "하이앵글 프론트·5등신·픽셀톤과 무장/자세 육안 검수. 무기·장식 제외 몸체 또는 기수 머리–골반 기준점 기록. 최종 채택 전 검토본.",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "708630685cf9fd3703dd0108e4eea9411e781aee9afe81f3ba8654ea368b1123"
     },
     {
       "id": "duilin",
@@ -1356,12 +1597,12 @@
       "body": "젊고 가느다란 궁수",
       "pose": "가벼운 반무릎 굽힘으로 활 당김",
       "stature": 84,
-      "top": 0.08,
+      "top": 0.2,
       "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "centerX": 0.53,
+      "centerY": 0.56,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "status": "ready",
       "old": "references/duilin.png",
       "image": "units/duilin.png",
       "thumb": "thumbs/duilin.webp",
@@ -1373,7 +1614,13 @@
         0.55,
         86,
         "body"
-      ]
+      ],
+      "review": "하이앵글 프론트·5등신·픽셀톤과 무장/자세 육안 검수. 무기·장식 제외 몸체 또는 기수 머리–골반 기준점 기록. 최종 채택 전 검토본.",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "098fd194aaf24e96fd527c5b5cef273323a628c648acb32adb9333a45c347296"
     },
     {
       "id": "derufin",
@@ -1385,12 +1632,12 @@
       "body": "날씬하고 단단한 체형",
       "pose": "방패 없이 검을 가슴 옆에 세움",
       "stature": 86,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.145,
+      "bottom": 0.96,
+      "centerX": 0.53,
+      "centerY": 0.55,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "status": "ready",
       "old": "references/derufin.png",
       "image": "units/derufin.png",
       "thumb": "thumbs/derufin.webp",
@@ -1402,7 +1649,13 @@
         0.4902,
         86,
         "body"
-      ]
+      ],
+      "review": "하이앵글 프론트·5등신·픽셀톤과 무장/자세 육안 검수. 무기·장식 제외 몸체 또는 기수 머리–골반 기준점 기록. 최종 채택 전 검토본.",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "d83b0066a0d9e8658c55d64ba9b29357b39e5b194cec74fb2c54c821a56155f7"
     },
     {
       "id": "hirgon",
@@ -1414,12 +1667,12 @@
       "body": "가벼운 전령 체형",
       "pose": "검을 내리고 빈 손으로 붉은 화살을 제시",
       "stature": 85,
-      "top": 0.08,
+      "top": 0.06,
       "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "centerX": 0.53,
+      "centerY": 0.5,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "status": "ready",
       "old": "references/hirgon.png",
       "image": "units/hirgon.png",
       "thumb": "thumbs/hirgon.webp",
@@ -1431,7 +1684,13 @@
         0.4725,
         86,
         "body"
-      ]
+      ],
+      "review": "하이앵글 프론트·5등신·픽셀톤과 무장/자세 육안 검수. 무기·장식 제외 몸체 또는 기수 머리–골반 기준점 기록. 최종 채택 전 검토본.",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "45d5385a0c7c52810f454087af17b69934d29e2c5b76fd56ffc16a94ac4a5466"
     },
     {
       "id": "pippin_citadel",
@@ -1443,12 +1702,12 @@
       "body": "작은 호빗·짧은 팔다리",
       "pose": "큰 투구 아래 용감하게 검을 들어 경계",
       "stature": 54,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.13,
+      "bottom": 0.915,
+      "centerX": 0.53,
+      "centerY": 0.52,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "status": "ready",
       "old": "references/pippin_citadel.png",
       "image": "units/pippin_citadel.png",
       "thumb": "thumbs/pippin_citadel.webp",
@@ -1460,7 +1719,13 @@
         0.5156,
         54,
         "body"
-      ]
+      ],
+      "review": "하이앵글 프론트·5등신·픽셀톤과 무장/자세 육안 검수. 무기·장식 제외 몸체 또는 기수 머리–골반 기준점 기록. 최종 채택 전 검토본.",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "14ca1fd656112e134f0dad353818499b58f48ade6b6d87f33ab8f87034fc9ade"
     },
     {
       "id": "earnur",
@@ -1472,12 +1737,12 @@
       "body": "장신·넓은 어깨의 왕",
       "pose": "공격적인 전방 검 돌입 준비",
       "stature": 93,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.15,
+      "bottom": 0.96,
+      "centerX": 0.53,
+      "centerY": 0.55,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "status": "ready",
       "old": "references/earnur.png",
       "image": "units/earnur.png",
       "thumb": "thumbs/earnur.webp",
@@ -1489,7 +1754,13 @@
         0.5,
         86,
         "body"
-      ]
+      ],
+      "review": "하이앵글 프론트·5등신·픽셀톤과 무장/자세 육안 검수. 무기·장식 제외 몸체 또는 기수 머리–골반 기준점 기록. 최종 채택 전 검토본.",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "9790c3260247731d3138b84295fda2ba1192f6fd329b950d0e4749bbb8476280"
     },
     {
       "id": "ingold",
@@ -1501,12 +1772,12 @@
       "body": "큰 키·무거운 갑옷·강한 하체",
       "pose": "창을 비스듬히 고정해 길목을 지킴",
       "stature": 91,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.09,
+      "bottom": 0.95,
+      "centerX": 0.53,
+      "centerY": 0.52,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "status": "ready",
       "old": "references/ingold.png",
       "image": "units/ingold.png",
       "thumb": "thumbs/ingold.webp",
@@ -1518,7 +1789,13 @@
         0.51,
         86,
         "body"
-      ]
+      ],
+      "review": "하이앵글 프론트·5등신·픽셀톤과 무장/자세 육안 검수. 무기·장식 제외 몸체 또는 기수 머리–골반 기준점 기록. 최종 채택 전 검토본.",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "f9fb2769bdcd975745566e3e2b57214887ea69cd96baecbcc67542144831175f"
     },
     {
       "id": "isildur_mounted",
@@ -1529,14 +1806,14 @@
       "faction": "gondor",
       "body": "장신·장대한 누메노르 체형",
       "pose": "검을 몸 앞에 높여 강하게 버팀",
-      "stature": 53,
-      "top": 0.08,
-      "bottom": 0.42,
-      "centerX": 0.5,
-      "centerY": 0.54,
+      "stature": 49,
+      "top": 0.09,
+      "bottom": 0.43,
+      "centerX": 0.54,
+      "centerY": 0.53,
       "rider": true,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "status": "ready",
       "old": "references/isildur_mounted.png",
       "image": "units/isildur_mounted.png",
       "thumb": "thumbs/isildur_mounted.webp",
@@ -1548,7 +1825,13 @@
         0.52,
         43,
         "rider"
-      ]
+      ],
+      "review": "하이앵글 프론트·5등신·픽셀톤과 무장/자세 육안 검수. 무기·장식 제외 몸체 또는 기수 머리–골반 기준점 기록. 최종 채택 전 검토본.",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "e7ee7c5972db5eea6eefe00f434914952c5064d83410d5bfc8adad0d5f5353ce"
     },
     {
       "id": "cirion_mounted",
@@ -1559,14 +1842,14 @@
       "faction": "gondor",
       "body": "중년의 균형 잡힌 장신",
       "pose": "검으로 대각선 지휘",
-      "stature": 49,
-      "top": 0.08,
-      "bottom": 0.42,
-      "centerX": 0.5,
-      "centerY": 0.54,
+      "stature": 44,
+      "top": 0.14,
+      "bottom": 0.44,
+      "centerX": 0.54,
+      "centerY": 0.55,
       "rider": true,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "status": "ready",
       "old": "references/cirion_mounted.png",
       "image": "units/cirion_mounted.png",
       "thumb": "thumbs/cirion_mounted.webp",
@@ -1578,7 +1861,13 @@
         0.54,
         43,
         "rider"
-      ]
+      ],
+      "review": "하이앵글 프론트·5등신·픽셀톤과 무장/자세 육안 검수. 무기·장식 제외 몸체 또는 기수 머리–골반 기준점 기록. 최종 채택 전 검토본.",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "5fb3d5003361254abd27dec2812dc0fb825a985721294b36fe485caeac14b426"
     },
     {
       "id": "earnur_mounted",
@@ -1589,14 +1878,14 @@
       "faction": "gondor",
       "body": "장신·넓은 어깨의 왕",
       "pose": "공격적인 전방 검 돌입 준비",
-      "stature": 52,
-      "top": 0.08,
-      "bottom": 0.42,
-      "centerX": 0.5,
-      "centerY": 0.54,
+      "stature": 46.5,
+      "top": 0.06,
+      "bottom": 0.39,
+      "centerX": 0.54,
+      "centerY": 0.52,
       "rider": true,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "status": "ready",
       "old": "references/earnur_mounted.png",
       "image": "units/earnur_mounted.png",
       "thumb": "thumbs/earnur_mounted.webp",
@@ -1608,7 +1897,13 @@
         0.54,
         43,
         "rider"
-      ]
+      ],
+      "review": "하이앵글 프론트·5등신·픽셀톤과 무장/자세 육안 검수. 무기·장식 제외 몸체 또는 기수 머리–골반 기준점 기록. 최종 채택 전 검토본.",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "dc84121dcccbdfe296286b7cb6988b2849279eeb4ce3fd631d3b99f622aa322c"
     },
     {
       "id": "citadel_guard_bow",
@@ -1620,12 +1915,12 @@
       "body": "길고 날씬한 근위 궁수",
       "pose": "직립한 채 화살을 당겨 먼 곳 조준",
       "stature": 89,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.145,
+      "bottom": 0.96,
+      "centerX": 0.53,
+      "centerY": 0.55,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "status": "ready",
       "old": "references/citadel_guard_bow.png",
       "image": "units/citadel_guard_bow.png",
       "thumb": "thumbs/citadel_guard_bow.webp",
@@ -1637,7 +1932,13 @@
         0.53,
         86,
         "body"
-      ]
+      ],
+      "review": "하이앵글 프론트·5등신·픽셀톤과 무장/자세 육안 검수. 무기·장식 제외 몸체 또는 기수 머리–골반 기준점 기록. 최종 채택 전 검토본.",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "7af4e762542f27179bb325c510a9acf24360f4af91caaf058b53e10966895d61"
     },
     {
       "id": "osgiliath_spearshield",
@@ -1649,12 +1950,12 @@
       "body": "큰 체격·노련한 창방병",
       "pose": "앞무릎을 굽혀 창을 낮춘 길목 방어",
       "stature": 88,
-      "top": 0.08,
+      "top": 0.13,
       "bottom": 0.94,
-      "centerX": 0.5,
+      "centerX": 0.53,
       "centerY": 0.53,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "status": "ready",
       "old": "references/osgiliath_spearshield.png",
       "image": "units/osgiliath_spearshield.png",
       "thumb": "thumbs/osgiliath_spearshield.webp",
@@ -1666,7 +1967,13 @@
         0.59,
         86,
         "body"
-      ]
+      ],
+      "review": "하이앵글 프론트·5등신·픽셀톤과 무장/자세 육안 검수. 무기·장식 제외 몸체 또는 기수 머리–골반 기준점 기록. 최종 채택 전 검토본.",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "fb425498f9d8dd12ab4afabe4315be4ca44435292061487b42758628f71f411f"
     },
     {
       "id": "osgiliath_bow",
@@ -1678,12 +1985,12 @@
       "body": "마르고 피곤한 베테랑",
       "pose": "한쪽 무릎을 낮춰 엄폐 조준",
       "stature": 84,
-      "top": 0.08,
+      "top": 0.19,
       "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "centerX": 0.53,
+      "centerY": 0.57,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "status": "ready",
       "old": "references/osgiliath_bow.png",
       "image": "units/osgiliath_bow.png",
       "thumb": "thumbs/osgiliath_bow.webp",
@@ -1695,7 +2002,13 @@
         0.525,
         86,
         "body"
-      ]
+      ],
+      "review": "하이앵글 프론트·5등신·픽셀톤과 무장/자세 육안 검수. 무기·장식 제외 몸체 또는 기수 머리–골반 기준점 기록. 최종 채택 전 검토본.",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "87bc171fd15b8ca54318744222d7c44786e37c08037f6ddd93b1a7dc1d8a73f2"
     },
     {
       "id": "dol_amroth_swordshield",
@@ -1707,12 +2020,12 @@
       "body": "날씬하고 젊은 해안 병사",
       "pose": "방패를 비스듬히 열고 검을 옆으로 뻗음",
       "stature": 86,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.14,
+      "bottom": 0.95,
+      "centerX": 0.53,
+      "centerY": 0.54,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "status": "ready",
       "old": "references/dol_amroth_swordshield.png",
       "image": "units/dol_amroth_swordshield.png",
       "thumb": "thumbs/dol_amroth_swordshield.webp",
@@ -1724,7 +2037,13 @@
         0.52,
         86,
         "body"
-      ]
+      ],
+      "review": "하이앵글 프론트·5등신·픽셀톤과 무장/자세 육안 검수. 무기·장식 제외 몸체 또는 기수 머리–골반 기준점 기록. 최종 채택 전 검토본.",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "15e30bbcbae740b0672ac65a9bc0b9390d0ea18da608273a32e5f8003affbb84"
     },
     {
       "id": "dol_amroth_knight_foot",
@@ -1736,12 +2055,12 @@
       "body": "장신·갑옷 아래 날렵한 기사",
       "pose": "백조 방패를 높이고 검을 낮춰 정중한 경계",
       "stature": 92,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.15,
+      "bottom": 0.96,
+      "centerX": 0.53,
+      "centerY": 0.55,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "status": "ready",
       "old": "references/dol_amroth_knight_foot.png",
       "image": "units/dol_amroth_knight_foot.png",
       "thumb": "thumbs/dol_amroth_knight_foot.webp",
@@ -1753,7 +2072,13 @@
         0.54,
         86,
         "body"
-      ]
+      ],
+      "review": "하이앵글 프론트·5등신·픽셀톤과 무장/자세 육안 검수. 무기·장식 제외 몸체 또는 기수 머리–골반 기준점 기록. 최종 채택 전 검토본.",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "b8e8e66de645e718d889ce4fe242154a2df567c14d21acec9cc60faaa404e066"
     }
   ]
 }
