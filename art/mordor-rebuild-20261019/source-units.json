@@ -955,5 +955,767 @@
       "targets": [],
       "gate": null
     }
+  },
+  {
+    "id": "witchking_foot",
+    "name_ko": "마술사왕(두건)",
+    "name_en": "Witch-king hooded",
+    "side": "evil",
+    "faction": "angmar",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "L",
+    "sheet": "lotr-tokens-v1.png",
+    "file": "tokens/witchking_foot.png",
+    "traits": [
+      "terror"
+    ],
+    "stats": {
+      "f": 6,
+      "s": 5,
+      "d": 7,
+      "a": 3,
+      "w": 3,
+      "c": 6,
+      "might": 3,
+      "will": 20,
+      "fate": 3,
+      "rules": [
+        "Terror",
+        "The Morgul Lord",
+        "Black Breath"
+      ]
+    },
+    "rules": [
+      "Terror",
+      "The Morgul Lord",
+      "Black Breath"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "witchking_fellbeast",
+    "name_ko": "마술사왕(펠비스트)",
+    "name_en": "Witch-king on Fell Beast",
+    "side": "evil",
+    "faction": "angmar",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "XXL",
+    "sheet": "fellbeast-topdown-v2.png",
+    "file": "tokens/witchking_fellbeast.png",
+    "traits": [
+      "fly",
+      "terror"
+    ],
+    "stats": {
+      "f": 6,
+      "s": 5,
+      "d": 7,
+      "a": 3,
+      "w": 3,
+      "c": 6,
+      "might": 3,
+      "will": 20,
+      "fate": 3,
+      "rules": [
+        "Terror",
+        "The Morgul Lord",
+        "Fell Beast"
+      ]
+    },
+    "rules": [
+      "Terror",
+      "The Morgul Lord",
+      "Fell Beast"
+    ],
+    "base_mm": "60mm"
+  },
+  {
+    "id": "witchking_mounted",
+    "name_ko": "마술사왕(기마)",
+    "name_en": "Witch-king mounted",
+    "side": "evil",
+    "faction": "angmar",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "XL",
+    "sheet": "witchking-mounted-topdown-v1.png",
+    "file": "tokens/witchking_mounted.png",
+    "traits": [
+      "terror"
+    ],
+    "stats": {
+      "f": 6,
+      "s": 5,
+      "d": 7,
+      "a": 3,
+      "w": 3,
+      "c": 6,
+      "might": 3,
+      "will": 20,
+      "fate": 3,
+      "rules": [
+        "Terror",
+        "The Morgul Lord",
+        "Black Breath"
+      ]
+    },
+    "rules": [
+      "Terror",
+      "The Morgul Lord",
+      "Black Breath"
+    ],
+    "base_mm": "40mm"
+  },
+  {
+    "id": "witchking_foot_mace",
+    "name_ko": "마술사왕(투구)",
+    "name_en": "Witch-king, crowned with mace",
+    "side": "evil",
+    "faction": "angmar",
+    "role": "hero",
+    "weapon": "mace",
+    "base": "L",
+    "sheet": "roster-enemy-heroes-v1.png",
+    "file": "tokens/witchking_foot_mace.png",
+    "traits": [
+      "terror"
+    ],
+    "stats": {
+      "f": 6,
+      "s": 5,
+      "d": 7,
+      "a": 3,
+      "w": 3,
+      "c": 6,
+      "might": 3,
+      "will": 20,
+      "fate": 3,
+      "rules": [
+        "Terror",
+        "The Morgul Lord",
+        "Mace of the Morgul Vale"
+      ]
+    },
+    "rules": [
+      "Terror",
+      "The Morgul Lord",
+      "Mace of the Morgul Vale"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "nazgul_sword",
+    "name_ko": "나즈굴(검)",
+    "name_en": "Nazgul, sword",
+    "side": "evil",
+    "faction": "angmar",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "L",
+    "sheet": "roster-enemy-heroes-v1.png",
+    "file": "tokens/nazgul_sword.png",
+    "traits": [
+      "terror"
+    ],
+    "artScale": 1.15,
+    "stats": {
+      "f": 5,
+      "s": 4,
+      "d": 6,
+      "a": 2,
+      "w": 2,
+      "c": 5,
+      "might": 2,
+      "will": 8,
+      "fate": 2,
+      "rules": [
+        "Terror",
+        "Ringwraith",
+        "Unseen"
+      ]
+    },
+    "rules": [
+      "Terror",
+      "Ringwraith",
+      "Unseen"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "nazgul_sword_2",
+    "name_ko": "나즈굴(검·B)",
+    "name_en": "Nazgul, sword (v2)",
+    "side": "evil",
+    "faction": "angmar",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "L",
+    "sheet": "roster-sauron-nazgul-v1.png",
+    "file": "tokens/nazgul_sword_2.png",
+    "traits": [
+      "terror"
+    ],
+    "artScale": 1.15,
+    "stats": {
+      "f": 5,
+      "s": 4,
+      "d": 6,
+      "a": 2,
+      "w": 2,
+      "c": 5,
+      "might": 2,
+      "will": 8,
+      "fate": 2,
+      "rules": [
+        "Terror",
+        "Ringwraith",
+        "Unseen"
+      ]
+    },
+    "rules": [
+      "Terror",
+      "Ringwraith",
+      "Unseen"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "nazgul_mace",
+    "name_ko": "나즈굴(철퇴)",
+    "name_en": "Nazgul, mace",
+    "side": "evil",
+    "faction": "angmar",
+    "role": "hero",
+    "weapon": "mace",
+    "base": "L",
+    "sheet": "roster-sauron-nazgul-v1.png",
+    "file": "tokens/nazgul_mace.png",
+    "traits": [
+      "terror"
+    ],
+    "artScale": 1.15,
+    "stats": {
+      "f": 5,
+      "s": 4,
+      "d": 6,
+      "a": 2,
+      "w": 2,
+      "c": 5,
+      "might": 2,
+      "will": 8,
+      "fate": 2,
+      "rules": [
+        "Terror",
+        "Ringwraith",
+        "Unseen"
+      ]
+    },
+    "rules": [
+      "Terror",
+      "Ringwraith",
+      "Unseen"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "nazgul_mounted",
+    "name_ko": "나즈굴(기마)",
+    "name_en": "Nazgul mounted",
+    "side": "evil",
+    "faction": "angmar",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "XL",
+    "sheet": "roster-sauron-nazgul-v1.png",
+    "file": "tokens/nazgul_mounted.png",
+    "traits": [
+      "terror"
+    ],
+    "stats": {
+      "f": 5,
+      "s": 4,
+      "d": 6,
+      "a": 2,
+      "w": 2,
+      "c": 5,
+      "might": 2,
+      "will": 8,
+      "fate": 2,
+      "rules": [
+        "Terror",
+        "Ringwraith",
+        "Unseen"
+      ]
+    },
+    "rules": [
+      "Terror",
+      "Ringwraith",
+      "Unseen"
+    ],
+    "base_mm": "40mm"
+  },
+  {
+    "id": "dwimmerlaik",
+    "name_ko": "드위머레이크(갑옷 나즈굴)",
+    "name_en": "Dwimmerlaik",
+    "side": "evil",
+    "faction": "angmar",
+    "role": "hero",
+    "weapon": "twohanded",
+    "base": "L",
+    "sheet": "roster-sauron-nazgul-v1.png",
+    "file": "tokens/dwimmerlaik.png",
+    "stats": {
+      "f": 5,
+      "s": 4,
+      "d": 6,
+      "a": 2,
+      "w": 2,
+      "c": 5,
+      "might": 2,
+      "will": 8,
+      "fate": 2,
+      "rules": [
+        "Terror",
+        "Ringwraith",
+        "The Dwimmerlaik"
+      ]
+    },
+    "rules": [
+      "Terror",
+      "Ringwraith",
+      "The Dwimmerlaik"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "khamul",
+    "name_ko": "카물",
+    "name_en": "Khamul the Easterling",
+    "side": "evil",
+    "faction": "angmar",
+    "role": "hero",
+    "weapon": "mace",
+    "base": "L",
+    "sheet": "roster-evil-heroes-exp-v1.png",
+    "file": "tokens/khamul.png",
+    "stats": {
+      "f": 5,
+      "s": 4,
+      "d": 6,
+      "a": 2,
+      "w": 2,
+      "c": 5,
+      "might": 2,
+      "will": 8,
+      "fate": 2,
+      "rules": [
+        "Terror",
+        "Ringwraith",
+        "Shadow of the East"
+      ]
+    },
+    "rules": [
+      "Terror",
+      "Ringwraith",
+      "Shadow of the East"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "dark_marshal",
+    "name_ko": "어둠의 장군",
+    "name_en": "The Dark Marshal",
+    "side": "evil",
+    "faction": "angmar",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "L",
+    "sheet": "roster-nazgul-nine-v1.png",
+    "file": "tokens/dark_marshal.png",
+    "stats": {
+      "f": 5,
+      "s": 4,
+      "d": 6,
+      "a": 2,
+      "w": 2,
+      "c": 5,
+      "might": 2,
+      "will": 8,
+      "fate": 2,
+      "rules": [
+        "Terror",
+        "Ringwraith",
+        "The Dark Marshal"
+      ]
+    },
+    "rules": [
+      "Terror",
+      "Ringwraith",
+      "The Dark Marshal"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "shadow_lord",
+    "name_ko": "그림자 군주",
+    "name_en": "The Shadow Lord",
+    "side": "evil",
+    "faction": "angmar",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "L",
+    "sheet": "roster-nazgul-nine-v1.png",
+    "file": "tokens/shadow_lord.png",
+    "traits": [
+      "terror"
+    ],
+    "stats": {
+      "f": 5,
+      "s": 4,
+      "d": 6,
+      "a": 2,
+      "w": 2,
+      "c": 5,
+      "might": 2,
+      "will": 8,
+      "fate": 2,
+      "rules": [
+        "Terror",
+        "Ringwraith",
+        "The Shadow Lord"
+      ]
+    },
+    "rules": [
+      "Terror",
+      "Ringwraith",
+      "The Shadow Lord"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "betrayer",
+    "name_ko": "배신자",
+    "name_en": "The Betrayer",
+    "side": "evil",
+    "faction": "angmar",
+    "role": "hero",
+    "weapon": "mace",
+    "base": "L",
+    "sheet": "roster-nazgul-nine-v1.png",
+    "file": "tokens/betrayer.png",
+    "stats": {
+      "f": 5,
+      "s": 4,
+      "d": 6,
+      "a": 2,
+      "w": 2,
+      "c": 5,
+      "might": 2,
+      "will": 8,
+      "fate": 2,
+      "rules": [
+        "Terror",
+        "Ringwraith",
+        "The Betrayer"
+      ]
+    },
+    "rules": [
+      "Terror",
+      "Ringwraith",
+      "The Betrayer"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "tainted",
+    "name_ko": "타락한 자",
+    "name_en": "The Tainted",
+    "side": "evil",
+    "faction": "angmar",
+    "role": "hero",
+    "weapon": "dagger",
+    "base": "L",
+    "sheet": "roster-nazgul-nine-v1.png",
+    "file": "tokens/tainted.png",
+    "stats": {
+      "f": 5,
+      "s": 4,
+      "d": 6,
+      "a": 2,
+      "w": 2,
+      "c": 5,
+      "might": 2,
+      "will": 8,
+      "fate": 2,
+      "rules": [
+        "Terror",
+        "Ringwraith",
+        "The Tainted"
+      ]
+    },
+    "rules": [
+      "Terror",
+      "Ringwraith",
+      "The Tainted"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "undying",
+    "name_ko": "죽지 않는 자",
+    "name_en": "The Undying",
+    "side": "evil",
+    "faction": "angmar",
+    "role": "hero",
+    "weapon": "staff",
+    "base": "L",
+    "sheet": "roster-nazgul-nine-v1.png",
+    "file": "tokens/undying.png",
+    "stats": {
+      "f": 5,
+      "s": 4,
+      "d": 6,
+      "a": 2,
+      "w": 2,
+      "c": 5,
+      "might": 2,
+      "will": 8,
+      "fate": 2,
+      "rules": [
+        "Terror",
+        "Ringwraith",
+        "The Undying"
+      ]
+    },
+    "rules": [
+      "Terror",
+      "Ringwraith",
+      "The Undying"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "knight_of_umbar",
+    "name_ko": "움바르의 기사",
+    "name_en": "Knight of Umbar",
+    "side": "evil",
+    "faction": "harad",
+    "role": "hero",
+    "weapon": "spear",
+    "base": "L",
+    "sheet": "roster-nazgul-nine-v1.png",
+    "file": "tokens/knight_of_umbar.png",
+    "base_mm": "25mm"
+  },
+  {
+    "id": "nazgul_fellbeast",
+    "name_ko": "나즈굴(펠비스트)",
+    "name_en": "Ringwraith on Fell Beast",
+    "side": "evil",
+    "faction": "angmar",
+    "role": "monster",
+    "weapon": "claws",
+    "base": "XXL",
+    "sheet": "single-nazgul-fellbeast.png",
+    "file": "tokens/nazgul_fellbeast.png",
+    "traits": [
+      "fly",
+      "terror"
+    ],
+    "stats": {
+      "f": 5,
+      "s": 4,
+      "d": 6,
+      "a": 2,
+      "w": 2,
+      "c": 5,
+      "might": 2,
+      "will": 8,
+      "fate": 2,
+      "rules": [
+        "Terror",
+        "Ringwraith",
+        "Fell Beast"
+      ]
+    },
+    "rules": [
+      "Terror",
+      "Ringwraith",
+      "Fell Beast"
+    ],
+    "base_mm": "60mm"
+  },
+  {
+    "id": "forsaken",
+    "name_ko": "버려진 자(나즈굴)",
+    "name_en": "The Forsaken, Ringwraith",
+    "side": "evil",
+    "faction": "dol_guldur",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "L",
+    "sheet": "exp-dolguldur.png",
+    "file": "tokens/forsaken.png",
+    "stats": {
+      "f": 6,
+      "s": 4,
+      "d": 6,
+      "a": 2,
+      "w": 3,
+      "c": 6,
+      "might": 2,
+      "will": 8,
+      "fate": 2,
+      "rules": [
+        "Terror",
+        "Ringwraith",
+        "The Forsaken"
+      ]
+    },
+    "rules": [
+      "Terror",
+      "Ringwraith",
+      "The Forsaken"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "witchking_mounted_sheet",
+    "name_ko": "마술사왕 기마",
+    "name_en": "Witch-king of Angmar, mounted (sheet)",
+    "side": "evil",
+    "faction": "angmar",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "XL",
+    "sheet": null,
+    "file": "tokens/witchking_mounted_sheet.png",
+    "stats": {
+      "f": 6,
+      "s": 5,
+      "d": 7,
+      "a": 3,
+      "w": 3,
+      "c": 6,
+      "might": 3,
+      "will": 20,
+      "fate": 3,
+      "rules": [
+        "Terror",
+        "The Morgul Lord"
+      ]
+    },
+    "rules": [
+      "Terror",
+      "The Morgul Lord"
+    ],
+    "base_mm": "40mm"
+  },
+  {
+    "id": "khamul_mounted",
+    "name_ko": "카물(기마)",
+    "name_en": "Khamul, mounted",
+    "side": "evil",
+    "faction": "angmar",
+    "role": "hero",
+    "weapon": "mace",
+    "base": "XL",
+    "sheet": null,
+    "file": "tokens/khamul_mounted.png",
+    "base_mm": "40mm"
+  },
+  {
+    "id": "dark_marshal_mounted",
+    "name_ko": "다크 마샬(기마)",
+    "name_en": "The Dark Marshal, mounted",
+    "side": "evil",
+    "faction": "angmar",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "XL",
+    "sheet": null,
+    "file": "tokens/dark_marshal_mounted.png",
+    "base_mm": "40mm"
+  },
+  {
+    "id": "dwimmerlaik_mounted",
+    "name_ko": "드위머레이크(기마)",
+    "name_en": "The Dwimmerlaik, mounted",
+    "side": "evil",
+    "faction": "angmar",
+    "role": "hero",
+    "weapon": "twohanded",
+    "base": "XL",
+    "sheet": null,
+    "file": "tokens/dwimmerlaik_mounted.png",
+    "base_mm": "40mm"
+  },
+  {
+    "id": "shadow_lord_mounted",
+    "name_ko": "섀도 로드(기마)",
+    "name_en": "The Shadow Lord, mounted",
+    "side": "evil",
+    "faction": "angmar",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "XL",
+    "sheet": null,
+    "file": "tokens/shadow_lord_mounted.png",
+    "base_mm": "40mm"
+  },
+  {
+    "id": "forsaken_mounted",
+    "name_ko": "포세이큰(기마)",
+    "name_en": "The Forsaken, mounted",
+    "side": "evil",
+    "faction": "dol_guldur",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "XL",
+    "sheet": null,
+    "file": "tokens/forsaken_mounted.png",
+    "base_mm": "40mm"
+  },
+  {
+    "id": "tainted_mounted",
+    "name_ko": "테인티드(기마)",
+    "name_en": "The Tainted, mounted",
+    "side": "evil",
+    "faction": "angmar",
+    "role": "hero",
+    "weapon": "dagger",
+    "base": "XL",
+    "sheet": null,
+    "file": "tokens/tainted_mounted.png",
+    "base_mm": "40mm"
+  },
+  {
+    "id": "undying_mounted",
+    "name_ko": "언다잉(기마)",
+    "name_en": "The Undying, mounted",
+    "side": "evil",
+    "faction": "angmar",
+    "role": "hero",
+    "weapon": "staff",
+    "base": "XL",
+    "sheet": null,
+    "file": "tokens/undying_mounted.png",
+    "base_mm": "40mm"
+  },
+  {
+    "id": "betrayer_mounted",
+    "name_ko": "배신자(기마)",
+    "name_en": "The Betrayer, mounted",
+    "side": "evil",
+    "faction": "angmar",
+    "role": "hero",
+    "weapon": "mace",
+    "base": "XL",
+    "sheet": null,
+    "file": "tokens/betrayer_mounted.png",
+    "base_mm": "40mm"
   }
 ]

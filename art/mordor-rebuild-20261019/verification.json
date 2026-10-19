@@ -1,5 +1,5 @@
 {
-  "count": 46,
+  "count": 73,
   "checks": [
     {
       "id": "orc_sword",
@@ -920,6 +920,546 @@
       ],
       "edgeClear": true,
       "sha256": "c6ddbabddc127a8ecd12cba2b8480b33d9029f13ceea85554e9d1a73987c1221"
+    },
+    {
+      "id": "witchking_foot",
+      "size": [
+        1199,
+        1312
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bbox": [
+        249,
+        85,
+        1038,
+        1232
+      ],
+      "edgeClear": true,
+      "sha256": "c24d3520bd71b16856bdc2a4c9bc0cb99c06eb50c25f457447c0a1c506145c0c"
+    },
+    {
+      "id": "witchking_fellbeast",
+      "size": [
+        1312,
+        1199
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bbox": [
+        83,
+        116,
+        1264,
+        1103
+      ],
+      "edgeClear": true,
+      "sha256": "69215627d4bed8ac7448b0314290a8df1c5f8f2dea2ef60ebc2e113dc8c08021"
+    },
+    {
+      "id": "witchking_mounted",
+      "size": [
+        1199,
+        1312
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bbox": [
+        85,
+        49,
+        1133,
+        1257
+      ],
+      "edgeClear": true,
+      "sha256": "3e4344ade342da3c8b2f793f4b708ad862a6df5a05990d59b31dee19ba797b66"
+    },
+    {
+      "id": "witchking_foot_mace",
+      "size": [
+        1199,
+        1312
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bbox": [
+        240,
+        23,
+        1174,
+        1236
+      ],
+      "edgeClear": true,
+      "sha256": "37324e6c5572837336e0f2e77c4e14392118fae37e8c6bed9e34fcfda5d5464f"
+    },
+    {
+      "id": "nazgul_sword",
+      "size": [
+        1199,
+        1312
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bbox": [
+        275,
+        123,
+        1086,
+        1222
+      ],
+      "edgeClear": true,
+      "sha256": "ce86d4787b2b32f3d1946f75558bd2651774a5ac40722d7d1501beff6ae4af97"
+    },
+    {
+      "id": "nazgul_sword_2",
+      "size": [
+        1199,
+        1312
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bbox": [
+        223,
+        134,
+        1106,
+        1195
+      ],
+      "edgeClear": true,
+      "sha256": "40ecc7284f2e2e4613cda492606648a378461e77bf292fed07618ba83590f890"
+    },
+    {
+      "id": "nazgul_mace",
+      "size": [
+        1199,
+        1312
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bbox": [
+        302,
+        40,
+        977,
+        1268
+      ],
+      "edgeClear": true,
+      "sha256": "527d9fa702efd38f3a24d84e2b5c9ab029acab0c4997b52a03ce1b5a9923541e"
+    },
+    {
+      "id": "nazgul_mounted",
+      "size": [
+        1199,
+        1312
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bbox": [
+        130,
+        68,
+        1094,
+        1263
+      ],
+      "edgeClear": true,
+      "sha256": "544a798dbca1727d2d61c8c3eb1f816df0f7f6a5e0e0075c37dc1b87c542dec6"
+    },
+    {
+      "id": "dwimmerlaik",
+      "size": [
+        1199,
+        1312
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bbox": [
+        243,
+        57,
+        1058,
+        1208
+      ],
+      "edgeClear": true,
+      "sha256": "30c884b7c1236a73dc8526fe1751607f7b1c73c5a54eda25cd035d4d356d30e9"
+    },
+    {
+      "id": "khamul",
+      "size": [
+        1199,
+        1312
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bbox": [
+        215,
+        18,
+        1043,
+        1267
+      ],
+      "edgeClear": true,
+      "sha256": "00a2d64b0b09f8f06302923fc9e5e2c9161b71dd2dc7d53a3a1d459ff5075df0"
+    },
+    {
+      "id": "dark_marshal",
+      "size": [
+        1199,
+        1312
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bbox": [
+        246,
+        104,
+        1106,
+        1221
+      ],
+      "edgeClear": true,
+      "sha256": "a272cfa908ea857ceefd9de80623d6b873779ae4f0e5099f8cb8970a05bcff15"
+    },
+    {
+      "id": "shadow_lord",
+      "size": [
+        1199,
+        1312
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bbox": [
+        264,
+        119,
+        1108,
+        1215
+      ],
+      "edgeClear": true,
+      "sha256": "5022f552532c66177825ad812ee83e215a1e78506e7799493ef1b5a7d9a168dc"
+    },
+    {
+      "id": "betrayer",
+      "size": [
+        1199,
+        1312
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bbox": [
+        112,
+        123,
+        1062,
+        1212
+      ],
+      "edgeClear": true,
+      "sha256": "d06b64b9555cd015ed8c410b03ddfcf5e254b9148a602723214606d3bb9e73e8"
+    },
+    {
+      "id": "tainted",
+      "size": [
+        1199,
+        1312
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bbox": [
+        130,
+        77,
+        1128,
+        1234
+      ],
+      "edgeClear": true,
+      "sha256": "5c7ed8357949575750880ee3abab5e289b243d7716aa3565adfec86120184cc2"
+    },
+    {
+      "id": "undying",
+      "size": [
+        1199,
+        1312
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bbox": [
+        199,
+        34,
+        1049,
+        1251
+      ],
+      "edgeClear": true,
+      "sha256": "96aecdab1100a5220abe993b444affd5bd80f535620f747f23ba8632d9fb9e32"
+    },
+    {
+      "id": "knight_of_umbar",
+      "size": [
+        1199,
+        1312
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bbox": [
+        222,
+        12,
+        1071,
+        1236
+      ],
+      "edgeClear": true,
+      "sha256": "6ede37fce4ded60ccc015d2c0c0ebe6e28ef497914fd56bd72fce81e83ef4b7f"
+    },
+    {
+      "id": "nazgul_fellbeast",
+      "size": [
+        1312,
+        1199
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bbox": [
+        82,
+        140,
+        1262,
+        1088
+      ],
+      "edgeClear": true,
+      "sha256": "3d14501c93a0740290a60e14a464ecddc9d39c75803610e936828577a4d8ac6e"
+    },
+    {
+      "id": "forsaken",
+      "size": [
+        1199,
+        1312
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bbox": [
+        243,
+        93,
+        1147,
+        1244
+      ],
+      "edgeClear": true,
+      "sha256": "b0b6901eb2ef7df81a044335b53d3a09f87fd3da0dba51dcc62aba2a1ea1f01d"
+    },
+    {
+      "id": "witchking_mounted_sheet",
+      "size": [
+        1199,
+        1312
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bbox": [
+        47,
+        62,
+        1153,
+        1236
+      ],
+      "edgeClear": true,
+      "sha256": "3e99706db9b8d8695dfd6e6e5aed8849fab6907c8816ab600e0523d84bb17bd1"
+    },
+    {
+      "id": "khamul_mounted",
+      "size": [
+        1199,
+        1312
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bbox": [
+        239,
+        18,
+        1085,
+        1224
+      ],
+      "edgeClear": true,
+      "sha256": "4af739eec78db3fbb728838593fe2b63217e8d53ebceb25a089694d21afdbd9e"
+    },
+    {
+      "id": "dark_marshal_mounted",
+      "size": [
+        1199,
+        1312
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bbox": [
+        125,
+        82,
+        1115,
+        1242
+      ],
+      "edgeClear": true,
+      "sha256": "801d5416a8f580bb64bf75ef79fad563c64fd912d97208b8d1146b340c3d1682"
+    },
+    {
+      "id": "dwimmerlaik_mounted",
+      "size": [
+        1199,
+        1312
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bbox": [
+        83,
+        35,
+        1116,
+        1270
+      ],
+      "edgeClear": true,
+      "sha256": "110761c354105e1e9a157de03ed5946f2e143e08273641c0d72b34043bf67196"
+    },
+    {
+      "id": "shadow_lord_mounted",
+      "size": [
+        1199,
+        1312
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bbox": [
+        143,
+        47,
+        1080,
+        1256
+      ],
+      "edgeClear": true,
+      "sha256": "9b4946420b7da1a08dec6af6f110a4d8376c5a2aa60812f767283ffb8899a0c5"
+    },
+    {
+      "id": "forsaken_mounted",
+      "size": [
+        1199,
+        1312
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bbox": [
+        153,
+        74,
+        1087,
+        1244
+      ],
+      "edgeClear": true,
+      "sha256": "9f8188ed7184e05d0c5c2431fc0d90afd320dd593d0b98d81cc70130bc9d8dfb"
+    },
+    {
+      "id": "tainted_mounted",
+      "size": [
+        1199,
+        1312
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bbox": [
+        214,
+        65,
+        1097,
+        1225
+      ],
+      "edgeClear": true,
+      "sha256": "03c2c9ee8378b086d6564e52f2f6e46e3c08849df9f955a574120856aa1d07e3"
+    },
+    {
+      "id": "undying_mounted",
+      "size": [
+        1199,
+        1312
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bbox": [
+        246,
+        8,
+        1083,
+        1236
+      ],
+      "edgeClear": true,
+      "sha256": "7bc6b70322d1f281a310d4ac450ad05cf42b24af13b06aaa783993ae3d4efb0c"
+    },
+    {
+      "id": "betrayer_mounted",
+      "size": [
+        1199,
+        1312
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bbox": [
+        83,
+        77,
+        1102,
+        1235
+      ],
+      "edgeClear": true,
+      "sha256": "abadaf9d9c4c5beac0bda4e310995e30d99cde8a6c357febf8a0c9ae6372a4ec"
     }
   ],
   "note": "Original generated alpha retained. Visible-silhouette bounds use alpha > 16 to exclude near-invisible edge noise. Technical checks do not establish camera or anatomy quality; those are visually reviewed."
