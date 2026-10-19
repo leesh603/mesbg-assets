@@ -1,0 +1,38 @@
+{
+  "errors": [],
+  "placed": {
+    "id": "gandalf",
+    "x": 1500.0001501134925,
+    "y": 419.99993484084666,
+    "phase": "reward",
+    "error": ""
+  },
+  "saved": {
+    "x": 1500.0001501134925,
+    "y": 419.99993484084666,
+    "reserve": [
+      "aragorn"
+    ]
+  },
+  "touch": {
+    "x": 1560.000048388232,
+    "y": 449.99998570347685,
+    "error": ""
+  },
+  "departure": {
+    "phase": "move",
+    "wave": 3,
+    "active": [
+      {
+        "id": "gandalf",
+        "x": 1560.000048388232,
+        "y": 449.99998570347685
+      }
+    ],
+    "reserves": [
+      "aragorn"
+    ],
+    "canvasHome": true,
+    "visible": true
+  }
+}

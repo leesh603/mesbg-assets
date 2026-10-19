@@ -20,7 +20,7 @@ P.assignRecruitDeployment=function(u){
 const deploymentPlace=P.placeInDeployment;
 P.placeInDeployment=function(u){return u.inReserve?false:deploymentPlace.call(this,u);};
 P.toggleDeployment=function(uid){
-    if(this.phase!=='preparation')return false;
+    if(!this.canEditDeployment())return false;
     const u=this.unit(uid);if(!u?.alive||u.side!=='good'||u.temporary)return false;
     this.deploymentError='';
     if(!u.inReserve){u.deploymentPosition={x:u.x,y:u.y};u.inReserve=true;u.x=-1000;u.y=-1000;}
@@ -72,3 +72,65 @@ for(const method of ['skill','castSpell','heroic','shoot','charge','move','deplo
 }
 const deploymentCommand=P.command;
 P.command=function(key,uid=this.selected){if(this.unit(uid)?.inReserve)return false;return deploymentCommand.call(this,key,uid);};
+
+// The camp owns the formation preview; entering it never advances the stage.
+P.canEditDeployment=function(){return this.phase==='preparation'||this.phase==='reward'&&this.campStep==='ready';};
+P.prepareReadyDeployment=function(){
+ if(this.phase!=='reward'||this.campStep!=='ready')return false;
+ const info=this._routeChoice||this.stageInfo(this.wave+1);
+ const key=JSON.stringify([this.wave+1,info.map,info.mission,info.modifier,info.boss]);
+ if(this.readyFormation===key)return true;
+ this.next=info;this.mapIndex=info.map;this.mission=info.mission;
+ Mt.objective.x=1165;Mt.objective.y=info.mission==='defense'?240:960;Mt.objective.radius=info.mission==='defense'?180:175;
+ this.battlefield=Terrain.build(CX.maps[visualMapIdx(info.map)],info.n||this.wave+1);this.terrain=this.battlefield.terrain;
+ if(info.mission==='rescue')this.terrain.push({id:'terr_cage',x:1165,y:960,w:80,h:80,kind:'cover',jump:true,los:'cover',active:true});
+ // Old enemies and stage allies must not occupy the next battle's deployment zone.
+ this.units=this.units.filter(u=>u.side==='good'&&u.alive&&(!u.temporary||u._pendingAlly));
+ for(const u of this.alive('good')){u.x=-1000;u.y=-1000;}
+ for(const u of this.alive('good'))if(!this.placeInDeployment(u)){u.inReserve=true;u.x=-1000;u.y=-1000;}
+ this.selected=this.alive('good').find(u=>!u.temporary)?.uid||'';
+ this.readyFormation=key;this.deploymentError='';this.save();return true;
+};
+P.placeReadyUnit=function(uid,pos){
+ if(this.phase!=='reward'||this.campStep!=='ready'||!Number.isFinite(pos?.x)||!Number.isFinite(pos?.y))return false;
+ if(pos.y<285||pos.y>pt.deployY){this.deploymentError='푸른 배치 구역의 빈 곳을 선택하세요';return false;}
+ const u=this.unit(uid);if(!u?.alive||u.side!=='good'||u.inReserve||u.temporary)return false;
+ this.deploymentError='';let ok=false;
+ const eventCount=this.events.length;this.phase='preparation';
+ try{ok=this.deploy(uid,pos);}finally{this.phase='reward';}
+ // Preview moves update immediately; they must not replay after departure.
+ this.events.splice(eventCount,this.events.length-eventCount);
+ if(!ok)this.deploymentError='푸른 배치 구역의 빈 곳을 선택하세요';
+ else{this.selected=uid;u.deploymentPosition={x:u.x,y:u.y};this.save();}
+ return ok;
+};
+const readySave=P._saveState;
+P._saveState=function(){return {...readySave.call(this),readyFormation:this.readyFormation||null};};
+const readyResume=P.resume;
+P.resume=function(){
+ let state;try{state=JSON.parse(this._incomingSaveRaw??localStorage.getItem('mesbg-endless-save'));}catch{return false;}
+ const ok=readyResume.apply(this,arguments);if(ok)this.readyFormation=state?.readyFormation||null;return ok;
+};
+const readyStart=P.start;
+P.start=function(){this.readyFormation=null;return readyStart.apply(this,arguments);};
+const readyLeave=P.leaveCamp;
+P.leaveCamp=function(){
+ const positions=this.phase==='reward'&&this.campStep==='ready'&&this.readyFormation?
+  this.permanent().filter(u=>!u.inReserve).map(u=>({uid:u.uid,x:u.x,y:u.y})):[];
+ const result=readyLeave.apply(this,arguments);if(!result)return result;
+ // Run all normal stage setup (allies/devices/traps), then restore the chosen formation.
+ for(const p of positions){const u=this.unit(p.uid);if(u){u.inReserve=false;u.x=-1000;u.y=-1000;}}
+ for(const p of positions){const u=this.unit(p.uid);if(!u)continue;
+  if(p.y<=pt.deployY&&Et(u,p,this.alive(),this.terrain))Object.assign(u,{x:p.x,y:p.y});
+  else if(!this.placeInDeployment(u)){u.inReserve=true;u.x=-1000;u.y=-1000;}
+ }
+ this.readyFormation=null;
+ if(this._retrySnapshot)this._retrySnapshot.units=structuredClone(this.units);
+ this.save();return result;
+};
+P.departReady=function(){
+ if(!this.prepareReadyDeployment())return false;
+ this.deploymentError=this.deploymentReason();if(this.deploymentError)return false;
+ if(!this.leaveCamp())return false;
+ this.startWave();return this.phase!=='preparation';
+};
