@@ -5124,5 +5124,19 @@
   "limitations": [
     "Shell/image-processing/browser environment unavailable; reference images read through GitHub connector and new PNG bytes generated/uploaded directly.",
     "New images have visual review and PNG-header checks; in-game size, full alpha-pixel and browser checks remain pending."
-  ]
+  ],
+  "reviewGallery": {
+    "count": 152,
+    "path": "art/full-roster-night-rebuild-20261019/index.html",
+    "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
+    "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
+    "groups": {
+      "gondor": 59,
+      "mordor": 73,
+      "rohan": 20
+    },
+    "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
+    "browserTested": false,
+    "sourceValidation": "152 unique IDs and existing image paths verified; inline JavaScript syntax checked."
+  }
 }
