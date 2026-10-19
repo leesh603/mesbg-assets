@@ -791,7 +791,7 @@ module.exports = [
     ['erkenbrand_mounted','에르켄브란드(기마)','Erkenbrand, mounted',{ weapon:'sword_shield' }],
     ['eorl_the_young_mounted','에오를(기마)','Eorl the Young, mounted',{ weapon:'spear' }],
     ['frealaf_mounted','프레알라프(기마)','Frealaf, mounted',{ weapon:'axe' }],
-    ['thrydan_mounted','트리단(기마)','Thrydan Wolfsbane, mounted',{ faction:'dunland', weapon:'twohanded' }],
+    ['thrydan_mounted','트리단(기마)','Thrydan Wolfsbane, mounted',{ side:'evil', faction:'dunland', weapon:'twohanded' }],
     ['hera_mounted','헤라(기마)','Hera, mounted',{ weapon:'axe' }]] },
   { sheet:null, side:'good', faction:'gondor', role:'hero', weapon:'mixed', base:'XL', units:[
     ['elendil_mounted','엘렌딜(기마)','Elendil, mounted',{ faction:'arnor', weapon:'sword' }],

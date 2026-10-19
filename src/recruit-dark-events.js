@@ -42,7 +42,7 @@ P.recruitFactionWeights=function(pool){
 P.rollFactionRecruits=function(){
     const owned=this.ownedUniqueKeys(),isH=d=>isHeroUnit(d.id,d.meta.role);
     const base=Object.values(UnitCatalog).filter(d=>d.enabled&&!d.evolutionOnly&&this.meta.has(d.id)&&this.wave>=(d.unlockWave||0)&&
-        (d.meta.side==='good'||this.rank('darkpact')&&d.meta.side==='evil')&&(!d.uniqueKey||!owned.has(d.uniqueKey))&&
+        !this.recruitAlignmentReason(d.id)&&(!d.uniqueKey||!owned.has(d.uniqueKey))&&
         (!SILMARIL_HEROES.has(d.uniqueKey||d.id)||this.rank('silmaril'))&&(!isCareerTroop(d.id)||!this.troopGateReason(d.id)));
     const history=this.recruitHistory||[],picked=[],families=new Set(),roles=new Set();
     const rarity={normal:1,elite:.7,rare:.5,epic:.35,legendary:.3};
@@ -173,3 +173,52 @@ P.resume=function(){
     this.darkPending=null;this.darkActive=null;this._darkEvent=false;return true;
 };
 if(window.MESBG)window.MESBG.encounters={events:DARK_EVENTS,recruitArmy};
+
+// Validate the canonical family as well as its form, including stale saved offers.
+P.recruitAlignmentReason=function(id){
+ const d=UnitCatalog[id];if(!d)return '영입할 수 없는 인물입니다';
+ const root=UnitCatalog[d.uniqueKey];
+ return (d.meta.side==='evil'||root?.meta.side==='evil')&&!this.rank('darkpact')?'위력의 반지를 획득해야 악세력을 영입할 수 있습니다':'';
+};
+const alignmentDraft=P.draftReason;
+P.draftReason=function(draft,quantities){
+ for(const i of draft||[]){const id=this.recruitOffers?.[i]?.id;if(id){const reason=this.recruitAlignmentReason(id);if(reason)return reason;}}
+ return alignmentDraft.apply(this,arguments);
+};
+const alignmentRecruit=P.recruit;
+P.recruit=function(i){
+ const id=this.recruitOffers?.[i]?.id;
+ if(id&&(this.recruitReason=this.recruitAlignmentReason(id)))return false;
+ return alignmentRecruit.apply(this,arguments);
+};
+const alignmentSanitize=P.sanitizeRecruitOffers;
+P.sanitizeRecruitOffers=function(){
+ const result=alignmentSanitize?.apply(this,arguments);
+ // Remove inaccessible offers instead of displaying an already-purchased label.
+ const offers=this.recruitOffers||[],keep=offers.map((o,i)=>i).filter(i=>!this.recruitAlignmentReason(offers[i].id));
+ const draft=this.recruitDraft||[],quantities=this.recruitQuantities||{};
+ this.recruitOffers=keep.map(i=>offers[i]);
+ this.recruitDraft=keep.flatMap((old,i)=>draft.includes(old)?[i]:[]);
+ this.recruitQuantities=Object.fromEntries(keep.flatMap((old,i)=>quantities[old]?[ [i,quantities[old]] ]:[]));
+ return result;
+};
+const alignmentInitial=P.rollInitialRecruits;
+P.rollInitialRecruits=function(){const result=alignmentInitial.apply(this,arguments);this.sanitizeRecruitOffers();return result;};
+const alignmentResume=P.resume;
+P.resume=function(){
+ let incoming;try{incoming=JSON.parse(this._incomingSaveRaw??localStorage.getItem('mesbg-endless-save'));}catch{return false;}
+ const result=alignmentResume.apply(this,arguments);if(!result)return result;
+ this.sanitizeRecruitOffers();
+ // Older resume layers restore quantities after sanitizing. Recover their new indices
+ // from the incoming offers so removing a locked hero cannot change troop quantities.
+ if(Array.isArray(incoming?.recruitOffers)){
+  const used=new Set(),draft=incoming.recruitDraft||[],quantities=incoming.recruitQuantities||{};
+  this.recruitDraft=[];this.recruitQuantities={};
+  this.recruitOffers.forEach((o,i)=>{
+   const old=incoming.recruitOffers.findIndex((v,j)=>!used.has(j)&&v.id===o.id);if(old<0)return;used.add(old);
+   if(draft.includes(old)&&!o.bought){this.recruitDraft.push(i);this.recruitQuantities[i]=quantities[old]||1;}
+  });
+  if(this.draftReason(this.recruitDraft)){this.recruitDraft=[];this.recruitQuantities={};}
+ }
+ return result;
+};

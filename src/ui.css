@@ -1354,3 +1354,22 @@ dialog#warband-deployment button.deployment-unit small{font:400 13px Pretendard,
 dialog#warband-deployment button.deployment-unit strong{font:700 13px Pretendard,sans-serif!important;white-space:nowrap!important}
 dialog#warband-deployment p{font-family:Pretendard,sans-serif!important;font-size:14px!important;line-height:1.5!important}
 dialog#warband-deployment [data-deployment-summary]{font-size:17px!important}
+
+/* Formation and battlefield remain inside the camp preparation screen. */
+:is(html,#_o#_v#_r) body #ready-deployment { margin:12px 0; text-align:left; }
+:is(html,#_o#_v#_r) body #ready-deployment h3 { margin:6px 0; }
+:is(html,#_o#_v#_r) body #ready-deployment p { margin:6px 0; }
+:is(html,#_o#_v#_r) body #ready-battlefield { position:relative; height:340px; width:100%; overflow:hidden; border:1px solid #8b7955; border-radius:8px; background:#273a32; }
+:is(html,#_o#_v#_r) body #ready-battlefield #game { position:absolute!important; inset:0!important; width:100%!important; height:100%!important; min-height:0!important; display:block!important; visibility:visible!important; }
+:is(html,#_o#_v#_r) body #ready-battlefield canvas { touch-action:none; }
+:is(html,#_o#_v#_r) body .ready-map-tools { display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin:6px 0; }
+:is(html,#_o#_v#_r) body .ready-map-tools span { margin-left:auto; }
+:is(html,#_o#_v#_r) body .ready-unit-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:6px; }
+:is(html,#_o#_v#_r) body .ready-unit { display:flex; gap:6px; align-items:center; min-width:0; border:1px solid #5d6558; padding:5px; border-radius:6px; }
+:is(html,#_o#_v#_r) body .ready-unit>button:first-child { flex:1; min-width:0; display:flex; align-items:center; gap:6px; text-align:left; background:transparent; border:0; }
+:is(html,#_o#_v#_r) body .ready-unit>button[aria-pressed="true"] { outline:2px solid #cbb474; }
+:is(html,#_o#_v#_r) body .ready-unit>button:first-child>img,:is(html,#_o#_v#_r) body .ready-unit>button:first-child>span:first-child { width:44px; height:44px; object-fit:contain; flex:0 0 44px; }
+:is(html,#_o#_v#_r) body .ready-unit b,:is(html,#_o#_v#_r) body .ready-unit small { display:block; overflow-wrap:anywhere; }
+:is(html,#_o#_v#_r) body .ready-unit.is-reserve { opacity:.72; }
+:is(html,#_o#_v#_r) body .ready-deployment-error { color:#ffd08a; min-height:1.3em; }
+@media(max-width:600px){:is(html,#_o#_v#_r) body #ready-battlefield { height:280px; } :is(html,#_o#_v#_r) body .ready-unit-list { grid-template-columns:1fr; }}
