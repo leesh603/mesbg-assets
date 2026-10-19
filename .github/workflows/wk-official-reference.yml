@@ -1,0 +1,42 @@
+name: Capture official Witch-king references
+on:
+  push:
+    branches: ['art/full-roster-night-rebuild-20261019']
+    paths: ['.github/workflows/wk-official-reference.yml']
+permissions:
+  contents: write
+jobs:
+  reference:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Preserve official GW model photos on the art branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          python3 - <<'PY'
+          import os,json,base64,urllib.request
+          repo=os.environ['GH_REPO']; token=os.environ['GH_TOKEN']
+          root='https://api.github.com/repos/'+repo
+          branch='art/full-roster-night-rebuild-20261019'
+          prefix='art/full-roster-night-rebuild-20261019/references/gw-witchking/'
+          def api(path,body=None,method=None):
+              req=urllib.request.Request(root+path,data=None if body is None else json.dumps(body).encode(),headers={'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','Content-Type':'application/json','User-Agent':'MESBG-art-reference'},method=method)
+              with urllib.request.urlopen(req,timeout=30) as r:return json.load(r)
+          sources=[('official-model-options.jpg','https://assets.warhammer-community.com/articles/14e6ff4f-1a34-4c06-bd63-1aa3a2851205/xvs7iwtfymegwzgc.jpg'),('official-model-detail.jpg','https://assets.warhammer-community.com/articles/14e6ff4f-1a34-4c06-bd63-1aa3a2851205/ngy80rskcpk1xvi6.jpg')]
+          entries=[]
+          for name,url in sources:
+              req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0'})
+              with urllib.request.urlopen(req,timeout=45) as r:data=r.read()
+              if not data.startswith(bytes([255,216])):raise RuntimeError('Expected JPEG: '+name)
+              blob=api('/git/blobs',{'encoding':'base64','content':base64.b64encode(data).decode()})
+              entries.append({'path':prefix+name,'mode':'100644','type':'blob','sha':blob['sha']})
+          ref=api('/git/ref/heads/'+branch); parent=ref['object']['sha']
+          commit=api('/git/commits/'+parent)
+          tree=api('/git/trees',{'base_tree':commit['tree']['sha'],'tree':entries})
+          new=api('/git/commits',{'message':'art: preserve exact official GW Witch-king model references','tree':tree['sha'],'parents':[parent]})
+          current=api('/git/ref/heads/'+branch)['object']['sha']
+          if current!=parent:raise RuntimeError('Branch advanced; refusing to overwrite')
+          api('/git/refs/heads/'+branch,{'sha':new['sha'],'force':False},'PATCH')
+          print('Saved official GW references:',new['sha'])
+          PY
