@@ -5,6 +5,8 @@ import json, hashlib, shutil, re
 from io import BytesIO
 root=Path(__file__).resolve().parents[1]
 folder='scale-followup-20261019'; revision=folder
+final_riders={'theoden','aragorn_blackgate_mounted','isildur_mounted','fingolfin_mounted','tuor_mounted','turgon_mounted'}
+def asset_revision(id):return 'mounted-final-20261019' if id in final_riders else revision
 review=root/'review'/folder; art=root/'art-src'/folder
 def read(p): return json.loads(p.read_text())
 def write(p,v): p.write_text(json.dumps(v,ensure_ascii=False,indent=2)+'\n')
@@ -59,21 +61,21 @@ for a,id,beforep,p in changed:
  if id not in redraw:shutil.copyfile(production,art/(id+'.png'))
  bp=art/'before'/(id+'.png')
  if not bp.exists():shutil.copyfile(production,bp)
- rows.append({'id':id,'name':catalog.get(id,{}).get('name_ko',a.get('name',id)),'role':catalog.get(id,{}).get('role','infantry'),'issue':'proportion' if id in redraw else 'scale-only','revision':revision,'sourceSize':list(im.size),'sourceSHA256':sha(production),'beforeSHA256':sha(bp),'beforeProfile':beforep,'artProfile':p,'files':{'production':str(production.relative_to(root)),'root':canonical,'source':'art-src/'+folder+'/'+id+'.png','before':str(bp.relative_to(root)),'thumbnail':'assets/mesbg/thumbs/'+id+'.webp'},'review':{'camera':'elevated-quarter-view','center':'rider-and-mount' if p[6]=='rider' else 'body','stature':'shared species target without hero multiplier'}})
+ rows.append({'id':id,'name':catalog.get(id,{}).get('name_ko',a.get('name',id)),'role':catalog.get(id,{}).get('role','infantry'),'issue':'proportion' if id in redraw else 'scale-only','revision':asset_revision(id),'sourceSize':list(im.size),'sourceSHA256':sha(production),'beforeSHA256':sha(bp),'beforeProfile':beforep,'artProfile':p,'files':{'production':str(production.relative_to(root)),'root':canonical,'source':'art-src/'+folder+'/'+id+'.png','before':str(bp.relative_to(root)),'thumbnail':'assets/mesbg/thumbs/'+id+'.webp'},'review':{'camera':'elevated-quarter-view','center':'rider-and-mount' if p[6]=='rider' else 'body','stature':'shared species target without hero multiplier'}})
  height=min(160,im.height);buf=BytesIO();im.resize((round(im.width*height/im.height),height),Image.Resampling.LANCZOS).save(buf,'WEBP',quality=82,method=6);encoded=buf.getvalue();assert len(encoded)>100,id; (root/'assets/mesbg/thumbs'/(id+'.webp')).write_bytes(encoded)
  shutil.copyfile(production,root/canonical)
 manifest={'date':'2026-10-19','baseSHA':'17b1c8260b3edc6bf333d1b75067c24ba4ab11f5','revision':revision,'units':rows,'redrawn':sorted(redraw),'preservedImages':{id:sha(root/'tokens'/(id+'.png')) for id in ['glorfindel_foot','glorfindel_mounted','gil_galad','erestor']},'heraldry':{'imrahil':'Dol Amroth white swan','imrahil_mounted':'Dol Amroth white swan'},'note':'38 native redraws or heraldry edits; shared species sizes; corrected Glorfindel anatomical landmarks with original image bytes preserved.'}
 write(review/'manifest.json',manifest)
 source=root/'src/game.js';s=source.read_text();anchor='const UNIT_ART_REVISIONS = ';start=s.index(anchor)+len(anchor);end=s.index(';',start);rev=json.loads(s[start:end])
 for row in rows:
- id=row['id'];rev['tokens/'+id+'.png']=revision;rev['thumbs/'+id+'.webp']=revision
- canonical=row['files']['root'];rev[canonical]=revision;rev[canonical.replace('tokens/','thumbs/').replace('.png','.webp')]=revision
+ id=row['id'];rev['tokens/'+id+'.png']=asset_revision(id);rev['thumbs/'+id+'.webp']=asset_revision(id)
+ canonical=row['files']['root'];rev[canonical]=asset_revision(id);rev[canonical.replace('tokens/','thumbs/').replace('.png','.webp')]=asset_revision(id)
  if canonical!='tokens/'+id+'.png':shutil.copyfile(root/row['files']['thumbnail'],root/'assets/mesbg'/canonical.replace('tokens/','thumbs/').replace('.png','.webp'))
 source.write_text(s[:start]+json.dumps(rev,separators=(',',':'))+s[end:])
 for filename in ['gallery.html','gallery2.html']:
  path=root/filename;s=path.read_text()
  for row in rows:
-  id=row['id'];s=re.sub(r'<img src="tokens/'+re.escape(id)+r'\.png[^\"]*"[^>]*>',lambda m:re.sub(r'src="[^"]*"','src="'+row['files']['root']+'?v='+revision+'"',m.group()),s)
+  id=row['id'];s=re.sub(r'<img src="tokens/'+re.escape(id)+r'\.png[^\"]*"[^>]*>',lambda m:re.sub(r'src="[^"]*"','src="'+row['files']['root']+'?v='+asset_revision(id)+'"',m.group()),s)
  path.write_text(s)
 for folder2 in ['fivehead-20261019','roster-unify-20261019','unit-redraw-20261019','osgiliath-growth-20261019']:
  path=root/'review'/folder2/'manifest.json';d=read(path)

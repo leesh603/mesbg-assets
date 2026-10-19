@@ -1,5 +1,14 @@
-# 유닛 후속 교정
+# Scale and proportion follow-up — 2026-10-19
 
-38종 원화와 문양, 83종 몸체·기수 크기 및 중심점을 교정했습니다. 최신 main 864a893의 게임 기능과 몸체 중심 정렬을 보존합니다. 임라힐은 돌 암로스 백조 문양, 글로르핀델은 원화 바이트를 유지하고 정수리 측정만 교정합니다. 510종 전투 유닛 비교 목록·생성 프롬프트·백업·개별 측정·실제 게임 화면을 함께 기록합니다.
+83 active profiles corrected after inspecting all 510 active combat sprites. 38 native art replacements/heraldry edits; preserved exact Glorfindel, Gil-galad foot and Erestor image bytes.
 
-자동 검사: final-tests.txt. 실제 Phaser: after-browser.json, PC 14그룹 및 390×844 모바일, 페이지 오류 없음.
+- Imrahil foot and mounted: Dol Amroth white swan and waves, replacing Gondor trees.
+- Theoden: one straight sword, hilt and blade connected to the gripping hand; shorter foreshortened horse and larger rider.
+- Glorfindel: corrected anatomical crowns, foot image displays 8.96% smaller, mounted 14.30% smaller, original raster bytes retained.
+- Same humanoid species use the same body/rider targets without hero-name multipliers. Dwarf soldiers and heroes share68; humans and elves86/43.
+- Canonical Theodred asset is tokens/theodred_mounted.png; legacy foot compatibility image stays unchanged.
+- Corrected Guthlaf and three Nazgul rider landmarks; actual in-game display reviewed next to unchanged reference art at a common camera within each comparison.
+
+Latest main 7a5905b4 base preserved: body-centred quarter-view placement, intent arrows, forecasts, recap and troop quirks. Additional six mounted anatomy refinements are layered onto the merged PR45 artwork.
+
+Validation: node --test tests/*.test.cjs; actual Phaser83 sprites desktop/mobile in after-browser.json; focus.jpg contains the specifically requested characters. Native artwork is uniformly packed, never stretched by axis or limbs. Historical review hashes retained with explicit supersession.
