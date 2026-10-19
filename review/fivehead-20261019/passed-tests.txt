@@ -1,0 +1,581 @@
+TAP version 13
+# Subtest: all 72 inspected targets resolve to corrected artwork, later user choice or retained compact species
+ok 1 - all 72 inspected targets resolve to corrected artwork, later user choice or retained compact species
+  ---
+  duration_ms: 5.662823
+  type: 'test'
+  ...
+# Subtest: consumed native sprites, source copies, anatomy and thumbnail caches agree
+ok 2 - consumed native sprites, source copies, anatomy and thumbnail caches agree
+  ---
+  duration_ms: 47.567282
+  type: 'test'
+  ...
+# Subtest: later user attachments are preserved byte-for-byte and reviewed anatomy remains explicit
+ok 3 - later user attachments are preserved byte-for-byte and reviewed anatomy remains explicit
+  ---
+  duration_ms: 6.160265
+  type: 'test'
+  ...
+# Subtest: Rumil and Orophin spawn as melee heroes with matching catalog and active skills
+ok 4 - Rumil and Orophin spawn as melee heroes with matching catalog and active skills
+  ---
+  duration_ms: 111.77175
+  type: 'test'
+  ...
+# Subtest: legacy saves migrate wrong weapons without erasing earned stats, wounds or items
+ok 5 - legacy saves migrate wrong weapons without erasing earned stats, wounds or items
+  ---
+  duration_ms: 76.816277
+  type: 'test'
+  ...
+# Subtest: explicit bow equipment still works, and removal restores the melee profile
+ok 6 - explicit bow equipment still works, and removal restores the melee profile
+  ---
+  duration_ms: 58.981991
+  type: 'test'
+  ...
+# Subtest: database source and public unit metadata agree with runtime weapons
+ok 7 - database source and public unit metadata agree with runtime weapons
+  ---
+  duration_ms: 27.939495
+  type: 'test'
+  ...
+# Subtest: camp preparation allows reserve selection and legal placement without advancing stage
+ok 8 - camp preparation allows reserve selection and legal placement without advancing stage
+  ---
+  duration_ms: 120.928936
+  type: 'test'
+  ...
+# Subtest: ready placement and reserves survive save/resume and actual departure
+ok 9 - ready placement and reserves survive save/resume and actual departure
+  ---
+  duration_ms: 68.658423
+  type: 'test'
+  ...
+# Subtest: ready departure rejects over-budget and empty armies before gold, stage or XP changes
+ok 10 - ready departure rejects over-budget and empty armies before gold, stage or XP changes
+  ---
+  duration_ms: 74.287644
+  type: 'test'
+  ...
+# Subtest: one ready action starts the selected army and leaves reserves owned without participation
+ok 11 - one ready action starts the selected army and leaves reserves owned without participation
+  ---
+  duration_ms: 71.995338
+  type: 'test'
+  ...
+# Subtest: changing route rebuilds preview but keeps owned reserves and uses the selected battlefield
+ok 12 - changing route rebuilds preview but keeps owned reserves and uses the selected battlefield
+  ---
+  duration_ms: 68.428174
+  type: 'test'
+  ...
+# Subtest: both Thrydan forms require the ring at selection, confirmation and direct recruitment
+ok 13 - both Thrydan forms require the ring at selection, confirmation and direct recruitment
+  ---
+  duration_ms: 131.013604
+  type: 'test'
+  ...
+# Subtest: stale evil offers are removed and draft indices are remapped without deleting owned units
+ok 14 - stale evil offers are removed and draft indices are remapped without deleting owned units
+  ---
+  duration_ms: 72.08954
+  type: 'test'
+  ...
+# Subtest: late random recruitment cannot draw evil without a ring and can draw Thrydan with it
+ok 15 - late random recruitment cannot draw evil without a ring and can draw Thrydan with it
+  ---
+  duration_ms: 265.072478
+  type: 'test'
+  ...
+# Subtest: full recruitment draws: 2,000 menus per hero combination, army size and map do not dominate
+ok 16 - full recruitment draws: 2,000 menus per hero combination, army size and map do not dominate
+  ---
+  duration_ms: 17094.268193
+  type: 'test'
+  ...
+# Subtest: soldiers influence secondary mass, no catalog-size weighting, unlocks and unique identities remain enforced
+ok 17 - soldiers influence secondary mass, no catalog-size weighting, unlocks and unique identities remain enforced
+  ---
+  duration_ms: 665.513551
+  type: 'test'
+  ...
+# Subtest: all 70 stages × 1,000 draws: hard progress floor, all existing late threats reachable
+ok 18 - all 70 stages × 1,000 draws: hard progress floor, all existing late threats reachable
+  ---
+  duration_ms: 6966.840509
+  type: 'test'
+  ...
+# Subtest: warning precedes real collision-safe arrival; direct and queued entry both recheck minimum
+ok 19 - warning precedes real collision-safe arrival; direct and queued entry both recheck minimum
+  ---
+  duration_ms: 45.961166
+  type: 'test'
+  ...
+# Subtest: force, wounds, casualties, named repeats, boss overlap and consecutive major threats suppress events
+ok 20 - force, wounds, casualties, named repeats, boss overlap and consecutive major threats suppress events
+  ---
+  duration_ms: 171.534243
+  type: 'test'
+  ...
+# Subtest: blocked placement never feeds an untagged monster into delayed spawns
+ok 21 - blocked placement never feeds an untagged monster into delayed spawns
+  ---
+  duration_ms: 40.286866
+  type: 'test'
+  ...
+# Subtest: production beginRound schedules a warning then spawns next round; stage transition resets the spent flag
+ok 22 - production beginRound schedules a warning then spawns next round; stage transition resets the spent flag
+  ---
+  duration_ms: 43.245752
+  type: 'test'
+  ...
+# Subtest: old/new saves, retries and fresh starts preserve or reset only the intended history
+ok 23 - old/new saves, retries and fresh starts preserve or reset only the intended history
+  ---
+  duration_ms: 47.086538
+  type: 'test'
+  ...
+# Subtest: 1,000 full scheduler histories respect once-per-wave, cooldowns and named rarity
+ok 24 - 1,000 full scheduler histories respect once-per-wave, cooldowns and named rarity
+  ---
+  duration_ms: 30193.736819
+  type: 'test'
+  ...
+# Subtest: full visual census records every one of the 597 production token files, with original identities
+ok 25 - full visual census records every one of the 597 production token files, with original identities
+  ---
+  duration_ms: 309.944761
+  type: 'test'
+  ...
+# Subtest: 50 art replacements are bounded transparent native sprites with byte-identical production and gallery copies
+ok 26 - 50 art replacements are bounded transparent native sprites with byte-identical production and gallery copies
+  ---
+  duration_ms: 39.075393
+  type: 'test'
+  ...
+# Subtest: anatomical reviews and image caches match replacements; ornaments never define body scale
+ok 27 - anatomical reviews and image caches match replacements; ornaments never define body scale
+  ---
+  duration_ms: 70.027382
+  type: 'test'
+  ...
+# Subtest: audit, review prompts and runtime catalog distinguish compatibility-only art from actual fighters
+ok 28 - audit, review prompts and runtime catalog distinguish compatibility-only art from actual fighters
+  ---
+  duration_ms: 95.436707
+  type: 'test'
+  ...
+# Subtest: automatic calibration preserves the exact size of visually pinned named heroes
+ok 29 - automatic calibration preserves the exact size of visually pinned named heroes
+  ---
+  duration_ms: 96.790027
+  type: 'test'
+  ...
+# Subtest: resumed roster has 49 active replacements with preserved original artwork and synchronized gallery copies
+ok 30 - resumed roster has 49 active replacements with preserved original artwork and synchronized gallery copies
+  ---
+  duration_ms: 175.925842
+  type: 'test'
+  ...
+# Subtest: uncatalogued war Galadriel is archived without being registered as an extra combat unit
+ok 31 - uncatalogued war Galadriel is archived without being registered as an extra combat unit
+  ---
+  duration_ms: 6.253855
+  type: 'test'
+  ...
+# Subtest: approved reference artwork and prior Lorien and Elrond replacements are excluded from this redraw
+ok 32 - approved reference artwork and prior Lorien and Elrond replacements are excluded from this redraw
+  ---
+  duration_ms: 0.314606
+  type: 'test'
+  ...
+# Subtest: every edge exists, remains in its kingdom/race and cannot promote into any hero or monster
+ok 33 - every edge exists, remains in its kingdom/race and cannot promote into any hero or monster
+  ---
+  duration_ms: 135.668057
+  type: 'test'
+  ...
+# Subtest: all configured paths execute with real profile IDs and fixed entry costs
+ok 34 - all configured paths execute with real profile IDs and fixed entry costs
+  ---
+  duration_ms: 5326.851838
+  type: 'test'
+  ...
+# Subtest: troop identity, equipment, permanent gains, kills, injury and enhancement history survive
+ok 35 - troop identity, equipment, permanent gains, kills, injury and enhancement history survive
+  ---
+  duration_ms: 71.808511
+  type: 'test'
+  ...
+# Subtest: direct elite recruitment pays the normal profile cost, unlike a trained soldier
+ok 36 - direct elite recruitment pays the normal profile cost, unlike a trained soldier
+  ---
+  duration_ms: 52.086475
+  type: 'test'
+  ...
+# Subtest: experience and participation requirements cannot be skipped; forged targets fail atomically
+ok 37 - experience and participation requirements cannot be skipped; forged targets fail atomically
+  ---
+  duration_ms: 53.994791
+  type: 'test'
+  ...
+# Subtest: horse/goat/warg acquisition and conversion consume resources only on success
+ok 38 - horse/goat/warg acquisition and conversion consume resources only on success
+  ---
+  duration_ms: 228.14638
+  type: 'test'
+  ...
+# Subtest: new mounted troops dismount and remount without losing points or career
+ok 39 - new mounted troops dismount and remount without losing points or career
+  ---
+  duration_ms: 188.385842
+  type: 'test'
+  ...
+# Subtest: save/resume preserves promotion, deferral, mount inventory and validates entry points
+ok 40 - save/resume preserves promotion, deferral, mount inventory and validates entry points
+  ---
+  duration_ms: 58.077098
+  type: 'test'
+  ...
+# Subtest: legacy ranks migrate once without duplicating rank stats or removing event gains
+ok 41 - legacy ranks migrate once without duplicating rank stats or removing event gains
+  ---
+  duration_ms: 58.124439
+  type: 'test'
+  ...
+# Subtest: darkpact and named legacy/era gates remain required
+ok 42 - darkpact and named legacy/era gates remain required
+  ---
+  duration_ms: 50.853321
+  type: 'test'
+  ...
+# Subtest: ordinary kill XP is capped per battle; heroes retain their 100-kill hidden evolution
+ok 43 - ordinary kill XP is capped per battle; heroes retain their 100-kill hidden evolution
+  ---
+  duration_ms: 36.531176
+  type: 'test'
+  ...
+# Subtest: new archers fire, melee infantry cannot shoot, and crossbows cannot fire after moving
+ok 44 - new archers fire, melee infantry cannot shoot, and crossbows cannot fire after moving
+  ---
+  duration_ms: 56.974526
+  type: 'test'
+  ...
+# Subtest: all new PNGs have true alpha, sensible dimensions and measured body profiles
+ok 45 - all new PNGs have true alpha, sensible dimensions and measured body profiles
+  ---
+  duration_ms: 1.072983
+  type: 'test'
+  ...
+# Subtest: deployed troops earn participation and survival once per actual wave
+ok 46 - deployed troops earn participation and survival once per actual wave
+  ---
+  duration_ms: 49.294464
+  type: 'test'
+  ...
+# Subtest: stationary elite archers use their live shooting rule and bodyguards need a living hero
+ok 47 - stationary elite archers use their live shooting rule and bodyguards need a living hero
+  ---
+  duration_ms: 56.608877
+  type: 'test'
+  ...
+# Subtest: a later version of the cost table does not reprice an existing trained soldier
+ok 48 - a later version of the cost table does not reprice an existing trained soldier
+  ---
+  duration_ms: 56.639991
+  type: 'test'
+  ...
+# Preview: 492 profiles; 248 anatomical candidates; 244 reviewed landmark fallbacks. Centres preserved.
+# Subtest: every production combat token has an explicit anatomical reference
+ok 49 - every production combat token has an explicit anatomical reference
+  ---
+  duration_ms: 95.621581
+  type: 'test'
+  ...
+# Subtest: all 492 anatomical spans render to their specified size, independent of radius and artScale
+ok 50 - all 492 anatomical spans render to their specified size, independent of radius and artScale
+  ---
+  duration_ms: 2.600211
+  type: 'test'
+  ...
+# Subtest: banners, staves and spears have anatomical centers independent of their ornament envelopes
+ok 51 - banners, staves and spears have anatomical centers independent of their ornament envelopes
+  ---
+  duration_ms: 0.139971
+  type: 'test'
+  ...
+# Subtest: padding and seated poses do not create multiples of cavalry size
+ok 52 - padding and seated poses do not create multiples of cavalry size
+  ---
+  duration_ms: 41.650977
+  type: 'test'
+  ...
+# Subtest: character details do not reveal evolution thresholds or next forms
+ok 53 - character details do not reveal evolution thresholds or next forms
+  ---
+  duration_ms: 55.717756
+  type: 'test'
+  ...
+# Subtest: lazy-loaded and transformed units anchor rotation and idle at the body, with no stale profile
+ok 54 - lazy-loaded and transformed units anchor rotation and idle at the body, with no stale profile
+  ---
+  duration_ms: 0.495579
+  type: 'test'
+  ...
+# Subtest: newer main base rendering is preserved and never used to normalize body scale
+ok 55 - newer main base rendering is preserved and never used to normalize body scale
+  ---
+  duration_ms: 0.908123
+  type: 'test'
+  ...
+# Subtest: review is tied to the actual production raster, never stale source copies
+ok 56 - review is tied to the actual production raster, never stale source copies
+  ---
+  duration_ms: 104.880851
+  type: 'test'
+  ...
+# Subtest: regressions: empty padding, torso-only foot profiles, and Nazgul class
+ok 57 - regressions: empty padding, torso-only foot profiles, and Nazgul class
+  ---
+  duration_ms: 0.3904
+  type: 'test'
+  ...
+# Subtest: fixed painted facing: no directional mirroring or alpha-derived facing remains
+ok 58 - fixed painted facing: no directional mirroring or alpha-derived facing remains
+  ---
+  duration_ms: 4.889583
+  type: 'test'
+  ...
+# Subtest: every centre records a visually reviewed body rule, separate from size landmarks
+ok 59 - every centre records a visually reviewed body rule, separate from size landmarks
+  ---
+  duration_ms: 1.170199
+  type: 'test'
+  ...
+# Subtest: stature calibration keeps flags, half-body detections and creature species from corrupting scale
+ok 60 - stature calibration keeps flags, half-body detections and creature species from corrupting scale
+  ---
+  duration_ms: 1.44889
+  type: 'test'
+  ...
+# Subtest: calibrator dry run is idempotent and cannot write or push implicitly
+ok 61 - calibrator dry run is idempotent and cannot write or push implicitly
+  ---
+  duration_ms: 5715.315311
+  type: 'test'
+  ...
+# Subtest: all 22 reviewed sprites have native RGBA dimensions, identical consumed copies and preserved originals
+ok 62 - all 22 reviewed sprites have native RGBA dimensions, identical consumed copies and preserved originals
+  ---
+  duration_ms: 45.438594
+  type: 'test'
+  ...
+# Subtest: replacement anatomy matches authoritative data and caches cover both battle and card images
+ok 63 - replacement anatomy matches authoritative data and caches cover both battle and card images
+  ---
+  duration_ms: 8.321812
+  type: 'test'
+  ...
+# Subtest: online build embeds the exact tested source
+ok 64 - online build embeds the exact tested source
+  ---
+  duration_ms: 12.466229
+  type: 'test'
+  ...
+# Subtest: over-budget and empty departures fail before advancing stage or awarding participation
+ok 65 - over-budget and empty departures fail before advancing stage or awarding participation
+  ---
+  duration_ms: 124.02379
+  type: 'test'
+  ...
+# Subtest: reserve swapping is atomic, retains ownership and participates only when selected
+ok 66 - reserve swapping is atomic, retains ownership and participates only when selected
+  ---
+  duration_ms: 75.346075
+  type: 'test'
+  ...
+# Subtest: reserves survive save/resume and next preparation without being silently deployed
+ok 67 - reserves survive save/resume and next preparation without being silently deployed
+  ---
+  duration_ms: 81.536474
+  type: 'test'
+  ...
+# Subtest: reserve soldiers receive no participation XP and cannot act or absorb combat hits
+ok 68 - reserve soldiers receive no participation XP and cannot act or absorb combat hits
+  ---
+  duration_ms: 61.661794
+  type: 'test'
+  ...
+# Subtest: reserve heroes do not grant field faction bonds and do not prevent annihilation defeat
+ok 69 - reserve heroes do not grant field faction bonds and do not prevent annihilation defeat
+  ---
+  duration_ms: 51.94392
+  type: 'test'
+  ...
+# Subtest: reserve heroes cannot invoke skills, spells or heroic actions through stale selections
+ok 70 - reserve heroes cannot invoke skills, spells or heroic actions through stale selections
+  ---
+  duration_ms: 40.947352
+  type: 'test'
+  ...
+# Subtest: fresh arrivals and the entire quantity draft receive full faction/relic maxima; refresh never heals old wounds
+ok 71 - fresh arrivals and the entire quantity draft receive full faction/relic maxima; refresh never heals old wounds
+  ---
+  duration_ms: 144.6809
+  type: 'test'
+  ...
+# Subtest: late soldiers get bounded field drills without invented XP, service or free promotions
+ok 72 - late soldiers get bounded field drills without invented XP, service or free promotions
+  ---
+  duration_ms: 330.035538
+  type: 'test'
+  ...
+# Subtest: earned veterancy changes live combat, survives promotion, and adds a wound only once
+ok 73 - earned veterancy changes live combat, survives promotion, and adds a wound only once
+  ---
+  duration_ms: 56.511676
+  type: 'test'
+  ...
+# Subtest: all nonhero soldier roles can grow; Heroes, monsters and temporary support cannot gain troop ranks
+ok 74 - all nonhero soldier roles can grow; Heroes, monsters and temporary support cannot gain troop ranks
+  ---
+  duration_ms: 40.423421
+  type: 'test'
+  ...
+# Subtest: veteran archers reroll failed wound dice only when stationary and still respect defensive dice
+ok 75 - veteran archers reroll failed wound dice only when stationary and still respect defensive dice
+  ---
+  duration_ms: 45.317791
+  type: 'test'
+  ...
+# Subtest: shared camp benefits apply to later recruits, cap at two and persist through saves without compounding
+ok 76 - shared camp benefits apply to later recruits, cap at two and persist through saves without compounding
+  ---
+  duration_ms: 68.743481
+  type: 'test'
+  ...
+# Subtest: personal early choices cannot stack combat stats endlessly and late Heroes inherit bounded basic training
+ok 77 - personal early choices cannot stack combat stats endlessly and late Heroes inherit bounded basic training
+  ---
+  duration_ms: 67.439049
+  type: 'test'
+  ...
+# Subtest: all relic acquisition paths obey the early power floor; existing owned artifacts stay usable
+ok 78 - all relic acquisition paths obey the early power floor; existing owned artifacts stay usable
+  ---
+  duration_ms: 942.812254
+  type: 'test'
+  ...
+# Subtest: existing careers migrate into earned ranks and save/import/retry neither heal nor duplicate training
+ok 79 - existing careers migrate into earned ranks and save/import/retry neither heal nor duplicate training
+  ---
+  duration_ms: 46.757974
+  type: 'test'
+  ...
+# Subtest: all three Osgiliath production, gallery and source copies match the reviewed transparent native rasters
+ok 80 - all three Osgiliath production, gallery and source copies match the reviewed transparent native rasters
+  ---
+  duration_ms: 4.540896
+  type: 'test'
+  ...
+# Subtest: every game profile has a positive, traceable point cost; exact configurations include equipment
+ok 81 - every game profile has a positive, traceable point cost; exact configurations include equipment
+  ---
+  duration_ms: 114.50245
+  type: 'test'
+  ...
+# Subtest: recruitment can own two expensive heroes while only one fits the departure budget
+ok 82 - recruitment can own two expensive heroes while only one fits the departure budget
+  ---
+  duration_ms: 59.510575
+  type: 'test'
+  ...
+# Subtest: troop quantities can exceed the departure cap but still require sufficient gold
+ok 83 - troop quantities can exceed the departure cap but still require sufficient gold
+  ---
+  duration_ms: 94.430311
+  type: 'test'
+  ...
+# Subtest: paid expansion adds 50pt, survives saves, and no longer increases automatically with wave number
+ok 84 - paid expansion adds 50pt, survives saves, and no longer increases automatically with wave number
+  ---
+  duration_ms: 43.076081
+  type: 'test'
+  ...
+# Subtest: temporary support does not occupy points, dead troops release them, injuries and XP do not discount survivors
+ok 85 - temporary support does not occupy points, dead troops release them, injuries and XP do not discount survivors
+  ---
+  duration_ms: 44.23295
+  type: 'test'
+  ...
+# Subtest: quantity draft survives save and resume without spawning or charging before confirmation
+ok 86 - quantity draft survives save and resume without spawning or charging before confirmation
+  ---
+  duration_ms: 57.772949
+  type: 'test'
+  ...
+# Subtest: initial hero replacement removes the previous hero quantity and troops keep their quantities
+ok 87 - initial hero replacement removes the previous hero quantity and troops keep their quantities
+  ---
+  duration_ms: 65.084494
+  type: 'test'
+  ...
+# Subtest: confirmation validates unique identities, forged quantities and gold without rejecting owned points
+ok 88 - confirmation validates unique identities, forged quantities and gold without rejecting owned points
+  ---
+  duration_ms: 57.740565
+  type: 'test'
+  ...
+# Subtest: lack of deployment space keeps paid recruits safely in reserve
+ok 89 - lack of deployment space keeps paid recruits safely in reserve
+  ---
+  duration_ms: 61.813262
+  type: 'test'
+  ...
+# Subtest: mount ownership is allowed over the cap and the final army must be adjusted before departure
+ok 90 - mount ownership is allowed over the cap and the final army must be adjusted before departure
+  ---
+  duration_ms: 43.168081
+  type: 'test'
+  ...
+# Subtest: old saves migrate to a stable budget preserving survivors and purchased upgrades
+ok 91 - old saves migrate to a stable budget preserving survivors and purchased upgrades
+  ---
+  duration_ms: 42.786965
+  type: 'test'
+  ...
+# Subtest: earned evolution and further recruits are retained without forcing an over-budget departure
+ok 92 - earned evolution and further recruits are retained without forcing an over-budget departure
+  ---
+  duration_ms: 54.310979
+  type: 'test'
+  ...
+# Subtest: legacy direct recruitment also stores over-budget arrivals in reserve
+ok 93 - legacy direct recruitment also stores over-budget arrivals in reserve
+  ---
+  duration_ms: 62.815327
+  type: 'test'
+  ...
+# Subtest: 200 seeded initial drafts always provide distinct, affordable heroes and ordinary troop offers
+ok 94 - 200 seeded initial drafts always provide distinct, affordable heroes and ordinary troop offers
+  ---
+  duration_ms: 262.13386
+  type: 'test'
+  ...
+# Subtest: served bundle embeds the exact point module and all roster views display point values
+ok 95 - served bundle embeds the exact point module and all roster views display point values
+  ---
+  duration_ms: 8.688988
+  type: 'test'
+  ...
+1..95
+# tests 95
+# suites 0
+# pass 95
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 55414.404449

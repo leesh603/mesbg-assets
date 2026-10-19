@@ -1,0 +1,2135 @@
+{
+  "date": "2026-10-19",
+  "baseSHA": "1f392511e0716f5af5a64b4ab45c037973d90f22",
+  "revision": "fivehead-final-20261019",
+  "reference": {
+    "glorfindel_foot": "9dcb71e7b2455c8d7e7f068047023f141cb5711389c3b351dfbf6ba3cb5fa0db",
+    "glorfindel_mounted": "7adbdac2f399155666c082adcdbb67baa6d7d568eef402234dcea2b2422ab46f"
+  },
+  "units": [
+    {
+      "id": "alatar",
+      "name": "알라타르",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "56b8a70411b49f2dbe9f28c57ab2c7501936e25d788e9cd6ac4dcb5a9aa7f607",
+      "beforeSHA256": "b32839c5b365cbc46baf38e4a3f13eeb4e9c69aeb8235bfb2e5ee4b8d68bd00b",
+      "artProfile": [
+        "human",
+        0.24,
+        0.94,
+        0.51,
+        0.58,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/alatar.png",
+        "root": "tokens/alatar.png",
+        "source": "art-src/fivehead-20261019/alatar.png",
+        "before": "art-src/fivehead-20261019/before/alatar.png",
+        "thumbnail": "assets/mesbg/thumbs/alatar.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "anarion_mounted",
+      "name": "아나리온(기마)",
+      "role": "hero",
+      "issue": "mounted",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        384,
+        356
+      ],
+      "sourceSHA256": "cfe9382c6678d13b4f56869596b9b0677a0bde901307993d2808d2437bb9d49b",
+      "beforeSHA256": "1b0ad9ea84600ba917be930b20b879dc670160db2f58c61303da4eeb9d1bfd3d",
+      "artProfile": [
+        "human",
+        0.08,
+        0.4,
+        0.61,
+        0.55,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/anarion_mounted.png",
+        "root": "tokens/anarion_mounted.png",
+        "source": "art-src/fivehead-20261019/anarion_mounted.png",
+        "before": "art-src/fivehead-20261019/before/anarion_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/anarion_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "rider-and-mount"
+      }
+    },
+    {
+      "id": "arathorn_mounted",
+      "name": "아라손(기마)",
+      "role": "hero",
+      "issue": "mounted",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        384,
+        346
+      ],
+      "sourceSHA256": "3d04aa46a528ac344de0cc8a60d1bdab91778b3bdeef6b28d6fe4c4b5e66ccf9",
+      "beforeSHA256": "9ee99bf799add392bc4d0593c437159d4ba626035bc04aff4369367436568936",
+      "artProfile": [
+        "human",
+        0.07,
+        0.39,
+        0.57,
+        0.51,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/arathorn_mounted.png",
+        "root": "tokens/arathorn_mounted.png",
+        "source": "art-src/fivehead-20261019/arathorn_mounted.png",
+        "before": "art-src/fivehead-20261019/before/arathorn_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/arathorn_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "rider-and-mount"
+      }
+    },
+    {
+      "id": "arnor_knight",
+      "name": "아르노르 기사",
+      "role": "cavalry",
+      "issue": "mounted",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        353,
+        384
+      ],
+      "sourceSHA256": "c7753cb9e2c34cec06d6f3445b12b39d3820d2f8da61625097305f22304a9cb4",
+      "beforeSHA256": "413346751befab7e3b384fd6f368a067e1034efb96dbaffd5f3c9be1b32eedc5",
+      "artProfile": [
+        "human",
+        0.12,
+        0.4,
+        0.56,
+        0.54,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/arnor_knight.png",
+        "root": "tokens/arnor_knight.png",
+        "source": "art-src/fivehead-20261019/arnor_knight.png",
+        "before": "art-src/fivehead-20261019/before/arnor_knight.png",
+        "thumbnail": "assets/mesbg/thumbs/arnor_knight.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "rider-and-mount"
+      }
+    },
+    {
+      "id": "arnor_ranger",
+      "name": "아르노르 레인저",
+      "role": "infantry",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "dc38ce34857c74bd2354dcc62e442e2596073ec8cc1b55b7b446f00af059fe1d",
+      "beforeSHA256": "843fb34edcd48453526fb69ef3697fca08c11d852eb5a600efd32d1e30f21ac2",
+      "artProfile": [
+        "human",
+        0.08,
+        0.94,
+        0.49,
+        0.51,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/arnor_ranger.png",
+        "root": "tokens/arnor_ranger.png",
+        "source": "art-src/fivehead-20261019/arnor_ranger.png",
+        "before": "art-src/fivehead-20261019/before/arnor_ranger.png",
+        "thumbnail": "assets/mesbg/thumbs/arnor_ranger.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "arvedui_mounted",
+      "name": "아르베두이(기마)",
+      "role": "hero",
+      "issue": "mounted",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "82a23c172fd9acfcb6042a2008db6d6d556dddd3cee3658699a60a987f2401ff",
+      "beforeSHA256": "e8fc487b90fe8b4a5f6b2e0c6ffb7db73d50f642e3f5042de80e562e04a63554",
+      "artProfile": [
+        "human",
+        0.2,
+        0.46,
+        0.61,
+        0.59,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/arvedui_mounted.png",
+        "root": "tokens/arvedui_mounted.png",
+        "source": "art-src/fivehead-20261019/arvedui_mounted.png",
+        "before": "art-src/fivehead-20261019/before/arvedui_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/arvedui_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "rider-and-mount"
+      }
+    },
+    {
+      "id": "beleg_mounted",
+      "name": "벨레그(기마)",
+      "role": "hero",
+      "issue": "mounted",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        384,
+        342
+      ],
+      "sourceSHA256": "cf7ea4caa1f28f4248078e9b96648779e91d28e1ec8672afb3663c7e21008691",
+      "beforeSHA256": "90c2448733bc5fac9ed07759591fea0612786474a69c09a87246988cfd6f8586",
+      "artProfile": [
+        "human",
+        0.16,
+        0.43,
+        0.6,
+        0.55,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/beleg_mounted.png",
+        "root": "tokens/beleg_mounted.png",
+        "source": "art-src/fivehead-20261019/beleg_mounted.png",
+        "before": "art-src/fivehead-20261019/before/beleg_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/beleg_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "rider-and-mount"
+      }
+    },
+    {
+      "id": "black_numenorean_mounted",
+      "name": "검은 누메노르인(기마)",
+      "role": "cavalry",
+      "issue": "mounted",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "11c1e3205ba4aa5c181ffb93afa3d7b69f7299f46dcd81060da038ec2b55cfb7",
+      "beforeSHA256": "e7aa990fd17d96994807b883b2bb6f4bf55df9d77c90cba77bf8cafa97982235",
+      "artProfile": [
+        "human",
+        0.13,
+        0.4,
+        0.57,
+        0.55,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/black_numenorean_mounted.png",
+        "root": "tokens/black_numenorean_mounted.png",
+        "source": "art-src/fivehead-20261019/black_numenorean_mounted.png",
+        "before": "art-src/fivehead-20261019/before/black_numenorean_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/black_numenorean_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "rider-and-mount"
+      }
+    },
+    {
+      "id": "celebrimbor",
+      "name": "켈레브림보르",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        342,
+        384
+      ],
+      "sourceSHA256": "9abffc5c7bf0f51698fee31f0dc9f931ca1affc823dc29a4c9017e25f2a528e1",
+      "beforeSHA256": "29db9fd91fd74e30d14fb1c7cef4ba76e031d384498daaadd86550513b8b94d4",
+      "artProfile": [
+        "human",
+        0.13,
+        0.94,
+        0.54,
+        0.53,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/celebrimbor.png",
+        "root": "tokens/celebrimbor.png",
+        "source": "art-src/fivehead-20261019/celebrimbor.png",
+        "before": "art-src/fivehead-20261019/before/celebrimbor.png",
+        "thumbnail": "assets/mesbg/thumbs/celebrimbor.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "cirdan_mounted",
+      "name": "키르단(기마)",
+      "role": "hero",
+      "issue": "mounted",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        384,
+        379
+      ],
+      "sourceSHA256": "5e6cbe6f4c0eaedda5fcea3cdcab3609190d90d674d45bd80762772b12a80658",
+      "beforeSHA256": "799a3207be73ba9852b69858bd40427ef916a18eb2297f05bce7405d757a5020",
+      "artProfile": [
+        "human",
+        0.09,
+        0.38,
+        0.6,
+        0.54,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/cirdan_mounted.png",
+        "root": "tokens/cirdan_mounted.png",
+        "source": "art-src/fivehead-20261019/cirdan_mounted.png",
+        "before": "art-src/fivehead-20261019/before/cirdan_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/cirdan_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "rider-and-mount"
+      }
+    },
+    {
+      "id": "cirion_mounted",
+      "name": "키리온(기마)",
+      "role": "hero",
+      "issue": "mounted",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "d4d667e1d3593bc332964c1cca8793480d10fece8c11115bcf67d3a3b5ae2d61",
+      "beforeSHA256": "99b1b8019e8c55f2757ccd14a81c57cdf3ae02d65b1aa0f2132bde36e11dab3f",
+      "artProfile": [
+        "human",
+        0.09,
+        0.37,
+        0.6,
+        0.54,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/cirion_mounted.png",
+        "root": "tokens/cirion_mounted.png",
+        "source": "art-src/fivehead-20261019/cirion_mounted.png",
+        "before": "art-src/fivehead-20261019/before/cirion_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/cirion_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "rider-and-mount"
+      }
+    },
+    {
+      "id": "citadel_guard_bow",
+      "name": "성채근위 궁병",
+      "role": "infantry",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "cdc43928e3286dd152e40436cc07b77caad52c0e3cc211fccc705c93231b6027",
+      "beforeSHA256": "5537c68b85bf7644d82743c5673ea7c2e7cf2895bebb2a916efdb8d7598c2a09",
+      "artProfile": [
+        "human",
+        0.12,
+        0.94,
+        0.49,
+        0.53,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/citadel_guard_bow.png",
+        "root": "tokens/citadel_guard_bow.png",
+        "source": "art-src/fivehead-20261019/citadel_guard_bow.png",
+        "before": "art-src/fivehead-20261019/before/citadel_guard_bow.png",
+        "thumbnail": "assets/mesbg/thumbs/citadel_guard_bow.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "dale_guard",
+      "name": "데일 기리온 근위병",
+      "role": "infantry",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "9c8e8f12e9913f650be02e8fdfa330592ba1c34bff6b725f5a0809a43e893995",
+      "beforeSHA256": "6df7ba4b9057a31dba14c4d55ab6816cd38652053e49add2dbb7a21720ded9fa",
+      "artProfile": [
+        "human",
+        0.1,
+        0.94,
+        0.49,
+        0.52,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/dale_guard.png",
+        "root": "tokens/dale_guard.png",
+        "source": "art-src/fivehead-20261019/dale_guard.png",
+        "before": "art-src/fivehead-20261019/before/dale_guard.png",
+        "thumbnail": "assets/mesbg/thumbs/dale_guard.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "dead_spearman",
+      "name": "죽은자 창병",
+      "role": "infantry",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        380,
+        384
+      ],
+      "sourceSHA256": "0ae155504589a3901b283c6febae78afcffb0be5345843841ef8d0cdc7bd727b",
+      "beforeSHA256": "78f5ac99a8d54b99b7dd88d2b02ae385ecc5439b40a88b970f90518cf9acec81",
+      "artProfile": [
+        "human",
+        0.16,
+        0.96,
+        0.54,
+        0.56,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/dead_spearman.png",
+        "root": "tokens/dead_spearman.png",
+        "source": "art-src/fivehead-20261019/dead_spearman.png",
+        "before": "art-src/fivehead-20261019/before/dead_spearman.png",
+        "thumbnail": "assets/mesbg/thumbs/dead_spearman.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "dol_amroth_knight_foot",
+      "name": "돌 암로스 백조기사 도보",
+      "role": "infantry",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "04af9cd12a78fafe2b64c3f52f08a15fb2e772171af81508f8169006ebbb745e",
+      "beforeSHA256": "378836a37aba67e737f9abea2a6b5a3d628c563e6bc73f74f6253c8d6a50e900",
+      "artProfile": [
+        "human",
+        0.16,
+        0.93,
+        0.5,
+        0.54,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/dol_amroth_knight_foot.png",
+        "root": "tokens/dol_amroth_knight_foot.png",
+        "source": "art-src/fivehead-20261019/dol_amroth_knight_foot.png",
+        "before": "art-src/fivehead-20261019/before/dol_amroth_knight_foot.png",
+        "thumbnail": "assets/mesbg/thumbs/dol_amroth_knight_foot.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "dol_amroth_swordshield",
+      "name": "돌 암로스 검방병",
+      "role": "infantry",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "8141438f19a694d44b7c136c873b60a8ba201bece6bc12ef44f0c5fe6695c415",
+      "beforeSHA256": "aa943e8770ed43f470974e9ddc31573cd503b923a08dbc0453a12576e76d33f7",
+      "artProfile": [
+        "human",
+        0.11,
+        0.93,
+        0.52,
+        0.52,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/dol_amroth_swordshield.png",
+        "root": "tokens/dol_amroth_swordshield.png",
+        "source": "art-src/fivehead-20261019/dol_amroth_swordshield.png",
+        "before": "art-src/fivehead-20261019/before/dol_amroth_swordshield.png",
+        "thumbnail": "assets/mesbg/thumbs/dol_amroth_swordshield.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "earendil",
+      "name": "에아렌딜",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "a53992c9b6ebc27fdce3e92292a0a62bd1d01b31b9ffeecc92fe4e91f14f040e",
+      "beforeSHA256": "9941527ad23dd4b7af11e58330f9c19a5cf84aee017baed3b8e3e38df26e1362",
+      "artProfile": [
+        "human",
+        0.055,
+        0.96,
+        0.54,
+        0.51,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/earendil.png",
+        "root": "tokens/earendil.png",
+        "source": "art-src/fivehead-20261019/earendil.png",
+        "before": "art-src/fivehead-20261019/before/earendil.png",
+        "thumbnail": "assets/mesbg/thumbs/earendil.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "earnur_mounted",
+      "name": "에아르누르(기마)",
+      "role": "hero",
+      "issue": "mounted",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        384,
+        378
+      ],
+      "sourceSHA256": "c324db2738851e7cc895d738d906278461ebe82c857c7beaed7f712af5bf2160",
+      "beforeSHA256": "3757a0e72f824cb5cbcd6266ebdae043ce558fc14125116f43cbb887a094ec37",
+      "artProfile": [
+        "human",
+        0.1,
+        0.39,
+        0.6,
+        0.54,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/earnur_mounted.png",
+        "root": "tokens/earnur_mounted.png",
+        "source": "art-src/fivehead-20261019/earnur_mounted.png",
+        "before": "art-src/fivehead-20261019/before/earnur_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/earnur_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "rider-and-mount"
+      }
+    },
+    {
+      "id": "ecthelion",
+      "name": "엑텔리온",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "b26e6757ba373223b18446ae90276e8126a9bcbc177abb51926a07ddac4f7128",
+      "beforeSHA256": "ad2d51351ecb118ee6fd32a16d4855adabac5a882016646acaf8b9c9bd7f6907",
+      "artProfile": [
+        "human",
+        0.16,
+        0.94,
+        0.53,
+        0.55,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/ecthelion.png",
+        "root": "tokens/ecthelion.png",
+        "source": "art-src/fivehead-20261019/ecthelion.png",
+        "before": "art-src/fivehead-20261019/before/ecthelion.png",
+        "thumbnail": "assets/mesbg/thumbs/ecthelion.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "ecthelion_mounted",
+      "name": "엑텔리온(기마)",
+      "role": "hero",
+      "issue": "mounted",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "415c6eb6887cd1ca88d027b977ad5d718476663df8932cc109b481f12358d0ec",
+      "beforeSHA256": "a429f01f823a56a1cdc5ca2961afec2804563d54cdec481ffef546453f938cee",
+      "artProfile": [
+        "human",
+        0.12,
+        0.4,
+        0.6,
+        0.54,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/ecthelion_mounted.png",
+        "root": "tokens/ecthelion_mounted.png",
+        "source": "art-src/fivehead-20261019/ecthelion_mounted.png",
+        "before": "art-src/fivehead-20261019/before/ecthelion_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/ecthelion_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "rider-and-mount"
+      }
+    },
+    {
+      "id": "elendil_mounted",
+      "name": "엘렌딜(기마)",
+      "role": "hero",
+      "issue": "mounted",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "c73b99a116840c815afd7962eb4345254c9b91134dd7676add7f18b9f72c36ca",
+      "beforeSHA256": "c9cd54475699787fac23075ec917e9981d240613592bdcf8c0845bf6ac8ff764",
+      "artProfile": [
+        "human",
+        0.12,
+        0.4,
+        0.6,
+        0.54,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/elendil_mounted.png",
+        "root": "tokens/elendil_mounted.png",
+        "source": "art-src/fivehead-20261019/elendil_mounted.png",
+        "before": "art-src/fivehead-20261019/before/elendil_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/elendil_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "rider-and-mount"
+      }
+    },
+    {
+      "id": "elf_bow",
+      "name": "엘프 궁수",
+      "role": "infantry",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "bfc9db6124771b73252baf938590a6ae1f89b1fd452437b615d243a9b6a00df9",
+      "beforeSHA256": "6f4a3bd4c9dab41d2387c4a224780fa098c613f690b163ba5dfeb883420c9ba5",
+      "artProfile": [
+        "human",
+        0.2,
+        0.95,
+        0.49,
+        0.575,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/elf_bow.png",
+        "root": "tokens/elf_bow.png",
+        "source": "art-src/fivehead-20261019/elf_bow.png",
+        "before": "art-src/fivehead-20261019/before/elf_bow.png",
+        "thumbnail": "assets/mesbg/thumbs/elf_bow.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "elf_glaive",
+      "name": "엘프 글레이브",
+      "role": "infantry",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "aa26c14328e2c1c17a60517e5428d7101ae94ea2e2541a28fd7db6d035077c53",
+      "beforeSHA256": "eebe4e33cba5970b1853bbbdce7cdb8d084894903ab3495437e444a05cd21705",
+      "artProfile": [
+        "human",
+        0.14,
+        0.94,
+        0.5,
+        0.54,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/elf_glaive.png",
+        "root": "tokens/elf_glaive.png",
+        "source": "art-src/fivehead-20261019/elf_glaive.png",
+        "before": "art-src/fivehead-20261019/before/elf_glaive.png",
+        "thumbnail": "assets/mesbg/thumbs/elf_glaive.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "elf_knight",
+      "name": "엘프 기마기사",
+      "role": "cavalry",
+      "issue": "mounted",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        384,
+        350
+      ],
+      "sourceSHA256": "67cb94345ea32e58dc8f1c07d71b266d529c22d5894a0904c6548d11d6664afb",
+      "beforeSHA256": "fe5c17928cc102bfacf6357113230ba1967d0d25209ef38be81d75eddf37c962",
+      "artProfile": [
+        "human",
+        0.14,
+        0.41,
+        0.58,
+        0.54,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/elf_knight.png",
+        "root": "tokens/elf_knight.png",
+        "source": "art-src/fivehead-20261019/elf_knight.png",
+        "before": "art-src/fivehead-20261019/before/elf_knight.png",
+        "thumbnail": "assets/mesbg/thumbs/elf_knight.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "rider-and-mount"
+      }
+    },
+    {
+      "id": "elf_spear",
+      "name": "엘프 창병",
+      "role": "infantry",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "06b4e6de2d6f4d939522f7151cf64937862466a9b817c7321c7bd3fe4e4ae1ec",
+      "beforeSHA256": "e00b09d9e169639144d10ce9d6f190028c4096955563644c7ceebb798efa2853",
+      "artProfile": [
+        "human",
+        0.25,
+        0.96,
+        0.49,
+        0.605,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/elf_spear.png",
+        "root": "tokens/elf_spear.png",
+        "source": "art-src/fivehead-20261019/elf_spear.png",
+        "before": "art-src/fivehead-20261019/before/elf_spear.png",
+        "thumbnail": "assets/mesbg/thumbs/elf_spear.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "elf_swordshield",
+      "name": "엘프 검방",
+      "role": "infantry",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "3b3eb546f20c39e48471769edcc90b8eea9ebd80d11901de4de76465de97707e",
+      "beforeSHA256": "12cc53adb1fac7b933f274287198d20d51ee9275593060de0e5458614019630b",
+      "artProfile": [
+        "human",
+        0.2,
+        0.95,
+        0.49,
+        0.575,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/elf_swordshield.png",
+        "root": "tokens/elf_swordshield.png",
+        "source": "art-src/fivehead-20261019/elf_swordshield.png",
+        "before": "art-src/fivehead-20261019/before/elf_swordshield.png",
+        "thumbnail": "assets/mesbg/thumbs/elf_swordshield.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "elf_swordsman",
+      "name": "엘프 검사",
+      "role": "infantry",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        332,
+        384
+      ],
+      "sourceSHA256": "a68286981a0c3fef444f8fa189174814ab107b9b65461c82542ec0c304549886",
+      "beforeSHA256": "da028bb49a6939c7b16d46594927eb32713f8cbe262c47821e351522bb0b9b08",
+      "artProfile": [
+        "human",
+        0.19,
+        0.95,
+        0.49,
+        0.57,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/elf_swordsman.png",
+        "root": "tokens/elf_swordsman.png",
+        "source": "art-src/fivehead-20261019/elf_swordsman.png",
+        "before": "art-src/fivehead-20261019/before/elf_swordsman.png",
+        "thumbnail": "assets/mesbg/thumbs/elf_swordsman.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "elrond",
+      "name": "엘론드",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "0bcfd1a29ae160dfef445d6bc9f2423de69e59e51d6a6b562d7ef13aaa5327fe",
+      "beforeSHA256": "0845137846c330c7bd2da1174564e7a1041666c63a9e4821e707f67538bf290a",
+      "artProfile": [
+        "human",
+        0.105,
+        0.95,
+        0.52,
+        0.5275,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/elrond.png",
+        "root": "tokens/elrond.png",
+        "source": "art-src/fivehead-20261019/elrond.png",
+        "before": "art-src/fivehead-20261019/before/elrond.png",
+        "thumbnail": "assets/mesbg/thumbs/elrond.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "elrond_mounted",
+      "name": "엘론드(기마)",
+      "role": "hero",
+      "issue": "mounted",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        353,
+        384
+      ],
+      "sourceSHA256": "df893dda5cc9c2dcf91312dc1c6819c3627e23d3ea68c015c56db30275f849ee",
+      "beforeSHA256": "0adb0badf1d4aeffaee3bb21f7e66c15d9c6a1d9aa44ab39e339d4673de278e2",
+      "artProfile": [
+        "human",
+        0.12,
+        0.4,
+        0.6,
+        0.54,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/elrond_mounted.png",
+        "root": "tokens/elrond_mounted.png",
+        "source": "art-src/fivehead-20261019/elrond_mounted.png",
+        "before": "art-src/fivehead-20261019/before/elrond_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/elrond_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "rider-and-mount"
+      }
+    },
+    {
+      "id": "elven_lancer",
+      "name": "엘프 기창기병",
+      "role": "cavalry",
+      "issue": "mounted",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        384,
+        370
+      ],
+      "sourceSHA256": "0fcdc4871e21e692f5317f32acd15f50cb0fb7f87bf389e0a916ceb38df7d02d",
+      "beforeSHA256": "c1b9e76e190f833e9ed9db89299d3f8c04c6b3c0479235c7b6a275065e1c550d",
+      "artProfile": [
+        "human",
+        0.13,
+        0.4,
+        0.59,
+        0.54,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/elven_lancer.png",
+        "root": "tokens/elven_lancer.png",
+        "source": "art-src/fivehead-20261019/elven_lancer.png",
+        "before": "art-src/fivehead-20261019/before/elven_lancer.png",
+        "thumbnail": "assets/mesbg/thumbs/elven_lancer.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "rider-and-mount"
+      }
+    },
+    {
+      "id": "erkenbrand",
+      "name": "에르켄브란트",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "20e4ad980aa1ce62998a1f6cad0b0e029dc2535786ba44cbc9254a8a560fee2b",
+      "beforeSHA256": "283dfde43b0daa51070cdab1b54f15e7a2168237103346a5a56391c4cfd99e82",
+      "artProfile": [
+        "human",
+        0.17,
+        0.94,
+        0.52,
+        0.555,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/erkenbrand.png",
+        "root": "tokens/erkenbrand.png",
+        "source": "art-src/fivehead-20261019/erkenbrand.png",
+        "before": "art-src/fivehead-20261019/before/erkenbrand.png",
+        "thumbnail": "assets/mesbg/thumbs/erkenbrand.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "galadhrim_bow",
+      "name": "갈라드림 궁수",
+      "role": "infantry",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "25f531f89590c806e8b7730e5b82288d997df62e4217acbf672ab2dbc4bb9555",
+      "beforeSHA256": "94dadc8f161ea2cba33bf375039e4ddf24fb875d28cc58b68edcd2e911e2680b",
+      "artProfile": [
+        "human",
+        0.18,
+        0.94,
+        0.5,
+        0.56,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/galadhrim_bow.png",
+        "root": "tokens/galadhrim_bow.png",
+        "source": "art-src/fivehead-20261019/galadhrim_bow.png",
+        "before": "art-src/fivehead-20261019/before/galadhrim_bow.png",
+        "thumbnail": "assets/mesbg/thumbs/galadhrim_bow.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "galadhrim_elite_bow",
+      "name": "갈라드림 정예 궁병",
+      "role": "infantry",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "17e990bee235681be9e0ddbb012fde500dd75498471425332401860267bfd8a2",
+      "beforeSHA256": "03183872b4fb5abd5dc8628d1c7efb43382ba041024fc1f9e97332d93d399a7e",
+      "artProfile": [
+        "human",
+        0.16,
+        0.95,
+        0.48,
+        0.555,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/galadhrim_elite_bow.png",
+        "root": "tokens/galadhrim_elite_bow.png",
+        "source": "art-src/fivehead-20261019/galadhrim_elite_bow.png",
+        "before": "art-src/fivehead-20261019/before/galadhrim_elite_bow.png",
+        "thumbnail": "assets/mesbg/thumbs/galadhrim_elite_bow.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "galadhrim_knight",
+      "name": "갈라드림 기사",
+      "role": "cavalry",
+      "issue": "mounted",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        384,
+        380
+      ],
+      "sourceSHA256": "82d20aed9c24db4caca9deb0717f673a81bff57ff97b5143701074ca4cdc1b48",
+      "beforeSHA256": "54f1af58e6815f8e7691bc8c4dc14d4119a6d09d61d8602e2c47f8aafcb658a1",
+      "artProfile": [
+        "human",
+        0.19,
+        0.46,
+        0.6,
+        0.56,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/galadhrim_knight.png",
+        "root": "tokens/galadhrim_knight.png",
+        "source": "art-src/fivehead-20261019/galadhrim_knight.png",
+        "before": "art-src/fivehead-20261019/before/galadhrim_knight.png",
+        "thumbnail": "assets/mesbg/thumbs/galadhrim_knight.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "rider-and-mount"
+      }
+    },
+    {
+      "id": "galadriel",
+      "name": "갈라드리엘",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        334,
+        384
+      ],
+      "sourceSHA256": "bd85a2d78f1a148ac98b9a23d632740174f8488c77137f8a6999dbde8644367d",
+      "beforeSHA256": "9da65159c4e6989eb2cfbf1d92a9b7b68e650fb0ff7af260b0206985506efcf8",
+      "artProfile": [
+        "human",
+        0.11,
+        0.94,
+        0.51,
+        0.525,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/galadriel.png",
+        "root": "tokens/galadriel.png",
+        "source": "art-src/fivehead-20261019/galadriel.png",
+        "before": "art-src/fivehead-20261019/before/galadriel.png",
+        "thumbnail": "assets/mesbg/thumbs/galadriel.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "gamling_mounted",
+      "name": "감링(기마)",
+      "role": "hero",
+      "issue": "mounted",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        384,
+        342
+      ],
+      "sourceSHA256": "61cb642ab2b34f56a385b83ca01ea6eda0ae4542e1b3c7785378e7c5ca6b2f7d",
+      "beforeSHA256": "bf7747f504b8686b952be902637fe6fa32fa722c89e3655c8140117021c3c3e6",
+      "artProfile": [
+        "human",
+        0.3,
+        0.51,
+        0.54,
+        0.66,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/gamling_mounted.png",
+        "root": "tokens/gamling_mounted.png",
+        "source": "art-src/fivehead-20261019/gamling_mounted.png",
+        "before": "art-src/fivehead-20261019/before/gamling_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/gamling_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "rider-and-mount"
+      }
+    },
+    {
+      "id": "gondor_archer",
+      "name": "곤도르 궁수",
+      "role": "infantry",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "b12730f49ceb01f1ce1407e1ac471ca18ae0f9de439840bb4305a15f4e2a4692",
+      "beforeSHA256": "2de9786744622c635203b404841278a7dcb4decf65dadcaff19be21360df749e",
+      "artProfile": [
+        "human",
+        0.17,
+        0.94,
+        0.49,
+        0.555,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/gondor_archer.png",
+        "root": "tokens/gondor_archer.png",
+        "source": "art-src/fivehead-20261019/gondor_archer.png",
+        "before": "art-src/fivehead-20261019/before/gondor_archer.png",
+        "thumbnail": "assets/mesbg/thumbs/gondor_archer.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "guthlaf_mounted",
+      "name": "구슬라프(기마)",
+      "role": "hero",
+      "issue": "mounted",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        384,
+        359
+      ],
+      "sourceSHA256": "40d1db297b52b3539b3406ae1c22fb6b2bcf3ebe2e0b28fb7b8504af58fea1c4",
+      "beforeSHA256": "b1307f37a212e71948ade46c9589385920570d8ab44cabfa83a82311d58b9510",
+      "artProfile": [
+        "human",
+        0.29,
+        0.49,
+        0.55,
+        0.64,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/guthlaf_mounted.png",
+        "root": "tokens/guthlaf_mounted.png",
+        "source": "art-src/fivehead-20261019/guthlaf_mounted.png",
+        "before": "art-src/fivehead-20261019/before/guthlaf_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/guthlaf_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "rider-and-mount"
+      }
+    },
+    {
+      "id": "gwindor",
+      "name": "그윈도르",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "b06d1a6db0d6bcb3176ba2cea1894838ecba45aa444277162590e9c745024ad3",
+      "beforeSHA256": "7b0ff5464575e97de605aa9fe721a3783f8b08c9589b1b9ceb8b06167c96fad0",
+      "artProfile": [
+        "human",
+        0.095,
+        0.95,
+        0.51,
+        0.5225,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/gwindor.png",
+        "root": "tokens/gwindor.png",
+        "source": "art-src/fivehead-20261019/gwindor.png",
+        "before": "art-src/fivehead-20261019/before/gwindor.png",
+        "thumbnail": "assets/mesbg/thumbs/gwindor.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "huor",
+      "name": "후오르",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "63a604e9d0ebb886cad5abef1392ffa3ab85631fcba424b9264af668584ba124",
+      "beforeSHA256": "e384af753ba8fac3831fc0405d0cfaf74e7a9d37bc6ea67bc05297f4c99a5c6b",
+      "artProfile": [
+        "human",
+        0.16,
+        0.94,
+        0.49,
+        0.55,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/huor.png",
+        "root": "tokens/huor.png",
+        "source": "art-src/fivehead-20261019/huor.png",
+        "before": "art-src/fivehead-20261019/before/huor.png",
+        "thumbnail": "assets/mesbg/thumbs/huor.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "imrahil_mounted",
+      "name": "임라힐(기마)",
+      "role": "hero",
+      "issue": "mounted",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "e28a2019def0197e2c21e60f2616f54845620833ce8a495f4d4418d3ca98906b",
+      "beforeSHA256": "87bab731cd4402b2a044e25faa38d221ee1ee09f858ab47e1e3e8fce9a28ffde",
+      "artProfile": [
+        "human",
+        0.11,
+        0.39,
+        0.6,
+        0.54,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/imrahil_mounted.png",
+        "root": "tokens/imrahil_mounted.png",
+        "source": "art-src/fivehead-20261019/imrahil_mounted.png",
+        "before": "art-src/fivehead-20261019/before/imrahil_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/imrahil_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "rider-and-mount"
+      }
+    },
+    {
+      "id": "luthien",
+      "name": "루시엔",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "8df002747404431b16db3bcf4f797320eb0c8165c5d8ba561e4cea01e390dd4f",
+      "beforeSHA256": "8d4bf01a90a27108de587dcf454cf6b3bd103ca163af30d519a8715f57f40c1f",
+      "artProfile": [
+        "human",
+        0.14,
+        0.95,
+        0.51,
+        0.545,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/luthien.png",
+        "root": "tokens/luthien.png",
+        "source": "art-src/fivehead-20261019/luthien.png",
+        "before": "art-src/fivehead-20261019/before/luthien.png",
+        "thumbnail": "assets/mesbg/thumbs/luthien.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "mablung",
+      "name": "마블룽",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "8a2f641d15065210139db79ac2903667f44ef99e7f96a72d74bf3048ff8b7a03",
+      "beforeSHA256": "bf7b3014ec10241d2107311a159ff61aa706c747043d294d1340b329c8475e6f",
+      "artProfile": [
+        "human",
+        0.16,
+        0.94,
+        0.5,
+        0.55,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/mablung.png",
+        "root": "tokens/mablung.png",
+        "source": "art-src/fivehead-20261019/mablung.png",
+        "before": "art-src/fivehead-20261019/before/mablung.png",
+        "thumbnail": "assets/mesbg/thumbs/mablung.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "maeglin_mounted",
+      "name": "매글린(기마)",
+      "role": "hero",
+      "issue": "mounted",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "678d1692f32340bba7b422d01ec292057661fefb5e58fc4d7805527fcdc262a5",
+      "beforeSHA256": "abf8d89856c80dd810c1f5b24a3f9821ffdf5f26c03ecedd2b6fe0157dd1d5b3",
+      "artProfile": [
+        "human",
+        0.11,
+        0.4,
+        0.6,
+        0.54,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/maeglin_mounted.png",
+        "root": "tokens/maeglin_mounted.png",
+        "source": "art-src/fivehead-20261019/maeglin_mounted.png",
+        "before": "art-src/fivehead-20261019/before/maeglin_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/maeglin_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "rider-and-mount"
+      }
+    },
+    {
+      "id": "maglor",
+      "name": "마글로르",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        329,
+        384
+      ],
+      "sourceSHA256": "212c620e9d485c58d93dc011dfd035cd2d8e511e92da5b468cb1de2f96977ebb",
+      "beforeSHA256": "103d7df36dc9904a8e46f4366b13cb6d4bee456c251ee1094ad08ea7c5ced577",
+      "artProfile": [
+        "human",
+        0.12,
+        0.95,
+        0.51,
+        0.535,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/maglor.png",
+        "root": "tokens/maglor.png",
+        "source": "art-src/fivehead-20261019/maglor.png",
+        "before": "art-src/fivehead-20261019/before/maglor.png",
+        "thumbnail": "assets/mesbg/thumbs/maglor.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "mirkwood_ranger",
+      "name": "머크우드 레인저",
+      "role": "infantry",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "94bba860a087d5c467398024a4c02197abcc076260e3d06a00a5e6addb1f6ff4",
+      "beforeSHA256": "8c56f06cca763642f556c3c77bd00d05d1804140483afd6fff15724569fae1f4",
+      "artProfile": [
+        "human",
+        0.17,
+        0.94,
+        0.49,
+        0.555,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/mirkwood_ranger.png",
+        "root": "tokens/mirkwood_ranger.png",
+        "source": "art-src/fivehead-20261019/mirkwood_ranger.png",
+        "before": "art-src/fivehead-20261019/before/mirkwood_ranger.png",
+        "thumbnail": "assets/mesbg/thumbs/mirkwood_ranger.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "morannon_swordshield",
+      "name": "모라논 오크 검방",
+      "role": "infantry",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        302,
+        384
+      ],
+      "sourceSHA256": "b903bf1f2a232695b65933a92440a8326372ba415e60e6e28e62c9eef13e08ab",
+      "beforeSHA256": "de3ce75f109a66d384dbe5ccaafe8609c967e966e663220275e9e80834abe617",
+      "artProfile": [
+        "orc",
+        0.12,
+        0.94,
+        0.5,
+        0.53,
+        76,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/morannon_swordshield.png",
+        "root": "tokens/morannon_swordshield.png",
+        "source": "art-src/fivehead-20261019/morannon_swordshield.png",
+        "before": "art-src/fivehead-20261019/before/morannon_swordshield.png",
+        "thumbnail": "assets/mesbg/thumbs/morannon_swordshield.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "numenorean_knight",
+      "name": "누메노르 기사",
+      "role": "cavalry",
+      "issue": "mounted",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        384,
+        370
+      ],
+      "sourceSHA256": "f23de6e3d42e5dd9e0f1dc69fa0ff4ce062e02dc764cafaf45d20c996c3f8e91",
+      "beforeSHA256": "c1d351f10a029826c10cefa162b582ec79b700302a4c8a274ada600c3b2548d8",
+      "artProfile": [
+        "human",
+        0.13,
+        0.4,
+        0.6,
+        0.54,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/numenorean_knight.png",
+        "root": "tokens/numenorean_knight.png",
+        "source": "art-src/fivehead-20261019/numenorean_knight.png",
+        "before": "art-src/fivehead-20261019/before/numenorean_knight.png",
+        "thumbnail": "assets/mesbg/thumbs/numenorean_knight.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "rider-and-mount"
+      }
+    },
+    {
+      "id": "orc_elite_tracker",
+      "name": "오크 정예 추적궁병",
+      "role": "infantry",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        302,
+        384
+      ],
+      "sourceSHA256": "1be7aa738167359605b20faf1ccd2061682ef36eafc91327d4c3cfb4e0c0938f",
+      "beforeSHA256": "09f2d55e77af233b76a77286cbcc7365e3542bbabc2c9541ec073cd58da60920",
+      "artProfile": [
+        "orc",
+        0.18,
+        0.94,
+        0.51,
+        0.56,
+        76,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/orc_elite_tracker.png",
+        "root": "tokens/orc_elite_tracker.png",
+        "source": "art-src/fivehead-20261019/orc_elite_tracker.png",
+        "before": "art-src/fivehead-20261019/before/orc_elite_tracker.png",
+        "thumbnail": "assets/mesbg/thumbs/orc_elite_tracker.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "orophin",
+      "name": "오로핀",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "a0b73be20d36825a6747f47a138a4dad097916dcd5a038e845d56e4c68600107",
+      "beforeSHA256": "3d4052aa33e519f3f1d2d8226ccb27918fed322a36fbfb94eb54d28e287b2565",
+      "artProfile": [
+        "human",
+        0.12,
+        0.94,
+        0.52,
+        0.53,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/orophin.png",
+        "root": "tokens/orophin.png",
+        "source": "art-src/fivehead-20261019/orophin.png",
+        "before": "art-src/fivehead-20261019/before/orophin.png",
+        "thumbnail": "assets/mesbg/thumbs/orophin.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "osgiliath_bow",
+      "name": "오스길리아스 베테랑 궁병",
+      "role": "infantry",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "d9ce8572a3e8cbf3d434473834bbdb876997167dd9a2402c7aa869fc94aa99a7",
+      "beforeSHA256": "834d96ab40cec814d31a0512f22d38e69ea22d0a022608d2757bace2ad51b249",
+      "artProfile": [
+        "human",
+        0.11,
+        0.94,
+        0.48,
+        0.525,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/osgiliath_bow.png",
+        "root": "tokens/osgiliath_bow.png",
+        "source": "art-src/fivehead-20261019/osgiliath_bow.png",
+        "before": "art-src/fivehead-20261019/before/osgiliath_bow.png",
+        "thumbnail": "assets/mesbg/thumbs/osgiliath_bow.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "osgiliath_spearshield",
+      "name": "오스길리아스 베테랑 창방",
+      "role": "infantry",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "97d4d7925d5bf7c0d15602646508133d6a8bd3f2d463a30c977a12daaaead525",
+      "beforeSHA256": "e0d1c4ee1e5ab0d610796506e6720b6cea2720dfaea120dee40a3b970bcc56c7",
+      "artProfile": [
+        "human",
+        0.24,
+        0.94,
+        0.52,
+        0.59,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/osgiliath_spearshield.png",
+        "root": "tokens/osgiliath_spearshield.png",
+        "source": "art-src/fivehead-20261019/osgiliath_spearshield.png",
+        "before": "art-src/fivehead-20261019/before/osgiliath_spearshield.png",
+        "thumbnail": "assets/mesbg/thumbs/osgiliath_spearshield.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "osgiliath_veteran",
+      "name": "오스길리아스 베테랑",
+      "role": "infantry",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        379,
+        384
+      ],
+      "sourceSHA256": "246e4fe561c07a23aaea0b6e6fcdfb45c5072d074dbae8b75d4bcdbe4f1bfdb3",
+      "beforeSHA256": "5918b5889773a6f41c2075f0aed0ec32d6af4350d5fe04a92fa493cfc8063ceb",
+      "artProfile": [
+        "human",
+        0.12,
+        0.94,
+        0.5,
+        0.53,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/osgiliath_veteran.png",
+        "root": "tokens/osgiliath_veteran.png",
+        "source": "art-src/fivehead-20261019/osgiliath_veteran.png",
+        "before": "art-src/fivehead-20261019/before/osgiliath_veteran.png",
+        "thumbnail": "assets/mesbg/thumbs/osgiliath_veteran.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "pallando",
+      "name": "팔란도",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "b53e5a069eceab123506d0a90fe9e55754da808dab2c69b404002452fe620898",
+      "beforeSHA256": "d15c5ae6a88c3866220784fa65aaba19e32115bb9cec0556b10fa5b747939f5e",
+      "artProfile": [
+        "human",
+        0.27,
+        0.94,
+        0.52,
+        0.605,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/pallando.png",
+        "root": "tokens/pallando.png",
+        "source": "art-src/fivehead-20261019/pallando.png",
+        "before": "art-src/fivehead-20261019/before/pallando.png",
+        "thumbnail": "assets/mesbg/thumbs/pallando.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "rohan_helmingas",
+      "name": "헬밍가 전사",
+      "role": "infantry",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "2d1b43a7aca9a08c933eafc1a07a6ca951c81567fb3ecae3485572e59edf2eb6",
+      "beforeSHA256": "023e9b7448db039ec74b525771d263e8d98c79ae7a56abe3097e22ca4234bacc",
+      "artProfile": [
+        "human",
+        0.2,
+        0.95,
+        0.49,
+        0.575,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/rohan_helmingas.png",
+        "root": "tokens/rohan_helmingas.png",
+        "source": "art-src/fivehead-20261019/rohan_helmingas.png",
+        "before": "art-src/fivehead-20261019/before/rohan_helmingas.png",
+        "thumbnail": "assets/mesbg/thumbs/rohan_helmingas.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "rohan_redshield",
+      "name": "웨스트폴드 적색방패 기병",
+      "role": "cavalry",
+      "issue": "mounted",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        353,
+        384
+      ],
+      "sourceSHA256": "05fdc19a7e3622267f6611ec53c15ab991bfcf6f375ddde4002666a7788e18cc",
+      "beforeSHA256": "1e8bd34363332f87f5c6563e82a46893905104ebc83a293c1a1e54b9241cb426",
+      "artProfile": [
+        "human",
+        0.12,
+        0.39,
+        0.54,
+        0.54,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/rohan_redshield.png",
+        "root": "tokens/rohan_redshield.png",
+        "source": "art-src/fivehead-20261019/rohan_redshield.png",
+        "before": "art-src/fivehead-20261019/before/rohan_redshield.png",
+        "thumbnail": "assets/mesbg/thumbs/rohan_redshield.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "rider-and-mount"
+      }
+    },
+    {
+      "id": "rumil",
+      "name": "루밀",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "2cf90020ae2059c1036dda228415bb5b9d201dff6149b84fa9f48527ac9c29c7",
+      "beforeSHA256": "baa0ad06f45a6b711edcc7f058f9c34cd56f3b604caccde7f2de3cf98edd9cab",
+      "artProfile": [
+        "human",
+        0.18,
+        0.94,
+        0.47,
+        0.56,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/rumil.png",
+        "root": "tokens/rumil.png",
+        "source": "art-src/fivehead-20261019/rumil.png",
+        "before": "art-src/fivehead-20261019/before/rumil.png",
+        "thumbnail": "assets/mesbg/thumbs/rumil.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "thingol",
+      "name": "싱골",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "8b9556c9ed3ab4ea5e16c52193e8534dcb525876951543ff03030e552c96a432",
+      "beforeSHA256": "ec15b269d806f668b6fdeee30c4835f818a3a57f14971dffaa451d7a780366a3",
+      "artProfile": [
+        "human",
+        0.12,
+        0.93,
+        0.51,
+        0.525,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/thingol.png",
+        "root": "tokens/thingol.png",
+        "source": "art-src/fivehead-20261019/thingol.png",
+        "before": "art-src/fivehead-20261019/before/thingol.png",
+        "thumbnail": "assets/mesbg/thumbs/thingol.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "body"
+      }
+    },
+    {
+      "id": "thingol_mounted",
+      "name": "싱골(기마)",
+      "role": "hero",
+      "issue": "mounted",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        384,
+        349
+      ],
+      "sourceSHA256": "c29f98d6080adfee7d31c78ed3620c53df7bebda74fe1072001536213fd4a24e",
+      "beforeSHA256": "ef67ea619b0e6418d1392c0f7f4db123a71ddfd7cca441b9260502dc87b4df4c",
+      "artProfile": [
+        "human",
+        0.1,
+        0.39,
+        0.61,
+        0.54,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/thingol_mounted.png",
+        "root": "tokens/thingol_mounted.png",
+        "source": "art-src/fivehead-20261019/thingol_mounted.png",
+        "before": "art-src/fivehead-20261019/before/thingol_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/thingol_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "rider-and-mount"
+      }
+    },
+    {
+      "id": "thranduil_mounted",
+      "name": "스란두일(기마)",
+      "role": "hero",
+      "issue": "mounted",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        384,
+        355
+      ],
+      "sourceSHA256": "80bfced6ac11aeaf4e21c0e9781177957fdc40b363d979fda1d5209606fa14f2",
+      "beforeSHA256": "a7c300c56fde0deef85edc10d54c9dfe86e749aac654e4300bc5811bb3a61c23",
+      "artProfile": [
+        "human",
+        0.14,
+        0.42,
+        0.59,
+        0.55,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/thranduil_mounted.png",
+        "root": "tokens/thranduil_mounted.png",
+        "source": "art-src/fivehead-20261019/thranduil_mounted.png",
+        "before": "art-src/fivehead-20261019/before/thranduil_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/thranduil_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "rider-and-mount"
+      }
+    },
+    {
+      "id": "turin_mounted",
+      "name": "투린(기마)",
+      "role": "hero",
+      "issue": "mounted",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        384,
+        350
+      ],
+      "sourceSHA256": "57d96d1eb9c6b6fff16af62f7c0bfb66d235a5de7bdb1360ac146016dacadde9",
+      "beforeSHA256": "efbf26f9ee34ef0c653af55f951c4f811a4252dcac92ce6094c1640f08ea9bc6",
+      "artProfile": [
+        "human",
+        0.13,
+        0.41,
+        0.6,
+        0.54,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/turin_mounted.png",
+        "root": "tokens/turin_mounted.png",
+        "source": "art-src/fivehead-20261019/turin_mounted.png",
+        "before": "art-src/fivehead-20261019/before/turin_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/turin_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "compact adult five-head; seated rider matched to unchanged mounted Glorfindel",
+        "center": "rider-and-mount"
+      }
+    },
+    {
+      "id": "gil_galad",
+      "name": "길갈라드",
+      "role": "hero",
+      "issue": "user-selected",
+      "revision": "fivehead-final-20261019",
+      "sourceSize": [
+        1171,
+        1343
+      ],
+      "sourceSHA256": "c61b70331fd0d714b296c4531a9f8809d77c19a856c41b41cb0bc52b7cd248ad",
+      "beforeSHA256": "f9d92b88cf2ab55467fec6f241d7d481f9a1b7b4bf47a558d5e1139033be42ae",
+      "artProfile": [
+        "human",
+        0.052122,
+        0.941176,
+        0.52,
+        0.496649,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/gil_galad.png",
+        "root": "tokens/gil_galad.png",
+        "source": "art-src/fivehead-20261019/user-selected/gil_galad.png",
+        "before": "art-src/fivehead-20261019/before/gil_galad.png",
+        "thumbnail": "assets/mesbg/thumbs/gil_galad.webp"
+      },
+      "review": {
+        "source": "Explicit later user attachment in PR #43; exact bytes preserved"
+      }
+    }
+  ],
+  "retainedCompact": [
+    "bombur",
+    "durin_vi",
+    "vault_warden",
+    "ironhills_crossbow",
+    "ironhills_spearshield",
+    "ironhills_warrior",
+    "goblin_bow",
+    "goblin_prowler",
+    "goblin_shield",
+    "moria_goblin"
+  ],
+  "userSelected": [
+    "gil_galad",
+    "erestor"
+  ],
+  "generationMode": "built-in imagegen; prompts in generation-log.json",
+  "note": "61 compact five-head redraws, one later user-selected Gil-galad, ten existing compact dwarf/goblin sprites preserved. Later Erestor attachment preserved too."
+}

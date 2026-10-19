@@ -102,35 +102,35 @@
       "file": "tokens/alatar.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.29,
+      "top": 0.24,
       "bottom": 0.94,
-      "centerX": 0.55,
-      "centerY": 0.61,
+      "centerX": 0.51,
+      "centerY": 0.58,
       "worldReferenceSize": 86,
       "sourceWidth": 335,
       "sourceHeight": 384,
-      "sourceSHA256": "b32839c5b365cbc46baf38e4a3f13eeb4e9c69aeb8235bfb2e5ee4b8d68bd00b",
+      "sourceSHA256": "56b8a70411b49f2dbe9f28c57ab2c7501936e25d788e9cd6ac4dcb5a9aa7f607",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-sole",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/alatar.png"
       },
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "centerReview": {
         "date": "2026-10-19",
         "basis": "body",
         "source": "assets/mesbg/tokens/alatar.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -138,14 +138,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "body",
-          "top": 0.29,
+          "top": 0.24,
           "bottom": 0.94,
           "worldReferenceSize": 86,
-          "sourceSHA256": "b32839c5b365cbc46baf38e4a3f13eeb4e9c69aeb8235bfb2e5ee4b8d68bd00b"
+          "sourceSHA256": "56b8a70411b49f2dbe9f28c57ab2c7501936e25d788e9cd6ac4dcb5a9aa7f607"
         },
         "candidate": {
-          "top": 0.01,
-          "bottom": 0.99
+          "top": 0.0466,
+          "bottom": 0.9612
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -272,22 +272,22 @@
       "file": "tokens/anarion_mounted.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.1,
-      "bottom": 0.39,
-      "centerX": 0.62,
-      "centerY": 0.52,
+      "top": 0.08,
+      "bottom": 0.4,
+      "centerX": 0.61,
+      "centerY": 0.55,
       "worldReferenceSize": 43,
       "sourceWidth": 384,
       "sourceHeight": 356,
-      "sourceSHA256": "1b0ad9ea84600ba917be930b20b879dc670160db2f58c61303da4eeb9d1bfd3d",
+      "sourceSHA256": "cfe9382c6678d13b4f56869596b9b0677a0bde901307993d2808d2437bb9d49b",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-saddle",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/anarion_mounted.png"
       },
       "centerReview": {
@@ -295,12 +295,12 @@
         "basis": "rider-and-mount",
         "source": "assets/mesbg/tokens/anarion_mounted.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -308,14 +308,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "rider",
-          "top": 0.1,
-          "bottom": 0.39,
+          "top": 0.08,
+          "bottom": 0.4,
           "worldReferenceSize": 43,
-          "sourceSHA256": "1b0ad9ea84600ba917be930b20b879dc670160db2f58c61303da4eeb9d1bfd3d"
+          "sourceSHA256": "cfe9382c6678d13b4f56869596b9b0677a0bde901307993d2808d2437bb9d49b"
         },
         "candidate": {
-          "top": 0.2773,
-          "bottom": 0.5293
+          "top": 0.2383,
+          "bottom": 0.4987
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -841,22 +841,22 @@
       "file": "tokens/arathorn_mounted.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.14,
-      "bottom": 0.41,
-      "centerX": 0.62,
-      "centerY": 0.53,
+      "top": 0.07,
+      "bottom": 0.39,
+      "centerX": 0.57,
+      "centerY": 0.51,
       "worldReferenceSize": 43,
       "sourceWidth": 384,
       "sourceHeight": 346,
-      "sourceSHA256": "9ee99bf799add392bc4d0593c437159d4ba626035bc04aff4369367436568936",
+      "sourceSHA256": "3d04aa46a528ac344de0cc8a60d1bdab91778b3bdeef6b28d6fe4c4b5e66ccf9",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-saddle",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/arathorn_mounted.png"
       },
       "centerReview": {
@@ -864,12 +864,12 @@
         "basis": "rider-and-mount",
         "source": "assets/mesbg/tokens/arathorn_mounted.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -877,14 +877,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "rider",
-          "top": 0.14,
-          "bottom": 0.41,
+          "top": 0.07,
+          "bottom": 0.39,
           "worldReferenceSize": 43,
-          "sourceSHA256": "9ee99bf799add392bc4d0593c437159d4ba626035bc04aff4369367436568936"
+          "sourceSHA256": "3d04aa46a528ac344de0cc8a60d1bdab91778b3bdeef6b28d6fe4c4b5e66ccf9"
         },
         "candidate": {
-          "top": 0.2539,
-          "bottom": 0.5115
+          "top": 0.2852,
+          "bottom": 0.5201
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -1125,22 +1125,22 @@
       "file": "tokens/arvedui_mounted.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.28,
-      "bottom": 0.5,
-      "centerX": 0.6,
-      "centerY": 0.57,
+      "top": 0.2,
+      "bottom": 0.46,
+      "centerX": 0.61,
+      "centerY": 0.59,
       "worldReferenceSize": 43,
       "sourceWidth": 384,
       "sourceHeight": 384,
-      "sourceSHA256": "e8fc487b90fe8b4a5f6b2e0c6ffb7db73d50f642e3f5042de80e562e04a63554",
+      "sourceSHA256": "82a23c172fd9acfcb6042a2008db6d6d556dddd3cee3658699a60a987f2401ff",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-saddle",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/arvedui_mounted.png"
       },
       "centerReview": {
@@ -1148,12 +1148,12 @@
         "basis": "rider-and-mount",
         "source": "assets/mesbg/tokens/arvedui_mounted.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -1161,14 +1161,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "rider",
-          "top": 0.28,
-          "bottom": 0.5,
+          "top": 0.2,
+          "bottom": 0.46,
           "worldReferenceSize": 43,
-          "sourceSHA256": "e8fc487b90fe8b4a5f6b2e0c6ffb7db73d50f642e3f5042de80e562e04a63554"
+          "sourceSHA256": "82a23c172fd9acfcb6042a2008db6d6d556dddd3cee3658699a60a987f2401ff"
         },
         "candidate": {
           "top": 0.1758,
-          "bottom": 0.4672
+          "bottom": 0.4532
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -2032,22 +2032,22 @@
       "file": "tokens/beleg_mounted.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.2,
+      "top": 0.16,
       "bottom": 0.43,
-      "centerX": 0.63,
-      "centerY": 0.54,
+      "centerX": 0.6,
+      "centerY": 0.55,
       "worldReferenceSize": 43,
       "sourceWidth": 384,
       "sourceHeight": 342,
-      "sourceSHA256": "90c2448733bc5fac9ed07759591fea0612786474a69c09a87246988cfd6f8586",
+      "sourceSHA256": "cf7ea4caa1f28f4248078e9b96648779e91d28e1ec8672afb3663c7e21008691",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-saddle",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/beleg_mounted.png"
       },
       "centerReview": {
@@ -2055,12 +2055,12 @@
         "basis": "rider-and-mount",
         "source": "assets/mesbg/tokens/beleg_mounted.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -2068,14 +2068,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "rider",
-          "top": 0.2,
+          "top": 0.16,
           "bottom": 0.43,
           "worldReferenceSize": 43,
-          "sourceSHA256": "90c2448733bc5fac9ed07759591fea0612786474a69c09a87246988cfd6f8586"
+          "sourceSHA256": "cf7ea4caa1f28f4248078e9b96648779e91d28e1ec8672afb3663c7e21008691"
         },
         "candidate": {
-          "top": 0.1289,
-          "bottom": 0.4373
+          "top": 0.1211,
+          "bottom": 0.4155
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -2772,22 +2772,22 @@
       "file": "tokens/black_numenorean_mounted.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.17,
-      "bottom": 0.43,
-      "centerX": 0.61,
-      "centerY": 0.53,
+      "top": 0.13,
+      "bottom": 0.4,
+      "centerX": 0.57,
+      "centerY": 0.55,
       "worldReferenceSize": 43,
       "sourceWidth": 384,
       "sourceHeight": 384,
-      "sourceSHA256": "e7aa990fd17d96994807b883b2bb6f4bf55df9d77c90cba77bf8cafa97982235",
+      "sourceSHA256": "11c1e3205ba4aa5c181ffb93afa3d7b69f7299f46dcd81060da038ec2b55cfb7",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-saddle",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/black_numenorean_mounted.png"
       },
       "centerReview": {
@@ -2795,12 +2795,12 @@
         "basis": "rider-and-mount",
         "source": "assets/mesbg/tokens/black_numenorean_mounted.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -2808,14 +2808,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "rider",
-          "top": 0.17,
-          "bottom": 0.43,
+          "top": 0.13,
+          "bottom": 0.4,
           "worldReferenceSize": 43,
-          "sourceSHA256": "e7aa990fd17d96994807b883b2bb6f4bf55df9d77c90cba77bf8cafa97982235"
+          "sourceSHA256": "11c1e3205ba4aa5c181ffb93afa3d7b69f7299f46dcd81060da038ec2b55cfb7"
         },
         "candidate": {
-          "top": 0.0742,
-          "bottom": 0.397
+          "top": 0.1133,
+          "bottom": 0.4162
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -3739,35 +3739,35 @@
       "file": "tokens/celebrimbor.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.045,
+      "top": 0.13,
       "bottom": 0.94,
-      "centerX": 0.59,
-      "centerY": 0.49,
+      "centerX": 0.54,
+      "centerY": 0.53,
       "worldReferenceSize": 86,
       "sourceWidth": 342,
       "sourceHeight": 384,
-      "sourceSHA256": "29db9fd91fd74e30d14fb1c7cef4ba76e031d384498daaadd86550513b8b94d4",
+      "sourceSHA256": "9abffc5c7bf0f51698fee31f0dc9f931ca1affc823dc29a4c9017e25f2a528e1",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-sole",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/celebrimbor.png"
       },
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "centerReview": {
         "date": "2026-10-19",
         "basis": "body",
         "source": "assets/mesbg/tokens/celebrimbor.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -3775,14 +3775,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "body",
-          "top": 0.045,
+          "top": 0.13,
           "bottom": 0.94,
           "worldReferenceSize": 86,
-          "sourceSHA256": "29db9fd91fd74e30d14fb1c7cef4ba76e031d384498daaadd86550513b8b94d4"
+          "sourceSHA256": "9abffc5c7bf0f51698fee31f0dc9f931ca1affc823dc29a4c9017e25f2a528e1"
         },
         "candidate": {
-          "top": 0.0212,
-          "bottom": 0.9866
+          "top": 0.0463,
+          "bottom": 0.9694
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -3966,22 +3966,22 @@
       "file": "tokens/cirdan_mounted.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.1,
-      "bottom": 0.39,
-      "centerX": 0.64,
-      "centerY": 0.53,
+      "top": 0.09,
+      "bottom": 0.38,
+      "centerX": 0.6,
+      "centerY": 0.54,
       "worldReferenceSize": 43,
       "sourceWidth": 384,
       "sourceHeight": 379,
-      "sourceSHA256": "799a3207be73ba9852b69858bd40427ef916a18eb2297f05bce7405d757a5020",
+      "sourceSHA256": "5e6cbe6f4c0eaedda5fcea3cdcab3609190d90d674d45bd80762772b12a80658",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-saddle",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/cirdan_mounted.png"
       },
       "centerReview": {
@@ -3989,12 +3989,12 @@
         "basis": "rider-and-mount",
         "source": "assets/mesbg/tokens/cirdan_mounted.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -4002,14 +4002,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "rider",
-          "top": 0.1,
-          "bottom": 0.39,
+          "top": 0.09,
+          "bottom": 0.38,
           "worldReferenceSize": 43,
-          "sourceSHA256": "799a3207be73ba9852b69858bd40427ef916a18eb2297f05bce7405d757a5020"
+          "sourceSHA256": "5e6cbe6f4c0eaedda5fcea3cdcab3609190d90d674d45bd80762772b12a80658"
         },
         "candidate": {
-          "top": 0.0664,
-          "bottom": 0.3892
+          "top": 0.1836,
+          "bottom": 0.4582
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -4079,22 +4079,22 @@
       "file": "tokens/cirion_mounted.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.13,
-      "bottom": 0.42,
-      "centerX": 0.62,
-      "centerY": 0.53,
+      "top": 0.09,
+      "bottom": 0.37,
+      "centerX": 0.6,
+      "centerY": 0.54,
       "worldReferenceSize": 43,
       "sourceWidth": 384,
       "sourceHeight": 384,
-      "sourceSHA256": "99b1b8019e8c55f2757ccd14a81c57cdf3ae02d65b1aa0f2132bde36e11dab3f",
+      "sourceSHA256": "d4d667e1d3593bc332964c1cca8793480d10fece8c11115bcf67d3a3b5ae2d61",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-saddle",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/cirion_mounted.png"
       },
       "centerReview": {
@@ -4102,12 +4102,12 @@
         "basis": "rider-and-mount",
         "source": "assets/mesbg/tokens/cirion_mounted.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -4115,14 +4115,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "rider",
-          "top": 0.13,
-          "bottom": 0.42,
+          "top": 0.09,
+          "bottom": 0.37,
           "worldReferenceSize": 43,
-          "sourceSHA256": "99b1b8019e8c55f2757ccd14a81c57cdf3ae02d65b1aa0f2132bde36e11dab3f"
+          "sourceSHA256": "d4d667e1d3593bc332964c1cca8793480d10fece8c11115bcf67d3a3b5ae2d61"
         },
         "candidate": {
-          "top": 0.207,
-          "bottom": 0.4817
+          "top": 0.0352,
+          "bottom": 0.3664
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -5047,35 +5047,35 @@
       "file": "tokens/dead_spearman.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.28,
-      "bottom": 0.94,
-      "centerX": 0.58,
-      "centerY": 0.62,
+      "top": 0.16,
+      "bottom": 0.96,
+      "centerX": 0.54,
+      "centerY": 0.56,
       "worldReferenceSize": 86,
       "sourceWidth": 380,
       "sourceHeight": 384,
-      "sourceSHA256": "78f5ac99a8d54b99b7dd88d2b02ae385ecc5439b40a88b970f90518cf9acec81",
+      "sourceSHA256": "0ae155504589a3901b283c6febae78afcffb0be5345843841ef8d0cdc7bd727b",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-sole",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/dead_spearman.png"
       },
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "centerReview": {
         "date": "2026-10-19",
         "basis": "body",
         "source": "assets/mesbg/tokens/dead_spearman.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -5083,14 +5083,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "body",
-          "top": 0.28,
-          "bottom": 0.94,
+          "top": 0.16,
+          "bottom": 0.96,
           "worldReferenceSize": 86,
-          "sourceSHA256": "78f5ac99a8d54b99b7dd88d2b02ae385ecc5439b40a88b970f90518cf9acec81"
+          "sourceSHA256": "0ae155504589a3901b283c6febae78afcffb0be5345843841ef8d0cdc7bd727b"
         },
         "candidate": {
-          "top": 0.2166,
-          "bottom": 0.9788
+          "top": 0.2097,
+          "bottom": 0.9465
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -6980,35 +6980,35 @@
       "file": "tokens/earendil.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.035,
-      "bottom": 0.95,
+      "top": 0.055,
+      "bottom": 0.96,
       "centerX": 0.54,
-      "centerY": 0.49,
+      "centerY": 0.51,
       "worldReferenceSize": 86,
       "sourceWidth": 335,
       "sourceHeight": 384,
-      "sourceSHA256": "9941527ad23dd4b7af11e58330f9c19a5cf84aee017baed3b8e3e38df26e1362",
+      "sourceSHA256": "a53992c9b6ebc27fdce3e92292a0a62bd1d01b31b9ffeecc92fe4e91f14f040e",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-sole",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/earendil.png"
       },
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "centerReview": {
         "date": "2026-10-19",
         "basis": "body",
         "source": "assets/mesbg/tokens/earendil.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -7016,14 +7016,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "body",
-          "top": 0.035,
-          "bottom": 0.95,
+          "top": 0.055,
+          "bottom": 0.96,
           "worldReferenceSize": 86,
-          "sourceSHA256": "9941527ad23dd4b7af11e58330f9c19a5cf84aee017baed3b8e3e38df26e1362"
+          "sourceSHA256": "a53992c9b6ebc27fdce3e92292a0a62bd1d01b31b9ffeecc92fe4e91f14f040e"
         },
         "candidate": {
-          "top": 0.01,
-          "bottom": 0.99
+          "top": 0.0466,
+          "bottom": 0.9612
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -7093,22 +7093,22 @@
       "file": "tokens/earnur_mounted.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.14,
-      "bottom": 0.43,
-      "centerX": 0.63,
-      "centerY": 0.53,
+      "top": 0.1,
+      "bottom": 0.39,
+      "centerX": 0.6,
+      "centerY": 0.54,
       "worldReferenceSize": 43,
       "sourceWidth": 384,
       "sourceHeight": 378,
-      "sourceSHA256": "3757a0e72f824cb5cbcd6266ebdae043ce558fc14125116f43cbb887a094ec37",
+      "sourceSHA256": "c324db2738851e7cc895d738d906278461ebe82c857c7beaed7f712af5bf2160",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-saddle",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/earnur_mounted.png"
       },
       "centerReview": {
@@ -7116,12 +7116,12 @@
         "basis": "rider-and-mount",
         "source": "assets/mesbg/tokens/earnur_mounted.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -7129,14 +7129,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "rider",
-          "top": 0.14,
-          "bottom": 0.43,
+          "top": 0.1,
+          "bottom": 0.39,
           "worldReferenceSize": 43,
-          "sourceSHA256": "3757a0e72f824cb5cbcd6266ebdae043ce558fc14125116f43cbb887a094ec37"
+          "sourceSHA256": "c324db2738851e7cc895d738d906278461ebe82c857c7beaed7f712af5bf2160"
         },
         "candidate": {
-          "top": 0.2148,
-          "bottom": 0.4895
+          "top": 0.207,
+          "bottom": 0.4788
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -7548,35 +7548,35 @@
       "file": "tokens/ecthelion.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.18,
-      "bottom": 0.92,
-      "centerX": 0.56,
+      "top": 0.16,
+      "bottom": 0.94,
+      "centerX": 0.53,
       "centerY": 0.55,
       "worldReferenceSize": 86,
       "sourceWidth": 335,
       "sourceHeight": 384,
-      "sourceSHA256": "ad2d51351ecb118ee6fd32a16d4855adabac5a882016646acaf8b9c9bd7f6907",
+      "sourceSHA256": "b26e6757ba373223b18446ae90276e8126a9bcbc177abb51926a07ddac4f7128",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-sole",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/ecthelion.png"
       },
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "centerReview": {
         "date": "2026-10-19",
         "basis": "body",
         "source": "assets/mesbg/tokens/ecthelion.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -7584,14 +7584,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "body",
-          "top": 0.18,
-          "bottom": 0.92,
+          "top": 0.16,
+          "bottom": 0.94,
           "worldReferenceSize": 86,
-          "sourceSHA256": "ad2d51351ecb118ee6fd32a16d4855adabac5a882016646acaf8b9c9bd7f6907"
+          "sourceSHA256": "b26e6757ba373223b18446ae90276e8126a9bcbc177abb51926a07ddac4f7128"
         },
         "candidate": {
-          "top": 0.0215,
-          "bottom": 0.9785
+          "top": 0.071,
+          "bottom": 0.9602
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -7604,22 +7604,22 @@
       "file": "tokens/ecthelion_mounted.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.2,
-      "bottom": 0.43,
-      "centerX": 0.62,
-      "centerY": 0.53,
+      "top": 0.12,
+      "bottom": 0.4,
+      "centerX": 0.6,
+      "centerY": 0.54,
       "worldReferenceSize": 43,
       "sourceWidth": 384,
       "sourceHeight": 384,
-      "sourceSHA256": "a429f01f823a56a1cdc5ca2961afec2804563d54cdec481ffef546453f938cee",
+      "sourceSHA256": "415c6eb6887cd1ca88d027b977ad5d718476663df8932cc109b481f12358d0ec",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-saddle",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/ecthelion_mounted.png"
       },
       "centerReview": {
@@ -7627,12 +7627,12 @@
         "basis": "rider-and-mount",
         "source": "assets/mesbg/tokens/ecthelion_mounted.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -7640,14 +7640,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "rider",
-          "top": 0.2,
-          "bottom": 0.43,
+          "top": 0.12,
+          "bottom": 0.4,
           "worldReferenceSize": 43,
-          "sourceSHA256": "a429f01f823a56a1cdc5ca2961afec2804563d54cdec481ffef546453f938cee"
+          "sourceSHA256": "415c6eb6887cd1ca88d027b977ad5d718476663df8932cc109b481f12358d0ec"
         },
         "candidate": {
-          "top": 0.3867,
-          "bottom": 0.5934
+          "top": 0.1055,
+          "bottom": 0.4112
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -7774,22 +7774,22 @@
       "file": "tokens/elendil_mounted.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.19,
-      "bottom": 0.44,
-      "centerX": 0.61,
-      "centerY": 0.53,
+      "top": 0.12,
+      "bottom": 0.4,
+      "centerX": 0.6,
+      "centerY": 0.54,
       "worldReferenceSize": 43,
       "sourceWidth": 384,
       "sourceHeight": 384,
-      "sourceSHA256": "c9cd54475699787fac23075ec917e9981d240613592bdcf8c0845bf6ac8ff764",
+      "sourceSHA256": "c73b99a116840c815afd7962eb4345254c9b91134dd7676add7f18b9f72c36ca",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-saddle",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/elendil_mounted.png"
       },
       "centerReview": {
@@ -7797,12 +7797,12 @@
         "basis": "rider-and-mount",
         "source": "assets/mesbg/tokens/elendil_mounted.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -7810,14 +7810,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "rider",
-          "top": 0.19,
-          "bottom": 0.44,
+          "top": 0.12,
+          "bottom": 0.4,
           "worldReferenceSize": 43,
-          "sourceSHA256": "c9cd54475699787fac23075ec917e9981d240613592bdcf8c0845bf6ac8ff764"
+          "sourceSHA256": "c73b99a116840c815afd7962eb4345254c9b91134dd7676add7f18b9f72c36ca"
         },
         "candidate": {
-          "top": 0.0898,
-          "bottom": 0.4041
+          "top": 0.1836,
+          "bottom": 0.461
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -7887,35 +7887,35 @@
       "file": "tokens/elf_bow.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.23,
+      "top": 0.2,
       "bottom": 0.95,
-      "centerX": 0.52,
-      "centerY": 0.59,
+      "centerX": 0.49,
+      "centerY": 0.575,
       "worldReferenceSize": 86,
       "sourceWidth": 335,
       "sourceHeight": 384,
-      "sourceSHA256": "6f4a3bd4c9dab41d2387c4a224780fa098c613f690b163ba5dfeb883420c9ba5",
+      "sourceSHA256": "bfc9db6124771b73252baf938590a6ae1f89b1fd452437b615d243a9b6a00df9",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-sole",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/elf_bow.png"
       },
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "centerReview": {
         "date": "2026-10-19",
         "basis": "body",
         "source": "assets/mesbg/tokens/elf_bow.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -7923,14 +7923,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "body",
-          "top": 0.23,
+          "top": 0.2,
           "bottom": 0.95,
           "worldReferenceSize": 86,
-          "sourceSHA256": "6f4a3bd4c9dab41d2387c4a224780fa098c613f690b163ba5dfeb883420c9ba5"
+          "sourceSHA256": "bfc9db6124771b73252baf938590a6ae1f89b1fd452437b615d243a9b6a00df9"
         },
         "candidate": {
-          "top": 0.1104,
-          "bottom": 0.99
+          "top": 0.1449,
+          "bottom": 0.941
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -7943,35 +7943,35 @@
       "file": "tokens/elf_glaive.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.18,
-      "bottom": 0.91,
-      "centerX": 0.53,
-      "centerY": 0.55,
+      "top": 0.14,
+      "bottom": 0.94,
+      "centerX": 0.5,
+      "centerY": 0.54,
       "worldReferenceSize": 86,
       "sourceWidth": 335,
       "sourceHeight": 384,
-      "sourceSHA256": "eebe4e33cba5970b1853bbbdce7cdb8d084894903ab3495437e444a05cd21705",
+      "sourceSHA256": "aa26c14328e2c1c17a60517e5428d7101ae94ea2e2541a28fd7db6d035077c53",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-sole",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/elf_glaive.png"
       },
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "centerReview": {
         "date": "2026-10-19",
         "basis": "body",
         "source": "assets/mesbg/tokens/elf_glaive.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -7979,14 +7979,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "body",
-          "top": 0.18,
-          "bottom": 0.91,
+          "top": 0.14,
+          "bottom": 0.94,
           "worldReferenceSize": 86,
-          "sourceSHA256": "eebe4e33cba5970b1853bbbdce7cdb8d084894903ab3495437e444a05cd21705"
+          "sourceSHA256": "aa26c14328e2c1c17a60517e5428d7101ae94ea2e2541a28fd7db6d035077c53"
         },
         "candidate": {
           "top": 0.01,
-          "bottom": 0.9839
+          "bottom": 0.99
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -7999,22 +7999,22 @@
       "file": "tokens/elf_knight.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.13,
-      "bottom": 0.4,
-      "centerX": 0.57,
-      "centerY": 0.52,
+      "top": 0.14,
+      "bottom": 0.41,
+      "centerX": 0.58,
+      "centerY": 0.54,
       "worldReferenceSize": 43,
       "sourceWidth": 384,
       "sourceHeight": 350,
-      "sourceSHA256": "fe5c17928cc102bfacf6357113230ba1967d0d25209ef38be81d75eddf37c962",
+      "sourceSHA256": "67cb94345ea32e58dc8f1c07d71b266d529c22d5894a0904c6548d11d6664afb",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-saddle",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/elf_knight.png"
       },
       "centerReview": {
@@ -8022,12 +8022,12 @@
         "basis": "rider-and-mount",
         "source": "assets/mesbg/tokens/elf_knight.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -8035,14 +8035,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "rider",
-          "top": 0.13,
-          "bottom": 0.4,
+          "top": 0.14,
+          "bottom": 0.41,
           "worldReferenceSize": 43,
-          "sourceSHA256": "fe5c17928cc102bfacf6357113230ba1967d0d25209ef38be81d75eddf37c962"
+          "sourceSHA256": "67cb94345ea32e58dc8f1c07d71b266d529c22d5894a0904c6548d11d6664afb"
         },
         "candidate": {
-          "top": 0.2773,
-          "bottom": 0.5208
+          "top": 0.3008,
+          "bottom": 0.5244
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -8112,35 +8112,35 @@
       "file": "tokens/elf_spear.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.24,
-      "bottom": 0.95,
-      "centerX": 0.54,
-      "centerY": 0.6,
+      "top": 0.25,
+      "bottom": 0.96,
+      "centerX": 0.49,
+      "centerY": 0.605,
       "worldReferenceSize": 86,
       "sourceWidth": 335,
       "sourceHeight": 384,
-      "sourceSHA256": "e00b09d9e169639144d10ce9d6f190028c4096955563644c7ceebb798efa2853",
+      "sourceSHA256": "06b4e6de2d6f4d939522f7151cf64937862466a9b817c7321c7bd3fe4e4ae1ec",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-sole",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/elf_spear.png"
       },
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "centerReview": {
         "date": "2026-10-19",
         "basis": "body",
         "source": "assets/mesbg/tokens/elf_spear.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -8148,14 +8148,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "body",
-          "top": 0.24,
-          "bottom": 0.95,
+          "top": 0.25,
+          "bottom": 0.96,
           "worldReferenceSize": 86,
-          "sourceSHA256": "e00b09d9e169639144d10ce9d6f190028c4096955563644c7ceebb798efa2853"
+          "sourceSHA256": "06b4e6de2d6f4d939522f7151cf64937862466a9b817c7321c7bd3fe4e4ae1ec"
         },
         "candidate": {
-          "top": 0.086,
-          "bottom": 0.99
+          "top": 0.1049,
+          "bottom": 0.9264
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -8168,35 +8168,35 @@
       "file": "tokens/elf_swordshield.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.15,
-      "bottom": 0.94,
-      "centerX": 0.51,
-      "centerY": 0.55,
+      "top": 0.2,
+      "bottom": 0.95,
+      "centerX": 0.49,
+      "centerY": 0.575,
       "worldReferenceSize": 86,
       "sourceWidth": 335,
       "sourceHeight": 384,
-      "sourceSHA256": "12cc53adb1fac7b933f274287198d20d51ee9275593060de0e5458614019630b",
+      "sourceSHA256": "3b3eb546f20c39e48471769edcc90b8eea9ebd80d11901de4de76465de97707e",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-sole",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/elf_swordshield.png"
       },
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "centerReview": {
         "date": "2026-10-19",
         "basis": "body",
         "source": "assets/mesbg/tokens/elf_swordshield.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -8204,14 +8204,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "body",
-          "top": 0.15,
-          "bottom": 0.94,
+          "top": 0.2,
+          "bottom": 0.95,
           "worldReferenceSize": 86,
-          "sourceSHA256": "12cc53adb1fac7b933f274287198d20d51ee9275593060de0e5458614019630b"
+          "sourceSHA256": "3b3eb546f20c39e48471769edcc90b8eea9ebd80d11901de4de76465de97707e"
         },
         "candidate": {
-          "top": 0.4699,
-          "bottom": 0.9442
+          "top": 0.0258,
+          "bottom": 0.8727
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -8224,35 +8224,35 @@
       "file": "tokens/elf_swordsman.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.15,
-      "bottom": 0.94,
+      "top": 0.19,
+      "bottom": 0.95,
       "centerX": 0.49,
-      "centerY": 0.54,
+      "centerY": 0.57,
       "worldReferenceSize": 86,
       "sourceWidth": 332,
       "sourceHeight": 384,
-      "sourceSHA256": "da028bb49a6939c7b16d46594927eb32713f8cbe262c47821e351522bb0b9b08",
+      "sourceSHA256": "a68286981a0c3fef444f8fa189174814ab107b9b65461c82542ec0c304549886",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-sole",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/elf_swordsman.png"
       },
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "centerReview": {
         "date": "2026-10-19",
         "basis": "body",
         "source": "assets/mesbg/tokens/elf_swordsman.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -8260,14 +8260,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "body",
-          "top": 0.15,
-          "bottom": 0.94,
+          "top": 0.19,
+          "bottom": 0.95,
           "worldReferenceSize": 86,
-          "sourceSHA256": "da028bb49a6939c7b16d46594927eb32713f8cbe262c47821e351522bb0b9b08"
+          "sourceSHA256": "a68286981a0c3fef444f8fa189174814ab107b9b65461c82542ec0c304549886"
         },
         "candidate": {
-          "top": 0.01,
-          "bottom": 0.99
+          "top": 0.0577,
+          "bottom": 0.8876
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -8508,32 +8508,35 @@
       "file": "tokens/elrond.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.06,
-      "bottom": 0.929,
-      "centerX": 0.51,
-      "centerY": 0.4945,
+      "top": 0.105,
+      "bottom": 0.95,
+      "centerX": 0.52,
+      "centerY": 0.5275,
       "worldReferenceSize": 86,
       "sourceWidth": 335,
       "sourceHeight": 384,
-      "sourceSHA256": "0845137846c330c7bd2da1174564e7a1041666c63a9e4821e707f67538bf290a",
+      "sourceSHA256": "0bcfd1a29ae160dfef445d6bc9f2423de69e59e51d6a6b562d7ef13aaa5327fe",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
         "date": "2026-10-19",
-        "landmarks": "crown-to-boot; excludes weapons and helmet crest",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/elrond.png"
       },
-      "calibration": "2026-10-19 redraw; manually reviewed crown-to-boot or crown-to-seated-pelvis, separately reviewed body center.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "centerReview": {
         "date": "2026-10-19",
         "basis": "body",
         "source": "assets/mesbg/tokens/elrond.png",
         "excludes": [
           "weapons",
-          "helmet crest",
-          "cape",
-          "shield"
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -8541,14 +8544,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "body",
-          "top": 0.06,
-          "bottom": 0.929,
+          "top": 0.105,
+          "bottom": 0.95,
           "worldReferenceSize": 86,
-          "sourceSHA256": "0845137846c330c7bd2da1174564e7a1041666c63a9e4821e707f67538bf290a"
+          "sourceSHA256": "0bcfd1a29ae160dfef445d6bc9f2423de69e59e51d6a6b562d7ef13aaa5327fe"
         },
         "candidate": {
-          "top": 0.0134,
-          "bottom": 0.9788
+          "top": 0.0222,
+          "bottom": 0.9622
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -8561,21 +8564,22 @@
       "file": "tokens/elrond_mounted.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.085,
-      "bottom": 0.375,
-      "centerX": 0.625,
-      "centerY": 0.53,
+      "top": 0.12,
+      "bottom": 0.4,
+      "centerX": 0.6,
+      "centerY": 0.54,
       "worldReferenceSize": 43,
       "sourceWidth": 353,
       "sourceHeight": 384,
-      "sourceSHA256": "0adb0badf1d4aeffaee3bb21f7e66c15d9c6a1d9aa44ab39e339d4673de278e2",
+      "sourceSHA256": "df893dda5cc9c2dcf91312dc1c6819c3627e23d3ea68c015c56db30275f849ee",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "2026-10-19 redraw; manually reviewed crown-to-boot or crown-to-seated-pelvis, separately reviewed body center.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "visualReview": {
         "date": "2026-10-19",
-        "landmarks": "crown-pelvis",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/elrond_mounted.png"
       },
       "centerReview": {
@@ -8584,9 +8588,11 @@
         "source": "assets/mesbg/tokens/elrond_mounted.png",
         "excludes": [
           "weapons",
-          "helmet crest",
-          "cape",
-          "shield"
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -8594,14 +8600,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "rider",
-          "top": 0.085,
-          "bottom": 0.375,
+          "top": 0.12,
+          "bottom": 0.4,
           "worldReferenceSize": 43,
-          "sourceSHA256": "0adb0badf1d4aeffaee3bb21f7e66c15d9c6a1d9aa44ab39e339d4673de278e2"
+          "sourceSHA256": "df893dda5cc9c2dcf91312dc1c6819c3627e23d3ea68c015c56db30275f849ee"
         },
         "candidate": {
-          "top": 0.1523,
-          "bottom": 0.4468
+          "top": 0.168,
+          "bottom": 0.4539
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -8614,22 +8620,22 @@
       "file": "tokens/elven_lancer.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.14,
-      "bottom": 0.39,
-      "centerX": 0.58,
-      "centerY": 0.52,
+      "top": 0.13,
+      "bottom": 0.4,
+      "centerX": 0.59,
+      "centerY": 0.54,
       "worldReferenceSize": 43,
       "sourceWidth": 384,
       "sourceHeight": 370,
-      "sourceSHA256": "c1b9e76e190f833e9ed9db89299d3f8c04c6b3c0479235c7b6a275065e1c550d",
+      "sourceSHA256": "0fcdc4871e21e692f5317f32acd15f50cb0fb7f87bf389e0a916ceb38df7d02d",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-saddle",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/elven_lancer.png"
       },
       "centerReview": {
@@ -8637,12 +8643,12 @@
         "basis": "rider-and-mount",
         "source": "assets/mesbg/tokens/elven_lancer.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -8650,14 +8656,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "rider",
-          "top": 0.14,
-          "bottom": 0.39,
+          "top": 0.13,
+          "bottom": 0.4,
           "worldReferenceSize": 43,
-          "sourceSHA256": "c1b9e76e190f833e9ed9db89299d3f8c04c6b3c0479235c7b6a275065e1c550d"
+          "sourceSHA256": "0fcdc4871e21e692f5317f32acd15f50cb0fb7f87bf389e0a916ceb38df7d02d"
         },
         "candidate": {
-          "top": 0.3008,
-          "bottom": 0.5414
+          "top": 0.0352,
+          "bottom": 0.3692
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -9241,35 +9247,35 @@
       "file": "tokens/erkenbrand.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.13,
-      "bottom": 0.93,
-      "centerX": 0.53,
-      "centerY": 0.53,
+      "top": 0.17,
+      "bottom": 0.94,
+      "centerX": 0.52,
+      "centerY": 0.555,
       "worldReferenceSize": 86,
       "sourceWidth": 335,
       "sourceHeight": 384,
-      "sourceSHA256": "283dfde43b0daa51070cdab1b54f15e7a2168237103346a5a56391c4cfd99e82",
+      "sourceSHA256": "20e4ad980aa1ce62998a1f6cad0b0e029dc2535786ba44cbc9254a8a560fee2b",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-sole",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/erkenbrand.png"
       },
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "centerReview": {
         "date": "2026-10-19",
         "basis": "body",
         "source": "assets/mesbg/tokens/erkenbrand.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -9277,14 +9283,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "body",
-          "top": 0.13,
-          "bottom": 0.93,
+          "top": 0.17,
+          "bottom": 0.94,
           "worldReferenceSize": 86,
-          "sourceSHA256": "283dfde43b0daa51070cdab1b54f15e7a2168237103346a5a56391c4cfd99e82"
+          "sourceSHA256": "20e4ad980aa1ce62998a1f6cad0b0e029dc2535786ba44cbc9254a8a560fee2b"
         },
         "candidate": {
-          "top": 0.01,
-          "bottom": 0.99
+          "top": 0.0215,
+          "bottom": 0.9785
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -10719,22 +10725,22 @@
       "file": "tokens/galadhrim_knight.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.22,
-      "bottom": 0.45,
+      "top": 0.19,
+      "bottom": 0.46,
       "centerX": 0.6,
-      "centerY": 0.55,
+      "centerY": 0.56,
       "worldReferenceSize": 43,
       "sourceWidth": 384,
       "sourceHeight": 380,
-      "sourceSHA256": "54f1af58e6815f8e7691bc8c4dc14d4119a6d09d61d8602e2c47f8aafcb658a1",
+      "sourceSHA256": "82d20aed9c24db4caca9deb0717f673a81bff57ff97b5143701074ca4cdc1b48",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-saddle",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/galadhrim_knight.png"
       },
       "centerReview": {
@@ -10742,12 +10748,12 @@
         "basis": "rider-and-mount",
         "source": "assets/mesbg/tokens/galadhrim_knight.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -10755,14 +10761,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "rider",
-          "top": 0.22,
-          "bottom": 0.45,
+          "top": 0.19,
+          "bottom": 0.46,
           "worldReferenceSize": 43,
-          "sourceSHA256": "54f1af58e6815f8e7691bc8c4dc14d4119a6d09d61d8602e2c47f8aafcb658a1"
+          "sourceSHA256": "82d20aed9c24db4caca9deb0717f673a81bff57ff97b5143701074ca4cdc1b48"
         },
         "candidate": {
-          "top": 0.1758,
-          "bottom": 0.4476
+          "top": 0.1289,
+          "bottom": 0.4233
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -10832,35 +10838,35 @@
       "file": "tokens/galadriel.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.04,
+      "top": 0.11,
       "bottom": 0.94,
-      "centerX": 0.54,
-      "centerY": 0.49,
+      "centerX": 0.51,
+      "centerY": 0.525,
       "worldReferenceSize": 86,
       "sourceWidth": 334,
       "sourceHeight": 384,
-      "sourceSHA256": "9da65159c4e6989eb2cfbf1d92a9b7b68e650fb0ff7af260b0206985506efcf8",
+      "sourceSHA256": "bd85a2d78f1a148ac98b9a23d632740174f8488c77137f8a6999dbde8644367d",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-sole",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/galadriel.png"
       },
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "centerReview": {
         "date": "2026-10-19",
         "basis": "body",
         "source": "assets/mesbg/tokens/galadriel.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -10868,10 +10874,10 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "body",
-          "top": 0.04,
+          "top": 0.11,
           "bottom": 0.94,
           "worldReferenceSize": 86,
-          "sourceSHA256": "9da65159c4e6989eb2cfbf1d92a9b7b68e650fb0ff7af260b0206985506efcf8"
+          "sourceSHA256": "bd85a2d78f1a148ac98b9a23d632740174f8488c77137f8a6999dbde8644367d"
         },
         "candidate": {
           "top": 0.0551,
@@ -11002,22 +11008,22 @@
       "file": "tokens/gamling_mounted.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.34,
-      "bottom": 0.57,
-      "centerX": 0.57,
-      "centerY": 0.65,
+      "top": 0.3,
+      "bottom": 0.51,
+      "centerX": 0.54,
+      "centerY": 0.66,
       "worldReferenceSize": 43,
       "sourceWidth": 384,
       "sourceHeight": 342,
-      "sourceSHA256": "bf7747f504b8686b952be902637fe6fa32fa722c89e3655c8140117021c3c3e6",
+      "sourceSHA256": "61cb642ab2b34f56a385b83ca01ea6eda0ae4542e1b3c7785378e7c5ca6b2f7d",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-saddle",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/gamling_mounted.png"
       },
       "centerReview": {
@@ -11025,12 +11031,12 @@
         "basis": "rider-and-mount",
         "source": "assets/mesbg/tokens/gamling_mounted.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -11038,14 +11044,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "rider",
-          "top": 0.34,
-          "bottom": 0.57,
+          "top": 0.3,
+          "bottom": 0.51,
           "worldReferenceSize": 43,
-          "sourceSHA256": "bf7747f504b8686b952be902637fe6fa32fa722c89e3655c8140117021c3c3e6"
+          "sourceSHA256": "61cb642ab2b34f56a385b83ca01ea6eda0ae4542e1b3c7785378e7c5ca6b2f7d"
         },
         "candidate": {
-          "top": 0.332,
-          "bottom": 0.5668
+          "top": 0.3398,
+          "bottom": 0.555
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -12652,35 +12658,35 @@
       "file": "tokens/gondor_archer.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.14,
+      "top": 0.17,
       "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.54,
+      "centerX": 0.49,
+      "centerY": 0.555,
       "worldReferenceSize": 86,
       "sourceWidth": 335,
       "sourceHeight": 384,
-      "sourceSHA256": "2de9786744622c635203b404841278a7dcb4decf65dadcaff19be21360df749e",
+      "sourceSHA256": "b12730f49ceb01f1ce1407e1ac471ca18ae0f9de439840bb4305a15f4e2a4692",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-sole",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/gondor_archer.png"
       },
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "centerReview": {
         "date": "2026-10-19",
         "basis": "body",
         "source": "assets/mesbg/tokens/gondor_archer.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -12688,14 +12694,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "body",
-          "top": 0.14,
+          "top": 0.17,
           "bottom": 0.94,
           "worldReferenceSize": 86,
-          "sourceSHA256": "2de9786744622c635203b404841278a7dcb4decf65dadcaff19be21360df749e"
+          "sourceSHA256": "b12730f49ceb01f1ce1407e1ac471ca18ae0f9de439840bb4305a15f4e2a4692"
         },
         "candidate": {
-          "top": 0.1189,
-          "bottom": 0.9827
+          "top": 0.1436,
+          "bottom": 0.9736
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -13734,22 +13740,22 @@
       "file": "tokens/guthlaf_mounted.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.32,
-      "bottom": 0.55,
-      "centerX": 0.56,
+      "top": 0.29,
+      "bottom": 0.49,
+      "centerX": 0.55,
       "centerY": 0.64,
       "worldReferenceSize": 43,
       "sourceWidth": 384,
       "sourceHeight": 359,
-      "sourceSHA256": "b1307f37a212e71948ade46c9589385920570d8ab44cabfa83a82311d58b9510",
+      "sourceSHA256": "40d1db297b52b3539b3406ae1c22fb6b2bcf3ebe2e0b28fb7b8504af58fea1c4",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-saddle",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/guthlaf_mounted.png"
       },
       "centerReview": {
@@ -13757,12 +13763,12 @@
         "basis": "rider-and-mount",
         "source": "assets/mesbg/tokens/guthlaf_mounted.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -13770,14 +13776,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "rider",
-          "top": 0.32,
-          "bottom": 0.55,
+          "top": 0.29,
+          "bottom": 0.49,
           "worldReferenceSize": 43,
-          "sourceSHA256": "b1307f37a212e71948ade46c9589385920570d8ab44cabfa83a82311d58b9510"
+          "sourceSHA256": "40d1db297b52b3539b3406ae1c22fb6b2bcf3ebe2e0b28fb7b8504af58fea1c4"
         },
         "candidate": {
-          "top": 0.3242,
-          "bottom": 0.5619
+          "top": 0.2852,
+          "bottom": 0.5286
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -13847,35 +13853,35 @@
       "file": "tokens/gwindor.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.04,
-      "bottom": 0.94,
-      "centerX": 0.52,
-      "centerY": 0.49,
+      "top": 0.095,
+      "bottom": 0.95,
+      "centerX": 0.51,
+      "centerY": 0.5225,
       "worldReferenceSize": 86,
       "sourceWidth": 335,
       "sourceHeight": 384,
-      "sourceSHA256": "7b0ff5464575e97de605aa9fe721a3783f8b08c9589b1b9ceb8b06167c96fad0",
+      "sourceSHA256": "b06d1a6db0d6bcb3176ba2cea1894838ecba45aa444277162590e9c745024ad3",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-sole",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/gwindor.png"
       },
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "centerReview": {
         "date": "2026-10-19",
         "basis": "body",
         "source": "assets/mesbg/tokens/gwindor.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -13883,13 +13889,13 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "body",
-          "top": 0.04,
-          "bottom": 0.94,
+          "top": 0.095,
+          "bottom": 0.95,
           "worldReferenceSize": 86,
-          "sourceSHA256": "7b0ff5464575e97de605aa9fe721a3783f8b08c9589b1b9ceb8b06167c96fad0"
+          "sourceSHA256": "b06d1a6db0d6bcb3176ba2cea1894838ecba45aa444277162590e9c745024ad3"
         },
         "candidate": {
-          "top": 0.0127,
+          "top": 0.0209,
           "bottom": 0.99
         },
         "pinned": true,
@@ -15383,34 +15389,34 @@
       "bodyClass": "human",
       "reference": "body",
       "top": 0.16,
-      "bottom": 0.91,
-      "centerX": 0.6,
-      "centerY": 0.53,
+      "bottom": 0.94,
+      "centerX": 0.49,
+      "centerY": 0.55,
       "worldReferenceSize": 86,
       "sourceWidth": 335,
       "sourceHeight": 384,
-      "sourceSHA256": "e384af753ba8fac3831fc0405d0cfaf74e7a9d37bc6ea67bc05297f4c99a5c6b",
+      "sourceSHA256": "63a604e9d0ebb886cad5abef1392ffa3ab85631fcba424b9264af668584ba124",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-sole",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/huor.png"
       },
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "centerReview": {
         "date": "2026-10-19",
         "basis": "body",
         "source": "assets/mesbg/tokens/huor.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -15419,13 +15425,13 @@
           "bodyClass": "human",
           "reference": "body",
           "top": 0.16,
-          "bottom": 0.91,
+          "bottom": 0.94,
           "worldReferenceSize": 86,
-          "sourceSHA256": "e384af753ba8fac3831fc0405d0cfaf74e7a9d37bc6ea67bc05297f4c99a5c6b"
+          "sourceSHA256": "63a604e9d0ebb886cad5abef1392ffa3ab85631fcba424b9264af668584ba124"
         },
         "candidate": {
-          "top": 0.01,
-          "bottom": 0.99
+          "top": 0.0945,
+          "bottom": 0.9837
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -15724,21 +15730,21 @@
       "bodyClass": "human",
       "reference": "rider",
       "top": 0.11,
-      "bottom": 0.4,
-      "centerX": 0.57,
-      "centerY": 0.51,
+      "bottom": 0.39,
+      "centerX": 0.6,
+      "centerY": 0.54,
       "worldReferenceSize": 43,
       "sourceWidth": 384,
       "sourceHeight": 384,
-      "sourceSHA256": "87bab731cd4402b2a044e25faa38d221ee1ee09f858ab47e1e3e8fce9a28ffde",
+      "sourceSHA256": "e28a2019def0197e2c21e60f2616f54845620833ce8a495f4d4418d3ca98906b",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-saddle",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/imrahil_mounted.png"
       },
       "centerReview": {
@@ -15746,12 +15752,12 @@
         "basis": "rider-and-mount",
         "source": "assets/mesbg/tokens/imrahil_mounted.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -15760,13 +15766,13 @@
           "bodyClass": "human",
           "reference": "rider",
           "top": 0.11,
-          "bottom": 0.4,
+          "bottom": 0.39,
           "worldReferenceSize": 43,
-          "sourceSHA256": "87bab731cd4402b2a044e25faa38d221ee1ee09f858ab47e1e3e8fce9a28ffde"
+          "sourceSHA256": "e28a2019def0197e2c21e60f2616f54845620833ce8a495f4d4418d3ca98906b"
         },
         "candidate": {
-          "top": 0.1523,
-          "bottom": 0.4298
+          "top": 0.1445,
+          "bottom": 0.4361
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -17261,35 +17267,35 @@
       "file": "tokens/luthien.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.13,
-      "bottom": 0.94,
-      "centerX": 0.55,
-      "centerY": 0.53,
+      "top": 0.14,
+      "bottom": 0.95,
+      "centerX": 0.51,
+      "centerY": 0.545,
       "worldReferenceSize": 86,
       "sourceWidth": 335,
       "sourceHeight": 384,
-      "sourceSHA256": "8d4bf01a90a27108de587dcf454cf6b3bd103ca163af30d519a8715f57f40c1f",
+      "sourceSHA256": "8df002747404431b16db3bcf4f797320eb0c8165c5d8ba561e4cea01e390dd4f",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-sole",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/luthien.png"
       },
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "centerReview": {
         "date": "2026-10-19",
         "basis": "body",
         "source": "assets/mesbg/tokens/luthien.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -17297,14 +17303,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "body",
-          "top": 0.13,
-          "bottom": 0.94,
+          "top": 0.14,
+          "bottom": 0.95,
           "worldReferenceSize": 86,
-          "sourceSHA256": "8d4bf01a90a27108de587dcf454cf6b3bd103ca163af30d519a8715f57f40c1f"
+          "sourceSHA256": "8df002747404431b16db3bcf4f797320eb0c8165c5d8ba561e4cea01e390dd4f"
         },
         "candidate": {
-          "top": 0.0785,
-          "bottom": 0.9762
+          "top": 0.1098,
+          "bottom": 0.99
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -17317,35 +17323,35 @@
       "file": "tokens/mablung.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.15,
-      "bottom": 0.93,
-      "centerX": 0.51,
-      "centerY": 0.54,
+      "top": 0.16,
+      "bottom": 0.94,
+      "centerX": 0.5,
+      "centerY": 0.55,
       "worldReferenceSize": 86,
       "sourceWidth": 335,
       "sourceHeight": 384,
-      "sourceSHA256": "bf7b3014ec10241d2107311a159ff61aa706c747043d294d1340b329c8475e6f",
+      "sourceSHA256": "8a2f641d15065210139db79ac2903667f44ef99e7f96a72d74bf3048ff8b7a03",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-sole",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/mablung.png"
       },
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "centerReview": {
         "date": "2026-10-19",
         "basis": "body",
         "source": "assets/mesbg/tokens/mablung.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -17353,14 +17359,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "body",
-          "top": 0.15,
-          "bottom": 0.93,
+          "top": 0.16,
+          "bottom": 0.94,
           "worldReferenceSize": 86,
-          "sourceSHA256": "bf7b3014ec10241d2107311a159ff61aa706c747043d294d1340b329c8475e6f"
+          "sourceSHA256": "8a2f641d15065210139db79ac2903667f44ef99e7f96a72d74bf3048ff8b7a03"
         },
         "candidate": {
-          "top": 0.0459,
-          "bottom": 0.9775
+          "top": 0.0707,
+          "bottom": 0.9684
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -17658,22 +17664,22 @@
       "file": "tokens/maeglin_mounted.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.1,
-      "bottom": 0.41,
-      "centerX": 0.62,
-      "centerY": 0.53,
+      "top": 0.11,
+      "bottom": 0.4,
+      "centerX": 0.6,
+      "centerY": 0.54,
       "worldReferenceSize": 43,
       "sourceWidth": 384,
       "sourceHeight": 384,
-      "sourceSHA256": "abf8d89856c80dd810c1f5b24a3f9821ffdf5f26c03ecedd2b6fe0157dd1d5b3",
+      "sourceSHA256": "678d1692f32340bba7b422d01ec292057661fefb5e58fc4d7805527fcdc262a5",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-saddle",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/maeglin_mounted.png"
       },
       "centerReview": {
@@ -17681,12 +17687,12 @@
         "basis": "rider-and-mount",
         "source": "assets/mesbg/tokens/maeglin_mounted.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -17694,14 +17700,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "rider",
-          "top": 0.1,
-          "bottom": 0.41,
+          "top": 0.11,
+          "bottom": 0.4,
           "worldReferenceSize": 43,
-          "sourceSHA256": "abf8d89856c80dd810c1f5b24a3f9821ffdf5f26c03ecedd2b6fe0157dd1d5b3"
+          "sourceSHA256": "678d1692f32340bba7b422d01ec292057661fefb5e58fc4d7805527fcdc262a5"
         },
         "candidate": {
-          "top": 0.1836,
-          "bottom": 0.461
+          "top": 0.1992,
+          "bottom": 0.4795
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -17714,35 +17720,35 @@
       "file": "tokens/maglor.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.06,
-      "bottom": 0.9,
-      "centerX": 0.55,
-      "centerY": 0.48,
+      "top": 0.12,
+      "bottom": 0.95,
+      "centerX": 0.51,
+      "centerY": 0.535,
       "worldReferenceSize": 86,
       "sourceWidth": 329,
       "sourceHeight": 384,
-      "sourceSHA256": "103d7df36dc9904a8e46f4366b13cb6d4bee456c251ee1094ad08ea7c5ced577",
+      "sourceSHA256": "212c620e9d485c58d93dc011dfd035cd2d8e511e92da5b468cb1de2f96977ebb",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-sole",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/maglor.png"
       },
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "centerReview": {
         "date": "2026-10-19",
         "basis": "body",
         "source": "assets/mesbg/tokens/maglor.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -17750,14 +17756,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "body",
-          "top": 0.06,
-          "bottom": 0.9,
+          "top": 0.12,
+          "bottom": 0.95,
           "worldReferenceSize": 86,
-          "sourceSHA256": "103d7df36dc9904a8e46f4366b13cb6d4bee456c251ee1094ad08ea7c5ced577"
+          "sourceSHA256": "212c620e9d485c58d93dc011dfd035cd2d8e511e92da5b468cb1de2f96977ebb"
         },
         "candidate": {
-          "top": 0.0212,
-          "bottom": 0.9866
+          "top": 0.0381,
+          "bottom": 0.9697
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -20442,22 +20448,22 @@
       "file": "tokens/numenorean_knight.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.18,
-      "bottom": 0.43,
+      "top": 0.13,
+      "bottom": 0.4,
       "centerX": 0.6,
-      "centerY": 0.53,
+      "centerY": 0.54,
       "worldReferenceSize": 43,
       "sourceWidth": 384,
       "sourceHeight": 370,
-      "sourceSHA256": "c1d351f10a029826c10cefa162b582ec79b700302a4c8a274ada600c3b2548d8",
+      "sourceSHA256": "f23de6e3d42e5dd9e0f1dc69fa0ff4ce062e02dc764cafaf45d20c996c3f8e91",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-saddle",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/numenorean_knight.png"
       },
       "centerReview": {
@@ -20465,12 +20471,12 @@
         "basis": "rider-and-mount",
         "source": "assets/mesbg/tokens/numenorean_knight.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -20478,14 +20484,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "rider",
-          "top": 0.18,
-          "bottom": 0.43,
+          "top": 0.13,
+          "bottom": 0.4,
           "worldReferenceSize": 43,
-          "sourceSHA256": "c1d351f10a029826c10cefa162b582ec79b700302a4c8a274ada600c3b2548d8"
+          "sourceSHA256": "f23de6e3d42e5dd9e0f1dc69fa0ff4ce062e02dc764cafaf45d20c996c3f8e91"
         },
         "candidate": {
           "top": 0.1211,
-          "bottom": 0.424
+          "bottom": 0.4269
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -21634,32 +21640,35 @@
       "id": "orophin",
       "name": "오로핀",
       "file": "tokens/orophin.png",
-      "top": 0.202,
-      "bottom": 0.948,
-      "centerX": 0.526,
-      "centerY": 0.575,
+      "top": 0.12,
+      "bottom": 0.94,
+      "centerX": 0.52,
+      "centerY": 0.53,
       "worldReferenceSize": 86,
       "sourceWidth": 335,
       "sourceHeight": 384,
-      "sourceSHA256": "3d4052aa33e519f3f1d2d8226ccb27918fed322a36fbfb94eb54d28e287b2565",
+      "sourceSHA256": "a0b73be20d36825a6747f47a138a4dad097916dcd5a038e845d56e4c68600107",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
         "date": "2026-10-19",
-        "landmarks": "crown-to-boot; excludes weapons and helmet crest",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/orophin.png"
       },
-      "calibration": "2026-10-19 redraw; manually reviewed crown-to-boot or crown-to-seated-pelvis, separately reviewed body center.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "centerReview": {
         "date": "2026-10-19",
         "basis": "body",
         "source": "assets/mesbg/tokens/orophin.png",
         "excludes": [
           "weapons",
-          "helmet crest",
-          "cape",
-          "shield"
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -21667,14 +21676,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "body",
-          "top": 0.202,
-          "bottom": 0.948,
+          "top": 0.12,
+          "bottom": 0.94,
           "worldReferenceSize": 86,
-          "sourceSHA256": "3d4052aa33e519f3f1d2d8226ccb27918fed322a36fbfb94eb54d28e287b2565"
+          "sourceSHA256": "a0b73be20d36825a6747f47a138a4dad097916dcd5a038e845d56e4c68600107"
         },
         "candidate": {
-          "top": 0.1667,
-          "bottom": 0.99
+          "top": 0.2003,
+          "bottom": 0.9794
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -21689,41 +21698,50 @@
       "file": "tokens/osgiliath_veteran.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.06,
-      "bottom": 0.95,
+      "top": 0.12,
+      "bottom": 0.94,
       "centerX": 0.5,
-      "centerY": 0.505,
+      "centerY": 0.53,
       "worldReferenceSize": 86,
       "sourceWidth": 379,
       "sourceHeight": 384,
-      "sourceSHA256": "5918b5889773a6f41c2075f0aed0ec32d6af4350d5fe04a92fa493cfc8063ceb",
-      "anatomicalCorrection": false,
+      "sourceSHA256": "246e4fe561c07a23aaea0b6e6fcdfb45c5072d074dbae8b75d4bcdbe4f1bfdb3",
+      "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
         "date": "2026-10-19",
-        "source": "assets/mesbg/tokens/osgiliath_veteran.png",
-        "landmarks": "helmet crown to grounded boot; excludes sword and shield"
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
+        "source": "assets/mesbg/tokens/osgiliath_veteran.png"
       },
-      "calibration": "Individual source visually checked; existing body landmarks retained.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "centerReview": {
         "date": "2026-10-19",
         "basis": "body",
-        "source": "assets/mesbg/tokens/osgiliath_veteran.png"
+        "source": "assets/mesbg/tokens/osgiliath_veteran.png",
+        "excludes": [
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
+        ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "body",
-          "top": 0.06,
-          "bottom": 0.95,
+          "top": 0.12,
+          "bottom": 0.94,
           "worldReferenceSize": 86,
-          "sourceSHA256": "5918b5889773a6f41c2075f0aed0ec32d6af4350d5fe04a92fa493cfc8063ceb"
+          "sourceSHA256": "246e4fe561c07a23aaea0b6e6fcdfb45c5072d074dbae8b75d4bcdbe4f1bfdb3"
         },
         "candidate": {
-          "top": 0.03,
-          "bottom": 0.97
+          "top": 0.0469,
+          "bottom": 0.9531
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -21850,35 +21868,35 @@
       "file": "tokens/pallando.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.32,
+      "top": 0.27,
       "bottom": 0.94,
-      "centerX": 0.54,
-      "centerY": 0.63,
+      "centerX": 0.52,
+      "centerY": 0.605,
       "worldReferenceSize": 86,
       "sourceWidth": 335,
       "sourceHeight": 384,
-      "sourceSHA256": "d15c5ae6a88c3866220784fa65aaba19e32115bb9cec0556b10fa5b747939f5e",
+      "sourceSHA256": "b53e5a069eceab123506d0a90fe9e55754da808dab2c69b404002452fe620898",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-sole",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/pallando.png"
       },
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "centerReview": {
         "date": "2026-10-19",
         "basis": "body",
         "source": "assets/mesbg/tokens/pallando.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -21886,14 +21904,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "body",
-          "top": 0.32,
+          "top": 0.27,
           "bottom": 0.94,
           "worldReferenceSize": 86,
-          "sourceSHA256": "d15c5ae6a88c3866220784fa65aaba19e32115bb9cec0556b10fa5b747939f5e"
+          "sourceSHA256": "b53e5a069eceab123506d0a90fe9e55754da808dab2c69b404002452fe620898"
         },
         "candidate": {
-          "top": 0.01,
-          "bottom": 0.99
+          "top": 0.0381,
+          "bottom": 0.9697
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -22873,32 +22891,35 @@
       "id": "rumil",
       "name": "루밀",
       "file": "tokens/rumil.png",
-      "top": 0.169,
-      "bottom": 0.925,
-      "centerX": 0.586,
-      "centerY": 0.547,
+      "top": 0.18,
+      "bottom": 0.94,
+      "centerX": 0.47,
+      "centerY": 0.56,
       "worldReferenceSize": 86,
       "sourceWidth": 335,
       "sourceHeight": 384,
-      "sourceSHA256": "baa0ad06f45a6b711edcc7f058f9c34cd56f3b604caccde7f2de3cf98edd9cab",
+      "sourceSHA256": "2cf90020ae2059c1036dda228415bb5b9d201dff6149b84fa9f48527ac9c29c7",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
         "date": "2026-10-19",
-        "landmarks": "crown-to-boot; excludes weapons and helmet crest",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/rumil.png"
       },
-      "calibration": "2026-10-19 redraw; manually reviewed crown-to-boot or crown-to-seated-pelvis, separately reviewed body center.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "centerReview": {
         "date": "2026-10-19",
         "basis": "body",
         "source": "assets/mesbg/tokens/rumil.png",
         "excludes": [
           "weapons",
-          "helmet crest",
-          "cape",
-          "shield"
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -22906,14 +22927,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "body",
-          "top": 0.169,
-          "bottom": 0.925,
+          "top": 0.18,
+          "bottom": 0.94,
           "worldReferenceSize": 86,
-          "sourceSHA256": "baa0ad06f45a6b711edcc7f058f9c34cd56f3b604caccde7f2de3cf98edd9cab"
+          "sourceSHA256": "2cf90020ae2059c1036dda228415bb5b9d201dff6149b84fa9f48527ac9c29c7"
         },
         "candidate": {
-          "top": 0.0306,
-          "bottom": 0.9537
+          "top": 0.0479,
+          "bottom": 0.9287
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -24467,35 +24488,35 @@
       "file": "tokens/thingol.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.04,
-      "bottom": 0.94,
-      "centerX": 0.52,
-      "centerY": 0.49,
+      "top": 0.12,
+      "bottom": 0.93,
+      "centerX": 0.51,
+      "centerY": 0.525,
       "worldReferenceSize": 86,
       "sourceWidth": 335,
       "sourceHeight": 384,
-      "sourceSHA256": "ec15b269d806f668b6fdeee30c4835f818a3a57f14971dffaa451d7a780366a3",
+      "sourceSHA256": "8b9556c9ed3ab4ea5e16c52193e8534dcb525876951543ff03030e552c96a432",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-sole",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/thingol.png"
       },
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "centerReview": {
         "date": "2026-10-19",
         "basis": "body",
         "source": "assets/mesbg/tokens/thingol.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -24503,14 +24524,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "body",
-          "top": 0.04,
-          "bottom": 0.94,
+          "top": 0.12,
+          "bottom": 0.93,
           "worldReferenceSize": 86,
-          "sourceSHA256": "ec15b269d806f668b6fdeee30c4835f818a3a57f14971dffaa451d7a780366a3"
+          "sourceSHA256": "8b9556c9ed3ab4ea5e16c52193e8534dcb525876951543ff03030e552c96a432"
         },
         "candidate": {
-          "top": 0.01,
-          "bottom": 0.99
+          "top": 0.0297,
+          "bottom": 0.9782
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -24524,21 +24545,21 @@
       "bodyClass": "human",
       "reference": "rider",
       "top": 0.1,
-      "bottom": 0.41,
-      "centerX": 0.62,
-      "centerY": 0.52,
+      "bottom": 0.39,
+      "centerX": 0.61,
+      "centerY": 0.54,
       "worldReferenceSize": 43,
       "sourceWidth": 384,
       "sourceHeight": 349,
-      "sourceSHA256": "ef67ea619b0e6418d1392c0f7f4db123a71ddfd7cca441b9260502dc87b4df4c",
+      "sourceSHA256": "c29f98d6080adfee7d31c78ed3620c53df7bebda74fe1072001536213fd4a24e",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-saddle",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/thingol_mounted.png"
       },
       "centerReview": {
@@ -24546,12 +24567,12 @@
         "basis": "rider-and-mount",
         "source": "assets/mesbg/tokens/thingol_mounted.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -24560,13 +24581,13 @@
           "bodyClass": "human",
           "reference": "rider",
           "top": 0.1,
-          "bottom": 0.41,
+          "bottom": 0.39,
           "worldReferenceSize": 43,
-          "sourceSHA256": "ef67ea619b0e6418d1392c0f7f4db123a71ddfd7cca441b9260502dc87b4df4c"
+          "sourceSHA256": "c29f98d6080adfee7d31c78ed3620c53df7bebda74fe1072001536213fd4a24e"
         },
         "candidate": {
-          "top": 0.0664,
-          "bottom": 0.3948
+          "top": 0.0742,
+          "bottom": 0.3913
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -24807,22 +24828,22 @@
       "file": "tokens/thranduil_mounted.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.13,
+      "top": 0.14,
       "bottom": 0.42,
-      "centerX": 0.6,
-      "centerY": 0.57,
+      "centerX": 0.59,
+      "centerY": 0.55,
       "worldReferenceSize": 43,
       "sourceWidth": 384,
       "sourceHeight": 355,
-      "sourceSHA256": "a7c300c56fde0deef85edc10d54c9dfe86e749aac654e4300bc5811bb3a61c23",
+      "sourceSHA256": "80bfced6ac11aeaf4e21c0e9781177957fdc40b363d979fda1d5209606fa14f2",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-saddle",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/thranduil_mounted.png"
       },
       "centerReview": {
@@ -24830,12 +24851,12 @@
         "basis": "rider-and-mount",
         "source": "assets/mesbg/tokens/thranduil_mounted.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -24843,14 +24864,14 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "rider",
-          "top": 0.13,
+          "top": 0.14,
           "bottom": 0.42,
           "worldReferenceSize": 43,
-          "sourceSHA256": "a7c300c56fde0deef85edc10d54c9dfe86e749aac654e4300bc5811bb3a61c23"
+          "sourceSHA256": "80bfced6ac11aeaf4e21c0e9781177957fdc40b363d979fda1d5209606fa14f2"
         },
         "candidate": {
-          "top": 0.1211,
-          "bottom": 0.4212
+          "top": 0.0977,
+          "bottom": 0.4034
         },
         "pinned": true,
         "applied": "reviewed-landmarks",
@@ -25492,20 +25513,20 @@
       "reference": "rider",
       "top": 0.13,
       "bottom": 0.41,
-      "centerX": 0.62,
-      "centerY": 0.53,
+      "centerX": 0.6,
+      "centerY": 0.54,
       "worldReferenceSize": 43,
       "sourceWidth": 384,
       "sourceHeight": 350,
-      "sourceSHA256": "efbf26f9ee34ef0c653af55f951c4f811a4252dcac92ce6094c1640f08ea9bc6",
+      "sourceSHA256": "57d96d1eb9c6b6fff16af62f7c0bfb66d235a5de7bdb1360ac146016dacadde9",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "Individual visual review against unchanged Glorfindel; native anatomy redrawn by imagegen, uniform raster packaging only.",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-saddle",
+        "sheet": "fivehead-20261019",
+        "landmarks": "individual crown-to-sole or seated crown-to-pelvis; crest, weapon, banner and cloak excluded",
         "source": "assets/mesbg/tokens/turin_mounted.png"
       },
       "centerReview": {
@@ -25513,12 +25534,12 @@
         "basis": "rider-and-mount",
         "source": "assets/mesbg/tokens/turin_mounted.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "banners",
+          "decorations",
+          "cloak edges",
+          "tails",
+          "antlers"
         ]
       },
       "statureCalibration": {
@@ -25529,11 +25550,11 @@
           "top": 0.13,
           "bottom": 0.41,
           "worldReferenceSize": 43,
-          "sourceSHA256": "efbf26f9ee34ef0c653af55f951c4f811a4252dcac92ce6094c1640f08ea9bc6"
+          "sourceSHA256": "57d96d1eb9c6b6fff16af62f7c0bfb66d235a5de7bdb1360ac146016dacadde9"
         },
         "candidate": {
-          "top": 0.1602,
-          "bottom": 0.4489
+          "top": 0.0742,
+          "bottom": 0.3885
         },
         "pinned": true,
         "applied": "reviewed-landmarks",

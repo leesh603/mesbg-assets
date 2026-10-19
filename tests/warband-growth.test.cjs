@@ -1,3 +1,4 @@
+const effective=require('./art-review-lineage.cjs');
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),crypto=require('node:crypto');
 const create=require('./campaign-harness.cjs');
 function fresh(cleared=0){const h=create(),q=h.q;q.start('ai');q.units=[];q.terrain=[];q.relics={};q.cleared=cleared;q.wave=cleared;q.phase='preparation';q.gold=1000;return h;}
@@ -62,5 +63,6 @@ test('existing careers migrate into earned ranks and save/import/retry neither h
 });
 test('all three Osgiliath production, gallery and source copies match the reviewed transparent native rasters',()=>{
  const rows=JSON.parse(fs.readFileSync('review/osgiliath-growth-20261019/manifest.json')).units;assert.equal(rows.length,3);
- for(const u of rows){const b=fs.readFileSync(u.files.production);assert.equal(b[25],6);assert(Math.max(b.readUInt32BE(16),b.readUInt32BE(20))<=384);assert.equal(crypto.createHash('sha256').update(b).digest('hex'),u.sourceSHA256);for(const key of ['root','source'])assert.deepEqual(fs.readFileSync(u.files[key]),b);assert(fs.readFileSync(u.files.thumbnail).subarray(0,4).equals(Buffer.from('RIFF')));}
+ for(const original of rows){const u=effective(original);const b=fs.readFileSync(u.files.production);assert.equal(b[25],6);assert(Math.max(b.readUInt32BE(16),b.readUInt32BE(20))<=384);assert.equal(crypto.createHash('sha256').update(b).digest('hex'),u.sourceSHA256);for(const key of ['root','source'])assert.deepEqual(fs.readFileSync(u.files[key]),b);assert(fs.readFileSync(u.files.thumbnail).subarray(0,4).equals(Buffer.from('RIFF')));}
 });
+
