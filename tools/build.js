@@ -47,6 +47,13 @@ src=src.slice(0,ta)+'/*__TROOP_PROMOTIONS_BEGIN__*/\n'+troops+'\n'+src.slice(tb)
 fs.writeFileSync(SRC,src);
 
 // Recruitment and dark-event rules execute after every catalog and career registration.
+// Campaign training executes after troop registration, before encounter power checks.
+let growth=fs.readFileSync(path.join(ROOT,'src','warband-growth.js'),'utf8');
+growth=growth.replace('/*__WARBAND_GROWTH_DATA__*/ {}',()=>fs.readFileSync(path.join(ROOT,'data','warband-growth.json'),'utf8').trim());
+const ga=src.indexOf('/*__WARBAND_GROWTH_BEGIN__*/'),gb=src.indexOf('/*__WARBAND_GROWTH_END__*/');
+const block='/*__WARBAND_GROWTH_BEGIN__*/\n'+growth+'\n/*__WARBAND_GROWTH_END__*/\n';
+if(ga>=0&&gb>ga)src=src.slice(0,ga)+block+src.slice(gb+'/*__WARBAND_GROWTH_END__*/'.length).replace(/^\n/,'');
+else{const at=src.indexOf('/*__RECRUIT_DARK_EVENTS_BEGIN__*/');if(at<0)throw Error('Growth insertion marker not found');src=src.slice(0,at)+block+src.slice(at);}
 const encounterBegin='/*__RECRUIT_DARK_EVENTS_BEGIN__*/',encounterEnd='/*__RECRUIT_DARK_EVENTS_END__*/';
 const ea=src.indexOf(encounterBegin),eb=src.indexOf(encounterEnd);
 if(ea<0||eb<ea)throw Error('Recruit/dark-event markers not found');

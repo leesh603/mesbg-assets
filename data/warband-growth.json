@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "veterancy": [
+    {"rank":1,"xp":12,"battles":2,"name":"숙련병","text":"결투 최저 주사위 재굴림 · 용기 +1"},
+    {"rank":2,"xp":30,"battles":4,"name":"노련병","text":"결투 +1 · 방어 +1"},
+    {"rank":3,"xp":66,"battles":8,"name":"백전병","text":"상처 +1 · 근접병 공격 +1 / 궁병 정지 사격 상처 재굴림"}
+  ],
+  "reinforcements":[{"cleared":8,"rank":1},{"cleared":24,"rank":2}],
+  "mentoring":[{"cleared":8,"stats":["fight","courage"]},{"cleared":24,"stats":["fight","strength","defence","attacks","courage"]}],
+  "armyCaps":{"courage":2},
+  "personalCaps":{"fight":1,"strength":1,"defence":1,"attacks":1,"courage":2,"wounds":1},
+  "relicMinimumWaveByRarity":[0,0,4,10],
+  "relicMinimumWave":{"silmaril":5,"darkpact":5}
+}

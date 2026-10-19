@@ -114,10 +114,10 @@
     },
     "artProfile": [
       "human",
-      0.1,
-      0.945,
+      0.15,
+      0.96,
       0.57,
-      0.5225,
+      0.555,
       86,
       "body"
     ],
@@ -130,16 +130,16 @@
         335,
         384
       ],
-      "sourcePath": "art-src/unit-redraw-20261019/osgiliath_spearshield.png",
-      "sourceSHA256": "06f46d86b61eb5bed045f858c9a91488c07080aea7efac2f0b27688ced3c0720",
-      "headOrRiderTop": 0.1,
-      "feetOrRiderBottom": 0.945,
+      "sourcePath": "art-src/osgiliath-legs-20261019/osgiliath_spearshield.png",
+      "sourceSHA256": "e0d1c4ee1e5ab0d610796506e6720b6cea2720dfaea120dee40a3b970bcc56c7",
+      "headOrRiderTop": 0.15,
+      "feetOrRiderBottom": 0.96,
       "bodyCenter": [
         0.57,
-        0.5225
+        0.555
       ],
       "reference": 86,
-      "method": "manual anatomical landmarks; 2026-10-19 quarter-view redraw; uniform pixel-raster integration"
+      "method": "manual anatomical review; two grounded legs, 2026-10-19 redraw"
     }
   },
   {
@@ -185,10 +185,10 @@
     },
     "artProfile": [
       "human",
-      0.075,
-      0.96,
+      0.06,
+      0.95,
       0.5,
-      0.5175,
+      0.505,
       86,
       "body"
     ],
@@ -201,16 +201,16 @@
         335,
         384
       ],
-      "sourcePath": "art-src/unit-redraw-20261019/osgiliath_bow.png",
-      "sourceSHA256": "0cf2570de0b24ee41836648132cbd6752bf2dd1c0738e84d1f57f1141ca48503",
-      "headOrRiderTop": 0.075,
-      "feetOrRiderBottom": 0.96,
+      "sourcePath": "art-src/osgiliath-legs-20261019/osgiliath_bow.png",
+      "sourceSHA256": "834d96ab40cec814d31a0512f22d38e69ea22d0a022608d2757bace2ad51b249",
+      "headOrRiderTop": 0.06,
+      "feetOrRiderBottom": 0.95,
       "bodyCenter": [
         0.5,
-        0.5175
+        0.505
       ],
       "reference": 86,
-      "method": "manual anatomical landmarks; 2026-10-19 quarter-view redraw; uniform pixel-raster integration"
+      "method": "manual anatomical review; two grounded legs, 2026-10-19 redraw"
     }
   },
   {
