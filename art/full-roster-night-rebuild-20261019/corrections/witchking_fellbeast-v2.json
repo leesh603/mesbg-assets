@@ -1,0 +1,34 @@
+{
+  "id": "witchking_fellbeast",
+  "revision": "witchking-design-v2",
+  "blobSHA": "b58b0693872ef5541a2f37bbfc02d0c1b78e8dfe",
+  "sourceSHA256": "8fb5a5c4285919a5fedfd9550464c7b1a1e1dc0c7a881353ba563b7caf5f569b",
+  "png": {
+    "width": 1312,
+    "height": 1199,
+    "colorType": 6,
+    "byteLength": 1363723
+  },
+  "profile": {
+    "top": 0.28,
+    "bottom": 0.5,
+    "centerX": 0.52,
+    "centerY": 0.59,
+    "worldReferenceSize": 50,
+    "reference": "rider",
+    "referenceAxis": "height"
+  },
+  "prompt": "Edit/recreate WITCH-KING ON FELLBEAST, target4, ONE isolated full tactical PIXEL sprite. Required correction is RIDER'S HELMET AND SHOULDERS: copy CORRECTED reference3 exactly onto rider, narrow tall dark iron Morgul integrated face-mask, central blade spine and slender swept-back side tines, downward cheek/nose points framing completely black faceless void; black cloth mantle over shoulders, NO metallic leaf scales, NO big pauldrons or spikes, NO standalone zigzag crown over a hood. Preserve target4's existing fellbeast identity, dark scale body, long neck, wide pale-tan leathery wings, strong clawed limbs, curled tail, harness; do not replace with horse or unrelated creature. Rider compact adult5-head humanoid skeleton if dismounted, full-sized large-human torso seated naturally in saddle, matching approved reference2 rider/body scale. Ref1 only pixel style, ref2 HIGH-ANGLE FRONT camera25–30deg looking down, see helm/shoulder tops and creature back, slightly diagonal near-front, no side/eye-level portrait. Sword in viewerLEFT gauntlet lifted diagonally outward as command, other hand on reins, helmet and shoulders clearly readable. Keep whole creature BOTH WINGTIPS, all tail/claws and sword inside8% generous transparent margins; reduce composition occupancy if needed. Crisp hand-pixel clusters, stepped restrained charcoal cloth/dark iron/pale tan wing shading, dark outlines, no smooth painting. Body center based on creature torso not wings/sword. Clean alpha0 transparent outside silhouette; no floor/base/shadow/glow/haze/smoke/text/UI/extra figure. ONE full rider and fellbeast only.",
+  "framingPrompt": "Reframe this exact Witch-king on fellbeast sprite to fit ENTIRELY inside the image. Both wings currently reach the left/right canvas edges and the RIGHT WING is clipped. REDUCE overall sprite occupancy to75%, keep the entire rider, sword, tail, all claws, and reconstruct the missing outer RIGHT WINGTIP so its full continuous contour is visible. Add at least10% EMPTY TRANSPARENT margin on LEFT AND RIGHT, at least6% above and below. Preserve the corrected narrow Morgul helmet and BLACK CLOTH shoulder design, creature identity, high-angle front camera and exact crisp pixel style. Do not zoom in, crop or add a background, aura, shadow or glow. All outside complete sprite outline must be alpha0. Full-wing silhouette and comfortable margins are the only correction.",
+  "officialReferences": [
+    "https://www.warhammer-community.com/en-gb/articles/hC6DFP2W/the-witch-king-cometh-designing-the-lord-of-the-nazgul/",
+    "https://www.wetanz.com/us/witch-king-miniature-statue"
+  ],
+  "review": {
+    "visual": true,
+    "helmAndShouldersReplaced": true,
+    "allExtremitiesInFrame": true,
+    "alphaPixelValidation": false,
+    "inGame": false
+  }
+}

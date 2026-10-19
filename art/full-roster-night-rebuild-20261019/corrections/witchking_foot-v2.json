@@ -1,0 +1,34 @@
+{
+  "id": "witchking_foot",
+  "revision": "witchking-design-v2",
+  "blobSHA": "51b5be65e0bcd36e8a21654b3d83dd0bdef74bc0",
+  "sourceSHA256": "a9f4e79af66b23e962830960767f52bd8bb44109b7fa198c74cd0b18396abe33",
+  "png": {
+    "width": 1199,
+    "height": 1312,
+    "colorType": 6,
+    "byteLength": 1139846
+  },
+  "profile": {
+    "top": 0.12,
+    "bottom": 0.97,
+    "centerX": 0.5,
+    "centerY": 0.55,
+    "worldReferenceSize": 98,
+    "reference": "body",
+    "referenceAxis": "height"
+  },
+  "prompt": "Redraw ONLY target4 HOODED WITCH-KING ON FOOT, NO HELMET/CROWN in this variant. Correct its rejected leaf-scale metallic shoulders. Reference3 is corrected costume language: continuous BLACK CLOTH mantle over shoulders, ragged layered robes, narrow dark segmented gauntlets and small greaves; copy that but remove ALL helmet/iron crown entirely and replace with plain black pointed CLOTH HOOD enclosing faceless BLACK VOID. No human face, red eyes, face mask or metal on head. No big metal shoulder plate, leaf scales, feathers, spikes, ornate belts/jewels. Ref1 Theoden only pixel tone; ref2 approved Gondor exact HIGH-ANGLE FRONT25–30deg down and compact FIVE-HEAD large-human adult anatomy, not7-head long limbs or eye-level flat front/side. Crown-of-skull-to-soles5heads excluding hood tip, see upper hood/shoulder/boot surfaces. Distinct quiet threatening pose: sword in viewerLEFT gauntlet close along side point down-outward, viewerRIGHT hand partly extended open toward viewer with curved armoured fingers, feet planted separately under black robe, no crossed legs. High detail via crisp hand-pixel clusters, limited charcoal/navy-black shades, cold grey edge accents, dark outlines, no painterly gradient/blur. Entire sword tip, hood, cape and boots within8% margins, torso body centered independent of sword/robe tails. Transparent RGBA alpha0 outside exact silhouette, no floor/base/shadow/aura/haze/glow/background/text/UI/other figures.",
+  "framingPrompt": null,
+  "officialReferences": [
+    "https://www.warhammer-community.com/en-gb/articles/hC6DFP2W/the-witch-king-cometh-designing-the-lord-of-the-nazgul/",
+    "https://www.wetanz.com/us/witch-king-miniature-statue"
+  ],
+  "review": {
+    "visual": true,
+    "helmAndShouldersReplaced": true,
+    "allExtremitiesInFrame": true,
+    "alphaPixelValidation": false,
+    "inGame": false
+  }
+}

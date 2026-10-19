@@ -1,0 +1,34 @@
+{
+  "id": "witchking_mounted",
+  "revision": "witchking-design-v2",
+  "blobSHA": "29aa266d7ede7e26665ae27bd13ad4c8fdbb626d",
+  "sourceSHA256": "58d018fc2b67ea40da6f21b7ab222642822066ca0b13b8f5d0872a73e2e0d983",
+  "png": {
+    "width": 1199,
+    "height": 1312,
+    "colorType": 6,
+    "byteLength": 1143596
+  },
+  "profile": {
+    "top": 0.13,
+    "bottom": 0.435,
+    "centerX": 0.55,
+    "centerY": 0.55,
+    "worldReferenceSize": 50,
+    "reference": "rider",
+    "referenceAxis": "height"
+  },
+  "prompt": "Redraw ONLY WITCH-KING MOUNTED ON BLACK HORSE, fourth reference target. References1/2 define approved pixel style and HIGH-ANGLE FRONT25–30deg camera/shared substantial adult rider skeleton. Reference3 is the CORRECTED Witch-king design to COPY EXACTLY onto rider: narrow tall blackened iron Morgul helmet with integrated angular face-mask, long central knife spine, slender swept-back side tines, downward cheek/nose points around empty BLACK FACE void, no eyes; BLACK CLOTH shoulder mantle and ragged robes, NO bright leaf-scale pauldrons, no giant shoulder armour or spikes. The broad shiny zigzag crown and metallic shoulder feathers on target4 are REJECTED and must be completely removed. Do not transfer Theoden green/gold/fur/face. Compact FIVE-HEAD large-human skeleton if standing, normal substantial rider head and torso, not tiny doll. Horse dark bay-black, restrained plain worn dark-iron tack and black cloth, no red eyes or fantasy glowing horse. Distinct slow forward cavalry command, horse angled gently viewerLEFT; rider sword arm viewerLEFT extended outward with straight sword descending diagonally lower-left, opposite gauntlet holds reins, seat/thighs/stirrups anatomically correct. Horse four clear legs, foreshortened back because elevated camera, no long stretched horse or fused limbs. See helmet dome, shoulder tops, horse back; near-front slight diagonal, not eye-level flat front or side. Crisp chunky hand-pixel clusters, dark outline, charcoal/navy-black cloth, dark grey iron narrow edge highlights and black-brown horse, no soft painting/gradients. Whole helmet tip, horse hooves/tail and sword inside8% margin. Rider-and-mount body centered independent of sword. Transparent RGBA outside silhouette alpha0, no floor/base/shadow/glow/haze/backdrop/text/UI/other characters.",
+  "framingPrompt": null,
+  "officialReferences": [
+    "https://www.warhammer-community.com/en-gb/articles/hC6DFP2W/the-witch-king-cometh-designing-the-lord-of-the-nazgul/",
+    "https://www.wetanz.com/us/witch-king-miniature-statue"
+  ],
+  "review": {
+    "visual": true,
+    "helmAndShouldersReplaced": true,
+    "allExtremitiesInFrame": true,
+    "alphaPixelValidation": false,
+    "inGame": false
+  }
+}

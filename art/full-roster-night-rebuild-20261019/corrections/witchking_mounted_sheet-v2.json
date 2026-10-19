@@ -1,0 +1,34 @@
+{
+  "id": "witchking_mounted_sheet",
+  "revision": "witchking-design-v2",
+  "blobSHA": "8ef5191772d4ade4e948510906e3abf7b3e4ec63",
+  "sourceSHA256": "8c3dfc41d1c529883db6a92fd10dde745e3f08decf81757ef31e7d71aeae6d8d",
+  "png": {
+    "width": 1199,
+    "height": 1312,
+    "colorType": 6,
+    "byteLength": 1132374
+  },
+  "profile": {
+    "top": 0.14,
+    "bottom": 0.43,
+    "centerX": 0.55,
+    "centerY": 0.56,
+    "worldReferenceSize": 50,
+    "reference": "rider",
+    "referenceAxis": "height"
+  },
+  "prompt": "ONE alternative WITCH-KING MOUNTED sprite for target4 (witchking_mounted_sheet), NOT sprite sheet, one complete rider+horse. Recreate costume from CORRECTED reference3 EXACTLY: thin tall integrated blackened iron Morgul face-mask helmet with central knife spine and swept-back tines, narrow lower cheek blades around empty faceless black void; shoulders completely wrapped in black ragged CLOTH without exposed metal pauldrons. Target4's separate zigzag crown and bright leaf shoulder scales are DISQUALIFIED; REMOVE all of them. Ref1 pixel style only; ref2 exact HIGH-ANGLE FRONT25–30deg downward camera and shared full-sized5-head adult human rider basis. This variant needs a DIFFERENT pose from existing low-sword mounted image: black horse held at a tense halt angled slightly viewerRIGHT, one forehoof raised, rider sword viewerLEFT raised diagonally OUTWARD to upper left as silent command, other hand holds reins. Horse four distinct legs, two ears/one head, correct saddle/seat/stirrups, shorter projected back under high camera. No tiny rider. No green/gold/red eyes; robes charcoal/navy black and dark steel edge accents, plain dark tack and black cloth. Helmet dome, shoulder tops and horse back visible, near frontal not eye-level or side. Pixel-dense hand clusters, stepped shading, strong dark outline, never smooth painting. Entire tall helmet, sword, horse tail/hooves inside8% margin. Rider+mount body center excludes sword. Pure transparent RGBA alpha0 outside silhouette, no ground/base/shadow/glow/smoke/backdrop/text/UI/additional figures.",
+  "framingPrompt": null,
+  "officialReferences": [
+    "https://www.warhammer-community.com/en-gb/articles/hC6DFP2W/the-witch-king-cometh-designing-the-lord-of-the-nazgul/",
+    "https://www.wetanz.com/us/witch-king-miniature-statue"
+  ],
+  "review": {
+    "visual": true,
+    "helmAndShouldersReplaced": true,
+    "allExtremitiesInFrame": true,
+    "alphaPixelValidation": false,
+    "inGame": false
+  }
+}

@@ -1577,14 +1577,14 @@
       "role": "hero",
       "family": "nazgul",
       "file": "units/witchking_foot.png",
-      "preview": "thumbs/witchking_foot.png",
+      "preview": "units/witchking_foot.png",
       "old": "references/old/witchking_foot.png",
       "pose": "큰 인간 · 두건과 검",
       "body": "large-human",
       "profile": {
-        "top": 0.07,
-        "bottom": 0.939,
-        "centerX": 0.525,
+        "top": 0.12,
+        "bottom": 0.97,
+        "centerX": 0.5,
         "centerY": 0.55,
         "worldReferenceSize": 98,
         "reference": "body",
@@ -1601,8 +1601,10 @@
       "sourceHeight": 1312,
       "oldSourceWidth": 440,
       "oldSourceHeight": 440,
-      "sourceSHA256": "c24d3520bd71b16856bdc2a4c9bc0cb99c06eb50c25f457447c0a1c506145c0c",
-      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+      "sourceSHA256": "a9f4e79af66b23e962830960767f52bd8bb44109b7fa198c74cd0b18396abe33",
+      "review": "Revised after user rejection: no leaf-scale pauldrons; black cloth shoulders; canonical narrow iron face-helm for crowned forms. Hooded form retains cloth hood. Manual visual review, game comparison pending.",
+      "sourceGitBlobSHA": "51b5be65e0bcd36e8a21654b3d83dd0bdef74bc0",
+      "revision": "witchking-design-v2"
     },
     {
       "id": "witchking_fellbeast",
@@ -1611,15 +1613,15 @@
       "role": "hero",
       "family": "nazgul",
       "file": "units/witchking_fellbeast.png",
-      "preview": "thumbs/witchking_fellbeast.png",
+      "preview": "units/witchking_fellbeast.png",
       "old": "references/old/witchking_fellbeast.png",
       "pose": "큰 인간 기수 · 펠비스트 비행",
       "body": "fellbeast",
       "profile": {
-        "top": 0.31,
+        "top": 0.28,
         "bottom": 0.5,
         "centerX": 0.52,
-        "centerY": 0.54,
+        "centerY": 0.59,
         "worldReferenceSize": 50,
         "reference": "rider",
         "referenceAxis": "height"
@@ -1635,8 +1637,10 @@
       "sourceHeight": 1199,
       "oldSourceWidth": 593,
       "oldSourceHeight": 597,
-      "sourceSHA256": "69215627d4bed8ac7448b0314290a8df1c5f8f2dea2ef60ebc2e113dc8c08021",
-      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+      "sourceSHA256": "8fb5a5c4285919a5fedfd9550464c7b1a1e1dc0c7a881353ba563b7caf5f569b",
+      "review": "Revised after user rejection: no leaf-scale pauldrons; black cloth shoulders; canonical narrow iron face-helm for crowned forms. Hooded form retains cloth hood. Manual visual review, game comparison pending.",
+      "sourceGitBlobSHA": "b58b0693872ef5541a2f37bbfc02d0c1b78e8dfe",
+      "revision": "witchking-design-v2"
     },
     {
       "id": "witchking_mounted",
@@ -1645,15 +1649,15 @@
       "role": "hero",
       "family": "nazgul",
       "file": "units/witchking_mounted.png",
-      "preview": "thumbs/witchking_mounted.png",
+      "preview": "units/witchking_mounted.png",
       "old": "references/old/witchking_mounted.png",
       "pose": "큰 인간 기수 · 왕관과 검 지휘",
       "body": "mounted",
       "profile": {
         "top": 0.13,
-        "bottom": 0.43,
-        "centerX": 0.52,
-        "centerY": 0.53,
+        "bottom": 0.435,
+        "centerX": 0.55,
+        "centerY": 0.55,
         "worldReferenceSize": 50,
         "reference": "rider",
         "referenceAxis": "height"
@@ -1669,8 +1673,10 @@
       "sourceHeight": 1312,
       "oldSourceWidth": 440,
       "oldSourceHeight": 440,
-      "sourceSHA256": "3e4344ade342da3c8b2f793f4b708ad862a6df5a05990d59b31dee19ba797b66",
-      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+      "sourceSHA256": "58d018fc2b67ea40da6f21b7ab222642822066ca0b13b8f5d0872a73e2e0d983",
+      "review": "Revised after user rejection: no leaf-scale pauldrons; black cloth shoulders; canonical narrow iron face-helm for crowned forms. Hooded form retains cloth hood. Manual visual review, game comparison pending.",
+      "sourceGitBlobSHA": "29aa266d7ede7e26665ae27bd13ad4c8fdbb626d",
+      "revision": "witchking-design-v2"
     },
     {
       "id": "witchking_foot_mace",
@@ -1679,15 +1685,15 @@
       "role": "hero",
       "family": "nazgul",
       "file": "units/witchking_foot_mace.png",
-      "preview": "thumbs/witchking_foot_mace.png",
+      "preview": "units/witchking_foot_mace.png",
       "old": "references/old/witchking_foot_mace.png",
       "pose": "큰 인간 · 모르굴 왕관과 철퇴",
       "body": "large-human",
       "profile": {
-        "top": 0.091,
-        "bottom": 0.94,
-        "centerX": 0.5,
-        "centerY": 0.55,
+        "top": 0.115,
+        "bottom": 0.96,
+        "centerX": 0.48,
+        "centerY": 0.555,
         "worldReferenceSize": 98,
         "reference": "body",
         "referenceAxis": "height"
@@ -1703,8 +1709,10 @@
       "sourceHeight": 1312,
       "oldSourceWidth": 440,
       "oldSourceHeight": 440,
-      "sourceSHA256": "37324e6c5572837336e0f2e77c4e14392118fae37e8c6bed9e34fcfda5d5464f",
-      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+      "sourceSHA256": "d21b9abe14cf989fa19e796e027a322e67877a785bbfe6d216d68e1b83ed30ac",
+      "review": "Revised after user rejection: no leaf-scale pauldrons; black cloth shoulders; canonical narrow iron face-helm for crowned forms. Hooded form retains cloth hood. Manual visual review, game comparison pending.",
+      "sourceGitBlobSHA": "9a88efa0260e54870b0679ca4bc7a8dde31c9fed",
+      "revision": "witchking-design-v2"
     },
     {
       "id": "nazgul_sword",
@@ -2189,15 +2197,15 @@
       "role": "hero",
       "family": "nazgul",
       "file": "units/witchking_mounted_sheet.png",
-      "preview": "thumbs/witchking_mounted_sheet.png",
+      "preview": "units/witchking_mounted_sheet.png",
       "old": "references/old/witchking_mounted_sheet.png",
       "pose": "큰 인간 기수 · 왕관과 치켜든 검",
       "body": "mounted",
       "profile": {
         "top": 0.14,
-        "bottom": 0.44,
-        "centerX": 0.52,
-        "centerY": 0.54,
+        "bottom": 0.43,
+        "centerX": 0.55,
+        "centerY": 0.56,
         "worldReferenceSize": 50,
         "reference": "rider",
         "referenceAxis": "height"
@@ -2213,8 +2221,10 @@
       "sourceHeight": 1312,
       "oldSourceWidth": 513,
       "oldSourceHeight": 513,
-      "sourceSHA256": "3e99706db9b8d8695dfd6e6e5aed8849fab6907c8816ab600e0523d84bb17bd1",
-      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+      "sourceSHA256": "8c3dfc41d1c529883db6a92fd10dde745e3f08decf81757ef31e7d71aeae6d8d",
+      "review": "Revised after user rejection: no leaf-scale pauldrons; black cloth shoulders; canonical narrow iron face-helm for crowned forms. Hooded form retains cloth hood. Manual visual review, game comparison pending.",
+      "sourceGitBlobSHA": "8ef5191772d4ade4e948510906e3abf7b3e4ec63",
+      "revision": "witchking-design-v2"
     },
     {
       "id": "khamul_mounted",

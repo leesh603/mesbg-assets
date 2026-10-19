@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-19T23:21:46.322Z",
+  "updatedAt": "2026-10-19T23:30:37.487Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -14,7 +14,8 @@
     "visuallyReviewedThisSession": 20,
     "excludedTerrain": 77,
     "generatedReviewAssets": 20,
-    "persistedReviewAssets": 152
+    "persistedReviewAssets": 152,
+    "revisedAfterRejection": 5
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
   "sources": [
@@ -95,9 +96,10 @@
       "original": "tokens/witchking_foot.png",
       "source": "mordor",
       "path": "art/mordor-rebuild-20261019/units/witchking_foot.png",
-      "blobSHA": "05eef433c2a95a300bc81a7b2b066addf06fef51",
+      "blobSHA": "51b5be65e0bcd36e8a21654b3d83dd0bdef74bc0",
       "status": "restored_review_asset",
-      "visualReviewThisSession": false
+      "visualReviewThisSession": true,
+      "revision": "witchking-design-v2"
     },
     {
       "id": "orc_sword",
@@ -146,9 +148,10 @@
       "original": "tokens/witchking_fellbeast.png",
       "source": "mordor",
       "path": "art/mordor-rebuild-20261019/units/witchking_fellbeast.png",
-      "blobSHA": "5311dcb13c730b96016c82ce1c7dab006cfd7aa1",
+      "blobSHA": "b58b0693872ef5541a2f37bbfc02d0c1b78e8dfe",
       "status": "restored_review_asset",
-      "visualReviewThisSession": false
+      "visualReviewThisSession": true,
+      "revision": "witchking-design-v2"
     },
     {
       "id": "witchking_mounted",
@@ -158,9 +161,10 @@
       "original": "tokens/witchking_mounted.png",
       "source": "mordor",
       "path": "art/mordor-rebuild-20261019/units/witchking_mounted.png",
-      "blobSHA": "9081a1377cb744caf824eec95e8b547879eadbcd",
+      "blobSHA": "29aa266d7ede7e26665ae27bd13ad4c8fdbb626d",
       "status": "restored_review_asset",
-      "visualReviewThisSession": false
+      "visualReviewThisSession": true,
+      "revision": "witchking-design-v2"
     },
     {
       "id": "witchking_foot_mace",
@@ -172,8 +176,8 @@
       "path": "art/mordor-rebuild-20261019/units/witchking_foot_mace.png",
       "blobSHA": "9a88efa0260e54870b0679ca4bc7a8dde31c9fed",
       "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "revision": "witchking-helmet-shoulders-v2"
+      "visualReviewThisSession": true,
+      "revision": "witchking-design-v2"
     },
     {
       "id": "nazgul_sword",
@@ -4370,9 +4374,10 @@
       "original": "tokens/witchking_mounted_sheet.png",
       "source": "mordor",
       "path": "art/mordor-rebuild-20261019/units/witchking_mounted_sheet.png",
-      "blobSHA": "f94525f7cb855195f79b9035736b9d86d777ee02",
+      "blobSHA": "8ef5191772d4ade4e948510906e3abf7b3e4ec63",
       "status": "restored_review_asset",
-      "visualReviewThisSession": false
+      "visualReviewThisSession": true,
+      "revision": "witchking-design-v2"
     },
     {
       "id": "corsair_captain",
@@ -5151,14 +5156,13 @@
         "witchking_foot"
       ],
       "revised": [
-        "witchking_foot_mace"
-      ],
-      "remaining": [
+        "witchking_foot_mace",
         "witchking_mounted",
         "witchking_mounted_sheet",
         "witchking_fellbeast",
         "witchking_foot"
-      ]
+      ],
+      "remaining": []
     }
   }
 }

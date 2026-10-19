@@ -1,0 +1,34 @@
+{
+  "id": "witchking_foot_mace",
+  "revision": "witchking-design-v2",
+  "blobSHA": "9a88efa0260e54870b0679ca4bc7a8dde31c9fed",
+  "sourceSHA256": "d21b9abe14cf989fa19e796e027a322e67877a785bbfe6d216d68e1b83ed30ac",
+  "png": {
+    "width": 1199,
+    "height": 1312,
+    "colorType": 6,
+    "byteLength": 1103876
+  },
+  "profile": {
+    "top": 0.115,
+    "bottom": 0.96,
+    "centerX": 0.48,
+    "centerY": 0.555,
+    "worldReferenceSize": 98,
+    "reference": "body",
+    "referenceAxis": "height"
+  },
+  "prompt": "Redraw ONE WITCH-KING OF ANGMAR ON FOOT, CROWNED PELENNOR VERSION, with sword AND chained spiked flail. This is a DESIGN CORRECTION: the prior generic huge silver crown and bright leaf-scale shoulder pauldrons were REJECTED. References:1 Theoden PIXEL style only,2 approved Gondor EXACT camera and five-head anatomy only,3 official GW scene for restrained black costume and tall thin iron helmet,4 older Witch-king sprite for characteristic helmet silhouette and identity. Mandatory fixed HIGH-ANGLE FRONT camera looking DOWN25–30deg, visible helmet dome/shoulder tops and boot tops, slightly diagonal near-front, never eye-level flat front or side. Compact FIVE-HEAD adult humanoid skeleton crown-of-skull-to-soles EXCLUDING tall helmet spikes, imposing LARGE HUMAN category rather than giant stretched limbs. HELMET: the film's narrow dark iron Morgul WAR HELM, a rigid vertical FACE MASK integrated with the crown, a tall central knife-like forehead spine with thin swept-back side prongs and narrow angular downward nose/cheek blades. It surrounds a completely EMPTY BLACK FACE void; no human face, no red eyes, no silver zigzag crown band sitting over a separate open cloth hood, no antlers, no Sauron full-face helmet. Matte blackened iron with only restrained cold grey edge highlights, not bright polished silver. SHOULDERS: shoulders covered in BLACK TATTERED CLOTH ROBE/MANTLE, soft layered cloth folds continuous into cape, virtually NO exposed shoulder plate: no broad pauldrons, no leaf scales, no feathers, no shoulder spikes, no skeletal skull armour. Narrow segmented dark gauntlets and small dark greaves only. Black/charcoal long ragged robes with restrained cool-grey stepped folds, not excessive hanging belts or ornate jewellery. Distinct balanced stance with separate feet, sword in viewerLEFT hand low outward, flail in viewerRIGHT hand short chain hanging beside body, steel spiked BALL flail not faceted fantasy diamond. Whole body, every helmet prong, sword tip and flail in frame with8% empty margins; body center excludes weapons/spikes. Match reference2 crisp hand-pixel density, dark outlines and limited stepped shading, NO soft painting/gradients. Transparent RGBA, all outside silhouette alpha0; no base, floor, shadow, aura/smoke/glow/background/text/UI/other figures.",
+  "framingPrompt": null,
+  "officialReferences": [
+    "https://www.warhammer-community.com/en-gb/articles/hC6DFP2W/the-witch-king-cometh-designing-the-lord-of-the-nazgul/",
+    "https://www.wetanz.com/us/witch-king-miniature-statue"
+  ],
+  "review": {
+    "visual": true,
+    "helmAndShouldersReplaced": true,
+    "allExtremitiesInFrame": true,
+    "alphaPixelValidation": false,
+    "inGame": false
+  }
+}
