@@ -11,8 +11,14 @@ for(const u of data.units){
   rows[u.id].push('width',u.left,u.right);
  }
 }
+// Variant art is reviewed with its catalog entry; keep boot-time layout and
+// the late career registration on the same profile table.
+for(const u of JSON.parse(fs.readFileSync('data/troop-new-units.json','utf8'))){
+ if(rows[u.id])throw Error('Duplicate variant anatomy: '+u.id);
+ if(!Array.isArray(u.artProfile)||u.artProfile.length<7)throw Error('Missing variant anatomy: '+u.id);
+ rows[u.id]=u.artProfile;
+}
 const file='src/game.js',src=fs.readFileSync(file,'utf8'),anchor='const UNIT_ART_PROFILES = ',a=src.indexOf(anchor),b=src.indexOf(';',a);
 if(a<0||b<0)throw Error('Art profile marker is missing');
 fs.writeFileSync(file,src.slice(0,a)+anchor+JSON.stringify(rows)+src.slice(b));
 console.log('Synced '+data.units.length+' reviewed anatomy profiles. Run node tools/build.js --online-only.');
-

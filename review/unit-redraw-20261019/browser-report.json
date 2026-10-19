@@ -1,0 +1,1055 @@
+{
+  "errors": [],
+  "groups": [
+    {
+      "version": "before",
+      "index": 0,
+      "units": [
+        {
+          "id": "glorfindel_foot",
+          "visible": true,
+          "source": [
+            319,
+            366
+          ],
+          "display": [
+            80.58447342879555,
+            92.4574209245742
+          ],
+          "origin": [
+            0.5039,
+            0.5274
+          ],
+          "reference": 76,
+          "expected": 76,
+          "shootRange": 0
+        },
+        {
+          "id": "elrond",
+          "visible": true,
+          "source": [
+            350,
+            366
+          ],
+          "display": [
+            83.91881342701015,
+            87.75510204081633
+          ],
+          "origin": [
+            0.4735,
+            0.5
+          ],
+          "reference": 86,
+          "expected": 86,
+          "shootRange": 0
+        },
+        {
+          "id": "rumil",
+          "visible": true,
+          "source": [
+            415,
+            420
+          ],
+          "display": [
+            105.05153971589874,
+            106.31722091729509
+          ],
+          "origin": [
+            0.5654,
+            0.5511
+          ],
+          "reference": 85.99999999999999,
+          "expected": 86,
+          "shootRange": 830
+        },
+        {
+          "id": "glorfindel_mounted",
+          "visible": true,
+          "source": [
+            344,
+            374
+          ],
+          "display": [
+            142.0020639834881,
+            154.38596491228068
+          ],
+          "origin": [
+            0.5396,
+            0.5091
+          ],
+          "reference": 44,
+          "expected": 44,
+          "shootRange": 0
+        },
+        {
+          "id": "elrond_mounted",
+          "visible": true,
+          "source": [
+            332,
+            502
+          ],
+          "display": [
+            81.74258985901751,
+            123.5987352687554
+          ],
+          "origin": [
+            0.4615,
+            0.5175
+          ],
+          "reference": 43.00000000000001,
+          "expected": 43,
+          "shootRange": 0
+        },
+        {
+          "id": "orophin",
+          "visible": true,
+          "source": [
+            290,
+            420
+          ],
+          "display": [
+            81.01084908724745,
+            117.32605729877217
+          ],
+          "origin": [
+            0.4866,
+            0.5898
+          ],
+          "reference": 86.00000000000001,
+          "expected": 86,
+          "shootRange": 0
+        }
+      ]
+    },
+    {
+      "version": "before",
+      "index": 1,
+      "units": [
+        {
+          "id": "citadel_guard_bow",
+          "visible": true,
+          "source": [
+            269,
+            384
+          ],
+          "display": [
+            71.46475879794386,
+            102.01660735468565
+          ],
+          "origin": [
+            0.486,
+            0.536
+          ],
+          "reference": 86,
+          "expected": 86,
+          "shootRange": 850
+        },
+        {
+          "id": "osgiliath_spearshield",
+          "visible": true,
+          "source": [
+            269,
+            384
+          ],
+          "display": [
+            81.63250903342367,
+            116.53116531165313
+          ],
+          "origin": [
+            0.457,
+            0.589
+          ],
+          "reference": 86,
+          "expected": 86,
+          "shootRange": 0
+        },
+        {
+          "id": "osgiliath_bow",
+          "visible": true,
+          "source": [
+            269,
+            384
+          ],
+          "display": [
+            72.1494510978044,
+            102.99401197604791
+          ],
+          "origin": [
+            0.482,
+            0.547
+          ],
+          "reference": 86,
+          "expected": 86,
+          "shootRange": 800
+        },
+        {
+          "id": "dol_amroth_swordshield",
+          "visible": true,
+          "source": [
+            384,
+            384
+          ],
+          "display": [
+            104.62287104622874,
+            104.62287104622874
+          ],
+          "origin": [
+            0.481,
+            0.543
+          ],
+          "reference": 86.00000000000001,
+          "expected": 86,
+          "shootRange": 0
+        },
+        {
+          "id": "dol_amroth_knight_foot",
+          "visible": true,
+          "source": [
+            384,
+            384
+          ],
+          "display": [
+            106.30407911001238,
+            106.30407911001238
+          ],
+          "origin": [
+            0.477,
+            0.545
+          ],
+          "reference": 86.00000000000001,
+          "expected": 86,
+          "shootRange": 0
+        },
+        {
+          "id": "rohan_helmingas",
+          "visible": true,
+          "source": [
+            256,
+            384
+          ],
+          "display": [
+            75.43859649122807,
+            113.15789473684211
+          ],
+          "origin": [
+            0.477,
+            0.556
+          ],
+          "reference": 86,
+          "expected": 86,
+          "shootRange": 0
+        }
+      ]
+    },
+    {
+      "version": "before",
+      "index": 2,
+      "units": [
+        {
+          "id": "rohan_redshield",
+          "visible": true,
+          "source": [
+            236,
+            384
+          ],
+          "display": [
+            93.05311032863851,
+            151.40845070422537
+          ],
+          "origin": [
+            0.475,
+            0.52
+          ],
+          "reference": 43,
+          "expected": 43,
+          "shootRange": 0
+        },
+        {
+          "id": "ironhills_warrior",
+          "visible": true,
+          "source": [
+            384,
+            384
+          ],
+          "display": [
+            105.91900311526479,
+            105.91900311526479
+          ],
+          "origin": [
+            0.486,
+            0.579
+          ],
+          "reference": 68,
+          "expected": 68,
+          "shootRange": 0
+        },
+        {
+          "id": "ironhills_spearshield",
+          "visible": true,
+          "source": [
+            384,
+            384
+          ],
+          "display": [
+            97.14285714285717,
+            97.14285714285714
+          ],
+          "origin": [
+            0.482,
+            0.574
+          ],
+          "reference": 68,
+          "expected": 68,
+          "shootRange": 0
+        },
+        {
+          "id": "ironhills_crossbow",
+          "visible": true,
+          "source": [
+            384,
+            384
+          ],
+          "display": [
+            104.61538461538461,
+            104.61538461538461
+          ],
+          "origin": [
+            0.49,
+            0.576
+          ],
+          "reference": 68,
+          "expected": 68,
+          "shootRange": 900
+        },
+        {
+          "id": "galadhrim_bow",
+          "visible": true,
+          "source": [
+            380,
+            384
+          ],
+          "display": [
+            117.87280701754386,
+            119.11357340720222
+          ],
+          "origin": [
+            0.465,
+            0.551
+          ],
+          "reference": 86,
+          "expected": 86,
+          "shootRange": 830
+        },
+        {
+          "id": "galadhrim_elite_bow",
+          "visible": true,
+          "source": [
+            380,
+            384
+          ],
+          "display": [
+            117.06212746446585,
+            118.29436038514443
+          ],
+          "origin": [
+            0.474,
+            0.572
+          ],
+          "reference": 86.00000000000001,
+          "expected": 86,
+          "shootRange": 880
+        }
+      ]
+    },
+    {
+      "version": "before",
+      "index": 3,
+      "units": [
+        {
+          "id": "mirkwood_ranger",
+          "visible": true,
+          "source": [
+            285,
+            384
+          ],
+          "display": [
+            82.14687902187904,
+            110.6821106821107
+          ],
+          "origin": [
+            0.483,
+            0.566
+          ],
+          "reference": 86.00000000000001,
+          "expected": 86,
+          "shootRange": 830
+        },
+        {
+          "id": "arnor_knight",
+          "visible": true,
+          "source": [
+            289,
+            384
+          ],
+          "display": [
+            114.7587913711584,
+            152.4822695035461
+          ],
+          "origin": [
+            0.479,
+            0.524
+          ],
+          "reference": 43,
+          "expected": 43,
+          "shootRange": 0
+        },
+        {
+          "id": "arnor_ranger",
+          "visible": true,
+          "source": [
+            320,
+            384
+          ],
+          "display": [
+            91.88034188034192,
+            110.25641025641028
+          ],
+          "origin": [
+            0.486,
+            0.564
+          ],
+          "reference": 86.00000000000001,
+          "expected": 86,
+          "shootRange": 830
+        },
+        {
+          "id": "morannon_swordshield",
+          "visible": true,
+          "source": [
+            384,
+            384
+          ],
+          "display": [
+            105.11756569847853,
+            105.11756569847853
+          ],
+          "origin": [
+            0.463,
+            0.572
+          ],
+          "reference": 75.99999999999999,
+          "expected": 76,
+          "shootRange": 0
+        },
+        {
+          "id": "orc_elite_tracker",
+          "visible": true,
+          "source": [
+            380,
+            384
+          ],
+          "display": [
+            115.88341037493579,
+            117.10323574730354
+          ],
+          "origin": [
+            0.467,
+            0.602
+          ],
+          "reference": 76,
+          "expected": 76,
+          "shootRange": 800
+        },
+        {
+          "id": "dale_guard",
+          "visible": true,
+          "source": [
+            380,
+            384
+          ],
+          "display": [
+            105.19674495261641,
+            106.30407911001238
+          ],
+          "origin": [
+            0.466,
+            0.539
+          ],
+          "reference": 86.00000000000001,
+          "expected": 86,
+          "shootRange": 0
+        }
+      ]
+    },
+    {
+      "version": "after",
+      "index": 0,
+      "units": [
+        {
+          "id": "glorfindel_foot",
+          "visible": true,
+          "source": [
+            319,
+            366
+          ],
+          "display": [
+            80.58447342879555,
+            92.4574209245742
+          ],
+          "origin": [
+            0.5039,
+            0.5274
+          ],
+          "reference": 76,
+          "expected": 76,
+          "shootRange": 0
+        },
+        {
+          "id": "elrond",
+          "visible": true,
+          "source": [
+            335,
+            384
+          ],
+          "display": [
+            86.3360663598005,
+            98.96432681242806
+          ],
+          "origin": [
+            0.51,
+            0.4945
+          ],
+          "reference": 85.99999999999999,
+          "expected": 86,
+          "shootRange": 0
+        },
+        {
+          "id": "rumil",
+          "visible": true,
+          "source": [
+            335,
+            384
+          ],
+          "display": [
+            99.2407958553792,
+            113.75661375661377
+          ],
+          "origin": [
+            0.586,
+            0.547
+          ],
+          "reference": 86.00000000000001,
+          "expected": 86,
+          "shootRange": 0
+        },
+        {
+          "id": "glorfindel_mounted",
+          "visible": true,
+          "source": [
+            344,
+            374
+          ],
+          "display": [
+            142.0020639834881,
+            154.38596491228068
+          ],
+          "origin": [
+            0.5396,
+            0.5091
+          ],
+          "reference": 44,
+          "expected": 44,
+          "shootRange": 0
+        },
+        {
+          "id": "elrond_mounted",
+          "visible": true,
+          "source": [
+            353,
+            384
+          ],
+          "display": [
+            136.3056752873563,
+            148.27586206896552
+          ],
+          "origin": [
+            0.625,
+            0.53
+          ],
+          "reference": 43,
+          "expected": 43,
+          "shootRange": 0
+        },
+        {
+          "id": "orophin",
+          "visible": true,
+          "source": [
+            335,
+            384
+          ],
+          "display": [
+            100.57110142984807,
+            115.28150134048258
+          ],
+          "origin": [
+            0.526,
+            0.575
+          ],
+          "reference": 86,
+          "expected": 86,
+          "shootRange": 0
+        }
+      ]
+    },
+    {
+      "version": "after",
+      "index": 1,
+      "units": [
+        {
+          "id": "citadel_guard_bow",
+          "visible": true,
+          "source": [
+            335,
+            384
+          ],
+          "display": [
+            85.25686553030302,
+            97.72727272727272
+          ],
+          "origin": [
+            0.52,
+            0.515
+          ],
+          "reference": 86,
+          "expected": 86,
+          "shootRange": 850
+        },
+        {
+          "id": "osgiliath_spearshield",
+          "visible": true,
+          "source": [
+            335,
+            384
+          ],
+          "display": [
+            88.78821499013806,
+            101.77514792899407
+          ],
+          "origin": [
+            0.57,
+            0.5225
+          ],
+          "reference": 85.99999999999999,
+          "expected": 86,
+          "shootRange": 0
+        },
+        {
+          "id": "osgiliath_bow",
+          "visible": true,
+          "source": [
+            335,
+            384
+          ],
+          "display": [
+            84.7751883239171,
+            97.17514124293783
+          ],
+          "origin": [
+            0.5,
+            0.5175
+          ],
+          "reference": 85.99999999999997,
+          "expected": 86,
+          "shootRange": 800
+        },
+        {
+          "id": "dol_amroth_swordshield",
+          "visible": true,
+          "source": [
+            384,
+            384
+          ],
+          "display": [
+            108.86075949367086,
+            108.86075949367088
+          ],
+          "origin": [
+            0.5,
+            0.52
+          ],
+          "reference": 86,
+          "expected": 86,
+          "shootRange": 0
+        },
+        {
+          "id": "dol_amroth_knight_foot",
+          "visible": true,
+          "source": [
+            384,
+            384
+          ],
+          "display": [
+            108.17610062893078,
+            108.17610062893081
+          ],
+          "origin": [
+            0.52,
+            0.5325
+          ],
+          "reference": 86,
+          "expected": 86,
+          "shootRange": 0
+        },
+        {
+          "id": "rohan_helmingas",
+          "visible": true,
+          "source": [
+            335,
+            384
+          ],
+          "display": [
+            94.37237945492664,
+            108.17610062893084
+          ],
+          "origin": [
+            0.55,
+            0.5525
+          ],
+          "reference": 86.00000000000001,
+          "expected": 86,
+          "shootRange": 0
+        }
+      ]
+    },
+    {
+      "version": "after",
+      "index": 2,
+      "units": [
+        {
+          "id": "rohan_redshield",
+          "visible": true,
+          "source": [
+            353,
+            384
+          ],
+          "display": [
+            138.6970029239766,
+            150.87719298245614
+          ],
+          "origin": [
+            0.64,
+            0.525
+          ],
+          "reference": 42.99999999999999,
+          "expected": 43,
+          "shootRange": 0
+        },
+        {
+          "id": "ironhills_warrior",
+          "visible": true,
+          "source": [
+            384,
+            384
+          ],
+          "display": [
+            97.84172661870507,
+            97.84172661870505
+          ],
+          "origin": [
+            0.54,
+            0.6075
+          ],
+          "reference": 68,
+          "expected": 68,
+          "shootRange": 0
+        },
+        {
+          "id": "ironhills_spearshield",
+          "visible": true,
+          "source": [
+            384,
+            384
+          ],
+          "display": [
+            101.49253731343282,
+            101.49253731343282
+          ],
+          "origin": [
+            0.53,
+            0.6
+          ],
+          "reference": 68,
+          "expected": 68,
+          "shootRange": 0
+        },
+        {
+          "id": "ironhills_crossbow",
+          "visible": true,
+          "source": [
+            384,
+            384
+          ],
+          "display": [
+            101.49253731343282,
+            101.49253731343282
+          ],
+          "origin": [
+            0.48,
+            0.58
+          ],
+          "reference": 68,
+          "expected": 68,
+          "shootRange": 900
+        },
+        {
+          "id": "galadhrim_bow",
+          "visible": true,
+          "source": [
+            335,
+            384
+          ],
+          "display": [
+            96.80779569892472,
+            110.96774193548386
+          ],
+          "origin": [
+            0.54,
+            0.5475
+          ],
+          "reference": 85.99999999999999,
+          "expected": 86,
+          "shootRange": 830
+        },
+        {
+          "id": "galadhrim_elite_bow",
+          "visible": true,
+          "source": [
+            335,
+            384
+          ],
+          "display": [
+            92.62474279835392,
+            106.17283950617285
+          ],
+          "origin": [
+            0.52,
+            0.535
+          ],
+          "reference": 86,
+          "expected": 86,
+          "shootRange": 880
+        }
+      ]
+    },
+    {
+      "version": "after",
+      "index": 3,
+      "units": [
+        {
+          "id": "mirkwood_ranger",
+          "visible": true,
+          "source": [
+            335,
+            384
+          ],
+          "display": [
+            90.39282128514058,
+            103.61445783132531
+          ],
+          "origin": [
+            0.52,
+            0.54
+          ],
+          "reference": 86,
+          "expected": 86,
+          "shootRange": 830
+        },
+        {
+          "id": "arnor_knight",
+          "visible": true,
+          "source": [
+            353,
+            384
+          ],
+          "display": [
+            136.3056752873563,
+            148.2758620689655
+          ],
+          "origin": [
+            0.61,
+            0.51
+          ],
+          "reference": 43,
+          "expected": 43,
+          "shootRange": 0
+        },
+        {
+          "id": "arnor_ranger",
+          "visible": true,
+          "source": [
+            335,
+            384
+          ],
+          "display": [
+            92.39660303776684,
+            105.9113300492611
+          ],
+          "origin": [
+            0.51,
+            0.551
+          ],
+          "reference": 86,
+          "expected": 86,
+          "shootRange": 830
+        },
+        {
+          "id": "morannon_swordshield",
+          "visible": true,
+          "source": [
+            302,
+            384
+          ],
+          "display": [
+            69.9074074074074,
+            88.88888888888889
+          ],
+          "origin": [
+            0.49,
+            0.5145
+          ],
+          "reference": 76,
+          "expected": 76,
+          "shootRange": 0
+        },
+        {
+          "id": "orc_elite_tracker",
+          "visible": true,
+          "source": [
+            302,
+            384
+          ],
+          "display": [
+            80.22930648769575,
+            102.01342281879195
+          ],
+          "origin": [
+            0.53,
+            0.5775
+          ],
+          "reference": 76,
+          "expected": 76,
+          "shootRange": 800
+        },
+        {
+          "id": "dale_guard",
+          "visible": true,
+          "source": [
+            335,
+            384
+          ],
+          "display": [
+            82.99340892330385,
+            95.13274336283187
+          ],
+          "origin": [
+            0.51,
+            0.497
+          ],
+          "reference": 86,
+          "expected": 86,
+          "shootRange": 0
+        }
+      ]
+    }
+  ],
+  "mobile": [
+    {
+      "id": "glorfindel_foot",
+      "visible": true,
+      "source": [
+        319,
+        366
+      ],
+      "display": [
+        80.58447342879555,
+        92.4574209245742
+      ],
+      "origin": [
+        0.5039,
+        0.5274
+      ],
+      "reference": 76,
+      "expected": 76,
+      "shootRange": 0
+    },
+    {
+      "id": "elrond",
+      "visible": true,
+      "source": [
+        335,
+        384
+      ],
+      "display": [
+        86.3360663598005,
+        98.96432681242806
+      ],
+      "origin": [
+        0.51,
+        0.4945
+      ],
+      "reference": 85.99999999999999,
+      "expected": 86,
+      "shootRange": 0
+    },
+    {
+      "id": "glorfindel_mounted",
+      "visible": true,
+      "source": [
+        344,
+        374
+      ],
+      "display": [
+        142.0020639834881,
+        154.38596491228068
+      ],
+      "origin": [
+        0.5396,
+        0.5091
+      ],
+      "reference": 44,
+      "expected": 44,
+      "shootRange": 0
+    },
+    {
+      "id": "elrond_mounted",
+      "visible": true,
+      "source": [
+        353,
+        384
+      ],
+      "display": [
+        136.3056752873563,
+        148.27586206896552
+      ],
+      "origin": [
+        0.625,
+        0.53
+      ],
+      "reference": 43,
+      "expected": 43,
+      "shootRange": 0
+    }
+  ],
+  "weapons": [
+    {
+      "id": "rumil",
+      "weapon": "sword_shield",
+      "range": 0
+    },
+    {
+      "id": "orophin",
+      "weapon": "sword",
+      "range": 0
+    }
+  ]
+}
