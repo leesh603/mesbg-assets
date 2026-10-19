@@ -1,0 +1,191 @@
+{
+  "batch": 3,
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "gamling",
+      "name": "감링",
+      "role": "hero",
+      "faction": "rohan",
+      "path": "art/full-roster-night-rebuild-20261019/units/gamling.png",
+      "blobSHA": "4d13090bf3f02324a3dc2aeaf6879ee8af1f310b",
+      "png": {
+        "width": 1199,
+        "height": 1312,
+        "colorType": 6,
+        "byteLength": 804922
+      },
+      "original": "tokens/gamling.png",
+      "profile": {
+        "top": 0.28,
+        "bottom": 0.97,
+        "centerX": 0.54,
+        "centerY": 0.62,
+        "size": 86,
+        "reference": "body",
+        "referenceAxis": "height",
+        "measurement": "manual approximate landmarks; in-game comparison pending"
+      },
+      "review": {
+        "visual": true,
+        "camera": "high-angle front",
+        "humanAnatomy": "compact adult shared five-head basis",
+        "poseDistinct": true,
+        "allExtremitiesVisible": true,
+        "approval": "pending",
+        "inGameVerified": false,
+        "alphaPixelValidation": false
+      },
+      "generationPrompt": "Redraw ONLY ref3 GAMLiNG ON FOOT, royal standard bearer, ONE clean transparent pixel sprite. Ref1 establishes Theoden pixel colour/outline and ref2 newly approved Gondor establishes exact HIGH-ANGLE FRONT camera looking down25–30deg, visible helmet/shoulder/boot tops and compact adult FIVE-HEAD proportions, never flat eye-level front/side, never long6–8head anatomy. Mature stocky Rohirrim veteran, steel gold-trim nasal helm with white horsehair plume, green mantle, gold-edged green tunic and chainmail, green white-horse shield strapped to viewer-right forearm, royal standard pole in viewer-left hand with SMALL green white horse pennant (not huge cloth). Distinct stride: one foot half step forward, shield protects flank, staff angled slightly outward toward upper left, pole butt near left boot and whole flag clear above head. Sword remains sheathed, hands plausible holding pole and shield. Keep royal soldier identity different from king: no red crest, no beard/fur/gold full scales. Five-head body measured without flag and plume. Hard stepped pixel clusters, limited green/grey/brown/cream/gold palette, dark strong outline. ALL outside-silhouette pixels are fully transparent: absolutely no glow/haze/matte/ground shadow/background colour. Every item complete in frame with margin; center torso rather than flag. No circular base, text, UI, multiple figures. Output finished isolated PNG.",
+      "correctionPrompt": null
+    },
+    {
+      "id": "eowyn_mounted",
+      "name": "에오윈(기마)",
+      "role": "hero",
+      "faction": "rohan",
+      "path": "art/full-roster-night-rebuild-20261019/units/eowyn_mounted.png",
+      "blobSHA": "850fcca289c35793f6f40a0d926f32cb53717ab8",
+      "png": {
+        "width": 1199,
+        "height": 1312,
+        "colorType": 6,
+        "byteLength": 1051741
+      },
+      "original": "tokens/eowyn_mounted.png",
+      "profile": {
+        "top": 0.045,
+        "bottom": 0.365,
+        "centerX": 0.54,
+        "centerY": 0.55,
+        "size": 43,
+        "reference": "rider",
+        "referenceAxis": "height",
+        "measurement": "manual approximate landmarks; in-game comparison pending"
+      },
+      "review": {
+        "visual": true,
+        "camera": "high-angle front",
+        "humanAnatomy": "compact adult shared five-head basis",
+        "poseDistinct": true,
+        "allExtremitiesVisible": true,
+        "approval": "pending",
+        "inGameVerified": false,
+        "alphaPixelValidation": false
+      },
+      "generationPrompt": "Redraw ONLY ref3 EOWYN mounted (Dernhelm) on a BAY horse. ONE finished clean transparent tactical PIXEL sprite. Ref1 Theoden controls established pixel palette/outline, ref2 approved mounted standard controls EXACT elevated HIGH-ANGLE FRONT25–30deg camera, clear helmet/shoulder tops/horse back and full-size adult human rider proportions. Near-front slight diagonal, not flat eye-level front or side profile. Compact FIVE-HEAD adult skeleton if dismounted, Eowyn slender but same human head and torso scale as ordinary rider, not tiny girl. Her identity: plain steel nasal helm without crown/crest, golden braid visible on viewer right, green sleeveless coat over chainmail, brown gloves/boots, round green white-horse shield on viewer right. Distinct action: bay horse carefully moves frontward diagonally toward viewer RIGHT; Eowyn braces shield FORWARD across chest, straight sword in viewer-left hand angles low OUTWARD LEFT, poised to intercept rather than Eomer rally arm or Theoden horizontal order. Left hand/forearm controls reins and shield, correct stirrups and seated hips. Horse normal four coherent legs, two ears one head, foreshortened back, not stretched horse, no crossed/fused legs. Hard stepped hand-drawn pixel clusters, dark contours, muted forest-green, steel, leather brown, golden hair, bay coat. No painting, smooth gradients or background effects. Entire horse/rider/weapon/tail in frame with margins. Body-and-mount centered, outside exact sprite contour ALPHA0. No floor, shadow, base, haze/glow/backdrop, text/UI or other figures.",
+      "correctionPrompt": null
+    },
+    {
+      "id": "erkenbrand",
+      "name": "에르켄브란트",
+      "role": "hero",
+      "faction": "rohan",
+      "path": "art/full-roster-night-rebuild-20261019/units/erkenbrand.png",
+      "blobSHA": "d2aa1053486517bc8b6ef9c9104934f195b052e6",
+      "png": {
+        "width": 1199,
+        "height": 1312,
+        "colorType": 6,
+        "byteLength": 1170782
+      },
+      "original": "tokens/erkenbrand.png",
+      "profile": {
+        "top": 0.26,
+        "bottom": 0.95,
+        "centerX": 0.535,
+        "centerY": 0.605,
+        "size": 86,
+        "reference": "body",
+        "referenceAxis": "height",
+        "measurement": "manual approximate landmarks; in-game comparison pending"
+      },
+      "review": {
+        "visual": true,
+        "camera": "high-angle front",
+        "humanAnatomy": "compact adult shared five-head basis",
+        "poseDistinct": true,
+        "allExtremitiesVisible": true,
+        "approval": "pending",
+        "inGameVerified": false,
+        "alphaPixelValidation": false
+      },
+      "generationPrompt": "ONE ERKENBRAND ON FOOT, redraw ONLY character3. Ref1 established Theoden pixel style, ref2 approved Gondor EXACT HIGH-ANGLE FRONT looking down25–30deg and FIVE-HEAD compact adult anatomy mandatory. Visible helmet dome/shoulder tops/boots, near-front slight diagonal, not flat eye-level front or side. Keep character3's green/gold Rohirrim helm with RED horsehair crest, cream fur shoulder collar, green cloak, dark mail and gold-edged green armour, white horse-emblem green round shield, straight steel sword. Broad muscular human veteran, wider shoulders and waist rather than longer limbs; SAME human head scale and5-head stature, not taller6–8head body. DISTINCT sturdy defensive pose: knees flexed, feet wide uncrossed; shield on viewer RIGHT pushed forward firmly across body; sword in viewer LEFT held HIGH close behind head with blade tilted toward upper left as a compact chopping guard. Proper hilt grip, clean straight blade, no duplicated swords. An optional small dark horn hangs at belt, never held. No walking stride, no king's red robes. Crisp stepped pixel clusters, dark outline, earthy forest green/gold/steel/cream/red palette, no gradients/blur/smooth painting. Full shield/crest/sword/boots fit within transparent canvas with comfortable margin; center by torso/pelvis, exclude crest for body size. No base/floor/shadow/background glow/haze, no text/UI/extra figures.",
+      "correctionPrompt": "Correct this Erkenbrand sprite's cropped sword: recompose the whole sprite at 85% of current canvas occupancy and add at least8% transparent EMPTY margin around ALL sides. The steel blade TIP MUST BE FULLY VISIBLE, at least80 pixels BELOW the TOP EDGE, never touching or extending outside the canvas. You may lower and angle the sword to the viewer upper LEFT, but keep hand correctly gripping hilt. Preserve identical high-angle front camera, five-head adult anatomy, broad build, green/gold armour, red crest, shield, cape and crisp pixel style. Keep whole boots/cape/shield in frame too. Transparent RGBA outside sprite; no extra background/shadow/glow. It is essential to change scale/composition so NO sword pixel touches top edge."
+    },
+    {
+      "id": "theoden_foot",
+      "name": "세오덴(도보)",
+      "role": "hero",
+      "faction": "rohan",
+      "path": "art/full-roster-night-rebuild-20261019/units/theoden_foot.png",
+      "blobSHA": "0e5066208ff11663455024e68f748b2acc3d9b31",
+      "png": {
+        "width": 1199,
+        "height": 1312,
+        "colorType": 6,
+        "byteLength": 1159101
+      },
+      "original": "tokens/theoden_foot.png",
+      "profile": {
+        "top": 0.14,
+        "bottom": 0.97,
+        "centerX": 0.53,
+        "centerY": 0.55,
+        "size": 86,
+        "reference": "body",
+        "referenceAxis": "height",
+        "measurement": "manual approximate landmarks; in-game comparison pending"
+      },
+      "review": {
+        "visual": true,
+        "camera": "high-angle front",
+        "humanAnatomy": "compact adult shared five-head basis",
+        "poseDistinct": true,
+        "allExtremitiesVisible": true,
+        "approval": "pending",
+        "inGameVerified": false,
+        "alphaPixelValidation": false
+      },
+      "generationPrompt": "ONE THEODEN ON FOOT, redraw only third reference (same king/style identity as first). Use approved Gondor second reference for EXACT HIGH-ANGLE FRONT25–30deg downward camera and compact FIVE-HEAD ADULT skeleton. Show top helmet dome, shoulders, boots; nearly front slight diagonal depth, not eye-level flat front/side. Preserve king's established green/gold helmet with RED crest, grey/white beard, gold scale armour and articulated arm/leg plates, dark green white-fur-edged royal cloak, leather belt and scabbard. No horse. Adult older man, a little sturdy with compact legs, same5-head body standard, not long realistic7heads. DISTINCT restrained command pose: feet planted apart, body upright, one foot slightly advanced, straight sword in viewer-left hand lowered diagonally forward-left at thigh height, blade fully visible with generous margin, viewer-right hand OPEN palm-forward at chest height giving a halt signal. No shield in this FOOT version (keep reference identity). Correct five fingers glove silhouette, proper clean sword hand-to-hilt-to-straight-blade connection, no warped blade. Hard crisp hand-pixel clusters, earthy green/gold/cream/steel and red plume exactly established tone; simple stepped shading, dark outlines, no smooth painting/gradient/blur. Full body/cape/sword/crest inside canvas with8% margin. Center torso independently from sword/plume. Pure alpha0 outside sprite contour, no floor/base/shadow, glow/haze/backdrop, text, UI or extra figures.",
+      "correctionPrompt": null
+    },
+    {
+      "id": "eomer_foot",
+      "name": "에오메르(도보)",
+      "role": "hero",
+      "faction": "rohan",
+      "path": "art/full-roster-night-rebuild-20261019/units/eomer_foot.png",
+      "blobSHA": "633e1ea310654fedcef34945f6f1d53eb7dbf718",
+      "png": {
+        "width": 1199,
+        "height": 1312,
+        "colorType": 6,
+        "byteLength": 1155950
+      },
+      "original": "tokens/eomer_foot.png",
+      "profile": {
+        "top": 0.135,
+        "bottom": 0.965,
+        "centerX": 0.535,
+        "centerY": 0.55,
+        "size": 86,
+        "reference": "body",
+        "referenceAxis": "height",
+        "measurement": "manual approximate landmarks; in-game comparison pending"
+      },
+      "review": {
+        "visual": true,
+        "camera": "high-angle front",
+        "humanAnatomy": "compact adult shared five-head basis",
+        "poseDistinct": true,
+        "allExtremitiesVisible": true,
+        "approval": "pending",
+        "inGameVerified": false,
+        "alphaPixelValidation": false
+      },
+      "generationPrompt": "ONE EOMER ON FOOT, redraw third reference only. Ref1 defines Theoden established PIXEL style, ref2 new Gondor defines STRICT HIGH-ANGLE FRONT25–30deg downward camera and human FIVE-HEAD compact adult skeleton. See helmet dome, shoulders and boot tops, near front slight diagonal, not flat eye-level front or profile. Eomer young mature commander with long blond hair, red/gold ornate Rohirrim helm and WHITE horsehair crest, red-and-gold scale armour, dark green gold-trimmed cape, green white-horse shield and straight sword. Broad athletic shoulders but NORMAL shared human height5-heads, do not elongate thighs/shins. NO horse. DISTINCT pose: guarded close thrust preparation, shield on viewer RIGHT held close near chest, sword hand viewer LEFT with hilt near WAIST and blade pointing forward diagonally across LOWER LEFT, knees modestly bent and feet apart in small grounded lunge. No overhead rally arm, not simple walking pose, no Theoden fur/beard/gold breastplate. Grip continuous correct hand/hilt/straight blade, blade fully within canvas. Crisp hand-pixel clusters, stepped restricted russet-red, forest-green, cream, dull-gold, steel palette with dark contours. Full crest/cape/shield/boots/sword inside frame with8% margin; torso/pelvis centered independent of plume/weapon. Clean transparent RGBA, all outside silhouette alpha0, no floor/base/cast shadow/haze/halo/glow/backdrop, no text/UI/extra figures.",
+      "correctionPrompt": null
+    }
+  ]
+}
