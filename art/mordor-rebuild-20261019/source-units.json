@@ -1,0 +1,959 @@
+[
+  {
+    "id": "orc_sword",
+    "name_ko": "모르도르 오크(검)",
+    "name_en": "Mordor Orc, sword",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "infantry",
+    "weapon": "sword",
+    "base": "S",
+    "sheet": "lotr-tokens-v1.png",
+    "file": "tokens/orc_sword.png",
+    "base_mm": "25mm",
+    "troopPromotion": {
+      "group": "mordor",
+      "aliasOf": null,
+      "targets": [
+        "morannon_swordshield",
+        "mordor_uruk",
+        "warg_rider"
+      ],
+      "gate": null
+    }
+  },
+  {
+    "id": "orc_captain",
+    "name_ko": "오크 대장",
+    "name_en": "Orc Captain",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "M",
+    "sheet": "roster-enemy-heroes-v1.png",
+    "file": "tokens/orc_captain.png",
+    "stats": {
+      "f": 3,
+      "s": 4,
+      "d": 4,
+      "a": 2,
+      "w": 2,
+      "c": 3,
+      "might": 1,
+      "will": 0,
+      "fate": 1,
+      "rules": [
+        "Orc Captain"
+      ]
+    },
+    "rules": [
+      "Orc Captain"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "orc_spearman",
+    "name_ko": "오크 창병",
+    "name_en": "Orc Spearman",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "infantry",
+    "weapon": "spear",
+    "base": "S",
+    "sheet": "roster-enemy-troops-v1.png",
+    "file": "tokens/orc_spearman.png",
+    "base_mm": "25mm",
+    "troopPromotion": {
+      "group": "mordor",
+      "aliasOf": null,
+      "targets": [
+        "morannon_orc",
+        "warg_rider"
+      ],
+      "gate": null
+    }
+  },
+  {
+    "id": "orc_archer",
+    "name_ko": "오크 궁수",
+    "name_en": "Orc Archer",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "infantry",
+    "weapon": "bow",
+    "base": "S",
+    "sheet": "roster-enemy-troops-v1.png",
+    "file": "tokens/orc_archer.png",
+    "base_mm": "25mm",
+    "troopPromotion": {
+      "group": "mordor",
+      "aliasOf": null,
+      "targets": [
+        "orc_tracker"
+      ],
+      "gate": null
+    }
+  },
+  {
+    "id": "morannon_orc",
+    "name_ko": "모라논 오크",
+    "name_en": "Morannon Orc",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "infantry",
+    "weapon": "spear_shield",
+    "base": "M",
+    "sheet": "roster-enemy-troops-v1.png",
+    "file": "tokens/morannon_orc.png",
+    "base_mm": "25mm",
+    "troopPromotion": {
+      "group": "mordor",
+      "aliasOf": null,
+      "targets": [],
+      "gate": null
+    }
+  },
+  {
+    "id": "warg_rider",
+    "name_ko": "와르그 기병",
+    "name_en": "Warg Rider",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "cavalry",
+    "weapon": "spear",
+    "base": "XL",
+    "sheet": "roster-enemy-troops-v1.png",
+    "file": "tokens/warg_rider.png",
+    "artScale": 1.3,
+    "base_mm": "40mm",
+    "troopPromotion": {
+      "group": "mordor",
+      "aliasOf": null,
+      "targets": [],
+      "gate": null
+    }
+  },
+  {
+    "id": "mountain_troll",
+    "name_ko": "산악 트롤",
+    "name_en": "Mountain Troll",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "monster",
+    "weapon": "club",
+    "base": "XXL",
+    "sheet": "roster-monsters-v1.png",
+    "file": "tokens/mountain_troll.png",
+    "base_mm": "60mm"
+  },
+  {
+    "id": "shelob",
+    "name_ko": "셀로브",
+    "name_en": "Shelob",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "monster",
+    "weapon": "various",
+    "base": "XXL",
+    "sheet": "roster-monsters-v1.png",
+    "file": "tokens/shelob.png",
+    "traits": [
+      "terror"
+    ],
+    "base_mm": "60mm"
+  },
+  {
+    "id": "sauron",
+    "name_ko": "사우론",
+    "name_en": "Sauron",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "hero",
+    "weapon": "mace",
+    "base": "XXL",
+    "sheet": "roster-sauron-nazgul-v1.png",
+    "file": "tokens/sauron.png",
+    "traits": [
+      "terror"
+    ],
+    "stats": {
+      "f": 9,
+      "s": 8,
+      "d": 9,
+      "a": 4,
+      "w": 4,
+      "c": 8,
+      "might": 4,
+      "will": 20,
+      "fate": 4,
+      "rules": [
+        "The Dark Lord",
+        "Terror",
+        "Mace of Sauron"
+      ]
+    },
+    "rules": [
+      "The Dark Lord",
+      "Terror",
+      "Mace of Sauron"
+    ],
+    "base_mm": "60mm"
+  },
+  {
+    "id": "morgul_knight",
+    "name_ko": "모르굴 기사",
+    "name_en": "Morgul Knight",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "cavalry",
+    "weapon": "lance",
+    "base": "XL",
+    "sheet": "roster-sauron-nazgul-v1.png",
+    "file": "tokens/morgul_knight.png",
+    "base_mm": "40mm",
+    "troopPromotion": {
+      "group": "mordor_numenoreans",
+      "aliasOf": null,
+      "targets": [],
+      "gate": null
+    }
+  },
+  {
+    "id": "orc_sword2",
+    "name_ko": "오크(검)",
+    "name_en": "Orc, sword",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "infantry",
+    "weapon": "sword",
+    "base": "S",
+    "sheet": "roster-orc-variants-v1.png",
+    "file": "tokens/orc_sword2.png",
+    "base_mm": "25mm",
+    "troopPromotion": {
+      "group": "mordor",
+      "aliasOf": "orc_sword",
+      "targets": [
+        "morannon_swordshield",
+        "mordor_uruk",
+        "warg_rider"
+      ],
+      "gate": null
+    }
+  },
+  {
+    "id": "orc_swordshield",
+    "name_ko": "오크(검방)",
+    "name_en": "Orc, sword & shield",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "infantry",
+    "weapon": "sword_shield",
+    "base": "S",
+    "sheet": "roster-orc-variants-v1.png",
+    "file": "tokens/orc_swordshield.png",
+    "base_mm": "25mm",
+    "troopPromotion": {
+      "group": "mordor",
+      "aliasOf": null,
+      "targets": [
+        "morannon_swordshield",
+        "warg_rider"
+      ],
+      "gate": null
+    }
+  },
+  {
+    "id": "orc_spear2",
+    "name_ko": "오크(창)",
+    "name_en": "Orc, spear",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "infantry",
+    "weapon": "spear",
+    "base": "S",
+    "sheet": "roster-orc-variants-v1.png",
+    "file": "tokens/orc_spear2.png",
+    "base_mm": "25mm",
+    "troopPromotion": {
+      "group": "mordor",
+      "aliasOf": "orc_spearman",
+      "targets": [
+        "morannon_orc",
+        "warg_rider"
+      ],
+      "gate": null
+    }
+  },
+  {
+    "id": "orc_twohanded",
+    "name_ko": "오크(양손도끼)",
+    "name_en": "Orc, two-handed axe",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "infantry",
+    "weapon": "twohanded",
+    "base": "S",
+    "sheet": "roster-orc-variants-v1.png",
+    "file": "tokens/orc_twohanded.png",
+    "base_mm": "25mm",
+    "troopPromotion": {
+      "group": "mordor",
+      "aliasOf": null,
+      "targets": [
+        "mordor_uruk"
+      ],
+      "gate": null
+    }
+  },
+  {
+    "id": "orc_bow",
+    "name_ko": "오크(활)",
+    "name_en": "Orc, bow",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "infantry",
+    "weapon": "bow",
+    "base": "S",
+    "sheet": "roster-orc-variants-v1.png",
+    "file": "tokens/orc_bow.png",
+    "base_mm": "25mm",
+    "troopPromotion": {
+      "group": "mordor",
+      "aliasOf": "orc_archer",
+      "targets": [
+        "orc_tracker"
+      ],
+      "gate": null
+    }
+  },
+  {
+    "id": "orc_drummer",
+    "name_ko": "오크 전쟁북",
+    "name_en": "Orc war drummer",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "support",
+    "weapon": "drum",
+    "base": "S",
+    "sheet": "roster-orc-variants-v1.png",
+    "file": "tokens/orc_drummer.png",
+    "base_mm": "25mm"
+  },
+  {
+    "id": "black_numenorean",
+    "name_ko": "검은 누메노르인(도보)",
+    "name_en": "Black Numenorean on foot",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "infantry",
+    "weapon": "sword_shield",
+    "base": "M",
+    "sheet": "roster-mordor-elite-v1.png",
+    "file": "tokens/black_numenorean.png",
+    "base_mm": "25mm",
+    "troopPromotion": {
+      "group": "mordor_numenoreans",
+      "aliasOf": null,
+      "targets": [
+        "black_numenorean_mounted",
+        "morgul_knight"
+      ],
+      "gate": null
+    }
+  },
+  {
+    "id": "black_numenorean_mounted",
+    "name_ko": "검은 누메노르인(기마)",
+    "name_en": "Black Numenorean mounted",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "cavalry",
+    "weapon": "lance",
+    "base": "XL",
+    "sheet": "roster-mordor-elite-v1.png",
+    "file": "tokens/black_numenorean_mounted.png",
+    "base_mm": "40mm",
+    "troopPromotion": {
+      "group": "mordor_numenoreans",
+      "aliasOf": null,
+      "targets": [],
+      "gate": null
+    }
+  },
+  {
+    "id": "orc_tracker",
+    "name_ko": "오크 추적자",
+    "name_en": "Orc Tracker",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "infantry",
+    "weapon": "bow",
+    "base": "S",
+    "sheet": "roster-mordor-elite-v1.png",
+    "file": "tokens/orc_tracker.png",
+    "base_mm": "25mm",
+    "troopPromotion": {
+      "group": "mordor",
+      "aliasOf": null,
+      "targets": [
+        "orc_elite_tracker"
+      ],
+      "gate": null
+    }
+  },
+  {
+    "id": "war_troll",
+    "name_ko": "전쟁 트롤",
+    "name_en": "Mordor War Troll",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "monster",
+    "weapon": "club",
+    "base": "XXL",
+    "sheet": "roster-mordor-elite-v1.png",
+    "file": "tokens/war_troll.png",
+    "base_mm": "60mm"
+  },
+  {
+    "id": "black_guard",
+    "name_ko": "바라드두르 흑근위",
+    "name_en": "Black Guard of Barad-dur",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "infantry",
+    "weapon": "spear_shield",
+    "base": "M",
+    "sheet": "roster-mordor-elite-v1.png",
+    "file": "tokens/black_guard.png",
+    "base_mm": "25mm",
+    "troopPromotion": {
+      "group": "mordor",
+      "aliasOf": null,
+      "targets": [],
+      "gate": null
+    }
+  },
+  {
+    "id": "orc_taskmaster",
+    "name_ko": "오크 두목",
+    "name_en": "Orc Taskmaster",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "hero",
+    "weapon": "whip",
+    "base": "M",
+    "sheet": "roster-mordor-elite-v1.png",
+    "file": "tokens/orc_taskmaster.png",
+    "base_mm": "25mm"
+  },
+  {
+    "id": "mouth_of_sauron",
+    "name_ko": "사우론의 입(기마)",
+    "name_en": "Mouth of Sauron",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "XL",
+    "sheet": "roster-evil-heroes-exp-v1.png",
+    "file": "tokens/mouth_of_sauron.png",
+    "stats": {
+      "f": 5,
+      "s": 4,
+      "d": 5,
+      "a": 2,
+      "w": 3,
+      "c": 5,
+      "might": 2,
+      "will": 4,
+      "fate": 2,
+      "rules": [
+        "Lieutenant of Barad-dur",
+        "Sorcerer"
+      ]
+    },
+    "rules": [
+      "Lieutenant of Barad-dur",
+      "Sorcerer"
+    ],
+    "base_mm": "40mm"
+  },
+  {
+    "id": "gothmog",
+    "name_ko": "고스모그",
+    "name_en": "Gothmog",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "hero",
+    "weapon": "mace",
+    "base": "L",
+    "sheet": "roster-evil-heroes-exp-v1.png",
+    "file": "tokens/gothmog.png",
+    "stats": {
+      "f": 4,
+      "s": 4,
+      "d": 4,
+      "a": 2,
+      "w": 2,
+      "c": 4,
+      "might": 2,
+      "will": 0,
+      "fate": 1,
+      "rules": [
+        "Lieutenant of Morgul"
+      ]
+    },
+    "rules": [
+      "Lieutenant of Morgul"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "olog_hai",
+    "name_ko": "올로그하이",
+    "name_en": "Olog-hai",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "monster",
+    "weapon": "mace",
+    "base": "XXL",
+    "sheet": "roster-legends-evil-v2.png",
+    "file": "tokens/olog_hai.png",
+    "base_mm": "60mm"
+  },
+  {
+    "id": "shagrat",
+    "name_ko": "샤그랏",
+    "name_en": "Shagrat",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "hero",
+    "weapon": "sword_shield",
+    "base": "L",
+    "sheet": "roster-exp-evil-v1.png",
+    "file": "tokens/shagrat.png",
+    "stats": {
+      "f": 4,
+      "s": 4,
+      "d": 4,
+      "a": 2,
+      "w": 2,
+      "c": 4,
+      "might": 1,
+      "will": 0,
+      "fate": 1,
+      "rules": [
+        "Captain of Cirith Ungol"
+      ]
+    },
+    "rules": [
+      "Captain of Cirith Ungol"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "gorbag",
+    "name_ko": "고르바그",
+    "name_en": "Gorbag",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "",
+    "sheet": "roster-exp-evil-v1.png",
+    "file": "tokens/gorbag.png",
+    "stats": {
+      "f": 4,
+      "s": 4,
+      "d": 4,
+      "a": 2,
+      "w": 2,
+      "c": 4,
+      "might": 1,
+      "will": 0,
+      "fate": 1,
+      "rules": [
+        "Minas Morgul Garrison"
+      ]
+    },
+    "rules": [
+      "Minas Morgul Garrison"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "werewolf",
+    "name_ko": "웨어울프",
+    "name_en": "Werewolf",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "beast",
+    "weapon": "none",
+    "base": "L",
+    "sheet": "roster-east-monsters-v1.png",
+    "file": "tokens/werewolf.png",
+    "traits": [
+      "terror"
+    ],
+    "base_mm": "50mm"
+  },
+  {
+    "id": "kardush",
+    "name_ko": "카두쉬 화염술사",
+    "name_en": "Kardush the Firecaller",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "hero",
+    "weapon": "staff",
+    "base": "S",
+    "sheet": "exp-dolguldur.png",
+    "file": "tokens/kardush.png",
+    "base_mm": "25mm"
+  },
+  {
+    "id": "morgul_stalker",
+    "name_ko": "모르굴 추적자",
+    "name_en": "Morgul Stalker",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "infantry",
+    "weapon": "dagger",
+    "base": "S",
+    "sheet": "exp-dolguldur.png",
+    "file": "tokens/morgul_stalker.png",
+    "base_mm": "25mm",
+    "troopPromotion": {
+      "group": "mordor",
+      "aliasOf": null,
+      "targets": [],
+      "gate": null
+    }
+  },
+  {
+    "id": "numenorean_marshal",
+    "name_ko": "검은 누메노르 사령관",
+    "name_en": "Black Numenorean Marshal",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "hero",
+    "weapon": "mace",
+    "base": "L",
+    "sheet": "exp-dolguldur.png",
+    "file": "tokens/numenorean_marshal.png",
+    "stats": {
+      "f": 5,
+      "s": 4,
+      "d": 6,
+      "a": 2,
+      "w": 3,
+      "c": 5,
+      "might": 2,
+      "will": 1,
+      "fate": 1,
+      "rules": [
+        "Numenorean",
+        "Marshal"
+      ]
+    },
+    "rules": [
+      "Numenorean",
+      "Marshal"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "grishnakh",
+    "name_ko": "그리쉬나크",
+    "name_en": "Grishnakh",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "M",
+    "sheet": "nb-exp-evil2.png",
+    "file": "tokens/grishnakh.png",
+    "base_mm": "25mm"
+  },
+  {
+    "id": "guritz",
+    "name_ko": "구리츠",
+    "name_en": "Guritz",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "hero",
+    "weapon": "twohanded",
+    "base": "M",
+    "sheet": "nb-exp-evil3.png",
+    "file": "tokens/guritz.png",
+    "stats": {
+      "f": 4,
+      "s": 4,
+      "d": 4,
+      "a": 2,
+      "w": 2,
+      "c": 3,
+      "might": 1,
+      "will": 1,
+      "fate": 1,
+      "rules": [
+        "Mordor Overseer"
+      ]
+    },
+    "rules": [
+      "Mordor Overseer"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "great_beast_gorgoroth",
+    "name_ko": "고르고로스 거수",
+    "name_en": "Great Beast of Gorgoroth",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "monster",
+    "weapon": "none",
+    "base": "XXL",
+    "sheet": "nb-exp-harad2.png",
+    "file": "tokens/great_beast_gorgoroth.png",
+    "base_mm": "60mm"
+  },
+  {
+    "id": "mordor_uruk",
+    "name_ko": "모르도르 우르크",
+    "name_en": "Mordor Uruk",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "infantry",
+    "weapon": "sword",
+    "base": "M",
+    "sheet": "px-nb-exp-mordor2.png",
+    "file": "tokens/mordor_uruk.png",
+    "base_mm": "25mm",
+    "troopPromotion": {
+      "group": "mordor",
+      "aliasOf": null,
+      "targets": [
+        "black_guard"
+      ],
+      "gate": null
+    }
+  },
+  {
+    "id": "morgul_orc",
+    "name_ko": "모르굴 오크",
+    "name_en": "Morgul Orc",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "infantry",
+    "weapon": "sword",
+    "base": "M",
+    "sheet": "px-nb-exp-mordor2.png",
+    "file": "tokens/morgul_orc.png",
+    "base_mm": "25mm",
+    "troopPromotion": {
+      "group": "mordor",
+      "aliasOf": null,
+      "targets": [
+        "morannon_swordshield",
+        "morgul_stalker"
+      ],
+      "gate": null
+    }
+  },
+  {
+    "id": "morgul_rat",
+    "name_ko": "모르굴 추적병",
+    "name_en": "Morgul Rat",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "infantry",
+    "weapon": "dagger",
+    "base": "S",
+    "sheet": "px-nb-exp-mordor2.png",
+    "file": "tokens/morgul_rat.png",
+    "base_mm": "25mm",
+    "troopPromotion": {
+      "group": "mordor",
+      "aliasOf": null,
+      "targets": [
+        "morgul_stalker"
+      ],
+      "gate": null
+    }
+  },
+  {
+    "id": "ufthak",
+    "name_ko": "우프탁",
+    "name_en": "Ufthak",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "M",
+    "sheet": "px-nb-exp-mordor2.png",
+    "file": "tokens/ufthak.png",
+    "stats": {
+      "f": 4,
+      "s": 4,
+      "d": 4,
+      "a": 2,
+      "w": 2,
+      "c": 4,
+      "might": 1,
+      "will": 1,
+      "fate": 1,
+      "rules": [
+        "Captured by Shelob"
+      ]
+    },
+    "rules": [
+      "Captured by Shelob"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "orc_sergeant",
+    "name_ko": "오크 하사",
+    "name_en": "Orc Sergeant",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "M",
+    "sheet": "px-nb-exp-mordor2.png",
+    "file": "tokens/orc_sergeant.png",
+    "stats": {
+      "f": 4,
+      "s": 4,
+      "d": 4,
+      "a": 2,
+      "w": 2,
+      "c": 3,
+      "might": 1,
+      "will": 1,
+      "fate": 1,
+      "rules": [
+        "Warband Leader"
+      ]
+    },
+    "rules": [
+      "Warband Leader"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "annatar",
+    "name_ko": "안나타르",
+    "name_en": "Annatar, Lord of Gifts",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "hero",
+    "weapon": "staff",
+    "base": "L",
+    "sheet": null,
+    "file": "tokens/annatar.png",
+    "base_mm": "25mm"
+  },
+  {
+    "id": "sauron_wolf",
+    "name_ko": "사우론 (늑대)",
+    "name_en": "Sauron, wolf form",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "hero",
+    "weapon": "claws",
+    "base": "XL",
+    "sheet": null,
+    "file": "tokens/sauron_wolf.png",
+    "base_mm": "50mm"
+  },
+  {
+    "id": "morgul_duellist",
+    "name_ko": "모르굴 결투사",
+    "name_en": "Morgul Duellist",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "infantry",
+    "weapon": "sword",
+    "base": "M",
+    "sheet": "px-nb-roster-varied-v2.png",
+    "file": "tokens/morgul_duellist.png",
+    "base_mm": "25mm",
+    "troopPromotion": {
+      "group": "mordor",
+      "aliasOf": null,
+      "targets": [],
+      "gate": null
+    }
+  },
+  {
+    "id": "troll_shaman",
+    "name_ko": "트롤 주술사",
+    "name_en": "Troll Shaman",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "monster",
+    "weapon": "staff",
+    "base": "L",
+    "sheet": "px-nb-roster-varied-v2.png",
+    "file": "tokens/troll_shaman.png",
+    "base_mm": "50mm"
+  },
+  {
+    "id": "guritz_mounted",
+    "name_ko": "구리츠(와르그)",
+    "name_en": "Guritz, warg rider",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "hero",
+    "weapon": "twohanded",
+    "base": "XL",
+    "sheet": null,
+    "file": "tokens/guritz_mounted.png",
+    "base_mm": "40mm"
+  },
+  {
+    "id": "morannon_swordshield",
+    "name_ko": "모라논 오크 검방",
+    "name_en": "Morannon Orc with sword and shield",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "infantry",
+    "weapon": "sword_shield",
+    "base": "M",
+    "file": "tokens/morannon_swordshield.png",
+    "sheet": "troop-promotions-20261014",
+    "points": 9,
+    "pointSource": "custom-estimate-unverified-2024",
+    "troopOrigin": "official",
+    "troopPromotion": {
+      "group": "mordor",
+      "aliasOf": null,
+      "targets": [],
+      "gate": null
+    }
+  },
+  {
+    "id": "orc_elite_tracker",
+    "name_ko": "오크 정예 추적궁병",
+    "name_en": "Veteran Orc Tracker",
+    "side": "evil",
+    "faction": "mordor",
+    "role": "infantry",
+    "weapon": "bow",
+    "base": "M",
+    "file": "tokens/orc_elite_tracker.png",
+    "sheet": "troop-promotions-20261014",
+    "points": 8,
+    "pointSource": "custom-estimate-unverified-2024",
+    "troopOrigin": "custom",
+    "troopPromotion": {
+      "group": "mordor",
+      "aliasOf": null,
+      "targets": [],
+      "gate": null
+    }
+  }
+]

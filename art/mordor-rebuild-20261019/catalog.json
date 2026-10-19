@@ -1,0 +1,1388 @@
+{
+  "baseline": "3f60319",
+  "trial": "0b46e78",
+  "count": 46,
+  "scalePolicy": "Review-only anatomical landmarks; weapons, plumes, flags and cape edges excluded. No production profiles changed.",
+  "units": [
+    {
+      "id": "orc_sword",
+      "name": "모르도르 오크(검)",
+      "name_en": "Mordor Orc, sword",
+      "role": "infantry",
+      "file": "units/orc_sword.png",
+      "old": "references/old/orc_sword.png",
+      "pose": "마른 체형 · 낮게 돌진",
+      "body": "orc",
+      "profile": {
+        "top": 0.075,
+        "bottom": 0.946,
+        "centerX": 0.547,
+        "centerY": 0.55,
+        "worldReferenceSize": 74.48,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.0234,
+        "bottom": 0.9766,
+        "centerX": 0.4868,
+        "centerY": 0.5,
+        "worldReferenceSize": 76
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "1f8d837f6aca3a073cfcbf4860846efc6025f1f66e173364ba02b7be46deb9d9",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "orc_captain",
+      "name": "오크 대장",
+      "name_en": "Orc Captain",
+      "role": "hero",
+      "file": "units/orc_captain.png",
+      "old": "references/old/orc_captain.png",
+      "pose": "굵은 팔 · 전진 지휘",
+      "body": "orc",
+      "profile": {
+        "top": 0.114,
+        "bottom": 0.943,
+        "centerX": 0.544,
+        "centerY": 0.545,
+        "worldReferenceSize": 77.52,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.2879,
+        "bottom": 1,
+        "centerX": 0.4318,
+        "centerY": 0.6439,
+        "worldReferenceSize": 76
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "4b3d43787adf148a432798a11c7f7791a2312ebadcfb805aa6f42c8fcb2ac32d",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "orc_spearman",
+      "name": "오크 창병",
+      "name_en": "Orc Spearman",
+      "role": "infantry",
+      "file": "units/orc_spearman.png",
+      "old": "references/old/orc_spearman.png",
+      "pose": "굽은 등 · 창 버티기",
+      "body": "orc",
+      "profile": {
+        "top": 0.137,
+        "bottom": 0.883,
+        "centerX": 0.604,
+        "centerY": 0.527,
+        "worldReferenceSize": 76,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.19,
+        "bottom": 0.95,
+        "centerX": 0.5379,
+        "centerY": 0.57,
+        "worldReferenceSize": 76
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "eade36ba3345b82a4ab91de84c77149d0ff9cfb28ff41bc3cf884d5c1ae3aaca",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "orc_archer",
+      "name": "오크 궁수",
+      "name_en": "Orc Archer",
+      "role": "infantry",
+      "file": "units/orc_archer.png",
+      "old": "references/old/orc_archer.png",
+      "pose": "가벼운 장비 · 활 조준",
+      "body": "orc",
+      "profile": {
+        "top": 0.133,
+        "bottom": 0.961,
+        "centerX": 0.527,
+        "centerY": 0.567,
+        "worldReferenceSize": 76,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.12,
+        "bottom": 0.975,
+        "centerX": 0.5778,
+        "centerY": 0.5475,
+        "worldReferenceSize": 76
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "7a8177b5ad27dbddc51ad01e841232505900a6dfddeb550825b06d9439314257",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "morannon_orc",
+      "name": "모라논 오크",
+      "name_en": "Morannon Orc",
+      "role": "infantry",
+      "file": "units/morannon_orc.png",
+      "old": "references/old/morannon_orc.png",
+      "pose": "두꺼운 철갑 · 도끼 내려치기",
+      "body": "orc",
+      "profile": {
+        "top": 0.21,
+        "bottom": 0.965,
+        "centerX": 0.54,
+        "centerY": 0.57,
+        "worldReferenceSize": 79.04,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.01,
+        "bottom": 0.99,
+        "centerX": 0.4375,
+        "centerY": 0.4941,
+        "worldReferenceSize": 76
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "2881214fe0aa7e06d544ffe87acb6e8630d2b2a96f524e7f3da7d66f74069eed",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "warg_rider",
+      "name": "와르그 기병",
+      "name_en": "Warg Rider",
+      "role": "cavalry",
+      "file": "units/warg_rider.png",
+      "old": "references/old/warg_rider.png",
+      "pose": "낮은 기승 · 와르그 돌진",
+      "body": "mounted",
+      "profile": {
+        "top": 0.12,
+        "bottom": 0.38,
+        "centerX": 0.53,
+        "centerY": 0.55,
+        "worldReferenceSize": 39,
+        "reference": "rider",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.09,
+        "bottom": 0.395,
+        "centerX": 0.5312,
+        "centerY": 0.5125,
+        "worldReferenceSize": 39
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "4a2d178d81237255b9b391b390387281b66d18cf58dfabd0969e376e2d06381f",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "mountain_troll",
+      "name": "산악 트롤",
+      "name_en": "Mountain Troll",
+      "role": "monster",
+      "file": "units/mountain_troll.png",
+      "old": "references/old/mountain_troll.png",
+      "pose": "넓은 어깨 · 짧은 다리",
+      "body": "creature",
+      "profile": {
+        "top": 0.165,
+        "bottom": 0.947,
+        "centerX": 0.5,
+        "centerY": 0.55,
+        "worldReferenceSize": 176,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.0586,
+        "bottom": 0.9648,
+        "centerX": 0.4701,
+        "centerY": 0.5117,
+        "worldReferenceSize": 176
+      },
+      "sourceWidth": 1229,
+      "sourceHeight": 1280,
+      "sourceSHA256": "35d20275d2c250f27c903f8954731865b895a6fa0c3b8e832994cf1cad08fd65",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "shelob",
+      "name": "셀로브",
+      "name_en": "Shelob",
+      "role": "monster",
+      "file": "units/shelob.png",
+      "old": "references/old/shelob.png",
+      "pose": "거대한 배 · 여덟 다리",
+      "body": "creature",
+      "profile": {
+        "top": 0.02,
+        "bottom": 0.95,
+        "centerX": 0.53,
+        "centerY": 0.53,
+        "worldReferenceSize": 186,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.0547,
+        "bottom": 0.9297,
+        "centerX": 0.4961,
+        "centerY": 0.4922,
+        "worldReferenceSize": 186
+      },
+      "sourceWidth": 1312,
+      "sourceHeight": 1199,
+      "sourceSHA256": "cfaa00083bbf3a7ba416a87d38fe41988d655bfff1eb8661a3a67d4dd104c18d",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "sauron",
+      "name": "사우론",
+      "name_en": "Sauron",
+      "role": "hero",
+      "file": "units/sauron.png",
+      "old": "references/old/sauron.png",
+      "pose": "거대한 중갑 · 철퇴와 반지",
+      "body": "large-human",
+      "profile": {
+        "top": 0.18,
+        "bottom": 0.94,
+        "centerX": 0.53,
+        "centerY": 0.56,
+        "worldReferenceSize": 144,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.155,
+        "bottom": 0.97,
+        "centerX": 0.513,
+        "centerY": 0.5625,
+        "worldReferenceSize": 144
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "e5b6d261361f7d5bb85dfb901297285ee8e8082e90aee99a8582f7013888bdcb",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "morgul_knight",
+      "name": "모르굴 기사",
+      "name_en": "Morgul Knight",
+      "role": "cavalry",
+      "file": "units/morgul_knight.png",
+      "old": "references/old/morgul_knight.png",
+      "pose": "인간 기수 · 창을 내린 기마",
+      "body": "mounted",
+      "profile": {
+        "top": 0.13,
+        "bottom": 0.38,
+        "centerX": 0.53,
+        "centerY": 0.54,
+        "worldReferenceSize": 50,
+        "reference": "rider",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.18,
+        "bottom": 0.82,
+        "centerX": 0.5,
+        "centerY": 0.5,
+        "worldReferenceSize": 86
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "50f29302db8d27e6d6986b8e0126fe2a8e147c7bd4adffaa0af5f9c4effc3542",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "orc_sword2",
+      "name": "오크(검)",
+      "name_en": "Orc, sword",
+      "role": "infantry",
+      "file": "units/orc_sword2.png",
+      "old": "references/old/orc_sword2.png",
+      "pose": "작은 체형 · 가로 베기 준비",
+      "body": "orc",
+      "profile": {
+        "top": 0.075,
+        "bottom": 0.932,
+        "centerX": 0.528,
+        "centerY": 0.539,
+        "worldReferenceSize": 72.2,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.0234,
+        "bottom": 0.9766,
+        "centerX": 0.4868,
+        "centerY": 0.5,
+        "worldReferenceSize": 76
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "c7a3cfaf5d8fefac78e4cd01d290de7e666d620d9350a8a9753323695ca7cc7d",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "orc_swordshield",
+      "name": "오크(검방)",
+      "name_en": "Orc, sword & shield",
+      "role": "infantry",
+      "file": "units/orc_swordshield.png",
+      "old": "references/old/orc_swordshield.png",
+      "pose": "두꺼운 몸통 · 방패 밀기",
+      "body": "orc",
+      "profile": {
+        "top": 0.119,
+        "bottom": 0.92,
+        "centerX": 0.528,
+        "centerY": 0.55,
+        "worldReferenceSize": 76,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.0547,
+        "bottom": 0.9453,
+        "centerX": 0.457,
+        "centerY": 0.5,
+        "worldReferenceSize": 76
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "40c332117916911828eab79bf6307fb52f7dbabec8c53015149bcc753b504904",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "orc_spear2",
+      "name": "오크(창)",
+      "name_en": "Orc, spear",
+      "role": "infantry",
+      "file": "units/orc_spear2.png",
+      "old": "references/old/orc_spear2.png",
+      "pose": "가느다란 체형 · 창 경계",
+      "body": "orc",
+      "profile": {
+        "top": 0.197,
+        "bottom": 0.951,
+        "centerX": 0.53,
+        "centerY": 0.58,
+        "worldReferenceSize": 76,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.19,
+        "bottom": 0.95,
+        "centerX": 0.5379,
+        "centerY": 0.57,
+        "worldReferenceSize": 76
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "8f42de38251b14650c2aea1afa4b4a22d2c5b39c52c8ad22a0a0cf8896dd1203",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "orc_twohanded",
+      "name": "오크(양손도끼)",
+      "name_en": "Orc, two-handed axe",
+      "role": "infantry",
+      "file": "units/orc_twohanded.png",
+      "old": "references/old/orc_twohanded.png",
+      "pose": "굵은 팔과 허리 · 양손도끼",
+      "body": "orc",
+      "profile": {
+        "top": 0.27,
+        "bottom": 0.952,
+        "centerX": 0.585,
+        "centerY": 0.6,
+        "worldReferenceSize": 76,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.0547,
+        "bottom": 0.9531,
+        "centerX": 0.4795,
+        "centerY": 0.5182,
+        "worldReferenceSize": 76
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "5695af3399813bccb3278f8731c8abac7b0820a31b9e26c6c087cd8173618786",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "orc_bow",
+      "name": "오크(활)",
+      "name_en": "Orc, bow",
+      "role": "infantry",
+      "file": "units/orc_bow.png",
+      "old": "references/old/orc_bow.png",
+      "pose": "마른 체형 · 화살 꺼내기",
+      "body": "orc",
+      "profile": {
+        "top": 0.202,
+        "bottom": 0.917,
+        "centerX": 0.506,
+        "centerY": 0.588,
+        "worldReferenceSize": 71.44,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.12,
+        "bottom": 0.975,
+        "centerX": 0.5667,
+        "centerY": 0.5475,
+        "worldReferenceSize": 76
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "3651b635f3529c540b9d5d9347a64f6666daad44b46ea43ae9b1ec2026f1542c",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "orc_drummer",
+      "name": "오크 전쟁북",
+      "name_en": "Orc war drummer",
+      "role": "support",
+      "file": "units/orc_drummer.png",
+      "old": "references/old/orc_drummer.png",
+      "pose": "배가 나온 체형 · 북 치기",
+      "body": "orc",
+      "profile": {
+        "top": 0.136,
+        "bottom": 0.964,
+        "centerX": 0.524,
+        "centerY": 0.58,
+        "worldReferenceSize": 76,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.0469,
+        "bottom": 0.957,
+        "centerX": 0.5023,
+        "centerY": 0.4273,
+        "worldReferenceSize": 76
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "7b473296994c3cfaac300c3da0309f9fe38472acd6a151aa82aa17a15ad6647a",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "black_numenorean",
+      "name": "검은 누메노르인(도보)",
+      "name_en": "Black Numenorean on foot",
+      "role": "infantry",
+      "file": "units/black_numenorean.png",
+      "old": "references/old/black_numenorean.png",
+      "pose": "넓은 어깨 · 엄정한 검 경계",
+      "body": "large-human",
+      "profile": {
+        "top": 0.14,
+        "bottom": 0.95,
+        "centerX": 0.51,
+        "centerY": 0.56,
+        "worldReferenceSize": 86,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.0456,
+        "bottom": 0.9856,
+        "centerX": 0.5498,
+        "centerY": 0.5137,
+        "worldReferenceSize": 86
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "5231f019f7735bd9db915569b40691e0e9eface483253263d2e914ed8a4384ed",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "black_numenorean_mounted",
+      "name": "검은 누메노르인(기마)",
+      "name_en": "Black Numenorean mounted",
+      "role": "cavalry",
+      "file": "units/black_numenorean_mounted.png",
+      "old": "references/old/black_numenorean_mounted.png",
+      "pose": "인간 기수 · 중장갑 기마",
+      "body": "mounted",
+      "profile": {
+        "top": 0.11,
+        "bottom": 0.37,
+        "centerX": 0.53,
+        "centerY": 0.54,
+        "worldReferenceSize": 50,
+        "reference": "rider",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.13,
+        "bottom": 0.4,
+        "centerX": 0.57,
+        "centerY": 0.55,
+        "worldReferenceSize": 43
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "ed18fcd3003f63f1eb407ec446e7380c9d9b9b95d0602bab99f205636adeff82",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "orc_tracker",
+      "name": "오크 추적자",
+      "name_en": "Orc Tracker",
+      "role": "infantry",
+      "file": "units/orc_tracker.png",
+      "old": "references/old/orc_tracker.png",
+      "pose": "야윈 체형 · 낮게 추적",
+      "body": "orc",
+      "profile": {
+        "top": 0.17,
+        "bottom": 0.866,
+        "centerX": 0.549,
+        "centerY": 0.55,
+        "worldReferenceSize": 68.4,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.2105,
+        "bottom": 0.9248,
+        "centerX": 0.4773,
+        "centerY": 0.5677,
+        "worldReferenceSize": 76
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "72d67bcfdbaf60be0f68e1477862f2d0757767484f074e8f9e22cfafbdf5ebeb",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "war_troll",
+      "name": "전쟁 트롤",
+      "name_en": "Mordor War Troll",
+      "role": "monster",
+      "file": "units/war_troll.png",
+      "old": "references/old/war_troll.png",
+      "pose": "거대한 중갑 · 방패와 망치",
+      "body": "creature",
+      "profile": {
+        "top": 0.14,
+        "bottom": 0.936,
+        "centerX": 0.53,
+        "centerY": 0.55,
+        "worldReferenceSize": 176,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.0273,
+        "bottom": 0.9688,
+        "centerX": 0.4741,
+        "centerY": 0.498,
+        "worldReferenceSize": 176
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "90ac9be630f02eab18a8ed6ccc7f7b6f88c02e4faed49fd41acbfffb963e9641",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "black_guard",
+      "name": "바라드두르 흑근위",
+      "name_en": "Black Guard of Barad-dur",
+      "role": "infantry",
+      "file": "units/black_guard.png",
+      "old": "references/old/black_guard.png",
+      "pose": "건장한 체형 · 중갑 경계",
+      "body": "uruk",
+      "profile": {
+        "top": 0.14,
+        "bottom": 0.96,
+        "centerX": 0.515,
+        "centerY": 0.55,
+        "worldReferenceSize": 98,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.1914,
+        "bottom": 0.918,
+        "centerX": 0.4531,
+        "centerY": 0.5547,
+        "worldReferenceSize": 98
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "4a938819458bebded968074f9e0197f75da0cd8afcebbdf19646efb805f1c725",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "orc_taskmaster",
+      "name": "오크 두목",
+      "name_en": "Orc Taskmaster",
+      "role": "hero",
+      "file": "units/orc_taskmaster.png",
+      "old": "references/old/orc_taskmaster.png",
+      "pose": "굵은 허리 · 채찍 지휘",
+      "body": "orc",
+      "profile": {
+        "top": 0.18,
+        "bottom": 0.96,
+        "centerX": 0.54,
+        "centerY": 0.57,
+        "worldReferenceSize": 76,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.0588,
+        "bottom": 0.9569,
+        "centerX": 0.4961,
+        "centerY": 0.5078,
+        "worldReferenceSize": 76
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "24e474e66b41cc3f794495b8ce0462c7f3313bb7259ce32daafba509d5499f41",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "mouth_of_sauron",
+      "name": "사우론의 입(기마)",
+      "name_en": "Mouth of Sauron",
+      "role": "hero",
+      "file": "units/mouth_of_sauron.png",
+      "old": "references/old/mouth_of_sauron.png",
+      "pose": "입이 드러난 투구 · 검은 기마",
+      "body": "mounted",
+      "profile": {
+        "top": 0.09,
+        "bottom": 0.36,
+        "centerX": 0.52,
+        "centerY": 0.54,
+        "worldReferenceSize": 50,
+        "reference": "rider",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.15,
+        "bottom": 0.45,
+        "centerX": 0.55,
+        "centerY": 0.52,
+        "worldReferenceSize": 43
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "93ed4ead4885a1c01b62e0c7f2327d248e7d4cee80be4273c920239c40708446",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "gothmog",
+      "name": "고스모그",
+      "name_en": "Gothmog",
+      "role": "hero",
+      "file": "units/gothmog.png",
+      "old": "references/old/gothmog.png",
+      "pose": "비대한 체형 · 비대칭 얼굴과 팔",
+      "body": "orc",
+      "profile": {
+        "top": 0.075,
+        "bottom": 0.955,
+        "centerX": 0.52,
+        "centerY": 0.54,
+        "worldReferenceSize": 76,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.2171,
+        "bottom": 0.986,
+        "centerX": 0.5985,
+        "centerY": 0.6075,
+        "worldReferenceSize": 76
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "03d7098dee9f084aff4e557bbbd7af5212853d0c780b997e86f792762cee1667",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "olog_hai",
+      "name": "올로그하이",
+      "name_en": "Olog-hai",
+      "role": "monster",
+      "file": "units/olog_hai.png",
+      "old": "references/old/olog_hai.png",
+      "pose": "두꺼운 중갑 · 양손 망치",
+      "body": "creature",
+      "profile": {
+        "top": 0.16,
+        "bottom": 0.949,
+        "centerX": 0.53,
+        "centerY": 0.55,
+        "worldReferenceSize": 176,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.0234,
+        "bottom": 0.9766,
+        "centerX": 0.464,
+        "centerY": 0.5,
+        "worldReferenceSize": 176
+      },
+      "sourceWidth": 1211,
+      "sourceHeight": 1299,
+      "sourceSHA256": "1e6b54536bed3b1459003f68832668f9cb7aced189b9ae015b6187612fc948df",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "shagrat",
+      "name": "샤그랏",
+      "name_en": "Shagrat",
+      "role": "hero",
+      "file": "units/shagrat.png",
+      "old": "references/old/shagrat.png",
+      "pose": "근육질 어깨 · 키리스 웅골 방패",
+      "body": "uruk",
+      "profile": {
+        "top": 0.15,
+        "bottom": 0.945,
+        "centerX": 0.52,
+        "centerY": 0.55,
+        "worldReferenceSize": 99.96,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.0273,
+        "bottom": 0.9805,
+        "centerX": 0.4816,
+        "centerY": 0.5039,
+        "worldReferenceSize": 98
+      },
+      "sourceWidth": 1205,
+      "sourceHeight": 1305,
+      "sourceSHA256": "2bcbf1b3419d95ecd888203db0f6890f6a28720ac93a66ac3ab3db2322a6733d",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "gorbag",
+      "name": "고르바그",
+      "name_en": "Gorbag",
+      "role": "hero",
+      "file": "units/gorbag.png",
+      "old": "references/old/gorbag.png",
+      "pose": "작고 질긴 체형 · 검과 원형 방패",
+      "body": "orc",
+      "profile": {
+        "top": 0.1,
+        "bottom": 0.94,
+        "centerX": 0.53,
+        "centerY": 0.56,
+        "worldReferenceSize": 72.96,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.0352,
+        "bottom": 0.9766,
+        "centerX": 0.5042,
+        "centerY": 0.5059,
+        "worldReferenceSize": 76
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "9f5022295ab579ba198fee8ad37d5d74adb8a42244582c93874076d973c40993",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "werewolf",
+      "name": "웨어울프",
+      "name_en": "Werewolf",
+      "role": "beast",
+      "file": "units/werewolf.png",
+      "old": "references/old/werewolf.png",
+      "pose": "굽은 등 · 발톱 돌진",
+      "body": "creature",
+      "profile": {
+        "top": 0.08,
+        "bottom": 0.96,
+        "centerX": 0.53,
+        "centerY": 0.55,
+        "worldReferenceSize": 152,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.285,
+        "bottom": 0.94,
+        "centerX": 0.4953,
+        "centerY": 0.6125,
+        "worldReferenceSize": 152
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "c6656a0225fcdb6bcaab8604779fcb34931c16d5fa57f070ce00c300bceb18ab",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "kardush",
+      "name": "카두쉬 화염술사",
+      "name_en": "Kardush the Firecaller",
+      "role": "hero",
+      "file": "units/kardush.png",
+      "old": "references/old/kardush.png",
+      "pose": "배가 나온 체형 · 화염 주술",
+      "body": "orc",
+      "profile": {
+        "top": 0.13,
+        "bottom": 0.94,
+        "centerX": 0.5,
+        "centerY": 0.55,
+        "worldReferenceSize": 81.7,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.105,
+        "bottom": 0.95,
+        "centerX": 0.4924,
+        "centerY": 0.5275,
+        "worldReferenceSize": 86
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "7ff1ae00f15d04b3e4ec0b1f9758f467306ed6fe619a5b6dce4a57a5bbac788a",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "morgul_stalker",
+      "name": "모르굴 추적자",
+      "name_en": "Morgul Stalker",
+      "role": "infantry",
+      "file": "units/morgul_stalker.png",
+      "old": "references/old/morgul_stalker.png",
+      "pose": "마른 체형 · 양손 단검",
+      "body": "orc",
+      "profile": {
+        "top": 0.045,
+        "bottom": 0.955,
+        "centerX": 0.51,
+        "centerY": 0.54,
+        "worldReferenceSize": 76,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.0352,
+        "bottom": 0.957,
+        "centerX": 0.5146,
+        "centerY": 0.4961,
+        "worldReferenceSize": 76
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "f91afd4e2eb77917ad7de9b6734adf5fd0fda94a9a7fbecc5888fad1123b0490",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "numenorean_marshal",
+      "name": "검은 누메노르 사령관",
+      "name_en": "Black Numenorean Marshal",
+      "role": "hero",
+      "file": "units/numenorean_marshal.png",
+      "old": "references/old/numenorean_marshal.png",
+      "pose": "큰 체격 · 검을 내린 지휘",
+      "body": "large-human",
+      "profile": {
+        "top": 0.09,
+        "bottom": 0.94,
+        "centerX": 0.5,
+        "centerY": 0.55,
+        "worldReferenceSize": 86,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.0127,
+        "bottom": 0.99,
+        "centerX": 0.4118,
+        "centerY": 0.498,
+        "worldReferenceSize": 86
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "57aa78b89f9768f7bdb6ac78aacdc832b1bac07c3903cdfc9a3ef26ab9b13ea7",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "grishnakh",
+      "name": "그리쉬나크",
+      "name_en": "Grishnakh",
+      "role": "hero",
+      "file": "units/grishnakh.png",
+      "old": "references/old/grishnakh.png",
+      "pose": "굽은 등 · 앞으로 움켜쥐기",
+      "body": "orc",
+      "profile": {
+        "top": 0.09,
+        "bottom": 0.96,
+        "centerX": 0.52,
+        "centerY": 0.54,
+        "worldReferenceSize": 72.96,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.0356,
+        "bottom": 0.9723,
+        "centerX": 0.4961,
+        "centerY": 0.504,
+        "worldReferenceSize": 76
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "ea3ac4201f62a104c16a2f04a7ce07315fdf95090276931dcdee880fba4c481d",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "guritz",
+      "name": "구리츠",
+      "name_en": "Guritz",
+      "role": "hero",
+      "file": "units/guritz.png",
+      "old": "references/old/guritz.png",
+      "pose": "해골 장식 투구 · 양손 곡괭이",
+      "body": "orc",
+      "profile": {
+        "top": 0.16,
+        "bottom": 0.94,
+        "centerX": 0.52,
+        "centerY": 0.54,
+        "worldReferenceSize": 80.56,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.0312,
+        "bottom": 0.9648,
+        "centerX": 0.4646,
+        "centerY": 0.498,
+        "worldReferenceSize": 76
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "1ef596dd0e5bf9bd2486a5099c8b342f85acf08351278eaa26f661bafa20f99b",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "great_beast_gorgoroth",
+      "name": "고르고로스 거수",
+      "name_en": "Great Beast of Gorgoroth",
+      "role": "monster",
+      "file": "units/great_beast_gorgoroth.png",
+      "old": "references/old/great_beast_gorgoroth.png",
+      "pose": "거대한 몸체 · 궁수 탑승 누각",
+      "body": "creature",
+      "profile": {
+        "top": 0.32,
+        "bottom": 0.97,
+        "centerX": 0.53,
+        "centerY": 0.61,
+        "worldReferenceSize": 264,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.0234,
+        "bottom": 0.9609,
+        "centerX": 0.4824,
+        "centerY": 0.4922,
+        "worldReferenceSize": 264
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "91d106a4437e4b4dc40050bc6e5b8113faff0e873432623c073970bdd7b38872",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "mordor_uruk",
+      "name": "모르도르 우르크",
+      "name_en": "Mordor Uruk",
+      "role": "infantry",
+      "file": "units/mordor_uruk.png",
+      "old": "references/old/mordor_uruk.png",
+      "pose": "근육질 체형 · 거친 중장갑",
+      "body": "uruk",
+      "profile": {
+        "top": 0.2,
+        "bottom": 0.948,
+        "centerX": 0.55,
+        "centerY": 0.55,
+        "worldReferenceSize": 98,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.0938,
+        "bottom": 0.9258,
+        "centerX": 0.4804,
+        "centerY": 0.5098,
+        "worldReferenceSize": 98
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "847b30493d98a4ace293794fcd10867f281e42c126a55cb2a22b9aa4a28ad9fc",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "morgul_orc",
+      "name": "모르굴 오크",
+      "name_en": "Morgul Orc",
+      "role": "infantry",
+      "file": "units/morgul_orc.png",
+      "old": "references/old/morgul_orc.png",
+      "pose": "마른 체형 · 굽은 검",
+      "body": "orc",
+      "profile": {
+        "top": 0.055,
+        "bottom": 0.96,
+        "centerX": 0.52,
+        "centerY": 0.55,
+        "worldReferenceSize": 76,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.01,
+        "bottom": 0.99,
+        "centerX": 0.4649,
+        "centerY": 0.498,
+        "worldReferenceSize": 76
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "70a71e73620a0dd325260740067199ce956a2a7da58437e8fe75f85f9fc93a41",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "morgul_rat",
+      "name": "모르굴 추적병",
+      "name_en": "Morgul Rat",
+      "role": "infantry",
+      "file": "units/morgul_rat.png",
+      "old": "references/old/morgul_rat.png",
+      "pose": "작은 체형 · 낮게 잠입",
+      "body": "orc",
+      "profile": {
+        "top": 0.1,
+        "bottom": 0.93,
+        "centerX": 0.53,
+        "centerY": 0.56,
+        "worldReferenceSize": 68.4,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.0352,
+        "bottom": 0.957,
+        "centerX": 0.4854,
+        "centerY": 0.4961,
+        "worldReferenceSize": 76
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "349d17df22372d8e9f2508bf1a876bb59b61aa2c97042de9a2cb108f56209755",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "ufthak",
+      "name": "우프탁",
+      "name_en": "Ufthak",
+      "role": "hero",
+      "file": "units/ufthak.png",
+      "old": "references/old/ufthak.png",
+      "pose": "두꺼운 상체 · 무거운 양손 검",
+      "body": "orc",
+      "profile": {
+        "top": 0.075,
+        "bottom": 0.945,
+        "centerX": 0.53,
+        "centerY": 0.55,
+        "worldReferenceSize": 76,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.0586,
+        "bottom": 0.9492,
+        "centerX": 0.4948,
+        "centerY": 0.5039,
+        "worldReferenceSize": 76
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "7fdfe6de650ea88eee4a528c33cb53956cd114349c2118a15dab874daa6a870b",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "orc_sergeant",
+      "name": "오크 하사",
+      "name_en": "Orc Sergeant",
+      "role": "hero",
+      "file": "units/orc_sergeant.png",
+      "old": "references/old/orc_sergeant.png",
+      "pose": "마른 노병 · 전진 지시",
+      "body": "orc",
+      "profile": {
+        "top": 0.16,
+        "bottom": 0.95,
+        "centerX": 0.53,
+        "centerY": 0.56,
+        "worldReferenceSize": 76,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.2408,
+        "bottom": 0.99,
+        "centerX": 0.5215,
+        "centerY": 0.5773,
+        "worldReferenceSize": 76
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "29c93014994de17d56bb2cb0b57e57e641eb0661287a5147d65a17f7db022006",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "annatar",
+      "name": "안나타르",
+      "name_en": "Annatar, Lord of Gifts",
+      "role": "hero",
+      "file": "units/annatar.png",
+      "old": "references/old/annatar.png",
+      "pose": "가느다란 체형 · 반지 제시",
+      "body": "human",
+      "profile": {
+        "top": 0.07,
+        "bottom": 0.95,
+        "centerX": 0.5,
+        "centerY": 0.55,
+        "worldReferenceSize": 98,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.047,
+        "bottom": 0.9765,
+        "centerX": 0.48,
+        "centerY": 0.5137,
+        "worldReferenceSize": 98
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "dece0e954185242f473cc167da8e13962e0c0c9d2866c37f9f554a6266f72de7",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "sauron_wolf",
+      "name": "사우론 (늑대)",
+      "name_en": "Sauron, wolf form",
+      "role": "hero",
+      "file": "units/sauron_wolf.png",
+      "old": "references/old/sauron_wolf.png",
+      "pose": "낮은 어깨 · 검은 늑대 형상",
+      "body": "creature",
+      "profile": {
+        "top": 0.025,
+        "bottom": 0.95,
+        "centerX": 0.52,
+        "centerY": 0.53,
+        "worldReferenceSize": 152,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.0352,
+        "bottom": 0.9648,
+        "centerX": 0.5714,
+        "centerY": 0.5045,
+        "worldReferenceSize": 152
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "9acf637ed290d6aacf5cbbae28752fe6298e46b946cedf8903fb3e0306107e31",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "morgul_duellist",
+      "name": "모르굴 결투사",
+      "name_en": "Morgul Duellist",
+      "role": "infantry",
+      "file": "units/morgul_duellist.png",
+      "old": "references/old/morgul_duellist.png",
+      "pose": "가느다란 허리 · 쌍검 경계",
+      "body": "human",
+      "profile": {
+        "top": 0.077,
+        "bottom": 0.945,
+        "centerX": 0.53,
+        "centerY": 0.55,
+        "worldReferenceSize": 86,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.0352,
+        "bottom": 0.957,
+        "centerX": 0.4509,
+        "centerY": 0.4961,
+        "worldReferenceSize": 86
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "fac63f8c62d681d6b75244b272dee37a29439bcb1da194b590c7fbe554083987",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "troll_shaman",
+      "name": "트롤 주술사",
+      "name_en": "Troll Shaman",
+      "role": "monster",
+      "file": "units/troll_shaman.png",
+      "old": "references/old/troll_shaman.png",
+      "pose": "거대한 몸체 · 뼈 장식 주술",
+      "body": "creature",
+      "profile": {
+        "top": 0.19,
+        "bottom": 0.975,
+        "centerX": 0.53,
+        "centerY": 0.58,
+        "worldReferenceSize": 176,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.125,
+        "bottom": 0.95,
+        "centerX": 0.5288,
+        "centerY": 0.5909,
+        "worldReferenceSize": 176
+      },
+      "sourceWidth": 1219,
+      "sourceHeight": 1290,
+      "sourceSHA256": "ba89931860353a07503c6e9240ed2d4fd64004ff4e7674065523cefc0b558ed2",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "guritz_mounted",
+      "name": "구리츠(와르그)",
+      "name_en": "Guritz, warg rider",
+      "role": "hero",
+      "file": "units/guritz_mounted.png",
+      "old": "references/old/guritz_mounted.png",
+      "pose": "해골 투구 · 와르그 기승",
+      "body": "mounted",
+      "profile": {
+        "top": 0.14,
+        "bottom": 0.39,
+        "centerX": 0.52,
+        "centerY": 0.55,
+        "worldReferenceSize": 39,
+        "reference": "rider",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.02,
+        "bottom": 0.3679,
+        "centerX": 0.5069,
+        "centerY": 0.495,
+        "worldReferenceSize": 39
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "d8653203b6c13bbe0099d2bdf06048da73f333d15ac0d81f57bef89764031491",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "morannon_swordshield",
+      "name": "모라논 오크 검방",
+      "name_en": "Morannon Orc with sword and shield",
+      "role": "infantry",
+      "file": "units/morannon_swordshield.png",
+      "old": "references/old/morannon_swordshield.png",
+      "pose": "두꺼운 철갑 · 방패 돌진",
+      "body": "orc",
+      "profile": {
+        "top": 0.086,
+        "bottom": 0.925,
+        "centerX": 0.51,
+        "centerY": 0.54,
+        "worldReferenceSize": 79.04,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.02,
+        "bottom": 0.97,
+        "centerX": 0.5,
+        "centerY": 0.55,
+        "worldReferenceSize": 76
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "b6d8dce2016c55b3d8874042666512d3f7e85efc6b96f622a46cc77ac98c9d8b",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    },
+    {
+      "id": "orc_elite_tracker",
+      "name": "오크 정예 추적궁병",
+      "name_en": "Veteran Orc Tracker",
+      "role": "infantry",
+      "file": "units/orc_elite_tracker.png",
+      "old": "references/old/orc_elite_tracker.png",
+      "pose": "마른 노병 · 추적궁 준비",
+      "body": "orc",
+      "profile": {
+        "top": 0.11,
+        "bottom": 0.957,
+        "centerX": 0.53,
+        "centerY": 0.56,
+        "worldReferenceSize": 76,
+        "reference": "body",
+        "referenceAxis": "height"
+      },
+      "oldProfile": {
+        "top": 0.02,
+        "bottom": 0.97,
+        "centerX": 0.5,
+        "centerY": 0.55,
+        "worldReferenceSize": 76
+      },
+      "sourceWidth": 1199,
+      "sourceHeight": 1312,
+      "sourceSHA256": "c6ddbabddc127a8ecd12cba2b8480b33d9029f13ceea85554e9d1a73987c1221",
+      "review": "individual visual camera, compact anatomy, gear and body landmarks"
+    }
+  ]
+}
