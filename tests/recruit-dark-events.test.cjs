@@ -85,7 +85,7 @@ test('production beginRound schedules a warning then spawns next round; stage tr
     const h=field(),q=h.q;q.wave=12;q.round=3;q.rng=()=>0;q.current.ids=['orc_sword'];q.spawn('orc_sword','evil',{x:1200,y:1300});
     q.beginRound();assert.equal(q.round,4);assert.equal(q.darkPending?.id,'warg_scouts');assert.equal(q.alive('evil').some(u=>u._darkInfil),false);
     q.beginRound();assert.equal(q.round,5);assert.equal(q.alive('evil').filter(u=>u._darkInfil).length,3);assert.equal(q.darkHistory.length,1);
-    q.phase='preparation';q.next={n:13,ids:['orc_sword'],modifier:'clear',mission:'annihilation'};q.startWave();assert.equal(q._darkEvent,false);assert.equal(q.darkActive,null);assert.equal(q.darkHistory.length,1);
+    q.phase='preparation';q.pointLimit=Math.max(300,q.rosterPoints());q.next={n:13,ids:['orc_sword'],modifier:'clear',mission:'annihilation'};q.startWave();assert.equal(q._darkEvent,false);assert.equal(q.darkActive,null);assert.equal(q.darkHistory.length,1);
 });
 test('old/new saves, retries and fresh starts preserve or reset only the intended history',()=>{
     const h=field(),q=h.q;q.phase='preparation';q.darkHistory=[{id:'warg_scouts',tier:1,wave:4}];q.recruitHistory=['elf_bow'];

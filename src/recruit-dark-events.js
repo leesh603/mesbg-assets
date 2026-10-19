@@ -94,11 +94,11 @@ P.darkUnitPower=function(u){
         (1+(t.includes('flying')?.18:0)+(t.includes('terror')?.10:0)+(BOSS_TACTICS[u.id]?.12:0));
 };
 P.darkContext=function(){
-    const party=this.permanent(),allies=this.alive('good'),foes=this.alive('evil');
+    const allies=this.alive('good'),party=allies.filter(u=>!u.temporary),foes=this.alive('evil');
     const health=allies.reduce((n,u)=>n+u.currentWounds,0)/Math.max(1,allies.reduce((n,u)=>n+u.stats.wounds,0));
     const power=party.reduce((n,u)=>n+this.darkUnitPower(u),0),enemy=foes.reduce((n,u)=>n+this.darkUnitPower(u),0);
     const leaderThreat=foes.some(u=>u.traits.includes('boss')||BOSS_TACTICS[u.id]&&this.darkUnitPower(u)>=150);
-    return {power,enemy,health,points:this.rosterPoints(),progress:this.runProgress(),
+    return {power,enemy,health,points:(this.deployedPoints?this.deployedPoints():this.rosterPoints()),progress:this.runProgress(),
         safe:allies.length>=2&&health>=.60&&!(this.stageDeaths>0)&&!this._brokenGood&&!this.current?.boss&&!leaderThreat&&!this.delayed?.length};
 };
 P.darkEventEligible=function(event,ctx=this.darkContext()){

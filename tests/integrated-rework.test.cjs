@@ -148,7 +148,8 @@ q.start('ai');q.units=[];q.initialDraft=false;q.phase='reward';q.campStep='recru
 for(let i=0;i<q.capacity()+1;i++)q.spawn('mt_swordshield','good',{x:500,y:500});
 q.recruitOffers=[{id:'mt_spear'}];q.recruitDraft=[];
 const beforeSkip={gold:q.gold,count:q.units.length};
-assert.equal(q.toggleRecruit(0),false);assert.equal(q.commitRecruits(),true);
+assert.equal(q.toggleRecruit(0),true);q.recruitDraft=[];assert.equal(q.commitRecruits(),true);
 assert.equal(q.campStep,'relic');assert.equal(q.gold,beforeSkip.gold);assert.equal(q.units.length,beforeSkip.count);
-q.campStep='recruit';q.recruitDraft=[0];assert.equal(q.commitRecruits(),false);
+q.campStep='recruit';q.recruitDraft=[0];assert.equal(q.commitRecruits(),true);assert.equal(q.units.length,beforeSkip.count+1);assert(q.units.at(-1).inReserve);
 console.log('PASS: over-capacity event armies can skip recruitment without losing units or gold');
+

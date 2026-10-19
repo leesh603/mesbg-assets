@@ -60,6 +60,12 @@ if(ea<0||eb<ea)throw Error('Recruit/dark-event markers not found');
 src=src.slice(0,ea+encounterBegin.length)+'\n'+fs.readFileSync(path.join(ROOT,'src','recruit-dark-events.js'),'utf8')+'\n'+src.slice(eb);
 fs.writeFileSync(SRC,src);
 
+const deployBegin='/*__WARBAND_DEPLOYMENT_BEGIN__*/',deployEnd='/*__WARBAND_DEPLOYMENT_END__*/';
+const da=src.indexOf(deployBegin),db=src.indexOf(deployEnd);
+if(da<0||db<da)throw Error('Deployment module markers not found');
+src=src.slice(0,da+deployBegin.length)+'\n'+fs.readFileSync(path.join(ROOT,'src','warband-deployment.js'),'utf8')+'\n'+src.slice(db);
+fs.writeFileSync(SRC,src);
+
 const a = html.indexOf(BEGIN), b = html.indexOf(END);
 if (a < 0 || b < 0 || b < a) {
   console.error('markers not found in', INDEX);
