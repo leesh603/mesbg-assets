@@ -1,0 +1,21 @@
+{
+  "id": "witchking_foot_mace",
+  "revision": "gw-direct-v3",
+  "blobSHA": "04b986fc256908b8506f5ffbb9b43b1762563880",
+  "sourceSHA256": "c1f5de29ddd8ae2f6d854dbda986fe0be7459a38d799e1dd8ee11dde9ab28718",
+  "png": {
+    "width": 1199,
+    "height": 1312,
+    "colorType": 6,
+    "byteLength": 1129984
+  },
+  "referencePhotos": [
+    "references/gw-witchking/official-model-detail.jpg",
+    "references/gw-witchking/official-model-options.jpg"
+  ],
+  "prompt": "Produce ONE finished Witch-king of Angmar on-foot sprite by DIRECTLY TRANSLATING THE EXACT GAMES WORKSHOP MINIATURE IN REFERENCE3 into this game's pixel style. NO design interpretation, no generic fantasy substitute. REFERENCE3 is the official GW photograph with helmet closeup bottom right and flail closeup top right: reproduce THAT EXACT HELMET AND SHOULDER PIECE geometry faithfully. Reference1 ONLY specifies pixel texture/outline tone; ref2 ONLY specifies game's fixed HIGH-ANGLE FRONT25–30deg camera and compact FIVE-HEAD adult humanoid skeleton. Do not copy ref2's Gondor helmet or armour.\nHELMET: meticulously follow official GW closeup: extremely tall straight central triangular forehead blade, much shorter upright pegs and HORIZONTALLY PROJECTING side spikes forming a low ring, a SOLID SILVER/AGED-IRON BROW MASK with TWO SEPARATE OVAL/ANGLED BLACK EYE HOLES, the large empty black mouth/face opening below them, and two thin long jaw/cheek flanges descending to points. Copy eye-hole spacing, metal bridge over nose, proportions and open mouth silhouette from the photographed GW closeup. NOT the prior smooth V/Y-shaped faceless mask, NOT five tall swept-back antlers, NOT an empty hood with separate crown, NOT Sauron's helmet. Weathered light iron exactly like GW photo, black recesses.\nSHOULDERS: copy GW model's COMPACT weathered silver fluted/channeled shoulder plate (viewerLEFT), with curved lobed ridges and dark recesses, sitting on top of BLACK ROBE. Copy opposite covered shoulder as photographed. Do not replace it with all cloth and do not invent broad stacked leaf-scale pauldrons. Preserve black robes, rope-like belt details, long flowing ragged hem almost covering both legs, small toe tips under hem, narrow armoured gauntlets. No exposed giant shin armour or generic armoured skirt.\nPOSE AND WEAPONS: preserve GW model's open stance, sword in viewerLEFT hand angled diagonally upper-left, flail in viewerRIGHT hand raised near shoulder, chain hanging to the GW's specific spiked flail head: tall conical neck and angular radially spiked heavy lower head, COPY exact weapon from closeup. Body is FIVE heads from anatomical skull to soles excluding helmet spike, large-human class; near frontal viewed DOWN as ref2, head/shoulder tops visible; do NOT preserve miniature photo eye-level camera. Keep official design; only adapt camera, skeleton proportion and pixel technique.\nMatch approved Gondor crisp hand-placed pixel clusters and dark outline with restrained charcoal cloth and weathered iron stepped shades. No airbrushing, painterly blur, photoreal miniature surface, diorama, stone texture, logo/watermark, text, collage, UI, base, floor, ground shadow or extra characters. ENTIRE helmet top, sword tip, hanging flail, robe hem and toes inside8% clear margins. Transparent RGBA canvas, alpha0 outside sprite. Render single full sprite only.",
+  "priorV2Rejected": true,
+  "visualReview": true,
+  "approval": "awaiting-user-review",
+  "inGame": false
+}

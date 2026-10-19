@@ -174,10 +174,10 @@
       "original": "tokens/witchking_foot_mace.png",
       "source": "mordor",
       "path": "art/mordor-rebuild-20261019/units/witchking_foot_mace.png",
-      "blobSHA": "9a88efa0260e54870b0679ca4bc7a8dde31c9fed",
+      "blobSHA": "04b986fc256908b8506f5ffbb9b43b1762563880",
       "status": "restored_review_asset",
       "visualReviewThisSession": true,
-      "revision": "witchking-design-v2"
+      "revision": "gw-direct-v3"
     },
     {
       "id": "nazgul_sword",
@@ -5147,7 +5147,7 @@
   },
   "revisionRequests": {
     "witchking": {
-      "reason": "사용자 불합격: 투구·어깨갑옷 디자인",
+      "reason": "사용자 재불합격: 이전 재해석 폐기. GW 공식 모델 사진 그대로, 특히 투구 직접 재현",
       "ids": [
         "witchking_foot_mace",
         "witchking_mounted",
@@ -5156,13 +5156,15 @@
         "witchking_foot"
       ],
       "revised": [
-        "witchking_foot_mace",
+        "witchking_foot_mace"
+      ],
+      "remaining": [
         "witchking_mounted",
         "witchking_mounted_sheet",
         "witchking_fellbeast",
         "witchking_foot"
       ],
-      "remaining": []
+      "reference": "art/full-roster-night-rebuild-20261019/references/gw-witchking/official-model-detail.jpg"
     }
   }
 }
