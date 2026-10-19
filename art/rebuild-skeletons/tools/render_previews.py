@@ -30,7 +30,7 @@ def sprite(dest, path, profile, position, zoom=3):
     return {'scale': scale, 'drawRect': [x, y, *sz]}
 
 def plate(records, folder, filename, title, zoom=3):
-    cw, ch = 384, 490
+    cw, ch = 384, 560
     im = Image.new('RGB', (cw * 5, ch * 2 + 90), BG)
     d = ImageDraw.Draw(im)
     d.text((25, 18), title, font=font(25), fill='#ead6ac')
@@ -38,9 +38,9 @@ def plate(records, folder, filename, title, zoom=3):
     for i, rec in enumerate(records):
         x, y = i % 5 * cw, 90 + i // 5 * ch
         d.rectangle((x+5, y+5, x+cw-5, y+ch-5), outline='#4d574f')
-        sprite(im, ROOT / folder / (rec['id']+'.png'), rec, (x+cw/2, y+225), zoom)
-        d.text((x+18, y+424), rec['label'], font=font(19), fill='#f2ead9')
-        d.text((x+18, y+454), str(rec['worldReferenceSize'])+' world px / '+rec['reference'], font=font(16), fill='#aebda9')
+        sprite(im, ROOT / folder / (rec['id']+'.png'), rec, (x+cw/2, y+260), zoom)
+        d.text((x+18, y+500), rec['label'], font=font(19), fill='#f2ead9')
+        d.text((x+18, y+532), str(rec['worldReferenceSize'])+' world px / '+rec['reference'], font=font(16), fill='#aebda9')
     im.save(OUT / filename, optimize=True)
 
 def main():
@@ -51,7 +51,7 @@ def main():
     plate(bases, 'bases', 'standard-bodies.png', 'STANDARD BODIES / final high-angle front 3/4 camera')
     plate(units, 'test-units', 'ten-units.png', 'TEN TRIAL UNITS / Theoden pixel-style reference')
 
-    cw, ch = 790, 440
+    cw, ch = 790, 515
     im = Image.new('RGB', (cw*2, ch*5+70), BG)
     d = ImageDraw.Draw(im)
     d.text((24,18),'CURRENT ASSET vs NEW TEMPLATE DERIVATIVE / shared world zoom',font=font(23),fill='#ead6ac')
@@ -59,11 +59,11 @@ def main():
         x, y = i%2*cw, 70+i//2*ch
         d.rectangle((x+5,y+5,x+cw-5,y+ch-5),outline='#4d574f')
         d.text((x+18,y+12),rec['label'],font=font(20),fill='#f2ead9')
-        d.text((x+140,y+45),'CURRENT',font=font(16),fill='#c7b09c')
-        d.text((x+535,y+45),'NEW',font=font(16),fill='#adc5a8')
-        sprite(im,ROOT/'references'/(rec['id']+'.png'),old[rec['id']],(x+195,y+230),2.65)
-        sprite(im,ROOT/'test-units'/(rec['id']+'.png'),rec,(x+595,y+230),2.65)
-        d.text((x+18,y+408),'Body-centred; source aspect ratios preserved',font=font(14),fill='#9daba0')
+        d.text((x+140,y+445),'CURRENT',font=font(16),fill='#c7b09c')
+        d.text((x+535,y+445),'NEW',font=font(16),fill='#adc5a8')
+        sprite(im,ROOT/'references'/(rec['id']+'.png'),old[rec['id']],(x+195,y+265),2.4)
+        sprite(im,ROOT/'test-units'/(rec['id']+'.png'),rec,(x+595,y+265),2.4)
+        d.text((x+18,y+480),'Body-centred; source aspect ratios preserved',font=font(14),fill='#9daba0')
     im.save(OUT/'old-vs-new.png',optimize=True)
 
     # Production terrain bytes, copied unchanged; this is a placement study,
