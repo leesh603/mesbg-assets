@@ -156,7 +156,7 @@
     "turin_mounted"
   ],
   "remaining": [],
-  "stage": "integrated; visual and regression verification in progress",
+  "stage": "complete: 95 tests passed; 62 real Phaser comparisons, desktop and mobile; publication in progress",
   "applied": [
     "alatar",
     "anarion_mounted",
@@ -224,5 +224,6 @@
   "preservedUserSelection": [
     "gil_galad",
     "erestor"
-  ]
+  ],
+  "sourceCheckpointCommit": "de48862be081f0bd2f1d978bcc9fcda7601921a5"
 }

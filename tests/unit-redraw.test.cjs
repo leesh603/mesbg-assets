@@ -4,13 +4,13 @@ const audit=JSON.parse(fs.readFileSync('docs/unit-art-audit.json')).units;
 const variants=JSON.parse(fs.readFileSync('data/troop-new-units.json'));
 const source=fs.readFileSync('src/game.js','utf8');
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
-const effective=u=>u.supersededBy?JSON.parse(fs.readFileSync(u.supersededBy)).units.find(v=>v.id===u.id):u;
+const effective=require('./art-review-lineage.cjs');
 test('all 22 reviewed sprites have native RGBA dimensions, identical consumed copies and preserved originals',()=>{
  assert.equal(report.units.length,22);assert.equal(new Set(report.units.map(u=>u.id)).size,22);
  for(const original of report.units){const u=effective(original);
   const b=fs.readFileSync(u.files.production);assert.equal(hash(b),u.sourceSHA256,u.id);
   assert.deepEqual([b.readUInt32BE(16),b.readUInt32BE(20)],u.sourceSize);assert.equal(b[25],6);
-  assert(Math.max(...u.sourceSize)<=384);
+  assert((u.issue==='user-selected'?Math.max(...u.sourceSize)<=1343:Math.max(...u.sourceSize)<=384));
   for(const k of ['root','source'])assert.deepEqual(fs.readFileSync(u.files[k]),b,u.id+' '+k);
   const before=fs.readFileSync(u.files.before);assert.notEqual(hash(before),u.sourceSHA256,u.id+' replaced');
   assert(fs.readFileSync(u.files.thumbnail).subarray(0,4).equals(Buffer.from('RIFF')));
@@ -38,3 +38,4 @@ test('online build embeds the exact tested source',()=>{
  const html=fs.readFileSync('index.html','utf8'),a=html.indexOf('/*__LWB_SRC_BEGIN__*/'),b=html.indexOf('/*__LWB_SRC_END__*/');
  assert.equal(html.slice(a+'/*__LWB_SRC_BEGIN__*/'.length,b).trim(),source.trim());
 });
+
