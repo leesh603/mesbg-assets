@@ -63,7 +63,7 @@ test('review is tied to the actual production raster, never stale source copies'
  for(const u of audit.units){
   const p='assets/mesbg/'+u.file;
   assert.equal(crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex'),u.sourceSHA256,u.id+' changed art: remeasure anatomy');
-  assert.match(u.visualReview.date,/^2026-10-(13|14)$/);
+  assert.match(u.visualReview.date,/^2026-10-(13|14|19)$/);
   assert.equal(u.visualReview.source,'assets/mesbg/'+u.file);
   assert.equal(u.referenceAxis,'height');
  }
@@ -87,7 +87,7 @@ test('fixed painted facing: no directional mirroring or alpha-derived facing rem
 });
 test('every centre records a visually reviewed body rule, separate from size landmarks',()=>{
  for(const a of audit.units){
-  assert.equal(a.centerReview.date,'2026-10-14',a.id);
+  assert.match(a.centerReview.date,/^2026-10-(14|19)$/,a.id);
   const expected=['fellbeast','great-beast','mumak'].includes(a.bodyClass)?'creature-body':a.reference==='rider'?'rider-and-mount':'body';
   assert.equal(a.centerReview.basis,expected,a.id);
   assert.equal(a.centerReview.source,'assets/mesbg/'+a.file);

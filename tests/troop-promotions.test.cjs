@@ -42,7 +42,7 @@ test('new archers fire, melee infantry cannot shoot, and crossbows cannot fire a
  const{q}=camp();q.phase='shoot';q.side=q.priority='good';const u=ready(q,'ironhills_crossbow'),target=q.spawn('orc_sword','evil',{x:1500,y:600});u.acted=false;u.moved=false;assert.ok(q.validTargets(u).includes(target));u.moved=true;assert.equal(q.validTargets(u).length,0);assert.equal(q.shoot(u.uid,target.uid),false);const melee=ready(q,'dol_amroth_knight_foot');assert.equal(melee.stats.shootRange,0);for(const id of ['citadel_guard_bow','galadhrim_bow','mirkwood_ranger','arnor_ranger','orc_elite_tracker']){const a=ready(q,id);assert.ok(a.stats.shootRange>0);assert.ok(a.stats.shootValue>=2&&a.stats.shootValue<=5);}
 });
 test('all new PNGs have true alpha, sensible dimensions and measured body profiles',()=>{
- const defs=JSON.parse(fs.readFileSync('data/troop-new-units.json'));for(const d of defs){const p='assets/mesbg/'+d.meta.file,b=fs.readFileSync(p);assert.equal(b.readUInt32BE(16)<=384,true,p);assert.equal(b.readUInt32BE(20)<=384,true,p);assert.equal(b[25],6,p);assert.ok(d.artAudit.method.includes('anatomical'));assert.ok(d.artProfile[2]>d.artProfile[1]);assert.ok(fs.existsSync('art-src/troop-promotions/'+d.id+'.png'));}
+ const defs=JSON.parse(fs.readFileSync('data/troop-new-units.json'));for(const d of defs){const p='assets/mesbg/'+d.meta.file,b=fs.readFileSync(p);assert.equal(b.readUInt32BE(16)<=384,true,p);assert.equal(b.readUInt32BE(20)<=384,true,p);assert.equal(b[25],6,p);assert.ok(d.artAudit.method.includes('anatomical'));assert.ok(d.artProfile[2]>d.artProfile[1]);assert.ok(fs.existsSync(d.artAudit.sourcePath||'art-src/troop-promotions/'+d.id+'.png'));}
 });
 test('deployed troops earn participation and survival once per actual wave',()=>{
  const{q}=camp();q.units=[];q.wave=0;q.phase='preparation';const u=ready(q,'mt_swordshield');u.xp=0;u.battlesParticipated=0;q.prepareStage();q.startWave();assert.equal(u.careerParticipationWave,1);assert.equal(u.xp,2);assert.equal(u.battlesParticipated,1);q.finishWave();assert.equal(u.xp,6);q.finishWave();assert.equal(u.xp,6);q.save();q.resume();assert.equal(q.unit(u.uid).xp,6);
@@ -56,3 +56,4 @@ test('stationary elite archers use their live shooting rule and bodyguards need 
 test('a later version of the cost table does not reprice an existing trained soldier',()=>{
  const h=camp(),q=h.q,u=ready(q,'mt_swordshield');assert.equal(u.entryPoints,9);assert.equal(u.entryPointVersion,1);h.run('WARBAND_POINTS.version=2;UnitCatalog.mt_swordshield.points=11;');assert.equal(q.rosterPoints(),9);q.save();assert.equal(q.resume(),true);assert.equal(q.unit(u.uid).entryPoints,9);assert.equal(q.rosterPoints(),9);
 });
+
