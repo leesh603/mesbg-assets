@@ -1,6 +1,6 @@
 # 전체 에셋 재제작 — 재개 기록
 
-캐릭터510종: 기존 곤도르59+모르도르73 검토본132종 복구 + 로한 신규15종 = 저장된 검토본147종, 미완료363종. 지형77종과 중복 시험작은 완료 수에 합산하지 않습니다.
+캐릭터510종: 기존 곤도르59+모르도르73 검토본132종 복구 + 로한 신규20종 = 저장된 검토본152종, 미완료358종. 지형77종과 중복 시험작은 완료 수에 합산하지 않습니다.
 
 [신규 원화 검토 갤러리](index.html) · [전체 진행표](checkpoint.json) · [곤도르](../gondor-rebuild-20261019/review/index.html) · [모르도르](../mordor-rebuild-20261019/gallery.html)
 
@@ -8,4 +8,4 @@
 
 몸체·기수 기준점은 수동 추정 검토값입니다. 실제 게임 크기·소환·브라우저 및 알파 픽셀 전체 검사는 실행 환경 복구 후 필요합니다. 완성 승인 전 검토 원화이며 운영 에셋을 교체하지 않았습니다. main 병합·배포하지 않았습니다.
 
-다음5개 ID: elfhelm, elfhelm_mounted, theodred, hama, deorwine.
+다음5개 ID: grimbold, harding, rohan_royal_guard_mounted, dunhere, haleth.

@@ -1,0 +1,191 @@
+{
+  "batch": 4,
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "elfhelm",
+      "name": "엘프헬름",
+      "role": "hero",
+      "faction": "rohan",
+      "path": "art/full-roster-night-rebuild-20261019/units/elfhelm.png",
+      "blobSHA": "31c94380be08fc0ee82b6d80e32d9bf65d71eb83",
+      "png": {
+        "width": 1199,
+        "height": 1312,
+        "colorType": 6,
+        "byteLength": 924866
+      },
+      "original": "tokens/elfhelm.png",
+      "profile": {
+        "top": 0.15,
+        "bottom": 0.955,
+        "centerX": 0.54,
+        "centerY": 0.55,
+        "size": 86,
+        "reference": "body",
+        "referenceAxis": "height",
+        "measurement": "manual approximate landmarks; in-game comparison pending"
+      },
+      "review": {
+        "visual": true,
+        "camera": "high-angle front",
+        "humanAnatomy": "compact adult shared five-head basis",
+        "poseDistinct": true,
+        "allExtremitiesVisible": true,
+        "approval": "pending",
+        "inGameVerified": false,
+        "alphaPixelValidation": false
+      },
+      "generationPrompt": "Redraw ONLY ref3 ELFHELM ON FOOT as ONE complete isolated clean transparent PIXEL tactical sprite. Ref1 controls established Theoden palette and pixel clusters; ref2 approved Gondor controls exact HIGH-ANGLE FRONT25–30deg downward camera and human FIVE-HEAD compact adult anatomy. Helmet dome/shoulder/boot tops visible, near front slight diagonal, never eye-level flat front or side. Keep mature Rohirrim marshal's plain steel gold-trimmed nasal helm with SHORT pale horsehair tuft, green short cloak and tunic, grey chainmail, leather straps, green round white-horse shield, straight steel sword. Human lean wiry veteran, narrower waist than Erkenbrand but same5-head body length; no long shins. Distinct alert counterguard: feet apart in a gentle pivot toward viewer LEFT, shield held high diagonally across viewer RIGHT shoulder, sword held CLOSE along viewer LEFT side pointing vertically DOWN beside boot; tip visible well above bottom edge, no overhead/long sweeping sword or walking stride. Correct separate legs, hands and hilt grip. Crisp dark outline/stepped hand pixel clusters, restrained green/steel/brown/gold/cream palette, no soft painting/blur. Full tuft/shield/cape/sword/boots within8% margin, torso centered independently from equipment. Alpha0 outside silhouette, no floor/base/shadow/haze/glow/backdrop, no text/UI/other figures.",
+      "correctionPrompt": null
+    },
+    {
+      "id": "elfhelm_mounted",
+      "name": "엘프헬름(기마)",
+      "role": "hero",
+      "faction": "rohan",
+      "path": "art/full-roster-night-rebuild-20261019/units/elfhelm_mounted.png",
+      "blobSHA": "1c69fac61e229ef84cb5c96ae8979d69146c91a7",
+      "png": {
+        "width": 1199,
+        "height": 1312,
+        "colorType": 6,
+        "byteLength": 1222418
+      },
+      "original": "tokens/elfhelm_mounted.png",
+      "profile": {
+        "top": 0.055,
+        "bottom": 0.37,
+        "centerX": 0.55,
+        "centerY": 0.55,
+        "size": 43,
+        "reference": "rider",
+        "referenceAxis": "height",
+        "measurement": "manual approximate landmarks; in-game comparison pending"
+      },
+      "review": {
+        "visual": true,
+        "camera": "high-angle front",
+        "humanAnatomy": "compact adult shared five-head basis",
+        "poseDistinct": true,
+        "allExtremitiesVisible": true,
+        "approval": "pending",
+        "inGameVerified": false,
+        "alphaPixelValidation": false
+      },
+      "generationPrompt": "ONE ELFHELM MOUNTED on chestnut horse, redraw ONLY third reference. Ref1 Theoden pixel style and ref2 approved mounted camera/body mandatory. HIGH-ANGLE FRONT camera25–30deg DOWN, crown/shoulder tops/horse back visible, near-front slight diagonal, never eye-level front or side. Compact FIVE-HEAD human skeleton if dismounted; rider at full adult size, same shared normal human head and seated torso scale as mounted baseline, not tiny rider or stretched long horse. Mature marshal, grey steel nasal helmet with subtle gold rim and SHORT ivory tuft matching his foot version, green cloak and gold-edged green mail tunic, leather boots, green round white horse shield on viewer RIGHT. Distinct controlled maneuver pose: horse leans into a slow turn toward viewer LEFT with three planted hooves and one forehoof raised, rider keeps torso upright and sword DOWN near horse's viewer-left shoulder, straight blade pointing diagonally lower-left but clearing horse; other hand holds reins with shield strapped forearm. Horse anatomically coherent4 legs, one head/two ears, correct saddle/thighs/stirrups/reins. Plain captain tack green/brown/gold not king's elaborate royal fur. Crisp hand pixel clusters, earthy green/steel/brown/cream with dark outline and stepped shading. Every hoof, tail, tuft and sword inside frame with8% margins. Rider-and-mount body center, no base/ground/shadow/background halo/haze/glow/text/UI/extra figures. Empty outside silhouette fully alpha0.",
+      "correctionPrompt": null
+    },
+    {
+      "id": "theodred",
+      "name": "테오드레드",
+      "role": "hero",
+      "faction": "rohan",
+      "path": "art/full-roster-night-rebuild-20261019/units/theodred.png",
+      "blobSHA": "741dd45fe8097f0e03564874f46af6a09df8661f",
+      "png": {
+        "width": 1199,
+        "height": 1312,
+        "colorType": 6,
+        "byteLength": 1159929
+      },
+      "original": "tokens/theodred.png",
+      "profile": {
+        "top": 0.17,
+        "bottom": 0.975,
+        "centerX": 0.56,
+        "centerY": 0.57,
+        "size": 86,
+        "reference": "body",
+        "referenceAxis": "height",
+        "measurement": "manual approximate landmarks; in-game comparison pending"
+      },
+      "review": {
+        "visual": true,
+        "camera": "high-angle front",
+        "humanAnatomy": "compact adult shared five-head basis",
+        "poseDistinct": true,
+        "allExtremitiesVisible": true,
+        "approval": "pending",
+        "inGameVerified": false,
+        "alphaPixelValidation": false
+      },
+      "generationPrompt": "ONE THEODRED ON FOOT from character3. Reference1 Theoden pixel style, ref2 approved Gondor HIGH-ANGLE FRONT25–30deg downward camera and compact FIVE-HEAD ADULT human skeleton. Show crown of hair, shoulder and boot tops; near-front slight diagonal depth, not flat eye-level frontal or side. Bareheaded young adult prince with short thick BLOND hair, no helmet, clean-shaven, green cloak and gold-edged green white-horse tabard, steel chainmail and modest plate knee/shin guards, brown leather boots/belt. Keep round green white-horse shield on viewer RIGHT and straight steel sword on viewer LEFT as ref3. Slightly leaner/youthful adult build, human5-head body length NOT child/chibi or long7head legs. DISTINCT dynamic low defensive stance: knees bent, rear heel planted, shield angled inward toward chest while right hand draws sword diagonally BACK UP toward upper left in short compact preparation; no overhead stretched arm, no walking crosslegs. Eyes obscured partly by downward camera/hair but clear natural face. Crisp hand-pixel stepped clusters, dark outlines, restrained green/gold/brown/steel/blond palette, not smooth painting/blur/vector gradients. Full equipment/boots/cape/blade tip inside8% margin, torso centered independent of sword bounds. Pure transparent RGBA all outside pixels alpha0, no base/ground/cast shadow/glow/haze/text/UI/extra figure.",
+      "correctionPrompt": null
+    },
+    {
+      "id": "hama",
+      "name": "하마",
+      "role": "hero",
+      "faction": "rohan",
+      "path": "art/full-roster-night-rebuild-20261019/units/hama.png",
+      "blobSHA": "63c5b36fe2c0d019dd364538429076be2686af87",
+      "png": {
+        "width": 1199,
+        "height": 1312,
+        "colorType": 6,
+        "byteLength": 892759
+      },
+      "original": "tokens/hama.png",
+      "profile": {
+        "top": 0.04,
+        "bottom": 0.97,
+        "centerX": 0.52,
+        "centerY": 0.53,
+        "size": 86,
+        "reference": "body",
+        "referenceAxis": "height",
+        "measurement": "manual approximate landmarks; in-game comparison pending"
+      },
+      "review": {
+        "visual": true,
+        "camera": "high-angle front",
+        "humanAnatomy": "compact adult shared five-head basis",
+        "poseDistinct": true,
+        "allExtremitiesVisible": true,
+        "approval": "pending",
+        "inGameVerified": false,
+        "alphaPixelValidation": false
+      },
+      "generationPrompt": "ONE HAMA ON FOOT (third reference), clean isolated PIXEL tactical sprite. Ref1 sets Theoden pixel tone and ref2 approved Gondor dictates STRICT HIGH-ANGLE FRONT25–30deg looking DOWN and compact FIVE-HEAD ADULT body, top of helmet/shoulders/boots visible, not eye-level flat front or side. Preserve Hama's plain polished steel gold-edged Rohirrim nasal helm, long brown moustache with forked tips, green short mantle/tabard with gold trim and white horse chest mark, chainmail sleeves, brown leather bracers/boots, straight steel sword. Round green white-horse shield SLUNG ON BACK behind viewer-right shoulder, no shield in hands. Middle-aged human with sturdy belly/shoulders but same5-head height, not fat caricature or long6–8head legs. Distinct doorward sentry pose: planted open stance, sword point down centered in front with RIGHT hand viewerLEFT on hilt, left hand viewerRIGHT extended downward with open palm requesting halt, not king's high hand gesture. One knee mildly bent, feet apart and uncrossed. Correct hands, clean straight sword continuous from hilt. Crisp stepped pixel clusters and dark outline, limited green/gold/steel/brown palette, no soft gradients/painting/vector look. Full sword and shield rim/boots fit within8% margin, body centered. Pure transparent outside silhouette, no base/floor/shadow/glow/haze/backdrop/text/UI/additional figure.",
+      "correctionPrompt": null
+    },
+    {
+      "id": "deorwine",
+      "name": "데오르바인",
+      "role": "hero",
+      "faction": "rohan",
+      "path": "art/full-roster-night-rebuild-20261019/units/deorwine.png",
+      "blobSHA": "3c0bf3c3d8dba543a0e50ccd3e2213e5c73911a1",
+      "png": {
+        "width": 1199,
+        "height": 1312,
+        "colorType": 6,
+        "byteLength": 1185214
+      },
+      "original": "tokens/deorwine.png",
+      "profile": {
+        "top": 0.08,
+        "bottom": 0.96,
+        "centerX": 0.52,
+        "centerY": 0.54,
+        "size": 86,
+        "reference": "body",
+        "referenceAxis": "height",
+        "measurement": "manual approximate landmarks; in-game comparison pending"
+      },
+      "review": {
+        "visual": true,
+        "camera": "high-angle front",
+        "humanAnatomy": "compact adult shared five-head basis",
+        "poseDistinct": true,
+        "allExtremitiesVisible": true,
+        "approval": "pending",
+        "inGameVerified": false,
+        "alphaPixelValidation": false
+      },
+      "generationPrompt": "ONE DEORWINE ON FOOT, redraw third reference only. Ref1 fixes Theoden pixel colour/outline; ref2 approved Gondor fixes strict HIGH-ANGLE FRONT25–30deg DOWN and compact FIVE-HEAD adult human skeleton. Visible helmet dome/shoulders/boot tops, near front slight diagonal depth, no eye-level flat front or side. Preserve distinctive GOLD ROHIRRIM HELMET with small pale side wing ornaments, dark brown beard/moustache visible, reddish-brown mantle/cape, gold lamellar armour over dark mail, green white horse chest tabard, green round white-horse shield viewerRIGHT, straight sword viewerLEFT. Mature broad sturdy guard, slightly thicker waist within SAME5-head human stature, not king redcrest/fur and not7head limbs. DISTINCT shieldward stance: one knee advanced with feet parallel apart, round shield held LOW outside hip to viewer right, sword held ACROSS upper body with hilt near viewerLEFT ribs and straight blade pointing diagonally UPPER RIGHT above shield, compact practical guarding angle. Correct grip and uncrossed legs. No repeated vertical-down sword/walking pose. Crisp hand-pixel clusters and dark outlines, restrained gold/steel/green/russet/brown/cream stepped palette, no painterly gradients/blur. Entire ornaments/sword tip/cape/boots in frame with8% margins. Body centered by torso excluding weapon/ornaments, transparent RGBA alpha0 outside silhouette. No base/ground/shadow/haze/glow/backdrop/text/UI/extra figure.",
+      "correctionPrompt": null
+    }
+  ]
+}

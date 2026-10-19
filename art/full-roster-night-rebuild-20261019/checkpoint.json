@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-19T23:02:43.456Z",
+  "updatedAt": "2026-10-19T23:11:31.602Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 363,
-    "newlyGeneratedThisSession": 15,
-    "visuallyReviewedThisSession": 15,
+    "pending": 358,
+    "newlyGeneratedThisSession": 20,
+    "visuallyReviewedThisSession": 20,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 15,
-    "persistedReviewAssets": 147
+    "generatedReviewAssets": 20,
+    "persistedReviewAssets": 152
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
   "sources": [
@@ -44,11 +44,11 @@
   "resume": {
     "nextAction": "Continue remaining Rohan IDs through direct reference-image reads and image_gen; save in 5–10-asset commits. Game integration and browser checks wait for executable environment.",
     "nextIds": [
-      "elfhelm",
-      "elfhelm_mounted",
-      "theodred",
-      "hama",
-      "deorwine"
+      "grimbold",
+      "harding",
+      "rohan_royal_guard_mounted",
+      "dunhere",
+      "haleth"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
@@ -2631,8 +2631,12 @@
       "faction": "rohan",
       "role": "hero",
       "original": "tokens/elfhelm.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "image_gen",
+      "path": "art/full-roster-night-rebuild-20261019/units/elfhelm.png",
+      "blobSHA": "31c94380be08fc0ee82b6d80e32d9bf65d71eb83",
+      "inGameVerified": false
     },
     {
       "id": "elfhelm_mounted",
@@ -2640,8 +2644,12 @@
       "faction": "rohan",
       "role": "hero",
       "original": "tokens/elfhelm_mounted.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "image_gen",
+      "path": "art/full-roster-night-rebuild-20261019/units/elfhelm_mounted.png",
+      "blobSHA": "1c69fac61e229ef84cb5c96ae8979d69146c91a7",
+      "inGameVerified": false
     },
     {
       "id": "warg_rider_spear",
@@ -2829,8 +2837,12 @@
       "faction": "rohan",
       "role": "hero",
       "original": "tokens/theodred.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "image_gen",
+      "path": "art/full-roster-night-rebuild-20261019/units/theodred.png",
+      "blobSHA": "741dd45fe8097f0e03564874f46af6a09df8661f",
+      "inGameVerified": false
     },
     {
       "id": "hama",
@@ -2838,8 +2850,12 @@
       "faction": "rohan",
       "role": "hero",
       "original": "tokens/hama.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "image_gen",
+      "path": "art/full-roster-night-rebuild-20261019/units/hama.png",
+      "blobSHA": "63c5b36fe2c0d019dd364538429076be2686af87",
+      "inGameVerified": false
     },
     {
       "id": "deorwine",
@@ -2847,8 +2863,12 @@
       "faction": "rohan",
       "role": "hero",
       "original": "tokens/deorwine.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "image_gen",
+      "path": "art/full-roster-night-rebuild-20261019/units/deorwine.png",
+      "blobSHA": "3c0bf3c3d8dba543a0e50ccd3e2213e5c73911a1",
+      "inGameVerified": false
     },
     {
       "id": "grimbold",
