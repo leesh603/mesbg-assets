@@ -1,23 +1,53 @@
-# Standard body / ten-unit trial — work in progress
+# 표준 바디 + 신규 10유닛 시험 제작
 
-Repository: leesh603/mesbg-assets  
-Base main: 3f60319f2a02b5837f456ac1a6b241c0dac047e7  
-Branch: art/standard-bodies-10-unit-trial-20261019
+- 저장소: `leesh603/mesbg-assets`
+- 기준 main: `3f60319f2a02b5837f456ac1a6b241c0dac047e7`
+- 브랜치: `art/standard-bodies-10-unit-trial-20261019`
+- 운영 에셋/게임 코드 수정 없음. main 병합·배포 없음.
 
-This isolated experiment does not change game assets or game code. No main merge or deployment is authorized.
+## 최종 시점 기준
 
-## Construction reference
+**하이 앵글 프론트 3/4 픽셀아트. 정면에 가까운 약한 사선, 약 20~30도 위에서 내려다보는 구도. 인간형 5등신 중심. 머리·어깨·몸통·발의 윗면이 자연스럽게 보인다.**
 
-The supplied Theoden foot sprite is the pixel-style, stout-body and proportion reference. The initial athletic body and subsequent frontal body were rejected. They are not valid templates.
+첨부 세오덴 도보가 화풍·픽셀톤·체형의 최우선 기준이다. 제작 중 검토한 긴 팔다리의 운동선수형 바디와 강한 측면 회전 버전은 최종 기준에서 제외했다. 이번 폴더의 최종 파일만 검토한다.
 
-The revised human body has a visible torso side plane, offset front belt buckle, receding far shoulder, turned pelvis and aligned boot direction. All head, torso and pelvis planes must share the same elevated down-left three-quarter view. A turned face above a frontal torso is a rejection.
+## 제작 방식
 
-Bodies are neutral clothed shape templates, not anatomical skeleton drawings or animation rigs. Image generation uses these references; it cannot guarantee mechanically identical joints. Each derivative still requires visual landmark review.
+1. 무장 없는 회색 기본 복장으로 종족별 체형 템플릿 제작.
+2. 해당 템플릿을 이미지 편집의 첫 번째 구조 참조로 사용.
+3. 첨부 세오덴은 화풍, 운영 유닛은 복장·무장·문양만 참고.
+4. 완성 원본을 비등방 변형하거나 몸체 일부를 늘이지 않음.
+5. 크기·정렬은 별도로 기록한 머리/발/골반 및 몸체 중심으로 계산.
 
-## Planned deliverables
+이는 **2D 래스터 체형 템플릿 실험**이며 공유 관절을 강제로 고정하는 3D/스켈레탈 리그가 아니다. 생성 파생은 자세와 세부 관절을 완전히 고정하지 못하므로 바디와 파생 유닛의 육안 대조가 여전히 필요하다. 생성 이미지를 단순히 일괄 크기 조정했다고 체형 통일로 판정하지 않는다.
 
-- `bases/`: hobbit, dwarf, dwarf on boar, human, human on horse, orc, goblin, elf, large human, Uruk-hai.
-- `test-units/`: Frodo, Gimli, Dain on boar, Minas Tirith warrior, Theoden mounted, Glorfindel foot, Mordor orc, Moria goblin, Witch-king foot, Uruk-hai warrior.
-- `previews/`: bodies, ten units, old/new comparisons, terrain placement.
+## 구성
 
-Human body correction is checkpointed first. This checkpoint is not a completed ten-unit delivery.
+- `bases/`: 호빗, 드워프, 드워프 멧돼지 기마, 인간, 인간 기마, 오크, 고블린, 엘프, 큰 인간, 우루크하이.
+- `test-units/`: 프로도, 김리, 다인 멧돼지 기마, 미나스 티리스 병사, 세오덴 기마, 글로르핀델 도보, 모르도르 오크, 모리아 고블린, 위치킹 도보, 우루크하이 검방.
+- `references/`: 공급된 세오덴 및 기준 main의 기존 유닛·지형 파일. 원본 변경 없음.
+- `measurements.json`: 수동 검토한 크기 기준/몸체 중심. 무기·깃·망토는 크기 기준에서 제외.
+- `old-profiles.json`: 기준 main의 기존 렌더 프로필과 세오덴 기마 별도 측정값.
+- `prompts.json`: 최종 생성 지시문과 바디→유닛 연결.
+- `tools/render_previews.py`: 동일 월드 배율 비교 이미지 재생성.
+- `verification.json`: PNG 개수·해상도·투명 배경·여백·해시 검사 기록. 이것만으로 미술 품질을 합격 처리하지 않음.
+
+## 비교 프리뷰
+
+`previews/review.html`에서 모아 볼 수 있다.
+
+1. `standard-bodies.png`: 표준 바디 모음.
+2. `ten-units.png`: 신규 10종 모음.
+3. `old-vs-new.png`: 기존/신규, 같은 월드 배율 비교.
+4. `terrain-placement.png`: 운영 지형 위 제작용 배치 미리보기.
+
+지형 배치 이미지는 운영 지형 원본과 제안 렌더 크기로 만든 **배치 검토용 합성**이다. 본게임 교체나 실제 전투 검증을 했다는 뜻이 아니다.
+
+## 적용 전 남은 검토
+
+- 사용자가 최종 카메라·체형·화풍을 이미지로 판단.
+- 종족별 머리 크기, 갑옷 두께 및 망토가 체형을 과장하는지 추가 대조.
+- 기마의 기수 머리–앉은 골반 및 탈것 몸통 크기를 도보와 함께 확인.
+- 채택할 경우에만 별도 적용 작업에서 운영 프로필·썸네일 갱신 후 실제 전투 화면 검증.
+
+진행 중: 최종 시점 바디 및 파생 유닛 제작/검수 중. 완료 시 파일 개수와 검수 기록을 갱신한다.
