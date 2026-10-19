@@ -1,0 +1,188 @@
+{
+  "batch": 2,
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "rohan_archer",
+      "name": "로한 궁수",
+      "role": "infantry",
+      "faction": "rohan",
+      "path": "art/full-roster-night-rebuild-20261019/units/rohan_archer.png",
+      "blobSHA": "0e1fd49d855d6c1366c4b35f425588c030853b10",
+      "png": {
+        "width": 1199,
+        "height": 1312,
+        "colorType": 6,
+        "byteLength": 938199
+      },
+      "original": "tokens/rohan_archer.png",
+      "profile": {
+        "top": 0.175,
+        "bottom": 0.955,
+        "centerX": 0.51,
+        "centerY": 0.565,
+        "size": 86,
+        "reference": "body",
+        "referenceAxis": "height",
+        "measurement": "manual approximate landmarks; game comparison pending"
+      },
+      "review": {
+        "visual": true,
+        "camera": "high-angle front",
+        "humanAnatomy": "compact adult shared five-head basis",
+        "poseDistinct": true,
+        "allExtremitiesVisible": true,
+        "approval": "pending",
+        "inGameVerified": false,
+        "alphaPixelValidation": false
+      },
+      "generationPrompt": "ONE ROHAN ARCHER infantry game sprite, redraw ONLY character3. Ref1 controls pixel style, ref2 newly approved Gondor standard controls mandatory high-angle FRONT view looking down25–30degrees and EXACT compact FIVE-HEAD adult anatomy. Camera stays fixed regardless of action: see helmet dome, shoulder tops and boot tops, near front slight diagonal depth, never side or flat eye-level frontal. Lean rangy adult Rohirrim archer, simple nasal steel helm and brown hair, forest-green cloak, brown leather jerkin over short chainmail, narrow belt, worn brown boots, quiver high behind right shoulder. No shield or sword in hands. Distinct ACTION pose: preparing a shot, left arm on viewer RIGHT extends wooden self-bow diagonally forward to right, right hand on viewer LEFT at upper chest draws a clearly nocked arrow just short of cheek; bowstring physically joins both tips and drawing fingers, one arrow rests on bow, not a pile of spare floating shafts. Maintain FRONT torso without side-profile archery, legs apart grounded with one knee mildly bent. Body crown-to-soles five heads; lean body via narrower chest not long limbs. Match ref2 crisp hand-placed chunky pixel clusters, dark brown-black edges, stepped limited olive/forest green, brown leather and restrained grey metal shades. No painterly texture or smooth gradients, no realistic illustration. Whole bow, arrow, quiver and entire body fully in frame with generous margin. Body/pelvis centered, not bow bounds. Transparent RGBA background; no floor, base, cast shadow, text/UI, frame, other characters or montage."
+    },
+    {
+      "id": "eomer",
+      "name": "에오메르(기마)",
+      "role": "hero",
+      "faction": "rohan",
+      "path": "art/full-roster-night-rebuild-20261019/units/eomer.png",
+      "blobSHA": "6738e2fcf952d67e6607553f07d797624080785e",
+      "png": {
+        "width": 1199,
+        "height": 1312,
+        "colorType": 6,
+        "byteLength": 1034840
+      },
+      "original": "tokens/eomer.png",
+      "profile": {
+        "top": 0.17,
+        "bottom": 0.45,
+        "centerX": 0.54,
+        "centerY": 0.56,
+        "size": 43,
+        "reference": "rider",
+        "referenceAxis": "height",
+        "measurement": "manual approximate landmarks; game comparison pending"
+      },
+      "review": {
+        "visual": true,
+        "camera": "high-angle front",
+        "humanAnatomy": "compact adult shared five-head basis",
+        "poseDistinct": true,
+        "allExtremitiesVisible": true,
+        "approval": "pending",
+        "inGameVerified": false,
+        "alphaPixelValidation": false
+      },
+      "generationPrompt": "ONE mounted EOMER of Rohan on a muscular chestnut warhorse. Redraw character3, preserving his recognizable RED and gold scale/plate armour, green gold-edged cape, white horsehair crest on tall red/gold Rohirrim helmet, pale long blond hair. Reference1 controls PIXEL palette/outline; reference2 newly approved mounted Theoden controls EXACT mandatory HIGH-ANGLE FRONT camera25–30deg looking down, rider's FIVE-HEAD adult skeleton and correct substantial rider-to-horse ratio. See top helmet, shoulder tops, horse back; near front slight diagonal, NOT eye-level front, NOT side profile. Eomer is a broad-shouldered adult with confident seat, not tiny rider. Distinct pose: horse shifts diagonally forward toward viewer RIGHT with one foreleg lifted in measured step; rider torso turns subtly toward viewer LEFT while remaining visible from above-front; straight sword in his RIGHT hand (viewer LEFT) is raised OUTWARD at shoulder height, blade tips up toward left, a rallying command rather than low cavalry slash. Other hand securely holds reins at saddle. No shield needed. No Theoden white fur beard/crown; preserve Eomer red armour. Anatomically coherent horse four legs, single head, rider knees around saddle, feet in stirrups and reins to bit. Shorten horse depth by high viewing angle rather than shrinking rider. Crisp hard-edged hand-pixel clusters, limited earthy green, deep russet red, cream horsehair, restrained gold, chestnut coat, dark contour. No smooth painting/blur/vector rendering. Full horse/rider/crest/sword entirely within frame with generous margins. Body-and-mount center, transparent RGBA background, no base/ground/shadow/text/UI, no other character."
+    },
+    {
+      "id": "rohan_outrider",
+      "name": "로한 기마궁수",
+      "role": "cavalry",
+      "faction": "rohan",
+      "path": "art/full-roster-night-rebuild-20261019/units/rohan_outrider.png",
+      "blobSHA": "ae8f0bdb6490d2c724a04edb127451e7fb259866",
+      "png": {
+        "width": 1199,
+        "height": 1312,
+        "colorType": 6,
+        "byteLength": 953140
+      },
+      "original": "tokens/rohan_outrider.png",
+      "profile": {
+        "top": 0.08,
+        "bottom": 0.405,
+        "centerX": 0.54,
+        "centerY": 0.55,
+        "size": 43,
+        "reference": "rider",
+        "referenceAxis": "height",
+        "measurement": "manual approximate landmarks; game comparison pending"
+      },
+      "review": {
+        "visual": true,
+        "camera": "high-angle front",
+        "humanAnatomy": "compact adult shared five-head basis",
+        "poseDistinct": true,
+        "allExtremitiesVisible": true,
+        "approval": "pending",
+        "inGameVerified": false,
+        "alphaPixelValidation": false
+      },
+      "generationPrompt": "ONE ROHAN OUTRIDER MOUNTED ARCHER on a light dun horse with dark mane, redraw only reference3. Ref1 defines crisp restrained pixel look; ref2 newly approved mounted baseline defines high-angle FRONT camera looking down25–30deg, near frontal slight diagonal depth, and correct substantial HUMAN rider-to-horse proportions. Clearly see cap top, shoulders top and horse back. No flat eye-level frontal portrait, no side view. Lightly built adult scout, not tiny rider, compact5-head human skeleton if dismounted. Wear plain brown leather cap WITHOUT metal royal helm, tan/brown leather jerkin, muted olive hooded cloak, simple bracers and boots, quiver over right shoulder, no armour plates, no white crest/gold royal scales. Distinct pose from lancer and Eomer: dun horse turns slightly toward viewer LEFT at a slow halted step, rider holds a SHORT WOODEN BOW across front of saddle at waist height, one hand holds bow grip, other prepares ONE arrow to nock; bow not drawn, no sword/lance/shield. Reins loop naturally at pommel, rider thighs on saddle sides with boots correctly in stirrups. Physically coherent four-legged horse, one head, no tangled/crossed legs. Compact horse depth under high angle, do not shrink seated rider. Full body/horse/bow/quiver entirely inside image with generous margin. Crisp hand-pixel stepped clusters matching ref2, muted olive/brown/cream/tan with dark outlines, no smooth painting, blur, photorealism or vector gradients. Transparent RGBA background, no base, ground/shadow, text, frame, UI or extra figures. Center rider-and-mount torso mass, not bow bounds."
+    },
+    {
+      "id": "rohan_banner",
+      "name": "로한 기수",
+      "role": "support",
+      "faction": "rohan",
+      "path": "art/full-roster-night-rebuild-20261019/units/rohan_banner.png",
+      "blobSHA": "b936668b701fd053cfee9bd6d5f795d7337aae89",
+      "png": {
+        "width": 1199,
+        "height": 1312,
+        "colorType": 6,
+        "byteLength": 715302
+      },
+      "original": "tokens/rohan_banner.png",
+      "profile": {
+        "top": 0.33,
+        "bottom": 0.98,
+        "centerX": 0.51,
+        "centerY": 0.68,
+        "size": 86,
+        "reference": "body",
+        "referenceAxis": "height",
+        "measurement": "manual approximate landmarks; game comparison pending"
+      },
+      "review": {
+        "visual": true,
+        "camera": "high-angle front",
+        "humanAnatomy": "compact adult shared five-head basis",
+        "poseDistinct": true,
+        "allExtremitiesVisible": true,
+        "approval": "pending",
+        "inGameVerified": false,
+        "alphaPixelValidation": false,
+        "rejectedAttempts": 2,
+        "correction": "Generated a replacement after two halo-contaminated candidates; only replacement retained."
+      },
+      "generationPrompt": "Redraw only character3, ROHAN BANNER SOLDIER on foot, as a CLEAN HARD-EDGED TRANSPARENT PIXEL GAME CUTOUT with all empty pixels alpha0. Match approved Gondor reference2 EXACT high-angle FRONT camera25–30deg looking down and compact5-head human body, reference1 Theoden stepped pixel style. Single adult soldier with human head/body proportions, never include banner/white helmet crest in five-head measurement. Plain iron gold-trimmed nasal helm with small pale horsehair tuft, green tunic and short green cloak, chainmail sleeves, sturdy brown boots. A modest dark green white-horse flag with gold corners on staff held upright in his RIGHT hand on viewer LEFT. Flag is SMALLER than previous large versions: roughly torso-width, above and to viewer left of head, entirely inside frame. Left hand rests on sheathed sword grip at belt, feet spread in relaxed balanced stance, uncrossed legs. This differs from all preceding weapon poses. Keep all sprite surfaces opaque and crisp. Only the character, solid wood pole and solid cloth flag exist; outside their exact silhouettes is completely empty transparent canvas. Flat even sprite lighting, hard pixel edges, dark contour, muted earthy green/steel/brown/gold/cream, 3–4 stepped shades per material. No environment lighting, no luminous pixels outside edges, no background of any color, no shadow, no ground/base, no atmosphere/soft effects/vignette, no text/UI, no collage. Entire sprite with comfortable space around boots and flag; center BODY by torso, not flag bounds. Full finished single PNG sprite."
+    },
+    {
+      "id": "theoden",
+      "name": "세오덴(기마)",
+      "role": "hero",
+      "faction": "rohan",
+      "path": "art/full-roster-night-rebuild-20261019/units/theoden.png",
+      "blobSHA": "c39f4e960eaaeb7dff4a6ed374ee0f5964936a95",
+      "png": {
+        "width": 1199,
+        "height": 1312,
+        "colorType": 6,
+        "byteLength": 1325778
+      },
+      "original": "tokens/theoden.png",
+      "profile": {
+        "top": 0.085,
+        "bottom": 0.39,
+        "centerX": 0.54,
+        "centerY": 0.55,
+        "size": 43,
+        "reference": "rider",
+        "referenceAxis": "height",
+        "measurement": "manual approximate landmarks; game comparison pending"
+      },
+      "review": {
+        "visual": true,
+        "camera": "high-angle front",
+        "humanAnatomy": "compact adult shared five-head basis",
+        "poseDistinct": true,
+        "allExtremitiesVisible": true,
+        "approval": "pending",
+        "inGameVerified": false,
+        "alphaPixelValidation": false
+      },
+      "generationPrompt": "ONE KING THEODEN MOUNTED ON SNOWMANE, a WHITE/LIGHT GREY horse, redraw ONLY character3. Ref1 Theoden foot controls EXACT established pixel tone/palette/identity, ref2 approved mounted body controls HIGH-ANGLE FRONT camera looking DOWN25–30degrees and correctly proportioned substantial human rider. Ref3 controls royal gear and WHITE horse identity. Never change white horse into brown. Near-front slight diagonal depth, upper surfaces helmet/shoulders/horse back visible, not flat eye-level frontal or side. Elderly king with clear grey beard and hair, green/gold Rohirrim helmet with red crest, detailed gold scale armour, rich deep green cloak with white-fur shoulder and hem, green round white-horse shield. Human FIVE-HEAD adult skeleton if standing, correct full-sized rider torso and head like reference2; no tiny doll on oversized horse. Pose unique to this sprite: calm royal cavalry advance, white horse steps forward toward viewer front with slight turn LEFT, rider upright with STRAIGHT steel sword held almost HORIZONTAL across front toward viewer LEFT at lower chest, simple clean blade uninterrupted from proper gloved hilt grip to point, no bent/extra blade. Shield strapped on viewer RIGHT forearm, reins controlled by same hand. Horse four coherent legs, normal short projected torso because camera high, all hooves distinct, saddle and stirrups connected, not rear-on/side horse. Royal green/gold horse tack, flowing white mane. Crisp stepped hand-placed pixel clusters like approved Gondor reference2, Theoden earthy green/gold/cream/red, restrained grey shadows on white coat, dark strong contour; no soft painting/vector gradients or background light. Entire horse/rider/sword/crest/cape in frame with generous clear margins. Anatomical rider-and-mount center. CLEAN TRANSPARENT RGBA canvas, absolutely no background, halo/haze, glow, floor/base/shadow, text/UI/other characters."
+    }
+  ]
+}

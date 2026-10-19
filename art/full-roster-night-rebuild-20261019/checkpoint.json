@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-19T22:45:13.594Z",
+  "updatedAt": "2026-10-19T22:54:14.373Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 373,
-    "newlyGeneratedThisSession": 5,
-    "visuallyReviewedThisSession": 5,
+    "pending": 368,
+    "newlyGeneratedThisSession": 10,
+    "visuallyReviewedThisSession": 10,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 5,
-    "persistedReviewAssets": 137
+    "generatedReviewAssets": 10,
+    "persistedReviewAssets": 142
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
   "sources": [
@@ -44,11 +44,11 @@
   "resume": {
     "nextAction": "Continue remaining Rohan IDs through direct reference-image reads and image_gen; save in 5–10-asset commits. Game integration and browser checks wait for executable environment.",
     "nextIds": [
-      "rohan_archer",
-      "eomer",
-      "rohan_outrider",
-      "rohan_banner",
-      "theoden"
+      "gamling",
+      "eowyn_mounted",
+      "erkenbrand",
+      "theoden_foot",
+      "eomer_foot"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
@@ -1007,8 +1007,12 @@
       "faction": "rohan",
       "role": "infantry",
       "original": "tokens/rohan_archer.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "image_gen",
+      "path": "art/full-roster-night-rebuild-20261019/units/rohan_archer.png",
+      "blobSHA": "0e1fd49d855d6c1366c4b35f425588c030853b10",
+      "inGameVerified": false
     },
     {
       "id": "eomer",
@@ -1016,8 +1020,12 @@
       "faction": "rohan",
       "role": "hero",
       "original": "tokens/eomer.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "image_gen",
+      "path": "art/full-roster-night-rebuild-20261019/units/eomer.png",
+      "blobSHA": "6738e2fcf952d67e6607553f07d797624080785e",
+      "inGameVerified": false
     },
     {
       "id": "rohan_outrider",
@@ -1025,8 +1033,12 @@
       "faction": "rohan",
       "role": "cavalry",
       "original": "tokens/rohan_outrider.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "image_gen",
+      "path": "art/full-roster-night-rebuild-20261019/units/rohan_outrider.png",
+      "blobSHA": "ae8f0bdb6490d2c724a04edb127451e7fb259866",
+      "inGameVerified": false
     },
     {
       "id": "rohan_banner",
@@ -1034,8 +1046,12 @@
       "faction": "rohan",
       "role": "support",
       "original": "tokens/rohan_banner.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "image_gen",
+      "path": "art/full-roster-night-rebuild-20261019/units/rohan_banner.png",
+      "blobSHA": "b936668b701fd053cfee9bd6d5f795d7337aae89",
+      "inGameVerified": false
     },
     {
       "id": "black_numenorean",
@@ -1277,8 +1293,12 @@
       "faction": "rohan",
       "role": "hero",
       "original": "tokens/theoden.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "image_gen",
+      "path": "art/full-roster-night-rebuild-20261019/units/theoden.png",
+      "blobSHA": "c39f4e960eaaeb7dff4a6ed374ee0f5964936a95",
+      "inGameVerified": false
     },
     {
       "id": "faramir",
