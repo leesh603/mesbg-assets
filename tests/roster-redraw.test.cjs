@@ -9,7 +9,7 @@ test('resumed roster has 49 active replacements with preserved original artwork 
   assert.equal(b[25],6,u.id+' RGBA');assert.deepEqual([b.readUInt32BE(16),b.readUInt32BE(20)],u.sourceSize);
   assert((u.issue==='user-selected'?Math.max(...u.sourceSize)<=1343:Math.max(...u.sourceSize)<=384),u.id+' mobile texture size');
   for(const k of ['root','source'])assert.deepEqual(fs.readFileSync(u.files[k]),b,u.id+' '+k);
-  assert.equal(digest(fs.readFileSync(u.files.before)),u.beforeSHA256);assert.notEqual(u.beforeSHA256,u.sourceSHA256);
+  assert.equal(digest(fs.readFileSync(u.files.before)),u.beforeSHA256);if(u.issue==='scale-only')assert.notDeepEqual(u.beforeProfile,u.artProfile);else assert.notEqual(u.beforeSHA256,u.sourceSHA256);
   assert.equal(fs.readFileSync(u.files.thumbnail).subarray(0,4).toString(),'RIFF');
   for(const file of ['gallery.html','gallery2.html']){
    const html=fs.readFileSync(file,'utf8'),pos=html.indexOf('<img src="tokens/'+u.id+'.png');

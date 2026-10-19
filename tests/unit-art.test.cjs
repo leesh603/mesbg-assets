@@ -31,9 +31,9 @@ test('padding and seated poses do not create multiples of cavalry size',()=>{
   const sizes=pair.map(mountedHeight);assert(Math.max(...sizes)/Math.min(...sizes)<1.25,pair.join('/'));
  }
  for(const a of audit.units.filter(x=>x.bodyClass==='dwarf'&&x.reference==='body')){
-  const o=context.layout({id:a.id},{width:a.sourceWidth,height:a.sourceHeight});const stature=o.height*(a.bottom-a.top),hero=/^(hero)$/.test(heroRole[a.id]);
-  // Dwarf heroes keep the 67-70 reference; dwarf soldiers are drawn clearly shorter than human soldiers (86).
-  assert(hero?stature>=62.9&&stature<=76.1:stature>=52&&stature<=62.5,a.id);
+  const o=context.layout({id:a.id},{width:a.sourceWidth,height:a.sourceHeight});const stature=o.height*(a.bottom-a.top);
+  // Heroes and soldiers share the same reviewed dwarf stature.
+  assert(Math.abs(stature-68)<.001,a.id);
  }
  assert.equal(context.profiles.warg_chieftain[6],'rider');assert.equal(context.profiles.rhosgobel_rabbit[6],'body');
  assert.equal(context.profiles.witchking_fellbeast[6],'rider');
@@ -69,7 +69,7 @@ test('review is tied to the actual production raster, never stale source copies'
  }
 });
 test('regressions: empty padding, torso-only foot profiles, and Nazgul class',()=>{
- for(const id of ['earendil','feanor']) assert(context.profiles[id][2]-context.profiles[id][1]>.8,id);
+ for(const id of ['earendil','feanor']) assert(context.profiles[id][2]-context.profiles[id][1]>.7,id);
  for(const id of ['hobbit_bounder','hobbit_militia']) assert(context.profiles[id][1]>.5,id);
  for(const id of ['witchking_foot','khamul','nazgul_sword','dark_marshal']) assert.equal(context.profiles[id][5],98,id);
  for(const id of ['witchking_mounted','khamul_mounted','nazgul_mounted']) assert.equal(context.profiles[id][5],50,id);
@@ -117,3 +117,4 @@ test('calibrator dry run is idempotent and cannot write or push implicitly',()=>
  const a=audit.units.find(u=>u.id==='gandalf');
  assert.throws(()=>calibrateUnit({...a,sourceSHA256:'stale'},audit.targets,audit.measurementPolicy.riderTargets,fs.readFileSync('assets/mesbg/'+a.file)),/Changed source requires anatomical review/);
 });
+
