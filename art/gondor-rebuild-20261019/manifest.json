@@ -2,7 +2,7 @@
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
   "branch": "art/gondor-body-variants-20261019",
   "total": 59,
-  "complete": 0,
+  "complete": 1,
   "units": [
     {
       "id": "aragorn",
@@ -43,12 +43,13 @@
       "body": "보통 키·갑옷 아래 균형형",
       "pose": "검을 몸 옆에 세운 휴식 경계",
       "stature": 86,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.14,
+      "bottom": 0.965,
+      "centerX": 0.52,
+      "centerY": 0.56,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "시점·5등신 교정 검토본 — 채택 전",
+      "status": "ready",
       "old": "references/warrior_minas_tirith.png",
       "image": "units/warrior_minas_tirith.png",
       "thumb": "thumbs/warrior_minas_tirith.webp",
@@ -60,7 +61,12 @@
         0.4863,
         86,
         "body"
-      ]
+      ],
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "633e161060e78ea62fc784924ae92d74d0060f6bc5dd0af0fc1255a621b7b7a6"
     },
     {
       "id": "boromir",
