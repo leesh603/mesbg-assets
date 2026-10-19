@@ -1,0 +1,39 @@
+✔ all 72 inspected targets resolve to corrected artwork, later user choice or retained compact species (5.868944ms)
+✔ consumed native sprites, source copies, anatomy and thumbnail caches agree (42.319466ms)
+✔ later user attachments are preserved byte-for-byte and reviewed anatomy remains explicit (5.99874ms)
+✔ full visual census records every one of the 597 production token files, with original identities (494.300107ms)
+✔ 50 art replacements are bounded transparent native sprites with byte-identical production and gallery copies (36.345973ms)
+✔ anatomical reviews and image caches match replacements; ornaments never define body scale (64.861117ms)
+✔ audit, review prompts and runtime catalog distinguish compatibility-only art from actual fighters (65.45119ms)
+✔ automatic calibration preserves the exact size of visually pinned named heroes (77.866251ms)
+✔ resumed roster has 49 active replacements with preserved original artwork and synchronized gallery copies (135.246523ms)
+✔ uncatalogued war Galadriel is archived without being registered as an extra combat unit (4.397488ms)
+✔ approved reference artwork and prior Lorien and Elrond replacements are excluded from this redraw (0.240203ms)
+✔ all humanoids share species stature irrespective of hero name or role (2.910351ms)
+✔ every changed consumed source, canonical filename, thumbnail and review agrees (62.563649ms)
+✔ Glorfindel keeps original art while crown landmarks stop enlarging his body (3.753315ms)
+Preview: 492 profiles; 196 anatomical candidates; 296 reviewed landmark fallbacks. Centres preserved.
+✔ every production combat token has an explicit anatomical reference (81.151758ms)
+✔ all 492 anatomical spans render to their specified size, independent of radius and artScale (2.296663ms)
+✔ banners, staves and spears have anatomical centers independent of their ornament envelopes (0.130508ms)
+✔ padding and seated poses do not create multiples of cavalry size (40.723683ms)
+✔ character details do not reveal evolution thresholds or next forms (39.962882ms)
+✔ lazy-loaded and transformed units anchor rotation and idle at the body, with no stale profile (0.338391ms)
+✔ newer main base rendering is preserved and never used to normalize body scale (0.896705ms)
+✔ review is tied to the actual production raster, never stale source copies (82.071279ms)
+✔ regressions: empty padding, torso-only foot profiles, and Nazgul class (0.315908ms)
+✔ fixed painted facing: no directional mirroring or alpha-derived facing remains (3.771753ms)
+✔ every centre records a visually reviewed body rule, separate from size landmarks (0.701661ms)
+✔ stature calibration keeps flags, half-body detections and creature species from corrupting scale (1.015406ms)
+✔ calibrator dry run is idempotent and cannot write or push implicitly (4753.681413ms)
+✔ all 22 reviewed sprites have native RGBA dimensions, identical consumed copies and preserved originals (39.058449ms)
+✔ replacement anatomy matches authoritative data and caches cover both battle and card images (7.651179ms)
+✔ online build embeds the exact tested source (12.897176ms)
+ℹ tests 30
+ℹ suites 0
+ℹ pass 30
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5150.437703
