@@ -5683,7 +5683,7 @@ Qe = function () {
             body = `<p class="event-result">${esc(q.campResult)}</p>` + body;
             q._campResultShown = true; q.campResult = '';
         } else if (!q.campResult) q._campResultShown = false;
-        box.innerHTML = `<div class="modal camp${step==='shop'?' shop-camp':''}"><div class="eyebrow">공세 ${q.wave} 완료 · 보상 ${q.lastGold || 0} 금화</div>${step==='event'?`<div class="battle-recap"><span>이번 전투 · 처치 ${q.stageKills||0} · 전사 ${q.stageDeaths||0} · 생존 ${q.alive('good').length}${(()=>{const t=q.alive('good').filter(u=>(u._stageKills||0)>0).sort((x,y)=>y._stageKills-x._stageKills)[0];return t?' · 다부인 '+esc(t.name)+' '+t._stageKills+'기':''})()}</span><button class="secondary mini share-btn" onclick="_shareResult()"><img src="icons/ui_cards.png" alt="">전적 공유</button></div>`:''}<h2>${step==='event'?(q.campEvent?.title||'야영지'):step==='shop'?'상점':step==='relic'?'유물 선택':'출전 준비'}</h2><div class="camp-steps">${steps.map((s, i) => `<span class="${step === s ? 'current' : i < steps.indexOf(step) ? 'done' : ''}"><img src="icons/${['ui_cards','ui_flag','res_gem','ui_swords'][i]}.png" alt="">${['사건','모집','유물','출전'][i]}</span>`).join('')}</div>${body}<div class="camp-menu-row" style="display:flex;justify-content:center;margin-top:10px"><button class="secondary mini" id="camp-menu" type="button"><img src="icons/ui_flag.png" alt="">메뉴로 나가기</button></div></div>`;
+        box.innerHTML = `<div class="modal camp${step==='shop'?' shop-camp':''}"><div class="eyebrow">공세 ${q.wave} 완료 · 보상 ${q.lastGold || 0} 금화</div>${step==='event'?`<div class="battle-recap"><span>이번 전투 · 처치 ${q.stageKills||0} · 전사 ${q.stageDeaths||0} · 생존 ${q.alive('good').length}${(()=>{const t=q.alive('good').filter(u=>(u._stageKills||0)>0).sort((x,y)=>y._stageKills-x._stageKills)[0];return t?' · 다부인 '+esc(t.name)+' '+t._stageKills+'기':''})()}</span><button class="secondary mini share-btn" onclick="_shareResult()"><img src="icons/ui_cards.png" alt="">전적 공유</button></div>`:''}${step==='event'?momentsHtml(q):''}<h2>${step==='event'?(q.campEvent?.title||'야영지'):step==='shop'?'상점':step==='relic'?'유물 선택':'출전 준비'}</h2><div class="camp-steps">${steps.map((s, i) => `<span class="${step === s ? 'current' : i < steps.indexOf(step) ? 'done' : ''}"><img src="icons/${['ui_cards','ui_flag','res_gem','ui_swords'][i]}.png" alt="">${['사건','모집','유물','출전'][i]}</span>`).join('')}</div>${body}<div class="camp-menu-row" style="display:flex;justify-content:center;margin-top:10px"><button class="secondary mini" id="camp-menu" type="button"><img src="icons/ui_flag.png" alt="">메뉴로 나가기</button></div></div>`;
         box.querySelectorAll('[data-recruit]').forEach(el => el.onclick = e => { const _vn = e.target.closest && e.target.closest('[data-vunit]'); if (_vn) { const _id = _vn.dataset.vunit, _p = zt[_id] || {}, _pu = { id: _id, side: 'good', name: (q.meta.get(_id) || {}).name_ko || _id, stats: { ..._p }, traits: [...(_p.traits || [])], resources: { might: _p.might || 0, will: _p.will || 0, fate: _p.fate || 0 }, equipment: [], kills: 0, currentWounds: _p.wounds || 1, injury: '', alive: true, roundBuff: {} }; unitCardModal(_pu); return; } q.recruit(Number(el.dataset.recruit)); wt.play('reward_select'); Yt(); });
          if (ut('army-name')) ut('army-name').oninput = e => { q.armyName = e.target.value; q.save(); };
          box.querySelectorAll('[data-rename]').forEach(el => el.onclick = () => { const u = q.unit(el.dataset.rename); if (!u) return; const meta = q.meta.get(u.id) || {}; let m = box.querySelector('#camp-profile'); if (!m) { m = document.createElement('div'); m.id = 'camp-profile'; m.style.cssText = 'position:fixed;inset:0;background:rgba(8,12,10,.85);z-index:60;display:flex;align-items:center;justify-content:center;padding:16px'; m.onclick = e => { if (e.target === m) m.remove(); }; box.appendChild(m); }
@@ -5777,7 +5777,7 @@ ${u.side === 'good' ? '<button class="secondary" id="cp-dismiss" style="margin-t
         }
         return;
     }
-    box.innerHTML = `<div class="modal result-modal"><div class="eyebrow">원정 기록</div><h1>${q.result==='victory'?'승전':'원정 종료'}</h1><img class="evt-art" src="events/evt_${q.result==='victory'?'light':'dark'}.jpg" alt="" onerror="this.remove()"><p>${esc(q.log[0] || '원정대가 쓰러졌습니다.')}<br>${q.armyName ? esc(q.armyName) + ' · ' : ''}클리어 ${q.cleared || 0} 스테이지 · 처치 ${q.totalKills || 0} · 최고 기록 ${q.readBest()}${q.dailySeed ? ' · 오늘의 도전' : ''}${q.weeklySeed ? ' · 이번 주 원정' : ''}</p><div class="stat-block"><b class="mini">전투 기록</b>${q.units.filter(u => u.side === 'good' && !u.temporary).sort((a, b) => (b.kills - a.kills) || ((b.dmgDealt || 0) - (a.dmgDealt || 0))).map((u, _ri) => `<span class="stat-row ${u.alive ? '' : 'dead'}">${unitImage(u.id)}<b>${esc(u.name)}${u.kills > 0 && _ri === 0 ? ' <span class="gold">★MVP</span>' : ''}</b><small>처치 ${u.kills} · 피해 ${u.dmgDealt || 0} · ${u.alive ? '생존' : '전사'}${u.injury ? ' · 부상' : ''}${u._bossSlain ? ' · <img src="icons/skull.png" style="width:10px;height:10px;image-rendering:pixelated;vertical-align:-1px" alt="">보스 사냥꾼' : ''}</small></span>`).join('')}</div><div class="result-relics">${Object.keys(q.relics||{}).filter(id=>CX.relics.find(r=>r.id===id)).map(id => relicIcon(CX.relics.find(r => r.id === id), 56)).join('')}</div><div class="rank-row"><label class="rank-name"><span>기록 이름</span><input id="rank-nick" maxlength="16" placeholder="이름 입력" autocomplete="nickname"></label><button id="rank-submit" class="secondary">기록 등록</button></div><div id="rank-status" class="mini"></div><div id="rank-board-result"></div><p class="mini">기록 코드: <b class="gold">LWB-${q.wave}-${q.totalKills || 0}-${({easy:'E',normal:'N',hard:'H',despair:'X'})[q.difficulty]||'N'}${q.dailySeed ? 'D' : ''}</b></p><div class="menu-buttons">${q.result === 'defeat' && q._retrySnapshot ? `<button id="retry" class="secondary" ${q._retrySnapshot.gold < 60 ? 'disabled' : ''}>이 스테이지 재도전 · 금화 −60</button>` : ''}<button id="share-code" class="secondary">기록 코드 복사</button><button id="restart" class="primary">새로운 원정 →</button><button id="to-menu" class="secondary">메인 메뉴</button></div></div>`;
+    box.innerHTML = `<div class="modal result-modal"><div class="eyebrow">원정 기록</div><h1>${q.result==='victory'?'승전':'원정 종료'}</h1><img class="evt-art" src="events/evt_${q.result==='victory'?'light':'dark'}.jpg" alt="" onerror="this.remove()"><p>${esc(q.log[0] || '원정대가 쓰러졌습니다.')}<br>${q.armyName ? esc(q.armyName) + ' · ' : ''}클리어 ${q.cleared || 0} 스테이지 · 처치 ${q.totalKills || 0} · 최고 기록 ${q.readBest()}${q.dailySeed ? ' · 오늘의 도전' : ''}${q.weeklySeed ? ' · 이번 주 원정' : ''}</p>${momentsHtml(q)}<div class="stat-block"><b class="mini">전투 기록</b>${q.units.filter(u => u.side === 'good' && !u.temporary).sort((a, b) => (b.kills - a.kills) || ((b.dmgDealt || 0) - (a.dmgDealt || 0))).map((u, _ri) => `<span class="stat-row ${u.alive ? '' : 'dead'}">${unitImage(u.id)}<b>${esc(u.name)}${u.kills > 0 && _ri === 0 ? ' <span class="gold">★MVP</span>' : ''}</b><small>처치 ${u.kills} · 피해 ${u.dmgDealt || 0} · ${u.alive ? '생존' : '전사'}${u.injury ? ' · 부상' : ''}${u._bossSlain ? ' · <img src="icons/skull.png" style="width:10px;height:10px;image-rendering:pixelated;vertical-align:-1px" alt="">보스 사냥꾼' : ''}</small></span>`).join('')}</div><div class="result-relics">${Object.keys(q.relics||{}).filter(id=>CX.relics.find(r=>r.id===id)).map(id => relicIcon(CX.relics.find(r => r.id === id), 56)).join('')}</div><div class="rank-row"><label class="rank-name"><span>기록 이름</span><input id="rank-nick" maxlength="16" placeholder="이름 입력" autocomplete="nickname"></label><button id="rank-submit" class="secondary">기록 등록</button></div><div id="rank-status" class="mini"></div><div id="rank-board-result"></div><p class="mini">기록 코드: <b class="gold">LWB-${q.wave}-${q.totalKills || 0}-${({easy:'E',normal:'N',hard:'H',despair:'X'})[q.difficulty]||'N'}${q.dailySeed ? 'D' : ''}</b></p><div class="menu-buttons">${q.result === 'defeat' && q._retrySnapshot ? `<button id="retry" class="secondary" ${q._retrySnapshot.gold < 60 ? 'disabled' : ''}>이 스테이지 재도전 · 금화 −60</button>` : ''}<button id="share-code" class="secondary">기록 코드 복사</button><button id="restart" class="primary">새로운 원정 →</button><button id="to-menu" class="secondary">메인 메뉴</button></div></div>`;
     ut('restart').onclick = () => Rt(() => { try{document.fullscreenElement?document.exitFullscreen().catch(()=>{}):document.documentElement.requestFullscreen().catch(()=>{})}catch(e){} q.dailySeed = 0; q.weeklySeed = 0; q.start(q.mode); });
     ut('to-menu').onclick = () => { q.phase = 'menu'; Yt(); };
     if (ut('retry')) ut('retry').onclick = () => Rt(() => { q.retryStage() ? Yt() : Xt('재도전할 수 없습니다.'); });
@@ -12342,3 +12342,155 @@ Yt=function(){
  canvas.addEventListener('pointercancel',()=>{drag=null;},true);
  }
 })();
+
+/* ==== Readable tactics: enemy intent arrows + combat odds (reference: Into the Breach, Fire Emblem forecast) ====
+   Display only. Nothing here changes rules, AI or dice; predictions use the same reach / sight / wound helpers. */
+const INTENT_UI={on:(()=>{try{return localStorage.getItem('lwb_intent')!=='0';}catch(e){return true;}})(),sig:'',t:0,g:null,labels:[]};
+function predictIntent(b,u){
+    if(!u.alive||u.side!=='evil'||u.static||u.lair||u._arriving||u.x<0||b.engaged(u))return null;
+    const foes=b.alive('good').filter(v=>v.x>=0);if(!foes.length)return null;
+    const d=v=>ht(u,v);
+    if(u.stats.shootRange>0){let t=[];try{t=b.validTargets(u);}catch(e){}if(t.length)return {kind:'shoot',target:t.slice().sort((a,c)=>d(a)-d(c))[0]};}
+    if(u.stats.shootRange>0)return null;
+    const reach=foes.filter(v=>d(v)-u.radius-v.radius<=u.stats.move+4);
+    if(!reach.length)return null;
+    const mounted=u.traits.includes('mounted');
+    reach.sort((a,c)=>(mounted&&a.stats.shootRange?-250:0)+d(a)-((mounted&&c.stats.shootRange?-250:0)+d(c)));
+    return {kind:'charge',target:reach[0]};
+}
+function intentVisible(b){return INTENT_UI.on&&b&&!AUTO&&!At&&['preparation','move','shoot'].includes(b.phase)&&(b.phase==='preparation'||b.side==='good');}
+function drawIntent(scene){
+    const b=scene.b;if(!INTENT_UI.g||!INTENT_UI.g.scene){INTENT_UI.g=scene.add.graphics().setDepth(4.6);}
+    const g=INTENT_UI.g;
+    if(!intentVisible(b)){if(INTENT_UI.sig){g.clear();INTENT_UI.labels.forEach(l=>l.setVisible(false));INTENT_UI.sig='';}return;}
+    const ev=b.alive('evil'),gd=b.alive('good');
+    const sig=b.phase+'|'+b.side+'|'+ev.map(u=>u.uid+(u.x>>3)+','+(u.y>>3)).join(';')+'#'+gd.map(u=>u.uid+(u.x>>3)+','+(u.y>>3)).join(';');
+    if(sig===INTENT_UI.sig)return;INTENT_UI.sig=sig;g.clear();
+    const hits=new Map();
+    for(const u of ev){const it=predictIntent(b,u);if(!it)continue;const t=it.target,a=Math.atan2(t.y-u.y,t.x-u.x),
+        sx=u.x+Math.cos(a)*(u.radius+2),sy=u.y+Math.sin(a)*(u.radius+2),ex=t.x-Math.cos(a)*(t.radius+6),ey=t.y-Math.sin(a)*(t.radius+6);
+        const col=it.kind==='charge'?0xe0452f:0xf0a030,len=Math.hypot(ex-sx,ey-sy);if(len<4)continue;
+        if(it.kind==='charge'){g.lineStyle(5,0x1a0a06,.55).lineBetween(sx,sy,ex,ey);g.lineStyle(3,col,.9).lineBetween(sx,sy,ex,ey);}
+        else{g.lineStyle(2.5,col,.85);for(let s=0;s<len;s+=16){const e=Math.min(len,s+9);g.lineBetween(sx+Math.cos(a)*s,sy+Math.sin(a)*s,sx+Math.cos(a)*e,sy+Math.sin(a)*e);}}
+        const h=11;g.fillStyle(col,.95).fillTriangle(ex,ey,ex-Math.cos(a-.45)*h,ey-Math.sin(a-.45)*h,ex-Math.cos(a+.45)*h,ey-Math.sin(a+.45)*h);
+        const k=hits.get(t.uid)||{t,n:0,charge:0};k.n++;if(it.kind==='charge')k.charge++;hits.set(t.uid,k);}
+    let i=0;
+    for(const {t,n,charge} of hits.values()){g.lineStyle(2,charge?0xe0452f:0xf0a030,.8).strokeCircle(t.x,t.y,t.radius+5);
+        let l=INTENT_UI.labels[i];if(!l||!l.scene){l=scene.add.text(0,0,'',{fontFamily:'Galmuri11, sans-serif',fontSize:'15px',color:'#fff4e0',backgroundColor:'#7a1d12',padding:{x:4,y:1}}).setOrigin(.5,1).setDepth(19);INTENT_UI.labels[i]=l;}
+        l.setText(n>1?'표적 '+n:'표적').setPosition(t.x+t.radius*.7,t.y-t.radius*.7).setVisible(true);i++;}
+    for(;i<INTENT_UI.labels.length;i++)INTENT_UI.labels[i]?.setVisible(false);
+}
+{const _iu=Ve.prototype.update;Ve.prototype.update=function(t){_iu.call(this,t);if(!this.b||!this.add)return;if(t-INTENT_UI.t<200&&INTENT_UI.sig)return;INTENT_UI.t=t;try{drawIntent(this);}catch(e){console.error('[intent]',e);INTENT_UI.on=false;}};}
+function installIntentToggle(){
+    if(document.getElementById('intent-toggle'))return;const menu=document.querySelector('#app .top-actions')||document.querySelector('.top-actions');if(!menu)return;
+    const bt=document.createElement('button');bt.id='intent-toggle';bt.type='button';bt.className='iconbtn';
+    const paint=()=>{bt.innerHTML='<img src="icons/ui_target.png" alt="">적 의도 '+(INTENT_UI.on?'표시 중':'꺼짐');bt.setAttribute('aria-pressed',String(INTENT_UI.on));bt.title='적의 다음 돌격·사격 대상을 화살표로 표시';};
+    bt.onclick=()=>{INTENT_UI.on=!INTENT_UI.on;INTENT_UI.sig='x';try{localStorage.setItem('lwb_intent',INTENT_UI.on?'1':'0');}catch(e){}paint();if(typeof Xt==='function')Xt(INTENT_UI.on?'적 의도 표시 — 빨간 선: 돌격 예상 · 주황 점선: 사격 예상':'적 의도 표시를 껐습니다.');};
+    paint();const fx=document.getElementById('fx-toggle');fx&&fx.parentNode===menu?fx.after(bt):menu.appendChild(bt);const syncOrder=()=>{if(fx){const o=getComputedStyle(fx).order;if(o&&bt.style.order!==o)bt.style.order=o;}};syncOrder();setTimeout(syncOrder,1200);
+    const st=document.createElement('style');st.textContent='#intent-toggle img{width:14px;height:14px;image-rendering:pixelated;vertical-align:-2px;margin-right:4px}#intent-toggle[aria-pressed=false]{opacity:.7}';document.head.appendChild(st);
+}
+installIntentToggle();setTimeout(installIntentToggle,1500);
+
+// ---- Odds in the existing VS forecast panel ----
+const dieMaxCdf=(n,k)=>Math.pow(Math.max(0,Math.min(6,k))/6,n);
+function binomAtLeast(n,p,k){if(k<=0)return 1;if(k>n)return 0;let s=0;const C=(n,r)=>{let c=1;for(let i=1;i<=r;i++)c=c*(n-r+i)/i;return c;};for(let r=k;r<=n;r++)s+=C(n,r)*Math.pow(p,r)*Math.pow(1-p,n-r);return s;}
+function duelOdds(a,t,charge){
+    const kb=charge&&!t.traits.includes('mounted')&&!t.traits.includes('monster');
+    const na=Math.max(1,a.stats.attacks+(charge?1:0)),nb=Math.max(1,t.stats.attacks);
+    let win=0,tie=0;for(let k=1;k<=6;k++){const pa=dieMaxCdf(na,k)-dieMaxCdf(na,k-1);win+=pa*dieMaxCdf(nb,k-1);tie+=pa*(dieMaxCdf(nb,k)-dieMaxCdf(nb,k-1));}
+    const tieWin=a.stats.fight!==t.stats.fight?a.stats.fight>t.stats.fight:q.priority===a.side;
+    const pWin=win+(tieWin?tie:0);
+    const pa=(7-oe(a.stats.strength,t.stats.defence))/6,pb=(7-oe(t.stats.strength,a.stats.defence))/6;
+    const strikes=a.stats.attacks*(kb?2:1);
+    return {win:pWin,wound:pa,kill:pWin*binomAtLeast(strikes,pa,Math.max(1,t.currentWounds)),die:(1-pWin)*binomAtLeast(t.stats.attacks,pb,Math.max(1,a.currentWounds))};
+}
+function shotOdds(a,t){const hit=Math.max(0,Math.min(1,(7-a.stats.shootValue)/6)),w=(7-oe(a.stats.strength,t.stats.defence))/6,n=Math.max(1,a.shotsLeft||1);
+    return {hit,wound:hit*w,kill:binomAtLeast(n,hit*w,Math.max(1,t.currentWounds)),n};}
+const pct=x=>Math.round(Math.max(0,Math.min(1,x))*100)+'%';
+{const _rv=renderVs;renderVs=function(){_rv();try{
+    const vs=ut('vs-panel'),it=UX.intent;if(!vs||vs.classList.contains('hidden')||!it)return;
+    const a=q.unit(it.uid),t=q.unit(it.target);if(!a||!t)return;const mid=vs.querySelector('.vs-mid');if(!mid||mid.querySelector('.vs-odds'))return;
+    const shot=it.kind==='shoot',charge=!shot&&a.traits.includes('mounted')&&(a.movementSpent+(it.plan?.distance||0))>a.radius;
+    let rows;
+    if(shot){const o=shotOdds(a,t);rows=[['명중',pct(o.hit)],['상처',pct(o.wound)]];if(t.currentWounds<=o.n)rows.push(['처치',pct(o.kill)]);}
+    else{const o=duelOdds(a,t,charge);rows=[['승리',pct(o.win)],['처치',pct(o.kill)],['역습 전사',pct(o.die)]];}
+    const box=document.createElement('div');box.className='vs-odds';box.title='1:1 기준 추정 — 지원·Might·지형 효과 제외';
+    box.innerHTML=rows.map(([k,v])=>'<span><i>'+k+'</i><b>'+v+'</b></span>').join('');
+    const sm=mid.querySelector('small');sm?mid.insertBefore(box,sm):mid.appendChild(box);
+}catch(e){console.error('[odds]',e);}};}
+{const st=document.createElement('style');st.textContent='#vs-panel .vs-odds{display:grid;gap:1px;margin:3px 0 2px;font:400 12px/1.3 Galmuri11,sans-serif;white-space:nowrap}#vs-panel .vs-odds span{display:flex;justify-content:space-between;gap:6px}#vs-panel .vs-odds i{font-style:normal;color:#c8b896}#vs-panel .vs-odds b{color:#fff1c8}';document.head.appendChild(st);}
+if(window.MESBG){MESBG.intent=INTENT_UI;MESBG.duelOdds=duelOdds;MESBG.shotOdds=shotOdds;}
+
+/* ==== Decisive moments (reference: Into the Breach — failure should be readable) ====
+   Records hero deaths, routs and big swings during a stage and lists the top three after it. Display only. */
+const MOMENT_MAX=3;
+{const _ac=P.applyCombat;P.applyCombat=function(r){
+    try{const by={},per={};for(const s of r?.strikeResults||[]){if(s.killed&&s.target){by[s.target]=s.attacker;if(s.attacker)per[s.attacker]=(per[s.attacker]||0)+1;}}
+        this._killBy=Object.assign(this._killBy||{},by);
+        for(const [uid,n] of Object.entries(per)){const u=this.unit(uid);if(u&&u.side==='good'&&n>=2)(this._moments=this._moments||[]).push({r:this.round,pri:4,kind:'multi',text:esc(u.name)+' — 한 번의 교전으로 '+n+'기 처치'});}
+    }catch(e){}
+    return _ac.apply(this,arguments);};}
+{const _em=P.emit;P.emit=function(type,msg,data){
+    try{if(type==='UnitKilled'&&data&&data.uid&&this.phase!=='reward'){const u=this.unit(data.uid);
+        if(u&&!u.lair&&!u.static&&!u.temporary){const m=(this._moments=this._moments||[]),kb=this._killBy&&this._killBy[u.uid],k=kb&&this.unit(kb),hero=(u.traits||[]).includes('hero');
+            const fled=typeof msg==='string'&&msg.includes('도주'),by=k?(k.side===u.side?' — 정신 지배 중 '+esc(k.name)+'에게':' — '+esc(k.name)+'에게'):'';
+            if(u.side==='good'){if(fled)m.push({r:this.round,pri:3,kind:'flee',uid:u.uid});
+                else if(hero)m.push({r:this.round,pri:1,kind:'herodeath',text:esc(u.name)+' 전사'+by});
+                else m.push({r:this.round,pri:6,kind:'death',uid:u.uid,text:esc(u.name)+' 전사'+by});}
+            else if(hero||this.current?.boss===u.id||((u.traits||[]).includes('monster')&&(u.stats?.wounds||0)>=3))m.push({r:this.round,pri:2,kind:'foe',text:'적 '+esc(u.name)+' 처치'+(k&&k.side==='good'?' — '+esc(k.name):'')});}}
+    }catch(e){}
+    return _em.apply(this,arguments);};}
+{const _sw=P.startWave;P.startWave=function(){this._moments=[];this._killBy={};return _sw.apply(this,arguments);};}
+function momentsList(b){
+    const m=(b&&b._moments)||[];if(!m.length)return [];
+    const out=m.filter(x=>x.text&&x.kind!=='death').map(x=>({...x}));
+    const byRound=(kind)=>{const c={};for(const x of m)if(x.kind===kind)c[x.r]=(c[x.r]||0)+1;return c;};
+    for(const [r,n] of Object.entries(byRound('flee')))out.push({r:+r,pri:3,text:'용기 판정 실패 — 아군 '+n+'기 도주'});
+    const deaths=Object.entries(byRound('death')).sort((a,c)=>c[1]-a[1])[0];
+    if(deaths&&deaths[1]>=2)out.push({r:+deaths[0],pri:3.5,text:'아군 병사 '+deaths[1]+'기 전사 — 가장 큰 피해'});
+    if(!(deaths&&deaths[1]>=2))for(const x of m)if(x.kind==='death')out.push({...x});
+    return out.sort((a,c)=>a.pri-c.pri||a.r-c.r).slice(0,MOMENT_MAX).sort((a,c)=>a.r-c.r);
+}
+function momentsHtml(b){try{const l=momentsList(b);if(!l.length)return '';
+    return '<div class="moments"><b class="mini">결정적 순간</b>'+l.map(x=>'<span><i>'+(x.r||1)+'라운드</i>'+x.text+'</span>').join('')+'</div>';}catch(e){return '';}}
+{const st=document.createElement('style');st.textContent='.moments{display:grid;gap:4px;margin:8px 0;padding:8px 10px;border:1px solid rgba(201,162,78,.45);background:rgba(20,14,8,.55);text-align:left}.moments b{color:#e6c88c}.moments span{display:block;font-size:13px;line-height:1.45;color:#efe6cf;overflow-wrap:anywhere;word-break:keep-all}.moments i{font-style:normal;color:#c8a860;margin-right:6px;white-space:nowrap}';document.head.appendChild(st);}
+if(window.MESBG){MESBG.moments=()=>momentsList(q);}
+
+/* ==== Troop quirks (reference: Battle Brothers backgrounds, Wartales traits) ====
+   Each non-hero soldier gets one small quirk the first time it joins the warband (bulk hires included).
+   Mostly two-sided (+1/−1); picked from a hash of the soldier, so the battle RNG / seeded runs are untouched. */
+const TROOP_QUIRKS=[
+ {id:'brave',   name:'용감함',   icon:'ui_flag',   d:{courage:1},              text:'용기 +1'},
+ {id:'sturdy',  name:'튼튼함',   icon:'cmd_hold',  d:{defence:1,courage:-1},   text:'방어 +1 · 용기 −1'},
+ {id:'swift',   name:'날랜 발',  icon:'ui_move',   d:{move:45,defence:-1},     text:'이동 +1″ · 방어 −1'},
+ {id:'strong',  name:'억센 팔',  icon:'res_iron',  d:{strength:1,courage:-1},  text:'힘 +1 · 용기 −1'},
+ {id:'duelist', name:'검술가',   icon:'ui_swords', d:{fight:1,defence:-1},     text:'결투 +1 · 방어 −1'},
+ {id:'keen',    name:'매서운 눈',icon:'st_bow',    d:{shootValue:-1,courage:-1},text:'사격 명중 1 향상 · 용기 −1',shooter:true},
+ {id:'skittish',name:'겁 많음',  icon:'ui_warning',d:{move:45,courage:-1},     text:'이동 +1″ · 용기 −1'},
+ {id:'hardy',   name:'질긴 목숨',icon:'ui_heart',  d:{courage:1,move:-45},     text:'용기 +1 · 이동 −1″'}
+];
+const QUIRK_BY_ID=Object.fromEntries(TROOP_QUIRKS.map(t=>[t.id,t]));
+function quirkEligible(u){return u&&u.side==='good'&&!u.temporary&&!u.static&&!u.escortee&&!u.lair&&!(typeof isHeroUnit==='function'&&isHeroUnit(u.id))&&!(u.traits||[]).includes('hero');}
+function pickQuirk(u,salt){let h=2166136261;for(const c of String(u.uid)+'|'+u.id+'|'+salt){h^=c.charCodeAt(0);h=Math.imul(h,16777619);}
+    const pool=TROOP_QUIRKS.filter(t=>!t.shooter||(u.baseStats?.shootRange||u.stats?.shootRange)>0);return pool[(h>>>0)%pool.length].id;}
+{const _ru=P.refreshUnit;P.refreshUnit=function(u){const r=_ru.apply(this,arguments);try{const t=u&&u.quirk&&!u.temporary&&QUIRK_BY_ID[u.quirk];
+    if(t&&u.stats){for(const [k,v] of Object.entries(t.d)){if(k==='shootValue'){if(u.stats.shootRange>0)u.stats.shootValue=Math.max(2,u.stats.shootValue+v);}
+        else if(k==='move')u.stats.move=Math.max(90,u.stats.move+v);else u.stats[k]=Math.max(k==='courage'?1:1,(u.stats[k]||0)+v);}}}catch(e){}return r;};}
+function assignQuirks(b){
+    if(!b||typeof b.permanent!=='function')return [];const fresh=[];
+    for(const u of b.permanent()){if(u.quirk||u.quirkChecked||!quirkEligible(u))continue;u.quirk=pickQuirk(u,b.wave||0);u.quirkChecked=true;try{b.refreshUnit(u);}catch(e){}fresh.push(u);}
+    return fresh;
+}
+function quirkBadge(u){const t=u&&!u.temporary&&QUIRK_BY_ID[u.quirk];return t?'<i class="quirk-ico" role="img" aria-label="특성 '+t.name+'" title="'+t.name+' — '+t.text+'" style="background:#1a120a url(icons/'+t.icon+'.png) center/10px 10px no-repeat!important;width:14px!important;height:14px!important"></i>':'';}
+function decorateQuirks(){
+    document.querySelectorAll('[data-unit],[data-uid]').forEach(el=>{const uid=el.dataset.unit||el.dataset.uid,u=uid&&q.unit(uid);
+        const has=el.querySelector(':scope > .quirk-ico');if(!u||!QUIRK_BY_ID[u.quirk]||u.temporary){if(has)has.remove();return;}
+        if(has&&has.dataset.q===u.quirk)return;if(has)has.remove();
+        el.insertAdjacentHTML('beforeend',quirkBadge(u));const i=el.querySelector(':scope > .quirk-ico');if(i){i.dataset.q=u.quirk;if(getComputedStyle(el).position==='static')el.style.position='relative';}});
+}
+{const _yt=Yt;Yt=function(){const fresh=assignQuirks(q);const r=_yt.apply(this,arguments);try{decorateQuirks();
+    if(fresh.length&&typeof Xt==='function'){const names=fresh.slice(0,4).map(u=>esc(u.name)+' '+QUIRK_BY_ID[u.quirk].name).join(' · ');Xt('신병 특성 — '+names+(fresh.length>4?' 외 '+(fresh.length-4)+'명':''));}}catch(e){console.error('[quirk]',e);}return r;};}
+{const _us=uiUnitStats;uiUnitStats=function(u){const h=_us.apply(this,arguments);try{const t=u&&!u.temporary&&QUIRK_BY_ID[u.quirk];
+    if(t)return '<section class="ui-profile-section quirk-row"><h3>특성</h3><p><i class="quirk-big" style="background:url(icons/'+t.icon+'.png) center/16px 16px no-repeat!important;width:16px!important;height:16px!important"></i><b>'+t.name+'</b><span>'+t.text+'</span></p></section>'+h;}catch(e){}return h;};}
+{const st=document.createElement('style');st.textContent='html body #app#app#app#app .quirk-ico,.quirk-ico{position:absolute!important;right:2px!important;top:2px!important;left:auto!important;bottom:auto!important;z-index:3;width:14px!important;height:14px!important;margin:0!important;padding:0!important;display:grid!important;place-items:center;border:1px solid #c9a24e!important;box-sizing:border-box;pointer-events:none;line-height:0;transform:none!important;image-rendering:pixelated}html body #app#app#app#app .quirk-ico img,html body #app#app#app#app .roster-unit .quirk-ico img,.quirk-ico img{position:static!important;inset:auto!important;width:10px!important;height:10px!important;min-width:0!important;max-width:none!important;margin:0!important;padding:0!important;object-fit:contain!important;transform:none!important;filter:none!important;image-rendering:pixelated}.quirk-row p{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin:0;font-size:13px;line-height:1.5}.quirk-row .quirk-big{display:inline-block;flex:0 0 16px;image-rendering:pixelated}.quirk-row span{color:#d8ccb0}';document.head.appendChild(st);}
+if(window.MESBG){MESBG.quirks=TROOP_QUIRKS;}
