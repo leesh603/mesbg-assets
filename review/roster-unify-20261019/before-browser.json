@@ -1,0 +1,1331 @@
+{
+  "version": "before",
+  "errors": [],
+  "groups": [
+    {
+      "index": 0,
+      "units": [
+        {
+          "id": "glorfindel_foot",
+          "visible": true,
+          "source": [
+            319,
+            366
+          ],
+          "display": [
+            80.58447342879555,
+            92.4574209245742
+          ],
+          "origin": [
+            0.5039,
+            0.5274
+          ],
+          "reference": 76,
+          "expected": 76
+        },
+        {
+          "id": "glorfindel_mounted",
+          "visible": true,
+          "source": [
+            344,
+            374
+          ],
+          "display": [
+            142.0020639834881,
+            154.38596491228068
+          ],
+          "origin": [
+            0.5396,
+            0.5091
+          ],
+          "reference": 44,
+          "expected": 44
+        },
+        {
+          "id": "gondor_archer",
+          "visible": true,
+          "source": [
+            262,
+            366
+          ],
+          "display": [
+            68.670208064757,
+            95.9286112660346
+          ],
+          "origin": [
+            0.4586,
+            0.4818
+          ],
+          "reference": 86.00000000000001,
+          "expected": 86
+        },
+        {
+          "id": "moria_goblin",
+          "visible": true,
+          "source": [
+            270,
+            366
+          ],
+          "display": [
+            48.757249093648305,
+            66.09315988250104
+          ],
+          "origin": [
+            0.5079,
+            0.5
+          ],
+          "reference": 62.99999999999999,
+          "expected": 63
+        },
+        {
+          "id": "goblin_shield",
+          "visible": true,
+          "source": [
+            316,
+            366
+          ],
+          "display": [
+            57.064039679973575,
+            66.09315988250104
+          ],
+          "origin": [
+            0.4615,
+            0.5
+          ],
+          "reference": 62.99999999999999,
+          "expected": 63
+        },
+        {
+          "id": "goblin_bow",
+          "visible": true,
+          "source": [
+            224,
+            366
+          ],
+          "display": [
+            51.643955329735235,
+            84.38253415483526
+          ],
+          "origin": [
+            0.5281,
+            0.5788
+          ],
+          "reference": 62.99999999999999,
+          "expected": 63
+        },
+        {
+          "id": "goblin_prowler",
+          "visible": true,
+          "source": [
+            329,
+            335
+          ],
+          "display": [
+            63.956627859256535,
+            65.12301013024602
+          ],
+          "origin": [
+            0.502,
+            0.4883
+          ],
+          "reference": 63,
+          "expected": 63
+        },
+        {
+          "id": "bombur",
+          "visible": true,
+          "source": [
+            201,
+            210
+          ],
+          "display": [
+            66.41399416909623,
+            69.38775510204083
+          ],
+          "origin": [
+            0.5075,
+            0.5
+          ],
+          "reference": 68.00000000000001,
+          "expected": 68
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "units": [
+        {
+          "id": "glorfindel_foot",
+          "visible": true,
+          "source": [
+            319,
+            366
+          ],
+          "display": [
+            80.58447342879555,
+            92.4574209245742
+          ],
+          "origin": [
+            0.5039,
+            0.5274
+          ],
+          "reference": 76,
+          "expected": 76
+        },
+        {
+          "id": "glorfindel_mounted",
+          "visible": true,
+          "source": [
+            344,
+            374
+          ],
+          "display": [
+            142.0020639834881,
+            154.38596491228068
+          ],
+          "origin": [
+            0.5396,
+            0.5091
+          ],
+          "reference": 44,
+          "expected": 44
+        },
+        {
+          "id": "erkenbrand",
+          "visible": true,
+          "source": [
+            260,
+            340
+          ],
+          "display": [
+            83.24646314221891,
+            108.86075949367088
+          ],
+          "origin": [
+            0.5,
+            0.585
+          ],
+          "reference": 86,
+          "expected": 86
+        },
+        {
+          "id": "mablung",
+          "visible": true,
+          "source": [
+            359,
+            420
+          ],
+          "display": [
+            67.28894886789624,
+            78.72244714349978
+          ],
+          "origin": [
+            0.456,
+            0.5175
+          ],
+          "reference": 70,
+          "expected": 70
+        },
+        {
+          "id": "durin_vi",
+          "visible": true,
+          "source": [
+            237,
+            284
+          ],
+          "display": [
+            70.53571428571428,
+            84.52380952380952
+          ],
+          "origin": [
+            0.418,
+            0.55
+          ],
+          "reference": 70.99999999999999,
+          "expected": 71
+        },
+        {
+          "id": "dead_spearman",
+          "visible": true,
+          "source": [
+            416,
+            420
+          ],
+          "display": [
+            106.58277324943992,
+            107.6076076076076
+          ],
+          "origin": [
+            0.4924,
+            0.595
+          ],
+          "reference": 86,
+          "expected": 86
+        },
+        {
+          "id": "vault_warden",
+          "visible": true,
+          "source": [
+            179,
+            253
+          ],
+          "display": [
+            48.8228115675546,
+            69.00654372397382
+          ],
+          "origin": [
+            0.4563,
+            0.5856
+          ],
+          "reference": 58,
+          "expected": 58
+        },
+        {
+          "id": "maglor",
+          "visible": true,
+          "source": [
+            196,
+            262
+          ],
+          "display": [
+            65.64885496183206,
+            87.75510204081633
+          ],
+          "origin": [
+            0.5321,
+            0.495
+          ],
+          "reference": 86,
+          "expected": 86
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "units": [
+        {
+          "id": "glorfindel_foot",
+          "visible": true,
+          "source": [
+            319,
+            366
+          ],
+          "display": [
+            80.58447342879555,
+            92.4574209245742
+          ],
+          "origin": [
+            0.5039,
+            0.5274
+          ],
+          "reference": 76,
+          "expected": 76
+        },
+        {
+          "id": "glorfindel_mounted",
+          "visible": true,
+          "source": [
+            344,
+            374
+          ],
+          "display": [
+            142.0020639834881,
+            154.38596491228068
+          ],
+          "origin": [
+            0.5396,
+            0.5091
+          ],
+          "reference": 44,
+          "expected": 44
+        },
+        {
+          "id": "gwindor",
+          "visible": true,
+          "source": [
+            220,
+            262
+          ],
+          "display": [
+            73.68749026328089,
+            87.75510204081633
+          ],
+          "origin": [
+            0.4558,
+            0.498
+          ],
+          "reference": 86,
+          "expected": 86
+        },
+        {
+          "id": "celebrimbor",
+          "visible": true,
+          "source": [
+            233,
+            262
+          ],
+          "display": [
+            78.04175105156567,
+            87.75510204081633
+          ],
+          "origin": [
+            0.5051,
+            0.5136
+          ],
+          "reference": 86,
+          "expected": 86
+        },
+        {
+          "id": "huor",
+          "visible": true,
+          "source": [
+            195,
+            262
+          ],
+          "display": [
+            67.10802431095225,
+            90.16565317676661
+          ],
+          "origin": [
+            0.4869,
+            0.5375
+          ],
+          "reference": 85.99999999999999,
+          "expected": 86
+        },
+        {
+          "id": "pallando",
+          "visible": true,
+          "source": [
+            251,
+            377
+          ],
+          "display": [
+            58.425810642559405,
+            87.75510204081633
+          ],
+          "origin": [
+            0.5342,
+            0.5227
+          ],
+          "reference": 86,
+          "expected": 86
+        },
+        {
+          "id": "alatar",
+          "visible": true,
+          "source": [
+            249,
+            377
+          ],
+          "display": [
+            57.96026633465057,
+            87.75510204081633
+          ],
+          "origin": [
+            0.4792,
+            0.5075
+          ],
+          "reference": 86,
+          "expected": 86
+        },
+        {
+          "id": "ecthelion",
+          "visible": true,
+          "source": [
+            275,
+            366
+          ],
+          "display": [
+            84.11520087981577,
+            111.94968553459118
+          ],
+          "origin": [
+            0.5677,
+            0.4725
+          ],
+          "reference": 89,
+          "expected": 89
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "units": [
+        {
+          "id": "glorfindel_foot",
+          "visible": true,
+          "source": [
+            319,
+            366
+          ],
+          "display": [
+            80.58447342879555,
+            92.4574209245742
+          ],
+          "origin": [
+            0.5039,
+            0.5274
+          ],
+          "reference": 76,
+          "expected": 76
+        },
+        {
+          "id": "glorfindel_mounted",
+          "visible": true,
+          "source": [
+            344,
+            374
+          ],
+          "display": [
+            142.0020639834881,
+            154.38596491228068
+          ],
+          "origin": [
+            0.5396,
+            0.5091
+          ],
+          "reference": 44,
+          "expected": 44
+        },
+        {
+          "id": "earendil",
+          "visible": true,
+          "source": [
+            269,
+            366
+          ],
+          "display": [
+            64.49760231961638,
+            87.75510204081633
+          ],
+          "origin": [
+            0.4521,
+            0.485
+          ],
+          "reference": 86,
+          "expected": 86
+        },
+        {
+          "id": "thingol",
+          "visible": true,
+          "source": [
+            280,
+            366
+          ],
+          "display": [
+            74.1608118657299,
+            96.93877551020408
+          ],
+          "origin": [
+            0.4898,
+            0.4922
+          ],
+          "reference": 95,
+          "expected": 95
+        },
+        {
+          "id": "gil_galad",
+          "visible": true,
+          "source": [
+            272,
+            374
+          ],
+          "display": [
+            74.82921702574882,
+            102.89017341040461
+          ],
+          "origin": [
+            0.4301,
+            0.4875
+          ],
+          "reference": 88.99999999999999,
+          "expected": 89
+        },
+        {
+          "id": "luthien",
+          "visible": true,
+          "source": [
+            440,
+            440
+          ],
+          "display": [
+            103.61445783132527,
+            103.61445783132528
+          ],
+          "origin": [
+            0.4727,
+            0.5742
+          ],
+          "reference": 85.99999999999999,
+          "expected": 86
+        },
+        {
+          "id": "galadriel",
+          "visible": true,
+          "source": [
+            440,
+            440
+          ],
+          "display": [
+            111.58686908005708,
+            111.58686908005708
+          ],
+          "origin": [
+            0.4844,
+            0.5859
+          ],
+          "reference": 86,
+          "expected": 86
+        },
+        {
+          "id": "elf_swordsman",
+          "visible": true,
+          "source": [
+            230,
+            366
+          ],
+          "display": [
+            65.11291065902957,
+            103.61445783132531
+          ],
+          "origin": [
+            0.4845,
+            0.56
+          ],
+          "reference": 86,
+          "expected": 86
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "units": [
+        {
+          "id": "glorfindel_foot",
+          "visible": true,
+          "source": [
+            319,
+            366
+          ],
+          "display": [
+            80.58447342879555,
+            92.4574209245742
+          ],
+          "origin": [
+            0.5039,
+            0.5274
+          ],
+          "reference": 76,
+          "expected": 76
+        },
+        {
+          "id": "glorfindel_mounted",
+          "visible": true,
+          "source": [
+            344,
+            374
+          ],
+          "display": [
+            142.0020639834881,
+            154.38596491228068
+          ],
+          "origin": [
+            0.5396,
+            0.5091
+          ],
+          "reference": 44,
+          "expected": 44
+        },
+        {
+          "id": "elf_swordshield",
+          "visible": true,
+          "source": [
+            222,
+            366
+          ],
+          "display": [
+            62.84811376654158,
+            103.61445783132531
+          ],
+          "origin": [
+            0.5639,
+            0.5273
+          ],
+          "reference": 86,
+          "expected": 86
+        },
+        {
+          "id": "elf_spear",
+          "visible": true,
+          "source": [
+            207,
+            366
+          ],
+          "display": [
+            69.98466800330227,
+            123.7410071942446
+          ],
+          "origin": [
+            0.5645,
+            0.5227
+          ],
+          "reference": 85.99999999999999,
+          "expected": 86
+        },
+        {
+          "id": "elf_bow",
+          "visible": true,
+          "source": [
+            217,
+            366
+          ],
+          "display": [
+            59.63634039561563,
+            100.58479532163743
+          ],
+          "origin": [
+            0.5231,
+            0.5136
+          ],
+          "reference": 86,
+          "expected": 86
+        },
+        {
+          "id": "elf_glaive",
+          "visible": true,
+          "source": [
+            300,
+            366
+          ],
+          "display": [
+            87.02691762801052,
+            106.17283950617283
+          ],
+          "origin": [
+            0.4667,
+            0.55
+          ],
+          "reference": 85.99999999999999,
+          "expected": 86
+        },
+        {
+          "id": "imrahil_mounted",
+          "visible": true,
+          "source": [
+            271,
+            496
+          ],
+          "display": [
+            87.41935483870968,
+            160
+          ],
+          "origin": [
+            0.5071,
+            0.4975
+          ],
+          "reference": 44,
+          "expected": 44
+        },
+        {
+          "id": "thranduil_mounted",
+          "visible": true,
+          "source": [
+            409,
+            513
+          ],
+          "display": [
+            134.44176891029318,
+            168.62745098039218
+          ],
+          "origin": [
+            0.5,
+            0.52
+          ],
+          "reference": 43.00000000000001,
+          "expected": 43
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "units": [
+        {
+          "id": "glorfindel_foot",
+          "visible": true,
+          "source": [
+            319,
+            366
+          ],
+          "display": [
+            80.58447342879555,
+            92.4574209245742
+          ],
+          "origin": [
+            0.5039,
+            0.5274
+          ],
+          "reference": 76,
+          "expected": 76
+        },
+        {
+          "id": "glorfindel_mounted",
+          "visible": true,
+          "source": [
+            344,
+            374
+          ],
+          "display": [
+            142.0020639834881,
+            154.38596491228068
+          ],
+          "origin": [
+            0.5396,
+            0.5091
+          ],
+          "reference": 44,
+          "expected": 44
+        },
+        {
+          "id": "elf_knight",
+          "visible": true,
+          "source": [
+            220,
+            366
+          ],
+          "display": [
+            93.98907103825137,
+            156.36363636363637
+          ],
+          "origin": [
+            0.5,
+            0.51
+          ],
+          "reference": 43,
+          "expected": 43
+        },
+        {
+          "id": "elven_lancer",
+          "visible": true,
+          "source": [
+            209,
+            366
+          ],
+          "display": [
+            70.57960565893408,
+            123.59873526875538
+          ],
+          "origin": [
+            0.4589,
+            0.5075
+          ],
+          "reference": 42.99999999999999,
+          "expected": 43
+        },
+        {
+          "id": "black_numenorean_mounted",
+          "visible": true,
+          "source": [
+            374,
+            513
+          ],
+          "display": [
+            96.28049101733312,
+            132.06388206388206
+          ],
+          "origin": [
+            0.5294,
+            0.49
+          ],
+          "reference": 43,
+          "expected": 43
+        },
+        {
+          "id": "numenorean_knight",
+          "visible": true,
+          "source": [
+            307,
+            420
+          ],
+          "display": [
+            97.43010657455791,
+            133.29200247985122
+          ],
+          "origin": [
+            0.447,
+            0.5275
+          ],
+          "reference": 43,
+          "expected": 43
+        },
+        {
+          "id": "galadhrim_knight",
+          "visible": true,
+          "source": [
+            312,
+            513
+          ],
+          "display": [
+            81.01625397653572,
+            133.2094175960347
+          ],
+          "origin": [
+            0.5128,
+            0.525
+          ],
+          "reference": 43,
+          "expected": 43
+        },
+        {
+          "id": "thingol_mounted",
+          "visible": true,
+          "source": [
+            255,
+            508
+          ],
+          "display": [
+            62.04267223136344,
+            123.5987352687554
+          ],
+          "origin": [
+            0.4806,
+            0.49
+          ],
+          "reference": 43.00000000000001,
+          "expected": 43
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "units": [
+        {
+          "id": "glorfindel_foot",
+          "visible": true,
+          "source": [
+            319,
+            366
+          ],
+          "display": [
+            80.58447342879555,
+            92.4574209245742
+          ],
+          "origin": [
+            0.5039,
+            0.5274
+          ],
+          "reference": 76,
+          "expected": 76
+        },
+        {
+          "id": "glorfindel_mounted",
+          "visible": true,
+          "source": [
+            344,
+            374
+          ],
+          "display": [
+            142.0020639834881,
+            154.38596491228068
+          ],
+          "origin": [
+            0.5396,
+            0.5091
+          ],
+          "reference": 44,
+          "expected": 44
+        },
+        {
+          "id": "ecthelion_mounted",
+          "visible": true,
+          "source": [
+            242,
+            508
+          ],
+          "display": [
+            76.22047244094487,
+            159.99999999999997
+          ],
+          "origin": [
+            0.4836,
+            0.5275
+          ],
+          "reference": 43.99999999999999,
+          "expected": 44
+        },
+        {
+          "id": "turin_mounted",
+          "visible": true,
+          "source": [
+            349,
+            500
+          ],
+          "display": [
+            102.37333333333332,
+            146.66666666666663
+          ],
+          "origin": [
+            0.4706,
+            0.515
+          ],
+          "reference": 43.99999999999999,
+          "expected": 44
+        },
+        {
+          "id": "beleg_mounted",
+          "visible": true,
+          "source": [
+            266,
+            500
+          ],
+          "display": [
+            70.30116779348496,
+            132.14505224339277
+          ],
+          "origin": [
+            0.3718,
+            0.51
+          ],
+          "reference": 43,
+          "expected": 43
+        },
+        {
+          "id": "cirdan_mounted",
+          "visible": true,
+          "source": [
+            254,
+            508
+          ],
+          "display": [
+            61.7993676343777,
+            123.5987352687554
+          ],
+          "origin": [
+            0.5234,
+            0.4925
+          ],
+          "reference": 43.00000000000001,
+          "expected": 43
+        },
+        {
+          "id": "maeglin_mounted",
+          "visible": true,
+          "source": [
+            371,
+            500
+          ],
+          "display": [
+            99.70625000000001,
+            134.37500000000003
+          ],
+          "origin": [
+            0.4908,
+            0.5409
+          ],
+          "reference": 43,
+          "expected": 43
+        },
+        {
+          "id": "earnur_mounted",
+          "visible": true,
+          "source": [
+            333,
+            508
+          ],
+          "display": [
+            81.02043079625108,
+            123.5987352687554
+          ],
+          "origin": [
+            0.494,
+            0.495
+          ],
+          "reference": 43.00000000000001,
+          "expected": 43
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "units": [
+        {
+          "id": "glorfindel_foot",
+          "visible": true,
+          "source": [
+            319,
+            366
+          ],
+          "display": [
+            80.58447342879555,
+            92.4574209245742
+          ],
+          "origin": [
+            0.5039,
+            0.5274
+          ],
+          "reference": 76,
+          "expected": 76
+        },
+        {
+          "id": "glorfindel_mounted",
+          "visible": true,
+          "source": [
+            344,
+            374
+          ],
+          "display": [
+            142.0020639834881,
+            154.38596491228068
+          ],
+          "origin": [
+            0.5396,
+            0.5091
+          ],
+          "reference": 44,
+          "expected": 44
+        },
+        {
+          "id": "arathorn_mounted",
+          "visible": true,
+          "source": [
+            316,
+            506
+          ],
+          "display": [
+            93.67588932806322,
+            150
+          ],
+          "origin": [
+            0.4562,
+            0.5125
+          ],
+          "reference": 39,
+          "expected": 39
+        },
+        {
+          "id": "gamling_mounted",
+          "visible": true,
+          "source": [
+            225,
+            422
+          ],
+          "display": [
+            95.52725118483413,
+            179.16666666666666
+          ],
+          "origin": [
+            0.5513,
+            0.62
+          ],
+          "reference": 43.00000000000001,
+          "expected": 43
+        },
+        {
+          "id": "guthlaf_mounted",
+          "visible": true,
+          "source": [
+            301,
+            508
+          ],
+          "display": [
+            94.80314960629923,
+            160.00000000000003
+          ],
+          "origin": [
+            0.4308,
+            0.5136
+          ],
+          "reference": 35.6,
+          "expected": 35.6
+        },
+        {
+          "id": "cirion_mounted",
+          "visible": true,
+          "source": [
+            329,
+            508
+          ],
+          "display": [
+            80.04721240830813,
+            123.5987352687554
+          ],
+          "origin": [
+            0.4819,
+            0.4925
+          ],
+          "reference": 43.00000000000001,
+          "expected": 43
+        },
+        {
+          "id": "anarion_mounted",
+          "visible": true,
+          "source": [
+            280,
+            508
+          ],
+          "display": [
+            82.67716535433071,
+            150
+          ],
+          "origin": [
+            0.4625,
+            0.49
+          ],
+          "reference": 39,
+          "expected": 39
+        },
+        {
+          "id": "elendil_mounted",
+          "visible": true,
+          "source": [
+            380,
+            512
+          ],
+          "display": [
+            100.84069293478261,
+            135.8695652173913
+          ],
+          "origin": [
+            0.5,
+            0.5175
+          ],
+          "reference": 45,
+          "expected": 45
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "units": [
+        {
+          "id": "glorfindel_foot",
+          "visible": true,
+          "source": [
+            319,
+            366
+          ],
+          "display": [
+            80.58447342879555,
+            92.4574209245742
+          ],
+          "origin": [
+            0.5039,
+            0.5274
+          ],
+          "reference": 76,
+          "expected": 76
+        },
+        {
+          "id": "glorfindel_mounted",
+          "visible": true,
+          "source": [
+            344,
+            374
+          ],
+          "display": [
+            142.0020639834881,
+            154.38596491228068
+          ],
+          "origin": [
+            0.5396,
+            0.5091
+          ],
+          "reference": 44,
+          "expected": 44
+        },
+        {
+          "id": "arvedui_mounted",
+          "visible": true,
+          "source": [
+            352,
+            510
+          ],
+          "display": [
+            118.71372549019608,
+            172
+          ],
+          "origin": [
+            0.505,
+            0.55
+          ],
+          "reference": 42.99999999999999,
+          "expected": 43
+        }
+      ]
+    }
+  ],
+  "mobile": [
+    {
+      "id": "glorfindel_foot",
+      "visible": true,
+      "source": [
+        319,
+        366
+      ],
+      "display": [
+        80.58447342879555,
+        92.4574209245742
+      ],
+      "origin": [
+        0.5039,
+        0.5274
+      ],
+      "reference": 76,
+      "expected": 76
+    },
+    {
+      "id": "earendil",
+      "visible": true,
+      "source": [
+        269,
+        366
+      ],
+      "display": [
+        64.49760231961638,
+        87.75510204081633
+      ],
+      "origin": [
+        0.4521,
+        0.485
+      ],
+      "reference": 86,
+      "expected": 86
+    },
+    {
+      "id": "glorfindel_mounted",
+      "visible": true,
+      "source": [
+        344,
+        374
+      ],
+      "display": [
+        142.0020639834881,
+        154.38596491228068
+      ],
+      "origin": [
+        0.5396,
+        0.5091
+      ],
+      "reference": 44,
+      "expected": 44
+    },
+    {
+      "id": "ecthelion_mounted",
+      "visible": true,
+      "source": [
+        242,
+        508
+      ],
+      "display": [
+        76.22047244094487,
+        159.99999999999997
+      ],
+      "origin": [
+        0.4836,
+        0.5275
+      ],
+      "reference": 43.99999999999999,
+      "expected": 44
+    }
+  ]
+}
