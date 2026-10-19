@@ -326,7 +326,9 @@ function calibrateUnit(u, targets, riderTargets, buffer) {
     Math.abs(candidate.top - prior.top) <= .10 && Math.abs(candidate.bottom - prior.bottom) <= .10;
   const table = STATURE_TARGETS[prior.reference];
   const oldTarget = prior.reference === 'rider' ? riderTargets[prior.riderBodyClass || prior.bodyClass] : targets[prior.bodyClass];
-  const useTarget = table && Object.hasOwn(table, prior.bodyClass) &&
+  // A visually pinned profile owns its explicit size as well as its landmarks.
+  // Name-based physique boosts must not enlarge a reviewed five-head figure again.
+  const useTarget = !pinned && table && Object.hasOwn(table, prior.bodyClass) &&
     resolved.mode === prior.reference && prior.worldReferenceSize === oldTarget;
   return {
     ...u, bodyClass: prior.bodyClass, reference: prior.reference, referenceAxis: 'height',
