@@ -1,0 +1,33 @@
+{
+  "testedSourceCommit": "49a1a5b2255b288df706a5beeea33331e1149f29",
+  "previewURL": "https://raw.githack.com/leesh603/mesbg-assets/49a1a5b2255b288df706a5beeea33331e1149f29/art/mordor-rebuild-20261019/gallery.html",
+  "catalogCount": 46,
+  "mountedFilterCount": 5,
+  "passed": [
+    "46-unit catalog and compact preview image loading",
+    "Korean/ID search: gothmog returns one result",
+    "original/new card comparison",
+    "preview sprites use thumbs/ while original source remains units/",
+    "multiple spawning",
+    "five mounted units at shared 100% world scale",
+    "Mordor and meadow map selection",
+    "100% and 150% zoom selection",
+    "original/new switch",
+    "body landmark guide checkbox",
+    "PNG download: non-empty 1320x900 PNG verified on disk",
+    "production unit paths unchanged"
+  ],
+  "evidence": [
+    "previews/map-runtime.png"
+  ],
+  "limits": [
+    "Cloud desktop browser checked; physical mobile device not checked.",
+    "Art placement preview does not run game combat or collision.",
+    "Drag control implemented; automated drag gesture not separately exercised."
+  ],
+  "technicalSpriteChecks": 46,
+  "rawAlphaPreserved": true,
+  "currentCatalogCount": 73,
+  "currentBrowserVerification": false,
+  "historicalScope": "The existing passed list and screenshot cover the earlier 46-unit gallery only. Current 73-unit catalog checked by test_catalog.cjs; no new browser session."
+}

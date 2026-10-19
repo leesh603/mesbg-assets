@@ -1,0 +1,831 @@
+{
+  "reviewedCount": 59,
+  "checks": [
+    {
+      "id": "aragorn",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        117,
+        178,
+        993,
+        1264
+      ],
+      "sha256": "e0562fa9e478cce9e68048620cc104007e40865f7bd1da79f132f67d95aec201"
+    },
+    {
+      "id": "warrior_minas_tirith",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        309,
+        45,
+        978,
+        1270
+      ],
+      "sha256": "633e161060e78ea62fc784924ae92d74d0060f6bc5dd0af0fc1255a621b7b7a6"
+    },
+    {
+      "id": "boromir",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        246,
+        193,
+        1014,
+        1251
+      ],
+      "sha256": "1b908150bc6daeef6180f60b27145b93df57606cb9b62436b7da3cc4f4f9bc4e"
+    },
+    {
+      "id": "gondor_archer",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        83,
+        68,
+        1134,
+        1265
+      ],
+      "sha256": "b95eb842eb21495a60eba889bcb437ece98c0f718fa5fb62f25ae08d3609754b"
+    },
+    {
+      "id": "ithilien_ranger",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        240,
+        70,
+        1114,
+        1259
+      ],
+      "sha256": "33c138b77787c7105ea080a20890f359f929814ca5eec30a2793ded8282a1573"
+    },
+    {
+      "id": "mt_swordshield",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        93,
+        84,
+        1086,
+        1262
+      ],
+      "sha256": "46392cfcaf8332b9cb0e3b4908cef112e23e614cdb7d86142a8d3bbb4f179e81"
+    },
+    {
+      "id": "mt_spear",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        261,
+        20,
+        966,
+        1271
+      ],
+      "sha256": "1cdd5459060c670e0cd1789d66a6418d357bc26d4e888c3637a12a6441d61bad"
+    },
+    {
+      "id": "mt_spearshield",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        103,
+        128,
+        1120,
+        1222
+      ],
+      "sha256": "6bffb1d0cf1f3c1cbdf51cb16eed9c9a6a6394396f93d047b8213a33bb3990a7"
+    },
+    {
+      "id": "mt_bowman",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        172,
+        47,
+        1179,
+        1266
+      ],
+      "sha256": "7cb94b32146176a1017f42443da21e6d3837ebb8fe27c55acfad804d0d180674"
+    },
+    {
+      "id": "mt_captain",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        77,
+        31,
+        1168,
+        1280
+      ],
+      "sha256": "46e0335d9bec1a995828137ca3c9e22f081c8534fa8d16286c981e28d2a88e74"
+    },
+    {
+      "id": "mt_fountain_guard",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        275,
+        14,
+        978,
+        1270
+      ],
+      "sha256": "b9f309aa87bb19c02ea7b6528b2d2013748d5cc95e09dacdc2f1aab2b448da89"
+    },
+    {
+      "id": "dol_amroth_knight",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        128,
+        80,
+        1115,
+        1240
+      ],
+      "sha256": "277ec8d034a315329ea5117a75581a4a9a3243e0099e9d43520861af31ed5b2e"
+    },
+    {
+      "id": "gondor_knight",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        73,
+        59,
+        1170,
+        1253
+      ],
+      "sha256": "c3a4e40de908982080edcdc0122cc4ddbf852e133181e0da2618138d611bc746"
+    },
+    {
+      "id": "osgiliath_veteran",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        127,
+        112,
+        1143,
+        1253
+      ],
+      "sha256": "b664076f5c9770d078d812d6f09cfa240a4e9d22e2f74a46bde7edefdd551a62"
+    },
+    {
+      "id": "lossarnach_axeman",
+      "dimensions": [
+        1190,
+        1322
+      ],
+      "visibleAlphaBBox": [
+        235,
+        114,
+        1065,
+        1250
+      ],
+      "sha256": "2a247f4c7163cdd4fb8477c0839551e0a14a1159b19820adce603ba7efd2685d"
+    },
+    {
+      "id": "citadel_guard",
+      "dimensions": [
+        1189,
+        1323
+      ],
+      "visibleAlphaBBox": [
+        74,
+        19,
+        1070,
+        1288
+      ],
+      "sha256": "472f082d4ebb459355f0d44067bebd29ef5ff45b6edead24ea0bc64f0cdb0e9b"
+    },
+    {
+      "id": "pelennor_militia",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        241,
+        32,
+        911,
+        1259
+      ],
+      "sha256": "8355534fbf01e345cfb2140f49f1dc30cbbbfbf82b2dad820f76a2f8c9cd2745"
+    },
+    {
+      "id": "faramir",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        200,
+        195,
+        1029,
+        1221
+      ],
+      "sha256": "ec0cc8ae9ef8833aef8e21490853fe98d47949eb8513f7e684710b0160c44ec6"
+    },
+    {
+      "id": "imrahil",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        152,
+        43,
+        1056,
+        1270
+      ],
+      "sha256": "12e098698b95b3d72b847859fa2caa4be4ca5483096a2bdf775c48675793d113"
+    },
+    {
+      "id": "beregond",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        177,
+        75,
+        1103,
+        1263
+      ],
+      "sha256": "6c941d3691e5afc8afb3e7135600e5ac5d050554cd1749d2c12b9f3090785de6"
+    },
+    {
+      "id": "imrahil_mounted",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        75,
+        80,
+        1106,
+        1236
+      ],
+      "sha256": "0d168c9e001ca72962fff80db6f394fce13a792c69e8228c435fc299e2895d36"
+    },
+    {
+      "id": "aragorn_mounted",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        177,
+        111,
+        1049,
+        1263
+      ],
+      "sha256": "058b45db4385819a4c4c11a489200b551a5869d5f751f4101fbb709ac95a2240"
+    },
+    {
+      "id": "blackroot_archer",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        152,
+        107,
+        1049,
+        1239
+      ],
+      "sha256": "e6b900ad91e360a3a732d406c90b35f32a37fa0ebc0d87a9e78a40cf9940ecb3"
+    },
+    {
+      "id": "forlong",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        174,
+        157,
+        1105,
+        1258
+      ],
+      "sha256": "9ec849dd9ee4a243e65d318fc5e18d26f74253ece79b67071c9b4938cbc63256"
+    },
+    {
+      "id": "damrod",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        235,
+        45,
+        1085,
+        1268
+      ],
+      "sha256": "0d1705c814a19edb8521785bfd1cfcaaccaa00b5ef8d088ad9fb849a9f334abf"
+    },
+    {
+      "id": "mablung",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        186,
+        89,
+        1054,
+        1236
+      ],
+      "sha256": "afef6c8333ed33d548e16369aad6160996912f7e2e35c372f721228eaa794632"
+    },
+    {
+      "id": "duinhir",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        279,
+        20,
+        1125,
+        1249
+      ],
+      "sha256": "6b28da82caec5a4102156b300d3d139c9fa2e97fd2fb7e8a77227b1bb085c75a"
+    },
+    {
+      "id": "isildur",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        230,
+        42,
+        1069,
+        1286
+      ],
+      "sha256": "bc1db0394ad56a2a8f05b515bfcc567ad518c5cb49b6d005147e5af38c31150e"
+    },
+    {
+      "id": "denethor",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        287,
+        68,
+        1005,
+        1242
+      ],
+      "sha256": "039177c4794771d50d67caf5f246d03391f5d71e614476fd9be52c8d7002a5c2"
+    },
+    {
+      "id": "boromir_mounted",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        134,
+        52,
+        1165,
+        1266
+      ],
+      "sha256": "ab68449ab299b964c5fd2dd397158ace21f197337ac3cfebf3fb6b4b6ca012d7"
+    },
+    {
+      "id": "faramir_mounted",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        157,
+        89,
+        1091,
+        1224
+      ],
+      "sha256": "f5e1204f7887ae13e06c72a1134731dac5637fd9868eebeb137b6c9605f02dd0"
+    },
+    {
+      "id": "aragorn_blackgate",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        181,
+        8,
+        1149,
+        1283
+      ],
+      "sha256": "2e0f5789096909c643e84271a15d2a86e35247ac6498522e042f77b5acdfe19e"
+    },
+    {
+      "id": "aragorn_blackgate_mounted",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        236,
+        35,
+        1096,
+        1264
+      ],
+      "sha256": "d8ab295947c9327715ea13094761e17c209579bbe5a6d19317a9066c306c655f"
+    },
+    {
+      "id": "anborn",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        228,
+        95,
+        1077,
+        1225
+      ],
+      "sha256": "6cd43adb251b4ee7b47b568fe96b8d9da58e907099c5aa74d413aea09f01b793"
+    },
+    {
+      "id": "hirluin",
+      "dimensions": [
+        1205,
+        1305
+      ],
+      "visibleAlphaBBox": [
+        188,
+        33,
+        1035,
+        1272
+      ],
+      "sha256": "77897ffcaeaea16e8fc106bdb9181a343c1515809d873f88bd351aaf2b574953"
+    },
+    {
+      "id": "madril",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        243,
+        134,
+        1119,
+        1239
+      ],
+      "sha256": "85deb42930cf448f80557bf3cbf58e07cbf0409ce858bc4ebe313cf732e9a429"
+    },
+    {
+      "id": "irolas",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        41,
+        74,
+        1164,
+        1277
+      ],
+      "sha256": "9f4cfbe56938d9d08ac3eb75c69f9f9a26dea1b2043b5c2d47842e504986d0a3"
+    },
+    {
+      "id": "hurin",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        152,
+        112,
+        1058,
+        1245
+      ],
+      "sha256": "3f2bb23468912a8fca127462bcd9f424eea3e9f48f54d599e96793ddcf65e628"
+    },
+    {
+      "id": "cirion",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        98,
+        30,
+        1116,
+        1275
+      ],
+      "sha256": "fd931938125adff0c61d8da8e97a96d563fba6a66d4b49a56687b8b78f17205d"
+    },
+    {
+      "id": "numenorean_captain",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        297,
+        38,
+        1051,
+        1274
+      ],
+      "sha256": "06326c684cc129bd1a71aa7e9cdf6c57700a565b1cbb7a6bc51c4506f71b2bf6"
+    },
+    {
+      "id": "numenorean_warrior",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        193,
+        29,
+        1080,
+        1284
+      ],
+      "sha256": "c6d1388e46178f936cf8faee9b69a99161c0a59d333d6fa5be1c0806c8c0a860"
+    },
+    {
+      "id": "numenorean_spearman",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        96,
+        108,
+        1079,
+        1239
+      ],
+      "sha256": "6fd9eb125bd6cd3b626f4297ea0a1467d434ff5db46e2df3c6d9fc93ec838211"
+    },
+    {
+      "id": "angbor",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        248,
+        151,
+        1164,
+        1259
+      ],
+      "sha256": "cb4538d4ee0db7c4e0eb91ddcd040801b1be92412026ad80c282aaf67e38fda6"
+    },
+    {
+      "id": "dervorin",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        297,
+        41,
+        1083,
+        1272
+      ],
+      "sha256": "3027f84a8029bac5ed27bf6435a2df353a0144f61a7d1c24f0e6326371fdfe18"
+    },
+    {
+      "id": "dol_amroth_man_at_arms",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        302,
+        28,
+        981,
+        1274
+      ],
+      "sha256": "708630685cf9fd3703dd0108e4eea9411e781aee9afe81f3ba8654ea368b1123"
+    },
+    {
+      "id": "duilin",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        162,
+        116,
+        1107,
+        1256
+      ],
+      "sha256": "098fd194aaf24e96fd527c5b5cef273323a628c648acb32adb9333a45c347296"
+    },
+    {
+      "id": "derufin",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        262,
+        178,
+        1051,
+        1269
+      ],
+      "sha256": "d83b0066a0d9e8658c55d64ba9b29357b39e5b194cec74fb2c54c821a56155f7"
+    },
+    {
+      "id": "hirgon",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        245,
+        80,
+        1067,
+        1221
+      ],
+      "sha256": "45d5385a0c7c52810f454087af17b69934d29e2c5b76fd56ffc16a94ac4a5466"
+    },
+    {
+      "id": "pippin_citadel",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        136,
+        120,
+        1001,
+        1200
+      ],
+      "sha256": "14ca1fd656112e134f0dad353818499b58f48ade6b6d87f33ab8f87034fc9ade"
+    },
+    {
+      "id": "earnur",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        197,
+        55,
+        1024,
+        1274
+      ],
+      "sha256": "9790c3260247731d3138b84295fda2ba1192f6fd329b950d0e4749bbb8476280"
+    },
+    {
+      "id": "ingold",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        108,
+        111,
+        1187,
+        1257
+      ],
+      "sha256": "f9fb2769bdcd975745566e3e2b57214887ea69cd96baecbcc67542144831175f"
+    },
+    {
+      "id": "isildur_mounted",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        72,
+        37,
+        1144,
+        1256
+      ],
+      "sha256": "e7ee7c5972db5eea6eefe00f434914952c5064d83410d5bfc8adad0d5f5353ce"
+    },
+    {
+      "id": "cirion_mounted",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        138,
+        71,
+        1116,
+        1255
+      ],
+      "sha256": "5fb3d5003361254abd27dec2812dc0fb825a985721294b36fe485caeac14b426"
+    },
+    {
+      "id": "earnur_mounted",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        52,
+        57,
+        1178,
+        1259
+      ],
+      "sha256": "dc84121dcccbdfe296286b7cb6988b2849279eeb4ce3fd631d3b99f622aa322c"
+    },
+    {
+      "id": "citadel_guard_bow",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        149,
+        105,
+        1189,
+        1274
+      ],
+      "sha256": "7af4e762542f27179bb325c510a9acf24360f4af91caaf058b53e10966895d61"
+    },
+    {
+      "id": "osgiliath_spearshield",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        88,
+        157,
+        1138,
+        1250
+      ],
+      "sha256": "fb425498f9d8dd12ab4afabe4315be4ca44435292061487b42758628f71f411f"
+    },
+    {
+      "id": "osgiliath_bow",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        76,
+        152,
+        1179,
+        1245
+      ],
+      "sha256": "87bc171fd15b8ca54318744222d7c44786e37c08037f6ddd93b1a7dc1d8a73f2"
+    },
+    {
+      "id": "dol_amroth_swordshield",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        119,
+        172,
+        1053,
+        1263
+      ],
+      "sha256": "15e30bbcbae740b0672ac65a9bc0b9390d0ea18da608273a32e5f8003affbb84"
+    },
+    {
+      "id": "dol_amroth_knight_foot",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "visibleAlphaBBox": [
+        110,
+        78,
+        1096,
+        1281
+      ],
+      "sha256": "b8e8e66de645e718d889ce4fe242154a2df567c14d21acec9cc60faaa404e066"
+    }
+  ]
+}

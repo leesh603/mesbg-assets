@@ -1,0 +1,589 @@
+{
+  "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
+  "camera": {
+    "name": "high-angle front 3/4",
+    "view": "near-frontal slight diagonal",
+    "pitchDegreesTarget": [
+      20,
+      30
+    ],
+    "humanHeadsTarget": 5,
+    "note": "art-direction target, not a recovered camera calibration"
+  },
+  "alignment": "uniform scale around manually selected anatomical body center; no stretching or alpha-bounds fit",
+  "worldScaleNote": "Standing targets reuse current species world sizes. Human cavalry reference is proposed at50 vs production43 after comparing rider head size against human foot sprites. This is preview-only and must be reviewed before adoption. Dwarf cavalry37 unchanged.",
+  "bases": [
+    {
+      "id": "hobbit",
+      "label": "Hobbit",
+      "worldReferenceSize": 54,
+      "reference": "body",
+      "top": 0.095,
+      "bottom": 0.92,
+      "centerX": 0.51,
+      "centerY": 0.51,
+      "landmarks": {
+        "crown": [
+          0.5,
+          0.095
+        ],
+        "chin": [
+          0.5,
+          0.25
+        ],
+        "shoulders": [
+          [
+            0.3,
+            0.29
+          ],
+          [
+            0.7,
+            0.28
+          ]
+        ],
+        "pelvis": [
+          0.51,
+          0.54
+        ],
+        "nearFoot": [
+          0.47,
+          0.92
+        ],
+        "farFoot": [
+          0.64,
+          0.79
+        ]
+      },
+      "centerRule": "torso/anatomical body middle, equipment excluded"
+    },
+    {
+      "id": "dwarf",
+      "label": "Dwarf",
+      "worldReferenceSize": 68,
+      "reference": "body",
+      "top": 0.08,
+      "bottom": 0.92,
+      "centerX": 0.51,
+      "centerY": 0.51,
+      "landmarks": {
+        "crown": [
+          0.5,
+          0.08
+        ],
+        "chin": [
+          0.5,
+          0.25
+        ],
+        "shoulders": [
+          [
+            0.3,
+            0.29
+          ],
+          [
+            0.7,
+            0.28
+          ]
+        ],
+        "pelvis": [
+          0.51,
+          0.54
+        ],
+        "nearFoot": [
+          0.47,
+          0.92
+        ],
+        "farFoot": [
+          0.64,
+          0.79
+        ]
+      },
+      "centerRule": "torso/anatomical body middle, equipment excluded"
+    },
+    {
+      "id": "dwarf-mounted",
+      "label": "Dwarf / boar",
+      "worldReferenceSize": 37,
+      "reference": "rider",
+      "top": 0.075,
+      "bottom": 0.395,
+      "centerX": 0.51,
+      "centerY": 0.52,
+      "landmarks": {
+        "crown": [
+          0.5,
+          0.075
+        ],
+        "chin": [
+          0.5,
+          0.22
+        ],
+        "shoulders": [
+          [
+            0.3,
+            0.29
+          ],
+          [
+            0.7,
+            0.28
+          ]
+        ],
+        "pelvis": [
+          0.51,
+          0.395
+        ],
+        "nearFoot": [
+          0.47,
+          0.58
+        ],
+        "farFoot": [
+          0.64,
+          0.55
+        ]
+      },
+      "centerRule": "combined rider and mount body middle; equipment and tail excluded"
+    },
+    {
+      "id": "human",
+      "label": "Human",
+      "worldReferenceSize": 86,
+      "reference": "body",
+      "top": 0.08,
+      "bottom": 0.925,
+      "centerX": 0.51,
+      "centerY": 0.51,
+      "landmarks": {
+        "crown": [
+          0.5,
+          0.08
+        ],
+        "chin": [
+          0.5,
+          0.25
+        ],
+        "shoulders": [
+          [
+            0.3,
+            0.29
+          ],
+          [
+            0.7,
+            0.28
+          ]
+        ],
+        "pelvis": [
+          0.51,
+          0.54
+        ],
+        "nearFoot": [
+          0.47,
+          0.925
+        ],
+        "farFoot": [
+          0.64,
+          0.79
+        ]
+      },
+      "centerRule": "torso/anatomical body middle, equipment excluded"
+    },
+    {
+      "id": "human-mounted",
+      "label": "Human / horse",
+      "worldReferenceSize": 50,
+      "reference": "rider",
+      "top": 0.075,
+      "bottom": 0.395,
+      "centerX": 0.51,
+      "centerY": 0.52,
+      "landmarks": {
+        "crown": [
+          0.5,
+          0.075
+        ],
+        "chin": [
+          0.5,
+          0.22
+        ],
+        "shoulders": [
+          [
+            0.3,
+            0.29
+          ],
+          [
+            0.7,
+            0.28
+          ]
+        ],
+        "pelvis": [
+          0.51,
+          0.395
+        ],
+        "nearFoot": [
+          0.47,
+          0.58
+        ],
+        "farFoot": [
+          0.64,
+          0.55
+        ]
+      },
+      "centerRule": "combined rider and mount body middle; equipment and tail excluded"
+    },
+    {
+      "id": "orc",
+      "label": "Orc",
+      "worldReferenceSize": 76,
+      "reference": "body",
+      "top": 0.08,
+      "bottom": 0.925,
+      "centerX": 0.51,
+      "centerY": 0.51,
+      "landmarks": {
+        "crown": [
+          0.5,
+          0.08
+        ],
+        "chin": [
+          0.5,
+          0.25
+        ],
+        "shoulders": [
+          [
+            0.3,
+            0.29
+          ],
+          [
+            0.7,
+            0.28
+          ]
+        ],
+        "pelvis": [
+          0.51,
+          0.54
+        ],
+        "nearFoot": [
+          0.47,
+          0.925
+        ],
+        "farFoot": [
+          0.64,
+          0.79
+        ]
+      },
+      "centerRule": "torso/anatomical body middle, equipment excluded"
+    },
+    {
+      "id": "goblin",
+      "label": "Goblin",
+      "worldReferenceSize": 63,
+      "reference": "body",
+      "top": 0.1,
+      "bottom": 0.91,
+      "centerX": 0.51,
+      "centerY": 0.51,
+      "landmarks": {
+        "crown": [
+          0.5,
+          0.1
+        ],
+        "chin": [
+          0.5,
+          0.25
+        ],
+        "shoulders": [
+          [
+            0.3,
+            0.29
+          ],
+          [
+            0.7,
+            0.28
+          ]
+        ],
+        "pelvis": [
+          0.51,
+          0.54
+        ],
+        "nearFoot": [
+          0.47,
+          0.91
+        ],
+        "farFoot": [
+          0.64,
+          0.79
+        ]
+      },
+      "centerRule": "torso/anatomical body middle, equipment excluded"
+    },
+    {
+      "id": "elf",
+      "label": "Elf",
+      "worldReferenceSize": 86,
+      "reference": "body",
+      "top": 0.075,
+      "bottom": 0.925,
+      "centerX": 0.51,
+      "centerY": 0.51,
+      "landmarks": {
+        "crown": [
+          0.5,
+          0.075
+        ],
+        "chin": [
+          0.5,
+          0.25
+        ],
+        "shoulders": [
+          [
+            0.3,
+            0.29
+          ],
+          [
+            0.7,
+            0.28
+          ]
+        ],
+        "pelvis": [
+          0.51,
+          0.54
+        ],
+        "nearFoot": [
+          0.47,
+          0.925
+        ],
+        "farFoot": [
+          0.64,
+          0.79
+        ]
+      },
+      "centerRule": "torso/anatomical body middle, equipment excluded"
+    },
+    {
+      "id": "large-human",
+      "label": "Large human",
+      "worldReferenceSize": 98,
+      "reference": "body",
+      "top": 0.075,
+      "bottom": 0.925,
+      "centerX": 0.51,
+      "centerY": 0.51,
+      "landmarks": {
+        "crown": [
+          0.5,
+          0.075
+        ],
+        "chin": [
+          0.5,
+          0.25
+        ],
+        "shoulders": [
+          [
+            0.3,
+            0.29
+          ],
+          [
+            0.7,
+            0.28
+          ]
+        ],
+        "pelvis": [
+          0.51,
+          0.54
+        ],
+        "nearFoot": [
+          0.47,
+          0.925
+        ],
+        "farFoot": [
+          0.64,
+          0.79
+        ]
+      },
+      "centerRule": "torso/anatomical body middle, equipment excluded"
+    },
+    {
+      "id": "uruk",
+      "label": "Uruk-hai",
+      "worldReferenceSize": 90,
+      "reference": "body",
+      "top": 0.08,
+      "bottom": 0.925,
+      "centerX": 0.51,
+      "centerY": 0.51,
+      "landmarks": {
+        "crown": [
+          0.5,
+          0.08
+        ],
+        "chin": [
+          0.5,
+          0.25
+        ],
+        "shoulders": [
+          [
+            0.3,
+            0.29
+          ],
+          [
+            0.7,
+            0.28
+          ]
+        ],
+        "pelvis": [
+          0.51,
+          0.54
+        ],
+        "nearFoot": [
+          0.47,
+          0.925
+        ],
+        "farFoot": [
+          0.64,
+          0.79
+        ]
+      },
+      "centerRule": "torso/anatomical body middle, equipment excluded"
+    }
+  ],
+  "units": [
+    {
+      "id": "frodo",
+      "label": "Frodo",
+      "base": "hobbit",
+      "oldReference": "references/frodo.png",
+      "worldReferenceSize": 54,
+      "reference": "body",
+      "top": 0.095,
+      "bottom": 0.91,
+      "centerX": 0.51,
+      "centerY": 0.51,
+      "measurementNote": "visually reviewed source fractions; anatomical crown to sole or seated pelvis; plume/crown spikes/weapon/cape excluded",
+      "centerRule": "body middle; equipment excluded"
+    },
+    {
+      "id": "gimli",
+      "label": "Gimli",
+      "base": "dwarf",
+      "oldReference": "references/gimli.png",
+      "worldReferenceSize": 68,
+      "reference": "body",
+      "top": 0.12,
+      "bottom": 0.91,
+      "centerX": 0.5,
+      "centerY": 0.52,
+      "measurementNote": "visually reviewed source fractions; anatomical crown to sole or seated pelvis; plume/crown spikes/weapon/cape excluded",
+      "centerRule": "body middle; equipment excluded"
+    },
+    {
+      "id": "dain_boar",
+      "label": "Dain / boar",
+      "base": "dwarf-mounted",
+      "oldReference": "references/dain_boar.png",
+      "worldReferenceSize": 37,
+      "reference": "rider",
+      "top": 0.12,
+      "bottom": 0.395,
+      "centerX": 0.51,
+      "centerY": 0.52,
+      "measurementNote": "visually reviewed source fractions; anatomical crown to sole or seated pelvis; plume/crown spikes/weapon/cape excluded",
+      "centerRule": "combined rider/mount body middle"
+    },
+    {
+      "id": "warrior_minas_tirith",
+      "label": "Minas Tirith warrior",
+      "base": "human",
+      "oldReference": "references/warrior_minas_tirith.png",
+      "worldReferenceSize": 86,
+      "reference": "body",
+      "top": 0.12,
+      "bottom": 0.925,
+      "centerX": 0.51,
+      "centerY": 0.51,
+      "measurementNote": "visually reviewed source fractions; anatomical crown to sole or seated pelvis; plume/crown spikes/weapon/cape excluded",
+      "centerRule": "body middle; equipment excluded"
+    },
+    {
+      "id": "theoden_mounted",
+      "label": "Theoden / horse",
+      "base": "human-mounted",
+      "oldReference": "references/theoden_mounted.png",
+      "worldReferenceSize": 50,
+      "reference": "rider",
+      "top": 0.105,
+      "bottom": 0.39,
+      "centerX": 0.51,
+      "centerY": 0.52,
+      "measurementNote": "visually reviewed source fractions; anatomical crown to sole or seated pelvis; plume/crown spikes/weapon/cape excluded",
+      "centerRule": "combined rider/mount body middle"
+    },
+    {
+      "id": "glorfindel_foot",
+      "label": "Glorfindel",
+      "base": "elf",
+      "oldReference": "references/glorfindel_foot.png",
+      "worldReferenceSize": 86,
+      "reference": "body",
+      "top": 0.1,
+      "bottom": 0.925,
+      "centerX": 0.5,
+      "centerY": 0.51,
+      "measurementNote": "visually reviewed source fractions; anatomical crown to sole or seated pelvis; plume/crown spikes/weapon/cape excluded",
+      "centerRule": "body middle; equipment excluded"
+    },
+    {
+      "id": "orc_swordshield",
+      "label": "Mordor orc",
+      "base": "orc",
+      "oldReference": "references/orc_swordshield.png",
+      "worldReferenceSize": 76,
+      "reference": "body",
+      "top": 0.08,
+      "bottom": 0.935,
+      "centerX": 0.51,
+      "centerY": 0.51,
+      "measurementNote": "visually reviewed source fractions; anatomical crown to sole or seated pelvis; plume/crown spikes/weapon/cape excluded",
+      "centerRule": "body middle; equipment excluded"
+    },
+    {
+      "id": "moria_goblin",
+      "label": "Moria goblin",
+      "base": "goblin",
+      "oldReference": "references/moria_goblin.png",
+      "worldReferenceSize": 63,
+      "reference": "body",
+      "top": 0.12,
+      "bottom": 0.9,
+      "centerX": 0.51,
+      "centerY": 0.52,
+      "measurementNote": "visually reviewed source fractions; anatomical crown to sole or seated pelvis; plume/crown spikes/weapon/cape excluded",
+      "centerRule": "body middle; equipment excluded"
+    },
+    {
+      "id": "witchking_foot",
+      "label": "Witch-king",
+      "base": "large-human",
+      "oldReference": "references/witchking_foot.png",
+      "worldReferenceSize": 98,
+      "reference": "body",
+      "top": 0.2,
+      "bottom": 0.92,
+      "centerX": 0.5,
+      "centerY": 0.56,
+      "measurementNote": "visually reviewed source fractions; anatomical crown to sole or seated pelvis; plume/crown spikes/weapon/cape excluded",
+      "centerRule": "body middle; equipment excluded"
+    },
+    {
+      "id": "uruk_swordshield",
+      "label": "Uruk-hai warrior",
+      "base": "uruk",
+      "oldReference": "references/uruk_swordshield.png",
+      "worldReferenceSize": 90,
+      "reference": "body",
+      "top": 0.1,
+      "bottom": 0.935,
+      "centerX": 0.51,
+      "centerY": 0.51,
+      "measurementNote": "visually reviewed source fractions; anatomical crown to sole or seated pelvis; plume/crown spikes/weapon/cape excluded",
+      "centerRule": "body middle; equipment excluded"
+    }
+  ]
+}

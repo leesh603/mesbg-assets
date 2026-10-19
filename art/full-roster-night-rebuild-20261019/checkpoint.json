@@ -1,0 +1,5042 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-20T07:31:23+09:00",
+  "repository": "leesh603/mesbg-assets",
+  "branch": "art/full-roster-night-rebuild-20261019",
+  "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
+  "state": "blocked_execution_environment",
+  "blocker": "No usable execution environment is available; exec-server websocket connection failed. New image generation, image processing and browser verification have not resumed.",
+  "counts": {
+    "characters": 510,
+    "restoredReviewAssets": 132,
+    "pending": 378,
+    "newlyGeneratedThisSession": 0,
+    "visuallyReviewedThisSession": 0,
+    "excludedTerrain": 77
+  },
+  "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
+  "sources": [
+    {
+      "key": "gondor",
+      "prefix": "art/gondor-rebuild-20261019",
+      "commit": "0b3a56549dafef7b7a0402005b5df060986c710b",
+      "treeSHA": "ecc4884c1cdae8df25090437b2cc74083a3b853b",
+      "count": 59
+    },
+    {
+      "key": "mordor",
+      "prefix": "art/mordor-rebuild-20261019",
+      "commit": "f4a3bce13acab6cebf6e76cd93f7469863340eeb",
+      "treeSHA": "da4887227df585954e274c03067a75a2c97b239b",
+      "count": 73
+    }
+  ],
+  "requirements": {
+    "camera": "하이앵글 프론트뷰",
+    "humanProportion": "5등신",
+    "style": "신규 곤도르·모르도르 픽셀 밀도·색감·명암·윤곽선",
+    "batchSize": "5–10",
+    "center": "몸체; 무기·장식 제외",
+    "deployment": "승인 전 main 병합·배포 금지"
+  },
+  "resume": {
+    "nextAction": "Resume pending IDs, starting with Rohan. Use existing Gondor and Mordor art plus standard-body references; inspect references before generation. Validate each batch and commit/push the assets and checkpoint together.",
+    "nextIds": [
+      "eowyn",
+      "rohan_royal_guard",
+      "rohan_rider",
+      "rohan_swordshield",
+      "rohan_spear"
+    ],
+    "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
+    "environmentRequired": true
+  },
+  "units": [
+    {
+      "id": "aragorn",
+      "name": "아라곤",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/aragorn.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/aragorn.png",
+      "blobSHA": "80ea9cb4e8637ea10c9daef6e7a5857329750d1f",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "gandalf",
+      "name": "간달프",
+      "faction": "maiar",
+      "role": "hero",
+      "original": "tokens/gandalf.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "warrior_minas_tirith",
+      "name": "미나스 티리스 전사",
+      "faction": "gondor",
+      "role": "infantry",
+      "original": "tokens/warrior_minas_tirith.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/warrior_minas_tirith.png",
+      "blobSHA": "bdeea88f82579325db20a0c887da011f7adaae93",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "witchking_foot",
+      "name": "마술사왕(두건)",
+      "faction": "angmar",
+      "role": "hero",
+      "original": "tokens/witchking_foot.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/witchking_foot.png",
+      "blobSHA": "05eef433c2a95a300bc81a7b2b066addf06fef51",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "orc_sword",
+      "name": "모르도르 오크(검)",
+      "faction": "mordor",
+      "role": "infantry",
+      "original": "tokens/orc_sword.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/orc_sword.png",
+      "blobSHA": "0659630e41dad2d11c22747cb5504e28d8ef8b71",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "cave_troll",
+      "name": "동굴 트롤",
+      "faction": "moria",
+      "role": "monster",
+      "original": "tokens/cave_troll.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "glorfindel_foot",
+      "name": "글로르핀델(도보)",
+      "faction": "rivendell",
+      "role": "hero",
+      "original": "tokens/glorfindel_foot.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "glorfindel_mounted",
+      "name": "글로르핀델(기마)",
+      "faction": "rivendell",
+      "role": "hero",
+      "original": "tokens/glorfindel_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "witchking_fellbeast",
+      "name": "마술사왕(펠비스트)",
+      "faction": "angmar",
+      "role": "hero",
+      "original": "tokens/witchking_fellbeast.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/witchking_fellbeast.png",
+      "blobSHA": "5311dcb13c730b96016c82ce1c7dab006cfd7aa1",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "witchking_mounted",
+      "name": "마술사왕(기마)",
+      "faction": "angmar",
+      "role": "hero",
+      "original": "tokens/witchking_mounted.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/witchking_mounted.png",
+      "blobSHA": "9081a1377cb744caf824eec95e8b547879eadbcd",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "witchking_foot_mace",
+      "name": "마술사왕(투구)",
+      "faction": "angmar",
+      "role": "hero",
+      "original": "tokens/witchking_foot_mace.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/witchking_foot_mace.png",
+      "blobSHA": "40b5e573e7ddf922c20d8c50ba01614fddd34052",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "nazgul_sword",
+      "name": "나즈굴(검)",
+      "faction": "angmar",
+      "role": "hero",
+      "original": "tokens/nazgul_sword.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/nazgul_sword.png",
+      "blobSHA": "6f4eafda52d9e18af6ea350da7a9dfb221ca2094",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "saruman",
+      "name": "사루만",
+      "faction": "isengard",
+      "role": "hero",
+      "original": "tokens/saruman.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "orc_shaman",
+      "name": "오크 주술사",
+      "faction": "moria",
+      "role": "support",
+      "original": "tokens/orc_shaman.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "orc_captain",
+      "name": "오크 대장",
+      "faction": "mordor",
+      "role": "hero",
+      "original": "tokens/orc_captain.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/orc_captain.png",
+      "blobSHA": "337e29c3901bf18f2ea99374d97854da97e241be",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "orc_spearman",
+      "name": "오크 창병",
+      "faction": "mordor",
+      "role": "infantry",
+      "original": "tokens/orc_spearman.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/orc_spearman.png",
+      "blobSHA": "b9be5983312beb8d1a3e8be58c92593dc19c8e22",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "orc_archer",
+      "name": "오크 궁수",
+      "faction": "mordor",
+      "role": "infantry",
+      "original": "tokens/orc_archer.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/orc_archer.png",
+      "blobSHA": "ed1cf732b292483d4fd244637a2a10136f53c617",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "uruk_swordshield",
+      "name": "우르크하이 검방",
+      "faction": "isengard",
+      "role": "infantry",
+      "original": "tokens/uruk_swordshield.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "morannon_orc",
+      "name": "모라논 오크",
+      "faction": "mordor",
+      "role": "infantry",
+      "original": "tokens/morannon_orc.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/morannon_orc.png",
+      "blobSHA": "cc3060def4c3c346b81ab322db20369d137f7a4a",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "warg_rider",
+      "name": "와르그 기병",
+      "faction": "mordor",
+      "role": "cavalry",
+      "original": "tokens/warg_rider.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/warg_rider.png",
+      "blobSHA": "2ba79e5682388e2a5bdd04e280e46c11fdaad0cf",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "haradrim_spearman",
+      "name": "하라드림 창병",
+      "faction": "harad",
+      "role": "infantry",
+      "original": "tokens/haradrim_spearman.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "legolas",
+      "name": "레골라스",
+      "faction": "elf",
+      "role": "hero",
+      "original": "tokens/legolas.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "gimli",
+      "name": "김리",
+      "faction": "dwarf",
+      "role": "hero",
+      "original": "tokens/gimli.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "boromir",
+      "name": "보로미르",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/boromir.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/boromir.png",
+      "blobSHA": "e3d1e592a1972165698fa5232d2fbe31de4cc601",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "eowyn",
+      "name": "에오윈",
+      "faction": "rohan",
+      "role": "hero",
+      "original": "tokens/eowyn.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "frodo",
+      "name": "프로도",
+      "faction": "shire",
+      "role": "hero",
+      "original": "tokens/frodo.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "elrond",
+      "name": "엘론드",
+      "faction": "rivendell",
+      "role": "hero",
+      "original": "tokens/elrond.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "gondor_archer",
+      "name": "곤도르 궁수",
+      "faction": "gondor",
+      "role": "infantry",
+      "original": "tokens/gondor_archer.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/gondor_archer.png",
+      "blobSHA": "a3bbb9eaa4da0aee78bc294a9f9bb9b59017f444",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "elf_swordsman",
+      "name": "엘프 검사",
+      "faction": "rivendell",
+      "role": "infantry",
+      "original": "tokens/elf_swordsman.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dwarf_guardian",
+      "name": "드워프 가디언",
+      "faction": "dwarf",
+      "role": "infantry",
+      "original": "tokens/dwarf_guardian.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "rohan_royal_guard",
+      "name": "로한 근위병",
+      "faction": "rohan",
+      "role": "infantry",
+      "original": "tokens/rohan_royal_guard.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "ithilien_ranger",
+      "name": "이틸리엔 레인저",
+      "faction": "gondor",
+      "role": "infantry",
+      "original": "tokens/ithilien_ranger.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/ithilien_ranger.png",
+      "blobSHA": "194e7c927ba592d4a64b5b0a996f9a591e5810ce",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "rohan_rider",
+      "name": "로한 기병",
+      "faction": "rohan",
+      "role": "cavalry",
+      "original": "tokens/rohan_rider.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "balrog",
+      "name": "발록",
+      "faction": "moria",
+      "role": "monster",
+      "original": "tokens/balrog.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "mountain_troll",
+      "name": "산악 트롤",
+      "faction": "mordor",
+      "role": "monster",
+      "original": "tokens/mountain_troll.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/mountain_troll.png",
+      "blobSHA": "80dbf3090600bb762767fe43bf4f8101cc0a14a3",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "shelob",
+      "name": "셀로브",
+      "faction": "mordor",
+      "role": "monster",
+      "original": "tokens/shelob.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/shelob.png",
+      "blobSHA": "b2c88bbe3064b05258bac11d137a39f58fc9f98e",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "barrow_wight",
+      "name": "고분 망령",
+      "faction": "angmar",
+      "role": "hero",
+      "original": "tokens/barrow_wight.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "moria_goblin",
+      "name": "모리아 고블린",
+      "faction": "moria",
+      "role": "infantry",
+      "original": "tokens/moria_goblin.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "uruk_berserker",
+      "name": "우르크 광전사",
+      "faction": "isengard",
+      "role": "infantry",
+      "original": "tokens/uruk_berserker.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "sauron",
+      "name": "사우론",
+      "faction": "mordor",
+      "role": "hero",
+      "original": "tokens/sauron.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/sauron.png",
+      "blobSHA": "ace3a9241c13355a4889bb53c3f21ef92bf3dd56",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "nazgul_sword_2",
+      "name": "나즈굴(검·B)",
+      "faction": "angmar",
+      "role": "hero",
+      "original": "tokens/nazgul_sword_2.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/nazgul_sword_2.png",
+      "blobSHA": "ad7252f81670ca4f962d7d774e63cb8cbc449305",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "nazgul_mace",
+      "name": "나즈굴(철퇴)",
+      "faction": "angmar",
+      "role": "hero",
+      "original": "tokens/nazgul_mace.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/nazgul_mace.png",
+      "blobSHA": "3afbe7217954dca77ae6f868f9ab6fac00b5e3bf",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "nazgul_mounted",
+      "name": "나즈굴(기마)",
+      "faction": "angmar",
+      "role": "hero",
+      "original": "tokens/nazgul_mounted.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/nazgul_mounted.png",
+      "blobSHA": "70a25cab2aa1c8aad41aea205240acbd4a4e7bf3",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "morgul_knight",
+      "name": "모르굴 기사",
+      "faction": "mordor",
+      "role": "cavalry",
+      "original": "tokens/morgul_knight.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/morgul_knight.png",
+      "blobSHA": "19cd623c4b2e5979707ccbdead17937f360299c4",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dwimmerlaik",
+      "name": "드위머레이크(갑옷 나즈굴)",
+      "faction": "angmar",
+      "role": "hero",
+      "original": "tokens/dwimmerlaik.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/dwimmerlaik.png",
+      "blobSHA": "65bdc6414e0eae4c95a918cb0d421ceb1b49909f",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "mt_swordshield",
+      "name": "미나스 티리스 검방",
+      "faction": "gondor",
+      "role": "infantry",
+      "original": "tokens/mt_swordshield.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/mt_swordshield.png",
+      "blobSHA": "6c46963a6c1fbdb7d4a1de10d8285aefd86ffc76",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "mt_spear",
+      "name": "미나스 티리스 창병",
+      "faction": "gondor",
+      "role": "infantry",
+      "original": "tokens/mt_spear.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/mt_spear.png",
+      "blobSHA": "fb644cfe92040f22b6327689a4c6d553274a5d2d",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "mt_spearshield",
+      "name": "미나스 티리스 창방",
+      "faction": "gondor",
+      "role": "infantry",
+      "original": "tokens/mt_spearshield.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/mt_spearshield.png",
+      "blobSHA": "b54a42f17cb7e2d8ba144d96d57d213474c74792",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "mt_bowman",
+      "name": "미나스 티리스 궁수",
+      "faction": "gondor",
+      "role": "infantry",
+      "original": "tokens/mt_bowman.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/mt_bowman.png",
+      "blobSHA": "009eee54672e87d016ae81a7f5c66b76e0ef5684",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "mt_captain",
+      "name": "미나스 티리스 장교",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/mt_captain.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/mt_captain.png",
+      "blobSHA": "483760ed6f70ad40b928384e6ba5ca87b9a45dd1",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "mt_fountain_guard",
+      "name": "샘물수위병",
+      "faction": "gondor",
+      "role": "infantry",
+      "original": "tokens/mt_fountain_guard.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/mt_fountain_guard.png",
+      "blobSHA": "511d51cad96cb8628595480243d9190db454ccf0",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "orc_sword2",
+      "name": "오크(검)",
+      "faction": "mordor",
+      "role": "infantry",
+      "original": "tokens/orc_sword2.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/orc_sword2.png",
+      "blobSHA": "4d93945c6fc9db8b9d7617c649db4a523d2d84fa",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "orc_swordshield",
+      "name": "오크(검방)",
+      "faction": "mordor",
+      "role": "infantry",
+      "original": "tokens/orc_swordshield.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/orc_swordshield.png",
+      "blobSHA": "680bf0ec182c696abdfe099d5aca18a40ee0cef0",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "orc_spear2",
+      "name": "오크(창)",
+      "faction": "mordor",
+      "role": "infantry",
+      "original": "tokens/orc_spear2.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/orc_spear2.png",
+      "blobSHA": "440a61ed4809e0fae7e55f7241e2ee35fd478037",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "orc_twohanded",
+      "name": "오크(양손도끼)",
+      "faction": "mordor",
+      "role": "infantry",
+      "original": "tokens/orc_twohanded.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/orc_twohanded.png",
+      "blobSHA": "cf7f6a20a3044bf284c8b5f3fa108556bb94961d",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "orc_bow",
+      "name": "오크(활)",
+      "faction": "mordor",
+      "role": "infantry",
+      "original": "tokens/orc_bow.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/orc_bow.png",
+      "blobSHA": "4d8fea75bf139bad66f9dbf34411ec75320b2489",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "orc_drummer",
+      "name": "오크 전쟁북",
+      "faction": "mordor",
+      "role": "support",
+      "original": "tokens/orc_drummer.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/orc_drummer.png",
+      "blobSHA": "d8579924edbc3b420bbad8573686c912c7b1d180",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dwarf_axeshield",
+      "name": "드워프 도끼방",
+      "faction": "dwarf",
+      "role": "infantry",
+      "original": "tokens/dwarf_axeshield.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dwarf_2haxe",
+      "name": "드워프 양손도끼",
+      "faction": "dwarf",
+      "role": "infantry",
+      "original": "tokens/dwarf_2haxe.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dwarf_ranger",
+      "name": "드워프 레인저",
+      "faction": "dwarf",
+      "role": "infantry",
+      "original": "tokens/dwarf_ranger.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "khazad_guard",
+      "name": "카자드 근위병",
+      "faction": "dwarf",
+      "role": "infantry",
+      "original": "tokens/khazad_guard.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "iron_guard",
+      "name": "아이언 가드",
+      "faction": "dwarf",
+      "role": "infantry",
+      "original": "tokens/iron_guard.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dwarf_banner",
+      "name": "드워프 기수",
+      "faction": "dwarf",
+      "role": "support",
+      "original": "tokens/dwarf_banner.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "elf_swordshield",
+      "name": "엘프 검방",
+      "faction": "rivendell",
+      "role": "infantry",
+      "original": "tokens/elf_swordshield.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "elf_spear",
+      "name": "엘프 창병",
+      "faction": "rivendell",
+      "role": "infantry",
+      "original": "tokens/elf_spear.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "elf_bow",
+      "name": "엘프 궁수",
+      "faction": "rivendell",
+      "role": "infantry",
+      "original": "tokens/elf_bow.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "elf_glaive",
+      "name": "엘프 글레이브",
+      "faction": "mirkwood",
+      "role": "infantry",
+      "original": "tokens/elf_glaive.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "galadhrim_warrior",
+      "name": "갈라드림 전사",
+      "faction": "lothlorien",
+      "role": "infantry",
+      "original": "tokens/galadhrim_warrior.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "elf_knight",
+      "name": "엘프 기마기사",
+      "faction": "rivendell",
+      "role": "cavalry",
+      "original": "tokens/elf_knight.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "uruk_swordshield2",
+      "name": "우르크하이 검방",
+      "faction": "isengard",
+      "role": "infantry",
+      "original": "tokens/uruk_swordshield2.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "uruk_pike",
+      "name": "우르크하이 파이크",
+      "faction": "isengard",
+      "role": "infantry",
+      "original": "tokens/uruk_pike.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "uruk_crossbow",
+      "name": "우르크하이 석궁",
+      "faction": "isengard",
+      "role": "infantry",
+      "original": "tokens/uruk_crossbow.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "uruk_scout",
+      "name": "우르크하이 스카웃",
+      "faction": "isengard",
+      "role": "infantry",
+      "original": "tokens/uruk_scout.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "uruk_berserker2",
+      "name": "우르크하이 광전사",
+      "faction": "isengard",
+      "role": "infantry",
+      "original": "tokens/uruk_berserker2.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "uruk_banner",
+      "name": "우르크하이 기수",
+      "faction": "isengard",
+      "role": "support",
+      "original": "tokens/uruk_banner.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "haradrim_spear",
+      "name": "하라드림 창병",
+      "faction": "harad",
+      "role": "infantry",
+      "original": "tokens/haradrim_spear.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "haradrim_bow",
+      "name": "하라드림 궁수",
+      "faction": "harad",
+      "role": "infantry",
+      "original": "tokens/haradrim_bow.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "haradrim_priest",
+      "name": "하라드림 전사제",
+      "faction": "harad",
+      "role": "support",
+      "original": "tokens/haradrim_priest.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "easterling_phalanx",
+      "name": "이스터링 방진병",
+      "faction": "easterling",
+      "role": "infantry",
+      "original": "tokens/easterling_phalanx.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "easterling_swordshield",
+      "name": "이스터링 검방",
+      "faction": "easterling",
+      "role": "infantry",
+      "original": "tokens/easterling_swordshield.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "easterling_kataphrakt",
+      "name": "이스터링 중기병",
+      "faction": "easterling",
+      "role": "cavalry",
+      "original": "tokens/easterling_kataphrakt.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dol_amroth_knight",
+      "name": "돌 암로스 백조기사",
+      "faction": "dol_amroth",
+      "role": "cavalry",
+      "original": "tokens/dol_amroth_knight.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/dol_amroth_knight.png",
+      "blobSHA": "80cb1bd5aaf150617826a417690e7d002879ad40",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "gondor_knight",
+      "name": "곤도르 기병",
+      "faction": "gondor",
+      "role": "cavalry",
+      "original": "tokens/gondor_knight.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/gondor_knight.png",
+      "blobSHA": "419a218a42bec5f0f212090630c9212715fdcb02",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "osgiliath_veteran",
+      "name": "오스길리아스 베테랑",
+      "faction": "gondor",
+      "role": "infantry",
+      "original": "tokens/osgiliath_veteran.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/osgiliath_veteran.png",
+      "blobSHA": "e28eaa843eea46a2a531b661324f9c64f1dbd486",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "lossarnach_axeman",
+      "name": "로사르나흐 도끼병",
+      "faction": "gondor",
+      "role": "infantry",
+      "original": "tokens/lossarnach_axeman.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/lossarnach_axeman.png",
+      "blobSHA": "e67b8b4425709ed88697f563dc790774c3339893",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "citadel_guard",
+      "name": "성채근위병",
+      "faction": "gondor",
+      "role": "infantry",
+      "original": "tokens/citadel_guard.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/citadel_guard.png",
+      "blobSHA": "4e6e1c51b41f1f6413db1874a6fcccaf0a0d2350",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "pelennor_militia",
+      "name": "펠렌노르 민병",
+      "faction": "gondor",
+      "role": "infantry",
+      "original": "tokens/pelennor_militia.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/pelennor_militia.png",
+      "blobSHA": "79a22566c53b5ccf0195f4887c82ce87419caadc",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "rohan_swordshield",
+      "name": "로한 검방",
+      "faction": "rohan",
+      "role": "infantry",
+      "original": "tokens/rohan_swordshield.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "rohan_spear",
+      "name": "로한 창병",
+      "faction": "rohan",
+      "role": "infantry",
+      "original": "tokens/rohan_spear.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "rohan_archer",
+      "name": "로한 궁수",
+      "faction": "rohan",
+      "role": "infantry",
+      "original": "tokens/rohan_archer.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "eomer",
+      "name": "에오메르(기마)",
+      "faction": "rohan",
+      "role": "hero",
+      "original": "tokens/eomer.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "rohan_outrider",
+      "name": "로한 기마궁수",
+      "faction": "rohan",
+      "role": "cavalry",
+      "original": "tokens/rohan_outrider.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "rohan_banner",
+      "name": "로한 기수",
+      "faction": "rohan",
+      "role": "support",
+      "original": "tokens/rohan_banner.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "black_numenorean",
+      "name": "검은 누메노르인(도보)",
+      "faction": "mordor",
+      "role": "infantry",
+      "original": "tokens/black_numenorean.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/black_numenorean.png",
+      "blobSHA": "870d718bce6a9c6c5c47acf87b52d8678109c79d",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "black_numenorean_mounted",
+      "name": "검은 누메노르인(기마)",
+      "faction": "mordor",
+      "role": "cavalry",
+      "original": "tokens/black_numenorean_mounted.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/black_numenorean_mounted.png",
+      "blobSHA": "e098a2af5e55494dcbc9f1d4ce31b0f2fc6445e1",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "orc_tracker",
+      "name": "오크 추적자",
+      "faction": "mordor",
+      "role": "infantry",
+      "original": "tokens/orc_tracker.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/orc_tracker.png",
+      "blobSHA": "a022c8e468f3390612e0a93dcebdacd323c18079",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "war_troll",
+      "name": "전쟁 트롤",
+      "faction": "mordor",
+      "role": "monster",
+      "original": "tokens/war_troll.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/war_troll.png",
+      "blobSHA": "6356fd1bbdb4d3f585b93f0d0fcaf7fb7f06c353",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "black_guard",
+      "name": "바라드두르 흑근위",
+      "faction": "mordor",
+      "role": "infantry",
+      "original": "tokens/black_guard.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/black_guard.png",
+      "blobSHA": "240dc36bbd741b2fa6e8919e9121c078d8104f42",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "orc_taskmaster",
+      "name": "오크 두목",
+      "faction": "mordor",
+      "role": "hero",
+      "original": "tokens/orc_taskmaster.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/orc_taskmaster.png",
+      "blobSHA": "f56a9da1cf1c384276473281f7831c597e8f3eb8",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "goblin_spear",
+      "name": "고블린 창병",
+      "faction": "moria",
+      "role": "infantry",
+      "original": "tokens/goblin_spear.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "goblin_shield",
+      "name": "고블린 방패병",
+      "faction": "moria",
+      "role": "infantry",
+      "original": "tokens/goblin_shield.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "goblin_bow",
+      "name": "고블린 궁수",
+      "faction": "moria",
+      "role": "infantry",
+      "original": "tokens/goblin_bow.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "goblin_prowler",
+      "name": "고블린 프라울러",
+      "faction": "moria",
+      "role": "infantry",
+      "original": "tokens/goblin_prowler.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "goblin_king",
+      "name": "고블린 왕",
+      "faction": "moria",
+      "role": "hero",
+      "original": "tokens/goblin_king.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "goblin_shaman",
+      "name": "고블린 샤먼",
+      "faction": "moria",
+      "role": "support",
+      "original": "tokens/goblin_shaman.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dunlending_warrior",
+      "name": "던랜딩 전사",
+      "faction": "dunland",
+      "role": "infantry",
+      "original": "tokens/dunlending_warrior.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dunlending_huscarl",
+      "name": "던랜딩 허스칼",
+      "faction": "dunland",
+      "role": "infantry",
+      "original": "tokens/dunlending_huscarl.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "warg",
+      "name": "야생 와르그",
+      "faction": "isengard",
+      "role": "monster",
+      "original": "tokens/warg.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "uruk_sapper",
+      "name": "우르크 폭파반",
+      "faction": "isengard",
+      "role": "infantry",
+      "original": "tokens/uruk_sapper.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "uruk_scout_archer",
+      "name": "우르크 스카웃 궁수",
+      "faction": "isengard",
+      "role": "infantry",
+      "original": "tokens/uruk_scout_archer.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "crebain_swarm",
+      "name": "크레반 까마귀 떼",
+      "faction": "isengard",
+      "role": "support",
+      "original": "tokens/crebain_swarm.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "hobbit_shirriff",
+      "name": "호빗 민병",
+      "faction": "shire",
+      "role": "infantry",
+      "original": "tokens/hobbit_shirriff.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "hobbit_bounder",
+      "name": "호빗 궁수",
+      "faction": "shire",
+      "role": "infantry",
+      "original": "tokens/hobbit_bounder.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "great_eagle",
+      "name": "대독수리",
+      "faction": "eagle",
+      "role": "monster",
+      "original": "tokens/great_eagle.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "ent",
+      "name": "엔트",
+      "faction": "ent",
+      "role": "monster",
+      "original": "tokens/ent.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "beorning",
+      "name": "베오르닝 전사",
+      "faction": "beorning",
+      "role": "hero",
+      "original": "tokens/beorning.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "ranger_north",
+      "name": "북부 레인저",
+      "faction": "arnor",
+      "role": "hero",
+      "original": "tokens/ranger_north.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "theoden",
+      "name": "세오덴(기마)",
+      "faction": "rohan",
+      "role": "hero",
+      "original": "tokens/theoden.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "faramir",
+      "name": "파라미르",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/faramir.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/faramir.png",
+      "blobSHA": "3732b66ad423bdc2a11161a2f604b29e15ef93bb",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "haldir",
+      "name": "할디르",
+      "faction": "lothlorien",
+      "role": "hero",
+      "original": "tokens/haldir.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "galadriel",
+      "name": "갈라드리엘",
+      "faction": "lothlorien",
+      "role": "hero",
+      "original": "tokens/galadriel.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "gamling",
+      "name": "감링",
+      "faction": "rohan",
+      "role": "hero",
+      "original": "tokens/gamling.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "samwise",
+      "name": "샘와이즈",
+      "faction": "shire",
+      "role": "hero",
+      "original": "tokens/samwise.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "mouth_of_sauron",
+      "name": "사우론의 입(기마)",
+      "faction": "mordor",
+      "role": "hero",
+      "original": "tokens/mouth_of_sauron.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/mouth_of_sauron.png",
+      "blobSHA": "ac0fbb47b14b0ef823369a1e7e30119b354eca44",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "gothmog",
+      "name": "고스모그",
+      "faction": "mordor",
+      "role": "hero",
+      "original": "tokens/gothmog.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/gothmog.png",
+      "blobSHA": "d4dbb247311b17142b32a78a6af9934ce911b318",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "lurtz",
+      "name": "루르츠",
+      "faction": "isengard",
+      "role": "hero",
+      "original": "tokens/lurtz.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "sharku",
+      "name": "샤르쿠(와르그)",
+      "faction": "isengard",
+      "role": "hero",
+      "original": "tokens/sharku.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "grima",
+      "name": "그리마 웜텅",
+      "faction": "isengard",
+      "role": "hero",
+      "original": "tokens/grima.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "khamul",
+      "name": "카물",
+      "faction": "angmar",
+      "role": "hero",
+      "original": "tokens/khamul.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/khamul.png",
+      "blobSHA": "5425694928e6aefc3d209b55e99dc3a9ffbcd3f3",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "fingolfin",
+      "name": "핑골핀",
+      "faction": "elf",
+      "role": "hero",
+      "original": "tokens/fingolfin.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "imrahil",
+      "name": "임라힐",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/imrahil.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/imrahil.png",
+      "blobSHA": "25eddc1038e24ae1646e90ee60f0ec182bcabbbd",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "merry",
+      "name": "메리아독",
+      "faction": "shire",
+      "role": "hero",
+      "original": "tokens/merry.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "pippin",
+      "name": "피핀",
+      "faction": "shire",
+      "role": "hero",
+      "original": "tokens/pippin.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "beorn",
+      "name": "베오른",
+      "faction": "beorning",
+      "role": "hero",
+      "original": "tokens/beorn.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "elendil",
+      "name": "엘렌딜",
+      "faction": "arnor",
+      "role": "hero",
+      "original": "tokens/elendil.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "melkor",
+      "name": "멜코르",
+      "faction": "angband",
+      "role": "hero",
+      "original": "tokens/melkor.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "mumakil",
+      "name": "무마킬",
+      "faction": "harad",
+      "role": "monster",
+      "original": "tokens/mumakil.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "smaug",
+      "name": "스마우그",
+      "faction": "erebor",
+      "role": "monster",
+      "original": "tokens/smaug.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "ungoliant",
+      "name": "웅골리안트",
+      "faction": "angband",
+      "role": "monster",
+      "original": "tokens/ungoliant.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "bolg",
+      "name": "볼그",
+      "faction": "gundabad",
+      "role": "hero",
+      "original": "tokens/bolg.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "easterling_warlord",
+      "name": "이스터링 장군",
+      "faction": "easterling",
+      "role": "hero",
+      "original": "tokens/easterling_warlord.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "radagast",
+      "name": "라다가스트",
+      "faction": "maiar",
+      "role": "hero",
+      "original": "tokens/radagast.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "thranduil",
+      "name": "트란두일",
+      "faction": "elf",
+      "role": "hero",
+      "original": "tokens/thranduil.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "celeborn",
+      "name": "켈레보른",
+      "faction": "lothlorien",
+      "role": "hero",
+      "original": "tokens/celeborn.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "bilbo",
+      "name": "빌보",
+      "faction": "shire",
+      "role": "hero",
+      "original": "tokens/bilbo.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "king_of_the_dead",
+      "name": "망자의 왕",
+      "faction": "dead",
+      "role": "hero",
+      "original": "tokens/king_of_the_dead.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dead_soldier",
+      "name": "망자 병사",
+      "faction": "dead",
+      "role": "infantry",
+      "original": "tokens/dead_soldier.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "olog_hai",
+      "name": "올로그하이",
+      "faction": "mordor",
+      "role": "monster",
+      "original": "tokens/olog_hai.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/olog_hai.png",
+      "blobSHA": "161fdddba8a1d91f8f2241528174fd318cf18ad1",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "watcher_in_the_water",
+      "name": "물 속의 감시자",
+      "faction": "moria",
+      "role": "monster",
+      "original": "tokens/watcher_in_the_water.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "mirkwood_spider",
+      "name": "머크우드 거미",
+      "faction": "dol_guldur",
+      "role": "monster",
+      "original": "tokens/mirkwood_spider.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "harad_chieftain",
+      "name": "하라드 족장",
+      "faction": "harad",
+      "role": "hero",
+      "original": "tokens/harad_chieftain.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "uruk_captain",
+      "name": "우룩하이 대장",
+      "faction": "isengard",
+      "role": "hero",
+      "original": "tokens/uruk_captain.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "hill_troll",
+      "name": "언덕 트롤",
+      "faction": "angmar",
+      "role": "monster",
+      "original": "tokens/hill_troll.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "feanor",
+      "name": "페아노르",
+      "faction": "elf",
+      "role": "hero",
+      "original": "tokens/feanor.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "luthien",
+      "name": "루시엔",
+      "faction": "doriath",
+      "role": "hero",
+      "original": "tokens/luthien.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "beren",
+      "name": "베렌",
+      "faction": "men",
+      "role": "hero",
+      "original": "tokens/beren.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "turin",
+      "name": "투린",
+      "faction": "men",
+      "role": "hero",
+      "original": "tokens/turin.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "beleg",
+      "name": "벨레그",
+      "faction": "doriath",
+      "role": "hero",
+      "original": "tokens/beleg.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "huan",
+      "name": "훈",
+      "faction": "valinor",
+      "role": "hero",
+      "original": "tokens/huan.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "glaurung",
+      "name": "글라우룽",
+      "faction": "angband",
+      "role": "monster",
+      "original": "tokens/glaurung.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "carcharoth",
+      "name": "카르하로스",
+      "faction": "angband",
+      "role": "hero",
+      "original": "tokens/carcharoth.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "gothmog_balrog",
+      "name": "고스모그(발록 군주)",
+      "faction": "angband",
+      "role": "monster",
+      "original": "tokens/gothmog_balrog.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "draugluin",
+      "name": "드라우글루인",
+      "faction": "angband",
+      "role": "monster",
+      "original": "tokens/draugluin.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "thuringwethil",
+      "name": "수링웨실",
+      "faction": "angband",
+      "role": "monster",
+      "original": "tokens/thuringwethil.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "boldog",
+      "name": "볼독",
+      "faction": "angband",
+      "role": "hero",
+      "original": "tokens/boldog.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "thorin",
+      "name": "토린 오큰실드",
+      "faction": "dwarf",
+      "role": "hero",
+      "original": "tokens/thorin.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "tauriel",
+      "name": "타우리엘",
+      "faction": "elf",
+      "role": "hero",
+      "original": "tokens/tauriel.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "bard",
+      "name": "바드",
+      "faction": "men",
+      "role": "hero",
+      "original": "tokens/bard.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dain",
+      "name": "데인",
+      "faction": "dwarf",
+      "role": "hero",
+      "original": "tokens/dain.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "fili",
+      "name": "필리",
+      "faction": "dwarf",
+      "role": "hero",
+      "original": "tokens/fili.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "kili",
+      "name": "킬리",
+      "faction": "dwarf",
+      "role": "hero",
+      "original": "tokens/kili.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "azog",
+      "name": "아조그",
+      "faction": "gundabad",
+      "role": "hero",
+      "original": "tokens/azog.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "azog_warg_rider",
+      "name": "아조그(흰 와르그)",
+      "faction": "gundabad",
+      "role": "hero",
+      "original": "tokens/azog_warg_rider.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "azog_foot",
+      "name": "아조그(도보)",
+      "faction": "gundabad",
+      "role": "hero",
+      "original": "tokens/azog_foot.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "necromancer",
+      "name": "네크로맨서",
+      "faction": "dol_guldur",
+      "role": "hero",
+      "original": "tokens/necromancer.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "hunter_orc",
+      "name": "헌터 오크",
+      "faction": "gundabad",
+      "role": "infantry",
+      "original": "tokens/hunter_orc.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "gundabad_orc",
+      "name": "군다바드 오크",
+      "faction": "gundabad",
+      "role": "infantry",
+      "original": "tokens/gundabad_orc.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "goblin_mercenary",
+      "name": "고블린 용병",
+      "faction": "moria",
+      "role": "infantry",
+      "original": "tokens/goblin_mercenary.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "halbarad",
+      "name": "할바라드",
+      "faction": "arnor",
+      "role": "hero",
+      "original": "tokens/halbarad.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "beregond",
+      "name": "베레곤드",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/beregond.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/beregond.png",
+      "blobSHA": "f0a62be314d4699d5db25d0ad371d2b6a404c71d",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "elladan",
+      "name": "엘라단",
+      "faction": "rivendell",
+      "role": "hero",
+      "original": "tokens/elladan.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "elrohir",
+      "name": "엘로히르",
+      "faction": "rivendell",
+      "role": "hero",
+      "original": "tokens/elrohir.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "grimbeorn",
+      "name": "그림베오른",
+      "faction": "beorning",
+      "role": "hero",
+      "original": "tokens/grimbeorn.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "ghan_buri_ghan",
+      "name": "간부리간",
+      "faction": "men",
+      "role": "infantry",
+      "original": "tokens/ghan_buri_ghan.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "suladan",
+      "name": "술라단",
+      "faction": "harad",
+      "role": "hero",
+      "original": "tokens/suladan.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "corsair_umbra",
+      "name": "움바르 해적",
+      "faction": "umbar",
+      "role": "infantry",
+      "original": "tokens/corsair_umbra.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "variag_horseman",
+      "name": "바리악 기수",
+      "faction": "rhun",
+      "role": "cavalry",
+      "original": "tokens/variag_horseman.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "shagrat",
+      "name": "샤그랏",
+      "faction": "mordor",
+      "role": "hero",
+      "original": "tokens/shagrat.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/shagrat.png",
+      "blobSHA": "d989036c7b8e704c04d21725d837c3d4080895de",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "gorbag",
+      "name": "고르바그",
+      "faction": "mordor",
+      "role": "hero",
+      "original": "tokens/gorbag.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/gorbag.png",
+      "blobSHA": "19b612b1f4989ee44fb5436854c92b9052d931b1",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "warg_alpha",
+      "name": "와르그 우두머리",
+      "faction": "isengard",
+      "role": "beast",
+      "original": "tokens/warg_alpha.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "balin",
+      "name": "발린",
+      "faction": "dwarf",
+      "role": "hero",
+      "original": "tokens/balin.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dwalin",
+      "name": "드왈린",
+      "faction": "dwarf",
+      "role": "hero",
+      "original": "tokens/dwalin.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "gloin",
+      "name": "글로인",
+      "faction": "dwarf",
+      "role": "hero",
+      "original": "tokens/gloin.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "oin",
+      "name": "오인",
+      "faction": "dwarf",
+      "role": "hero",
+      "original": "tokens/oin.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "nori",
+      "name": "노리",
+      "faction": "dwarf",
+      "role": "hero",
+      "original": "tokens/nori.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "ori",
+      "name": "오리",
+      "faction": "dwarf",
+      "role": "hero",
+      "original": "tokens/ori.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dori",
+      "name": "도리",
+      "faction": "dwarf",
+      "role": "hero",
+      "original": "tokens/dori.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "bifur",
+      "name": "비푸르",
+      "faction": "dwarf",
+      "role": "hero",
+      "original": "tokens/bifur.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "bofur",
+      "name": "보푸르",
+      "faction": "dwarf",
+      "role": "hero",
+      "original": "tokens/bofur.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "bombur",
+      "name": "봄부르",
+      "faction": "dwarf",
+      "role": "hero",
+      "original": "tokens/bombur.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "goat_rider",
+      "name": "산양 기수",
+      "faction": "iron_hills",
+      "role": "cavalry",
+      "original": "tokens/goat_rider.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "gollum",
+      "name": "골룸",
+      "faction": "moria",
+      "role": "beast",
+      "original": "tokens/gollum.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "gil_galad",
+      "name": "길갈라드",
+      "faction": "elf",
+      "role": "hero",
+      "original": "tokens/gil_galad.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "cirdan",
+      "name": "키르단",
+      "faction": "elf",
+      "role": "hero",
+      "original": "tokens/cirdan.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "arwen",
+      "name": "아르웬",
+      "faction": "rivendell",
+      "role": "hero",
+      "original": "tokens/arwen.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "lindir",
+      "name": "린디르",
+      "faction": "rivendell",
+      "role": "hero",
+      "original": "tokens/lindir.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "erestor",
+      "name": "에레스토르",
+      "faction": "rivendell",
+      "role": "hero",
+      "original": "tokens/erestor.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "elf_seer",
+      "name": "엘프 선견자",
+      "faction": "lothlorien",
+      "role": "support",
+      "original": "tokens/elf_seer.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "rumil",
+      "name": "루밀",
+      "faction": "lothlorien",
+      "role": "hero",
+      "original": "tokens/rumil.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "orophin",
+      "name": "오로핀",
+      "faction": "lothlorien",
+      "role": "hero",
+      "original": "tokens/orophin.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "mirkwood_sentinel",
+      "name": "머크우드 보초",
+      "faction": "mirkwood",
+      "role": "infantry",
+      "original": "tokens/mirkwood_sentinel.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "noldor_warrior",
+      "name": "놀도르 정예병",
+      "faction": "elf",
+      "role": "infantry",
+      "original": "tokens/noldor_warrior.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "silvan_archer",
+      "name": "실반 궁수",
+      "faction": "mirkwood",
+      "role": "infantry",
+      "original": "tokens/silvan_archer.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "elven_lancer",
+      "name": "엘프 기창기병",
+      "faction": "rivendell",
+      "role": "cavalry",
+      "original": "tokens/elven_lancer.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "imrahil_mounted",
+      "name": "임라힐(기마)",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/imrahil_mounted.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/imrahil_mounted.png",
+      "blobSHA": "c901e92afaea5d5ad1366a66183c207ab8b04359",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "gandalf_mounted",
+      "name": "간달프(섀도우팩스)",
+      "faction": "maiar",
+      "role": "hero",
+      "original": "tokens/gandalf_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "thranduil_mounted",
+      "name": "스란두일(기마)",
+      "faction": "elf",
+      "role": "hero",
+      "original": "tokens/thranduil_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "aragorn_mounted",
+      "name": "아라곤(기마)",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/aragorn_mounted.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/aragorn_mounted.png",
+      "blobSHA": "0f615e9d6fe940ca61b3fc88b802a61f308a83a3",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "blackroot_archer",
+      "name": "검은뿌리골 궁수",
+      "faction": "gondor",
+      "role": "infantry",
+      "original": "tokens/blackroot_archer.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/blackroot_archer.png",
+      "blobSHA": "572374adfa3641748ba13ea6558ccf882654f492",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "half_troll",
+      "name": "하프 트롤",
+      "faction": "harad",
+      "role": "monster",
+      "original": "tokens/half_troll.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "cave_drake",
+      "name": "동굴 드레이크",
+      "faction": "moria",
+      "role": "monster",
+      "original": "tokens/cave_drake.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "bat_swarm",
+      "name": "박쥐 떼",
+      "faction": "dol_guldur",
+      "role": "monster",
+      "original": "tokens/bat_swarm.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "muzgur",
+      "name": "무즈구르",
+      "faction": "angmar",
+      "role": "hero",
+      "original": "tokens/muzgur.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "buhrdur",
+      "name": "부르두르",
+      "faction": "angmar",
+      "role": "monster",
+      "original": "tokens/buhrdur.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "mahud_chieftain",
+      "name": "마후드 족장",
+      "faction": "harad",
+      "role": "hero",
+      "original": "tokens/mahud_chieftain.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "eowyn_mounted",
+      "name": "에오윈(기마)",
+      "faction": "rohan",
+      "role": "hero",
+      "original": "tokens/eowyn_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "forlong",
+      "name": "포를롱",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/forlong.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/forlong.png",
+      "blobSHA": "40f9a3b2b1b67fbee9ad2ef57c93e1c2d8d08546",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "erkenbrand",
+      "name": "에르켄브란트",
+      "faction": "rohan",
+      "role": "hero",
+      "original": "tokens/erkenbrand.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "damrod",
+      "name": "담로드",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/damrod.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/damrod.png",
+      "blobSHA": "364dc9a409b025f6024c8e34e8b8b25e4b98a9b0",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "mablung",
+      "name": "마블룽",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/mablung.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/mablung.png",
+      "blobSHA": "baebc5259dc86dd4ff8984ce7a29a25c688930bc",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "duinhir",
+      "name": "두인히르",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/duinhir.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/duinhir.png",
+      "blobSHA": "82cd37a1de1301909523b37d77009dbe0c7aec32",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "ugluk",
+      "name": "우글룩",
+      "faction": "isengard",
+      "role": "hero",
+      "original": "tokens/ugluk.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "mauhur",
+      "name": "마우후르",
+      "faction": "isengard",
+      "role": "hero",
+      "original": "tokens/mauhur.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "vrasku",
+      "name": "브라스쿠",
+      "faction": "isengard",
+      "role": "hero",
+      "original": "tokens/vrasku.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "stone_troll",
+      "name": "돌 트롤",
+      "faction": "angmar",
+      "role": "monster",
+      "original": "tokens/stone_troll.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "werewolf",
+      "name": "웨어울프",
+      "faction": "mordor",
+      "role": "beast",
+      "original": "tokens/werewolf.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/werewolf.png",
+      "blobSHA": "eb007548b324150d016a064b6d90e06d71ee617c",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "gulavhar",
+      "name": "굴라브하르",
+      "faction": "angmar",
+      "role": "monster",
+      "original": "tokens/gulavhar.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dark_marshal",
+      "name": "어둠의 장군",
+      "faction": "angmar",
+      "role": "hero",
+      "original": "tokens/dark_marshal.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/dark_marshal.png",
+      "blobSHA": "a547e91b388eed8f7097e166aaf259af3ddea2c6",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "shadow_lord",
+      "name": "그림자 군주",
+      "faction": "angmar",
+      "role": "hero",
+      "original": "tokens/shadow_lord.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/shadow_lord.png",
+      "blobSHA": "493f7c559f85ee2975d9475bf5dd1136ccec34d9",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "betrayer",
+      "name": "배신자",
+      "faction": "angmar",
+      "role": "hero",
+      "original": "tokens/betrayer.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/betrayer.png",
+      "blobSHA": "573389a5579972d4d27a911d60ba91427fc3186e",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "tainted",
+      "name": "타락한 자",
+      "faction": "angmar",
+      "role": "hero",
+      "original": "tokens/tainted.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/tainted.png",
+      "blobSHA": "94f45d8089dd5ebbddd0962a10b7c50fd55eb8ae",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "undying",
+      "name": "죽지 않는 자",
+      "faction": "angmar",
+      "role": "hero",
+      "original": "tokens/undying.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/undying.png",
+      "blobSHA": "0a5de8f0867fa678a9509063c996b18166b6be45",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "knight_of_umbar",
+      "name": "움바르의 기사",
+      "faction": "harad",
+      "role": "hero",
+      "original": "tokens/knight_of_umbar.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/knight_of_umbar.png",
+      "blobSHA": "9a9ba6188bb3fe2c24f5b0ed3bf1ae079e0be6d7",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "isildur",
+      "name": "이실두르",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/isildur.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/isildur.png",
+      "blobSHA": "2eff63d495184b1b528ff1f0e15c3944b59bfffe",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "gandalf_white",
+      "name": "간달프(백색)",
+      "faction": "maiar",
+      "role": "hero",
+      "original": "tokens/gandalf_white.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "denethor",
+      "name": "데네소르",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/denethor.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/denethor.png",
+      "blobSHA": "10c483f06bf4f10700f8572b028dc4cd74ad4487",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "huorn",
+      "name": "휘오른",
+      "faction": "fangorn",
+      "role": "monster",
+      "original": "tokens/huorn.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "boromir_mounted",
+      "name": "보로미르(기마)",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/boromir_mounted.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/boromir_mounted.png",
+      "blobSHA": "026361f3f85e8e1329247ab0c9fce6d150190437",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "elrond_mounted",
+      "name": "엘론드(기마)",
+      "faction": "rivendell",
+      "role": "hero",
+      "original": "tokens/elrond_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "gandalf_white_mounted",
+      "name": "간달프 백색(기마)",
+      "faction": "maiar",
+      "role": "hero",
+      "original": "tokens/gandalf_white_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "theoden_foot",
+      "name": "세오덴(도보)",
+      "faction": "rohan",
+      "role": "hero",
+      "original": "tokens/theoden_foot.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dain_boar",
+      "name": "다인(맷돼지)",
+      "faction": "dwarf",
+      "role": "hero",
+      "original": "tokens/dain_boar.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "faramir_mounted",
+      "name": "파라미르(기마)",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/faramir_mounted.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/faramir_mounted.png",
+      "blobSHA": "8deb69466b0696c365976dc6a3d6c453d683f571",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "eomer_foot",
+      "name": "에오메르(도보)",
+      "faction": "rohan",
+      "role": "hero",
+      "original": "tokens/eomer_foot.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "elfhelm",
+      "name": "엘프헬름",
+      "faction": "rohan",
+      "role": "hero",
+      "original": "tokens/elfhelm.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "elfhelm_mounted",
+      "name": "엘프헬름(기마)",
+      "faction": "rohan",
+      "role": "hero",
+      "original": "tokens/elfhelm_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "warg_rider_spear",
+      "name": "와르그 기병(창)",
+      "faction": "isengard",
+      "role": "cavalry",
+      "original": "tokens/warg_rider_spear.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "warg_rider_bow",
+      "name": "와르그 기병(활)",
+      "faction": "isengard",
+      "role": "cavalry",
+      "original": "tokens/warg_rider_bow.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "warg_chieftain",
+      "name": "와르그 우두머리 기병",
+      "faction": "isengard",
+      "role": "hero",
+      "original": "tokens/warg_chieftain.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "wild_warg",
+      "name": "야생 와르그",
+      "faction": "isengard",
+      "role": "monster",
+      "original": "tokens/wild_warg.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "wild_warg_alpha",
+      "name": "와르그 우두머리",
+      "faction": "isengard",
+      "role": "monster",
+      "original": "tokens/wild_warg_alpha.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "ancalagon",
+      "name": "앙칼라곤",
+      "faction": "angband",
+      "role": "monster",
+      "original": "tokens/ancalagon.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "nazgul_fellbeast",
+      "name": "나즈굴(펠비스트)",
+      "faction": "angmar",
+      "role": "monster",
+      "original": "tokens/nazgul_fellbeast.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/nazgul_fellbeast.png",
+      "blobSHA": "ca95b93e6f4a753e13a60907d4c208ec59d65f57",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "fellbeast",
+      "name": "펠비스트",
+      "faction": "angmar",
+      "role": "monster",
+      "original": "tokens/fellbeast.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "quickbeam",
+      "name": "퀵빔",
+      "faction": "ent",
+      "role": "monster",
+      "original": "tokens/quickbeam.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "aragorn_blackgate",
+      "name": "아라곤(검은문)",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/aragorn_blackgate.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/aragorn_blackgate.png",
+      "blobSHA": "98b3843e09ee8d2066bdbc5c2752ee3fa86dcca9",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "aragorn_blackgate_mounted",
+      "name": "아라곤(검은문·기마)",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/aragorn_blackgate_mounted.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/aragorn_blackgate_mounted.png",
+      "blobSHA": "59fb18a3efd30d1800c48418f7ed11484cbdf45b",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "anborn",
+      "name": "안보른",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/anborn.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/anborn.png",
+      "blobSHA": "e7c5b9be02cf6c16e73a372d63e26b48baa87803",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "hirluin",
+      "name": "히를루인",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/hirluin.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/hirluin.png",
+      "blobSHA": "088a6ec6a372f2bda9d8e7a0585296083b8cc52a",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "madril",
+      "name": "마드릴",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/madril.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/madril.png",
+      "blobSHA": "5c209a06f88295fd8261ed413b4ce2ac779bb1d0",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "irolas",
+      "name": "이롤라스",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/irolas.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/irolas.png",
+      "blobSHA": "aed2edd91c9afbc3b9a5f6585f0a9c32bb28d7c0",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "hurin",
+      "name": "후린",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/hurin.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/hurin.png",
+      "blobSHA": "72ac5a5ed4abb67af988c5abae06506759059d29",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "cirion",
+      "name": "키리온",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/cirion.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/cirion.png",
+      "blobSHA": "11dcd698abc8b9fe4bd1ad2b5437f64eb1a19bae",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "theodred",
+      "name": "테오드레드",
+      "faction": "rohan",
+      "role": "hero",
+      "original": "tokens/theodred.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "hama",
+      "name": "하마",
+      "faction": "rohan",
+      "role": "hero",
+      "original": "tokens/hama.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "deorwine",
+      "name": "데오르바인",
+      "faction": "rohan",
+      "role": "hero",
+      "original": "tokens/deorwine.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "grimbold",
+      "name": "그림볼드",
+      "faction": "rohan",
+      "role": "hero",
+      "original": "tokens/grimbold.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "harding",
+      "name": "하딩",
+      "faction": "rohan",
+      "role": "hero",
+      "original": "tokens/harding.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "rohan_royal_guard_mounted",
+      "name": "로한 근위기병",
+      "faction": "rohan",
+      "role": "cavalry",
+      "original": "tokens/rohan_royal_guard_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "arvedui",
+      "name": "아르베두이",
+      "faction": "arnor",
+      "role": "hero",
+      "original": "tokens/arvedui.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "malbeth",
+      "name": "말베스",
+      "faction": "arnor",
+      "role": "hero",
+      "original": "tokens/malbeth.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "numenorean_captain",
+      "name": "누메노르 대장",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/numenorean_captain.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/numenorean_captain.png",
+      "blobSHA": "813c289e6ba0603554e05fd3f57b9fbdbd76ba96",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "numenorean_warrior",
+      "name": "누메노르 전사",
+      "faction": "gondor",
+      "role": "infantry",
+      "original": "tokens/numenorean_warrior.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/numenorean_warrior.png",
+      "blobSHA": "1b878bb2dcec23b728280ba56d734b2ae73c24cd",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "numenorean_spearman",
+      "name": "누메노르 창병",
+      "faction": "gondor",
+      "role": "infantry",
+      "original": "tokens/numenorean_spearman.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/numenorean_spearman.png",
+      "blobSHA": "0ea14e97f6960b034a6fcbdc912c3710196ffda9",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "arnor_warrior",
+      "name": "아르노르 전사",
+      "faction": "arnor",
+      "role": "infantry",
+      "original": "tokens/arnor_warrior.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "hasharin",
+      "name": "하샤린",
+      "faction": "harad",
+      "role": "hero",
+      "original": "tokens/hasharin.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "golden_king",
+      "name": "아브라칸의 황금왕",
+      "faction": "harad",
+      "role": "hero",
+      "original": "tokens/golden_king.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "mahud_beastmaster",
+      "name": "마후드 야수조련사",
+      "faction": "harad",
+      "role": "hero",
+      "original": "tokens/mahud_beastmaster.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "watcher_karna",
+      "name": "카르나의 감시자",
+      "faction": "harad",
+      "role": "infantry",
+      "original": "tokens/watcher_karna.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "haradrim_raider",
+      "name": "하라드림 습격기병",
+      "faction": "harad",
+      "role": "cavalry",
+      "original": "tokens/haradrim_raider.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "mahud_camel_raider",
+      "name": "마후드 낙타기병",
+      "faction": "harad",
+      "role": "cavalry",
+      "original": "tokens/mahud_camel_raider.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "amdur",
+      "name": "암두르 검의 군주",
+      "faction": "easterling",
+      "role": "hero",
+      "original": "tokens/amdur.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dragon_knight",
+      "name": "드래곤 기사",
+      "faction": "easterling",
+      "role": "cavalry",
+      "original": "tokens/dragon_knight.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "easterling_priest",
+      "name": "이스터링 전쟁사제",
+      "faction": "easterling",
+      "role": "support",
+      "original": "tokens/easterling_priest.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "easterling_archer",
+      "name": "이스터링 궁수",
+      "faction": "easterling",
+      "role": "infantry",
+      "original": "tokens/easterling_archer.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "variag_warrior",
+      "name": "바리악 전사",
+      "faction": "easterling",
+      "role": "infantry",
+      "original": "tokens/variag_warrior.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "khandish_horseman",
+      "name": "칸드 기병",
+      "faction": "easterling",
+      "role": "cavalry",
+      "original": "tokens/khandish_horseman.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "forsaken",
+      "name": "버려진 자(나즈굴)",
+      "faction": "dol_guldur",
+      "role": "hero",
+      "original": "tokens/forsaken.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/forsaken.png",
+      "blobSHA": "bf0c6178947e3f29885d9951110d3a7771efc403",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "castellan",
+      "name": "돌 굴두르 성주",
+      "faction": "dol_guldur",
+      "role": "hero",
+      "original": "tokens/castellan.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dungeon_keeper",
+      "name": "감옥지기",
+      "faction": "dol_guldur",
+      "role": "hero",
+      "original": "tokens/dungeon_keeper.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "kardush",
+      "name": "카두쉬 화염술사",
+      "faction": "mordor",
+      "role": "hero",
+      "original": "tokens/kardush.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/kardush.png",
+      "blobSHA": "8bd712ebc6657412e2c26f9e1f9d38f823c0d7c0",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "morgul_stalker",
+      "name": "모르굴 추적자",
+      "faction": "mordor",
+      "role": "infantry",
+      "original": "tokens/morgul_stalker.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/morgul_stalker.png",
+      "blobSHA": "58321afb9ccc814917dfa04a443e4291e71bd176",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "numenorean_marshal",
+      "name": "검은 누메노르 사령관",
+      "faction": "mordor",
+      "role": "hero",
+      "original": "tokens/numenorean_marshal.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/numenorean_marshal.png",
+      "blobSHA": "48507154c66c6692997ca00bd0ee8f0b6543d3c0",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "thrydan",
+      "name": "트리단 울프스베인",
+      "faction": "dunland",
+      "role": "hero",
+      "original": "tokens/thrydan.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "gorulf",
+      "name": "고룰프 아이언스킨",
+      "faction": "dunland",
+      "role": "hero",
+      "original": "tokens/gorulf.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dunlending_berserker",
+      "name": "던랜드 광전사",
+      "faction": "dunland",
+      "role": "infantry",
+      "original": "tokens/dunlending_berserker.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dunlending_shaman",
+      "name": "던랜드 주술사",
+      "faction": "dunland",
+      "role": "support",
+      "original": "tokens/dunlending_shaman.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dunlending_archer",
+      "name": "던랜드 궁수",
+      "faction": "dunland",
+      "role": "infantry",
+      "original": "tokens/dunlending_archer.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "ruffian",
+      "name": "샤키의 불한당",
+      "faction": "isengard",
+      "role": "infantry",
+      "original": "tokens/ruffian.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "paladin_took",
+      "name": "팔라딘 툭",
+      "faction": "shire",
+      "role": "hero",
+      "original": "tokens/paladin_took.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "farmer_maggot",
+      "name": "농부 매곳",
+      "faction": "shire",
+      "role": "hero",
+      "original": "tokens/farmer_maggot.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "fredegar",
+      "name": "프레데가르 볼저",
+      "faction": "shire",
+      "role": "hero",
+      "original": "tokens/fredegar.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "durin_vi",
+      "name": "두린 6세",
+      "faction": "dwarf",
+      "role": "hero",
+      "original": "tokens/durin_vi.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dead_spearman",
+      "name": "죽은자 창병",
+      "faction": "dead",
+      "role": "infantry",
+      "original": "tokens/dead_spearman.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "stone_giant",
+      "name": "안개산맥 거인",
+      "faction": "gundabad",
+      "role": "monster",
+      "original": "tokens/stone_giant.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "gundabad_warg_rider",
+      "name": "군다바드 와르그 기병",
+      "faction": "gundabad",
+      "role": "cavalry",
+      "original": "tokens/gundabad_warg_rider.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "arathorn",
+      "name": "아라손",
+      "faction": "arnor",
+      "role": "hero",
+      "original": "tokens/arathorn.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "angbor",
+      "name": "앵보르 무서운 자",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/angbor.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/angbor.png",
+      "blobSHA": "2530368e43732f7f376b1f2c8bcf67f884534fdb",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dunhere",
+      "name": "둔헤레",
+      "faction": "rohan",
+      "role": "hero",
+      "original": "tokens/dunhere.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "haleth",
+      "name": "할레스",
+      "faction": "rohan",
+      "role": "hero",
+      "original": "tokens/haleth.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "bandobras",
+      "name": "반도브라스 툭",
+      "faction": "shire",
+      "role": "hero",
+      "original": "tokens/bandobras.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "gildor",
+      "name": "길도르",
+      "faction": "rivendell",
+      "role": "hero",
+      "original": "tokens/gildor.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "grishnakh",
+      "name": "그리쉬나크",
+      "faction": "mordor",
+      "role": "hero",
+      "original": "tokens/grishnakh.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/grishnakh.png",
+      "blobSHA": "b29b5a1a92d782e8efdf6e41eab7935309c6b684",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "snaga",
+      "name": "스나가",
+      "faction": "isengard",
+      "role": "hero",
+      "original": "tokens/snaga.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "zagdush",
+      "name": "자그두쉬",
+      "faction": "moria",
+      "role": "hero",
+      "original": "tokens/zagdush.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dalamyr",
+      "name": "달라미르",
+      "faction": "umbar",
+      "role": "hero",
+      "original": "tokens/dalamyr.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "goblin_drummer",
+      "name": "고블린 북병",
+      "faction": "moria",
+      "role": "support",
+      "original": "tokens/goblin_drummer.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "yazneg",
+      "name": "야즈네그",
+      "faction": "gundabad",
+      "role": "hero",
+      "original": "tokens/yazneg.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "eorl_the_young",
+      "name": "에오를",
+      "faction": "rohan",
+      "role": "hero",
+      "original": "tokens/eorl_the_young.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "helm_hammerhand",
+      "name": "헬름 해머핸드",
+      "faction": "rohan",
+      "role": "hero",
+      "original": "tokens/helm_hammerhand.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "tom_bombadil",
+      "name": "톰 봄바딜",
+      "faction": "shire",
+      "role": "hero",
+      "original": "tokens/tom_bombadil.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "goldberry",
+      "name": "골드베리",
+      "faction": "shire",
+      "role": "hero",
+      "original": "tokens/goldberry.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dead_rider",
+      "name": "망자 기병",
+      "faction": "dead",
+      "role": "cavalry",
+      "original": "tokens/dead_rider.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dervorin",
+      "name": "데르보린",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/dervorin.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/dervorin.png",
+      "blobSHA": "40b833c65d1e1c126065a1c0461b8bb2ef4f3b04",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dol_amroth_man_at_arms",
+      "name": "돌 암로스 병사",
+      "faction": "dol_amroth",
+      "role": "infantry",
+      "original": "tokens/dol_amroth_man_at_arms.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/dol_amroth_man_at_arms.png",
+      "blobSHA": "932d6a27a76da80919237977f0589b617eaa69cc",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "numenorean_archer",
+      "name": "누메노르 궁병",
+      "faction": "numenor",
+      "role": "infantry",
+      "original": "tokens/numenorean_archer.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "sons_of_eorl",
+      "name": "에오를의 아들들",
+      "faction": "rohan",
+      "role": "cavalry",
+      "original": "tokens/sons_of_eorl.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "vault_warden",
+      "name": "철언덕 방벽병",
+      "faction": "dwarf",
+      "role": "infantry",
+      "original": "tokens/vault_warden.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "palace_guard",
+      "name": "궁정 근위병",
+      "faction": "mirkwood",
+      "role": "infantry",
+      "original": "tokens/palace_guard.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "hobbit_militia",
+      "name": "호빗 민병대",
+      "faction": "shire",
+      "role": "infantry",
+      "original": "tokens/hobbit_militia.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "guritz",
+      "name": "구리츠",
+      "faction": "mordor",
+      "role": "hero",
+      "original": "tokens/guritz.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/guritz.png",
+      "blobSHA": "b320712767f5170cd82ad9d68825debafb37f056",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "targsh",
+      "name": "타르그쉬",
+      "faction": "isengard",
+      "role": "hero",
+      "original": "tokens/targsh.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "durburz",
+      "name": "두르부르즈",
+      "faction": "moria",
+      "role": "hero",
+      "original": "tokens/durburz.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "goblin_scribe",
+      "name": "고블린 서기",
+      "faction": "moria",
+      "role": "support",
+      "original": "tokens/goblin_scribe.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "fimbul",
+      "name": "핌불",
+      "faction": "gundabad",
+      "role": "hero",
+      "original": "tokens/fimbul.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "narzug",
+      "name": "나르주그",
+      "faction": "gundabad",
+      "role": "hero",
+      "original": "tokens/narzug.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "khandish_chariot",
+      "name": "칸드 전차",
+      "faction": "easterling",
+      "role": "cavalry",
+      "original": "tokens/khandish_chariot.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "great_beast_gorgoroth",
+      "name": "고르고로스 거수",
+      "faction": "mordor",
+      "role": "monster",
+      "original": "tokens/great_beast_gorgoroth.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/great_beast_gorgoroth.png",
+      "blobSHA": "a565b42d554c6828b4f090852e69170fb7ed04ab",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "khandish_chieftain",
+      "name": "칸드 족장",
+      "faction": "easterling",
+      "role": "hero",
+      "original": "tokens/khandish_chieftain.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "abrakhan_guard",
+      "name": "아브라칸 근위대",
+      "faction": "harad",
+      "role": "infantry",
+      "original": "tokens/abrakhan_guard.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "corsair_bosun",
+      "name": "코르사 갑판장",
+      "faction": "umbar",
+      "role": "infantry",
+      "original": "tokens/corsair_bosun.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "spider_queen",
+      "name": "거미 여왕",
+      "faction": "dol_guldur",
+      "role": "monster",
+      "original": "tokens/spider_queen.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "turgon",
+      "name": "투르곤",
+      "faction": "elf",
+      "role": "hero",
+      "original": "tokens/turgon.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "fingon",
+      "name": "핑곤",
+      "faction": "elf",
+      "role": "hero",
+      "original": "tokens/fingon.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "ecthelion",
+      "name": "엑텔리온",
+      "faction": "elf",
+      "role": "hero",
+      "original": "tokens/ecthelion.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "finrod_felagund",
+      "name": "핀로드 펠라군드",
+      "faction": "elf",
+      "role": "hero",
+      "original": "tokens/finrod_felagund.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "tuor",
+      "name": "투오르",
+      "faction": "men",
+      "role": "hero",
+      "original": "tokens/tuor.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "hurin_thalion",
+      "name": "후린 탈리온",
+      "faction": "men",
+      "role": "hero",
+      "original": "tokens/hurin_thalion.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "maedhros",
+      "name": "마이드로스",
+      "faction": "elf",
+      "role": "hero",
+      "original": "tokens/maedhros.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "celegorm",
+      "name": "켈레고름",
+      "faction": "elf",
+      "role": "hero",
+      "original": "tokens/celegorm.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "thingol",
+      "name": "싱골",
+      "faction": "doriath",
+      "role": "hero",
+      "original": "tokens/thingol.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "mablung_sindar",
+      "name": "마블룽",
+      "faction": "doriath",
+      "role": "hero",
+      "original": "tokens/mablung_sindar.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "melian",
+      "name": "멜리안",
+      "faction": "maiar",
+      "role": "hero",
+      "original": "tokens/melian.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "mim",
+      "name": "밈",
+      "faction": "dwarf",
+      "role": "hero",
+      "original": "tokens/mim.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "doriath_warrior",
+      "name": "도리아스 전사",
+      "faction": "doriath",
+      "role": "infantry",
+      "original": "tokens/doriath_warrior.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "falathrim_archer",
+      "name": "팔라스림 궁수",
+      "faction": "elf",
+      "role": "infantry",
+      "original": "tokens/falathrim_archer.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "nargothrond_ranger",
+      "name": "나르고스론드 레인저",
+      "faction": "elf",
+      "role": "infantry",
+      "original": "tokens/nargothrond_ranger.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "edain_warrior",
+      "name": "에다인 전사",
+      "faction": "men",
+      "role": "infantry",
+      "original": "tokens/edain_warrior.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "gondolin_guard",
+      "name": "곤돌린 근위병",
+      "faction": "elf",
+      "role": "infantry",
+      "original": "tokens/gondolin_guard.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "mirkwood_captain",
+      "name": "머크우드 대장",
+      "faction": "elf",
+      "role": "hero",
+      "original": "tokens/mirkwood_captain.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "mordor_uruk",
+      "name": "모르도르 우르크",
+      "faction": "mordor",
+      "role": "infantry",
+      "original": "tokens/mordor_uruk.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/mordor_uruk.png",
+      "blobSHA": "726cd6bcd777de20ef6736847b5259f4c5a0c6fe",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "morgul_orc",
+      "name": "모르굴 오크",
+      "faction": "mordor",
+      "role": "infantry",
+      "original": "tokens/morgul_orc.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/morgul_orc.png",
+      "blobSHA": "e587b9c4847f2f4486f59396540305f55b17e569",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "morgul_rat",
+      "name": "모르굴 추적병",
+      "faction": "mordor",
+      "role": "infantry",
+      "original": "tokens/morgul_rat.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/morgul_rat.png",
+      "blobSHA": "8ad4e3ec68cc894e69184af6793016c27164f21c",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "ufthak",
+      "name": "우프탁",
+      "faction": "mordor",
+      "role": "hero",
+      "original": "tokens/ufthak.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/ufthak.png",
+      "blobSHA": "6acd8bde62cb4fc9d2881dd735040a51a1977591",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "orc_sergeant",
+      "name": "오크 하사",
+      "faction": "mordor",
+      "role": "hero",
+      "original": "tokens/orc_sergeant.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/orc_sergeant.png",
+      "blobSHA": "cab6f28fe555164968227947ef6907ac248b3b47",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "ashrak",
+      "name": "아슈라크",
+      "faction": "dol_guldur",
+      "role": "hero",
+      "original": "tokens/ashrak.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "isengard_troll",
+      "name": "이센가드 트롤",
+      "faction": "isengard",
+      "role": "monster",
+      "original": "tokens/isengard_troll.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dunlending_horseman",
+      "name": "던랜드 기병",
+      "faction": "dunland",
+      "role": "cavalry",
+      "original": "tokens/dunlending_horseman.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "wulf",
+      "name": "울프",
+      "faction": "dunland",
+      "role": "hero",
+      "original": "tokens/wulf.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "hera",
+      "name": "헤라",
+      "faction": "rohan",
+      "role": "hero",
+      "original": "tokens/hera.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "frealaf",
+      "name": "프레알라프",
+      "faction": "rohan",
+      "role": "hero",
+      "original": "tokens/frealaf.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "rohan_yeoman",
+      "name": "로한 여맨",
+      "faction": "rohan",
+      "role": "infantry",
+      "original": "tokens/rohan_yeoman.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "serpent_guard",
+      "name": "뱀 근위대",
+      "faction": "harad",
+      "role": "infantry",
+      "original": "tokens/serpent_guard.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "corsair_crossbowman",
+      "name": "코르사 석궁병",
+      "faction": "umbar",
+      "role": "infantry",
+      "original": "tokens/corsair_crossbowman.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "mahud_blowpipe",
+      "name": "마후드 취관병",
+      "faction": "harad",
+      "role": "infantry",
+      "original": "tokens/mahud_blowpipe.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "khandish_warrior",
+      "name": "칸드 전사",
+      "faction": "easterling",
+      "role": "infantry",
+      "original": "tokens/khandish_warrior.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "easterling_mounted_archer",
+      "name": "이스터링 기마궁수",
+      "faction": "easterling",
+      "role": "cavalry",
+      "original": "tokens/easterling_mounted_archer.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "far_harad_chieftain",
+      "name": "먼 하라드 족장",
+      "faction": "harad",
+      "role": "hero",
+      "original": "tokens/far_harad_chieftain.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "numenorean_knight",
+      "name": "누메노르 기사",
+      "faction": "numenor",
+      "role": "cavalry",
+      "original": "tokens/numenorean_knight.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "arnor_archer",
+      "name": "아르노르 궁수",
+      "faction": "arnor",
+      "role": "infantry",
+      "original": "tokens/arnor_archer.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "duilin",
+      "name": "두일린",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/duilin.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/duilin.png",
+      "blobSHA": "e9495dd731b2865f27dc8187ac347dae8420bb79",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "derufin",
+      "name": "데루핀",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/derufin.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/derufin.png",
+      "blobSHA": "8641c431da05d706121057d715371c8e7d4ecd86",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "hirgon",
+      "name": "히르곤",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/hirgon.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/hirgon.png",
+      "blobSHA": "e68a4ff2e349e1d117e1a4c97ef985efa2f8918e",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "pippin_citadel",
+      "name": "성채 근위병 피핀",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/pippin_citadel.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/pippin_citadel.png",
+      "blobSHA": "779b9fa66977349f5e2f918ecf2b1d60740c5afb",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "beorn_bear",
+      "name": "베오른 (곰)",
+      "faction": "beorning",
+      "role": "hero",
+      "original": "tokens/beorn_bear.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "gwaihir",
+      "name": "그와이히르",
+      "faction": "eagle",
+      "role": "hero",
+      "original": "tokens/gwaihir.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "lobelia",
+      "name": "로벨리아",
+      "faction": "shire",
+      "role": "hero",
+      "original": "tokens/lobelia.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "will_whitfoot",
+      "name": "윌 휫풋",
+      "faction": "shire",
+      "role": "hero",
+      "original": "tokens/will_whitfoot.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dwarf_shieldbearers",
+      "name": "드워프 방패 운반병",
+      "faction": "dwarf",
+      "role": "support",
+      "original": "tokens/dwarf_shieldbearers.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "iron_hills_captain",
+      "name": "아이언 힐즈 대장",
+      "faction": "dwarf",
+      "role": "hero",
+      "original": "tokens/iron_hills_captain.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "fingolfin_mounted",
+      "name": "핑골핀 (기마)",
+      "faction": "elf",
+      "role": "hero",
+      "original": "tokens/fingolfin_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "pallando",
+      "name": "팔란도",
+      "faction": "maiar",
+      "role": "hero",
+      "original": "tokens/pallando.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "alatar",
+      "name": "알라타르",
+      "faction": "maiar",
+      "role": "hero",
+      "original": "tokens/alatar.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "annatar",
+      "name": "안나타르",
+      "faction": "mordor",
+      "role": "hero",
+      "original": "tokens/annatar.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/annatar.png",
+      "blobSHA": "7260889eb9c207033d4844cc6e7ff0f669932c44",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "sauron_wolf",
+      "name": "사우론 (늑대)",
+      "faction": "mordor",
+      "role": "hero",
+      "original": "tokens/sauron_wolf.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/sauron_wolf.png",
+      "blobSHA": "2c914dcc141e18b0ce3fce46e8b13178a3904563",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "landroval",
+      "name": "란드로발",
+      "faction": "eagle",
+      "role": "hero",
+      "original": "tokens/landroval.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "meneldor",
+      "name": "메넬도르",
+      "faction": "eagle",
+      "role": "hero",
+      "original": "tokens/meneldor.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "leaflock",
+      "name": "리플락",
+      "faction": "ent",
+      "role": "monster",
+      "original": "tokens/leaflock.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "beechbone",
+      "name": "비치본",
+      "faction": "ent",
+      "role": "monster",
+      "original": "tokens/beechbone.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "azaghal",
+      "name": "아자갈",
+      "faction": "dwarf",
+      "role": "hero",
+      "original": "tokens/azaghal.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "nain",
+      "name": "나인",
+      "faction": "dwarf",
+      "role": "hero",
+      "original": "tokens/nain.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "maglor",
+      "name": "마글로르",
+      "faction": "elf",
+      "role": "hero",
+      "original": "tokens/maglor.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "gwindor",
+      "name": "그윈도르",
+      "faction": "elf",
+      "role": "hero",
+      "original": "tokens/gwindor.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "celebrimbor",
+      "name": "켈레브림보르",
+      "faction": "elf",
+      "role": "hero",
+      "original": "tokens/celebrimbor.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "daeron",
+      "name": "다에론",
+      "faction": "doriath",
+      "role": "hero",
+      "original": "tokens/daeron.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "earnur",
+      "name": "에아르누르",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/earnur.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/earnur.png",
+      "blobSHA": "925baaefe7732ce13f8bab42858beb296f449a9a",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "sangarunya",
+      "name": "상가루냐",
+      "faction": "umbar",
+      "role": "hero",
+      "original": "tokens/sangarunya.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "huor",
+      "name": "후오르",
+      "faction": "men",
+      "role": "hero",
+      "original": "tokens/huor.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "barahir",
+      "name": "바라히르",
+      "faction": "men",
+      "role": "hero",
+      "original": "tokens/barahir.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "elendur",
+      "name": "엘렌두르",
+      "faction": "numenor",
+      "role": "hero",
+      "original": "tokens/elendur.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "arpharazon",
+      "name": "아르파라존",
+      "faction": "numenor",
+      "role": "hero",
+      "original": "tokens/arpharazon.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "anarion",
+      "name": "아나리온",
+      "faction": "numenor",
+      "role": "hero",
+      "original": "tokens/anarion.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "earendil",
+      "name": "에아렌딜",
+      "faction": "elf",
+      "role": "hero",
+      "original": "tokens/earendil.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "maeglin",
+      "name": "매글린",
+      "faction": "elf",
+      "role": "hero",
+      "original": "tokens/maeglin.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "eol",
+      "name": "에올",
+      "faction": "elf",
+      "role": "hero",
+      "original": "tokens/eol.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "galdor",
+      "name": "갈도르",
+      "faction": "elf",
+      "role": "hero",
+      "original": "tokens/galdor.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "thrain",
+      "name": "스라인",
+      "faction": "dwarf",
+      "role": "hero",
+      "original": "tokens/thrain.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "thror",
+      "name": "스로르",
+      "faction": "dwarf",
+      "role": "hero",
+      "original": "tokens/thror.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "golfimbul",
+      "name": "골핌불",
+      "faction": "moria",
+      "role": "hero",
+      "original": "tokens/golfimbul.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "eomund",
+      "name": "에오문드",
+      "faction": "rohan",
+      "role": "hero",
+      "original": "tokens/eomund.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "guthlaf",
+      "name": "구슬라프",
+      "faction": "rohan",
+      "role": "hero",
+      "original": "tokens/guthlaf.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "ingold",
+      "name": "잉골드",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/ingold.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/ingold.png",
+      "blobSHA": "d29c7fe4ba40380913e2bf242bd0822cc8f986e4",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "morgoth",
+      "name": "모르고스",
+      "faction": "angband",
+      "role": "hero",
+      "original": "tokens/morgoth.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "witchking_mounted_sheet",
+      "name": "마술사왕 기마",
+      "faction": "angmar",
+      "role": "hero",
+      "original": "tokens/witchking_mounted_sheet.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/witchking_mounted_sheet.png",
+      "blobSHA": "f94525f7cb855195f79b9035736b9d86d777ee02",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "corsair_captain",
+      "name": "움바 선장",
+      "faction": "umbar",
+      "role": "hero",
+      "original": "tokens/corsair_captain.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "butterbur",
+      "name": "버터버",
+      "faction": "bree",
+      "role": "civil",
+      "original": "tokens/butterbur.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "bill_ferny",
+      "name": "빌 페르니",
+      "faction": "bree",
+      "role": "civil",
+      "original": "tokens/bill_ferny.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "scatha",
+      "name": "스카사",
+      "faction": "dragon",
+      "role": "monster",
+      "original": "tokens/scatha.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "war_hound",
+      "name": "전투견",
+      "faction": "rohan",
+      "role": "beast",
+      "original": "tokens/war_hound.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "galadhrim_knight",
+      "name": "갈라드림 기사",
+      "faction": "lothlorien",
+      "role": "cavalry",
+      "original": "tokens/galadhrim_knight.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "mahud_raider",
+      "name": "마후드 약탈자",
+      "faction": "harad",
+      "role": "infantry",
+      "original": "tokens/mahud_raider.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "camel_rider",
+      "name": "낙타 기병",
+      "faction": "harad",
+      "role": "cavalry",
+      "original": "tokens/camel_rider.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dale_warrior",
+      "name": "데일 전사",
+      "faction": "dale",
+      "role": "infantry",
+      "original": "tokens/dale_warrior.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "esgaroth_archer",
+      "name": "에스가로스 궁수",
+      "faction": "dale",
+      "role": "infantry",
+      "original": "tokens/esgaroth_archer.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "thorondor",
+      "name": "소론도르",
+      "faction": "eagle",
+      "role": "hero",
+      "original": "tokens/thorondor.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "rhosgobel_rabbit",
+      "name": "로스고벨 토끼썰매",
+      "faction": "maiar",
+      "role": "beast",
+      "original": "tokens/rhosgobel_rabbit.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "morgul_duellist",
+      "name": "모르굴 결투사",
+      "faction": "mordor",
+      "role": "infantry",
+      "original": "tokens/morgul_duellist.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/morgul_duellist.png",
+      "blobSHA": "2fcc14cada9a93bf2dbd88b8869965dc61cdba61",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "troll_shaman",
+      "name": "트롤 주술사",
+      "faction": "mordor",
+      "role": "monster",
+      "original": "tokens/troll_shaman.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/troll_shaman.png",
+      "blobSHA": "fc6652a3fc17ab7c13b7778bbb0922df38133738",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "deorwine_mounted",
+      "name": "데오르바인(기마)",
+      "faction": "rohan",
+      "role": "hero",
+      "original": "tokens/deorwine_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "grimbold_mounted",
+      "name": "그림볼드(기마)",
+      "faction": "rohan",
+      "role": "hero",
+      "original": "tokens/grimbold_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "harding_mounted",
+      "name": "하딩(기마)",
+      "faction": "rohan",
+      "role": "hero",
+      "original": "tokens/harding_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dunhere_mounted",
+      "name": "둔헤레(기마)",
+      "faction": "rohan",
+      "role": "hero",
+      "original": "tokens/dunhere_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "guthlaf_mounted",
+      "name": "구슬라프(기마)",
+      "faction": "rohan",
+      "role": "hero",
+      "original": "tokens/guthlaf_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "gamling_mounted",
+      "name": "감링(기마)",
+      "faction": "rohan",
+      "role": "hero",
+      "original": "tokens/gamling_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "erkenbrand_mounted",
+      "name": "에르켄브란드(기마)",
+      "faction": "rohan",
+      "role": "hero",
+      "original": "tokens/erkenbrand_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "eorl_the_young_mounted",
+      "name": "에오를(기마)",
+      "faction": "rohan",
+      "role": "hero",
+      "original": "tokens/eorl_the_young_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "frealaf_mounted",
+      "name": "프레알라프(기마)",
+      "faction": "rohan",
+      "role": "hero",
+      "original": "tokens/frealaf_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "thrydan_mounted",
+      "name": "트리단(기마)",
+      "faction": "dunland",
+      "role": "hero",
+      "original": "tokens/thrydan_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "hera_mounted",
+      "name": "헤라(기마)",
+      "faction": "rohan",
+      "role": "hero",
+      "original": "tokens/hera_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "elendil_mounted",
+      "name": "엘렌딜(기마)",
+      "faction": "arnor",
+      "role": "hero",
+      "original": "tokens/elendil_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "isildur_mounted",
+      "name": "이실두르(기마)",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/isildur_mounted.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/isildur_mounted.png",
+      "blobSHA": "758ffcf6370db33f5ddb43b60c8f85385bd7bdd6",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "anarion_mounted",
+      "name": "아나리온(기마)",
+      "faction": "numenor",
+      "role": "hero",
+      "original": "tokens/anarion_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "cirion_mounted",
+      "name": "키리온(기마)",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/cirion_mounted.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/cirion_mounted.png",
+      "blobSHA": "8191cef5992a5c50c18833ad26b6673a59faf7fb",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "earnur_mounted",
+      "name": "에아르누르(기마)",
+      "faction": "gondor",
+      "role": "hero",
+      "original": "tokens/earnur_mounted.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/earnur_mounted.png",
+      "blobSHA": "a44cf69fa735e1c9ac870d020bb07a9d64bc9c46",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "arvedui_mounted",
+      "name": "아르베두이(기마)",
+      "faction": "arnor",
+      "role": "hero",
+      "original": "tokens/arvedui_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "arathorn_mounted",
+      "name": "아라손(기마)",
+      "faction": "arnor",
+      "role": "hero",
+      "original": "tokens/arathorn_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "halbarad_mounted",
+      "name": "할바라드(기마)",
+      "faction": "arnor",
+      "role": "hero",
+      "original": "tokens/halbarad_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "khamul_mounted",
+      "name": "카물(기마)",
+      "faction": "angmar",
+      "role": "hero",
+      "original": "tokens/khamul_mounted.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/khamul_mounted.png",
+      "blobSHA": "ede6dd84ba4c2356bfe9ded8c518a7fb8e514846",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dark_marshal_mounted",
+      "name": "다크 마샬(기마)",
+      "faction": "angmar",
+      "role": "hero",
+      "original": "tokens/dark_marshal_mounted.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/dark_marshal_mounted.png",
+      "blobSHA": "77050a1e7d3fdfb6b86161646a6bacc848d302a5",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dwimmerlaik_mounted",
+      "name": "드위머레이크(기마)",
+      "faction": "angmar",
+      "role": "hero",
+      "original": "tokens/dwimmerlaik_mounted.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/dwimmerlaik_mounted.png",
+      "blobSHA": "24821d475a0ca7cd955f90e76f32a5206bfb314c",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "shadow_lord_mounted",
+      "name": "섀도 로드(기마)",
+      "faction": "angmar",
+      "role": "hero",
+      "original": "tokens/shadow_lord_mounted.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/shadow_lord_mounted.png",
+      "blobSHA": "cb99eca7e0ce8040daf801a7bf8a3cbca0739ca1",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "forsaken_mounted",
+      "name": "포세이큰(기마)",
+      "faction": "dol_guldur",
+      "role": "hero",
+      "original": "tokens/forsaken_mounted.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/forsaken_mounted.png",
+      "blobSHA": "3b6ae26d36ea7a133f37b6cd99172fe1a0791041",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "tainted_mounted",
+      "name": "테인티드(기마)",
+      "faction": "angmar",
+      "role": "hero",
+      "original": "tokens/tainted_mounted.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/tainted_mounted.png",
+      "blobSHA": "a7c2a2d9014233e4b422a949339d1b4c1b6e2d11",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "undying_mounted",
+      "name": "언다잉(기마)",
+      "faction": "angmar",
+      "role": "hero",
+      "original": "tokens/undying_mounted.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/undying_mounted.png",
+      "blobSHA": "03cd21996d825821af7a3bec7529362c7215c720",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "betrayer_mounted",
+      "name": "배신자(기마)",
+      "faction": "angmar",
+      "role": "hero",
+      "original": "tokens/betrayer_mounted.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/betrayer_mounted.png",
+      "blobSHA": "aeff84b9ad9cae9c5c428b97cc4f06995eac00bb",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "bolg_mounted",
+      "name": "볼그(와르그)",
+      "faction": "gundabad",
+      "role": "hero",
+      "original": "tokens/bolg_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "guritz_mounted",
+      "name": "구리츠(와르그)",
+      "faction": "mordor",
+      "role": "hero",
+      "original": "tokens/guritz_mounted.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/guritz_mounted.png",
+      "blobSHA": "24cfda0e5ccf1a8931d776e4f5e1d41fa0c138dd",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "feanor_mounted",
+      "name": "페아노르(기마)",
+      "faction": "elf",
+      "role": "hero",
+      "original": "tokens/feanor_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "turin_mounted",
+      "name": "투린(기마)",
+      "faction": "men",
+      "role": "hero",
+      "original": "tokens/turin_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "tuor_mounted",
+      "name": "투오르(기마)",
+      "faction": "men",
+      "role": "hero",
+      "original": "tokens/tuor_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "beleg_mounted",
+      "name": "벨레그(기마)",
+      "faction": "doriath",
+      "role": "hero",
+      "original": "tokens/beleg_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "hurin_thalion_mounted",
+      "name": "후린 탈리온(기마)",
+      "faction": "men",
+      "role": "hero",
+      "original": "tokens/hurin_thalion_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "maeglin_mounted",
+      "name": "매글린(기마)",
+      "faction": "elf",
+      "role": "hero",
+      "original": "tokens/maeglin_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "fingon_mounted",
+      "name": "핑곤(기마)",
+      "faction": "elf",
+      "role": "hero",
+      "original": "tokens/fingon_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "ecthelion_mounted",
+      "name": "엑텔리온(기마)",
+      "faction": "elf",
+      "role": "hero",
+      "original": "tokens/ecthelion_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "finrod_felagund_mounted",
+      "name": "핀로드(기마)",
+      "faction": "elf",
+      "role": "hero",
+      "original": "tokens/finrod_felagund_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "maedhros_mounted",
+      "name": "마이드로스(기마)",
+      "faction": "elf",
+      "role": "hero",
+      "original": "tokens/maedhros_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "celegorm_mounted",
+      "name": "켈레고름(기마)",
+      "faction": "elf",
+      "role": "hero",
+      "original": "tokens/celegorm_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "turgon_mounted",
+      "name": "투르곤(기마)",
+      "faction": "elf",
+      "role": "hero",
+      "original": "tokens/turgon_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "cirdan_mounted",
+      "name": "키르단(기마)",
+      "faction": "elf",
+      "role": "hero",
+      "original": "tokens/cirdan_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "gil_galad_mounted",
+      "name": "길갈라드(기마)",
+      "faction": "elf",
+      "role": "hero",
+      "original": "tokens/gil_galad_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "thingol_mounted",
+      "name": "싱골(기마)",
+      "faction": "doriath",
+      "role": "hero",
+      "original": "tokens/thingol_mounted.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "citadel_guard_bow",
+      "name": "성채근위 궁병",
+      "faction": "gondor",
+      "role": "infantry",
+      "original": "tokens/citadel_guard_bow.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/citadel_guard_bow.png",
+      "blobSHA": "88c2f8cb3ce94be851fdd6cc5a77fe7d3ce3bc35",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "osgiliath_spearshield",
+      "name": "오스길리아스 베테랑 창방",
+      "faction": "gondor",
+      "role": "infantry",
+      "original": "tokens/osgiliath_spearshield.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/osgiliath_spearshield.png",
+      "blobSHA": "ef1e06cdb20cff4c7b0e44c6dd5557811bf6d38b",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "osgiliath_bow",
+      "name": "오스길리아스 베테랑 궁병",
+      "faction": "gondor",
+      "role": "infantry",
+      "original": "tokens/osgiliath_bow.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/osgiliath_bow.png",
+      "blobSHA": "6ca296e7f65168b113e289cbaaaf2e2262ecc87f",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dol_amroth_swordshield",
+      "name": "돌 암로스 검방병",
+      "faction": "dol_amroth",
+      "role": "infantry",
+      "original": "tokens/dol_amroth_swordshield.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/dol_amroth_swordshield.png",
+      "blobSHA": "8f1e0f3c385f3c9c20aa93fc6f87df8a0e90bca3",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dol_amroth_knight_foot",
+      "name": "돌 암로스 백조기사 도보",
+      "faction": "dol_amroth",
+      "role": "infantry",
+      "original": "tokens/dol_amroth_knight_foot.png",
+      "source": "gondor",
+      "path": "art/gondor-rebuild-20261019/units/dol_amroth_knight_foot.png",
+      "blobSHA": "5e76fe4750c9f4f3751cfa16c7b12cfda146bc82",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "rohan_helmingas",
+      "name": "헬밍가 전사",
+      "faction": "rohan",
+      "role": "infantry",
+      "original": "tokens/rohan_helmingas.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "rohan_redshield",
+      "name": "웨스트폴드 적색방패 기병",
+      "faction": "rohan",
+      "role": "cavalry",
+      "original": "tokens/rohan_redshield.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "ironhills_warrior",
+      "name": "철산 매톡 전사",
+      "faction": "iron_hills",
+      "role": "infantry",
+      "original": "tokens/ironhills_warrior.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "ironhills_spearshield",
+      "name": "철산 창방병",
+      "faction": "iron_hills",
+      "role": "infantry",
+      "original": "tokens/ironhills_spearshield.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "ironhills_crossbow",
+      "name": "철산 석궁병",
+      "faction": "iron_hills",
+      "role": "infantry",
+      "original": "tokens/ironhills_crossbow.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "galadhrim_bow",
+      "name": "갈라드림 궁수",
+      "faction": "lothlorien",
+      "role": "infantry",
+      "original": "tokens/galadhrim_bow.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "galadhrim_elite_bow",
+      "name": "갈라드림 정예 궁병",
+      "faction": "lothlorien",
+      "role": "infantry",
+      "original": "tokens/galadhrim_elite_bow.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "mirkwood_ranger",
+      "name": "머크우드 레인저",
+      "faction": "mirkwood",
+      "role": "infantry",
+      "original": "tokens/mirkwood_ranger.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "arnor_knight",
+      "name": "아르노르 기사",
+      "faction": "arnor",
+      "role": "cavalry",
+      "original": "tokens/arnor_knight.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "arnor_ranger",
+      "name": "아르노르 레인저",
+      "faction": "arnor",
+      "role": "infantry",
+      "original": "tokens/arnor_ranger.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "morannon_swordshield",
+      "name": "모라논 오크 검방",
+      "faction": "mordor",
+      "role": "infantry",
+      "original": "tokens/morannon_swordshield.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/morannon_swordshield.png",
+      "blobSHA": "2758decfb92b77f7d8d754e323d0d4bde72ff37e",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "orc_elite_tracker",
+      "name": "오크 정예 추적궁병",
+      "faction": "mordor",
+      "role": "infantry",
+      "original": "tokens/orc_elite_tracker.png",
+      "source": "mordor",
+      "path": "art/mordor-rebuild-20261019/units/orc_elite_tracker.png",
+      "blobSHA": "82a0961e99daf9d7c3afb1dffc0c5c8c1f7778b5",
+      "status": "restored_review_asset",
+      "visualReviewThisSession": false
+    },
+    {
+      "id": "dale_guard",
+      "name": "데일 기리온 근위병",
+      "faction": "dale",
+      "role": "infantry",
+      "original": "tokens/dale_guard.png",
+      "status": "pending",
+      "visualReviewThisSession": false
+    }
+  ]
+}

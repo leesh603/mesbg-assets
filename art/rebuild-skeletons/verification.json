@@ -1,0 +1,288 @@
+{
+  "baseCount": 10,
+  "unitCount": 10,
+  "files": [
+    {
+      "file": "bases/hobbit.png",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "67088b1f8ab15af9ffcc692f6e15c266321d946ee18b6e10bfef7c24b12912a6",
+      "opaqueBounds": [
+        287,
+        85,
+        920,
+        1203
+      ]
+    },
+    {
+      "file": "bases/dwarf.png",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "a5ad9697bb0a7bcfef6f62f6db25fae1b23984bcfffbe51c73b25923cde969ac",
+      "opaqueBounds": [
+        250,
+        130,
+        970,
+        1208
+      ]
+    },
+    {
+      "file": "bases/dwarf-mounted.png",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "dbf2387caa605c56739ce50bf94add5cc40058bc14d339942ca8d5c5e926441a",
+      "opaqueBounds": [
+        287,
+        88,
+        933,
+        1251
+      ]
+    },
+    {
+      "file": "bases/human.png",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "35bf7a96de3eaaecf256d384b916ba59b7df5c8b332cc0d9449209c7d394c686",
+      "opaqueBounds": [
+        281,
+        101,
+        919,
+        1226
+      ]
+    },
+    {
+      "file": "bases/human-mounted.png",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "6999a64846d97c2286e4d1c5bc2ca4a104275c2fab019fb0a2661d852ccedccf",
+      "opaqueBounds": [
+        315,
+        92,
+        961,
+        1227
+      ]
+    },
+    {
+      "file": "bases/orc.png",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "36c8b4b2607430d2fbe1c42fab951fd24a1c6bf49cc820696fabc269b5242db8",
+      "opaqueBounds": [
+        236,
+        66,
+        962,
+        1261
+      ]
+    },
+    {
+      "file": "bases/goblin.png",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "c794aa648471694fb28b0d5e24a67cba9ddd8c311895b19435833f9ce98e3483",
+      "opaqueBounds": [
+        265,
+        125,
+        940,
+        1191
+      ]
+    },
+    {
+      "file": "bases/elf.png",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "132a66d619aa52e82d106523a1c6cc6b6aa4080041b1c4868c736be88e4d740f",
+      "opaqueBounds": [
+        291,
+        96,
+        922,
+        1224
+      ]
+    },
+    {
+      "file": "bases/large-human.png",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "b923a86eeb5c55eb807de40ec54a3fb58f2911ad73e09fd53b8209bcfea05134",
+      "opaqueBounds": [
+        263,
+        97,
+        929,
+        1226
+      ]
+    },
+    {
+      "file": "bases/uruk.png",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "66251a53c5f69c80dc8e5b3c5f87b86741ee2fb1ca593f314fa6e592059815d6",
+      "opaqueBounds": [
+        250,
+        82,
+        953,
+        1266
+      ]
+    },
+    {
+      "file": "test-units/frodo.png",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "bfc23d98705600c38fe22448c8eac36e6890afc6eab98284fbaa2e531822db34",
+      "opaqueBounds": [
+        197,
+        92,
+        1010,
+        1207
+      ]
+    },
+    {
+      "file": "test-units/gimli.png",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "e705f1f19cc86cfc204b7a0a6eaa4c6423e8652bc1246449c1269ead21a50617",
+      "opaqueBounds": [
+        110,
+        146,
+        979,
+        1210
+      ]
+    },
+    {
+      "file": "test-units/dain_boar.png",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "d93eb1c18e67321380fb766a4ad02dfab002a485b584ad4ea6ce8b7ca77c2764",
+      "opaqueBounds": [
+        184,
+        88,
+        986,
+        1250
+      ]
+    },
+    {
+      "file": "test-units/warrior_minas_tirith.png",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "d7fe13851d9b4798b2bcd6b999f6579499416d111c7e9448521ccb577f77e9f0",
+      "opaqueBounds": [
+        232,
+        99,
+        982,
+        1227
+      ]
+    },
+    {
+      "file": "test-units/theoden_mounted.png",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "f8911ae71005d8cf5f2e555f3122fc5b599026e363a6f0379450142daeef5fe6",
+      "opaqueBounds": [
+        157,
+        49,
+        1070,
+        1222
+      ]
+    },
+    {
+      "file": "test-units/glorfindel_foot.png",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "0ae02539ab462fb3633d9f24c88d7312438de1cbafc506446a2b70c02c9a4455",
+      "opaqueBounds": [
+        161,
+        80,
+        1075,
+        1233
+      ]
+    },
+    {
+      "file": "test-units/orc_swordshield.png",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "303c3d91a7eb19b850ef8acb6b6bfc3a62badba5f93e7bb9789791add1615617",
+      "opaqueBounds": [
+        194,
+        48,
+        1091,
+        1262
+      ]
+    },
+    {
+      "file": "test-units/moria_goblin.png",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "e0654f8d93e452dcfd6e69a8f9d3af3ca5b1da9f3cef4ed1183a6d1abafeadc1",
+      "opaqueBounds": [
+        256,
+        102,
+        964,
+        1187
+      ]
+    },
+    {
+      "file": "test-units/witchking_foot.png",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "f5219faedf23ed2f46df0da9da7d35e09f43b07287f3ec1d7fd131b33354d88a",
+      "opaqueBounds": [
+        254,
+        20,
+        1019,
+        1230
+      ]
+    },
+    {
+      "file": "test-units/uruk_swordshield.png",
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "56ca2c0f7e4f66a3176c977e64e7795efb0613c2d9a6bf2126060a9caa5de5f8",
+      "opaqueBounds": [
+        229,
+        77,
+        1072,
+        1255
+      ]
+    }
+  ],
+  "runtimeChanged": false,
+  "deployment": false
+}

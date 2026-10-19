@@ -1,0 +1,26 @@
+{
+  "repairs": [
+    {
+      "ids": [
+        "hurin"
+      ],
+      "issue": "Existing Hurin PNG resembles a robed steward instead of an armoured Gondor fighter; original game weapon metadata says mace.",
+      "artDecision": "New isolated art depicts armoured Hurin with Warden's Sword; no production data changed.",
+      "sources": [
+        "https://www.warhammer-community.com/en-gb/articles/6H9xHRYz/command-3-of-middle-earths-mightiest-heroes-with-the-defenders-of-minas-tirith/",
+        "https://assets.warhammer-community.com/articles/2bd53163-7e9e-4dd1-945c-cc3404dcf7a1/i83lcipd7vypecab.jpg"
+      ]
+    },
+    {
+      "ids": [
+        "cirion",
+        "cirion_mounted"
+      ],
+      "issue": "Existing PNGs are robed staff/scroll elders, inconsistent with the armed Gondor captain role.",
+      "artDecision": "Isolated armoured captain with sword and shield.",
+      "sources": [
+        "https://assets.warhammer-community.com/eng_jun25_mesbg_legacies_of_me_good-qo0xxvhunb-sz3xumksvr.pdf"
+      ]
+    }
+  ]
+}

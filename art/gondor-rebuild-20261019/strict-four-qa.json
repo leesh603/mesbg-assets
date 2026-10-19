@@ -1,0 +1,24 @@
+{
+  "fixed": [
+    "high-angle front view",
+    "five-head human anatomy",
+    "Theoden pixel-art finish"
+  ],
+  "batch": [
+    "aragorn",
+    "boromir",
+    "faramir",
+    "forlong"
+  ],
+  "visualChecks": [
+    "head crown and both shoulder tops seen from above",
+    "no upward gaze or eye-level portrait",
+    "compact thighs and lower legs compared with locked reference",
+    "body volume differs in width, not stretched vertical anatomy",
+    "hands/weapons/costume readable",
+    "hard pixel clusters at game scale"
+  ],
+  "landmarkMethod": "Manual visual body/rider inspection. Hair, beard, sword, cloak and shield envelope excluded. Stored body top/bottom/origin are manual proposals.",
+  "status": "review candidates, not production replacement",
+  "browserQA": false
+}
