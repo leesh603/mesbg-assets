@@ -1,0 +1,1428 @@
+[
+  {
+    "id": "aragorn",
+    "name_ko": "아라곤",
+    "name_en": "Aragorn",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "L",
+    "sheet": "lotr-tokens-v1.png",
+    "file": "tokens/aragorn.png",
+    "stats": {
+      "f": 6,
+      "s": 4,
+      "d": 6,
+      "a": 3,
+      "w": 3,
+      "c": 6,
+      "might": 3,
+      "will": 3,
+      "fate": 3,
+      "rules": [
+        "Hero of Legend",
+        "Anduril Flame of the West"
+      ]
+    },
+    "rules": [
+      "Hero of Legend",
+      "Anduril Flame of the West"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "warrior_minas_tirith",
+    "name_ko": "미나스 티리스 전사",
+    "name_en": "Warrior of Minas Tirith",
+    "side": "good",
+    "faction": "gondor",
+    "role": "infantry",
+    "weapon": "sword_shield",
+    "base": "M",
+    "sheet": "lotr-tokens-v1.png",
+    "file": "tokens/warrior_minas_tirith.png",
+    "base_mm": "25mm",
+    "troopPromotion": {
+      "group": "gondor",
+      "aliasOf": "mt_swordshield",
+      "targets": [
+        "osgiliath_veteran"
+      ],
+      "gate": null
+    }
+  },
+  {
+    "id": "boromir",
+    "name_ko": "보로미르",
+    "name_en": "Boromir",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "sword_shield",
+    "base": "L",
+    "sheet": "roster-free-heroes-v1.png",
+    "file": "tokens/boromir.png",
+    "stats": {
+      "f": 6,
+      "s": 4,
+      "d": 6,
+      "a": 3,
+      "w": 3,
+      "c": 6,
+      "might": 3,
+      "will": 1,
+      "fate": 2,
+      "rules": [
+        "Horn of Gondor",
+        "Captain of the White Tower"
+      ]
+    },
+    "rules": [
+      "Horn of Gondor",
+      "Captain of the White Tower"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "gondor_archer",
+    "name_ko": "곤도르 궁수",
+    "name_en": "Gondor Archer",
+    "side": "good",
+    "faction": "gondor",
+    "role": "infantry",
+    "weapon": "bow",
+    "base": "M",
+    "sheet": "roster-free-troops-v1.png",
+    "file": "tokens/gondor_archer.png",
+    "base_mm": "25mm",
+    "troopPromotion": {
+      "group": "gondor",
+      "aliasOf": "mt_bowman",
+      "targets": [
+        "osgiliath_bow",
+        "ithilien_ranger"
+      ],
+      "gate": null
+    }
+  },
+  {
+    "id": "ithilien_ranger",
+    "name_ko": "이틸리엔 레인저",
+    "name_en": "Ithilien Ranger",
+    "side": "good",
+    "faction": "gondor",
+    "role": "infantry",
+    "weapon": "bow",
+    "base": "M",
+    "sheet": "roster-free-troops-v1.png",
+    "file": "tokens/ithilien_ranger.png",
+    "base_mm": "25mm",
+    "troopPromotion": {
+      "group": "gondor",
+      "aliasOf": null,
+      "targets": [
+        "citadel_guard_bow"
+      ],
+      "gate": null
+    }
+  },
+  {
+    "id": "mt_swordshield",
+    "name_ko": "미나스 티리스 검방",
+    "name_en": "MT sword & shield",
+    "side": "good",
+    "faction": "gondor",
+    "role": "infantry",
+    "weapon": "sword_shield",
+    "base": "M",
+    "sheet": "roster-minastirith-variants-v1.png",
+    "file": "tokens/mt_swordshield.png",
+    "base_mm": "25mm",
+    "troopPromotion": {
+      "group": "gondor",
+      "aliasOf": null,
+      "targets": [
+        "osgiliath_veteran"
+      ],
+      "gate": null
+    }
+  },
+  {
+    "id": "mt_spear",
+    "name_ko": "미나스 티리스 창병",
+    "name_en": "MT spear",
+    "side": "good",
+    "faction": "gondor",
+    "role": "infantry",
+    "weapon": "spear",
+    "base": "M",
+    "sheet": "roster-minastirith-variants-v1.png",
+    "file": "tokens/mt_spear.png",
+    "base_mm": "25mm",
+    "troopPromotion": {
+      "group": "gondor",
+      "aliasOf": null,
+      "targets": [
+        "osgiliath_spearshield"
+      ],
+      "gate": null
+    }
+  },
+  {
+    "id": "mt_spearshield",
+    "name_ko": "미나스 티리스 창방",
+    "name_en": "MT spear & shield",
+    "side": "good",
+    "faction": "gondor",
+    "role": "infantry",
+    "weapon": "spear_shield",
+    "base": "M",
+    "sheet": "roster-minastirith-variants-v1.png",
+    "file": "tokens/mt_spearshield.png",
+    "base_mm": "25mm",
+    "troopPromotion": {
+      "group": "gondor",
+      "aliasOf": null,
+      "targets": [
+        "osgiliath_spearshield"
+      ],
+      "gate": null
+    }
+  },
+  {
+    "id": "mt_bowman",
+    "name_ko": "미나스 티리스 궁수",
+    "name_en": "MT bowman",
+    "side": "good",
+    "faction": "gondor",
+    "role": "infantry",
+    "weapon": "bow",
+    "base": "M",
+    "sheet": "roster-minastirith-variants-v1.png",
+    "file": "tokens/mt_bowman.png",
+    "base_mm": "25mm",
+    "troopPromotion": {
+      "group": "gondor",
+      "aliasOf": null,
+      "targets": [
+        "osgiliath_bow",
+        "ithilien_ranger"
+      ],
+      "gate": null
+    }
+  },
+  {
+    "id": "mt_captain",
+    "name_ko": "미나스 티리스 장교",
+    "name_en": "MT shield captain",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "",
+    "base": "M",
+    "sheet": "roster-minastirith-variants-v1.png",
+    "file": "tokens/mt_captain.png",
+    "base_mm": "25mm"
+  },
+  {
+    "id": "mt_fountain_guard",
+    "name_ko": "샘물수위병",
+    "name_en": "Fountain Court Guard",
+    "side": "good",
+    "faction": "gondor",
+    "role": "infantry",
+    "weapon": "spear_shield",
+    "base": "M",
+    "sheet": "roster-minastirith-variants-v1.png",
+    "file": "tokens/mt_fountain_guard.png",
+    "base_mm": "25mm",
+    "troopPromotion": {
+      "group": "gondor",
+      "aliasOf": null,
+      "targets": [],
+      "gate": null
+    }
+  },
+  {
+    "id": "dol_amroth_knight",
+    "name_ko": "돌 암로스 백조기사",
+    "name_en": "Knight of Dol Amroth",
+    "side": "good",
+    "faction": "dol_amroth",
+    "role": "cavalry",
+    "weapon": "lance",
+    "base": "XL",
+    "sheet": "roster-gondor-exp-v1.png",
+    "file": "tokens/dol_amroth_knight.png",
+    "base_mm": "40mm",
+    "troopPromotion": {
+      "group": "dol_amroth",
+      "aliasOf": null,
+      "targets": [],
+      "gate": null
+    }
+  },
+  {
+    "id": "gondor_knight",
+    "name_ko": "곤도르 기병",
+    "name_en": "Knight of Minas Tirith",
+    "side": "good",
+    "faction": "gondor",
+    "role": "cavalry",
+    "weapon": "lance",
+    "base": "XL",
+    "sheet": "roster-gondor-exp-v1.png",
+    "file": "tokens/gondor_knight.png",
+    "base_mm": "40mm",
+    "troopPromotion": {
+      "group": "gondor",
+      "aliasOf": null,
+      "targets": [],
+      "gate": null
+    }
+  },
+  {
+    "id": "osgiliath_veteran",
+    "name_ko": "오스길리아스 베테랑",
+    "name_en": "Osgiliath Veteran",
+    "side": "good",
+    "faction": "gondor",
+    "role": "infantry",
+    "weapon": "sword_shield",
+    "base": "M",
+    "sheet": "roster-gondor-exp-v1.png",
+    "file": "tokens/osgiliath_veteran.png",
+    "base_mm": "25mm",
+    "troopPromotion": {
+      "group": "gondor",
+      "aliasOf": null,
+      "targets": [
+        "mt_fountain_guard",
+        "citadel_guard",
+        "gondor_knight"
+      ],
+      "gate": null
+    }
+  },
+  {
+    "id": "lossarnach_axeman",
+    "name_ko": "로사르나흐 도끼병",
+    "name_en": "Lossarnach Axeman",
+    "side": "good",
+    "faction": "gondor",
+    "role": "infantry",
+    "weapon": "twohanded",
+    "base": "M",
+    "sheet": "roster-gondor-exp-v1.png",
+    "file": "tokens/lossarnach_axeman.png",
+    "base_mm": "25mm",
+    "troopPromotion": {
+      "group": "gondor",
+      "aliasOf": null,
+      "targets": [],
+      "gate": null
+    }
+  },
+  {
+    "id": "citadel_guard",
+    "name_ko": "성채근위병",
+    "name_en": "Citadel Guard",
+    "side": "good",
+    "faction": "gondor",
+    "role": "infantry",
+    "weapon": "spear_shield",
+    "base": "M",
+    "sheet": "roster-gondor-exp-v1.png",
+    "file": "tokens/citadel_guard.png",
+    "base_mm": "25mm",
+    "troopPromotion": {
+      "group": "gondor",
+      "aliasOf": null,
+      "targets": [],
+      "gate": null
+    }
+  },
+  {
+    "id": "pelennor_militia",
+    "name_ko": "펠렌노르 민병",
+    "name_en": "Pelennor Militia",
+    "side": "good",
+    "faction": "gondor",
+    "role": "infantry",
+    "weapon": "spear",
+    "base": "M",
+    "sheet": "roster-gondor-exp-v1.png",
+    "file": "tokens/pelennor_militia.png",
+    "base_mm": "25mm",
+    "troopPromotion": {
+      "group": "gondor",
+      "aliasOf": null,
+      "targets": [
+        "mt_swordshield",
+        "mt_spearshield"
+      ],
+      "gate": null
+    }
+  },
+  {
+    "id": "faramir",
+    "name_ko": "파라미르",
+    "name_en": "Faramir",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "bow",
+    "base": "M",
+    "sheet": "roster-free-heroes-exp-v1.png",
+    "file": "tokens/faramir.png",
+    "stats": {
+      "f": 5,
+      "s": 4,
+      "d": 5,
+      "a": 2,
+      "w": 3,
+      "c": 6,
+      "might": 2,
+      "will": 1,
+      "fate": 2,
+      "rules": [
+        "Captain of the Rangers",
+        "Woodcraft"
+      ]
+    },
+    "rules": [
+      "Captain of the Rangers",
+      "Woodcraft"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "imrahil",
+    "name_ko": "임라힐",
+    "name_en": "Imrahil",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "lance",
+    "base": "M",
+    "sheet": "roster-legends-good-v1.png",
+    "file": "tokens/imrahil.png",
+    "stats": {
+      "f": 6,
+      "s": 4,
+      "d": 6,
+      "a": 2,
+      "w": 3,
+      "c": 6,
+      "might": 3,
+      "will": 1,
+      "fate": 2,
+      "rules": [
+        "Prince of Dol Amroth",
+        "Swan Knight"
+      ]
+    },
+    "rules": [
+      "Prince of Dol Amroth",
+      "Swan Knight"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "beregond",
+    "name_ko": "베레곤드",
+    "name_en": "Beregond",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "sword_shield",
+    "base": "M",
+    "sheet": "roster-exp-good-v1.png",
+    "file": "tokens/beregond.png",
+    "stats": {
+      "f": 4,
+      "s": 4,
+      "d": 6,
+      "a": 2,
+      "w": 2,
+      "c": 4,
+      "might": 1,
+      "will": 0,
+      "fate": 1,
+      "rules": [
+        "Guard of the Citadel"
+      ]
+    },
+    "rules": [
+      "Guard of the Citadel"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "imrahil_mounted",
+    "name_ko": "임라힐(기마)",
+    "name_en": "Prince Imrahil, mounted",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "lance",
+    "base": "XL",
+    "sheet": "roster-mounted-heroes-v1.png",
+    "file": "tokens/imrahil_mounted.png",
+    "base_mm": "40mm"
+  },
+  {
+    "id": "aragorn_mounted",
+    "name_ko": "아라곤(기마)",
+    "name_en": "Aragorn, mounted",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "XL",
+    "sheet": "roster-mounted-heroes-v1.png",
+    "file": "tokens/aragorn_mounted.png",
+    "stats": {
+      "f": 6,
+      "s": 4,
+      "d": 6,
+      "a": 3,
+      "w": 3,
+      "c": 6,
+      "might": 3,
+      "will": 3,
+      "fate": 3,
+      "rules": [
+        "Hero of Legend",
+        "Anduril"
+      ]
+    },
+    "rules": [
+      "Hero of Legend",
+      "Anduril"
+    ],
+    "base_mm": "40mm"
+  },
+  {
+    "id": "blackroot_archer",
+    "name_ko": "검은뿌리골 궁수",
+    "name_en": "Blackroot Vale Archer",
+    "side": "good",
+    "faction": "gondor",
+    "role": "infantry",
+    "weapon": "bow",
+    "base": "M",
+    "sheet": "roster-mounted-heroes-v1.png",
+    "file": "tokens/blackroot_archer.png",
+    "base_mm": "25mm",
+    "troopPromotion": {
+      "group": "gondor",
+      "aliasOf": null,
+      "targets": [],
+      "gate": null
+    }
+  },
+  {
+    "id": "forlong",
+    "name_ko": "포를롱",
+    "name_en": "Forlong the Fat",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "axe",
+    "base": "L",
+    "sheet": "roster-west-heroes-v1.png",
+    "file": "tokens/forlong.png",
+    "stats": {
+      "f": 4,
+      "s": 4,
+      "d": 4,
+      "a": 3,
+      "w": 3,
+      "c": 5,
+      "might": 2,
+      "will": 0,
+      "fate": 1,
+      "rules": [
+        "Lord of Lossarnach"
+      ]
+    },
+    "rules": [
+      "Lord of Lossarnach"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "damrod",
+    "name_ko": "담로드",
+    "name_en": "Damrod",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "bow",
+    "base": "M",
+    "sheet": "roster-west-heroes-v1.png",
+    "file": "tokens/damrod.png",
+    "stats": {
+      "f": 4,
+      "s": 3,
+      "d": 4,
+      "a": 2,
+      "w": 2,
+      "c": 4,
+      "might": 1,
+      "will": 0,
+      "fate": 1,
+      "rules": [
+        "Ithilien Ranger"
+      ]
+    },
+    "rules": [
+      "Ithilien Ranger"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "mablung",
+    "name_ko": "마블룽",
+    "name_en": "Mablung",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "M",
+    "sheet": "roster-west-heroes-v1.png",
+    "file": "tokens/mablung.png",
+    "stats": {
+      "f": 6,
+      "s": 4,
+      "d": 4,
+      "a": 2,
+      "w": 2,
+      "c": 6,
+      "might": 2,
+      "will": 2,
+      "fate": 2,
+      "rules": [
+        "Chief of the March-wardens"
+      ]
+    },
+    "rules": [
+      "Chief of the March-wardens"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "duinhir",
+    "name_ko": "두인히르",
+    "name_en": "Duinhir of Blackroot",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "bow",
+    "base": "M",
+    "sheet": "roster-west-heroes-v1.png",
+    "file": "tokens/duinhir.png",
+    "stats": {
+      "f": 4,
+      "s": 4,
+      "d": 4,
+      "a": 2,
+      "w": 2,
+      "c": 4,
+      "might": 1,
+      "will": 0,
+      "fate": 1,
+      "rules": [
+        "Lord of Blackroot Vale"
+      ]
+    },
+    "rules": [
+      "Lord of Blackroot Vale"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "isildur",
+    "name_ko": "이실두르",
+    "name_en": "Isildur",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "L",
+    "sheet": "roster-good-fill-v1.png",
+    "file": "tokens/isildur.png",
+    "stats": {
+      "f": 7,
+      "s": 4,
+      "d": 6,
+      "a": 3,
+      "w": 3,
+      "c": 8,
+      "might": 3,
+      "will": 1,
+      "fate": 2,
+      "rules": [
+        "Ring-bearer",
+        "Cut the Ring"
+      ]
+    },
+    "rules": [
+      "Ring-bearer",
+      "Cut the Ring"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "denethor",
+    "name_ko": "데네소르",
+    "name_en": "Denethor, Steward of Gondor",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "none",
+    "base": "M",
+    "sheet": "roster-good-fill-v1.png",
+    "file": "tokens/denethor.png",
+    "stats": {
+      "f": 4,
+      "s": 3,
+      "d": 4,
+      "a": 1,
+      "w": 2,
+      "c": 4,
+      "might": 1,
+      "will": 0,
+      "fate": 1,
+      "rules": [
+        "Steward of Gondor"
+      ]
+    },
+    "rules": [
+      "Steward of Gondor"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "boromir_mounted",
+    "name_ko": "보로미르(기마)",
+    "name_en": "Boromir, mounted",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "sword_shield",
+    "base": "XL",
+    "sheet": "roster-good-fill-v1.png",
+    "file": "tokens/boromir_mounted.png",
+    "base_mm": "40mm"
+  },
+  {
+    "id": "faramir_mounted",
+    "name_ko": "파라미르(기마)",
+    "name_en": "Faramir, mounted",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "XL",
+    "sheet": "roster-good-fill-v2.png",
+    "file": "tokens/faramir_mounted.png",
+    "base_mm": "40mm"
+  },
+  {
+    "id": "aragorn_blackgate",
+    "name_ko": "아라곤(검은문)",
+    "name_en": "Aragorn at the Black Gate",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "L",
+    "sheet": "single-aragorn-blackgate.png",
+    "file": "tokens/aragorn_blackgate.png",
+    "stats": {
+      "f": 6,
+      "s": 4,
+      "d": 7,
+      "a": 3,
+      "w": 3,
+      "c": 7,
+      "might": 3,
+      "will": 3,
+      "fate": 3,
+      "rules": [
+        "Hero of Legend",
+        "Anduril",
+        "King Elessar"
+      ]
+    },
+    "rules": [
+      "Hero of Legend",
+      "Anduril",
+      "King Elessar"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "aragorn_blackgate_mounted",
+    "name_ko": "아라곤(검은문·기마)",
+    "name_en": "Aragorn at the Black Gate, mounted",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "XL",
+    "sheet": "single-aragorn-blackgate-mounted.png",
+    "file": "tokens/aragorn_blackgate_mounted.png",
+    "stats": {
+      "f": 6,
+      "s": 4,
+      "d": 7,
+      "a": 3,
+      "w": 3,
+      "c": 7,
+      "might": 3,
+      "will": 3,
+      "fate": 3,
+      "rules": [
+        "Hero of Legend",
+        "Anduril",
+        "King Elessar"
+      ]
+    },
+    "rules": [
+      "Hero of Legend",
+      "Anduril",
+      "King Elessar"
+    ],
+    "base_mm": "40mm"
+  },
+  {
+    "id": "anborn",
+    "name_ko": "안보른",
+    "name_en": "Anborn the Ranger",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "bow",
+    "base": "M",
+    "sheet": "exp-gondor-heroes.png",
+    "file": "tokens/anborn.png",
+    "stats": {
+      "f": 4,
+      "s": 3,
+      "d": 4,
+      "a": 2,
+      "w": 2,
+      "c": 4,
+      "might": 1,
+      "will": 0,
+      "fate": 1,
+      "rules": [
+        "Ithilien Ranger"
+      ]
+    },
+    "rules": [
+      "Ithilien Ranger"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "hirluin",
+    "name_ko": "히를루인",
+    "name_en": "Hirluin the Fair",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "sword_shield",
+    "base": "L",
+    "sheet": "exp-gondor-heroes.png",
+    "file": "tokens/hirluin.png",
+    "stats": {
+      "f": 4,
+      "s": 4,
+      "d": 4,
+      "a": 2,
+      "w": 2,
+      "c": 5,
+      "might": 1,
+      "will": 0,
+      "fate": 1,
+      "rules": [
+        "Lord of Pinnath Gelin"
+      ]
+    },
+    "rules": [
+      "Lord of Pinnath Gelin"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "madril",
+    "name_ko": "마드릴",
+    "name_en": "Madril, Ranger Lieutenant",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "M",
+    "sheet": "exp-gondor-heroes.png",
+    "file": "tokens/madril.png",
+    "stats": {
+      "f": 4,
+      "s": 3,
+      "d": 4,
+      "a": 2,
+      "w": 2,
+      "c": 4,
+      "might": 1,
+      "will": 0,
+      "fate": 1,
+      "rules": [
+        "Captain of Ithilien Rangers"
+      ]
+    },
+    "rules": [
+      "Captain of Ithilien Rangers"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "irolas",
+    "name_ko": "이롤라스",
+    "name_en": "Irolas, Guard of the Citadel",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "sword_shield",
+    "base": "L",
+    "sheet": "exp-gondor-heroes.png",
+    "file": "tokens/irolas.png",
+    "stats": {
+      "f": 4,
+      "s": 4,
+      "d": 5,
+      "a": 2,
+      "w": 2,
+      "c": 4,
+      "might": 1,
+      "will": 0,
+      "fate": 1,
+      "rules": [
+        "Captain of the Guard"
+      ]
+    },
+    "rules": [
+      "Captain of the Guard"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "hurin",
+    "name_ko": "후린",
+    "name_en": "Hurin, Warden of the Keys",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "mace",
+    "base": "L",
+    "sheet": "exp-gondor-heroes.png",
+    "file": "tokens/hurin.png",
+    "stats": {
+      "f": 4,
+      "s": 4,
+      "d": 5,
+      "a": 2,
+      "w": 2,
+      "c": 4,
+      "might": 1,
+      "will": 0,
+      "fate": 1,
+      "rules": [
+        "Warden of the Keys"
+      ]
+    },
+    "rules": [
+      "Warden of the Keys"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "cirion",
+    "name_ko": "키리온",
+    "name_en": "Cirion, Captain of Gondor",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "L",
+    "sheet": "exp-gondor-heroes.png",
+    "file": "tokens/cirion.png",
+    "stats": {
+      "f": 4,
+      "s": 4,
+      "d": 5,
+      "a": 2,
+      "w": 2,
+      "c": 4,
+      "might": 1,
+      "will": 0,
+      "fate": 1,
+      "rules": [
+        "Steward's Heir"
+      ]
+    },
+    "rules": [
+      "Steward's Heir"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "numenorean_captain",
+    "name_ko": "누메노르 대장",
+    "name_en": "Numenorean Captain",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "L",
+    "sheet": "exp-numenor-arnor.png",
+    "file": "tokens/numenorean_captain.png",
+    "stats": {
+      "f": 5,
+      "s": 4,
+      "d": 6,
+      "a": 2,
+      "w": 2,
+      "c": 5,
+      "might": 1,
+      "will": 1,
+      "fate": 1,
+      "rules": [
+        "Numenorean"
+      ]
+    },
+    "rules": [
+      "Numenorean"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "numenorean_warrior",
+    "name_ko": "누메노르 전사",
+    "name_en": "Numenorean Warrior",
+    "side": "good",
+    "faction": "gondor",
+    "role": "infantry",
+    "weapon": "sword_shield",
+    "base": "M",
+    "sheet": "exp-numenor-arnor.png",
+    "file": "tokens/numenorean_warrior.png",
+    "base_mm": "25mm",
+    "troopPromotion": {
+      "group": "numenor",
+      "aliasOf": null,
+      "targets": [
+        "numenorean_spearman",
+        "numenorean_knight"
+      ],
+      "gate": {
+        "relic": "silmaril",
+        "label": "실마릴 · 제2시대"
+      }
+    }
+  },
+  {
+    "id": "numenorean_spearman",
+    "name_ko": "누메노르 창병",
+    "name_en": "Numenorean Spearman",
+    "side": "good",
+    "faction": "gondor",
+    "role": "infantry",
+    "weapon": "spear",
+    "base": "M",
+    "sheet": "exp-numenor-arnor.png",
+    "file": "tokens/numenorean_spearman.png",
+    "base_mm": "25mm",
+    "troopPromotion": {
+      "group": "numenor",
+      "aliasOf": null,
+      "targets": [],
+      "gate": {
+        "relic": "silmaril",
+        "label": "실마릴 · 제2시대"
+      }
+    }
+  },
+  {
+    "id": "angbor",
+    "name_ko": "앵보르 무서운 자",
+    "name_en": "Angbor the Fearless",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "twohanded",
+    "base": "M",
+    "sheet": "nb-exp-heroes2.png",
+    "file": "tokens/angbor.png",
+    "base_mm": "25mm"
+  },
+  {
+    "id": "dervorin",
+    "name_ko": "데르보린",
+    "name_en": "Dervorin of Ringlo Vale",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "M",
+    "sheet": "nb-exp-heroes3.png",
+    "file": "tokens/dervorin.png",
+    "stats": {
+      "f": 5,
+      "s": 4,
+      "d": 5,
+      "a": 2,
+      "w": 2,
+      "c": 5,
+      "might": 2,
+      "will": 1,
+      "fate": 1,
+      "rules": [
+        "Lord of Ringlo Vale"
+      ]
+    },
+    "rules": [
+      "Lord of Ringlo Vale"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "dol_amroth_man_at_arms",
+    "name_ko": "돌 암로스 병사",
+    "name_en": "Man-at-Arms of Dol Amroth",
+    "side": "good",
+    "faction": "dol_amroth",
+    "role": "infantry",
+    "weapon": "spear",
+    "base": "M",
+    "sheet": "nb-exp-troops2.png",
+    "file": "tokens/dol_amroth_man_at_arms.png",
+    "base_mm": "25mm",
+    "troopPromotion": {
+      "group": "dol_amroth",
+      "aliasOf": null,
+      "targets": [
+        "dol_amroth_knight_foot",
+        "dol_amroth_knight"
+      ],
+      "gate": null
+    }
+  },
+  {
+    "id": "duilin",
+    "name_ko": "두일린",
+    "name_en": "Duilin",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "bow",
+    "base": "M",
+    "sheet": "px-nb-exp-gondor2.png",
+    "file": "tokens/duilin.png",
+    "stats": {
+      "f": 5,
+      "s": 4,
+      "d": 5,
+      "a": 2,
+      "w": 2,
+      "c": 5,
+      "might": 2,
+      "will": 1,
+      "fate": 1,
+      "rules": [
+        "Lord of Morthond",
+        "Dead-eye Shot"
+      ]
+    },
+    "rules": [
+      "Lord of Morthond",
+      "Dead-eye Shot"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "derufin",
+    "name_ko": "데루핀",
+    "name_en": "Derufin",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "M",
+    "sheet": "px-nb-exp-gondor2.png",
+    "file": "tokens/derufin.png",
+    "stats": {
+      "f": 5,
+      "s": 4,
+      "d": 6,
+      "a": 2,
+      "w": 2,
+      "c": 5,
+      "might": 2,
+      "will": 1,
+      "fate": 1,
+      "rules": [
+        "Son of Duinhir"
+      ]
+    },
+    "rules": [
+      "Son of Duinhir"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "hirgon",
+    "name_ko": "히르곤",
+    "name_en": "Hirgon",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "M",
+    "sheet": "px-nb-exp-gondor2.png",
+    "file": "tokens/hirgon.png",
+    "stats": {
+      "f": 5,
+      "s": 4,
+      "d": 5,
+      "a": 2,
+      "w": 2,
+      "c": 6,
+      "might": 2,
+      "will": 1,
+      "fate": 2,
+      "rules": [
+        "Bearer of the Red Arrow"
+      ]
+    },
+    "rules": [
+      "Bearer of the Red Arrow"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "pippin_citadel",
+    "name_ko": "성채 근위병 피핀",
+    "name_en": "Pippin, Guard of the Citadel",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "S",
+    "sheet": "px-nb-exp-gondor2.png",
+    "file": "tokens/pippin_citadel.png",
+    "stats": {
+      "f": 4,
+      "s": 3,
+      "d": 5,
+      "a": 1,
+      "w": 2,
+      "c": 5,
+      "might": 1,
+      "will": 1,
+      "fate": 2,
+      "rules": [
+        "Guard of the Citadel",
+        "Tookish Courage"
+      ]
+    },
+    "rules": [
+      "Guard of the Citadel",
+      "Tookish Courage"
+    ],
+    "base_mm": "25mm"
+  },
+  {
+    "id": "earnur",
+    "name_ko": "에아르누르",
+    "name_en": "Earnur, King of Gondor",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "L",
+    "sheet": null,
+    "file": "tokens/earnur.png",
+    "base_mm": "25mm"
+  },
+  {
+    "id": "ingold",
+    "name_ko": "잉골드",
+    "name_en": "Ingold, gate-guard of Minas Tirith",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "spear",
+    "base": "M",
+    "sheet": null,
+    "file": "tokens/ingold.png",
+    "base_mm": "25mm"
+  },
+  {
+    "id": "isildur_mounted",
+    "name_ko": "이실두르(기마)",
+    "name_en": "Isildur, mounted",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "XL",
+    "sheet": null,
+    "file": "tokens/isildur_mounted.png",
+    "base_mm": "40mm"
+  },
+  {
+    "id": "cirion_mounted",
+    "name_ko": "키리온(기마)",
+    "name_en": "Cirion, mounted",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "XL",
+    "sheet": null,
+    "file": "tokens/cirion_mounted.png",
+    "base_mm": "40mm"
+  },
+  {
+    "id": "earnur_mounted",
+    "name_ko": "에아르누르(기마)",
+    "name_en": "Earnur, mounted",
+    "side": "good",
+    "faction": "gondor",
+    "role": "hero",
+    "weapon": "sword",
+    "base": "XL",
+    "sheet": null,
+    "file": "tokens/earnur_mounted.png",
+    "base_mm": "40mm"
+  },
+  {
+    "id": "citadel_guard_bow",
+    "name_ko": "성채근위 궁병",
+    "name_en": "Citadel Guard with longbow",
+    "side": "good",
+    "faction": "gondor",
+    "role": "infantry",
+    "weapon": "bow",
+    "base": "M",
+    "file": "tokens/citadel_guard_bow.png",
+    "sheet": "troop-promotions-20261014",
+    "points": 10,
+    "pointSource": "custom-estimate-unverified-2024",
+    "troopOrigin": "official",
+    "troopPromotion": {
+      "group": "gondor",
+      "aliasOf": null,
+      "targets": [],
+      "gate": null
+    }
+  },
+  {
+    "id": "osgiliath_spearshield",
+    "name_ko": "오스길리아스 베테랑 창방",
+    "name_en": "Osgiliath Veteran with spear and shield",
+    "side": "good",
+    "faction": "gondor",
+    "role": "infantry",
+    "weapon": "spear_shield",
+    "base": "M",
+    "file": "tokens/osgiliath_spearshield.png",
+    "sheet": "troop-promotions-20261014",
+    "points": 11,
+    "pointSource": "custom-estimate-unverified-2024",
+    "troopOrigin": "official",
+    "troopPromotion": {
+      "group": "gondor",
+      "aliasOf": null,
+      "targets": [
+        "mt_fountain_guard",
+        "citadel_guard",
+        "gondor_knight"
+      ],
+      "gate": null
+    }
+  },
+  {
+    "id": "osgiliath_bow",
+    "name_ko": "오스길리아스 베테랑 궁병",
+    "name_en": "Osgiliath Veteran with bow",
+    "side": "good",
+    "faction": "gondor",
+    "role": "infantry",
+    "weapon": "bow",
+    "base": "M",
+    "file": "tokens/osgiliath_bow.png",
+    "sheet": "troop-promotions-20261014",
+    "points": 10,
+    "pointSource": "custom-estimate-unverified-2024",
+    "troopOrigin": "official",
+    "troopPromotion": {
+      "group": "gondor",
+      "aliasOf": null,
+      "targets": [
+        "citadel_guard_bow"
+      ],
+      "gate": null
+    }
+  },
+  {
+    "id": "dol_amroth_swordshield",
+    "name_ko": "돌 암로스 검방병",
+    "name_en": "Dol Amroth levy swordsman",
+    "side": "good",
+    "faction": "dol_amroth",
+    "role": "infantry",
+    "weapon": "sword_shield",
+    "base": "M",
+    "file": "tokens/dol_amroth_swordshield.png",
+    "sheet": "troop-promotions-20261014",
+    "points": 8,
+    "pointSource": "custom-estimate-unverified-2024",
+    "troopOrigin": "custom",
+    "troopPromotion": {
+      "group": "dol_amroth",
+      "aliasOf": null,
+      "targets": [
+        "dol_amroth_man_at_arms"
+      ],
+      "gate": null
+    }
+  },
+  {
+    "id": "dol_amroth_knight_foot",
+    "name_ko": "돌 암로스 백조기사 도보",
+    "name_en": "Knight of Dol Amroth on foot",
+    "side": "good",
+    "faction": "dol_amroth",
+    "role": "infantry",
+    "weapon": "sword_shield",
+    "base": "M",
+    "file": "tokens/dol_amroth_knight_foot.png",
+    "sheet": "troop-promotions-20261014",
+    "points": 12,
+    "pointSource": "custom-estimate-unverified-2024",
+    "troopOrigin": "official",
+    "troopPromotion": {
+      "group": "dol_amroth",
+      "aliasOf": null,
+      "targets": [
+        "dol_amroth_knight"
+      ],
+      "gate": null
+    }
+  }
+]
