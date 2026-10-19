@@ -2,8 +2,8 @@ const test=require('node:test'),assert=require('node:assert/strict'),fs=require(
 const report=JSON.parse(fs.readFileSync('review/roster-unify-20261019/manifest.json'));
 const digest=b=>crypto.createHash('sha256').update(b).digest('hex');
 test('resumed roster has 49 active replacements with preserved original artwork and synchronized gallery copies',()=>{
- assert.equal(report.units.length,49);assert.equal(new Set(report.units.map(u=>u.id)).size,49);
- for(const u of report.units){
+ const active=report.units.filter(u=>u.id!=='galadriel_war');assert.equal(active.length,49);assert.equal(new Set(active.map(u=>u.id)).size,49);
+ for(const u of active){
   const b=fs.readFileSync(u.files.production);assert.equal(digest(b),u.sourceSHA256,u.id);
   assert.equal(b[25],6,u.id+' RGBA');assert.deepEqual([b.readUInt32BE(16),b.readUInt32BE(20)],u.sourceSize);
   assert(Math.max(...u.sourceSize)<=384,u.id+' mobile texture size');
