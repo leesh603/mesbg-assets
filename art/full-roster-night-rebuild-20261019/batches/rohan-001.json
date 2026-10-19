@@ -1,0 +1,191 @@
+{
+  "batch": 1,
+  "tool": "image_gen",
+  "referenceSources": {
+    "style": "art/gondor-rebuild-20261019/locked-reference/theoden-pixel-style.png",
+    "body": "art/gondor-rebuild-20261019/locked-reference/five-head-high-angle-front.png",
+    "mounted": "art/gondor-rebuild-20261019/locked-reference/mounted-high-angle-front.png"
+  },
+  "units": [
+    {
+      "id": "eowyn",
+      "name": "에오윈",
+      "faction": "rohan",
+      "role": "hero",
+      "path": "art/full-roster-night-rebuild-20261019/units/eowyn.png",
+      "blobSHA": "b66ab9263d3207b7eab5fd7c5afe35e4e193dbff",
+      "png": {
+        "width": 1199,
+        "height": 1312,
+        "colorType": 6,
+        "byteLength": 895599
+      },
+      "profile": {
+        "top": 0.115,
+        "bottom": 0.91,
+        "centerX": 0.54,
+        "centerY": 0.54,
+        "size": 86,
+        "reference": "body",
+        "referenceAxis": "height",
+        "measurement": "manual approximate landmarks from generated full-resolution image; awaiting in-game comparison"
+      },
+      "review": {
+        "visual": true,
+        "camera": "high-angle front",
+        "humanAnatomy": "approximately five-head compact adult; rider assessed seated",
+        "poseDistinct": true,
+        "allExtremitiesVisible": true,
+        "approval": "pending",
+        "inGameVerified": false,
+        "alphaPixelValidation": false
+      },
+      "original": "tokens/eowyn.png",
+      "generationPrompt": "Eowyn redraw from Theoden style, Gondor five-head body/camera, and existing Eowyn identity; shield-forward counter-cut stance; transparent isolated full sprite."
+    },
+    {
+      "id": "rohan_royal_guard",
+      "name": "로한 근위병",
+      "faction": "rohan",
+      "role": "infantry",
+      "path": "art/full-roster-night-rebuild-20261019/units/rohan_royal_guard.png",
+      "blobSHA": "1b3d9c7f721ce02689438afa3e24ac8d5e729784",
+      "png": {
+        "width": 1199,
+        "height": 1312,
+        "colorType": 6,
+        "byteLength": 907275
+      },
+      "profile": {
+        "top": 0.177,
+        "bottom": 0.94,
+        "centerX": 0.54,
+        "centerY": 0.565,
+        "size": 86,
+        "reference": "body",
+        "referenceAxis": "height",
+        "measurement": "manual approximate landmarks from generated full-resolution image; awaiting in-game comparison"
+      },
+      "review": {
+        "visual": true,
+        "camera": "high-angle front",
+        "humanAnatomy": "approximately five-head compact adult; rider assessed seated",
+        "poseDistinct": true,
+        "allExtremitiesVisible": true,
+        "approval": "pending",
+        "inGameVerified": false,
+        "alphaPixelValidation": false
+      },
+      "original": "tokens/rohan_royal_guard.png",
+      "generationPrompt": "Redraw ONLY the ROHAN ROYAL GUARD ON FOOT (third reference), as ONE complete transparent game sprite. References1 Theoden defines pixel style, reference2 newly approved Gondor warrior defines EXACT camera and compact anatomy; reference3 defines guard identity/weapon. Fixed high-angle FRONT view looking down 25–30 degrees, near frontal slight diagonal depth, clearly see helmet dome, shoulders top and boot tops. NOT flat front/eye-level, NOT side. Human body EXACTLY about FIVE HEADS crown to soles excluding helmet crest; compact adult torso and legs, not long slender realistic 7-head figure. Build this guard a little broader and more upright than Eowyn. Preserve ornate dark steel Rohirrim helmet with pale horsehair crest, gold trim, dark green mantle and horse-emblem round shield, chainmail and leather boots, straight sword. Distinct pose: both feet planted widely and uncrossed in stable guarding stance, shield on viewer right angled across lower chest, sword on viewer left held nearly VERTICAL close to shoulder tip upward, elbows bent; no walking stride. Crest and sword don't count toward anatomy height. Match reference2 crisp enlarged pixel clusters with limited stepped shading and reference1 earthy green/gold palette and strong dark outlines. Avoid painting, blurry edges, vector gradients. Full single body plus all weapons entirely in frame with margin. Body/pelvis centered; transparent RGBA background, no floor, shadow, circular base, text, UI or extra figures. Do not recreate the Gondor warrior equipment. Output only the Rohan royal guard."
+    },
+    {
+      "id": "rohan_rider",
+      "name": "로한 기병",
+      "faction": "rohan",
+      "role": "cavalry",
+      "path": "art/full-roster-night-rebuild-20261019/units/rohan_rider.png",
+      "blobSHA": "34c4eea05374d96c7cb93c9bbe8b03846ffdde73",
+      "png": {
+        "width": 1142,
+        "height": 1377,
+        "colorType": 6,
+        "byteLength": 1118075
+      },
+      "profile": {
+        "top": 0.135,
+        "bottom": 0.43,
+        "centerX": 0.565,
+        "centerY": 0.57,
+        "size": 43,
+        "reference": "rider",
+        "referenceAxis": "height",
+        "measurement": "manual approximate landmarks from generated full-resolution image; awaiting in-game comparison"
+      },
+      "review": {
+        "visual": true,
+        "camera": "high-angle front",
+        "humanAnatomy": "approximately five-head compact adult; rider assessed seated",
+        "poseDistinct": true,
+        "allExtremitiesVisible": true,
+        "approval": "pending",
+        "inGameVerified": false,
+        "alphaPixelValidation": false
+      },
+      "original": "tokens/rohan_rider.png",
+      "generationPrompt": "ONE full ROHAN RIDER on a dark bay horse, isolated transparent tactical pixel-art game sprite. Use reference1 for crisp earthy hand-pixeled style, reference2 for EXACT elevated high-angle FRONT mounted camera and believable shared human rider skeleton, reference3 ONLY for this rank-and-file rider's equipment. Camera looks DOWN25–30 degrees from in front, clearly showing helmet crown, upper shoulders, horse back and upper rump. Near frontal slight diagonal depth, never eye-level/flat front/side. Rider is compact FIVE-HEAD adult if standing, seated naturally at full HUMAN size on the horse: substantial normal adult rider like reference2, not tiny doll. Rider head and torso must be consistent with reference2's Theoden, but no crown/red crest/fur/gold royal scales: ordinary uncrested nasal iron helm, brown hair, dark-green cloak and tunic over chainmail, plain leather boots. Round green white horse shield on viewer right; spear carried on viewer left pointed diagonally outward upward, correctly gripped, spear fully visible. Horse anatomy physically coherent: one head, two ears, powerful chest, four distinct legs, believable saddle, rider thighs across horse flanks, feet in stirrups, reins attached bridle. Distinct pose: horse paused at a controlled quarter-turn with one forehoof lifted slightly, rider leaning subtly to survey ahead. No head-on charging pose copied from reference2. Rich restrained green, brown leather, dark bay coat, worn steel, crisp stepped pixel clusters, black-brown contours and simple coherent light, no smooth painting or photorealism. Whole horse/rider/weapon must fit inside frame with margin; compose body-and-mount center, not spear bounds. Transparent RGBA only, no ground, cast shadow, circular base, text, collage, UI or extra figures."
+    },
+    {
+      "id": "rohan_swordshield",
+      "name": "로한 검방",
+      "faction": "rohan",
+      "role": "infantry",
+      "path": "art/full-roster-night-rebuild-20261019/units/rohan_swordshield.png",
+      "blobSHA": "d7be895937e93f9e9daa0e493f2ad265d0bbdc99",
+      "png": {
+        "width": 1199,
+        "height": 1312,
+        "colorType": 6,
+        "byteLength": 1146242
+      },
+      "profile": {
+        "top": 0.065,
+        "bottom": 0.94,
+        "centerX": 0.58,
+        "centerY": 0.535,
+        "size": 86,
+        "reference": "body",
+        "referenceAxis": "height",
+        "measurement": "manual approximate landmarks from generated full-resolution image; awaiting in-game comparison"
+      },
+      "review": {
+        "visual": true,
+        "camera": "high-angle front",
+        "humanAnatomy": "approximately five-head compact adult; rider assessed seated",
+        "poseDistinct": true,
+        "allExtremitiesVisible": true,
+        "approval": "pending",
+        "inGameVerified": false,
+        "alphaPixelValidation": false
+      },
+      "original": "tokens/rohan_swordshield.png",
+      "generationPrompt": "ONE ordinary ROHAN SWORD-AND-SHIELD INFANTRY sprite. Completely redraw the third reference's character in the camera and short FIVE-HEAD adult body proportions of reference2 (new Gondor standard) and crisp earthy pixel style of reference1. View is strictly high-angle FRONT, camera looks down25–30degrees, visible helmet dome, shoulders and boot tops, almost front with slight diagonal depth. NOT eye-level flat front, NOT side. Adult compact human with broader waist and sturdy arms than slender Eowyn, ordinary plain steel nasal helmet WITHOUT crest, sandy moustache and short two plaits, weathered green tunic and short cloak, chainmail shirt, brown leather boots, green round white horse shield. Make this pose different from guard/Eowyn: knees bent in a broad stable defensive lunge; shield on viewer right extended forward and lower, sword on viewer left stretched laterally outward at waist height with blade sloping down toward LEFT edge, preparing side cut, not vertical upright sword and not straight walking stride. Hands grip hilt and shield correctly, both legs separate with grounded feet, no crossed ankles. Crown to soles approximately FIVE heads, do not elongate limbs. Ref2's hand-made chunky pixel clusters, dark brown-black contour, tightly limited green/cream/steel/russet palette, stepped pixel highlights, no smooth painterly gradients, no vector appearance. All weapons, shield, boots and cloak fully visible with margin. Transparent RGBA background. Body centered anatomically by torso/pelvis, no circular base, floor, cast shadow, text, numbers, UI or extra character. Output only finished single sprite."
+    },
+    {
+      "id": "rohan_spear",
+      "name": "로한 창병",
+      "faction": "rohan",
+      "role": "infantry",
+      "path": "art/full-roster-night-rebuild-20261019/units/rohan_spear.png",
+      "blobSHA": "6fb4388932ec69dff1c11d0a318a063c4dd489db",
+      "png": {
+        "width": 1199,
+        "height": 1312,
+        "colorType": 6,
+        "byteLength": 806083
+      },
+      "profile": {
+        "top": 0.165,
+        "bottom": 0.955,
+        "centerX": 0.56,
+        "centerY": 0.555,
+        "size": 86,
+        "reference": "body",
+        "referenceAxis": "height",
+        "measurement": "manual approximate landmarks from generated full-resolution image; awaiting in-game comparison"
+      },
+      "review": {
+        "visual": true,
+        "camera": "high-angle front",
+        "humanAnatomy": "approximately five-head compact adult; rider assessed seated",
+        "poseDistinct": true,
+        "allExtremitiesVisible": true,
+        "approval": "pending",
+        "inGameVerified": false,
+        "alphaPixelValidation": false
+      },
+      "original": "tokens/rohan_spear.png",
+      "generationPrompt": "Create ONE ordinary ROHAN SPEARMAN ON FOOT, isolated transparent tactical game sprite, redrawing character identity of reference3 while obeying reference2 APPROVED GONDOR camera/anatomy and reference1 Theoden pixel style. Mandatory fixed HIGH-ANGLE FRONT camera25–30degrees looking down, visible helmet dome/shoulder tops/boot tops, near-frontal slight diagonal perspective, never flat eye-level front or side view. Human anatomical crown-to-soles FIVE heads, compact ADULT proportions, no stretched shins, not a child. Lean narrower-shouldered male compared with broad swordshield infantry; plain iron nasal helmet without plume, muted olive-green cloak, simple green coat over mail, brown boots and gloves, round green horse-emblem shield. DISTINCT weapon use and silhouette: spear is BRACED with butt on ground at viewer lower RIGHT beside rear boot, shaft crosses diagonally past torso, SPEARHEAD points high toward viewer UPPER LEFT, both hands can support shaft while shield is strapped on left forearm at viewer right; no sword. Grip and shaft anatomically consistent continuous unbroken straight wood, modest steel spearhead. Feet firmly planted apart without crossed legs; hips weight behind spear, torso forward under fixed camera. More compact silhouette than swordshield's lateral slash, no reused walking pose. Slightly longer torso and lean arms within SAME5-head standard, no giant helmet. Pixel-art EXACT same hard edged stepped clusters and dark outline as reference2, earthy forest/olive green, brown, dull steel, cream white-horse marking. No soft painting, photorealism, gradients, antialiased vector look. Full character and complete spear fit in frame with comfortable margin; body centered by torso, ignore spear tip for anatomy sizing. RGBA transparent only; no base, ground plane, cast shadow, text, UI, extra character or reference sheet."
+    }
+  ]
+}

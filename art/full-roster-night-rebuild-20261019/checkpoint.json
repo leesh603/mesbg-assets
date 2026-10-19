@@ -1,18 +1,20 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T07:31:23+09:00",
+  "updatedAt": "2026-10-19T22:45:13.594Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
-  "state": "blocked_execution_environment",
-  "blocker": "No usable execution environment is available; exec-server websocket connection failed. New image generation, image processing and browser verification have not resumed.",
+  "state": "generation_resumed_direct_tools",
+  "blocker": null,
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 378,
-    "newlyGeneratedThisSession": 0,
-    "visuallyReviewedThisSession": 0,
-    "excludedTerrain": 77
+    "pending": 373,
+    "newlyGeneratedThisSession": 5,
+    "visuallyReviewedThisSession": 5,
+    "excludedTerrain": 77,
+    "generatedReviewAssets": 5,
+    "persistedReviewAssets": 137
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
   "sources": [
@@ -40,16 +42,16 @@
     "deployment": "승인 전 main 병합·배포 금지"
   },
   "resume": {
-    "nextAction": "Resume pending IDs, starting with Rohan. Use existing Gondor and Mordor art plus standard-body references; inspect references before generation. Validate each batch and commit/push the assets and checkpoint together.",
+    "nextAction": "Continue remaining Rohan IDs through direct reference-image reads and image_gen; save in 5–10-asset commits. Game integration and browser checks wait for executable environment.",
     "nextIds": [
-      "eowyn",
-      "rohan_royal_guard",
-      "rohan_rider",
-      "rohan_swordshield",
-      "rohan_spear"
+      "rohan_archer",
+      "eomer",
+      "rohan_outrider",
+      "rohan_banner",
+      "theoden"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
-    "environmentRequired": true
+    "environmentRequired": false
   },
   "units": [
     {
@@ -316,8 +318,12 @@
       "faction": "rohan",
       "role": "hero",
       "original": "tokens/eowyn.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "image_gen",
+      "path": "art/full-roster-night-rebuild-20261019/units/eowyn.png",
+      "blobSHA": "b66ab9263d3207b7eab5fd7c5afe35e4e193dbff",
+      "inGameVerified": false
     },
     {
       "id": "frodo",
@@ -373,8 +379,12 @@
       "faction": "rohan",
       "role": "infantry",
       "original": "tokens/rohan_royal_guard.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "image_gen",
+      "path": "art/full-roster-night-rebuild-20261019/units/rohan_royal_guard.png",
+      "blobSHA": "1b3d9c7f721ce02689438afa3e24ac8d5e729784",
+      "inGameVerified": false
     },
     {
       "id": "ithilien_ranger",
@@ -394,8 +404,12 @@
       "faction": "rohan",
       "role": "cavalry",
       "original": "tokens/rohan_rider.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "image_gen",
+      "path": "art/full-roster-night-rebuild-20261019/units/rohan_rider.png",
+      "blobSHA": "34c4eea05374d96c7cb93c9bbe8b03846ffdde73",
+      "inGameVerified": false
     },
     {
       "id": "balrog",
@@ -967,8 +981,12 @@
       "faction": "rohan",
       "role": "infantry",
       "original": "tokens/rohan_swordshield.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "image_gen",
+      "path": "art/full-roster-night-rebuild-20261019/units/rohan_swordshield.png",
+      "blobSHA": "d7be895937e93f9e9daa0e493f2ad265d0bbdc99",
+      "inGameVerified": false
     },
     {
       "id": "rohan_spear",
@@ -976,8 +994,12 @@
       "faction": "rohan",
       "role": "infantry",
       "original": "tokens/rohan_spear.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "image_gen",
+      "path": "art/full-roster-night-rebuild-20261019/units/rohan_spear.png",
+      "blobSHA": "6fb4388932ec69dff1c11d0a318a063c4dd489db",
+      "inGameVerified": false
     },
     {
       "id": "rohan_archer",
@@ -5038,5 +5060,9 @@
       "status": "pending",
       "visualReviewThisSession": false
     }
+  ],
+  "limitations": [
+    "Shell/image-processing/browser environment unavailable; reference images read through GitHub connector and new PNG bytes generated/uploaded directly.",
+    "New images have visual review and PNG-header checks; in-game size, full alpha-pixel and browser checks remain pending."
   ]
 }
