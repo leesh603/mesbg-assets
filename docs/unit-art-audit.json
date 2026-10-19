@@ -102,55 +102,52 @@
       "file": "tokens/alatar.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.01,
-      "bottom": 0.99,
-      "centerX": 0.4792,
-      "centerY": 0.5075,
+      "top": 0.24,
+      "bottom": 0.93,
+      "centerX": 0.52,
+      "centerY": 0.585,
       "worldReferenceSize": 86,
-      "sourceWidth": 249,
-      "sourceHeight": 377,
-      "sourceSHA256": "d7d0fdc568654113a14d02bc1e60dd112e8105ee5bac56d6f69629f671ce6daa",
+      "sourceWidth": 335,
+      "sourceHeight": 384,
+      "sourceSHA256": "b32839c5b365cbc46baf38e4a3f13eeb4e9c69aeb8235bfb2e5ee4b8d68bd00b",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 4,
-        "cell": 4,
-        "landmarks": "body-only",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-boot; torso center",
         "source": "assets/mesbg/tokens/alatar.png"
       },
-      "calibration": "Body landmarks corrected by visual source review; weapon/plume/empty space excluded.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-boot; torso center",
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "body",
-        "sheet": 0,
-        "cell": 1,
         "source": "assets/mesbg/tokens/alatar.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "human",
-          "reference": "body",
-          "top": 0.045,
-          "bottom": 0.97,
+          "top": 0.24,
+          "bottom": 0.93,
           "worldReferenceSize": 86,
-          "sourceSHA256": "d7d0fdc568654113a14d02bc1e60dd112e8105ee5bac56d6f69629f671ce6daa"
+          "sourceSHA256": "b32839c5b365cbc46baf38e4a3f13eeb4e9c69aeb8235bfb2e5ee4b8d68bd00b",
+          "bodyClass": "human",
+          "reference": "body"
         },
         "candidate": {
           "top": 0.01,
           "bottom": 0.99
         },
-        "applied": "anatomical-candidate",
-        "reason": "candidate-agrees-with-reviewed-anatomy"
+        "pinned": true,
+        "applied": "reviewed-landmarks",
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -273,55 +270,52 @@
       "file": "tokens/anarion_mounted.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.04,
-      "bottom": 0.3,
-      "centerX": 0.4625,
-      "centerY": 0.49,
-      "worldReferenceSize": 39,
-      "sourceWidth": 280,
-      "sourceHeight": 508,
-      "sourceSHA256": "77f132198e98360d32bf1bf27e34e45e8cece192e3d761420fad8e8caa211546",
+      "top": 0.13,
+      "bottom": 0.45,
+      "centerX": 0.53,
+      "centerY": 0.56,
+      "worldReferenceSize": 43,
+      "sourceWidth": 384,
+      "sourceHeight": 356,
+      "sourceSHA256": "1b0ad9ea84600ba917be930b20b879dc670160db2f58c61303da4eeb9d1bfd3d",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Individual visual crown-to-seated-pelvis measurement; excludes weapon, plume, cloak width and mount. Horse/body silhouette cross-check required.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-seated pelvis; combined saddle/mount torso center",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 0,
-        "cell": 0,
-        "landmarks": "crown-pelvis",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-seated pelvis; combined saddle/mount torso center",
         "source": "assets/mesbg/tokens/anarion_mounted.png"
       },
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "rider-and-mount",
-        "sheet": 0,
-        "cell": 4,
         "source": "assets/mesbg/tokens/anarion_mounted.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
+          "top": 0.13,
+          "bottom": 0.45,
+          "worldReferenceSize": 43,
+          "sourceSHA256": "1b0ad9ea84600ba917be930b20b879dc670160db2f58c61303da4eeb9d1bfd3d",
           "bodyClass": "human",
-          "reference": "rider",
-          "top": 0.04,
-          "bottom": 0.3,
-          "worldReferenceSize": 39,
-          "sourceSHA256": "77f132198e98360d32bf1bf27e34e45e8cece192e3d761420fad8e8caa211546"
+          "reference": "rider"
         },
         "candidate": {
-          "top": 0.1914,
-          "bottom": 0.4772
+          "top": 0.2773,
+          "bottom": 0.5293
         },
+        "pinned": true,
         "applied": "reviewed-landmarks",
-        "reason": "automatic-landmark-outlier"
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -843,55 +837,52 @@
       "file": "tokens/arathorn_mounted.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.1,
-      "bottom": 0.36,
-      "centerX": 0.4562,
-      "centerY": 0.5125,
-      "worldReferenceSize": 39,
-      "sourceWidth": 316,
-      "sourceHeight": 506,
-      "sourceSHA256": "5a66fe61b25ed3bd254d5dcb6616e09dbb271b4b9b21c13ff84a4d32cfd46d34",
+      "top": 0.15,
+      "bottom": 0.47,
+      "centerX": 0.53,
+      "centerY": 0.56,
+      "worldReferenceSize": 43,
+      "sourceWidth": 384,
+      "sourceHeight": 346,
+      "sourceSHA256": "9ee99bf799add392bc4d0593c437159d4ba626035bc04aff4369367436568936",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Individual visual crown-to-seated-pelvis measurement; excludes weapon, plume, cloak width and mount. Horse/body silhouette cross-check required.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-seated pelvis; combined saddle/mount torso center",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 0,
-        "cell": 3,
-        "landmarks": "crown-pelvis",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-seated pelvis; combined saddle/mount torso center",
         "source": "assets/mesbg/tokens/arathorn_mounted.png"
       },
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "rider-and-mount",
-        "sheet": 0,
-        "cell": 14,
         "source": "assets/mesbg/tokens/arathorn_mounted.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
+          "top": 0.15,
+          "bottom": 0.47,
+          "worldReferenceSize": 43,
+          "sourceSHA256": "9ee99bf799add392bc4d0593c437159d4ba626035bc04aff4369367436568936",
           "bodyClass": "human",
-          "reference": "rider",
-          "top": 0.1,
-          "bottom": 0.36,
-          "worldReferenceSize": 39,
-          "sourceSHA256": "5a66fe61b25ed3bd254d5dcb6616e09dbb271b4b9b21c13ff84a4d32cfd46d34"
+          "reference": "rider"
         },
         "candidate": {
-          "top": 0.02,
-          "bottom": 0.3679
+          "top": 0.2539,
+          "bottom": 0.5115
         },
+        "pinned": true,
         "applied": "reviewed-landmarks",
-        "reason": "automatic-landmark-outlier"
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -1128,55 +1119,52 @@
       "file": "tokens/arvedui_mounted.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.16,
-      "bottom": 0.41,
-      "centerX": 0.505,
-      "centerY": 0.55,
+      "top": 0.15,
+      "bottom": 0.47,
+      "centerX": 0.54,
+      "centerY": 0.56,
       "worldReferenceSize": 43,
-      "sourceWidth": 352,
-      "sourceHeight": 510,
-      "sourceSHA256": "819849448e896a6bf289331df0f7e416da271bb15794ae43cd6ae46b8e33af7d",
+      "sourceWidth": 384,
+      "sourceHeight": 384,
+      "sourceSHA256": "e8fc487b90fe8b4a5f6b2e0c6ffb7db73d50f642e3f5042de80e562e04a63554",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Individual visual crown-to-seated-pelvis measurement; excludes weapon, plume, cloak width and mount. Horse/body silhouette cross-check required.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-seated pelvis; combined saddle/mount torso center",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 0,
-        "cell": 4,
-        "landmarks": "crown-pelvis",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-seated pelvis; combined saddle/mount torso center",
         "source": "assets/mesbg/tokens/arvedui_mounted.png"
       },
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "rider-and-mount",
-        "sheet": 0,
-        "cell": 19,
         "source": "assets/mesbg/tokens/arvedui_mounted.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "human",
-          "reference": "rider",
-          "top": 0.16,
-          "bottom": 0.41,
+          "top": 0.15,
+          "bottom": 0.47,
           "worldReferenceSize": 43,
-          "sourceSHA256": "819849448e896a6bf289331df0f7e416da271bb15794ae43cd6ae46b8e33af7d"
+          "sourceSHA256": "e8fc487b90fe8b4a5f6b2e0c6ffb7db73d50f642e3f5042de80e562e04a63554",
+          "bodyClass": "human",
+          "reference": "rider"
         },
         "candidate": {
-          "top": 0.4727,
-          "bottom": 0.6565
+          "top": 0.1758,
+          "bottom": 0.4672
         },
+        "pinned": true,
         "applied": "reviewed-landmarks",
-        "reason": "automatic-landmark-outlier"
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -2036,55 +2024,52 @@
       "file": "tokens/beleg_mounted.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.082,
-      "bottom": 0.4074,
-      "centerX": 0.3718,
-      "centerY": 0.51,
+      "top": 0.12,
+      "bottom": 0.43,
+      "centerX": 0.53,
+      "centerY": 0.56,
       "worldReferenceSize": 43,
-      "sourceWidth": 266,
-      "sourceHeight": 500,
-      "sourceSHA256": "79188b8e9da5224ffcdefe927eee62d4d6e2d6d7328fd4d1e6ac8a73eb723154",
+      "sourceWidth": 384,
+      "sourceHeight": 342,
+      "sourceSHA256": "90c2448733bc5fac9ed07759591fea0612786474a69c09a87246988cfd6f8586",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Individual visual crown-to-seated-pelvis measurement; excludes weapon, plume, cloak width and mount. Horse/body silhouette cross-check required.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-seated pelvis; combined saddle/mount torso center",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 0,
-        "cell": 7,
-        "landmarks": "crown-pelvis",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-seated pelvis; combined saddle/mount torso center",
         "source": "assets/mesbg/tokens/beleg_mounted.png"
       },
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "rider-and-mount",
-        "sheet": 1,
-        "cell": 11,
         "source": "assets/mesbg/tokens/beleg_mounted.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "human",
-          "reference": "rider",
-          "top": 0.1,
-          "bottom": 0.37,
+          "top": 0.12,
+          "bottom": 0.43,
           "worldReferenceSize": 43,
-          "sourceSHA256": "79188b8e9da5224ffcdefe927eee62d4d6e2d6d7328fd4d1e6ac8a73eb723154"
+          "sourceSHA256": "90c2448733bc5fac9ed07759591fea0612786474a69c09a87246988cfd6f8586",
+          "bodyClass": "human",
+          "reference": "rider"
         },
         "candidate": {
-          "top": 0.082,
-          "bottom": 0.4074
+          "top": 0.1289,
+          "bottom": 0.4373
         },
-        "applied": "anatomical-candidate",
-        "reason": "candidate-agrees-with-reviewed-anatomy"
+        "pinned": true,
+        "applied": "reviewed-landmarks",
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -2777,55 +2762,52 @@
       "file": "tokens/black_numenorean_mounted.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.0742,
-      "bottom": 0.3998,
-      "centerX": 0.5294,
-      "centerY": 0.49,
+      "top": 0.14,
+      "bottom": 0.44,
+      "centerX": 0.54,
+      "centerY": 0.56,
       "worldReferenceSize": 43,
-      "sourceWidth": 374,
-      "sourceHeight": 513,
-      "sourceSHA256": "def7693b9b6e2ebccfdef8dbc0689151f4d4c231f942eefc1aa0423c8dfd5567",
+      "sourceWidth": 384,
+      "sourceHeight": 384,
+      "sourceSHA256": "e7aa990fd17d96994807b883b2bb6f4bf55df9d77c90cba77bf8cafa97982235",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Individual visual crown-to-seated-pelvis measurement; excludes weapon, plume, cloak width and mount. Horse/body silhouette cross-check required.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-seated pelvis; combined saddle/mount torso center",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 0,
-        "cell": 9,
-        "landmarks": "crown-pelvis",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-seated pelvis; combined saddle/mount torso center",
         "source": "assets/mesbg/tokens/black_numenorean_mounted.png"
       },
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "rider-and-mount",
-        "sheet": 2,
-        "cell": 0,
         "source": "assets/mesbg/tokens/black_numenorean_mounted.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "human",
-          "reference": "rider",
-          "top": 0.04,
-          "bottom": 0.345,
+          "top": 0.14,
+          "bottom": 0.44,
           "worldReferenceSize": 43,
-          "sourceSHA256": "def7693b9b6e2ebccfdef8dbc0689151f4d4c231f942eefc1aa0423c8dfd5567"
+          "sourceSHA256": "e7aa990fd17d96994807b883b2bb6f4bf55df9d77c90cba77bf8cafa97982235",
+          "bodyClass": "human",
+          "reference": "rider"
         },
         "candidate": {
           "top": 0.0742,
-          "bottom": 0.3998
+          "bottom": 0.397
         },
-        "applied": "anatomical-candidate",
-        "reason": "candidate-agrees-with-reviewed-anatomy"
+        "pinned": true,
+        "applied": "reviewed-landmarks",
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -3119,55 +3101,52 @@
       "file": "tokens/bombur.png",
       "bodyClass": "dwarf",
       "reference": "body",
-      "top": 0.01,
-      "bottom": 0.99,
-      "centerX": 0.5075,
-      "centerY": 0.5,
+      "top": 0.23,
+      "bottom": 0.89,
+      "centerX": 0.51,
+      "centerY": 0.56,
       "worldReferenceSize": 68,
-      "sourceWidth": 201,
-      "sourceHeight": 210,
-      "sourceSHA256": "b72f1378cf66457a012c11e60c5865b5869450b06281a28f0df1eab991118253",
+      "sourceWidth": 370,
+      "sourceHeight": 384,
+      "sourceSHA256": "cbaeeb3488c422dac8d085fdc8404bdcaeb4cc7b9da09412d633f863b3f49ac1",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
-      "calibration": "Crown-to-foot height; no shoulder/cloak-width normalization.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-boot; torso center",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 5,
-        "cell": 22,
-        "landmarks": "body-only",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-boot; torso center",
         "source": "assets/mesbg/tokens/bombur.png"
       },
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "body",
-        "sheet": 2,
-        "cell": 6,
         "source": "assets/mesbg/tokens/bombur.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
+          "top": 0.23,
+          "bottom": 0.89,
+          "worldReferenceSize": 68,
+          "sourceSHA256": "cbaeeb3488c422dac8d085fdc8404bdcaeb4cc7b9da09412d633f863b3f49ac1",
           "bodyClass": "dwarf",
-          "reference": "body",
-          "top": 0.019,
-          "bottom": 0.981,
-          "worldReferenceSize": 67,
-          "sourceSHA256": "b72f1378cf66457a012c11e60c5865b5869450b06281a28f0df1eab991118253"
+          "reference": "body"
         },
         "candidate": {
-          "top": 0.01,
-          "bottom": 0.99
+          "top": 0.0215,
+          "bottom": 0.9551
         },
-        "applied": "anatomical-candidate",
-        "reason": "candidate-agrees-with-reviewed-anatomy"
+        "pinned": true,
+        "applied": "reviewed-landmarks",
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -3746,55 +3725,52 @@
       "file": "tokens/celebrimbor.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.01,
-      "bottom": 0.99,
-      "centerX": 0.5051,
-      "centerY": 0.5136,
+      "top": 0.05,
+      "bottom": 0.92,
+      "centerX": 0.51,
+      "centerY": 0.485,
       "worldReferenceSize": 86,
-      "sourceWidth": 233,
-      "sourceHeight": 262,
-      "sourceSHA256": "78e5e67f08a34ecdd45fd9a28ce24b9a1d78458f96b8e0435beeeb5b7c643ab2",
+      "sourceWidth": 342,
+      "sourceHeight": 384,
+      "sourceSHA256": "29db9fd91fd74e30d14fb1c7cef4ba76e031d384498daaadd86550513b8b94d4",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 6,
-        "cell": 7,
-        "landmarks": "body-only",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-boot; torso center",
         "source": "assets/mesbg/tokens/celebrimbor.png"
       },
-      "calibration": "Individual source visually checked; existing body landmarks retained.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-boot; torso center",
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "body",
-        "sheet": 2,
-        "cell": 17,
         "source": "assets/mesbg/tokens/celebrimbor.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "human",
-          "reference": "body",
-          "top": 0.0548,
-          "bottom": 0.9589,
+          "top": 0.05,
+          "bottom": 0.92,
           "worldReferenceSize": 86,
-          "sourceSHA256": "78e5e67f08a34ecdd45fd9a28ce24b9a1d78458f96b8e0435beeeb5b7c643ab2"
+          "sourceSHA256": "29db9fd91fd74e30d14fb1c7cef4ba76e031d384498daaadd86550513b8b94d4",
+          "bodyClass": "human",
+          "reference": "body"
         },
         "candidate": {
-          "top": 0.01,
-          "bottom": 0.99
+          "top": 0.0212,
+          "bottom": 0.9866
         },
-        "applied": "anatomical-candidate",
-        "reason": "candidate-agrees-with-reviewed-anatomy"
+        "pinned": true,
+        "applied": "reviewed-landmarks",
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -3974,55 +3950,52 @@
       "file": "tokens/cirdan_mounted.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.02,
-      "bottom": 0.3679,
-      "centerX": 0.5234,
-      "centerY": 0.4925,
+      "top": 0.08,
+      "bottom": 0.4,
+      "centerX": 0.53,
+      "centerY": 0.54,
       "worldReferenceSize": 43,
-      "sourceWidth": 254,
-      "sourceHeight": 508,
-      "sourceSHA256": "6787e3b94f991dcc1384a32c3c50d328099c1e8f8b4f48f840984e6ee97d7ff9",
+      "sourceWidth": 384,
+      "sourceHeight": 379,
+      "sourceSHA256": "799a3207be73ba9852b69858bd40427ef916a18eb2297f05bce7405d757a5020",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Individual visual crown-to-seated-pelvis measurement; excludes weapon, plume, cloak width and mount. Horse/body silhouette cross-check required.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-seated pelvis; combined saddle/mount torso center",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 0,
-        "cell": 14,
-        "landmarks": "crown-pelvis",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-seated pelvis; combined saddle/mount torso center",
         "source": "assets/mesbg/tokens/cirdan_mounted.png"
       },
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "rider-and-mount",
-        "sheet": 2,
-        "cell": 21,
         "source": "assets/mesbg/tokens/cirdan_mounted.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "human",
-          "reference": "rider",
-          "top": 0.04,
-          "bottom": 0.32,
+          "top": 0.08,
+          "bottom": 0.4,
           "worldReferenceSize": 43,
-          "sourceSHA256": "6787e3b94f991dcc1384a32c3c50d328099c1e8f8b4f48f840984e6ee97d7ff9"
+          "sourceSHA256": "799a3207be73ba9852b69858bd40427ef916a18eb2297f05bce7405d757a5020",
+          "bodyClass": "human",
+          "reference": "rider"
         },
         "candidate": {
-          "top": 0.02,
-          "bottom": 0.3679
+          "top": 0.0664,
+          "bottom": 0.3892
         },
-        "applied": "anatomical-candidate",
-        "reason": "candidate-agrees-with-reviewed-anatomy"
+        "pinned": true,
+        "applied": "reviewed-landmarks",
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -4088,55 +4061,52 @@
       "file": "tokens/cirion_mounted.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.02,
-      "bottom": 0.3679,
-      "centerX": 0.4819,
-      "centerY": 0.4925,
+      "top": 0.09,
+      "bottom": 0.41,
+      "centerX": 0.54,
+      "centerY": 0.54,
       "worldReferenceSize": 43,
-      "sourceWidth": 329,
-      "sourceHeight": 508,
-      "sourceSHA256": "861df83111e8ec7af89e7bcf21b3f5010dc21eb64a2c3a18c777fce1df2a247a",
+      "sourceWidth": 384,
+      "sourceHeight": 384,
+      "sourceSHA256": "99b1b8019e8c55f2757ccd14a81c57cdf3ae02d65b1aa0f2132bde36e11dab3f",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Individual visual crown-to-seated-pelvis measurement; excludes weapon, plume, cloak width and mount. Horse/body silhouette cross-check required.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-seated pelvis; combined saddle/mount torso center",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 0,
-        "cell": 15,
-        "landmarks": "crown-pelvis",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-seated pelvis; combined saddle/mount torso center",
         "source": "assets/mesbg/tokens/cirion_mounted.png"
       },
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "rider-and-mount",
-        "sheet": 2,
-        "cell": 23,
         "source": "assets/mesbg/tokens/cirion_mounted.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "human",
-          "reference": "rider",
-          "top": 0.04,
-          "bottom": 0.32,
+          "top": 0.09,
+          "bottom": 0.41,
           "worldReferenceSize": 43,
-          "sourceSHA256": "861df83111e8ec7af89e7bcf21b3f5010dc21eb64a2c3a18c777fce1df2a247a"
+          "sourceSHA256": "99b1b8019e8c55f2757ccd14a81c57cdf3ae02d65b1aa0f2132bde36e11dab3f",
+          "bodyClass": "human",
+          "reference": "rider"
         },
         "candidate": {
-          "top": 0.02,
-          "bottom": 0.3679
+          "top": 0.207,
+          "bottom": 0.4817
         },
-        "applied": "anatomical-candidate",
-        "reason": "candidate-agrees-with-reviewed-anatomy"
+        "pinned": true,
+        "applied": "reviewed-landmarks",
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -5057,55 +5027,52 @@
       "file": "tokens/dead_spearman.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.1908,
-      "bottom": 0.99,
-      "centerX": 0.4924,
-      "centerY": 0.595,
+      "top": 0.29,
+      "bottom": 0.93,
+      "centerX": 0.53,
+      "centerY": 0.61,
       "worldReferenceSize": 86,
-      "sourceWidth": 416,
-      "sourceHeight": 420,
-      "sourceSHA256": "3251fbd6d75cffd9531016f6bf4919d512ad7ca5a7155d2459a4dc647bd6600f",
+      "sourceWidth": 380,
+      "sourceHeight": 384,
+      "sourceSHA256": "78f5ac99a8d54b99b7dd88d2b02ae385ecc5439b40a88b970f90518cf9acec81",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 7,
-        "cell": 0,
-        "landmarks": "body-only",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-boot; torso center",
         "source": "assets/mesbg/tokens/dead_spearman.png"
       },
-      "calibration": "Body landmarks corrected by visual source review; weapon/plume/empty space excluded.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-boot; torso center",
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "body",
-        "sheet": 3,
-        "cell": 16,
         "source": "assets/mesbg/tokens/dead_spearman.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "human",
-          "reference": "body",
-          "top": 0.22,
-          "bottom": 0.97,
+          "top": 0.29,
+          "bottom": 0.93,
           "worldReferenceSize": 86,
-          "sourceSHA256": "3251fbd6d75cffd9531016f6bf4919d512ad7ca5a7155d2459a4dc647bd6600f"
+          "sourceSHA256": "78f5ac99a8d54b99b7dd88d2b02ae385ecc5439b40a88b970f90518cf9acec81",
+          "bodyClass": "human",
+          "reference": "body"
         },
         "candidate": {
-          "top": 0.1908,
-          "bottom": 0.99
+          "top": 0.2166,
+          "bottom": 0.9788
         },
-        "applied": "anatomical-candidate",
-        "reason": "candidate-agrees-with-reviewed-anatomy"
+        "pinned": true,
+        "applied": "reviewed-landmarks",
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -6422,55 +6389,52 @@
       "file": "tokens/durin_vi.png",
       "bodyClass": "dwarf",
       "reference": "body",
-      "top": 0.13,
-      "bottom": 0.97,
-      "centerX": 0.418,
-      "centerY": 0.55,
+      "top": 0.27,
+      "bottom": 0.9,
+      "centerX": 0.46,
+      "centerY": 0.585,
       "worldReferenceSize": 71,
-      "sourceWidth": 237,
-      "sourceHeight": 284,
-      "sourceSHA256": "8625f5cc3b0036e0733ad4337bc09e4ea919b6647f203b33641ac785200eb775",
+      "sourceWidth": 321,
+      "sourceHeight": 384,
+      "sourceSHA256": "fb8fe77729523f78fc76cadbb633cca8115771aca705333e3f26ad3e622934d2",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
-      "calibration": "Body landmarks corrected by visual source review; weapon/plume/empty space excluded.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-boot; torso center",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 7,
-        "cell": 19,
-        "landmarks": "body-only",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-boot; torso center",
         "source": "assets/mesbg/tokens/durin_vi.png"
       },
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "body",
-        "sheet": 4,
-        "cell": 16,
         "source": "assets/mesbg/tokens/durin_vi.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
+          "top": 0.27,
+          "bottom": 0.9,
+          "worldReferenceSize": 71,
+          "sourceSHA256": "fb8fe77729523f78fc76cadbb633cca8115771aca705333e3f26ad3e622934d2",
           "bodyClass": "dwarf",
-          "reference": "body",
-          "top": 0.13,
-          "bottom": 0.97,
-          "worldReferenceSize": 67,
-          "sourceSHA256": "8625f5cc3b0036e0733ad4337bc09e4ea919b6647f203b33641ac785200eb775"
+          "reference": "body"
         },
         "candidate": {
-          "top": 0.3285,
-          "bottom": 0.99
+          "top": 0.1271,
+          "bottom": 0.9589
         },
+        "pinned": true,
         "applied": "reviewed-landmarks",
-        "reason": "automatic-landmark-outlier"
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -6992,55 +6956,52 @@
       "file": "tokens/earendil.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.01,
-      "bottom": 0.99,
-      "centerX": 0.4521,
-      "centerY": 0.485,
+      "top": 0.07,
+      "bottom": 0.92,
+      "centerX": 0.5,
+      "centerY": 0.495,
       "worldReferenceSize": 86,
-      "sourceWidth": 269,
-      "sourceHeight": 366,
-      "sourceSHA256": "395e227a6781dbdb7f742e63f807178aaece747abc00b9935fea978e1c928259",
-      "anatomicalCorrection": false,
+      "sourceWidth": 335,
+      "sourceHeight": 384,
+      "sourceSHA256": "9941527ad23dd4b7af11e58330f9c19a5cf84aee017baed3b8e3e38df26e1362",
+      "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 8,
-        "cell": 4,
-        "landmarks": "body-only",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-boot; torso center",
         "source": "assets/mesbg/tokens/earendil.png"
       },
-      "calibration": "Body landmarks corrected by visual source review; weapon/plume/empty space excluded.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-boot; torso center",
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "body",
-        "sheet": 5,
-        "cell": 2,
         "source": "assets/mesbg/tokens/earendil.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "human",
-          "reference": "body",
-          "top": 0.01,
-          "bottom": 0.96,
+          "top": 0.07,
+          "bottom": 0.92,
           "worldReferenceSize": 86,
-          "sourceSHA256": "395e227a6781dbdb7f742e63f807178aaece747abc00b9935fea978e1c928259"
+          "sourceSHA256": "9941527ad23dd4b7af11e58330f9c19a5cf84aee017baed3b8e3e38df26e1362",
+          "bodyClass": "human",
+          "reference": "body"
         },
         "candidate": {
           "top": 0.01,
           "bottom": 0.99
         },
-        "applied": "anatomical-candidate",
-        "reason": "candidate-agrees-with-reviewed-anatomy"
+        "pinned": true,
+        "applied": "reviewed-landmarks",
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -7106,55 +7067,52 @@
       "file": "tokens/earnur_mounted.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.02,
-      "bottom": 0.3679,
-      "centerX": 0.494,
-      "centerY": 0.495,
+      "top": 0.1,
+      "bottom": 0.42,
+      "centerX": 0.53,
+      "centerY": 0.54,
       "worldReferenceSize": 43,
-      "sourceWidth": 333,
-      "sourceHeight": 508,
-      "sourceSHA256": "7d078b8bf9e79fa533cdfb1b54d3a32e1ed0b20fafe6d2ee09bf7653cabfb2f9",
+      "sourceWidth": 384,
+      "sourceHeight": 378,
+      "sourceSHA256": "3757a0e72f824cb5cbcd6266ebdae043ce558fc14125116f43cbb887a094ec37",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Individual visual crown-to-seated-pelvis measurement; excludes weapon, plume, cloak width and mount. Horse/body silhouette cross-check required.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-seated pelvis; combined saddle/mount torso center",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 1,
-        "cell": 1,
-        "landmarks": "crown-pelvis",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-seated pelvis; combined saddle/mount torso center",
         "source": "assets/mesbg/tokens/earnur_mounted.png"
       },
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "rider-and-mount",
-        "sheet": 5,
-        "cell": 4,
         "source": "assets/mesbg/tokens/earnur_mounted.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "human",
-          "reference": "rider",
-          "top": 0.04,
-          "bottom": 0.335,
+          "top": 0.1,
+          "bottom": 0.42,
           "worldReferenceSize": 43,
-          "sourceSHA256": "7d078b8bf9e79fa533cdfb1b54d3a32e1ed0b20fafe6d2ee09bf7653cabfb2f9"
+          "sourceSHA256": "3757a0e72f824cb5cbcd6266ebdae043ce558fc14125116f43cbb887a094ec37",
+          "bodyClass": "human",
+          "reference": "rider"
         },
         "candidate": {
-          "top": 0.02,
-          "bottom": 0.3679
+          "top": 0.2148,
+          "bottom": 0.4895
         },
-        "applied": "anatomical-candidate",
-        "reason": "candidate-agrees-with-reviewed-anatomy"
+        "pinned": true,
+        "applied": "reviewed-landmarks",
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -7562,55 +7520,52 @@
       "file": "tokens/ecthelion.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.075,
-      "bottom": 0.87,
-      "centerX": 0.5677,
-      "centerY": 0.4725,
+      "top": 0.19,
+      "bottom": 0.88,
+      "centerX": 0.54,
+      "centerY": 0.535,
       "worldReferenceSize": 89,
-      "sourceWidth": 275,
-      "sourceHeight": 366,
-      "sourceSHA256": "a211cca8b404d13d20ff4fae30ccf0e275988581b5e444a3227e125401ee3e41",
-      "anatomicalCorrection": false,
+      "sourceWidth": 335,
+      "sourceHeight": 384,
+      "sourceSHA256": "ad2d51351ecb118ee6fd32a16d4855adabac5a882016646acaf8b9c9bd7f6907",
+      "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 8,
-        "cell": 11,
-        "landmarks": "body-only",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-boot; torso center",
         "source": "assets/mesbg/tokens/ecthelion.png"
       },
-      "calibration": "Body landmarks corrected by visual source review; weapon/plume/empty space excluded.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-boot; torso center",
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "body",
-        "sheet": 5,
-        "cell": 12,
         "source": "assets/mesbg/tokens/ecthelion.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
+          "top": 0.19,
+          "bottom": 0.88,
+          "worldReferenceSize": 89,
+          "sourceSHA256": "ad2d51351ecb118ee6fd32a16d4855adabac5a882016646acaf8b9c9bd7f6907",
           "bodyClass": "human",
-          "reference": "body",
-          "top": 0.075,
-          "bottom": 0.87,
-          "worldReferenceSize": 86,
-          "sourceSHA256": "a211cca8b404d13d20ff4fae30ccf0e275988581b5e444a3227e125401ee3e41"
+          "reference": "body"
         },
         "candidate": {
-          "top": 0.0293,
-          "bottom": 0.9863
+          "top": 0.0215,
+          "bottom": 0.9785
         },
+        "pinned": true,
         "applied": "reviewed-landmarks",
-        "reason": "automatic-landmark-outlier"
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -7619,55 +7574,52 @@
       "file": "tokens/ecthelion_mounted.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.04,
-      "bottom": 0.315,
-      "centerX": 0.4836,
-      "centerY": 0.5275,
+      "top": 0.13,
+      "bottom": 0.43,
+      "centerX": 0.54,
+      "centerY": 0.56,
       "worldReferenceSize": 44,
-      "sourceWidth": 242,
-      "sourceHeight": 508,
-      "sourceSHA256": "bd9d325f86a02d21386eaf63d739a41a1b31362a59b18e335f7028819a9eb617",
+      "sourceWidth": 384,
+      "sourceHeight": 384,
+      "sourceSHA256": "a429f01f823a56a1cdc5ca2961afec2804563d54cdec481ffef546453f938cee",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Individual visual crown-to-seated-pelvis measurement; excludes weapon, plume, cloak width and mount. Horse/body silhouette cross-check required.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-seated pelvis; combined saddle/mount torso center",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 1,
-        "cell": 4,
-        "landmarks": "crown-pelvis",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-seated pelvis; combined saddle/mount torso center",
         "source": "assets/mesbg/tokens/ecthelion_mounted.png"
       },
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "rider-and-mount",
-        "sheet": 5,
-        "cell": 13,
         "source": "assets/mesbg/tokens/ecthelion_mounted.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
+          "top": 0.13,
+          "bottom": 0.43,
+          "worldReferenceSize": 44,
+          "sourceSHA256": "a429f01f823a56a1cdc5ca2961afec2804563d54cdec481ffef546453f938cee",
           "bodyClass": "human",
-          "reference": "rider",
-          "top": 0.04,
-          "bottom": 0.315,
-          "worldReferenceSize": 43,
-          "sourceSHA256": "bd9d325f86a02d21386eaf63d739a41a1b31362a59b18e335f7028819a9eb617"
+          "reference": "rider"
         },
         "candidate": {
-          "top": 0.02,
-          "bottom": 0.3679
+          "top": 0.3867,
+          "bottom": 0.5934
         },
+        "pinned": true,
         "applied": "reviewed-landmarks",
-        "reason": "automatic-landmark-outlier"
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -7790,55 +7742,52 @@
       "file": "tokens/elendil_mounted.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.043,
-      "bottom": 0.3742,
-      "centerX": 0.5,
-      "centerY": 0.5175,
+      "top": 0.08,
+      "bottom": 0.4,
+      "centerX": 0.54,
+      "centerY": 0.54,
       "worldReferenceSize": 45,
-      "sourceWidth": 380,
-      "sourceHeight": 512,
-      "sourceSHA256": "6ae767bf18b6d37e5bba93f1a0ab6dda833fbe3b9022fd9ab148cdbe03ccc950",
+      "sourceWidth": 384,
+      "sourceHeight": 384,
+      "sourceSHA256": "c9cd54475699787fac23075ec917e9981d240613592bdcf8c0845bf6ac8ff764",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Individual visual crown-to-seated-pelvis measurement; excludes weapon, plume, cloak width and mount. Horse/body silhouette cross-check required.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-seated pelvis; combined saddle/mount torso center",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 1,
-        "cell": 5,
-        "landmarks": "crown-pelvis",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-seated pelvis; combined saddle/mount torso center",
         "source": "assets/mesbg/tokens/elendil_mounted.png"
       },
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "rider-and-mount",
-        "sheet": 5,
-        "cell": 16,
         "source": "assets/mesbg/tokens/elendil_mounted.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
+          "top": 0.08,
+          "bottom": 0.4,
+          "worldReferenceSize": 45,
+          "sourceSHA256": "c9cd54475699787fac23075ec917e9981d240613592bdcf8c0845bf6ac8ff764",
           "bodyClass": "human",
-          "reference": "rider",
-          "top": 0.055,
-          "bottom": 0.35,
-          "worldReferenceSize": 43,
-          "sourceSHA256": "6ae767bf18b6d37e5bba93f1a0ab6dda833fbe3b9022fd9ab148cdbe03ccc950"
+          "reference": "rider"
         },
         "candidate": {
-          "top": 0.043,
-          "bottom": 0.3742
+          "top": 0.0898,
+          "bottom": 0.4041
         },
-        "applied": "anatomical-candidate",
-        "reason": "candidate-agrees-with-reviewed-anatomy"
+        "pinned": true,
+        "applied": "reviewed-landmarks",
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -7904,55 +7853,52 @@
       "file": "tokens/elf_bow.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.12,
-      "bottom": 0.975,
-      "centerX": 0.5231,
-      "centerY": 0.5136,
+      "top": 0.22,
+      "bottom": 0.93,
+      "centerX": 0.5,
+      "centerY": 0.575,
       "worldReferenceSize": 86,
-      "sourceWidth": 217,
-      "sourceHeight": 366,
-      "sourceSHA256": "d8f51483fec7af9568fe69ac5284ab436a363542fd9c097627c15f542896259b",
-      "anatomicalCorrection": false,
+      "sourceWidth": 335,
+      "sourceHeight": 384,
+      "sourceSHA256": "6f4a3bd4c9dab41d2387c4a224780fa098c613f690b163ba5dfeb883420c9ba5",
+      "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 8,
-        "cell": 15,
-        "landmarks": "body-only",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-boot; torso center",
         "source": "assets/mesbg/tokens/elf_bow.png"
       },
-      "calibration": "Body landmarks corrected by visual source review; weapon/plume/empty space excluded.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-boot; torso center",
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "body",
-        "sheet": 5,
-        "cell": 18,
         "source": "assets/mesbg/tokens/elf_bow.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "human",
-          "reference": "body",
-          "top": 0.12,
-          "bottom": 0.975,
+          "top": 0.22,
+          "bottom": 0.93,
           "worldReferenceSize": 86,
-          "sourceSHA256": "d8f51483fec7af9568fe69ac5284ab436a363542fd9c097627c15f542896259b"
+          "sourceSHA256": "6f4a3bd4c9dab41d2387c4a224780fa098c613f690b163ba5dfeb883420c9ba5",
+          "bodyClass": "human",
+          "reference": "body"
         },
         "candidate": {
-          "top": 0.4432,
+          "top": 0.1104,
           "bottom": 0.99
         },
+        "pinned": true,
         "applied": "reviewed-landmarks",
-        "reason": "automatic-landmark-outlier"
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -7961,55 +7907,52 @@
       "file": "tokens/elf_glaive.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.145,
-      "bottom": 0.955,
-      "centerX": 0.4667,
-      "centerY": 0.55,
+      "top": 0.22,
+      "bottom": 0.91,
+      "centerX": 0.51,
+      "centerY": 0.565,
       "worldReferenceSize": 86,
-      "sourceWidth": 300,
-      "sourceHeight": 366,
-      "sourceSHA256": "03b55623e68a6d90152eac19dc1e88e7820e368dd961a7d81ce747f02d284c34",
+      "sourceWidth": 335,
+      "sourceHeight": 384,
+      "sourceSHA256": "eebe4e33cba5970b1853bbbdce7cdb8d084894903ab3495437e444a05cd21705",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 8,
-        "cell": 16,
-        "landmarks": "body-only",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-boot; torso center",
         "source": "assets/mesbg/tokens/elf_glaive.png"
       },
-      "calibration": "Body landmarks corrected by visual source review; weapon/plume/empty space excluded.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-boot; torso center",
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "body",
-        "sheet": 5,
-        "cell": 19,
         "source": "assets/mesbg/tokens/elf_glaive.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "human",
-          "reference": "body",
-          "top": 0.145,
-          "bottom": 0.955,
+          "top": 0.22,
+          "bottom": 0.91,
           "worldReferenceSize": 86,
-          "sourceSHA256": "03b55623e68a6d90152eac19dc1e88e7820e368dd961a7d81ce747f02d284c34"
+          "sourceSHA256": "eebe4e33cba5970b1853bbbdce7cdb8d084894903ab3495437e444a05cd21705",
+          "bodyClass": "human",
+          "reference": "body"
         },
         "candidate": {
           "top": 0.01,
-          "bottom": 0.99
+          "bottom": 0.9839
         },
+        "pinned": true,
         "applied": "reviewed-landmarks",
-        "reason": "automatic-landmark-outlier"
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -8018,55 +7961,52 @@
       "file": "tokens/elf_knight.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.085,
-      "bottom": 0.36,
-      "centerX": 0.5,
-      "centerY": 0.51,
+      "top": 0.15,
+      "bottom": 0.43,
+      "centerX": 0.55,
+      "centerY": 0.55,
       "worldReferenceSize": 43,
-      "sourceWidth": 220,
-      "sourceHeight": 366,
-      "sourceSHA256": "76d24f4365cff7a290e2a859b60d456c2198b3e584552c4ac6c7cb615bcfe452",
+      "sourceWidth": 384,
+      "sourceHeight": 350,
+      "sourceSHA256": "fe5c17928cc102bfacf6357113230ba1967d0d25209ef38be81d75eddf37c962",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Individual visual crown-to-seated-pelvis measurement; excludes weapon, plume, cloak width and mount. Horse/body silhouette cross-check required.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-seated pelvis; combined saddle/mount torso center",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 1,
-        "cell": 6,
-        "landmarks": "crown-pelvis",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-seated pelvis; combined saddle/mount torso center",
         "source": "assets/mesbg/tokens/elf_knight.png"
       },
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "rider-and-mount",
-        "sheet": 5,
-        "cell": 20,
         "source": "assets/mesbg/tokens/elf_knight.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "human",
-          "reference": "rider",
-          "top": 0.085,
-          "bottom": 0.36,
+          "top": 0.15,
+          "bottom": 0.43,
           "worldReferenceSize": 43,
-          "sourceSHA256": "76d24f4365cff7a290e2a859b60d456c2198b3e584552c4ac6c7cb615bcfe452"
+          "sourceSHA256": "fe5c17928cc102bfacf6357113230ba1967d0d25209ef38be81d75eddf37c962",
+          "bodyClass": "human",
+          "reference": "rider"
         },
         "candidate": {
-          "top": 0.0273,
-          "bottom": 0.3726
+          "top": 0.2773,
+          "bottom": 0.5208
         },
+        "pinned": true,
         "applied": "reviewed-landmarks",
-        "reason": "automatic-landmark-outlier"
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -8132,55 +8072,52 @@
       "file": "tokens/elf_spear.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.265,
-      "bottom": 0.96,
-      "centerX": 0.5645,
-      "centerY": 0.5227,
+      "top": 0.22,
+      "bottom": 0.94,
+      "centerX": 0.5,
+      "centerY": 0.58,
       "worldReferenceSize": 86,
-      "sourceWidth": 207,
-      "sourceHeight": 366,
-      "sourceSHA256": "34744730d0b41c6bf51df15e7838a64da7d6233095bc3732081316fc2e0f0aed",
+      "sourceWidth": 335,
+      "sourceHeight": 384,
+      "sourceSHA256": "e00b09d9e169639144d10ce9d6f190028c4096955563644c7ceebb798efa2853",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 8,
-        "cell": 18,
-        "landmarks": "body-only",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-boot; torso center",
         "source": "assets/mesbg/tokens/elf_spear.png"
       },
-      "calibration": "Body landmarks corrected by visual source review; weapon/plume/empty space excluded.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-boot; torso center",
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "body",
-        "sheet": 5,
-        "cell": 22,
         "source": "assets/mesbg/tokens/elf_spear.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "human",
-          "reference": "body",
-          "top": 0.265,
-          "bottom": 0.96,
+          "top": 0.22,
+          "bottom": 0.94,
           "worldReferenceSize": 86,
-          "sourceSHA256": "34744730d0b41c6bf51df15e7838a64da7d6233095bc3732081316fc2e0f0aed"
+          "sourceSHA256": "e00b09d9e169639144d10ce9d6f190028c4096955563644c7ceebb798efa2853",
+          "bodyClass": "human",
+          "reference": "body"
         },
         "candidate": {
-          "top": 0.1501,
+          "top": 0.086,
           "bottom": 0.99
         },
+        "pinned": true,
         "applied": "reviewed-landmarks",
-        "reason": "automatic-landmark-outlier"
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -8189,55 +8126,52 @@
       "file": "tokens/elf_swordshield.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.145,
-      "bottom": 0.975,
-      "centerX": 0.5639,
-      "centerY": 0.5273,
+      "top": 0.2,
+      "bottom": 0.93,
+      "centerX": 0.5,
+      "centerY": 0.565,
       "worldReferenceSize": 86,
-      "sourceWidth": 222,
-      "sourceHeight": 366,
-      "sourceSHA256": "4c9a95555bc7e296f559857d57ee3ba3e8a006dde423bfd23cf9326d32450da4",
-      "anatomicalCorrection": false,
+      "sourceWidth": 335,
+      "sourceHeight": 384,
+      "sourceSHA256": "12cc53adb1fac7b933f274287198d20d51ee9275593060de0e5458614019630b",
+      "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 8,
-        "cell": 19,
-        "landmarks": "body-only",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-boot; torso center",
         "source": "assets/mesbg/tokens/elf_swordshield.png"
       },
-      "calibration": "Body landmarks corrected by visual source review; weapon/plume/empty space excluded.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-boot; torso center",
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "body",
-        "sheet": 5,
-        "cell": 23,
         "source": "assets/mesbg/tokens/elf_swordshield.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "human",
-          "reference": "body",
-          "top": 0.145,
-          "bottom": 0.975,
+          "top": 0.2,
+          "bottom": 0.93,
           "worldReferenceSize": 86,
-          "sourceSHA256": "4c9a95555bc7e296f559857d57ee3ba3e8a006dde423bfd23cf9326d32450da4"
+          "sourceSHA256": "12cc53adb1fac7b933f274287198d20d51ee9275593060de0e5458614019630b",
+          "bodyClass": "human",
+          "reference": "body"
         },
         "candidate": {
-          "top": 0.01,
-          "bottom": 0.99
+          "top": 0.4699,
+          "bottom": 0.9442
         },
+        "pinned": true,
         "applied": "reviewed-landmarks",
-        "reason": "automatic-landmark-outlier"
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -8246,55 +8180,52 @@
       "file": "tokens/elf_swordsman.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.145,
-      "bottom": 0.975,
-      "centerX": 0.4845,
+      "top": 0.19,
+      "bottom": 0.93,
+      "centerX": 0.52,
       "centerY": 0.56,
       "worldReferenceSize": 86,
-      "sourceWidth": 230,
-      "sourceHeight": 366,
-      "sourceSHA256": "abf32b568494a85a8c98cdf5c9274123c5a8cc5cb80352f5433315ca6ce8bd1d",
-      "anatomicalCorrection": false,
+      "sourceWidth": 332,
+      "sourceHeight": 384,
+      "sourceSHA256": "da028bb49a6939c7b16d46594927eb32713f8cbe262c47821e351522bb0b9b08",
+      "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 8,
-        "cell": 20,
-        "landmarks": "body-only",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-boot; torso center",
         "source": "assets/mesbg/tokens/elf_swordsman.png"
       },
-      "calibration": "Body landmarks corrected by visual source review; weapon/plume/empty space excluded.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-boot; torso center",
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "body",
-        "sheet": 6,
-        "cell": 0,
         "source": "assets/mesbg/tokens/elf_swordsman.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "human",
-          "reference": "body",
-          "top": 0.145,
-          "bottom": 0.975,
+          "top": 0.19,
+          "bottom": 0.93,
           "worldReferenceSize": 86,
-          "sourceSHA256": "abf32b568494a85a8c98cdf5c9274123c5a8cc5cb80352f5433315ca6ce8bd1d"
+          "sourceSHA256": "da028bb49a6939c7b16d46594927eb32713f8cbe262c47821e351522bb0b9b08",
+          "bodyClass": "human",
+          "reference": "body"
         },
         "candidate": {
           "top": 0.01,
           "bottom": 0.99
         },
+        "pinned": true,
         "applied": "reviewed-landmarks",
-        "reason": "automatic-landmark-outlier"
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -8637,55 +8568,52 @@
       "file": "tokens/elven_lancer.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.02,
-      "bottom": 0.3679,
-      "centerX": 0.4589,
-      "centerY": 0.5075,
+      "top": 0.12,
+      "bottom": 0.42,
+      "centerX": 0.56,
+      "centerY": 0.55,
       "worldReferenceSize": 43,
-      "sourceWidth": 209,
-      "sourceHeight": 366,
-      "sourceSHA256": "8fbd38e867ee4de8f57596ddeaea46609e13062ea06707850bf0410f7814004a",
+      "sourceWidth": 384,
+      "sourceHeight": 370,
+      "sourceSHA256": "c1b9e76e190f833e9ed9db89299d3f8c04c6b3c0479235c7b6a275065e1c550d",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Individual visual crown-to-seated-pelvis measurement; excludes weapon, plume, cloak width and mount. Horse/body silhouette cross-check required.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-seated pelvis; combined saddle/mount torso center",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 1,
-        "cell": 9,
-        "landmarks": "crown-pelvis",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-seated pelvis; combined saddle/mount torso center",
         "source": "assets/mesbg/tokens/elven_lancer.png"
       },
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "rider-and-mount",
-        "sheet": 6,
-        "cell": 7,
         "source": "assets/mesbg/tokens/elven_lancer.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "human",
-          "reference": "rider",
-          "top": 0.075,
-          "bottom": 0.355,
+          "top": 0.12,
+          "bottom": 0.42,
           "worldReferenceSize": 43,
-          "sourceSHA256": "8fbd38e867ee4de8f57596ddeaea46609e13062ea06707850bf0410f7814004a"
+          "sourceSHA256": "c1b9e76e190f833e9ed9db89299d3f8c04c6b3c0479235c7b6a275065e1c550d",
+          "bodyClass": "human",
+          "reference": "rider"
         },
         "candidate": {
-          "top": 0.02,
-          "bottom": 0.3679
+          "top": 0.3008,
+          "bottom": 0.5414
         },
-        "applied": "anatomical-candidate",
-        "reason": "candidate-agrees-with-reviewed-anatomy"
+        "pinned": true,
+        "applied": "reviewed-landmarks",
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -9264,55 +9192,52 @@
       "file": "tokens/erkenbrand.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.19,
-      "bottom": 0.98,
-      "centerX": 0.5,
-      "centerY": 0.585,
+      "top": 0.23,
+      "bottom": 0.89,
+      "centerX": 0.52,
+      "centerY": 0.56,
       "worldReferenceSize": 86,
-      "sourceWidth": 260,
-      "sourceHeight": 340,
-      "sourceSHA256": "c63f34e3c3453b22e29294351a4e073abadb003add98a80fe8b91a7c637b62a3",
-      "anatomicalCorrection": false,
+      "sourceWidth": 335,
+      "sourceHeight": 384,
+      "sourceSHA256": "283dfde43b0daa51070cdab1b54f15e7a2168237103346a5a56391c4cfd99e82",
+      "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 9,
-        "cell": 6,
-        "landmarks": "body-only",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-boot; torso center",
         "source": "assets/mesbg/tokens/erkenbrand.png"
       },
-      "calibration": "Body landmarks corrected by visual source review; weapon/plume/empty space excluded.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-boot; torso center",
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "body",
-        "sheet": 6,
-        "cell": 18,
         "source": "assets/mesbg/tokens/erkenbrand.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "human",
-          "reference": "body",
-          "top": 0.19,
-          "bottom": 0.98,
+          "top": 0.23,
+          "bottom": 0.89,
           "worldReferenceSize": 86,
-          "sourceSHA256": "c63f34e3c3453b22e29294351a4e073abadb003add98a80fe8b91a7c637b62a3"
+          "sourceSHA256": "283dfde43b0daa51070cdab1b54f15e7a2168237103346a5a56391c4cfd99e82",
+          "bodyClass": "human",
+          "reference": "body"
         },
         "candidate": {
-          "top": 0.0121,
+          "top": 0.01,
           "bottom": 0.99
         },
+        "pinned": true,
         "applied": "reviewed-landmarks",
-        "reason": "automatic-landmark-outlier"
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -10743,55 +10668,52 @@
       "file": "tokens/galadhrim_knight.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.082,
-      "bottom": 0.4048,
-      "centerX": 0.5128,
-      "centerY": 0.525,
+      "top": 0.17,
+      "bottom": 0.47,
+      "centerX": 0.54,
+      "centerY": 0.56,
       "worldReferenceSize": 43,
-      "sourceWidth": 312,
-      "sourceHeight": 513,
-      "sourceSHA256": "7a8a4d203e18933b432842ffe1b529dbc5571f913a1573da4ded36f30a3f6753",
+      "sourceWidth": 384,
+      "sourceHeight": 380,
+      "sourceSHA256": "54f1af58e6815f8e7691bc8c4dc14d4119a6d09d61d8602e2c47f8aafcb658a1",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Individual visual crown-to-seated-pelvis measurement; excludes weapon, plume, cloak width and mount. Horse/body silhouette cross-check required.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-seated pelvis; combined saddle/mount torso center",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 1,
-        "cell": 23,
-        "landmarks": "crown-pelvis",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-seated pelvis; combined saddle/mount torso center",
         "source": "assets/mesbg/tokens/galadhrim_knight.png"
       },
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "rider-and-mount",
-        "sheet": 7,
-        "cell": 20,
         "source": "assets/mesbg/tokens/galadhrim_knight.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "human",
-          "reference": "rider",
-          "top": 0.105,
-          "bottom": 0.395,
+          "top": 0.17,
+          "bottom": 0.47,
           "worldReferenceSize": 43,
-          "sourceSHA256": "7a8a4d203e18933b432842ffe1b529dbc5571f913a1573da4ded36f30a3f6753"
+          "sourceSHA256": "54f1af58e6815f8e7691bc8c4dc14d4119a6d09d61d8602e2c47f8aafcb658a1",
+          "bodyClass": "human",
+          "reference": "rider"
         },
         "candidate": {
-          "top": 0.082,
-          "bottom": 0.4048
+          "top": 0.1758,
+          "bottom": 0.4476
         },
-        "applied": "anatomical-candidate",
-        "reason": "candidate-agrees-with-reviewed-anatomy"
+        "pinned": true,
+        "applied": "reviewed-landmarks",
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -10857,55 +10779,52 @@
       "file": "tokens/galadriel.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.2006,
-      "bottom": 0.9713,
-      "centerX": 0.4844,
-      "centerY": 0.5859,
+      "top": 0.12,
+      "bottom": 0.91,
+      "centerX": 0.5,
+      "centerY": 0.515,
       "worldReferenceSize": 86,
-      "sourceWidth": 440,
-      "sourceHeight": 440,
-      "sourceSHA256": "54270e07ca01be42e5ccd64b22cbffc06ee22f536a51f3601a2304a205525511",
-      "anatomicalCorrection": false,
+      "sourceWidth": 334,
+      "sourceHeight": 384,
+      "sourceSHA256": "9da65159c4e6989eb2cfbf1d92a9b7b68e650fb0ff7af260b0206985506efcf8",
+      "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 10,
-        "cell": 1,
-        "landmarks": "body-only",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-boot; torso center",
         "source": "assets/mesbg/tokens/galadriel.png"
       },
-      "calibration": "Individual source visually checked; existing body landmarks retained.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-boot; torso center",
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "body",
-        "sheet": 7,
-        "cell": 22,
         "source": "assets/mesbg/tokens/galadriel.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "human",
-          "reference": "body",
-          "top": 0.2344,
-          "bottom": 0.9375,
+          "top": 0.12,
+          "bottom": 0.91,
           "worldReferenceSize": 86,
-          "sourceSHA256": "54270e07ca01be42e5ccd64b22cbffc06ee22f536a51f3601a2304a205525511"
+          "sourceSHA256": "9da65159c4e6989eb2cfbf1d92a9b7b68e650fb0ff7af260b0206985506efcf8",
+          "bodyClass": "human",
+          "reference": "body"
         },
         "candidate": {
-          "top": 0.2006,
-          "bottom": 0.9713
+          "top": 0.0551,
+          "bottom": 0.9527
         },
-        "applied": "anatomical-candidate",
-        "reason": "candidate-agrees-with-reviewed-anatomy"
+        "pinned": true,
+        "applied": "reviewed-landmarks",
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -11028,55 +10947,52 @@
       "file": "tokens/gamling_mounted.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.295,
-      "bottom": 0.535,
-      "centerX": 0.5513,
-      "centerY": 0.62,
+      "top": 0.29,
+      "bottom": 0.56,
+      "centerX": 0.53,
+      "centerY": 0.63,
       "worldReferenceSize": 43,
-      "sourceWidth": 225,
-      "sourceHeight": 422,
-      "sourceSHA256": "bcc71360edb39c015b0acc4a4e8cbc03c5580dbd49aa249b67541b7c735adb18",
+      "sourceWidth": 384,
+      "sourceHeight": 342,
+      "sourceSHA256": "bf7747f504b8686b952be902637fe6fa32fa722c89e3655c8140117021c3c3e6",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Individual visual crown-to-seated-pelvis measurement; excludes weapon, plume, cloak width and mount. Horse/body silhouette cross-check required.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-seated pelvis; combined saddle/mount torso center",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 2,
-        "cell": 0,
-        "landmarks": "crown-pelvis",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-seated pelvis; combined saddle/mount torso center",
         "source": "assets/mesbg/tokens/gamling_mounted.png"
       },
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "rider-and-mount",
-        "sheet": 8,
-        "cell": 1,
         "source": "assets/mesbg/tokens/gamling_mounted.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "human",
-          "reference": "rider",
-          "top": 0.295,
-          "bottom": 0.535,
+          "top": 0.29,
+          "bottom": 0.56,
           "worldReferenceSize": 43,
-          "sourceSHA256": "bcc71360edb39c015b0acc4a4e8cbc03c5580dbd49aa249b67541b7c735adb18"
+          "sourceSHA256": "bf7747f504b8686b952be902637fe6fa32fa722c89e3655c8140117021c3c3e6",
+          "bodyClass": "human",
+          "reference": "rider"
         },
         "candidate": {
-          "top": 0.4727,
-          "bottom": 0.6539
+          "top": 0.332,
+          "bottom": 0.5668
         },
+        "pinned": true,
         "applied": "reviewed-landmarks",
-        "reason": "automatic-landmark-outlier"
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -11369,55 +11285,52 @@
       "file": "tokens/gil_galad.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.055,
-      "bottom": 0.92,
-      "centerX": 0.4301,
-      "centerY": 0.4875,
+      "top": 0.09,
+      "bottom": 0.89,
+      "centerX": 0.5,
+      "centerY": 0.49,
       "worldReferenceSize": 89,
-      "sourceWidth": 272,
-      "sourceHeight": 374,
-      "sourceSHA256": "995f1b9e1f6aaaa47c695fb230338531bec3bd828b1a547f196c418bd2769fdf",
-      "anatomicalCorrection": false,
+      "sourceWidth": 335,
+      "sourceHeight": 384,
+      "sourceSHA256": "f9d92b88cf2ab55467fec6f241d7d481f9a1b7b4bf47a558d5e1139033be42ae",
+      "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 10,
-        "cell": 7,
-        "landmarks": "body-only",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-boot; torso center",
         "source": "assets/mesbg/tokens/gil_galad.png"
       },
-      "calibration": "Body landmarks corrected by visual source review; weapon/plume/empty space excluded.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-boot; torso center",
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "body",
-        "sheet": 8,
-        "cell": 7,
         "source": "assets/mesbg/tokens/gil_galad.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
+          "top": 0.09,
+          "bottom": 0.89,
+          "worldReferenceSize": 89,
+          "sourceSHA256": "f9d92b88cf2ab55467fec6f241d7d481f9a1b7b4bf47a558d5e1139033be42ae",
           "bodyClass": "human",
-          "reference": "body",
-          "top": 0.055,
-          "bottom": 0.92,
-          "worldReferenceSize": 86,
-          "sourceSHA256": "995f1b9e1f6aaaa47c695fb230338531bec3bd828b1a547f196c418bd2769fdf"
+          "reference": "body"
         },
         "candidate": {
-          "top": 0.4028,
+          "top": 0.01,
           "bottom": 0.99
         },
+        "pinned": true,
         "applied": "reviewed-landmarks",
-        "reason": "automatic-landmark-outlier"
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -11882,55 +11795,52 @@
       "file": "tokens/goblin_bow.png",
       "bodyClass": "goblin",
       "reference": "body",
-      "top": 0.2055,
-      "bottom": 0.9521,
-      "centerX": 0.5281,
-      "centerY": 0.5788,
+      "top": 0.18,
+      "bottom": 0.94,
+      "centerX": 0.53,
+      "centerY": 0.56,
       "worldReferenceSize": 63,
-      "sourceWidth": 224,
-      "sourceHeight": 366,
-      "sourceSHA256": "9e99f02e48e2b99aee8b2753faa4820ce1e8ea71c67c38fde7aa3cbcb158fefd",
+      "sourceWidth": 335,
+      "sourceHeight": 384,
+      "sourceSHA256": "a2f919ed0182ea9b1ed61119615720cf1e68e9c3eacd147e6bd56adc223f73e1",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 10,
-        "cell": 13,
-        "landmarks": "body-only",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-boot; torso center",
         "source": "assets/mesbg/tokens/goblin_bow.png"
       },
-      "calibration": "Individual source visually checked; existing body landmarks retained.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-boot; torso center",
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "body",
-        "sheet": 8,
-        "cell": 16,
         "source": "assets/mesbg/tokens/goblin_bow.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "goblin",
-          "reference": "body",
-          "top": 0.2055,
-          "bottom": 0.9521,
+          "top": 0.18,
+          "bottom": 0.94,
           "worldReferenceSize": 63,
-          "sourceSHA256": "9e99f02e48e2b99aee8b2753faa4820ce1e8ea71c67c38fde7aa3cbcb158fefd"
+          "sourceSHA256": "a2f919ed0182ea9b1ed61119615720cf1e68e9c3eacd147e6bd56adc223f73e1",
+          "bodyClass": "goblin",
+          "reference": "body"
         },
         "candidate": {
-          "top": 0.1046,
-          "bottom": 0.99
+          "top": 0.138,
+          "bottom": 0.9792
         },
+        "pinned": true,
         "applied": "reviewed-landmarks",
-        "reason": "automatic-landmark-outlier"
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -12110,55 +12020,52 @@
       "file": "tokens/goblin_prowler.png",
       "bodyClass": "goblin",
       "reference": "body",
-      "top": 0.0163,
-      "bottom": 0.9837,
-      "centerX": 0.502,
-      "centerY": 0.4883,
+      "top": 0.12,
+      "bottom": 0.92,
+      "centerX": 0.54,
+      "centerY": 0.52,
       "worldReferenceSize": 63,
-      "sourceWidth": 329,
-      "sourceHeight": 335,
-      "sourceSHA256": "ac7853f888b28069e1aa88454bfbb02674a1f903dd4f370427c2421728da5ff6",
-      "anatomicalCorrection": false,
+      "sourceWidth": 377,
+      "sourceHeight": 384,
+      "sourceSHA256": "614e3a62bae75d76152037200bff0f60f1ba239c9c55a57c7bedacf0b4afe9f4",
+      "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 10,
-        "cell": 17,
-        "landmarks": "body-only",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-boot; torso center",
         "source": "assets/mesbg/tokens/goblin_prowler.png"
       },
-      "calibration": "Individual source visually checked; existing body landmarks retained.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-boot; torso center",
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "body",
-        "sheet": 8,
-        "cell": 20,
         "source": "assets/mesbg/tokens/goblin_prowler.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "goblin",
-          "reference": "body",
-          "top": 0.0273,
-          "bottom": 0.9492,
+          "top": 0.12,
+          "bottom": 0.92,
           "worldReferenceSize": 63,
-          "sourceSHA256": "ac7853f888b28069e1aa88454bfbb02674a1f903dd4f370427c2421728da5ff6"
+          "sourceSHA256": "614e3a62bae75d76152037200bff0f60f1ba239c9c55a57c7bedacf0b4afe9f4",
+          "bodyClass": "goblin",
+          "reference": "body"
         },
         "candidate": {
-          "top": 0.0163,
-          "bottom": 0.9837
+          "top": 0.0496,
+          "bottom": 0.9582
         },
-        "applied": "anatomical-candidate",
-        "reason": "candidate-agrees-with-reviewed-anatomy"
+        "pinned": true,
+        "applied": "reviewed-landmarks",
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -12281,55 +12188,52 @@
       "file": "tokens/goblin_shield.png",
       "bodyClass": "goblin",
       "reference": "body",
-      "top": 0.0234,
-      "bottom": 0.9766,
-      "centerX": 0.4615,
-      "centerY": 0.5,
+      "top": 0.08,
+      "bottom": 0.94,
+      "centerX": 0.47,
+      "centerY": 0.51,
       "worldReferenceSize": 63,
-      "sourceWidth": 316,
-      "sourceHeight": 366,
-      "sourceSHA256": "28bac7f508d87a4d93105239672ace0b535dbf2ade72d628b8b4de3714ec46e8",
-      "anatomicalCorrection": false,
+      "sourceWidth": 335,
+      "sourceHeight": 384,
+      "sourceSHA256": "afc30700e94496ffb263ef3bca8daa2072d3736e31d3763a35bcf4c36d794d5c",
+      "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 10,
-        "cell": 20,
-        "landmarks": "body-only",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-boot; torso center",
         "source": "assets/mesbg/tokens/goblin_shield.png"
       },
-      "calibration": "Individual source visually checked; existing body landmarks retained.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-boot; torso center",
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "body",
-        "sheet": 8,
-        "cell": 23,
         "source": "assets/mesbg/tokens/goblin_shield.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "goblin",
-          "reference": "body",
-          "top": 0.0234,
-          "bottom": 0.9766,
+          "top": 0.08,
+          "bottom": 0.94,
           "worldReferenceSize": 63,
-          "sourceSHA256": "28bac7f508d87a4d93105239672ace0b535dbf2ade72d628b8b4de3714ec46e8"
+          "sourceSHA256": "afc30700e94496ffb263ef3bca8daa2072d3736e31d3763a35bcf4c36d794d5c",
+          "bodyClass": "goblin",
+          "reference": "body"
         },
         "candidate": {
-          "top": 0.3886,
-          "bottom": 0.99
+          "top": 0.3729,
+          "bottom": 0.9786
         },
+        "pinned": true,
         "applied": "reviewed-landmarks",
-        "reason": "automatic-landmark-outlier"
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -12680,55 +12584,52 @@
       "file": "tokens/gondor_archer.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.0935,
-      "bottom": 0.99,
-      "centerX": 0.4586,
-      "centerY": 0.4818,
+      "top": 0.14,
+      "bottom": 0.94,
+      "centerX": 0.51,
+      "centerY": 0.54,
       "worldReferenceSize": 86,
-      "sourceWidth": 262,
-      "sourceHeight": 366,
-      "sourceSHA256": "6426d15edd00e7ca239659235cb542cebd800805fb8a931cb06fe3a5d5c83b21",
-      "anatomicalCorrection": false,
+      "sourceWidth": 335,
+      "sourceHeight": 384,
+      "sourceSHA256": "2de9786744622c635203b404841278a7dcb4decf65dadcaff19be21360df749e",
+      "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 11,
-        "cell": 3,
-        "landmarks": "body-only",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-boot; torso center",
         "source": "assets/mesbg/tokens/gondor_archer.png"
       },
-      "calibration": "Individual source visually checked; existing body landmarks retained.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-boot; torso center",
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "body",
-        "sheet": 9,
-        "cell": 6,
         "source": "assets/mesbg/tokens/gondor_archer.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "human",
-          "reference": "body",
-          "top": 0.0234,
-          "bottom": 0.9766,
+          "top": 0.14,
+          "bottom": 0.94,
           "worldReferenceSize": 86,
-          "sourceSHA256": "6426d15edd00e7ca239659235cb542cebd800805fb8a931cb06fe3a5d5c83b21"
+          "sourceSHA256": "2de9786744622c635203b404841278a7dcb4decf65dadcaff19be21360df749e",
+          "bodyClass": "human",
+          "reference": "body"
         },
         "candidate": {
-          "top": 0.0935,
-          "bottom": 0.99
+          "top": 0.1189,
+          "bottom": 0.9827
         },
-        "applied": "anatomical-candidate",
-        "reason": "candidate-agrees-with-reviewed-anatomy"
+        "pinned": true,
+        "applied": "reviewed-landmarks",
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -13763,54 +13664,52 @@
       "file": "tokens/guthlaf_mounted.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.2736,
-      "bottom": 0.4961,
-      "centerX": 0.4308,
-      "centerY": 0.5136,
-      "worldReferenceSize": 35.6,
-      "sourceWidth": 301,
-      "sourceHeight": 508,
-      "sourceSHA256": "9f65444f9c77babba3776a6491a7d714e7bd3978760457efe6ecb0421f993193",
+      "top": 0.32,
+      "bottom": 0.59,
+      "centerX": 0.54,
+      "centerY": 0.65,
+      "worldReferenceSize": 43,
+      "sourceWidth": 384,
+      "sourceHeight": 359,
+      "sourceSHA256": "b1307f37a212e71948ade46c9589385920570d8ab44cabfa83a82311d58b9510",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Individual crown-to-seated-pelvis measurement; horn, banner, shoulder width, leg armor and horse excluded.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-seated pelvis; combined saddle/mount torso center",
       "visualReview": {
-        "date": "2026-10-14",
-        "source": "assets/mesbg/tokens/guthlaf_mounted.png",
-        "method": "mounted replacement: crown to seated pelvis; body center",
-        "landmarks": "helmet crown y139 to seated pelvis y252; shoulder/weapon/mount excluded"
+        "date": "2026-10-19",
+        "landmarks": "crown-to-seated pelvis; combined saddle/mount torso center",
+        "source": "assets/mesbg/tokens/guthlaf_mounted.png"
       },
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "rider-and-mount",
-        "sheet": 10,
-        "cell": 1,
         "source": "assets/mesbg/tokens/guthlaf_mounted.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
+          "top": 0.32,
+          "bottom": 0.59,
+          "worldReferenceSize": 43,
+          "sourceSHA256": "b1307f37a212e71948ade46c9589385920570d8ab44cabfa83a82311d58b9510",
           "bodyClass": "human",
-          "reference": "rider",
-          "top": 0.2736,
-          "bottom": 0.4961,
-          "worldReferenceSize": 35.6,
-          "sourceSHA256": "9f65444f9c77babba3776a6491a7d714e7bd3978760457efe6ecb0421f993193"
+          "reference": "rider"
         },
         "candidate": {
-          "top": 0.4648,
-          "bottom": 0.6515
+          "top": 0.3242,
+          "bottom": 0.5619
         },
+        "pinned": true,
         "applied": "reviewed-landmarks",
-        "reason": "automatic-landmark-outlier"
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -13876,55 +13775,52 @@
       "file": "tokens/gwindor.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.01,
-      "bottom": 0.99,
-      "centerX": 0.4558,
-      "centerY": 0.498,
+      "top": 0.05,
+      "bottom": 0.93,
+      "centerX": 0.51,
+      "centerY": 0.49,
       "worldReferenceSize": 86,
-      "sourceWidth": 220,
-      "sourceHeight": 262,
-      "sourceSHA256": "3a54fd9abd0be4866151e928c7477e7669736c3eba0042a512c231f73f430705",
-      "anatomicalCorrection": false,
+      "sourceWidth": 335,
+      "sourceHeight": 384,
+      "sourceSHA256": "7b0ff5464575e97de605aa9fe721a3783f8b08c9589b1b9ceb8b06167c96fad0",
+      "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 11,
-        "cell": 19,
-        "landmarks": "body-only",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-boot; torso center",
         "source": "assets/mesbg/tokens/gwindor.png"
       },
-      "calibration": "Individual source visually checked; existing body landmarks retained.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-boot; torso center",
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "body",
-        "sheet": 10,
-        "cell": 3,
         "source": "assets/mesbg/tokens/gwindor.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "human",
-          "reference": "body",
-          "top": 0.0156,
-          "bottom": 0.9805,
+          "top": 0.05,
+          "bottom": 0.93,
           "worldReferenceSize": 86,
-          "sourceSHA256": "3a54fd9abd0be4866151e928c7477e7669736c3eba0042a512c231f73f430705"
+          "sourceSHA256": "7b0ff5464575e97de605aa9fe721a3783f8b08c9589b1b9ceb8b06167c96fad0",
+          "bodyClass": "human",
+          "reference": "body"
         },
         "candidate": {
-          "top": 0.01,
+          "top": 0.0127,
           "bottom": 0.99
         },
-        "applied": "anatomical-candidate",
-        "reason": "candidate-agrees-with-reviewed-anatomy"
+        "pinned": true,
+        "applied": "reviewed-landmarks",
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -15412,55 +15308,52 @@
       "file": "tokens/huor.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.0362,
-      "bottom": 0.99,
-      "centerX": 0.4869,
-      "centerY": 0.5375,
+      "top": 0.15,
+      "bottom": 0.92,
+      "centerX": 0.51,
+      "centerY": 0.535,
       "worldReferenceSize": 86,
-      "sourceWidth": 195,
-      "sourceHeight": 262,
-      "sourceSHA256": "99880077f200dc987da083f1986518e90670626718d78165cfa47eaab92ddaff",
-      "anatomicalCorrection": false,
+      "sourceWidth": 335,
+      "sourceHeight": 384,
+      "sourceSHA256": "e384af753ba8fac3831fc0405d0cfaf74e7a9d37bc6ea67bc05297f4c99a5c6b",
+      "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 12,
-        "cell": 18,
-        "landmarks": "body-only",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-boot; torso center",
         "source": "assets/mesbg/tokens/huor.png"
       },
-      "calibration": "Body landmarks corrected by visual source review; weapon/plume/empty space excluded.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-boot; torso center",
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "body",
-        "sheet": 11,
-        "cell": 6,
         "source": "assets/mesbg/tokens/huor.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "human",
-          "reference": "body",
-          "top": 0.1,
-          "bottom": 0.975,
+          "top": 0.15,
+          "bottom": 0.92,
           "worldReferenceSize": 86,
-          "sourceSHA256": "99880077f200dc987da083f1986518e90670626718d78165cfa47eaab92ddaff"
+          "sourceSHA256": "e384af753ba8fac3831fc0405d0cfaf74e7a9d37bc6ea67bc05297f4c99a5c6b",
+          "bodyClass": "human",
+          "reference": "body"
         },
         "candidate": {
-          "top": 0.0362,
+          "top": 0.01,
           "bottom": 0.99
         },
-        "applied": "anatomical-candidate",
-        "reason": "candidate-agrees-with-reviewed-anatomy"
+        "pinned": true,
+        "applied": "reviewed-landmarks",
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -15754,55 +15647,52 @@
       "file": "tokens/imrahil_mounted.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.06,
-      "bottom": 0.335,
-      "centerX": 0.5071,
-      "centerY": 0.4975,
+      "top": 0.2,
+      "bottom": 0.47,
+      "centerX": 0.55,
+      "centerY": 0.59,
       "worldReferenceSize": 44,
-      "sourceWidth": 271,
-      "sourceHeight": 496,
-      "sourceSHA256": "8f1460973109d148bd40f065750c25c5fd3c5961de904f855b93c32f5c455916",
+      "sourceWidth": 384,
+      "sourceHeight": 384,
+      "sourceSHA256": "87bab731cd4402b2a044e25faa38d221ee1ee09f858ab47e1e3e8fce9a28ffde",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Individual visual crown-to-seated-pelvis measurement; excludes weapon, plume, cloak width and mount. Horse/body silhouette cross-check required.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-seated pelvis; combined saddle/mount torso center",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 2,
-        "cell": 16,
-        "landmarks": "crown-pelvis",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-seated pelvis; combined saddle/mount torso center",
         "source": "assets/mesbg/tokens/imrahil_mounted.png"
       },
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "rider-and-mount",
-        "sheet": 11,
-        "cell": 12,
         "source": "assets/mesbg/tokens/imrahil_mounted.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
+          "top": 0.2,
+          "bottom": 0.47,
+          "worldReferenceSize": 44,
+          "sourceSHA256": "87bab731cd4402b2a044e25faa38d221ee1ee09f858ab47e1e3e8fce9a28ffde",
           "bodyClass": "human",
-          "reference": "rider",
-          "top": 0.06,
-          "bottom": 0.335,
-          "worldReferenceSize": 43,
-          "sourceSHA256": "8f1460973109d148bd40f065750c25c5fd3c5961de904f855b93c32f5c455916"
+          "reference": "rider"
         },
         "candidate": {
-          "top": 0.02,
-          "bottom": 0.3679
+          "top": 0.1523,
+          "bottom": 0.4298
         },
+        "pinned": true,
         "applied": "reviewed-landmarks",
-        "reason": "automatic-landmark-outlier"
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -17293,55 +17183,52 @@
       "file": "tokens/luthien.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.1514,
-      "bottom": 0.9814,
-      "centerX": 0.4727,
-      "centerY": 0.5742,
+      "top": 0.12,
+      "bottom": 0.93,
+      "centerX": 0.51,
+      "centerY": 0.525,
       "worldReferenceSize": 86,
-      "sourceWidth": 440,
-      "sourceHeight": 440,
-      "sourceSHA256": "e863aca60dc84b8010c86706d9b696bb1745c9e4812bceff5f39bc9ec7b944a2",
-      "anatomicalCorrection": false,
+      "sourceWidth": 335,
+      "sourceHeight": 384,
+      "sourceSHA256": "8d4bf01a90a27108de587dcf454cf6b3bd103ca163af30d519a8715f57f40c1f",
+      "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 13,
-        "cell": 22,
-        "landmarks": "body-only",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-boot; torso center",
         "source": "assets/mesbg/tokens/luthien.png"
       },
-      "calibration": "Individual source visually checked; existing body landmarks retained.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-boot; torso center",
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "body",
-        "sheet": 12,
-        "cell": 15,
         "source": "assets/mesbg/tokens/luthien.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "human",
-          "reference": "body",
-          "top": 0.1914,
-          "bottom": 0.957,
+          "top": 0.12,
+          "bottom": 0.93,
           "worldReferenceSize": 86,
-          "sourceSHA256": "e863aca60dc84b8010c86706d9b696bb1745c9e4812bceff5f39bc9ec7b944a2"
+          "sourceSHA256": "8d4bf01a90a27108de587dcf454cf6b3bd103ca163af30d519a8715f57f40c1f",
+          "bodyClass": "human",
+          "reference": "body"
         },
         "candidate": {
-          "top": 0.1514,
-          "bottom": 0.9814
+          "top": 0.0785,
+          "bottom": 0.9762
         },
-        "applied": "anatomical-candidate",
-        "reason": "candidate-agrees-with-reviewed-anatomy"
+        "pinned": true,
+        "applied": "reviewed-landmarks",
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -17350,55 +17237,52 @@
       "file": "tokens/mablung.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.0945,
-      "bottom": 0.9837,
-      "centerX": 0.456,
-      "centerY": 0.5175,
-      "worldReferenceSize": 70,
-      "sourceWidth": 359,
-      "sourceHeight": 420,
-      "sourceSHA256": "c7bf2b8837545f83e82a3061098651e4890685865ef0fd4321c628f03c1a45f0",
+      "top": 0.23,
+      "bottom": 0.88,
+      "centerX": 0.52,
+      "centerY": 0.555,
+      "worldReferenceSize": 86,
+      "sourceWidth": 335,
+      "sourceHeight": 384,
+      "sourceSHA256": "bf7b3014ec10241d2107311a159ff61aa706c747043d294d1340b329c8475e6f",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 13,
-        "cell": 23,
-        "landmarks": "body-only",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-boot; torso center",
         "source": "assets/mesbg/tokens/mablung.png"
       },
-      "calibration": "Body landmarks corrected by visual source review; weapon/plume/empty space excluded.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-boot; torso center",
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "body",
-        "sheet": 12,
-        "cell": 16,
         "source": "assets/mesbg/tokens/mablung.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
+          "top": 0.23,
+          "bottom": 0.88,
+          "worldReferenceSize": 86,
+          "sourceSHA256": "bf7b3014ec10241d2107311a159ff61aa706c747043d294d1340b329c8475e6f",
           "bodyClass": "human",
-          "reference": "body",
-          "top": 0.115,
-          "bottom": 0.92,
-          "worldReferenceSize": 70,
-          "sourceSHA256": "c7bf2b8837545f83e82a3061098651e4890685865ef0fd4321c628f03c1a45f0"
+          "reference": "body"
         },
         "candidate": {
-          "top": 0.0945,
-          "bottom": 0.9837
+          "top": 0.0459,
+          "bottom": 0.9775
         },
-        "applied": "anatomical-candidate",
-        "reason": "candidate-agrees-with-reviewed-anatomy"
+        "pinned": true,
+        "applied": "reviewed-landmarks",
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -17692,55 +17576,52 @@
       "file": "tokens/maeglin_mounted.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.025,
-      "bottom": 0.345,
-      "centerX": 0.4908,
-      "centerY": 0.5409,
+      "top": 0.09,
+      "bottom": 0.41,
+      "centerX": 0.53,
+      "centerY": 0.54,
       "worldReferenceSize": 43,
-      "sourceWidth": 371,
-      "sourceHeight": 500,
-      "sourceSHA256": "dcddc2be778f5c6b9bf5fb5191e27ac30a48c97f2e09213dcc481a063d8f8d7b",
+      "sourceWidth": 384,
+      "sourceHeight": 384,
+      "sourceSHA256": "abf8d89856c80dd810c1f5b24a3f9821ffdf5f26c03ecedd2b6fe0157dd1d5b3",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Individual visual crown-to-seated-pelvis measurement; excludes weapon, plume, cloak width and mount. Horse/body silhouette cross-check required.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-seated pelvis; combined saddle/mount torso center",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 2,
-        "cell": 21,
-        "landmarks": "crown-pelvis",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-seated pelvis; combined saddle/mount torso center",
         "source": "assets/mesbg/tokens/maeglin_mounted.png"
       },
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "rider-and-mount",
-        "sheet": 12,
-        "cell": 22,
         "source": "assets/mesbg/tokens/maeglin_mounted.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "human",
-          "reference": "rider",
-          "top": 0.025,
-          "bottom": 0.345,
+          "top": 0.09,
+          "bottom": 0.41,
           "worldReferenceSize": 43,
-          "sourceSHA256": "dcddc2be778f5c6b9bf5fb5191e27ac30a48c97f2e09213dcc481a063d8f8d7b"
+          "sourceSHA256": "abf8d89856c80dd810c1f5b24a3f9821ffdf5f26c03ecedd2b6fe0157dd1d5b3",
+          "bodyClass": "human",
+          "reference": "rider"
         },
         "candidate": {
-          "top": 0.1914,
-          "bottom": 0.4772
+          "top": 0.1836,
+          "bottom": 0.461
         },
+        "pinned": true,
         "applied": "reviewed-landmarks",
-        "reason": "automatic-landmark-outlier"
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -17749,55 +17630,52 @@
       "file": "tokens/maglor.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.01,
-      "bottom": 0.99,
-      "centerX": 0.5321,
-      "centerY": 0.495,
+      "top": 0.05,
+      "bottom": 0.85,
+      "centerX": 0.52,
+      "centerY": 0.45,
       "worldReferenceSize": 86,
-      "sourceWidth": 196,
-      "sourceHeight": 262,
-      "sourceSHA256": "39b64a680830327912d35766dde698cfef5dc8187b4eff05cf196a3007f0d47e",
+      "sourceWidth": 329,
+      "sourceHeight": 384,
+      "sourceSHA256": "103d7df36dc9904a8e46f4366b13cb6d4bee456c251ee1094ad08ea7c5ced577",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 14,
-        "cell": 4,
-        "landmarks": "body-only",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-boot; torso center",
         "source": "assets/mesbg/tokens/maglor.png"
       },
-      "calibration": "Body landmarks corrected by visual source review; weapon/plume/empty space excluded.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-boot; torso center",
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "body",
-        "sheet": 12,
-        "cell": 23,
         "source": "assets/mesbg/tokens/maglor.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "human",
-          "reference": "body",
-          "top": 0.03,
-          "bottom": 0.96,
+          "top": 0.05,
+          "bottom": 0.85,
           "worldReferenceSize": 86,
-          "sourceSHA256": "39b64a680830327912d35766dde698cfef5dc8187b4eff05cf196a3007f0d47e"
+          "sourceSHA256": "103d7df36dc9904a8e46f4366b13cb6d4bee456c251ee1094ad08ea7c5ced577",
+          "bodyClass": "human",
+          "reference": "body"
         },
         "candidate": {
-          "top": 0.01,
-          "bottom": 0.99
+          "top": 0.0212,
+          "bottom": 0.9866
         },
-        "applied": "anatomical-candidate",
-        "reason": "candidate-agrees-with-reviewed-anatomy"
+        "pinned": true,
+        "applied": "reviewed-landmarks",
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -19113,55 +18991,52 @@
       "file": "tokens/moria_goblin.png",
       "bodyClass": "goblin",
       "reference": "body",
-      "top": 0.0234,
-      "bottom": 0.9766,
-      "centerX": 0.5079,
-      "centerY": 0.5,
+      "top": 0.08,
+      "bottom": 0.92,
+      "centerX": 0.51,
+      "centerY": 0.51,
       "worldReferenceSize": 63,
-      "sourceWidth": 270,
-      "sourceHeight": 366,
-      "sourceSHA256": "dbe27f1e650a4ac0e52f13e99efa3788de6a314397576ec6a6377d6259acce0f",
-      "anatomicalCorrection": false,
+      "sourceWidth": 335,
+      "sourceHeight": 384,
+      "sourceSHA256": "012e091f97986770bb669be4572d27d06aae43203e0c020514bdd6a9e82c1f16",
+      "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 15,
-        "cell": 2,
-        "landmarks": "body-only",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-boot; torso center",
         "source": "assets/mesbg/tokens/moria_goblin.png"
       },
-      "calibration": "Individual source visually checked; existing body landmarks retained.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-boot; torso center",
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "body",
-        "sheet": 13,
-        "cell": 23,
         "source": "assets/mesbg/tokens/moria_goblin.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "goblin",
-          "reference": "body",
-          "top": 0.0234,
-          "bottom": 0.9766,
+          "top": 0.08,
+          "bottom": 0.92,
           "worldReferenceSize": 63,
-          "sourceSHA256": "dbe27f1e650a4ac0e52f13e99efa3788de6a314397576ec6a6377d6259acce0f"
+          "sourceSHA256": "012e091f97986770bb669be4572d27d06aae43203e0c020514bdd6a9e82c1f16",
+          "bodyClass": "goblin",
+          "reference": "body"
         },
         "candidate": {
-          "top": 0.3561,
-          "bottom": 0.99
+          "top": 0.4222,
+          "bottom": 0.9606
         },
+        "pinned": true,
         "applied": "reviewed-landmarks",
-        "reason": "automatic-landmark-outlier"
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -20479,55 +20354,52 @@
       "file": "tokens/numenorean_knight.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.0898,
-      "bottom": 0.4124,
-      "centerX": 0.447,
-      "centerY": 0.5275,
+      "top": 0.13,
+      "bottom": 0.43,
+      "centerX": 0.56,
+      "centerY": 0.55,
       "worldReferenceSize": 43,
-      "sourceWidth": 307,
-      "sourceHeight": 420,
-      "sourceSHA256": "d901860f33e3de0250dc991e82333b0092fee909c49d52c1441db424145d5e1a",
+      "sourceWidth": 384,
+      "sourceHeight": 370,
+      "sourceSHA256": "c1d351f10a029826c10cefa162b582ec79b700302a4c8a274ada600c3b2548d8",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Individual visual crown-to-seated-pelvis measurement; excludes weapon, plume, cloak width and mount. Horse/body silhouette cross-check required.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-seated pelvis; combined saddle/mount torso center",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 3,
-        "cell": 3,
-        "landmarks": "crown-pelvis",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-seated pelvis; combined saddle/mount torso center",
         "source": "assets/mesbg/tokens/numenorean_knight.png"
       },
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "rider-and-mount",
-        "sheet": 14,
-        "cell": 23,
         "source": "assets/mesbg/tokens/numenorean_knight.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "human",
-          "reference": "rider",
-          "top": 0.095,
-          "bottom": 0.355,
+          "top": 0.13,
+          "bottom": 0.43,
           "worldReferenceSize": 43,
-          "sourceSHA256": "d901860f33e3de0250dc991e82333b0092fee909c49d52c1441db424145d5e1a"
+          "sourceSHA256": "c1d351f10a029826c10cefa162b582ec79b700302a4c8a274ada600c3b2548d8",
+          "bodyClass": "human",
+          "reference": "rider"
         },
         "candidate": {
-          "top": 0.0898,
-          "bottom": 0.4124
+          "top": 0.1211,
+          "bottom": 0.424
         },
-        "applied": "anatomical-candidate",
-        "reason": "candidate-agrees-with-reviewed-anatomy"
+        "pinned": true,
+        "applied": "reviewed-landmarks",
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -21888,55 +21760,52 @@
       "file": "tokens/pallando.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.01,
-      "bottom": 0.99,
-      "centerX": 0.5342,
-      "centerY": 0.5227,
+      "top": 0.25,
+      "bottom": 0.94,
+      "centerX": 0.51,
+      "centerY": 0.595,
       "worldReferenceSize": 86,
-      "sourceWidth": 251,
-      "sourceHeight": 377,
-      "sourceSHA256": "c8303d2a8475d6775613aa41598852c3bf72de4add752fdc1adbdd2bcad95e99",
+      "sourceWidth": 335,
+      "sourceHeight": 384,
+      "sourceSHA256": "d15c5ae6a88c3866220784fa65aaba19e32115bb9cec0556b10fa5b747939f5e",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 16,
-        "cell": 23,
-        "landmarks": "body-only",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-boot; torso center",
         "source": "assets/mesbg/tokens/pallando.png"
       },
-      "calibration": "Body landmarks corrected by visual source review; weapon/plume/empty space excluded.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-boot; torso center",
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "body",
-        "sheet": 16,
-        "cell": 0,
         "source": "assets/mesbg/tokens/pallando.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "human",
-          "reference": "body",
-          "top": 0.05,
-          "bottom": 0.97,
+          "top": 0.25,
+          "bottom": 0.94,
           "worldReferenceSize": 86,
-          "sourceSHA256": "c8303d2a8475d6775613aa41598852c3bf72de4add752fdc1adbdd2bcad95e99"
+          "sourceSHA256": "d15c5ae6a88c3866220784fa65aaba19e32115bb9cec0556b10fa5b747939f5e",
+          "bodyClass": "human",
+          "reference": "body"
         },
         "candidate": {
           "top": 0.01,
           "bottom": 0.99
         },
-        "applied": "anatomical-candidate",
-        "reason": "candidate-agrees-with-reviewed-anatomy"
+        "pinned": true,
+        "applied": "reviewed-landmarks",
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -24506,55 +24375,52 @@
       "file": "tokens/thingol.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.01,
-      "bottom": 0.99,
-      "centerX": 0.4898,
-      "centerY": 0.4922,
+      "top": 0.08,
+      "bottom": 0.88,
+      "centerX": 0.51,
+      "centerY": 0.48,
       "worldReferenceSize": 95,
-      "sourceWidth": 280,
-      "sourceHeight": 366,
-      "sourceSHA256": "262bb94bce1bd5ef91be9aa6deea93637b8c1f93f1b968a3cb77fa404ab8d3cb",
-      "anatomicalCorrection": false,
+      "sourceWidth": 335,
+      "sourceHeight": 384,
+      "sourceSHA256": "ec15b269d806f668b6fdeee30c4835f818a3a57f14971dffaa451d7a780366a3",
+      "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 18,
-        "cell": 12,
-        "landmarks": "body-only",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-boot; torso center",
         "source": "assets/mesbg/tokens/thingol.png"
       },
-      "calibration": "Individual source visually checked; existing body landmarks retained.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-boot; torso center",
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "body",
-        "sheet": 17,
-        "cell": 22,
         "source": "assets/mesbg/tokens/thingol.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "human",
-          "reference": "body",
-          "top": 0.043,
-          "bottom": 0.9414,
+          "top": 0.08,
+          "bottom": 0.88,
           "worldReferenceSize": 95,
-          "sourceSHA256": "262bb94bce1bd5ef91be9aa6deea93637b8c1f93f1b968a3cb77fa404ab8d3cb"
+          "sourceSHA256": "ec15b269d806f668b6fdeee30c4835f818a3a57f14971dffaa451d7a780366a3",
+          "bodyClass": "human",
+          "reference": "body"
         },
         "candidate": {
           "top": 0.01,
           "bottom": 0.99
         },
-        "applied": "anatomical-candidate",
-        "reason": "candidate-agrees-with-reviewed-anatomy"
+        "pinned": true,
+        "applied": "reviewed-landmarks",
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -24563,55 +24429,52 @@
       "file": "tokens/thingol_mounted.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.02,
-      "bottom": 0.3679,
-      "centerX": 0.4806,
-      "centerY": 0.49,
+      "top": 0.13,
+      "bottom": 0.43,
+      "centerX": 0.55,
+      "centerY": 0.55,
       "worldReferenceSize": 43,
-      "sourceWidth": 255,
-      "sourceHeight": 508,
-      "sourceSHA256": "159aebfa1b87bc9d8fa50eabfb1247d334f32be81bfffe940930685513bb316a",
+      "sourceWidth": 384,
+      "sourceHeight": 349,
+      "sourceSHA256": "ef67ea619b0e6418d1392c0f7f4db123a71ddfd7cca441b9260502dc87b4df4c",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Individual visual crown-to-seated-pelvis measurement; excludes weapon, plume, cloak width and mount. Horse/body silhouette cross-check required.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-seated pelvis; combined saddle/mount torso center",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 3,
-        "cell": 13,
-        "landmarks": "crown-pelvis",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-seated pelvis; combined saddle/mount torso center",
         "source": "assets/mesbg/tokens/thingol_mounted.png"
       },
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "rider-and-mount",
-        "sheet": 17,
-        "cell": 23,
         "source": "assets/mesbg/tokens/thingol_mounted.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "human",
-          "reference": "rider",
-          "top": 0.025,
-          "bottom": 0.32,
+          "top": 0.13,
+          "bottom": 0.43,
           "worldReferenceSize": 43,
-          "sourceSHA256": "159aebfa1b87bc9d8fa50eabfb1247d334f32be81bfffe940930685513bb316a"
+          "sourceSHA256": "ef67ea619b0e6418d1392c0f7f4db123a71ddfd7cca441b9260502dc87b4df4c",
+          "bodyClass": "human",
+          "reference": "rider"
         },
         "candidate": {
-          "top": 0.02,
-          "bottom": 0.3679
+          "top": 0.0664,
+          "bottom": 0.3948
         },
-        "applied": "anatomical-candidate",
-        "reason": "candidate-agrees-with-reviewed-anatomy"
+        "pinned": true,
+        "applied": "reviewed-landmarks",
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -24848,55 +24711,52 @@
       "file": "tokens/thranduil_mounted.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.085,
-      "bottom": 0.34,
-      "centerX": 0.5,
-      "centerY": 0.52,
+      "top": 0.1,
+      "bottom": 0.4,
+      "centerX": 0.52,
+      "centerY": 0.54,
       "worldReferenceSize": 43,
-      "sourceWidth": 409,
-      "sourceHeight": 513,
-      "sourceSHA256": "10b3e13303bf6ade34b26115215e74b0602e1eba676c3f156dd6bee3beceda1a",
+      "sourceWidth": 384,
+      "sourceHeight": 355,
+      "sourceSHA256": "a7c300c56fde0deef85edc10d54c9dfe86e749aac654e4300bc5811bb3a61c23",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Individual visual crown-to-seated-pelvis measurement; excludes weapon, plume, cloak width and mount. Horse/body silhouette cross-check required.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-seated pelvis; combined saddle/mount torso center",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 3,
-        "cell": 14,
-        "landmarks": "crown-pelvis",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-seated pelvis; combined saddle/mount torso center",
         "source": "assets/mesbg/tokens/thranduil_mounted.png"
       },
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "rider-and-mount",
-        "sheet": 18,
-        "cell": 4,
         "source": "assets/mesbg/tokens/thranduil_mounted.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "human",
-          "reference": "rider",
-          "top": 0.085,
-          "bottom": 0.34,
+          "top": 0.1,
+          "bottom": 0.4,
           "worldReferenceSize": 43,
-          "sourceSHA256": "10b3e13303bf6ade34b26115215e74b0602e1eba676c3f156dd6bee3beceda1a"
+          "sourceSHA256": "a7c300c56fde0deef85edc10d54c9dfe86e749aac654e4300bc5811bb3a61c23",
+          "bodyClass": "human",
+          "reference": "rider"
         },
         "candidate": {
-          "top": 0.0508,
-          "bottom": 0.382
+          "top": 0.1211,
+          "bottom": 0.4212
         },
+        "pinned": true,
         "applied": "reviewed-landmarks",
-        "reason": "automatic-landmark-outlier"
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -25532,55 +25392,52 @@
       "file": "tokens/turin_mounted.png",
       "bodyClass": "human",
       "reference": "rider",
-      "top": 0.04,
-      "bottom": 0.34,
-      "centerX": 0.4706,
-      "centerY": 0.515,
+      "top": 0.12,
+      "bottom": 0.42,
+      "centerX": 0.54,
+      "centerY": 0.55,
       "worldReferenceSize": 44,
-      "sourceWidth": 349,
-      "sourceHeight": 500,
-      "sourceSHA256": "d6f3dccceb1d65c74dbff063d0582c69dc664e84a3037309e84fa10775d6608e",
+      "sourceWidth": 384,
+      "sourceHeight": 350,
+      "sourceSHA256": "efbf26f9ee34ef0c653af55f951c4f811a4252dcac92ce6094c1640f08ea9bc6",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": true,
       "referenceAxis": "height",
-      "calibration": "Individual visual crown-to-seated-pelvis measurement; excludes weapon, plume, cloak width and mount. Horse/body silhouette cross-check required.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-seated pelvis; combined saddle/mount torso center",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 3,
-        "cell": 18,
-        "landmarks": "crown-pelvis",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-seated pelvis; combined saddle/mount torso center",
         "source": "assets/mesbg/tokens/turin_mounted.png"
       },
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "rider-and-mount",
-        "sheet": 18,
-        "cell": 16,
         "source": "assets/mesbg/tokens/turin_mounted.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
+          "top": 0.12,
+          "bottom": 0.42,
+          "worldReferenceSize": 44,
+          "sourceSHA256": "efbf26f9ee34ef0c653af55f951c4f811a4252dcac92ce6094c1640f08ea9bc6",
           "bodyClass": "human",
-          "reference": "rider",
-          "top": 0.04,
-          "bottom": 0.34,
-          "worldReferenceSize": 43,
-          "sourceSHA256": "d6f3dccceb1d65c74dbff063d0582c69dc664e84a3037309e84fa10775d6608e"
+          "reference": "rider"
         },
         "candidate": {
-          "top": 0.418,
-          "bottom": 0.6216
+          "top": 0.1602,
+          "bottom": 0.4489
         },
+        "pinned": true,
         "applied": "reviewed-landmarks",
-        "reason": "automatic-landmark-outlier"
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -26614,55 +26471,52 @@
       "file": "tokens/vault_warden.png",
       "bodyClass": "dwarf",
       "reference": "body",
-      "top": 0.1495,
-      "bottom": 0.99,
-      "centerX": 0.4563,
-      "centerY": 0.5856,
+      "top": 0.2,
+      "bottom": 0.92,
+      "centerX": 0.48,
+      "centerY": 0.56,
       "worldReferenceSize": 58,
-      "sourceWidth": 179,
-      "sourceHeight": 253,
-      "sourceSHA256": "67efb16663a8eea78989c0a19688d1a349e1bfa64793e0199fe408ac474cf9b1",
+      "sourceWidth": 335,
+      "sourceHeight": 384,
+      "sourceSHA256": "365101dc5b37f86c9f310761dc19240a2e149efe45ab9bbd9748e2068cbc0241",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
-      "calibration": "Crown-to-foot height; no shoulder/cloak-width normalization.",
+      "calibration": "2026-10-19 full-roster redraw; manual grid review: crown-to-boot; torso center",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 19,
-        "cell": 17,
-        "landmarks": "body-only",
+        "date": "2026-10-19",
+        "landmarks": "crown-to-boot; torso center",
         "source": "assets/mesbg/tokens/vault_warden.png"
       },
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "body",
-        "sheet": 19,
-        "cell": 11,
         "source": "assets/mesbg/tokens/vault_warden.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "helmet crest",
+          "banner",
+          "antlers",
+          "cloak"
         ]
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
-          "bodyClass": "dwarf",
-          "reference": "body",
-          "top": 0.2055,
-          "bottom": 0.9658,
+          "top": 0.2,
+          "bottom": 0.92,
           "worldReferenceSize": 58,
-          "sourceSHA256": "67efb16663a8eea78989c0a19688d1a349e1bfa64793e0199fe408ac474cf9b1"
+          "sourceSHA256": "365101dc5b37f86c9f310761dc19240a2e149efe45ab9bbd9748e2068cbc0241",
+          "bodyClass": "dwarf",
+          "reference": "body"
         },
         "candidate": {
-          "top": 0.1495,
-          "bottom": 0.99
+          "top": 0.1349,
+          "bottom": 0.9667
         },
-        "applied": "anatomical-candidate",
-        "reason": "candidate-agrees-with-reviewed-anatomy"
+        "pinned": true,
+        "applied": "reviewed-landmarks",
+        "reason": "pinned-by-visual-review"
       }
     },
     {
