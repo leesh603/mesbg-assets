@@ -12,7 +12,7 @@ test('all 22 reviewed sprites have native RGBA dimensions, identical consumed co
   assert.deepEqual([b.readUInt32BE(16),b.readUInt32BE(20)],u.sourceSize);assert.equal(b[25],6);
   assert((u.issue==='user-selected'?Math.max(...u.sourceSize)<=1343:Math.max(...u.sourceSize)<=384));
   for(const k of ['root','source'])assert.deepEqual(fs.readFileSync(u.files[k]),b,u.id+' '+k);
-  const before=fs.readFileSync(u.files.before);assert.notEqual(hash(before),u.sourceSHA256,u.id+' replaced');
+  const before=fs.readFileSync(u.files.before);if(u.issue==='scale-only')assert.notDeepEqual(u.beforeProfile,u.artProfile);else assert.notEqual(hash(before),u.sourceSHA256,u.id+' replaced');
   assert(fs.readFileSync(u.files.thumbnail).subarray(0,4).equals(Buffer.from('RIFF')));
   const gallery=fs.readFileSync('gallery.html','utf8'),a=gallery.indexOf('<img src="tokens/'+u.id+'.png'),tag=gallery.slice(a,gallery.indexOf('>',a));
   assert(tag.includes('?v='+(u.revision||'quarter-redraw-20261019')),u.id+' gallery cache');assert(tag.includes('width:auto;'),u.id+' gallery aspect ratio');

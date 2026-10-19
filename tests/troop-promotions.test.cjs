@@ -57,3 +57,4 @@ test('a later version of the cost table does not reprice an existing trained sol
  const h=camp(),q=h.q,u=ready(q,'mt_swordshield');assert.equal(u.entryPoints,9);assert.equal(u.entryPointVersion,1);h.run('WARBAND_POINTS.version=2;UnitCatalog.mt_swordshield.points=11;');assert.equal(q.rosterPoints(),9);q.save();assert.equal(q.resume(),true);assert.equal(q.unit(u.uid).entryPoints,9);assert.equal(q.rosterPoints(),9);
 });
 
+

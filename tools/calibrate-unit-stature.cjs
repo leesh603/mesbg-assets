@@ -8,14 +8,14 @@ const crypto = require('node:crypto');
 
 const STATURE_TARGETS = {
   body: {
-    'hobbit': 54, 'goblin': 63, 'dwarf': 68, 'orc': 76, 'human': 86, 'elf': 88, 'uruk': 90,
+    'hobbit': 54, 'goblin': 63, 'dwarf': 68, 'orc': 76, 'human': 86, 'elf': 86, 'uruk': 90,
     'large-human': 98, 'large_human': 98, 'hound': 102, 'spider': 106, 'wolf': 116, 'warg': 116,
     'half-troll': 118, 'giant-humanoid': 144, 'eagle': 148, 'great-wolf': 152, 'drake': 170,
     'great-eagle': 172, 'troll': 176, 'great-spider': 186, 'ent': 214, 'fellbeast': 220,
     'balrog': 234, 'dark-lord': 248, 'great-beast': 264, 'dragon': 282, 'giant': 316, 'mumak': 356,
   },
   rider: {
-    'hobbit': 27, 'goblin': 32, 'dwarf': 36, 'orc': 39, 'human': 43, 'elf': 44,
+    'hobbit': 27, 'goblin': 32, 'dwarf': 37, 'orc': 39, 'human': 43, 'elf': 43,
     'uruk': 45, 'large-human': 50, 'large_human': 50,
   }
 };
@@ -32,13 +32,8 @@ const ANATOMICAL_RATIOS = {
   'large_human': { hPerTrunkW: 3.45, hPerSqrtArea: 1.80, harmonizeWeight: 0.34 },
 };
 
-const HERO_PHYSIQUE_BOOST = {
-  'elendil': 1.05, 'isildur': 1.04, 'gil_galad': 1.04, 'glorfindel': 1.03,
-  'fingolfin': 1.04, 'feanor': 1.03, 'ecthelion': 1.03, 'turin': 1.03,
-  'aragorn': 1.03, 'boromir': 1.04, 'imrahil': 1.03, 'eomer': 1.03,
-  'thorin': 1.03, 'dain': 1.04, 'durin': 1.04, 'dwalin': 1.03,
-  'lurtz': 1.04, 'ugluk': 1.03, 'azog': 1.05, 'bolg': 1.05, 'beorn': 1.06,
-};
+// Species and reviewed anatomy own stature; names and hero status never multiply it.
+const HERO_PHYSIQUE_BOOST = Object.freeze({});
 
 function paethPredictor(a, b, c) {
   const p = a + b - c, pa = Math.abs(p - a), pb = Math.abs(p - b), pc = Math.abs(p - c);
@@ -289,15 +284,14 @@ const GIANT_CLASSES = new Set(['fellbeast', 'mumak', 'dragon', 'drake', 'balrog'
 function resolveUnitClassAndTarget(unitId, auditEntry, rosterMeta) {
   let bodyClass = (auditEntry && auditEntry.bodyClass) || (rosterMeta && rosterMeta.race) || 'human';
   let mode = (auditEntry && auditEntry.reference) || 'body';
-  if (GIANT_CLASSES.has(bodyClass)) mode = 'body';
+  const reviewedMode = auditEntry && ['body', 'rider'].includes(auditEntry.reference);
+  if (reviewedMode) mode = auditEntry.reference;
+  else if (GIANT_CLASSES.has(bodyClass)) mode = 'body';
   else if (rosterMeta && (rosterMeta.mount === true || rosterMeta.mounted === true || rosterMeta.role === 'cavalry')) mode = 'rider';
   else if (/(_mounted|_rider|_cavalry|_kataphrakt|_outrider|_knights?_of_|morgul_knight|rohan_royal_guard_mounted|warg_rider)/i.test(unitId) && !/(_foot|fellbeast|mumak|chariot)/i.test(unitId)) mode = 'rider';
   if (/^sauron/i.test(unitId) && (bodyClass === 'large-human' || bodyClass === 'large_human' || bodyClass === 'human')) { bodyClass = 'giant-humanoid'; mode = 'body'; }
   const modeTable = STATURE_TARGETS[mode] || STATURE_TARGETS.body;
   let refSize = modeTable[bodyClass] || (mode === 'rider' ? 43 : 86);
-  for (const [k, boost] of Object.entries(HERO_PHYSIQUE_BOOST)) {
-    if (unitId === k || unitId.startsWith(k + '_')) { refSize = Math.round(refSize * boost); break; }
-  }
   return { bodyClass, mode, worldReferenceSize: refSize };
 }
 
@@ -389,3 +383,4 @@ function runCalibration(repoRoot, write = false) {
 
 module.exports = { STATURE_TARGETS, decodePNG, analyzeUnitAnatomy, resolveUnitClassAndTarget, calibrateUnit, runCalibration };
 if (require.main === module) runCalibration(path.join(__dirname, '..'), process.argv.includes('--write'));
+

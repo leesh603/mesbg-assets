@@ -1,0 +1,3627 @@
+{
+  "date": "2026-10-19",
+  "baseSHA": "17b1c8260b3edc6bf333d1b75067c24ba4ab11f5",
+  "revision": "scale-followup-20261019",
+  "units": [
+    {
+      "id": "abrakhan_guard",
+      "name": "아브라칸 근위대",
+      "role": "infantry",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        302,
+        398
+      ],
+      "sourceSHA256": "f80ab90682785abb27ca277a5781a0c4ce1b3d06232d77f246c1e965857a7c4d",
+      "beforeSHA256": "f80ab90682785abb27ca277a5781a0c4ce1b3d06232d77f246c1e965857a7c4d",
+      "beforeProfile": [
+        "human",
+        0.255,
+        0.95,
+        0.4588,
+        0.6025,
+        86,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.24,
+        0.95,
+        0.4588,
+        0.6025,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/abrakhan_guard.png",
+        "root": "tokens/abrakhan_guard.png",
+        "source": "art-src/scale-followup-20261019/abrakhan_guard.png",
+        "before": "art-src/scale-followup-20261019/before/abrakhan_guard.png",
+        "thumbnail": "assets/mesbg/thumbs/abrakhan_guard.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "anarion",
+      "name": "아나리온",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "f626f6c9f395b71863da605edccbd8dc2f9147545503c82b5ed6cacbf2045df7",
+      "beforeSHA256": "42e7d206f08af84abbc143573b3886dfdd602e60970ad1f533f69002e3f67892",
+      "beforeProfile": [
+        "human",
+        0.01,
+        0.99,
+        0.4615,
+        0.5,
+        86,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.11,
+        0.865,
+        0.51,
+        0.49,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/anarion.png",
+        "root": "tokens/anarion.png",
+        "source": "art-src/scale-followup-20261019/anarion.png",
+        "before": "art-src/scale-followup-20261019/before/anarion.png",
+        "thumbnail": "assets/mesbg/thumbs/anarion.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "aragorn",
+      "name": "아라곤",
+      "role": "hero",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        242,
+        366
+      ],
+      "sourceSHA256": "d1628dc428f63ef2a8061200132c59e1f0638603f02819384e3a44719f6389c2",
+      "beforeSHA256": "d1628dc428f63ef2a8061200132c59e1f0638603f02819384e3a44719f6389c2",
+      "beforeProfile": [
+        "human",
+        0.1013,
+        0.99,
+        0.3711,
+        0.5411,
+        89,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.1013,
+        0.99,
+        0.3711,
+        0.5411,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/aragorn.png",
+        "root": "tokens/aragorn.png",
+        "source": "art-src/scale-followup-20261019/aragorn.png",
+        "before": "art-src/scale-followup-20261019/before/aragorn.png",
+        "thumbnail": "assets/mesbg/thumbs/aragorn.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "aragorn_blackgate",
+      "name": "아라곤(검은문)",
+      "role": "hero",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        230,
+        366
+      ],
+      "sourceSHA256": "b2b9052aad9fbbb47ae1a23935a7e311b2946f3383d2bd9f880c0271bdbd25cd",
+      "beforeSHA256": "b2b9052aad9fbbb47ae1a23935a7e311b2946f3383d2bd9f880c0271bdbd25cd",
+      "beforeProfile": [
+        "human",
+        0.24,
+        0.945,
+        0.4304,
+        0.5925,
+        89,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.24,
+        0.945,
+        0.4304,
+        0.5925,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/aragorn_blackgate.png",
+        "root": "tokens/aragorn_blackgate.png",
+        "source": "art-src/scale-followup-20261019/aragorn_blackgate.png",
+        "before": "art-src/scale-followup-20261019/before/aragorn_blackgate.png",
+        "thumbnail": "assets/mesbg/thumbs/aragorn_blackgate.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "aragorn_blackgate_mounted",
+      "name": "아라곤(검은문·기마)",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "92f738c59fac40f7262ba39544723f76b061a93a67cecd066e66d32665a042b1",
+      "beforeSHA256": "6fdc4be9054d411a24952dd8cc29ce57a1099177088f333321ffdb86eba75fff",
+      "beforeProfile": [
+        "human",
+        0.2,
+        0.4,
+        0.48,
+        0.57,
+        32,
+        "rider"
+      ],
+      "artProfile": [
+        "human",
+        0.21,
+        0.45,
+        0.55,
+        0.52,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/aragorn_blackgate_mounted.png",
+        "root": "tokens/aragorn_blackgate_mounted.png",
+        "source": "art-src/scale-followup-20261019/aragorn_blackgate_mounted.png",
+        "before": "art-src/scale-followup-20261019/before/aragorn_blackgate_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/aragorn_blackgate_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "rider-and-mount",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "aragorn_mounted",
+      "name": "아라곤(기마)",
+      "role": "hero",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        440,
+        440
+      ],
+      "sourceSHA256": "2c0456296551892628054b2cb8ecd69444fd4a4b5b896ea105b2167ef4fa5525",
+      "beforeSHA256": "2c0456296551892628054b2cb8ecd69444fd4a4b5b896ea105b2167ef4fa5525",
+      "beforeProfile": [
+        "human",
+        0.2617,
+        0.5052,
+        0.4453,
+        0.615,
+        44,
+        "rider"
+      ],
+      "artProfile": [
+        "human",
+        0.2617,
+        0.5052,
+        0.4453,
+        0.615,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/aragorn_mounted.png",
+        "root": "tokens/aragorn_mounted.png",
+        "source": "art-src/scale-followup-20261019/aragorn_mounted.png",
+        "before": "art-src/scale-followup-20261019/before/aragorn_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/aragorn_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "rider-and-mount",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "arpharazon",
+      "name": "아르파라존",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "f2bebc610f227d18feae7d52946096050c3597a414b8d8a6ab5f1347886d2d50",
+      "beforeSHA256": "26bee8d0071bdb5cdf16424425cc550b7eecd0e95c31f2451dbb79b95e91fd97",
+      "beforeProfile": [
+        "human",
+        0.01,
+        0.99,
+        0.4843,
+        0.505,
+        86,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.15,
+        0.85,
+        0.51,
+        0.5,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/arpharazon.png",
+        "root": "tokens/arpharazon.png",
+        "source": "art-src/scale-followup-20261019/arpharazon.png",
+        "before": "art-src/scale-followup-20261019/before/arpharazon.png",
+        "thumbnail": "assets/mesbg/thumbs/arpharazon.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "azog",
+      "name": "아조그",
+      "role": "hero",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        364,
+        513
+      ],
+      "sourceSHA256": "bd7e5ffc23d6e330f5431edf10235152f10c792e4000fec06a5d4f94c417212f",
+      "beforeSHA256": "bd7e5ffc23d6e330f5431edf10235152f10c792e4000fec06a5d4f94c417212f",
+      "beforeProfile": [
+        "large-human",
+        0.0664,
+        0.3835,
+        0.4712,
+        0.515,
+        53,
+        "rider"
+      ],
+      "artProfile": [
+        "large-human",
+        0.0664,
+        0.3835,
+        0.4712,
+        0.515,
+        50,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/azog.png",
+        "root": "tokens/azog.png",
+        "source": "art-src/scale-followup-20261019/azog.png",
+        "before": "art-src/scale-followup-20261019/before/azog.png",
+        "thumbnail": "assets/mesbg/thumbs/azog.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "rider-and-mount",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "azog_foot",
+      "name": "아조그(도보)",
+      "role": "hero",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        304,
+        376
+      ],
+      "sourceSHA256": "b0b0c46aa3e001e181a078907a7a86e2c45d220b78e7c0fa5bcb051a9fb7df0b",
+      "beforeSHA256": "b0b0c46aa3e001e181a078907a7a86e2c45d220b78e7c0fa5bcb051a9fb7df0b",
+      "beforeProfile": [
+        "large-human",
+        0.3137,
+        0.99,
+        0.4746,
+        0.6404,
+        103,
+        "body"
+      ],
+      "artProfile": [
+        "large-human",
+        0.3137,
+        0.99,
+        0.4746,
+        0.6404,
+        98,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/azog_foot.png",
+        "root": "tokens/azog_foot.png",
+        "source": "art-src/scale-followup-20261019/azog_foot.png",
+        "before": "art-src/scale-followup-20261019/before/azog_foot.png",
+        "thumbnail": "assets/mesbg/thumbs/azog_foot.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "azog_warg_rider",
+      "name": "아조그(흰 와르그)",
+      "role": "hero",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        364,
+        513
+      ],
+      "sourceSHA256": "bd7e5ffc23d6e330f5431edf10235152f10c792e4000fec06a5d4f94c417212f",
+      "beforeSHA256": "bd7e5ffc23d6e330f5431edf10235152f10c792e4000fec06a5d4f94c417212f",
+      "beforeProfile": [
+        "large-human",
+        0.0664,
+        0.3835,
+        0.4712,
+        0.515,
+        53,
+        "rider"
+      ],
+      "artProfile": [
+        "large-human",
+        0.0664,
+        0.3835,
+        0.4712,
+        0.515,
+        50,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/azog_warg_rider.png",
+        "root": "tokens/azog_warg_rider.png",
+        "source": "art-src/scale-followup-20261019/azog_warg_rider.png",
+        "before": "art-src/scale-followup-20261019/before/azog_warg_rider.png",
+        "thumbnail": "assets/mesbg/thumbs/azog_warg_rider.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "rider-and-mount",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "bard",
+      "name": "바드",
+      "role": "hero",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        320,
+        274
+      ],
+      "sourceSHA256": "8da1c0c6f7d28e1c13ba0208baadcdb42786b25efc9abcf25054c74b612ec400",
+      "beforeSHA256": "8da1c0c6f7d28e1c13ba0208baadcdb42786b25efc9abcf25054c74b612ec400",
+      "beforeProfile": [
+        "human",
+        0.1176,
+        0.99,
+        0.5227,
+        0.5798,
+        70,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.1176,
+        0.99,
+        0.5227,
+        0.5798,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/bard.png",
+        "root": "tokens/bard.png",
+        "source": "art-src/scale-followup-20261019/bard.png",
+        "before": "art-src/scale-followup-20261019/before/bard.png",
+        "thumbnail": "assets/mesbg/thumbs/bard.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "beorn",
+      "name": "베오른",
+      "role": "hero",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        440,
+        440
+      ],
+      "sourceSHA256": "b9ae25a84217bed1ba5d56ceda65431c41fc010dd8efaa3517163691cba3830a",
+      "beforeSHA256": "b9ae25a84217bed1ba5d56ceda65431c41fc010dd8efaa3517163691cba3830a",
+      "beforeProfile": [
+        "large-human",
+        0.1849,
+        0.9792,
+        0.5,
+        0.5879,
+        104,
+        "body"
+      ],
+      "artProfile": [
+        "large-human",
+        0.1849,
+        0.9792,
+        0.5,
+        0.5879,
+        98,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/beorn.png",
+        "root": "tokens/beorn.png",
+        "source": "art-src/scale-followup-20261019/beorn.png",
+        "before": "art-src/scale-followup-20261019/before/beorn.png",
+        "thumbnail": "assets/mesbg/thumbs/beorn.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "bolg",
+      "name": "볼그",
+      "role": "hero",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        366,
+        362
+      ],
+      "sourceSHA256": "aa1c6150e2120391eddc3a3e95eaf1e21abdb6bbb045b910d3654a21413c9ee5",
+      "beforeSHA256": "aa1c6150e2120391eddc3a3e95eaf1e21abdb6bbb045b910d3654a21413c9ee5",
+      "beforeProfile": [
+        "large-human",
+        0.01,
+        0.99,
+        0.4922,
+        0.504,
+        103,
+        "body"
+      ],
+      "artProfile": [
+        "large-human",
+        0.01,
+        0.99,
+        0.4922,
+        0.504,
+        98,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/bolg.png",
+        "root": "tokens/bolg.png",
+        "source": "art-src/scale-followup-20261019/bolg.png",
+        "before": "art-src/scale-followup-20261019/before/bolg.png",
+        "thumbnail": "assets/mesbg/thumbs/bolg.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "bolg_mounted",
+      "name": "볼그(와르그)",
+      "role": "hero",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        418,
+        500
+      ],
+      "sourceSHA256": "d8a34bd95a57ca3bca04008f5603729ba737d08b41b6e984ef47265bcaf28c09",
+      "beforeSHA256": "d8a34bd95a57ca3bca04008f5603729ba737d08b41b6e984ef47265bcaf28c09",
+      "beforeProfile": [
+        "large-human",
+        0.1602,
+        0.4573,
+        0.486,
+        0.5075,
+        53,
+        "rider"
+      ],
+      "artProfile": [
+        "large-human",
+        0.1602,
+        0.4573,
+        0.486,
+        0.5075,
+        50,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/bolg_mounted.png",
+        "root": "tokens/bolg_mounted.png",
+        "source": "art-src/scale-followup-20261019/bolg_mounted.png",
+        "before": "art-src/scale-followup-20261019/before/bolg_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/bolg_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "rider-and-mount",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "boromir",
+      "name": "보로미르",
+      "role": "hero",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        414,
+        420
+      ],
+      "sourceSHA256": "7361e010a01511b4ebd77a6aa6243d2a30ee84ea8edd15d609f1afac61b4efd6",
+      "beforeSHA256": "7361e010a01511b4ebd77a6aa6243d2a30ee84ea8edd15d609f1afac61b4efd6",
+      "beforeProfile": [
+        "human",
+        0.01,
+        0.99,
+        0.5069,
+        0.5,
+        89,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.01,
+        0.99,
+        0.5069,
+        0.5,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/boromir.png",
+        "root": "tokens/boromir.png",
+        "source": "art-src/scale-followup-20261019/boromir.png",
+        "before": "art-src/scale-followup-20261019/before/boromir.png",
+        "thumbnail": "assets/mesbg/thumbs/boromir.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "boromir_mounted",
+      "name": "보로미르(기마)",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "69610d75686a2a92ef05c10c7946f7e04460d89af08b6b787058489c61fcc677",
+      "beforeSHA256": "15fbcd21721c4b35f64770e6882d136470bfdd4b08c68ee788fde6e1c7f56f6f",
+      "beforeProfile": [
+        "human",
+        0.207,
+        0.4871,
+        0.4941,
+        0.555,
+        45,
+        "rider"
+      ],
+      "artProfile": [
+        "human",
+        0.18,
+        0.43,
+        0.54,
+        0.52,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/boromir_mounted.png",
+        "root": "tokens/boromir_mounted.png",
+        "source": "art-src/scale-followup-20261019/boromir_mounted.png",
+        "before": "art-src/scale-followup-20261019/before/boromir_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/boromir_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "rider-and-mount",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "celeborn",
+      "name": "켈레보른",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "37758bf94d872f4107bd78d80d1573aa13b7586fb67a8fafb24d7fa0926df6be",
+      "beforeSHA256": "e366fc752e4952e50c4c58d40cd6798e663113058af59a9c215901dd12e89560",
+      "beforeProfile": [
+        "human",
+        0.0717,
+        0.944,
+        0.4734,
+        0.5078,
+        86,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.12,
+        0.85,
+        0.5,
+        0.49,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/celeborn.png",
+        "root": "tokens/celeborn.png",
+        "source": "art-src/scale-followup-20261019/celeborn.png",
+        "before": "art-src/scale-followup-20261019/before/celeborn.png",
+        "thumbnail": "assets/mesbg/thumbs/celeborn.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "dain",
+      "name": "데인",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "749ffa3672c2a6ef549428e93c905ea92cff38a573d61a54dbeb60b4050b3565",
+      "beforeSHA256": "2696dbbad24782065799bf3a03909bf5cf2ba4ae1b2189d4b40133fba5de2c72",
+      "beforeProfile": [
+        "dwarf",
+        0.2714,
+        0.99,
+        0.5122,
+        0.6426,
+        71,
+        "body"
+      ],
+      "artProfile": [
+        "dwarf",
+        0.29,
+        0.92,
+        0.52,
+        0.6,
+        68,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/dain.png",
+        "root": "tokens/dain.png",
+        "source": "art-src/scale-followup-20261019/dain.png",
+        "before": "art-src/scale-followup-20261019/before/dain.png",
+        "thumbnail": "assets/mesbg/thumbs/dain.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "dark_marshal_mounted",
+      "name": "다크 마샬(기마)",
+      "role": "hero",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        496,
+        500
+      ],
+      "sourceSHA256": "ee8a8b8b8649af60eb629b1492c191be1b29c538f45fa00c65a8457bd6f442a3",
+      "beforeSHA256": "ee8a8b8b8649af60eb629b1492c191be1b29c538f45fa00c65a8457bd6f442a3",
+      "beforeProfile": [
+        "large-human",
+        0.06,
+        0.335,
+        0.5748,
+        0.5075,
+        44,
+        "rider"
+      ],
+      "artProfile": [
+        "large-human",
+        0.06,
+        0.38,
+        0.5156,
+        0.515,
+        50,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/dark_marshal_mounted.png",
+        "root": "tokens/dark_marshal_mounted.png",
+        "source": "art-src/scale-followup-20261019/dark_marshal_mounted.png",
+        "before": "art-src/scale-followup-20261019/before/dark_marshal_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/dark_marshal_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "rider-and-mount",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "dol_amroth_knight",
+      "name": "돌 암로스 백조기사",
+      "role": "cavalry",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "84f2e0d8c4703e7f374649a38111ff58822dc41fae005751ddbad3fb334c768f",
+      "beforeSHA256": "09fa88a436fac2eaaa5c0b6972126826732a5aab03bb9f31e278de1f522c0adf",
+      "beforeProfile": [
+        "human",
+        0.0586,
+        0.3898,
+        0.5163,
+        0.4975,
+        43,
+        "rider"
+      ],
+      "artProfile": [
+        "human",
+        0.15,
+        0.44,
+        0.55,
+        0.52,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/dol_amroth_knight.png",
+        "root": "tokens/dol_amroth_knight.png",
+        "source": "art-src/scale-followup-20261019/dol_amroth_knight.png",
+        "before": "art-src/scale-followup-20261019/before/dol_amroth_knight.png",
+        "thumbnail": "assets/mesbg/thumbs/dol_amroth_knight.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "rider-and-mount",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "duilin",
+      "name": "두일린",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "488045ce8b4baaf3a9c117a90f44e8a7ab3a309ca1b123d512992c89015cfacf",
+      "beforeSHA256": "1ecb477526dbf2fffd4e70f296a702cafa91039c59184badc04d0c6e2f9ec7db",
+      "beforeProfile": [
+        "human",
+        0.0375,
+        0.986,
+        0.4389,
+        0.5145,
+        86,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.2,
+        0.9,
+        0.53,
+        0.55,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/duilin.png",
+        "root": "tokens/duilin.png",
+        "source": "art-src/scale-followup-20261019/duilin.png",
+        "before": "art-src/scale-followup-20261019/before/duilin.png",
+        "thumbnail": "assets/mesbg/thumbs/duilin.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "dunlending_berserker",
+      "name": "던랜드 광전사",
+      "role": "infantry",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        332,
+        366
+      ],
+      "sourceSHA256": "dc0d669dd0337e630869bc803323ec33cfadfcaf4aba4a46eae4f1e7680dc20b",
+      "beforeSHA256": "dc0d669dd0337e630869bc803323ec33cfadfcaf4aba4a46eae4f1e7680dc20b",
+      "beforeProfile": [
+        "large-human",
+        0.0352,
+        0.9805,
+        0.4741,
+        0.5078,
+        88,
+        "body"
+      ],
+      "artProfile": [
+        "large-human",
+        0.0352,
+        0.9805,
+        0.4741,
+        0.5078,
+        98,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/dunlending_berserker.png",
+        "root": "tokens/dunlending_berserker.png",
+        "source": "art-src/scale-followup-20261019/dunlending_berserker.png",
+        "before": "art-src/scale-followup-20261019/before/dunlending_berserker.png",
+        "thumbnail": "assets/mesbg/thumbs/dunlending_berserker.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "dunlending_shaman",
+      "name": "던랜드 주술사",
+      "role": "support",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        294,
+        366
+      ],
+      "sourceSHA256": "b59e31dab217f49af8d2e7d8c4e2a1c8cfd97fcf57d365ccb5c68a17764004b8",
+      "beforeSHA256": "b59e31dab217f49af8d2e7d8c4e2a1c8cfd97fcf57d365ccb5c68a17764004b8",
+      "beforeProfile": [
+        "human",
+        0.135,
+        0.95,
+        0.4274,
+        0.5425,
+        77,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.135,
+        0.95,
+        0.4274,
+        0.5425,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/dunlending_shaman.png",
+        "root": "tokens/dunlending_shaman.png",
+        "source": "art-src/scale-followup-20261019/dunlending_shaman.png",
+        "before": "art-src/scale-followup-20261019/before/dunlending_shaman.png",
+        "thumbnail": "assets/mesbg/thumbs/dunlending_shaman.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "dwalin",
+      "name": "드왈린",
+      "role": "hero",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        440,
+        440
+      ],
+      "sourceSHA256": "3bfec262454b0f69afa38b51636664b053db8542caa2d1ecffd75c6c3be0f39f",
+      "beforeSHA256": "3bfec262454b0f69afa38b51636664b053db8542caa2d1ecffd75c6c3be0f39f",
+      "beforeProfile": [
+        "dwarf",
+        0.2392,
+        0.99,
+        0.4922,
+        0.6211,
+        70,
+        "body"
+      ],
+      "artProfile": [
+        "dwarf",
+        0.2392,
+        0.99,
+        0.4922,
+        0.6211,
+        68,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/dwalin.png",
+        "root": "tokens/dwalin.png",
+        "source": "art-src/scale-followup-20261019/dwalin.png",
+        "before": "art-src/scale-followup-20261019/before/dwalin.png",
+        "thumbnail": "assets/mesbg/thumbs/dwalin.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "dwarf_2haxe",
+      "name": "드워프 양손도끼",
+      "role": "infantry",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        176,
+        246
+      ],
+      "sourceSHA256": "980378e6b73782c36594f95b71a5c7f8ed24759c970ad2ab8bf66d7b87fea502",
+      "beforeSHA256": "980378e6b73782c36594f95b71a5c7f8ed24759c970ad2ab8bf66d7b87fea502",
+      "beforeProfile": [
+        "dwarf",
+        0.395,
+        0.97,
+        0.5096,
+        0.6825,
+        58,
+        "body"
+      ],
+      "artProfile": [
+        "dwarf",
+        0.395,
+        0.97,
+        0.5096,
+        0.6825,
+        68,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/dwarf_2haxe.png",
+        "root": "tokens/dwarf_2haxe.png",
+        "source": "art-src/scale-followup-20261019/dwarf_2haxe.png",
+        "before": "art-src/scale-followup-20261019/before/dwarf_2haxe.png",
+        "thumbnail": "assets/mesbg/thumbs/dwarf_2haxe.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "dwarf_axeshield",
+      "name": "드워프 도끼방",
+      "role": "infantry",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        440,
+        440
+      ],
+      "sourceSHA256": "cab80e4dbbcef248a51d61620ec51aa339897606cfcc9c49625e6fad0103dc0b",
+      "beforeSHA256": "cab80e4dbbcef248a51d61620ec51aa339897606cfcc9c49625e6fad0103dc0b",
+      "beforeProfile": [
+        "dwarf",
+        0.2656,
+        0.9727,
+        0.5078,
+        0.6191,
+        58,
+        "body"
+      ],
+      "artProfile": [
+        "dwarf",
+        0.2656,
+        0.9727,
+        0.5078,
+        0.6191,
+        68,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/dwarf_axeshield.png",
+        "root": "tokens/dwarf_axeshield.png",
+        "source": "art-src/scale-followup-20261019/dwarf_axeshield.png",
+        "before": "art-src/scale-followup-20261019/before/dwarf_axeshield.png",
+        "thumbnail": "assets/mesbg/thumbs/dwarf_axeshield.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "dwarf_banner",
+      "name": "드워프 기수",
+      "role": "support",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        234,
+        329
+      ],
+      "sourceSHA256": "42d962b71d9fc72ccfe92851123aac628af725976327808af95e22a372488e3e",
+      "beforeSHA256": "42d962b71d9fc72ccfe92851123aac628af725976327808af95e22a372488e3e",
+      "beforeProfile": [
+        "dwarf",
+        0.41,
+        0.97,
+        0.3173,
+        0.69,
+        58,
+        "body"
+      ],
+      "artProfile": [
+        "dwarf",
+        0.41,
+        0.97,
+        0.3173,
+        0.69,
+        68,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/dwarf_banner.png",
+        "root": "tokens/dwarf_banner.png",
+        "source": "art-src/scale-followup-20261019/dwarf_banner.png",
+        "before": "art-src/scale-followup-20261019/before/dwarf_banner.png",
+        "thumbnail": "assets/mesbg/thumbs/dwarf_banner.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "dwarf_guardian",
+      "name": "드워프 가디언",
+      "role": "infantry",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        440,
+        440
+      ],
+      "sourceSHA256": "ac0079e97aa273b53fbf5725e3dea2dd67d9818b063a3f84b4e56aef67067318",
+      "beforeSHA256": "ac0079e97aa273b53fbf5725e3dea2dd67d9818b063a3f84b4e56aef67067318",
+      "beforeProfile": [
+        "dwarf",
+        0.231,
+        0.99,
+        0.4883,
+        0.6211,
+        58,
+        "body"
+      ],
+      "artProfile": [
+        "dwarf",
+        0.231,
+        0.99,
+        0.4883,
+        0.6211,
+        68,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/dwarf_guardian.png",
+        "root": "tokens/dwarf_guardian.png",
+        "source": "art-src/scale-followup-20261019/dwarf_guardian.png",
+        "before": "art-src/scale-followup-20261019/before/dwarf_guardian.png",
+        "thumbnail": "assets/mesbg/thumbs/dwarf_guardian.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "dwarf_ranger",
+      "name": "드워프 레인저",
+      "role": "infantry",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        440,
+        440
+      ],
+      "sourceSHA256": "fdce881afbde495f9875b8bec520047e145d2b5490e3467defbfd18787817115",
+      "beforeSHA256": "fdce881afbde495f9875b8bec520047e145d2b5490e3467defbfd18787817115",
+      "beforeProfile": [
+        "dwarf",
+        0.231,
+        0.99,
+        0.4453,
+        0.6191,
+        58,
+        "body"
+      ],
+      "artProfile": [
+        "dwarf",
+        0.231,
+        0.99,
+        0.4453,
+        0.6191,
+        68,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/dwarf_ranger.png",
+        "root": "tokens/dwarf_ranger.png",
+        "source": "art-src/scale-followup-20261019/dwarf_ranger.png",
+        "before": "art-src/scale-followup-20261019/before/dwarf_ranger.png",
+        "thumbnail": "assets/mesbg/thumbs/dwarf_ranger.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "dwarf_shieldbearers",
+      "name": "드워프 방패 운반병",
+      "role": "support",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        358,
+        420
+      ],
+      "sourceSHA256": "13e9c1140a57955953a018e092b1d638e25e3024a52c80416cbebedca5dfeaf2",
+      "beforeSHA256": "13e9c1140a57955953a018e092b1d638e25e3024a52c80416cbebedca5dfeaf2",
+      "beforeProfile": [
+        "dwarf",
+        0.2714,
+        0.99,
+        0.4862,
+        0.6445,
+        58,
+        "body"
+      ],
+      "artProfile": [
+        "dwarf",
+        0.2714,
+        0.99,
+        0.4862,
+        0.6445,
+        68,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/dwarf_shieldbearers.png",
+        "root": "tokens/dwarf_shieldbearers.png",
+        "source": "art-src/scale-followup-20261019/dwarf_shieldbearers.png",
+        "before": "art-src/scale-followup-20261019/before/dwarf_shieldbearers.png",
+        "thumbnail": "assets/mesbg/thumbs/dwarf_shieldbearers.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "elendil",
+      "name": "엘렌딜",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "3d6d0380c24d6e0358ed48ee6445ae0029803e7f46457142ae123dbb1d51b061",
+      "beforeSHA256": "d2a334522fb66015e3cdbad8531f62723cff4d136f5016574e37b47041dbb158",
+      "beforeProfile": [
+        "human",
+        0.0707,
+        0.9684,
+        0.4472,
+        0.4825,
+        90,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.2,
+        0.91,
+        0.5,
+        0.55,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/elendil.png",
+        "root": "tokens/elendil.png",
+        "source": "art-src/scale-followup-20261019/elendil.png",
+        "before": "art-src/scale-followup-20261019/before/elendil.png",
+        "thumbnail": "assets/mesbg/thumbs/elendil.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "elladan",
+      "name": "엘라단",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "2507a07e17ed8f88cc01ccc9ebcda76c3d39daf4bfb3245312841e8c1fade93c",
+      "beforeSHA256": "8d35a82043c5ef1aab3e151e914ac6aefa0927faba9aca2fb802a228823c3a0d",
+      "beforeProfile": [
+        "human",
+        0.01,
+        0.99,
+        0.4438,
+        0.5182,
+        86,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.1,
+        0.91,
+        0.51,
+        0.51,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/elladan.png",
+        "root": "tokens/elladan.png",
+        "source": "art-src/scale-followup-20261019/elladan.png",
+        "before": "art-src/scale-followup-20261019/before/elladan.png",
+        "thumbnail": "assets/mesbg/thumbs/elladan.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "elrohir",
+      "name": "엘로히르",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "869d28605af9a27c82ffec2d60b2005366cefd3e5a034bcf81cde455d25d8797",
+      "beforeSHA256": "f1b5eb0f55f6d1941779d0efa4db09495bc42205d65a8788969a3908aaf0fcba",
+      "beforeProfile": [
+        "human",
+        0.01,
+        0.99,
+        0.4583,
+        0.5045,
+        86,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.12,
+        0.85,
+        0.5,
+        0.5,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/elrohir.png",
+        "root": "tokens/elrohir.png",
+        "source": "art-src/scale-followup-20261019/elrohir.png",
+        "before": "art-src/scale-followup-20261019/before/elrohir.png",
+        "thumbnail": "assets/mesbg/thumbs/elrohir.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "eol",
+      "name": "에올",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "ecf45d809522b68271fb36e2f5e531db1c3497c24d5a7c39917d47f7a0ef64ab",
+      "beforeSHA256": "279ee01a06fc467f655dbd41cf4f5b3296f8de08f2484266885aaa4356010a2e",
+      "beforeProfile": [
+        "human",
+        0.01,
+        0.99,
+        0.5097,
+        0.498,
+        86,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.09,
+        0.9,
+        0.5,
+        0.5,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/eol.png",
+        "root": "tokens/eol.png",
+        "source": "art-src/scale-followup-20261019/eol.png",
+        "before": "art-src/scale-followup-20261019/before/eol.png",
+        "thumbnail": "assets/mesbg/thumbs/eol.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "eomer",
+      "name": "에오메르(기마)",
+      "role": "hero",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        368,
+        513
+      ],
+      "sourceSHA256": "2051ac1179386101c721789a38449a86d953e48fe10d93de4ea0326a00b9bbf3",
+      "beforeSHA256": "2051ac1179386101c721789a38449a86d953e48fe10d93de4ea0326a00b9bbf3",
+      "beforeProfile": [
+        "human",
+        0.15,
+        0.4,
+        0.5429,
+        0.535,
+        44,
+        "rider"
+      ],
+      "artProfile": [
+        "human",
+        0.15,
+        0.4,
+        0.5429,
+        0.535,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/eomer.png",
+        "root": "tokens/eomer.png",
+        "source": "art-src/scale-followup-20261019/eomer.png",
+        "before": "art-src/scale-followup-20261019/before/eomer.png",
+        "thumbnail": "assets/mesbg/thumbs/eomer.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "rider-and-mount",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "eomer_foot",
+      "name": "에오메르(도보)",
+      "role": "hero",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        332,
+        377
+      ],
+      "sourceSHA256": "d44c1b9edd4a0ed8ccbcbf9f8a9e9d3c5f37e52a7d051d760ecc889e4f4b8fa2",
+      "beforeSHA256": "d44c1b9edd4a0ed8ccbcbf9f8a9e9d3c5f37e52a7d051d760ecc889e4f4b8fa2",
+      "beforeProfile": [
+        "human",
+        0.2009,
+        0.9631,
+        0.4651,
+        0.5275,
+        89,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.2009,
+        0.9631,
+        0.4651,
+        0.5275,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/eomer_foot.png",
+        "root": "tokens/eomer_foot.png",
+        "source": "art-src/scale-followup-20261019/eomer_foot.png",
+        "before": "art-src/scale-followup-20261019/before/eomer_foot.png",
+        "thumbnail": "assets/mesbg/thumbs/eomer_foot.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "feanor",
+      "name": "페아노르",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "b5da63c07d2bffaa0eeef12196e5a1656146e2a1678ad7c02d6a01e53e5fc4a4",
+      "beforeSHA256": "8b659e507588b265d4f3a258ced478f2ee8f4314506a7ac6bc5a20840768dd48",
+      "beforeProfile": [
+        "human",
+        0.04,
+        0.965,
+        0.572,
+        0.5,
+        89,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.1,
+        0.885,
+        0.56,
+        0.49,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/feanor.png",
+        "root": "tokens/feanor.png",
+        "source": "art-src/scale-followup-20261019/feanor.png",
+        "before": "art-src/scale-followup-20261019/before/feanor.png",
+        "thumbnail": "assets/mesbg/thumbs/feanor.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "feanor_mounted",
+      "name": "페아노르(기마)",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "76144c000cad124e7e73bcdc5a179e775b441b836c00ab0f1d97204d2935614b",
+      "beforeSHA256": "b2c7d9d13f40433c2e2b225e9f43240af07207ff3b984ab2e772780e35043b94",
+      "beforeProfile": [
+        "human",
+        0.055,
+        0.35,
+        0.568,
+        0.5091,
+        44,
+        "rider"
+      ],
+      "artProfile": [
+        "human",
+        0.16,
+        0.45,
+        0.54,
+        0.51,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/feanor_mounted.png",
+        "root": "tokens/feanor_mounted.png",
+        "source": "art-src/scale-followup-20261019/feanor_mounted.png",
+        "before": "art-src/scale-followup-20261019/before/feanor_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/feanor_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "rider-and-mount",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "fingolfin",
+      "name": "핑골핀",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "42065cee79a11691924aa9d8175b1db85baedd4d6274ab9b854f7e7a343b745d",
+      "beforeSHA256": "7a05528de4ed6ae10e9fc6028e11b76ea6906b440cb9709cca73b067d2a173e3",
+      "beforeProfile": [
+        "human",
+        0.01,
+        0.99,
+        0.433,
+        0.502,
+        89,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.14,
+        0.88,
+        0.51,
+        0.51,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/fingolfin.png",
+        "root": "tokens/fingolfin.png",
+        "source": "art-src/scale-followup-20261019/fingolfin.png",
+        "before": "art-src/scale-followup-20261019/before/fingolfin.png",
+        "thumbnail": "assets/mesbg/thumbs/fingolfin.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "fingolfin_mounted",
+      "name": "핑골핀 (기마)",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "0334701df069c8e5cd8de142416ba682c91aaed1494790eb7143dd74e1c39282",
+      "beforeSHA256": "6fba572911ef8c1e86f9bb20de97985041804eb0f441278e38fc1d17f066441a",
+      "beforeProfile": [
+        "human",
+        0.1523,
+        0.444,
+        0.4961,
+        0.555,
+        45,
+        "rider"
+      ],
+      "artProfile": [
+        "human",
+        0.17,
+        0.44,
+        0.55,
+        0.52,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/fingolfin_mounted.png",
+        "root": "tokens/fingolfin_mounted.png",
+        "source": "art-src/scale-followup-20261019/fingolfin_mounted.png",
+        "before": "art-src/scale-followup-20261019/before/fingolfin_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/fingolfin_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "rider-and-mount",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "finrod_felagund",
+      "name": "핀로드 펠라군드",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "693fb8b6ba631ca96f0efc64cadcf92a28bc4ac12a2290bf1386a8d0d87cde3e",
+      "beforeSHA256": "5f01ee163c57d1228cdc56d76711fdfa6860b11840563d169cdfb6280d85f0bb",
+      "beforeProfile": [
+        "human",
+        0.01,
+        0.99,
+        0.4685,
+        0.502,
+        86,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.12,
+        0.85,
+        0.5,
+        0.49,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/finrod_felagund.png",
+        "root": "tokens/finrod_felagund.png",
+        "source": "art-src/scale-followup-20261019/finrod_felagund.png",
+        "before": "art-src/scale-followup-20261019/before/finrod_felagund.png",
+        "thumbnail": "assets/mesbg/thumbs/finrod_felagund.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "finrod_felagund_mounted",
+      "name": "핀로드(기마)",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "151e11dbf985e85a353c6ac8a7435c2bfd6356e215641c4b35b031152797a2fc",
+      "beforeSHA256": "49d8d2ca12110b9466983abd6cb2ea9005fcffbac77461a3449bbe6f82e297ef",
+      "beforeProfile": [
+        "human",
+        0.1211,
+        0.4324,
+        0.5,
+        0.54,
+        43,
+        "rider"
+      ],
+      "artProfile": [
+        "human",
+        0.16,
+        0.45,
+        0.55,
+        0.52,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/finrod_felagund_mounted.png",
+        "root": "tokens/finrod_felagund_mounted.png",
+        "source": "art-src/scale-followup-20261019/finrod_felagund_mounted.png",
+        "before": "art-src/scale-followup-20261019/before/finrod_felagund_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/finrod_felagund_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "rider-and-mount",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "gandalf",
+      "name": "간달프",
+      "role": "hero",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        246,
+        362
+      ],
+      "sourceSHA256": "5082a8699f494a3e003a73f613bf3c0b3ebad22d64f07d5faf9b3530d0165590",
+      "beforeSHA256": "5082a8699f494a3e003a73f613bf3c0b3ebad22d64f07d5faf9b3530d0165590",
+      "beforeProfile": [
+        "human",
+        0.0932,
+        0.99,
+        0.5933,
+        0.5773,
+        99,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.0932,
+        0.99,
+        0.5933,
+        0.5773,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/gandalf.png",
+        "root": "tokens/gandalf.png",
+        "source": "art-src/scale-followup-20261019/gandalf.png",
+        "before": "art-src/scale-followup-20261019/before/gandalf.png",
+        "thumbnail": "assets/mesbg/thumbs/gandalf.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "gandalf_white",
+      "name": "간달프(백색)",
+      "role": "hero",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        284,
+        366
+      ],
+      "sourceSHA256": "6a11a50cedf82deb5366dd13c6368b375b5c9606e41a014efdb5ef2b533405c6",
+      "beforeSHA256": "6a11a50cedf82deb5366dd13c6368b375b5c9606e41a014efdb5ef2b533405c6",
+      "beforeProfile": [
+        "human",
+        0.25,
+        0.96,
+        0.462,
+        0.5409,
+        82,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.25,
+        0.96,
+        0.462,
+        0.5409,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/gandalf_white.png",
+        "root": "tokens/gandalf_white.png",
+        "source": "art-src/scale-followup-20261019/gandalf_white.png",
+        "before": "art-src/scale-followup-20261019/before/gandalf_white.png",
+        "thumbnail": "assets/mesbg/thumbs/gandalf_white.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "gil_galad_mounted",
+      "name": "길갈라드(기마)",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "c977c7fb5c62aa3bb125b77d235d587894d35c2e3700f9d7818eb60b2523518a",
+      "beforeSHA256": "0db19f6492f577791e3df7219184b808c9fe966ca23a0e06cc00b07e3d8719a5",
+      "beforeProfile": [
+        "human",
+        0.025,
+        0.34,
+        0.3636,
+        0.5,
+        45,
+        "rider"
+      ],
+      "artProfile": [
+        "human",
+        0.15,
+        0.44,
+        0.55,
+        0.52,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/gil_galad_mounted.png",
+        "root": "tokens/gil_galad_mounted.png",
+        "source": "art-src/scale-followup-20261019/gil_galad_mounted.png",
+        "before": "art-src/scale-followup-20261019/before/gil_galad_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/gil_galad_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "rider-and-mount",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "glorfindel_foot",
+      "name": "글로르핀델(도보)",
+      "role": "hero",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        319,
+        366
+      ],
+      "sourceSHA256": "9dcb71e7b2455c8d7e7f068047023f141cb5711389c3b351dfbf6ba3cb5fa0db",
+      "beforeSHA256": "9dcb71e7b2455c8d7e7f068047023f141cb5711389c3b351dfbf6ba3cb5fa0db",
+      "beforeProfile": [
+        "human",
+        0.1164,
+        0.9384,
+        0.5039,
+        0.5274,
+        86,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.0355,
+        0.9384,
+        0.5039,
+        0.5274,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/glorfindel_foot.png",
+        "root": "tokens/glorfindel_foot.png",
+        "source": "art-src/scale-followup-20261019/glorfindel_foot.png",
+        "before": "art-src/scale-followup-20261019/before/glorfindel_foot.png",
+        "thumbnail": "assets/mesbg/thumbs/glorfindel_foot.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "glorfindel_mounted",
+      "name": "글로르핀델(기마)",
+      "role": "hero",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        344,
+        374
+      ],
+      "sourceSHA256": "7adbdac2f399155666c082adcdbb67baa6d7d568eef402234dcea2b2422ab46f",
+      "beforeSHA256": "7adbdac2f399155666c082adcdbb67baa6d7d568eef402234dcea2b2422ab46f",
+      "beforeProfile": [
+        "human",
+        0.095,
+        0.38,
+        0.5396,
+        0.5091,
+        44,
+        "rider"
+      ],
+      "artProfile": [
+        "human",
+        0.055,
+        0.38,
+        0.5396,
+        0.5091,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/glorfindel_mounted.png",
+        "root": "tokens/glorfindel_mounted.png",
+        "source": "art-src/scale-followup-20261019/glorfindel_mounted.png",
+        "before": "art-src/scale-followup-20261019/before/glorfindel_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/glorfindel_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "rider-and-mount",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "goat_rider",
+      "name": "산양 기수",
+      "role": "cavalry",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        276,
+        420
+      ],
+      "sourceSHA256": "63a63e73dc776bdf6e0dda16267590b0bff0b1a1abc98e4946493ea5c4c2408c",
+      "beforeSHA256": "63a63e73dc776bdf6e0dda16267590b0bff0b1a1abc98e4946493ea5c4c2408c",
+      "beforeProfile": [
+        "dwarf",
+        0.1758,
+        0.4646,
+        0.5104,
+        0.59,
+        36,
+        "rider"
+      ],
+      "artProfile": [
+        "dwarf",
+        0.1758,
+        0.4646,
+        0.5104,
+        0.59,
+        37,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/goat_rider.png",
+        "root": "tokens/goat_rider.png",
+        "source": "art-src/scale-followup-20261019/goat_rider.png",
+        "before": "art-src/scale-followup-20261019/before/goat_rider.png",
+        "thumbnail": "assets/mesbg/thumbs/goat_rider.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "rider-and-mount",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "golden_king",
+      "name": "아브라칸의 황금왕",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "e973e9ce416d3c8d0b98e7922828e8925361511cc3e9de992c27351a0fd86b9d",
+      "beforeSHA256": "94e106d3c7d0e4650ccb57321751db444c9df08ff138ee1ff880eb2d8a2f3a0e",
+      "beforeProfile": [
+        "human",
+        0.01,
+        0.99,
+        0.449,
+        0.515,
+        86,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.18,
+        0.84,
+        0.5,
+        0.51,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/golden_king.png",
+        "root": "tokens/golden_king.png",
+        "source": "art-src/scale-followup-20261019/golden_king.png",
+        "before": "art-src/scale-followup-20261019/before/golden_king.png",
+        "thumbnail": "assets/mesbg/thumbs/golden_king.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "gondor_knight",
+      "name": "곤도르 기병",
+      "role": "cavalry",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "ce6b1eade0f9b287d2193f7550bf459c54b206246f42a340574d8bbefba8c29e",
+      "beforeSHA256": "82a8fe370c7008b8349d15c463aea6af96483e6cd113aab5f0fbe3b673ce958d",
+      "beforeProfile": [
+        "human",
+        0.0586,
+        0.3757,
+        0.5099,
+        0.4975,
+        43,
+        "rider"
+      ],
+      "artProfile": [
+        "human",
+        0.16,
+        0.45,
+        0.55,
+        0.52,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/gondor_knight.png",
+        "root": "tokens/gondor_knight.png",
+        "source": "art-src/scale-followup-20261019/gondor_knight.png",
+        "before": "art-src/scale-followup-20261019/before/gondor_knight.png",
+        "thumbnail": "assets/mesbg/thumbs/gondor_knight.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "rider-and-mount",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "gothmog",
+      "name": "고스모그",
+      "role": "hero",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        440,
+        440
+      ],
+      "sourceSHA256": "c9329ff3040c4a2c3f889d53cb17f195edc5f637716abd279fb6dde9b2ad3927",
+      "beforeSHA256": "c9329ff3040c4a2c3f889d53cb17f195edc5f637716abd279fb6dde9b2ad3927",
+      "beforeProfile": [
+        "orc",
+        0.2171,
+        0.986,
+        0.5985,
+        0.6075,
+        103,
+        "body"
+      ],
+      "artProfile": [
+        "orc",
+        0.2171,
+        0.986,
+        0.5985,
+        0.6075,
+        76,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/gothmog.png",
+        "root": "tokens/gothmog.png",
+        "source": "art-src/scale-followup-20261019/gothmog.png",
+        "before": "art-src/scale-followup-20261019/before/gothmog.png",
+        "thumbnail": "assets/mesbg/thumbs/gothmog.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "guthlaf",
+      "name": "구슬라프",
+      "role": "hero",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        268,
+        366
+      ],
+      "sourceSHA256": "8332028d4bc0f72d6117728d01311ca07cdd795c965b27b3683311df4528c71b",
+      "beforeSHA256": "8332028d4bc0f72d6117728d01311ca07cdd795c965b27b3683311df4528c71b",
+      "beforeProfile": [
+        "human",
+        0.435,
+        0.965,
+        0.4969,
+        0.6136,
+        77,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.335,
+        0.965,
+        0.5,
+        0.6025,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/guthlaf.png",
+        "root": "tokens/guthlaf.png",
+        "source": "art-src/scale-followup-20261019/guthlaf.png",
+        "before": "art-src/scale-followup-20261019/before/guthlaf.png",
+        "thumbnail": "assets/mesbg/thumbs/guthlaf.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "imrahil",
+      "name": "임라힐",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "39f39850175a50500bbfa01b72dd03e076ec6cd10abffed13ae275413a34d564",
+      "beforeSHA256": "c45a73cd869107ec89b1ca25fc48c859f70080ed6be36b94a7335aa6e083fdc7",
+      "beforeProfile": [
+        "human",
+        0.01,
+        0.99,
+        0.4727,
+        0.5039,
+        89,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.12,
+        0.85,
+        0.52,
+        0.49,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/imrahil.png",
+        "root": "tokens/imrahil.png",
+        "source": "art-src/scale-followup-20261019/imrahil.png",
+        "before": "art-src/scale-followup-20261019/before/imrahil.png",
+        "thumbnail": "assets/mesbg/thumbs/imrahil.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "imrahil_mounted",
+      "name": "임라힐(기마)",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "50bed41465d42411362cb1933a59c085e101b5a7147f4b01eeba461414d7c9d4",
+      "beforeSHA256": "e28a2019def0197e2c21e60f2616f54845620833ce8a495f4d4418d3ca98906b",
+      "beforeProfile": [
+        "human",
+        0.11,
+        0.39,
+        0.6,
+        0.54,
+        43,
+        "rider"
+      ],
+      "artProfile": [
+        "human",
+        0.14,
+        0.46,
+        0.55,
+        0.52,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/imrahil_mounted.png",
+        "root": "tokens/imrahil_mounted.png",
+        "source": "art-src/scale-followup-20261019/imrahil_mounted.png",
+        "before": "art-src/scale-followup-20261019/before/imrahil_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/imrahil_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "rider-and-mount",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "ingold",
+      "name": "잉골드",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "c38b99077c2f065ec16ecafadd007bffe0416fa8fe75a0c47b6b0f9fced4d77e",
+      "beforeSHA256": "292e7c9b957e38851b99eb003b76f7da2e169f655469eff4ce343db049f085d5",
+      "beforeProfile": [
+        "human",
+        0.0218,
+        0.9703,
+        0.5023,
+        0.4961,
+        86,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.1,
+        0.91,
+        0.52,
+        0.51,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/ingold.png",
+        "root": "tokens/ingold.png",
+        "source": "art-src/scale-followup-20261019/ingold.png",
+        "before": "art-src/scale-followup-20261019/before/ingold.png",
+        "thumbnail": "assets/mesbg/thumbs/ingold.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "iron_guard",
+      "name": "아이언 가드",
+      "role": "infantry",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        440,
+        440
+      ],
+      "sourceSHA256": "6748d8d70de7bfd5b0b0ecada3b9d73fce14bd6361c8d6a585d776d1d0b8b331",
+      "beforeSHA256": "6748d8d70de7bfd5b0b0ecada3b9d73fce14bd6361c8d6a585d776d1d0b8b331",
+      "beforeProfile": [
+        "dwarf",
+        0.231,
+        0.99,
+        0.4961,
+        0.6191,
+        58,
+        "body"
+      ],
+      "artProfile": [
+        "dwarf",
+        0.231,
+        0.99,
+        0.4961,
+        0.6191,
+        68,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/iron_guard.png",
+        "root": "tokens/iron_guard.png",
+        "source": "art-src/scale-followup-20261019/iron_guard.png",
+        "before": "art-src/scale-followup-20261019/before/iron_guard.png",
+        "thumbnail": "assets/mesbg/thumbs/iron_guard.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "isildur",
+      "name": "이실두르",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "bb5c49a9b1d22496f8d9d400197b9b8331d91c0bc0645c5b351bc4c7f9a1f0fa",
+      "beforeSHA256": "62d4df432adfecedcd015f3d3d993e483bcf2f53c8005927ad96ada125e0ddcb",
+      "beforeProfile": [
+        "human",
+        0.2579,
+        0.9608,
+        0.4479,
+        0.585,
+        89,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.27,
+        0.85,
+        0.52,
+        0.56,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/isildur.png",
+        "root": "tokens/isildur.png",
+        "source": "art-src/scale-followup-20261019/isildur.png",
+        "before": "art-src/scale-followup-20261019/before/isildur.png",
+        "thumbnail": "assets/mesbg/thumbs/isildur.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "isildur_mounted",
+      "name": "이실두르(기마)",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "44c58b011a5710327d35286a4a5b51d28e9141f8ed54dcd63508175ca95b3742",
+      "beforeSHA256": "7359806f295dadd5a6af2bf9c34eb75b7a8c412a8130d7ba7b6b8a88d383dbf2",
+      "beforeProfile": [
+        "human",
+        0.225,
+        0.42,
+        0.4938,
+        0.565,
+        31.2,
+        "rider"
+      ],
+      "artProfile": [
+        "human",
+        0.22,
+        0.47,
+        0.55,
+        0.53,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/isildur_mounted.png",
+        "root": "tokens/isildur_mounted.png",
+        "source": "art-src/scale-followup-20261019/isildur_mounted.png",
+        "before": "art-src/scale-followup-20261019/before/isildur_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/isildur_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "rider-and-mount",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "khazad_guard",
+      "name": "카자드 근위병",
+      "role": "infantry",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        440,
+        440
+      ],
+      "sourceSHA256": "0af922d91c673e5965425a52772d93d5714344d6187e88f21bb39017b0a98bc1",
+      "beforeSHA256": "0af922d91c673e5965425a52772d93d5714344d6187e88f21bb39017b0a98bc1",
+      "beforeProfile": [
+        "dwarf",
+        0.2229,
+        0.99,
+        0.4766,
+        0.6172,
+        58,
+        "body"
+      ],
+      "artProfile": [
+        "dwarf",
+        0.2229,
+        0.99,
+        0.4766,
+        0.6172,
+        68,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/khazad_guard.png",
+        "root": "tokens/khazad_guard.png",
+        "source": "art-src/scale-followup-20261019/khazad_guard.png",
+        "before": "art-src/scale-followup-20261019/before/khazad_guard.png",
+        "thumbnail": "assets/mesbg/thumbs/khazad_guard.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "knight_of_umbar",
+      "name": "움바르의 기사",
+      "role": "hero",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        257,
+        384
+      ],
+      "sourceSHA256": "a6c6925e224031de34a5ce0379f6f186abec0331d94e1b6ac5ab25e76f035adc",
+      "beforeSHA256": "a6c6925e224031de34a5ce0379f6f186abec0331d94e1b6ac5ab25e76f035adc",
+      "beforeProfile": [
+        "human",
+        0.1586,
+        0.99,
+        0.4561,
+        0.5879,
+        94.6,
+        "body"
+      ],
+      "artProfile": [
+        "large-human",
+        0.1586,
+        0.99,
+        0.4561,
+        0.5879,
+        98,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/knight_of_umbar.png",
+        "root": "tokens/knight_of_umbar.png",
+        "source": "art-src/scale-followup-20261019/knight_of_umbar.png",
+        "before": "art-src/scale-followup-20261019/before/knight_of_umbar.png",
+        "thumbnail": "assets/mesbg/thumbs/knight_of_umbar.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "lurtz",
+      "name": "루르츠",
+      "role": "hero",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        282,
+        366
+      ],
+      "sourceSHA256": "5e71e1d319642e968e7f4e53600064f8fad8188c59139943ed6f6387b875a778",
+      "beforeSHA256": "5e71e1d319642e968e7f4e53600064f8fad8188c59139943ed6f6387b875a778",
+      "beforeProfile": [
+        "large-human",
+        0.0625,
+        0.9805,
+        0.5076,
+        0.5215,
+        102,
+        "body"
+      ],
+      "artProfile": [
+        "large-human",
+        0.0625,
+        0.9805,
+        0.5076,
+        0.5215,
+        98,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/lurtz.png",
+        "root": "tokens/lurtz.png",
+        "source": "art-src/scale-followup-20261019/lurtz.png",
+        "before": "art-src/scale-followup-20261019/before/lurtz.png",
+        "thumbnail": "assets/mesbg/thumbs/lurtz.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "mablung_sindar",
+      "name": "마블룽",
+      "role": "hero",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        280,
+        366
+      ],
+      "sourceSHA256": "ffb4a9f38dd82e586782128206b65761216916478da76031b81b3d24ce587c8a",
+      "beforeSHA256": "ffb4a9f38dd82e586782128206b65761216916478da76031b81b3d24ce587c8a",
+      "beforeProfile": [
+        "human",
+        0.1505,
+        0.99,
+        0.494,
+        0.5409,
+        70,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.1505,
+        0.99,
+        0.494,
+        0.5409,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/mablung_sindar.png",
+        "root": "tokens/mablung_sindar.png",
+        "source": "art-src/scale-followup-20261019/mablung_sindar.png",
+        "before": "art-src/scale-followup-20261019/before/mablung_sindar.png",
+        "thumbnail": "assets/mesbg/thumbs/mablung_sindar.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "maedhros_mounted",
+      "name": "마이드로스(기마)",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "5d50023e415173ab898dbeaf8d72387b7c776f887e4d82ec3a2c4f5e55463e74",
+      "beforeSHA256": "2484b75310a092cc06f84e7be28e0c10b8363f2cddb39984cd58c359322dddd7",
+      "beforeProfile": [
+        "human",
+        0.135,
+        0.38,
+        0.5055,
+        0.55,
+        39,
+        "rider"
+      ],
+      "artProfile": [
+        "human",
+        0.14,
+        0.44,
+        0.55,
+        0.52,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/maedhros_mounted.png",
+        "root": "tokens/maedhros_mounted.png",
+        "source": "art-src/scale-followup-20261019/maedhros_mounted.png",
+        "before": "art-src/scale-followup-20261019/before/maedhros_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/maedhros_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "rider-and-mount",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "maeglin",
+      "name": "매글린",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "e7a1d9a34cddeb4ba033af7c1c22e3febed5d3bbf2ef6592910e8fbb3375fece",
+      "beforeSHA256": "58701a02c5987a5e1e31dae60df3d1964967041604c3d489cde217afd7fee158",
+      "beforeProfile": [
+        "human",
+        0.01,
+        0.99,
+        0.5169,
+        0.5,
+        86,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.12,
+        0.86,
+        0.5,
+        0.49,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/maeglin.png",
+        "root": "tokens/maeglin.png",
+        "source": "art-src/scale-followup-20261019/maeglin.png",
+        "before": "art-src/scale-followup-20261019/before/maeglin.png",
+        "thumbnail": "assets/mesbg/thumbs/maeglin.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "morgul_knight",
+      "name": "모르굴 기사",
+      "role": "cavalry",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "30d09f8e2a0433e8b3c86f864345d725b8a8bb3b2f61b09eb8e46731ad368b7d",
+      "beforeSHA256": "2689e3d8859f04ed5414141649400df2bed7fbc051f7032b68101533b9b94353",
+      "beforeProfile": [
+        "human",
+        0.291,
+        0.905,
+        0.5213,
+        0.598,
+        86,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.18,
+        0.82,
+        0.5,
+        0.5,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/morgul_knight.png",
+        "root": "tokens/morgul_knight.png",
+        "source": "art-src/scale-followup-20261019/morgul_knight.png",
+        "before": "art-src/scale-followup-20261019/before/morgul_knight.png",
+        "thumbnail": "assets/mesbg/thumbs/morgul_knight.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "mouth_of_sauron",
+      "name": "사우론의 입(기마)",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "709b6f5c2b7cf1215ca00eb9e9a73f2ed39d749da5e193e6a1145645751857cb",
+      "beforeSHA256": "695f436157493edec7375530fc9619cafc6dfba7d0f3f9e97bbb06266e7b5103",
+      "beforeProfile": [
+        "human",
+        0.0273,
+        0.3726,
+        0.4881,
+        0.485,
+        43,
+        "rider"
+      ],
+      "artProfile": [
+        "human",
+        0.15,
+        0.45,
+        0.55,
+        0.52,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/mouth_of_sauron.png",
+        "root": "tokens/mouth_of_sauron.png",
+        "source": "art-src/scale-followup-20261019/mouth_of_sauron.png",
+        "before": "art-src/scale-followup-20261019/before/mouth_of_sauron.png",
+        "thumbnail": "assets/mesbg/thumbs/mouth_of_sauron.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "rider-and-mount",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "noldor_warrior",
+      "name": "놀도르 정예병",
+      "role": "infantry",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "6a4e79e7f99de6acde4f1d2aa066dd78805fef3d44c7a88d278e724266ad89f4",
+      "beforeSHA256": "6e105b5e89b739ed467d7b48ae1f533a27ad1a68b95bf491df526c0935eaa842",
+      "beforeProfile": [
+        "human",
+        0.01,
+        0.99,
+        0.4318,
+        0.5137,
+        86,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.12,
+        0.86,
+        0.51,
+        0.49,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/noldor_warrior.png",
+        "root": "tokens/noldor_warrior.png",
+        "source": "art-src/scale-followup-20261019/noldor_warrior.png",
+        "before": "art-src/scale-followup-20261019/before/noldor_warrior.png",
+        "thumbnail": "assets/mesbg/thumbs/noldor_warrior.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "numenorean_archer",
+      "name": "누메노르 궁병",
+      "role": "infantry",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        306,
+        400
+      ],
+      "sourceSHA256": "b95cb5b38110f65a47086f21f1583dd99fa32a654e9f83d1d17fad6b2a8f3345",
+      "beforeSHA256": "b95cb5b38110f65a47086f21f1583dd99fa32a654e9f83d1d17fad6b2a8f3345",
+      "beforeProfile": [
+        "human",
+        0.065,
+        0.97,
+        0.464,
+        0.5175,
+        77,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.065,
+        0.97,
+        0.464,
+        0.5175,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/numenorean_archer.png",
+        "root": "tokens/numenorean_archer.png",
+        "source": "art-src/scale-followup-20261019/numenorean_archer.png",
+        "before": "art-src/scale-followup-20261019/before/numenorean_archer.png",
+        "thumbnail": "assets/mesbg/thumbs/numenorean_archer.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "tainted_mounted",
+      "name": "테인티드(기마)",
+      "role": "hero",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        401,
+        500
+      ],
+      "sourceSHA256": "5b2b5be2374d48f79e92ade865e99170b7db1ab965a6094f05ad67870a557292",
+      "beforeSHA256": "5b2b5be2374d48f79e92ade865e99170b7db1ab965a6094f05ad67870a557292",
+      "beforeProfile": [
+        "large-human",
+        0.06,
+        0.36,
+        0.5114,
+        0.5409,
+        45,
+        "rider"
+      ],
+      "artProfile": [
+        "large-human",
+        0.06,
+        0.4,
+        0.5,
+        0.52,
+        50,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/tainted_mounted.png",
+        "root": "tokens/tainted_mounted.png",
+        "source": "art-src/scale-followup-20261019/tainted_mounted.png",
+        "before": "art-src/scale-followup-20261019/before/tainted_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/tainted_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "rider-and-mount",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "theoden",
+      "name": "세오덴(기마)",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "658c141a53f11a1e7c78b34a9374dc19ecad6b4d23522816dce57f4dd72993c1",
+      "beforeSHA256": "52ae6cf539b46e5a5488867b2402e4dfffe763b78da893012daf8870bec2bc4a",
+      "beforeProfile": [
+        "human",
+        0.245,
+        0.46,
+        0.4713,
+        0.575,
+        43,
+        "rider"
+      ],
+      "artProfile": [
+        "human",
+        0.22,
+        0.44,
+        0.55,
+        0.52,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/theoden.png",
+        "root": "tokens/theoden.png",
+        "source": "art-src/scale-followup-20261019/theoden.png",
+        "before": "art-src/scale-followup-20261019/before/theoden.png",
+        "thumbnail": "assets/mesbg/thumbs/theoden.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "rider-and-mount",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "theodred",
+      "name": "테오드레드",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "6dad864cb1dc59ae95af8a97fdaa8201d444bd290ffad2892e34257ad12db06a",
+      "beforeSHA256": "9e70c815b3134e8b6a1e9c8b5bb5fa4158d58d0781789b9da69378a224532b7c",
+      "beforeProfile": [
+        "human",
+        0.02,
+        0.3679,
+        0.4884,
+        0.495,
+        43,
+        "rider"
+      ],
+      "artProfile": [
+        "human",
+        0.16,
+        0.44,
+        0.54,
+        0.52,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/theodred_mounted.png",
+        "root": "tokens/theodred_mounted.png",
+        "source": "art-src/scale-followup-20261019/theodred.png",
+        "before": "art-src/scale-followup-20261019/before/theodred.png",
+        "thumbnail": "assets/mesbg/thumbs/theodred.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "rider-and-mount",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "thorin",
+      "name": "토린 오큰실드",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "8032d4421d210c26cadc959d54101f265326036825a169599f10ed75adf6e4e8",
+      "beforeSHA256": "f7bf6eb3ae0a995ed8715f75ebb428b1482729a91412764acc74dd5e91076c9e",
+      "beforeProfile": [
+        "dwarf",
+        0.01,
+        0.99,
+        0.459,
+        0.4875,
+        70,
+        "body"
+      ],
+      "artProfile": [
+        "dwarf",
+        0.15,
+        0.91,
+        0.51,
+        0.53,
+        68,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/thorin.png",
+        "root": "tokens/thorin.png",
+        "source": "art-src/scale-followup-20261019/thorin.png",
+        "before": "art-src/scale-followup-20261019/before/thorin.png",
+        "thumbnail": "assets/mesbg/thumbs/thorin.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "thranduil",
+      "name": "트란두일",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "74175e382e1b4164b5b53bf14a95e00a6c4789e1b5d0e6ccc2095346065cac61",
+      "beforeSHA256": "834d25aa0a9bae5be3f0b85fa032057281f2259f620f99e5ba01166976525d6f",
+      "beforeProfile": [
+        "human",
+        0.028,
+        0.99,
+        0.4732,
+        0.5254,
+        86,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.23,
+        0.89,
+        0.51,
+        0.55,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/thranduil.png",
+        "root": "tokens/thranduil.png",
+        "source": "art-src/scale-followup-20261019/thranduil.png",
+        "before": "art-src/scale-followup-20261019/before/thranduil.png",
+        "thumbnail": "assets/mesbg/thumbs/thranduil.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "tom_bombadil",
+      "name": "톰 봄바딜",
+      "role": "hero",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        332,
+        420
+      ],
+      "sourceSHA256": "50d79b336bc6404b25a94fc81de7287e4c90dcde0d5a515494517206207e9d49",
+      "beforeSHA256": "50d79b336bc6404b25a94fc81de7287e4c90dcde0d5a515494517206207e9d49",
+      "beforeProfile": [
+        "human",
+        0.09,
+        0.94,
+        0.4261,
+        0.515,
+        129,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.09,
+        0.94,
+        0.4261,
+        0.515,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/tom_bombadil.png",
+        "root": "tokens/tom_bombadil.png",
+        "source": "art-src/scale-followup-20261019/tom_bombadil.png",
+        "before": "art-src/scale-followup-20261019/before/tom_bombadil.png",
+        "thumbnail": "assets/mesbg/thumbs/tom_bombadil.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "tuor",
+      "name": "투오르",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "cdb3dd7c57122fa82e102d7ccfb4dd7e562cbb8782b2f3b5310c2058f5295cd2",
+      "beforeSHA256": "7ae88ccaccf63817ed453ba2b7a8cf7d6d6f2b65288eaef5b0622207ad68f27f",
+      "beforeProfile": [
+        "human",
+        0.0368,
+        0.99,
+        0.5,
+        0.54,
+        95,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.2,
+        0.95,
+        0.51,
+        0.56,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/tuor.png",
+        "root": "tokens/tuor.png",
+        "source": "art-src/scale-followup-20261019/tuor.png",
+        "before": "art-src/scale-followup-20261019/before/tuor.png",
+        "thumbnail": "assets/mesbg/thumbs/tuor.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "tuor_mounted",
+      "name": "투오르(기마)",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "dd548d83939e90b7dd51f313f212986680f96e7279e2bfe19e50b4024368eba4",
+      "beforeSHA256": "6c02e0cc40ef4e9dfd64b739b9a4d51784739c15f5cd33f5ff5d073d49eef619",
+      "beforeProfile": [
+        "human",
+        0.0273,
+        0.3726,
+        0.4842,
+        0.5125,
+        43,
+        "rider"
+      ],
+      "artProfile": [
+        "human",
+        0.2,
+        0.46,
+        0.55,
+        0.53,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/tuor_mounted.png",
+        "root": "tokens/tuor_mounted.png",
+        "source": "art-src/scale-followup-20261019/tuor_mounted.png",
+        "before": "art-src/scale-followup-20261019/before/tuor_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/tuor_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "rider-and-mount",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "turgon_mounted",
+      "name": "투르곤(기마)",
+      "role": "hero",
+      "issue": "proportion",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "b78a4c0f5a9ee85a31c44834f2b7b3196f5b4687a87c6209b08a331d1a4477fb",
+      "beforeSHA256": "bddc2d2f531b4f2246d5618469d64aad06f45833fe281a8d41c428db1b11b2c5",
+      "beforeProfile": [
+        "human",
+        0.1289,
+        0.4373,
+        0.4564,
+        0.515,
+        43,
+        "rider"
+      ],
+      "artProfile": [
+        "human",
+        0.22,
+        0.46,
+        0.55,
+        0.53,
+        43,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/turgon_mounted.png",
+        "root": "tokens/turgon_mounted.png",
+        "source": "art-src/scale-followup-20261019/turgon_mounted.png",
+        "before": "art-src/scale-followup-20261019/before/turgon_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/turgon_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "rider-and-mount",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "turin",
+      "name": "투린",
+      "role": "hero",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        440,
+        440
+      ],
+      "sourceSHA256": "d39d5d52236dbff199d377f0479c88fd4c9f43c4c30d7d31fbcaa832edf3f8a0",
+      "beforeSHA256": "d39d5d52236dbff199d377f0479c88fd4c9f43c4c30d7d31fbcaa832edf3f8a0",
+      "beforeProfile": [
+        "human",
+        0.1687,
+        0.9563,
+        0.4773,
+        0.5273,
+        89,
+        "body"
+      ],
+      "artProfile": [
+        "human",
+        0.1687,
+        0.9563,
+        0.4773,
+        0.5273,
+        86,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/turin.png",
+        "root": "tokens/turin.png",
+        "source": "art-src/scale-followup-20261019/turin.png",
+        "before": "art-src/scale-followup-20261019/before/turin.png",
+        "thumbnail": "assets/mesbg/thumbs/turin.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "ugluk",
+      "name": "우글룩",
+      "role": "hero",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        304,
+        366
+      ],
+      "sourceSHA256": "4d542d633e0babc31b8bbc17caf4e809a46af56d38fe1c3f6cd4bec6ef04bac8",
+      "beforeSHA256": "4d542d633e0babc31b8bbc17caf4e809a46af56d38fe1c3f6cd4bec6ef04bac8",
+      "beforeProfile": [
+        "large-human",
+        0.2466,
+        0.9589,
+        0.4876,
+        0.6027,
+        83,
+        "body"
+      ],
+      "artProfile": [
+        "large-human",
+        0.2466,
+        0.9589,
+        0.4876,
+        0.6027,
+        98,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/ugluk.png",
+        "root": "tokens/ugluk.png",
+        "source": "art-src/scale-followup-20261019/ugluk.png",
+        "before": "art-src/scale-followup-20261019/before/ugluk.png",
+        "thumbnail": "assets/mesbg/thumbs/ugluk.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "undying_mounted",
+      "name": "언다잉(기마)",
+      "role": "hero",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        271,
+        500
+      ],
+      "sourceSHA256": "0d9370f7ba57d68af0ab934cb47247cf5616cf4b9c3b765e94ae2e25f22cf362",
+      "beforeSHA256": "0d9370f7ba57d68af0ab934cb47247cf5616cf4b9c3b765e94ae2e25f22cf362",
+      "beforeProfile": [
+        "large-human",
+        0.145,
+        0.395,
+        0.5966,
+        0.55,
+        40,
+        "rider"
+      ],
+      "artProfile": [
+        "large-human",
+        0.145,
+        0.49,
+        0.5,
+        0.55,
+        50,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/undying_mounted.png",
+        "root": "tokens/undying_mounted.png",
+        "source": "art-src/scale-followup-20261019/undying_mounted.png",
+        "before": "art-src/scale-followup-20261019/before/undying_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/undying_mounted.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "rider-and-mount",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "vault_warden",
+      "name": "철언덕 방벽병",
+      "role": "infantry",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "365101dc5b37f86c9f310761dc19240a2e149efe45ab9bbd9748e2068cbc0241",
+      "beforeSHA256": "365101dc5b37f86c9f310761dc19240a2e149efe45ab9bbd9748e2068cbc0241",
+      "beforeProfile": [
+        "dwarf",
+        0.2,
+        0.93,
+        0.5,
+        0.56,
+        58,
+        "body"
+      ],
+      "artProfile": [
+        "dwarf",
+        0.2,
+        0.93,
+        0.5,
+        0.56,
+        68,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/vault_warden.png",
+        "root": "tokens/vault_warden.png",
+        "source": "art-src/scale-followup-20261019/vault_warden.png",
+        "before": "art-src/scale-followup-20261019/before/vault_warden.png",
+        "thumbnail": "assets/mesbg/thumbs/vault_warden.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "vrasku",
+      "name": "브라스쿠",
+      "role": "hero",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        364,
+        377
+      ],
+      "sourceSHA256": "85d2bd4946845011f7ca0c38f6c5daad0662c0620256899d8f22954d6bd5d89e",
+      "beforeSHA256": "85d2bd4946845011f7ca0c38f6c5daad0662c0620256899d8f22954d6bd5d89e",
+      "beforeProfile": [
+        "large-human",
+        0.2628,
+        0.9854,
+        0.4621,
+        0.6241,
+        80,
+        "body"
+      ],
+      "artProfile": [
+        "large-human",
+        0.2628,
+        0.9854,
+        0.4621,
+        0.6241,
+        98,
+        "body"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/vrasku.png",
+        "root": "tokens/vrasku.png",
+        "source": "art-src/scale-followup-20261019/vrasku.png",
+        "before": "art-src/scale-followup-20261019/before/vrasku.png",
+        "thumbnail": "assets/mesbg/thumbs/vrasku.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "body",
+        "stature": "shared species target without hero multiplier"
+      }
+    },
+    {
+      "id": "warg_chieftain",
+      "name": "와르그 우두머리 기병",
+      "role": "hero",
+      "issue": "scale-only",
+      "revision": "scale-followup-20261019",
+      "sourceSize": [
+        236,
+        377
+      ],
+      "sourceSHA256": "b9ec18f05d464305f08862b336a936af2c4b4643a30ac06f533cce65a9ce361c",
+      "beforeSHA256": "b9ec18f05d464305f08862b336a936af2c4b4643a30ac06f533cce65a9ce361c",
+      "beforeProfile": [
+        "orc",
+        0.09,
+        0.395,
+        0.5312,
+        0.5125,
+        43,
+        "rider"
+      ],
+      "artProfile": [
+        "orc",
+        0.09,
+        0.395,
+        0.5312,
+        0.5125,
+        39,
+        "rider"
+      ],
+      "files": {
+        "production": "assets/mesbg/tokens/warg_chieftain.png",
+        "root": "tokens/warg_chieftain.png",
+        "source": "art-src/scale-followup-20261019/warg_chieftain.png",
+        "before": "art-src/scale-followup-20261019/before/warg_chieftain.png",
+        "thumbnail": "assets/mesbg/thumbs/warg_chieftain.webp"
+      },
+      "review": {
+        "camera": "elevated-quarter-view",
+        "center": "rider-and-mount",
+        "stature": "shared species target without hero multiplier"
+      }
+    }
+  ],
+  "redrawn": [
+    "anarion",
+    "aragorn_blackgate_mounted",
+    "arpharazon",
+    "boromir_mounted",
+    "celeborn",
+    "dain",
+    "dol_amroth_knight",
+    "duilin",
+    "elendil",
+    "elladan",
+    "elrohir",
+    "eol",
+    "feanor",
+    "feanor_mounted",
+    "fingolfin",
+    "fingolfin_mounted",
+    "finrod_felagund",
+    "finrod_felagund_mounted",
+    "gil_galad_mounted",
+    "golden_king",
+    "gondor_knight",
+    "imrahil",
+    "imrahil_mounted",
+    "ingold",
+    "isildur",
+    "isildur_mounted",
+    "maedhros_mounted",
+    "maeglin",
+    "morgul_knight",
+    "mouth_of_sauron",
+    "noldor_warrior",
+    "theoden",
+    "theodred",
+    "thorin",
+    "thranduil",
+    "tuor",
+    "tuor_mounted",
+    "turgon_mounted"
+  ],
+  "preservedImages": {
+    "glorfindel_foot": "9dcb71e7b2455c8d7e7f068047023f141cb5711389c3b351dfbf6ba3cb5fa0db",
+    "glorfindel_mounted": "7adbdac2f399155666c082adcdbb67baa6d7d568eef402234dcea2b2422ab46f",
+    "gil_galad": "c61b70331fd0d714b296c4531a9f8809d77c19a856c41b41cb0bc52b7cd248ad",
+    "erestor": "9ba56bfbe614e20c0836ec8dcaed7c6279cacee9735c3f203504239e5d89449a"
+  },
+  "heraldry": {
+    "imrahil": "Dol Amroth white swan",
+    "imrahil_mounted": "Dol Amroth white swan"
+  },
+  "note": "38 native redraws or heraldry edits; shared species sizes; corrected Glorfindel anatomical landmarks with original image bytes preserved."
+}
