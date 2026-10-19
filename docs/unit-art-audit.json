@@ -21727,55 +21727,45 @@
       "file": "tokens/osgiliath_veteran.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.0218,
-      "bottom": 0.9703,
-      "centerX": 0.4685,
-      "centerY": 0.4941,
+      "top": 0.06,
+      "bottom": 0.95,
+      "centerX": 0.5,
+      "centerY": 0.505,
       "worldReferenceSize": 86,
-      "sourceWidth": 416,
-      "sourceHeight": 420,
-      "sourceSHA256": "e0da35362bef8a6f2e67f40585dd6c4088a53947dbc101ec743018ec692b0c04",
+      "sourceWidth": 379,
+      "sourceHeight": 384,
+      "sourceSHA256": "5918b5889773a6f41c2075f0aed0ec32d6af4350d5fe04a92fa493cfc8063ceb",
       "anatomicalCorrection": false,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 16,
-        "cell": 20,
-        "landmarks": "body-only",
-        "source": "assets/mesbg/tokens/osgiliath_veteran.png"
+        "date": "2026-10-19",
+        "source": "assets/mesbg/tokens/osgiliath_veteran.png",
+        "landmarks": "helmet crown to grounded boot; excludes sword and shield"
       },
       "calibration": "Individual source visually checked; existing body landmarks retained.",
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "body",
-        "sheet": 15,
-        "cell": 21,
-        "source": "assets/mesbg/tokens/osgiliath_veteran.png",
-        "excludes": [
-          "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
-        ]
+        "source": "assets/mesbg/tokens/osgiliath_veteran.png"
       },
       "statureCalibration": {
         "method": "argon-anatomical-20261014",
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "body",
-          "top": 0.0586,
-          "bottom": 0.9297,
+          "top": 0.06,
+          "bottom": 0.95,
           "worldReferenceSize": 86,
-          "sourceSHA256": "e0da35362bef8a6f2e67f40585dd6c4088a53947dbc101ec743018ec692b0c04"
+          "sourceSHA256": "5918b5889773a6f41c2075f0aed0ec32d6af4350d5fe04a92fa493cfc8063ceb"
         },
         "candidate": {
-          "top": 0.0218,
-          "bottom": 0.9703
+          "top": 0.03,
+          "bottom": 0.97
         },
-        "applied": "anatomical-candidate",
-        "reason": "candidate-agrees-with-reviewed-anatomy"
+        "pinned": true,
+        "applied": "reviewed-landmarks",
+        "reason": "pinned-by-visual-review"
       }
     },
     {
