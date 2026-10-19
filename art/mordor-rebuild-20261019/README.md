@@ -41,6 +41,7 @@
 ## 파일
 
 - `units/`: 새 PNG 46개. 원본 픽셀과 생성 알파 보존.
+- `thumbs/`: 목록·맵에 사용하는 512px 이내 축소본 46개. 확대 시 원본을 연다.
 - `references/old/`: 기준 main 원화 46개. 비교 전용.
 - `references/trial/`: 승인된 시험작의 구조·화풍·지형 참조.
 - `references/gw/`, `sources.json`: 공식 미니어처 참고 사진과 출처·사용 목적.

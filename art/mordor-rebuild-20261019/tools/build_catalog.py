@@ -10,6 +10,8 @@ result=[]; checks=[]
 for u in units:
  id=u['id'];f=R/'units'/f'{id}.png'
  if not f.exists():continue
+ (R/'thumbs').mkdir(exist_ok=True)
+ thumb=Image.open(f).convert('RGBA');thumb.thumbnail((512,512),Image.Resampling.NEAREST);thumb.save(R/'thumbs'/f'{id}.png')
  im=Image.open(f);a=im.getchannel('A') if im.mode=='RGBA' else None;b=a.point(lambda v:255 if v>16 else 0).getbbox() if a else None
  old=audits.get(id,{'id':id,'reference':'body','top':.02,'bottom':.97,'centerX':.5,'centerY':.55,'worldReferenceSize':76});typ=specs[id][2];m=manual.get(id)
  if m is None:continue
@@ -18,7 +20,7 @@ for u in units:
  if typ=='mounted':target=39 if id in ['warg_rider','guritz_mounted'] else 50
  prof=dict(top=m[0],bottom=m[1],centerX=m[2],centerY=m[3],worldReferenceSize=round(target,2),reference=('rider' if typ=='mounted' else old['reference']),referenceAxis='height')
  op={k:old[k] for k in ['top','bottom','centerX','centerY','worldReferenceSize']}
- result.append(dict(id=id,name=u['name_ko'],name_en=u['name_en'],role=u['role'],file=f'units/{id}.png',old=f'references/old/{id}.png',pose=poses[id],body=typ,profile=prof,oldProfile=op,sourceWidth=im.width,sourceHeight=im.height,sourceSHA256=hashlib.sha256(f.read_bytes()).hexdigest(),review='individual visual camera, compact anatomy, gear and body landmarks'))
+ result.append(dict(id=id,name=u['name_ko'],name_en=u['name_en'],role=u['role'],file=f'units/{id}.png',preview=f'thumbs/{id}.png',old=f'references/old/{id}.png',pose=poses[id],body=typ,profile=prof,oldProfile=op,sourceWidth=im.width,sourceHeight=im.height,sourceSHA256=hashlib.sha256(f.read_bytes()).hexdigest(),review='individual visual camera, compact anatomy, gear and body landmarks'))
  checks.append(dict(id=id,size=list(im.size),mode=im.mode,alphaExtrema=a.getextrema() if a else None,bbox=b,edgeClear=bool(b and min(b[0],b[1],im.width-b[2],im.height-b[3])>=1),sha256=hashlib.sha256(f.read_bytes()).hexdigest()))
 (R/'catalog.json').write_text(json.dumps({'baseline':'3f60319','trial':'0b46e78','count':len(result),'scalePolicy':'Review-only anatomical landmarks; weapons, plumes, flags and cape edges excluded. No production profiles changed.','units':result},ensure_ascii=False,indent=2))
 (R/'verification.json').write_text(json.dumps({'count':len(checks),'checks':checks,'note':'Original generated alpha retained. Visible-silhouette bounds use alpha > 16 to exclude near-invisible edge noise. Technical checks do not establish camera or anatomy quality; those are visually reviewed.'},ensure_ascii=False,indent=2))
