@@ -1,0 +1,452 @@
+[
+  {
+    "id": "gondor_archer",
+    "issue": "coarse",
+    "name": "곤도르 궁수",
+    "name_en": "Gondor Archer",
+    "weapon": "bow",
+    "bodyClass": "human",
+    "role": "infantry"
+  },
+  {
+    "id": "moria_goblin",
+    "issue": "coarse",
+    "name": "모리아 고블린",
+    "name_en": "Moria Goblin",
+    "weapon": "sword",
+    "bodyClass": "goblin",
+    "role": "infantry"
+  },
+  {
+    "id": "goblin_shield",
+    "issue": "coarse",
+    "name": "고블린 방패병",
+    "name_en": "Goblin, shield",
+    "weapon": "sword_shield",
+    "bodyClass": "goblin",
+    "role": "infantry"
+  },
+  {
+    "id": "goblin_bow",
+    "issue": "coarse",
+    "name": "고블린 궁수",
+    "name_en": "Goblin, bow",
+    "weapon": "bow",
+    "bodyClass": "goblin",
+    "role": "infantry"
+  },
+  {
+    "id": "goblin_prowler",
+    "issue": "coarse",
+    "name": "고블린 프라울러",
+    "name_en": "Goblin Prowler",
+    "weapon": "dagger",
+    "bodyClass": "goblin",
+    "role": "infantry"
+  },
+  {
+    "id": "bombur",
+    "issue": "coarse",
+    "name": "봄부르",
+    "name_en": "Bombur",
+    "weapon": "club",
+    "bodyClass": "dwarf",
+    "role": "hero"
+  },
+  {
+    "id": "erkenbrand",
+    "issue": "coarse",
+    "name": "에르켄브란트",
+    "name_en": "Erkenbrand",
+    "weapon": "sword_shield",
+    "bodyClass": "human",
+    "role": "hero"
+  },
+  {
+    "id": "mablung",
+    "issue": "coarse",
+    "name": "마블룽",
+    "name_en": "Mablung",
+    "weapon": "sword",
+    "bodyClass": "human",
+    "role": "hero"
+  },
+  {
+    "id": "durin_vi",
+    "issue": "coarse",
+    "name": "두린 6세",
+    "name_en": "Durin VI, King of Khazad-dum",
+    "weapon": "mace",
+    "bodyClass": "dwarf",
+    "role": "hero"
+  },
+  {
+    "id": "dead_spearman",
+    "issue": "coarse",
+    "name": "죽은자 창병",
+    "name_en": "Dead spearman of Dunharrow",
+    "weapon": "spear",
+    "bodyClass": "human",
+    "role": "infantry"
+  },
+  {
+    "id": "vault_warden",
+    "issue": "coarse",
+    "name": "철언덕 방벽병",
+    "name_en": "Iron Hills Vault Warden",
+    "weapon": "spear",
+    "bodyClass": "dwarf",
+    "role": "infantry"
+  },
+  {
+    "id": "maglor",
+    "issue": "coarse",
+    "name": "마글로르",
+    "name_en": "Maglor",
+    "weapon": "sword",
+    "bodyClass": "human",
+    "role": "hero"
+  },
+  {
+    "id": "gwindor",
+    "issue": "coarse",
+    "name": "그윈도르",
+    "name_en": "Gwindor of Nargothrond",
+    "weapon": "sword",
+    "bodyClass": "human",
+    "role": "hero"
+  },
+  {
+    "id": "celebrimbor",
+    "issue": "coarse",
+    "name": "켈레브림보르",
+    "name_en": "Celebrimbor",
+    "weapon": "sword",
+    "bodyClass": "human",
+    "role": "hero"
+  },
+  {
+    "id": "huor",
+    "issue": "coarse",
+    "name": "후오르",
+    "name_en": "Huor son of Galdor",
+    "weapon": "twohanded",
+    "bodyClass": "human",
+    "role": "hero"
+  },
+  {
+    "id": "galadriel_war",
+    "issue": "coarse",
+    "name": "galadriel_war",
+    "name_en": "galadriel_war",
+    "weapon": "",
+    "bodyClass": "human",
+    "role": "uncatalogued"
+  },
+  {
+    "id": "pallando",
+    "issue": "coarse",
+    "name": "팔란도",
+    "name_en": "Pallando the Blue",
+    "weapon": "staff",
+    "bodyClass": "human",
+    "role": "hero"
+  },
+  {
+    "id": "alatar",
+    "issue": "coarse",
+    "name": "알라타르",
+    "name_en": "Alatar the Blue",
+    "weapon": "staff",
+    "bodyClass": "human",
+    "role": "hero"
+  },
+  {
+    "id": "ecthelion",
+    "issue": "proportions",
+    "name": "엑텔리온",
+    "name_en": "Ecthelion",
+    "weapon": "sword",
+    "bodyClass": "human",
+    "role": "hero"
+  },
+  {
+    "id": "earendil",
+    "issue": "proportions",
+    "name": "에아렌딜",
+    "name_en": "Earendil the Mariner",
+    "weapon": "sword",
+    "bodyClass": "human",
+    "role": "hero"
+  },
+  {
+    "id": "thingol",
+    "issue": "proportions",
+    "name": "싱골",
+    "name_en": "Thingol",
+    "weapon": "sword",
+    "bodyClass": "human",
+    "role": "hero"
+  },
+  {
+    "id": "gil_galad",
+    "issue": "proportions",
+    "name": "길갈라드",
+    "name_en": "Gil-galad",
+    "weapon": "spear",
+    "bodyClass": "human",
+    "role": "hero"
+  },
+  {
+    "id": "luthien",
+    "issue": "proportions",
+    "name": "루시엔",
+    "name_en": "Luthien",
+    "weapon": "staff",
+    "bodyClass": "human",
+    "role": "hero"
+  },
+  {
+    "id": "galadriel",
+    "issue": "proportions",
+    "name": "갈라드리엘",
+    "name_en": "Galadriel",
+    "weapon": "none",
+    "bodyClass": "human",
+    "role": "hero"
+  },
+  {
+    "id": "elf_swordsman",
+    "issue": "proportions",
+    "name": "엘프 검사",
+    "name_en": "Elf Swordsman",
+    "weapon": "sword",
+    "bodyClass": "human",
+    "role": "infantry"
+  },
+  {
+    "id": "elf_swordshield",
+    "issue": "proportions",
+    "name": "엘프 검방",
+    "name_en": "Elf, sword & shield",
+    "weapon": "sword_shield",
+    "bodyClass": "human",
+    "role": "infantry"
+  },
+  {
+    "id": "elf_spear",
+    "issue": "proportions",
+    "name": "엘프 창병",
+    "name_en": "Elf, spear",
+    "weapon": "spear",
+    "bodyClass": "human",
+    "role": "infantry"
+  },
+  {
+    "id": "elf_bow",
+    "issue": "proportions",
+    "name": "엘프 궁수",
+    "name_en": "Elf, bow",
+    "weapon": "bow",
+    "bodyClass": "human",
+    "role": "infantry"
+  },
+  {
+    "id": "elf_glaive",
+    "issue": "proportions",
+    "name": "엘프 글레이브",
+    "name_en": "Elf, glaive",
+    "weapon": "twohanded",
+    "bodyClass": "human",
+    "role": "infantry"
+  },
+  {
+    "id": "imrahil_mounted",
+    "issue": "mounted",
+    "name": "임라힐(기마)",
+    "name_en": "Prince Imrahil, mounted",
+    "weapon": "lance",
+    "bodyClass": "human",
+    "role": "hero"
+  },
+  {
+    "id": "thranduil_mounted",
+    "issue": "mounted",
+    "name": "스란두일(기마)",
+    "name_en": "Thranduil, mounted",
+    "weapon": "sword",
+    "bodyClass": "human",
+    "role": "hero"
+  },
+  {
+    "id": "elf_knight",
+    "issue": "mounted",
+    "name": "엘프 기마기사",
+    "name_en": "Elf Knight",
+    "weapon": "lance",
+    "bodyClass": "human",
+    "role": "cavalry"
+  },
+  {
+    "id": "elven_lancer",
+    "issue": "mounted",
+    "name": "엘프 기창기병",
+    "name_en": "Elven Lancer",
+    "weapon": "lance",
+    "bodyClass": "human",
+    "role": "cavalry"
+  },
+  {
+    "id": "black_numenorean_mounted",
+    "issue": "mounted",
+    "name": "검은 누메노르인(기마)",
+    "name_en": "Black Numenorean mounted",
+    "weapon": "lance",
+    "bodyClass": "human",
+    "role": "cavalry"
+  },
+  {
+    "id": "numenorean_knight",
+    "issue": "mounted",
+    "name": "누메노르 기사",
+    "name_en": "Numenorean Knight",
+    "weapon": "lance",
+    "bodyClass": "human",
+    "role": "cavalry"
+  },
+  {
+    "id": "galadhrim_knight",
+    "issue": "mounted",
+    "name": "갈라드림 기사",
+    "name_en": "Galadhrim Knight",
+    "weapon": "lance",
+    "bodyClass": "human",
+    "role": "cavalry"
+  },
+  {
+    "id": "thingol_mounted",
+    "issue": "mounted",
+    "name": "싱골(기마)",
+    "name_en": "Thingol, mounted",
+    "weapon": "sword",
+    "bodyClass": "human",
+    "role": "hero"
+  },
+  {
+    "id": "ecthelion_mounted",
+    "issue": "mounted",
+    "name": "엑텔리온(기마)",
+    "name_en": "Ecthelion, mounted",
+    "weapon": "sword",
+    "bodyClass": "human",
+    "role": "hero"
+  },
+  {
+    "id": "turin_mounted",
+    "issue": "mounted",
+    "name": "투린(기마)",
+    "name_en": "Turin Turambar, mounted",
+    "weapon": "sword",
+    "bodyClass": "human",
+    "role": "hero"
+  },
+  {
+    "id": "beleg_mounted",
+    "issue": "mounted",
+    "name": "벨레그(기마)",
+    "name_en": "Beleg Cuthalion, mounted",
+    "weapon": "bow",
+    "bodyClass": "human",
+    "role": "hero"
+  },
+  {
+    "id": "cirdan_mounted",
+    "issue": "mounted",
+    "name": "키르단(기마)",
+    "name_en": "Cirdan, mounted",
+    "weapon": "sword",
+    "bodyClass": "human",
+    "role": "hero"
+  },
+  {
+    "id": "maeglin_mounted",
+    "issue": "mounted",
+    "name": "매글린(기마)",
+    "name_en": "Maeglin, mounted",
+    "weapon": "sword",
+    "bodyClass": "human",
+    "role": "hero"
+  },
+  {
+    "id": "earnur_mounted",
+    "issue": "mounted",
+    "name": "에아르누르(기마)",
+    "name_en": "Earnur, mounted",
+    "weapon": "sword",
+    "bodyClass": "human",
+    "role": "hero"
+  },
+  {
+    "id": "arathorn_mounted",
+    "issue": "mounted",
+    "name": "아라손(기마)",
+    "name_en": "Arathorn, mounted",
+    "weapon": "sword",
+    "bodyClass": "human",
+    "role": "hero"
+  },
+  {
+    "id": "gamling_mounted",
+    "issue": "mounted",
+    "name": "감링(기마)",
+    "name_en": "Gamling, mounted",
+    "weapon": "banner",
+    "bodyClass": "human",
+    "role": "hero"
+  },
+  {
+    "id": "guthlaf_mounted",
+    "issue": "mounted",
+    "name": "구슬라프(기마)",
+    "name_en": "Guthlaf, mounted",
+    "weapon": "banner",
+    "bodyClass": "human",
+    "role": "hero"
+  },
+  {
+    "id": "cirion_mounted",
+    "issue": "mounted",
+    "name": "키리온(기마)",
+    "name_en": "Cirion, mounted",
+    "weapon": "sword",
+    "bodyClass": "human",
+    "role": "hero"
+  },
+  {
+    "id": "anarion_mounted",
+    "issue": "mounted",
+    "name": "아나리온(기마)",
+    "name_en": "Anarion, mounted",
+    "weapon": "sword",
+    "bodyClass": "human",
+    "role": "hero"
+  },
+  {
+    "id": "elendil_mounted",
+    "issue": "mounted",
+    "name": "엘렌딜(기마)",
+    "name_en": "Elendil, mounted",
+    "weapon": "sword",
+    "bodyClass": "human",
+    "role": "hero"
+  },
+  {
+    "id": "arvedui_mounted",
+    "issue": "mounted",
+    "name": "아르베두이(기마)",
+    "name_en": "Arvedui, mounted",
+    "weapon": "sword",
+    "bodyClass": "human",
+    "role": "hero"
+  }
+]

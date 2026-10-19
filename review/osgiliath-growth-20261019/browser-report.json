@@ -1,0 +1,237 @@
+{
+  "errors": [],
+  "groups": [
+    {
+      "version": "before",
+      "index": 0,
+      "units": [
+        {
+          "id": "osgiliath_veteran",
+          "visible": true,
+          "source": [
+            416,
+            420
+          ],
+          "display": [
+            89.80595928408263,
+            90.66947812335266
+          ],
+          "origin": [
+            0.4685,
+            0.4941
+          ],
+          "reference": 86,
+          "expected": 86,
+          "shootRange": 0
+        },
+        {
+          "id": "osgiliath_spearshield",
+          "visible": true,
+          "source": [
+            335,
+            384
+          ],
+          "display": [
+            88.78821499013806,
+            101.77514792899407
+          ],
+          "origin": [
+            0.57,
+            0.5225
+          ],
+          "reference": 85.99999999999999,
+          "expected": 86,
+          "shootRange": 0
+        },
+        {
+          "id": "osgiliath_bow",
+          "visible": true,
+          "source": [
+            335,
+            384
+          ],
+          "display": [
+            84.7751883239171,
+            97.17514124293783
+          ],
+          "origin": [
+            0.5,
+            0.5175
+          ],
+          "reference": 85.99999999999997,
+          "expected": 86,
+          "shootRange": 800
+        }
+      ]
+    },
+    {
+      "version": "after",
+      "index": 0,
+      "units": [
+        {
+          "id": "osgiliath_veteran",
+          "visible": true,
+          "source": [
+            379,
+            384
+          ],
+          "display": [
+            95.37102059925094,
+            96.62921348314607
+          ],
+          "origin": [
+            0.5,
+            0.505
+          ],
+          "reference": 86,
+          "expected": 86,
+          "shootRange": 0
+        },
+        {
+          "id": "osgiliath_spearshield",
+          "visible": true,
+          "source": [
+            335,
+            384
+          ],
+          "display": [
+            92.62474279835392,
+            106.17283950617285
+          ],
+          "origin": [
+            0.57,
+            0.555
+          ],
+          "reference": 86,
+          "expected": 86,
+          "shootRange": 0
+        },
+        {
+          "id": "osgiliath_bow",
+          "visible": true,
+          "source": [
+            335,
+            384
+          ],
+          "display": [
+            84.29892322097379,
+            96.62921348314607
+          ],
+          "origin": [
+            0.5,
+            0.505
+          ],
+          "reference": 86,
+          "expected": 86,
+          "shootRange": 800
+        }
+      ]
+    }
+  ],
+  "mobile": [
+    {
+      "id": "osgiliath_veteran",
+      "visible": true,
+      "source": [
+        379,
+        384
+      ],
+      "display": [
+        95.37102059925094,
+        96.62921348314607
+      ],
+      "origin": [
+        0.5,
+        0.505
+      ],
+      "reference": 86,
+      "expected": 86,
+      "shootRange": 0
+    },
+    {
+      "id": "osgiliath_spearshield",
+      "visible": true,
+      "source": [
+        335,
+        384
+      ],
+      "display": [
+        92.62474279835392,
+        106.17283950617285
+      ],
+      "origin": [
+        0.57,
+        0.555
+      ],
+      "reference": 86,
+      "expected": 86,
+      "shootRange": 0
+    },
+    {
+      "id": "osgiliath_bow",
+      "visible": true,
+      "source": [
+        335,
+        384
+      ],
+      "display": [
+        84.29892322097379,
+        96.62921348314607
+      ],
+      "origin": [
+        0.5,
+        0.505
+      ],
+      "reference": 86,
+      "expected": 86,
+      "shootRange": 800
+    }
+  ],
+  "weapons": [],
+  "training": {
+    "fresh": {
+      "rank": 2,
+      "stats": {
+        "move": 270,
+        "fight": 5,
+        "strength": 3,
+        "defence": 8,
+        "attacks": 1,
+        "wounds": 1,
+        "courage": 5,
+        "shootValue": 0,
+        "shootRange": 0,
+        "might": 0,
+        "will": 0,
+        "fate": 0,
+        "traits": [
+          "shieldwall",
+          "steadfast"
+        ]
+      },
+      "hp": 1
+    },
+    "veteran": {
+      "rank": 3,
+      "stats": {
+        "move": 270,
+        "fight": 5,
+        "strength": 3,
+        "defence": 8,
+        "attacks": 2,
+        "wounds": 2,
+        "courage": 5,
+        "shootValue": 0,
+        "shootRange": 0,
+        "might": 0,
+        "will": 0,
+        "fate": 0,
+        "traits": [
+          "shieldwall",
+          "steadfast"
+        ]
+      },
+      "hp": 2
+    }
+  }
+}

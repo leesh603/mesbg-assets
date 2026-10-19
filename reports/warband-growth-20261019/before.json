@@ -1,0 +1,359 @@
+{
+  "samplesPerCase": 2000,
+  "melee": [
+    {
+      "id": "mt_swordshield",
+      "xp": 0,
+      "battles": 0,
+      "stats": {
+        "move": 270,
+        "fight": 4,
+        "strength": 3,
+        "defence": 6,
+        "attacks": 1,
+        "wounds": 1,
+        "courage": 4,
+        "shootValue": 0,
+        "shootRange": 0,
+        "might": 0,
+        "will": 0,
+        "fate": 0,
+        "traits": [
+          "shieldwall",
+          "steadfast"
+        ]
+      },
+      "rank": 0,
+      "winRate": 0.5255,
+      "woundsPerCombat": 0.1925,
+      "deathRate": 0.152
+    },
+    {
+      "id": "mt_swordshield",
+      "xp": 12,
+      "battles": 2,
+      "stats": {
+        "move": 270,
+        "fight": 4,
+        "strength": 3,
+        "defence": 6,
+        "attacks": 1,
+        "wounds": 1,
+        "courage": 4,
+        "shootValue": 0,
+        "shootRange": 0,
+        "might": 0,
+        "will": 0,
+        "fate": 0,
+        "traits": [
+          "shieldwall",
+          "steadfast"
+        ]
+      },
+      "rank": 0,
+      "winRate": 0.5255,
+      "woundsPerCombat": 0.1925,
+      "deathRate": 0.152
+    },
+    {
+      "id": "mt_swordshield",
+      "xp": 30,
+      "battles": 4,
+      "stats": {
+        "move": 270,
+        "fight": 4,
+        "strength": 3,
+        "defence": 6,
+        "attacks": 1,
+        "wounds": 1,
+        "courage": 4,
+        "shootValue": 0,
+        "shootRange": 0,
+        "might": 0,
+        "will": 0,
+        "fate": 0,
+        "traits": [
+          "shieldwall",
+          "steadfast"
+        ]
+      },
+      "rank": 0,
+      "winRate": 0.5255,
+      "woundsPerCombat": 0.1925,
+      "deathRate": 0.152
+    },
+    {
+      "id": "mt_swordshield",
+      "xp": 66,
+      "battles": 8,
+      "stats": {
+        "move": 270,
+        "fight": 4,
+        "strength": 3,
+        "defence": 6,
+        "attacks": 1,
+        "wounds": 1,
+        "courage": 4,
+        "shootValue": 0,
+        "shootRange": 0,
+        "might": 0,
+        "will": 0,
+        "fate": 0,
+        "traits": [
+          "shieldwall",
+          "steadfast"
+        ]
+      },
+      "rank": 0,
+      "winRate": 0.5255,
+      "woundsPerCombat": 0.1925,
+      "deathRate": 0.152
+    },
+    {
+      "id": "osgiliath_veteran",
+      "xp": 0,
+      "battles": 0,
+      "stats": {
+        "move": 270,
+        "fight": 4,
+        "strength": 3,
+        "defence": 6,
+        "attacks": 1,
+        "wounds": 1,
+        "courage": 5,
+        "shootValue": 0,
+        "shootRange": 0,
+        "might": 0,
+        "will": 0,
+        "fate": 0,
+        "traits": [
+          "veteran"
+        ]
+      },
+      "rank": 0,
+      "winRate": 0.6525,
+      "woundsPerCombat": 0.201,
+      "deathRate": 0.1125
+    },
+    {
+      "id": "osgiliath_veteran",
+      "xp": 12,
+      "battles": 2,
+      "stats": {
+        "move": 270,
+        "fight": 4,
+        "strength": 3,
+        "defence": 6,
+        "attacks": 1,
+        "wounds": 1,
+        "courage": 5,
+        "shootValue": 0,
+        "shootRange": 0,
+        "might": 0,
+        "will": 0,
+        "fate": 0,
+        "traits": [
+          "veteran"
+        ]
+      },
+      "rank": 0,
+      "winRate": 0.6525,
+      "woundsPerCombat": 0.201,
+      "deathRate": 0.1125
+    },
+    {
+      "id": "osgiliath_veteran",
+      "xp": 30,
+      "battles": 4,
+      "stats": {
+        "move": 270,
+        "fight": 4,
+        "strength": 3,
+        "defence": 6,
+        "attacks": 1,
+        "wounds": 1,
+        "courage": 5,
+        "shootValue": 0,
+        "shootRange": 0,
+        "might": 0,
+        "will": 0,
+        "fate": 0,
+        "traits": [
+          "veteran"
+        ]
+      },
+      "rank": 0,
+      "winRate": 0.6525,
+      "woundsPerCombat": 0.201,
+      "deathRate": 0.1125
+    },
+    {
+      "id": "osgiliath_veteran",
+      "xp": 66,
+      "battles": 8,
+      "stats": {
+        "move": 270,
+        "fight": 4,
+        "strength": 3,
+        "defence": 6,
+        "attacks": 1,
+        "wounds": 1,
+        "courage": 5,
+        "shootValue": 0,
+        "shootRange": 0,
+        "might": 0,
+        "will": 0,
+        "fate": 0,
+        "traits": [
+          "veteran"
+        ]
+      },
+      "rank": 0,
+      "winRate": 0.6525,
+      "woundsPerCombat": 0.201,
+      "deathRate": 0.1125
+    }
+  ],
+  "shooting": [
+    {
+      "id": "mt_bowman",
+      "battles": 0,
+      "rank": 0,
+      "woundRate": 0.1575
+    },
+    {
+      "id": "mt_bowman",
+      "battles": 8,
+      "rank": 0,
+      "woundRate": 0.1575
+    }
+  ],
+  "arrivals": [
+    {
+      "id": "elrond",
+      "current": 3,
+      "max": 3
+    },
+    {
+      "id": "glorfindel_foot",
+      "current": 3,
+      "max": 3
+    },
+    {
+      "id": "elf_swordshield",
+      "current": 1,
+      "max": 1
+    },
+    {
+      "id": "elf_spear",
+      "current": 1,
+      "max": 2
+    },
+    {
+      "id": "arwen",
+      "current": 2,
+      "max": 3
+    },
+    {
+      "cleared": 0,
+      "id": "mt_swordshield",
+      "rank": 0,
+      "stats": {
+        "move": 270,
+        "fight": 4,
+        "strength": 3,
+        "defence": 6,
+        "attacks": 1,
+        "wounds": 1,
+        "courage": 4,
+        "shootValue": 0,
+        "shootRange": 0,
+        "might": 0,
+        "will": 0,
+        "fate": 0,
+        "traits": [
+          "shieldwall",
+          "steadfast"
+        ]
+      },
+      "xp": 0,
+      "battles": 0
+    },
+    {
+      "cleared": 8,
+      "id": "mt_swordshield",
+      "rank": 0,
+      "stats": {
+        "move": 270,
+        "fight": 4,
+        "strength": 3,
+        "defence": 6,
+        "attacks": 1,
+        "wounds": 1,
+        "courage": 4,
+        "shootValue": 0,
+        "shootRange": 0,
+        "might": 0,
+        "will": 0,
+        "fate": 0,
+        "traits": [
+          "shieldwall",
+          "steadfast"
+        ]
+      },
+      "xp": 0,
+      "battles": 0
+    },
+    {
+      "cleared": 24,
+      "id": "mt_swordshield",
+      "rank": 0,
+      "stats": {
+        "move": 270,
+        "fight": 4,
+        "strength": 3,
+        "defence": 6,
+        "attacks": 1,
+        "wounds": 1,
+        "courage": 4,
+        "shootValue": 0,
+        "shootRange": 0,
+        "might": 0,
+        "will": 0,
+        "fate": 0,
+        "traits": [
+          "shieldwall",
+          "steadfast"
+        ]
+      },
+      "xp": 0,
+      "battles": 0
+    }
+  ],
+  "relics": [
+    {
+      "wave": 1,
+      "menus": 2000,
+      "legendary": 109,
+      "rare": 1390
+    },
+    {
+      "wave": 4,
+      "menus": 2000,
+      "legendary": 216,
+      "rare": 1423
+    },
+    {
+      "wave": 5,
+      "menus": 2000,
+      "legendary": 255,
+      "rare": 1552
+    },
+    {
+      "wave": 10,
+      "menus": 2000,
+      "legendary": 383,
+      "rare": 1416
+    }
+  ]
+}

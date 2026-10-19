@@ -42,26 +42,32 @@
     },
     "artProfile": [
       "human",
-      0.115,
-      0.958,
-      0.486,
-      0.536,
+      0.075,
+      0.955,
+      0.52,
+      0.515,
       86,
       "body"
     ],
     "artAudit": {
       "originalSize": [
-        1049,
-        1500
+        1171,
+        1343
       ],
-      "headOrRiderTop": 0.115,
-      "feetOrRiderBottom": 0.958,
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourcePath": "art-src/unit-redraw-20261019/citadel_guard_bow.png",
+      "sourceSHA256": "5537c68b85bf7644d82743c5673ea7c2e7cf2895bebb2a916efdb8d7598c2a09",
+      "headOrRiderTop": 0.075,
+      "feetOrRiderBottom": 0.955,
       "bodyCenter": [
-        0.486,
-        0.536
+        0.52,
+        0.515
       ],
       "reference": 86,
-      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      "method": "manual anatomical landmarks; 2026-10-19 quarter-view redraw; uniform pixel-raster integration"
     }
   },
   {
@@ -108,26 +114,32 @@
     },
     "artProfile": [
       "human",
-      0.22,
-      0.958,
-      0.457,
-      0.589,
+      0.15,
+      0.96,
+      0.57,
+      0.555,
       86,
       "body"
     ],
     "artAudit": {
       "originalSize": [
-        1049,
-        1500
+        1171,
+        1343
       ],
-      "headOrRiderTop": 0.22,
-      "feetOrRiderBottom": 0.958,
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourcePath": "art-src/osgiliath-legs-20261019/osgiliath_spearshield.png",
+      "sourceSHA256": "e0d1c4ee1e5ab0d610796506e6720b6cea2720dfaea120dee40a3b970bcc56c7",
+      "headOrRiderTop": 0.15,
+      "feetOrRiderBottom": 0.96,
       "bodyCenter": [
-        0.457,
-        0.589
+        0.57,
+        0.555
       ],
       "reference": 86,
-      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      "method": "manual anatomical review; two grounded legs, 2026-10-19 redraw"
     }
   },
   {
@@ -173,26 +185,32 @@
     },
     "artProfile": [
       "human",
-      0.13,
-      0.965,
-      0.482,
-      0.547,
+      0.06,
+      0.95,
+      0.5,
+      0.505,
       86,
       "body"
     ],
     "artAudit": {
       "originalSize": [
-        1049,
-        1500
+        1171,
+        1343
       ],
-      "headOrRiderTop": 0.13,
-      "feetOrRiderBottom": 0.965,
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourcePath": "art-src/osgiliath-legs-20261019/osgiliath_bow.png",
+      "sourceSHA256": "834d96ab40cec814d31a0512f22d38e69ea22d0a022608d2757bace2ad51b249",
+      "headOrRiderTop": 0.06,
+      "feetOrRiderBottom": 0.95,
       "bodyCenter": [
-        0.482,
-        0.547
+        0.5,
+        0.505
       ],
       "reference": 86,
-      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      "method": "manual anatomical review; two grounded legs, 2026-10-19 redraw"
     }
   },
   {
@@ -238,10 +256,10 @@
     },
     "artProfile": [
       "human",
-      0.132,
-      0.954,
-      0.481,
-      0.543,
+      0.125,
+      0.915,
+      0.5,
+      0.52,
       86,
       "body"
     ],
@@ -250,14 +268,20 @@
         1254,
         1254
       ],
-      "headOrRiderTop": 0.132,
-      "feetOrRiderBottom": 0.954,
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourcePath": "art-src/unit-redraw-20261019/dol_amroth_swordshield.png",
+      "sourceSHA256": "aa943e8770ed43f470974e9ddc31573cd503b923a08dbc0453a12576e76d33f7",
+      "headOrRiderTop": 0.125,
+      "feetOrRiderBottom": 0.915,
       "bodyCenter": [
-        0.481,
-        0.543
+        0.5,
+        0.52
       ],
       "reference": 86,
-      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      "method": "manual anatomical landmarks; 2026-10-19 quarter-view redraw; uniform pixel-raster integration"
     }
   },
   {
@@ -304,10 +328,10 @@
     },
     "artProfile": [
       "human",
-      0.14,
-      0.949,
-      0.477,
-      0.545,
+      0.135,
+      0.93,
+      0.52,
+      0.5325,
       86,
       "body"
     ],
@@ -316,14 +340,20 @@
         1254,
         1254
       ],
-      "headOrRiderTop": 0.14,
-      "feetOrRiderBottom": 0.949,
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourcePath": "art-src/unit-redraw-20261019/dol_amroth_knight_foot.png",
+      "sourceSHA256": "378836a37aba67e737f9abea2a6b5a3d628c563e6bc73f74f6253c8d6a50e900",
+      "headOrRiderTop": 0.135,
+      "feetOrRiderBottom": 0.93,
       "bodyCenter": [
-        0.477,
-        0.545
+        0.52,
+        0.5325
       ],
       "reference": 86,
-      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      "method": "manual anatomical landmarks; 2026-10-19 quarter-view redraw; uniform pixel-raster integration"
     }
   },
   {
@@ -369,26 +399,32 @@
     },
     "artProfile": [
       "human",
-      0.176,
-      0.936,
-      0.477,
-      0.556,
+      0.155,
+      0.95,
+      0.55,
+      0.5525,
       86,
       "body"
     ],
     "artAudit": {
       "originalSize": [
-        1024,
-        1536
+        1171,
+        1343
       ],
-      "headOrRiderTop": 0.176,
-      "feetOrRiderBottom": 0.936,
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourcePath": "art-src/unit-redraw-20261019/rohan_helmingas.png",
+      "sourceSHA256": "023e9b7448db039ec74b525771d263e8d98c79ae7a56abe3097e22ca4234bacc",
+      "headOrRiderTop": 0.155,
+      "feetOrRiderBottom": 0.95,
       "bodyCenter": [
-        0.477,
-        0.556
+        0.55,
+        0.5525
       ],
       "reference": 86,
-      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      "method": "manual anatomical landmarks; 2026-10-19 quarter-view redraw; uniform pixel-raster integration"
     }
   },
   {
@@ -436,26 +472,32 @@
     },
     "artProfile": [
       "human",
-      0.083,
-      0.367,
-      0.475,
-      0.52,
+      0.085,
+      0.37,
+      0.64,
+      0.525,
       43,
       "rider"
     ],
     "artAudit": {
       "originalSize": [
-        984,
-        1599
+        1203,
+        1308
       ],
-      "headOrRiderTop": 0.083,
-      "feetOrRiderBottom": 0.367,
+      "sourceSize": [
+        353,
+        384
+      ],
+      "sourcePath": "art-src/unit-redraw-20261019/rohan_redshield.png",
+      "sourceSHA256": "1e8bd34363332f87f5c6563e82a46893905104ebc83a293c1a1e54b9241cb426",
+      "headOrRiderTop": 0.085,
+      "feetOrRiderBottom": 0.37,
       "bodyCenter": [
-        0.475,
-        0.52
+        0.64,
+        0.525
       ],
       "reference": 43,
-      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      "method": "manual anatomical landmarks; 2026-10-19 quarter-view redraw; uniform pixel-raster integration"
     }
   },
   {
@@ -503,10 +545,10 @@
     },
     "artProfile": [
       "dwarf",
-      0.258,
-      0.9,
-      0.486,
-      0.579,
+      0.26,
+      0.955,
+      0.54,
+      0.6075,
       68,
       "body"
     ],
@@ -515,14 +557,20 @@
         1254,
         1254
       ],
-      "headOrRiderTop": 0.258,
-      "feetOrRiderBottom": 0.9,
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourcePath": "art-src/unit-redraw-20261019/ironhills_warrior.png",
+      "sourceSHA256": "95a5a71359b700a20443d0378d1ec0acef6176f8c0aa17a1adeff8ec19868e23",
+      "headOrRiderTop": 0.26,
+      "feetOrRiderBottom": 0.955,
       "bodyCenter": [
-        0.486,
-        0.579
+        0.54,
+        0.6075
       ],
       "reference": 68,
-      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      "method": "manual anatomical landmarks; 2026-10-19 quarter-view redraw; uniform pixel-raster integration"
     }
   },
   {
@@ -571,10 +619,10 @@
     },
     "artProfile": [
       "dwarf",
-      0.224,
-      0.924,
-      0.482,
-      0.574,
+      0.265,
+      0.935,
+      0.53,
+      0.6,
       68,
       "body"
     ],
@@ -583,14 +631,20 @@
         1254,
         1254
       ],
-      "headOrRiderTop": 0.224,
-      "feetOrRiderBottom": 0.924,
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourcePath": "art-src/unit-redraw-20261019/ironhills_spearshield.png",
+      "sourceSHA256": "40e7b5780ab5bb6c4c8150f650e7d76d0e2ccae9353c0283328ee05f3e804a65",
+      "headOrRiderTop": 0.265,
+      "feetOrRiderBottom": 0.935,
       "bodyCenter": [
-        0.482,
-        0.574
+        0.53,
+        0.6
       ],
       "reference": 68,
-      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      "method": "manual anatomical landmarks; 2026-10-19 quarter-view redraw; uniform pixel-raster integration"
     }
   },
   {
@@ -638,10 +692,10 @@
     },
     "artProfile": [
       "dwarf",
-      0.251,
-      0.901,
-      0.49,
-      0.576,
+      0.245,
+      0.915,
+      0.48,
+      0.58,
       68,
       "body"
     ],
@@ -650,14 +704,20 @@
         1254,
         1254
       ],
-      "headOrRiderTop": 0.251,
-      "feetOrRiderBottom": 0.901,
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourcePath": "art-src/unit-redraw-20261019/ironhills_crossbow.png",
+      "sourceSHA256": "3e2472325c5c3bccb9152c1faaf9dbb9c033163be29620b87f7a6163d9922347",
+      "headOrRiderTop": 0.245,
+      "feetOrRiderBottom": 0.915,
       "bodyCenter": [
-        0.49,
-        0.576
+        0.48,
+        0.58
       ],
       "reference": 68,
-      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      "method": "manual anatomical landmarks; 2026-10-19 quarter-view redraw; uniform pixel-raster integration"
     }
   },
   {
@@ -703,26 +763,32 @@
     },
     "artProfile": [
       "human",
-      0.19,
-      0.912,
-      0.465,
-      0.551,
+      0.16,
+      0.935,
+      0.54,
+      0.5475,
       86,
       "body"
     ],
     "artAudit": {
       "originalSize": [
-        1247,
-        1261
+        1171,
+        1343
       ],
-      "headOrRiderTop": 0.19,
-      "feetOrRiderBottom": 0.912,
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourcePath": "art-src/unit-redraw-20261019/galadhrim_bow.png",
+      "sourceSHA256": "94dadc8f161ea2cba33bf375039e4ddf24fb875d28cc58b68edcd2e911e2680b",
+      "headOrRiderTop": 0.16,
+      "feetOrRiderBottom": 0.935,
       "bodyCenter": [
-        0.465,
-        0.551
+        0.54,
+        0.5475
       ],
       "reference": 86,
-      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      "method": "manual anatomical landmarks; 2026-10-19 quarter-view redraw; uniform pixel-raster integration"
     }
   },
   {
@@ -770,26 +836,32 @@
     },
     "artProfile": [
       "human",
-      0.208,
-      0.935,
-      0.474,
-      0.572,
+      0.13,
+      0.94,
+      0.52,
+      0.535,
       86,
       "body"
     ],
     "artAudit": {
       "originalSize": [
-        1247,
-        1261
+        1171,
+        1343
       ],
-      "headOrRiderTop": 0.208,
-      "feetOrRiderBottom": 0.935,
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourcePath": "art-src/unit-redraw-20261019/galadhrim_elite_bow.png",
+      "sourceSHA256": "03183872b4fb5abd5dc8628d1c7efb43382ba041024fc1f9e97332d93d399a7e",
+      "headOrRiderTop": 0.13,
+      "feetOrRiderBottom": 0.94,
       "bodyCenter": [
-        0.474,
-        0.572
+        0.52,
+        0.535
       ],
       "reference": 86,
-      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      "method": "manual anatomical landmarks; 2026-10-19 quarter-view redraw; uniform pixel-raster integration"
     }
   },
   {
@@ -837,26 +909,32 @@
     },
     "artProfile": [
       "human",
-      0.178,
+      0.125,
       0.955,
-      0.483,
-      0.566,
+      0.52,
+      0.54,
       86,
       "body"
     ],
     "artAudit": {
       "originalSize": [
-        1080,
-        1457
+        1171,
+        1343
       ],
-      "headOrRiderTop": 0.178,
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourcePath": "art-src/unit-redraw-20261019/mirkwood_ranger.png",
+      "sourceSHA256": "8c56f06cca763642f556c3c77bd00d05d1804140483afd6fff15724569fae1f4",
+      "headOrRiderTop": 0.125,
       "feetOrRiderBottom": 0.955,
       "bodyCenter": [
-        0.483,
-        0.566
+        0.52,
+        0.54
       ],
       "reference": 86,
-      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      "method": "manual anatomical landmarks; 2026-10-19 quarter-view redraw; uniform pixel-raster integration"
     }
   },
   {
@@ -904,26 +982,32 @@
     },
     "artProfile": [
       "human",
-      0.086,
-      0.368,
-      0.479,
-      0.524,
+      0.09,
+      0.38,
+      0.61,
+      0.51,
       43,
       "rider"
     ],
     "artAudit": {
       "originalSize": [
-        1088,
-        1445
+        1203,
+        1308
       ],
-      "headOrRiderTop": 0.086,
-      "feetOrRiderBottom": 0.368,
+      "sourceSize": [
+        353,
+        384
+      ],
+      "sourcePath": "art-src/unit-redraw-20261019/arnor_knight.png",
+      "sourceSHA256": "413346751befab7e3b384fd6f368a067e1034efb96dbaffd5f3c9be1b32eedc5",
+      "headOrRiderTop": 0.09,
+      "feetOrRiderBottom": 0.38,
       "bodyCenter": [
-        0.479,
-        0.524
+        0.61,
+        0.51
       ],
       "reference": 43,
-      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      "method": "manual anatomical landmarks; 2026-10-19 quarter-view redraw; uniform pixel-raster integration"
     }
   },
   {
@@ -969,26 +1053,32 @@
     },
     "artProfile": [
       "human",
-      0.174,
-      0.954,
-      0.486,
-      0.564,
+      0.145,
+      0.957,
+      0.51,
+      0.551,
       86,
       "body"
     ],
     "artAudit": {
       "originalSize": [
-        1145,
-        1374
+        1171,
+        1343
       ],
-      "headOrRiderTop": 0.174,
-      "feetOrRiderBottom": 0.954,
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourcePath": "art-src/unit-redraw-20261019/arnor_ranger.png",
+      "sourceSHA256": "843fb34edcd48453526fb69ef3697fca08c11d852eb5a600efd32d1e30f21ac2",
+      "headOrRiderTop": 0.145,
+      "feetOrRiderBottom": 0.957,
       "bodyCenter": [
-        0.486,
-        0.564
+        0.51,
+        0.551
       ],
       "reference": 86,
-      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      "method": "manual anatomical landmarks; 2026-10-19 quarter-view redraw; uniform pixel-raster integration"
     }
   },
   {
@@ -1034,26 +1124,32 @@
     },
     "artProfile": [
       "orc",
-      0.21,
-      0.933,
-      0.463,
-      0.572,
+      0.087,
+      0.942,
+      0.49,
+      0.5145,
       76,
       "body"
     ],
     "artAudit": {
       "originalSize": [
-        1254,
-        1254
+        1112,
+        1415
       ],
-      "headOrRiderTop": 0.21,
-      "feetOrRiderBottom": 0.933,
+      "sourceSize": [
+        302,
+        384
+      ],
+      "sourcePath": "art-src/unit-redraw-20261019/morannon_swordshield.png",
+      "sourceSHA256": "de3ce75f109a66d384dbe5ccaafe8609c967e966e663220275e9e80834abe617",
+      "headOrRiderTop": 0.087,
+      "feetOrRiderBottom": 0.942,
       "bodyCenter": [
-        0.463,
-        0.572
+        0.49,
+        0.5145
       ],
       "reference": 76,
-      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      "method": "manual anatomical landmarks; 2026-10-19 quarter-view redraw; uniform pixel-raster integration"
     }
   },
   {
@@ -1100,26 +1196,32 @@
     },
     "artProfile": [
       "orc",
-      0.278,
-      0.927,
-      0.467,
-      0.602,
+      0.205,
+      0.95,
+      0.53,
+      0.5775,
       76,
       "body"
     ],
     "artAudit": {
       "originalSize": [
-        1247,
-        1261
+        1112,
+        1415
       ],
-      "headOrRiderTop": 0.278,
-      "feetOrRiderBottom": 0.927,
+      "sourceSize": [
+        302,
+        384
+      ],
+      "sourcePath": "art-src/unit-redraw-20261019/orc_elite_tracker.png",
+      "sourceSHA256": "09f2d55e77af233b76a77286cbcc7365e3542bbabc2c9541ec073cd58da60920",
+      "headOrRiderTop": 0.205,
+      "feetOrRiderBottom": 0.95,
       "bodyCenter": [
-        0.467,
-        0.602
+        0.53,
+        0.5775
       ],
       "reference": 76,
-      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      "method": "manual anatomical landmarks; 2026-10-19 quarter-view redraw; uniform pixel-raster integration"
     }
   },
   {
@@ -1166,26 +1268,32 @@
     },
     "artProfile": [
       "human",
-      0.135,
-      0.944,
-      0.466,
-      0.539,
+      0.045,
+      0.949,
+      0.51,
+      0.497,
       86,
       "body"
     ],
     "artAudit": {
       "originalSize": [
-        1247,
-        1261
+        1171,
+        1343
       ],
-      "headOrRiderTop": 0.135,
-      "feetOrRiderBottom": 0.944,
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourcePath": "art-src/unit-redraw-20261019/dale_guard.png",
+      "sourceSHA256": "6df7ba4b9057a31dba14c4d55ab6816cd38652053e49add2dbb7a21720ded9fa",
+      "headOrRiderTop": 0.045,
+      "feetOrRiderBottom": 0.949,
       "bodyCenter": [
-        0.466,
-        0.539
+        0.51,
+        0.497
       ],
       "reference": 86,
-      "method": "manual anatomical bounds; weapons/crests/shields excluded"
+      "method": "manual anatomical landmarks; 2026-10-19 quarter-view redraw; uniform pixel-raster integration"
     }
   }
 ]

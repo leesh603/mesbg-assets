@@ -1331,6 +1331,30 @@ html body.lwb-polished:is([data-phase="reward"],[data-phase="menu"],[data-phase=
 #app#app#app#app#app .t-title #t-menu:not(.hidden){position:fixed!important;inset:0!important;z-index:200!important;display:flex!important;align-items:center!important;justify-content:center!important;padding:8px!important;box-sizing:border-box!important;background:rgba(0,0,0,.62)!important;transform:none!important}
 #app#app#app#app#app .t-title #t-menu .t-sheet{max-height:calc(100dvh - 16px)!important;overflow-y:auto!important;-webkit-overflow-scrolling:touch}
 
+/* Ownership and departure selection share the existing camp dialog language. */
+#app#app#app #deployment-roster-open{min-height:44px;flex:1;font-size:14px}
+#deployment-roster-open[hidden]{display:none!important}
+.deployment-dialog{width:min(600px,calc(100vw - 28px));max-height:85dvh;padding:20px;box-sizing:border-box;color:#ece4cf;background:#202820;border:1px solid #ae9361;border-radius:14px;overflow:auto}
+.deployment-dialog::backdrop{background:rgba(0,0,0,.72)}
+.deployment-dialog h2{margin:0 0 10px}.deployment-help{color:#c0c6ba;font-size:14px;line-height:1.5}
+[data-deployment-summary]{font-size:17px;font-weight:700;color:#f1d394}
+[data-deployment-error]{min-height:20px;color:#ffb6a4;font-size:14px}
+[data-deployment-list]{display:grid;gap:8px;margin-bottom:16px}
+.deployment-unit{display:flex;gap:10px;align-items:center;min-height:76px;width:100%;text-align:left;color:#eee9da;background:#313b30;border:1px solid #bea15e;border-radius:9px;padding:8px}
+.deployment-unit.is-reserve{background:#252b29;border-color:#66736b}.deployment-unit img{width:52px;height:62px;object-fit:contain}
+.deployment-unit span{flex:1;min-width:0}.deployment-unit b{display:block;font-size:15px;overflow-wrap:anywhere}.deployment-unit small{display:block;margin-top:5px;color:#c0c6ba;font-size:13px}.deployment-unit strong{font-size:13px;white-space:nowrap;color:#e7ce92}
+[data-deployment-close]{width:100%;min-height:44px;position:sticky;bottom:0}
+/* Keep the roster rows readable above the shared ornate button treatment. */
+dialog#warband-deployment button.deployment-unit{display:flex!important;align-items:center!important;gap:12px!important;min-height:84px!important;height:auto!important;padding:10px!important;background:#2e392e!important;border:1px solid #bca169!important;text-align:left!important}
+dialog#warband-deployment button.deployment-unit.is-reserve{background:#252c29!important;border-color:#68756b!important}
+dialog#warband-deployment button.deployment-unit img{width:52px!important;height:64px!important;object-fit:contain!important;margin:0!important;flex-shrink:0}
+dialog#warband-deployment button.deployment-unit span{display:block!important;flex:1!important;min-width:0!important}
+dialog#warband-deployment button.deployment-unit b{font:700 15px Pretendard,sans-serif!important}
+dialog#warband-deployment button.deployment-unit small{font:400 13px Pretendard,sans-serif!important;margin-top:6px!important}
+dialog#warband-deployment button.deployment-unit strong{font:700 13px Pretendard,sans-serif!important;white-space:nowrap!important}
+dialog#warband-deployment p{font-family:Pretendard,sans-serif!important;font-size:14px!important;line-height:1.5!important}
+dialog#warband-deployment [data-deployment-summary]{font-size:17px!important}
+
 
 /* Playtest QA: expandable evidence, readable decisions, existing art/type. */
 :is(html,#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds#ds)[data-ds] body .qa-battle-analysis{border:1px solid #685b37!important;margin:8px 0!important;padding:8px!important;text-align:left!important;font-size:var(--fb)!important;line-height:1.55!important}

@@ -1,0 +1,5972 @@
+[
+  {
+    "id": "aragorn",
+    "name": "아라곤",
+    "role": "hero",
+    "sheet": 1,
+    "cell": 1,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "d1628dc428f63ef2a8061200132c59e1f0638603f02819384e3a44719f6389c2"
+  },
+  {
+    "id": "gandalf",
+    "name": "간달프",
+    "role": "hero",
+    "sheet": 1,
+    "cell": 2,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "5082a8699f494a3e003a73f613bf3c0b3ebad22d64f07d5faf9b3530d0165590"
+  },
+  {
+    "id": "warrior_minas_tirith",
+    "name": "미나스 티리스 전사",
+    "role": "infantry",
+    "sheet": 1,
+    "cell": 3,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "45102f07eeff3dea6065c75dc05831d4d7b8cc3b3762cbeae3c1fbeee658dd30"
+  },
+  {
+    "id": "witchking_foot",
+    "name": "마술사왕(두건)",
+    "role": "hero",
+    "sheet": 1,
+    "cell": 4,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "553af7a536c90fbb44219907e3673466e256d5d93e8b41980cecf251fb54f346"
+  },
+  {
+    "id": "orc_sword",
+    "name": "모르도르 오크(검)",
+    "role": "infantry",
+    "sheet": 1,
+    "cell": 5,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "d2f2009d7f213f165535557a17a35f72603a4b0f3a9d677b989d2158485ca260"
+  },
+  {
+    "id": "cave_troll",
+    "name": "동굴 트롤",
+    "role": "monster",
+    "sheet": 1,
+    "cell": 6,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "58ad89c7dc47fc220227aab6dd3237355dd1cf51163341a9f9c8d393fd9201aa"
+  },
+  {
+    "id": "glorfindel_foot",
+    "name": "글로르핀델(도보)",
+    "role": "hero",
+    "sheet": 1,
+    "cell": 7,
+    "decision": "scale-corrected",
+    "issue": null,
+    "beforeSHA256": "9dcb71e7b2455c8d7e7f068047023f141cb5711389c3b351dfbf6ba3cb5fa0db"
+  },
+  {
+    "id": "glorfindel_mounted",
+    "name": "글로르핀델(기마)",
+    "role": "hero",
+    "sheet": 1,
+    "cell": 8,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "7adbdac2f399155666c082adcdbb67baa6d7d568eef402234dcea2b2422ab46f"
+  },
+  {
+    "id": "witchking_fellbeast",
+    "name": "마술사왕(펠비스트)",
+    "role": "hero",
+    "sheet": 1,
+    "cell": 9,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "894d6e2ff678260f4b5d2b3b222a739c59e23dc41ff290929d88b949ac1ce718"
+  },
+  {
+    "id": "witchking_mounted",
+    "name": "마술사왕(기마)",
+    "role": "hero",
+    "sheet": 1,
+    "cell": 10,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "974cc93bd1aaa32cbc5c9b1265062fe393754c3903e40649a06254b0dc96d1b2"
+  },
+  {
+    "id": "witchking_foot_mace",
+    "name": "마술사왕(투구)",
+    "role": "hero",
+    "sheet": 1,
+    "cell": 11,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "e568e6021706e45f94cb8d8cb8c7eb9a955fd205a6878c96af924fda40436b81"
+  },
+  {
+    "id": "nazgul_sword",
+    "name": "나즈굴(검)",
+    "role": "hero",
+    "sheet": 1,
+    "cell": 12,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "91ce391b0143e19277821e0dda94a1c665687cc8fa40a2faf6b6be38e6b50668"
+  },
+  {
+    "id": "saruman",
+    "name": "사루만",
+    "role": "hero",
+    "sheet": 1,
+    "cell": 13,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "d794698f185273620ab916666054a42692f525f882ce4ef777fe26c5de558d89"
+  },
+  {
+    "id": "orc_shaman",
+    "name": "오크 주술사",
+    "role": "support",
+    "sheet": 1,
+    "cell": 14,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "dbc17619bcf961e5b3d129d229a645a0b7022fb660a586140f5dd7f23270f917"
+  },
+  {
+    "id": "orc_captain",
+    "name": "오크 대장",
+    "role": "hero",
+    "sheet": 1,
+    "cell": 15,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "1094509e0198bc12047870335736bf09042ef3b12e66645ec15b93d2ada79992"
+  },
+  {
+    "id": "orc_spearman",
+    "name": "오크 창병",
+    "role": "infantry",
+    "sheet": 1,
+    "cell": 16,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "a7fde84db9b36e312551f21ac734edbb014cff9fc69646cea464363327783bbb"
+  },
+  {
+    "id": "orc_archer",
+    "name": "오크 궁수",
+    "role": "infantry",
+    "sheet": 1,
+    "cell": 17,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "72dc3a4d3240974e8113172188abdd3c8b15038dd871cdb49d362af0da9a1e70"
+  },
+  {
+    "id": "uruk_swordshield",
+    "name": "우르크하이 검방",
+    "role": "infantry",
+    "sheet": 1,
+    "cell": 18,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "82feae6a6eed21fe383a99ac77a5f15581f0f2fbbfd13a0c9e4a8c66c569903b"
+  },
+  {
+    "id": "morannon_orc",
+    "name": "모라논 오크",
+    "role": "infantry",
+    "sheet": 1,
+    "cell": 19,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "32ea1b2e9af1b53b87929863597e635c44ae6b475148de007907cbac34335b35"
+  },
+  {
+    "id": "warg_rider",
+    "name": "와르그 기병",
+    "role": "cavalry",
+    "sheet": 1,
+    "cell": 20,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "ca9f59801f172e54cfd19cdf43d0f5840cc1206b921e6d7ba127d7d32f7f3728"
+  },
+  {
+    "id": "haradrim_spearman",
+    "name": "하라드림 창병",
+    "role": "infantry",
+    "sheet": 1,
+    "cell": 21,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "945a246a240e96d2ba4bda9d9bce353fe60de7b1cfe5776ab61cac73fe6cc98d"
+  },
+  {
+    "id": "legolas",
+    "name": "레골라스",
+    "role": "hero",
+    "sheet": 1,
+    "cell": 22,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "0844b85404f00a797dbb82e15a0c23eabfdf62b82c1a7872336abb8b3ee99dca"
+  },
+  {
+    "id": "gimli",
+    "name": "김리",
+    "role": "hero",
+    "sheet": 1,
+    "cell": 23,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "5134e9cfd31a7e224434ee9e6434f132e5a2e2bd78f60dbde99115ae708b062f"
+  },
+  {
+    "id": "boromir",
+    "name": "보로미르",
+    "role": "hero",
+    "sheet": 1,
+    "cell": 24,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "7361e010a01511b4ebd77a6aa6243d2a30ee84ea8edd15d609f1afac61b4efd6"
+  },
+  {
+    "id": "eowyn",
+    "name": "에오윈",
+    "role": "hero",
+    "sheet": 1,
+    "cell": 25,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "85680a9294c6345f5146cab500df055bbcb5435d3c1ba409dde61a6ef7c38f31"
+  },
+  {
+    "id": "frodo",
+    "name": "프로도",
+    "role": "hero",
+    "sheet": 1,
+    "cell": 26,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "0f8e2a9ae5f8a6d7c04a33141d322576c9f551c64466a6a6e93499a0fb7b0eaf"
+  },
+  {
+    "id": "elrond",
+    "name": "엘론드",
+    "role": "hero",
+    "sheet": 1,
+    "cell": 27,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "0845137846c330c7bd2da1174564e7a1041666c63a9e4821e707f67538bf290a"
+  },
+  {
+    "id": "gondor_archer",
+    "name": "곤도르 궁수",
+    "role": "infantry",
+    "sheet": 1,
+    "cell": 28,
+    "decision": "redrawn",
+    "issue": "coarse",
+    "beforeSHA256": "6426d15edd00e7ca239659235cb542cebd800805fb8a931cb06fe3a5d5c83b21"
+  },
+  {
+    "id": "elf_swordsman",
+    "name": "엘프 검사",
+    "role": "infantry",
+    "sheet": 1,
+    "cell": 29,
+    "decision": "redrawn",
+    "issue": "proportions",
+    "beforeSHA256": "abf32b568494a85a8c98cdf5c9274123c5a8cc5cb80352f5433315ca6ce8bd1d"
+  },
+  {
+    "id": "dwarf_guardian",
+    "name": "드워프 가디언",
+    "role": "infantry",
+    "sheet": 1,
+    "cell": 30,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "ac0079e97aa273b53fbf5725e3dea2dd67d9818b063a3f84b4e56aef67067318"
+  },
+  {
+    "id": "rohan_royal_guard",
+    "name": "로한 근위병",
+    "role": "infantry",
+    "sheet": 1,
+    "cell": 31,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "6ff3ca063b186509850ccc3bae20d57802f97b0d88ce3751377245b21c57537d"
+  },
+  {
+    "id": "ithilien_ranger",
+    "name": "이틸리엔 레인저",
+    "role": "infantry",
+    "sheet": 1,
+    "cell": 32,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "98d00d3e9095ef9214e8f4c6ed8051dcd5c6f21b84dd49f6b43ef5ed89aa4eae"
+  },
+  {
+    "id": "rohan_rider",
+    "name": "로한 기병",
+    "role": "cavalry",
+    "sheet": 1,
+    "cell": 33,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "19b4a5837bac82852af8d42a3dbda6af23b17d0360bab11debc676ee8a4917c4"
+  },
+  {
+    "id": "balrog",
+    "name": "발록",
+    "role": "monster",
+    "sheet": 1,
+    "cell": 34,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "2d10577a277fe536809d82a13e714912d164361063fab0284e61047975496d30"
+  },
+  {
+    "id": "mountain_troll",
+    "name": "산악 트롤",
+    "role": "monster",
+    "sheet": 1,
+    "cell": 35,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "7cdc8f8149f086118076240451862ac102ce191b9ce0f406186d88894a40c28c"
+  },
+  {
+    "id": "shelob",
+    "name": "셀로브",
+    "role": "monster",
+    "sheet": 1,
+    "cell": 36,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "99b782fac89927cdda05466b3c35f9ab6950ad24e17065391ffd885c5e990b9d"
+  },
+  {
+    "id": "barrow_wight",
+    "name": "고분 망령",
+    "role": "hero",
+    "sheet": 1,
+    "cell": 37,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "07b4d4a23e799989a3b1c2bdcbd6ddd00797d01c7ac519433f204810305339cb"
+  },
+  {
+    "id": "moria_goblin",
+    "name": "모리아 고블린",
+    "role": "infantry",
+    "sheet": 1,
+    "cell": 38,
+    "decision": "redrawn",
+    "issue": "coarse",
+    "beforeSHA256": "dbe27f1e650a4ac0e52f13e99efa3788de6a314397576ec6a6377d6259acce0f"
+  },
+  {
+    "id": "uruk_berserker",
+    "name": "우르크 광전사",
+    "role": "infantry",
+    "sheet": 1,
+    "cell": 39,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "fd8dfbc6f0304dc936c43423c2963f2f8e69270f6cb5e1104514654c558a561b"
+  },
+  {
+    "id": "sauron",
+    "name": "사우론",
+    "role": "hero",
+    "sheet": 1,
+    "cell": 40,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "8fc764e459b4d6e759a149149bf1301e1c10c8534fb0e59487ae75d0c17085e7"
+  },
+  {
+    "id": "nazgul_sword_2",
+    "name": "나즈굴(검·B)",
+    "role": "hero",
+    "sheet": 1,
+    "cell": 41,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "3ef644a27ea4a9ff0fc95fca75cbe4a84e92e154abd1aaeb37c37422b6973596"
+  },
+  {
+    "id": "nazgul_mace",
+    "name": "나즈굴(철퇴)",
+    "role": "hero",
+    "sheet": 1,
+    "cell": 42,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "d9154e4d79952ce99a646d6d3a89eeb1a42dd1ec7204bb67f2cff4aa656ee7c0"
+  },
+  {
+    "id": "nazgul_mounted",
+    "name": "나즈굴(기마)",
+    "role": "hero",
+    "sheet": 1,
+    "cell": 43,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "371f4b9dce0333911b4ec5319e42e703c22425885824432150ed013f523bc03e"
+  },
+  {
+    "id": "morgul_knight",
+    "name": "모르굴 기사",
+    "role": "cavalry",
+    "sheet": 1,
+    "cell": 44,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "2689e3d8859f04ed5414141649400df2bed7fbc051f7032b68101533b9b94353"
+  },
+  {
+    "id": "dwimmerlaik",
+    "name": "드위머레이크(갑옷 나즈굴)",
+    "role": "hero",
+    "sheet": 1,
+    "cell": 45,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "214a653b815f28a52c9c6b7e227901d7692980f5bf0892cbf861365c5da3f4ee"
+  },
+  {
+    "id": "mt_swordshield",
+    "name": "미나스 티리스 검방",
+    "role": "infantry",
+    "sheet": 1,
+    "cell": 46,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "db076b585a5f7fb8095a029bccc4e9b655d570121d1ff983e1609ac3e64ec128"
+  },
+  {
+    "id": "mt_spear",
+    "name": "미나스 티리스 창병",
+    "role": "infantry",
+    "sheet": 1,
+    "cell": 47,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "a12f6eb8a7f0af6c1bc7365905aa558d1b7531de86920fab69d3dab87e0701ea"
+  },
+  {
+    "id": "mt_spearshield",
+    "name": "미나스 티리스 창방",
+    "role": "infantry",
+    "sheet": 1,
+    "cell": 48,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "900bae31f40e36c8393b679c4d65cf2754d8a3c0aaf55a21ca654ee211c626d3"
+  },
+  {
+    "id": "mt_bowman",
+    "name": "미나스 티리스 궁수",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 1,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "196c13767fb1a85f9c4b1674c0019e3e807b9f5b2a4570b40a2b60083642033c"
+  },
+  {
+    "id": "mt_captain",
+    "name": "미나스 티리스 장교",
+    "role": "hero",
+    "sheet": 2,
+    "cell": 2,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "2edd62d1e73b47fb891ce93868937c9891d597702ef79ff3c60872c3c233895a"
+  },
+  {
+    "id": "mt_fountain_guard",
+    "name": "샘물수위병",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 3,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "35b0ca829e8b62946df428f640c9cbd31e165bdfddc0241ff8019395bf186ecb"
+  },
+  {
+    "id": "orc_sword2",
+    "name": "오크(검)",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 4,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "2852c8f6935438f9310b2370619aad48e197447f4c846a897cda40801c85e63f"
+  },
+  {
+    "id": "orc_swordshield",
+    "name": "오크(검방)",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 5,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "3f94653cd678bebe639e58e4fc1a5413a915c79870af8af62435e97aa6e45084"
+  },
+  {
+    "id": "orc_spear2",
+    "name": "오크(창)",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 6,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "a7fde84db9b36e312551f21ac734edbb014cff9fc69646cea464363327783bbb"
+  },
+  {
+    "id": "orc_twohanded",
+    "name": "오크(양손도끼)",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 7,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "0e22fd0c6016d3825349be0f9eed29f6f59b57edd1992c07d6af4566ef221d88"
+  },
+  {
+    "id": "orc_bow",
+    "name": "오크(활)",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 8,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "72dc3a4d3240974e8113172188abdd3c8b15038dd871cdb49d362af0da9a1e70"
+  },
+  {
+    "id": "orc_drummer",
+    "name": "오크 전쟁북",
+    "role": "support",
+    "sheet": 2,
+    "cell": 9,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "a46d05a4669d35901b92cd2e19daeea6d41c0de33bca3e078139a1425b662dc0"
+  },
+  {
+    "id": "dwarf_axeshield",
+    "name": "드워프 도끼방",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 10,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "cab80e4dbbcef248a51d61620ec51aa339897606cfcc9c49625e6fad0103dc0b"
+  },
+  {
+    "id": "dwarf_2haxe",
+    "name": "드워프 양손도끼",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 11,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "980378e6b73782c36594f95b71a5c7f8ed24759c970ad2ab8bf66d7b87fea502"
+  },
+  {
+    "id": "dwarf_ranger",
+    "name": "드워프 레인저",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 12,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "fdce881afbde495f9875b8bec520047e145d2b5490e3467defbfd18787817115"
+  },
+  {
+    "id": "khazad_guard",
+    "name": "카자드 근위병",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 13,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "0af922d91c673e5965425a52772d93d5714344d6187e88f21bb39017b0a98bc1"
+  },
+  {
+    "id": "iron_guard",
+    "name": "아이언 가드",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 14,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "6748d8d70de7bfd5b0b0ecada3b9d73fce14bd6361c8d6a585d776d1d0b8b331"
+  },
+  {
+    "id": "dwarf_banner",
+    "name": "드워프 기수",
+    "role": "support",
+    "sheet": 2,
+    "cell": 15,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "42d962b71d9fc72ccfe92851123aac628af725976327808af95e22a372488e3e"
+  },
+  {
+    "id": "elf_swordshield",
+    "name": "엘프 검방",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 16,
+    "decision": "redrawn",
+    "issue": "proportions",
+    "beforeSHA256": "4c9a95555bc7e296f559857d57ee3ba3e8a006dde423bfd23cf9326d32450da4"
+  },
+  {
+    "id": "elf_spear",
+    "name": "엘프 창병",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 17,
+    "decision": "redrawn",
+    "issue": "proportions",
+    "beforeSHA256": "34744730d0b41c6bf51df15e7838a64da7d6233095bc3732081316fc2e0f0aed"
+  },
+  {
+    "id": "elf_bow",
+    "name": "엘프 궁수",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 18,
+    "decision": "redrawn",
+    "issue": "proportions",
+    "beforeSHA256": "d8f51483fec7af9568fe69ac5284ab436a363542fd9c097627c15f542896259b"
+  },
+  {
+    "id": "elf_glaive",
+    "name": "엘프 글레이브",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 19,
+    "decision": "redrawn",
+    "issue": "proportions",
+    "beforeSHA256": "03b55623e68a6d90152eac19dc1e88e7820e368dd961a7d81ce747f02d284c34"
+  },
+  {
+    "id": "galadhrim_warrior",
+    "name": "갈라드림 전사",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 20,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "efb5a4cf922bf6e87c62a2044d6c74e98db3945d63c44b6544a4d416f33face6"
+  },
+  {
+    "id": "elf_knight",
+    "name": "엘프 기마기사",
+    "role": "cavalry",
+    "sheet": 2,
+    "cell": 21,
+    "decision": "redrawn",
+    "issue": "mounted",
+    "beforeSHA256": "76d24f4365cff7a290e2a859b60d456c2198b3e584552c4ac6c7cb615bcfe452"
+  },
+  {
+    "id": "uruk_swordshield2",
+    "name": "우르크하이 검방",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 22,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "e575a01d8bbcedcc15f6b57a2e86d0efdc70816fc7cc4a092f0ae6cec07b4771"
+  },
+  {
+    "id": "uruk_pike",
+    "name": "우르크하이 파이크",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 23,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "f65920820e8ef37dc0fbd981c7e8fbdedbabc959545f7eb7df02257f84ee5d1e"
+  },
+  {
+    "id": "uruk_crossbow",
+    "name": "우르크하이 석궁",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 24,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "fe7a249a8dd56bda66ecef995a75a723ff33ec94e87bb0d0e2ed0492f01ebd42"
+  },
+  {
+    "id": "uruk_scout",
+    "name": "우르크하이 스카웃",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 25,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "5e430e1e034f7a8f44d18fb2b5c7fb71f01e1fb1efac40b6cc8eaabb9a88e1b6"
+  },
+  {
+    "id": "uruk_berserker2",
+    "name": "우르크하이 광전사",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 26,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "d838f38c60ac668ed39c544d7453399bb33e7027aa1471f3cd3e37eb4494a0e9"
+  },
+  {
+    "id": "uruk_banner",
+    "name": "우르크하이 기수",
+    "role": "support",
+    "sheet": 2,
+    "cell": 27,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "ac0f7a46a1bde2d726d8c31a298d43c3cd5f3d57804399d5ba0218f74eb2da43"
+  },
+  {
+    "id": "haradrim_spear",
+    "name": "하라드림 창병",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 28,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "20c7c0450ab73d519fb63c36b7efbe38f1d72a5d7735fec1e9648e4adf3008d1"
+  },
+  {
+    "id": "haradrim_bow",
+    "name": "하라드림 궁수",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 29,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "96f4bc0215cc8b7fdc08951f921049d1f50f61bd353303d1a7d0865b55942e75"
+  },
+  {
+    "id": "haradrim_priest",
+    "name": "하라드림 전사제",
+    "role": "support",
+    "sheet": 2,
+    "cell": 30,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "223d52ffbf63d1870e1c3cbe792a21bab8444af480afe8a094ba41d2f40c91b4"
+  },
+  {
+    "id": "easterling_phalanx",
+    "name": "이스터링 방진병",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 31,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "a0971ca31d6389f53fc5e7cf84f46e00da368dfcd2ef9cbda645724d9e3ca556"
+  },
+  {
+    "id": "easterling_swordshield",
+    "name": "이스터링 검방",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 32,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "e633f004a0aa75b17f4e93b12ac63dafbdb50db1aa7e21c071fc7c59c344c5eb"
+  },
+  {
+    "id": "easterling_kataphrakt",
+    "name": "이스터링 중기병",
+    "role": "cavalry",
+    "sheet": 2,
+    "cell": 33,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "f8106e0cda99e1d73648c39bcc7a5b7103840d596d5105c58212c120bcf80927"
+  },
+  {
+    "id": "dol_amroth_knight",
+    "name": "돌 암로스 백조기사",
+    "role": "cavalry",
+    "sheet": 2,
+    "cell": 34,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "09fa88a436fac2eaaa5c0b6972126826732a5aab03bb9f31e278de1f522c0adf"
+  },
+  {
+    "id": "gondor_knight",
+    "name": "곤도르 기병",
+    "role": "cavalry",
+    "sheet": 2,
+    "cell": 35,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "82a8fe370c7008b8349d15c463aea6af96483e6cd113aab5f0fbe3b673ce958d"
+  },
+  {
+    "id": "osgiliath_veteran",
+    "name": "오스길리아스 베테랑",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 36,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "5918b5889773a6f41c2075f0aed0ec32d6af4350d5fe04a92fa493cfc8063ceb"
+  },
+  {
+    "id": "lossarnach_axeman",
+    "name": "로사르나흐 도끼병",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 37,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "46ce101a0045ff6679975987d70b4956c3bf25e0f574c9e185293b48271db26f"
+  },
+  {
+    "id": "citadel_guard",
+    "name": "성채근위병",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 38,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "ffde08fd8b917b76ddcef31760772d5590fbc9520139c57218e7da7a836b158d"
+  },
+  {
+    "id": "pelennor_militia",
+    "name": "펠렌노르 민병",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 39,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "b37694c6235af5221fa02a425b7021659b2804c0514ad9029bdc0bd2d7c06423"
+  },
+  {
+    "id": "rohan_swordshield",
+    "name": "로한 검방",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 40,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "40168042fc9fec778bd694d5f102f5e0e223763ab6aae87e146e53c6bb8263d0"
+  },
+  {
+    "id": "rohan_spear",
+    "name": "로한 창병",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 41,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "a636a54f8a415a74356c15175f176e9a1703cf2d4388416be477d549063782cc"
+  },
+  {
+    "id": "rohan_archer",
+    "name": "로한 궁수",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 42,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "6513390786086265a429309c7b3e1b17a83095c055ef5a1f6e390257284ae9c8"
+  },
+  {
+    "id": "eomer",
+    "name": "에오메르(기마)",
+    "role": "hero",
+    "sheet": 2,
+    "cell": 43,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "2051ac1179386101c721789a38449a86d953e48fe10d93de4ea0326a00b9bbf3"
+  },
+  {
+    "id": "rohan_outrider",
+    "name": "로한 기마궁수",
+    "role": "cavalry",
+    "sheet": 2,
+    "cell": 44,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "402d950297b5c2c5c87e16c7ba3a219e2079e9061f70bd7e8696073269153f02"
+  },
+  {
+    "id": "rohan_banner",
+    "name": "로한 기수",
+    "role": "support",
+    "sheet": 2,
+    "cell": 45,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "4de78993ead3059daba2ee082a75a9d01c05a2bc6d1ed30e27e02db63da7a3d3"
+  },
+  {
+    "id": "black_numenorean",
+    "name": "검은 누메노르인(도보)",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 46,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "651d6b659c219db5ac1a2065171bfc9a05158ba186ffac2963b4e6064ea2ba0a"
+  },
+  {
+    "id": "black_numenorean_mounted",
+    "name": "검은 누메노르인(기마)",
+    "role": "cavalry",
+    "sheet": 2,
+    "cell": 47,
+    "decision": "redrawn",
+    "issue": "mounted",
+    "beforeSHA256": "def7693b9b6e2ebccfdef8dbc0689151f4d4c231f942eefc1aa0423c8dfd5567"
+  },
+  {
+    "id": "orc_tracker",
+    "name": "오크 추적자",
+    "role": "infantry",
+    "sheet": 2,
+    "cell": 48,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "27131d9fe529b6945013295b90a74d0a957af05bee3736bd512a289cd0a467da"
+  },
+  {
+    "id": "war_troll",
+    "name": "전쟁 트롤",
+    "role": "monster",
+    "sheet": 3,
+    "cell": 1,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "ca85d82d67839926ff978e9840d2f2acec09263b15d65b41f114809f7186af76"
+  },
+  {
+    "id": "black_guard",
+    "name": "바라드두르 흑근위",
+    "role": "infantry",
+    "sheet": 3,
+    "cell": 2,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "fa7e04727353ef6f845e72b8d72dc8b3002a086c249b07bd2b320b16751013bf"
+  },
+  {
+    "id": "orc_taskmaster",
+    "name": "오크 두목",
+    "role": "hero",
+    "sheet": 3,
+    "cell": 3,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "5d5e04cf1bb122d825cad4f93be20d9469ef85bc32174754a46eea0646a55827"
+  },
+  {
+    "id": "goblin_spear",
+    "name": "고블린 창병",
+    "role": "infantry",
+    "sheet": 3,
+    "cell": 4,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "00bf24dec0289cd1cd9a023bce14135ba7994a61b132deadc30b5d9c7084c5dd"
+  },
+  {
+    "id": "goblin_shield",
+    "name": "고블린 방패병",
+    "role": "infantry",
+    "sheet": 3,
+    "cell": 5,
+    "decision": "redrawn",
+    "issue": "coarse",
+    "beforeSHA256": "28bac7f508d87a4d93105239672ace0b535dbf2ade72d628b8b4de3714ec46e8"
+  },
+  {
+    "id": "goblin_bow",
+    "name": "고블린 궁수",
+    "role": "infantry",
+    "sheet": 3,
+    "cell": 6,
+    "decision": "redrawn",
+    "issue": "coarse",
+    "beforeSHA256": "9e99f02e48e2b99aee8b2753faa4820ce1e8ea71c67c38fde7aa3cbcb158fefd"
+  },
+  {
+    "id": "goblin_prowler",
+    "name": "고블린 프라울러",
+    "role": "infantry",
+    "sheet": 3,
+    "cell": 7,
+    "decision": "redrawn",
+    "issue": "coarse",
+    "beforeSHA256": "ac7853f888b28069e1aa88454bfbb02674a1f903dd4f370427c2421728da5ff6"
+  },
+  {
+    "id": "goblin_king",
+    "name": "고블린 왕",
+    "role": "hero",
+    "sheet": 3,
+    "cell": 8,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "e1d26a1a60b3231d0a18f30e85a9e1811d99dec9af044bb7b110ce19467a1f66"
+  },
+  {
+    "id": "goblin_shaman",
+    "name": "고블린 샤먼",
+    "role": "support",
+    "sheet": 3,
+    "cell": 9,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "62dda42b6407f735b974b0b54989da40b00e40843ebcda3089b9885dd5e765ce"
+  },
+  {
+    "id": "dunlending_warrior",
+    "name": "던랜딩 전사",
+    "role": "infantry",
+    "sheet": 3,
+    "cell": 10,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "f2029d3cdc428f4facbb5b0ccd2291a8ad6d72b2e24cda7b7dbf2f7a510147e4"
+  },
+  {
+    "id": "dunlending_huscarl",
+    "name": "던랜딩 허스칼",
+    "role": "infantry",
+    "sheet": 3,
+    "cell": 11,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "3a1c43368d623a3d9fcf56e6d2ec6f3940e2e60096d45372549cc48fb589b367"
+  },
+  {
+    "id": "warg",
+    "name": "야생 와르그",
+    "role": "monster",
+    "sheet": 3,
+    "cell": 12,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "23f9967c7fd4f6c2ccef3ce0d7865b2bdb247020d9ea800c9959bc8d02cbf2d2"
+  },
+  {
+    "id": "uruk_sapper",
+    "name": "우르크 폭파반",
+    "role": "infantry",
+    "sheet": 3,
+    "cell": 13,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "fa5fae1a516b02bd8d002a6eb69af8b23e6758231bb1c18a15444f5dd2ad12a8"
+  },
+  {
+    "id": "uruk_scout_archer",
+    "name": "우르크 스카웃 궁수",
+    "role": "infantry",
+    "sheet": 3,
+    "cell": 14,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "d3ecce29c4f83d1ef7d2cc7c3e0c10e7969939528c5eb7f0d2ec7df3de2fc1bd"
+  },
+  {
+    "id": "crebain_swarm",
+    "name": "크레반 까마귀 떼",
+    "role": "support",
+    "sheet": 3,
+    "cell": 15,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "14c9a0923ee5191037f8a0915e48eabb22359f034b610f39efaa76f771474123"
+  },
+  {
+    "id": "hobbit_shirriff",
+    "name": "호빗 민병",
+    "role": "infantry",
+    "sheet": 3,
+    "cell": 16,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "bd8fab2173aee3fd0c4315755fea78f7215964d236d9fd8c4b93f7a3b227d7e8"
+  },
+  {
+    "id": "hobbit_bounder",
+    "name": "호빗 궁수",
+    "role": "infantry",
+    "sheet": 3,
+    "cell": 17,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "1bdf6df370b8b8e40b0279cabff63aa750efb5af7d2f16c680ea1f78c47e75db"
+  },
+  {
+    "id": "great_eagle",
+    "name": "대독수리",
+    "role": "monster",
+    "sheet": 3,
+    "cell": 18,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "24c0b241907d5b889615dedb1eb2a26b1d0a87194696f50ac89e07da025edf0b"
+  },
+  {
+    "id": "ent",
+    "name": "엔트",
+    "role": "monster",
+    "sheet": 3,
+    "cell": 19,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "7d78a55837d94d334949f66854b56e3c266e366d77736d4313eb1002b11ad0aa"
+  },
+  {
+    "id": "beorning",
+    "name": "베오르닝 전사",
+    "role": "hero",
+    "sheet": 3,
+    "cell": 20,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "467271f53590f040875fd87aae4c03d4a6e73fc833376544400816d04f5ae0fe"
+  },
+  {
+    "id": "ranger_north",
+    "name": "북부 레인저",
+    "role": "hero",
+    "sheet": 3,
+    "cell": 21,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "16ba40ae341f983ad7ce9d8205b46d300ec8401d3e816e37bc4451982d2af850"
+  },
+  {
+    "id": "theoden",
+    "name": "세오덴(기마)",
+    "role": "hero",
+    "sheet": 3,
+    "cell": 22,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "52ae6cf539b46e5a5488867b2402e4dfffe763b78da893012daf8870bec2bc4a"
+  },
+  {
+    "id": "faramir",
+    "name": "파라미르",
+    "role": "hero",
+    "sheet": 3,
+    "cell": 23,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "33a6548483e514c64d5dc7da2e190b5861535bebe460950e84b793e098127660"
+  },
+  {
+    "id": "haldir",
+    "name": "할디르",
+    "role": "hero",
+    "sheet": 3,
+    "cell": 24,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "4f108111df87c854c642dba669e57d93a13790182e23bd579aeda7543539af55"
+  },
+  {
+    "id": "galadriel",
+    "name": "갈라드리엘",
+    "role": "hero",
+    "sheet": 3,
+    "cell": 25,
+    "decision": "redrawn",
+    "issue": "proportions",
+    "beforeSHA256": "54270e07ca01be42e5ccd64b22cbffc06ee22f536a51f3601a2304a205525511"
+  },
+  {
+    "id": "gamling",
+    "name": "감링",
+    "role": "hero",
+    "sheet": 3,
+    "cell": 26,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "edcc641e0ac0e0104ecac00c135a528622023eaf0b3aee1a25394e8d3da80909"
+  },
+  {
+    "id": "samwise",
+    "name": "샘와이즈",
+    "role": "hero",
+    "sheet": 3,
+    "cell": 27,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "a3546a93dac4e3f886546c79b9f063db5567462ac6f92f25e5658e349a6f2bae"
+  },
+  {
+    "id": "mouth_of_sauron",
+    "name": "사우론의 입(기마)",
+    "role": "hero",
+    "sheet": 3,
+    "cell": 28,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "695f436157493edec7375530fc9619cafc6dfba7d0f3f9e97bbb06266e7b5103"
+  },
+  {
+    "id": "gothmog",
+    "name": "고스모그",
+    "role": "hero",
+    "sheet": 3,
+    "cell": 29,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "c9329ff3040c4a2c3f889d53cb17f195edc5f637716abd279fb6dde9b2ad3927"
+  },
+  {
+    "id": "lurtz",
+    "name": "루르츠",
+    "role": "hero",
+    "sheet": 3,
+    "cell": 30,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "5e71e1d319642e968e7f4e53600064f8fad8188c59139943ed6f6387b875a778"
+  },
+  {
+    "id": "sharku",
+    "name": "샤르쿠(와르그)",
+    "role": "hero",
+    "sheet": 3,
+    "cell": 31,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "70080ca79b06df361472cae77fdd46e895d4f6c7cf7d12481900eeaaf5803e20"
+  },
+  {
+    "id": "grima",
+    "name": "그리마 웜텅",
+    "role": "hero",
+    "sheet": 3,
+    "cell": 32,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "6c8dd4f32c65f941c9e0eb0ca2f93b06be99dfbc5375c5aa65aa8b9b0b5c4bf9"
+  },
+  {
+    "id": "khamul",
+    "name": "카물",
+    "role": "hero",
+    "sheet": 3,
+    "cell": 33,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "ba2e7855943513c1f3854669d48993fe4aae2c1ee794bfc1b8bb9b6b78e9c298"
+  },
+  {
+    "id": "fingolfin",
+    "name": "핑골핀",
+    "role": "hero",
+    "sheet": 3,
+    "cell": 34,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "7a05528de4ed6ae10e9fc6028e11b76ea6906b440cb9709cca73b067d2a173e3"
+  },
+  {
+    "id": "imrahil",
+    "name": "임라힐",
+    "role": "hero",
+    "sheet": 3,
+    "cell": 35,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "c45a73cd869107ec89b1ca25fc48c859f70080ed6be36b94a7335aa6e083fdc7"
+  },
+  {
+    "id": "merry",
+    "name": "메리아독",
+    "role": "hero",
+    "sheet": 3,
+    "cell": 36,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "fa7ef5f88fc988b434dac4a61ef81e7b61303f46ebd0bce3583ebb2c20a282f7"
+  },
+  {
+    "id": "pippin",
+    "name": "피핀",
+    "role": "hero",
+    "sheet": 3,
+    "cell": 37,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "933c54ebe2e47f33d1d1b465a55e4dccdcfe30d91b0917741c697592cd9b1114"
+  },
+  {
+    "id": "beorn",
+    "name": "베오른",
+    "role": "hero",
+    "sheet": 3,
+    "cell": 38,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "b9ae25a84217bed1ba5d56ceda65431c41fc010dd8efaa3517163691cba3830a"
+  },
+  {
+    "id": "elendil",
+    "name": "엘렌딜",
+    "role": "hero",
+    "sheet": 3,
+    "cell": 39,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "d2a334522fb66015e3cdbad8531f62723cff4d136f5016574e37b47041dbb158"
+  },
+  {
+    "id": "melkor",
+    "name": "멜코르",
+    "role": "hero",
+    "sheet": 3,
+    "cell": 40,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "62218186a7dfaf0a77584945888f46a3f57ea69078aa240b75e26af180204b24"
+  },
+  {
+    "id": "mumakil",
+    "name": "무마킬",
+    "role": "monster",
+    "sheet": 3,
+    "cell": 41,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "7a05f6b0d9e4d1c64fc5be44b9aefe0339492c752b02baf18e368db0cee55cbb"
+  },
+  {
+    "id": "smaug",
+    "name": "스마우그",
+    "role": "monster",
+    "sheet": 3,
+    "cell": 42,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "b9cd1be09b0882f2854840332aeee29aad298288d5486d82470555bbfded09e3"
+  },
+  {
+    "id": "ungoliant",
+    "name": "웅골리안트",
+    "role": "monster",
+    "sheet": 3,
+    "cell": 43,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "4a1cc90bdab91bb1be2aab920963cd7486b5116b382aef853fe29494e16f0bbd"
+  },
+  {
+    "id": "bolg",
+    "name": "볼그",
+    "role": "hero",
+    "sheet": 3,
+    "cell": 44,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "aa1c6150e2120391eddc3a3e95eaf1e21abdb6bbb045b910d3654a21413c9ee5"
+  },
+  {
+    "id": "easterling_warlord",
+    "name": "이스터링 장군",
+    "role": "hero",
+    "sheet": 3,
+    "cell": 45,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "f044374c05d891bb6d66e59911ae810b8819c660e1f0c975f70450969eadf6f0"
+  },
+  {
+    "id": "radagast",
+    "name": "라다가스트",
+    "role": "hero",
+    "sheet": 3,
+    "cell": 46,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "5e093582374d32aba503f5937052e62887222d3afb3ff2367ecbdf7a5bf7b903"
+  },
+  {
+    "id": "thranduil",
+    "name": "트란두일",
+    "role": "hero",
+    "sheet": 3,
+    "cell": 47,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "834d25aa0a9bae5be3f0b85fa032057281f2259f620f99e5ba01166976525d6f"
+  },
+  {
+    "id": "celeborn",
+    "name": "켈레보른",
+    "role": "hero",
+    "sheet": 3,
+    "cell": 48,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "e366fc752e4952e50c4c58d40cd6798e663113058af59a9c215901dd12e89560"
+  },
+  {
+    "id": "bilbo",
+    "name": "빌보",
+    "role": "hero",
+    "sheet": 4,
+    "cell": 1,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "f3b710f1eb4cac877e09c48014ecf1aa1cad625b3192272a36c287d3c1029d25"
+  },
+  {
+    "id": "king_of_the_dead",
+    "name": "망자의 왕",
+    "role": "hero",
+    "sheet": 4,
+    "cell": 2,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "b6aaf12dbc1670d5410dc7d2c747218f9874b25dff6ef1a422846b437f038ab2"
+  },
+  {
+    "id": "dead_soldier",
+    "name": "망자 병사",
+    "role": "infantry",
+    "sheet": 4,
+    "cell": 3,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "a5c3eb84db103216823464cca7e1ce8f14719f1c61515d1dd0e7c228f3072cbb"
+  },
+  {
+    "id": "olog_hai",
+    "name": "올로그하이",
+    "role": "monster",
+    "sheet": 4,
+    "cell": 4,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "b8fa5ff61e0d73526270d9e6229606c2ac413ff68fe253e07daa312aeffe876f"
+  },
+  {
+    "id": "watcher_in_the_water",
+    "name": "물 속의 감시자",
+    "role": "monster",
+    "sheet": 4,
+    "cell": 5,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "5337a9d6e7a66d9a70ffd233ef66dab6268ea16fa3e558a258eab7f28bd4b407"
+  },
+  {
+    "id": "mirkwood_spider",
+    "name": "머크우드 거미",
+    "role": "monster",
+    "sheet": 4,
+    "cell": 6,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "acc41b6b7b3228ef38e61d7c0d1c086c239f12318265dfba041767fca6e6e3b5"
+  },
+  {
+    "id": "harad_chieftain",
+    "name": "하라드 족장",
+    "role": "hero",
+    "sheet": 4,
+    "cell": 7,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "cd0df4b45cd9e02f3abb5b74d0cd3dc2d7e0f921265690e9ee017ab2bfa2220c"
+  },
+  {
+    "id": "uruk_captain",
+    "name": "우룩하이 대장",
+    "role": "hero",
+    "sheet": 4,
+    "cell": 8,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "6fb4823ac0d51dc0717ca402a6c21049a87900570ecc5345cf957e5e212d8480"
+  },
+  {
+    "id": "hill_troll",
+    "name": "언덕 트롤",
+    "role": "monster",
+    "sheet": 4,
+    "cell": 9,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "b642b172bf535842878305cd69568ddd2641dd29ecbb4ca09bdf0bf8588fca75"
+  },
+  {
+    "id": "feanor",
+    "name": "페아노르",
+    "role": "hero",
+    "sheet": 4,
+    "cell": 10,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "8b659e507588b265d4f3a258ced478f2ee8f4314506a7ac6bc5a20840768dd48"
+  },
+  {
+    "id": "luthien",
+    "name": "루시엔",
+    "role": "hero",
+    "sheet": 4,
+    "cell": 11,
+    "decision": "redrawn",
+    "issue": "proportions",
+    "beforeSHA256": "e863aca60dc84b8010c86706d9b696bb1745c9e4812bceff5f39bc9ec7b944a2"
+  },
+  {
+    "id": "beren",
+    "name": "베렌",
+    "role": "hero",
+    "sheet": 4,
+    "cell": 12,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "64085ca822a967e2dd210a2b50a77ecc16fdb127767c0ab655d57e03b93ca6d7"
+  },
+  {
+    "id": "turin",
+    "name": "투린",
+    "role": "hero",
+    "sheet": 4,
+    "cell": 13,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "d39d5d52236dbff199d377f0479c88fd4c9f43c4c30d7d31fbcaa832edf3f8a0"
+  },
+  {
+    "id": "beleg",
+    "name": "벨레그",
+    "role": "hero",
+    "sheet": 4,
+    "cell": 14,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "783137fd992ccf3b7af415eafc9dd8a98076796c19bee1b4e4ef0a6299205f69"
+  },
+  {
+    "id": "huan",
+    "name": "훈",
+    "role": "hero",
+    "sheet": 4,
+    "cell": 15,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "83aa605ddc3b62dde7be20e42ea31314cba3ed167501240ab022a08dce500c0a"
+  },
+  {
+    "id": "glaurung",
+    "name": "글라우룽",
+    "role": "monster",
+    "sheet": 4,
+    "cell": 16,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "b69fd9343ebf5acc29844170c112d3bcf15373799efe3cf78980f67102f4f259"
+  },
+  {
+    "id": "carcharoth",
+    "name": "카르하로스",
+    "role": "hero",
+    "sheet": 4,
+    "cell": 17,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "2702276098540f4688eaa5049854b52a3c02b3c02eb466240a25bbb3b057f493"
+  },
+  {
+    "id": "gothmog_balrog",
+    "name": "고스모그(발록 군주)",
+    "role": "monster",
+    "sheet": 4,
+    "cell": 18,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "29a8f30f1a0517a6eceeec17fe9533a3e32fe81e1c73a8ac10c0d3ab3f865cc6"
+  },
+  {
+    "id": "draugluin",
+    "name": "드라우글루인",
+    "role": "monster",
+    "sheet": 4,
+    "cell": 19,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "208e156c1649ec94a8e995d8ba6cc02bc159590c84a20ac9bebd8954223d1118"
+  },
+  {
+    "id": "thuringwethil",
+    "name": "수링웨실",
+    "role": "monster",
+    "sheet": 4,
+    "cell": 20,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "a2ad9d434d2836fcbfb33855c53c357127d2716f952e04fc92ec37ebe643de94"
+  },
+  {
+    "id": "boldog",
+    "name": "볼독",
+    "role": "hero",
+    "sheet": 4,
+    "cell": 21,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "20001eaa761b7dde7775c7eff6e56883d2e4a51234dbb13450d4f68581da7e31"
+  },
+  {
+    "id": "thorin",
+    "name": "토린 오큰실드",
+    "role": "hero",
+    "sheet": 4,
+    "cell": 22,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "f7bf6eb3ae0a995ed8715f75ebb428b1482729a91412764acc74dd5e91076c9e"
+  },
+  {
+    "id": "tauriel",
+    "name": "타우리엘",
+    "role": "hero",
+    "sheet": 4,
+    "cell": 23,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "57a53e95b0ca50ab47b2fa116e1c116c3467350a960cf829115829a797feaa5f"
+  },
+  {
+    "id": "bard",
+    "name": "바드",
+    "role": "hero",
+    "sheet": 4,
+    "cell": 24,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "8da1c0c6f7d28e1c13ba0208baadcdb42786b25efc9abcf25054c74b612ec400"
+  },
+  {
+    "id": "dain",
+    "name": "데인",
+    "role": "hero",
+    "sheet": 4,
+    "cell": 25,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "2696dbbad24782065799bf3a03909bf5cf2ba4ae1b2189d4b40133fba5de2c72"
+  },
+  {
+    "id": "fili",
+    "name": "필리",
+    "role": "hero",
+    "sheet": 4,
+    "cell": 26,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "8829d4debb2d8166e169d84aaadc68694609b4447a9cda48f05f7ff368f9a9da"
+  },
+  {
+    "id": "kili",
+    "name": "킬리",
+    "role": "hero",
+    "sheet": 4,
+    "cell": 27,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "8ecf25ccfdc5bf34ce330c810668e3511a090be0f06471b6477e9ed93b334d4c"
+  },
+  {
+    "id": "azog",
+    "name": "아조그",
+    "role": "hero",
+    "sheet": 4,
+    "cell": 28,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "bd7e5ffc23d6e330f5431edf10235152f10c792e4000fec06a5d4f94c417212f"
+  },
+  {
+    "id": "azog_warg_rider",
+    "name": "아조그(흰 와르그)",
+    "role": "hero",
+    "sheet": 4,
+    "cell": 29,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "bd7e5ffc23d6e330f5431edf10235152f10c792e4000fec06a5d4f94c417212f"
+  },
+  {
+    "id": "azog_foot",
+    "name": "아조그(도보)",
+    "role": "hero",
+    "sheet": 4,
+    "cell": 30,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "b0b0c46aa3e001e181a078907a7a86e2c45d220b78e7c0fa5bcb051a9fb7df0b"
+  },
+  {
+    "id": "necromancer",
+    "name": "네크로맨서",
+    "role": "hero",
+    "sheet": 4,
+    "cell": 31,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "96b2a469c9fa3e2145dbadf164be9fe69fee3d5eb14b2805d98c2b55be787487"
+  },
+  {
+    "id": "hunter_orc",
+    "name": "헌터 오크",
+    "role": "infantry",
+    "sheet": 4,
+    "cell": 32,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "c909bcf9f6dd77385ba83b5399bd185a8a2f2a038721ee3092c1738386d878aa"
+  },
+  {
+    "id": "gundabad_orc",
+    "name": "군다바드 오크",
+    "role": "infantry",
+    "sheet": 4,
+    "cell": 33,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "a1fe1701f0b3fe5d338b25442e9b36b98e0c3b629f580d543b14b85ee3606f95"
+  },
+  {
+    "id": "goblin_mercenary",
+    "name": "고블린 용병",
+    "role": "infantry",
+    "sheet": 4,
+    "cell": 34,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "b5a111dc12c28f783eb64a35811167921d4642acb64b364265ae4246f5c2d20b"
+  },
+  {
+    "id": "halbarad",
+    "name": "할바라드",
+    "role": "hero",
+    "sheet": 4,
+    "cell": 35,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "f7f158b2a546b0117bc2e4610e30c00612022e3d28baf4c29a37b171b160a451"
+  },
+  {
+    "id": "beregond",
+    "name": "베레곤드",
+    "role": "hero",
+    "sheet": 4,
+    "cell": 36,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "c01cfc11b7f64b2345dc5f2331bab0078bf658717e69413f939c82979b7c263f"
+  },
+  {
+    "id": "elladan",
+    "name": "엘라단",
+    "role": "hero",
+    "sheet": 4,
+    "cell": 37,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "8d35a82043c5ef1aab3e151e914ac6aefa0927faba9aca2fb802a228823c3a0d"
+  },
+  {
+    "id": "elrohir",
+    "name": "엘로히르",
+    "role": "hero",
+    "sheet": 4,
+    "cell": 38,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "f1b5eb0f55f6d1941779d0efa4db09495bc42205d65a8788969a3908aaf0fcba"
+  },
+  {
+    "id": "grimbeorn",
+    "name": "그림베오른",
+    "role": "hero",
+    "sheet": 4,
+    "cell": 39,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "f388e584e2155397a3f33ac0c4f250387562ed4f28f3e14bdc705d4feb88df12"
+  },
+  {
+    "id": "ghan_buri_ghan",
+    "name": "간부리간",
+    "role": "infantry",
+    "sheet": 4,
+    "cell": 40,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "37457934614df0dca5d1a39250affc4e29b337121e5393d77c9c0e3c43b15b15"
+  },
+  {
+    "id": "suladan",
+    "name": "술라단",
+    "role": "hero",
+    "sheet": 4,
+    "cell": 41,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "7f3f43c2a66efc2453c785ea579b35143db86d13b0cd9cc234cbda233ce218a1"
+  },
+  {
+    "id": "corsair_umbra",
+    "name": "움바르 해적",
+    "role": "infantry",
+    "sheet": 4,
+    "cell": 42,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "26fe6bf1e921fc023a858c6fc9b71687dbf99e50f1d2f34b7737902a66cce90e"
+  },
+  {
+    "id": "variag_horseman",
+    "name": "바리악 기수",
+    "role": "cavalry",
+    "sheet": 4,
+    "cell": 43,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "1eaf160deec86f0d301a99d55403c36de3eda82ffa22e2ce2a786b7b74426fb4"
+  },
+  {
+    "id": "shagrat",
+    "name": "샤그랏",
+    "role": "hero",
+    "sheet": 4,
+    "cell": 44,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "fd63c2aadfad0284a57ecedb78a4586be31d2503505d6e71321378718e57ba4d"
+  },
+  {
+    "id": "gorbag",
+    "name": "고르바그",
+    "role": "hero",
+    "sheet": 4,
+    "cell": 45,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "36c3fa9e70ae9e498df00e429ed025508dd55673dc2cfc357dd55e645345f857"
+  },
+  {
+    "id": "warg_alpha",
+    "name": "와르그 우두머리",
+    "role": "beast",
+    "sheet": 4,
+    "cell": 46,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "774ddc649a81378ebebd9a7022402133d6c579d0271ba74020e898030dd01c12"
+  },
+  {
+    "id": "balin",
+    "name": "발린",
+    "role": "hero",
+    "sheet": 4,
+    "cell": 47,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "0263e8905de78eba17dc96b9ae51c3f3642f508b69105c74b41603f7c09d68f6"
+  },
+  {
+    "id": "dwalin",
+    "name": "드왈린",
+    "role": "hero",
+    "sheet": 4,
+    "cell": 48,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "3bfec262454b0f69afa38b51636664b053db8542caa2d1ecffd75c6c3be0f39f"
+  },
+  {
+    "id": "gloin",
+    "name": "글로인",
+    "role": "hero",
+    "sheet": 5,
+    "cell": 1,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "c6c975b7014fb9cf1e5550dd4f14662573306945c756d6f43f22703d514cc02d"
+  },
+  {
+    "id": "oin",
+    "name": "오인",
+    "role": "hero",
+    "sheet": 5,
+    "cell": 2,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "577058fc0de48556430ff234dbbd614901d3bcad85e62e65b7aa367b6956e8e9"
+  },
+  {
+    "id": "nori",
+    "name": "노리",
+    "role": "hero",
+    "sheet": 5,
+    "cell": 3,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "e4ab3b1293c3db881de00859e6db4a327cece1beb323d301c01004be20c5fed0"
+  },
+  {
+    "id": "ori",
+    "name": "오리",
+    "role": "hero",
+    "sheet": 5,
+    "cell": 4,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "1503cac59b620d0f9673a7864502b3841254544c68a8078615c5727f41f73178"
+  },
+  {
+    "id": "dori",
+    "name": "도리",
+    "role": "hero",
+    "sheet": 5,
+    "cell": 5,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "38391fa1f20264152e4b3b7cd56221d8fd20e29eab957aea01c86faadd15ddd3"
+  },
+  {
+    "id": "bifur",
+    "name": "비푸르",
+    "role": "hero",
+    "sheet": 5,
+    "cell": 6,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "2edce0da92fca1c0194b4da6c83a4e74b7914a32de9aa790ca8e58eaf2e8d823"
+  },
+  {
+    "id": "bofur",
+    "name": "보푸르",
+    "role": "hero",
+    "sheet": 5,
+    "cell": 7,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "e676e2761ec17f42853b0abef5c5b138c8102b270627e2803051d6cfec843283"
+  },
+  {
+    "id": "bombur",
+    "name": "봄부르",
+    "role": "hero",
+    "sheet": 5,
+    "cell": 8,
+    "decision": "redrawn",
+    "issue": "coarse",
+    "beforeSHA256": "b72f1378cf66457a012c11e60c5865b5869450b06281a28f0df1eab991118253"
+  },
+  {
+    "id": "goat_rider",
+    "name": "산양 기수",
+    "role": "cavalry",
+    "sheet": 5,
+    "cell": 9,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "63a63e73dc776bdf6e0dda16267590b0bff0b1a1abc98e4946493ea5c4c2408c"
+  },
+  {
+    "id": "gollum",
+    "name": "골룸",
+    "role": "beast",
+    "sheet": 5,
+    "cell": 10,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "754edd66ec309e561c0f9e1c7998cb4b6fabc3921fd768377488181fec0e3ab6"
+  },
+  {
+    "id": "gil_galad",
+    "name": "길갈라드",
+    "role": "hero",
+    "sheet": 5,
+    "cell": 11,
+    "decision": "redrawn",
+    "issue": "proportions",
+    "beforeSHA256": "995f1b9e1f6aaaa47c695fb230338531bec3bd828b1a547f196c418bd2769fdf"
+  },
+  {
+    "id": "cirdan",
+    "name": "키르단",
+    "role": "hero",
+    "sheet": 5,
+    "cell": 12,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "787ebeb8e1a5f4f94b5b6e00e3d65b8dcd4ce0b55769c232d779f52705813671"
+  },
+  {
+    "id": "arwen",
+    "name": "아르웬",
+    "role": "hero",
+    "sheet": 5,
+    "cell": 13,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "76581a5b0906f8ebf3cd7db1efef7b701031cfef287c762184fb1a6a0d771225"
+  },
+  {
+    "id": "lindir",
+    "name": "린디르",
+    "role": "hero",
+    "sheet": 5,
+    "cell": 14,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "fe90252d7cdc320310024c1fe7e44be0ae1c8734072477955b1d8047de0b864d"
+  },
+  {
+    "id": "erestor",
+    "name": "에레스토르",
+    "role": "hero",
+    "sheet": 5,
+    "cell": 15,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "5a1c135bdc14fd2c598e1737ca1b09283e8af90b061accd3f9b01a6114bd0ed7"
+  },
+  {
+    "id": "elf_seer",
+    "name": "엘프 선견자",
+    "role": "support",
+    "sheet": 5,
+    "cell": 16,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "b4159fbdd649ff77938f1b745bf415c0ce56ec6ec0a6fa31cf7c8b980bf37597"
+  },
+  {
+    "id": "rumil",
+    "name": "루밀",
+    "role": "hero",
+    "sheet": 5,
+    "cell": 17,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "baa0ad06f45a6b711edcc7f058f9c34cd56f3b604caccde7f2de3cf98edd9cab"
+  },
+  {
+    "id": "orophin",
+    "name": "오로핀",
+    "role": "hero",
+    "sheet": 5,
+    "cell": 18,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "3d4052aa33e519f3f1d2d8226ccb27918fed322a36fbfb94eb54d28e287b2565"
+  },
+  {
+    "id": "mirkwood_sentinel",
+    "name": "머크우드 보초",
+    "role": "infantry",
+    "sheet": 5,
+    "cell": 19,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "1be35ecb67d3fbaca06d937c03735f26fa4638f6d4f4d71da0e00aeddefed2e4"
+  },
+  {
+    "id": "noldor_warrior",
+    "name": "놀도르 정예병",
+    "role": "infantry",
+    "sheet": 5,
+    "cell": 20,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "6e105b5e89b739ed467d7b48ae1f533a27ad1a68b95bf491df526c0935eaa842"
+  },
+  {
+    "id": "silvan_archer",
+    "name": "실반 궁수",
+    "role": "infantry",
+    "sheet": 5,
+    "cell": 21,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "5564222be761246eb3be9c0324d09d73cdb238f04e4c8fba45866ad717640674"
+  },
+  {
+    "id": "elven_lancer",
+    "name": "엘프 기창기병",
+    "role": "cavalry",
+    "sheet": 5,
+    "cell": 22,
+    "decision": "redrawn",
+    "issue": "mounted",
+    "beforeSHA256": "8fbd38e867ee4de8f57596ddeaea46609e13062ea06707850bf0410f7814004a"
+  },
+  {
+    "id": "imrahil_mounted",
+    "name": "임라힐(기마)",
+    "role": "hero",
+    "sheet": 5,
+    "cell": 23,
+    "decision": "redrawn",
+    "issue": "mounted",
+    "beforeSHA256": "8f1460973109d148bd40f065750c25c5fd3c5961de904f855b93c32f5c455916"
+  },
+  {
+    "id": "gandalf_mounted",
+    "name": "간달프(섀도우팩스)",
+    "role": "hero",
+    "sheet": 5,
+    "cell": 24,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "a55273c83514a5ab268d0122dfceb1d8fcb15a5d28be265afea3773acdffc92b"
+  },
+  {
+    "id": "thranduil_mounted",
+    "name": "스란두일(기마)",
+    "role": "hero",
+    "sheet": 5,
+    "cell": 25,
+    "decision": "redrawn",
+    "issue": "mounted",
+    "beforeSHA256": "10b3e13303bf6ade34b26115215e74b0602e1eba676c3f156dd6bee3beceda1a"
+  },
+  {
+    "id": "aragorn_mounted",
+    "name": "아라곤(기마)",
+    "role": "hero",
+    "sheet": 5,
+    "cell": 26,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "2c0456296551892628054b2cb8ecd69444fd4a4b5b896ea105b2167ef4fa5525"
+  },
+  {
+    "id": "blackroot_archer",
+    "name": "검은뿌리골 궁수",
+    "role": "infantry",
+    "sheet": 5,
+    "cell": 27,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "384714b5bff63e115f5993923921e8b82ccd6f3df14453453b3ed30da9705f09"
+  },
+  {
+    "id": "half_troll",
+    "name": "하프 트롤",
+    "role": "monster",
+    "sheet": 5,
+    "cell": 28,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "47dc9af6c21cb4e291ae22fbee6f5f996044f1201c6a830cf6cfabd2d6f8b2f7"
+  },
+  {
+    "id": "cave_drake",
+    "name": "동굴 드레이크",
+    "role": "monster",
+    "sheet": 5,
+    "cell": 29,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "91d6cd1c4cceaf4bde9f6c152a155c0f380d100ef4b723fb54f3c6ce4a8e223f"
+  },
+  {
+    "id": "bat_swarm",
+    "name": "박쥐 떼",
+    "role": "monster",
+    "sheet": 5,
+    "cell": 30,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "10832fa02596f68405f4987268356f33a4729e7e751ddf3e003825d0deebc573"
+  },
+  {
+    "id": "muzgur",
+    "name": "무즈구르",
+    "role": "hero",
+    "sheet": 5,
+    "cell": 31,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "400724368b06921f6c99790f5e447b4576ea038515ff9ce49b284488de6e237f"
+  },
+  {
+    "id": "buhrdur",
+    "name": "부르두르",
+    "role": "monster",
+    "sheet": 5,
+    "cell": 32,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "e28daeeca53c0620bd546a951a1122fbba6d07590de8243887ccd55188ff2c00"
+  },
+  {
+    "id": "mahud_chieftain",
+    "name": "마후드 족장",
+    "role": "hero",
+    "sheet": 5,
+    "cell": 33,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "919ccda6ae3caef4a870ac211e18de1c15e7afed50ce49867c9d5380d2a83dbd"
+  },
+  {
+    "id": "eowyn_mounted",
+    "name": "에오윈(기마)",
+    "role": "hero",
+    "sheet": 5,
+    "cell": 34,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "450cbeb9ba481d527464c0ec2a705f8bdb86307949054b53988c8174cc3b1ec1"
+  },
+  {
+    "id": "forlong",
+    "name": "포를롱",
+    "role": "hero",
+    "sheet": 5,
+    "cell": 35,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "a29f59ae8d9a6e5506ed51a3831fa1fb902a4e8ce38dbcb71e87c235c57332ff"
+  },
+  {
+    "id": "erkenbrand",
+    "name": "에르켄브란트",
+    "role": "hero",
+    "sheet": 5,
+    "cell": 36,
+    "decision": "redrawn",
+    "issue": "coarse",
+    "beforeSHA256": "c63f34e3c3453b22e29294351a4e073abadb003add98a80fe8b91a7c637b62a3"
+  },
+  {
+    "id": "damrod",
+    "name": "담로드",
+    "role": "hero",
+    "sheet": 5,
+    "cell": 37,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "b15dcc7921b3d98067b7a04413897a144526003af1dcb88013d5766a12bcf5fd"
+  },
+  {
+    "id": "mablung",
+    "name": "마블룽",
+    "role": "hero",
+    "sheet": 5,
+    "cell": 38,
+    "decision": "redrawn",
+    "issue": "coarse",
+    "beforeSHA256": "c7bf2b8837545f83e82a3061098651e4890685865ef0fd4321c628f03c1a45f0"
+  },
+  {
+    "id": "duinhir",
+    "name": "두인히르",
+    "role": "hero",
+    "sheet": 5,
+    "cell": 39,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "a5c36c7be9ef826ef91a1ca60c03d460eaac37ff0cbe9761ebbda0a019f18eed"
+  },
+  {
+    "id": "ugluk",
+    "name": "우글룩",
+    "role": "hero",
+    "sheet": 5,
+    "cell": 40,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "4d542d633e0babc31b8bbc17caf4e809a46af56d38fe1c3f6cd4bec6ef04bac8"
+  },
+  {
+    "id": "mauhur",
+    "name": "마우후르",
+    "role": "hero",
+    "sheet": 5,
+    "cell": 41,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "f52c342f0240237388cb25444079c7558a2967b8a0d694d3517a7bf2452e324f"
+  },
+  {
+    "id": "vrasku",
+    "name": "브라스쿠",
+    "role": "hero",
+    "sheet": 5,
+    "cell": 42,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "85d2bd4946845011f7ca0c38f6c5daad0662c0620256899d8f22954d6bd5d89e"
+  },
+  {
+    "id": "stone_troll",
+    "name": "돌 트롤",
+    "role": "monster",
+    "sheet": 5,
+    "cell": 43,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "709e2fc10cb03f98d480b1bd1881e9c40aa40e50ca46da84465a6b14bb4cd727"
+  },
+  {
+    "id": "werewolf",
+    "name": "웨어울프",
+    "role": "beast",
+    "sheet": 5,
+    "cell": 44,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "24e91a2583f3648872aa6103df1ed6a7d8218edd1b4ad2a1757afbc5a941ec75"
+  },
+  {
+    "id": "gulavhar",
+    "name": "굴라브하르",
+    "role": "monster",
+    "sheet": 5,
+    "cell": 45,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "1b5f42795da0ac309a0fcd730323778093f0c105b5f917b57494b502f024f5c7"
+  },
+  {
+    "id": "terr_catapult",
+    "name": "투석기",
+    "role": "terrain",
+    "sheet": 5,
+    "cell": 46,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "ce3c81b460d3101de4b156b177e673d4f06fe608f7e7879c957de7242ad6dd5a"
+  },
+  {
+    "id": "terr_trebuchet",
+    "name": "트레뷰셋",
+    "role": "terrain",
+    "sheet": 5,
+    "cell": 47,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "9431eb4286f04a4928ba737a92ba4e2016d2948112af582a7203b1dfe87c8824"
+  },
+  {
+    "id": "terr_ballista",
+    "name": "발리스타",
+    "role": "terrain",
+    "sheet": 5,
+    "cell": 48,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "3f2a80731193132ede41db1cce06a115ca457217af4957a555695b420015dc22"
+  },
+  {
+    "id": "terr_grond",
+    "name": "그론드",
+    "role": "terrain",
+    "sheet": 6,
+    "cell": 1,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "6f6b6f97f33cb468591b073f09d788ef87f2877214435b4b2aab8c13e74ec0f3"
+  },
+  {
+    "id": "terr_siege_tower",
+    "name": "공성 탑",
+    "role": "terrain",
+    "sheet": 6,
+    "cell": 2,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "2ea4065c37d003f0f1a1c08590461ecfa24f018ac500678f6319ef37d47e09b9"
+  },
+  {
+    "id": "terr_bomb",
+    "name": "폭파탄",
+    "role": "terrain",
+    "sheet": 6,
+    "cell": 3,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "ebdad76151e045e9443d25cade0e42029efaba1e2446eb6b3e27e23048ce985b"
+  },
+  {
+    "id": "terr_rubble",
+    "name": "돌무더기",
+    "role": "terrain",
+    "sheet": 6,
+    "cell": 4,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "011d3039cfb23261a52cafe81a5daf16352cb36974e05662115bb6c380ccc9f3"
+  },
+  {
+    "id": "terr_broken_pillar",
+    "name": "부러진 기둥",
+    "role": "terrain",
+    "sheet": 6,
+    "cell": 5,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "995cb7eb7b22d84a181073d739dabd3550201655e228e5b57a793ecc240fddab"
+  },
+  {
+    "id": "terr_barricade",
+    "name": "목재 방벽",
+    "role": "terrain",
+    "sheet": 6,
+    "cell": 6,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "4e73542bee9068ce89648a2a87ec02c40c40b8c4634ec83724a6d221427387bb"
+  },
+  {
+    "id": "terr_crates",
+    "name": "보급 상자",
+    "role": "terrain",
+    "sheet": 6,
+    "cell": 7,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "3638a10f9c7e68b51f896a83c4ea97171c03d3cbde3fb40775be4bcf1ca64dd1"
+  },
+  {
+    "id": "terr_spike_line",
+    "name": "대기병 말뚝",
+    "role": "terrain",
+    "sheet": 6,
+    "cell": 8,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "018d3bf52978b1e7a179140ef557f7024bb7ca16914786884822f92bae550ed5"
+  },
+  {
+    "id": "terr_brazier",
+    "name": "화로",
+    "role": "terrain",
+    "sheet": 6,
+    "cell": 9,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "1bf29b7d44b39a345a46eb8066e9c7d14927263eb1a42f9047c9dbc5d6c8c171"
+  },
+  {
+    "id": "terr_orc_totem",
+    "name": "오크 전리품 토템",
+    "role": "terrain",
+    "sheet": 6,
+    "cell": 10,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "7325120240f9d393ab70a43356611003683f562a3f5abb3e9c8a5f9c3810e581"
+  },
+  {
+    "id": "terr_siege_ladder",
+    "name": "공성 사다리",
+    "role": "terrain",
+    "sheet": 6,
+    "cell": 11,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "4a3b108061f7e84bbe40c413d257b52435f97fc3c9a860785358a0be8c55432b"
+  },
+  {
+    "id": "terr_tent",
+    "name": "야영 텐트",
+    "role": "terrain",
+    "sheet": 6,
+    "cell": 12,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "f62d0ff7401a8e0e9ba77a999f044f3dd82c1bece5de6b0071c48ced09cd18ba"
+  },
+  {
+    "id": "terr_cart",
+    "name": "짐수레",
+    "role": "terrain",
+    "sheet": 6,
+    "cell": 13,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "1fc9ea7fb3d8232854281b17d50fc62916a65bbe8fc48a40ac4daf898bd88c59"
+  },
+  {
+    "id": "terr_campfire",
+    "name": "모닥불",
+    "role": "terrain",
+    "sheet": 6,
+    "cell": 14,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "39a446de18b0cba1f1cb0a6700aefcf17ebc2166330a4e01a293d96172a7abb3"
+  },
+  {
+    "id": "terr_statue_head",
+    "name": "무너진 왕 석상",
+    "role": "terrain",
+    "sheet": 6,
+    "cell": 15,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "0eb84b09320a6058737410c16b0761884119e62295b03aff9af7731dadf85fb3"
+  },
+  {
+    "id": "terr_rock_outcrop",
+    "name": "바위 지형",
+    "role": "terrain",
+    "sheet": 6,
+    "cell": 16,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "f7f70551fc40b6d838cd023089903677543fd7e21eda00398323c539dc45a669"
+  },
+  {
+    "id": "terr_standing_stones",
+    "name": "입석",
+    "role": "terrain",
+    "sheet": 6,
+    "cell": 17,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "d0dacaca44cfa39586f011d6ac27d401a0e1ca40349868d72d11062582a96c51"
+  },
+  {
+    "id": "terr_pine_copse",
+    "name": "소나무 숲",
+    "role": "terrain",
+    "sheet": 6,
+    "cell": 18,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "505a30945fa290dd1d606f5235c8dbb9aec61371ad404133131fa2b01ac116b2"
+  },
+  {
+    "id": "terr_oak_tree",
+    "name": "참나무",
+    "role": "terrain",
+    "sheet": 6,
+    "cell": 19,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "00833fa76fa9c7e5c784354a6fe69a99bbb7b0349266413a9ab19fdc2b4219e7"
+  },
+  {
+    "id": "terr_dead_tree",
+    "name": "고목",
+    "role": "terrain",
+    "sheet": 6,
+    "cell": 20,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "fd308229fd9b5fcb1994c5178d1dde02d850e3434f1cca7a1d5d68dd2c15b5f1"
+  },
+  {
+    "id": "terr_hedgerow",
+    "name": "울타리 덤불",
+    "role": "terrain",
+    "sheet": 6,
+    "cell": 21,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "e195860d64952418b88f4f73ef44945fd1f686bc3577f26a80c35f7e8d03ddeb"
+  },
+  {
+    "id": "terr_ruined_wall",
+    "name": "무너진 성벽",
+    "role": "terrain",
+    "sheet": 6,
+    "cell": 22,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "0f1c1151c1415cbcc58ef31d468517561cded92ca52dd5e4e4c9dc1d0cfa20e9"
+  },
+  {
+    "id": "terr_ruined_tower",
+    "name": "폐탑",
+    "role": "terrain",
+    "sheet": 6,
+    "cell": 23,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "373e9ace56288d9e24d835ca4780454782ea9b5419ec5a7cdf54996a84e12c3c"
+  },
+  {
+    "id": "terr_gondor_house",
+    "name": "곤도르 가옥",
+    "role": "terrain",
+    "sheet": 6,
+    "cell": 24,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "1caf6764ed364feb0f373a95d60677957e0806703b4ea4817a181652cd1da554"
+  },
+  {
+    "id": "terr_rohan_hall",
+    "name": "로한 회관",
+    "role": "terrain",
+    "sheet": 6,
+    "cell": 25,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "d790d55a3920e1cfdce9c1f94e41272865affb3ed7d8ac0a458dc35ca7b9f1cc"
+  },
+  {
+    "id": "terr_orc_camp",
+    "name": "오크 야영지",
+    "role": "terrain",
+    "sheet": 6,
+    "cell": 26,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "b0f74aee49619e7dbf4b61d54ab032e473754859fd22c2f1d20630de999e7ba8"
+  },
+  {
+    "id": "terr_barrow",
+    "name": "고분",
+    "role": "terrain",
+    "sheet": 6,
+    "cell": 27,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "e9a32c377ae5a8f09d6a9c70095ad4761b1d46a80b088fc700193053afda3417"
+  },
+  {
+    "id": "dark_marshal",
+    "name": "어둠의 장군",
+    "role": "hero",
+    "sheet": 6,
+    "cell": 28,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "a693b54e625e7b86a1fb41ea3e04d26b94b69f0c381023e41cd9c3ff75afb079"
+  },
+  {
+    "id": "shadow_lord",
+    "name": "그림자 군주",
+    "role": "hero",
+    "sheet": 6,
+    "cell": 29,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "3b51e5e2fc0d260e733bab28410159eac2e09f8d77f5d68d7dfce3ae8298ebb2"
+  },
+  {
+    "id": "betrayer",
+    "name": "배신자",
+    "role": "hero",
+    "sheet": 6,
+    "cell": 30,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "e1cca61b32a035c4c4e0d1381c292582ff8cea4d2cfd9ef50e653c0e0d868c76"
+  },
+  {
+    "id": "tainted",
+    "name": "타락한 자",
+    "role": "hero",
+    "sheet": 6,
+    "cell": 31,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "037088e01cf910d270226f00ecdb2881a6435620269cae1032ce21b8d745dce2"
+  },
+  {
+    "id": "undying",
+    "name": "죽지 않는 자",
+    "role": "hero",
+    "sheet": 6,
+    "cell": 32,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "c112178fee8c21bae7f9e1a70fc616a05bdd19813d99e5132ef34d9813149b8d"
+  },
+  {
+    "id": "knight_of_umbar",
+    "name": "움바르의 기사",
+    "role": "hero",
+    "sheet": 6,
+    "cell": 33,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "a6c6925e224031de34a5ce0379f6f186abec0331d94e1b6ac5ab25e76f035adc"
+  },
+  {
+    "id": "isildur",
+    "name": "이실두르",
+    "role": "hero",
+    "sheet": 6,
+    "cell": 34,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "62d4df432adfecedcd015f3d3d993e483bcf2f53c8005927ad96ada125e0ddcb"
+  },
+  {
+    "id": "gandalf_white",
+    "name": "간달프(백색)",
+    "role": "hero",
+    "sheet": 6,
+    "cell": 35,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "6a11a50cedf82deb5366dd13c6368b375b5c9606e41a014efdb5ef2b533405c6"
+  },
+  {
+    "id": "denethor",
+    "name": "데네소르",
+    "role": "hero",
+    "sheet": 6,
+    "cell": 36,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "d8eb6a55b8358862e0216587fe219a6e6612b22c43444a30689e29374f971117"
+  },
+  {
+    "id": "huorn",
+    "name": "휘오른",
+    "role": "monster",
+    "sheet": 6,
+    "cell": 37,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "effbcd1ce4df16ba6ec6112f9ee612e11c74d5cddd7d068fdcb5fe0666b760a7"
+  },
+  {
+    "id": "boromir_mounted",
+    "name": "보로미르(기마)",
+    "role": "hero",
+    "sheet": 6,
+    "cell": 38,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "15fbcd21721c4b35f64770e6882d136470bfdd4b08c68ee788fde6e1c7f56f6f"
+  },
+  {
+    "id": "elrond_mounted",
+    "name": "엘론드(기마)",
+    "role": "hero",
+    "sheet": 6,
+    "cell": 39,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "0adb0badf1d4aeffaee3bb21f7e66c15d9c6a1d9aa44ab39e339d4673de278e2"
+  },
+  {
+    "id": "gandalf_white_mounted",
+    "name": "간달프 백색(기마)",
+    "role": "hero",
+    "sheet": 6,
+    "cell": 40,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "d2c9d6f2ab6ae1a12c25cc52547f855c19c6507794641b11c6ec4f97bc9eef44"
+  },
+  {
+    "id": "theoden_foot",
+    "name": "세오덴(도보)",
+    "role": "hero",
+    "sheet": 6,
+    "cell": 41,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "97a0976cb5c08c0abc803df0541fb3afeddccafdc44c52df18e6ee49c6ec32e7"
+  },
+  {
+    "id": "dain_boar",
+    "name": "다인(맷돼지)",
+    "role": "hero",
+    "sheet": 6,
+    "cell": 42,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "a94d98987c02bf9989a571e1acdbb905adc3981fd6858f6d7a495e277b31353d"
+  },
+  {
+    "id": "faramir_mounted",
+    "name": "파라미르(기마)",
+    "role": "hero",
+    "sheet": 6,
+    "cell": 43,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "2fe8749c4f9dca9c80cce86da67a215be508199267ef8ea9cba411f8fe791a5c"
+  },
+  {
+    "id": "eomer_foot",
+    "name": "에오메르(도보)",
+    "role": "hero",
+    "sheet": 6,
+    "cell": 44,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "d44c1b9edd4a0ed8ccbcbf9f8a9e9d3c5f37e52a7d051d760ecc889e4f4b8fa2"
+  },
+  {
+    "id": "elfhelm",
+    "name": "엘프헬름",
+    "role": "hero",
+    "sheet": 6,
+    "cell": 45,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "a0e760f89ca6e168c8fc6db62de9b9c1935251eb21f0b700c288bb7a710be823"
+  },
+  {
+    "id": "elfhelm_mounted",
+    "name": "엘프헬름(기마)",
+    "role": "hero",
+    "sheet": 6,
+    "cell": 46,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "ee345f5d39b88986d1bd1e195379397ec70b1f946ca4fbb4ef56d5cfba09e2d4"
+  },
+  {
+    "id": "warg_rider_spear",
+    "name": "와르그 기병(창)",
+    "role": "cavalry",
+    "sheet": 6,
+    "cell": 47,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "34aa7f293ec371ad397370188ef1a430786938fae88c7fabb6841dd3a3ddf7f6"
+  },
+  {
+    "id": "warg_rider_bow",
+    "name": "와르그 기병(활)",
+    "role": "cavalry",
+    "sheet": 6,
+    "cell": 48,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "c594ab319c65938bb8b676e75f8e08e6e5e1fda1b34304bf7c4cfc35e541593d"
+  },
+  {
+    "id": "warg_chieftain",
+    "name": "와르그 우두머리 기병",
+    "role": "hero",
+    "sheet": 7,
+    "cell": 1,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "b9ec18f05d464305f08862b336a936af2c4b4643a30ac06f533cce65a9ce361c"
+  },
+  {
+    "id": "wild_warg",
+    "name": "야생 와르그",
+    "role": "monster",
+    "sheet": 7,
+    "cell": 2,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "cffbbc4a59606321402e4cd9a766a24d416e9fceee88900dc295d5a8240b3fde"
+  },
+  {
+    "id": "wild_warg_alpha",
+    "name": "와르그 우두머리",
+    "role": "monster",
+    "sheet": 7,
+    "cell": 3,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "58ef257a6b0f9fe10c7130602f6f55721282197604a67c6afd660e4e1fb01982"
+  },
+  {
+    "id": "ancalagon",
+    "name": "앙칼라곤",
+    "role": "monster",
+    "sheet": 7,
+    "cell": 4,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "f25d86337b88eae9eb2c11443c17251057b1a1c13b7822dd8cd9034de10c78b2"
+  },
+  {
+    "id": "terr_ruined_gate",
+    "name": "무너진 관문",
+    "role": "terrain",
+    "sheet": 7,
+    "cell": 5,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "dca8a786b007e490384dedd35469988d44e31673f2a2c41f8021b730368a5fac"
+  },
+  {
+    "id": "terr_wall_segment",
+    "name": "무너진 성벽 구간",
+    "role": "terrain",
+    "sheet": 7,
+    "cell": 6,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "1c1acb83840f481edecd348e746eefcec97df16ab8ace7d459b13f9497808b42"
+  },
+  {
+    "id": "terr_palisade",
+    "name": "목책",
+    "role": "terrain",
+    "sheet": 7,
+    "cell": 7,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "aebb5935252088431a3ada3a0014920ad38c509fbadf187033a7036d988e7216"
+  },
+  {
+    "id": "terr_broken_stairs",
+    "name": "부서진 계단",
+    "role": "terrain",
+    "sheet": 7,
+    "cell": 8,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "6754f66bbbc4d1849a7fb47c4a60126f95ee3ca4d2dd0c22a69d13900c54c1ae"
+  },
+  {
+    "id": "terr_siege_wreck",
+    "name": "공성기 잔해",
+    "role": "terrain",
+    "sheet": 7,
+    "cell": 9,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "639f713ab72030bfe7fa15448b5536d35c3b8c7084092e4a8e364db368591fa5"
+  },
+  {
+    "id": "terr_idol",
+    "name": "석상",
+    "role": "terrain",
+    "sheet": 7,
+    "cell": 10,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "f4b0a280f0c0ace36c1350cbf392c279554741ff210c12c13440335822b86aa7"
+  },
+  {
+    "id": "nazgul_fellbeast",
+    "name": "나즈굴(펠비스트)",
+    "role": "monster",
+    "sheet": 7,
+    "cell": 11,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "e34e4b306d38bb5f8bc45a8eac75a0bc449c53fbd611cbd7a59b173f22cb99c4"
+  },
+  {
+    "id": "fellbeast",
+    "name": "펠비스트",
+    "role": "monster",
+    "sheet": 7,
+    "cell": 12,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "df0b71e6117c1410e687542f0c114e1ba78d8ad20e7efec83271dd06640244b3"
+  },
+  {
+    "id": "quickbeam",
+    "name": "퀵빔",
+    "role": "monster",
+    "sheet": 7,
+    "cell": 13,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "5f9d77070be5e2285e5dcff74662fe04dafdaca85625ebebb818a809f52c9030"
+  },
+  {
+    "id": "aragorn_blackgate",
+    "name": "아라곤(검은문)",
+    "role": "hero",
+    "sheet": 7,
+    "cell": 14,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "b2b9052aad9fbbb47ae1a23935a7e311b2946f3383d2bd9f880c0271bdbd25cd"
+  },
+  {
+    "id": "aragorn_blackgate_mounted",
+    "name": "아라곤(검은문·기마)",
+    "role": "hero",
+    "sheet": 7,
+    "cell": 15,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "6fdc4be9054d411a24952dd8cc29ce57a1099177088f333321ffdb86eba75fff"
+  },
+  {
+    "id": "anborn",
+    "name": "안보른",
+    "role": "hero",
+    "sheet": 7,
+    "cell": 16,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "562e964ac5beec224f8a487755ca50befa5d7e608ffe42d1560cbf6ad14deafe"
+  },
+  {
+    "id": "hirluin",
+    "name": "히를루인",
+    "role": "hero",
+    "sheet": 7,
+    "cell": 17,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "b5c6743c8a4770b60b454e59362f033c0c39d8199846538fc5320e4a76c87d82"
+  },
+  {
+    "id": "madril",
+    "name": "마드릴",
+    "role": "hero",
+    "sheet": 7,
+    "cell": 18,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "926eda20bf43e86356aeb4c6cae3e698802e588ec698030e3952b5c06b957beb"
+  },
+  {
+    "id": "irolas",
+    "name": "이롤라스",
+    "role": "hero",
+    "sheet": 7,
+    "cell": 19,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "54b2911a17f98319354db5cec926ceae4076fd03a2afc6a579846b705db31f5d"
+  },
+  {
+    "id": "hurin",
+    "name": "후린",
+    "role": "hero",
+    "sheet": 7,
+    "cell": 20,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "a6ea8e2593c4b8e255a0631cbfe88d00f26bb439c161b4a26aae24d6b9816b5f"
+  },
+  {
+    "id": "cirion",
+    "name": "키리온",
+    "role": "hero",
+    "sheet": 7,
+    "cell": 21,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "c226e782827f79e9e3c3de53dbf41d7cb0915a1decbed0c3e1f47c5a43117199"
+  },
+  {
+    "id": "theodred",
+    "name": "테오드레드",
+    "role": "hero",
+    "sheet": 7,
+    "cell": 22,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "3b3d0c89529d29bb9cd7064a3d65103c156a853a6d42be6eac8a241edc5342a1"
+  },
+  {
+    "id": "hama",
+    "name": "하마",
+    "role": "hero",
+    "sheet": 7,
+    "cell": 23,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "6569c30fc18b0694a12d575a8b828ea06ad1c265a298c6a833351b9f49758c4a"
+  },
+  {
+    "id": "deorwine",
+    "name": "데오르바인",
+    "role": "hero",
+    "sheet": 7,
+    "cell": 24,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "1c1ec3cbc1e0b92a03ceda2b535cb2449236169c2faa8e4b1293d335cc3a652c"
+  },
+  {
+    "id": "grimbold",
+    "name": "그림볼드",
+    "role": "hero",
+    "sheet": 7,
+    "cell": 25,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "4485bad7eae1ec377a69c266200534501d611f41010800779699e596c9706420"
+  },
+  {
+    "id": "harding",
+    "name": "하딩",
+    "role": "hero",
+    "sheet": 7,
+    "cell": 26,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "165bea4b7a288066e2c33f41f55362490809579122322fe4115f766da8d4be42"
+  },
+  {
+    "id": "rohan_royal_guard_mounted",
+    "name": "로한 근위기병",
+    "role": "cavalry",
+    "sheet": 7,
+    "cell": 27,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "48aec02fff52277bc132fe96ef634370e10f0f07016d6aa7508f95e13e82ad8c"
+  },
+  {
+    "id": "arvedui",
+    "name": "아르베두이",
+    "role": "hero",
+    "sheet": 7,
+    "cell": 28,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "ee2ae89d6c84f2db84fa4e526bb497224c5846242f31838527e4a92f554d638f"
+  },
+  {
+    "id": "malbeth",
+    "name": "말베스",
+    "role": "hero",
+    "sheet": 7,
+    "cell": 29,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "96e78409bfda67194813dee437939f17076a774b4123ab59d406715e04b99dc8"
+  },
+  {
+    "id": "numenorean_captain",
+    "name": "누메노르 대장",
+    "role": "hero",
+    "sheet": 7,
+    "cell": 30,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "abafd31b59a7f1c9b214713117fc4a3017ffc94d260f724656c8513f37f1d925"
+  },
+  {
+    "id": "numenorean_warrior",
+    "name": "누메노르 전사",
+    "role": "infantry",
+    "sheet": 7,
+    "cell": 31,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "359559f129b4ed9437353dae1c5466df56ba8340602eef6d388cd8bbed187b95"
+  },
+  {
+    "id": "numenorean_spearman",
+    "name": "누메노르 창병",
+    "role": "infantry",
+    "sheet": 7,
+    "cell": 32,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "b9806f621f1520d1a26382c9ef16a7aff6443a28765152b88cb89f4e6d0abb4b"
+  },
+  {
+    "id": "arnor_warrior",
+    "name": "아르노르 전사",
+    "role": "infantry",
+    "sheet": 7,
+    "cell": 33,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "b819a8853b9ff2b3e2fb42f6646386c962a0fa3933dc1747db6a79dc0a8896ba"
+  },
+  {
+    "id": "hasharin",
+    "name": "하샤린",
+    "role": "hero",
+    "sheet": 7,
+    "cell": 34,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "6e777eb71f77dcf867f2ace48612696890184f4af9fefbebb82bbf8b6b176d61"
+  },
+  {
+    "id": "golden_king",
+    "name": "아브라칸의 황금왕",
+    "role": "hero",
+    "sheet": 7,
+    "cell": 35,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "94e106d3c7d0e4650ccb57321751db444c9df08ff138ee1ff880eb2d8a2f3a0e"
+  },
+  {
+    "id": "mahud_beastmaster",
+    "name": "마후드 야수조련사",
+    "role": "hero",
+    "sheet": 7,
+    "cell": 36,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "97fab72b42546f77f955d43b9ffe1a66423ece6c05b7d35b17e06d42b0a0c4ee"
+  },
+  {
+    "id": "watcher_karna",
+    "name": "카르나의 감시자",
+    "role": "infantry",
+    "sheet": 7,
+    "cell": 37,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "9234eb2ade0fcd72b929ac6adf8ebd599174ea3c284508246115b207a45e11a2"
+  },
+  {
+    "id": "haradrim_raider",
+    "name": "하라드림 습격기병",
+    "role": "cavalry",
+    "sheet": 7,
+    "cell": 38,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "21bc1a402e1c8cb0eb333a9977c3d628fd6a92c156217cdf4b6b3ddce3a7e4a0"
+  },
+  {
+    "id": "mahud_camel_raider",
+    "name": "마후드 낙타기병",
+    "role": "cavalry",
+    "sheet": 7,
+    "cell": 39,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "b3449629d16e5d91edf4e8e367dc8e5e4d341725f6252515a5b5c8d328dea428"
+  },
+  {
+    "id": "amdur",
+    "name": "암두르 검의 군주",
+    "role": "hero",
+    "sheet": 7,
+    "cell": 40,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "2d2688dbe148c0283c9bea75420d8b78c7063048dede451d2b53b8cdcb3c94bf"
+  },
+  {
+    "id": "dragon_knight",
+    "name": "드래곤 기사",
+    "role": "cavalry",
+    "sheet": 7,
+    "cell": 41,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "827bed712e2d991dd4007b200e3588e5034730e5e8de3db0c839ed37f550870b"
+  },
+  {
+    "id": "easterling_priest",
+    "name": "이스터링 전쟁사제",
+    "role": "support",
+    "sheet": 7,
+    "cell": 42,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "8fc296657b2af9bba365b551a7e6e5ec2d5257981ccde0096e4fc8ca61fd1f77"
+  },
+  {
+    "id": "easterling_archer",
+    "name": "이스터링 궁수",
+    "role": "infantry",
+    "sheet": 7,
+    "cell": 43,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "9c7b2d67be5a522dd3401b56dee9eeac1e596a2d504386fd049f11ca490ea9ad"
+  },
+  {
+    "id": "variag_warrior",
+    "name": "바리악 전사",
+    "role": "infantry",
+    "sheet": 7,
+    "cell": 44,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "af1c59557a72986453700244fe2d2645eee9cbd24f3df3b357cea1ad9926baac"
+  },
+  {
+    "id": "khandish_horseman",
+    "name": "칸드 기병",
+    "role": "cavalry",
+    "sheet": 7,
+    "cell": 45,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "6c89d051d53820246e2d9bb332fc5a2385146750eaa1e2a7385f3010cb54f413"
+  },
+  {
+    "id": "forsaken",
+    "name": "버려진 자(나즈굴)",
+    "role": "hero",
+    "sheet": 7,
+    "cell": 46,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "c4393cf14210103ee71fc79bf11d6f791287c3733fe5985f8d9e8719e52f9b95"
+  },
+  {
+    "id": "castellan",
+    "name": "돌 굴두르 성주",
+    "role": "hero",
+    "sheet": 7,
+    "cell": 47,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "b43f0a2968fae3d180013d4b8ca7ed01f0ad6b0ecd867d4b68d2685e1fe27506"
+  },
+  {
+    "id": "dungeon_keeper",
+    "name": "감옥지기",
+    "role": "hero",
+    "sheet": 7,
+    "cell": 48,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "cca59856c57f87d97f38564369c9808f4ba940aab613a39e7f9daf0f91a5809a"
+  },
+  {
+    "id": "kardush",
+    "name": "카두쉬 화염술사",
+    "role": "hero",
+    "sheet": 8,
+    "cell": 1,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "fb9c5a67ef1f2051d3e20c3e4b7ae4003873c493e07108c4b7593bde134a6afb"
+  },
+  {
+    "id": "morgul_stalker",
+    "name": "모르굴 추적자",
+    "role": "infantry",
+    "sheet": 8,
+    "cell": 2,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "4e88033fe78540eb2fa77bf5c22e0d15b8e5eafcc84e49c9cba1acf7ab7dfd7f"
+  },
+  {
+    "id": "numenorean_marshal",
+    "name": "검은 누메노르 사령관",
+    "role": "hero",
+    "sheet": 8,
+    "cell": 3,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "95fb1660c3d34cea252a11a1c956525ddcb5c35b2f12a2fa7916b0430584fbef"
+  },
+  {
+    "id": "thrydan",
+    "name": "트리단 울프스베인",
+    "role": "hero",
+    "sheet": 8,
+    "cell": 4,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "96f6ce7f375bf5ca17dfaefefa3147148bbb4c8a43df0b06386751631f4fe7a3"
+  },
+  {
+    "id": "gorulf",
+    "name": "고룰프 아이언스킨",
+    "role": "hero",
+    "sheet": 8,
+    "cell": 5,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "6d3844a9e28234f155351e4ae59ac9e4e6c2d8986168d7770562e92da3011ae1"
+  },
+  {
+    "id": "dunlending_berserker",
+    "name": "던랜드 광전사",
+    "role": "infantry",
+    "sheet": 8,
+    "cell": 6,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "dc0d669dd0337e630869bc803323ec33cfadfcaf4aba4a46eae4f1e7680dc20b"
+  },
+  {
+    "id": "dunlending_shaman",
+    "name": "던랜드 주술사",
+    "role": "support",
+    "sheet": 8,
+    "cell": 7,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "b59e31dab217f49af8d2e7d8c4e2a1c8cfd97fcf57d365ccb5c68a17764004b8"
+  },
+  {
+    "id": "dunlending_archer",
+    "name": "던랜드 궁수",
+    "role": "infantry",
+    "sheet": 8,
+    "cell": 8,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "5925b1a810af4e0cb1dd05af6337585383ca2ca3aebf7f725843190790b124db"
+  },
+  {
+    "id": "ruffian",
+    "name": "샤키의 불한당",
+    "role": "infantry",
+    "sheet": 8,
+    "cell": 9,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "df6c22fc89b859faa7c693b56122db276da61c5ca4870361f191a32b7720cbec"
+  },
+  {
+    "id": "paladin_took",
+    "name": "팔라딘 툭",
+    "role": "hero",
+    "sheet": 8,
+    "cell": 10,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "4fe8cafa8e616b514c6aae900324b338a0e77ec65a9599f2c96017b167e4d542"
+  },
+  {
+    "id": "farmer_maggot",
+    "name": "농부 매곳",
+    "role": "hero",
+    "sheet": 8,
+    "cell": 11,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "d13bbef10e8981dbccf7ea859c20ed946a8fa2a781ef3f28bf8532d3ecafd24e"
+  },
+  {
+    "id": "fredegar",
+    "name": "프레데가르 볼저",
+    "role": "hero",
+    "sheet": 8,
+    "cell": 12,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "2503214cf2d403a538e0dbbbb427e1cb569615bb9f70480259ceb9a03c581f4c"
+  },
+  {
+    "id": "durin_vi",
+    "name": "두린 6세",
+    "role": "hero",
+    "sheet": 8,
+    "cell": 13,
+    "decision": "redrawn",
+    "issue": "coarse",
+    "beforeSHA256": "8625f5cc3b0036e0733ad4337bc09e4ea919b6647f203b33641ac785200eb775"
+  },
+  {
+    "id": "dead_spearman",
+    "name": "죽은자 창병",
+    "role": "infantry",
+    "sheet": 8,
+    "cell": 14,
+    "decision": "redrawn",
+    "issue": "coarse",
+    "beforeSHA256": "3251fbd6d75cffd9531016f6bf4919d512ad7ca5a7155d2459a4dc647bd6600f"
+  },
+  {
+    "id": "stone_giant",
+    "name": "안개산맥 거인",
+    "role": "monster",
+    "sheet": 8,
+    "cell": 15,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "6cb5f55ca477b30b260e3117db2cb0044f13649030c18653e7c86a64b1c64eb3"
+  },
+  {
+    "id": "gundabad_warg_rider",
+    "name": "군다바드 와르그 기병",
+    "role": "cavalry",
+    "sheet": 8,
+    "cell": 16,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "0fa377df93bab326487910f00bd87c1c7835faadec4008d25f07efafaf924e67"
+  },
+  {
+    "id": "terr_stone_barricade",
+    "name": "석재 바리케이드",
+    "role": "terrain",
+    "sheet": 8,
+    "cell": 17,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "5f3eca6a6a2b0618ba40b4bda2fad042036192fc17ccc09bf41a3254122e9c2d"
+  },
+  {
+    "id": "terr_spike_barricade",
+    "name": "말뚝 바리케이드",
+    "role": "terrain",
+    "sheet": 8,
+    "cell": 18,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "d11df49675ca882c0021f61aa298abc7a064bb2447eb040e2c2d7e31d57de9bf"
+  },
+  {
+    "id": "terr_orc_barricade",
+    "name": "오크 바리케이드",
+    "role": "terrain",
+    "sheet": 8,
+    "cell": 19,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "21a7cf1ba5a989dab04dd4174c0fd3c4417ea003d515cd2ff7d91415b6f85573"
+  },
+  {
+    "id": "terr_sandbag",
+    "name": "모래주머니 진지",
+    "role": "terrain",
+    "sheet": 8,
+    "cell": 20,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "ea9e71229645cbef109bfc12a0a5ab3bfc5f5dc5f50433e7ce43e9258a056ca6"
+  },
+  {
+    "id": "terr_portcullis",
+    "name": "철창 성문",
+    "role": "terrain",
+    "sheet": 8,
+    "cell": 21,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "0f5a55cf75554ce6b4e4ef0b57696e434f27724363d466939afb6abf8f466f42"
+  },
+  {
+    "id": "terr_stone_archway",
+    "name": "석조 아치",
+    "role": "terrain",
+    "sheet": 8,
+    "cell": 22,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "5c6b83498f5b11b2b871abbf3ec95036f853ecb2d6c38a74e67e4bd8e87bb60c"
+  },
+  {
+    "id": "terr_chest_open",
+    "name": "열린 보물상자",
+    "role": "terrain",
+    "sheet": 8,
+    "cell": 23,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "21b9712d2b39daac8dd6b2f8ab165d84f58d3e9ea8f88378c657d817a9e8d99c"
+  },
+  {
+    "id": "terr_chest_closed",
+    "name": "보물상자",
+    "role": "terrain",
+    "sheet": 8,
+    "cell": 24,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "2ed8f231b407d982940e3a4987035f726268908afd6792e6d1e48a13a31cd692"
+  },
+  {
+    "id": "terr_gold_pile",
+    "name": "금화 더미",
+    "role": "terrain",
+    "sheet": 8,
+    "cell": 25,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "e56b5c6e22843031c6b3ad7d33b834fa4885712f964f411b6480dd3c0046df71"
+  },
+  {
+    "id": "terr_relic_shrine",
+    "name": "유물 제단",
+    "role": "terrain",
+    "sheet": 8,
+    "cell": 26,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "d4786efd2e4e425b6ffd78f597ffc256e5aa215c8b06d1c19e5b2dc140ff1a20"
+  },
+  {
+    "id": "terr_hoard",
+    "name": "보물 소굴",
+    "role": "terrain",
+    "sheet": 8,
+    "cell": 27,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "71be6870f6f8933c15637db3308ea3d3a66182d0bcb94d2b001babb42e516182"
+  },
+  {
+    "id": "terr_loot_bag",
+    "name": "전리품 가방",
+    "role": "terrain",
+    "sheet": 8,
+    "cell": 28,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "d55acbbc9ca223bc834fed7fe424870048d3408e81f13ec82c59955acd867060"
+  },
+  {
+    "id": "terr_sarcophagus",
+    "name": "석관",
+    "role": "terrain",
+    "sheet": 8,
+    "cell": 29,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "05a18621efa546d519ad04b407268f33802e841b2fb12323c34dc72769475bef"
+  },
+  {
+    "id": "terr_cage",
+    "name": "철창 우리",
+    "role": "terrain",
+    "sheet": 8,
+    "cell": 30,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "5d5bc2cc454dc4add73affa661219c83d96a75e8b21cb66f875364f92a6ca4f2"
+  },
+  {
+    "id": "terr_bone_pile",
+    "name": "뼈더미",
+    "role": "terrain",
+    "sheet": 8,
+    "cell": 31,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "699e221012000043f00e5f78430b21adf579509a50b16b36f2b118bbf690c871"
+  },
+  {
+    "id": "terr_chain_post",
+    "name": "족쇄 기둥",
+    "role": "terrain",
+    "sheet": 8,
+    "cell": 32,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "e450ce34a387f837ce4ef6b707062e78716ef51482058f6adee37e2df314207d"
+  },
+  {
+    "id": "terr_throne",
+    "name": "석조 왕좌",
+    "role": "terrain",
+    "sheet": 8,
+    "cell": 33,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "283e4cad356b746c3f18982166c885018e12aea76fc599e3224b9ea598be600f"
+  },
+  {
+    "id": "terr_altar",
+    "name": "제단",
+    "role": "terrain",
+    "sheet": 8,
+    "cell": 34,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "b1ba8f634c49a169d4177e0c654fe1235765a0ad5562778a04dec883740554b9"
+  },
+  {
+    "id": "terr_well",
+    "name": "우물",
+    "role": "terrain",
+    "sheet": 8,
+    "cell": 35,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "d9bd29c73b7e269d77b3a8e3a693591b26828aeb44ba51d5698404171520aef8"
+  },
+  {
+    "id": "terr_market_stall",
+    "name": "장터 노점",
+    "role": "terrain",
+    "sheet": 8,
+    "cell": 36,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "997edbdd5812ff1fc1e62ece9793f9f9b3025f261595889254d8502645a1f9ff"
+  },
+  {
+    "id": "terr_haystack",
+    "name": "건초더미",
+    "role": "terrain",
+    "sheet": 8,
+    "cell": 37,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "10901d04f0091ec00710fae3f40c09c6e60cd2ebc3f450f8c58d2e9f0e87627b"
+  },
+  {
+    "id": "terr_hay_cart",
+    "name": "건초 수레",
+    "role": "terrain",
+    "sheet": 8,
+    "cell": 38,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "d09179b9be01d164c268baecd5c2b4823f212acd2874b5d44c3a0f3732eece5e"
+  },
+  {
+    "id": "terr_fence_gate",
+    "name": "울타리 문",
+    "role": "terrain",
+    "sheet": 8,
+    "cell": 39,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "8ea9ed06a39c940be175f4cfdacb85222167839a78eb4ff89197ce1856b135ad"
+  },
+  {
+    "id": "terr_beehive",
+    "name": "벌통",
+    "role": "terrain",
+    "sheet": 8,
+    "cell": 40,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "f9f51f9070182647ecfb04e917bca7b3e65d3d289329aa8db0fe9116cba4c899"
+  },
+  {
+    "id": "terr_boulders",
+    "name": "이끼 바위",
+    "role": "terrain",
+    "sheet": 8,
+    "cell": 41,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "24358329606e42ebe7677d4dd3c3a5aab9902195e799e15ae405f62541071022"
+  },
+  {
+    "id": "terr_mushroom_ring",
+    "name": "버섯 고리",
+    "role": "terrain",
+    "sheet": 8,
+    "cell": 42,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "aed89095b4c11b6dd0b0566740bd6a1b1ca8f5b5be42aa599a2fb615b55011b8"
+  },
+  {
+    "id": "terr_bramble",
+    "name": "가시덤불",
+    "role": "terrain",
+    "sheet": 8,
+    "cell": 43,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "d059e90e05423988353e62511191328c02352ca94487eec5e76c8ebba43a703c"
+  },
+  {
+    "id": "terr_pond",
+    "name": "연못",
+    "role": "terrain",
+    "sheet": 8,
+    "cell": 44,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "bb0504c2d38b9b20c2d63327f0526bc6976b90257220b8cbccc0a19b4511c5d8"
+  },
+  {
+    "id": "terr_waystone",
+    "name": "룬 이정석",
+    "role": "terrain",
+    "sheet": 8,
+    "cell": 45,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "a89981b4782162e91443f1fce85c93ac5101d274c58380e9443cecdd93d12ff8"
+  },
+  {
+    "id": "terr_fallen_log",
+    "name": "쓰러진 통나무",
+    "role": "terrain",
+    "sheet": 8,
+    "cell": 46,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "e9b528310b5509c747f5574cdfdc68f180d761914808285d5455234afa543670"
+  },
+  {
+    "id": "terr_war_banner",
+    "name": "전쟁기",
+    "role": "terrain",
+    "sheet": 8,
+    "cell": 47,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "0ad49c570d4689d0d11bea4b5feb3250eb903b5328a1088d7b56d2be5ebe68e5"
+  },
+  {
+    "id": "terr_weapon_rack",
+    "name": "무기 거치대",
+    "role": "terrain",
+    "sheet": 8,
+    "cell": 48,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "0d16a2a42855814da8e065a7c4edd5306a2e7084d93feb04d0358fb87bf4581c"
+  },
+  {
+    "id": "terr_anvil",
+    "name": "대장간 모루",
+    "role": "terrain",
+    "sheet": 9,
+    "cell": 1,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "41c0aeef4740b012198ca73851f45ebee181ff7f12cd212d20893a371d5b41cc"
+  },
+  {
+    "id": "terr_ammo_pile",
+    "name": "화살 보급더미",
+    "role": "terrain",
+    "sheet": 9,
+    "cell": 2,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "a75b053c5820ed680881f07313acd1b7a1a2822dae8b37ced8ddc72c7885deda"
+  },
+  {
+    "id": "terr_map_table",
+    "name": "지도 탁자",
+    "role": "terrain",
+    "sheet": 9,
+    "cell": 3,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "01d18c8674ade80c6ee1dcb0b1211014a70e6dc67efc9b7df6609e03e52973d5"
+  },
+  {
+    "id": "terr_torch_post",
+    "name": "횃불 기둥",
+    "role": "terrain",
+    "sheet": 9,
+    "cell": 4,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "bea264ea5eb41aa7267a024e951db6951f68bc12b1fd6b6844ff2e472634f2a1"
+  },
+  {
+    "id": "arathorn",
+    "name": "아라손",
+    "role": "hero",
+    "sheet": 9,
+    "cell": 5,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "7b7847f802c2f4becc2259bfc8d69e3bd8a5dd4521fbc226e83d7fbbdfcf7ebd"
+  },
+  {
+    "id": "angbor",
+    "name": "앵보르 무서운 자",
+    "role": "hero",
+    "sheet": 9,
+    "cell": 6,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "51ba8f6faefec65b7b488c8040f29bcb27c0a497183eec2fc9c3cae1f760e567"
+  },
+  {
+    "id": "dunhere",
+    "name": "둔헤레",
+    "role": "hero",
+    "sheet": 9,
+    "cell": 7,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "44b355155eff4aa549e35a2b91c76b45b9ec43911b8d89cdf988c593843a95e0"
+  },
+  {
+    "id": "haleth",
+    "name": "할레스",
+    "role": "hero",
+    "sheet": 9,
+    "cell": 8,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "6d27c4e41cb60862a67fd0d2beab20e9f072a03a52d082490a4570d089c68a3d"
+  },
+  {
+    "id": "bandobras",
+    "name": "반도브라스 툭",
+    "role": "hero",
+    "sheet": 9,
+    "cell": 9,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "9729f15c19d59593b93ba4ec834a63f9aa99325267cacdc86dd6d126449f1f15"
+  },
+  {
+    "id": "gildor",
+    "name": "길도르",
+    "role": "hero",
+    "sheet": 9,
+    "cell": 10,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "14643e68b979f8fadaccd26763d8ac7d0354d11150825b0788a8ed53818ebfd3"
+  },
+  {
+    "id": "grishnakh",
+    "name": "그리쉬나크",
+    "role": "hero",
+    "sheet": 9,
+    "cell": 11,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "f7fb24f9cc2096a2e88c9c3d32d64bef7b36c1da99d82773021b77fa100b5542"
+  },
+  {
+    "id": "snaga",
+    "name": "스나가",
+    "role": "hero",
+    "sheet": 9,
+    "cell": 12,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "625162079c7c13c003a5bff6e1597f2256c200de7d67853ad88f68eaefbfa733"
+  },
+  {
+    "id": "zagdush",
+    "name": "자그두쉬",
+    "role": "hero",
+    "sheet": 9,
+    "cell": 13,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "c9f09f38af62f7830685e7cf6ad1ebb3f833ca47350d97c2871e86fb430766fa"
+  },
+  {
+    "id": "dalamyr",
+    "name": "달라미르",
+    "role": "hero",
+    "sheet": 9,
+    "cell": 14,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "739b4f617826271e71ffeaaba2a55883c4d9f2d20744cd096396162e7e4b8d8e"
+  },
+  {
+    "id": "goblin_drummer",
+    "name": "고블린 북병",
+    "role": "support",
+    "sheet": 9,
+    "cell": 15,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "b36174578750504d5a29a570a8f9593cf63d8203bc299ff648899ebce45bc1d2"
+  },
+  {
+    "id": "yazneg",
+    "name": "야즈네그",
+    "role": "hero",
+    "sheet": 9,
+    "cell": 16,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "e050ba8937b788514872d59a95dd598c5d637b0fb5043644d4e357367eb5f846"
+  },
+  {
+    "id": "eorl_the_young",
+    "name": "에오를",
+    "role": "hero",
+    "sheet": 9,
+    "cell": 17,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "66bbad684db6c982b2cca194551b2f7b9b6508da3957cbb147242773dc078c0e"
+  },
+  {
+    "id": "helm_hammerhand",
+    "name": "헬름 해머핸드",
+    "role": "hero",
+    "sheet": 9,
+    "cell": 18,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "8da20d5eb526e31799265dc8ab0044a2dc696d128b971ef8a94bc17207d07293"
+  },
+  {
+    "id": "tom_bombadil",
+    "name": "톰 봄바딜",
+    "role": "hero",
+    "sheet": 9,
+    "cell": 19,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "50d79b336bc6404b25a94fc81de7287e4c90dcde0d5a515494517206207e9d49"
+  },
+  {
+    "id": "goldberry",
+    "name": "골드베리",
+    "role": "hero",
+    "sheet": 9,
+    "cell": 20,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "d9f217877c63d47bd42102a3e00f01358f96732832cab848fffdb08897e36225"
+  },
+  {
+    "id": "dead_rider",
+    "name": "망자 기병",
+    "role": "cavalry",
+    "sheet": 9,
+    "cell": 21,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "19a40bf76069e16cf12ac1ac786b6c41c8a9454835e9367b3e79e405ae550ff5"
+  },
+  {
+    "id": "dervorin",
+    "name": "데르보린",
+    "role": "hero",
+    "sheet": 9,
+    "cell": 22,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "0375431905a7525444bc3ee5451eeccf155a1de0dadec612606dc124ae81d648"
+  },
+  {
+    "id": "dol_amroth_man_at_arms",
+    "name": "돌 암로스 병사",
+    "role": "infantry",
+    "sheet": 9,
+    "cell": 23,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "999daa5184ae7ee017a5ee2cb22bdcb4c895362c6ee29504886c5ce4f6c9f52c"
+  },
+  {
+    "id": "numenorean_archer",
+    "name": "누메노르 궁병",
+    "role": "infantry",
+    "sheet": 9,
+    "cell": 24,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "b95cb5b38110f65a47086f21f1583dd99fa32a654e9f83d1d17fad6b2a8f3345"
+  },
+  {
+    "id": "sons_of_eorl",
+    "name": "에오를의 아들들",
+    "role": "cavalry",
+    "sheet": 9,
+    "cell": 25,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "c4d51e90631128fdb0055a89ab8ed4b7737c735948aa463dc2b14d652fb4574e"
+  },
+  {
+    "id": "vault_warden",
+    "name": "철언덕 방벽병",
+    "role": "infantry",
+    "sheet": 9,
+    "cell": 26,
+    "decision": "redrawn",
+    "issue": "coarse",
+    "beforeSHA256": "67efb16663a8eea78989c0a19688d1a349e1bfa64793e0199fe408ac474cf9b1"
+  },
+  {
+    "id": "palace_guard",
+    "name": "궁정 근위병",
+    "role": "infantry",
+    "sheet": 9,
+    "cell": 27,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "85604054c16609f50e9ece795ce02f96c7ed6cba72198cbeb6938885746b88e2"
+  },
+  {
+    "id": "hobbit_militia",
+    "name": "호빗 민병대",
+    "role": "infantry",
+    "sheet": 9,
+    "cell": 28,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "b0ad49ef292af781398980d1318f99c83ab4a5fc46ff8c8461fb1946c9e39732"
+  },
+  {
+    "id": "guritz",
+    "name": "구리츠",
+    "role": "hero",
+    "sheet": 9,
+    "cell": 29,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "03a132ed3a3c84f1ff5e39124878cd34a13ec0338e00ecff2aea48d77b94edc8"
+  },
+  {
+    "id": "targsh",
+    "name": "타르그쉬",
+    "role": "hero",
+    "sheet": 9,
+    "cell": 30,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "6f20d5cb36f821a22d0804ba9ee8d6bdb54f28bb52c3e14cc486207e09469bb7"
+  },
+  {
+    "id": "durburz",
+    "name": "두르부르즈",
+    "role": "hero",
+    "sheet": 9,
+    "cell": 31,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "aa340524721d98bf804c71ac8379e79b25f27f5723e0507cece5f479f1b9c53e"
+  },
+  {
+    "id": "goblin_scribe",
+    "name": "고블린 서기",
+    "role": "support",
+    "sheet": 9,
+    "cell": 32,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "a49e93445a99a49021e07f5a2bcf148cb242dde6d1b46e7e57b7851ced6dada6"
+  },
+  {
+    "id": "fimbul",
+    "name": "핌불",
+    "role": "hero",
+    "sheet": 9,
+    "cell": 33,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "0690288a8f779638bc1bd404d566706f377b15a4076b261440ed3d34edd416c8"
+  },
+  {
+    "id": "narzug",
+    "name": "나르주그",
+    "role": "hero",
+    "sheet": 9,
+    "cell": 34,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "b2236fa97aed04189f74c01e32eb28184728a333a3bab9607d952c4673604ea3"
+  },
+  {
+    "id": "khandish_chariot",
+    "name": "칸드 전차",
+    "role": "cavalry",
+    "sheet": 9,
+    "cell": 35,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "a5fe74e6418dda2d1800f715e9629b004f463cdac65acd6b0637afc4dca62c2b"
+  },
+  {
+    "id": "great_beast_gorgoroth",
+    "name": "고르고로스 거수",
+    "role": "monster",
+    "sheet": 9,
+    "cell": 36,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "08c298ebbe0705b8ef3c10f9c5ca215cdfabac38bcb08a9c74ae1eeddbceb2ad"
+  },
+  {
+    "id": "khandish_chieftain",
+    "name": "칸드 족장",
+    "role": "hero",
+    "sheet": 9,
+    "cell": 37,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "a61dfd16bbdfe5c91297f278f292629a64e5a794dc413fd5f8e3436fe92b5ddb"
+  },
+  {
+    "id": "abrakhan_guard",
+    "name": "아브라칸 근위대",
+    "role": "infantry",
+    "sheet": 9,
+    "cell": 38,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "f80ab90682785abb27ca277a5781a0c4ce1b3d06232d77f246c1e965857a7c4d"
+  },
+  {
+    "id": "corsair_bosun",
+    "name": "코르사 갑판장",
+    "role": "infantry",
+    "sheet": 9,
+    "cell": 39,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "3f1fe3bb2ec841d075893991e187a61b602fd820b36e6d7c199149f290b8c69d"
+  },
+  {
+    "id": "spider_queen",
+    "name": "거미 여왕",
+    "role": "monster",
+    "sheet": 9,
+    "cell": 40,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "18dabffd87db423b2177299033a39718b2e700586a92c0003e41efac4e7ca8ae"
+  },
+  {
+    "id": "turgon",
+    "name": "투르곤",
+    "role": "hero",
+    "sheet": 9,
+    "cell": 41,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "c407b12066f5b8d3e2325cccfe7ef5e9f1e5ebcfee0a002ec87048e402dd4564"
+  },
+  {
+    "id": "fingon",
+    "name": "핑곤",
+    "role": "hero",
+    "sheet": 9,
+    "cell": 42,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "e0df60a02042247c5631557e7f851bbca893680a08ccaf72c3e0475857b15262"
+  },
+  {
+    "id": "ecthelion",
+    "name": "엑텔리온",
+    "role": "hero",
+    "sheet": 9,
+    "cell": 43,
+    "decision": "redrawn",
+    "issue": "proportions",
+    "beforeSHA256": "a211cca8b404d13d20ff4fae30ccf0e275988581b5e444a3227e125401ee3e41"
+  },
+  {
+    "id": "finrod_felagund",
+    "name": "핀로드 펠라군드",
+    "role": "hero",
+    "sheet": 9,
+    "cell": 44,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "5f01ee163c57d1228cdc56d76711fdfa6860b11840563d169cdfb6280d85f0bb"
+  },
+  {
+    "id": "tuor",
+    "name": "투오르",
+    "role": "hero",
+    "sheet": 9,
+    "cell": 45,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "7ae88ccaccf63817ed453ba2b7a8cf7d6d6f2b65288eaef5b0622207ad68f27f"
+  },
+  {
+    "id": "hurin_thalion",
+    "name": "후린 탈리온",
+    "role": "hero",
+    "sheet": 9,
+    "cell": 46,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "3d9de9cf4b9ad7ad07487ec19cc877e0971f335c3489d0d1445b533ffef887ee"
+  },
+  {
+    "id": "maedhros",
+    "name": "마이드로스",
+    "role": "hero",
+    "sheet": 9,
+    "cell": 47,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "e72f9067bdaefb6bab3715cff6a732d4d71caf5d35efe33fa41f0b4aeaaac372"
+  },
+  {
+    "id": "celegorm",
+    "name": "켈레고름",
+    "role": "hero",
+    "sheet": 9,
+    "cell": 48,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "e1d65a7840c388ceab389f225cbc6c01e5bbd497d277e82e58c1ce742a5eef91"
+  },
+  {
+    "id": "thingol",
+    "name": "싱골",
+    "role": "hero",
+    "sheet": 10,
+    "cell": 1,
+    "decision": "redrawn",
+    "issue": "proportions",
+    "beforeSHA256": "262bb94bce1bd5ef91be9aa6deea93637b8c1f93f1b968a3cb77fa404ab8d3cb"
+  },
+  {
+    "id": "mablung_sindar",
+    "name": "마블룽",
+    "role": "hero",
+    "sheet": 10,
+    "cell": 2,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "ffb4a9f38dd82e586782128206b65761216916478da76031b81b3d24ce587c8a"
+  },
+  {
+    "id": "melian",
+    "name": "멜리안",
+    "role": "hero",
+    "sheet": 10,
+    "cell": 3,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "f054f7912eaa35a63ba909fc3332d291a847fb3ede318e1e669a66a9fca54d63"
+  },
+  {
+    "id": "mim",
+    "name": "밈",
+    "role": "hero",
+    "sheet": 10,
+    "cell": 4,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "04f7ee78d6fabc036953ce437fa97d198084eaf97e11211bce0f41756c41d173"
+  },
+  {
+    "id": "doriath_warrior",
+    "name": "도리아스 전사",
+    "role": "infantry",
+    "sheet": 10,
+    "cell": 5,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "b5cf5ae214fdb519f0df6c98a25273c3377a6ea96feca170ab1f65862d6c067d"
+  },
+  {
+    "id": "falathrim_archer",
+    "name": "팔라스림 궁수",
+    "role": "infantry",
+    "sheet": 10,
+    "cell": 6,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "48fffdbedb1c54d474ad38aad106af497b3319eba4fb40e8aaea3175c6161b52"
+  },
+  {
+    "id": "nargothrond_ranger",
+    "name": "나르고스론드 레인저",
+    "role": "infantry",
+    "sheet": 10,
+    "cell": 7,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "a9ae52f2493589f558e120fcdcb5e36203a99ecefb56361876a00fb249d34a15"
+  },
+  {
+    "id": "edain_warrior",
+    "name": "에다인 전사",
+    "role": "infantry",
+    "sheet": 10,
+    "cell": 8,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "9864cca57f82c460b6edfbc4f5c71a2f64db374de80f93c41f75271c58eca22a"
+  },
+  {
+    "id": "gondolin_guard",
+    "name": "곤돌린 근위병",
+    "role": "infantry",
+    "sheet": 10,
+    "cell": 9,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "d40e51897d64b719868f18ac15df01c71b217174ba670273c8aaef18768e8b14"
+  },
+  {
+    "id": "mirkwood_captain",
+    "name": "머크우드 대장",
+    "role": "hero",
+    "sheet": 10,
+    "cell": 10,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "4306d1018d670630b853d4005f7d13f665a055c341ea95d5ffd0921d45ee409d"
+  },
+  {
+    "id": "mordor_uruk",
+    "name": "모르도르 우르크",
+    "role": "infantry",
+    "sheet": 10,
+    "cell": 11,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "c6764de2a12fe493f9f7aa0bb18fd455c5c005e5fbfe14016c9f71330331fc85"
+  },
+  {
+    "id": "morgul_orc",
+    "name": "모르굴 오크",
+    "role": "infantry",
+    "sheet": 10,
+    "cell": 12,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "8ceac2aaeffc243d910cabd77a13b8afc6bb78fa155b3def7ef1e5b535142237"
+  },
+  {
+    "id": "morgul_rat",
+    "name": "모르굴 추적병",
+    "role": "infantry",
+    "sheet": 10,
+    "cell": 13,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "79d7ad17314ff9b77d4d9b884a5a0ae857e94f18984e0c91a55db104bf3ae10b"
+  },
+  {
+    "id": "ufthak",
+    "name": "우프탁",
+    "role": "hero",
+    "sheet": 10,
+    "cell": 14,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "06ca3970c83f7b1cf27b7b0aa6488ec00cc4a1b146e776b70a5725399f77d87e"
+  },
+  {
+    "id": "orc_sergeant",
+    "name": "오크 하사",
+    "role": "hero",
+    "sheet": 10,
+    "cell": 15,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "6e255563a9c3c6bbf063a3067a6f2b357414fae648ce27b38689fdf734eb93ca"
+  },
+  {
+    "id": "ashrak",
+    "name": "아슈라크",
+    "role": "hero",
+    "sheet": 10,
+    "cell": 16,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "c572638e311a5730db1811e9878c7dd1e97df4fa01fb98916a7da9fb5b068b71"
+  },
+  {
+    "id": "isengard_troll",
+    "name": "이센가드 트롤",
+    "role": "monster",
+    "sheet": 10,
+    "cell": 17,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "006a6f3f52677e49348f9405a1e00e963ad673f6061567829d3a138e9b2368c2"
+  },
+  {
+    "id": "dunlending_horseman",
+    "name": "던랜드 기병",
+    "role": "cavalry",
+    "sheet": 10,
+    "cell": 18,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "296261d417015dc941e0054985f854cf53c8086c1988a2af52a38b20dd3b3e12"
+  },
+  {
+    "id": "wulf",
+    "name": "울프",
+    "role": "hero",
+    "sheet": 10,
+    "cell": 19,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "c81d3cf82d6fab9bea468c64def8f745a132a905345fd9c858feae6146501209"
+  },
+  {
+    "id": "hera",
+    "name": "헤라",
+    "role": "hero",
+    "sheet": 10,
+    "cell": 20,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "e78d0a03b7c15d230b985899ea950fd17f6cd5224bdabb44cd56e1eb79613b94"
+  },
+  {
+    "id": "frealaf",
+    "name": "프레알라프",
+    "role": "hero",
+    "sheet": 10,
+    "cell": 21,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "7358fe05d985f0487dcd595cbe5f425e45cadf28e3962477e379606c2b9574b4"
+  },
+  {
+    "id": "rohan_yeoman",
+    "name": "로한 여맨",
+    "role": "infantry",
+    "sheet": 10,
+    "cell": 22,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "3d54c551021e1b84e6f4f9e6d6e14836d3c0bac5e738d4090928ad03b3da48cf"
+  },
+  {
+    "id": "serpent_guard",
+    "name": "뱀 근위대",
+    "role": "infantry",
+    "sheet": 10,
+    "cell": 23,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "3e7fe045d7a0603a62e429fd985b50670969a4893e4c907b1ce1bec23be8aa26"
+  },
+  {
+    "id": "corsair_crossbowman",
+    "name": "코르사 석궁병",
+    "role": "infantry",
+    "sheet": 10,
+    "cell": 24,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "b9016d1d86b96fb689959b449e9bcce2f2fc30295c374793244975ba41938a44"
+  },
+  {
+    "id": "mahud_blowpipe",
+    "name": "마후드 취관병",
+    "role": "infantry",
+    "sheet": 10,
+    "cell": 25,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "bebdbc37e000c9aee66cb1f9854f1e528ef90ca6b9e0b408ee51d767c4cb1e0b"
+  },
+  {
+    "id": "khandish_warrior",
+    "name": "칸드 전사",
+    "role": "infantry",
+    "sheet": 10,
+    "cell": 26,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "bbae33e2f717e997413bfe8788570fa23d551ea57eac7773aed4cd7e72c255ca"
+  },
+  {
+    "id": "easterling_mounted_archer",
+    "name": "이스터링 기마궁수",
+    "role": "cavalry",
+    "sheet": 10,
+    "cell": 27,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "e83baac4371ce82d34f06f0af86e35cd6fb02fbd9dbb20fb264a92e6b4e2beb7"
+  },
+  {
+    "id": "far_harad_chieftain",
+    "name": "먼 하라드 족장",
+    "role": "hero",
+    "sheet": 10,
+    "cell": 28,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "01a9f401827554f33841640d8e6c72e9d17b8e8df6a8999eef4396b4e4b326f8"
+  },
+  {
+    "id": "numenorean_knight",
+    "name": "누메노르 기사",
+    "role": "cavalry",
+    "sheet": 10,
+    "cell": 29,
+    "decision": "redrawn",
+    "issue": "mounted",
+    "beforeSHA256": "d901860f33e3de0250dc991e82333b0092fee909c49d52c1441db424145d5e1a"
+  },
+  {
+    "id": "arnor_archer",
+    "name": "아르노르 궁수",
+    "role": "infantry",
+    "sheet": 10,
+    "cell": 30,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "f1903efaa315cf8c8cd6306451445880e20dce7428cf25ad2cc75014474ea778"
+  },
+  {
+    "id": "duilin",
+    "name": "두일린",
+    "role": "hero",
+    "sheet": 10,
+    "cell": 31,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "1ecb477526dbf2fffd4e70f296a702cafa91039c59184badc04d0c6e2f9ec7db"
+  },
+  {
+    "id": "derufin",
+    "name": "데루핀",
+    "role": "hero",
+    "sheet": 10,
+    "cell": 32,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "7c39f0a75ccc860cb734400877b415ca748a7e6a3e3e7f89cc484ad11f20866f"
+  },
+  {
+    "id": "hirgon",
+    "name": "히르곤",
+    "role": "hero",
+    "sheet": 10,
+    "cell": 33,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "eecad8c4f422ba572b06a9aaa97d050c297d9b202240f5a283bfc4b97713d5ba"
+  },
+  {
+    "id": "pippin_citadel",
+    "name": "성채 근위병 피핀",
+    "role": "hero",
+    "sheet": 10,
+    "cell": 34,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "3e588cd1ed27718fc3211b432e8420dc720c0d9b834afd8dea50ebd4a91af993"
+  },
+  {
+    "id": "beorn_bear",
+    "name": "베오른 (곰)",
+    "role": "hero",
+    "sheet": 10,
+    "cell": 35,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "01986ea43a24bbfdc8d9a3c95dc8f083c4474c2566ea61e48838ff2bf8da2af2"
+  },
+  {
+    "id": "gwaihir",
+    "name": "그와이히르",
+    "role": "hero",
+    "sheet": 10,
+    "cell": 36,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "da1a461ccbc30d8555acbb0e553f17cff24d9145dbae2be8018f28ba61bae665"
+  },
+  {
+    "id": "lobelia",
+    "name": "로벨리아",
+    "role": "hero",
+    "sheet": 10,
+    "cell": 37,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "d6e8621f6909f307ce571a1214f44ec053ded8dd85523c560b552d490f36a305"
+  },
+  {
+    "id": "will_whitfoot",
+    "name": "윌 휫풋",
+    "role": "hero",
+    "sheet": 10,
+    "cell": 38,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "2421c04caf8f3c93ff9baf43ed1815799db2f6adb05b8fac119a0e9b138a978a"
+  },
+  {
+    "id": "dwarf_shieldbearers",
+    "name": "드워프 방패 운반병",
+    "role": "support",
+    "sheet": 10,
+    "cell": 39,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "13e9c1140a57955953a018e092b1d638e25e3024a52c80416cbebedca5dfeaf2"
+  },
+  {
+    "id": "iron_hills_captain",
+    "name": "아이언 힐즈 대장",
+    "role": "hero",
+    "sheet": 10,
+    "cell": 40,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "30cd43e321687ef746069e0344b6977fe2a33cfc06690532f8798ebb084ff382"
+  },
+  {
+    "id": "fingolfin_mounted",
+    "name": "핑골핀 (기마)",
+    "role": "hero",
+    "sheet": 10,
+    "cell": 41,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "6fba572911ef8c1e86f9bb20de97985041804eb0f441278e38fc1d17f066441a"
+  },
+  {
+    "id": "pallando",
+    "name": "팔란도",
+    "role": "hero",
+    "sheet": 10,
+    "cell": 42,
+    "decision": "redrawn",
+    "issue": "coarse",
+    "beforeSHA256": "c8303d2a8475d6775613aa41598852c3bf72de4add752fdc1adbdd2bcad95e99"
+  },
+  {
+    "id": "alatar",
+    "name": "알라타르",
+    "role": "hero",
+    "sheet": 10,
+    "cell": 43,
+    "decision": "redrawn",
+    "issue": "coarse",
+    "beforeSHA256": "d7d0fdc568654113a14d02bc1e60dd112e8105ee5bac56d6f69629f671ce6daa"
+  },
+  {
+    "id": "annatar",
+    "name": "안나타르",
+    "role": "hero",
+    "sheet": 10,
+    "cell": 44,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "b3ff167a19e3c091044802a1bd4697bdaefe7927f0918cef142451298cfbcf18"
+  },
+  {
+    "id": "sauron_wolf",
+    "name": "사우론 (늑대)",
+    "role": "hero",
+    "sheet": 10,
+    "cell": 45,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "afdf416824929cac6cc1e6e99347e988f06101065b58be1f4dab09cd335018e1"
+  },
+  {
+    "id": "landroval",
+    "name": "란드로발",
+    "role": "hero",
+    "sheet": 10,
+    "cell": 46,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "afdbcf8276c26e19dad787b2d184fd3b6ccd06fbef817d1030ed0fea68e52d08"
+  },
+  {
+    "id": "meneldor",
+    "name": "메넬도르",
+    "role": "hero",
+    "sheet": 10,
+    "cell": 47,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "78881e00c988c630243dd7625e840a2876354074ee3fafb482e50c8bc72d18c4"
+  },
+  {
+    "id": "leaflock",
+    "name": "리플락",
+    "role": "monster",
+    "sheet": 10,
+    "cell": 48,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "30e23a118e74fed146e3b2fe0e748dabb0c51830a4d1e1cb12e4d892416e28fb"
+  },
+  {
+    "id": "beechbone",
+    "name": "비치본",
+    "role": "monster",
+    "sheet": 11,
+    "cell": 1,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "50c82bbae8c5447af23457d6d9abc17d5f5668f4d7430e17921b21d1eb5d43a6"
+  },
+  {
+    "id": "azaghal",
+    "name": "아자갈",
+    "role": "hero",
+    "sheet": 11,
+    "cell": 2,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "5b21868f42e3fb5e1ba287a89c4960ab81e67d06f667e67e9dca9d1d87620a56"
+  },
+  {
+    "id": "nain",
+    "name": "나인",
+    "role": "hero",
+    "sheet": 11,
+    "cell": 3,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "ed0d6513d097ae0c22bbff1b183dad3317d206e3ae6754a4fc405ddec3df1ddf"
+  },
+  {
+    "id": "maglor",
+    "name": "마글로르",
+    "role": "hero",
+    "sheet": 11,
+    "cell": 4,
+    "decision": "redrawn",
+    "issue": "coarse",
+    "beforeSHA256": "39b64a680830327912d35766dde698cfef5dc8187b4eff05cf196a3007f0d47e"
+  },
+  {
+    "id": "gwindor",
+    "name": "그윈도르",
+    "role": "hero",
+    "sheet": 11,
+    "cell": 5,
+    "decision": "redrawn",
+    "issue": "coarse",
+    "beforeSHA256": "3a54fd9abd0be4866151e928c7477e7669736c3eba0042a512c231f73f430705"
+  },
+  {
+    "id": "celebrimbor",
+    "name": "켈레브림보르",
+    "role": "hero",
+    "sheet": 11,
+    "cell": 6,
+    "decision": "redrawn",
+    "issue": "coarse",
+    "beforeSHA256": "78e5e67f08a34ecdd45fd9a28ce24b9a1d78458f96b8e0435beeeb5b7c643ab2"
+  },
+  {
+    "id": "daeron",
+    "name": "다에론",
+    "role": "hero",
+    "sheet": 11,
+    "cell": 7,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "de908d4d082a9b36c1d8b7cdec2210dd575e2c71beb96587fc0f19922aa538ae"
+  },
+  {
+    "id": "earnur",
+    "name": "에아르누르",
+    "role": "hero",
+    "sheet": 11,
+    "cell": 8,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "64073c58ef50ad42cde53df2060177f4ea77fb8ec8188a7a110392ae6f18accc"
+  },
+  {
+    "id": "sangarunya",
+    "name": "상가루냐",
+    "role": "hero",
+    "sheet": 11,
+    "cell": 9,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "64514a2c2246c3e8dfde08abadea208e6a175879fc809ae43d0d883c222989da"
+  },
+  {
+    "id": "huor",
+    "name": "후오르",
+    "role": "hero",
+    "sheet": 11,
+    "cell": 10,
+    "decision": "redrawn",
+    "issue": "coarse",
+    "beforeSHA256": "99880077f200dc987da083f1986518e90670626718d78165cfa47eaab92ddaff"
+  },
+  {
+    "id": "barahir",
+    "name": "바라히르",
+    "role": "hero",
+    "sheet": 11,
+    "cell": 11,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "cc7575570e5b3f9f9927f7416d5b27071299cd521880623603945eb13b635698"
+  },
+  {
+    "id": "elendur",
+    "name": "엘렌두르",
+    "role": "hero",
+    "sheet": 11,
+    "cell": 12,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "281c5449cdf3d14da06ff044a00d8322592f70f771267ca8933d4929fade4490"
+  },
+  {
+    "id": "arpharazon",
+    "name": "아르파라존",
+    "role": "hero",
+    "sheet": 11,
+    "cell": 13,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "26bee8d0071bdb5cdf16424425cc550b7eecd0e95c31f2451dbb79b95e91fd97"
+  },
+  {
+    "id": "anarion",
+    "name": "아나리온",
+    "role": "hero",
+    "sheet": 11,
+    "cell": 14,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "42e7d206f08af84abbc143573b3886dfdd602e60970ad1f533f69002e3f67892"
+  },
+  {
+    "id": "earendil",
+    "name": "에아렌딜",
+    "role": "hero",
+    "sheet": 11,
+    "cell": 15,
+    "decision": "redrawn",
+    "issue": "proportions",
+    "beforeSHA256": "395e227a6781dbdb7f742e63f807178aaece747abc00b9935fea978e1c928259"
+  },
+  {
+    "id": "maeglin",
+    "name": "매글린",
+    "role": "hero",
+    "sheet": 11,
+    "cell": 16,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "58701a02c5987a5e1e31dae60df3d1964967041604c3d489cde217afd7fee158"
+  },
+  {
+    "id": "eol",
+    "name": "에올",
+    "role": "hero",
+    "sheet": 11,
+    "cell": 17,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "279ee01a06fc467f655dbd41cf4f5b3296f8de08f2484266885aaa4356010a2e"
+  },
+  {
+    "id": "galdor",
+    "name": "갈도르",
+    "role": "hero",
+    "sheet": 11,
+    "cell": 18,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "4608bbf826a9a431d5ce845662725f4f83c156e235c0e065167252d2316f1ec4"
+  },
+  {
+    "id": "thrain",
+    "name": "스라인",
+    "role": "hero",
+    "sheet": 11,
+    "cell": 19,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "505134e4fc6b0cde3595f3ca3c522a33495c7f4cae5a90fc43f376ce7954541b"
+  },
+  {
+    "id": "thror",
+    "name": "스로르",
+    "role": "hero",
+    "sheet": 11,
+    "cell": 20,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "5f62cc876acae8cb64fedc46a2f0d55c5a7d1db7be9e229cae916e1a23a0039d"
+  },
+  {
+    "id": "golfimbul",
+    "name": "골핌불",
+    "role": "hero",
+    "sheet": 11,
+    "cell": 21,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "7194a0f80ddae0d1135a74dbf5cdbcc888274e0d48b83100feb7794419ae18c8"
+  },
+  {
+    "id": "eomund",
+    "name": "에오문드",
+    "role": "hero",
+    "sheet": 11,
+    "cell": 22,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "4f1f069b3ef697e8c88739e95e0c7aba41db6f65496bb9c5a607f8a5dbda1c29"
+  },
+  {
+    "id": "guthlaf",
+    "name": "구슬라프",
+    "role": "hero",
+    "sheet": 11,
+    "cell": 23,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "8332028d4bc0f72d6117728d01311ca07cdd795c965b27b3683311df4528c71b"
+  },
+  {
+    "id": "ingold",
+    "name": "잉골드",
+    "role": "hero",
+    "sheet": 11,
+    "cell": 24,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "292e7c9b957e38851b99eb003b76f7da2e169f655469eff4ce343db049f085d5"
+  },
+  {
+    "id": "morgoth",
+    "name": "모르고스",
+    "role": "hero",
+    "sheet": 11,
+    "cell": 25,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "294889135f41f3618a9d69bfce0ed88ccfabaf051e0db1866ed13ee7ad9b4990"
+  },
+  {
+    "id": "witchking_mounted_sheet",
+    "name": "마술사왕 기마",
+    "role": "hero",
+    "sheet": 11,
+    "cell": 26,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "a3cc87b9d001fbf3db8011e99e05be54770bfc36965586c51df389ab1cd9aee6"
+  },
+  {
+    "id": "corsair_captain",
+    "name": "움바 선장",
+    "role": "hero",
+    "sheet": 11,
+    "cell": 27,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "035fffc7b2e3019030a4393dc101aafd85d9dd95416ae2d00e287274d1bd201f"
+  },
+  {
+    "id": "butterbur",
+    "name": "버터버",
+    "role": "civil",
+    "sheet": 11,
+    "cell": 28,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "650f8c28f2da8bdcde9ee73a46dbc0f7b61e8d1788f4e00f4d9b0286ef3a8ab9"
+  },
+  {
+    "id": "bill_ferny",
+    "name": "빌 페르니",
+    "role": "civil",
+    "sheet": 11,
+    "cell": 29,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "4ff119d8f68743520bfa2c8634716cd2929492e78dabaeb640b80ab7f3398898"
+  },
+  {
+    "id": "scatha",
+    "name": "스카사",
+    "role": "monster",
+    "sheet": 11,
+    "cell": 30,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "d03ce2a2599c260090456afdd3622e986d8f1c1f9a7d33f2d0a2893753f63a3a"
+  },
+  {
+    "id": "war_hound",
+    "name": "전투견",
+    "role": "beast",
+    "sheet": 11,
+    "cell": 31,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "4cfc268afb0f4bc14cb0879563e08e9a3cf31c3a3b2d50c0529b522eb5f49471"
+  },
+  {
+    "id": "terr_palantir",
+    "name": "팔란티르",
+    "role": "terrain",
+    "sheet": 11,
+    "cell": 32,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "b62341a8e0377b8b60c66828ab0d176c81f6e4a2e5358e8d30ac0f238fc3d0a0"
+  },
+  {
+    "id": "terr_white_tree",
+    "name": "흰나무 묘목",
+    "role": "terrain",
+    "sheet": 11,
+    "cell": 33,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "265f00c0d570d77e770092470ba1543d4df79eccf31befedd8aa9eb194b65449"
+  },
+  {
+    "id": "terr_argonath",
+    "name": "아르고나스",
+    "role": "terrain",
+    "sheet": 11,
+    "cell": 34,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "5eafb28890f9eea036e8cb16e122d131b8ff4ad709b52755d2335ecf95c040a7"
+  },
+  {
+    "id": "terr_osgiliath_dome",
+    "name": "오스길리아스 돔",
+    "role": "terrain",
+    "sheet": 11,
+    "cell": 35,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "05b273bda7f61a19fee1bf8d6fe7882568be16ce212cdd5a5bc2e53570104065"
+  },
+  {
+    "id": "terr_mumak_skull",
+    "name": "무마킬 해골",
+    "role": "terrain",
+    "sheet": 11,
+    "cell": 36,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "6d55995b811955ae236b6865d63678e61dd994494fd18541dffeb96494e171de"
+  },
+  {
+    "id": "galadhrim_knight",
+    "name": "갈라드림 기사",
+    "role": "cavalry",
+    "sheet": 11,
+    "cell": 37,
+    "decision": "redrawn",
+    "issue": "mounted",
+    "beforeSHA256": "7a8a4d203e18933b432842ffe1b529dbc5571f913a1573da4ded36f30a3f6753"
+  },
+  {
+    "id": "mahud_raider",
+    "name": "마후드 약탈자",
+    "role": "infantry",
+    "sheet": 11,
+    "cell": 38,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "0b11d6470a37680df250be36c2aa3ffb776fa85bb28c9b72fee8dd0622db5d81"
+  },
+  {
+    "id": "camel_rider",
+    "name": "낙타 기병",
+    "role": "cavalry",
+    "sheet": 11,
+    "cell": 39,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "f1f393d9aa9f16720ff42dbaecf3f8dbc9216ebb1b3cb6ab4c3dbec75c33479c"
+  },
+  {
+    "id": "dale_warrior",
+    "name": "데일 전사",
+    "role": "infantry",
+    "sheet": 11,
+    "cell": 40,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "90c1a3b4b6718a9f5c761b1c656ccdfa90857eb9180b13d663ea9cc389ba7ec1"
+  },
+  {
+    "id": "esgaroth_archer",
+    "name": "에스가로스 궁수",
+    "role": "infantry",
+    "sheet": 11,
+    "cell": 41,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "dadd2f8f59c42ad0ab55cfa92386834f6b30d7476ebebf7d818df2a621388053"
+  },
+  {
+    "id": "thorondor",
+    "name": "소론도르",
+    "role": "hero",
+    "sheet": 11,
+    "cell": 42,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "7a33882f743821ec7dfaf15bbfb17ee20a74453a1a510468789f9769a11d39c0"
+  },
+  {
+    "id": "rhosgobel_rabbit",
+    "name": "로스고벨 토끼썰매",
+    "role": "beast",
+    "sheet": 11,
+    "cell": 43,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "db50190f8e1b49e96bbcc8520264d69b2077df79e8e1f9dc976320aee257316a"
+  },
+  {
+    "id": "morgul_duellist",
+    "name": "모르굴 결투사",
+    "role": "infantry",
+    "sheet": 11,
+    "cell": 44,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "1a41656a9cf2dbf1156b5d2ad29aaaadc15eb3388e0102e4ae14b49c08980046"
+  },
+  {
+    "id": "troll_shaman",
+    "name": "트롤 주술사",
+    "role": "monster",
+    "sheet": 11,
+    "cell": 45,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "5624071e3de38bbeea7ba1ec8298020d89d1141410abdeda181b2f676a11b013"
+  },
+  {
+    "id": "deorwine_mounted",
+    "name": "데오르바인(기마)",
+    "role": "hero",
+    "sheet": 11,
+    "cell": 46,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "d1fc357b337a91b54b4942996abf85cff48ea0a04f718ec3f3e5092695146431"
+  },
+  {
+    "id": "grimbold_mounted",
+    "name": "그림볼드(기마)",
+    "role": "hero",
+    "sheet": 11,
+    "cell": 47,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "1d52c2f7e8892b203da3007c1ceb37425af214e77006736fcc22576b84409255"
+  },
+  {
+    "id": "harding_mounted",
+    "name": "하딩(기마)",
+    "role": "hero",
+    "sheet": 11,
+    "cell": 48,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "43ad775e11c2d3ed52646592cff66dc06de764e9e9e174d45bc5218e90edbfab"
+  },
+  {
+    "id": "dunhere_mounted",
+    "name": "둔헤레(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 1,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "d403523b0b4c8129a8864202ecf47644c259101bfed42ff688be75e829fdda2f"
+  },
+  {
+    "id": "guthlaf_mounted",
+    "name": "구슬라프(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 2,
+    "decision": "redrawn",
+    "issue": "mounted",
+    "beforeSHA256": "9f65444f9c77babba3776a6491a7d714e7bd3978760457efe6ecb0421f993193"
+  },
+  {
+    "id": "gamling_mounted",
+    "name": "감링(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 3,
+    "decision": "redrawn",
+    "issue": "mounted",
+    "beforeSHA256": "bcc71360edb39c015b0acc4a4e8cbc03c5580dbd49aa249b67541b7c735adb18"
+  },
+  {
+    "id": "erkenbrand_mounted",
+    "name": "에르켄브란드(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 4,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "7e548fdb7f62529f5dc94de697240aa0bb8d27552207eae44ca440b47824571b"
+  },
+  {
+    "id": "eorl_the_young_mounted",
+    "name": "에오를(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 5,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "43a786fdf6cbcd8aecab9b2c192688b2dd9d607ff967befaaaf4fbd35b7ffbe8"
+  },
+  {
+    "id": "frealaf_mounted",
+    "name": "프레알라프(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 6,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "7a8956382bec4c6f3da78f35b05b1dfc0a578ff012e306652d753b7ec357f5f1"
+  },
+  {
+    "id": "thrydan_mounted",
+    "name": "트리단(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 7,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "a2bc8d44c484890508da677d034c36bda13ad5ae2bd127579e943517e00454d4"
+  },
+  {
+    "id": "hera_mounted",
+    "name": "헤라(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 8,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "c7287afb3235fa143c4173f8ac00219a289f676f4d96f4f44ec83a4925188d74"
+  },
+  {
+    "id": "elendil_mounted",
+    "name": "엘렌딜(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 9,
+    "decision": "redrawn",
+    "issue": "mounted",
+    "beforeSHA256": "6ae767bf18b6d37e5bba93f1a0ab6dda833fbe3b9022fd9ab148cdbe03ccc950"
+  },
+  {
+    "id": "isildur_mounted",
+    "name": "이실두르(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 10,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "7359806f295dadd5a6af2bf9c34eb75b7a8c412a8130d7ba7b6b8a88d383dbf2"
+  },
+  {
+    "id": "anarion_mounted",
+    "name": "아나리온(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 11,
+    "decision": "redrawn",
+    "issue": "mounted",
+    "beforeSHA256": "77f132198e98360d32bf1bf27e34e45e8cece192e3d761420fad8e8caa211546"
+  },
+  {
+    "id": "cirion_mounted",
+    "name": "키리온(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 12,
+    "decision": "redrawn",
+    "issue": "mounted",
+    "beforeSHA256": "861df83111e8ec7af89e7bcf21b3f5010dc21eb64a2c3a18c777fce1df2a247a"
+  },
+  {
+    "id": "earnur_mounted",
+    "name": "에아르누르(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 13,
+    "decision": "redrawn",
+    "issue": "mounted",
+    "beforeSHA256": "7d078b8bf9e79fa533cdfb1b54d3a32e1ed0b20fafe6d2ee09bf7653cabfb2f9"
+  },
+  {
+    "id": "arvedui_mounted",
+    "name": "아르베두이(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 14,
+    "decision": "redrawn",
+    "issue": "mounted",
+    "beforeSHA256": "819849448e896a6bf289331df0f7e416da271bb15794ae43cd6ae46b8e33af7d"
+  },
+  {
+    "id": "arathorn_mounted",
+    "name": "아라손(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 15,
+    "decision": "redrawn",
+    "issue": "mounted",
+    "beforeSHA256": "5a66fe61b25ed3bd254d5dcb6616e09dbb271b4b9b21c13ff84a4d32cfd46d34"
+  },
+  {
+    "id": "halbarad_mounted",
+    "name": "할바라드(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 16,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "7fe8545e60922d6a12bdf07996c25aed7eed67355befe7d0b0eb7c9e17d638f6"
+  },
+  {
+    "id": "khamul_mounted",
+    "name": "카물(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 17,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "0bca90e42ec710a31aceba74a504e5d736f360418dd0b4120dff480a4320bcf4"
+  },
+  {
+    "id": "dark_marshal_mounted",
+    "name": "다크 마샬(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 18,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "ee8a8b8b8649af60eb629b1492c191be1b29c538f45fa00c65a8457bd6f442a3"
+  },
+  {
+    "id": "dwimmerlaik_mounted",
+    "name": "드위머레이크(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 19,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "a7d213760502c461b296393271198dcdb9fbe358c70951756fd853388260d200"
+  },
+  {
+    "id": "shadow_lord_mounted",
+    "name": "섀도 로드(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 20,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "cbed23b6a589fcafea9c558638dc4a1632c2a7ad424a727af553f9462106774d"
+  },
+  {
+    "id": "forsaken_mounted",
+    "name": "포세이큰(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 21,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "82fd59d482da53022f9f5554eb7335f2173d74f0e58b78d42e19f0d4c8fa5351"
+  },
+  {
+    "id": "tainted_mounted",
+    "name": "테인티드(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 22,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "5b2b5be2374d48f79e92ade865e99170b7db1ab965a6094f05ad67870a557292"
+  },
+  {
+    "id": "undying_mounted",
+    "name": "언다잉(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 23,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "0d9370f7ba57d68af0ab934cb47247cf5616cf4b9c3b765e94ae2e25f22cf362"
+  },
+  {
+    "id": "betrayer_mounted",
+    "name": "배신자(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 24,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "515676bc8313d589e0b332ae5b7d14a836c6172f462d083903e5ebb801cfce50"
+  },
+  {
+    "id": "bolg_mounted",
+    "name": "볼그(와르그)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 25,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "d8a34bd95a57ca3bca04008f5603729ba737d08b41b6e984ef47265bcaf28c09"
+  },
+  {
+    "id": "guritz_mounted",
+    "name": "구리츠(와르그)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 26,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "6172d4b565fdcaa90542452c5e429147ce1426378ed54d0f140c05ede5d2f767"
+  },
+  {
+    "id": "feanor_mounted",
+    "name": "페아노르(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 27,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "b2c7d9d13f40433c2e2b225e9f43240af07207ff3b984ab2e772780e35043b94"
+  },
+  {
+    "id": "turin_mounted",
+    "name": "투린(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 28,
+    "decision": "redrawn",
+    "issue": "mounted",
+    "beforeSHA256": "d6f3dccceb1d65c74dbff063d0582c69dc664e84a3037309e84fa10775d6608e"
+  },
+  {
+    "id": "tuor_mounted",
+    "name": "투오르(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 29,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "6c02e0cc40ef4e9dfd64b739b9a4d51784739c15f5cd33f5ff5d073d49eef619"
+  },
+  {
+    "id": "beleg_mounted",
+    "name": "벨레그(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 30,
+    "decision": "redrawn",
+    "issue": "mounted",
+    "beforeSHA256": "79188b8e9da5224ffcdefe927eee62d4d6e2d6d7328fd4d1e6ac8a73eb723154"
+  },
+  {
+    "id": "hurin_thalion_mounted",
+    "name": "후린 탈리온(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 31,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "e36817fe525133688280a5501b01af82dc58a7e112e408e666669b78a0d467fa"
+  },
+  {
+    "id": "maeglin_mounted",
+    "name": "매글린(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 32,
+    "decision": "redrawn",
+    "issue": "mounted",
+    "beforeSHA256": "dcddc2be778f5c6b9bf5fb5191e27ac30a48c97f2e09213dcc481a063d8f8d7b"
+  },
+  {
+    "id": "fingon_mounted",
+    "name": "핑곤(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 33,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "a75e0bb13eb88154bb4e87e63af3f4f7127259929be60f15fb43152dc890a2e2"
+  },
+  {
+    "id": "ecthelion_mounted",
+    "name": "엑텔리온(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 34,
+    "decision": "redrawn",
+    "issue": "mounted",
+    "beforeSHA256": "bd9d325f86a02d21386eaf63d739a41a1b31362a59b18e335f7028819a9eb617"
+  },
+  {
+    "id": "finrod_felagund_mounted",
+    "name": "핀로드(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 35,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "49d8d2ca12110b9466983abd6cb2ea9005fcffbac77461a3449bbe6f82e297ef"
+  },
+  {
+    "id": "maedhros_mounted",
+    "name": "마이드로스(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 36,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "2484b75310a092cc06f84e7be28e0c10b8363f2cddb39984cd58c359322dddd7"
+  },
+  {
+    "id": "celegorm_mounted",
+    "name": "켈레고름(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 37,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "5af6b3ee39ebe317bb587d7225eed36b985342bc09ccd23bdf6b908b4a8ac2cb"
+  },
+  {
+    "id": "turgon_mounted",
+    "name": "투르곤(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 38,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "bddc2d2f531b4f2246d5618469d64aad06f45833fe281a8d41c428db1b11b2c5"
+  },
+  {
+    "id": "cirdan_mounted",
+    "name": "키르단(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 39,
+    "decision": "redrawn",
+    "issue": "mounted",
+    "beforeSHA256": "6787e3b94f991dcc1384a32c3c50d328099c1e8f8b4f48f840984e6ee97d7ff9"
+  },
+  {
+    "id": "gil_galad_mounted",
+    "name": "길갈라드(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 40,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "0db19f6492f577791e3df7219184b808c9fe966ca23a0e06cc00b07e3d8719a5"
+  },
+  {
+    "id": "thingol_mounted",
+    "name": "싱골(기마)",
+    "role": "hero",
+    "sheet": 12,
+    "cell": 41,
+    "decision": "redrawn",
+    "issue": "mounted",
+    "beforeSHA256": "159aebfa1b87bc9d8fa50eabfb1247d334f32be81bfffe940930685513bb316a"
+  },
+  {
+    "id": "citadel_guard_bow",
+    "name": "성채근위 궁병",
+    "role": "infantry",
+    "sheet": 12,
+    "cell": 42,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "5537c68b85bf7644d82743c5673ea7c2e7cf2895bebb2a916efdb8d7598c2a09"
+  },
+  {
+    "id": "osgiliath_spearshield",
+    "name": "오스길리아스 베테랑 창방",
+    "role": "infantry",
+    "sheet": 12,
+    "cell": 43,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "e0d1c4ee1e5ab0d610796506e6720b6cea2720dfaea120dee40a3b970bcc56c7"
+  },
+  {
+    "id": "osgiliath_bow",
+    "name": "오스길리아스 베테랑 궁병",
+    "role": "infantry",
+    "sheet": 12,
+    "cell": 44,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "834d96ab40cec814d31a0512f22d38e69ea22d0a022608d2757bace2ad51b249"
+  },
+  {
+    "id": "dol_amroth_swordshield",
+    "name": "돌 암로스 검방병",
+    "role": "infantry",
+    "sheet": 12,
+    "cell": 45,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "aa943e8770ed43f470974e9ddc31573cd503b923a08dbc0453a12576e76d33f7"
+  },
+  {
+    "id": "dol_amroth_knight_foot",
+    "name": "돌 암로스 백조기사 도보",
+    "role": "infantry",
+    "sheet": 12,
+    "cell": 46,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "378836a37aba67e737f9abea2a6b5a3d628c563e6bc73f74f6253c8d6a50e900"
+  },
+  {
+    "id": "rohan_helmingas",
+    "name": "헬밍가 전사",
+    "role": "infantry",
+    "sheet": 12,
+    "cell": 47,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "023e9b7448db039ec74b525771d263e8d98c79ae7a56abe3097e22ca4234bacc"
+  },
+  {
+    "id": "rohan_redshield",
+    "name": "웨스트폴드 적색방패 기병",
+    "role": "cavalry",
+    "sheet": 12,
+    "cell": 48,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "1e8bd34363332f87f5c6563e82a46893905104ebc83a293c1a1e54b9241cb426"
+  },
+  {
+    "id": "ironhills_warrior",
+    "name": "철산 매톡 전사",
+    "role": "infantry",
+    "sheet": 13,
+    "cell": 1,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "95a5a71359b700a20443d0378d1ec0acef6176f8c0aa17a1adeff8ec19868e23"
+  },
+  {
+    "id": "ironhills_spearshield",
+    "name": "철산 창방병",
+    "role": "infantry",
+    "sheet": 13,
+    "cell": 2,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "40e7b5780ab5bb6c4c8150f650e7d76d0e2ccae9353c0283328ee05f3e804a65"
+  },
+  {
+    "id": "ironhills_crossbow",
+    "name": "철산 석궁병",
+    "role": "infantry",
+    "sheet": 13,
+    "cell": 3,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "3e2472325c5c3bccb9152c1faaf9dbb9c033163be29620b87f7a6163d9922347"
+  },
+  {
+    "id": "galadhrim_bow",
+    "name": "갈라드림 궁수",
+    "role": "infantry",
+    "sheet": 13,
+    "cell": 4,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "94dadc8f161ea2cba33bf375039e4ddf24fb875d28cc58b68edcd2e911e2680b"
+  },
+  {
+    "id": "galadhrim_elite_bow",
+    "name": "갈라드림 정예 궁병",
+    "role": "infantry",
+    "sheet": 13,
+    "cell": 5,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "03183872b4fb5abd5dc8628d1c7efb43382ba041024fc1f9e97332d93d399a7e"
+  },
+  {
+    "id": "mirkwood_ranger",
+    "name": "머크우드 레인저",
+    "role": "infantry",
+    "sheet": 13,
+    "cell": 6,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "8c56f06cca763642f556c3c77bd00d05d1804140483afd6fff15724569fae1f4"
+  },
+  {
+    "id": "arnor_knight",
+    "name": "아르노르 기사",
+    "role": "cavalry",
+    "sheet": 13,
+    "cell": 7,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "413346751befab7e3b384fd6f368a067e1034efb96dbaffd5f3c9be1b32eedc5"
+  },
+  {
+    "id": "arnor_ranger",
+    "name": "아르노르 레인저",
+    "role": "infantry",
+    "sheet": 13,
+    "cell": 8,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "843fb34edcd48453526fb69ef3697fca08c11d852eb5a600efd32d1e30f21ac2"
+  },
+  {
+    "id": "morannon_swordshield",
+    "name": "모라논 오크 검방",
+    "role": "infantry",
+    "sheet": 13,
+    "cell": 9,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "de3ce75f109a66d384dbe5ccaafe8609c967e966e663220275e9e80834abe617"
+  },
+  {
+    "id": "orc_elite_tracker",
+    "name": "오크 정예 추적궁병",
+    "role": "infantry",
+    "sheet": 13,
+    "cell": 10,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "09f2d55e77af233b76a77286cbcc7365e3542bbabc2c9541ec073cd58da60920"
+  },
+  {
+    "id": "dale_guard",
+    "name": "데일 기리온 근위병",
+    "role": "infantry",
+    "sheet": 13,
+    "cell": 11,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "6df7ba4b9057a31dba14c4d55ab6816cd38652053e49add2dbb7a21720ded9fa"
+  },
+  {
+    "id": "eomer_mounted",
+    "name": "eomer_mounted",
+    "role": "uncatalogued",
+    "sheet": 13,
+    "cell": 12,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "d9d4c8cb7e7e0dfc473de40462ed6bbdd6be20d3e79da547c6f91e56263e3af7"
+  },
+  {
+    "id": "galadriel_war",
+    "name": "galadriel_war",
+    "role": "uncatalogued",
+    "sheet": 13,
+    "cell": 13,
+    "decision": "redrawn",
+    "issue": "coarse",
+    "beforeSHA256": "14c2e2d7ebad978ddedeafa99d532fd3907856a6b1de4a8427ed8a04005f83d0"
+  },
+  {
+    "id": "hama_mounted",
+    "name": "hama_mounted",
+    "role": "uncatalogued",
+    "sheet": 13,
+    "cell": 14,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "ab392d87a5bf0379b236d41732533b338a2b288bca879c262ef8f5fceedfc54b"
+  },
+  {
+    "id": "terr_dark_wall",
+    "name": "terr_dark_wall",
+    "role": "uncatalogued",
+    "sheet": 13,
+    "cell": 15,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "464dde0ccff4b645ab3cad3dd24f04674abe069d9d90a1dc009516e84cb15707"
+  },
+  {
+    "id": "terr_great_wall",
+    "name": "terr_great_wall",
+    "role": "uncatalogued",
+    "sheet": 13,
+    "cell": 16,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "59fe02dfcf9e31e81a7fccf51d5d43f28630d885d2b8a3d1e9a02a629f532b64"
+  },
+  {
+    "id": "terr_palisade_long",
+    "name": "terr_palisade_long",
+    "role": "uncatalogued",
+    "sheet": 13,
+    "cell": 17,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "04c57724262e3c3fb66509d4e7568b7932f3dff2b603395ced0bd514add728c3"
+  },
+  {
+    "id": "terr_white_wall",
+    "name": "terr_white_wall",
+    "role": "uncatalogued",
+    "sheet": 13,
+    "cell": 18,
+    "decision": "scenery-outside-character-scope",
+    "issue": null,
+    "beforeSHA256": "9a3fffb645be415ba60bb99681620ad4517d4079614c2d04d89115b230c51abe"
+  },
+  {
+    "id": "theoden_mounted",
+    "name": "theoden_mounted",
+    "role": "uncatalogued",
+    "sheet": 13,
+    "cell": 19,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "52ae6cf539b46e5a5488867b2402e4dfffe763b78da893012daf8870bec2bc4a"
+  },
+  {
+    "id": "theodred_mounted",
+    "name": "theodred_mounted",
+    "role": "uncatalogued",
+    "sheet": 13,
+    "cell": 20,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "9e70c815b3134e8b6a1e9c8b5bb5fa4158d58d0781789b9da69378a224532b7c"
+  },
+  {
+    "id": "witchking_spear",
+    "name": "witchking_spear",
+    "role": "uncatalogued",
+    "sheet": 13,
+    "cell": 21,
+    "decision": "retained-after-visual-comparison",
+    "issue": null,
+    "beforeSHA256": "47dd076c33d36a79ed05f2a76e523a96a3a00b4b161b74136b53839c15559a40"
+  }
+]

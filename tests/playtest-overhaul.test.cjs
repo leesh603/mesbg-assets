@@ -13,7 +13,7 @@ for(const paid of paidEvents)test('paid '+paid.event+' validates 0 / cost−1 / 
   else {assert.equal(q.gold,balance-paid.cost);const after=JSON.stringify(q._saveState());assert.equal(q.chooseEvent(paid.index),false);assert.equal(JSON.stringify(q._saveState()),after);}
  }
 });
-test('the exact 15-coin boundary keeps 0 / 14 unchanged and deducts 15 / 16 once',()=>{for(const balance of [0,14,15,16]){const h=camp(),q=h.q;q.gold=balance;const courage=h.u.baseStats.courage;assert.equal(pick(q,h.LWB_EVENTS.find(e=>e.id==='refugees'),0),balance>=15);assert.equal(q.gold,balance>=15?balance-15:balance);assert.equal(h.u.baseStats.courage,courage+(balance>=15?1:0));}});
+test('the exact 15-coin boundary keeps 0 / 14 unchanged and deducts 15 / 16 once',()=>{for(const balance of [0,14,15,16]){const h=camp(),q=h.q;q.gold=balance;const courage=h.u.baseStats.courage;assert.equal(pick(q,h.LWB_EVENTS.find(e=>e.id==='refugees'),0),balance>=15);assert.equal(q.gold,balance>=15?balance-15:balance);assert.equal(h.u.baseStats.courage,courage);assert.equal(q.armyTrainingBonus('courage'),balance>=15?1:0);}});
 test('effect failure rolls back units, relics, gold, receipt, RNG, camp step and previous save',()=>{
  const h=camp(),q=h.q;q.gold=30;q.save();const stored=h.store.get('mesbg-endless-save'),u=h.u,courage=u.baseStats.courage,rng=q.rng.getState();
  q.campEvent={id:'failure',title:'test',options:[{cost:15,fx:b=>{b.rng();b.gold+=50;b.relics.test=1;u.baseStats.courage=99;throw Error('test');}}]};

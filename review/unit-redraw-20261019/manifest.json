@@ -1,0 +1,690 @@
+{
+  "date": "2026-10-19",
+  "baseSHA": "d0c126de25adec191d954f5d0841cd753c5d6089",
+  "units": [
+    {
+      "id": "elrond",
+      "files": {
+        "production": "assets/mesbg/tokens/elrond.png",
+        "root": "tokens/elrond.png",
+        "source": "art-src/unit-redraw-20261019/elrond.png",
+        "before": "art-src/unit-redraw-20261019/before/elrond.png",
+        "thumbnail": "assets/mesbg/thumbs/elrond.webp"
+      },
+      "generatedSize": [
+        1171,
+        1343
+      ],
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "0845137846c330c7bd2da1174564e7a1041666c63a9e4821e707f67538bf290a",
+      "artProfile": [
+        "human",
+        0.06,
+        0.929,
+        0.51,
+        0.4945,
+        86,
+        "body"
+      ],
+      "review": "manual anatomical landmarks; elevated quarter view; costume and weapon identity checked; Glorfindel/Gimli/Uruk pixel references",
+      "name": "엘론드",
+      "beforeSHA256": "0933bfba027bba1862256834f1cd7250a3b2cb1dbb4ae4d16bcc9ef625f76e0b"
+    },
+    {
+      "id": "elrond_mounted",
+      "files": {
+        "production": "assets/mesbg/tokens/elrond_mounted.png",
+        "root": "tokens/elrond_mounted.png",
+        "source": "art-src/unit-redraw-20261019/elrond_mounted.png",
+        "before": "art-src/unit-redraw-20261019/before/elrond_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/elrond_mounted.webp"
+      },
+      "generatedSize": [
+        1203,
+        1308
+      ],
+      "sourceSize": [
+        353,
+        384
+      ],
+      "sourceSHA256": "0adb0badf1d4aeffaee3bb21f7e66c15d9c6a1d9aa44ab39e339d4673de278e2",
+      "artProfile": [
+        "human",
+        0.085,
+        0.375,
+        0.625,
+        0.53,
+        43,
+        "rider"
+      ],
+      "review": "manual anatomical landmarks; elevated quarter view; costume and weapon identity checked; Glorfindel/Gimli/Uruk pixel references",
+      "name": "엘론드(기마)",
+      "beforeSHA256": "c0f70246932f18618ca455b7ee40686aa6939bdb37ee51c43d8310bcf3708e0b"
+    },
+    {
+      "id": "rumil",
+      "files": {
+        "production": "assets/mesbg/tokens/rumil.png",
+        "root": "tokens/rumil.png",
+        "source": "art-src/unit-redraw-20261019/rumil.png",
+        "before": "art-src/unit-redraw-20261019/before/rumil.png",
+        "thumbnail": "assets/mesbg/thumbs/rumil.webp"
+      },
+      "generatedSize": [
+        1171,
+        1343
+      ],
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "baa0ad06f45a6b711edcc7f058f9c34cd56f3b604caccde7f2de3cf98edd9cab",
+      "artProfile": [
+        "human",
+        0.169,
+        0.925,
+        0.586,
+        0.547,
+        86,
+        "body"
+      ],
+      "review": "manual anatomical landmarks; elevated quarter view; costume and weapon identity checked; Glorfindel/Gimli/Uruk pixel references",
+      "name": "루밀",
+      "beforeSHA256": "f6ffc72b51aaa5093123550bc80f7e542094f30c1c463c4b78d8693c98820b2f"
+    },
+    {
+      "id": "orophin",
+      "files": {
+        "production": "assets/mesbg/tokens/orophin.png",
+        "root": "tokens/orophin.png",
+        "source": "art-src/unit-redraw-20261019/orophin.png",
+        "before": "art-src/unit-redraw-20261019/before/orophin.png",
+        "thumbnail": "assets/mesbg/thumbs/orophin.webp"
+      },
+      "generatedSize": [
+        1171,
+        1343
+      ],
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "3d4052aa33e519f3f1d2d8226ccb27918fed322a36fbfb94eb54d28e287b2565",
+      "artProfile": [
+        "human",
+        0.202,
+        0.948,
+        0.526,
+        0.575,
+        86,
+        "body"
+      ],
+      "review": "manual anatomical landmarks; elevated quarter view; costume and weapon identity checked; Glorfindel/Gimli/Uruk pixel references",
+      "name": "오로핀",
+      "beforeSHA256": "613a4056c3b5e542f712970adc0157c56e14d1eb0c6a3281bcfebd60763eaf8c"
+    },
+    {
+      "id": "citadel_guard_bow",
+      "files": {
+        "production": "assets/mesbg/tokens/citadel_guard_bow.png",
+        "root": "tokens/citadel_guard_bow.png",
+        "source": "art-src/unit-redraw-20261019/citadel_guard_bow.png",
+        "before": "art-src/unit-redraw-20261019/before/citadel_guard_bow.png",
+        "thumbnail": "assets/mesbg/thumbs/citadel_guard_bow.webp"
+      },
+      "generatedSize": [
+        1171,
+        1343
+      ],
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "5537c68b85bf7644d82743c5673ea7c2e7cf2895bebb2a916efdb8d7598c2a09",
+      "artProfile": [
+        "human",
+        0.075,
+        0.955,
+        0.52,
+        0.515,
+        86,
+        "body"
+      ],
+      "review": "manual anatomical landmarks; elevated quarter view; costume and weapon identity checked; Glorfindel/Gimli/Uruk pixel references",
+      "name": "성채근위 궁병",
+      "beforeSHA256": "03509567b474ccbf14cd6a356daf9323a414225305a1c420b6019d69bfe2c00a"
+    },
+    {
+      "id": "osgiliath_spearshield",
+      "files": {
+        "production": "assets/mesbg/tokens/osgiliath_spearshield.png",
+        "root": "tokens/osgiliath_spearshield.png",
+        "source": "art-src/unit-redraw-20261019/osgiliath_spearshield.png",
+        "before": "art-src/unit-redraw-20261019/before/osgiliath_spearshield.png",
+        "thumbnail": "assets/mesbg/thumbs/osgiliath_spearshield.webp"
+      },
+      "generatedSize": [
+        1171,
+        1343
+      ],
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "06f46d86b61eb5bed045f858c9a91488c07080aea7efac2f0b27688ced3c0720",
+      "artProfile": [
+        "human",
+        0.1,
+        0.945,
+        0.57,
+        0.5225,
+        86,
+        "body"
+      ],
+      "review": "manual anatomical landmarks; elevated quarter view; costume and weapon identity checked; Glorfindel/Gimli/Uruk pixel references",
+      "name": "오스길리아스 베테랑 창방",
+      "beforeSHA256": "95c15bb6b4c2e05671a3408bf71a7b0691a29b132f6bf5d6b10e9e12c6c5c4fe",
+      "supersededBy": "review/osgiliath-growth-20261019/manifest.json"
+    },
+    {
+      "id": "osgiliath_bow",
+      "files": {
+        "production": "assets/mesbg/tokens/osgiliath_bow.png",
+        "root": "tokens/osgiliath_bow.png",
+        "source": "art-src/unit-redraw-20261019/osgiliath_bow.png",
+        "before": "art-src/unit-redraw-20261019/before/osgiliath_bow.png",
+        "thumbnail": "assets/mesbg/thumbs/osgiliath_bow.webp"
+      },
+      "generatedSize": [
+        1171,
+        1343
+      ],
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "0cf2570de0b24ee41836648132cbd6752bf2dd1c0738e84d1f57f1141ca48503",
+      "artProfile": [
+        "human",
+        0.075,
+        0.96,
+        0.5,
+        0.5175,
+        86,
+        "body"
+      ],
+      "review": "manual anatomical landmarks; elevated quarter view; costume and weapon identity checked; Glorfindel/Gimli/Uruk pixel references",
+      "name": "오스길리아스 베테랑 궁병",
+      "beforeSHA256": "a9ed66a259401fdd9f4bca1416a9ea68c4f635d8692ffff35b0f5d6c436290ac",
+      "supersededBy": "review/osgiliath-growth-20261019/manifest.json"
+    },
+    {
+      "id": "dol_amroth_swordshield",
+      "files": {
+        "production": "assets/mesbg/tokens/dol_amroth_swordshield.png",
+        "root": "tokens/dol_amroth_swordshield.png",
+        "source": "art-src/unit-redraw-20261019/dol_amroth_swordshield.png",
+        "before": "art-src/unit-redraw-20261019/before/dol_amroth_swordshield.png",
+        "thumbnail": "assets/mesbg/thumbs/dol_amroth_swordshield.webp"
+      },
+      "generatedSize": [
+        1254,
+        1254
+      ],
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "aa943e8770ed43f470974e9ddc31573cd503b923a08dbc0453a12576e76d33f7",
+      "artProfile": [
+        "human",
+        0.125,
+        0.915,
+        0.5,
+        0.52,
+        86,
+        "body"
+      ],
+      "review": "manual anatomical landmarks; elevated quarter view; costume and weapon identity checked; Glorfindel/Gimli/Uruk pixel references",
+      "name": "돌 암로스 검방병",
+      "beforeSHA256": "3a33bb02fcf413e1383a7a201bb93f4aeb8939902b18ac4b554dc45c7dc1c1cb"
+    },
+    {
+      "id": "dol_amroth_knight_foot",
+      "files": {
+        "production": "assets/mesbg/tokens/dol_amroth_knight_foot.png",
+        "root": "tokens/dol_amroth_knight_foot.png",
+        "source": "art-src/unit-redraw-20261019/dol_amroth_knight_foot.png",
+        "before": "art-src/unit-redraw-20261019/before/dol_amroth_knight_foot.png",
+        "thumbnail": "assets/mesbg/thumbs/dol_amroth_knight_foot.webp"
+      },
+      "generatedSize": [
+        1254,
+        1254
+      ],
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "378836a37aba67e737f9abea2a6b5a3d628c563e6bc73f74f6253c8d6a50e900",
+      "artProfile": [
+        "human",
+        0.135,
+        0.93,
+        0.52,
+        0.5325,
+        86,
+        "body"
+      ],
+      "review": "manual anatomical landmarks; elevated quarter view; costume and weapon identity checked; Glorfindel/Gimli/Uruk pixel references",
+      "name": "돌 암로스 백조기사 도보",
+      "beforeSHA256": "2c503800e29f02d9b5c6e2e4389c0156dc779238c4b3e0f921c7cb8137e9a696"
+    },
+    {
+      "id": "rohan_helmingas",
+      "files": {
+        "production": "assets/mesbg/tokens/rohan_helmingas.png",
+        "root": "tokens/rohan_helmingas.png",
+        "source": "art-src/unit-redraw-20261019/rohan_helmingas.png",
+        "before": "art-src/unit-redraw-20261019/before/rohan_helmingas.png",
+        "thumbnail": "assets/mesbg/thumbs/rohan_helmingas.webp"
+      },
+      "generatedSize": [
+        1171,
+        1343
+      ],
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "023e9b7448db039ec74b525771d263e8d98c79ae7a56abe3097e22ca4234bacc",
+      "artProfile": [
+        "human",
+        0.155,
+        0.95,
+        0.55,
+        0.5525,
+        86,
+        "body"
+      ],
+      "review": "manual anatomical landmarks; elevated quarter view; costume and weapon identity checked; Glorfindel/Gimli/Uruk pixel references",
+      "name": "헬밍가 전사",
+      "beforeSHA256": "968a7d51f93e7ccabacce3a023f35ea11a392621ea7ef367827c469fb0b9b57f"
+    },
+    {
+      "id": "rohan_redshield",
+      "files": {
+        "production": "assets/mesbg/tokens/rohan_redshield.png",
+        "root": "tokens/rohan_redshield.png",
+        "source": "art-src/unit-redraw-20261019/rohan_redshield.png",
+        "before": "art-src/unit-redraw-20261019/before/rohan_redshield.png",
+        "thumbnail": "assets/mesbg/thumbs/rohan_redshield.webp"
+      },
+      "generatedSize": [
+        1203,
+        1308
+      ],
+      "sourceSize": [
+        353,
+        384
+      ],
+      "sourceSHA256": "1e8bd34363332f87f5c6563e82a46893905104ebc83a293c1a1e54b9241cb426",
+      "artProfile": [
+        "human",
+        0.085,
+        0.37,
+        0.64,
+        0.525,
+        43,
+        "rider"
+      ],
+      "review": "manual anatomical landmarks; elevated quarter view; costume and weapon identity checked; Glorfindel/Gimli/Uruk pixel references",
+      "name": "웨스트폴드 적색방패 기병",
+      "beforeSHA256": "76a1bf4366116994e8370683b7d7bab3d73bd21849f5e617e8bce503217170a0"
+    },
+    {
+      "id": "ironhills_warrior",
+      "files": {
+        "production": "assets/mesbg/tokens/ironhills_warrior.png",
+        "root": "tokens/ironhills_warrior.png",
+        "source": "art-src/unit-redraw-20261019/ironhills_warrior.png",
+        "before": "art-src/unit-redraw-20261019/before/ironhills_warrior.png",
+        "thumbnail": "assets/mesbg/thumbs/ironhills_warrior.webp"
+      },
+      "generatedSize": [
+        1254,
+        1254
+      ],
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "95a5a71359b700a20443d0378d1ec0acef6176f8c0aa17a1adeff8ec19868e23",
+      "artProfile": [
+        "dwarf",
+        0.26,
+        0.955,
+        0.54,
+        0.6075,
+        68,
+        "body"
+      ],
+      "review": "manual anatomical landmarks; elevated quarter view; costume and weapon identity checked; Glorfindel/Gimli/Uruk pixel references",
+      "name": "철산 매톡 전사",
+      "beforeSHA256": "a26de43b1bb6de88d7db20592dd6cf08cd3ca39afe46a032060d3ee95071d412"
+    },
+    {
+      "id": "ironhills_spearshield",
+      "files": {
+        "production": "assets/mesbg/tokens/ironhills_spearshield.png",
+        "root": "tokens/ironhills_spearshield.png",
+        "source": "art-src/unit-redraw-20261019/ironhills_spearshield.png",
+        "before": "art-src/unit-redraw-20261019/before/ironhills_spearshield.png",
+        "thumbnail": "assets/mesbg/thumbs/ironhills_spearshield.webp"
+      },
+      "generatedSize": [
+        1254,
+        1254
+      ],
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "40e7b5780ab5bb6c4c8150f650e7d76d0e2ccae9353c0283328ee05f3e804a65",
+      "artProfile": [
+        "dwarf",
+        0.265,
+        0.935,
+        0.53,
+        0.6,
+        68,
+        "body"
+      ],
+      "review": "manual anatomical landmarks; elevated quarter view; costume and weapon identity checked; Glorfindel/Gimli/Uruk pixel references",
+      "name": "철산 창방병",
+      "beforeSHA256": "834fdb00fbd0ff9432a8af884e3524227691e1ae311c8d8726de261bab8c48c8"
+    },
+    {
+      "id": "ironhills_crossbow",
+      "files": {
+        "production": "assets/mesbg/tokens/ironhills_crossbow.png",
+        "root": "tokens/ironhills_crossbow.png",
+        "source": "art-src/unit-redraw-20261019/ironhills_crossbow.png",
+        "before": "art-src/unit-redraw-20261019/before/ironhills_crossbow.png",
+        "thumbnail": "assets/mesbg/thumbs/ironhills_crossbow.webp"
+      },
+      "generatedSize": [
+        1254,
+        1254
+      ],
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "3e2472325c5c3bccb9152c1faaf9dbb9c033163be29620b87f7a6163d9922347",
+      "artProfile": [
+        "dwarf",
+        0.245,
+        0.915,
+        0.48,
+        0.58,
+        68,
+        "body"
+      ],
+      "review": "manual anatomical landmarks; elevated quarter view; costume and weapon identity checked; Glorfindel/Gimli/Uruk pixel references",
+      "name": "철산 석궁병",
+      "beforeSHA256": "689257aad0ebcd81427fe6bf5c6c4ac73d5fae76953b4d4c78ac6ae3ad1b386c"
+    },
+    {
+      "id": "galadhrim_bow",
+      "files": {
+        "production": "assets/mesbg/tokens/galadhrim_bow.png",
+        "root": "tokens/galadhrim_bow.png",
+        "source": "art-src/unit-redraw-20261019/galadhrim_bow.png",
+        "before": "art-src/unit-redraw-20261019/before/galadhrim_bow.png",
+        "thumbnail": "assets/mesbg/thumbs/galadhrim_bow.webp"
+      },
+      "generatedSize": [
+        1171,
+        1343
+      ],
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "94dadc8f161ea2cba33bf375039e4ddf24fb875d28cc58b68edcd2e911e2680b",
+      "artProfile": [
+        "human",
+        0.16,
+        0.935,
+        0.54,
+        0.5475,
+        86,
+        "body"
+      ],
+      "review": "manual anatomical landmarks; elevated quarter view; costume and weapon identity checked; Glorfindel/Gimli/Uruk pixel references",
+      "name": "갈라드림 궁수",
+      "beforeSHA256": "48a8ef14b65f7194faa04fdc95ecaa1f4bd9f7f02deb70d41b9e6c98ed83a0f1"
+    },
+    {
+      "id": "galadhrim_elite_bow",
+      "files": {
+        "production": "assets/mesbg/tokens/galadhrim_elite_bow.png",
+        "root": "tokens/galadhrim_elite_bow.png",
+        "source": "art-src/unit-redraw-20261019/galadhrim_elite_bow.png",
+        "before": "art-src/unit-redraw-20261019/before/galadhrim_elite_bow.png",
+        "thumbnail": "assets/mesbg/thumbs/galadhrim_elite_bow.webp"
+      },
+      "generatedSize": [
+        1171,
+        1343
+      ],
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "03183872b4fb5abd5dc8628d1c7efb43382ba041024fc1f9e97332d93d399a7e",
+      "artProfile": [
+        "human",
+        0.13,
+        0.94,
+        0.52,
+        0.535,
+        86,
+        "body"
+      ],
+      "review": "manual anatomical landmarks; elevated quarter view; costume and weapon identity checked; Glorfindel/Gimli/Uruk pixel references",
+      "name": "갈라드림 정예 궁병",
+      "beforeSHA256": "352dad2b359d74a237f6ae4565a751a3cabae6310b799b39eef18948c8de046c"
+    },
+    {
+      "id": "mirkwood_ranger",
+      "files": {
+        "production": "assets/mesbg/tokens/mirkwood_ranger.png",
+        "root": "tokens/mirkwood_ranger.png",
+        "source": "art-src/unit-redraw-20261019/mirkwood_ranger.png",
+        "before": "art-src/unit-redraw-20261019/before/mirkwood_ranger.png",
+        "thumbnail": "assets/mesbg/thumbs/mirkwood_ranger.webp"
+      },
+      "generatedSize": [
+        1171,
+        1343
+      ],
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "8c56f06cca763642f556c3c77bd00d05d1804140483afd6fff15724569fae1f4",
+      "artProfile": [
+        "human",
+        0.125,
+        0.955,
+        0.52,
+        0.54,
+        86,
+        "body"
+      ],
+      "review": "manual anatomical landmarks; elevated quarter view; costume and weapon identity checked; Glorfindel/Gimli/Uruk pixel references",
+      "name": "머크우드 레인저",
+      "beforeSHA256": "e98166dfe0a6e674bb5b60774dc8055585db128b7801c7ae6b40dc291f0331b8"
+    },
+    {
+      "id": "arnor_knight",
+      "files": {
+        "production": "assets/mesbg/tokens/arnor_knight.png",
+        "root": "tokens/arnor_knight.png",
+        "source": "art-src/unit-redraw-20261019/arnor_knight.png",
+        "before": "art-src/unit-redraw-20261019/before/arnor_knight.png",
+        "thumbnail": "assets/mesbg/thumbs/arnor_knight.webp"
+      },
+      "generatedSize": [
+        1203,
+        1308
+      ],
+      "sourceSize": [
+        353,
+        384
+      ],
+      "sourceSHA256": "413346751befab7e3b384fd6f368a067e1034efb96dbaffd5f3c9be1b32eedc5",
+      "artProfile": [
+        "human",
+        0.09,
+        0.38,
+        0.61,
+        0.51,
+        43,
+        "rider"
+      ],
+      "review": "manual anatomical landmarks; elevated quarter view; costume and weapon identity checked; Glorfindel/Gimli/Uruk pixel references",
+      "name": "아르노르 기사",
+      "beforeSHA256": "7863dd35c8c10362766183838bb217a1d364b5d7014d52fdda97ef9e382baf57"
+    },
+    {
+      "id": "arnor_ranger",
+      "files": {
+        "production": "assets/mesbg/tokens/arnor_ranger.png",
+        "root": "tokens/arnor_ranger.png",
+        "source": "art-src/unit-redraw-20261019/arnor_ranger.png",
+        "before": "art-src/unit-redraw-20261019/before/arnor_ranger.png",
+        "thumbnail": "assets/mesbg/thumbs/arnor_ranger.webp"
+      },
+      "generatedSize": [
+        1171,
+        1343
+      ],
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "843fb34edcd48453526fb69ef3697fca08c11d852eb5a600efd32d1e30f21ac2",
+      "artProfile": [
+        "human",
+        0.145,
+        0.957,
+        0.51,
+        0.551,
+        86,
+        "body"
+      ],
+      "review": "manual anatomical landmarks; elevated quarter view; costume and weapon identity checked; Glorfindel/Gimli/Uruk pixel references",
+      "name": "아르노르 레인저",
+      "beforeSHA256": "75bf4bdde479c44293d6a5c0097ff4411f211b26bb97f700b0061259468a7a12"
+    },
+    {
+      "id": "morannon_swordshield",
+      "files": {
+        "production": "assets/mesbg/tokens/morannon_swordshield.png",
+        "root": "tokens/morannon_swordshield.png",
+        "source": "art-src/unit-redraw-20261019/morannon_swordshield.png",
+        "before": "art-src/unit-redraw-20261019/before/morannon_swordshield.png",
+        "thumbnail": "assets/mesbg/thumbs/morannon_swordshield.webp"
+      },
+      "generatedSize": [
+        1112,
+        1415
+      ],
+      "sourceSize": [
+        302,
+        384
+      ],
+      "sourceSHA256": "de3ce75f109a66d384dbe5ccaafe8609c967e966e663220275e9e80834abe617",
+      "artProfile": [
+        "orc",
+        0.087,
+        0.942,
+        0.49,
+        0.5145,
+        76,
+        "body"
+      ],
+      "review": "manual anatomical landmarks; elevated quarter view; costume and weapon identity checked; Glorfindel/Gimli/Uruk pixel references",
+      "name": "모라논 오크 검방",
+      "beforeSHA256": "89853bcf6d6ac24e97c21e853fac9795e19717c0aa5b46fec85fc99b94aab912"
+    },
+    {
+      "id": "orc_elite_tracker",
+      "files": {
+        "production": "assets/mesbg/tokens/orc_elite_tracker.png",
+        "root": "tokens/orc_elite_tracker.png",
+        "source": "art-src/unit-redraw-20261019/orc_elite_tracker.png",
+        "before": "art-src/unit-redraw-20261019/before/orc_elite_tracker.png",
+        "thumbnail": "assets/mesbg/thumbs/orc_elite_tracker.webp"
+      },
+      "generatedSize": [
+        1112,
+        1415
+      ],
+      "sourceSize": [
+        302,
+        384
+      ],
+      "sourceSHA256": "09f2d55e77af233b76a77286cbcc7365e3542bbabc2c9541ec073cd58da60920",
+      "artProfile": [
+        "orc",
+        0.205,
+        0.95,
+        0.53,
+        0.5775,
+        76,
+        "body"
+      ],
+      "review": "manual anatomical landmarks; elevated quarter view; costume and weapon identity checked; Glorfindel/Gimli/Uruk pixel references",
+      "name": "오크 정예 추적궁병",
+      "beforeSHA256": "9894806c4d137e28cc0e8ff51e91beae7e9cd340730f5fa4ba2ab0de97221500"
+    },
+    {
+      "id": "dale_guard",
+      "files": {
+        "production": "assets/mesbg/tokens/dale_guard.png",
+        "root": "tokens/dale_guard.png",
+        "source": "art-src/unit-redraw-20261019/dale_guard.png",
+        "before": "art-src/unit-redraw-20261019/before/dale_guard.png",
+        "thumbnail": "assets/mesbg/thumbs/dale_guard.webp"
+      },
+      "generatedSize": [
+        1171,
+        1343
+      ],
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "6df7ba4b9057a31dba14c4d55ab6816cd38652053e49add2dbb7a21720ded9fa",
+      "artProfile": [
+        "human",
+        0.045,
+        0.949,
+        0.51,
+        0.497,
+        86,
+        "body"
+      ],
+      "review": "manual anatomical landmarks; elevated quarter view; costume and weapon identity checked; Glorfindel/Gimli/Uruk pixel references",
+      "name": "데일 기리온 근위병",
+      "beforeSHA256": "b2900707b4b8fdb188b5a31956546a5e050d08445614ead26016dceaa82e4ac8"
+    }
+  ]
+}

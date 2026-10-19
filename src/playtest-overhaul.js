@@ -160,7 +160,7 @@ P.grantGold=function(id,label,amount,scope='battle'){
 P.rewardTotal=function(scope){return this.rewardBook().entries.filter(e=>!scope||e.scope===scope).reduce((sum,e)=>sum+e.amount,0);};
 P.captureBattleRecord=function(){
     this.battleRecord={wave:this.wave,rounds:this.round,mission:this.mission,kills:this.stageKills||0,deaths:this.stageDeaths||0,
-        units:this.units.filter(u=>u.side==='good'&&!u._evacuee).map(u=>({uid:u.uid,id:u.id,name:u.name,alive:u.alive,hp:u.currentWounds,maxHp:u.stats.wounds,kills:u._stageKills||0,supports:u._stageSupports||0,merit:structuredClone(u.battleMerit||{}),injury:u.injury||''})),
+        units:this.units.filter(u=>u.side==='good'&&!u._evacuee&&!u.inReserve).map(u=>({uid:u.uid,id:u.id,name:u.name,alive:u.alive,hp:u.currentWounds,maxHp:u.stats.wounds,kills:u._stageKills||0,supports:u._stageSupports||0,merit:structuredClone(u.battleMerit||{}),injury:u.injury||''})),
         objectives:[],tactics:structuredClone(this.tacticalEvents||[]),nextEffects:[],relics:[]};
 };
 P.objectivePassed=function(o){
@@ -211,7 +211,7 @@ P.resume=function(){
 
 const MERIT_RULES={support:{xp:2,cap:8,label:'창·결투 지원'},line:{xp:2,cap:6,label:'방어선 유지'},objective:{xp:3,cap:9,label:'임무 수비'},escort:{xp:2,cap:6,label:'호송 보호'},intercept:{xp:2,cap:6,label:'위협 저지'}};
 P.awardMerit=function(u,kind,receipt){
-    if(!isCareerTroop(u)||u.side!=='good'||u.temporary)return false;
+    if(!isCareerTroop(u)||u.side!=='good'||u.temporary||u.inReserve)return false;
     const rule=MERIT_RULES[kind];if(!rule)return false;
     if(u.meritWave!==this.wave){u.meritWave=this.wave;u.battleMerit={};u.meritReceipts=[];u.battleMeritXP=0;}
     const key=kind+':'+receipt;if(u.meritReceipts.includes(key))return false;
@@ -242,7 +242,7 @@ P.applyCombat=function(r){
 };
 P.recordRoundMerit=function(){
     for(const u of this.permanent()){
-        if(!isCareerTroop(u))continue;
+        if(!isCareerTroop(u)||u.inReserve)continue;
         if(['hold','defense','rescue'].includes(this.mission)&&ht(u,Mt.objective)<=Mt.objective.radius&&!this.alive('evil').some(v=>ht(v,u)<180))this.awardMerit(u,'objective','round:'+this.round);
         const convoy=this.mission==='osgiliath_retreat'?this.alive('good').filter(v=>v._evacuee):[this.unit(this.escortCart)].filter(v=>v?.alive);
         if(convoy.some(v=>ht(v,u)<220)&&this.alive('evil').some(v=>ht(v,u)<420))this.awardMerit(u,'escort','round:'+this.round);
@@ -251,7 +251,7 @@ P.recordRoundMerit=function(){
 const qaSurvival=P.finishWave;
 P.finishWave=function(){
     if(this.settledWave===this.wave||['reward','result'].includes(this.phase))return;
-    for(const u of this.permanent())if(isCareerTroop(u)&&u.survivalReceipt!==this.wave){u.survivalReceipt=this.wave;u.survivedBattles=(u.survivedBattles||0)+1;}
+    for(const u of this.permanent())if(isCareerTroop(u)&&!u.inReserve&&u.survivalReceipt!==this.wave){u.survivalReceipt=this.wave;u.survivedBattles=(u.survivedBattles||0)+1;}
     return qaSurvival.call(this);
 };
 

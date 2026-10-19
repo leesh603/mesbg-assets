@@ -189,7 +189,7 @@ const troopStartWave=P.startWave;
 P.startWave=function(){
     const was=this.phase,nextWave=this.wave+1;
     // Count the deployed army before the round starts (a one-round victory may finish immediately).
-    if(was==='preparation')for(const u of this.permanent())if(isCareerTroop(u)&&u.careerParticipationWave!==nextWave){
+    if(was==='preparation')for(const u of this.alive('good').filter(u=>!u.temporary))if(isCareerTroop(u)&&u.careerParticipationWave!==nextWave){
         this.initTroopCareer(u);u.xp+=TROOP_PROMOTIONS.experience.participation;u.battlesParticipated++;u.careerParticipationWave=this.wave;
         u.careerParticipationWave=nextWave;
     }

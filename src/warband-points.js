@@ -57,7 +57,7 @@ P.draftReason = function (draft, quantities) {
     const totals = this.draftTotals(draft, quantities);
     if (totals.reason) return totals.reason;
     if (totals.gold > this.gold) return '금화가 ' + (totals.gold - this.gold) + ' 부족합니다';
-    return this.pointReason(totals.points);
+    return ''; // Gold limits ownership; points limit deployment only.
 };
 P.recruitSelection = function (index) {
     const o = this.recruitOffers?.[index], draft = this.recruitDraft || [];
@@ -109,15 +109,11 @@ P.commitRecruits = function () {
         if (evolutionForms.has(id) || (key && owned.has(key))) return false;
         if (key) owned.add(key);
     }
-    const snapshot = {units:structuredClone(this.units),counter:this.counter,gold:this.gold,offers:structuredClone(this.recruitOffers)};
     for (const i of chosen) {
         const offer = this.recruitOffers[i];
         for (let n=0; n<this.draftQuantity(i); n++) {
             const u = this.spawn(offer.id, 'good', {x:-1000,y:-1000});
-            if (!this.placeInDeployment(u)) {
-                this.units=snapshot.units; this.counter=snapshot.counter; this.gold=snapshot.gold; this.recruitOffers=snapshot.offers;
-                this.recruitReason='배치 구역에 공간이 부족합니다. 영입 수량을 줄여주세요'; return false;
-            }
+            this.assignRecruitDeployment(u);
         }
         offer.bought = true;
     }
@@ -128,14 +124,14 @@ P.commitRecruits = function () {
     } else this.campStep='relic';
     this.save(); return true;
 };
-// Legacy direct-recruit buttons must obey the same point / identity guards.
+// Legacy direct-recruit buttons share gold and identity checks.
 P.recruit = function (i) {
     if (this.phase !== 'reward' || this.campStep !== 'recruit') return false;
     const offer = this.recruitOffers?.[i], key = UnitCatalog[offer?.id]?.uniqueKey;
-    if (!offer || offer.bought || evolutionForms.has(offer.id) || this.pointReason(this.pointCost(offer.id)) ||
+    if (!offer || offer.bought || evolutionForms.has(offer.id) ||
         this.gold < this.price(offer.id) || (key && this.ownedUniqueKeys().has(key))) return false;
-    const counter=this.counter, u=this.spawn(offer.id,'good',{x:-1000,y:-1000});
-    if (!this.placeInDeployment(u)) { this.units=this.units.filter(v=>v!==u); this.counter=counter; return false; }
+    const u=this.spawn(offer.id,'good',{x:-1000,y:-1000});
+    this.assignRecruitDeployment(u);
     this.gold-=this.price(offer.id); offer.bought=true;
     this.recruitDraft=(this.recruitDraft||[]).filter(n=>n!==i); delete (this.recruitQuantities||{})[i]; this.save(); return true;
 };
@@ -190,7 +186,7 @@ for (const method of ['rollInitialRecruits','rollRecruits']) {
 }
 P.mountPointReason = function (u, v) {
     if (!u?.alive || u.side!=='good' || !v) return '올바른 탈것과 영웅을 선택하세요';
-    return u.temporary ? '' : this.pointReason(this.pointCost(v.id)-this.pointCost(u.id));
+    return ''; // Recheck the army at departure, not when buying a mount.
 };
 const pointApplyMount=P.applyMount;
 P.applyMount=function(u,v){pointApplyMount.call(this,u,v);u.points=this.pointCost(u.id);};
@@ -207,6 +203,6 @@ for (const method of ['assignMount','buySpecialMount','buyNamedMount']) {
 const pointDismount=P.dismount;
 P.dismount=function(u){pointDismount.call(this,u);u.points=this.pointCost(u.id);};
 // Earned transformations, rescued troops and revival keep working if they put
-// the roster over budget. Their current profiles count; new paid additions stop.
+// the owned roster over budget. Departure validates the selected army.
 if(window.MESBG?.catalog)window.MESBG.catalog.points=WARBAND_POINTS;
 

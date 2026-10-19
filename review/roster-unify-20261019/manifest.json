@@ -1,0 +1,2666 @@
+{
+  "date": "2026-10-19",
+  "baseSHA": "5af9b6c50a5e84b3ca7426ffd9a8b54d705efad2",
+  "reviewedTokens": 597,
+  "units": [
+    {
+      "id": "gondor_archer",
+      "name": "곤도르 궁수",
+      "issue": "coarse",
+      "role": "infantry",
+      "files": {
+        "production": "assets/mesbg/tokens/gondor_archer.png",
+        "root": "tokens/gondor_archer.png",
+        "source": "art-src/roster-unify-20261019/gondor_archer.png",
+        "before": "art-src/roster-unify-20261019/before/gondor_archer.png",
+        "thumbnail": "assets/mesbg/thumbs/gondor_archer.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "2de9786744622c635203b404841278a7dcb4decf65dadcaff19be21360df749e",
+      "beforeSHA256": "6426d15edd00e7ca239659235cb542cebd800805fb8a931cb06fe3a5d5c83b21",
+      "artProfile": [
+        "human",
+        0.14,
+        0.94,
+        0.5,
+        0.54,
+        86,
+        "body"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "five-head human/elf",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "body",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.0935,
+        0.99,
+        0.4586,
+        0.4818,
+        86,
+        "body"
+      ]
+    },
+    {
+      "id": "moria_goblin",
+      "name": "모리아 고블린",
+      "issue": "coarse",
+      "role": "infantry",
+      "files": {
+        "production": "assets/mesbg/tokens/moria_goblin.png",
+        "root": "tokens/moria_goblin.png",
+        "source": "art-src/roster-unify-20261019/moria_goblin.png",
+        "before": "art-src/roster-unify-20261019/before/moria_goblin.png",
+        "thumbnail": "assets/mesbg/thumbs/moria_goblin.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "012e091f97986770bb669be4572d27d06aae43203e0c020514bdd6a9e82c1f16",
+      "beforeSHA256": "dbe27f1e650a4ac0e52f13e99efa3788de6a314397576ec6a6377d6259acce0f",
+      "artProfile": [
+        "goblin",
+        0.06,
+        0.93,
+        0.5,
+        0.5,
+        63,
+        "body"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "species-specific compact body",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "body",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "goblin",
+        0.0234,
+        0.9766,
+        0.5079,
+        0.5,
+        63,
+        "body"
+      ]
+    },
+    {
+      "id": "goblin_shield",
+      "name": "고블린 방패병",
+      "issue": "coarse",
+      "role": "infantry",
+      "files": {
+        "production": "assets/mesbg/tokens/goblin_shield.png",
+        "root": "tokens/goblin_shield.png",
+        "source": "art-src/roster-unify-20261019/goblin_shield.png",
+        "before": "art-src/roster-unify-20261019/before/goblin_shield.png",
+        "thumbnail": "assets/mesbg/thumbs/goblin_shield.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "afc30700e94496ffb263ef3bca8daa2072d3736e31d3763a35bcf4c36d794d5c",
+      "beforeSHA256": "28bac7f508d87a4d93105239672ace0b535dbf2ade72d628b8b4de3714ec46e8",
+      "artProfile": [
+        "goblin",
+        0.06,
+        0.94,
+        0.49,
+        0.51,
+        63,
+        "body"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "species-specific compact body",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "body",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "goblin",
+        0.0234,
+        0.9766,
+        0.4615,
+        0.5,
+        63,
+        "body"
+      ]
+    },
+    {
+      "id": "goblin_bow",
+      "name": "고블린 궁수",
+      "issue": "coarse",
+      "role": "infantry",
+      "files": {
+        "production": "assets/mesbg/tokens/goblin_bow.png",
+        "root": "tokens/goblin_bow.png",
+        "source": "art-src/roster-unify-20261019/goblin_bow.png",
+        "before": "art-src/roster-unify-20261019/before/goblin_bow.png",
+        "thumbnail": "assets/mesbg/thumbs/goblin_bow.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "a2f919ed0182ea9b1ed61119615720cf1e68e9c3eacd147e6bd56adc223f73e1",
+      "beforeSHA256": "9e99f02e48e2b99aee8b2753faa4820ce1e8ea71c67c38fde7aa3cbcb158fefd",
+      "artProfile": [
+        "goblin",
+        0.16,
+        0.94,
+        0.5,
+        0.55,
+        63,
+        "body"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "species-specific compact body",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "body",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "goblin",
+        0.2055,
+        0.9521,
+        0.5281,
+        0.5788,
+        63,
+        "body"
+      ]
+    },
+    {
+      "id": "goblin_prowler",
+      "name": "고블린 프라울러",
+      "issue": "coarse",
+      "role": "infantry",
+      "files": {
+        "production": "assets/mesbg/tokens/goblin_prowler.png",
+        "root": "tokens/goblin_prowler.png",
+        "source": "art-src/roster-unify-20261019/goblin_prowler.png",
+        "before": "art-src/roster-unify-20261019/before/goblin_prowler.png",
+        "thumbnail": "assets/mesbg/thumbs/goblin_prowler.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        377,
+        384
+      ],
+      "sourceSHA256": "614e3a62bae75d76152037200bff0f60f1ba239c9c55a57c7bedacf0b4afe9f4",
+      "beforeSHA256": "ac7853f888b28069e1aa88454bfbb02674a1f903dd4f370427c2421728da5ff6",
+      "artProfile": [
+        "goblin",
+        0.11,
+        0.93,
+        0.52,
+        0.52,
+        63,
+        "body"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "species-specific compact body",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "body",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "goblin",
+        0.0163,
+        0.9837,
+        0.502,
+        0.4883,
+        63,
+        "body"
+      ]
+    },
+    {
+      "id": "bombur",
+      "name": "봄부르",
+      "issue": "coarse",
+      "role": "hero",
+      "files": {
+        "production": "assets/mesbg/tokens/bombur.png",
+        "root": "tokens/bombur.png",
+        "source": "art-src/roster-unify-20261019/bombur.png",
+        "before": "art-src/roster-unify-20261019/before/bombur.png",
+        "thumbnail": "assets/mesbg/thumbs/bombur.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        370,
+        384
+      ],
+      "sourceSHA256": "cbaeeb3488c422dac8d085fdc8404bdcaeb4cc7b9da09412d633f863b3f49ac1",
+      "beforeSHA256": "b72f1378cf66457a012c11e60c5865b5869450b06281a28f0df1eab991118253",
+      "artProfile": [
+        "dwarf",
+        0.17,
+        0.9,
+        0.53,
+        0.54,
+        68,
+        "body"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "species-specific compact body",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "body",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "dwarf",
+        0.01,
+        0.99,
+        0.5075,
+        0.5,
+        68,
+        "body"
+      ]
+    },
+    {
+      "id": "erkenbrand",
+      "name": "에르켄브란트",
+      "issue": "coarse",
+      "role": "hero",
+      "files": {
+        "production": "assets/mesbg/tokens/erkenbrand.png",
+        "root": "tokens/erkenbrand.png",
+        "source": "art-src/roster-unify-20261019/erkenbrand.png",
+        "before": "art-src/roster-unify-20261019/before/erkenbrand.png",
+        "thumbnail": "assets/mesbg/thumbs/erkenbrand.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "283dfde43b0daa51070cdab1b54f15e7a2168237103346a5a56391c4cfd99e82",
+      "beforeSHA256": "c63f34e3c3453b22e29294351a4e073abadb003add98a80fe8b91a7c637b62a3",
+      "artProfile": [
+        "human",
+        0.13,
+        0.93,
+        0.53,
+        0.53,
+        86,
+        "body"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "five-head human/elf",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "body",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.19,
+        0.98,
+        0.5,
+        0.585,
+        86,
+        "body"
+      ]
+    },
+    {
+      "id": "mablung",
+      "name": "마블룽",
+      "issue": "coarse",
+      "role": "hero",
+      "files": {
+        "production": "assets/mesbg/tokens/mablung.png",
+        "root": "tokens/mablung.png",
+        "source": "art-src/roster-unify-20261019/mablung.png",
+        "before": "art-src/roster-unify-20261019/before/mablung.png",
+        "thumbnail": "assets/mesbg/thumbs/mablung.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "bf7b3014ec10241d2107311a159ff61aa706c747043d294d1340b329c8475e6f",
+      "beforeSHA256": "c7bf2b8837545f83e82a3061098651e4890685865ef0fd4321c628f03c1a45f0",
+      "artProfile": [
+        "human",
+        0.15,
+        0.93,
+        0.51,
+        0.54,
+        86,
+        "body"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "five-head human/elf",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "body",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.0945,
+        0.9837,
+        0.456,
+        0.5175,
+        70,
+        "body"
+      ]
+    },
+    {
+      "id": "durin_vi",
+      "name": "두린 6세",
+      "issue": "coarse",
+      "role": "hero",
+      "files": {
+        "production": "assets/mesbg/tokens/durin_vi.png",
+        "root": "tokens/durin_vi.png",
+        "source": "art-src/roster-unify-20261019/durin_vi.png",
+        "before": "art-src/roster-unify-20261019/before/durin_vi.png",
+        "thumbnail": "assets/mesbg/thumbs/durin_vi.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        321,
+        384
+      ],
+      "sourceSHA256": "fb8fe77729523f78fc76cadbb633cca8115771aca705333e3f26ad3e622934d2",
+      "beforeSHA256": "8625f5cc3b0036e0733ad4337bc09e4ea919b6647f203b33641ac785200eb775",
+      "artProfile": [
+        "dwarf",
+        0.2,
+        0.91,
+        0.47,
+        0.55,
+        68,
+        "body"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "species-specific compact body",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "body",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "dwarf",
+        0.13,
+        0.97,
+        0.418,
+        0.55,
+        71,
+        "body"
+      ]
+    },
+    {
+      "id": "dead_spearman",
+      "name": "죽은자 창병",
+      "issue": "coarse",
+      "role": "infantry",
+      "files": {
+        "production": "assets/mesbg/tokens/dead_spearman.png",
+        "root": "tokens/dead_spearman.png",
+        "source": "art-src/roster-unify-20261019/dead_spearman.png",
+        "before": "art-src/roster-unify-20261019/before/dead_spearman.png",
+        "thumbnail": "assets/mesbg/thumbs/dead_spearman.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        380,
+        384
+      ],
+      "sourceSHA256": "78f5ac99a8d54b99b7dd88d2b02ae385ecc5439b40a88b970f90518cf9acec81",
+      "beforeSHA256": "3251fbd6d75cffd9531016f6bf4919d512ad7ca5a7155d2459a4dc647bd6600f",
+      "artProfile": [
+        "human",
+        0.28,
+        0.94,
+        0.58,
+        0.62,
+        86,
+        "body"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "five-head human/elf",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "body",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.1908,
+        0.99,
+        0.4924,
+        0.595,
+        86,
+        "body"
+      ]
+    },
+    {
+      "id": "vault_warden",
+      "name": "철언덕 방벽병",
+      "issue": "coarse",
+      "role": "infantry",
+      "files": {
+        "production": "assets/mesbg/tokens/vault_warden.png",
+        "root": "tokens/vault_warden.png",
+        "source": "art-src/roster-unify-20261019/vault_warden.png",
+        "before": "art-src/roster-unify-20261019/before/vault_warden.png",
+        "thumbnail": "assets/mesbg/thumbs/vault_warden.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "365101dc5b37f86c9f310761dc19240a2e149efe45ab9bbd9748e2068cbc0241",
+      "beforeSHA256": "67efb16663a8eea78989c0a19688d1a349e1bfa64793e0199fe408ac474cf9b1",
+      "artProfile": [
+        "dwarf",
+        0.2,
+        0.93,
+        0.5,
+        0.56,
+        58,
+        "body"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "species-specific compact body",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "body",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "dwarf",
+        0.1495,
+        0.99,
+        0.4563,
+        0.5856,
+        58,
+        "body"
+      ]
+    },
+    {
+      "id": "maglor",
+      "name": "마글로르",
+      "issue": "coarse",
+      "role": "hero",
+      "files": {
+        "production": "assets/mesbg/tokens/maglor.png",
+        "root": "tokens/maglor.png",
+        "source": "art-src/roster-unify-20261019/maglor.png",
+        "before": "art-src/roster-unify-20261019/before/maglor.png",
+        "thumbnail": "assets/mesbg/thumbs/maglor.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        329,
+        384
+      ],
+      "sourceSHA256": "103d7df36dc9904a8e46f4366b13cb6d4bee456c251ee1094ad08ea7c5ced577",
+      "beforeSHA256": "39b64a680830327912d35766dde698cfef5dc8187b4eff05cf196a3007f0d47e",
+      "artProfile": [
+        "human",
+        0.06,
+        0.9,
+        0.55,
+        0.48,
+        86,
+        "body"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "five-head human/elf",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "body",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.01,
+        0.99,
+        0.5321,
+        0.495,
+        86,
+        "body"
+      ]
+    },
+    {
+      "id": "gwindor",
+      "name": "그윈도르",
+      "issue": "coarse",
+      "role": "hero",
+      "files": {
+        "production": "assets/mesbg/tokens/gwindor.png",
+        "root": "tokens/gwindor.png",
+        "source": "art-src/roster-unify-20261019/gwindor.png",
+        "before": "art-src/roster-unify-20261019/before/gwindor.png",
+        "thumbnail": "assets/mesbg/thumbs/gwindor.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "7b0ff5464575e97de605aa9fe721a3783f8b08c9589b1b9ceb8b06167c96fad0",
+      "beforeSHA256": "3a54fd9abd0be4866151e928c7477e7669736c3eba0042a512c231f73f430705",
+      "artProfile": [
+        "human",
+        0.04,
+        0.94,
+        0.52,
+        0.49,
+        86,
+        "body"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "five-head human/elf",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "body",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.01,
+        0.99,
+        0.4558,
+        0.498,
+        86,
+        "body"
+      ]
+    },
+    {
+      "id": "celebrimbor",
+      "name": "켈레브림보르",
+      "issue": "coarse",
+      "role": "hero",
+      "files": {
+        "production": "assets/mesbg/tokens/celebrimbor.png",
+        "root": "tokens/celebrimbor.png",
+        "source": "art-src/roster-unify-20261019/celebrimbor.png",
+        "before": "art-src/roster-unify-20261019/before/celebrimbor.png",
+        "thumbnail": "assets/mesbg/thumbs/celebrimbor.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        342,
+        384
+      ],
+      "sourceSHA256": "29db9fd91fd74e30d14fb1c7cef4ba76e031d384498daaadd86550513b8b94d4",
+      "beforeSHA256": "78e5e67f08a34ecdd45fd9a28ce24b9a1d78458f96b8e0435beeeb5b7c643ab2",
+      "artProfile": [
+        "human",
+        0.045,
+        0.94,
+        0.59,
+        0.49,
+        86,
+        "body"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "five-head human/elf",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "body",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.01,
+        0.99,
+        0.5051,
+        0.5136,
+        86,
+        "body"
+      ]
+    },
+    {
+      "id": "huor",
+      "name": "후오르",
+      "issue": "coarse",
+      "role": "hero",
+      "files": {
+        "production": "assets/mesbg/tokens/huor.png",
+        "root": "tokens/huor.png",
+        "source": "art-src/roster-unify-20261019/huor.png",
+        "before": "art-src/roster-unify-20261019/before/huor.png",
+        "thumbnail": "assets/mesbg/thumbs/huor.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "e384af753ba8fac3831fc0405d0cfaf74e7a9d37bc6ea67bc05297f4c99a5c6b",
+      "beforeSHA256": "99880077f200dc987da083f1986518e90670626718d78165cfa47eaab92ddaff",
+      "artProfile": [
+        "human",
+        0.16,
+        0.91,
+        0.6,
+        0.53,
+        86,
+        "body"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "five-head human/elf",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "body",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.0362,
+        0.99,
+        0.4869,
+        0.5375,
+        86,
+        "body"
+      ]
+    },
+    {
+      "id": "galadriel_war",
+      "name": "galadriel_war",
+      "issue": "coarse",
+      "role": "uncatalogued",
+      "files": {
+        "production": "assets/mesbg/tokens/galadriel_war.png",
+        "root": "tokens/galadriel_war.png",
+        "source": "art-src/roster-unify-20261019/galadriel_war.png",
+        "before": "art-src/roster-unify-20261019/before/galadriel_war.png",
+        "thumbnail": "assets/mesbg/thumbs/galadriel_war.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "1249577b589aac1ec70651682d3cd57142ccc35652f82e56a194ede8d3e60408",
+      "beforeSHA256": "14c2e2d7ebad978ddedeafa99d532fd3907856a6b1de4a8427ed8a04005f83d0",
+      "artProfile": [
+        "human",
+        0.035,
+        0.94,
+        0.55,
+        0.49,
+        86,
+        "body"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "five-head human/elf",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "body",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": null
+    },
+    {
+      "id": "pallando",
+      "name": "팔란도",
+      "issue": "coarse",
+      "role": "hero",
+      "files": {
+        "production": "assets/mesbg/tokens/pallando.png",
+        "root": "tokens/pallando.png",
+        "source": "art-src/roster-unify-20261019/pallando.png",
+        "before": "art-src/roster-unify-20261019/before/pallando.png",
+        "thumbnail": "assets/mesbg/thumbs/pallando.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "d15c5ae6a88c3866220784fa65aaba19e32115bb9cec0556b10fa5b747939f5e",
+      "beforeSHA256": "c8303d2a8475d6775613aa41598852c3bf72de4add752fdc1adbdd2bcad95e99",
+      "artProfile": [
+        "human",
+        0.32,
+        0.94,
+        0.54,
+        0.63,
+        86,
+        "body"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "five-head human/elf",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "body",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.01,
+        0.99,
+        0.5342,
+        0.5227,
+        86,
+        "body"
+      ]
+    },
+    {
+      "id": "alatar",
+      "name": "알라타르",
+      "issue": "coarse",
+      "role": "hero",
+      "files": {
+        "production": "assets/mesbg/tokens/alatar.png",
+        "root": "tokens/alatar.png",
+        "source": "art-src/roster-unify-20261019/alatar.png",
+        "before": "art-src/roster-unify-20261019/before/alatar.png",
+        "thumbnail": "assets/mesbg/thumbs/alatar.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "b32839c5b365cbc46baf38e4a3f13eeb4e9c69aeb8235bfb2e5ee4b8d68bd00b",
+      "beforeSHA256": "d7d0fdc568654113a14d02bc1e60dd112e8105ee5bac56d6f69629f671ce6daa",
+      "artProfile": [
+        "human",
+        0.29,
+        0.94,
+        0.55,
+        0.61,
+        86,
+        "body"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "five-head human/elf",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "body",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.01,
+        0.99,
+        0.4792,
+        0.5075,
+        86,
+        "body"
+      ]
+    },
+    {
+      "id": "ecthelion",
+      "name": "엑텔리온",
+      "issue": "proportions",
+      "role": "hero",
+      "files": {
+        "production": "assets/mesbg/tokens/ecthelion.png",
+        "root": "tokens/ecthelion.png",
+        "source": "art-src/roster-unify-20261019/ecthelion.png",
+        "before": "art-src/roster-unify-20261019/before/ecthelion.png",
+        "thumbnail": "assets/mesbg/thumbs/ecthelion.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "ad2d51351ecb118ee6fd32a16d4855adabac5a882016646acaf8b9c9bd7f6907",
+      "beforeSHA256": "a211cca8b404d13d20ff4fae30ccf0e275988581b5e444a3227e125401ee3e41",
+      "artProfile": [
+        "human",
+        0.18,
+        0.92,
+        0.56,
+        0.55,
+        86,
+        "body"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "five-head human/elf",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "body",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.075,
+        0.87,
+        0.5677,
+        0.4725,
+        89,
+        "body"
+      ]
+    },
+    {
+      "id": "earendil",
+      "name": "에아렌딜",
+      "issue": "proportions",
+      "role": "hero",
+      "files": {
+        "production": "assets/mesbg/tokens/earendil.png",
+        "root": "tokens/earendil.png",
+        "source": "art-src/roster-unify-20261019/earendil.png",
+        "before": "art-src/roster-unify-20261019/before/earendil.png",
+        "thumbnail": "assets/mesbg/thumbs/earendil.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "9941527ad23dd4b7af11e58330f9c19a5cf84aee017baed3b8e3e38df26e1362",
+      "beforeSHA256": "395e227a6781dbdb7f742e63f807178aaece747abc00b9935fea978e1c928259",
+      "artProfile": [
+        "human",
+        0.035,
+        0.95,
+        0.54,
+        0.49,
+        86,
+        "body"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "five-head human/elf",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "body",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.01,
+        0.99,
+        0.4521,
+        0.485,
+        86,
+        "body"
+      ]
+    },
+    {
+      "id": "thingol",
+      "name": "싱골",
+      "issue": "proportions",
+      "role": "hero",
+      "files": {
+        "production": "assets/mesbg/tokens/thingol.png",
+        "root": "tokens/thingol.png",
+        "source": "art-src/roster-unify-20261019/thingol.png",
+        "before": "art-src/roster-unify-20261019/before/thingol.png",
+        "thumbnail": "assets/mesbg/thumbs/thingol.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "ec15b269d806f668b6fdeee30c4835f818a3a57f14971dffaa451d7a780366a3",
+      "beforeSHA256": "262bb94bce1bd5ef91be9aa6deea93637b8c1f93f1b968a3cb77fa404ab8d3cb",
+      "artProfile": [
+        "human",
+        0.04,
+        0.94,
+        0.52,
+        0.49,
+        86,
+        "body"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "five-head human/elf",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "body",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.01,
+        0.99,
+        0.4898,
+        0.4922,
+        95,
+        "body"
+      ]
+    },
+    {
+      "id": "gil_galad",
+      "name": "길갈라드",
+      "issue": "proportions",
+      "role": "hero",
+      "files": {
+        "production": "assets/mesbg/tokens/gil_galad.png",
+        "root": "tokens/gil_galad.png",
+        "source": "art-src/roster-unify-20261019/gil_galad.png",
+        "before": "art-src/roster-unify-20261019/before/gil_galad.png",
+        "thumbnail": "assets/mesbg/thumbs/gil_galad.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "f9d92b88cf2ab55467fec6f241d7d481f9a1b7b4bf47a558d5e1139033be42ae",
+      "beforeSHA256": "995f1b9e1f6aaaa47c695fb230338531bec3bd828b1a547f196c418bd2769fdf",
+      "artProfile": [
+        "human",
+        0.04,
+        0.9,
+        0.45,
+        0.47,
+        86,
+        "body"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "five-head human/elf",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "body",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.055,
+        0.92,
+        0.4301,
+        0.4875,
+        89,
+        "body"
+      ]
+    },
+    {
+      "id": "luthien",
+      "name": "루시엔",
+      "issue": "proportions",
+      "role": "hero",
+      "files": {
+        "production": "assets/mesbg/tokens/luthien.png",
+        "root": "tokens/luthien.png",
+        "source": "art-src/roster-unify-20261019/luthien.png",
+        "before": "art-src/roster-unify-20261019/before/luthien.png",
+        "thumbnail": "assets/mesbg/thumbs/luthien.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "8d4bf01a90a27108de587dcf454cf6b3bd103ca163af30d519a8715f57f40c1f",
+      "beforeSHA256": "e863aca60dc84b8010c86706d9b696bb1745c9e4812bceff5f39bc9ec7b944a2",
+      "artProfile": [
+        "human",
+        0.13,
+        0.94,
+        0.55,
+        0.53,
+        86,
+        "body"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "five-head human/elf",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "body",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.1514,
+        0.9814,
+        0.4727,
+        0.5742,
+        86,
+        "body"
+      ]
+    },
+    {
+      "id": "galadriel",
+      "name": "갈라드리엘",
+      "issue": "proportions",
+      "role": "hero",
+      "files": {
+        "production": "assets/mesbg/tokens/galadriel.png",
+        "root": "tokens/galadriel.png",
+        "source": "art-src/roster-unify-20261019/galadriel.png",
+        "before": "art-src/roster-unify-20261019/before/galadriel.png",
+        "thumbnail": "assets/mesbg/thumbs/galadriel.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        334,
+        384
+      ],
+      "sourceSHA256": "9da65159c4e6989eb2cfbf1d92a9b7b68e650fb0ff7af260b0206985506efcf8",
+      "beforeSHA256": "54270e07ca01be42e5ccd64b22cbffc06ee22f536a51f3601a2304a205525511",
+      "artProfile": [
+        "human",
+        0.04,
+        0.94,
+        0.54,
+        0.49,
+        86,
+        "body"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "five-head human/elf",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "body",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.2006,
+        0.9713,
+        0.4844,
+        0.5859,
+        86,
+        "body"
+      ]
+    },
+    {
+      "id": "elf_swordsman",
+      "name": "엘프 검사",
+      "issue": "proportions",
+      "role": "infantry",
+      "files": {
+        "production": "assets/mesbg/tokens/elf_swordsman.png",
+        "root": "tokens/elf_swordsman.png",
+        "source": "art-src/roster-unify-20261019/elf_swordsman.png",
+        "before": "art-src/roster-unify-20261019/before/elf_swordsman.png",
+        "thumbnail": "assets/mesbg/thumbs/elf_swordsman.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        332,
+        384
+      ],
+      "sourceSHA256": "da028bb49a6939c7b16d46594927eb32713f8cbe262c47821e351522bb0b9b08",
+      "beforeSHA256": "abf32b568494a85a8c98cdf5c9274123c5a8cc5cb80352f5433315ca6ce8bd1d",
+      "artProfile": [
+        "human",
+        0.15,
+        0.94,
+        0.49,
+        0.54,
+        86,
+        "body"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "five-head human/elf",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "body",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.145,
+        0.975,
+        0.4845,
+        0.56,
+        86,
+        "body"
+      ]
+    },
+    {
+      "id": "elf_swordshield",
+      "name": "엘프 검방",
+      "issue": "proportions",
+      "role": "infantry",
+      "files": {
+        "production": "assets/mesbg/tokens/elf_swordshield.png",
+        "root": "tokens/elf_swordshield.png",
+        "source": "art-src/roster-unify-20261019/elf_swordshield.png",
+        "before": "art-src/roster-unify-20261019/before/elf_swordshield.png",
+        "thumbnail": "assets/mesbg/thumbs/elf_swordshield.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "12cc53adb1fac7b933f274287198d20d51ee9275593060de0e5458614019630b",
+      "beforeSHA256": "4c9a95555bc7e296f559857d57ee3ba3e8a006dde423bfd23cf9326d32450da4",
+      "artProfile": [
+        "human",
+        0.15,
+        0.94,
+        0.51,
+        0.55,
+        86,
+        "body"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "five-head human/elf",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "body",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.145,
+        0.975,
+        0.5639,
+        0.5273,
+        86,
+        "body"
+      ]
+    },
+    {
+      "id": "elf_spear",
+      "name": "엘프 창병",
+      "issue": "proportions",
+      "role": "infantry",
+      "files": {
+        "production": "assets/mesbg/tokens/elf_spear.png",
+        "root": "tokens/elf_spear.png",
+        "source": "art-src/roster-unify-20261019/elf_spear.png",
+        "before": "art-src/roster-unify-20261019/before/elf_spear.png",
+        "thumbnail": "assets/mesbg/thumbs/elf_spear.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "e00b09d9e169639144d10ce9d6f190028c4096955563644c7ceebb798efa2853",
+      "beforeSHA256": "34744730d0b41c6bf51df15e7838a64da7d6233095bc3732081316fc2e0f0aed",
+      "artProfile": [
+        "human",
+        0.24,
+        0.95,
+        0.54,
+        0.6,
+        86,
+        "body"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "five-head human/elf",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "body",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.265,
+        0.96,
+        0.5645,
+        0.5227,
+        86,
+        "body"
+      ]
+    },
+    {
+      "id": "elf_bow",
+      "name": "엘프 궁수",
+      "issue": "proportions",
+      "role": "infantry",
+      "files": {
+        "production": "assets/mesbg/tokens/elf_bow.png",
+        "root": "tokens/elf_bow.png",
+        "source": "art-src/roster-unify-20261019/elf_bow.png",
+        "before": "art-src/roster-unify-20261019/before/elf_bow.png",
+        "thumbnail": "assets/mesbg/thumbs/elf_bow.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "6f4a3bd4c9dab41d2387c4a224780fa098c613f690b163ba5dfeb883420c9ba5",
+      "beforeSHA256": "d8f51483fec7af9568fe69ac5284ab436a363542fd9c097627c15f542896259b",
+      "artProfile": [
+        "human",
+        0.23,
+        0.95,
+        0.52,
+        0.59,
+        86,
+        "body"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "five-head human/elf",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "body",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.12,
+        0.975,
+        0.5231,
+        0.5136,
+        86,
+        "body"
+      ]
+    },
+    {
+      "id": "elf_glaive",
+      "name": "엘프 글레이브",
+      "issue": "proportions",
+      "role": "infantry",
+      "files": {
+        "production": "assets/mesbg/tokens/elf_glaive.png",
+        "root": "tokens/elf_glaive.png",
+        "source": "art-src/roster-unify-20261019/elf_glaive.png",
+        "before": "art-src/roster-unify-20261019/before/elf_glaive.png",
+        "thumbnail": "assets/mesbg/thumbs/elf_glaive.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        335,
+        384
+      ],
+      "sourceSHA256": "eebe4e33cba5970b1853bbbdce7cdb8d084894903ab3495437e444a05cd21705",
+      "beforeSHA256": "03b55623e68a6d90152eac19dc1e88e7820e368dd961a7d81ce747f02d284c34",
+      "artProfile": [
+        "human",
+        0.18,
+        0.91,
+        0.53,
+        0.55,
+        86,
+        "body"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "five-head human/elf",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "body",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.145,
+        0.955,
+        0.4667,
+        0.55,
+        86,
+        "body"
+      ]
+    },
+    {
+      "id": "imrahil_mounted",
+      "name": "임라힐(기마)",
+      "issue": "mounted",
+      "role": "hero",
+      "files": {
+        "production": "assets/mesbg/tokens/imrahil_mounted.png",
+        "root": "tokens/imrahil_mounted.png",
+        "source": "art-src/roster-unify-20261019/imrahil_mounted.png",
+        "before": "art-src/roster-unify-20261019/before/imrahil_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/imrahil_mounted.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "87bab731cd4402b2a044e25faa38d221ee1ee09f858ab47e1e3e8fce9a28ffde",
+      "beforeSHA256": "8f1460973109d148bd40f065750c25c5fd3c5961de904f855b93c32f5c455916",
+      "artProfile": [
+        "human",
+        0.11,
+        0.4,
+        0.57,
+        0.51,
+        43,
+        "rider"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "seated five-head human",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "rider-and-mount",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.06,
+        0.335,
+        0.5071,
+        0.4975,
+        44,
+        "rider"
+      ]
+    },
+    {
+      "id": "thranduil_mounted",
+      "name": "스란두일(기마)",
+      "issue": "mounted",
+      "role": "hero",
+      "files": {
+        "production": "assets/mesbg/tokens/thranduil_mounted.png",
+        "root": "tokens/thranduil_mounted.png",
+        "source": "art-src/roster-unify-20261019/thranduil_mounted.png",
+        "before": "art-src/roster-unify-20261019/before/thranduil_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/thranduil_mounted.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        384,
+        355
+      ],
+      "sourceSHA256": "a7c300c56fde0deef85edc10d54c9dfe86e749aac654e4300bc5811bb3a61c23",
+      "beforeSHA256": "10b3e13303bf6ade34b26115215e74b0602e1eba676c3f156dd6bee3beceda1a",
+      "artProfile": [
+        "human",
+        0.13,
+        0.42,
+        0.6,
+        0.57,
+        43,
+        "rider"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "seated five-head human",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "rider-and-mount",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.085,
+        0.34,
+        0.5,
+        0.52,
+        43,
+        "rider"
+      ]
+    },
+    {
+      "id": "elf_knight",
+      "name": "엘프 기마기사",
+      "issue": "mounted",
+      "role": "cavalry",
+      "files": {
+        "production": "assets/mesbg/tokens/elf_knight.png",
+        "root": "tokens/elf_knight.png",
+        "source": "art-src/roster-unify-20261019/elf_knight.png",
+        "before": "art-src/roster-unify-20261019/before/elf_knight.png",
+        "thumbnail": "assets/mesbg/thumbs/elf_knight.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        384,
+        350
+      ],
+      "sourceSHA256": "fe5c17928cc102bfacf6357113230ba1967d0d25209ef38be81d75eddf37c962",
+      "beforeSHA256": "76d24f4365cff7a290e2a859b60d456c2198b3e584552c4ac6c7cb615bcfe452",
+      "artProfile": [
+        "human",
+        0.13,
+        0.4,
+        0.57,
+        0.52,
+        43,
+        "rider"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "seated five-head human",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "rider-and-mount",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.085,
+        0.36,
+        0.5,
+        0.51,
+        43,
+        "rider"
+      ]
+    },
+    {
+      "id": "elven_lancer",
+      "name": "엘프 기창기병",
+      "issue": "mounted",
+      "role": "cavalry",
+      "files": {
+        "production": "assets/mesbg/tokens/elven_lancer.png",
+        "root": "tokens/elven_lancer.png",
+        "source": "art-src/roster-unify-20261019/elven_lancer.png",
+        "before": "art-src/roster-unify-20261019/before/elven_lancer.png",
+        "thumbnail": "assets/mesbg/thumbs/elven_lancer.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        384,
+        370
+      ],
+      "sourceSHA256": "c1b9e76e190f833e9ed9db89299d3f8c04c6b3c0479235c7b6a275065e1c550d",
+      "beforeSHA256": "8fbd38e867ee4de8f57596ddeaea46609e13062ea06707850bf0410f7814004a",
+      "artProfile": [
+        "human",
+        0.14,
+        0.39,
+        0.58,
+        0.52,
+        43,
+        "rider"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "seated five-head human",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "rider-and-mount",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.02,
+        0.3679,
+        0.4589,
+        0.5075,
+        43,
+        "rider"
+      ]
+    },
+    {
+      "id": "black_numenorean_mounted",
+      "name": "검은 누메노르인(기마)",
+      "issue": "mounted",
+      "role": "cavalry",
+      "files": {
+        "production": "assets/mesbg/tokens/black_numenorean_mounted.png",
+        "root": "tokens/black_numenorean_mounted.png",
+        "source": "art-src/roster-unify-20261019/black_numenorean_mounted.png",
+        "before": "art-src/roster-unify-20261019/before/black_numenorean_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/black_numenorean_mounted.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "e7aa990fd17d96994807b883b2bb6f4bf55df9d77c90cba77bf8cafa97982235",
+      "beforeSHA256": "def7693b9b6e2ebccfdef8dbc0689151f4d4c231f942eefc1aa0423c8dfd5567",
+      "artProfile": [
+        "human",
+        0.17,
+        0.43,
+        0.61,
+        0.53,
+        43,
+        "rider"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "seated five-head human",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "rider-and-mount",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.0742,
+        0.3998,
+        0.5294,
+        0.49,
+        43,
+        "rider"
+      ]
+    },
+    {
+      "id": "numenorean_knight",
+      "name": "누메노르 기사",
+      "issue": "mounted",
+      "role": "cavalry",
+      "files": {
+        "production": "assets/mesbg/tokens/numenorean_knight.png",
+        "root": "tokens/numenorean_knight.png",
+        "source": "art-src/roster-unify-20261019/numenorean_knight.png",
+        "before": "art-src/roster-unify-20261019/before/numenorean_knight.png",
+        "thumbnail": "assets/mesbg/thumbs/numenorean_knight.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        384,
+        370
+      ],
+      "sourceSHA256": "c1d351f10a029826c10cefa162b582ec79b700302a4c8a274ada600c3b2548d8",
+      "beforeSHA256": "d901860f33e3de0250dc991e82333b0092fee909c49d52c1441db424145d5e1a",
+      "artProfile": [
+        "human",
+        0.18,
+        0.43,
+        0.6,
+        0.53,
+        43,
+        "rider"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "seated five-head human",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "rider-and-mount",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.0898,
+        0.4124,
+        0.447,
+        0.5275,
+        43,
+        "rider"
+      ]
+    },
+    {
+      "id": "galadhrim_knight",
+      "name": "갈라드림 기사",
+      "issue": "mounted",
+      "role": "cavalry",
+      "files": {
+        "production": "assets/mesbg/tokens/galadhrim_knight.png",
+        "root": "tokens/galadhrim_knight.png",
+        "source": "art-src/roster-unify-20261019/galadhrim_knight.png",
+        "before": "art-src/roster-unify-20261019/before/galadhrim_knight.png",
+        "thumbnail": "assets/mesbg/thumbs/galadhrim_knight.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        384,
+        380
+      ],
+      "sourceSHA256": "54f1af58e6815f8e7691bc8c4dc14d4119a6d09d61d8602e2c47f8aafcb658a1",
+      "beforeSHA256": "7a8a4d203e18933b432842ffe1b529dbc5571f913a1573da4ded36f30a3f6753",
+      "artProfile": [
+        "human",
+        0.22,
+        0.45,
+        0.6,
+        0.55,
+        43,
+        "rider"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "seated five-head human",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "rider-and-mount",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.082,
+        0.4048,
+        0.5128,
+        0.525,
+        43,
+        "rider"
+      ]
+    },
+    {
+      "id": "thingol_mounted",
+      "name": "싱골(기마)",
+      "issue": "mounted",
+      "role": "hero",
+      "files": {
+        "production": "assets/mesbg/tokens/thingol_mounted.png",
+        "root": "tokens/thingol_mounted.png",
+        "source": "art-src/roster-unify-20261019/thingol_mounted.png",
+        "before": "art-src/roster-unify-20261019/before/thingol_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/thingol_mounted.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        384,
+        349
+      ],
+      "sourceSHA256": "ef67ea619b0e6418d1392c0f7f4db123a71ddfd7cca441b9260502dc87b4df4c",
+      "beforeSHA256": "159aebfa1b87bc9d8fa50eabfb1247d334f32be81bfffe940930685513bb316a",
+      "artProfile": [
+        "human",
+        0.1,
+        0.41,
+        0.62,
+        0.52,
+        43,
+        "rider"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "seated five-head human",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "rider-and-mount",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.02,
+        0.3679,
+        0.4806,
+        0.49,
+        43,
+        "rider"
+      ]
+    },
+    {
+      "id": "ecthelion_mounted",
+      "name": "엑텔리온(기마)",
+      "issue": "mounted",
+      "role": "hero",
+      "files": {
+        "production": "assets/mesbg/tokens/ecthelion_mounted.png",
+        "root": "tokens/ecthelion_mounted.png",
+        "source": "art-src/roster-unify-20261019/ecthelion_mounted.png",
+        "before": "art-src/roster-unify-20261019/before/ecthelion_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/ecthelion_mounted.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "a429f01f823a56a1cdc5ca2961afec2804563d54cdec481ffef546453f938cee",
+      "beforeSHA256": "bd9d325f86a02d21386eaf63d739a41a1b31362a59b18e335f7028819a9eb617",
+      "artProfile": [
+        "human",
+        0.2,
+        0.43,
+        0.62,
+        0.53,
+        43,
+        "rider"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "seated five-head human",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "rider-and-mount",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.04,
+        0.315,
+        0.4836,
+        0.5275,
+        44,
+        "rider"
+      ]
+    },
+    {
+      "id": "turin_mounted",
+      "name": "투린(기마)",
+      "issue": "mounted",
+      "role": "hero",
+      "files": {
+        "production": "assets/mesbg/tokens/turin_mounted.png",
+        "root": "tokens/turin_mounted.png",
+        "source": "art-src/roster-unify-20261019/turin_mounted.png",
+        "before": "art-src/roster-unify-20261019/before/turin_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/turin_mounted.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        384,
+        350
+      ],
+      "sourceSHA256": "efbf26f9ee34ef0c653af55f951c4f811a4252dcac92ce6094c1640f08ea9bc6",
+      "beforeSHA256": "d6f3dccceb1d65c74dbff063d0582c69dc664e84a3037309e84fa10775d6608e",
+      "artProfile": [
+        "human",
+        0.13,
+        0.41,
+        0.62,
+        0.53,
+        43,
+        "rider"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "seated five-head human",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "rider-and-mount",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.04,
+        0.34,
+        0.4706,
+        0.515,
+        44,
+        "rider"
+      ]
+    },
+    {
+      "id": "beleg_mounted",
+      "name": "벨레그(기마)",
+      "issue": "mounted",
+      "role": "hero",
+      "files": {
+        "production": "assets/mesbg/tokens/beleg_mounted.png",
+        "root": "tokens/beleg_mounted.png",
+        "source": "art-src/roster-unify-20261019/beleg_mounted.png",
+        "before": "art-src/roster-unify-20261019/before/beleg_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/beleg_mounted.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        384,
+        342
+      ],
+      "sourceSHA256": "90c2448733bc5fac9ed07759591fea0612786474a69c09a87246988cfd6f8586",
+      "beforeSHA256": "79188b8e9da5224ffcdefe927eee62d4d6e2d6d7328fd4d1e6ac8a73eb723154",
+      "artProfile": [
+        "human",
+        0.2,
+        0.43,
+        0.63,
+        0.54,
+        43,
+        "rider"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "seated five-head human",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "rider-and-mount",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.082,
+        0.4074,
+        0.3718,
+        0.51,
+        43,
+        "rider"
+      ]
+    },
+    {
+      "id": "cirdan_mounted",
+      "name": "키르단(기마)",
+      "issue": "mounted",
+      "role": "hero",
+      "files": {
+        "production": "assets/mesbg/tokens/cirdan_mounted.png",
+        "root": "tokens/cirdan_mounted.png",
+        "source": "art-src/roster-unify-20261019/cirdan_mounted.png",
+        "before": "art-src/roster-unify-20261019/before/cirdan_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/cirdan_mounted.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        384,
+        379
+      ],
+      "sourceSHA256": "799a3207be73ba9852b69858bd40427ef916a18eb2297f05bce7405d757a5020",
+      "beforeSHA256": "6787e3b94f991dcc1384a32c3c50d328099c1e8f8b4f48f840984e6ee97d7ff9",
+      "artProfile": [
+        "human",
+        0.1,
+        0.39,
+        0.64,
+        0.53,
+        43,
+        "rider"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "seated five-head human",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "rider-and-mount",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.02,
+        0.3679,
+        0.5234,
+        0.4925,
+        43,
+        "rider"
+      ]
+    },
+    {
+      "id": "maeglin_mounted",
+      "name": "매글린(기마)",
+      "issue": "mounted",
+      "role": "hero",
+      "files": {
+        "production": "assets/mesbg/tokens/maeglin_mounted.png",
+        "root": "tokens/maeglin_mounted.png",
+        "source": "art-src/roster-unify-20261019/maeglin_mounted.png",
+        "before": "art-src/roster-unify-20261019/before/maeglin_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/maeglin_mounted.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "abf8d89856c80dd810c1f5b24a3f9821ffdf5f26c03ecedd2b6fe0157dd1d5b3",
+      "beforeSHA256": "dcddc2be778f5c6b9bf5fb5191e27ac30a48c97f2e09213dcc481a063d8f8d7b",
+      "artProfile": [
+        "human",
+        0.1,
+        0.41,
+        0.62,
+        0.53,
+        43,
+        "rider"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "seated five-head human",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "rider-and-mount",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.025,
+        0.345,
+        0.4908,
+        0.5409,
+        43,
+        "rider"
+      ]
+    },
+    {
+      "id": "earnur_mounted",
+      "name": "에아르누르(기마)",
+      "issue": "mounted",
+      "role": "hero",
+      "files": {
+        "production": "assets/mesbg/tokens/earnur_mounted.png",
+        "root": "tokens/earnur_mounted.png",
+        "source": "art-src/roster-unify-20261019/earnur_mounted.png",
+        "before": "art-src/roster-unify-20261019/before/earnur_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/earnur_mounted.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        384,
+        378
+      ],
+      "sourceSHA256": "3757a0e72f824cb5cbcd6266ebdae043ce558fc14125116f43cbb887a094ec37",
+      "beforeSHA256": "7d078b8bf9e79fa533cdfb1b54d3a32e1ed0b20fafe6d2ee09bf7653cabfb2f9",
+      "artProfile": [
+        "human",
+        0.14,
+        0.43,
+        0.63,
+        0.53,
+        43,
+        "rider"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "seated five-head human",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "rider-and-mount",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.02,
+        0.3679,
+        0.494,
+        0.495,
+        43,
+        "rider"
+      ]
+    },
+    {
+      "id": "arathorn_mounted",
+      "name": "아라손(기마)",
+      "issue": "mounted",
+      "role": "hero",
+      "files": {
+        "production": "assets/mesbg/tokens/arathorn_mounted.png",
+        "root": "tokens/arathorn_mounted.png",
+        "source": "art-src/roster-unify-20261019/arathorn_mounted.png",
+        "before": "art-src/roster-unify-20261019/before/arathorn_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/arathorn_mounted.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        384,
+        346
+      ],
+      "sourceSHA256": "9ee99bf799add392bc4d0593c437159d4ba626035bc04aff4369367436568936",
+      "beforeSHA256": "5a66fe61b25ed3bd254d5dcb6616e09dbb271b4b9b21c13ff84a4d32cfd46d34",
+      "artProfile": [
+        "human",
+        0.14,
+        0.41,
+        0.62,
+        0.53,
+        43,
+        "rider"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "seated five-head human",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "rider-and-mount",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.1,
+        0.36,
+        0.4562,
+        0.5125,
+        39,
+        "rider"
+      ]
+    },
+    {
+      "id": "gamling_mounted",
+      "name": "감링(기마)",
+      "issue": "mounted",
+      "role": "hero",
+      "files": {
+        "production": "assets/mesbg/tokens/gamling_mounted.png",
+        "root": "tokens/gamling_mounted.png",
+        "source": "art-src/roster-unify-20261019/gamling_mounted.png",
+        "before": "art-src/roster-unify-20261019/before/gamling_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/gamling_mounted.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        384,
+        342
+      ],
+      "sourceSHA256": "bf7747f504b8686b952be902637fe6fa32fa722c89e3655c8140117021c3c3e6",
+      "beforeSHA256": "bcc71360edb39c015b0acc4a4e8cbc03c5580dbd49aa249b67541b7c735adb18",
+      "artProfile": [
+        "human",
+        0.34,
+        0.57,
+        0.57,
+        0.65,
+        43,
+        "rider"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "seated five-head human",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "rider-and-mount",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.295,
+        0.535,
+        0.5513,
+        0.62,
+        43,
+        "rider"
+      ]
+    },
+    {
+      "id": "guthlaf_mounted",
+      "name": "구슬라프(기마)",
+      "issue": "mounted",
+      "role": "hero",
+      "files": {
+        "production": "assets/mesbg/tokens/guthlaf_mounted.png",
+        "root": "tokens/guthlaf_mounted.png",
+        "source": "art-src/roster-unify-20261019/guthlaf_mounted.png",
+        "before": "art-src/roster-unify-20261019/before/guthlaf_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/guthlaf_mounted.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        384,
+        359
+      ],
+      "sourceSHA256": "b1307f37a212e71948ade46c9589385920570d8ab44cabfa83a82311d58b9510",
+      "beforeSHA256": "9f65444f9c77babba3776a6491a7d714e7bd3978760457efe6ecb0421f993193",
+      "artProfile": [
+        "human",
+        0.32,
+        0.55,
+        0.56,
+        0.64,
+        43,
+        "rider"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "seated five-head human",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "rider-and-mount",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.2736,
+        0.4961,
+        0.4308,
+        0.5136,
+        35.6,
+        "rider"
+      ]
+    },
+    {
+      "id": "cirion_mounted",
+      "name": "키리온(기마)",
+      "issue": "mounted",
+      "role": "hero",
+      "files": {
+        "production": "assets/mesbg/tokens/cirion_mounted.png",
+        "root": "tokens/cirion_mounted.png",
+        "source": "art-src/roster-unify-20261019/cirion_mounted.png",
+        "before": "art-src/roster-unify-20261019/before/cirion_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/cirion_mounted.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "99b1b8019e8c55f2757ccd14a81c57cdf3ae02d65b1aa0f2132bde36e11dab3f",
+      "beforeSHA256": "861df83111e8ec7af89e7bcf21b3f5010dc21eb64a2c3a18c777fce1df2a247a",
+      "artProfile": [
+        "human",
+        0.13,
+        0.42,
+        0.62,
+        0.53,
+        43,
+        "rider"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "seated five-head human",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "rider-and-mount",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.02,
+        0.3679,
+        0.4819,
+        0.4925,
+        43,
+        "rider"
+      ]
+    },
+    {
+      "id": "anarion_mounted",
+      "name": "아나리온(기마)",
+      "issue": "mounted",
+      "role": "hero",
+      "files": {
+        "production": "assets/mesbg/tokens/anarion_mounted.png",
+        "root": "tokens/anarion_mounted.png",
+        "source": "art-src/roster-unify-20261019/anarion_mounted.png",
+        "before": "art-src/roster-unify-20261019/before/anarion_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/anarion_mounted.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        384,
+        356
+      ],
+      "sourceSHA256": "1b0ad9ea84600ba917be930b20b879dc670160db2f58c61303da4eeb9d1bfd3d",
+      "beforeSHA256": "77f132198e98360d32bf1bf27e34e45e8cece192e3d761420fad8e8caa211546",
+      "artProfile": [
+        "human",
+        0.1,
+        0.39,
+        0.62,
+        0.52,
+        43,
+        "rider"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "seated five-head human",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "rider-and-mount",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.04,
+        0.3,
+        0.4625,
+        0.49,
+        39,
+        "rider"
+      ]
+    },
+    {
+      "id": "elendil_mounted",
+      "name": "엘렌딜(기마)",
+      "issue": "mounted",
+      "role": "hero",
+      "files": {
+        "production": "assets/mesbg/tokens/elendil_mounted.png",
+        "root": "tokens/elendil_mounted.png",
+        "source": "art-src/roster-unify-20261019/elendil_mounted.png",
+        "before": "art-src/roster-unify-20261019/before/elendil_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/elendil_mounted.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "c9cd54475699787fac23075ec917e9981d240613592bdcf8c0845bf6ac8ff764",
+      "beforeSHA256": "6ae767bf18b6d37e5bba93f1a0ab6dda833fbe3b9022fd9ab148cdbe03ccc950",
+      "artProfile": [
+        "human",
+        0.19,
+        0.44,
+        0.61,
+        0.53,
+        43,
+        "rider"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "seated five-head human",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "rider-and-mount",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.043,
+        0.3742,
+        0.5,
+        0.5175,
+        45,
+        "rider"
+      ]
+    },
+    {
+      "id": "arvedui_mounted",
+      "name": "아르베두이(기마)",
+      "issue": "mounted",
+      "role": "hero",
+      "files": {
+        "production": "assets/mesbg/tokens/arvedui_mounted.png",
+        "root": "tokens/arvedui_mounted.png",
+        "source": "art-src/roster-unify-20261019/arvedui_mounted.png",
+        "before": "art-src/roster-unify-20261019/before/arvedui_mounted.png",
+        "thumbnail": "assets/mesbg/thumbs/arvedui_mounted.webp"
+      },
+      "revision": "roster-unify-20261019",
+      "sourceSize": [
+        384,
+        384
+      ],
+      "sourceSHA256": "e8fc487b90fe8b4a5f6b2e0c6ffb7db73d50f642e3f5042de80e562e04a63554",
+      "beforeSHA256": "819849448e896a6bf289331df0f7e416da271bb15794ae43cd6ae46b8e33af7d",
+      "artProfile": [
+        "human",
+        0.28,
+        0.5,
+        0.6,
+        0.57,
+        43,
+        "rider"
+      ],
+      "review": {
+        "camera": "elevated-quarter-view",
+        "proportion": "seated five-head human",
+        "style": "approved Glorfindel fine pixel clusters",
+        "identity": "original costume, hair, mount species and heraldry reviewed",
+        "center": "rider-and-mount",
+        "excludes": [
+          "weapon",
+          "banner",
+          "antlers",
+          "helmet crest",
+          "hat tip",
+          "cloak edges"
+        ]
+      },
+      "beforeArtProfile": [
+        "human",
+        0.16,
+        0.41,
+        0.505,
+        0.55,
+        43,
+        "rider"
+      ]
+    }
+  ],
+  "scaleOnly": [
+    {
+      "id": "glorfindel_foot",
+      "before": 76,
+      "after": 86,
+      "reason": "normal human crown-to-sole 86; preserve approved painting and reviewed body landmarks"
+    }
+  ],
+  "revision": "roster-unify-20261019",
+  "archivedOnly": [
+    {
+      "id": "galadriel_war",
+      "reason": "Compatibility-only artwork; no active catalog registration added",
+      "source": "art-src/roster-unify-20261019/galadriel_war.png"
+    }
+  ],
+  "baselineCombatSHA256": "631dbad7767d4bb05e485201d95b1bb6c40d8de2bb727dddb3ff16fa9364b6ab"
+}
