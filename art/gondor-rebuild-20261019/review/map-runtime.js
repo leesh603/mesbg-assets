@@ -5,9 +5,12 @@
  const previousAsset=Tt.asset.bind(Tt);
  Tt.asset=file=>file.startsWith('workshop:')?origin+'/'+file.slice(9):previousAsset(file);
  for(const r of data.units.filter(r=>r.status==='ready')){
-  const old=q.meta.get(r.id);if(!old)continue;
+  const old=q.meta.get(r.id),profile=zt[r.id];if(!old||!profile)continue;
   old._workshop=true;old.name_ko=r.name+' · 기존';
   const id='trial__'+r.id;
+  // The production spawner requires both metadata and a combat profile by ID.
+  // Clone the source so preview aliases never share mutable stats with originals.
+  zt[id]=structuredClone(profile);
   q.meta.set(id,{...old,id,name_ko:r.name+' · 신규',file:'workshop:'+r.image,_workshop:true});
   UNIT_ART_PROFILES[id]=[r.rider?'human':r.stature<60?'hobbit':'human',r.top,r.bottom,r.centerX,r.centerY,r.stature,r.rider?'rider':'body'];
  }
