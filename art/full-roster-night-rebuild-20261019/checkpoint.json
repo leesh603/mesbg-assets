@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-19T23:11:31.602Z",
+  "updatedAt": "2026-10-19T23:21:46.322Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -170,9 +170,10 @@
       "original": "tokens/witchking_foot_mace.png",
       "source": "mordor",
       "path": "art/mordor-rebuild-20261019/units/witchking_foot_mace.png",
-      "blobSHA": "40b5e573e7ddf922c20d8c50ba01614fddd34052",
+      "blobSHA": "9a88efa0260e54870b0679ca4bc7a8dde31c9fed",
       "status": "restored_review_asset",
-      "visualReviewThisSession": false
+      "visualReviewThisSession": false,
+      "revision": "witchking-helmet-shoulders-v2"
     },
     {
       "id": "nazgul_sword",
@@ -5137,6 +5138,27 @@
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,
-    "sourceValidation": "152 unique IDs and existing image paths verified; inline JavaScript syntax checked."
+    "sourceValidation": "152 unique IDs and static image paths verified; JavaScript syntax checked."
+  },
+  "revisionRequests": {
+    "witchking": {
+      "reason": "사용자 불합격: 투구·어깨갑옷 디자인",
+      "ids": [
+        "witchking_foot_mace",
+        "witchking_mounted",
+        "witchking_mounted_sheet",
+        "witchking_fellbeast",
+        "witchking_foot"
+      ],
+      "revised": [
+        "witchking_foot_mace"
+      ],
+      "remaining": [
+        "witchking_mounted",
+        "witchking_mounted_sheet",
+        "witchking_fellbeast",
+        "witchking_foot"
+      ]
+    }
   }
 }
