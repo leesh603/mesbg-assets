@@ -2,7 +2,7 @@
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
   "branch": "art/gondor-body-variants-20261019",
   "total": 59,
-  "complete": 1,
+  "complete": 5,
   "units": [
     {
       "id": "aragorn",
@@ -14,12 +14,13 @@
       "body": "마른 장신·단단한 몸통",
       "pose": "검을 낮게 잡은 측면 버팀",
       "stature": 90,
-      "top": 0.075,
-      "bottom": 0.94,
-      "centerX": 0.49,
-      "centerY": 0.53,
+      "top": 0.15,
+      "bottom": 0.964,
+      "centerX": 0.52,
+      "centerY": 0.56,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트 기준과 육안 대조. 머리카락·수염·무기 제외 신체 비율과 픽셀 질감 확인. 최종 채택 전 검토본.",
+      "status": "ready",
       "old": "references/aragorn.png",
       "image": "units/aragorn.png",
       "thumb": "thumbs/aragorn.webp",
@@ -31,7 +32,12 @@
         0.5411,
         86,
         "body"
-      ]
+      ],
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "e0562fa9e478cce9e68048620cc104007e40865f7bd1da79f132f67d95aec201"
     },
     {
       "id": "warrior_minas_tirith",
@@ -78,12 +84,13 @@
       "body": "넓은 어깨·두꺼운 팔의 건장형",
       "pose": "방패를 높여 전열을 지키는 자세",
       "stature": 88,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.15,
+      "bottom": 0.952,
+      "centerX": 0.52,
+      "centerY": 0.55,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트 기준과 육안 대조. 머리카락·수염·무기 제외 신체 비율과 픽셀 질감 확인. 최종 채택 전 검토본.",
+      "status": "ready",
       "old": "references/boromir.png",
       "image": "units/boromir.png",
       "thumb": "thumbs/boromir.webp",
@@ -95,7 +102,12 @@
         0.5,
         86,
         "body"
-      ]
+      ],
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "1b908150bc6daeef6180f60b27145b93df57606cb9b62436b7da3cc4f4f9bc4e"
     },
     {
       "id": "gondor_archer",
@@ -515,12 +527,13 @@
       "body": "날씬한 궁수 체형",
       "pose": "몸통을 틀어 활을 겨누는 자세",
       "stature": 87,
-      "top": 0.08,
-      "bottom": 0.94,
-      "centerX": 0.5,
-      "centerY": 0.53,
+      "top": 0.16,
+      "bottom": 0.931,
+      "centerX": 0.52,
+      "centerY": 0.55,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트 기준과 육안 대조. 머리카락·수염·무기 제외 신체 비율과 픽셀 질감 확인. 최종 채택 전 검토본.",
+      "status": "ready",
       "old": "references/faramir.png",
       "image": "units/faramir.png",
       "thumb": "thumbs/faramir.webp",
@@ -532,7 +545,12 @@
         0.5039,
         86,
         "body"
-      ]
+      ],
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "ec0cc8ae9ef8833aef8e21490853fe98d47949eb8513f7e684710b0160c44ec6"
     },
     {
       "id": "imrahil",
@@ -691,12 +709,13 @@
       "body": "낮고 육중한 복부·굵은 팔",
       "pose": "넓게 벌린 발, 양손 도끼를 옆에 받침",
       "stature": 82,
-      "top": 0.08,
+      "top": 0.137,
       "bottom": 0.94,
       "centerX": 0.5,
-      "centerY": 0.53,
+      "centerY": 0.54,
       "anatomyRule": "승인 표준의 5등신과 머리·몸통·팔다리 비율 고정. 체형은 폭·볼륨·전체 신장으로 변주하며 팔다리를 늘이지 않음.",
-      "status": "pending",
+      "review": "하이앵글 프론트 기준과 육안 대조. 머리카락·수염·무기 제외 신체 비율과 픽셀 질감 확인. 최종 채택 전 검토본.",
+      "status": "ready",
       "old": "references/forlong.png",
       "image": "units/forlong.png",
       "thumb": "thumbs/forlong.webp",
@@ -708,7 +727,12 @@
         0.5137,
         86,
         "body"
-      ]
+      ],
+      "dimensions": [
+        1199,
+        1312
+      ],
+      "sha256": "9ec849dd9ee4a243e65d318fc5e18d26f74253ece79b67071c9b4938cbc63256"
     },
     {
       "id": "damrod",
