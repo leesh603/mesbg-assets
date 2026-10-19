@@ -9183,37 +9183,37 @@
       "file": "tokens/erestor.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.01,
-      "bottom": 0.99,
-      "centerX": 0.4607,
-      "centerY": 0.5,
+      "top": 0.11169,
+      "bottom": 0.839166,
+      "centerX": 0.515,
+      "centerY": 0.475428,
       "worldReferenceSize": 86,
-      "sourceWidth": 254,
-      "sourceHeight": 366,
-      "sourceSHA256": "5a1c135bdc14fd2c598e1737ca1b09283e8af90b061accd3f9b01a6114bd0ed7",
-      "anatomicalCorrection": false,
+      "sourceWidth": 1171,
+      "sourceHeight": 1343,
+      "sourceSHA256": "9ba56bfbe614e20c0836ec8dcaed7c6279cacee9735c3f203504239e5d89449a",
+      "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
-        "date": "2026-10-13",
-        "sheet": 9,
-        "cell": 5,
-        "landmarks": "body-only",
-        "source": "assets/mesbg/tokens/erestor.png"
+        "date": "2026-10-19",
+        "sheet": "user-replacements-20261019",
+        "landmarks": "individual crown-to-sole; source padding and weapons excluded",
+        "source": "assets/mesbg/tokens/erestor.png",
+        "sourceLandmarksPx": {
+          "top": 150,
+          "bottom": 1127
+        }
       },
-      "calibration": "Individual source visually checked; existing body landmarks retained.",
+      "calibration": "User-supplied replacement: crown-to-sole visually reviewed; preserve source aspect ratio and 86px body stature.",
       "centerReview": {
-        "date": "2026-10-14",
+        "date": "2026-10-19",
         "basis": "body",
-        "sheet": 6,
-        "cell": 17,
         "source": "assets/mesbg/tokens/erestor.png",
         "excludes": [
           "weapons",
-          "banners",
-          "decorations",
-          "wings",
-          "tails"
+          "cloak edges",
+          "hair silhouette",
+          "source padding"
         ]
       },
       "statureCalibration": {
@@ -9221,17 +9221,18 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "body",
-          "top": 0.0195,
-          "bottom": 0.9805,
+          "top": 0.11169,
+          "bottom": 0.839166,
           "worldReferenceSize": 86,
-          "sourceSHA256": "5a1c135bdc14fd2c598e1737ca1b09283e8af90b061accd3f9b01a6114bd0ed7"
+          "sourceSHA256": "9ba56bfbe614e20c0836ec8dcaed7c6279cacee9735c3f203504239e5d89449a"
         },
         "candidate": {
-          "top": 0.01,
-          "bottom": 0.99
+          "top": 0.0665,
+          "bottom": 0.871
         },
-        "applied": "anatomical-candidate",
-        "reason": "candidate-agrees-with-reviewed-anatomy"
+        "pinned": true,
+        "applied": "reviewed-landmarks",
+        "reason": "pinned-by-visual-review"
       }
     },
     {
@@ -11341,35 +11342,37 @@
       "file": "tokens/gil_galad.png",
       "bodyClass": "human",
       "reference": "body",
-      "top": 0.04,
-      "bottom": 0.9,
-      "centerX": 0.45,
-      "centerY": 0.47,
+      "top": 0.052122,
+      "bottom": 0.941176,
+      "centerX": 0.52,
+      "centerY": 0.496649,
       "worldReferenceSize": 86,
-      "sourceWidth": 335,
-      "sourceHeight": 384,
-      "sourceSHA256": "f9d92b88cf2ab55467fec6f241d7d481f9a1b7b4bf47a558d5e1139033be42ae",
+      "sourceWidth": 1171,
+      "sourceHeight": 1343,
+      "sourceSHA256": "c61b70331fd0d714b296c4531a9f8809d77c19a856c41b41cb0bc52b7cd248ad",
       "anatomicalCorrection": true,
       "riderSaddleLandmark": false,
       "referenceAxis": "height",
       "visualReview": {
         "date": "2026-10-19",
-        "sheet": "roster-unify-20261019",
-        "landmarks": "individual crown-to-sole",
-        "source": "assets/mesbg/tokens/gil_galad.png"
+        "sheet": "user-replacements-20261019",
+        "landmarks": "individual crown-to-sole; source padding and weapons excluded",
+        "source": "assets/mesbg/tokens/gil_galad.png",
+        "sourceLandmarksPx": {
+          "top": 70,
+          "bottom": 1264
+        }
       },
-      "calibration": "Visual review: compact anatomy, elevated quarter view, body centre independent of weapons.",
+      "calibration": "User-supplied replacement: crown-to-sole visually reviewed; preserve source aspect ratio and 86px body stature.",
       "centerReview": {
         "date": "2026-10-19",
         "basis": "body",
         "source": "assets/mesbg/tokens/gil_galad.png",
         "excludes": [
-          "weapon",
-          "banner",
-          "antlers",
-          "helmet crest",
-          "hat tip",
-          "cloak edges"
+          "weapons",
+          "cloak edges",
+          "hair silhouette",
+          "source padding"
         ]
       },
       "statureCalibration": {
@@ -11377,10 +11380,10 @@
         "reviewedReference": {
           "bodyClass": "human",
           "reference": "body",
-          "top": 0.04,
-          "bottom": 0.9,
+          "top": 0.052122,
+          "bottom": 0.941176,
           "worldReferenceSize": 86,
-          "sourceSHA256": "f9d92b88cf2ab55467fec6f241d7d481f9a1b7b4bf47a558d5e1139033be42ae"
+          "sourceSHA256": "c61b70331fd0d714b296c4531a9f8809d77c19a856c41b41cb0bc52b7cd248ad"
         },
         "candidate": {
           "top": 0.01,
