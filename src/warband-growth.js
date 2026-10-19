@@ -97,7 +97,7 @@ if(ringChoice){ringChoice.sub='무작위 영웅 결투 +1 · 용기 −1 (영구
     if(!u)return '대상 없음';u.baseStats.fight+=1;u.baseStats.courage=Math.max(0,u.baseStats.courage-1);b.refreshUnit(u);return u.name+' 결투 +1 · 용기 −1';
 };}
 const growthEvent=P.chooseEvent;
-P.chooseEvent=function(i){
+const growthNormalizeEvent=function(i){
     const key=this.campEvent?.id+':'+i,units=this.permanent(),snap=new Map(units.map(u=>[u.uid,structuredClone(u.baseStats)])),beforeRelics={...this.relics};
     const result=growthEvent.call(this,i);if(!result)return result;
     let capped=0,shared=false;
@@ -119,12 +119,14 @@ P.chooseEvent=function(i){
         const count=this.rank(id)-(beforeRelics[id]||0);this.relics[id]=beforeRelics[id]||0;
         for(let n=0;n<count;n++){const replacement=this.randomAvailableRelic();if(replacement)this.relics[replacement.id]=(this.relics[replacement.id]||0)+1;}
     }
-    const bonus=Math.min(20,capped*5);this.gold+=bonus;
+    const bonus=Math.min(20,capped*5);if(bonus)this.grantGold('training:'+key,'훈련 상한 보급',bonus,'camp');
     const note=(shared?' · 부대 공통 훈련: 후속 영입 포함':'')+(bonus?' · 훈련 상한 보급 +'+bonus+'금':'');
     if(note){this.campResult=(this.campResult||'')+note;if(this.eventOutcome)this.eventOutcome.result+=note;}
     if(this.eventOutcome)this.eventOutcome.relics=Object.keys(this.relics||{}).filter(id=>this.rank(id)>(beforeRelics[id]||0));
     for(const u of this.alive('good')){this.refreshUnit(u);u.currentWounds=Math.min(u.currentWounds,u.stats.wounds);}this.save();return result;
 };
+// Keep normalization, replacement relics and the final save within the event transaction.
+P.chooseEvent=function(i){return this.economicTransaction(()=>growthNormalizeEvent.call(this,i),'야영지 훈련');};
 const growthState=P._saveState;
 P._saveState=function(){return {...growthState.call(this),growthVersion:WARBAND_GROWTH.version,armyTraining:{courage:this.armyTrainingBonus('courage')}};};
 const growthResume=P.resume;

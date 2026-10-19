@@ -1,0 +1,8 @@
+PASS: heal validity/resource, spell effect/resource, save choices, named recruitment, hero swap
+PASS: equipment stacking/removal/healing/save, unique legacy relics, hero variants, command invariants, initial resume, expedition consequences
+PASS: purchased reinforcements persist until the promised battle
+PASS: lethal relic prevention precedes casualties and kill rewards
+PASS: spear relic changes support-strike threshold
+PASS: camp damage stays nonlethal and treatment restores lost stats
+PASS: named variants share identity while ordinary troops remain repeatable
+PASS: over-capacity event armies can skip recruitment without losing units or gold

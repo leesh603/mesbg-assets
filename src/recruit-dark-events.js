@@ -152,7 +152,7 @@ P.processDarkEvents=function(){
 };
 P.rewardDarkEvent=function(){
     const a=this.darkActive,e=a&&DARK_BY_ID.get(a.id);if(!e||a.paid||!a.members.every(uid=>{const u=this.unit(uid);return u&&!u.alive;}))return false;
-    a.paid=true;this.gold+=e.reward;this.emit('Event',e.name+' 격파 · 어둠의 전리품 +'+e.reward+'금');return true;
+    a.paid=true;this.grantGold('dark:'+e.id,'어둠의 전리품 · '+e.name,e.reward);this.emit('Event',e.name+' 격파 · 어둠의 전리품 +'+e.reward+'금');return true;
 };
 const darkTrackKill=P._trkKill;
 P._trkKill=function(k,v){const result=darkTrackKill.call(this,k,v);if(k.side==='good'&&v.side==='evil')this.rewardDarkEvent();return result;};

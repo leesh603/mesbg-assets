@@ -64,6 +64,12 @@ const deployBegin='/*__WARBAND_DEPLOYMENT_BEGIN__*/',deployEnd='/*__WARBAND_DEPL
 const da=src.indexOf(deployBegin),db=src.indexOf(deployEnd);
 if(da<0||db<da)throw Error('Deployment module markers not found');
 src=src.slice(0,da+deployBegin.length)+'\n'+fs.readFileSync(path.join(ROOT,'src','warband-deployment.js'),'utf8')+'\n'+src.slice(db);
+
+// QA improvements share the exact served/offline implementation.
+const overhaul=fs.readFileSync(path.join(ROOT,'src','playtest-overhaul.js'),'utf8');
+const oa=src.indexOf('/*__PLAYTEST_OVERHAUL_BEGIN__*/'),ob=src.indexOf('/*__PLAYTEST_OVERHAUL_END__*/');
+if(oa<0||ob<oa)throw Error('Playtest overhaul markers not found');
+src=src.slice(0,oa)+'/*__PLAYTEST_OVERHAUL_BEGIN__*/\n'+overhaul+'\n'+src.slice(ob);
 fs.writeFileSync(SRC,src);
 
 const a = html.indexOf(BEGIN), b = html.indexOf(END);

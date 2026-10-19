@@ -1,0 +1,54 @@
+{
+  "environment": "GitHub Actions headless Chromium, DPR 1; sequential contexts and shared asset cache; single samples, not a controlled mobile comparison",
+  "menuSamples": [
+    {
+      "view": "before-360-menu",
+      "sceneReadyMs": 5485.900000000023,
+      "bootMs": 1026.5,
+      "heapBytes": 44700000,
+      "fps": 59.28515625
+    },
+    {
+      "view": "after-360-menu",
+      "sceneReadyMs": 2052.100000000035,
+      "bootMs": 466.20000000001164,
+      "heapBytes": 44700000,
+      "fps": 57.25
+    },
+    {
+      "view": "before-390-menu",
+      "sceneReadyMs": 2041,
+      "bootMs": 448.70000000001164,
+      "heapBytes": 44700000,
+      "fps": 56.5
+    },
+    {
+      "view": "after-390-menu",
+      "sceneReadyMs": 1985.4000000000233,
+      "bootMs": 448.5999999999767,
+      "heapBytes": 44700000,
+      "fps": 56.5
+    },
+    {
+      "view": "before-1365-menu",
+      "sceneReadyMs": 1942.7000000000116,
+      "bootMs": 440.8999999999651,
+      "heapBytes": 44700000,
+      "fps": 56.5
+    },
+    {
+      "view": "after-1365-menu",
+      "sceneReadyMs": 2144.7999999999884,
+      "bootMs": 461,
+      "heapBytes": 44700000,
+      "fps": 55.75
+    }
+  ],
+  "heap": "Chrome coarse estimate; not a leak/peak test",
+  "unmeasured": [
+    "physical Android/iOS",
+    "p95/p99 frame time",
+    "long-session memory/temperature/battery"
+  ],
+  "geometryCandidateApplied": false
+}

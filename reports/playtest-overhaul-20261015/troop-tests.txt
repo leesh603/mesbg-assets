@@ -1,0 +1,44 @@
+✔ every edge exists, remains in its kingdom/race and cannot promote into any hero or monster (83.377276ms)
+✔ all configured paths execute with real profile IDs and fixed entry costs (4596.850692ms)
+✔ troop identity, equipment, permanent gains, kills, injury and enhancement history survive (43.586355ms)
+✔ direct elite recruitment pays the normal profile cost, unlike a trained soldier (36.161774ms)
+✔ experience and participation requirements cannot be skipped; forged targets fail atomically (43.676778ms)
+✔ horse/goat/warg acquisition and conversion consume resources only on success (112.314785ms)
+✔ new mounted troops dismount and remount without losing points or career (156.027044ms)
+✔ save/resume preserves promotion, deferral, mount inventory and validates entry points (40.324249ms)
+✔ legacy ranks migrate once without duplicating rank stats or removing event gains (38.621555ms)
+✔ darkpact and named legacy/era gates remain required (42.727482ms)
+✔ ordinary kill XP is capped per battle; heroes retain their 100-kill hidden evolution (62.230748ms)
+✔ new archers fire, melee infantry cannot shoot, and crossbows cannot fire after moving (44.052298ms)
+✖ all new PNGs have true alpha, sensible dimensions and measured body profiles (1.1041ms)
+✔ deployed troops earn participation and survival once per actual wave (47.417049ms)
+✔ stationary elite archers use their live shooting rule and bodyguards need a living hero (37.929273ms)
+✔ a later version of the cost table does not reprice an existing trained soldier (39.717492ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 15
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5536.770801
+
+✖ failing tests:
+
+test at tests/troop-promotions.test.cjs:44:1
+✖ all new PNGs have true alpha, sensible dimensions and measured body profiles (1.1041ms)
+  Error: ENOENT: no such file or directory, open 'assets/mesbg/tokens/citadel_guard_bow.png'
+      at Object.openSync (node:fs:622:18)
+      at Object.readFileSync (node:fs:488:35)
+      at TestContext.<anonymous> (/workspace/scratch/99e6f2f9eb8b/mesbg-assets/tests/troop-promotions.test.cjs:45:132)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: 'assets/mesbg/tokens/citadel_guard_bow.png'
+  }

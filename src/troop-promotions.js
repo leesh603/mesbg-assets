@@ -98,12 +98,6 @@ for(const method of ['move','charge']){
 }
 const careerRound=P.beginRound;
 P.beginRound=function(){const guarded=this.alive().filter(u=>this.careerBodyguard(u)).map(u=>[u,u.fearless]);for(const[u]of guarded)u.fearless=true;try{return careerRound.call(this);}finally{for(const[u,prior]of guarded)u.fearless=prior;}};
-const troopRoll=P.rollRecruits;
-P.rollRecruits=function(){
-    const disabled=[];
-    for(const d of Object.values(UnitCatalog))if(isCareerTroop(d.id)&&this.troopGateReason(d.id)&&d.enabled){disabled.push(d);d.enabled=false;}
-    try{return troopRoll.call(this);}finally{for(const d of disabled)d.enabled=true;}
-};
 const troopSelection=P.recruitSelection;
 P.recruitSelection=function(i){const id=this.recruitOffers?.[i]?.id,reason=id&&isCareerTroop(id)&&this.troopGateReason(id);return reason?{reason}:troopSelection.call(this,i);};
 const troopDraftReason=P.draftReason;
@@ -183,6 +177,7 @@ P.dismount=function(u){
 };
 const troopKill=P._trkKill;
 P._trkKill=function(k,v){
+    if(v._killCredited)return;
     troopKill.call(this,k,v);
     if(k.side==='good'&&v.side==='evil'&&isCareerTroop(k)&&!k.temporary){
         this.initTroopCareer(k);const prior=k.careerKillWave===this.wave?(k.careerKillXP||0):0;
@@ -235,9 +230,9 @@ function troopTreeText(id,depth=0,seen=new Set()){
 function troopProfileSection(u){
     if(!isCareerTroop(u)||u.temporary)return '';
     q.initTroopCareer(u);
-    return '<section class="troop-career"><h3>현재 병종 · '+esc(q.meta.get(u.id).name_ko)+'</h3><p>최초 영입 '+u.entryPoints+'pt 유지 · 경험치 '+u.xp+' · 전투 '+u.battlesParticipated+'회</p><p>'+u.promotionHistory.map(h=>esc(UnitCatalog[h.to]?.meta.name_ko||h.to)).join(' → ')+'</p><ul>'+troopTreeText(u.id)+'</ul><button type="button" class="secondary" data-troop-career="'+u.uid+'">승급 선택 / 조건 확인</button></section>';
+    return '<section class="troop-career"><h3>현재 병종 · '+esc(q.meta.get(u.id).name_ko)+'</h3><p>최초 영입 '+u.entryPoints+'pt 유지 · 경험치 '+u.xp+' · 전투 '+u.battlesParticipated+'회</p><p>'+u.promotionHistory.map(h=>esc(UnitCatalog[h.to]?.meta.name_ko||h.to)).join(' → ')+' · '+esc(q.meritSummary(u))+'</p><ul>'+troopTreeText(u.id)+'</ul><button type="button" class="secondary" data-troop-career="'+u.uid+'">승급 선택 / 조건 확인</button></section>';
 }
-const careerWeaponNames={sword:'검',sword_shield:'검·방패',spear:'창',spear_shield:'창·방패',bow:'활',crossbow:'석궁',pike:'장창',twohanded:'양손무기',axe:'도끼',lance:'기창',dagger:'단검'};
+const careerWeaponNames={sword:'검',sword_shield:'검·방패',spear:'창',spear_shield:'창·방패',bow:'활',crossbow:'석궁',pike:'장창',twohanded:'양손무기',axe:'도끼',lance:'기창',dagger:'단검',mace:'철퇴',staff:'지팡이',shield:'방패',banner:'깃발',hammer:'망치',mattock:'곡괭이',club:'곤봉',cleaver:'도검',glaive:'언월도',drum:'북',blowpipe:'바람총',pitchfork:'쇠스랑',whip:'채찍',claws:'발톱',talons:'발톱',bite:'이빨',bomb:'폭탄',umbrella:'우산',various:'복합 무장',none:'비무장'};
 const careerTraitNames={mounted:'기병 돌격',spear:'창 지원',lance:'기창 돌격',shieldwall:'인접 방벽 · 방어 +1',steadfast:'견고한 전열 · 밀림 감소',bodyguard:'지휘 영웅 생존 시 공포 면역',elf:'엘프',dwarf:'난쟁이',veteran:'결투 최저 주사위 재굴림',sharpshooter:'정지 사격 명중 재굴림',ranger:'이동 사격 페널티 없음',woodland:'숲 정찰',mountain:'산 지형 통과',crossbow:'이동 후 사격 불가',twohanded:'양손무기',fearless:'공포 면역',dagger:'단검',terror:'공포'};
 function openTroopPromotion(uid,manual=false){
     if(!['reward','preparation'].includes(q.phase))return;
@@ -247,7 +242,7 @@ function openTroopPromotion(uid,manual=false){
     const options=q.troopPromotionOptions(u),stats=['fight','strength','defence','attacks','courage','move'],labels=['결투','힘','방어','공격','용기','이동'];
     box.innerHTML='<div class="modal troop-promotion-modal"><div class="eyebrow">병사의 전직 · '+ready.length+'명 승급 가능</div><h2 id="troop-promotion-title">전장에서 쌓은 경험</h2><div class="promotion-current">'+unitImage(u.id)+'<div><strong>'+esc(q.meta.get(u.id).name_ko)+'</strong><p>경험치 '+u.xp+' · '+u.battlesParticipated+'회 참전 · '+(u.kills||0)+'처치</p><b>최초 '+u.entryPoints+'pt → 전직 후 '+u.entryPoints+'pt</b></div></div><div class="promotion-soldiers">'+ready.map(v=>'<button type="button" class="secondary" data-career-uid="'+v.uid+'"'+(v.uid===u.uid?' aria-current="true"':'')+'>'+esc(v.name)+'</button>').join('')+'</div><div class="promotion-choices">'+options.map(o=>{
         const d=UnitCatalog[o.id],p=d.profile,reason=q.promotionReason(u,o);
-        return '<article class="promotion-choice"><header>'+unitImage(o.id)+'<div><small>'+ (p.traits.includes('mounted')?'기병 · 돌격':'보병 · '+(p.shootRange?'사격':p.traits.includes('spear')?'창 지원':'전열'))+'</small><h3>'+esc(d.meta.name_ko)+'</h3><p>'+esc(careerWeaponNames[d.meta.weapon]||d.meta.weapon)+' · '+o.cost+'금 · '+(d.career?.origin==='custom'?'게임 확장':d.career?.origin==='legacy'?'구판 병종':'MESBG 병종')+'</p></div></header><dl>'+stats.map((s,i)=>'<div><dt>'+labels[i]+'</dt><dd>'+zt[u.id][s]+' → '+p[s]+'</dd></div>').join('')+'</dl><p>무장 '+esc(careerWeaponNames[d.meta.weapon]||d.meta.weapon)+' · '+(p.shootRange?'사거리 '+p.shootRange+' / 명중 '+p.shootValue+'+':'근접')+'</p><p>능력 '+esc(p.traits.map(t=>careerTraitNames[t]||t).join(' · ')||'기본 전투')+'</p><p>필요 경험치 '+o.xp+' · 참전 '+o.battles+'회'+(o.mount?' · 탈것 1':'')+'</p><button type="button" class="primary" data-promote="'+o.id+'"'+(reason?' disabled':'')+'>'+esc(reason||'전직 · '+u.entryPoints+'pt 유지')+'</button>'+(o.mount&&o.mount!=='spectral'?'<button type="button" class="secondary" data-career-mount="'+o.mount+'">'+esc(({horse:'군마',warg:'와르그',goat:'산양',camel:'낙타',chariot:'전차'})[o.mount])+' 확보 · '+({horse:40,warg:50,goat:55,camel:50,chariot:90})[o.mount]+'금</button>':'')+'</article>';
+        return '<article class="promotion-choice"><header>'+unitImage(o.id)+'<div><small>'+ (p.traits.includes('mounted')?'기병 · 돌격':'보병 · '+(p.shootRange?'사격':p.traits.includes('spear')?'창 지원':'전열'))+'</small><h3>'+esc(d.meta.name_ko)+'</h3><p>'+esc(careerWeaponNames[d.meta.weapon]||d.meta.weapon)+' · '+o.cost+'금 · '+(d.career?.origin==='custom'?'게임 확장':d.career?.origin==='legacy'?'구판 병종':d.career?.origin==='official'||d.career?.official?'MESBG 병종':'기존 게임 병종')+'</p></div></header><dl>'+stats.map((s,i)=>'<div><dt>'+labels[i]+'</dt><dd>'+zt[u.id][s]+' → '+p[s]+'</dd></div>').join('')+'</dl><p>무장 '+esc(careerWeaponNames[d.meta.weapon]||d.meta.weapon)+' · '+(p.shootRange?'사거리 '+p.shootRange+' / 명중 '+p.shootValue+'+':'근접')+'</p><p>능력 '+esc(p.traits.map(t=>careerTraitNames[t]||t).join(' · ')||'기본 전투')+'</p><p>필요 경험치 '+o.xp+' · 참전 '+o.battles+'회'+(o.mount?' · 탈것 1':'')+'</p><button type="button" class="primary" data-promote="'+o.id+'"'+(reason?' disabled':'')+'>'+esc(reason||'전직 · '+u.entryPoints+'pt 유지')+'</button>'+(o.mount&&o.mount!=='spectral'?'<button type="button" class="secondary" data-career-mount="'+o.mount+'">'+esc(({horse:'군마',warg:'와르그',goat:'산양',camel:'낙타',chariot:'전차'})[o.mount])+' 확보 · '+({horse:40,warg:50,goat:55,camel:50,chariot:90})[o.mount]+'금</button>':'')+'</article>';
     }).join('')+'</div><p class="promotion-error" role="status">'+esc(q.promotionError||(!options.length?'현재 병종은 이 계통의 최종 병종입니다':''))+'</p><footer><button type="button" class="secondary" id="promotion-defer">'+(manual?'닫기':'이번에는 보류')+'</button></footer></div>';
     box.querySelectorAll('[data-promote]').forEach(btn=>btn.onclick=()=>{if(q.promoteTroop(u.uid,btn.dataset.promote)){box.remove();Yt();}else openTroopPromotion(u.uid,manual);});
     box.querySelectorAll('[data-career-uid]').forEach(btn=>btn.onclick=()=>openTroopPromotion(btn.dataset.careerUid,manual));
@@ -255,7 +250,7 @@ function openTroopPromotion(uid,manual=false){
     box.querySelector('#promotion-defer').onclick=()=>{q.promotionDeferredWave=q.wave;q.promotionError='';q.save();box.remove();};
 }
 function renderTroopPromotions(){
-    if(q.phase==='reward'&&q.promotionDeferredWave!==q.wave&&!document.getElementById('troop-promotion')&&q.pendingTroopPromotions().length)openTroopPromotion();
+    if(q.phase==='reward'&&q.campStep==='ready'&&q.promotionDeferredWave!==q.wave&&!document.getElementById('troop-promotion')&&q.pendingTroopPromotions().length)openTroopPromotion();
     if(!['reward','preparation'].includes(q.phase))document.getElementById('troop-promotion')?.remove();
 }
 if(typeof Yt==='function'){

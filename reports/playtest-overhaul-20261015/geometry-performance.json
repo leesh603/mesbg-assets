@@ -1,0 +1,27 @@
+{
+  "environment": "Node.js Linux container; 180000 positions × non-ribbon Osgiliath objects, 2 warmups + 5 samples; not device FPS",
+  "before": {
+    "medianMs": 72.02465700000005,
+    "samplesMs": [
+      70.76223100000001,
+      87.15257000000003,
+      84.95460300000002,
+      72.02465700000005,
+      71.86136499999998
+    ],
+    "checksum": 11171796357.89216
+  },
+  "after": {
+    "medianMs": 85.68778600000019,
+    "samplesMs": [
+      88.18010700000002,
+      81.44517999999994,
+      74.06040299999995,
+      86.28621500000008,
+      85.68778600000019
+    ],
+    "checksum": 11171796357.89216
+  },
+  "applied": false,
+  "decision": "Rotation-cache candidate rejected: median runtime regressed; retain the existing terrain engine."
+}
