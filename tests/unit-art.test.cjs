@@ -1,7 +1,9 @@
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),test=require('node:test');
 const source=fs.readFileSync('src/game.js','utf8');
 const begin=source.indexOf('const UNIT_ART_PROFILES ='),end=source.indexOf('Ve.prototype.update = function (time)',begin);
-const context={};vm.createContext(context);vm.runInContext(source.slice(begin,end)+';this.profiles=UNIT_ART_PROFILES;this.layout=unitArtLayout;this.apply=applyUnitArtSprite;',context);
+const context={};vm.createContext(context);
+// Upright figures (body mode) stand with their soles on the base centre; others stay body-centred.
+const expectedOriginY=(a)=>{const p=context.profiles[a.id];return p[6]==='body'&&context.upright.has(p[0])?p[2]:a.centerY;};vm.runInContext(source.slice(begin,end)+';this.profiles=UNIT_ART_PROFILES;this.layout=unitArtLayout;this.apply=applyUnitArtSprite;this.upright=UPRIGHT_ART_CLASSES;',context);
 const audit=JSON.parse(fs.readFileSync('docs/unit-art-audit.json','utf8'));
 test('every production combat token has an explicit anatomical reference',()=>{
  const h=require('./campaign-harness.cjs')();const models=h.run(`Array.from(q.meta.values()).filter(m=>m.side!=='terrain'&&!m.id.startsWith('terr_')).map(m=>m.id)`);
@@ -14,7 +16,7 @@ test('all 492 anatomical spans render to their specified size, independent of ra
   const src={width:a.sourceWidth,height:a.sourceHeight},u={id:a.id,radius:5,artScale:.1};const out=context.layout(u,src),other=context.layout({...u,radius:500,artScale:20},src);
   const measured=p[7]==='width'?out.width*(p[9]-p[8]):out.height*(p[2]-p[1]);
   assert.deepEqual(out,other);assert(Math.abs(measured-a.worldReferenceSize)<.001,a.id);
-  assert(Math.abs(out.width/out.height-src.width/src.height)<1e-8,a.id);assert.equal(out.originX,a.centerX);assert.equal(out.originY,a.centerY);
+  assert(Math.abs(out.width/out.height-src.width/src.height)<1e-8,a.id);assert.equal(out.originX,a.centerX);assert.equal(out.originY,expectedOriginY(a),a.id);
   assert.equal(out.referenceAxis,'height',a.id);
  }
 });
@@ -82,7 +84,7 @@ test('fixed painted facing: no directional mirroring or alpha-derived facing rem
  assert(source.includes('.setFlipX(false)'));
  const directions=[-1,1];for(const a of audit.units)for(const direction of directions){
   const body=context.layout({id:a.id,angle:direction*90},{width:a.sourceWidth,height:a.sourceHeight});
-  assert.equal(body.originX,a.centerX);assert.equal(body.originY,a.centerY);
+  assert.equal(body.originX,a.centerX);assert.equal(body.originY,expectedOriginY(a),a.id);
  }
 });
 test('every centre records a visually reviewed body rule, separate from size landmarks',()=>{
