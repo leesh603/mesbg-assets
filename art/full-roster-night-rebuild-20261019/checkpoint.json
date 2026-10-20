@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T05:55:02.092Z",
+  "updatedAt": "2026-10-20T07:49:39.722Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -16,9 +16,10 @@
     "generatedReviewAssets": 378,
     "persistedReviewAssets": 510,
     "revisedAfterRejection": 20,
-    "qualityRejected": 60,
-    "qualityHeld": 50,
-    "awaitingApproval": 400
+    "qualityRejected": 59,
+    "qualityHeld": 47,
+    "awaitingApproval": 404,
+    "correctionCandidatesGenerated": 5
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
   "sources": [
@@ -54,14 +55,14 @@
   "resume": {
     "nextAction": "Continue every outstanding original 194 rejected/held ID; inspect outputs and persist small batches. No user confirmation needed to continue corrections. Main integration remains separate.",
     "nextIds": [
-      "witchking_foot_mace",
-      "sauron",
-      "orc_swordshield",
-      "orc_spear2",
       "orc_bow",
-      "orc_drummer",
       "dwarf_ranger",
-      "khazad_guard"
+      "khazad_guard",
+      "iron_guard",
+      "galadhrim_warrior",
+      "rohan_banner",
+      "black_numenorean",
+      "orc_tracker"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
@@ -1022,14 +1023,32 @@
       "role": "hero",
       "original": "tokens/sauron.png",
       "source": "mordor",
-      "path": "art/mordor-rebuild-20261019/units/sauron.png",
-      "blobSHA": "ace3a9241c13355a4889bb53c3f21ef92bf3dd56",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존의 길고 위압적인 큰 인간형 실루엣이 짧고 일반적인 보행형으로 약화됨.",
-      "approval": "rejected",
-      "preferredSource": "old"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/sauron.png",
+      "blobSHA": "57bec55fcc5813aa1e71b41e8435d9ab90cc7aea",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "원본·과거 시안·새 수정본 비교: 일반 보행형으로 바뀐 실루엣을 긴 첨형 치마갑주·좁은 허리·내린 철퇴·검붉은 망토로 복원. 중립 인체와 정수리·어깨 윗면을 시각 비교함. 정량 등신 측정·최종 승인은 별도.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "revision": "mordor-gear-anatomy-20261020-0750",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "mordor-gear-anatomy-20261020-0750",
+        "previous": {
+          "path": "art/mordor-rebuild-20261019/units/sauron.png",
+          "blobSHA": "ace3a9241c13355a4889bb53c3f21ef92bf3dd56",
+          "approval": "rejected",
+          "reason": "기존의 길고 위압적인 큰 인간형 실루엣이 짧고 일반적인 보행형으로 약화됨."
+        },
+        "checkedAt": "2026-10-20T07:49:39.722Z",
+        "visualCheck": "original_previous_candidate_and_neutral_reference_compared",
+        "observations": "원본·과거 시안·새 수정본 비교: 일반 보행형으로 바뀐 실루엣을 긴 첨형 치마갑주·좁은 허리·내린 철퇴·검붉은 망토로 복원. 중립 인체와 정수리·어깨 윗면을 시각 비교함. 정량 등신 측정·최종 승인은 별도.",
+        "state": "corrected_candidate_compared",
+        "userApproval": "pending",
+        "anatomicalMeasurement": "not_claimed"
+      }
     },
     {
       "id": "nazgul_sword_2",
@@ -1321,14 +1340,32 @@
       "role": "infantry",
       "original": "tokens/orc_swordshield.png",
       "source": "mordor",
-      "path": "art/mordor-rebuild-20261019/units/orc_swordshield.png",
-      "blobSHA": "680bf0ec182c696abdfe099d5aca18a40ee0cef0",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "needs_revision",
-      "qualityReason": "얼굴 시점과 골반·무릎·다리 관계를 상세 재검수해야 함.",
-      "approval": "hold",
-      "preferredSource": "undecided"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/orc_swordshield.png",
+      "blobSHA": "ccbb1899c538e09c5b1c92da75fd42886c08a080",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "닫힌 능선 투구·가려진 눈, 내린 검·원형 목제 방패 및 낮은 전진 동작 복원. 골반에서 앞무릎·정강이·발목, 뒤다리 연결을 원본·오크 표준과 나란히 비교함.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "revision": "mordor-gear-anatomy-20261020-0750",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "mordor-gear-anatomy-20261020-0750",
+        "previous": {
+          "path": "art/mordor-rebuild-20261019/units/orc_swordshield.png",
+          "blobSHA": "680bf0ec182c696abdfe099d5aca18a40ee0cef0",
+          "approval": "hold",
+          "reason": "얼굴 시점과 골반·무릎·다리 관계를 상세 재검수해야 함."
+        },
+        "checkedAt": "2026-10-20T07:49:39.722Z",
+        "visualCheck": "original_previous_candidate_and_neutral_reference_compared",
+        "observations": "닫힌 능선 투구·가려진 눈, 내린 검·원형 목제 방패 및 낮은 전진 동작 복원. 골반에서 앞무릎·정강이·발목, 뒤다리 연결을 원본·오크 표준과 나란히 비교함.",
+        "state": "corrected_candidate_compared",
+        "userApproval": "pending",
+        "anatomicalMeasurement": "not_claimed"
+      }
     },
     {
       "id": "orc_spear2",
@@ -1337,14 +1374,32 @@
       "role": "infantry",
       "original": "tokens/orc_spear2.png",
       "source": "mordor",
-      "path": "art/mordor-rebuild-20261019/units/orc_spear2.png",
-      "blobSHA": "440a61ed4809e0fae7e55f7241e2ee35fd478037",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "needs_revision",
-      "qualityReason": "창·작은 방패는 유지됐으나 머리·얼굴 시점과 신체 비중 재검수 필요.",
-      "approval": "hold",
-      "preferredSource": "undecided"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/orc_spear2.png",
+      "blobSHA": "2c3942388e275ab6ebc6498aae0d5401c8b4eaa8",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "닫힌 투구·긴 코가리개·가려진 눈, 붉은 천과 양끝 창·작은 방패 복원. 원본 장비와 앞뒤 분리된 다리, 정수리·어깨 윗면을 오크 표준과 비교함.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "revision": "mordor-gear-anatomy-20261020-0750",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "mordor-gear-anatomy-20261020-0750",
+        "previous": {
+          "path": "art/mordor-rebuild-20261019/units/orc_spear2.png",
+          "blobSHA": "440a61ed4809e0fae7e55f7241e2ee35fd478037",
+          "approval": "hold",
+          "reason": "창·작은 방패는 유지됐으나 머리·얼굴 시점과 신체 비중 재검수 필요."
+        },
+        "checkedAt": "2026-10-20T07:49:39.722Z",
+        "visualCheck": "original_previous_candidate_and_neutral_reference_compared",
+        "observations": "닫힌 투구·긴 코가리개·가려진 눈, 붉은 천과 양끝 창·작은 방패 복원. 원본 장비와 앞뒤 분리된 다리, 정수리·어깨 윗면을 오크 표준과 비교함.",
+        "state": "corrected_candidate_compared",
+        "userApproval": "pending",
+        "anatomicalMeasurement": "not_claimed"
+      }
     },
     {
       "id": "orc_twohanded",
@@ -1369,14 +1424,32 @@
       "role": "infantry",
       "original": "tokens/orc_bow.png",
       "source": "mordor",
-      "path": "art/mordor-rebuild-20261019/units/orc_bow.png",
-      "blobSHA": "4d8fea75bf139bad66f9dbf34411ec75320b2489",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/orc_bow.png",
+      "blobSHA": "0d28da4ce465b3dee26bd4841582ba6d32e81fe7",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
       "qualityDecision": "needs_revision",
-      "qualityReason": "화살을 꺼내는 동작은 구체화됐으나 머리·몸 비중과 얼굴 시점 재검수 필요.",
+      "qualityReason": "원본의 낮게 든 활·양손 동작과 후드 아래 숙인 얼굴은 복원됐으나 시위의 양 끝 연결 결함 확인. 추가 수정 중이며 해결 수에 포함하지 않음.",
       "approval": "hold",
-      "preferredSource": "undecided"
+      "preferredSource": "undecided",
+      "inGameVerified": false,
+      "revision": "mordor-gear-anatomy-20261020-0750",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "mordor-gear-anatomy-20261020-0750",
+        "previous": {
+          "path": "art/mordor-rebuild-20261019/units/orc_bow.png",
+          "blobSHA": "4d8fea75bf139bad66f9dbf34411ec75320b2489",
+          "approval": "hold",
+          "reason": "화살을 꺼내는 동작은 구체화됐으나 머리·몸 비중과 얼굴 시점 재검수 필요."
+        },
+        "checkedAt": "2026-10-20T07:49:39.722Z",
+        "visualCheck": "original_previous_candidate_and_neutral_reference_compared",
+        "observations": "원본의 낮게 든 활·양손 동작과 후드 아래 숙인 얼굴은 복원됐으나 시위의 양 끝 연결 결함 확인. 추가 수정 중이며 해결 수에 포함하지 않음.",
+        "state": "revision_still_held",
+        "userApproval": "pending",
+        "anatomicalMeasurement": "not_claimed"
+      }
     },
     {
       "id": "orc_drummer",
@@ -1385,14 +1458,32 @@
       "role": "support",
       "original": "tokens/orc_drummer.png",
       "source": "mordor",
-      "path": "art/mordor-rebuild-20261019/units/orc_drummer.png",
-      "blobSHA": "d8579924edbc3b420bbad8573686c912c7b1d180",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "needs_revision",
-      "qualityReason": "투구 제거·얼굴 노출·팔과 북채 비중이 크게 변경됨. 시점·해부학 재검수.",
-      "approval": "hold",
-      "preferredSource": "undecided"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/orc_drummer.png",
+      "blobSHA": "1f2c3bb6b4e109437e56cbebcc669f937df5fd53",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "빠졌던 금속 능선 투구·가려진 눈, 짧은 두 북채와 허리 북의 원래 구성을 복원. 북 윗면·어깨 윗면과 팔꿈치·양손 연결, 오크 체형을 원본과 비교함.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "revision": "mordor-gear-anatomy-20261020-0750",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "mordor-gear-anatomy-20261020-0750",
+        "previous": {
+          "path": "art/mordor-rebuild-20261019/units/orc_drummer.png",
+          "blobSHA": "d8579924edbc3b420bbad8573686c912c7b1d180",
+          "approval": "hold",
+          "reason": "투구 제거·얼굴 노출·팔과 북채 비중이 크게 변경됨. 시점·해부학 재검수."
+        },
+        "checkedAt": "2026-10-20T07:49:39.722Z",
+        "visualCheck": "original_previous_candidate_and_neutral_reference_compared",
+        "observations": "빠졌던 금속 능선 투구·가려진 눈, 짧은 두 북채와 허리 북의 원래 구성을 복원. 북 윗면·어깨 윗면과 팔꿈치·양손 연결, 오크 체형을 원본과 비교함.",
+        "state": "corrected_candidate_compared",
+        "userApproval": "pending",
+        "anatomicalMeasurement": "not_claimed"
+      }
     },
     {
       "id": "dwarf_axeshield",
@@ -9329,15 +9420,18 @@
     "note": "Each image inspected against canonical skeleton and identity reference; approval pending."
   },
   "lastCorrection": {
-    "at": "2026-10-20T03:34:39.889Z",
+    "at": "2026-10-20T07:49:39.722Z",
+    "batch": "mordor-gear-anatomy-20261020-0750",
     "ids": [
-      "uruk_scout",
-      "mauhur",
-      "ugluk",
-      "uruk_sapper"
+      "sauron",
+      "orc_swordshield",
+      "orc_spear2",
+      "orc_bow",
+      "orc_drummer"
     ],
-    "purpose": "Restore bowed hidden face and low forward action; approval pending",
-    "newCharacterCount": 0
+    "newCharacterCount": 0,
+    "qualityAcceptedCount": 0,
+    "purpose": "Correct audit regressions; final approval pending"
   },
   "qualityHold": {
     "enabled": true,
@@ -9409,8 +9503,8 @@
   "qualityRepairRequest": {
     "id": "all-194-20261020",
     "scopeCount": 194,
-    "correctedCandidates": 84,
-    "remaining": 110,
+    "correctedCandidates": 88,
+    "remaining": 106,
     "userApproved": 0,
     "previousMountedCorrectionsIncluded": true
   }

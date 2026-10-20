@@ -1,0 +1,138 @@
+{
+  "batch": "mordor-gear-anatomy-20261020-0750",
+  "tool": "image_gen",
+  "at": "2026-10-20T07:49:39.722Z",
+  "sourceHead": "a01b27e247207bdd7f0c634e2cf0567145feff6b",
+  "generatedCharacters": 5,
+  "newRosterIds": 0,
+  "qualityAcceptedCount": 0,
+  "records": [
+    {
+      "id": "sauron",
+      "prompt": "Use case: style-transfer. Create ONE revised finished transparent PIXEL game token for sauron. Image 1 is original identity, equipment, dynamic pose and silhouette reference, NOT a body proportion template. Image 2 controls crisp pixel-cluster density, hard stepped dark outline, short palette ramps, elevated FRONT camera and lowered hidden face ONLY; do not copy its armor. Image 3 is original neutral species ANATOMY reference ONLY; do not copy pose or gray clothes. Restore the ominous long pointed armor-skirt silhouette, narrow waist, crown with tall narrow spikes, raised sharp shoulder guards, dark steel with warm edges, black/crimson torn cape, heavy pointed mace hanging at image-left and closed image-right gauntlet. NO exposed human face, NO comic heroic broad-chested marching pose. Make the entire figure a LARGE-human of standard FIVE-head anatomy excluding crown, NOT seven heads. Keep the original imposing shape and lowered face; do not shorten him into an ordinary soldier. Camera genuinely elevated frontal looking downward 40-45 degrees over the WHOLE body, crown and shoulder top planes clearly visible, foreshortened face/chest, view-facing direction maintained. Head lowered, gaze down ahead, no eye-level view with chin merely tucked. Exactly FIVE anatomical heads crown-to-chin excluding crown spikes, coherent adult arms, torso, pelvis and legs. Crisp PIXEL art like image 2, no smooth painted or vector treatment. Full subject and every weapon tip inside central 80% of square canvas with broad empty genuine transparent margins. Center on body excluding gear. No base, floor, shadow, scenery, glow, haze, aura, label or text. Preserve unique original action rather than generic walking pose.",
+      "refs": [
+        "/workspace/scratch/f40d43c7f276/run-refs/original-sauron.png",
+        "/workspace/scratch/f40d43c7f276/run-refs/style.png",
+        "/workspace/scratch/f40d43c7f276/run-refs/human.png"
+      ],
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/sauron.png",
+      "blobSHA": "57bec55fcc5813aa1e71b41e8435d9ab90cc7aea",
+      "previous": {
+        "path": "art/mordor-rebuild-20261019/units/sauron.png",
+        "blobSHA": "ace3a9241c13355a4889bb53c3f21ef92bf3dd56",
+        "approval": "rejected",
+        "reason": "기존의 길고 위압적인 큰 인간형 실루엣이 짧고 일반적인 보행형으로 약화됨."
+      },
+      "auditSourceSHA": "697fdd87c50e7021958f12bee83d928d337b2d67",
+      "auditSourceBlobCompared": "ace3a9241c13355a4889bb53c3f21ef92bf3dd56",
+      "auditBlobUnchangedAtStart": true,
+      "observations": "원본·과거 시안·새 수정본 비교: 일반 보행형으로 바뀐 실루엣을 긴 첨형 치마갑주·좁은 허리·내린 철퇴·검붉은 망토로 복원. 중립 인체와 정수리·어깨 윗면을 시각 비교함. 정량 등신 측정·최종 승인은 별도.",
+      "decision": "revised_awaiting_review",
+      "userApproval": "pending",
+      "anatomicalMeasurement": "not_claimed"
+    },
+    {
+      "id": "orc_swordshield",
+      "prompt": "Use case: style-transfer. Create ONE revised finished transparent PIXEL game token for orc_swordshield. Image 1 is original identity, equipment, dynamic pose and silhouette reference, NOT a body proportion template. Image 2 controls crisp pixel-cluster density, hard stepped dark outline, short palette ramps, elevated FRONT camera and lowered hidden face ONLY; do not copy its armor. Image 3 is original neutral species ANATOMY reference ONLY; do not copy pose or gray clothes. Restore original CLOSED ridge helmet hiding eyes and most of face, plain metal pauldrons and brown leather, downward single edged notched sword at image-left, round wooden shield with boss at image-right. Preserve the forward low advancing lean, image-left thigh/knee clearly separate from rear leg, anatomically coherent pelvis-to-knees-to-boots. Two distinct legs, no crossed or duplicated joints. Do NOT expose a grinning full face or turn helmet into an open studded cap. Camera genuinely elevated frontal looking downward 40-45 degrees over the WHOLE body, crown and shoulder top planes clearly visible, foreshortened face/chest, view-facing direction maintained. Head lowered, gaze down ahead, no eye-level view with chin merely tucked. Original ORC standard stout adult anatomy as image 3, not human stretched anatomy, not four-head chibi or oversized helmet/hands. Crisp PIXEL art like image 2, no smooth painted or vector treatment. Full subject and every weapon tip inside central 80% of square canvas with broad empty genuine transparent margins. Center on body excluding gear. No base, floor, shadow, scenery, glow, haze, aura, label or text. Preserve unique original action rather than generic walking pose.",
+      "refs": [
+        "/workspace/scratch/f40d43c7f276/run-refs/original-orc_swordshield.png",
+        "/workspace/scratch/f40d43c7f276/run-refs/style.png",
+        "/workspace/scratch/f40d43c7f276/run-refs/orc.png"
+      ],
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/orc_swordshield.png",
+      "blobSHA": "ccbb1899c538e09c5b1c92da75fd42886c08a080",
+      "previous": {
+        "path": "art/mordor-rebuild-20261019/units/orc_swordshield.png",
+        "blobSHA": "680bf0ec182c696abdfe099d5aca18a40ee0cef0",
+        "approval": "hold",
+        "reason": "얼굴 시점과 골반·무릎·다리 관계를 상세 재검수해야 함."
+      },
+      "auditSourceSHA": "697fdd87c50e7021958f12bee83d928d337b2d67",
+      "auditSourceBlobCompared": "680bf0ec182c696abdfe099d5aca18a40ee0cef0",
+      "auditBlobUnchangedAtStart": true,
+      "observations": "닫힌 능선 투구·가려진 눈, 내린 검·원형 목제 방패 및 낮은 전진 동작 복원. 골반에서 앞무릎·정강이·발목, 뒤다리 연결을 원본·오크 표준과 나란히 비교함.",
+      "decision": "revised_awaiting_review",
+      "userApproval": "pending",
+      "anatomicalMeasurement": "not_claimed"
+    },
+    {
+      "id": "orc_spear2",
+      "prompt": "Use case: style-transfer. Create ONE revised finished transparent PIXEL game token for orc_spear2. Image 1 is original identity, equipment, dynamic pose and silhouette reference, NOT a body proportion template. Image 2 controls crisp pixel-cluster density, hard stepped dark outline, short palette ramps, elevated FRONT camera and lowered hidden face ONLY; do not copy its armor. Image 3 is original neutral species ANATOMY reference ONLY; do not copy pose or gray clothes. Preserve CLOSED dark ridge helmet with long noseguard and hidden eyes, green skin, brown crossed straps, small round shield at image-right and ONE continuous straight double-ended spear shaft vertically image-left, red wraps, red waist cloth. Preserve advancing offset legs and lowered head. Do not transform to bare face with open helmet. Show crown and BOTH shoulder tops from above. Camera genuinely elevated frontal looking downward 40-45 degrees over the WHOLE body, crown and shoulder top planes clearly visible, foreshortened face/chest, view-facing direction maintained. Head lowered, gaze down ahead, no eye-level view with chin merely tucked. Original ORC standard stout adult anatomy as image 3, not human stretched anatomy, not four-head chibi or oversized helmet/hands. Crisp PIXEL art like image 2, no smooth painted or vector treatment. Full subject and every weapon tip inside central 80% of square canvas with broad empty genuine transparent margins. Center on body excluding gear. No base, floor, shadow, scenery, glow, haze, aura, label or text. Preserve unique original action rather than generic walking pose.",
+      "refs": [
+        "/workspace/scratch/f40d43c7f276/run-refs/original-orc_spear2.png",
+        "/workspace/scratch/f40d43c7f276/run-refs/style.png",
+        "/workspace/scratch/f40d43c7f276/run-refs/orc.png"
+      ],
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/orc_spear2.png",
+      "blobSHA": "2c3942388e275ab6ebc6498aae0d5401c8b4eaa8",
+      "previous": {
+        "path": "art/mordor-rebuild-20261019/units/orc_spear2.png",
+        "blobSHA": "440a61ed4809e0fae7e55f7241e2ee35fd478037",
+        "approval": "hold",
+        "reason": "창·작은 방패는 유지됐으나 머리·얼굴 시점과 신체 비중 재검수 필요."
+      },
+      "auditSourceSHA": "697fdd87c50e7021958f12bee83d928d337b2d67",
+      "auditSourceBlobCompared": "440a61ed4809e0fae7e55f7241e2ee35fd478037",
+      "auditBlobUnchangedAtStart": true,
+      "observations": "닫힌 투구·긴 코가리개·가려진 눈, 붉은 천과 양끝 창·작은 방패 복원. 원본 장비와 앞뒤 분리된 다리, 정수리·어깨 윗면을 오크 표준과 비교함.",
+      "decision": "revised_awaiting_review",
+      "userApproval": "pending",
+      "anatomicalMeasurement": "not_claimed"
+    },
+    {
+      "id": "orc_bow",
+      "prompt": "Use case: style-transfer. Create ONE revised finished transparent PIXEL game token for orc_bow. Image 1 is original identity, equipment, dynamic pose and silhouette reference, NOT a body proportion template. Image 2 controls crisp pixel-cluster density, hard stepped dark outline, short palette ramps, elevated FRONT camera and lowered hidden face ONLY; do not copy its armor. Image 3 is original neutral species ANATOMY reference ONLY; do not copy pose or gray clothes. Preserve original hooded archer action: both hands operate the LOW DIAGONAL BOW in front of the abdomen, image-left hand near its string and image-right hand on grip; continuous bow stave and taut uninterrupted bowstring. Quiver on back. Brown pointed hood hides eyes with face directed toward ground, ragged fur collar and leather wrist guards. Do not raise a hand above the head or invent an arrow-drawing motion. Two proper arms, two hands, two legs. Retain original low forward intent, not viewer-facing teeth. Camera genuinely elevated frontal looking downward 40-45 degrees over the WHOLE body, crown and shoulder top planes clearly visible, foreshortened face/chest, view-facing direction maintained. Head lowered, gaze down ahead, no eye-level view with chin merely tucked. Original ORC standard stout adult anatomy as image 3, not human stretched anatomy, not four-head chibi or oversized helmet/hands. Crisp PIXEL art like image 2, no smooth painted or vector treatment. Full subject and every weapon tip inside central 80% of square canvas with broad empty genuine transparent margins. Center on body excluding gear. No base, floor, shadow, scenery, glow, haze, aura, label or text. Preserve unique original action rather than generic walking pose.",
+      "refs": [
+        "/workspace/scratch/f40d43c7f276/run-refs/original-orc_bow.png",
+        "/workspace/scratch/f40d43c7f276/run-refs/style.png",
+        "/workspace/scratch/f40d43c7f276/run-refs/orc.png"
+      ],
+      "additionalEdits": {
+        "id": "orc_bow",
+        "refs": [
+          "/workspace/scratch/f40d43c7f276/generated_images/exec-daa42680-abe3-49f4-afef-cd8a37d3f5ff.png"
+        ],
+        "prompt": "Use case: precise-object-edit. Correct ONLY the BOW and its string in this exact finished pixel token; preserve original body, pose, hood, hidden face, camera, hands, pixel density, colors, transparency and framing. Current bowstring stops at hands and is not connected to bow tips. Make ONE physically coherent wooden bow: keep bow held low diagonally exactly where it is, continuous curved wooden stave with two clearly identifiable outer tips, taut thin bowstring attaches at BOTH outer tips and is continuous between them (may occlude behind fingers only). Do not leave string attached to a middle-of-stave location or floating; do not create second bow/arrow/extra hands. The image-left hand can lightly touch string near midpoint while image-right hand grips the central handle. Keep the original lowered head and elevated front view exactly unchanged. Genuine transparent background, no added base, floor, shadow, glow, text."
+      },
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/orc_bow.png",
+      "blobSHA": "0d28da4ce465b3dee26bd4841582ba6d32e81fe7",
+      "previous": {
+        "path": "art/mordor-rebuild-20261019/units/orc_bow.png",
+        "blobSHA": "4d8fea75bf139bad66f9dbf34411ec75320b2489",
+        "approval": "hold",
+        "reason": "화살을 꺼내는 동작은 구체화됐으나 머리·몸 비중과 얼굴 시점 재검수 필요."
+      },
+      "auditSourceSHA": "697fdd87c50e7021958f12bee83d928d337b2d67",
+      "auditSourceBlobCompared": "4d8fea75bf139bad66f9dbf34411ec75320b2489",
+      "auditBlobUnchangedAtStart": true,
+      "observations": "원본의 낮게 든 활·양손 동작과 후드 아래 숙인 얼굴은 복원됐으나 시위의 양 끝 연결 결함 확인. 추가 수정 중이며 해결 수에 포함하지 않음.",
+      "decision": "needs_revision",
+      "userApproval": "pending",
+      "anatomicalMeasurement": "not_claimed"
+    },
+    {
+      "id": "orc_drummer",
+      "prompt": "Use case: style-transfer. Create ONE revised finished transparent PIXEL game token for orc_drummer. Image 1 is original identity, equipment, dynamic pose and silhouette reference, NOT a body proportion template. Image 2 controls crisp pixel-cluster density, hard stepped dark outline, short palette ramps, elevated FRONT camera and lowered hidden face ONLY; do not copy its armor. Image 3 is original neutral species ANATOMY reference ONLY; do not copy pose or gray clothes. Restore original DARK METAL RIDGE HELMET; do not remove helmet or expose a front-face portrait. Preserve two SHORT padded DRUMSTICKS in two distinct hands over a SINGLE waist-slung large round war drum, asymmetrical arms at playable angles, original green skin, brown bracers, ragged dark shoulder fur, fangs and red cloth decorating drum rim. Drum viewed from above with visible top; connected upper arm/elbow/forearm. Keep original forceful bowed stance. Camera genuinely elevated frontal looking downward 40-45 degrees over the WHOLE body, crown and shoulder top planes clearly visible, foreshortened face/chest, view-facing direction maintained. Head lowered, gaze down ahead, no eye-level view with chin merely tucked. Original ORC standard stout adult anatomy as image 3, not human stretched anatomy, not four-head chibi or oversized helmet/hands. Crisp PIXEL art like image 2, no smooth painted or vector treatment. Full subject and every weapon tip inside central 80% of square canvas with broad empty genuine transparent margins. Center on body excluding gear. No base, floor, shadow, scenery, glow, haze, aura, label or text. Preserve unique original action rather than generic walking pose.",
+      "refs": [
+        "/workspace/scratch/f40d43c7f276/run-refs/original-orc_drummer.png",
+        "/workspace/scratch/f40d43c7f276/run-refs/style.png",
+        "/workspace/scratch/f40d43c7f276/run-refs/orc.png"
+      ],
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/orc_drummer.png",
+      "blobSHA": "1f2c3bb6b4e109437e56cbebcc669f937df5fd53",
+      "previous": {
+        "path": "art/mordor-rebuild-20261019/units/orc_drummer.png",
+        "blobSHA": "d8579924edbc3b420bbad8573686c912c7b1d180",
+        "approval": "hold",
+        "reason": "투구 제거·얼굴 노출·팔과 북채 비중이 크게 변경됨. 시점·해부학 재검수."
+      },
+      "auditSourceSHA": "697fdd87c50e7021958f12bee83d928d337b2d67",
+      "auditSourceBlobCompared": "d8579924edbc3b420bbad8573686c912c7b1d180",
+      "auditBlobUnchangedAtStart": true,
+      "observations": "빠졌던 금속 능선 투구·가려진 눈, 짧은 두 북채와 허리 북의 원래 구성을 복원. 북 윗면·어깨 윗면과 팔꿈치·양손 연결, 오크 체형을 원본과 비교함.",
+      "decision": "revised_awaiting_review",
+      "userApproval": "pending",
+      "anatomicalMeasurement": "not_claimed"
+    }
+  ]
+}

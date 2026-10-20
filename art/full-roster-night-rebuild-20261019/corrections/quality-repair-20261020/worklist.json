@@ -1,8 +1,8 @@
 {
   "request": "all-194-20261020",
-  "updatedAt": "2026-10-20T05:55:02.092Z",
-  "correctedCandidates": 84,
-  "remaining": 110,
+  "updatedAt": "2026-10-20T07:49:39.722Z",
+  "correctedCandidates": 88,
+  "remaining": 106,
   "scope": [
     {
       "id": "imrahil_mounted",
@@ -261,9 +261,11 @@
       "name": "사우론",
       "originalApproval": "rejected",
       "originalReason": "기존의 길고 위압적인 큰 인간형 실루엣이 짧고 일반적인 보행형으로 약화됨.",
-      "state": "pending_correction",
-      "path": "art/mordor-rebuild-20261019/units/sauron.png",
-      "blobSHA": "ace3a9241c13355a4889bb53c3f21ef92bf3dd56"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/sauron.png",
+      "blobSHA": "57bec55fcc5813aa1e71b41e8435d9ab90cc7aea",
+      "latestReason": "원본·과거 시안·새 수정본 비교: 일반 보행형으로 바뀐 실루엣을 긴 첨형 치마갑주·좁은 허리·내린 철퇴·검붉은 망토로 복원. 중립 인체와 정수리·어깨 윗면을 시각 비교함. 정량 등신 측정·최종 승인은 별도.",
+      "checkedAt": "2026-10-20T07:49:39.722Z"
     },
     {
       "id": "nazgul_sword_2",
@@ -333,18 +335,22 @@
       "name": "오크(검방)",
       "originalApproval": "hold",
       "originalReason": "얼굴 시점과 골반·무릎·다리 관계를 상세 재검수해야 함.",
-      "state": "pending_correction",
-      "path": "art/mordor-rebuild-20261019/units/orc_swordshield.png",
-      "blobSHA": "680bf0ec182c696abdfe099d5aca18a40ee0cef0"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/orc_swordshield.png",
+      "blobSHA": "ccbb1899c538e09c5b1c92da75fd42886c08a080",
+      "latestReason": "닫힌 능선 투구·가려진 눈, 내린 검·원형 목제 방패 및 낮은 전진 동작 복원. 골반에서 앞무릎·정강이·발목, 뒤다리 연결을 원본·오크 표준과 나란히 비교함.",
+      "checkedAt": "2026-10-20T07:49:39.722Z"
     },
     {
       "id": "orc_spear2",
       "name": "오크(창)",
       "originalApproval": "hold",
       "originalReason": "창·작은 방패는 유지됐으나 머리·얼굴 시점과 신체 비중 재검수 필요.",
-      "state": "pending_correction",
-      "path": "art/mordor-rebuild-20261019/units/orc_spear2.png",
-      "blobSHA": "440a61ed4809e0fae7e55f7241e2ee35fd478037"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/orc_spear2.png",
+      "blobSHA": "2c3942388e275ab6ebc6498aae0d5401c8b4eaa8",
+      "latestReason": "닫힌 투구·긴 코가리개·가려진 눈, 붉은 천과 양끝 창·작은 방패 복원. 원본 장비와 앞뒤 분리된 다리, 정수리·어깨 윗면을 오크 표준과 비교함.",
+      "checkedAt": "2026-10-20T07:49:39.722Z"
     },
     {
       "id": "orc_bow",
@@ -352,17 +358,21 @@
       "originalApproval": "hold",
       "originalReason": "화살을 꺼내는 동작은 구체화됐으나 머리·몸 비중과 얼굴 시점 재검수 필요.",
       "state": "pending_correction",
-      "path": "art/mordor-rebuild-20261019/units/orc_bow.png",
-      "blobSHA": "4d8fea75bf139bad66f9dbf34411ec75320b2489"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/orc_bow.png",
+      "blobSHA": "0d28da4ce465b3dee26bd4841582ba6d32e81fe7",
+      "latestReason": "원본의 낮게 든 활·양손 동작과 후드 아래 숙인 얼굴은 복원됐으나 시위의 양 끝 연결 결함 확인. 추가 수정 중이며 해결 수에 포함하지 않음.",
+      "checkedAt": "2026-10-20T07:49:39.722Z"
     },
     {
       "id": "orc_drummer",
       "name": "오크 전쟁북",
       "originalApproval": "hold",
       "originalReason": "투구 제거·얼굴 노출·팔과 북채 비중이 크게 변경됨. 시점·해부학 재검수.",
-      "state": "pending_correction",
-      "path": "art/mordor-rebuild-20261019/units/orc_drummer.png",
-      "blobSHA": "d8579924edbc3b420bbad8573686c912c7b1d180"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/orc_drummer.png",
+      "blobSHA": "1f2c3bb6b4e109437e56cbebcc669f937df5fd53",
+      "latestReason": "빠졌던 금속 능선 투구·가려진 눈, 짧은 두 북채와 허리 북의 원래 구성을 복원. 북 윗면·어깨 윗면과 팔꿈치·양손 연결, 오크 체형을 원본과 비교함.",
+      "checkedAt": "2026-10-20T07:49:39.722Z"
     },
     {
       "id": "dwarf_axeshield",
