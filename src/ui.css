@@ -1386,3 +1386,9 @@ html body #app#app#app#app #active-tag i{display:block;padding:4px 7px;font-styl
 html body #app#app#app#app #active-tag[data-phase="shoot"] i{background:linear-gradient(#f0c08a,#c97d3e)}
 html body #app#app#app#app #active-tag[data-phase="preparation"] i{background:linear-gradient(#b8d8f0,#6f9cc0)}
 html body #app#app#app#app #active-tag::after{content:"";position:absolute;left:calc(50% - 5px);bottom:-6px;width:10px;height:6px;background:#8a7340;clip-path:polygon(0 0,100% 0,50% 100%);border:0}
+html body #app#app#app#app #active-tag{font-size:11px!important;transition:opacity .15s}
+html body #app#app#app#app #active-tag b,html body #app#app#app#app #active-tag i{padding:3px 6px!important}
+html body #app#app#app#app #active-tag.dim{opacity:.4}
+html body #app#app#app#app #active-tag.below{transform:translate(-50%,0)!important}
+html body #app#app#app#app #active-tag.below::after{top:-6px;bottom:auto;clip-path:polygon(50% 0,100% 100%,0 100%)}
+html body #app#app#app#app #active-tag.hidden{display:none!important}

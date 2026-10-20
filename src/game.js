@@ -6188,8 +6188,10 @@ function updateWorldUI(){
     const token=Tt.tokens.get(u.uid),p=screenAt(token?.x??u.x,token?.y??u.y),r=u.radius*1.23+5/UX.zoom;
     const on=p.x>16&&p.x<UX.width-16&&p.y>45&&p.y<UX.height-48;
     const text=shortName(u)+' · '+(q.phase==='preparation'?'배치':q.phase==='move'?'이동 차례':'사격 차례');
-    const left=Math.max(82,Math.min(UX.width-82,p.x))|0,top=Math.max(48,p.y-Math.max(r,unitHeadLift(u)+6)*UX.zoom-11)|0;
-    const sig=u.uid+'|'+(token?.x??u.x).toFixed(1)+'|'+(token?.y??u.y).toFixed(1)+'|'+UX.zoom+'|'+r.toFixed(1)+'|'+on+'|'+text+'|'+left+'|'+top;
+    // Sit above the whole figure (banners, spears and crests included); if that would leave the screen, drop below the base.
+    let _artTop=p.y-Math.max(r,unitHeadLift(u)+6)*UX.zoom;try{const sp=token&&token.getByName('token');if(sp&&sp.visible){const bb=sp.getBounds();_artTop=Math.min(_artTop,screenAt(token.x,bb.top).y);}}catch(e){}
+    const _below=_artTop-10<52,left=Math.max(70,Math.min(UX.width-70,p.x))|0,top=(_below?p.y+r*UX.zoom*(typeof BASE_TILT==='number'?BASE_TILT:1)+30:_artTop-6)|0;
+    const sig=(UX.intent?'i':'')+(_below?'b':'')+u.uid+'|'+(token?.x??u.x).toFixed(1)+'|'+(token?.y??u.y).toFixed(1)+'|'+UX.zoom+'|'+r.toFixed(1)+'|'+on+'|'+text+'|'+left+'|'+top;
     if(__wuiSig===sig)return;__wuiSig=sig;
     const x=token?.x??u.x,y=token?.y??u.y;
     g.clear();
@@ -6202,7 +6204,7 @@ function updateWorldUI(){
     g.fillStyle(0xf6e3a6,1);g.fillTriangle(x-5.5/z,y-r*BASE_TILT-10/z,x+5.5/z,y-r*BASE_TILT-10/z,x,y-r*BASE_TILT-3/z);
     if(!UX.reduced&&!Tt._ringPulse)Tt._ringPulse=Tt.tweens.add({targets:g,alpha:{from:1,to:.62},duration:760,yoyo:true,repeat:-1,ease:'Sine.easeInOut'});
     tag.classList.toggle('hidden',!on);out.classList.toggle('hidden',on);
-    if(on){const _ph=q.phase==='preparation'?'배치':q.phase==='move'?'이동':'사격';tag.innerHTML='<b>'+esc(shortName(u))+'</b><i>'+_ph+'</i>';tag.dataset.phase=q.phase;tag.style.left=left+'px';tag.style.top=top+'px';}
+    if(on){const _ph=q.phase==='preparation'?'배치':q.phase==='move'?'이동':'사격';tag.innerHTML='<b>'+esc(shortName(u))+'</b><i>'+_ph+'</i>';tag.dataset.phase=q.phase;tag.classList.toggle('below',_below);tag.classList.toggle('dim',!!UX.intent);tag.style.left=left+'px';tag.style.top=top+'px';}
 }
 const clarityUpdate=Ve.prototype.update;
 Ve.prototype.update=function(t){if(!UX.reduced)clarityUpdate.call(this,t);updateWorldUI();};
@@ -12720,15 +12722,20 @@ function drawEnemyOrder(scene){
     const b=scene.b,show=INTENT_UI.on&&!AUTO&&!At&&b;const list=show?enemyOrder(b):[];
     const sig=list.map(u=>u.uid+(u.x>>3)+','+(u.y>>3)).join(';')+'|'+b?.phase;
     if(sig!==ORDER_UI.sig){ORDER_UI.sig=sig;
-        list.forEach((u,i)=>{let l=ORDER_UI.labels[i];if(!l||!l.scene){l=scene.add.text(0,0,'',{fontFamily:'Galmuri11, sans-serif',fontSize:'14px',color:'#fff',backgroundColor:'#5a1a10',padding:{x:4,y:1}}).setOrigin(.5).setDepth(19.5);ORDER_UI.labels[i]=l;}
-            l.setText(String(i+1)).setPosition(u.x-u.radius*.72,u.y-u.radius*.72).setVisible(true);});
+        if(!ORDER_UI.g||!ORDER_UI.g.scene)ORDER_UI.g=scene.add.graphics().setDepth(19.4);const og=ORDER_UI.g;og.clear();
+        // Turn order as a small pixel coin on the base's front-left edge (mirrors the target diamond on the right).
+        list.forEach((u,i)=>{const cx=u.x-u.radius*.95,cy=u.y+u.radius*.1,R=10;
+            og.fillStyle(0x0b0604,.95).fillCircle(cx,cy,R+2);og.fillStyle(0x3a1a12,1).fillCircle(cx,cy,R);og.lineStyle(2,0xc9a24e,1).strokeCircle(cx,cy,R-1);og.fillStyle(0xffffff,.12).fillCircle(cx,cy-R*.35,R*.55);
+            let l=ORDER_UI.labels[i];if(!l||!l.scene){l=scene.add.text(0,0,'',{fontFamily:'Galmuri11, sans-serif',fontSize:'13px',fontStyle:'bold',color:'#f3d891',stroke:'#0b0604',strokeThickness:3}).setOrigin(.5).setDepth(19.5);ORDER_UI.labels[i]=l;}
+            l.setText(String(i+1)).setPosition(cx,cy+.5).setVisible(true);});
+        if(!list.length&&ORDER_UI.g)ORDER_UI.g.clear();
         for(let i=list.length;i<ORDER_UI.labels.length;i++)ORDER_UI.labels[i]?.setVisible(false);
         const bar=enemyOrderBar();if(bar){if(!list.length){bar.classList.add('hidden');bar.innerHTML='';}else{bar.classList.remove('hidden');
             const shown=list.slice(0,7);bar.innerHTML='<span class="eo-title">적 행동 순서</span>'+shown.map((u,i)=>{const m=b.meta.get(u.id)||{};return '<span class="eo-u" title="'+esc(u.name)+'"><b>'+(i+1)+'</b><img src="'+(typeof Th==='function'?Th(m.file):Ut(m.file))+'" alt="'+esc(u.name)+'"></span>';}).join('')+(list.length>7?'<span class="eo-more">+'+(list.length-7)+'</span>':'');}}}
 }
 function enemyOrderBar(){let bar=document.getElementById('enemy-order');if(bar)return bar;const info=document.querySelector('#app .field')||document.querySelector('.field');if(!info)return null;
     bar=document.createElement('div');bar.id='enemy-order';bar.className='hidden';bar.setAttribute('aria-label','적 행동 순서');info.appendChild(bar);
-    const st=document.createElement('style');st.textContent='#enemy-order{position:absolute;left:8px;bottom:30px;z-index:9;display:flex;align-items:center;gap:3px;flex-wrap:nowrap;max-width:calc(100% - 16px);overflow:hidden;padding:3px 5px;background:#1a0e0acc;border:1px solid #7a3a2a;width:max-content;pointer-events:none}#enemy-order.hidden{display:none!important}#enemy-order .eo-title{font-size:11px;color:#f0c0a8;white-space:nowrap;margin-right:2px}#enemy-order .eo-u{position:relative;width:30px;height:30px;margin-left:6px;display:inline-block;background:#00000055}#enemy-order .eo-u img{width:30px;height:30px;object-fit:contain;image-rendering:pixelated}#enemy-order .eo-u b{position:absolute;left:-7px;top:-2px;font-size:11px;line-height:13px;min-width:13px;text-align:center;color:#fff;background:#7a1d12}#enemy-order .eo-more{font-size:11px;color:#f0c0a8}';document.head.appendChild(st);return bar;}
+    const st=document.createElement('style');st.textContent='#enemy-order{position:absolute;left:8px;bottom:30px;z-index:9;display:flex;align-items:center;gap:3px;flex-wrap:nowrap;max-width:calc(100% - 16px);overflow:hidden;padding:3px 5px;background:#1a0e0acc;border:1px solid #7a3a2a;width:max-content;pointer-events:none}#enemy-order.hidden{display:none!important}#enemy-order .eo-title{font-size:11px;color:#f0c0a8;white-space:nowrap;margin-right:2px}#enemy-order .eo-u{position:relative;width:30px;height:30px;margin-left:6px;display:inline-block;background:#00000055}#enemy-order .eo-u img{width:30px;height:30px;object-fit:contain;image-rendering:pixelated}#enemy-order .eo-u b{position:absolute;left:-7px;top:-3px;font-size:10px;line-height:14px;width:14px;height:14px;text-align:center;color:#f3d891;background:#3a1a12;border:1px solid #c9a24e;border-radius:50%;box-shadow:0 0 0 1px #0b0604}#enemy-order .eo-more{font-size:11px;color:#f0c0a8}';document.head.appendChild(st);return bar;}
 {const _eu=Ve.prototype.update;Ve.prototype.update=function(t){_eu.call(this,t);if(!this.b||!this.add)return;if(t-ORDER_UI.t<220)return;ORDER_UI.t=t;try{drawEnemyOrder(this);}catch(e){console.error('[order]',e);}};}
 
 /* ==== Afflictions and virtues (reference: Darkest Dungeon) ====
