@@ -1,0 +1,32 @@
+{
+  "batch": "final-041-bow-karna-repairs",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "esgaroth_archer",
+      "group": "인간",
+      "groupKey": "men",
+      "bodyDescription": "인간 5등신 · 하이앵글 프론트뷰",
+      "pose": "회색 후드 · 완전한 활과 활시위",
+      "prompt": "Edit ONLY the held WOODENBOW in reference2. Reference1 ORIGINAL neutralhuman skeleton remains sole authority forexisting compact5headbone lengths; preserve everycurrentanatomy/clothing/pose/head/hair/hood/face/boots, elevatedfrontcamera, graycloak/browntunic/whitepants/whitearrowquiver andpixelstyle. Currentbow is incomplete/missingtautstring andlonglowerlimb. Replaceweapon with ONE full coherent woodenbow held inSAME viewerLEFT hand atcentralgrip: upperandlowercurvedlimbs balanced/equallength aroundgrip inperspective, tips eachcurl slightlytowardstring, ONE visibleunbroken tautPALE bowstring connectingupperTIP allthewayto lowerTIP behindgrip. Bowheldrelaxed diagonallydownleft side, noarrowdrawn, nootherhandadded; otherhandremainsfist. Bowmust clearlyreadasbow notwalkingstick/staff. Can shiftweaponangle a little or uniformlyzoomout wholefigure only tofit fullbowtipsminimum5%margin, NEVER shrinkskull orstretchlegs. TWO hands only, allweapons/bodyinsidecanvas, sharpsteppedpixelclustersanddarkoutlines, trueRGBAtransparentbackground, nofloor/base/shadow/text.",
+      "blobSHA": "faea0ee3a84938723b65966a561964bcb748711c",
+      "previousBlobSHA": "c363ccb7c03eec7d295422619a1c96548540733e",
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-8d748169-c333-450a-9ed4-d086777fe1c9.png",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "watcher_karna",
+      "group": "하라드",
+      "groupKey": "harad",
+      "bodyDescription": "원본 촉수형 보존 · 이름·분류 확인 필요",
+      "pose": "여덟 촉수 · 물결 제거 · 별도 검토",
+      "prompt": "Edit reference2 creature only to correctlimbcount. Reference1 is originalspecies/designauthority. Keep central darkslatefaceless squidlikeplatedmantle, creamroundsuckers, samepixelstyle/palette/sizeandcamera asreference2, keepNO WATER transparentbackground. Reference2 currently has NINE tentacles. REMOVE ENTIRE extra LOWESTCENTER tentacle that descendsfromcentralmantle andcurlsLEFT atbottomcenter around6o'clock (thelowestcreamhookunderbody). Fill itsformerarea withtrueRGBAtransparency; preserve centralmantletip andtheotherEIGHT tentacles withtheirentiretips intact. Finalexactly8tentacles inFOURbilateralpairs, countthem:2upwardattop,2upperdiagonalleft/right,2middlesweepingfarleft/right,2lowerdiagonalbottomleft/right. NO centralnintharm beneathmantle. Keepall8armsclearlyattached/separatecomplete, nofeet/humanface/humanoidbody. Min5percenttransparentmargin allfour sides, NOwater/waves/foam/floor/base/shadow/glow/text. Sourcepreservingreviewcandidate: rostername/class remainsunresolved, no humanwarriorinvented.",
+      "blobSHA": "b79bbb1bc2544e22bbff4f90f5bebe8944b0a89c",
+      "previousBlobSHA": "cb8781b465c22060591054f18f28475f4d5c0d65",
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-b23e590d-4974-4a2d-832a-1832d8667eae.png",
+      "approval": "pending",
+      "inGameVerified": false
+    }
+  ]
+}

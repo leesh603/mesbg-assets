@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T04:40:37.002Z",
+  "updatedAt": "2026-10-20T04:51:16.876551+00:00",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
-  "state": "quality_rework_required",
+  "state": "candidate_coverage_complete_quality_rework_remaining",
   "blocker": null,
   "counts": {
     "characters": 510,
@@ -15,7 +15,7 @@
     "excludedTerrain": 77,
     "generatedReviewAssets": 378,
     "persistedReviewAssets": 510,
-    "revisedAfterRejection": 18,
+    "revisedAfterRejection": 20,
     "qualityRejected": 105,
     "qualityHeld": 89,
     "awaitingApproval": 316
@@ -52,19 +52,8 @@
     "motionAndSilhouette": "기존 구도·동작·기승 자세·숙인 고개·고유 실루엣 보존. 비율을 이유로 직립 정면 자세로 획일화 금지. 기존보다 열화 시 채택하지 않는다."
   },
   "resume": {
-    "nextAction": "All 510 IDs have stored review candidates; NOT final completion. Rework rejected 105 and held 89 first, preserve original dynamic silhouette and lowered head, original species skeletons, elevated-front view. Recheck all pending candidates; do not equate candidate coverage with accepted completion.",
-    "nextIds": [
-      "glorfindel_mounted",
-      "elf_knight",
-      "glorfindel_foot",
-      "witchking_foot_mace",
-      "aragorn",
-      "gandalf",
-      "witchking_foot",
-      "orc_sword",
-      "witchking_fellbeast",
-      "witchking_mounted"
-    ],
+    "nextAction": "Candidate coverage is 510/510, not final completion. Continue outstanding quality rework and mounted proportion rebuild, and resolve source identity/role issues before user-approved integration. No merge or deployment has been performed.",
+    "nextIds": [],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
   },
@@ -4620,9 +4609,10 @@
       "visualReviewThisSession": true,
       "source": "harad",
       "path": "art/full-roster-night-rebuild-20261019/units/watcher_karna.png",
-      "blobSHA": "cb8781b465c22060591054f18f28475f4d5c0d65",
+      "blobSHA": "b79bbb1bc2544e22bbff4f90f5bebe8944b0a89c",
       "approval": "pending",
-      "inGameVerified": false
+      "inGameVerified": false,
+      "identityReviewRequired": true
     },
     {
       "id": "haradrim_raider",
@@ -4678,7 +4668,8 @@
       "path": "art/full-roster-night-rebuild-20261019/units/dragon_knight.png",
       "blobSHA": "cf39d4f69c68b8f50c0b6b5713aa6dcaaedbc53b",
       "approval": "pending",
-      "inGameVerified": false
+      "inGameVerified": false,
+      "roleReviewRequired": true
     },
     {
       "id": "easterling_priest",
@@ -6989,7 +6980,7 @@
       "visualReviewThisSession": true,
       "source": "dale",
       "path": "art/full-roster-night-rebuild-20261019/units/esgaroth_archer.png",
-      "blobSHA": "c363ccb7c03eec7d295422619a1c96548540733e",
+      "blobSHA": "faea0ee3a84938723b65966a561964bcb748711c",
       "approval": "pending",
       "inGameVerified": false
     },
@@ -8323,9 +8314,10 @@
   "reviewIssues": {
     "watcher_karna": {
       "state": "source_identity_mismatch",
-      "observed": "Roster name 카르나의 감시자 and role infantry; original tokens/watcher_karna.png depicts an eight-tentacled aquatic creature.",
-      "handling": "Keep pending while other units proceed; preserve original source and flag for identity review.",
-      "approval": "pending"
+      "observed": "Roster name 카르나의 감시자 and role infantry; original tokens/watcher_karna.png depicts a multi-tentacled aquatic creature.",
+      "handling": "Source-preserving tentacle-creature review candidate saved with water removed. Roster name/faction/infantry role remain unchanged; identity review is still required before approval or integration.",
+      "approval": "pending",
+      "candidatePath": "art/full-roster-night-rebuild-20261019/units/watcher_karna.png"
     },
     "dragon_knight": {
       "state": "role_source_mismatch",
@@ -8423,6 +8415,17 @@
     "galleryStaticCards": 510,
     "galleryLazyImages": 1020,
     "galleryScriptSyntax": "passed",
+    "inGameVerified": false,
+    "galleryRepairReport": "art/full-roster-night-rebuild-20261019/qa/gallery-and-image-repairs-20261020.json"
+  },
+  "lastImageRepairs": {
+    "batch": "final-041-bow-karna-repairs",
+    "ids": [
+      "esgaroth_archer",
+      "watcher_karna"
+    ],
+    "signature": "esgaroth_archer:faea0ee3a84938723b65966a561964bcb748711c;watcher_karna:b79bbb1bc2544e22bbff4f90f5bebe8944b0a89c",
+    "approval": "pending",
     "inGameVerified": false
   }
 }

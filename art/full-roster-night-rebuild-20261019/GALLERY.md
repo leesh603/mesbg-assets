@@ -1,6 +1,8 @@
 # 전체 재제작 검토 — 510종
 
-[전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+[전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html) · [이름·분류 확인사항 2건](SOURCE_REVIEW_ISSUES.md)
+
+모든 시안은 사용자 승인 전입니다.
 
 ### 움바 선장 (corsair_captain)
 
@@ -16,9 +18,9 @@
 
 ### 카르나의 감시자 (watcher_karna)
 
-![카르나의 감시자](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/watcher_karna.png?v=cb8781b465c22060591054f18f28475f4d5c0d65)
+![카르나의 감시자](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/watcher_karna.png?v=b79bbb1bc2544e22bbff4f90f5bebe8944b0a89c)
 
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/watcher_karna.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/watcher_karna.png?v=cb8781b465c22060591054f18f28475f4d5c0d65)
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/watcher_karna.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/watcher_karna.png?v=b79bbb1bc2544e22bbff4f90f5bebe8944b0a89c)
 
 ### 아조그 (azog)
 
@@ -82,9 +84,9 @@
 
 ### 에스가로스 궁수 (esgaroth_archer)
 
-![에스가로스 궁수](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/esgaroth_archer.png?v=c363ccb7c03eec7d295422619a1c96548540733e)
+![에스가로스 궁수](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/esgaroth_archer.png?v=faea0ee3a84938723b65966a561964bcb748711c)
 
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/esgaroth_archer.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/esgaroth_archer.png?v=c363ccb7c03eec7d295422619a1c96548540733e)
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/esgaroth_archer.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/esgaroth_archer.png?v=faea0ee3a84938723b65966a561964bcb748711c)
 
 ### 데일 전사 (dale_warrior)
 

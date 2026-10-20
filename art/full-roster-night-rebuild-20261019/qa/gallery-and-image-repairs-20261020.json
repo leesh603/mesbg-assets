@@ -1,0 +1,76 @@
+{
+  "remoteTree": {
+    "sourceCommit": "14dc3b2159363f08a735b2bea3e2a46bbf1f9ea3",
+    "assetPaths": 510,
+    "missingAssetPaths": 0,
+    "blobSHAMismatches": 0,
+    "originalPaths": 510,
+    "missingOriginalPaths": 0,
+    "treeTruncated": false,
+    "newRepairBlobs": [
+      {
+        "id": "esgaroth_archer",
+        "blobSHA": "faea0ee3a84938723b65966a561964bcb748711c"
+      },
+      {
+        "id": "watcher_karna",
+        "blobSHA": "b79bbb1bc2544e22bbff4f90f5bebe8944b0a89c"
+      }
+    ],
+    "mainMerged": false,
+    "inGameVerified": false
+  },
+  "gallery": {
+    "catalogCount": 510,
+    "rosterCount": 510,
+    "pending": 0,
+    "uniqueIds": 510,
+    "staticCards": 510,
+    "inlineUnits": 510,
+    "sameIdSets": true,
+    "galleryBytes": 944675,
+    "qualityStatusPreserved": {
+      "pending": 316,
+      "hold": 89,
+      "rejected": 105
+    },
+    "sourceIssues": [
+      "watcher_karna",
+      "dragon_knight"
+    ],
+    "inGameVerified": false,
+    "userApproval": "pending"
+  },
+  "behavior": {
+    "staticCards": 510,
+    "initialShown": 510,
+    "qualityFilter": {
+      "rejected": 105,
+      "hold": 89,
+      "pending": 316
+    },
+    "search": true,
+    "noResults": true,
+    "factionFilter": true,
+    "modal": true,
+    "repairedImageURL": true,
+    "nextNavigation": true,
+    "comparisonLoadsOldImages": 510,
+    "method": "JavaScript execution with DOM stub; rendered browser not tested"
+  },
+  "png": {
+    "checked": 33,
+    "nonRGBA": [],
+    "empty": [],
+    "opaqueEdgeFlags": [],
+    "threshold": 128
+  },
+  "approval": "pending",
+  "qualityAcceptedCount": 0,
+  "finalCompletion": false,
+  "limitations": [
+    "DOM logic tested with a stub; rendered browser not tested.",
+    "No in-game integration or size verification.",
+    "Existing quality rejection/hold and mounted-rebuild states preserved."
+  ]
+}
