@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T01:44:51.727Z",
+  "updatedAt": "2026-10-20T01:48:38.479Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -15,7 +15,7 @@
     "excludedTerrain": 77,
     "generatedReviewAssets": 71,
     "persistedReviewAssets": 203,
-    "revisedAfterRejection": 13
+    "revisedAfterRejection": 14
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
   "sources": [
@@ -163,10 +163,12 @@
       "original": "tokens/witchking_fellbeast.png",
       "source": "mordor",
       "path": "art/mordor-rebuild-20261019/units/witchking_fellbeast.png",
-      "blobSHA": "b58b0693872ef5541a2f37bbfc02d0c1b78e8dfe",
-      "status": "restored_review_asset",
+      "blobSHA": "935e36de521068d8da11193bc031c81c9a26dc29",
+      "status": "generated_review_asset",
       "visualReviewThisSession": true,
-      "revision": "witchking-design-v2"
+      "revision": "witchking-design-v2",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "witchking_mounted",
@@ -5428,13 +5430,13 @@
         "witchking_foot_mace",
         "witchking_mounted",
         "witchking_mounted_sheet",
-        "witchking_foot"
-      ],
-      "remaining": [
+        "witchking_foot",
         "witchking_fellbeast"
       ],
+      "remaining": [],
       "reference": "art/full-roster-night-rebuild-20261019/references/gw-witchking/official-model-detail.jpg",
-      "remainingReason": "Fellbeast revision generated; remove unwanted background haze before persistence."
+      "remainingReason": null,
+      "approval": "pending"
     },
     "proportionDrift20261020": {
       "reason": "사용자 지적: 최근 생성본 등신 상승. 프레임/장비가 아닌 원래 표준 뼈대 직접 참조로 재검수",

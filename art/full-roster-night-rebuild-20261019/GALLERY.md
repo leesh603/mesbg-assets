@@ -2,6 +2,12 @@
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
 
+### 마술사왕(펠비스트) (witchking_fellbeast)
+
+![마술사왕(펠비스트)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_fellbeast.png?v=935e36de521068d8da11193bc031c81c9a26dc29)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/witchking_fellbeast.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_fellbeast.png?v=935e36de521068d8da11193bc031c81c9a26dc29)
+
 ### 마술사왕(두건) (witchking_foot)
 
 ![마술사왕(두건)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_foot.png?v=a4c1348d1fffaa8ca0faf4b747f2c0fcb3a887e7)
@@ -1075,12 +1081,6 @@
 ![오크 정예 추적궁병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/orc_elite_tracker.png)
 
 [기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/references/old/orc_elite_tracker.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/orc_elite_tracker.png)
-
-### 마술사왕(펠비스트) (witchking_fellbeast)
-
-![마술사왕(펠비스트)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_fellbeast.png?v=b58b0693872ef5541a2f37bbfc02d0c1b78e8dfe)
-
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/references/old/witchking_fellbeast.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_fellbeast.png?v=b58b0693872ef5541a2f37bbfc02d0c1b78e8dfe)
 
 ### 마술사왕(투구) (witchking_foot_mace)
 

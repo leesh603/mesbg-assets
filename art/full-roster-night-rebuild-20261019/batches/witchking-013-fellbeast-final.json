@@ -1,0 +1,21 @@
+{
+  "batch": "witchking-013-fellbeast-final",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "witchking_fellbeast",
+      "mounted": true,
+      "beast": true,
+      "group": "모르도르·나즈굴",
+      "groupKey": "mordor",
+      "bodyDescription": "큰 인간 기수 5등신 · 펠비스트 중심",
+      "pose": "GW 투구·어깨의 펠비스트 탑승",
+      "prompt": "ONE finished transparent PIXEL tactical-game Witch-king sprite. IMAGE1 is EXACT official GW helmet/shoulder DESIGN authority. IMAGE2 is immutable FIVE-head compact adult rider anatomy and HIGH-ANGLE FRONT camera; IMAGE3 is EDIT TARGET pose/mount only, its old invented helmet/shoulders are REJECTED; IMAGE4 is corrected foot version for pixel density/colour/design consistency ONLY, not proportions. Reproduce exact GW weathered SILVER IRON brow-mask with TWO separate BLACK eye holes, long straight central triangular spike, low ring of small upright pegs and HORIZONTAL side spikes, two slender long cheek flanges around empty black lower face. NOT smooth V/Y mask, tall side antlers, Sauron helmet or crown around an empty hood. Copy GW single COMPACT fluted/channeled silver shoulder on viewerLEFT, opposite shoulder BLACK cloth, no large invented layered plates/fur. Black ragged robes, narrow metal gauntlets, no generic full plate torso. Body exactly5 skull-to-chin anatomical heads excluding crown spike. Skull/short torso/thigh/shin lengths from image2, adult large-human presence, no tiny rider. Strict HIGH-ANGLE FRONT down30–35deg, see broad TOP of crown/shoulder planes and mount back, near-front slight diagonal, never eye-level portrait. Crisp stepped pixel clusters, dark outline and restrained aged-iron/charcoal ramps like image4, no photo miniature/painterly surface. Entire silhouette within INNER80% canvas, all spikes/sword/hooves/wings/tail contained with generous clear padding. Genuine transparent RGBA empty backdrop; no base/floor/shadow/glow/text/watermark/UI/other characters. WIDE LANDSCAPE composition of Witch-king RIDING FELLBEAST from image3. Preserve image3 ENTIRE existing fellbeast design: long slate-grey scaled neck/head, red eye, pale hornlike jaw ridges, open toothy mouth, huge pale tattered bat-membrane wings with finger struts, two hind legs/clawed feet and long curved tail. Beast anatomy is NOT human template; image2 controls ONLY rider's5head anatomy. Keep rider full adult size on saddle with straddling thighs and reins, sword diagonally upper-left. Rider GW exact mask/low horizontal side spikes/one fluted silver left shoulder, black robes. Camera clearly elevated FRONT down30–35deg, see crown top, shoulder tops and beast back, not side portrait. All two wings/outermost fingers, tail tip, both feet, sword and crown fully framed with at least10% transparent margin; do not crop wings or compress full design to tiny rider. Center by beast torso.",
+      "correctionPrompt": "Use case: background-extraction. IMAGE1 is the FINAL sprite edit target. Remove ONLY all smoky brown/grey backdrop, haze, glow, vignette and diffuse halo outside the Witch-king + fellbeast silhouette. Make every background pixel fully TRANSPARENT alpha0, including wing membrane holes and gaps between sword, rider, wings, tail and feet. Preserve the actual character and beast pixels, exact pixel-art body/anatomy, high-angle front camera, GW helmet/shoulder design, full pose, scale, armour, membranes, tooth shapes, reins, colours and outline unchanged. Do not redraw or reposition subject. Do not add/remove subject parts or holes. Keep crisp stepped dark pixel outline with no feathered matte or surrounding cloud. Sprite interiors fully opaque, only genuine empty gaps transparent. Preserve entire canvas and framing; all wings/tail/sword stay exactly placed. No floor, cast shadow, glow, text or new scenery. Return finished clean transparent RGBA cutout ONLY.",
+      "blobSHA": "935e36de521068d8da11193bc031c81c9a26dc29",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-9cf08fb3-d1ae-46d1-9951-6217c1a6d143.png"
+    }
+  ]
+}
