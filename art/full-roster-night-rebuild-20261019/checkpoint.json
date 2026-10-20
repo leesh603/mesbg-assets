@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T04:04:34.749Z",
+  "updatedAt": "2026-10-20T04:06:38.818Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 88,
-    "newlyGeneratedThisSession": 290,
-    "visuallyReviewedThisSession": 295,
+    "pending": 86,
+    "newlyGeneratedThisSession": 292,
+    "visuallyReviewedThisSession": 297,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 290,
-    "persistedReviewAssets": 422,
+    "generatedReviewAssets": 292,
+    "persistedReviewAssets": 424,
     "revisedAfterRejection": 18
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -5635,8 +5635,13 @@
       "faction": "dunland",
       "role": "cavalry",
       "original": "tokens/dunlending_horseman.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dunland",
+      "path": "art/full-roster-night-rebuild-20261019/units/dunlending_horseman.png",
+      "blobSHA": "f49b7391361886437c177450d929f62f6dc302ae",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "wulf",
@@ -6769,8 +6774,13 @@
       "faction": "dunland",
       "role": "hero",
       "original": "tokens/thrydan_mounted.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dunland",
+      "path": "art/full-roster-night-rebuild-20261019/units/thrydan_mounted.png",
+      "blobSHA": "2a63638992bc046e17e3832a5e18ac1779c420f8",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "hera_mounted",
@@ -7544,11 +7554,12 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 422,
+    "count": 424,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
+      "dunland": 10,
       "easterling": 15,
       "모리아": 12,
       "호빗": 14,
@@ -7556,7 +7567,6 @@
       "브리": 2,
       "누메노르": 4,
       "인간": 8,
-      "dunland": 8,
       "isengard": 30,
       "harad": 20,
       "난쟁이": 36,

@@ -1,6 +1,7 @@
 {
-  "count": 422,
+  "count": 424,
   "groups": {
+    "dunland": 10,
     "easterling": 15,
     "모리아": 12,
     "호빗": 14,
@@ -8,7 +9,6 @@
     "브리": 2,
     "누메노르": 4,
     "인간": 8,
-    "dunland": 8,
     "isengard": 30,
     "harad": 20,
     "난쟁이": 36,
@@ -18,8 +18,38 @@
     "rohan": 46,
     "gondor": 59
   },
-  "pending": 88,
+  "pending": 86,
   "units": [
+    {
+      "id": "thrydan_mounted",
+      "name": "트리단(기마)",
+      "group": "던랜드",
+      "role": "hero",
+      "image": "art/full-roster-night-rebuild-20261019/units/thrydan_mounted.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/thrydan_mounted.png",
+      "old": "tokens/thrydan_mounted.png",
+      "status": "검토 대기",
+      "body": "인간 기수 5등신 · 하이앵글 프론트뷰",
+      "pose": "늑대 가죽 머리장식·푸른 문신 · 도끼 기마",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/thrydan_mounted.png?v=2a63638992bc046e17e3832a5e18ac1779c420f8",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/thrydan_mounted.png?v=2a63638992bc046e17e3832a5e18ac1779c420f8",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/thrydan_mounted.png"
+    },
+    {
+      "id": "dunlending_horseman",
+      "name": "던랜드 기병",
+      "group": "던랜드",
+      "role": "cavalry",
+      "image": "art/full-roster-night-rebuild-20261019/units/dunlending_horseman.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/dunlending_horseman.png",
+      "old": "tokens/dunlending_horseman.png",
+      "status": "검토 대기",
+      "body": "인간 기수 5등신 · 하이앵글 프론트뷰",
+      "pose": "검은 머리·목제 방패 · 도끼 기마",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dunlending_horseman.png?v=f49b7391361886437c177450d929f62f6dc302ae",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dunlending_horseman.png?v=f49b7391361886437c177450d929f62f6dc302ae",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/dunlending_horseman.png"
+    },
     {
       "id": "easterling_mounted_archer",
       "name": "이스터링 기마궁수",

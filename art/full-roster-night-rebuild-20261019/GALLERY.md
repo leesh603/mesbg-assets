@@ -1,6 +1,18 @@
-# 전체 재제작 검토 — 422종
+# 전체 재제작 검토 — 424종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 트리단(기마) (thrydan_mounted)
+
+![트리단(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/thrydan_mounted.png?v=2a63638992bc046e17e3832a5e18ac1779c420f8)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/thrydan_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/thrydan_mounted.png?v=2a63638992bc046e17e3832a5e18ac1779c420f8)
+
+### 던랜드 기병 (dunlending_horseman)
+
+![던랜드 기병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dunlending_horseman.png?v=f49b7391361886437c177450d929f62f6dc302ae)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/dunlending_horseman.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dunlending_horseman.png?v=f49b7391361886437c177450d929f62f6dc302ae)
 
 ### 이스터링 기마궁수 (easterling_mounted_archer)
 

@@ -1,0 +1,46 @@
+{
+  "batch": "dunland-031-mounted-two",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "dunlending_horseman",
+      "mounted": true,
+      "pose": "검은 머리·목제 방패 · 도끼 기마",
+      "detail": "DUNLENDING HORSEMAN source messy shaggy BLACK hair, face angled down and no added longbeard, rugged BROWN FUR cloak/collar over brown leather/chainmail armor, brownbracers/boots, simple bronze roundcloakclasp. BROWN HORSE long LIGHT BROWN mane/tail, WHITE blaze on forehead/nose, plain brown/gold bridle and simple darkbrown saddle/blanket, no redblue heraldicbarding. ViewerLEFT hand ONE short BROWN-handled AXE with curved SILVER singleblade held beside shoulder pointing outward at y15%, short elbow not overhead stretch. Other hand reins at belt with ROUND TAN WOOD SHIELD strapped to OUTER forearm: black iron diagonal crossbands and FOUR ivory stud/spikes around rim like source. Exactly2hands, no extra shieldhand. Rider compact5head bones, horse nearfront with modest step. Preserve source mutedbrown palette, no horns/helmet/coloredcape added.",
+      "prompt": "Dress IMAGE1 original NEUTRAL HUMAN skeleton as IMAGE2 character. IMAGE1 alone controls normal adult skull, torso/limb bone lengths and elevated front camera. EXACTLY FIVE anatomical heads crown-to-sole, one head crown-to-CHIN excluding HAIR, BEARD, HAT or crown. No4head bighead chibi, no6+head tall hero. Copy exact bone segment relationships, use old age/slenderness through face, width and posture only. Full robes cover same compact fivehead bones, never lengthen body or hide feet. If hat/staff needs space, zoom out whole figure and expand clear canvas padding; do NOT shrink body relative to head to fit hat. Image2 identity/equipment/palette only, ignore its proportions. New joint poses required while preserving bone LENGTHS. Elevated FRONT camera looking DOWN30deg, clear TOP planes of head/hat and both shoulders, foreshortened chest/face, chin/gaze angled down separately. Not eyelevel with only bowed head. Crisp discrete pixel clusters, stepped dark outlines, limited color ramps matching image1/new Gondor/Mordor, no smooth painting/3D. Entire figure/weapons inside transparent RGBA clear margin, torso centered independently of equipment. No floor/base/shadow/aura/glow/text. Replace neutral bald scalp with required HAIR/BEARD/HAT exactly as source.  MOUNTED unit: Image1 human-mounted neutral controls ONLY rider normal skull/torso/femur/shin BONE LENGTHS and elevated camera. FIVE anatomical heads if rider stands; inspect rider independently from animal total height. Ignore footstanding framing. Animal anatomy/color/species come from image2; no5head rule for animal, no uniform shrinking of mount/rider to fix ratios. Show TOP planes of rider skull, shoulders, saddle and animal neck/withers/head through genuinely elevated front camera, not only bowed head. Exactly2hands on specified objects. DUNLENDING HORSEMAN source messy shaggy BLACK hair, face angled down and no added longbeard, rugged BROWN FUR cloak/collar over brown leather/chainmail armor, brownbracers/boots, simple bronze roundcloakclasp. BROWN HORSE long LIGHT BROWN mane/tail, WHITE blaze on forehead/nose, plain brown/gold bridle and simple darkbrown saddle/blanket, no redblue heraldicbarding. ViewerLEFT hand ONE short BROWN-handled AXE with curved SILVER singleblade held beside shoulder pointing outward at y15%, short elbow not overhead stretch. Other hand reins at belt with ROUND TAN WOOD SHIELD strapped to OUTER forearm: black iron diagonal crossbands and FOUR ivory stud/spikes around rim like source. Exactly2hands, no extra shieldhand. Rider compact5head bones, horse nearfront with modest step. Preserve source mutedbrown palette, no horns/helmet/coloredcape added.",
+      "group": "던랜드",
+      "groupKey": "dunland",
+      "bodyDescription": "인간 기수 5등신 · 하이앵글 프론트뷰",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/human-mounted.png",
+        "equipment": "Source hair or wolfpelt/blue tattoos, two hands, shield/axe and horse colors checked",
+        "camera": "Elevated front with rider/animal upper planes visible",
+        "approval": "pending"
+      },
+      "blobSHA": "f49b7391361886437c177450d929f62f6dc302ae",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-9cfb74df-2ada-48cc-b8d3-c9f17bcb4409.png"
+    },
+    {
+      "id": "thrydan_mounted",
+      "mounted": true,
+      "pose": "늑대 가죽 머리장식·푸른 문신 · 도끼 기마",
+      "detail": "THRYDAN MOUNTED: HUMAN wearing complete GRAY WOLF-PELT HEADDRESS with wolf ears/eyes/muzzle and two ivory fang ornaments, BROWN human beard below, heavygray/brown FUR cloak and loinskirt with pale furhem, bare muscular upperarms with BLUE spiral TATTOOS exactly source, brown leather/chainmail armor, bronze roundclasps and brownboots. Headdress is gear on ordinary adult HUMAN skull, not actual werewolf head/body; FIVE-head rider bones image1 excluding wolfpelt/fur/beard. BROWN HORSE brownmane/tail, BLUE/GRAY GOLD-edged chamfron faceplate centralgoldridge, muted BLUE saddle/breastcloth with WHITE HORSE emblem and IVORY FUR hem. ViewerLEFT one large SILVER crescent AXE brownhandle held near shoulder outward y15% with compactelbow; viewerRIGHT ROUND BLUE-PAINTED WOOD SHIELD with brown/goldrim and SILVER boss strapped to forearm, same hand may grip reins at belt. Exactly2hands, no thirdshieldhand or extraweapons. Horse head nearfront slightturn, saddle/neck upperplanes and human shoulderscrown tops visible.",
+      "prompt": "Dress IMAGE1 original NEUTRAL HUMAN skeleton as IMAGE2 character. IMAGE1 alone controls normal adult skull, torso/limb bone lengths and elevated front camera. EXACTLY FIVE anatomical heads crown-to-sole, one head crown-to-CHIN excluding HAIR, BEARD, HAT or crown. No4head bighead chibi, no6+head tall hero. Copy exact bone segment relationships, use old age/slenderness through face, width and posture only. Full robes cover same compact fivehead bones, never lengthen body or hide feet. If hat/staff needs space, zoom out whole figure and expand clear canvas padding; do NOT shrink body relative to head to fit hat. Image2 identity/equipment/palette only, ignore its proportions. New joint poses required while preserving bone LENGTHS. Elevated FRONT camera looking DOWN30deg, clear TOP planes of head/hat and both shoulders, foreshortened chest/face, chin/gaze angled down separately. Not eyelevel with only bowed head. Crisp discrete pixel clusters, stepped dark outlines, limited color ramps matching image1/new Gondor/Mordor, no smooth painting/3D. Entire figure/weapons inside transparent RGBA clear margin, torso centered independently of equipment. No floor/base/shadow/aura/glow/text. Replace neutral bald scalp with required HAIR/BEARD/HAT exactly as source.  MOUNTED unit: Image1 human-mounted neutral controls ONLY rider normal skull/torso/femur/shin BONE LENGTHS and elevated camera. FIVE anatomical heads if rider stands; inspect rider independently from animal total height. Ignore footstanding framing. Animal anatomy/color/species come from image2; no5head rule for animal, no uniform shrinking of mount/rider to fix ratios. Show TOP planes of rider skull, shoulders, saddle and animal neck/withers/head through genuinely elevated front camera, not only bowed head. Exactly2hands on specified objects. THRYDAN MOUNTED: HUMAN wearing complete GRAY WOLF-PELT HEADDRESS with wolf ears/eyes/muzzle and two ivory fang ornaments, BROWN human beard below, heavygray/brown FUR cloak and loinskirt with pale furhem, bare muscular upperarms with BLUE spiral TATTOOS exactly source, brown leather/chainmail armor, bronze roundclasps and brownboots. Headdress is gear on ordinary adult HUMAN skull, not actual werewolf head/body; FIVE-head rider bones image1 excluding wolfpelt/fur/beard. BROWN HORSE brownmane/tail, BLUE/GRAY GOLD-edged chamfron faceplate centralgoldridge, muted BLUE saddle/breastcloth with WHITE HORSE emblem and IVORY FUR hem. ViewerLEFT one large SILVER crescent AXE brownhandle held near shoulder outward y15% with compactelbow; viewerRIGHT ROUND BLUE-PAINTED WOOD SHIELD with brown/goldrim and SILVER boss strapped to forearm, same hand may grip reins at belt. Exactly2hands, no thirdshieldhand or extraweapons. Horse head nearfront slightturn, saddle/neck upperplanes and human shoulderscrown tops visible.",
+      "group": "던랜드",
+      "groupKey": "dunland",
+      "bodyDescription": "인간 기수 5등신 · 하이앵글 프론트뷰",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/human-mounted.png",
+        "equipment": "Source hair or wolfpelt/blue tattoos, two hands, shield/axe and horse colors checked",
+        "camera": "Elevated front with rider/animal upper planes visible",
+        "approval": "pending"
+      },
+      "blobSHA": "2a63638992bc046e17e3832a5e18ac1779c420f8",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-3d8e6272-1a59-4c96-9787-70718de6c316.png"
+    }
+  ]
+}
