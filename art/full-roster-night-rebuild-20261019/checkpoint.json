@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T02:20:00.187Z",
+  "updatedAt": "2026-10-20T02:27:03.316Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 292,
-    "newlyGeneratedThisSession": 86,
-    "visuallyReviewedThisSession": 91,
+    "pending": 283,
+    "newlyGeneratedThisSession": 95,
+    "visuallyReviewedThisSession": 100,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 86,
-    "persistedReviewAssets": 218,
+    "generatedReviewAssets": 95,
+    "persistedReviewAssets": 227,
     "revisedAfterRejection": 14
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -2440,8 +2440,13 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/thranduil_mounted.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/thranduil_mounted.png",
+      "blobSHA": "fe110834f7c3546699453f2aa4fa0be464da6007",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "aragorn_mounted",
@@ -2786,8 +2791,13 @@
       "faction": "rivendell",
       "role": "hero",
       "original": "tokens/elrond_mounted.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/elrond_mounted.png",
+      "blobSHA": "d6fccf06f78c7e6caa4a1a404f4fffd4c3a7bf9b",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "gandalf_white_mounted",
@@ -3550,8 +3560,13 @@
       "faction": "rivendell",
       "role": "hero",
       "original": "tokens/gildor.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/gildor.png",
+      "blobSHA": "c011ec40440b705c545bd6eec1847ffd8b25954c",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "grishnakh",
@@ -3728,8 +3743,13 @@
       "faction": "mirkwood",
       "role": "infantry",
       "original": "tokens/palace_guard.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/palace_guard.png",
+      "blobSHA": "a2bfd5579c11ce8a2d8f2c6e3967ff47a7694893",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "hobbit_militia",
@@ -3860,8 +3880,13 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/turgon.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/turgon.png",
+      "blobSHA": "6360c0257a4bc631af9cc0683b9f2081d7632e3c",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "fingon",
@@ -3878,8 +3903,13 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/ecthelion.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/ecthelion.png",
+      "blobSHA": "02ccd2a5d8d843f5dbc20da53dae8b8744e862f1",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "finrod_felagund",
@@ -3887,8 +3917,13 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/finrod_felagund.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/finrod_felagund.png",
+      "blobSHA": "17dc2eccf165b6e963985a123f516cf9ebd92055",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "tuor",
@@ -3914,8 +3949,13 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/maedhros.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/maedhros.png",
+      "blobSHA": "f918410614e7bd1ca856189c9d8c7dad62998332",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "celegorm",
@@ -3923,8 +3963,13 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/celegorm.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/celegorm.png",
+      "blobSHA": "2108cdaf33818c2bc38940ff4ee456be61bb88df",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "thingol",
@@ -5486,12 +5531,12 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 218,
+    "count": 227,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
-      "elf": 35,
+      "elf": 44,
       "아이센가드": 5,
       "mordor": 73,
       "rohan": 46,
