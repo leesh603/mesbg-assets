@@ -33,7 +33,7 @@ const REGIONS={
  hornburg:{material:7,secondary:2,scheme:'rohan',pattern:'rohan-hall',light:0xeee6d7,landmark:'goldenhall',accent:'#9e926d'},
  erebor_hall:{material:5,secondary:2,scheme:'dwarf',pattern:'royal-hall',light:0xeae6da,landmark:'dwarfpillar',accent:'#a29565'}
 };
-const LANDMARKS={whitegate:null,dome:'dome',watchtower:'watchtower',hornburg:'hornburg',oldtree:null,goldenhall:'goldenhall',dwarfarch:'dwarfpillar',furnace:'furnace',irongate:'irongate',slag:null,elfpavilion:'mallorn',mallorn:'mallorn',farmhouse:'farmhouse',reedbed:null,standingstones:'standingstones',webtree:null,darkruin:null,elfgate:null,whitetree:null,darktower:'darktower',morgulruin:null,dalehouse:'farmhouse',dwarfpillar:'dwarfpillar'};
+const LANDMARKS={whitegate:null,dome:'dome',watchtower:'watchtower',hornburg:'hornburg',oldtree:null,goldenhall:'goldenhall',dwarfarch:'dwarfarch',furnace:'furnace',irongate:'irongate',slag:null,elfpavilion:'elfpavilion',mallorn:'mallorn',farmhouse:'farmhouse',reedbed:'reedbed',standingstones:'standingstones',webtree:null,darkruin:'darkruin',elfgate:null,whitetree:null,darktower:'darktower',morgulruin:'darkruin',dalehouse:'farmhouse',dwarfpillar:'dwarfpillar'};
 const LANDMARK_NAMES=['whitegate','dome','watchtower','hornburg','goldenhall','dwarfarch','furnace','irongate','elfpavilion','mallorn','farmhouse','reedbed','standingstones','darkruin','darktower','dwarfpillar'];
 const SIZE={oak:[240,290],pine:[205,320],dead:[185,255],rock:[200,115],stone:[270,60],fence:[280,58],palisade:[285,130],ruin:[275,150],whitewall:[350,185],darkwall:[350,190],cliff:[365,250],rim:[330,205],rubble:[155,62],burnt:[170,90]};
 const depth=y=>5+Math.max(0,Math.min(9999,y))/100000;
@@ -49,7 +49,7 @@ function patch(ctx,m,pts,size=128){ctx.save();polygon(ctx,pts);ctx.clip();tile(c
 function paintGround(ctx,key,atlas){const r=region(key),rnd=random(seed(key));ctx.imageSmoothingEnabled=false;const primary=material(ctx,atlas,r.material),secondary=material(ctx,atlas,r.secondary);tile(ctx,primary);
  // Large irregular secondary patches break any repeating square material edges.
  for(let i=0;i<24;i++){const x=Math.floor(rnd()*W),y=Math.floor(rnd()*H),rx=25+Math.floor(rnd()*90),ry=15+Math.floor(rnd()*50),pts=[];for(let j=0;j<14;j++){const a=j*Math.PI/7,q=.65+rnd()*.35;pts.push([Math.round(x+Math.cos(a)*rx*q),Math.round(y+Math.sin(a)*ry*q)]);}patch(ctx,secondary,pts);}
- const slab=(x,y,w,h,shade)=>{ctx.fillStyle=shade||r.accent;ctx.fillRect(x,y,w,h);ctx.fillStyle='#171c1b';ctx.globalAlpha=.22;ctx.fillRect(x,y+h-2,w,2);ctx.fillRect(x+w-1,y,1,h);ctx.globalAlpha=.28;ctx.fillStyle='#e3ddc1';ctx.fillRect(x,y,w-1,1);ctx.globalAlpha=1;};
+ const slab=(x,y,w,h,shade)=>{ctx.save();ctx.globalAlpha=.18;ctx.fillStyle=shade||r.accent;ctx.fillRect(x,y,w,h);ctx.globalAlpha=.16;ctx.fillStyle='#171c1b';ctx.fillRect(x,y+h-1,w,1);ctx.fillRect(x+w-1,y,1,h);ctx.globalAlpha=.12;ctx.fillStyle='#e3ddc1';ctx.fillRect(x,y,w-1,1);ctx.restore();};
  const street=(x,y,w,h)=>patch(ctx,secondary,[[x,y],[x+w,y],[x+w,y+h],[x,y+h]]);
  if(['approach','gate-road','tower-road','mountain-road','iron-valley'].includes(r.pattern)){street(491,0,184,H);for(let y=0;y<H;y+=18)for(let x=495;x<675;x+=28)if(rnd()>.08)slab(x+(y%36?8:0),y,24,14);}
  if(['ruined-grid','market-street','broken-court'].includes(r.pattern)){for(let y=38;y<H;y+=190)street(0,y,W,55);for(let x=160;x<W;x+=320)street(x,0,74,H);for(let i=0;i<180;i++){const x=Math.floor(rnd()*W),y=Math.floor(rnd()*H);if(rnd()>.4)slab(x,y,4+Math.floor(rnd()*14),3+Math.floor(rnd()*7),r.accent);}}
@@ -63,6 +63,6 @@ function paintGround(ctx,key,atlas){const r=region(key),rnd=random(seed(key));ct
  ctx.globalAlpha=.16;for(let i=0;i<450;i++){ctx.fillStyle=i%2?'#e5dfbb':'#131d18';ctx.fillRect(rnd()*W|0,rnd()*H|0,2+rnd()*3|0,1);}ctx.globalAlpha=1;
  ctx.fillStyle={0:'#727d4f',1:'#525f42',2:'#9a9f91',3:'#8a7960',4:'#494a45',5:'#596363',6:'#59634b',7:'#8a9187',8:'#8b8e59'}[r.material];ctx.globalAlpha=.18;ctx.fillRect(0,0,W,H);ctx.globalAlpha=1;
  return{key,pattern:r.pattern,material:r.material,width:W,height:H};}
-function overlap(t,u,head=86){if(!t.active||t.surface==='bridge'||!t.type||t.type==='rubble')return false;const dims=SIZE[t.type]||[t.drawW,t.drawH],w=dims[0],h=dims[1];return u.y<t.y+10&&u.y>t.y-h-head*.25&&Math.abs(u.x-t.x)<w*.44+(u.radius||38)*.35;}
+function overlap(t,u,head=86,override){if(!t.active||t.surface==='bridge'||!t.type||t.type==='rubble')return false;const dims=override||SIZE[t.type]||[t.drawW,t.drawH],w=dims[0],h=dims[1];return u.y<t.y+10&&u.y>t.y-h-head*.25&&Math.abs(u.x-t.x)<w*.44+(u.radius||38)*.35;}
 root.MESBGWorldArt={VERSION,SCALE,W,H,REGIONS,SIZE,LANDMARKS,LANDMARK_NAMES,depth,region,paintGround,overlap};if(typeof module!=='undefined'&&module.exports)module.exports=root.MESBGWorldArt;
 })(typeof window!=='undefined'?window:globalThis);

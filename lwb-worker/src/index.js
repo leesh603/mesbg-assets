@@ -25,11 +25,104 @@ function ensureSchema(db) {
   return (schemaReady ??= db.batch([
     db.prepare("CREATE TABLE IF NOT EXISTS saves(id TEXT PRIMARY KEY, pw TEXT NOT NULL, data TEXT NOT NULL, updated REAL)"),
     db.prepare("CREATE TABLE IF NOT EXISTS scores(nickname TEXT NOT NULL, stage INTEGER NOT NULL, kills INTEGER NOT NULL, gold INTEGER NOT NULL, t REAL NOT NULL)"),
+    db.prepare("CREATE TABLE IF NOT EXISTS rooms(code TEXT PRIMARY KEY, host_tok TEXT NOT NULL, guest_tok TEXT, settings TEXT, host_band TEXT, guest_band TEXT, state TEXT, seq INTEGER NOT NULL DEFAULT 0, created REAL NOT NULL, updated REAL NOT NULL)"),
+    db.prepare("CREATE TABLE IF NOT EXISTS room_cmds(code TEXT NOT NULL, n INTEGER NOT NULL, cmd TEXT NOT NULL, PRIMARY KEY(code,n))"),
   ]).catch((error) => {
     // A transient D1 error must not poison every subsequent request.
     schemaReady = undefined;
     throw error;
   }));
+}
+
+
+// ---- Online match rooms (private code, host-authoritative, HTTP polling) ----
+const ROOM_TTL = 6 * 3600;
+const MAX_STATE_BYTES = 900_000;
+const CODE_CHARS = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+const rand = (n, chars) => { const a = crypto.getRandomValues(new Uint8Array(n)); return [...a].map((b) => chars[b % chars.length]).join(""); };
+const token = () => rand(24, "abcdefghijklmnopqrstuvwxyz0123456789");
+const parse = (t) => { try { return t == null ? null : JSON.parse(t); } catch { return null; } };
+
+async function rooms(request, env, url, pathname, method) {
+  const db = env.DB;
+  await ensureSchema(db);
+  const now = Date.now() / 1000;
+  if (pathname === "/room" && method === "POST") {
+    const body = await request.json().catch(() => ({}));
+    await db.batch([
+      db.prepare("DELETE FROM room_cmds WHERE code IN (SELECT code FROM rooms WHERE updated<?)").bind(now - ROOM_TTL),
+      db.prepare("DELETE FROM rooms WHERE updated<?").bind(now - ROOM_TTL),
+    ]);
+    for (let i = 0; i < 6; i++) {
+      const code = rand(6, CODE_CHARS), tok = token();
+      const r = await db.prepare("INSERT OR IGNORE INTO rooms(code,host_tok,settings,created,updated) VALUES(?,?,?,?,?)")
+        .bind(code, tok, JSON.stringify(body.settings ?? {}), now, now).run();
+      if (r.meta.changes) return json({ code, token: tok, role: "host" });
+    }
+    return json({ detail: "could not allocate a room code" }, 503);
+  }
+  const m = pathname.match(/^\/room\/([A-Z0-9]{6})(\/(join|band|state|cmd|cmds|settings))?$/);
+  if (!m) return null;
+  const code = m[1], op = m[3] || "";
+  const room = await db.prepare("SELECT * FROM rooms WHERE code=?").bind(code).first();
+  if (!room || room.updated < now - ROOM_TTL) return json({ detail: "room not found" }, 404);
+  const body = method === "GET" ? {} : await request.json().catch(() => ({}));
+  const tok = method === "GET" ? url.searchParams.get("token") : body.token;
+  const role = tok && tok === room.host_tok ? "host" : tok && tok === room.guest_tok ? "guest" : null;
+
+  if (op === "join" && method === "POST") {
+    if (role) return json({ token: tok, role, settings: parse(room.settings) });
+    if (room.guest_tok) return json({ detail: "room is full" }, 409);
+    const g = token();
+    const r = await db.prepare("UPDATE rooms SET guest_tok=?,updated=? WHERE code=? AND guest_tok IS NULL").bind(g, now, code).run();
+    if (!r.meta.changes) return json({ detail: "room is full" }, 409);
+    return json({ token: g, role: "guest", settings: parse(room.settings) });
+  }
+  if (!role) return json({ detail: "invalid token" }, 403);
+
+  if (op === "" && method === "GET") {
+    const since = parseInt(url.searchParams.get("since") || "-1", 10);
+    return json({
+      role, guest: !!room.guest_tok, settings: parse(room.settings),
+      hostBand: parse(room.host_band), guestBand: parse(room.guest_band),
+      seq: room.seq, state: room.seq > since ? parse(room.state) : undefined,
+    });
+  }
+  if (op === "settings" && method === "POST") {
+    if (role !== "host") return json({ detail: "host only" }, 403);
+    await db.prepare("UPDATE rooms SET settings=?,updated=? WHERE code=?").bind(JSON.stringify(body.settings ?? {}), now, code).run();
+    return json({ ok: true });
+  }
+  if (op === "band" && method === "POST") {
+    const col = role === "host" ? "host_band" : "guest_band";
+    await db.prepare(`UPDATE rooms SET ${col}=?,updated=? WHERE code=?`).bind(JSON.stringify(body.band ?? null), now, code).run();
+    return json({ ok: true });
+  }
+  if (op === "state" && method === "PUT") {
+    if (role !== "host") return json({ detail: "host only" }, 403);
+    const payload = JSON.stringify(body.state ?? null);
+    if (new TextEncoder().encode(payload).byteLength > MAX_STATE_BYTES) return json({ detail: "state too large" }, 413);
+    const seq = Number.isSafeInteger(body.seq) ? body.seq : room.seq + 1;
+    await db.prepare("UPDATE rooms SET state=?,seq=?,updated=? WHERE code=?").bind(payload, seq, now, code).run();
+    return json({ ok: true, seq });
+  }
+  if (op === "cmd" && method === "POST") {
+    if (role !== "guest") return json({ detail: "guest only" }, 403);
+    const last = await db.prepare("SELECT COALESCE(MAX(n),0) AS n FROM room_cmds WHERE code=?").bind(code).first();
+    const n = (last?.n || 0) + 1;
+    await db.batch([
+      db.prepare("INSERT INTO room_cmds(code,n,cmd) VALUES(?,?,?)").bind(code, n, JSON.stringify(body.cmd ?? null)),
+      db.prepare("UPDATE rooms SET updated=? WHERE code=?").bind(now, code),
+    ]);
+    return json({ n });
+  }
+  if (op === "cmds" && method === "GET") {
+    if (role !== "host") return json({ detail: "host only" }, 403);
+    const since = parseInt(url.searchParams.get("since") || "0", 10);
+    const { results } = await db.prepare("SELECT n,cmd FROM room_cmds WHERE code=? AND n>? ORDER BY n LIMIT 50").bind(code, since).all();
+    return json({ cmds: results.map((r) => ({ n: r.n, cmd: parse(r.cmd) })) });
+  }
+  return json({ detail: "method not allowed" }, 405);
 }
 
 export default {
@@ -41,6 +134,10 @@ export default {
     const db = env.DB;
     try {
       if (pathname === "/health") return json({ ok: true });
+      if (pathname === "/room" || pathname.startsWith("/room/")) {
+        const r = await rooms(request, env, url, pathname, method);
+        if (r) return r;
+      }
 
       const mSave = pathname.match(/^\/save\/([^/]+)(\/load)?$/);
       if (mSave) {

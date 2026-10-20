@@ -4899,6 +4899,7 @@ Ve.prototype.preload = function () {
         const name = CX.maps[visualMapIdx(q.mapIndex)];
         this.load.image('world-ground-'+name,this.asset('world/ground-'+name+'.webp?v=world1'));
         for(const type of Object.keys(Terrain.TYPES))this.load.image('terrain-'+type,this.asset('world/'+type+'.png?v=world1'));
+        for(const type of new Set(Object.values(window.MESBGWorldArt.LANDMARKS).filter(Boolean)))this.load.image('landmark-'+type,this.asset('world/landmark-'+type+'.png?v=world1'));
         for(const m of ['shallow','deep','chasm','road'])this.load.image('terrain-material-'+m,this.asset('world/'+m+'.webp?v=world1'));
     }
     for (const name of ['slash', 'thrust', 'smash', 'shoot', 'cast', 'pounce', 'rally', 'blood', 'clash', 'prone', 'terror', 'charge', 'halfmove'])
@@ -4985,15 +4986,15 @@ Ve.prototype.sync = function () {
     oldSync.call(this);
     if (!this.backdrop)
         return;
-    const name = CX.maps[visualMapIdx(this.b.mapIndex)];
+    const name = this.b.battlefield?.key||CX.maps[visualMapIdx(this.b.mapIndex)];
     const mapKey='world-ground-'+name;
-    if(this.textures.exists(mapKey)){this.backdrop.setTexture(mapKey).clearTint().setDisplaySize(pt.width,pt.height);this.textures.get(mapKey).setFilter(Ot.Textures.FilterMode.NEAREST);}
+    if(this.textures.exists(mapKey)){this.backdrop.setTexture(mapKey).clearTint().setDisplaySize(pt.width,pt.height);this.textures.get(mapKey).setFilter(Ot.Textures.FilterMode.NEAREST);this._worldGroundLRU=(this._worldGroundLRU||[]).filter(k=>k!==mapKey);this._worldGroundLRU.push(mapKey);while(this._worldGroundLRU.length>3){const old=this._worldGroundLRU.shift();if(old!==mapKey&&this.textures.exists(old))this.textures.remove(old);}}
     else{
         this._worldPending ||= new Set();
         if(!this._worldPending.has(mapKey)){
             this._worldPending.add(mapKey);this.load.image(mapKey,this.asset('world/ground-'+name+'.webp?v=world1'));
             const ready=()=>{this.load.off('loaderror',failed);this._worldPending.delete(mapKey);this._worldGroundLRU=(this._worldGroundLRU||[this.backdrop.texture.key]).filter(k=>k!==mapKey);this._worldGroundLRU.push(mapKey);
-                const current='world-ground-'+CX.maps[visualMapIdx(this.b.mapIndex)];if(current===mapKey)this.backdrop.setTexture(mapKey).clearTint().setDisplaySize(pt.width,pt.height);
+                const current='world-ground-'+(this.b.battlefield?.key||CX.maps[visualMapIdx(this.b.mapIndex)]);if(current===mapKey)this.backdrop.setTexture(mapKey).clearTint().setDisplaySize(pt.width,pt.height);
                 while(this._worldGroundLRU.length>3){const old=this._worldGroundLRU.shift();if(old!==current&&old!==this.backdrop.texture.key)this.textures.remove(old);}this.sync();};
             const failed=file=>{if(file.key!==mapKey)return;this.load.off('filecomplete-image-'+mapKey,ready);this.load.off('loaderror',failed);this._worldPending.delete(mapKey);};
             this.load.once('filecomplete-image-'+mapKey,ready);this.load.on('loaderror',failed);this.load.start();
@@ -6052,7 +6053,7 @@ function setCamera(x,y,z=UX.zoom,mode=UX.cameraMode){
     const halfW=UX.width/(2*UX.zoom),halfH=UX.height/(2*UX.zoom);
     x=halfW>=pt.width/2?pt.width/2:Ot.Math.Clamp(x,halfW,pt.width-halfW);
     y=halfH>=pt.height/2?pt.height/2:Ot.Math.Clamp(y,halfH,pt.height-halfH);
-    c.panEffect.reset();c.shakeEffect.reset();c.setZoom(UX.zoom*UX.dpr).centerOn(x,y);c.preRender();
+    c.panEffect.reset();c.zoomEffect.reset();c.shakeEffect.reset();c.setZoom(UX.zoom*UX.dpr).centerOn(x,y);c.preRender();
     Tt.drawRings();updateWorldUI();
 }
 // panTo: 유닛 추적·턴 전환용 부드러운 카메라 이동. 수동 팬·핀치는 setCamera 그대로 둡니다.
@@ -11849,7 +11850,7 @@ const REGIONS={
  hornburg:{material:7,secondary:2,scheme:'rohan',pattern:'rohan-hall',light:0xeee6d7,landmark:'goldenhall',accent:'#9e926d'},
  erebor_hall:{material:5,secondary:2,scheme:'dwarf',pattern:'royal-hall',light:0xeae6da,landmark:'dwarfpillar',accent:'#a29565'}
 };
-const LANDMARKS={whitegate:null,dome:'dome',watchtower:'watchtower',hornburg:'hornburg',oldtree:null,goldenhall:'goldenhall',dwarfarch:'dwarfpillar',furnace:'furnace',irongate:'irongate',slag:null,elfpavilion:'mallorn',mallorn:'mallorn',farmhouse:'farmhouse',reedbed:null,standingstones:'standingstones',webtree:null,darkruin:null,elfgate:null,whitetree:null,darktower:'darktower',morgulruin:null,dalehouse:'farmhouse',dwarfpillar:'dwarfpillar'};
+const LANDMARKS={whitegate:null,dome:'dome',watchtower:'watchtower',hornburg:'hornburg',oldtree:null,goldenhall:'goldenhall',dwarfarch:'dwarfarch',furnace:'furnace',irongate:'irongate',slag:null,elfpavilion:'elfpavilion',mallorn:'mallorn',farmhouse:'farmhouse',reedbed:'reedbed',standingstones:'standingstones',webtree:null,darkruin:'darkruin',elfgate:null,whitetree:null,darktower:'darktower',morgulruin:'darkruin',dalehouse:'farmhouse',dwarfpillar:'dwarfpillar'};
 const LANDMARK_NAMES=['whitegate','dome','watchtower','hornburg','goldenhall','dwarfarch','furnace','irongate','elfpavilion','mallorn','farmhouse','reedbed','standingstones','darkruin','darktower','dwarfpillar'];
 const SIZE={oak:[240,290],pine:[205,320],dead:[185,255],rock:[200,115],stone:[270,60],fence:[280,58],palisade:[285,130],ruin:[275,150],whitewall:[350,185],darkwall:[350,190],cliff:[365,250],rim:[330,205],rubble:[155,62],burnt:[170,90]};
 const depth=y=>5+Math.max(0,Math.min(9999,y))/100000;
@@ -11865,7 +11866,7 @@ function patch(ctx,m,pts,size=128){ctx.save();polygon(ctx,pts);ctx.clip();tile(c
 function paintGround(ctx,key,atlas){const r=region(key),rnd=random(seed(key));ctx.imageSmoothingEnabled=false;const primary=material(ctx,atlas,r.material),secondary=material(ctx,atlas,r.secondary);tile(ctx,primary);
  // Large irregular secondary patches break any repeating square material edges.
  for(let i=0;i<24;i++){const x=Math.floor(rnd()*W),y=Math.floor(rnd()*H),rx=25+Math.floor(rnd()*90),ry=15+Math.floor(rnd()*50),pts=[];for(let j=0;j<14;j++){const a=j*Math.PI/7,q=.65+rnd()*.35;pts.push([Math.round(x+Math.cos(a)*rx*q),Math.round(y+Math.sin(a)*ry*q)]);}patch(ctx,secondary,pts);}
- const slab=(x,y,w,h,shade)=>{ctx.fillStyle=shade||r.accent;ctx.fillRect(x,y,w,h);ctx.fillStyle='#171c1b';ctx.globalAlpha=.22;ctx.fillRect(x,y+h-2,w,2);ctx.fillRect(x+w-1,y,1,h);ctx.globalAlpha=.28;ctx.fillStyle='#e3ddc1';ctx.fillRect(x,y,w-1,1);ctx.globalAlpha=1;};
+ const slab=(x,y,w,h,shade)=>{ctx.save();ctx.globalAlpha=.18;ctx.fillStyle=shade||r.accent;ctx.fillRect(x,y,w,h);ctx.globalAlpha=.16;ctx.fillStyle='#171c1b';ctx.fillRect(x,y+h-1,w,1);ctx.fillRect(x+w-1,y,1,h);ctx.globalAlpha=.12;ctx.fillStyle='#e3ddc1';ctx.fillRect(x,y,w-1,1);ctx.restore();};
  const street=(x,y,w,h)=>patch(ctx,secondary,[[x,y],[x+w,y],[x+w,y+h],[x,y+h]]);
  if(['approach','gate-road','tower-road','mountain-road','iron-valley'].includes(r.pattern)){street(491,0,184,H);for(let y=0;y<H;y+=18)for(let x=495;x<675;x+=28)if(rnd()>.08)slab(x+(y%36?8:0),y,24,14);}
  if(['ruined-grid','market-street','broken-court'].includes(r.pattern)){for(let y=38;y<H;y+=190)street(0,y,W,55);for(let x=160;x<W;x+=320)street(x,0,74,H);for(let i=0;i<180;i++){const x=Math.floor(rnd()*W),y=Math.floor(rnd()*H);if(rnd()>.4)slab(x,y,4+Math.floor(rnd()*14),3+Math.floor(rnd()*7),r.accent);}}
@@ -11879,7 +11880,7 @@ function paintGround(ctx,key,atlas){const r=region(key),rnd=random(seed(key));ct
  ctx.globalAlpha=.16;for(let i=0;i<450;i++){ctx.fillStyle=i%2?'#e5dfbb':'#131d18';ctx.fillRect(rnd()*W|0,rnd()*H|0,2+rnd()*3|0,1);}ctx.globalAlpha=1;
  ctx.fillStyle={0:'#727d4f',1:'#525f42',2:'#9a9f91',3:'#8a7960',4:'#494a45',5:'#596363',6:'#59634b',7:'#8a9187',8:'#8b8e59'}[r.material];ctx.globalAlpha=.18;ctx.fillRect(0,0,W,H);ctx.globalAlpha=1;
  return{key,pattern:r.pattern,material:r.material,width:W,height:H};}
-function overlap(t,u,head=86){if(!t.active||t.surface==='bridge'||!t.type||t.type==='rubble')return false;const dims=SIZE[t.type]||[t.drawW,t.drawH],w=dims[0],h=dims[1];return u.y<t.y+10&&u.y>t.y-h-head*.25&&Math.abs(u.x-t.x)<w*.44+(u.radius||38)*.35;}
+function overlap(t,u,head=86,override){if(!t.active||t.surface==='bridge'||!t.type||t.type==='rubble')return false;const dims=override||SIZE[t.type]||[t.drawW,t.drawH],w=dims[0],h=dims[1];return u.y<t.y+10&&u.y>t.y-h-head*.25&&Math.abs(u.x-t.x)<w*.44+(u.radius||38)*.35;}
 root.MESBGWorldArt={VERSION,SCALE,W,H,REGIONS,SIZE,LANDMARKS,LANDMARK_NAMES,depth,region,paintGround,overlap};if(typeof module!=='undefined'&&module.exports)module.exports=root.MESBGWorldArt;
 })(typeof window!=='undefined'?window:globalThis);
 
@@ -11931,11 +11932,12 @@ function renderBattlefield(scene){
   }
  }).setDepth(.5);
  scene._terrainObjects=scene.add.group();
+ const A=window.MESBGWorldArt,landmark=A.LANDMARKS[A.region(field.key).landmark],landmarkObject=landmark?b.terrain.find(t=>t.active&&t.type&&!t.jump&&t.surface!=='bridge'&&t.surface!=='rubble'&&(landmark==='mallorn'?['oak','pine'].includes(t.type):landmark==='standingstones'||landmark==='reedbed'?['rock','dead','burnt'].includes(t.type):['rock','ruin','whitewall','darkwall','palisade'].includes(t.type))):null;
  for(const t of b.terrain.filter(t=>t.active&&t.tactical&&t.type)){
-  const type=t.type,texture='terrain-'+type;if(!scene.textures.exists(texture))continue;
-  const A=window.MESBGWorldArt,isBridge=t.surface==='bridge',dims=A.SIZE[t.type]||[t.drawW,t.drawH],scale=t.drawW/Terrain.TYPES[t.type].w,w=isBridge?t.w/.68:dims[0]*scale,h=isBridge?t.h+35:dims[1]*scale;
+  const type=t.type,isLandmark=t===landmarkObject&&scene.textures.exists('landmark-'+landmark),texture=isLandmark?'landmark-'+landmark:'terrain-'+type;if(!scene.textures.exists(texture))continue;
+  const A=window.MESBGWorldArt,isBridge=t.surface==='bridge',dims=A.SIZE[t.type]||[t.drawW,t.drawH],scale=t.drawW/Terrain.TYPES[t.type].w,landmarkSource=isLandmark?scene.textures.get(texture).getSourceImage():null,w=isLandmark?Math.min(t.w+24,340*landmarkSource.width/landmarkSource.height):isBridge?t.w/.68:dims[0]*scale,h=isLandmark?w*landmarkSource.height/landmarkSource.width:isBridge?t.h+35:dims[1]*scale;
   const sprite=scene.add.image(t.x,t.y+(isBridge?0:t.h*.45),texture).setOrigin(.5,isBridge?.5:1).setDisplaySize(w,h).setAngle(t.angle||0).setDepth(isBridge?1.2:t.type==='rubble'?1.3:A.depth(t.y));
-  scene.textures.get(texture).setFilter(Ot.Textures.FilterMode.NEAREST);sprite.setData('worldTerrain',t);
+  scene.textures.get(texture).setFilter(Ot.Textures.FilterMode.NEAREST);sprite.setData('worldTerrain',t);sprite.setData('worldDimensions',[w,h]);sprite.setData('worldAnchorY',sprite.y);
   if(t.scorched)sprite.setTint(0x9c9481);
   scene._terrainObjects.add(sprite);
  }
@@ -11958,7 +11960,7 @@ Ve.prototype.update=function(t){worldUpdate.call(this,t);const A=window.MESBGWor
  // Depth follows animated ground coordinates. Tactical UI remains above this band.
  for(const c of this.tokens.values())if(c.depth>=5&&c.depth<5.1)c.setDepth(A.depth(c.y));
  if((this._worldOcclusionAt||0)>t)return;this._worldOcclusionAt=t+80;
- const units=b.alive();for(const sp of this._terrainObjects?.getChildren()||[]){const tr=sp.getData('worldTerrain');if(!tr)continue;const fade=units.some(u=>A.overlap(tr,u,unitHeadLift(u)||86));const alpha=fade?.43:1;if(sp.alpha!==alpha)sp.setAlpha(alpha);}
+ const units=b.alive();for(const sp of this._terrainObjects?.getChildren()||[]){const tr=sp.getData('worldTerrain');if(!tr)continue;const fade=units.some(u=>A.overlap({...tr,y:sp.getData('worldAnchorY')},u,unitHeadLift(u)||86,sp.getData('worldDimensions')));const alpha=fade?.43:1;if(sp.alpha!==alpha)sp.setAlpha(alpha);}
 };
 window.MESBG.worldArt=window.MESBGWorldArt;
 const tacticalResume=P.resume;
@@ -12866,3 +12868,267 @@ function bondIdentity(u){const d=typeof UnitCatalog!=='undefined'&&UnitCatalog[u
     }}catch(e){console.error('[bond]',e);}return r;};}
 {const _swb=P.startWave;P.startWave=function(){this._bondSeen={};return _swb.apply(this,arguments);};}
 if(window.MESBG){MESBG.bonds=HERO_BONDS;MESBG.aiMove=uid=>be(q,q.unit(uid));}
+
+/* ==== Online match (private room code, host-authoritative) ====
+   Flow: host creates a room (6-char code) and picks budget + auto/manual; guest joins with the code; both
+   build a band within the budget from either alignment; the host's device runs the battle (host = 'good'
+   slot, guest = 'evil' slot) and pushes snapshots; the guest's device shows the snapshot with sides swapped
+   (its own army is "아군") and relays its orders as commands. Transport: lwb-worker /room API, HTTP polling. */
+const ONLINE={role:null,code:null,token:null,settings:null,seq:0,stateSeq:-1,cmdSince:0,timer:null,busy:false,pushQueued:false,bfKey:'',events:[],lastErr:0};
+const PVP_GOLDS=[1000,2000,3000];
+const pvpApi=()=>{try{const u=new URLSearchParams(location.search).get('pvpapi');if(u)return u.replace(/\/$/,'');const s=localStorage.getItem('lwb_pvp_api');if(s)return s;}catch(e){}return LWB_API;};
+async function pvpFetch(path,opt={}){const api=pvpApi();if(!api)throw new Error('서버가 연결되지 않았습니다');
+    const r=await fetch(api+path,{method:opt.method||'GET',headers:{'Content-Type':'application/json'},body:opt.body?JSON.stringify(opt.body):undefined});
+    const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(({'not found':'대전 서버가 아직 준비되지 않았습니다 (서버 업데이트 필요)','room not found':'방을 찾을 수 없습니다','room is full':'이미 두 명이 들어간 방입니다','invalid token':'방 접속이 끊겼습니다'})[j.detail]||j.detail||('서버 오류 '+r.status));return j;}
+const swapSide=s=>s==='good'?'evil':s==='evil'?'good':s;
+function pvpStop(){clearTimeout(ONLINE.timer);ONLINE.timer=null;Object.assign(ONLINE,{role:null,code:null,token:null,settings:null,seq:0,stateSeq:-1,cmdSince:0,busy:false,pushQueued:false,bfKey:'',events:[]});if(q)q.pvp=null;}
+
+// ---------- band rules ----------
+function pvpCatalog(align){return Object.values(UnitCatalog).filter(d=>d.enabled&&d.meta.side===align&&d.points>0&&q.meta.has(d.id)).sort((a,b)=>(a.meta.faction||'').localeCompare(b.meta.faction||'')||(b.points-a.points));}
+function pvpBandCheck(band,budget,gold){const ids=band.units||[];let pts=0;const uniq=new Set();
+    for(const id of ids){const d=UnitCatalog[id];if(!d||!d.enabled||d.meta.side!==band.align)return '편성할 수 없는 유닛이 있습니다';pts+=pvpUnitGold(id);const k=d.uniqueKey;if(k){if(uniq.has(k))return esc(d.meta.name_ko)+'은(는) 한 명만 편성할 수 있습니다';uniq.add(k);}}
+    if(!ids.length)return '유닛을 한 명 이상 편성하세요';if(ids.length+(band.mercs||[]).length>30)return '최대 30명까지 편성할 수 있습니다';
+    for(const id of band.mercs||[]){const d=UnitCatalog[id];if(!d||d.meta.side!==band.align)return '고용할 수 없는 용병이 있습니다';}
+    if(gold!=null&&pts+(band.spent||0)>gold)return '군자금 초과 ('+(pts+(band.spent||0))+' / '+gold+')';
+    const per={},uniqEq=new Set();
+    for(const {eq,idx} of band.equip||[]){const a=LWB_EQUIP.find(x=>x.id===eq),id=ids[idx];if(!a||!id)return '장비 대상이 없습니다';const why=pvpEquipWhy(a,id,per[idx]||[]);if(why)return esc(UnitCatalog[id].meta.name_ko)+': '+why;
+        if(a.rare>=2){if(uniqEq.has(eq))return a.label+'은(는) 하나만 가질 수 있습니다';uniqEq.add(eq);}(per[idx]||(per[idx]=[])).push(eq);}
+    return '';}
+// One currency: units, gear and mercenaries all come out of the same war chest (campaign recruit prices).
+const pvpUnitGold=id=>{const d=UnitCatalog[id];return d?(d.recruitCost||Math.max(30,Math.round(d.points*.8/5)*5)):0;};
+const pvpPoints=ids=>ids.reduce((a,id)=>a+pvpUnitGold(id),0);
+// ---------- war chest shop (random offers per player) ----------
+const PVP_REROLL=15;
+function pvpMock(id){const p=zt[id]||{};return {id,traits:(p.traits||[]).slice(),stats:{...p},resources:{might:p.might||0,will:p.will||0,fate:p.fate||0}};}
+function pvpEquipWhy(a,id,has){const u=pvpMock(id);if(!(typeof isHeroUnit==='function'?isHeroUnit(id):u.traits.includes('hero')))return '영웅만 장비를 착용할 수 있습니다';
+    if(a.req&&!a.req(u))return '착용 조건이 맞지 않습니다';if(has.includes(a.id))return '이미 착용 중';if(has.length>=2)return '장비 칸(2)이 가득 찼습니다';return '';}
+function pvpRng(str){let h=2166136261;for(const c of str){h^=c.charCodeAt(0);h=Math.imul(h,16777619);}return Ne(h>>>0);}
+function pvpOffers(band){const rng=pvpRng((ONLINE.code||'')+'|'+ONLINE.role+'|'+(band.rerolls||0)+'|'+band.align),out=[];
+    const bag=LWB_EQUIP.filter(a=>!a.once&&!a.mount&&!a.mountGear&&a.cost>0&&a.fx).flatMap(a=>Array(a.rare>=2?1:4).fill(a));
+    while(out.length<4&&bag.length){const k=Math.floor(rng()*bag.length),a=bag[k];bag.splice(k,1);if(!out.some(o=>o.id===a.id))out.push({kind:'eq',id:a.id,cost:a.cost});}
+    const cat=pvpCatalog(band.align).filter(d=>d.points<=110&&!(typeof isHeroUnit==='function'&&isHeroUnit(d.id)));
+    for(let n=0;n<2&&cat.length;n++){const k=Math.floor(rng()*cat.length),d=cat[k];cat.splice(k,1);out.push({kind:'merc',id:d.id,cost:Math.max(10,Math.round(pvpUnitGold(d.id)*.6/5)*5)});}
+    return out;}
+
+// ---------- host: build and run the battle ----------
+P.startPvp=function(hostBand,guestBand,settings,seed){
+    AUTO=false;this.dailySeed=0;this.weeklySeed=0;this.difficulty='normal';
+    this.start('ai');
+    this.rng=Ne(seed>>>0);this.units=[];this.recruitOffers=[];this.recruitDraft=[];this.initialDraft=false;this.relics={};this.gold=0;this.cp=0;
+    this.pvp={manual:settings.mode!=='auto',hostAlign:hostBand.align,guestAlign:guestBand.align,hostName:hostBand.name||'방장',guestName:guestBand.name||'도전자',result:null};
+    this._darkEvent=true;this._eagleSent=true;this._midReinforced=true;this.nemeses=[];
+    const gearUp=(u,band,idx)=>{const eq=(band.equip||[]).filter(e=>e.idx===idx).map(e=>e.eq).filter(id=>LWB_EQUIP.some(a=>a.id===id));if(eq.length){u.equipment=eq;this.refreshUnit(u);u.currentWounds=u.stats.wounds;}};
+    hostBand.units.forEach((id,idx)=>{const u=this.spawn(id,'good',{x:-1000,y:-1000});u.quirkChecked=true;u.pvpBand=true;gearUp(u,hostBand,idx);});
+    for(const id of hostBand.mercs||[]){const u=this.spawn(id,'good',{x:-1000,y:-1000});u.quirkChecked=true;u.pvpBand=true;u.pvpMerc=true;}
+    const base=this.stageInfo(3);
+    this._routeChoice={...base,map:Number.isInteger(settings.map)?settings.map%CX.maps.length:base.map,mission:'annihilation',ids:guestBand.units.concat(guestBand.mercs||[]),boss:null,bossAll:null,modifier:null,n:3};
+    this.prepareStage();
+    for(const u of this.alive('good'))if(u.x<0)this.placeInDeployment(u);
+    this.startWave();
+    this._darkEvent=true;this.darkPending=null;this.darkActive=null;
+    // Campaign extras never belong in a duel: drop anything not in the two bands.
+    const slots=guestBand.units.map((id,idx)=>({id,idx})).concat((guestBand.mercs||[]).map(id=>({id,idx:-1})));
+    for(const u of this.units){if(u.side==='good'&&!u.pvpBand){u.alive=false;continue;}if(u.side!=='evil')continue;const k=slots.findIndex(x=>x.id===u.id);if(k<0){u.alive=false;continue;}const sl=slots.splice(k,1)[0];u.pvpBand=true;if(sl.idx<0)u.pvpMerc=true;else gearUp(u,guestBand,sl.idx);}
+    this.units=this.units.filter(u=>u.alive||u.pvpBand);
+    if(!this.pvp.manual)AUTO=true;
+    return true;
+};
+// Campaign end hooks become the duel result.
+for(const [name,winner] of [['finishWave','good'],['endRun',null]]){const orig=P[name];P[name]=function(){if(this.pvp&&!this.pvp.result){const w=winner||(arguments[0]?'good':'evil');this.pvp.result=w;AUTO=false;this.phase='pvpover';this.emit('Event',(w==='good'?this.pvp.hostName:this.pvp.guestName)+' 승리!');return true;}if(this.pvp)return true;return orig.apply(this,arguments);};}
+// Duel fairness: no command cards, undo, nemeses or recruit quirks; heroic actions work for both sides.
+for(const name of ['command','undoRound']){const orig=P[name];if(!orig)continue;P[name]=function(){if(this.pvp)return false;return orig.apply(this,arguments);};}
+{const _h=P.heroic;P.heroic=function(uid,key){const u=this.unit(uid);if(this.pvp&&u&&u.side==='evil'){const s=this.side;u.side='good';if(this.side==='evil')this.side='good';try{return _h.call(this,uid,key);}finally{u.side='evil';this.side=s;}}return _h.apply(this,arguments);};}
+{const _dr0=P.deploymentReason;if(_dr0)P.deploymentReason=function(){if(this.pvp)return '';return _dr0.apply(this,arguments);};}
+{const _a=assignQuirks;assignQuirks=function(b){if(b&&b.pvp)return [];return _a.apply(this,arguments);};}
+
+// Scheduler: the host's AI must not move the guest's army in manual duels; the guest never runs logic.
+{const _me=me;me=function(){if(q.pvp&&(ONLINE.role==='guest'||(ONLINE.role==='host'&&q.pvp.manual&&q.side==='evil'&&['move','shoot'].includes(q.phase)))){clearTimeout(Jt);return;}return _me.apply(this,arguments);};}
+{const _dr=P.drain;P.drain=function(){const ev=_dr.apply(this,arguments);if(this.pvp&&ONLINE.role==='host'){for(const e of ev){if(e.type==='Event'&&e.message||e.type==='RoundStarted'||e.type==='PriorityRolled'||(e.result&&(e.result.kind==='shot'||e.result.diceResults)))ONLINE.events.push(JSON.parse(JSON.stringify(e)));}ONLINE.events=ONLINE.events.slice(-12);}return ev;};}
+
+function pvpSnapshot(){const b=q,bf=b.battlefield,key=bf?(bf.key+'|'+bf.stage):'';const s={phase:b.phase,side:b.side,round:b.round,priority:b.priority,activeMoverUid:b.activeMoverUid||'',fightQueue:b.fightQueue||[],mission:b.mission,mapIndex:b.mapIndex,wave:b.wave,
+    terrain:b.terrain,units:b.units.filter(u=>u.alive||u.pvpBand),log:(b.log||[]).slice(0,30),pvp:b.pvp,ev:ONLINE.events.splice(0)};
+    if(key!==ONLINE.bfKey){s.battlefield=bf;ONLINE.bfKey=key;}return s;}
+async function pvpPush(){if(ONLINE.role!=='host'||!q.pvp)return;if(ONLINE.busy){ONLINE.pushQueued=true;return;}ONLINE.busy=true;
+    try{ONLINE.seq++;await pvpFetch('/room/'+ONLINE.code+'/state',{method:'PUT',body:{token:ONLINE.token,seq:ONLINE.seq,state:pvpSnapshot()}});}
+    catch(e){if(Date.now()-ONLINE.lastErr>8000){ONLINE.lastErr=Date.now();Xt('대전 서버 전송 실패 — '+e.message);}ONLINE.bfKey='';}
+    finally{ONLINE.busy=false;if(ONLINE.pushQueued){ONLINE.pushQueued=false;pvpPush();}}}
+{const _rt=Rt;Rt=async function(){const r=await _rt.apply(this,arguments);if(q.pvp&&ONLINE.role==='host')pvpPush();if(q.pvp&&q.pvp.result)pvpResult();return r;};}
+
+const PVP_OPS={move:(u,a)=>q.move(u.uid,a.to),charge:(u,a)=>q.charge(u.uid,a.target),shoot:(u,a)=>q.shoot(u.uid,a.target),wait:u=>q.wait(u.uid),heroic:(u,a)=>q.heroic(u.uid,a.key),skill:(u,a)=>q.skill(u.uid,a.choice),castSpell:(u,a)=>q.castSpell(u.uid,a.key),rotate:(u,a)=>q.rotate(u.uid,a.deg)};
+function pvpApplyCmd(c){if(!c||!q.pvp||q.pvp.result)return false;
+    if(c.op==='advance'){if(q.side!=='evil'||!['move','shoot'].includes(q.phase))return false;return q.advance();}
+    const u=q.unit(c.uid);if(!u||!u.alive||u.side!=='evil')return false;
+    if(c.op!=='heroic'&&(q.side!=='evil'||!['move','shoot'].includes(q.phase)))return false;
+    const f=PVP_OPS[c.op];return f?!!f(u,c):false;}
+async function pvpHostPoll(){if(ONLINE.role!=='host'||!q.pvp)return;
+    try{if(q.pvp.manual&&!q.pvp.result){const r=await pvpFetch('/room/'+ONLINE.code+'/cmds?token='+ONLINE.token+'&since='+ONLINE.cmdSince);
+        for(const {n,cmd} of r.cmds||[]){ONLINE.cmdSince=n;if(At)await new Promise(res=>{const t=setInterval(()=>{if(!At){clearInterval(t);res();}},60);});await Rt(()=>{if(!pvpApplyCmd(cmd)&&!['advance','wait'].includes(cmd&&cmd.op))q.emit('Event','상대의 명령을 처리할 수 없습니다');});}}}
+    catch(e){if(Date.now()-ONLINE.lastErr>8000){ONLINE.lastErr=Date.now();Xt('대전 서버 연결 확인 중 — '+e.message);}}
+    ONLINE.timer=setTimeout(pvpHostPoll,700);}
+
+// ---------- guest: mirror the host's snapshot, relay orders ----------
+function pvpApplyState(s){
+    q.pvp={...s.pvp,guestView:true};
+    q.units=s.units.map(u=>({...u,side:swapSide(u.side)}));
+    q.phase=s.phase;q.side=swapSide(s.side);q.priority=swapSide(s.priority);q.round=s.round;q.activeMoverUid=s.activeMoverUid;q.fightQueue=s.fightQueue;q.mission=s.mission;q.mapIndex=s.mapIndex;q.wave=s.wave;q.cp=0;
+    q.terrain=s.terrain;if(s.battlefield)q.battlefield=s.battlefield;q.log=s.log||[];
+    if(q.selected&&!q.unit(q.selected)?.alive)q.selected='';
+    AUTO=false;
+}
+async function pvpGuestPoll(){if(ONLINE.role!=='guest')return;
+    try{const r=await pvpFetch('/room/'+ONLINE.code+'?token='+ONLINE.token+'&since='+ONLINE.stateSeq);
+        if(r.state&&r.seq>ONLINE.stateSeq){ONLINE.stateSeq=r.seq;const first=!q.pvp;closePvpLobby();pvpApplyState(r.state);
+            if(first){try{const mine=q.alive('good');if(mine.length&&typeof setCamera==='function'){const cx=mine.reduce((a,u)=>a+u.x,0)/mine.length,cy=mine.reduce((a,u)=>a+u.y,0)/mine.length;setCamera(cx,cy,UX.zoom,'manual');}}catch(e){}Xt('온라인 대전 시작 — 내 부대가 "아군"으로 표시됩니다');}
+            Yt();try{Tt.sync&&Tt.sync();}catch(e){}
+            for(const e of r.state.ev||[]){if(e.type==='Event'&&e.message)Xt(e.message);else if(e.result||e.type==='PriorityRolled'){try{await $e(e);}catch(_){}}}
+            if(q.pvp.result)pvpResult();}}
+    catch(e){if(Date.now()-ONLINE.lastErr>8000){ONLINE.lastErr=Date.now();Xt('대전 서버 연결 확인 중 — '+e.message);}}
+    ONLINE.timer=setTimeout(pvpGuestPoll,700);}
+async function pvpSend(cmd){try{await pvpFetch('/room/'+ONLINE.code+'/cmd',{method:'POST',body:{token:ONLINE.token,cmd}});}catch(e){Xt('명령 전송 실패 — '+e.message);}}
+for(const op of ['move','charge','shoot','wait','heroic','skill','castSpell','rotate','advance','fightNext','startWave','deploy','command','undoRound']){const orig=P[op];if(!orig)continue;
+    P[op]=function(uid,arg){if(!(this.pvp&&ONLINE.role==='guest'))return orig.apply(this,arguments);
+        if(['fightNext','startWave','deploy','command','undoRound'].includes(op))return false;
+        if(this.side!=='good'&&op!=='heroic'){Xt('상대 차례입니다');return false;}
+        const u=uid&&this.unit(uid);if(op!=='advance'&&(!u||u.side!=='good'))return false;
+        const c={op,uid};if(op==='move')c.to={x:arg.x,y:arg.y};if(['charge','shoot'].includes(op))c.target=arg;if(['heroic','castSpell'].includes(op))c.key=arg;if(op==='skill')c.choice=arg;if(op==='rotate')c.deg=arg;
+        if(u&&['move','charge','shoot','wait'].includes(op))u.acted=true; // optimistic: stop double orders until the host answers
+        pvpSend(c);return true;};}
+
+// ---------- result ----------
+function pvpResult(){if(document.getElementById('pvp-result')||!q.pvp?.result)return;const mineWon=(ONLINE.role==='guest'?'evil':'good')===q.pvp.result;
+    const d=uiInfoDialog('pvp-result',mineWon?'승리':'패배','온라인 대전','<img src="icons/ui_swords.png" alt="">','<p style="font-size:15px;line-height:1.6">'+esc(q.pvp.hostName)+' vs '+esc(q.pvp.guestName)+'<br><b style="font-size:20px;color:#e8c66a">'+esc(q.pvp.result==='good'?q.pvp.hostName:q.pvp.guestName)+' 승리</b></p>','<button type="button" class="primary" id="pvp-exit">메인 메뉴</button>');
+    d.querySelector('#pvp-exit').onclick=()=>{d.close();pvpStop();AUTO=false;q.phase='menu';Yt();};}
+// Leaving through the battle menu ends the online session.
+{const _ex=document.getElementById('menu-exit');if(_ex)_ex.addEventListener('click',()=>{setTimeout(()=>{if(q.phase==='menu'&&ONLINE.role)pvpStop();},50);});}
+
+// ---------- lobby + band builder ----------
+PXI.duel=["KK......KK","KWK....KWK",".KWK..KWK.","..KWKKWK..","...KWWK...","...KWWK...","..KgKKgK..",".KgK..KgK.","KRK....KRK","KK......KK"];
+let PVP_LOBBY=null;
+function closePvpLobby(){if(PVP_LOBBY){clearTimeout(PVP_LOBBY.timer);PVP_LOBBY.el.remove();PVP_LOBBY=null;}}
+function pvpLobbyStyle(){if(document.getElementById('pvp-style'))return;const st=document.createElement('style');st.id='pvp-style';st.textContent=`
+#pvp-lobby{position:fixed;inset:0;z-index:80;display:flex;align-items:center;justify-content:center;padding:8px;box-sizing:border-box;background:rgba(0,0,0,.72)}
+#pvp-lobby .pv-sheet{width:100%;max-width:460px;max-height:calc(100dvh - 16px);overflow-y:auto;box-sizing:border-box;padding:22px 20px 20px;background:#202719;border:1px solid #c9a24e;box-shadow:0 0 0 3px #000a,0 12px 30px #000c;color:#efe6cf}
+#pvp-lobby h2{margin:0 0 12px;font-size:20px;line-height:1.3;text-align:center;color:#f3d891}
+#pvp-lobby p{font-size:13px;line-height:1.6;margin:6px 0;color:#d8ccb0}
+#pvp-lobby .pv-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:6px 0 10px}
+#pvp-lobby .pv-row.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+#pvp-lobby button{min-height:44px;font-size:14px;line-height:1.3;white-space:nowrap;word-break:keep-all}
+#pvp-lobby button.on{outline:2px solid #e8c66a;outline-offset:-2px;color:#fff3c8}
+#pvp-lobby .pv-label{font-size:13px;color:#c8b896;margin-top:8px}
+#pvp-lobby .pv-code{font:700 34px/1.2 Galmuri11,monospace;letter-spacing:.18em;text-align:center;color:#f3d891;margin:6px 0;user-select:all}
+#pvp-lobby input{width:100%;box-sizing:border-box;min-height:44px;font:700 22px/1 Galmuri11,monospace;letter-spacing:.2em;text-align:center;text-transform:uppercase;background:#11160d;color:#f3d891;border:1px solid #6f6446}
+#pvp-lobby input.pv-name{font:400 15px/1 Galmuri11,sans-serif;letter-spacing:0;text-transform:none;text-align:left;padding:0 10px}
+#pvp-lobby .pv-status{padding:8px;border:1px solid #6f6446;background:#14100acc;font-size:13px;line-height:1.6}
+#pvp-lobby .pv-pts{display:flex;justify-content:space-between;font-size:14px;margin:8px 0}
+#pvp-lobby .pv-pts b.over{color:#ff8c7a}
+#pvp-lobby .pv-chips{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0}
+#pvp-lobby .pv-chips button{min-height:32px;padding:2px 8px;font-size:12px}
+#pvp-lobby .pv-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;max-height:34vh;overflow-y:auto;margin:6px 0}
+#pvp-lobby .pv-unit{display:flex;align-items:center;gap:6px;min-height:52px;padding:4px 6px;text-align:left;white-space:normal}
+#pvp-lobby .pv-unit img{width:40px;height:40px;object-fit:contain;image-rendering:pixelated;flex:0 0 40px}
+#pvp-lobby .pv-unit span{display:flex;flex-direction:column;min-width:0;font-size:12px;line-height:1.35}
+#pvp-lobby .pv-unit small{color:#c8b896}
+#pvp-lobby .pv-band{display:flex;flex-wrap:wrap;gap:4px;min-height:48px;padding:4px;border:1px dashed #6f6446;margin:6px 0}
+#pvp-lobby .pv-band button{min-height:44px;width:44px;padding:0;position:relative}
+#pvp-lobby .pv-band button img{width:40px;height:40px;object-fit:contain;image-rendering:pixelated}
+#pvp-lobby .pv-err{color:#ff9c8c;font-size:13px;min-height:1.4em}
+#pvp-lobby .pv-offers{display:grid;gap:6px;margin:8px 0}
+#pvp-lobby .pv-offer{display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:8px;align-items:center;padding:6px;border:1px solid #6f6446;background:#14100acc}
+#pvp-lobby .pv-offer.sold{opacity:.55}
+#pvp-lobby .pv-offer>img{width:40px;height:40px;object-fit:contain;image-rendering:pixelated}
+#pvp-lobby .pv-o-tx{display:flex;flex-direction:column;gap:2px;min-width:0;font-size:13px;line-height:1.4}
+#pvp-lobby .pv-o-tx small{color:#c8b896;font-size:12px;line-height:1.45;word-break:keep-all;overflow-wrap:anywhere}
+#pvp-lobby .pv-o-tx select{min-height:32px;font-size:13px;background:#11160d;color:#efe6cf;border:1px solid #6f6446;max-width:100%}
+#pvp-lobby .pv-offer>button{min-width:84px;padding:0 8px}
+#pvp-lobby .pv-warn{color:#ff9c8c!important}
+#pvp-lobby .pv-owned{display:flex;flex-wrap:wrap;gap:4px}
+#pvp-lobby .pv-own{display:flex;align-items:center;gap:4px;min-height:36px;padding:2px 8px;font-size:12px;white-space:normal}
+#pvp-lobby .pv-own img{width:24px;height:24px;object-fit:contain;image-rendering:pixelated}
+#pvp-lobby .pv-band button.merc{outline:2px solid #d8b45e;outline-offset:-2px;opacity:1}
+#pvp-lobby .pv-eqn{position:absolute;right:1px;top:1px;font:700 10px/12px Galmuri11,sans-serif;color:#1a1206;background:#e8c66a;padding:0 3px;font-style:normal}
+#pvp-lobby .pv-tabs button{font-size:13px}`;document.head.appendChild(st);}
+function pvpLobby(){pvpLobbyStyle();closePvpLobby();const el=document.createElement('div');el.id='pvp-lobby';el.innerHTML='<div class="pv-sheet"></div>';document.body.appendChild(el);
+    PVP_LOBBY={el,step:'home',tab:'band',settings:{gold:2000,mode:'auto',map:Math.floor(Math.random()*CX.maps.length)},band:{align:'good',units:[],name:'',equip:[],mercs:[],spent:0,rerolls:0,sold:[]},faction:'',timer:null,info:null,err:''};
+    el.addEventListener('click',e=>{if(e.target===el)return;});pvpRender();}
+function pvpRender(){const L=PVP_LOBBY;if(!L)return;const box=L.el.querySelector('.pv-sheet');const s=L.settings;
+    const err='<div class="pv-err" role="status">'+esc(L.err||'')+'</div>';
+    if(L.step==='home'){box.innerHTML='<h2>온라인 대전</h2><p>두 사람이 같은 군자금으로 병사·영웅·장비를 사서 맞붙습니다. 병사 수로 밀지, 영웅과 장비에 몰지는 각자 정합니다. 방장이 만든 비공개 코드로만 들어올 수 있습니다.</p>'
+        +'<div class="pv-label">군자금 — 병사·영웅·장비를 모두 이 금화로 삽니다</div><div class="pv-row">'+PVP_GOLDS.map(g=>'<button type="button" data-gold="'+g+'" class="'+(s.gold===g?'on':'')+'">금화 '+g+'</button>').join('')+'</div>'
+        +'<div class="pv-label">대전 방식</div><div class="pv-row two"><button type="button" data-mode="auto" class="'+(s.mode==='auto'?'on':'')+'">오토 대전</button><button type="button" data-mode="manual" class="'+(s.mode==='manual'?'on':'')+'">수동 대전</button></div>'
+        +'<button type="button" class="primary" id="pv-create" style="width:100%">방 만들기</button>'
+        +'<div class="pv-label" style="margin-top:14px">코드로 참가</div><input id="pv-code" maxlength="6" autocomplete="off" placeholder="ABC123"><div class="pv-row two" style="margin-top:8px"><button type="button" id="pv-join" class="secondary">참가하기</button><button type="button" id="pv-close" class="secondary">닫기</button></div>'+err;
+        
+        box.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{s.mode=b.dataset.mode;pvpRender();});box.querySelectorAll('[data-gold]').forEach(b=>b.onclick=()=>{s.gold=+b.dataset.gold;pvpRender();});
+        box.querySelector('#pv-close').onclick=()=>{closePvpLobby();pvpStop();};
+        box.querySelector('#pv-create').onclick=async()=>{L.err='';try{const r=await pvpFetch('/room',{method:'POST',body:{settings:s}});Object.assign(ONLINE,{role:'host',code:r.code,token:r.token,settings:{...s}});L.step='build';pvpRender();pvpLobbyPoll();}catch(e){L.err=e.message;pvpRender();}};
+        box.querySelector('#pv-join').onclick=async()=>{L.err='';const code=(box.querySelector('#pv-code').value||'').trim().toUpperCase();if(!/^[A-Z0-9]{6}$/.test(code)){L.err='6자리 코드를 입력하세요';pvpRender();return;}
+            try{const r=await pvpFetch('/room/'+code+'/join',{method:'POST',body:{}});Object.assign(ONLINE,{role:'guest',code,token:r.token,settings:r.settings||{}});L.settings={...L.settings,...(r.settings||{})};L.step='build';pvpRender();pvpLobbyPoll();}catch(e){L.err=e.message;pvpRender();}};
+        return;}
+    const gold=ONLINE.settings?.gold??s.gold,band=L.band,pts=pvpPoints(band.units),budget=gold-(band.spent||0),info=L.info||{};
+    const mineReady=ONLINE.role==='host'?!!info.hostBand:!!info.guestBand,otherReady=ONLINE.role==='host'?!!info.guestBand:!!info.hostBand;
+    const status='<div class="pv-status">방 코드<div class="pv-code">'+esc(ONLINE.code)+'</div>'+(ONLINE.settings?.mode==='manual'?'수동 대전':'오토 대전')+' · 군자금 '+gold+' · '+(ONLINE.role==='host'?(info.guest?'상대 입장 완료':'상대를 기다리는 중 — 코드를 알려 주세요'):'방장과 연결됨')+'<br>내 편성 '+(mineReady?'준비 완료':'작성 중')+' · 상대 편성 '+(otherReady?'준비 완료':'작성 중')+'</div>';
+    if(L.step==='ready'){box.innerHTML='<h2>대기실</h2>'+status+(ONLINE.role==='host'?'<button type="button" class="primary" id="pv-start" style="width:100%;margin-top:10px"'+(otherReady&&mineReady?'':' disabled')+'>전투 시작</button>':'<p>방장이 전투를 시작하면 바로 넘어갑니다.</p>')+'<div class="pv-row two" style="margin-top:8px"><button type="button" id="pv-edit" class="secondary">편성 수정</button><button type="button" id="pv-leave" class="secondary">나가기</button></div>'+err;
+        box.querySelector('#pv-edit').onclick=()=>{L.step='build';pvpRender();};
+        box.querySelector('#pv-leave').onclick=()=>{closePvpLobby();pvpStop();};
+        const st=box.querySelector('#pv-start');if(st)st.onclick=()=>pvpHostStart();return;}
+    const tabs='<div class="pv-row two pv-tabs"><button type="button" data-tab="band" class="'+(L.tab!=='shop'?'on':'')+'">부대 ('+band.units.length+'명)</button><button type="button" data-tab="shop" class="'+(L.tab==='shop'?'on':'')+'">장비·용병 상점</button></div>';
+    const wireTabs=()=>box.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{L.tab=b.dataset.tab;L.err='';pvpRender();});
+    const img=id=>(typeof Th==='function'?Th(UnitCatalog[id].meta.file):Ut(UnitCatalog[id].meta.file));
+    if(L.tab==='shop'){
+        const left=gold-(band.spent||0)-pts,offers=pvpOffers(band),sold=band.sold||[];
+        const heroes=band.units.map((id,idx)=>({id,idx})).filter(h=>typeof isHeroUnit==='function'?isHeroUnit(h.id):true);
+        const card=(o,i)=>{const isEq=o.kind==='eq',a=isEq&&LWB_EQUIP.find(x=>x.id===o.id),d=!isEq&&UnitCatalog[o.id],done=sold.includes(i);
+            let pickHtml='';if(isEq&&!done){const ok=heroes.filter(h=>!pvpEquipWhy(a,h.id,band.equip.filter(e=>e.idx===h.idx).map(e=>e.eq)));
+                pickHtml=ok.length?'<select data-target="'+i+'" aria-label="장착할 영웅">'+ok.map(h=>'<option value="'+h.idx+'">'+esc(UnitCatalog[h.id].meta.name_ko)+'</option>').join('')+'</select>':'<small class="pv-warn">장착할 수 있는 영웅이 없습니다</small>';}
+            return '<div class="pv-offer'+(done?' sold':'')+'"><img src="'+(isEq?(a.iconImg||'icons/ui_swords.png'):img(o.id))+'" alt=""><div class="pv-o-tx"><b>'+esc(isEq?a.label:d.meta.name_ko)+'</b><small>'+esc(isEq?a.desc:'할인 용병 · 정가 금화 '+pvpUnitGold(o.id))+'</small>'+pickHtml+'</div><button type="button" class="'+(done?'secondary':'primary')+'" data-buy="'+i+'"'+(done||o.cost>left||(isEq&&!pickHtml.includes('<select'))?' disabled':'')+'>'+(done?'구매함':'금화 '+o.cost)+'</button></div>';};
+        const owned=band.equip.map((e,k)=>{const a=LWB_EQUIP.find(x=>x.id===e.eq);return '<button type="button" class="pv-own" data-unequip="'+k+'" title="되팔기 (전액 환불)"><img src="'+(a?.iconImg||'icons/ui_swords.png')+'" alt=""><span>'+esc(a?.label||e.eq)+' → '+esc(UnitCatalog[band.units[e.idx]]?.meta.name_ko||'')+'</span></button>';}).join('')
+            +band.mercs.map((id,k)=>'<button type="button" class="pv-own" data-unmerc="'+k+'" title="계약 해지 (전액 환불)"><img src="'+img(id)+'" alt=""><span>용병 '+esc(UnitCatalog[id].meta.name_ko)+'</span></button>').join('');
+        box.innerHTML='<h2>상점</h2>'+status+tabs+'<p>상품은 사람마다 무작위로 나옵니다. 장비는 편성한 영웅에게 붙고, 용병은 정가의 60%로 고용합니다. 남은 금화 '+Math.max(0,left)+'</p>'
+            +'<div class="pv-offers">'+offers.map(card).join('')+'</div>'
+            +'<div class="pv-row two"><button type="button" class="secondary" id="pv-reroll"'+(left<PVP_REROLL?' disabled':'')+'>상품 바꾸기 · 금화 '+PVP_REROLL+'</button><button type="button" class="primary" id="pv-ready">편성 완료</button></div>'
+            +(owned?'<div class="pv-label">구매한 것 (누르면 환불)</div><div class="pv-owned">'+owned+'</div>':'')+err;
+        wireTabs();
+        box.querySelectorAll('[data-buy]').forEach(b=>b.onclick=()=>{const i=+b.dataset.buy,o=offers[i];if(!o||sold.includes(i)||o.cost>gold-(band.spent||0)-pts)return;
+            if(o.kind==='eq'){const sel=box.querySelector('[data-target="'+i+'"]');if(!sel)return;band.equip.push({eq:o.id,idx:+sel.value});}else{if(band.units.length+band.mercs.length>=30){L.err='최대 30명까지 편성할 수 있습니다';pvpRender();return;}band.mercs.push(o.id);}
+            band.spent=(band.spent||0)+o.cost;(band.sold||(band.sold=[])).push(i);L.err='';wt.play&&wt.play('ui_select');pvpRender();});
+        box.querySelector('#pv-reroll').onclick=()=>{if(gold-(band.spent||0)-pts<PVP_REROLL)return;band.rerolls=(band.rerolls||0)+1;band.spent=(band.spent||0)+PVP_REROLL;band.sold=[];pvpRender();};
+        box.querySelectorAll('[data-unequip]').forEach(b=>b.onclick=()=>{const e=band.equip.splice(+b.dataset.unequip,1)[0];band.spent-=(LWB_EQUIP.find(a=>a.id===e.eq)?.cost||0);pvpRender();});
+        box.querySelectorAll('[data-unmerc]').forEach(b=>b.onclick=()=>{const id=band.mercs.splice(+b.dataset.unmerc,1)[0];band.spent-=Math.max(10,Math.round(pvpUnitGold(id)*.6/5)*5);pvpRender();});
+        box.querySelector('#pv-ready').onclick=async()=>{const why=pvpBandCheck(band,budget,gold);if(why){L.err=why;pvpRender();return;}L.err='';
+            try{await pvpFetch('/room/'+ONLINE.code+'/band',{method:'POST',body:{token:ONLINE.token,band:{align:band.align,units:band.units,mercs:band.mercs,equip:band.equip,spent:band.spent,name:(band.name||'').trim()||(ONLINE.role==='host'?'방장':'도전자')}}});L.step='ready';pvpRender();}catch(e){L.err=e.message;pvpRender();}};
+        return;}
+    // build
+    const cat=pvpCatalog(band.align),facs=[...new Set(cat.map(d=>d.meta.faction))];
+    const fk=f=>({other:'기타',men:'인간'})[f]||FACTION_LABEL(cat.find(d=>d.meta.faction===f)?.id||'')||f;
+    const shown=cat.filter(d=>!L.faction||d.meta.faction===L.faction);
+    box.innerHTML='<h2>부대 편성</h2>'+status+tabs
+        +'<div class="pv-label">부대 이름</div><input class="pv-name" id="pv-name" maxlength="16" placeholder="'+(ONLINE.role==='host'?'방장':'도전자')+'" value="'+esc(band.name||'')+'">'
+        +'<div class="pv-label">진영</div><div class="pv-row two"><button type="button" data-align="good" class="'+(band.align==='good'?'on':'')+'">자유 민족 (선)</button><button type="button" data-align="evil" class="'+(band.align==='evil'?'on':'')+'">어둠의 세력 (악)</button></div>'
+        +'<div class="pv-chips"><button type="button" data-fac="" class="'+(!L.faction?'on':'')+'">전체</button>'+facs.map(f=>'<button type="button" data-fac="'+f+'" class="'+(L.faction===f?'on':'')+'">'+esc(fk(f))+'</button>').join('')+'</div>'
+        +'<div class="pv-list">'+shown.slice(0,120).map(d=>'<button type="button" class="pv-unit" data-add="'+d.id+'"'+(pts+pvpUnitGold(d.id)>budget?' disabled':'')+'><img src="'+(typeof Th==='function'?Th(d.meta.file):Ut(d.meta.file))+'" alt=""><span><b>'+esc(d.meta.name_ko)+'</b><small>금화 '+pvpUnitGold(d.id)+'</small></span></button>').join('')+'</div>'
+        +'<div class="pv-pts"><span>내 부대 '+band.units.length+'명</span><b class="'+(pts>budget?'over':'')+'">남은 금화 '+(gold-pts-(band.spent||0))+' / '+gold+'</b></div>'
+        +'<div class="pv-band">'+band.mercs.map(id=>'<button type="button" class="merc" disabled title="용병 (상점에서 관리)"><img src="'+img(id)+'" alt=""></button>').join('')+band.units.map((id,i)=>'<button type="button" data-rm="'+i+'" title="'+esc(UnitCatalog[id].meta.name_ko)+' 빼기" aria-label="'+esc(UnitCatalog[id].meta.name_ko)+' 빼기"><img src="'+img(id)+'" alt="">'+(band.equip.some(e=>e.idx===i)?'<i class="pv-eqn">'+band.equip.filter(e=>e.idx===i).length+'</i>':'')+'</button>').join('')+'</div>'
+        +'<div class="pv-row two"><button type="button" class="primary" id="pv-ready">편성 완료</button><button type="button" id="pv-leave" class="secondary">나가기</button></div>'+err;
+    wireTabs();box.querySelector('#pv-name').oninput=e=>{band.name=e.target.value.slice(0,16);};
+    box.querySelectorAll('[data-align]').forEach(b=>b.onclick=()=>{if(band.align!==b.dataset.align){band.align=b.dataset.align;band.units=[];band.mercs=[];band.equip=[];band.spent=(band.rerolls||0)*PVP_REROLL;band.sold=[];L.faction='';}pvpRender();});
+    box.querySelectorAll('[data-fac]').forEach(b=>b.onclick=()=>{L.faction=b.dataset.fac;pvpRender();});
+    box.querySelectorAll('[data-add]').forEach(b=>b.onclick=()=>{const id=b.dataset.add,t={...band,units:band.units.concat(id)};const why=pvpBandCheck(t,0,gold);if(why&&!/^유닛을/.test(why)){L.err=why;pvpRender();return;}L.err='';band.units.push(id);const sc=box.querySelector('.pv-list').scrollTop;pvpRender();PVP_LOBBY.el.querySelector('.pv-list').scrollTop=sc;});
+    box.querySelectorAll('[data-rm]').forEach(b=>b.onclick=()=>{const k=+b.dataset.rm;for(const e of band.equip.filter(e=>e.idx===k))band.spent-=(LWB_EQUIP.find(a=>a.id===e.eq)?.cost||0);band.equip=band.equip.filter(e=>e.idx!==k).map(e=>({...e,idx:e.idx>k?e.idx-1:e.idx}));band.units.splice(k,1);const sc=box.querySelector('.pv-list').scrollTop;pvpRender();PVP_LOBBY.el.querySelector('.pv-list').scrollTop=sc;});
+    box.querySelector('#pv-leave').onclick=()=>{closePvpLobby();pvpStop();};
+    box.querySelector('#pv-ready').onclick=async()=>{const why=pvpBandCheck(band,budget,gold);if(why){L.err=why;pvpRender();return;}L.err='';
+        try{await pvpFetch('/room/'+ONLINE.code+'/band',{method:'POST',body:{token:ONLINE.token,band:{align:band.align,units:band.units,mercs:band.mercs,equip:band.equip,spent:band.spent,name:(band.name||'').trim()||(ONLINE.role==='host'?'방장':'도전자')}}});L.step='ready';pvpRender();}catch(e){L.err=e.message;pvpRender();}};
+}
+async function pvpLobbyPoll(){const L=PVP_LOBBY;if(!L||!ONLINE.role)return;
+    try{const r=await pvpFetch('/room/'+ONLINE.code+'?token='+ONLINE.token+'&since='+ONLINE.stateSeq);const before=JSON.stringify([L.info?.guest,!!L.info?.hostBand,!!L.info?.guestBand]);L.info=r;if(r.settings)ONLINE.settings=r.settings;
+        if(ONLINE.role==='guest'&&r.state){clearTimeout(L.timer);pvpGuestPoll();return;}
+        if(JSON.stringify([r.guest,!!r.hostBand,!!r.guestBand])!==before&&L.step!=='home'){const a=document.activeElement;if(!(a&&a.id==='pv-name'))pvpRender();}}
+    catch(e){L.err=e.message;}
+    if(PVP_LOBBY)PVP_LOBBY.timer=setTimeout(pvpLobbyPoll,1200);}
+async function pvpHostStart(){const L=PVP_LOBBY;try{const r=await pvpFetch('/room/'+ONLINE.code+'?token='+ONLINE.token);
+        const budget=0,gold=ONLINE.settings.gold??0;for(const [b,who] of [[r.hostBand,'내'],[r.guestBand,'상대']]){const why=b?pvpBandCheck(b,budget,gold):'편성이 없습니다';if(why){L.err=who+' 편성: '+why;pvpRender();return;}}
+        closePvpLobby();const seed=(Math.random()*2**31)|0;
+        let failed=null;await Rt(()=>{try{q.startPvp(r.hostBand,r.guestBand,ONLINE.settings,seed);}catch(e){failed=e;console.error('[pvp start]',e);}});if(failed){Xt('대전 시작 실패 — '+failed.message);return;}pvpPush();clearTimeout(ONLINE.timer);pvpHostPoll();}
+    catch(e){if(L){L.err=e.message;pvpRender();}else Xt('대전 시작 실패 — '+e.message);}}
+// Title button
+{const _yt=Yt;Yt=function(){const r=_yt.apply(this,arguments);try{if(q.phase==='menu'&&!document.getElementById('pvp-open')){const g=document.getElementById('t-menu-open');if(g){g.insertAdjacentHTML('beforebegin','<button id="pvp-open" class="t-btn dock-it" aria-label="온라인 대전"><i class="medal">'+pxSvg('duel')+'</i><span>대전</span></button>');document.getElementById('pvp-open').onclick=()=>pvpLobby();}}}catch(e){console.error('[pvp]',e);}return r;};}
+if(window.MESBG){MESBG.online=ONLINE;MESBG.pvpLobby=pvpLobby;}
