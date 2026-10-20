@@ -1,12 +1,57 @@
 {
-  "count": 154,
+  "count": 157,
   "groups": {
     "gondor": 59,
     "mordor": 73,
-    "rohan": 22
+    "rohan": 25
   },
-  "pending": 356,
+  "pending": 353,
   "units": [
+    {
+      "id": "haleth",
+      "name": "할레스",
+      "group": "로한",
+      "role": "hero",
+      "image": "art/full-roster-night-rebuild-20261019/units/haleth.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/haleth.png",
+      "old": "tokens/haleth.png",
+      "status": "검토 대기",
+      "body": "인간 5등신 · 하이앵글 프론트뷰",
+      "pose": "",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/haleth.png?v=d3ba594b27320f9ad33b00d894ae71106d21c89d",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/haleth.png?v=d3ba594b27320f9ad33b00d894ae71106d21c89d",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/haleth.png"
+    },
+    {
+      "id": "dunhere",
+      "name": "둔헤레",
+      "group": "로한",
+      "role": "hero",
+      "image": "art/full-roster-night-rebuild-20261019/units/dunhere.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/dunhere.png",
+      "old": "tokens/dunhere.png",
+      "status": "검토 대기",
+      "body": "인간 5등신 · 하이앵글 프론트뷰",
+      "pose": "",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dunhere.png?v=e85ca831982d3a41b4be2ddeed10f6e1ed9fb081",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dunhere.png?v=e85ca831982d3a41b4be2ddeed10f6e1ed9fb081",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/dunhere.png"
+    },
+    {
+      "id": "rohan_royal_guard_mounted",
+      "name": "로한 근위기병",
+      "group": "로한",
+      "role": "cavalry",
+      "image": "art/full-roster-night-rebuild-20261019/units/rohan_royal_guard_mounted.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/rohan_royal_guard_mounted.png",
+      "old": "tokens/rohan_royal_guard_mounted.png",
+      "status": "검토 대기",
+      "body": "인간 기수 5등신 · 하이앵글 프론트뷰",
+      "pose": "",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/rohan_royal_guard_mounted.png?v=e3d6d3771564290cd54ab88271f3a9dd89286f82",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/rohan_royal_guard_mounted.png?v=e3d6d3771564290cd54ab88271f3a9dd89286f82",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/rohan_royal_guard_mounted.png"
+    },
     {
       "id": "harding",
       "name": "하딩",

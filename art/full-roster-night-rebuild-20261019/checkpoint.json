@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T00:10:28.346Z",
+  "updatedAt": "2026-10-20T00:15:21.354Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
-  "state": "generation_in_progress",
+  "state": "checkpoint_saved",
   "blocker": null,
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 356,
-    "newlyGeneratedThisSession": 22,
-    "visuallyReviewedThisSession": 22,
+    "pending": 353,
+    "newlyGeneratedThisSession": 25,
+    "visuallyReviewedThisSession": 25,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 22,
-    "persistedReviewAssets": 154,
+    "generatedReviewAssets": 25,
+    "persistedReviewAssets": 157,
     "revisedAfterRejection": 5
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -43,13 +43,13 @@
     "deployment": "승인 전 main 병합·배포 금지"
   },
   "resume": {
-    "nextAction": "Continue next pending Rohan IDs; executable environment now available. Preserve and update unified gallery for every checkpoint.",
+    "nextAction": "Continue nextIds, then next pending faction. Save small batches and refresh every unified gallery artifact together.",
     "nextIds": [
-      "rohan_royal_guard_mounted",
-      "dunhere",
-      "haleth",
       "eorl_the_young",
-      "helm_hammerhand"
+      "helm_hammerhand",
+      "sons_of_eorl",
+      "hera",
+      "frealaf"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
@@ -2909,8 +2909,13 @@
       "faction": "rohan",
       "role": "cavalry",
       "original": "tokens/rohan_royal_guard_mounted.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "rohan",
+      "path": "art/full-roster-night-rebuild-20261019/units/rohan_royal_guard_mounted.png",
+      "blobSHA": "e3d6d3771564290cd54ab88271f3a9dd89286f82",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "arvedui",
@@ -3293,8 +3298,13 @@
       "faction": "rohan",
       "role": "hero",
       "original": "tokens/dunhere.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "rohan",
+      "path": "art/full-roster-night-rebuild-20261019/units/dunhere.png",
+      "blobSHA": "e85ca831982d3a41b4be2ddeed10f6e1ed9fb081",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "haleth",
@@ -3302,8 +3312,13 @@
       "faction": "rohan",
       "role": "hero",
       "original": "tokens/haleth.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "rohan",
+      "path": "art/full-roster-night-rebuild-20261019/units/haleth.png",
+      "blobSHA": "d3ba594b27320f9ad33b00d894ae71106d21c89d",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "bandobras",
@@ -5142,14 +5157,14 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 154,
+    "count": 157,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
       "gondor": 59,
       "mordor": 73,
-      "rohan": 22
+      "rohan": 25
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,

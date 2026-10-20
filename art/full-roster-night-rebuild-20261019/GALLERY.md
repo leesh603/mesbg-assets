@@ -1,8 +1,24 @@
-# 전체 재제작 검토 — 154종
+# 전체 재제작 검토 — 157종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
 
-곤도르 59 · 모르도르/나즈굴 73 · 로한 22. 이미지 생성 검토본이며 승인·게임 적용 전입니다.
+### 할레스 (haleth)
+
+![할레스](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/haleth.png?v=d3ba594b27320f9ad33b00d894ae71106d21c89d)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/haleth.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/haleth.png?v=d3ba594b27320f9ad33b00d894ae71106d21c89d)
+
+### 둔헤레 (dunhere)
+
+![둔헤레](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dunhere.png?v=e85ca831982d3a41b4be2ddeed10f6e1ed9fb081)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/dunhere.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dunhere.png?v=e85ca831982d3a41b4be2ddeed10f6e1ed9fb081)
+
+### 로한 근위기병 (rohan_royal_guard_mounted)
+
+![로한 근위기병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/rohan_royal_guard_mounted.png?v=e3d6d3771564290cd54ab88271f3a9dd89286f82)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/rohan_royal_guard_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/rohan_royal_guard_mounted.png?v=e3d6d3771564290cd54ab88271f3a9dd89286f82)
 
 ### 하딩 (harding)
 
