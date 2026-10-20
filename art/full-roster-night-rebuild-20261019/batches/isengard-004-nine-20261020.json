@@ -1,0 +1,177 @@
+{
+  "batch": "isengard-004-nine-20261020",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "warg",
+      "pose": "낮게 달려드는 검은 와르그",
+      "detail": "Large dark charcoal wolf/warg with shaggy jagged mane and back ridge, long heavy body, powerful paws, bared yellow fangs. Both forepaws planted apart, hindlegs staggered behind, full tail. Head LOW below shoulders, crown/back clearly visible, no rider.",
+      "group": "아이센가드",
+      "groupKey": "isengard",
+      "mounted": false,
+      "beast": true,
+      "bodyDescription": "종족별 체형 · 하이앵글 프론트뷰",
+      "prompt": "ONE isolated production game token on truly transparent RGBA. Image1 is pixel density, stepped dark outlines, restrained short shade ramps and elevated-front CAMERA master; image2 supplies exact character design/palette/equipment only. Redraw cleanly in that coherent pixel style. Camera FRONT looking DOWN35degrees: crown and shoulder/withers/back TOP planes clearly visible, never eyelevel front or side view. Head bowed downward; NO face-on eye contact. Body centered, full silhouette and every weapon/tail tip visible with generous transparent margins. No floor, circular base, shadow, text, glow, scenery or extra characters. Large dark charcoal wolf/warg with shaggy jagged mane and back ridge, long heavy body, powerful paws, bared yellow fangs. Both forepaws planted apart, hindlegs staggered behind, full tail. Head LOW below shoulders, crown/back clearly visible, no rider.",
+      "refs": [
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/gondor-rebuild-20261019/units/warrior_minas_tirith.png",
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/warg.png"
+      ],
+      "blobSHA": "5145c6a61c10dadc50ba91512c21f1f5f91c50b0",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-5ae5bd56-3e9c-4816-b510-04b68f47f65a.png"
+    },
+    {
+      "id": "warg_alpha",
+      "pose": "흉터·뼈 목걸이 우두머리",
+      "detail": "Huge charcoal warg, distinctive pale gray neck mane ring, brown leather collar with ivory spikes, pink scars across head/back, raised curling tail. One forepaw raised, other three grounded. Deep bowed snarling head, body broad muscular but not oversized head. No rider.",
+      "group": "아이센가드",
+      "groupKey": "isengard",
+      "mounted": false,
+      "beast": true,
+      "bodyDescription": "종족별 체형 · 하이앵글 프론트뷰",
+      "prompt": "ONE isolated production game token on truly transparent RGBA. Image1 is pixel density, stepped dark outlines, restrained short shade ramps and elevated-front CAMERA master; image2 supplies exact character design/palette/equipment only. Redraw cleanly in that coherent pixel style. Camera FRONT looking DOWN35degrees: crown and shoulder/withers/back TOP planes clearly visible, never eyelevel front or side view. Head bowed downward; NO face-on eye contact. Body centered, full silhouette and every weapon/tail tip visible with generous transparent margins. No floor, circular base, shadow, text, glow, scenery or extra characters. Huge charcoal warg, distinctive pale gray neck mane ring, brown leather collar with ivory spikes, pink scars across head/back, raised curling tail. One forepaw raised, other three grounded. Deep bowed snarling head, body broad muscular but not oversized head. No rider.",
+      "refs": [
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/gondor-rebuild-20261019/units/warrior_minas_tirith.png",
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/warg_alpha.png"
+      ],
+      "blobSHA": "8a7dc7232765e10a27584eecfaffb138a731dac3",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-1d6f5f25-9cd5-4239-92ac-2246cdc84501.png"
+    },
+    {
+      "id": "wild_warg",
+      "pose": "갈색 와르그의 측면 도약 준비",
+      "detail": "Brown/tawny wild warg, dark spine ridge, ochre eyes, long bushy tail curving to right. Lean long quadruped, both forepaws close and hindquarters high with one back paw stepping. Front orientation with 10degree torso yaw, seen from above-front. Head down.",
+      "group": "아이센가드",
+      "groupKey": "isengard",
+      "mounted": false,
+      "beast": true,
+      "bodyDescription": "종족별 체형 · 하이앵글 프론트뷰",
+      "prompt": "ONE isolated production game token on truly transparent RGBA. Image1 is pixel density, stepped dark outlines, restrained short shade ramps and elevated-front CAMERA master; image2 supplies exact character design/palette/equipment only. Redraw cleanly in that coherent pixel style. Camera FRONT looking DOWN35degrees: crown and shoulder/withers/back TOP planes clearly visible, never eyelevel front or side view. Head bowed downward; NO face-on eye contact. Body centered, full silhouette and every weapon/tail tip visible with generous transparent margins. No floor, circular base, shadow, text, glow, scenery or extra characters. Brown/tawny wild warg, dark spine ridge, ochre eyes, long bushy tail curving to right. Lean long quadruped, both forepaws close and hindquarters high with one back paw stepping. Front orientation with 10degree torso yaw, seen from above-front. Head down.",
+      "refs": [
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/gondor-rebuild-20261019/units/warrior_minas_tirith.png",
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/wild_warg.png"
+      ],
+      "blobSHA": "76466fd96169047d101f18560c8e64d23445e5dd",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-de9bac5c-6ec7-479a-9e19-2e78b820fc9c.png"
+    },
+    {
+      "id": "wild_warg_alpha",
+      "pose": "흰 갈기의 갈색 우두머리",
+      "detail": "Massive dark brown wild warg with distinctive ivory-white jagged stripe from crown along back, white brow lines, pink body scars and bushy tail. Braced four paws wide, crouched ready to spring. Full long torso behind smallish natural wolf skull, eyes aimed downward.",
+      "group": "아이센가드",
+      "groupKey": "isengard",
+      "mounted": false,
+      "beast": true,
+      "bodyDescription": "종족별 체형 · 하이앵글 프론트뷰",
+      "prompt": "ONE isolated production game token on truly transparent RGBA. Image1 is pixel density, stepped dark outlines, restrained short shade ramps and elevated-front CAMERA master; image2 supplies exact character design/palette/equipment only. Redraw cleanly in that coherent pixel style. Camera FRONT looking DOWN35degrees: crown and shoulder/withers/back TOP planes clearly visible, never eyelevel front or side view. Head bowed downward; NO face-on eye contact. Body centered, full silhouette and every weapon/tail tip visible with generous transparent margins. No floor, circular base, shadow, text, glow, scenery or extra characters. Massive dark brown wild warg with distinctive ivory-white jagged stripe from crown along back, white brow lines, pink body scars and bushy tail. Braced four paws wide, crouched ready to spring. Full long torso behind smallish natural wolf skull, eyes aimed downward.",
+      "refs": [
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/gondor-rebuild-20261019/units/warrior_minas_tirith.png",
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/wild_warg_alpha.png"
+      ],
+      "blobSHA": "1a99e93f6d4eb7380a002a127a2010c0ab9e76c2",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-b6f00dfb-b3c8-4a03-8888-b39264c23418.png"
+    },
+    {
+      "id": "sharku",
+      "pose": "검을 낮춘 와르그 지휘관",
+      "detail": "Use original armored helmeted green orc captain with ivory horn/spike details, red scarf/cape, fang necklace, jagged broad sword low at side. Mounted on shaggy brown warg with full spiked iron faceplate and red-black harness. Rider normal FIVE-head skeletal lengths separately from mount, ordinary skull, no chibi. Seated centered saddle, hips behind withers, legs bent around flanks, hands/reins logical. Rider head firmly bowed; helmet crown hides face.",
+      "group": "아이센가드",
+      "groupKey": "isengard",
+      "mounted": true,
+      "beast": false,
+      "bodyDescription": "와르그 탑승 · 기수 5등신 · 숙인 고개 · 하이앵글 프론트뷰",
+      "prompt": "ONE isolated production game token on truly transparent RGBA. Image1 is pixel density, stepped dark outlines, restrained short shade ramps and elevated-front CAMERA master; image2 supplies exact character design/palette/equipment only. Redraw cleanly in that coherent pixel style. Camera FRONT looking DOWN35degrees: crown and shoulder/withers/back TOP planes clearly visible, never eyelevel front or side view. Head bowed downward; NO face-on eye contact. Body centered, full silhouette and every weapon/tail tip visible with generous transparent margins. No floor, circular base, shadow, text, glow, scenery or extra characters. Use original armored helmeted green orc captain with ivory horn/spike details, red scarf/cape, fang necklace, jagged broad sword low at side. Mounted on shaggy brown warg with full spiked iron faceplate and red-black harness. Rider normal FIVE-head skeletal lengths separately from mount, ordinary skull, no chibi. Seated centered saddle, hips behind withers, legs bent around flanks, hands/reins logical. Rider head firmly bowed; helmet crown hides face.",
+      "refs": [
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human-mounted.png",
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/sharku.png"
+      ],
+      "blobSHA": "82dd745d741f7509c8aa85b6429a32323bd3e5ec",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-c79de60c-77e9-4daf-b24d-0e468a5add2d.png"
+    },
+    {
+      "id": "warg_rider_spear",
+      "pose": "곧은 창을 비스듬히 든 와르그 기병",
+      "detail": "Original green orc, black hair topknot, tusks, leather armour and one iron pauldron. Dark gray shaggy warg with tan ivory-spiked collar. ONE long straight wooden spear held diagonal safely beside torso, iron tip complete. Adult five-head orc skeletal lengths; rider skull same normal size as neutral rider; torso/pelvis and full thighs/calves kept. Seated with two legs wrapping flanks, rider head bowed hiding eyes. Front paws in steady walk.",
+      "group": "아이센가드",
+      "groupKey": "isengard",
+      "mounted": true,
+      "beast": false,
+      "bodyDescription": "와르그 탑승 · 기수 5등신 · 숙인 고개 · 하이앵글 프론트뷰",
+      "prompt": "ONE isolated production game token on truly transparent RGBA. Image1 is pixel density, stepped dark outlines, restrained short shade ramps and elevated-front CAMERA master; image2 supplies exact character design/palette/equipment only. Redraw cleanly in that coherent pixel style. Camera FRONT looking DOWN35degrees: crown and shoulder/withers/back TOP planes clearly visible, never eyelevel front or side view. Head bowed downward; NO face-on eye contact. Body centered, full silhouette and every weapon/tail tip visible with generous transparent margins. No floor, circular base, shadow, text, glow, scenery or extra characters. Original green orc, black hair topknot, tusks, leather armour and one iron pauldron. Dark gray shaggy warg with tan ivory-spiked collar. ONE long straight wooden spear held diagonal safely beside torso, iron tip complete. Adult five-head orc skeletal lengths; rider skull same normal size as neutral rider; torso/pelvis and full thighs/calves kept. Seated with two legs wrapping flanks, rider head bowed hiding eyes. Front paws in steady walk.",
+      "refs": [
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human-mounted.png",
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/warg_rider_spear.png"
+      ],
+      "blobSHA": "e3ee80077a3aac1d3aed6fd86b02266f4e94a89b",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-efb63cfd-de42-4819-a913-3ca90485d904.png"
+    },
+    {
+      "id": "warg_rider_bow",
+      "pose": "활을 등에 멘 와르그 궁수",
+      "detail": "Original green orc in dark gray hood and brown leather tunic/wraps, white-arrow quiver and wooden bow SLUNG ON BACK with string OCCLUDED by body. Both hands near reins, one holds single arrow downward by thigh. Charcoal warg with spiked tan collar, small red eyes and open fangs. Adult five-head rider anatomy, normal skull, long enough torso/thighs, fully seated. Rider hood bows down hiding eyes. Warg slightly crouches.",
+      "group": "아이센가드",
+      "groupKey": "isengard",
+      "mounted": true,
+      "beast": false,
+      "bodyDescription": "와르그 탑승 · 기수 5등신 · 숙인 고개 · 하이앵글 프론트뷰",
+      "prompt": "ONE isolated production game token on truly transparent RGBA. Image1 is pixel density, stepped dark outlines, restrained short shade ramps and elevated-front CAMERA master; image2 supplies exact character design/palette/equipment only. Redraw cleanly in that coherent pixel style. Camera FRONT looking DOWN35degrees: crown and shoulder/withers/back TOP planes clearly visible, never eyelevel front or side view. Head bowed downward; NO face-on eye contact. Body centered, full silhouette and every weapon/tail tip visible with generous transparent margins. No floor, circular base, shadow, text, glow, scenery or extra characters. Original green orc in dark gray hood and brown leather tunic/wraps, white-arrow quiver and wooden bow SLUNG ON BACK with string OCCLUDED by body. Both hands near reins, one holds single arrow downward by thigh. Charcoal warg with spiked tan collar, small red eyes and open fangs. Adult five-head rider anatomy, normal skull, long enough torso/thighs, fully seated. Rider hood bows down hiding eyes. Warg slightly crouches.",
+      "refs": [
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human-mounted.png",
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/warg_rider_bow.png"
+      ],
+      "blobSHA": "a27779c2a25c6da4e7bdb134719f45d07125f7b0",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-356c5af2-49e7-448f-816c-cb0d38f5c46d.png"
+    },
+    {
+      "id": "warg_chieftain",
+      "pose": "굽은 검의 우두머리 기병",
+      "detail": "Original armored dark-helmeted green orc in brown leather and shaggy fur collar decorated ivory teeth, broad curved sword low on left. Charcoal black shaggy warg with studded brown harness and iron forehead plate. Adult five-head rider skeleton with ordinary skull, real seated pelvis and bent knees/ankles, both boots visible beside flanks. Strongly bowed helmet, eyes hidden. Warg paws wide braced.",
+      "group": "아이센가드",
+      "groupKey": "isengard",
+      "mounted": true,
+      "beast": false,
+      "bodyDescription": "와르그 탑승 · 기수 5등신 · 숙인 고개 · 하이앵글 프론트뷰",
+      "prompt": "ONE isolated production game token on truly transparent RGBA. Image1 is pixel density, stepped dark outlines, restrained short shade ramps and elevated-front CAMERA master; image2 supplies exact character design/palette/equipment only. Redraw cleanly in that coherent pixel style. Camera FRONT looking DOWN35degrees: crown and shoulder/withers/back TOP planes clearly visible, never eyelevel front or side view. Head bowed downward; NO face-on eye contact. Body centered, full silhouette and every weapon/tail tip visible with generous transparent margins. No floor, circular base, shadow, text, glow, scenery or extra characters. Original armored dark-helmeted green orc in brown leather and shaggy fur collar decorated ivory teeth, broad curved sword low on left. Charcoal black shaggy warg with studded brown harness and iron forehead plate. Adult five-head rider skeleton with ordinary skull, real seated pelvis and bent knees/ankles, both boots visible beside flanks. Strongly bowed helmet, eyes hidden. Warg paws wide braced.",
+      "refs": [
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human-mounted.png",
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/warg_chieftain.png"
+      ],
+      "blobSHA": "a4bdb942c3c19b97c86f1c9163e357f7e0a05ee8",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-30ccca95-2254-4551-8961-b73a11804d84.png"
+    },
+    {
+      "id": "isengard_troll",
+      "pose": "중장갑 트롤의 철퇴 경계",
+      "detail": "One huge stocky pale gray troll with short thick neck, small heavy skull relative to huge muscular torso, yellow tusks, black iron spiked helmet, massive black plate shoulder armour (white hand symbol), iron bracers/greaves, brown belts/loincloth. Giant rectangular spiked hammer low beside body. Keep original troll species proportions, NOT five-head human. Both feet planted wide, knees bent, shoulders lowered, chin tucked; crown/shoulder tops visible.",
+      "group": "아이센가드",
+      "groupKey": "isengard",
+      "mounted": false,
+      "beast": false,
+      "bodyDescription": "종족별 체형 · 하이앵글 프론트뷰",
+      "prompt": "ONE isolated production game token on truly transparent RGBA. Image1 is pixel density, stepped dark outlines, restrained short shade ramps and elevated-front CAMERA master; image2 supplies exact character design/palette/equipment only. Redraw cleanly in that coherent pixel style. Camera FRONT looking DOWN35degrees: crown and shoulder/withers/back TOP planes clearly visible, never eyelevel front or side view. Head bowed downward; NO face-on eye contact. Body centered, full silhouette and every weapon/tail tip visible with generous transparent margins. No floor, circular base, shadow, text, glow, scenery or extra characters. One huge stocky pale gray troll with short thick neck, small heavy skull relative to huge muscular torso, yellow tusks, black iron spiked helmet, massive black plate shoulder armour (white hand symbol), iron bracers/greaves, brown belts/loincloth. Giant rectangular spiked hammer low beside body. Keep original troll species proportions, NOT five-head human. Both feet planted wide, knees bent, shoulders lowered, chin tucked; crown/shoulder tops visible.",
+      "refs": [
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/gondor-rebuild-20261019/units/warrior_minas_tirith.png",
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/isengard_troll.png"
+      ],
+      "blobSHA": "dbfd9a9dfeffd83e53647313df36ec1527c09209",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-a76ea887-8b60-48cf-ab36-9f436522ce8a.png"
+    }
+  ]
+}

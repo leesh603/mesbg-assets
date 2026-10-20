@@ -1,6 +1,60 @@
-# 전체 재제작 검토 — 284종
+# 전체 재제작 검토 — 293종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 이센가드 트롤 (isengard_troll)
+
+![이센가드 트롤](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/isengard_troll.png?v=dbfd9a9dfeffd83e53647313df36ec1527c09209)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/isengard_troll.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/isengard_troll.png?v=dbfd9a9dfeffd83e53647313df36ec1527c09209)
+
+### 와르그 우두머리 기병 (warg_chieftain)
+
+![와르그 우두머리 기병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/warg_chieftain.png?v=a4bdb942c3c19b97c86f1c9163e357f7e0a05ee8)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/warg_chieftain.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/warg_chieftain.png?v=a4bdb942c3c19b97c86f1c9163e357f7e0a05ee8)
+
+### 와르그 기병(활) (warg_rider_bow)
+
+![와르그 기병(활)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/warg_rider_bow.png?v=a27779c2a25c6da4e7bdb134719f45d07125f7b0)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/warg_rider_bow.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/warg_rider_bow.png?v=a27779c2a25c6da4e7bdb134719f45d07125f7b0)
+
+### 와르그 기병(창) (warg_rider_spear)
+
+![와르그 기병(창)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/warg_rider_spear.png?v=e3ee80077a3aac1d3aed6fd86b02266f4e94a89b)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/warg_rider_spear.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/warg_rider_spear.png?v=e3ee80077a3aac1d3aed6fd86b02266f4e94a89b)
+
+### 샤르쿠(와르그) (sharku)
+
+![샤르쿠(와르그)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/sharku.png?v=82dd745d741f7509c8aa85b6429a32323bd3e5ec)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/sharku.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/sharku.png?v=82dd745d741f7509c8aa85b6429a32323bd3e5ec)
+
+### 와르그 우두머리 (wild_warg_alpha)
+
+![와르그 우두머리](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/wild_warg_alpha.png?v=1a99e93f6d4eb7380a002a127a2010c0ab9e76c2)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/wild_warg_alpha.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/wild_warg_alpha.png?v=1a99e93f6d4eb7380a002a127a2010c0ab9e76c2)
+
+### 야생 와르그 (wild_warg)
+
+![야생 와르그](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/wild_warg.png?v=76466fd96169047d101f18560c8e64d23445e5dd)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/wild_warg.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/wild_warg.png?v=76466fd96169047d101f18560c8e64d23445e5dd)
+
+### 와르그 우두머리 (warg_alpha)
+
+![와르그 우두머리](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/warg_alpha.png?v=8a7dc7232765e10a27584eecfaffb138a731dac3)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/warg_alpha.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/warg_alpha.png?v=8a7dc7232765e10a27584eecfaffb138a731dac3)
+
+### 야생 와르그 (warg)
+
+![야생 와르그](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/warg.png?v=5145c6a61c10dadc50ba91512c21f1f5f91c50b0)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/warg.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/warg.png?v=5145c6a61c10dadc50ba91512c21f1f5f91c50b0)
 
 ### 간달프(섀도우팩스) (gandalf_mounted)
 

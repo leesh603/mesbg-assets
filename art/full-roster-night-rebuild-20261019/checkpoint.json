@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T03:06:38.017Z",
+  "updatedAt": "2026-10-20T03:06:52.302Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 226,
-    "newlyGeneratedThisSession": 152,
-    "visuallyReviewedThisSession": 157,
+    "pending": 217,
+    "newlyGeneratedThisSession": 161,
+    "visuallyReviewedThisSession": 166,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 152,
-    "persistedReviewAssets": 284,
+    "generatedReviewAssets": 161,
+    "persistedReviewAssets": 293,
     "revisedAfterRejection": 14
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -1659,8 +1659,13 @@
       "faction": "isengard",
       "role": "monster",
       "original": "tokens/warg.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "isengard",
+      "path": "art/full-roster-night-rebuild-20261019/units/warg.png",
+      "blobSHA": "5145c6a61c10dadc50ba91512c21f1f5f91c50b0",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "uruk_sapper",
@@ -1899,8 +1904,13 @@
       "faction": "isengard",
       "role": "hero",
       "original": "tokens/sharku.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "isengard",
+      "path": "art/full-roster-night-rebuild-20261019/units/sharku.png",
+      "blobSHA": "82dd745d741f7509c8aa85b6429a32323bd3e5ec",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "grima",
@@ -2609,8 +2619,13 @@
       "faction": "isengard",
       "role": "beast",
       "original": "tokens/warg_alpha.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "isengard",
+      "path": "art/full-roster-night-rebuild-20261019/units/warg_alpha.png",
+      "blobSHA": "8a7dc7232765e10a27584eecfaffb138a731dac3",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "balin",
@@ -3528,8 +3543,13 @@
       "faction": "isengard",
       "role": "cavalry",
       "original": "tokens/warg_rider_spear.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "isengard",
+      "path": "art/full-roster-night-rebuild-20261019/units/warg_rider_spear.png",
+      "blobSHA": "e3ee80077a3aac1d3aed6fd86b02266f4e94a89b",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "warg_rider_bow",
@@ -3537,8 +3557,13 @@
       "faction": "isengard",
       "role": "cavalry",
       "original": "tokens/warg_rider_bow.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "isengard",
+      "path": "art/full-roster-night-rebuild-20261019/units/warg_rider_bow.png",
+      "blobSHA": "a27779c2a25c6da4e7bdb134719f45d07125f7b0",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "warg_chieftain",
@@ -3546,8 +3571,13 @@
       "faction": "isengard",
       "role": "hero",
       "original": "tokens/warg_chieftain.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "isengard",
+      "path": "art/full-roster-night-rebuild-20261019/units/warg_chieftain.png",
+      "blobSHA": "a4bdb942c3c19b97c86f1c9163e357f7e0a05ee8",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "wild_warg",
@@ -3555,8 +3585,13 @@
       "faction": "isengard",
       "role": "monster",
       "original": "tokens/wild_warg.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "isengard",
+      "path": "art/full-roster-night-rebuild-20261019/units/wild_warg.png",
+      "blobSHA": "76466fd96169047d101f18560c8e64d23445e5dd",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "wild_warg_alpha",
@@ -3564,8 +3599,13 @@
       "faction": "isengard",
       "role": "monster",
       "original": "tokens/wild_warg_alpha.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "isengard",
+      "path": "art/full-roster-night-rebuild-20261019/units/wild_warg_alpha.png",
+      "blobSHA": "1a99e93f6d4eb7380a002a127a2010c0ab9e76c2",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "ancalagon",
@@ -5030,8 +5070,13 @@
       "faction": "isengard",
       "role": "monster",
       "original": "tokens/isengard_troll.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "isengard",
+      "path": "art/full-roster-night-rebuild-20261019/units/isengard_troll.png",
+      "blobSHA": "dbfd9a9dfeffd83e53647313df36ec1527c09209",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "dunlending_horseman",
@@ -6798,22 +6843,22 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 284,
+    "count": 293,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
-      "maiar": 3,
+      "isengard": 28,
+      "마이아": 3,
       "난쟁이": 7,
       "elf": 77,
-      "isengard": 19,
       "mordor": 73,
       "rohan": 46,
       "gondor": 59
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,
-    "sourceValidation": "281 unique IDs; static card count and asset blob SHAs verified"
+    "sourceValidation": "293 unique IDs; static card count and asset blob SHAs verified"
   },
   "revisionRequests": {
     "witchking": {
@@ -6921,11 +6966,17 @@
     }
   },
   "lastContinuation": {
-    "batch": "dwarf-001-rest-20261020",
+    "batch": "isengard-004-nine-20261020",
     "newIds": [
-      "dwarf_ranger",
-      "khazad_guard",
-      "iron_guard"
+      "warg",
+      "warg_alpha",
+      "wild_warg",
+      "wild_warg_alpha",
+      "sharku",
+      "warg_rider_spear",
+      "warg_rider_bow",
+      "warg_chieftain",
+      "isengard_troll"
     ],
     "qualityStandard": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
     "note": "Each image inspected against canonical skeleton and identity reference; approval pending."
