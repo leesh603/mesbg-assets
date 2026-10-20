@@ -11675,6 +11675,10 @@ const UPRIGHT_ART_CLASSES = new Set(['human','large-human','orc','dwarf','hobbit
 // centre so the rear foot lands behind it and the stance, not one foot, is centred.
 const FOOT_FORWARD = .26;
 function unitHeadLift(u) { const c = Tt && Tt.tokens && Tt.tokens.get(u.uid), sp = c && c.getByName('token'); return (sp && sp.getData('headLift')) || 0; }
+// Deployment band for the side the local player commands: the top band normally; in an online duel the
+// guest commands the bottom army, so its band is the mirrored strip at the bottom of the field.
+const EVIL_ZONE = () => [pt.height - pt.deployY + 112, pt.height - 136];
+function deployZone() { return (typeof q !== 'undefined' && q && q.pvp && q.pvp.guestView) ? EVIL_ZONE() : [285, pt.deployY]; }
 function unitArtLayout(u, source) {
     const profile = UNIT_ART_PROFILES[u.id];
     // Explicit safe fallback for subsequently added art; add a reviewed profile with the art.
@@ -11747,8 +11751,8 @@ Ve.prototype.drawRings = function () {
     const dashCircle = (x, y, r, w, color, alpha, n = 40) => { for (let i = 0; i < n; i++) { const a0 = i * Math.PI * 2 / n, a1 = a0 + Math.PI / n * 1.15; duo(w, color, alpha, () => { g.beginPath(); g.arc(x, y, r, a0, a1); g.strokePath(); }); } };
     if (b.canEditDeployment?.() || b.phase === 'preparation') {
         g.fillStyle(ALLY, .13);
-        g.fillRect(24, 285, pt.width - 48, pt.deployY - 285);
-        for (let x = 24; x < pt.width - 24; x += 34) { const x2 = Math.min(x + 20, pt.width - 24); duo(3, ALLY_HI, .95, () => g.lineBetween(x, pt.deployY, x2, pt.deployY)); }
+        { const _z = deployZone(); g.fillRect(24, _z[0], pt.width - 48, _z[1] - _z[0]);
+        const _ly = _z[0] === 285 ? pt.deployY : _z[0]; for (let x = 24; x < pt.width - 24; x += 34) { const x2 = Math.min(x + 20, pt.width - 24); duo(3, ALLY_HI, .95, () => g.lineBetween(x, _ly, x2, _ly)); } }
         
         if (b.current?.modifier === 'ambush') {
             g.fillStyle(FOE, .09);
@@ -13206,7 +13210,7 @@ UX.intent=null;
 function clearIntent(){UX.intent=null;Tt.preview=undefined;Tt.previewPlan=null;Tt.chargeTarget=null;ut('intent-cancel')?.classList.add('hidden');}
 function setIntent(intent){UX.intent=intent;renderDock();Tt.drawRings();}
 function planIntent(point,foe){const u=actionableUnit();if(!u||At||AUTO)return;
-    if(q.phase==='preparation'){const p=Be(u,point,q.alive(),q.terrain,95,v=>v.y>=285&&v.y<=pt.deployY);if(!p){Xt('배치 구역의 빈 곳을 선택하세요.');return;}setIntent({kind:'deploy',uid:u.uid,to:p});return;}
+    if(q.phase==='preparation'){const _dz=deployZone(),p=Be(u,point,q.alive(),q.terrain,95,v=>v.y>=_dz[0]&&v.y<=_dz[1]);if(!p){Xt('배치 구역의 빈 곳을 선택하세요.');return;}setIntent({kind:'deploy',uid:u.uid,to:p});return;}
     if(q.phase==='move'){const plan=foe?chargePlan(u,foe,q.alive(),q.terrain,q.remaining(u)):ve(u,point,q.alive(),q.terrain,q.remaining(u));
         if(!plan){clearIntent();renderDock();Xt(foe?'돌격 경로가 막혀 있거나 이동력이 부족합니다.':'이동 가능한 착지점을 선택하세요.');Tt.drawRings();return;}
         setIntent({kind:foe?'charge':'move',uid:u.uid,target:foe?.uid,to:plan.to,plan});return;}
@@ -19418,18 +19422,19 @@ if(window.MESBG){MESBG.bonds=HERO_BONDS;MESBG.aiMove=uid=>be(q,q.unit(uid));}
    build a band within the budget from either alignment; the host's device runs the battle (host = 'good'
    slot, guest = 'evil' slot) and pushes snapshots; the guest's device shows the snapshot with sides swapped
    (its own army is "아군") and relays its orders as commands. Transport: lwb-worker /room API, HTTP polling. */
-const ONLINE={role:null,code:null,token:null,settings:null,seq:0,stateSeq:-1,cmdSince:0,timer:null,busy:false,pushQueued:false,bfKey:'',events:[],lastErr:0};
-const PVP_GOLDS=[1000,2000,3000];
+const ONLINE={evN:0,lastEv:0,role:null,code:null,token:null,settings:null,seq:0,stateSeq:-1,cmdSince:0,timer:null,busy:false,pushQueued:false,bfKey:'',events:[],lastErr:0};
+const PVP_GOLDS=[1000,2000,3000];const PVP_DEPLOY_SEC=90;
 const pvpApi=()=>{try{const u=new URLSearchParams(location.search).get('pvpapi');if(u)return u.replace(/\/$/,'');const s=localStorage.getItem('lwb_pvp_api');if(s)return s;}catch(e){}return LWB_API;};
 async function pvpFetch(path,opt={}){const api=pvpApi();if(!api)throw new Error('서버가 연결되지 않았습니다');
     const r=await fetch(api+path,{method:opt.method||'GET',headers:{'Content-Type':'application/json'},body:opt.body?JSON.stringify(opt.body):undefined});
     const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(({'not found':'대전 서버가 아직 준비되지 않았습니다 (서버 업데이트 필요)','room not found':'방을 찾을 수 없습니다','room is full':'이미 두 명이 들어간 방입니다','invalid token':'방 접속이 끊겼습니다'})[j.detail]||j.detail||('서버 오류 '+r.status));return j;}
 const swapSide=s=>s==='good'?'evil':s==='evil'?'good':s;
-function pvpStop(){clearTimeout(ONLINE.timer);ONLINE.timer=null;Object.assign(ONLINE,{role:null,code:null,token:null,settings:null,seq:0,stateSeq:-1,cmdSince:0,busy:false,pushQueued:false,bfKey:'',events:[]});if(q)q.pvp=null;}
+function pvpStop(){clearTimeout(ONLINE.timer);ONLINE.timer=null;Object.assign(ONLINE,{role:null,code:null,token:null,settings:null,seq:0,stateSeq:-1,cmdSince:0,busy:false,pushQueued:false,bfKey:'',events:[],evN:0,lastEv:0});if(q)q.pvp=null;}
 
 // ---------- band rules ----------
-function pvpCatalog(align){return Object.values(UnitCatalog).filter(d=>d.enabled&&d.meta.side===align&&d.points>0&&q.meta.has(d.id)).sort((a,b)=>(a.meta.faction||'').localeCompare(b.meta.faction||'')||(b.points-a.points));}
+function pvpCatalog(align){const bans=(ONLINE.settings&&ONLINE.settings.bans)||[];return Object.values(UnitCatalog).filter(d=>d.enabled&&d.meta.side===align&&d.points>0&&q.meta.has(d.id)&&!bans.includes(d.id)).sort((a,b)=>(a.meta.faction||'').localeCompare(b.meta.faction||'')||(b.points-a.points));}
 function pvpBandCheck(band,budget,gold){const ids=band.units||[];let pts=0;const uniq=new Set();
+    const bans=(ONLINE.settings&&ONLINE.settings.bans)||[];for(const id of ids.concat(band.mercs||[]))if(bans.includes(id))return esc(UnitCatalog[id]?.meta.name_ko||id)+'은(는) 이 방에서 금지된 유닛입니다';
     for(const id of ids){const d=UnitCatalog[id];if(!d||!d.enabled||d.meta.side!==band.align)return '편성할 수 없는 유닛이 있습니다';pts+=pvpUnitGold(id);const k=d.uniqueKey;if(k){if(uniq.has(k))return esc(d.meta.name_ko)+'은(는) 한 명만 편성할 수 있습니다';uniq.add(k);}}
     if(!ids.length)return '유닛을 한 명 이상 편성하세요';if(ids.length+(band.mercs||[]).length>30)return '최대 30명까지 편성할 수 있습니다';
     for(const id of band.mercs||[]){const d=UnitCatalog[id];if(!d||d.meta.side!==band.align)return '고용할 수 없는 용병이 있습니다';}
@@ -19465,18 +19470,24 @@ P.startPvp=function(hostBand,guestBand,settings,seed){
     hostBand.units.forEach((id,idx)=>{const u=this.spawn(id,'good',{x:-1000,y:-1000});u.quirkChecked=true;u.pvpBand=true;gearUp(u,hostBand,idx);});
     for(const id of hostBand.mercs||[]){const u=this.spawn(id,'good',{x:-1000,y:-1000});u.quirkChecked=true;u.pvpBand=true;u.pvpMerc=true;}
     const base=this.stageInfo(3);
-    this._routeChoice={...base,map:Number.isInteger(settings.map)?settings.map%CX.maps.length:base.map,mission:'annihilation',ids:guestBand.units.concat(guestBand.mercs||[]),boss:null,bossAll:null,modifier:null,n:3};
+    this._routeChoice={...base,map:Number.isInteger(settings.map)&&settings.map>=0?settings.map%CX.maps.length:Math.floor(this.rng()*CX.maps.length),mission:'annihilation',ids:[],boss:null,bossAll:null,modifier:null,n:3};
     this.prepareStage();
     for(const u of this.alive('good'))if(u.x<0)this.placeInDeployment(u);
-    this.startWave();
-    this._darkEvent=true;this.darkPending=null;this.darkActive=null;
-    // Campaign extras never belong in a duel: drop anything not in the two bands.
+    // The guest's army stands in its own (bottom) band during deployment.
     const slots=guestBand.units.map((id,idx)=>({id,idx})).concat((guestBand.mercs||[]).map(id=>({id,idx:-1})));
-    for(const u of this.units){if(u.side==='good'&&!u.pvpBand){u.alive=false;continue;}if(u.side!=='evil')continue;const k=slots.findIndex(x=>x.id===u.id);if(k<0){u.alive=false;continue;}const sl=slots.splice(k,1)[0];u.pvpBand=true;if(sl.idx<0)u.pvpMerc=true;else gearUp(u,guestBand,sl.idx);}
+    const before=new Set(this.units.map(u=>u.uid));this.spawnEnemies(slots.map(x=>x.id));
+    for(const u of this.units){if(before.has(u.uid)||u.side!=='evil')continue;const k=slots.findIndex(x=>x.id===u.id);if(k<0){u.alive=false;continue;}const sl=slots.splice(k,1)[0];u.pvpBand=true;u.quirkChecked=true;if(sl.idx<0)u.pvpMerc=true;else gearUp(u,guestBand,sl.idx);}
     this.units=this.units.filter(u=>u.alive||u.pvpBand);
-    if(!this.pvp.manual)AUTO=true;
+    this.phase='preparation';this.side='good';this.pvp.prepAt=Date.now();this.pvp.hostReady=false;this.pvp.guestReady=false;
+    this.emit('Event','배치 단계 — 양쪽 모두 "배치 완료"를 누르면 전투가 시작됩니다 ('+PVP_DEPLOY_SEC+'초 뒤 자동 시작)');
     return true;
 };
+// Both players deploy; the battle starts when both are ready (or the timer runs out).
+P.pvpBegin=function(){if(!this.pvp||this.phase!=='preparation')return false;this.pvp.begun=true;
+    const ok=pvpRealStartWave.call(this);this._darkEvent=true;this.darkPending=null;this.darkActive=null;
+    for(const u of this.units)if(!u.pvpBand&&u.alive&&(u.side==='good'||u.side==='evil')){u.alive=false;}
+    this.units=this.units.filter(u=>u.alive||u.pvpBand);if(!this.pvp.manual)AUTO=true;return ok;};
+let pvpRealStartWave=null;
 // Campaign end hooks become the duel result.
 for(const [name,winner] of [['finishWave','good'],['endRun',null]]){const orig=P[name];P[name]=function(){if(this.pvp&&!this.pvp.result){const w=winner||(arguments[0]?'good':'evil');this.pvp.result=w;AUTO=false;this.phase='pvpover';this.emit('Event',(w==='good'?this.pvp.hostName:this.pvp.guestName)+' 승리!');return true;}if(this.pvp)return true;return orig.apply(this,arguments);};}
 // Duel fairness: no command cards, undo, nemeses or recruit quirks; heroic actions work for both sides.
@@ -19487,10 +19498,10 @@ for(const name of ['command','undoRound']){const orig=P[name];if(!orig)continue;
 
 // Scheduler: the host's AI must not move the guest's army in manual duels; the guest never runs logic.
 {const _me=me;me=function(){if(q.pvp&&(ONLINE.role==='guest'||(ONLINE.role==='host'&&q.pvp.manual&&q.side==='evil'&&['move','shoot'].includes(q.phase)))){clearTimeout(Jt);return;}return _me.apply(this,arguments);};}
-{const _dr=P.drain;P.drain=function(){const ev=_dr.apply(this,arguments);if(this.pvp&&ONLINE.role==='host'){for(const e of ev){if(e.type==='Event'&&e.message||e.type==='RoundStarted'||e.type==='PriorityRolled'||(e.result&&(e.result.kind==='shot'||e.result.diceResults)))ONLINE.events.push(JSON.parse(JSON.stringify(e)));}ONLINE.events=ONLINE.events.slice(-12);}return ev;};}
+{const _dr=P.drain;P.drain=function(){const ev=_dr.apply(this,arguments);if(this.pvp&&ONLINE.role==='host'){for(const e of ev){try{const c=JSON.parse(JSON.stringify(e));c._n=++ONLINE.evN;ONLINE.events.push(c);}catch(_){}}ONLINE.events=ONLINE.events.slice(-80);}return ev;};}
 
 function pvpSnapshot(){const b=q,bf=b.battlefield,key=bf?(bf.key+'|'+bf.stage):'';const s={phase:b.phase,side:b.side,round:b.round,priority:b.priority,activeMoverUid:b.activeMoverUid||'',fightQueue:b.fightQueue||[],mission:b.mission,mapIndex:b.mapIndex,wave:b.wave,
-    terrain:b.terrain,units:b.units.filter(u=>u.alive||u.pvpBand),log:(b.log||[]).slice(0,30),pvp:b.pvp,ev:ONLINE.events.splice(0)};
+    terrain:b.terrain,units:b.units.filter(u=>u.alive||u.pvpBand),log:(b.log||[]).slice(0,30),pvp:b.pvp,ev:ONLINE.events.slice()};
     if(key!==ONLINE.bfKey){s.battlefield=bf;ONLINE.bfKey=key;}return s;}
 async function pvpPush(){if(ONLINE.role!=='host'||!q.pvp)return;if(ONLINE.busy){ONLINE.pushQueued=true;return;}ONLINE.busy=true;
     try{ONLINE.seq++;await pvpFetch('/room/'+ONLINE.code+'/state',{method:'PUT',body:{token:ONLINE.token,seq:ONLINE.seq,state:pvpSnapshot()}});}
@@ -19500,12 +19511,17 @@ async function pvpPush(){if(ONLINE.role!=='host'||!q.pvp)return;if(ONLINE.busy){
 
 const PVP_OPS={move:(u,a)=>q.move(u.uid,a.to),charge:(u,a)=>q.charge(u.uid,a.target),shoot:(u,a)=>q.shoot(u.uid,a.target),wait:u=>q.wait(u.uid),heroic:(u,a)=>q.heroic(u.uid,a.key),skill:(u,a)=>q.skill(u.uid,a.choice),castSpell:(u,a)=>q.castSpell(u.uid,a.key),rotate:(u,a)=>q.rotate(u.uid,a.deg)};
 function pvpApplyCmd(c){if(!c||!q.pvp||q.pvp.result)return false;
+    if(q.phase==='preparation'&&!q.pvp.begun){
+        if(c.op==='ready'){q.pvp.guestReady=true;q.emit('Event','상대 배치 완료');if(q.pvp.hostReady)return q.pvpBegin();return true;}
+        if(c.op==='deploy'){const u=q.unit(c.uid);if(!u||!u.alive||u.side!=='evil'||!c.to)return false;const z=EVIL_ZONE();const p=Be(u,c.to,q.alive(),q.terrain,60,v=>v.y>=z[0]&&v.y<=z[1]);if(!p)return false;Object.assign(u,p);return true;}
+        return false;}
     if(c.op==='advance'){if(q.side!=='evil'||!['move','shoot'].includes(q.phase))return false;return q.advance();}
     const u=q.unit(c.uid);if(!u||!u.alive||u.side!=='evil')return false;
     if(c.op!=='heroic'&&(q.side!=='evil'||!['move','shoot'].includes(q.phase)))return false;
     const f=PVP_OPS[c.op];return f?!!f(u,c):false;}
 async function pvpHostPoll(){if(ONLINE.role!=='host'||!q.pvp)return;
-    try{if(q.pvp.manual&&!q.pvp.result){const r=await pvpFetch('/room/'+ONLINE.code+'/cmds?token='+ONLINE.token+'&since='+ONLINE.cmdSince);
+    try{if(q.phase==='preparation'&&!q.pvp.begun&&Date.now()-(q.pvp.prepAt||0)>PVP_DEPLOY_SEC*1000&&!At){await Rt(()=>{q.emit('Event','배치 시간 종료 — 전투 시작');q.pvpBegin();});}
+        if(!q.pvp.result&&(q.pvp.manual||!q.pvp.begun)){const r=await pvpFetch('/room/'+ONLINE.code+'/cmds?token='+ONLINE.token+'&since='+ONLINE.cmdSince);
         for(const {n,cmd} of r.cmds||[]){ONLINE.cmdSince=n;if(At)await new Promise(res=>{const t=setInterval(()=>{if(!At){clearInterval(t);res();}},60);});await Rt(()=>{if(!pvpApplyCmd(cmd)&&!['advance','wait'].includes(cmd&&cmd.op))q.emit('Event','상대의 명령을 처리할 수 없습니다');});}}}
     catch(e){if(Date.now()-ONLINE.lastErr>8000){ONLINE.lastErr=Date.now();Xt('대전 서버 연결 확인 중 — '+e.message);}}
     ONLINE.timer=setTimeout(pvpHostPoll,700);}
@@ -19514,23 +19530,34 @@ async function pvpHostPoll(){if(ONLINE.role!=='host'||!q.pvp)return;
 function pvpApplyState(s){
     q.pvp={...s.pvp,guestView:true};
     q.units=s.units.map(u=>({...u,side:swapSide(u.side)}));
-    q.phase=s.phase;q.side=swapSide(s.side);q.priority=swapSide(s.priority);q.round=s.round;q.activeMoverUid=s.activeMoverUid;q.fightQueue=s.fightQueue;q.mission=s.mission;q.mapIndex=s.mapIndex;q.wave=s.wave;q.cp=0;
+    q.phase=s.phase;q.side=s.phase==='preparation'?'good':swapSide(s.side);q.priority=swapSide(s.priority);q.round=s.round;q.activeMoverUid=s.activeMoverUid;q.fightQueue=s.fightQueue;q.mission=s.mission;q.mapIndex=s.mapIndex;q.wave=s.wave;q.cp=0;
     q.terrain=s.terrain;if(s.battlefield)q.battlefield=s.battlefield;q.log=s.log||[];
     if(q.selected&&!q.unit(q.selected)?.alive)q.selected='';
     AUTO=false;
 }
 async function pvpGuestPoll(){if(ONLINE.role!=='guest')return;
+    if(At){ONLINE.timer=setTimeout(pvpGuestPoll,250);return;}
     try{const r=await pvpFetch('/room/'+ONLINE.code+'?token='+ONLINE.token+'&since='+ONLINE.stateSeq);
-        if(r.state&&r.seq>ONLINE.stateSeq){ONLINE.stateSeq=r.seq;const first=!q.pvp;closePvpLobby();pvpApplyState(r.state);
-            if(first){try{const mine=q.alive('good');if(mine.length&&typeof setCamera==='function'){const cx=mine.reduce((a,u)=>a+u.x,0)/mine.length,cy=mine.reduce((a,u)=>a+u.y,0)/mine.length;setCamera(cx,cy,UX.zoom,'manual');}}catch(e){}Xt('온라인 대전 시작 — 내 부대가 "아군"으로 표시됩니다');}
+        if(r.state&&r.seq>ONLINE.stateSeq&&!At){ONLINE.stateSeq=r.seq;const first=!q.pvp;closePvpLobby();
+            const evs=(r.state.ev||[]).filter(e=>(e._n||0)>ONLINE.lastEv);if(evs.length)ONLINE.lastEv=evs[evs.length-1]._n;
+            // Replay the host's events on our tokens (moves, charges, dice, pushes) before snapping to the snapshot.
+            At=true;Tt.busy=true;
+            try{pvpApplyState(r.state);if(first){try{Tt.sync&&Tt.sync();}catch(e){}}
+                if(first)ONLINE.lastEv=evs.length?evs[evs.length-1]._n:ONLINE.lastEv;
+                if(first){try{const mine=q.alive('good');if(mine.length&&typeof setCamera==='function'){const cx=mine.reduce((a,u)=>a+u.x,0)/mine.length,cy=mine.reduce((a,u)=>a+u.y,0)/mine.length;setCamera(cx,cy,UX.zoom,'manual');}}catch(e){}Xt('온라인 대전 — 내 부대가 "아군"으로 표시됩니다');}
+                else for(const e of evs.slice(-30)){try{await Promise.all([$e(e),Tt.play(e)]);}catch(_){}if(['WaveStarted','Event','CommandUsed','RoundStarted'].includes(e.type)&&e.message)Xt(e.message);}}
+            finally{At=false;Tt.busy=false;}
             Yt();try{Tt.sync&&Tt.sync();}catch(e){}
-            for(const e of r.state.ev||[]){if(e.type==='Event'&&e.message)Xt(e.message);else if(e.result||e.type==='PriorityRolled'){try{await $e(e);}catch(_){}}}
             if(q.pvp.result)pvpResult();}}
     catch(e){if(Date.now()-ONLINE.lastErr>8000){ONLINE.lastErr=Date.now();Xt('대전 서버 연결 확인 중 — '+e.message);}}
-    ONLINE.timer=setTimeout(pvpGuestPoll,700);}
+    if(ONLINE.role==='guest')ONLINE.timer=setTimeout(pvpGuestPoll,600);}
 async function pvpSend(cmd){try{await pvpFetch('/room/'+ONLINE.code+'/cmd',{method:'POST',body:{token:ONLINE.token,cmd}});}catch(e){Xt('명령 전송 실패 — '+e.message);}}
 for(const op of ['move','charge','shoot','wait','heroic','skill','castSpell','rotate','advance','fightNext','startWave','deploy','command','undoRound']){const orig=P[op];if(!orig)continue;
     P[op]=function(uid,arg){if(!(this.pvp&&ONLINE.role==='guest'))return orig.apply(this,arguments);
+        if(this.phase==='preparation'){
+            if(op==='startWave'){if(this.pvp.guestReadySent)return false;this.pvp.guestReadySent=true;pvpSend({op:'ready'});Xt('배치 완료 — 상대를 기다립니다');return true;}
+            if(op==='deploy'){const u=this.unit(uid);if(!u||u.side!=='good'||!arg)return false;const z=deployZone();if(arg.y<z[0]||arg.y>z[1])return false;u.x=arg.x;u.y=arg.y;pvpSend({op:'deploy',uid,to:{x:arg.x,y:arg.y}});return true;}
+            return false;}
         if(['fightNext','startWave','deploy','command','undoRound'].includes(op))return false;
         if(this.side!=='good'&&op!=='heroic'){Xt('상대 차례입니다');return false;}
         const u=uid&&this.unit(uid);if(op!=='advance'&&(!u||u.side!=='good'))return false;
@@ -19538,9 +19565,29 @@ for(const op of ['move','charge','shoot','wait','heroic','skill','castSpell','ro
         if(u&&['move','charge','shoot','wait'].includes(op))u.acted=true; // optimistic: stop double orders until the host answers
         pvpSend(c);return true;};}
 
+{const _sw=P.startWave;pvpRealStartWave=_sw;P.startWave=function(){if(this.pvp&&ONLINE.role==='host'&&this.phase==='preparation'&&!this.pvp.begun){this.pvp.hostReady=true;if(this.pvp.guestReady)return this.pvpBegin();this.emit('Event','배치 완료 — 상대의 배치를 기다립니다');return false;}return _sw.apply(this,arguments);};}
+// ---------- history ----------
+function pvpHistory(){try{return JSON.parse(localStorage.getItem('lwb_pvp_history')||'[]');}catch(e){return [];}}
+function pvpRecord(){try{if(!q.pvp?.result||!ONLINE.code||ONLINE.recorded===ONLINE.code)return;ONLINE.recorded=ONLINE.code;
+    const host=ONLINE.role==='host',mine=host?'good':'evil',b=ONLINE.bands||{},my=host?b.host:b.guest,opp=host?b.guest:b.host;
+    const e={t:Date.now(),code:ONLINE.code,win:q.pvp.result===mine,me:host?q.pvp.hostName:q.pvp.guestName,opp:host?q.pvp.guestName:q.pvp.hostName,myAlign:host?q.pvp.hostAlign:q.pvp.guestAlign,oppAlign:host?q.pvp.guestAlign:q.pvp.hostAlign,
+        myCount:my?(my.units.length+(my.mercs||[]).length):0,oppCount:opp?(opp.units.length+(opp.mercs||[]).length):0,mode:q.pvp.manual?'manual':'auto',gold:ONLINE.settings?.gold};
+    const h=pvpHistory();h.unshift(e);localStorage.setItem('lwb_pvp_history',JSON.stringify(h.slice(0,30)));}catch(e){}}
+// ---------- rematch: the host opens a fresh room and posts its code to the finished one ----------
+async function pvpRematchHost(){const old={code:ONLINE.code,token:ONLINE.token},settings={...ONLINE.settings},band=ONLINE.bands?.host;
+    try{const r=await pvpFetch('/room',{method:'POST',body:{settings}});q.pvp.rematch=r.code;await pvpFetch('/room/'+old.code+'/state',{method:'PUT',body:{token:old.token,seq:++ONLINE.seq,state:pvpSnapshot()}});
+        pvpOpenRematch('host',r.code,r.token,settings,band);}catch(e){Xt('재대결 방을 만들 수 없습니다 — '+e.message);}}
+async function pvpRematchGuest(code){const band=ONLINE.bands?.guest;try{const r=await pvpFetch('/room/'+code+'/join',{method:'POST',body:{}});pvpOpenRematch('guest',code,r.token,r.settings||{},band);}catch(e){Xt('재대결에 참가할 수 없습니다 — '+e.message);}}
+function pvpOpenRematch(role,code,token,settings,band){document.getElementById('pvp-result')?.close();pvpStop();AUTO=false;q.phase='menu';Yt();
+    pvpLobby();Object.assign(ONLINE,{role,code,token,settings});const L=PVP_LOBBY;L.settings={...L.settings,...settings};
+    if(band)L.band={align:band.align,units:band.units.slice(),name:band.name||'',equip:[],mercs:[],spent:0,rerolls:0,sold:[]};
+    L.step='build';pvpRender();pvpLobbyPoll();Xt('재대결 — 지난 부대를 불러왔습니다 (상점은 새로 열립니다)');}
 // ---------- result ----------
-function pvpResult(){if(document.getElementById('pvp-result')||!q.pvp?.result)return;const mineWon=(ONLINE.role==='guest'?'evil':'good')===q.pvp.result;
-    const d=uiInfoDialog('pvp-result',mineWon?'승리':'패배','온라인 대전','<img src="icons/ui_swords.png" alt="">','<p style="font-size:15px;line-height:1.6">'+esc(q.pvp.hostName)+' vs '+esc(q.pvp.guestName)+'<br><b style="font-size:20px;color:#e8c66a">'+esc(q.pvp.result==='good'?q.pvp.hostName:q.pvp.guestName)+' 승리</b></p>','<button type="button" class="primary" id="pvp-exit">메인 메뉴</button>');
+function pvpResult(){if(q.pvp?.result)pvpRecord();
+    {const d=document.getElementById('pvp-result');if(d){const rb=d.querySelector('#pvp-rematch');if(rb&&ONLINE.role==='guest'){if(q.pvp?.rematch){rb.disabled=false;rb.textContent='재대결 참가';rb.onclick=()=>pvpRematchGuest(q.pvp.rematch);}}return;}}
+    if(!q.pvp?.result)return;const mineWon=(ONLINE.role==='guest'?'evil':'good')===q.pvp.result;
+    const d=uiInfoDialog('pvp-result',mineWon?'승리':'패배','온라인 대전','<img src="icons/ui_swords.png" alt="">','<p style="font-size:15px;line-height:1.6">'+esc(q.pvp.hostName)+' vs '+esc(q.pvp.guestName)+'<br><b style="font-size:20px;color:#e8c66a">'+esc(q.pvp.result==='good'?q.pvp.hostName:q.pvp.guestName)+' 승리</b></p>','<button type="button" class="primary" id="pvp-rematch"'+(ONLINE.role==='guest'?' disabled':'')+'>'+(ONLINE.role==='guest'?'방장의 재대결 대기 중':'재대결')+'</button><button type="button" class="secondary" id="pvp-exit">메인 메뉴</button>');
+    if(ONLINE.role==='host')d.querySelector('#pvp-rematch').onclick=()=>pvpRematchHost();
     d.querySelector('#pvp-exit').onclick=()=>{d.close();pvpStop();AUTO=false;q.phase='menu';Yt();};}
 // Leaving through the battle menu ends the online session.
 {const _ex=document.getElementById('menu-exit');if(_ex)_ex.addEventListener('click',()=>{setTimeout(()=>{if(q.phase==='menu'&&ONLINE.role)pvpStop();},50);});}
@@ -19590,19 +19637,33 @@ function pvpLobbyStyle(){if(document.getElementById('pvp-style'))return;const st
 #pvp-lobby .pv-own img{width:24px;height:24px;object-fit:contain;image-rendering:pixelated}
 #pvp-lobby .pv-band button.merc{outline:2px solid #d8b45e;outline-offset:-2px;opacity:1}
 #pvp-lobby .pv-eqn{position:absolute;right:1px;top:1px;font:700 10px/12px Galmuri11,sans-serif;color:#1a1206;background:#e8c66a;padding:0 3px;font-style:normal}
-#pvp-lobby .pv-tabs button{font-size:13px}`;document.head.appendChild(st);}
+#pvp-lobby .pv-tabs button{font-size:13px}
+#pvp-lobby .pv-select{width:100%;min-height:44px;font-size:14px;background:#11160d;color:#efe6cf;border:1px solid #6f6446;padding:0 8px}
+#pvp-lobby .pv-hist{display:grid;gap:4px}
+#pvp-lobby .pv-hist div{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:6px;align-items:center;padding:4px 8px;border:1px solid #6f6446;font-size:13px;line-height:1.4}
+#pvp-lobby .pv-hist div.w b{color:#9fe08a}#pvp-lobby .pv-hist div.l b{color:#ff9c8c}
+#pvp-lobby .pv-hist small{color:#b8ad90}`;document.head.appendChild(st);}
 function pvpLobby(){pvpLobbyStyle();closePvpLobby();const el=document.createElement('div');el.id='pvp-lobby';el.innerHTML='<div class="pv-sheet"></div>';document.body.appendChild(el);
-    PVP_LOBBY={el,step:'home',tab:'band',settings:{gold:2000,mode:'auto',map:Math.floor(Math.random()*CX.maps.length)},band:{align:'good',units:[],name:'',equip:[],mercs:[],spent:0,rerolls:0,sold:[]},faction:'',timer:null,info:null,err:''};
+    PVP_LOBBY={el,step:'home',tab:'band',settings:{gold:2000,mode:'auto',map:-1,bans:[]},band:{align:'good',units:[],name:'',equip:[],mercs:[],spent:0,rerolls:0,sold:[]},faction:'',timer:null,info:null,err:''};
     el.addEventListener('click',e=>{if(e.target===el)return;});pvpRender();}
 function pvpRender(){const L=PVP_LOBBY;if(!L)return;const box=L.el.querySelector('.pv-sheet');const s=L.settings;
     const err='<div class="pv-err" role="status">'+esc(L.err||'')+'</div>';
     if(L.step==='home'){box.innerHTML='<h2>온라인 대전</h2><p>두 사람이 같은 군자금으로 병사·영웅·장비를 사서 맞붙습니다. 병사 수로 밀지, 영웅과 장비에 몰지는 각자 정합니다. 방장이 만든 비공개 코드로만 들어올 수 있습니다.</p>'
         +'<div class="pv-label">군자금 — 병사·영웅·장비를 모두 이 금화로 삽니다</div><div class="pv-row">'+PVP_GOLDS.map(g=>'<button type="button" data-gold="'+g+'" class="'+(s.gold===g?'on':'')+'">금화 '+g+'</button>').join('')+'</div>'
+        +'<div class="pv-label">전장</div><select id="pv-map" class="pv-select"><option value="-1">무작위</option>'+CX.maps.map((m,i)=>'<option value="'+i+'"'+(s.map===i?' selected':'')+'>'+esc(CX.mapNames[i]||m)+'</option>').join('')+'</select>'
+        +'<div class="pv-label">금지 유닛 ('+(s.bans||[]).length+'/10)</div><input id="pv-ban" class="pv-name" placeholder="이름으로 찾아 금지" autocomplete="off"><div class="pv-chips" id="pv-ban-hits"></div><div class="pv-chips">'+(s.bans||[]).map(id=>'<button type="button" data-unban="'+id+'" class="on" title="금지 해제">'+esc(UnitCatalog[id]?.meta.name_ko||id)+' ×</button>').join('')+'</div>'
         +'<div class="pv-label">대전 방식</div><div class="pv-row two"><button type="button" data-mode="auto" class="'+(s.mode==='auto'?'on':'')+'">오토 대전</button><button type="button" data-mode="manual" class="'+(s.mode==='manual'?'on':'')+'">수동 대전</button></div>'
         +'<button type="button" class="primary" id="pv-create" style="width:100%">방 만들기</button>'
         +'<div class="pv-label" style="margin-top:14px">코드로 참가</div><input id="pv-code" maxlength="6" autocomplete="off" placeholder="ABC123"><div class="pv-row two" style="margin-top:8px"><button type="button" id="pv-join" class="secondary">참가하기</button><button type="button" id="pv-close" class="secondary">닫기</button></div>'+err;
         
         box.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{s.mode=b.dataset.mode;pvpRender();});box.querySelectorAll('[data-gold]').forEach(b=>b.onclick=()=>{s.gold=+b.dataset.gold;pvpRender();});
+        box.querySelector('#pv-map').onchange=e=>{s.map=+e.target.value;};
+        const hits=box.querySelector('#pv-ban-hits'),banIn=box.querySelector('#pv-ban');
+        banIn.oninput=()=>{const t=banIn.value.trim().toLowerCase();if(!t){hits.innerHTML='';return;}const found=Object.values(UnitCatalog).filter(d=>d.enabled&&!(s.bans||[]).includes(d.id)&&(d.meta.name_ko+' '+d.meta.name_en).toLowerCase().includes(t)).slice(0,8);
+            hits.innerHTML=found.map(d=>'<button type="button" data-ban="'+d.id+'">'+esc(d.meta.name_ko)+'</button>').join('')||'<small>찾는 유닛이 없습니다</small>';
+            hits.querySelectorAll('[data-ban]').forEach(b=>b.onclick=()=>{s.bans=(s.bans||[]);if(s.bans.length>=10){L.err='금지는 10종까지';pvpRender();return;}s.bans.push(b.dataset.ban);pvpRender();});};
+        box.querySelectorAll('[data-unban]').forEach(b=>b.onclick=()=>{s.bans=(s.bans||[]).filter(x=>x!==b.dataset.unban);pvpRender();});
+        {const hist=pvpHistory();if(hist.length){const w=hist.filter(h=>h.win).length;box.insertAdjacentHTML('beforeend','<div class="pv-label">최근 대전 · '+w+'승 '+(hist.length-w)+'패</div><div class="pv-hist">'+hist.slice(0,6).map(h=>'<div class="'+(h.win?'w':'l')+'"><b>'+(h.win?'승':'패')+'</b><span>vs '+esc(h.opp)+' · '+(h.oppAlign==='good'?'선':'악')+' '+h.oppCount+'명</span><small>'+new Date(h.t).toLocaleDateString('ko-KR',{month:'numeric',day:'numeric'})+'</small></div>').join('')+'</div>');}}
         box.querySelector('#pv-close').onclick=()=>{closePvpLobby();pvpStop();};
         box.querySelector('#pv-create').onclick=async()=>{L.err='';try{const r=await pvpFetch('/room',{method:'POST',body:{settings:s}});Object.assign(ONLINE,{role:'host',code:r.code,token:r.token,settings:{...s}});L.step='build';pvpRender();pvpLobbyPoll();}catch(e){L.err=e.message;pvpRender();}};
         box.querySelector('#pv-join').onclick=async()=>{L.err='';const code=(box.querySelector('#pv-code').value||'').trim().toUpperCase();if(!/^[A-Z0-9]{6}$/.test(code)){L.err='6자리 코드를 입력하세요';pvpRender();return;}
@@ -19610,7 +19671,7 @@ function pvpRender(){const L=PVP_LOBBY;if(!L)return;const box=L.el.querySelector
         return;}
     const gold=ONLINE.settings?.gold??s.gold,band=L.band,pts=pvpPoints(band.units),budget=gold-(band.spent||0),info=L.info||{};
     const mineReady=ONLINE.role==='host'?!!info.hostBand:!!info.guestBand,otherReady=ONLINE.role==='host'?!!info.guestBand:!!info.hostBand;
-    const status='<div class="pv-status">방 코드<div class="pv-code">'+esc(ONLINE.code)+'</div>'+(ONLINE.settings?.mode==='manual'?'수동 대전':'오토 대전')+' · 군자금 '+gold+' · '+(ONLINE.role==='host'?(info.guest?'상대 입장 완료':'상대를 기다리는 중 — 코드를 알려 주세요'):'방장과 연결됨')+'<br>내 편성 '+(mineReady?'준비 완료':'작성 중')+' · 상대 편성 '+(otherReady?'준비 완료':'작성 중')+'</div>';
+    const status='<div class="pv-status">방 코드<div class="pv-code">'+esc(ONLINE.code)+'</div>'+(ONLINE.settings?.mode==='manual'?'수동 대전':'오토 대전')+' · 군자금 '+gold+' · '+(ONLINE.settings?.map>=0?esc(CX.mapNames[ONLINE.settings.map]||''):'무작위 전장')+((ONLINE.settings?.bans||[]).length?' · 금지 '+ONLINE.settings.bans.map(id=>esc(UnitCatalog[id]?.meta.name_ko||id)).join(', '):'')+' · '+(ONLINE.role==='host'?(info.guest?'상대 입장 완료':'상대를 기다리는 중 — 코드를 알려 주세요'):'방장과 연결됨')+'<br>내 편성 '+(mineReady?'준비 완료':'작성 중')+' · 상대 편성 '+(otherReady?'준비 완료':'작성 중')+'</div>';
     if(L.step==='ready'){box.innerHTML='<h2>대기실</h2>'+status+(ONLINE.role==='host'?'<button type="button" class="primary" id="pv-start" style="width:100%;margin-top:10px"'+(otherReady&&mineReady?'':' disabled')+'>전투 시작</button>':'<p>방장이 전투를 시작하면 바로 넘어갑니다.</p>')+'<div class="pv-row two" style="margin-top:8px"><button type="button" id="pv-edit" class="secondary">편성 수정</button><button type="button" id="pv-leave" class="secondary">나가기</button></div>'+err;
         box.querySelector('#pv-edit').onclick=()=>{L.step='build';pvpRender();};
         box.querySelector('#pv-leave').onclick=()=>{closePvpLobby();pvpStop();};
@@ -19663,14 +19724,14 @@ function pvpRender(){const L=PVP_LOBBY;if(!L)return;const box=L.el.querySelector
         try{await pvpFetch('/room/'+ONLINE.code+'/band',{method:'POST',body:{token:ONLINE.token,band:{align:band.align,units:band.units,mercs:band.mercs,equip:band.equip,spent:band.spent,name:(band.name||'').trim()||(ONLINE.role==='host'?'방장':'도전자')}}});L.step='ready';pvpRender();}catch(e){L.err=e.message;pvpRender();}};
 }
 async function pvpLobbyPoll(){const L=PVP_LOBBY;if(!L||!ONLINE.role)return;
-    try{const r=await pvpFetch('/room/'+ONLINE.code+'?token='+ONLINE.token+'&since='+ONLINE.stateSeq);const before=JSON.stringify([L.info?.guest,!!L.info?.hostBand,!!L.info?.guestBand]);L.info=r;if(r.settings)ONLINE.settings=r.settings;
+    try{const r=await pvpFetch('/room/'+ONLINE.code+'?token='+ONLINE.token+'&since='+ONLINE.stateSeq);const before=JSON.stringify([L.info?.guest,!!L.info?.hostBand,!!L.info?.guestBand]);L.info=r;ONLINE.bands={host:r.hostBand,guest:r.guestBand};if(r.settings)ONLINE.settings=r.settings;
         if(ONLINE.role==='guest'&&r.state){clearTimeout(L.timer);pvpGuestPoll();return;}
         if(JSON.stringify([r.guest,!!r.hostBand,!!r.guestBand])!==before&&L.step!=='home'){const a=document.activeElement;if(!(a&&a.id==='pv-name'))pvpRender();}}
     catch(e){L.err=e.message;}
     if(PVP_LOBBY)PVP_LOBBY.timer=setTimeout(pvpLobbyPoll,1200);}
 async function pvpHostStart(){const L=PVP_LOBBY;try{const r=await pvpFetch('/room/'+ONLINE.code+'?token='+ONLINE.token);
         const budget=0,gold=ONLINE.settings.gold??0;for(const [b,who] of [[r.hostBand,'내'],[r.guestBand,'상대']]){const why=b?pvpBandCheck(b,budget,gold):'편성이 없습니다';if(why){L.err=who+' 편성: '+why;pvpRender();return;}}
-        closePvpLobby();const seed=(Math.random()*2**31)|0;
+        ONLINE.bands={host:r.hostBand,guest:r.guestBand};closePvpLobby();const seed=(Math.random()*2**31)|0;
         let failed=null;await Rt(()=>{try{q.startPvp(r.hostBand,r.guestBand,ONLINE.settings,seed);}catch(e){failed=e;console.error('[pvp start]',e);}});if(failed){Xt('대전 시작 실패 — '+failed.message);return;}pvpPush();clearTimeout(ONLINE.timer);pvpHostPoll();}
     catch(e){if(L){L.err=e.message;pvpRender();}else Xt('대전 시작 실패 — '+e.message);}}
 // Title button
