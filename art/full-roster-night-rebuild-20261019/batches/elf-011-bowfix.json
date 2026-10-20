@@ -1,0 +1,20 @@
+{
+  "batch": "elf-011-bowfix",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "elf_bow",
+      "pose": "금갑 궁수의 낮은 활",
+      "detail": "Gold leaf helmet and gold layered armour, navy tunic/blue cape, quiver behind shoulder, elegant GOLDEN longbow. Right hand viewerLEFT places arrow on string, bow held low diagonally viewerRIGHT; correct bowstring/arrow/two hands, no shield or sword. Compact bent elbows and short legs.",
+      "mounted": false,
+      "group": "엘프",
+      "groupKey": "elf",
+      "prompt": "EDIT IMAGE1 fixed neutral anatomy template by dressing it as IMAGE2 character. IMAGE1 is immutable skull/head-to-torso/limb-length and HIGH-ANGLE FRONT camera master. ELF humanoid EXACTLY FIVE anatomical heads, crown of skull to chin excluding hair/helmet. Slenderness changes width only, NEVER lengthen torso/thighs/shins or shrink head for handsome tall elf. Keep compact short bone lengths and relatively large normal skull of image1. Pose joints may rotate independently but segment lengths stay. Looking down25–30deg from front with slight diagonal only, crown/shoulder tops visible, eyes shaded, no eye-level portrait or side view. Image2 identity/equipment/palette only, ignore its proportions. Exact reference pixel density: crisp discrete clusters, stepped black outline, restrained colour ramps, no smooth painted illustration or3D. Whole silhouette including weapons fits inner80% transparent RGBA canvas with generous clear margin, torso centered independently from hair/weapon/cape. No floor/base/shadow/glow/text/UI/additional figures. Subject from IMAGE2: Gold leaf helmet and gold layered armour, navy tunic/blue cape, quiver behind shoulder, elegant GOLDEN longbow. Right hand viewerLEFT places arrow on string, bow held low diagonally viewerRIGHT; correct bowstring/arrow/two hands, no shield or sword. Compact bent elbows and short legs. Preserve original character design, no invented weapons or royal accents. Humanlike elves exactly FIVE anatomical heads. ",
+      "correctionPrompt": "Precise object edit. IMAGE1 is the edit target; IMAGE2 shows original character equipment. KEEP IMAGE1 head, helmet, face, skull size, torso, waist, pelvis, BOTH legs/feet, cape, armour, high-angle-front camera, five-head anatomy, pixel density and colours unchanged. Fix ONLY malformed BOW and arrow/hand arrangement. REMOVE the broken golden ornament/half-bow fragment at viewer RIGHT. Replace it with ONE COMPLETE GOLDEN-WOOD LONG BOW held nearly VERTICAL in character's left hand on viewer RIGHT. Clearly show continuous curved UPPER limb, center grip, continuous LOWER limb, and ONE straight taut bowstring between both limb tips; both limbs extend far above and below the grip like an actual longbow, gently arc out to viewer RIGHT. Entire bow fits beside body with transparent gap, no clipping. Right hand viewerLEFT holds ONE separate, NOT NOCKED arrow across lower chest, arrow shaft/head/fletchings coherent; adjust fingers/forearms minimally for this resting ready pose, retain original bone lengths. Do NOT draw a bow firing/drawn, just resting complete longbow with separate arrow. No extra bow/string/shaft/fragments. Maintain all existing crisp stepped pixel clusters and dark outline, no smooth painting, no anatomy changes. Full image remains genuine transparent RGBA, no base/floor/shadow/text/UI. Ensure 8 percent clear canvas margin beyond bow tips.",
+      "blobSHA": "ff59f60fa1d8fc72a70c629f68767e2b49dba855",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-cf75ee0e-510e-4f75-a6e8-de038bc1fb32.png"
+    }
+  ]
+}

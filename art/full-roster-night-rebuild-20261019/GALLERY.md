@@ -1,6 +1,12 @@
-# 전체 재제작 검토 — 192종
+# 전체 재제작 검토 — 193종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 엘프 궁수 (elf_bow)
+
+![엘프 궁수](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/elf_bow.png?v=ff59f60fa1d8fc72a70c629f68767e2b49dba855)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/elf_bow.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/elf_bow.png?v=ff59f60fa1d8fc72a70c629f68767e2b49dba855)
 
 ### 트란두일 (thranduil)
 

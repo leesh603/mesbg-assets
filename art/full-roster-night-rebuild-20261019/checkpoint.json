@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T01:21:40.784Z",
+  "updatedAt": "2026-10-20T01:23:19.063Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 318,
-    "newlyGeneratedThisSession": 60,
-    "visuallyReviewedThisSession": 60,
+    "pending": 317,
+    "newlyGeneratedThisSession": 61,
+    "visuallyReviewedThisSession": 61,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 60,
-    "persistedReviewAssets": 192,
+    "generatedReviewAssets": 61,
+    "persistedReviewAssets": 193,
     "revisedAfterRejection": 10
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -808,8 +808,13 @@
       "faction": "rivendell",
       "role": "infantry",
       "original": "tokens/elf_bow.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/elf_bow.png",
+      "blobSHA": "ff59f60fa1d8fc72a70c629f68767e2b49dba855",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "elf_glaive",
@@ -5339,12 +5344,12 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 192,
+    "count": 193,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
-      "elf": 14,
+      "elf": 15,
       "rohan": 46,
       "gondor": 59,
       "mordor": 73
@@ -5399,8 +5404,9 @@
         "elf_bow"
       ],
       "reason": "생성본 활의 상·하단과 시위 구조 불완전",
-      "state": "repairing",
-      "approval": "pending"
+      "state": "corrected-review-candidate",
+      "approval": "pending",
+      "corrected": true
     }
   },
   "lastContinuation": {

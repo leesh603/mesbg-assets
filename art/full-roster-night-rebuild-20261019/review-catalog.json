@@ -1,13 +1,28 @@
 {
-  "count": 192,
+  "count": 193,
   "groups": {
-    "elf": 14,
+    "elf": 15,
     "rohan": 46,
     "gondor": 59,
     "mordor": 73
   },
-  "pending": 318,
+  "pending": 317,
   "units": [
+    {
+      "id": "elf_bow",
+      "name": "엘프 궁수",
+      "group": "엘프",
+      "role": "infantry",
+      "image": "art/full-roster-night-rebuild-20261019/units/elf_bow.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/elf_bow.png",
+      "old": "tokens/elf_bow.png",
+      "status": "검토 대기",
+      "body": "엘프 5등신 · 하이앵글 프론트뷰",
+      "pose": "금갑 궁수의 낮은 활",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/elf_bow.png?v=ff59f60fa1d8fc72a70c629f68767e2b49dba855",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/elf_bow.png?v=ff59f60fa1d8fc72a70c629f68767e2b49dba855",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/elf_bow.png"
+    },
     {
       "id": "thranduil",
       "name": "트란두일",
