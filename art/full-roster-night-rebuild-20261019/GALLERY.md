@@ -1,6 +1,36 @@
-# 전체 재제작 검토 — 338종
+# 전체 재제작 검토 — 343종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 철산 석궁병 (ironhills_crossbow)
+
+![철산 석궁병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/ironhills_crossbow.png?v=498c91a355886aa456f2abc5332b995304dd708e)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/ironhills_crossbow.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/ironhills_crossbow.png?v=498c91a355886aa456f2abc5332b995304dd708e)
+
+### 철산 창방병 (ironhills_spearshield)
+
+![철산 창방병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/ironhills_spearshield.png?v=05a9151db1d67044ecbfde10eb91b9e4ce454bc0)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/ironhills_spearshield.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/ironhills_spearshield.png?v=05a9151db1d67044ecbfde10eb91b9e4ce454bc0)
+
+### 철산 매톡 전사 (ironhills_warrior)
+
+![철산 매톡 전사](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/ironhills_warrior.png?v=6a5573f3a1a146aac67601b379341ffce50910f9)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/ironhills_warrior.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/ironhills_warrior.png?v=6a5573f3a1a146aac67601b379341ffce50910f9)
+
+### 다인(맷돼지) (dain_boar)
+
+![다인(맷돼지)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dain_boar.png?v=9c968b57c3e92a7706596b2224ad96a525718578)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/dain_boar.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dain_boar.png?v=9c968b57c3e92a7706596b2224ad96a525718578)
+
+### 산양 기수 (goat_rider)
+
+![산양 기수](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/goat_rider.png?v=78ace792d4acc9b4b5e103837e403b505d1b337a)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/goat_rider.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/goat_rider.png?v=78ace792d4acc9b4b5e103837e403b505d1b337a)
 
 ### 봄부르 (bombur)
 

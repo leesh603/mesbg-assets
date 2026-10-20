@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T03:30:34.252Z",
+  "updatedAt": "2026-10-20T03:33:20.204Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 172,
-    "newlyGeneratedThisSession": 206,
-    "visuallyReviewedThisSession": 211,
+    "pending": 167,
+    "newlyGeneratedThisSession": 211,
+    "visuallyReviewedThisSession": 216,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 206,
-    "persistedReviewAssets": 338,
+    "generatedReviewAssets": 211,
+    "persistedReviewAssets": 343,
     "revisedAfterRejection": 14
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -2855,8 +2855,13 @@
       "faction": "iron_hills",
       "role": "cavalry",
       "original": "tokens/goat_rider.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dwarf",
+      "path": "art/full-roster-night-rebuild-20261019/units/goat_rider.png",
+      "blobSHA": "78ace792d4acc9b4b5e103837e403b505d1b337a",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "gollum",
@@ -3617,8 +3622,13 @@
       "faction": "dwarf",
       "role": "hero",
       "original": "tokens/dain_boar.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dwarf",
+      "path": "art/full-roster-night-rebuild-20261019/units/dain_boar.png",
+      "blobSHA": "9c968b57c3e92a7706596b2224ad96a525718578",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "faramir_mounted",
@@ -6979,8 +6989,13 @@
       "faction": "iron_hills",
       "role": "infantry",
       "original": "tokens/ironhills_warrior.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dwarf",
+      "path": "art/full-roster-night-rebuild-20261019/units/ironhills_warrior.png",
+      "blobSHA": "6a5573f3a1a146aac67601b379341ffce50910f9",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "ironhills_spearshield",
@@ -6988,8 +7003,13 @@
       "faction": "iron_hills",
       "role": "infantry",
       "original": "tokens/ironhills_spearshield.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dwarf",
+      "path": "art/full-roster-night-rebuild-20261019/units/ironhills_spearshield.png",
+      "blobSHA": "05a9151db1d67044ecbfde10eb91b9e4ce454bc0",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "ironhills_crossbow",
@@ -6997,8 +7017,13 @@
       "faction": "iron_hills",
       "role": "infantry",
       "original": "tokens/ironhills_crossbow.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dwarf",
+      "path": "art/full-roster-night-rebuild-20261019/units/ironhills_crossbow.png",
+      "blobSHA": "498c91a355886aa456f2abc5332b995304dd708e",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "galadhrim_bow",
@@ -7116,12 +7141,12 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 338,
+    "count": 343,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
-      "dwarf": 30,
+      "dwarf": 35,
       "harad": 15,
       "maiar": 9,
       "isengard": 29,
@@ -7132,7 +7157,7 @@
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,
-    "sourceValidation": "338 unique IDs; static card count and asset blob SHAs verified"
+    "sourceValidation": "343 unique IDs; static card count and asset blob SHAs verified"
   },
   "revisionRequests": {
     "witchking": {
@@ -7240,13 +7265,13 @@
     }
   },
   "lastContinuation": {
-    "batch": "dwarf-002-final-five-20261020",
+    "batch": "dwarf-003-final-five-20261020",
     "newIds": [
-      "balin",
-      "ori",
-      "bifur",
-      "bofur",
-      "bombur"
+      "goat_rider",
+      "dain_boar",
+      "ironhills_warrior",
+      "ironhills_spearshield",
+      "ironhills_crossbow"
     ],
     "qualityStandard": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
     "note": "Each image inspected against canonical skeleton and identity reference; approval pending."

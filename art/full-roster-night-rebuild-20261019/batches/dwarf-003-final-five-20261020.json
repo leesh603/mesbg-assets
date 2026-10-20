@@ -1,0 +1,96 @@
+{
+  "batch": "dwarf-003-final-five-20261020",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "goat_rider",
+      "pose": "산양에 앉은 도끼 경계",
+      "detail": "Orange-bearded fitted-helmet dwarf, iron/gold armour, white fur cloak and red cape, battleaxe raised LOW to side. Mount is a WHITE shaggy mountain GOAT/ram with thick curled tan horns and black/gold forehead armour, hoof greaves. Replace boar anatomy with exact goat species identity from image2; keep dwarf rider's original stocky skeleton and normal skull, both bent legs/boots outside flanks, fully seated hips. Rider head deeply bowed; elevated-front view shows crown/shoulder/withers/saddle tops.",
+      "group": "난쟁이",
+      "groupKey": "dwarf",
+      "mounted": true,
+      "bodyDescription": "난쟁이 탑승 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "prompt": "ONE isolated production game sprite, truly transparent background. IMAGE1 is IMMUTABLE species skeleton, skull/shoulder/pelvis/knee/ankle bone lengths, body ratio, camera and crisp PIXEL style master. IMAGE2 is exact character/costume/palette/equipment identity only. Dress this original skeleton; vary width and joint rotation without stretching bones. Beard/hair/crown never count as anatomical skull. HIGH-ANGLE FRONT camera down35deg, crown and shoulder TOPS obvious, face/chest foreshortened. Head deeply BOWED, eyes hidden and face only small fragment. Never eyelevel front, chibi giant skull, human-long dwarf legs or smooth illustration. Full uncropped silhouette and all weapon/flag tips safely within INNER80% canvas with generous transparent margin. Body centered independently of equipment. No base/floor/shadow/text/scenery/glow. Orange-bearded fitted-helmet dwarf, iron/gold armour, white fur cloak and red cape, battleaxe raised LOW to side. Mount is a WHITE shaggy mountain GOAT/ram with thick curled tan horns and black/gold forehead armour, hoof greaves. Replace boar anatomy with exact goat species identity from image2; keep dwarf rider's original stocky skeleton and normal skull, both bent legs/boots outside flanks, fully seated hips. Rider head deeply bowed; elevated-front view shows crown/shoulder/withers/saddle tops.",
+      "refs": [
+        "/workspace/scratch/f40d43c7f276/references/dwarf-mounted.png",
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/goat_rider.png"
+      ],
+      "blobSHA": "78ace792d4acc9b4b5e103837e403b505d1b337a",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-d84dcc02-ef49-4dfb-878a-a65cbedd9b62.png"
+    },
+    {
+      "id": "dain_boar",
+      "pose": "멧돼지 기마의 전투망치 지휘",
+      "detail": "DAIN long braided orange beard, gold/silver nasal helmet, silver/gold armour and red/gold cloak/tabard, rectangular iron hammer on shoulder. Mount RED-BROWN bristly BOAR with big ivory tusks, black/gold forehead armour, brown reins/saddle. Same image1 dwarf rider proportions and normal skull, short stocky dwarf limb bones and properly seated pelvis, knees/boots both flanks. Bowed helmet/face, high-angle front whole mount.",
+      "group": "난쟁이",
+      "groupKey": "dwarf",
+      "mounted": true,
+      "bodyDescription": "난쟁이 탑승 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "prompt": "ONE isolated production game sprite, truly transparent background. IMAGE1 is IMMUTABLE species skeleton, skull/shoulder/pelvis/knee/ankle bone lengths, body ratio, camera and crisp PIXEL style master. IMAGE2 is exact character/costume/palette/equipment identity only. Dress this original skeleton; vary width and joint rotation without stretching bones. Beard/hair/crown never count as anatomical skull. HIGH-ANGLE FRONT camera down35deg, crown and shoulder TOPS obvious, face/chest foreshortened. Head deeply BOWED, eyes hidden and face only small fragment. Never eyelevel front, chibi giant skull, human-long dwarf legs or smooth illustration. Full uncropped silhouette and all weapon/flag tips safely within INNER80% canvas with generous transparent margin. Body centered independently of equipment. No base/floor/shadow/text/scenery/glow. DAIN long braided orange beard, gold/silver nasal helmet, silver/gold armour and red/gold cloak/tabard, rectangular iron hammer on shoulder. Mount RED-BROWN bristly BOAR with big ivory tusks, black/gold forehead armour, brown reins/saddle. Same image1 dwarf rider proportions and normal skull, short stocky dwarf limb bones and properly seated pelvis, knees/boots both flanks. Bowed helmet/face, high-angle front whole mount.",
+      "refs": [
+        "/workspace/scratch/f40d43c7f276/references/dwarf-mounted.png",
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/dain_boar.png"
+      ],
+      "blobSHA": "9c968b57c3e92a7706596b2224ad96a525718578",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-c639fede-39e9-4fa9-be33-d6f46c6141e4.png"
+    },
+    {
+      "id": "ironhills_warrior",
+      "pose": "매톡을 가로 든 버티기",
+      "detail": "Orange braided beard, fitted silver/gold nasal helmet and silver plate with gold geometric trim, chainmail and boots. Complete DOUBLE-ENDED mattock/pickaxe with curved steel pick and broad axe blade, held two hands horizontally low. Feet wide planted, short knees flex.",
+      "group": "난쟁이",
+      "groupKey": "dwarf",
+      "mounted": false,
+      "bodyDescription": "난쟁이 표준 뼈대 · 하이앵글 프론트뷰",
+      "prompt": "ONE isolated production game sprite, truly transparent background. IMAGE1 is IMMUTABLE species skeleton, skull/shoulder/pelvis/knee/ankle bone lengths, body ratio, camera and crisp PIXEL style master. IMAGE2 is exact character/costume/palette/equipment identity only. Dress this original skeleton; vary width and joint rotation without stretching bones. Beard/hair/crown never count as anatomical skull. HIGH-ANGLE FRONT camera down35deg, crown and shoulder TOPS obvious, face/chest foreshortened. Head deeply BOWED, eyes hidden and face only small fragment. Never eyelevel front, chibi giant skull, human-long dwarf legs or smooth illustration. Full uncropped silhouette and all weapon/flag tips safely within INNER80% canvas with generous transparent margin. Body centered independently of equipment. No base/floor/shadow/text/scenery/glow. Orange braided beard, fitted silver/gold nasal helmet and silver plate with gold geometric trim, chainmail and boots. Complete DOUBLE-ENDED mattock/pickaxe with curved steel pick and broad axe blade, held two hands horizontally low. Feet wide planted, short knees flex.",
+      "refs": [
+        "/workspace/scratch/f40d43c7f276/references/dwarf.png",
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/ironhills_warrior.png"
+      ],
+      "blobSHA": "6a5573f3a1a146aac67601b379341ffce50910f9",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-9ed9ab22-d9ed-4571-8abc-4cdae246cf6e.png"
+    },
+    {
+      "id": "ironhills_spearshield",
+      "pose": "각진 방패와 곧은 창",
+      "detail": "Orange braided beard, iron/gold fitted helmet, heavy gold-edged silver plate, full straight spear and tall angular gray shield with bold gold geometric bands/central silver boss. Shield forward, spear upright beside torso, feet square.",
+      "group": "난쟁이",
+      "groupKey": "dwarf",
+      "mounted": false,
+      "bodyDescription": "난쟁이 표준 뼈대 · 하이앵글 프론트뷰",
+      "prompt": "ONE isolated production game sprite, truly transparent background. IMAGE1 is IMMUTABLE species skeleton, skull/shoulder/pelvis/knee/ankle bone lengths, body ratio, camera and crisp PIXEL style master. IMAGE2 is exact character/costume/palette/equipment identity only. Dress this original skeleton; vary width and joint rotation without stretching bones. Beard/hair/crown never count as anatomical skull. HIGH-ANGLE FRONT camera down35deg, crown and shoulder TOPS obvious, face/chest foreshortened. Head deeply BOWED, eyes hidden and face only small fragment. Never eyelevel front, chibi giant skull, human-long dwarf legs or smooth illustration. Full uncropped silhouette and all weapon/flag tips safely within INNER80% canvas with generous transparent margin. Body centered independently of equipment. No base/floor/shadow/text/scenery/glow. Orange braided beard, iron/gold fitted helmet, heavy gold-edged silver plate, full straight spear and tall angular gray shield with bold gold geometric bands/central silver boss. Shield forward, spear upright beside torso, feet square.",
+      "refs": [
+        "/workspace/scratch/f40d43c7f276/references/dwarf.png",
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/ironhills_spearshield.png"
+      ],
+      "blobSHA": "05a9151db1d67044ecbfde10eb91b9e4ce454bc0",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-a2da5432-3b57-40b1-8711-a300c130d084.png"
+    },
+    {
+      "id": "ironhills_crossbow",
+      "pose": "석궁을 겨눈 안정 자세",
+      "detail": "Brown braided beard, fitted silver/gold helmet, heavy silver/gold plate and blue/gray tabard, bolt quiver. Full wood-and-steel CROSSBOW both hands at waist, upper/lower limbs symmetrical and taut single bowstring, bolt rail complete. Knees bent, boots wide stable.",
+      "group": "난쟁이",
+      "groupKey": "dwarf",
+      "mounted": false,
+      "bodyDescription": "난쟁이 표준 뼈대 · 하이앵글 프론트뷰",
+      "prompt": "ONE isolated production game sprite, truly transparent background. IMAGE1 is IMMUTABLE species skeleton, skull/shoulder/pelvis/knee/ankle bone lengths, body ratio, camera and crisp PIXEL style master. IMAGE2 is exact character/costume/palette/equipment identity only. Dress this original skeleton; vary width and joint rotation without stretching bones. Beard/hair/crown never count as anatomical skull. HIGH-ANGLE FRONT camera down35deg, crown and shoulder TOPS obvious, face/chest foreshortened. Head deeply BOWED, eyes hidden and face only small fragment. Never eyelevel front, chibi giant skull, human-long dwarf legs or smooth illustration. Full uncropped silhouette and all weapon/flag tips safely within INNER80% canvas with generous transparent margin. Body centered independently of equipment. No base/floor/shadow/text/scenery/glow. Brown braided beard, fitted silver/gold helmet, heavy silver/gold plate and blue/gray tabard, bolt quiver. Full wood-and-steel CROSSBOW both hands at waist, upper/lower limbs symmetrical and taut single bowstring, bolt rail complete. Knees bent, boots wide stable.",
+      "refs": [
+        "/workspace/scratch/f40d43c7f276/references/dwarf.png",
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/ironhills_crossbow.png"
+      ],
+      "blobSHA": "498c91a355886aa456f2abc5332b995304dd708e",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-13007cda-ae43-435c-8306-be7bea1b48b2.png"
+    }
+  ]
+}
