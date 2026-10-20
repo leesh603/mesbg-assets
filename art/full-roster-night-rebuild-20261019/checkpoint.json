@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T01:06:07.894Z",
+  "updatedAt": "2026-10-20T01:21:40.784Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 327,
-    "newlyGeneratedThisSession": 51,
-    "visuallyReviewedThisSession": 51,
+    "pending": 318,
+    "newlyGeneratedThisSession": 60,
+    "visuallyReviewedThisSession": 60,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 51,
-    "persistedReviewAssets": 183,
+    "generatedReviewAssets": 60,
+    "persistedReviewAssets": 192,
     "revisedAfterRejection": 10
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -780,8 +780,13 @@
       "faction": "rivendell",
       "role": "infantry",
       "original": "tokens/elf_swordshield.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/elf_swordshield.png",
+      "blobSHA": "8f4fe52cbe9875e6fa2b208d926a817a238c0276",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "elf_spear",
@@ -789,8 +794,13 @@
       "faction": "rivendell",
       "role": "infantry",
       "original": "tokens/elf_spear.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/elf_spear.png",
+      "blobSHA": "f84b1a6cf3ed56f7ca7883702ca3c0335fc61fd6",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "elf_bow",
@@ -807,8 +817,13 @@
       "faction": "mirkwood",
       "role": "infantry",
       "original": "tokens/elf_glaive.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/elf_glaive.png",
+      "blobSHA": "0a30a231a6de0c493c1dbd92ebb477250d75f2fb",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "galadhrim_warrior",
@@ -816,8 +831,13 @@
       "faction": "lothlorien",
       "role": "infantry",
       "original": "tokens/galadhrim_warrior.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/galadhrim_warrior.png",
+      "blobSHA": "5a4baf9025c1e1be3cd1e5dd24882e7f4bcbe56f",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "elf_knight",
@@ -825,8 +845,13 @@
       "faction": "rivendell",
       "role": "cavalry",
       "original": "tokens/elf_knight.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/elf_knight.png",
+      "blobSHA": "0fd1e484fd4b20db2b28db7946ff560e5a7a1ead",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "uruk_swordshield2",
@@ -1351,8 +1376,13 @@
       "faction": "lothlorien",
       "role": "hero",
       "original": "tokens/haldir.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/haldir.png",
+      "blobSHA": "d30e60a9a76f382701d139d328a91d3abd8caef5",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "galadriel",
@@ -1360,8 +1390,13 @@
       "faction": "lothlorien",
       "role": "hero",
       "original": "tokens/galadriel.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/galadriel.png",
+      "blobSHA": "6350df9416f54e1e43a141ead3039d8a79e146ee",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "gamling",
@@ -1454,8 +1489,13 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/fingolfin.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/fingolfin.png",
+      "blobSHA": "3d4d15c95c9911c09ba31d6f61c36d5f49755111",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "imrahil",
@@ -1574,8 +1614,13 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/thranduil.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/thranduil.png",
+      "blobSHA": "9ce040192fd0d229fae58646bbaa371206168be9",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "celeborn",
@@ -5294,12 +5339,12 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 183,
+    "count": 192,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
-      "elf": 5,
+      "elf": 14,
       "rohan": 46,
       "gondor": 59,
       "mordor": 73
@@ -5348,6 +5393,14 @@
       "approval": "pending",
       "referenceFoot": "art/rebuild-skeletons/bases/human.png",
       "referenceMounted": "art/rebuild-skeletons/bases/human-mounted.png"
+    },
+    "elfBow": {
+      "ids": [
+        "elf_bow"
+      ],
+      "reason": "생성본 활의 상·하단과 시위 구조 불완전",
+      "state": "repairing",
+      "approval": "pending"
     }
   },
   "lastContinuation": {

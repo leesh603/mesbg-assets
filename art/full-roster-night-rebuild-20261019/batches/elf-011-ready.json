@@ -1,0 +1,123 @@
+{
+  "batch": "elf-011-ready",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "elf_swordshield",
+      "pose": "검방의 옆 방어",
+      "detail": "Gold leaf-shaped helmet, layered GOLD elven armour, navy tunic/blue cape gold trim, silver curved sword viewerLEFT, tall GOLD leaf-scrollwork KITE shield viewerRIGHT. Shield held high outside chest, sword low down-left; compact5head standard bones, crest excluded.",
+      "mounted": false,
+      "group": "엘프",
+      "groupKey": "elf",
+      "prompt": "EDIT IMAGE1 fixed neutral anatomy template by dressing it as IMAGE2 character. IMAGE1 is immutable skull/head-to-torso/limb-length and HIGH-ANGLE FRONT camera master. ELF humanoid EXACTLY FIVE anatomical heads, crown of skull to chin excluding hair/helmet. Slenderness changes width only, NEVER lengthen torso/thighs/shins or shrink head for handsome tall elf. Keep compact short bone lengths and relatively large normal skull of image1. Pose joints may rotate independently but segment lengths stay. Looking down25–30deg from front with slight diagonal only, crown/shoulder tops visible, eyes shaded, no eye-level portrait or side view. Image2 identity/equipment/palette only, ignore its proportions. Exact reference pixel density: crisp discrete clusters, stepped black outline, restrained colour ramps, no smooth painted illustration or3D. Whole silhouette including weapons fits inner80% transparent RGBA canvas with generous clear margin, torso centered independently from hair/weapon/cape. No floor/base/shadow/glow/text/UI/additional figures. Subject from IMAGE2: Gold leaf-shaped helmet, layered GOLD elven armour, navy tunic/blue cape gold trim, silver curved sword viewerLEFT, tall GOLD leaf-scrollwork KITE shield viewerRIGHT. Shield held high outside chest, sword low down-left; compact5head standard bones, crest excluded. Preserve original character design, no invented weapons or royal accents. Humanlike elves exactly FIVE anatomical heads. ",
+      "blobSHA": "8f4fe52cbe9875e6fa2b208d926a817a238c0276",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-917ad714-2d67-45ee-9c81-3d41cc47e303.png"
+    },
+    {
+      "id": "elf_spear",
+      "pose": "창방의 짧은 찌르기 준비",
+      "detail": "Gold leaf-shaped helmet and gold layered armour over navy tunic, blue cape, tall GOLD leaf-scrollwork KITE shield viewerRIGHT, long WOOD spear with silver leafhead viewerLEFT. Spear hand near waist with shaft diagonal upper-left, shield forward; entire tip/butt contained. Not sword.",
+      "mounted": false,
+      "group": "엘프",
+      "groupKey": "elf",
+      "prompt": "EDIT IMAGE1 fixed neutral anatomy template by dressing it as IMAGE2 character. IMAGE1 is immutable skull/head-to-torso/limb-length and HIGH-ANGLE FRONT camera master. ELF humanoid EXACTLY FIVE anatomical heads, crown of skull to chin excluding hair/helmet. Slenderness changes width only, NEVER lengthen torso/thighs/shins or shrink head for handsome tall elf. Keep compact short bone lengths and relatively large normal skull of image1. Pose joints may rotate independently but segment lengths stay. Looking down25–30deg from front with slight diagonal only, crown/shoulder tops visible, eyes shaded, no eye-level portrait or side view. Image2 identity/equipment/palette only, ignore its proportions. Exact reference pixel density: crisp discrete clusters, stepped black outline, restrained colour ramps, no smooth painted illustration or3D. Whole silhouette including weapons fits inner80% transparent RGBA canvas with generous clear margin, torso centered independently from hair/weapon/cape. No floor/base/shadow/glow/text/UI/additional figures. Subject from IMAGE2: Gold leaf-shaped helmet and gold layered armour over navy tunic, blue cape, tall GOLD leaf-scrollwork KITE shield viewerRIGHT, long WOOD spear with silver leafhead viewerLEFT. Spear hand near waist with shaft diagonal upper-left, shield forward; entire tip/butt contained. Not sword. Preserve original character design, no invented weapons or royal accents. Humanlike elves exactly FIVE anatomical heads. ",
+      "blobSHA": "f84b1a6cf3ed56f7ca7883702ca3c0335fc61fd6",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-e328f95c-3bf8-4e6f-a90b-e7504d2e3a74.png"
+    },
+    {
+      "id": "elf_glaive",
+      "pose": "두 손 글레이브 방어",
+      "detail": "Gold leaf helmet and gold armour over navy/blue cape. TWO-HANDED long wood glaive with silver CURVED single blade, dark grip and gold collars, no shield. Distinct both hands low across body, blade points diagonally down viewerRIGHT clearing boot; tip and handle butt fully contained.",
+      "mounted": false,
+      "group": "엘프",
+      "groupKey": "elf",
+      "prompt": "EDIT IMAGE1 fixed neutral anatomy template by dressing it as IMAGE2 character. IMAGE1 is immutable skull/head-to-torso/limb-length and HIGH-ANGLE FRONT camera master. ELF humanoid EXACTLY FIVE anatomical heads, crown of skull to chin excluding hair/helmet. Slenderness changes width only, NEVER lengthen torso/thighs/shins or shrink head for handsome tall elf. Keep compact short bone lengths and relatively large normal skull of image1. Pose joints may rotate independently but segment lengths stay. Looking down25–30deg from front with slight diagonal only, crown/shoulder tops visible, eyes shaded, no eye-level portrait or side view. Image2 identity/equipment/palette only, ignore its proportions. Exact reference pixel density: crisp discrete clusters, stepped black outline, restrained colour ramps, no smooth painted illustration or3D. Whole silhouette including weapons fits inner80% transparent RGBA canvas with generous clear margin, torso centered independently from hair/weapon/cape. No floor/base/shadow/glow/text/UI/additional figures. Subject from IMAGE2: Gold leaf helmet and gold armour over navy/blue cape. TWO-HANDED long wood glaive with silver CURVED single blade, dark grip and gold collars, no shield. Distinct both hands low across body, blade points diagonally down viewerRIGHT clearing boot; tip and handle butt fully contained. Preserve original character design, no invented weapons or royal accents. Humanlike elves exactly FIVE anatomical heads. ",
+      "blobSHA": "0a30a231a6de0c493c1dbd92ebb477250d75f2fb",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-ca322b29-f986-410b-b146-7ce5142e1d45.png"
+    },
+    {
+      "id": "galadhrim_warrior",
+      "pose": "은빛 잎 투구의 창병",
+      "detail": "SILVER leaf-shaped helmet and dark SILVER armour with pale leaf tracery over muted green tunic, green cloak silver clasp, brown boots. Silver leaf-headed WOOD spear viewerLEFT, no shield. Distinct spear held upright tilted slightly right, free hand extended low for balance; correct independent legs.",
+      "mounted": false,
+      "group": "엘프",
+      "groupKey": "elf",
+      "prompt": "EDIT IMAGE1 fixed neutral anatomy template by dressing it as IMAGE2 character. IMAGE1 is immutable skull/head-to-torso/limb-length and HIGH-ANGLE FRONT camera master. ELF humanoid EXACTLY FIVE anatomical heads, crown of skull to chin excluding hair/helmet. Slenderness changes width only, NEVER lengthen torso/thighs/shins or shrink head for handsome tall elf. Keep compact short bone lengths and relatively large normal skull of image1. Pose joints may rotate independently but segment lengths stay. Looking down25–30deg from front with slight diagonal only, crown/shoulder tops visible, eyes shaded, no eye-level portrait or side view. Image2 identity/equipment/palette only, ignore its proportions. Exact reference pixel density: crisp discrete clusters, stepped black outline, restrained colour ramps, no smooth painted illustration or3D. Whole silhouette including weapons fits inner80% transparent RGBA canvas with generous clear margin, torso centered independently from hair/weapon/cape. No floor/base/shadow/glow/text/UI/additional figures. Subject from IMAGE2: SILVER leaf-shaped helmet and dark SILVER armour with pale leaf tracery over muted green tunic, green cloak silver clasp, brown boots. Silver leaf-headed WOOD spear viewerLEFT, no shield. Distinct spear held upright tilted slightly right, free hand extended low for balance; correct independent legs. Preserve original character design, no invented weapons or royal accents. Humanlike elves exactly FIVE anatomical heads. ",
+      "blobSHA": "5a4baf9025c1e1be3cd1e5dd24882e7f4bcbe56f",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-fa89ab84-5e73-4321-9d1c-b2150775c303.png"
+    },
+    {
+      "id": "elf_knight",
+      "pose": "백마의 기창 기사",
+      "detail": "MOUNTED Rivendell knight, gold leaf helmet/gold armour, navy tunic/blue cape gold border, blue shield with GOLD STAR viewerRIGHT, long gold/wood lance viewerLEFT. WHITE horse pale mane/navy-gold caparison, exact compact adult rider skull-to-seat/thigh/shin and horse anatomy as mounted template. Lance low upper-left outward, all4 horse legs/hooves/reins/stirrups coherent.",
+      "mounted": true,
+      "group": "엘프",
+      "groupKey": "elf",
+      "prompt": "EDIT IMAGE1 fixed neutral anatomy template by dressing it as IMAGE2 character. IMAGE1 is immutable skull/head-to-torso/limb-length and HIGH-ANGLE FRONT camera master. ELF humanoid EXACTLY FIVE anatomical heads, crown of skull to chin excluding hair/helmet. Slenderness changes width only, NEVER lengthen torso/thighs/shins or shrink head for handsome tall elf. Keep compact short bone lengths and relatively large normal skull of image1. Pose joints may rotate independently but segment lengths stay. Looking down25–30deg from front with slight diagonal only, crown/shoulder tops visible, eyes shaded, no eye-level portrait or side view. Image2 identity/equipment/palette only, ignore its proportions. Exact reference pixel density: crisp discrete clusters, stepped black outline, restrained colour ramps, no smooth painted illustration or3D. Whole silhouette including weapons fits inner80% transparent RGBA canvas with generous clear margin, torso centered independently from hair/weapon/cape. No floor/base/shadow/glow/text/UI/additional figures. Subject from IMAGE2: MOUNTED Rivendell knight, gold leaf helmet/gold armour, navy tunic/blue cape gold border, blue shield with GOLD STAR viewerRIGHT, long gold/wood lance viewerLEFT. WHITE horse pale mane/navy-gold caparison, exact compact adult rider skull-to-seat/thigh/shin and horse anatomy as mounted template. Lance low upper-left outward, all4 horse legs/hooves/reins/stirrups coherent. Preserve original character design, no invented weapons or royal accents. Humanlike elves exactly FIVE anatomical heads. Use image1 mounted human body as immutable adult rider skeleton, pointy ears and elf identity only; horse complete and normally proportioned.",
+      "blobSHA": "0fd1e484fd4b20db2b28db7946ff560e5a7a1ead",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-fd5c29c4-beae-4d8a-adb3-e1087a3acb11.png"
+    },
+    {
+      "id": "haldir",
+      "pose": "은빛 검을 든 궁수 지휘관",
+      "detail": "HALDIR foot, silver LEAF helmet, blond lock at side, muted green cloak with pale leaf clasp, silver leaf-trim mail/armour, leather belts/boots, bow and quiver SLUNG ON BACK. Active weapon SILVER SWORD viewerLEFT, not shooting bow. Sword diagonally upper-left close to shoulder, free hand low near ribs. Clean-shaven male elf.",
+      "mounted": false,
+      "group": "엘프",
+      "groupKey": "elf",
+      "prompt": "EDIT IMAGE1 fixed neutral anatomy template by dressing it as IMAGE2 character. IMAGE1 is immutable skull/head-to-torso/limb-length and HIGH-ANGLE FRONT camera master. ELF humanoid EXACTLY FIVE anatomical heads, crown of skull to chin excluding hair/helmet. Slenderness changes width only, NEVER lengthen torso/thighs/shins or shrink head for handsome tall elf. Keep compact short bone lengths and relatively large normal skull of image1. Pose joints may rotate independently but segment lengths stay. Looking down25–30deg from front with slight diagonal only, crown/shoulder tops visible, eyes shaded, no eye-level portrait or side view. Image2 identity/equipment/palette only, ignore its proportions. Exact reference pixel density: crisp discrete clusters, stepped black outline, restrained colour ramps, no smooth painted illustration or3D. Whole silhouette including weapons fits inner80% transparent RGBA canvas with generous clear margin, torso centered independently from hair/weapon/cape. No floor/base/shadow/glow/text/UI/additional figures. Subject from IMAGE2: HALDIR foot, silver LEAF helmet, blond lock at side, muted green cloak with pale leaf clasp, silver leaf-trim mail/armour, leather belts/boots, bow and quiver SLUNG ON BACK. Active weapon SILVER SWORD viewerLEFT, not shooting bow. Sword diagonally upper-left close to shoulder, free hand low near ribs. Clean-shaven male elf. Preserve original character design, no invented weapons or royal accents. Humanlike elves exactly FIVE anatomical heads. ",
+      "blobSHA": "d30e60a9a76f382701d139d328a91d3abd8caef5",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-8daf4740-18c0-4393-b74c-2db0c395c855.png"
+    },
+    {
+      "id": "galadriel",
+      "pose": "단검을 낮게 든 흰옷 군주",
+      "detail": "GALADRIEL adult female elf, long wavy GOLD hair and silver leafy circlet with blue gem, WHITE flowing layered gown with pale gold piping and blue-gem silver belt/clasps, white shoes. SMALL SILVER DAGGER viewerLEFT, other hand lightly extended palm down. Keep SAME five-head bone lengths/skull as template; feminine by face/width only, no tiny head or long dress-hidden legs. Dress follows exact pelvis/knees/feet; show both white shoe tips, no added staff or sword.",
+      "mounted": false,
+      "group": "엘프",
+      "groupKey": "elf",
+      "prompt": "EDIT IMAGE1 fixed neutral anatomy template by dressing it as IMAGE2 character. IMAGE1 is immutable skull/head-to-torso/limb-length and HIGH-ANGLE FRONT camera master. ELF humanoid EXACTLY FIVE anatomical heads, crown of skull to chin excluding hair/helmet. Slenderness changes width only, NEVER lengthen torso/thighs/shins or shrink head for handsome tall elf. Keep compact short bone lengths and relatively large normal skull of image1. Pose joints may rotate independently but segment lengths stay. Looking down25–30deg from front with slight diagonal only, crown/shoulder tops visible, eyes shaded, no eye-level portrait or side view. Image2 identity/equipment/palette only, ignore its proportions. Exact reference pixel density: crisp discrete clusters, stepped black outline, restrained colour ramps, no smooth painted illustration or3D. Whole silhouette including weapons fits inner80% transparent RGBA canvas with generous clear margin, torso centered independently from hair/weapon/cape. No floor/base/shadow/glow/text/UI/additional figures. Subject from IMAGE2: GALADRIEL adult female elf, long wavy GOLD hair and silver leafy circlet with blue gem, WHITE flowing layered gown with pale gold piping and blue-gem silver belt/clasps, white shoes. SMALL SILVER DAGGER viewerLEFT, other hand lightly extended palm down. Keep SAME five-head bone lengths/skull as template; feminine by face/width only, no tiny head or long dress-hidden legs. Dress follows exact pelvis/knees/feet; show both white shoe tips, no added staff or sword. Preserve original character design, no invented weapons or royal accents. Humanlike elves exactly FIVE anatomical heads. ",
+      "blobSHA": "6350df9416f54e1e43a141ead3039d8a79e146ee",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-75687077-4505-49fe-9142-00f2b16ca7a5.png"
+    },
+    {
+      "id": "fingolfin",
+      "pose": "은갑 청색 망토의 검 지휘",
+      "detail": "FINGOLFIN foot: long DARK hair, silver circlet small blue gem, CLEAN-SHAVEN face, SILVER articulated armour, royal BLUE tunic with white8point STAR, blue cape white edge, long straight silver sword viewerLEFT. Distinct sword down beside left shin, free right fist near chest; broad shoulders width only exact5head bone lengths. No beard/helmet.",
+      "mounted": false,
+      "group": "엘프",
+      "groupKey": "elf",
+      "prompt": "EDIT IMAGE1 fixed neutral anatomy template by dressing it as IMAGE2 character. IMAGE1 is immutable skull/head-to-torso/limb-length and HIGH-ANGLE FRONT camera master. ELF humanoid EXACTLY FIVE anatomical heads, crown of skull to chin excluding hair/helmet. Slenderness changes width only, NEVER lengthen torso/thighs/shins or shrink head for handsome tall elf. Keep compact short bone lengths and relatively large normal skull of image1. Pose joints may rotate independently but segment lengths stay. Looking down25–30deg from front with slight diagonal only, crown/shoulder tops visible, eyes shaded, no eye-level portrait or side view. Image2 identity/equipment/palette only, ignore its proportions. Exact reference pixel density: crisp discrete clusters, stepped black outline, restrained colour ramps, no smooth painted illustration or3D. Whole silhouette including weapons fits inner80% transparent RGBA canvas with generous clear margin, torso centered independently from hair/weapon/cape. No floor/base/shadow/glow/text/UI/additional figures. Subject from IMAGE2: FINGOLFIN foot: long DARK hair, silver circlet small blue gem, CLEAN-SHAVEN face, SILVER articulated armour, royal BLUE tunic with white8point STAR, blue cape white edge, long straight silver sword viewerLEFT. Distinct sword down beside left shin, free right fist near chest; broad shoulders width only exact5head bone lengths. No beard/helmet. Preserve original character design, no invented weapons or royal accents. Humanlike elves exactly FIVE anatomical heads. ",
+      "blobSHA": "3d4d15c95c9911c09ba31d6f61c36d5f49755111",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-75458ab1-a353-4097-9bd4-0129da39d943.png"
+    },
+    {
+      "id": "thranduil",
+      "pose": "가지 왕관의 은갑 검객",
+      "detail": "THRANDUIL foot: long pale GOLD blond hair, delicate GOLD branch crown (excluded from skull size), SILVER leaf-layered armour, pale blue-grey cape with gold branching motifs, silver curved elven sword viewerLEFT. Distinct sword held across lower front with right hand bent inward, free left hand on belt; exact compact5head lengths, no tall elegant7head torso/legs, clean-shaven.",
+      "mounted": false,
+      "group": "엘프",
+      "groupKey": "elf",
+      "prompt": "EDIT IMAGE1 fixed neutral anatomy template by dressing it as IMAGE2 character. IMAGE1 is immutable skull/head-to-torso/limb-length and HIGH-ANGLE FRONT camera master. ELF humanoid EXACTLY FIVE anatomical heads, crown of skull to chin excluding hair/helmet. Slenderness changes width only, NEVER lengthen torso/thighs/shins or shrink head for handsome tall elf. Keep compact short bone lengths and relatively large normal skull of image1. Pose joints may rotate independently but segment lengths stay. Looking down25–30deg from front with slight diagonal only, crown/shoulder tops visible, eyes shaded, no eye-level portrait or side view. Image2 identity/equipment/palette only, ignore its proportions. Exact reference pixel density: crisp discrete clusters, stepped black outline, restrained colour ramps, no smooth painted illustration or3D. Whole silhouette including weapons fits inner80% transparent RGBA canvas with generous clear margin, torso centered independently from hair/weapon/cape. No floor/base/shadow/glow/text/UI/additional figures. Subject from IMAGE2: THRANDUIL foot: long pale GOLD blond hair, delicate GOLD branch crown (excluded from skull size), SILVER leaf-layered armour, pale blue-grey cape with gold branching motifs, silver curved elven sword viewerLEFT. Distinct sword held across lower front with right hand bent inward, free left hand on belt; exact compact5head lengths, no tall elegant7head torso/legs, clean-shaven. Preserve original character design, no invented weapons or royal accents. Humanlike elves exactly FIVE anatomical heads. ",
+      "blobSHA": "9ce040192fd0d229fae58646bbaa371206168be9",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-7acc2e05-d165-4ff2-8ac8-4662ffab642c.png"
+    }
+  ]
+}

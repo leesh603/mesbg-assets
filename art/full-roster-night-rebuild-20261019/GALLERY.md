@@ -1,6 +1,60 @@
-# 전체 재제작 검토 — 183종
+# 전체 재제작 검토 — 192종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 트란두일 (thranduil)
+
+![트란두일](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/thranduil.png?v=9ce040192fd0d229fae58646bbaa371206168be9)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/thranduil.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/thranduil.png?v=9ce040192fd0d229fae58646bbaa371206168be9)
+
+### 핑골핀 (fingolfin)
+
+![핑골핀](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/fingolfin.png?v=3d4d15c95c9911c09ba31d6f61c36d5f49755111)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/fingolfin.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/fingolfin.png?v=3d4d15c95c9911c09ba31d6f61c36d5f49755111)
+
+### 갈라드리엘 (galadriel)
+
+![갈라드리엘](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/galadriel.png?v=6350df9416f54e1e43a141ead3039d8a79e146ee)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/galadriel.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/galadriel.png?v=6350df9416f54e1e43a141ead3039d8a79e146ee)
+
+### 할디르 (haldir)
+
+![할디르](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/haldir.png?v=d30e60a9a76f382701d139d328a91d3abd8caef5)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/haldir.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/haldir.png?v=d30e60a9a76f382701d139d328a91d3abd8caef5)
+
+### 엘프 기마기사 (elf_knight)
+
+![엘프 기마기사](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/elf_knight.png?v=0fd1e484fd4b20db2b28db7946ff560e5a7a1ead)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/elf_knight.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/elf_knight.png?v=0fd1e484fd4b20db2b28db7946ff560e5a7a1ead)
+
+### 갈라드림 전사 (galadhrim_warrior)
+
+![갈라드림 전사](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/galadhrim_warrior.png?v=5a4baf9025c1e1be3cd1e5dd24882e7f4bcbe56f)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/galadhrim_warrior.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/galadhrim_warrior.png?v=5a4baf9025c1e1be3cd1e5dd24882e7f4bcbe56f)
+
+### 엘프 글레이브 (elf_glaive)
+
+![엘프 글레이브](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/elf_glaive.png?v=0a30a231a6de0c493c1dbd92ebb477250d75f2fb)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/elf_glaive.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/elf_glaive.png?v=0a30a231a6de0c493c1dbd92ebb477250d75f2fb)
+
+### 엘프 창병 (elf_spear)
+
+![엘프 창병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/elf_spear.png?v=f84b1a6cf3ed56f7ca7883702ca3c0335fc61fd6)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/elf_spear.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/elf_spear.png?v=f84b1a6cf3ed56f7ca7883702ca3c0335fc61fd6)
+
+### 엘프 검방 (elf_swordshield)
+
+![엘프 검방](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/elf_swordshield.png?v=8f4fe52cbe9875e6fa2b208d926a817a238c0276)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/elf_swordshield.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/elf_swordshield.png?v=8f4fe52cbe9875e6fa2b208d926a817a238c0276)
 
 ### 엘프 검사 (elf_swordsman)
 
