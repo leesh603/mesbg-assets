@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T04:25:50.650Z",
+  "updatedAt": "2026-10-20T04:26:56.507Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 34,
-    "newlyGeneratedThisSession": 344,
-    "visuallyReviewedThisSession": 349,
+    "pending": 26,
+    "newlyGeneratedThisSession": 352,
+    "visuallyReviewedThisSession": 357,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 344,
-    "persistedReviewAssets": 476,
+    "generatedReviewAssets": 352,
+    "persistedReviewAssets": 484,
     "revisedAfterRejection": 18
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -54,8 +54,8 @@
       "bard",
       "azog",
       "corsair_umbra",
-      "buhrdur",
-      "stone_troll"
+      "ancalagon",
+      "watcher_karna"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
@@ -3529,8 +3529,13 @@
       "faction": "angmar",
       "role": "monster",
       "original": "tokens/buhrdur.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "angmar",
+      "path": "art/full-roster-night-rebuild-20261019/units/buhrdur.png",
+      "blobSHA": "51cb401fe2b5d5978a22841a2d0f35f31823f5e3",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "mahud_chieftain",
@@ -3706,8 +3711,13 @@
       "faction": "angmar",
       "role": "monster",
       "original": "tokens/stone_troll.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "angmar",
+      "path": "art/full-roster-night-rebuild-20261019/units/stone_troll.png",
+      "blobSHA": "08753f5862ae40b661b0431769ee1959e04bf414",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "werewolf",
@@ -3731,8 +3741,13 @@
       "faction": "angmar",
       "role": "monster",
       "original": "tokens/gulavhar.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "angmar",
+      "path": "art/full-roster-night-rebuild-20261019/units/gulavhar.png",
+      "blobSHA": "a7311cb45b773e74df3e05f03984d790bed28b54",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "dark_marshal",
@@ -3882,8 +3897,13 @@
       "faction": "fangorn",
       "role": "monster",
       "original": "tokens/huorn.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "fangorn",
+      "path": "art/full-roster-night-rebuild-20261019/units/huorn.png",
+      "blobSHA": "a80f8c225b6c580aba9fdcc611c97a62286e450f",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "boromir_mounted",
@@ -4146,8 +4166,13 @@
       "faction": "angmar",
       "role": "monster",
       "original": "tokens/fellbeast.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "angmar",
+      "path": "art/full-roster-night-rebuild-20261019/units/fellbeast.png",
+      "blobSHA": "9607096b0fd301389202c6e3ff98a2eef79749da",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "quickbeam",
@@ -4155,8 +4180,13 @@
       "faction": "ent",
       "role": "monster",
       "original": "tokens/quickbeam.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "ent",
+      "path": "art/full-roster-night-rebuild-20261019/units/quickbeam.png",
+      "blobSHA": "72e47d2a4d8846ed25b58a9ff64d7a8cf7cccabe",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "aragorn_blackgate",
@@ -4882,8 +4912,13 @@
       "faction": "dead",
       "role": "infantry",
       "original": "tokens/dead_spearman.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dead",
+      "path": "art/full-roster-night-rebuild-20261019/units/dead_spearman.png",
+      "blobSHA": "d890cfea0e3a03f032b088f164f736d05b02543a",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "stone_giant",
@@ -4891,8 +4926,13 @@
       "faction": "gundabad",
       "role": "monster",
       "original": "tokens/stone_giant.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "gundabad",
+      "path": "art/full-roster-night-rebuild-20261019/units/stone_giant.png",
+      "blobSHA": "f4c1d5121eaff29c8fe67204e94c4c6788102c45",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "gundabad_warg_rider",
@@ -7814,24 +7854,25 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 476,
+    "count": 484,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
+      "군다바드": 10,
+      "망자": 4,
+      "엔트": 2,
+      "앙마르": 7,
+      "팡고른": 1,
       "돌 굴두르": 6,
       "moria": 19,
       "베오른 일족": 3,
-      "군다바드": 9,
       "앙그반드": 8,
       "독수리": 1,
       "arnor": 14,
       "men": 11,
-      "앙마르": 3,
       "에레보르": 1,
-      "엔트": 1,
       "numenor": 6,
-      "망자": 3,
       "dunland": 10,
       "이스터링·칸드": 15,
       "shire": 14,
@@ -7847,7 +7888,7 @@
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,
-    "sourceValidation": "476 unique IDs; static card count and asset blob SHAs verified"
+    "sourceValidation": "484 unique IDs; static card count and asset blob SHAs verified"
   },
   "revisionRequests": {
     "witchking": {
@@ -7983,16 +8024,16 @@
     }
   },
   "lastContinuation": {
-    "batch": "continuation-orcs-beasts-20261020-1330",
+    "batch": "continuation-monsters-a-20261020",
     "newIds": [
-      "azog_foot",
-      "necromancer",
-      "hunter_orc",
-      "gundabad_orc",
-      "grimbeorn",
-      "gollum",
-      "cave_drake",
-      "bat_swarm"
+      "buhrdur",
+      "stone_troll",
+      "gulavhar",
+      "huorn",
+      "fellbeast",
+      "quickbeam",
+      "dead_spearman",
+      "stone_giant"
     ],
     "qualityStandard": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
     "note": "Each image inspected against canonical skeleton and identity reference; approval pending."

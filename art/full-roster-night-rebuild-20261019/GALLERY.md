@@ -1,6 +1,54 @@
-# 전체 재제작 검토 — 476종
+# 전체 재제작 검토 — 484종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 안개산맥 거인 (stone_giant)
+
+![안개산맥 거인](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/stone_giant.png?v=f4c1d5121eaff29c8fe67204e94c4c6788102c45)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/stone_giant.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/stone_giant.png?v=f4c1d5121eaff29c8fe67204e94c4c6788102c45)
+
+### 죽은자 창병 (dead_spearman)
+
+![죽은자 창병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dead_spearman.png?v=d890cfea0e3a03f032b088f164f736d05b02543a)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/dead_spearman.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dead_spearman.png?v=d890cfea0e3a03f032b088f164f736d05b02543a)
+
+### 퀵빔 (quickbeam)
+
+![퀵빔](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/quickbeam.png?v=72e47d2a4d8846ed25b58a9ff64d7a8cf7cccabe)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/quickbeam.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/quickbeam.png?v=72e47d2a4d8846ed25b58a9ff64d7a8cf7cccabe)
+
+### 펠비스트 (fellbeast)
+
+![펠비스트](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/fellbeast.png?v=9607096b0fd301389202c6e3ff98a2eef79749da)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/fellbeast.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/fellbeast.png?v=9607096b0fd301389202c6e3ff98a2eef79749da)
+
+### 휘오른 (huorn)
+
+![휘오른](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/huorn.png?v=a80f8c225b6c580aba9fdcc611c97a62286e450f)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/huorn.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/huorn.png?v=a80f8c225b6c580aba9fdcc611c97a62286e450f)
+
+### 굴라브하르 (gulavhar)
+
+![굴라브하르](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gulavhar.png?v=a7311cb45b773e74df3e05f03984d790bed28b54)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/gulavhar.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gulavhar.png?v=a7311cb45b773e74df3e05f03984d790bed28b54)
+
+### 돌 트롤 (stone_troll)
+
+![돌 트롤](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/stone_troll.png?v=08753f5862ae40b661b0431769ee1959e04bf414)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/stone_troll.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/stone_troll.png?v=08753f5862ae40b661b0431769ee1959e04bf414)
+
+### 부르두르 (buhrdur)
+
+![부르두르](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/buhrdur.png?v=51cb401fe2b5d5978a22841a2d0f35f31823f5e3)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/buhrdur.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/buhrdur.png?v=51cb401fe2b5d5978a22841a2d0f35f31823f5e3)
 
 ### 박쥐 떼 (bat_swarm)
 
