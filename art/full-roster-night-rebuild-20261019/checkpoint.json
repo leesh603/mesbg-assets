@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T12:30:13.247Z",
+  "updatedAt": "2026-10-20T13:19:15.250Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -16,9 +16,9 @@
     "generatedReviewAssets": 378,
     "persistedReviewAssets": 510,
     "revisedAfterRejection": 20,
-    "qualityRejected": 26,
-    "qualityHeld": 15,
-    "awaitingApproval": 469,
+    "qualityRejected": 13,
+    "qualityHeld": 4,
+    "awaitingApproval": 493,
     "correctionCandidatesGenerated": 64
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -54,16 +54,16 @@
     "pairedEquipmentIdentity": "글로르핀델 도보·기마는 같은 갑옷 디자인·색·문양·장갑·망토를 유지한다. 기마 수정 시 도보 장비 원화를 함께 대조한다."
   },
   "resume": {
-    "nextAction": "Continue every remaining rejected/held unit. Preserve source identity, anatomy and elevated-front camera.",
+    "nextAction": "Continue every outstanding original 194 rejected/held ID; inspect outputs and persist small batches. No user confirmation needed to continue corrections. Main integration remains separate.",
     "nextIds": [
-      "palace_guard",
-      "fingon",
-      "finrod_felagund",
-      "maedhros",
-      "celegorm",
-      "thingol",
-      "mablung_sindar",
-      "doriath_warrior"
+      "annatar",
+      "gwindor",
+      "celebrimbor",
+      "daeron",
+      "earnur",
+      "earendil",
+      "maeglin",
+      "eol"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
@@ -7290,16 +7290,30 @@
       "faction": "mirkwood",
       "role": "infantry",
       "original": "tokens/palace_guard.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "elf",
-      "path": "art/full-roster-night-rebuild-20261019/units/palace_guard.png",
-      "blobSHA": "a2bfd5579c11ce8a2d8f2c6e3967ff47a7694893",
-      "approval": "hold",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/palace_guard.png",
+      "blobSHA": "71d0b9b8e4471d337f1c8192ec7cab0c4e8dd70e",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "needs_revision",
-      "qualityReason": "투구·갑주·문양의 진영/캐릭터 정합성과 얼굴 시점 재검수 필요.",
-      "preferredSource": "undecided"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 투구·갑주·문양의 진영/캐릭터 정합성과 얼굴 시점 재검수 필요. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+      "preferredSource": "remake_candidate",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-recovered-24-20261020",
+        "previous": {
+          "approval": "hold",
+          "path": "art/full-roster-night-rebuild-20261019/units/palace_guard.png",
+          "blobSHA": "a2bfd5579c11ce8a2d8f2c6e3967ff47a7694893",
+          "reason": "투구·갑주·문양의 진영/캐릭터 정합성과 얼굴 시점 재검수 필요."
+        },
+        "observations": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 투구·갑주·문양의 진영/캐릭터 정합성과 얼굴 시점 재검수 필요. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+        "checkedAt": "2026-10-20T13:19:15.250Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "hobbit_militia",
@@ -7556,16 +7570,30 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/fingon.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "elf",
-      "path": "art/full-roster-night-rebuild-20261019/units/fingon.png",
-      "blobSHA": "d3a0c4e00277a1e5956d64fd880d8396f5078880",
-      "approval": "rejected",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/fingon.png",
+      "blobSHA": "ecd3bd57c88b0b9241005be6c2ab912fe2fa1cee",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존 몸을 낮춘 검 공격 실루엣이 정면 얼굴·검 가드 자세로 바뀜.",
-      "preferredSource": "old"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 기존 몸을 낮춘 검 공격 실루엣이 정면 얼굴·검 가드 자세로 바뀜. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+      "preferredSource": "remake_candidate",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-recovered-24-20261020",
+        "previous": {
+          "approval": "rejected",
+          "path": "art/full-roster-night-rebuild-20261019/units/fingon.png",
+          "blobSHA": "d3a0c4e00277a1e5956d64fd880d8396f5078880",
+          "reason": "기존 몸을 낮춘 검 공격 실루엣이 정면 얼굴·검 가드 자세로 바뀜."
+        },
+        "observations": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 기존 몸을 낮춘 검 공격 실루엣이 정면 얼굴·검 가드 자세로 바뀜. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+        "checkedAt": "2026-10-20T13:19:15.250Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "ecthelion",
@@ -7590,16 +7618,30 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/finrod_felagund.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "elf",
-      "path": "art/full-roster-night-rebuild-20261019/units/finrod_felagund.png",
-      "blobSHA": "17dc2eccf165b6e963985a123f516cf9ebd92055",
-      "approval": "rejected",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/finrod_felagund.png",
+      "blobSHA": "e8dcef7ffb3013b8e505cf4377ec8e2c01a82190",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존의 깊이 숙인 머리·왕관·손 제스처보다 정면 얼굴 노출이 강해짐.",
-      "preferredSource": "old"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 기존의 깊이 숙인 머리·왕관·손 제스처보다 정면 얼굴 노출이 강해짐. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+      "preferredSource": "remake_candidate",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-recovered-24-20261020",
+        "previous": {
+          "approval": "rejected",
+          "path": "art/full-roster-night-rebuild-20261019/units/finrod_felagund.png",
+          "blobSHA": "17dc2eccf165b6e963985a123f516cf9ebd92055",
+          "reason": "기존의 깊이 숙인 머리·왕관·손 제스처보다 정면 얼굴 노출이 강해짐."
+        },
+        "observations": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 기존의 깊이 숙인 머리·왕관·손 제스처보다 정면 얼굴 노출이 강해짐. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+        "checkedAt": "2026-10-20T13:19:15.250Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "tuor",
@@ -7635,16 +7677,30 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/maedhros.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "elf",
-      "path": "art/full-roster-night-rebuild-20261019/units/maedhros.png",
-      "blobSHA": "f918410614e7bd1ca856189c9d8c7dad62998332",
-      "approval": "rejected",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/maedhros.png",
+      "blobSHA": "3b7499c2c48205323f6085d19e39774d75fcc9c5",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존의 숙인 머리·검 공격 흐름보다 정면 얼굴 노출이 강함. 손/무기 파지의 캐릭터 정합성도 확인 필요.",
-      "preferredSource": "old"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 기존의 숙인 머리·검 공격 흐름보다 정면 얼굴 노출이 강함. 손/무기 파지의 캐릭터 정합성도 확인 필요. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+      "preferredSource": "remake_candidate",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-recovered-24-20261020",
+        "previous": {
+          "approval": "rejected",
+          "path": "art/full-roster-night-rebuild-20261019/units/maedhros.png",
+          "blobSHA": "f918410614e7bd1ca856189c9d8c7dad62998332",
+          "reason": "기존의 숙인 머리·검 공격 흐름보다 정면 얼굴 노출이 강함. 손/무기 파지의 캐릭터 정합성도 확인 필요."
+        },
+        "observations": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 기존의 숙인 머리·검 공격 흐름보다 정면 얼굴 노출이 강함. 손/무기 파지의 캐릭터 정합성도 확인 필요. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+        "checkedAt": "2026-10-20T13:19:15.250Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "celegorm",
@@ -7652,16 +7708,30 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/celegorm.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "elf",
-      "path": "art/full-roster-night-rebuild-20261019/units/celegorm.png",
-      "blobSHA": "2108cdaf33818c2bc38940ff4ee456be61bb88df",
-      "approval": "rejected",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/celegorm.png",
+      "blobSHA": "74170368cb5eca614aecc6f1ae3316135c6a3183",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존의 고개를 깊이 숙인 동작이 정면 얼굴 노출·직립형으로 바뀜.",
-      "preferredSource": "old"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 기존의 고개를 깊이 숙인 동작이 정면 얼굴 노출·직립형으로 바뀜. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+      "preferredSource": "remake_candidate",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-recovered-24-20261020",
+        "previous": {
+          "approval": "rejected",
+          "path": "art/full-roster-night-rebuild-20261019/units/celegorm.png",
+          "blobSHA": "2108cdaf33818c2bc38940ff4ee456be61bb88df",
+          "reason": "기존의 고개를 깊이 숙인 동작이 정면 얼굴 노출·직립형으로 바뀜."
+        },
+        "observations": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 기존의 고개를 깊이 숙인 동작이 정면 얼굴 노출·직립형으로 바뀜. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+        "checkedAt": "2026-10-20T13:19:15.250Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "thingol",
@@ -7669,16 +7739,30 @@
       "faction": "doriath",
       "role": "hero",
       "original": "tokens/thingol.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "elf",
-      "path": "art/full-roster-night-rebuild-20261019/units/thingol.png",
-      "blobSHA": "bb2ebb206e9a70a402681ec4fc7447d6748afb26",
-      "approval": "rejected",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/thingol.png",
+      "blobSHA": "1dbaf904f5bf69e3dab61ae25fba2ad3b3a40707",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존 숙인 머리·왕의 무게감보다 정면 얼굴·직립형 인상이 강해짐.",
-      "preferredSource": "old"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 기존 숙인 머리·왕의 무게감보다 정면 얼굴·직립형 인상이 강해짐. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+      "preferredSource": "remake_candidate",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-recovered-24-20261020",
+        "previous": {
+          "approval": "rejected",
+          "path": "art/full-roster-night-rebuild-20261019/units/thingol.png",
+          "blobSHA": "bb2ebb206e9a70a402681ec4fc7447d6748afb26",
+          "reason": "기존 숙인 머리·왕의 무게감보다 정면 얼굴·직립형 인상이 강해짐."
+        },
+        "observations": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 기존 숙인 머리·왕의 무게감보다 정면 얼굴·직립형 인상이 강해짐. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+        "checkedAt": "2026-10-20T13:19:15.250Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "mablung_sindar",
@@ -7686,16 +7770,30 @@
       "faction": "doriath",
       "role": "hero",
       "original": "tokens/mablung_sindar.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "elf",
-      "path": "art/full-roster-night-rebuild-20261019/units/mablung_sindar.png",
-      "blobSHA": "5c39eb0cdef358cc7f71f33314b87575a5f8d670",
-      "approval": "rejected",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/mablung_sindar.png",
+      "blobSHA": "5f1c5f2422497ee1e326d6ce6e87d963e9b66b57",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존 고개를 깊이 숙인 보행 실루엣보다 정면 얼굴·일반 직립 인상이 강해짐.",
-      "preferredSource": "old"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 기존 고개를 깊이 숙인 보행 실루엣보다 정면 얼굴·일반 직립 인상이 강해짐. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+      "preferredSource": "remake_candidate",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-recovered-24-20261020",
+        "previous": {
+          "approval": "rejected",
+          "path": "art/full-roster-night-rebuild-20261019/units/mablung_sindar.png",
+          "blobSHA": "5c39eb0cdef358cc7f71f33314b87575a5f8d670",
+          "reason": "기존 고개를 깊이 숙인 보행 실루엣보다 정면 얼굴·일반 직립 인상이 강해짐."
+        },
+        "observations": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 기존 고개를 깊이 숙인 보행 실루엣보다 정면 얼굴·일반 직립 인상이 강해짐. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+        "checkedAt": "2026-10-20T13:19:15.250Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "melian",
@@ -7731,16 +7829,30 @@
       "faction": "doriath",
       "role": "infantry",
       "original": "tokens/doriath_warrior.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "elf",
-      "path": "art/full-roster-night-rebuild-20261019/units/doriath_warrior.png",
-      "blobSHA": "e9bef0289c0d9a6ac7edc07caab2454ade1b5b33",
-      "approval": "rejected",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/doriath_warrior.png",
+      "blobSHA": "b465bfba746a57a7585c9669bb949434e66c0218",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존의 낮춘 머리·은밀한 시선보다 정면 얼굴 노출이 강해짐.",
-      "preferredSource": "old"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 기존의 낮춘 머리·은밀한 시선보다 정면 얼굴 노출이 강해짐. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+      "preferredSource": "remake_candidate",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-recovered-24-20261020",
+        "previous": {
+          "approval": "rejected",
+          "path": "art/full-roster-night-rebuild-20261019/units/doriath_warrior.png",
+          "blobSHA": "e9bef0289c0d9a6ac7edc07caab2454ade1b5b33",
+          "reason": "기존의 낮춘 머리·은밀한 시선보다 정면 얼굴 노출이 강해짐."
+        },
+        "observations": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 기존의 낮춘 머리·은밀한 시선보다 정면 얼굴 노출이 강해짐. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+        "checkedAt": "2026-10-20T13:19:15.250Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "falathrim_archer",
@@ -7748,16 +7860,30 @@
       "faction": "elf",
       "role": "infantry",
       "original": "tokens/falathrim_archer.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "elf",
-      "path": "art/full-roster-night-rebuild-20261019/units/falathrim_archer.png",
-      "blobSHA": "648ea430ba19d3b16966e6cc2c83c533c817fef8",
-      "approval": "hold",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/falathrim_archer.png",
+      "blobSHA": "39809642deace8a47ba77970d1ff85f42dc5eba7",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "needs_revision",
-      "qualityReason": "활 사용 동작은 구체화됐으나 기존보다 얼굴이 정면으로 드러남. 고개·카메라 재검수.",
-      "preferredSource": "undecided"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 활 사용 동작은 구체화됐으나 기존보다 얼굴이 정면으로 드러남. 고개·카메라 재검수. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+      "preferredSource": "remake_candidate",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-recovered-24-20261020",
+        "previous": {
+          "approval": "hold",
+          "path": "art/full-roster-night-rebuild-20261019/units/falathrim_archer.png",
+          "blobSHA": "648ea430ba19d3b16966e6cc2c83c533c817fef8",
+          "reason": "활 사용 동작은 구체화됐으나 기존보다 얼굴이 정면으로 드러남. 고개·카메라 재검수."
+        },
+        "observations": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 활 사용 동작은 구체화됐으나 기존보다 얼굴이 정면으로 드러남. 고개·카메라 재검수. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+        "checkedAt": "2026-10-20T13:19:15.250Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "nargothrond_ranger",
@@ -7765,16 +7891,30 @@
       "faction": "elf",
       "role": "infantry",
       "original": "tokens/nargothrond_ranger.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "elf",
-      "path": "art/full-roster-night-rebuild-20261019/units/nargothrond_ranger.png",
-      "blobSHA": "95e8923584521083aef9682b8fd8f6626b1f7472",
-      "approval": "rejected",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/nargothrond_ranger.png",
+      "blobSHA": "607d4925625391c127f91a6c1933c55da762ad5c",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존 후드 아래 가려진 얼굴·낮은 보행 실루엣보다 정면 얼굴 노출이 강해짐.",
-      "preferredSource": "old"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 기존 후드 아래 가려진 얼굴·낮은 보행 실루엣보다 정면 얼굴 노출이 강해짐. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+      "preferredSource": "remake_candidate",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-recovered-24-20261020",
+        "previous": {
+          "approval": "rejected",
+          "path": "art/full-roster-night-rebuild-20261019/units/nargothrond_ranger.png",
+          "blobSHA": "95e8923584521083aef9682b8fd8f6626b1f7472",
+          "reason": "기존 후드 아래 가려진 얼굴·낮은 보행 실루엣보다 정면 얼굴 노출이 강해짐."
+        },
+        "observations": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 기존 후드 아래 가려진 얼굴·낮은 보행 실루엣보다 정면 얼굴 노출이 강해짐. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+        "checkedAt": "2026-10-20T13:19:15.250Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "edain_warrior",
@@ -7796,16 +7936,30 @@
       "faction": "elf",
       "role": "infantry",
       "original": "tokens/gondolin_guard.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "elf",
-      "path": "art/full-roster-night-rebuild-20261019/units/gondolin_guard.png",
-      "blobSHA": "62405088d49e29dad6f71510364c1cfb6082ead3",
-      "approval": "hold",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/gondolin_guard.png",
+      "blobSHA": "c4af7c28a20985b4a1ce9b91d50a0263b52d41f8",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "needs_revision",
-      "qualityReason": "투구·상체 대비 하체 비중 및 갑주 문양/진영 매핑을 재확인해야 함.",
-      "preferredSource": "undecided"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 투구·상체 대비 하체 비중 및 갑주 문양/진영 매핑을 재확인해야 함. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+      "preferredSource": "remake_candidate",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-recovered-24-20261020",
+        "previous": {
+          "approval": "hold",
+          "path": "art/full-roster-night-rebuild-20261019/units/gondolin_guard.png",
+          "blobSHA": "62405088d49e29dad6f71510364c1cfb6082ead3",
+          "reason": "투구·상체 대비 하체 비중 및 갑주 문양/진영 매핑을 재확인해야 함."
+        },
+        "observations": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 투구·상체 대비 하체 비중 및 갑주 문양/진영 매핑을 재확인해야 함. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+        "checkedAt": "2026-10-20T13:19:15.250Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "mirkwood_captain",
@@ -7813,16 +7967,30 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/mirkwood_captain.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "elf",
-      "path": "art/full-roster-night-rebuild-20261019/units/mirkwood_captain.png",
-      "blobSHA": "10a0f71b1938a63f083ad87d19edc1b182a1729a",
-      "approval": "rejected",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/mirkwood_captain.png",
+      "blobSHA": "9aa09736ea3ca2ac110894ad8b2be49d4e430d45",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존 몸을 낮춘 검 공격 동세가 정면 얼굴·일반 검 가드 자세로 바뀜.",
-      "preferredSource": "old"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 기존 몸을 낮춘 검 공격 동세가 정면 얼굴·일반 검 가드 자세로 바뀜. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+      "preferredSource": "remake_candidate",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-recovered-24-20261020",
+        "previous": {
+          "approval": "rejected",
+          "path": "art/full-roster-night-rebuild-20261019/units/mirkwood_captain.png",
+          "blobSHA": "10a0f71b1938a63f083ad87d19edc1b182a1729a",
+          "reason": "기존 몸을 낮춘 검 공격 동세가 정면 얼굴·일반 검 가드 자세로 바뀜."
+        },
+        "observations": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 기존 몸을 낮춘 검 공격 동세가 정면 얼굴·일반 검 가드 자세로 바뀜. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+        "checkedAt": "2026-10-20T13:19:15.250Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "mordor_uruk",
@@ -7831,14 +7999,29 @@
       "role": "infantry",
       "original": "tokens/mordor_uruk.png",
       "source": "mordor",
-      "path": "art/mordor-rebuild-20261019/units/mordor_uruk.png",
-      "blobSHA": "726cd6bcd777de20ef6736847b5259f4c5a0c6fe",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "needs_revision",
-      "qualityReason": "투구 제거 및 얼굴·몸 비율 변경. 지정 디자인과 하이앵글 확인 필요.",
-      "approval": "hold",
-      "preferredSource": "undecided"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/mordor_uruk.png",
+      "blobSHA": "bf5bb0d95b94b633bf5b876dd765dd73d5e77785",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 투구 제거 및 얼굴·몸 비율 변경. 지정 디자인과 하이앵글 확인 필요. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-recovered-24-20261020",
+        "previous": {
+          "approval": "hold",
+          "path": "art/mordor-rebuild-20261019/units/mordor_uruk.png",
+          "blobSHA": "726cd6bcd777de20ef6736847b5259f4c5a0c6fe",
+          "reason": "투구 제거 및 얼굴·몸 비율 변경. 지정 디자인과 하이앵글 확인 필요."
+        },
+        "observations": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 투구 제거 및 얼굴·몸 비율 변경. 지정 디자인과 하이앵글 확인 필요. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+        "checkedAt": "2026-10-20T13:19:15.250Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "morgul_orc",
@@ -7847,14 +8030,29 @@
       "role": "infantry",
       "original": "tokens/morgul_orc.png",
       "source": "mordor",
-      "path": "art/mordor-rebuild-20261019/units/morgul_orc.png",
-      "blobSHA": "e587b9c4847f2f4486f59396540305f55b17e569",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "needs_revision",
-      "qualityReason": "후드에서 드러난 얼굴의 정면 노출·머리 비중과 하이앵글 정합성 재확인.",
-      "approval": "hold",
-      "preferredSource": "undecided"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/morgul_orc.png",
+      "blobSHA": "aa2cc892ae8f6a89bd94ea652d13519014b3a429",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 후드에서 드러난 얼굴의 정면 노출·머리 비중과 하이앵글 정합성 재확인. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-recovered-24-20261020",
+        "previous": {
+          "approval": "hold",
+          "path": "art/mordor-rebuild-20261019/units/morgul_orc.png",
+          "blobSHA": "e587b9c4847f2f4486f59396540305f55b17e569",
+          "reason": "후드에서 드러난 얼굴의 정면 노출·머리 비중과 하이앵글 정합성 재확인."
+        },
+        "observations": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 후드에서 드러난 얼굴의 정면 노출·머리 비중과 하이앵글 정합성 재확인. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+        "checkedAt": "2026-10-20T13:19:15.250Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "morgul_rat",
@@ -7863,14 +8061,29 @@
       "role": "infantry",
       "original": "tokens/morgul_rat.png",
       "source": "mordor",
-      "path": "art/mordor-rebuild-20261019/units/morgul_rat.png",
-      "blobSHA": "8ad4e3ec68cc894e69184af6793016c27164f21c",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "needs_revision",
-      "qualityReason": "기존 가려진 얼굴이 크게 드러나고 머리·하체 비중이 달라짐. 종족 표준·시점 재검수.",
-      "approval": "hold",
-      "preferredSource": "undecided"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/morgul_rat.png",
+      "blobSHA": "1b822299be2fd342805ea3967b99327a0e45a141",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 기존 가려진 얼굴이 크게 드러나고 머리·하체 비중이 달라짐. 종족 표준·시점 재검수. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-recovered-24-20261020",
+        "previous": {
+          "approval": "hold",
+          "path": "art/mordor-rebuild-20261019/units/morgul_rat.png",
+          "blobSHA": "8ad4e3ec68cc894e69184af6793016c27164f21c",
+          "reason": "기존 가려진 얼굴이 크게 드러나고 머리·하체 비중이 달라짐. 종족 표준·시점 재검수."
+        },
+        "observations": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 기존 가려진 얼굴이 크게 드러나고 머리·하체 비중이 달라짐. 종족 표준·시점 재검수. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+        "checkedAt": "2026-10-20T13:19:15.250Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "ufthak",
@@ -7879,14 +8092,29 @@
       "role": "hero",
       "original": "tokens/ufthak.png",
       "source": "mordor",
-      "path": "art/mordor-rebuild-20261019/units/ufthak.png",
-      "blobSHA": "6acd8bde62cb4fc9d2881dd735040a51a1977591",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "needs_revision",
-      "qualityReason": "투구·얼굴·갑주·무장 형태가 크게 변경됨. 지정 디자인/기존 에셋 매핑 확인 필요.",
-      "approval": "hold",
-      "preferredSource": "undecided"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/ufthak.png",
+      "blobSHA": "d36f0a9611fcac4e6775a7c444d596aa7b00b5bc",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 투구·얼굴·갑주·무장 형태가 크게 변경됨. 지정 디자인/기존 에셋 매핑 확인 필요. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-recovered-24-20261020",
+        "previous": {
+          "approval": "hold",
+          "path": "art/mordor-rebuild-20261019/units/ufthak.png",
+          "blobSHA": "6acd8bde62cb4fc9d2881dd735040a51a1977591",
+          "reason": "투구·얼굴·갑주·무장 형태가 크게 변경됨. 지정 디자인/기존 에셋 매핑 확인 필요."
+        },
+        "observations": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 투구·얼굴·갑주·무장 형태가 크게 변경됨. 지정 디자인/기존 에셋 매핑 확인 필요. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+        "checkedAt": "2026-10-20T13:19:15.250Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "orc_sergeant",
@@ -7895,14 +8123,29 @@
       "role": "hero",
       "original": "tokens/orc_sergeant.png",
       "source": "mordor",
-      "path": "art/mordor-rebuild-20261019/units/orc_sergeant.png",
-      "blobSHA": "cab6f28fe555164968227947ef6907ac248b3b47",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존 채찍이 사라져 일반 검 오크와 구별되는 실루엣이 약화됨. 무장 매핑 확인 필요.",
-      "approval": "rejected",
-      "preferredSource": "old"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/orc_sergeant.png",
+      "blobSHA": "18f41f294993286c36dc086e5df2e60ff15c6c31",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 기존 채찍이 사라져 일반 검 오크와 구별되는 실루엣이 약화됨. 무장 매핑 확인 필요. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-recovered-24-20261020",
+        "previous": {
+          "approval": "rejected",
+          "path": "art/mordor-rebuild-20261019/units/orc_sergeant.png",
+          "blobSHA": "cab6f28fe555164968227947ef6907ac248b3b47",
+          "reason": "기존 채찍이 사라져 일반 검 오크와 구별되는 실루엣이 약화됨. 무장 매핑 확인 필요."
+        },
+        "observations": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 기존 채찍이 사라져 일반 검 오크와 구별되는 실루엣이 약화됨. 무장 매핑 확인 필요. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+        "checkedAt": "2026-10-20T13:19:15.250Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "ashrak",
@@ -7924,16 +8167,30 @@
       "faction": "isengard",
       "role": "monster",
       "original": "tokens/isengard_troll.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "isengard",
-      "path": "art/full-roster-night-rebuild-20261019/units/isengard_troll.png",
-      "blobSHA": "dbfd9a9dfeffd83e53647313df36ec1527c09209",
-      "approval": "hold",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/isengard_troll.png",
+      "blobSHA": "ed588fb668d863e67864a3c0e7fffa21e73187e4",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "unreviewed",
-      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
-      "preferredSource": "undecided"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+      "preferredSource": "remake_candidate",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-recovered-24-20261020",
+        "previous": {
+          "approval": "hold",
+          "path": "art/full-roster-night-rebuild-20261019/units/isengard_troll.png",
+          "blobSHA": "dbfd9a9dfeffd83e53647313df36ec1527c09209",
+          "reason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류."
+        },
+        "observations": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+        "checkedAt": "2026-10-20T13:19:15.250Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "dunlending_horseman",
@@ -7986,16 +8243,30 @@
       "faction": "rohan",
       "role": "hero",
       "original": "tokens/frealaf.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "rohan",
-      "path": "art/full-roster-night-rebuild-20261019/units/frealaf.png",
-      "blobSHA": "f091126123392de8d6a16a0d25b58ffb85ede584",
-      "approval": "rejected",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/frealaf.png",
+      "blobSHA": "c6dbe26d29d9c37dfe36c29f3d650e7bcf3e6e1d",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존의 숙인 머리·그늘진 얼굴이 정면 얼굴과 가슴 노출 중심으로 바뀜.",
-      "preferredSource": "old"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 기존의 숙인 머리·그늘진 얼굴이 정면 얼굴과 가슴 노출 중심으로 바뀜. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+      "preferredSource": "remake_candidate",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-recovered-24-20261020",
+        "previous": {
+          "approval": "rejected",
+          "path": "art/full-roster-night-rebuild-20261019/units/frealaf.png",
+          "blobSHA": "f091126123392de8d6a16a0d25b58ffb85ede584",
+          "reason": "기존의 숙인 머리·그늘진 얼굴이 정면 얼굴과 가슴 노출 중심으로 바뀜."
+        },
+        "observations": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 기존의 숙인 머리·그늘진 얼굴이 정면 얼굴과 가슴 노출 중심으로 바뀜. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+        "checkedAt": "2026-10-20T13:19:15.250Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "rohan_yeoman",
@@ -8003,18 +8274,32 @@
       "faction": "rohan",
       "role": "infantry",
       "original": "tokens/rohan_yeoman.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
-      "path": "art/full-roster-night-rebuild-20261019/units/rohan_yeoman.png",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/rohan_yeoman.png",
       "source": "rohan",
-      "blobSHA": "14b53f093d818145985944544247efe1300e2bcf",
-      "approval": "rejected",
+      "blobSHA": "00534ced8a058aac292b4d624ff276f111f63fd7",
+      "approval": "pending",
       "inGameVerified": false,
       "proportionReference": "art/rebuild-skeletons/bases/human.png",
       "reviewStandard": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존의 숙인 머리·방어 실루엣이 정면 얼굴 노출과 일반 직립 자세로 바뀜.",
-      "preferredSource": "old"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 기존의 숙인 머리·방어 실루엣이 정면 얼굴 노출과 일반 직립 자세로 바뀜. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+      "preferredSource": "remake_candidate",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-recovered-24-20261020",
+        "previous": {
+          "approval": "rejected",
+          "path": "art/full-roster-night-rebuild-20261019/units/rohan_yeoman.png",
+          "blobSHA": "14b53f093d818145985944544247efe1300e2bcf",
+          "reason": "기존의 숙인 머리·방어 실루엣이 정면 얼굴 노출과 일반 직립 자세로 바뀜."
+        },
+        "observations": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 기존의 숙인 머리·방어 실루엣이 정면 얼굴 노출과 일반 직립 자세로 바뀜. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+        "checkedAt": "2026-10-20T13:19:15.250Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "serpent_guard",
@@ -8162,14 +8447,29 @@
       "role": "hero",
       "original": "tokens/derufin.png",
       "source": "gondor",
-      "path": "art/gondor-rebuild-20261019/units/derufin.png",
-      "blobSHA": "8641c431da05d706121057d715371c8e7d4ecd86",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "needs_revision",
-      "qualityReason": "단검 동작은 생겼으나 하체와 상체 비율 재검수 필요.",
-      "approval": "hold",
-      "preferredSource": "undecided"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/derufin.png",
+      "blobSHA": "a2652f0474cc746be15f43cc4c1bc532fd556659",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 단검 동작은 생겼으나 하체와 상체 비율 재검수 필요. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-recovered-24-20261020",
+        "previous": {
+          "approval": "hold",
+          "path": "art/gondor-rebuild-20261019/units/derufin.png",
+          "blobSHA": "8641c431da05d706121057d715371c8e7d4ecd86",
+          "reason": "단검 동작은 생겼으나 하체와 상체 비율 재검수 필요."
+        },
+        "observations": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 단검 동작은 생겼으나 하체와 상체 비율 재검수 필요. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+        "checkedAt": "2026-10-20T13:19:15.250Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "hirgon",
@@ -8194,14 +8494,29 @@
       "role": "hero",
       "original": "tokens/pippin_citadel.png",
       "source": "gondor",
-      "path": "art/gondor-rebuild-20261019/units/pippin_citadel.png",
-      "blobSHA": "779b9fa66977349f5e2f918ecf2b1d60740c5afb",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "needs_revision",
-      "qualityReason": "호빗의 종족 비율 확인 필요. 작은 인간형처럼 길어진 인체와 머리 비중 재검수.",
-      "approval": "hold",
-      "preferredSource": "undecided"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/pippin_citadel.png",
+      "blobSHA": "77ea6450effd8e213c88ca83d2becbe909292372",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 호빗의 종족 비율 확인 필요. 작은 인간형처럼 길어진 인체와 머리 비중 재검수. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-recovered-24-20261020",
+        "previous": {
+          "approval": "hold",
+          "path": "art/gondor-rebuild-20261019/units/pippin_citadel.png",
+          "blobSHA": "779b9fa66977349f5e2f918ecf2b1d60740c5afb",
+          "reason": "호빗의 종족 비율 확인 필요. 작은 인간형처럼 길어진 인체와 머리 비중 재검수."
+        },
+        "observations": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 호빗의 종족 비율 확인 필요. 작은 인간형처럼 길어진 인체와 머리 비중 재검수. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+        "checkedAt": "2026-10-20T13:19:15.250Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "beorn_bear",
@@ -8363,14 +8678,29 @@
       "role": "hero",
       "original": "tokens/sauron_wolf.png",
       "source": "mordor",
-      "path": "art/mordor-rebuild-20261019/units/sauron_wolf.png",
-      "blobSHA": "2c914dcc141e18b0ce3fce46e8b13178a3904563",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "needs_revision",
-      "qualityReason": "기존의 거대한 불꽃 갈기와 위압적 실루엣이 축소됨. 화염 정체성·괴수 표준 재확인.",
-      "approval": "hold",
-      "preferredSource": "undecided"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/sauron_wolf.png",
+      "blobSHA": "90e53395c2af01848ccde3fed729e5071f7624c5",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 기존의 거대한 불꽃 갈기와 위압적 실루엣이 축소됨. 화염 정체성·괴수 표준 재확인. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-recovered-24-20261020",
+        "previous": {
+          "approval": "hold",
+          "path": "art/mordor-rebuild-20261019/units/sauron_wolf.png",
+          "blobSHA": "2c914dcc141e18b0ce3fce46e8b13178a3904563",
+          "reason": "기존의 거대한 불꽃 갈기와 위압적 실루엣이 축소됨. 화염 정체성·괴수 표준 재확인."
+        },
+        "observations": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 기존의 거대한 불꽃 갈기와 위압적 실루엣이 축소됨. 화염 정체성·괴수 표준 재확인. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+        "checkedAt": "2026-10-20T13:19:15.250Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "landroval",
@@ -8462,16 +8792,30 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/maglor.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "elf",
-      "path": "art/full-roster-night-rebuild-20261019/units/maglor.png",
-      "blobSHA": "a57fc9136b77def9384f8eac0a94448a2901bde7",
-      "approval": "rejected",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/maglor.png",
+      "blobSHA": "612b9a3d1ce59a7694d4bec2465bcc50f0b27a54",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존 왕관 아래 숙인 머리·은밀한 시선이 정면 얼굴 노출 중심으로 바뀜.",
-      "preferredSource": "old"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 기존 왕관 아래 숙인 머리·은밀한 시선이 정면 얼굴 노출 중심으로 바뀜. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+      "preferredSource": "remake_candidate",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-recovered-24-20261020",
+        "previous": {
+          "approval": "rejected",
+          "path": "art/full-roster-night-rebuild-20261019/units/maglor.png",
+          "blobSHA": "a57fc9136b77def9384f8eac0a94448a2901bde7",
+          "reason": "기존 왕관 아래 숙인 머리·은밀한 시선이 정면 얼굴 노출 중심으로 바뀜."
+        },
+        "observations": "원본과 수정본을 비교하여 숙인 머리·상부 시점·원래 무장·갑주·망토와 전진 동세를 복원. 이전 지적: 기존 왕관 아래 숙인 머리·은밀한 시선이 정면 얼굴 노출 중심으로 바뀜. 종족별 체형과 팔다리 연결을 재점검한 검토본.",
+        "checkedAt": "2026-10-20T13:19:15.250Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "gwindor",
@@ -10618,8 +10962,8 @@
   "qualityRepairRequest": {
     "id": "all-194-20261020",
     "scopeCount": 194,
-    "correctedCandidates": 153,
-    "remaining": 41,
+    "correctedCandidates": 177,
+    "remaining": 17,
     "userApproved": 0,
     "previousMountedCorrectionsIncluded": true
   }
