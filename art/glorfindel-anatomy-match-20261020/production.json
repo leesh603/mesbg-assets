@@ -1,0 +1,38 @@
+{
+  "status": "review_candidate_not_approved",
+  "scope": "Glorfindel foot and mounted anatomy match",
+  "repository": "leesh603/mesbg-assets",
+  "branch": "art/glorfindel-same-body-20261020",
+  "base": "51494873b2802fb6d08c0e51c3a96d2ebd30b737",
+  "unitCount": 2,
+  "newCharacterCount": 0,
+  "tool": "image_gen",
+  "userCorrection": "기마형 머리 과소화도 불합격. 도보와 기마는 동일 인체 비율.",
+  "adoptedCandidates": [
+    {
+      "id": "glorfindel_foot",
+      "path": "art/glorfindel-anatomy-match-20261020/glorfindel_foot.png",
+      "blobSHA": "44e5a588ab0da4e454df00d9b5d1639febd17b15"
+    },
+    {
+      "id": "glorfindel_mounted",
+      "path": "art/glorfindel-anatomy-match-20261020/glorfindel_mounted.png",
+      "blobSHA": "582ef15f943191716d1a81c11cca496824b44b86"
+    }
+  ],
+  "rejected": {
+    "path": "generated_images/exec-47b221a5-6c3a-4c65-8ac0-7cb84925c337.png",
+    "reason": "User rejected undersized head on mounted Glorfindel",
+    "uploadedAsCandidate": false
+  },
+  "otherGeneratedAttempts": "Held; do not apply percentage head reduction across cavalry.",
+  "checks": {
+    "transparentAlpha": true,
+    "visualComparison": "Crown/shoulder/torso relationship compared side by side; subject identity and down-facing head maintained.",
+    "strictAnatomyMeasurement": "Pose prevents exact projected five-head measurement; not certified by prompt wording.",
+    "browserRender": false,
+    "inGame": false,
+    "mainMerged": false
+  },
+  "prompt": "Edit the target as a transparent pixel-art Middle-earth Warbands game sprite. Preserve the SAME FIVE-HEAD human anatomy for foot and mounted versions, especially identical anatomical skull size RELATIVE TO SHOULDERS AND TORSO. A person must not become small-headed, long-bodied or chibi when mounted. Do NOT use percentage head shrinking, enlarged head, or random limb elongation. Reference 1 is the character's ON-FOOT anatomy source: copy that actual person's skull-to-torso proportions and identity exactly before articulating hips and knees into riding pose. Reference 2 is USER-APPROVED THEODEN and controls ONLY camera and bowed head, not skull resizing or character identity. Reference 3 is edit target for clothes, mount and weapons. Whole camera elevated from front about 50 degrees down; skull crown, shoulder tops, horse withers and saddle top visible. Chin tucked, face looks at ground and brow/hair hides eyes; do not make skull smaller to simulate a bowed head. Correct five-head adult anatomy, NOT six-plus heads, not four-head squat chibi. Crisp stepped pixel outlines, controlled color clusters and palette matching Theoden, not smooth illustration. Preserve all recognizable design, weapons, colors. Natural balanced weight in saddle with hips, knees, ankles anatomically connected, confident combat pose. One complete character and mount only, transparent background, no base, no shadows or text, body centered excluding weapon, padded extremities.\nCharacter: GLORFINDEL MOUNTED. Critical user correction: previous mounted version has a HEAD THAT IS TOO SMALL. The user rejects shrinking his head just because he sits on a horse. Reproduce the SAME person as image 1 on foot, with SAME skull-to-ribcage and head-to-shoulder ratios, SAME muscular/slender body build, same neck. Preserve his blond head/hair shape from image1 and articulate that exact body's hips/knees for riding; do not stretch the torso, do not miniaturize head, hands or rider relative to horse. Image3's undersized head is NOT a valid reference. Compared with image3, restore sufficient skull mass to match image1, while maintaining actual FIVE-head human proportions, no big-head chibi. Eyes obscured by bowed brow and hair; this is achieved by head ROTATION ONLY, never skull shrinking. Navy armor tunic, gold armor, gold chest sun, ivory cloak/navy lining, long blond hair, white horse with navy/gold caparison. Confident compact knight's seat, curved elven sword held diagonally outward-left in forward guard, other hand controls reins, both feet correctly in stirrups. Horse and rider viewed from high front, no eye-level frontal face. Crisp pixel-art with restrained clusters matching approved Theoden. One mounted Glorfindel only."
+}
