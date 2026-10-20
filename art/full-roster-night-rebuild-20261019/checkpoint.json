@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T01:48:38.479Z",
+  "updatedAt": "2026-10-20T01:50:29.550983+00:00",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 307,
-    "newlyGeneratedThisSession": 71,
-    "visuallyReviewedThisSession": 71,
+    "pending": 302,
+    "newlyGeneratedThisSession": 76,
+    "visuallyReviewedThisSession": 81,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 71,
-    "persistedReviewAssets": 203,
+    "generatedReviewAssets": 76,
+    "persistedReviewAssets": 208,
     "revisedAfterRejection": 14
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -50,9 +50,14 @@
     "nextIds": [
       "gandalf",
       "cave_troll",
-      "saruman",
       "orc_shaman",
-      "uruk_swordshield"
+      "haradrim_spearman",
+      "gimli",
+      "frodo",
+      "dwarf_guardian",
+      "balrog",
+      "barrow_wight",
+      "moria_goblin"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
@@ -216,8 +221,13 @@
       "faction": "isengard",
       "role": "hero",
       "original": "tokens/saruman.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "isengard",
+      "path": "art/full-roster-night-rebuild-20261019/units/saruman.png",
+      "blobSHA": "7436185abc00d28a09c976a10f99919ae1c789d6",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "orc_shaman",
@@ -270,8 +280,13 @@
       "faction": "isengard",
       "role": "infantry",
       "original": "tokens/uruk_swordshield.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "isengard",
+      "path": "art/full-roster-night-rebuild-20261019/units/uruk_swordshield.png",
+      "blobSHA": "3674aa0a6a428bbbf2cedc8b4d027e9fbe52623d",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "morannon_orc",
@@ -507,8 +522,13 @@
       "faction": "isengard",
       "role": "infantry",
       "original": "tokens/uruk_berserker.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "isengard",
+      "path": "art/full-roster-night-rebuild-20261019/units/uruk_berserker.png",
+      "blobSHA": "e34e7c6df56534aed06a99a91c409cf29d4f8ba7",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "sauron",
@@ -870,8 +890,13 @@
       "faction": "isengard",
       "role": "infantry",
       "original": "tokens/uruk_swordshield2.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "isengard",
+      "path": "art/full-roster-night-rebuild-20261019/units/uruk_swordshield2.png",
+      "blobSHA": "fb1832a8b609e56a03b0dfed34b15f8af84a6f38",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "uruk_pike",
@@ -879,8 +904,13 @@
       "faction": "isengard",
       "role": "infantry",
       "original": "tokens/uruk_pike.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "isengard",
+      "path": "art/full-roster-night-rebuild-20261019/units/uruk_pike.png",
+      "blobSHA": "46029495213cfac4fc7cadf36f846388e3be8afd",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "uruk_crossbow",
@@ -5402,11 +5432,12 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 203,
+    "count": 208,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
+      "isengard": 5,
       "mordor": 73,
       "elf": 25,
       "rohan": 46,
@@ -5414,7 +5445,7 @@
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,
-    "sourceValidation": "152 unique IDs and static image paths verified; JavaScript syntax checked."
+    "sourceValidation": "208 unique IDs; static card count and asset blob SHAs verified"
   },
   "revisionRequests": {
     "witchking": {
@@ -5469,14 +5500,15 @@
     }
   },
   "lastContinuation": {
-    "baseHead": "8bde8707ffcb5962a7a8af6ca44381291041b340",
+    "batch": "isengard-001",
     "newIds": [
-      "rohan_yeoman",
-      "eomund"
+      "uruk_pike",
+      "uruk_swordshield2",
+      "saruman",
+      "uruk_berserker",
+      "uruk_swordshield"
     ],
-    "newGenerations": 2,
-    "discardedEarlierVariants": 5,
     "qualityStandard": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
-    "note": "Preserved previously saved canonical assets and all newer proportion revisions. Earlier variants from reconnect were not promoted."
+    "note": "Original canonical body templates used. Recovered images visually compared to references. Review candidates, approval pending."
   }
 }

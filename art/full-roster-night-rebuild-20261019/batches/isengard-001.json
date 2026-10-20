@@ -1,0 +1,96 @@
+{
+  "batch": "isengard-001",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "saruman",
+      "pose": "백색 지팡이와 펼친 손",
+      "detail": "SARUMAN: elderly human wizard, long white hair and beard, layered ivory-white flowing robes with fine silver borders, silver shoes, BLACK straight staff with FOUR-pronged black crown enclosing WHITE orb held viewerLEFT. Free hand extended palm outward low viewerRIGHT. Exact5head human underneath robe; beard excluded from head length.",
+      "prompt": "Use case: stylized-concept. ONE complete transparent pixel-art game token. IMAGE1 neutral body is IMMUTABLE anatomy, scale, camera and pixel-style master; dress it with IMAGE2 character's exact identity, skin colour, equipment and palette. Five anatomical skull-crown-to-chin heads, excluding hair/helmet/beard/crest, NEVER 4 or 6+. Same head size and bone segment lengths; muscularity changes width only. HIGH-ANGLE FRONT view looking DOWN25–30degrees, crown and shoulder TOPS strongly visible, frontal torso, foreshortened lower face. Crisp discrete pixel clusters, stepped dark outline, short colour ramps exactly like IMAGE1, no smooth painting, no3D. IMAGE2 identity only, IGNORE its body proportions. Complete entire silhouette and all equipment within inner80% transparent RGBA canvas, generous transparent margin on ALL sides, torso centered independent of weapons. No floor/base/shadow/text/UI/glow/additional figures. Pose joints may rotate, lengths unchanged. SARUMAN: elderly human wizard, long white hair and beard, layered ivory-white flowing robes with fine silver borders, silver shoes, BLACK straight staff with FOUR-pronged black crown enclosing WHITE orb held viewerLEFT. Free hand extended palm outward low viewerRIGHT. Exact5head human underneath robe; beard excluded from head length.",
+      "generatedPath": "/workspace/scratch/bb0324dc7a4d/generated_images/exec-a5030f79-cf16-48f6-a539-25f44896f851.png",
+      "groupKey": "isengard",
+      "visualCheck": {
+        "camera": true,
+        "pixelStyle": true,
+        "identityCompared": true,
+        "anatomyComparedToOriginalTemplate": true,
+        "approval": "pending"
+      },
+      "blobSHA": "7436185abc00d28a09c976a10f99919ae1c789d6",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "uruk_swordshield",
+      "pose": "전방 검과 방패 방어",
+      "detail": "URUK-HAI heavy infantry: dark iron enclosed ridged helmet, layered black/charcoal plate armour, white hand on breastplate and angular TALL iron kite shield with silver rim viewerRIGHT, red waist cloth, steel broad slightly curved sword viewerLEFT. Pose shield raised covering outer right side, sword forward tilted low-left. Rust-brown uruk skin. No white hand on helmet unless original.",
+      "prompt": "Use case: stylized-concept. ONE complete transparent pixel-art game token. IMAGE1 neutral body is IMMUTABLE anatomy, scale, camera and pixel-style master; dress it with IMAGE2 character's exact identity, skin colour, equipment and palette. Five anatomical skull-crown-to-chin heads, excluding hair/helmet/beard/crest, NEVER 4 or 6+. Same head size and bone segment lengths; muscularity changes width only. HIGH-ANGLE FRONT view looking DOWN25–30degrees, crown and shoulder TOPS strongly visible, frontal torso, foreshortened lower face. Crisp discrete pixel clusters, stepped dark outline, short colour ramps exactly like IMAGE1, no smooth painting, no3D. IMAGE2 identity only, IGNORE its body proportions. Complete entire silhouette and all equipment within inner80% transparent RGBA canvas, generous transparent margin on ALL sides, torso centered independent of weapons. No floor/base/shadow/text/UI/glow/additional figures. Pose joints may rotate, lengths unchanged. URUK-HAI heavy infantry: dark iron enclosed ridged helmet, layered black/charcoal plate armour, white hand on breastplate and angular TALL iron kite shield with silver rim viewerRIGHT, red waist cloth, steel broad slightly curved sword viewerLEFT. Pose shield raised covering outer right side, sword forward tilted low-left. Rust-brown uruk skin. No white hand on helmet unless original.",
+      "generatedPath": "/workspace/scratch/bb0324dc7a4d/generated_images/exec-6dd85424-cda4-45bc-ae8d-7f39319ebbaf.png",
+      "groupKey": "isengard",
+      "visualCheck": {
+        "camera": true,
+        "pixelStyle": true,
+        "identityCompared": true,
+        "anatomyComparedToOriginalTemplate": true,
+        "approval": "pending"
+      },
+      "blobSHA": "3674aa0a6a428bbbf2cedc8b4d027e9fbe52623d",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "uruk_berserker",
+      "pose": "양손 대검 광전사",
+      "detail": "URUK berserker: rust-red bare muscular chest and arms, WHITE hand painted across chest, black smooth ridged full helmet, brown leather skirt/straps and wraps, dark boots. Huge STEEL broad sword held TWO HANDS diagonally down-left in preparatory backswing, long blade with small dark red stain near tip. Independent uncrossed legs, compact5head bones; muscles width only.",
+      "prompt": "Use case: stylized-concept. ONE complete transparent pixel-art game token. IMAGE1 neutral body is IMMUTABLE anatomy, scale, camera and pixel-style master; dress it with IMAGE2 character's exact identity, skin colour, equipment and palette. Five anatomical skull-crown-to-chin heads, excluding hair/helmet/beard/crest, NEVER 4 or 6+. Same head size and bone segment lengths; muscularity changes width only. HIGH-ANGLE FRONT view looking DOWN25–30degrees, crown and shoulder TOPS strongly visible, frontal torso, foreshortened lower face. Crisp discrete pixel clusters, stepped dark outline, short colour ramps exactly like IMAGE1, no smooth painting, no3D. IMAGE2 identity only, IGNORE its body proportions. Complete entire silhouette and all equipment within inner80% transparent RGBA canvas, generous transparent margin on ALL sides, torso centered independent of weapons. No floor/base/shadow/text/UI/glow/additional figures. Pose joints may rotate, lengths unchanged. URUK berserker: rust-red bare muscular chest and arms, WHITE hand painted across chest, black smooth ridged full helmet, brown leather skirt/straps and wraps, dark boots. Huge STEEL broad sword held TWO HANDS diagonally down-left in preparatory backswing, long blade with small dark red stain near tip. Independent uncrossed legs, compact5head bones; muscles width only.",
+      "generatedPath": "/workspace/scratch/bb0324dc7a4d/generated_images/exec-97df083a-f2d3-4c66-b355-02fa59f349bf.png",
+      "groupKey": "isengard",
+      "visualCheck": {
+        "camera": true,
+        "pixelStyle": true,
+        "identityCompared": true,
+        "anatomyComparedToOriginalTemplate": true,
+        "approval": "pending"
+      },
+      "blobSHA": "e34e7c6df56534aed06a99a91c409cf29d4f8ba7",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "uruk_swordshield2",
+      "pose": "작은 방패의 옆 경계",
+      "detail": "URUK-HAI alternate swordshield: exact dark iron segmented plate, ridged helmet, white hand breastplate, SMALLER rounded angular iron shield with rivets viewerRIGHT, red loincloth. Short broad slightly curved STEEL sword viewerLEFT. Distinct pose: shield extended outward low-right, sword near left shoulder pointing upper-left, both tips contained. Rust-brown skin.",
+      "prompt": "Use case: stylized-concept. ONE complete transparent pixel-art game token. IMAGE1 neutral body is IMMUTABLE anatomy, scale, camera and pixel-style master; dress it with IMAGE2 character's exact identity, skin colour, equipment and palette. Five anatomical skull-crown-to-chin heads, excluding hair/helmet/beard/crest, NEVER 4 or 6+. Same head size and bone segment lengths; muscularity changes width only. HIGH-ANGLE FRONT view looking DOWN25–30degrees, crown and shoulder TOPS strongly visible, frontal torso, foreshortened lower face. Crisp discrete pixel clusters, stepped dark outline, short colour ramps exactly like IMAGE1, no smooth painting, no3D. IMAGE2 identity only, IGNORE its body proportions. Complete entire silhouette and all equipment within inner80% transparent RGBA canvas, generous transparent margin on ALL sides, torso centered independent of weapons. No floor/base/shadow/text/UI/glow/additional figures. Pose joints may rotate, lengths unchanged. URUK-HAI alternate swordshield: exact dark iron segmented plate, ridged helmet, white hand breastplate, SMALLER rounded angular iron shield with rivets viewerRIGHT, red loincloth. Short broad slightly curved STEEL sword viewerLEFT. Distinct pose: shield extended outward low-right, sword near left shoulder pointing upper-left, both tips contained. Rust-brown skin.",
+      "generatedPath": "/workspace/scratch/bb0324dc7a4d/generated_images/exec-d636585f-605e-4249-9d84-c26afaee1c3d.png",
+      "groupKey": "isengard",
+      "visualCheck": {
+        "camera": true,
+        "pixelStyle": true,
+        "identityCompared": true,
+        "anatomyComparedToOriginalTemplate": true,
+        "approval": "pending"
+      },
+      "blobSHA": "fb1832a8b609e56a03b0dfed34b15f8af84a6f38",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "uruk_pike",
+      "pose": "양손 장창 경계",
+      "detail": "URUK-HAI pikeman: heavy segmented dark iron armour, white hand on HELMET and chest, red waist tab. Long straight dark WOOD pike iron leaf tip and iron endcap. Hold TWO HANDS low near belt with pike tilted up viewerLEFT, entire spearhead and lower butt fully visible within safe margins. No shield, no sword. Same5head anatomy; weapon extends beyond head with generous margin.",
+      "prompt": "Use case: stylized-concept. ONE complete transparent pixel-art game token. IMAGE1 neutral body is IMMUTABLE anatomy, scale, camera and pixel-style master; dress it with IMAGE2 character's exact identity, skin colour, equipment and palette. Five anatomical skull-crown-to-chin heads, excluding hair/helmet/beard/crest, NEVER 4 or 6+. Same head size and bone segment lengths; muscularity changes width only. HIGH-ANGLE FRONT view looking DOWN25–30degrees, crown and shoulder TOPS strongly visible, frontal torso, foreshortened lower face. Crisp discrete pixel clusters, stepped dark outline, short colour ramps exactly like IMAGE1, no smooth painting, no3D. IMAGE2 identity only, IGNORE its body proportions. Complete entire silhouette and all equipment within inner80% transparent RGBA canvas, generous transparent margin on ALL sides, torso centered independent of weapons. No floor/base/shadow/text/UI/glow/additional figures. Pose joints may rotate, lengths unchanged. URUK-HAI pikeman: heavy segmented dark iron armour, white hand on HELMET and chest, red waist tab. Long straight dark WOOD pike iron leaf tip and iron endcap. Hold TWO HANDS low near belt with pike tilted up viewerLEFT, entire spearhead and lower butt fully visible within safe margins. No shield, no sword. Same5head anatomy; weapon extends beyond head with generous margin.",
+      "generatedPath": "/workspace/scratch/bb0324dc7a4d/generated_images/exec-53f0f6e4-6f94-4e83-85b9-b4f322fc3bb0.png",
+      "groupKey": "isengard",
+      "visualCheck": {
+        "camera": true,
+        "pixelStyle": true,
+        "identityCompared": true,
+        "anatomyComparedToOriginalTemplate": true,
+        "approval": "pending"
+      },
+      "blobSHA": "46029495213cfac4fc7cadf36f846388e3be8afd",
+      "approval": "pending",
+      "inGameVerified": false
+    }
+  ]
+}
