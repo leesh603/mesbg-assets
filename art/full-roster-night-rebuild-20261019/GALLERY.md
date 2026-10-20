@@ -2,6 +2,36 @@
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
 
+### 로한 근위기병 (rohan_royal_guard_mounted)
+
+![로한 근위기병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/rohan_royal_guard_mounted.png?v=740e93947e5508c21847703c4a88000b2f82459f)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/rohan_royal_guard_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/rohan_royal_guard_mounted.png?v=740e93947e5508c21847703c4a88000b2f82459f)
+
+### 할레스 (haleth)
+
+![할레스](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/haleth.png?v=0f30924d014427f4163864a68049cc6101f4f66f)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/haleth.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/haleth.png?v=0f30924d014427f4163864a68049cc6101f4f66f)
+
+### 둔헤레 (dunhere)
+
+![둔헤레](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dunhere.png?v=1cf92fadc8778ffce71effbd9625089ddc227f3a)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/dunhere.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dunhere.png?v=1cf92fadc8778ffce71effbd9625089ddc227f3a)
+
+### 하딩 (harding)
+
+![하딩](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/harding.png?v=da1d15efaf882321ba0ef2b168f9a18c96bfb924)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/harding.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/harding.png?v=da1d15efaf882321ba0ef2b168f9a18c96bfb924)
+
+### 그림볼드 (grimbold)
+
+![그림볼드](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/grimbold.png?v=f975a9464003656f6bd0951ada0d28dfec4be450)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/grimbold.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/grimbold.png?v=f975a9464003656f6bd0951ada0d28dfec4be450)
+
 ### 에오를의 아들들 (sons_of_eorl)
 
 ![에오를의 아들들](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/sons_of_eorl.png?v=5420ebcede872c1c0cc24f1012f325091e9605ea)
@@ -31,36 +61,6 @@
 ![헤라](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/hera.png?v=3eed58613f6d00cff4e196e09ad6329010548e1c)
 
 [기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/hera.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/hera.png?v=3eed58613f6d00cff4e196e09ad6329010548e1c)
-
-### 할레스 (haleth)
-
-![할레스](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/haleth.png?v=d3ba594b27320f9ad33b00d894ae71106d21c89d)
-
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/haleth.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/haleth.png?v=d3ba594b27320f9ad33b00d894ae71106d21c89d)
-
-### 둔헤레 (dunhere)
-
-![둔헤레](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dunhere.png?v=e85ca831982d3a41b4be2ddeed10f6e1ed9fb081)
-
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/dunhere.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dunhere.png?v=e85ca831982d3a41b4be2ddeed10f6e1ed9fb081)
-
-### 로한 근위기병 (rohan_royal_guard_mounted)
-
-![로한 근위기병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/rohan_royal_guard_mounted.png?v=e3d6d3771564290cd54ab88271f3a9dd89286f82)
-
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/rohan_royal_guard_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/rohan_royal_guard_mounted.png?v=e3d6d3771564290cd54ab88271f3a9dd89286f82)
-
-### 하딩 (harding)
-
-![하딩](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/harding.png?v=1aa1459d96e218fc19da7a00af58c09fd30ccea5)
-
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/harding.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/harding.png?v=1aa1459d96e218fc19da7a00af58c09fd30ccea5)
-
-### 그림볼드 (grimbold)
-
-![그림볼드](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/grimbold.png?v=f515caa56a1ef3cf6b5857f4429fd2a2d1980301)
-
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/grimbold.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/grimbold.png?v=f515caa56a1ef3cf6b5857f4429fd2a2d1980301)
 
 ### 에오윈 (eowyn)
 

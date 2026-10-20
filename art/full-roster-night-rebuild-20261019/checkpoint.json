@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T00:29:01.015Z",
+  "updatedAt": "2026-10-20T00:34:51.613Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -15,7 +15,7 @@
     "excludedTerrain": 77,
     "generatedReviewAssets": 30,
     "persistedReviewAssets": 162,
-    "revisedAfterRejection": 5
+    "revisedAfterRejection": 10
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
   "sources": [
@@ -2887,7 +2887,7 @@
       "visualReviewThisSession": true,
       "source": "rohan",
       "path": "art/full-roster-night-rebuild-20261019/units/grimbold.png",
-      "blobSHA": "f515caa56a1ef3cf6b5857f4429fd2a2d1980301",
+      "blobSHA": "f975a9464003656f6bd0951ada0d28dfec4be450",
       "approval": "pending",
       "inGameVerified": false
     },
@@ -2901,7 +2901,7 @@
       "visualReviewThisSession": true,
       "source": "rohan",
       "path": "art/full-roster-night-rebuild-20261019/units/harding.png",
-      "blobSHA": "1aa1459d96e218fc19da7a00af58c09fd30ccea5",
+      "blobSHA": "da1d15efaf882321ba0ef2b168f9a18c96bfb924",
       "approval": "pending",
       "inGameVerified": false
     },
@@ -2915,7 +2915,7 @@
       "visualReviewThisSession": true,
       "source": "rohan",
       "path": "art/full-roster-night-rebuild-20261019/units/rohan_royal_guard_mounted.png",
-      "blobSHA": "e3d6d3771564290cd54ab88271f3a9dd89286f82",
+      "blobSHA": "740e93947e5508c21847703c4a88000b2f82459f",
       "approval": "pending",
       "inGameVerified": false
     },
@@ -3304,7 +3304,7 @@
       "visualReviewThisSession": true,
       "source": "rohan",
       "path": "art/full-roster-night-rebuild-20261019/units/dunhere.png",
-      "blobSHA": "e85ca831982d3a41b4be2ddeed10f6e1ed9fb081",
+      "blobSHA": "1cf92fadc8778ffce71effbd9625089ddc227f3a",
       "approval": "pending",
       "inGameVerified": false
     },
@@ -3318,7 +3318,7 @@
       "visualReviewThisSession": true,
       "source": "rohan",
       "path": "art/full-roster-night-rebuild-20261019/units/haleth.png",
-      "blobSHA": "d3ba594b27320f9ad33b00d894ae71106d21c89d",
+      "blobSHA": "0f30924d014427f4163864a68049cc6101f4f66f",
       "approval": "pending",
       "inGameVerified": false
     },
@@ -5225,16 +5225,15 @@
         "frealaf",
         "eorl_the_young",
         "helm_hammerhand",
-        "sons_of_eorl"
-      ],
-      "uncommittedHeld": [],
-      "reviewPreviouslySaved": [
+        "sons_of_eorl",
         "grimbold",
         "harding",
-        "rohan_royal_guard_mounted",
         "dunhere",
-        "haleth"
+        "haleth",
+        "rohan_royal_guard_mounted"
       ],
+      "uncommittedHeld": [],
+      "reviewPreviouslySaved": [],
       "approval": "pending",
       "referenceFoot": "art/rebuild-skeletons/bases/human.png",
       "referenceMounted": "art/rebuild-skeletons/bases/human-mounted.png"
