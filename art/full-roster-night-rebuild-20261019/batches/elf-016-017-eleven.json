@@ -1,0 +1,209 @@
+{
+  "batch": "elf-016-017-eleven",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "gondolin_guard",
+      "mounted": false,
+      "pose": "창과 푸른 방패 · 정렬 자세",
+      "detail": "GONDOLIN GUARD silver enclosed helmet with modest WHITE plume flowing behind, narrow gold details, blue cloak pale trim, silver armor/short white tabard. Straight slim brown spear shaft with white leaf-shaped silver SPEARHEAD viewerLEFT; one hand grasp at waist. Large pointed slateBLUE SHIELD viewerRIGHT with white border and WHITE TREE with small white crosses over it. Both feet parallel firmly planted with same short standard knees/shins, torso front. Spearhead fits y5% margin, plume is not skull, do not make head enormous.",
+      "prompt": "Dress IMAGE1 neutral elf skeleton as IMAGE2 character identity. IMAGE1 alone controls skull, body and limb bone lengths and camera. Actual adult FIVE anatomical heads crown-to-sole, exclude hair/helmet protrusions. NOT four-head big-head chibi, NOT six-head elongated hero. Keep ordinary adult skull from image1 and exact same torso/leg length relationships. Bone LANDMARKS at neutral standing pose on this portrait canvas: anatomical crown y8%, chin y25%, shoulder tops y27%, pelvic joints y55%, knees y70%, ankles y85%, soles y92%. These show scale, NOT mandatory identical joint angles; bend/rotate for required stance while preserving bones. Costume/helmet closely fitted, do not inflate head inside helmet. Weapons rotate into sides, do not shrink torso to fit weapons. Elevated FRONT camera looking down30degrees, clear TOP planes of skull and both shoulders, chest/face foreshortened, chin/gaze down, NOT eyelevel with only bowed head. Exact image1 pixel density and stepped clusters, black outlines, restrained ramps. Whole body centered independently of cape/weapon, all tips visible and clear margin, transparent RGBA, no floor/base/shadow/aura/text. IMAGE2 only weapon/clothing/hair/color identity, never its skeleton. IMPORTANT: neutral image1 is BALD to expose skull; replace scalp with image2 HAIR or HELMET. Characters described with hair must NEVER be bald. Keep hair fitted around same adult skull. GONDOLIN GUARD silver enclosed helmet with modest WHITE plume flowing behind, narrow gold details, blue cloak pale trim, silver armor/short white tabard. Straight slim brown spear shaft with white leaf-shaped silver SPEARHEAD viewerLEFT; one hand grasp at waist. Large pointed slateBLUE SHIELD viewerRIGHT with white border and WHITE TREE with small white crosses over it. Both feet parallel firmly planted with same short standard knees/shins, torso front. Spearhead fits y5% margin, plume is not skull, do not make head enormous.",
+      "group": "엘프",
+      "groupKey": "elf",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/elf.png",
+        "camera": "Elevated front; crown/shoulder top planes checked",
+        "equipment": "Compared with original token, no material hand/weapon defects observed",
+        "approval": "pending"
+      },
+      "blobSHA": "62405088d49e29dad6f71510364c1cfb6082ead3",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-e72b2315-c86d-44b5-b04e-466689f1ea73.png"
+    },
+    {
+      "id": "mirkwood_captain",
+      "mounted": false,
+      "pose": "허리 높이 검 · 넓은 경계 자세",
+      "detail": "MIRKWOOD CAPTAIN brown hair, gold leaf circlet, clean shaven, darkgreen cloak/tunic gold branch patterns, brown leather layered shoulder/arm/leg armor, gold narrow edge, gold buckle, brown boots. Original straight SILVER SWORD with GOLD hilt. Both hands on hilt low beside viewerLEFT hip, blade diagonally upwards crossing front toward viewerRIGHT side at y15%, NOT above head. Wide feet, short flexed knees, torso twisting slightly, crown/shouldertops clear. No shield or bow.",
+      "prompt": "Dress IMAGE1 neutral elf skeleton as IMAGE2 character identity. IMAGE1 alone controls skull, body and limb bone lengths and camera. Actual adult FIVE anatomical heads crown-to-sole, exclude hair/helmet protrusions. NOT four-head big-head chibi, NOT six-head elongated hero. Keep ordinary adult skull from image1 and exact same torso/leg length relationships. Bone LANDMARKS at neutral standing pose on this portrait canvas: anatomical crown y8%, chin y25%, shoulder tops y27%, pelvic joints y55%, knees y70%, ankles y85%, soles y92%. These show scale, NOT mandatory identical joint angles; bend/rotate for required stance while preserving bones. Costume/helmet closely fitted, do not inflate head inside helmet. Weapons rotate into sides, do not shrink torso to fit weapons. Elevated FRONT camera looking down30degrees, clear TOP planes of skull and both shoulders, chest/face foreshortened, chin/gaze down, NOT eyelevel with only bowed head. Exact image1 pixel density and stepped clusters, black outlines, restrained ramps. Whole body centered independently of cape/weapon, all tips visible and clear margin, transparent RGBA, no floor/base/shadow/aura/text. IMAGE2 only weapon/clothing/hair/color identity, never its skeleton. IMPORTANT: neutral image1 is BALD to expose skull; replace scalp with image2 HAIR or HELMET. Characters described with hair must NEVER be bald. Keep hair fitted around same adult skull. MIRKWOOD CAPTAIN brown hair, gold leaf circlet, clean shaven, darkgreen cloak/tunic gold branch patterns, brown leather layered shoulder/arm/leg armor, gold narrow edge, gold buckle, brown boots. Original straight SILVER SWORD with GOLD hilt. Both hands on hilt low beside viewerLEFT hip, blade diagonally upwards crossing front toward viewerRIGHT side at y15%, NOT above head. Wide feet, short flexed knees, torso twisting slightly, crown/shouldertops clear. No shield or bow.",
+      "group": "엘프",
+      "groupKey": "elf",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/elf.png",
+        "camera": "Elevated front; crown/shoulder top planes checked",
+        "equipment": "Compared with original token, no material hand/weapon defects observed",
+        "approval": "pending"
+      },
+      "blobSHA": "10a0f71b1938a63f083ad87d19edc1b182a1729a",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-99c71732-4f31-4f5b-8b05-fecc9438410a.png"
+    },
+    {
+      "id": "fingolfin_mounted",
+      "mounted": true,
+      "pose": "백마 기마 · 검을 옆으로",
+      "detail": "FINGOLFIN MOUNTED on WHITE HORSE, long black hair, gold circlet blue gem, silver plate/gold edges, BLUE tabard with WHITE8point STAR, royalblue cape broad gold hem, blue-gold saddlecloth, blue diamond frontbarding. Image1 mounted neutral is rider BONE SCALE and actual elevated camera master, override standing landmark coordinates, preserve normal fivehead anatomy if standing. One swordhand short elbow near hip with straight SILVER SWORD goldhilt pointing outward sideways, tip on viewerLEFT at y22%; other hand holds reins in front of belt, exactly2hands. Horse short standard anatomy not shrunken, horse neck/withers/saddle TOPS visible due elevatedcamera, not head-only bowing. Both stirrupboots clear, horse forefeet staggered.",
+      "prompt": "Dress IMAGE1 neutral elf skeleton as IMAGE2 character identity. IMAGE1 alone controls skull, body and limb bone lengths and camera. Actual adult FIVE anatomical heads crown-to-sole, exclude hair/helmet protrusions. NOT four-head big-head chibi, NOT six-head elongated hero. Keep ordinary adult skull from image1 and exact same torso/leg length relationships. Bone LANDMARKS at neutral standing pose on this portrait canvas: anatomical crown y8%, chin y25%, shoulder tops y27%, pelvic joints y55%, knees y70%, ankles y85%, soles y92%. These show scale, NOT mandatory identical joint angles; bend/rotate for required stance while preserving bones. Costume/helmet closely fitted, do not inflate head inside helmet. Weapons rotate into sides, do not shrink torso to fit weapons. Elevated FRONT camera looking down30degrees, clear TOP planes of skull and both shoulders, chest/face foreshortened, chin/gaze down, NOT eyelevel with only bowed head. Exact image1 pixel density and stepped clusters, black outlines, restrained ramps. Whole body centered independently of cape/weapon, all tips visible and clear margin, transparent RGBA, no floor/base/shadow/aura/text. IMAGE2 only weapon/clothing/hair/color identity, never its skeleton. IMPORTANT: neutral image1 is BALD to expose skull; replace scalp with image2 HAIR or HELMET. Characters described with hair must NEVER be bald. Keep hair fitted around same adult skull. FINGOLFIN MOUNTED on WHITE HORSE, long black hair, gold circlet blue gem, silver plate/gold edges, BLUE tabard with WHITE8point STAR, royalblue cape broad gold hem, blue-gold saddlecloth, blue diamond frontbarding. Image1 mounted neutral is rider BONE SCALE and actual elevated camera master, override standing landmark coordinates, preserve normal fivehead anatomy if standing. One swordhand short elbow near hip with straight SILVER SWORD goldhilt pointing outward sideways, tip on viewerLEFT at y22%; other hand holds reins in front of belt, exactly2hands. Horse short standard anatomy not shrunken, horse neck/withers/saddle TOPS visible due elevatedcamera, not head-only bowing. Both stirrupboots clear, horse forefeet staggered.",
+      "group": "엘프",
+      "groupKey": "elf",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/human-mounted.png",
+        "camera": "Elevated front; crown/shoulder top planes checked",
+        "equipment": "Compared with original token, no material hand/weapon defects observed",
+        "approval": "pending"
+      },
+      "blobSHA": "ce38afe07d91fb7111beb754f65a8d6a6bd61abf",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-91554979-ecd2-43e6-a371-863dba774548.png"
+    },
+    {
+      "id": "maglor",
+      "mounted": false,
+      "pose": "검과 작은 리라 · 평행 발",
+      "detail": "MAGLOR darkblue/black long hair, gold branch circlet BLUE jewel, clean shaven, silver plate heavily edged gold, blue short tabard, RED cloak broad gold hem, blue central jewels. Straight silver SWORD gold crossguard in viewerLEFT hand, point down beside left leg. Small GOLD LYRE in viewerRIGHT hand tucked beside chest, exactly2hands. Both feet firmly planted parallel with knees soft, shoulders front, no raised arm or long stride. Lyre has visible simple strings, no glowing effect.",
+      "prompt": "Dress IMAGE1 neutral elf skeleton as IMAGE2 character identity. IMAGE1 alone controls skull, body and limb bone lengths and camera. Actual adult FIVE anatomical heads crown-to-sole, exclude hair/helmet protrusions. NOT four-head big-head chibi, NOT six-head elongated hero. Keep ordinary adult skull from image1 and exact same torso/leg length relationships. Bone LANDMARKS at neutral standing pose on this portrait canvas: anatomical crown y8%, chin y25%, shoulder tops y27%, pelvic joints y55%, knees y70%, ankles y85%, soles y92%. These show scale, NOT mandatory identical joint angles; bend/rotate for required stance while preserving bones. Costume/helmet closely fitted, do not inflate head inside helmet. Weapons rotate into sides, do not shrink torso to fit weapons. Elevated FRONT camera looking down30degrees, clear TOP planes of skull and both shoulders, chest/face foreshortened, chin/gaze down, NOT eyelevel with only bowed head. Exact image1 pixel density and stepped clusters, black outlines, restrained ramps. Whole body centered independently of cape/weapon, all tips visible and clear margin, transparent RGBA, no floor/base/shadow/aura/text. IMAGE2 only weapon/clothing/hair/color identity, never its skeleton. IMPORTANT: neutral image1 is BALD to expose skull; replace scalp with image2 HAIR or HELMET. Characters described with hair must NEVER be bald. Keep hair fitted around same adult skull. MAGLOR darkblue/black long hair, gold branch circlet BLUE jewel, clean shaven, silver plate heavily edged gold, blue short tabard, RED cloak broad gold hem, blue central jewels. Straight silver SWORD gold crossguard in viewerLEFT hand, point down beside left leg. Small GOLD LYRE in viewerRIGHT hand tucked beside chest, exactly2hands. Both feet firmly planted parallel with knees soft, shoulders front, no raised arm or long stride. Lyre has visible simple strings, no glowing effect.",
+      "group": "엘프",
+      "groupKey": "elf",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/elf.png",
+        "camera": "Elevated front; crown/shoulder top planes checked",
+        "equipment": "Compared with original token, no material hand/weapon defects observed",
+        "approval": "pending"
+      },
+      "blobSHA": "a57fc9136b77def9384f8eac0a94448a2901bde7",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-5193e4df-670a-4273-8618-9302770d4ad5.png"
+    },
+    {
+      "id": "gwindor",
+      "mounted": false,
+      "pose": "검과 노란 등불 · 낮은 경계",
+      "detail": "GWINDOR long SILVER WHITE hair, clean shaven, silver plate, slateBLUE cloak with pale lining, blue jewel shoulder clasps, darkblue short tunic with silver branch embroidery. SILVER straight SWORD gold/blue hilt viewerLEFT angled down outward; GOLD faceted LANTERN with BLUE panes hanging from short gold chain in other hand at waist. Lantern has no lightspill/glow, transparent background remains clear. Both feet planted wide in shallow crouch, arms low. Exact body bones image1, avoid pinhead tall hero.",
+      "prompt": "Dress IMAGE1 neutral elf skeleton as IMAGE2 character identity. IMAGE1 alone controls skull, body and limb bone lengths and camera. Actual adult FIVE anatomical heads crown-to-sole, exclude hair/helmet protrusions. NOT four-head big-head chibi, NOT six-head elongated hero. Keep ordinary adult skull from image1 and exact same torso/leg length relationships. Bone LANDMARKS at neutral standing pose on this portrait canvas: anatomical crown y8%, chin y25%, shoulder tops y27%, pelvic joints y55%, knees y70%, ankles y85%, soles y92%. These show scale, NOT mandatory identical joint angles; bend/rotate for required stance while preserving bones. Costume/helmet closely fitted, do not inflate head inside helmet. Weapons rotate into sides, do not shrink torso to fit weapons. Elevated FRONT camera looking down30degrees, clear TOP planes of skull and both shoulders, chest/face foreshortened, chin/gaze down, NOT eyelevel with only bowed head. Exact image1 pixel density and stepped clusters, black outlines, restrained ramps. Whole body centered independently of cape/weapon, all tips visible and clear margin, transparent RGBA, no floor/base/shadow/aura/text. IMAGE2 only weapon/clothing/hair/color identity, never its skeleton. IMPORTANT: neutral image1 is BALD to expose skull; replace scalp with image2 HAIR or HELMET. Characters described with hair must NEVER be bald. Keep hair fitted around same adult skull. GWINDOR long SILVER WHITE hair, clean shaven, silver plate, slateBLUE cloak with pale lining, blue jewel shoulder clasps, darkblue short tunic with silver branch embroidery. SILVER straight SWORD gold/blue hilt viewerLEFT angled down outward; GOLD faceted LANTERN with BLUE panes hanging from short gold chain in other hand at waist. Lantern has no lightspill/glow, transparent background remains clear. Both feet planted wide in shallow crouch, arms low. Exact body bones image1, avoid pinhead tall hero.",
+      "group": "엘프",
+      "groupKey": "elf",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/elf.png",
+        "camera": "Elevated front; crown/shoulder top planes checked",
+        "equipment": "Compared with original token, no material hand/weapon defects observed",
+        "approval": "pending"
+      },
+      "blobSHA": "88827b97ccc6ff098efd47f76c91ef5ad2ad7c80",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-824e2c88-62ef-49d0-8232-5de08df236a9.png"
+    },
+    {
+      "id": "celebrimbor",
+      "pose": "망치와 금빛 공예품 · 넓게 선 자세",
+      "detail": "CELEBRIMBOR long DARK BLUE-BLACK hair, gold circlet blue jewel, blue cloak/tabard with GOLD little crosses, silver plate gold edges, ivory underrobe at knees, brown leather boots and belt with two silver smithing tools. Large SQUARE GOLD HAMMER held low viewerLEFT, actual gold head has engraved circle/keyhole-like motif. Other hand holds the small round GOLD ornamental craftwork at lower chest, exactly2hands. Ornamentation is engraved in solid objects: NO floating runes, no sparkles or glow. BOTH FEET at SAME y91% with x38% and x62%, wide planted stance. No walking foot lifted. Original image2 garment/motif identity, do not invent sword.",
+      "prompt": "Dress IMAGE1 neutral elf skeleton as IMAGE2 character identity. IMAGE1 alone controls skull, body and limb bone lengths and camera. Actual adult FIVE anatomical heads crown-to-sole, exclude hair/helmet protrusions. NOT four-head big-head chibi, NOT six-head elongated hero. Keep ordinary adult skull from image1 and exact same torso/leg length relationships. Bone LANDMARKS at neutral standing pose on this portrait canvas: anatomical crown y8%, chin y25%, shoulder tops y27%, pelvic joints y55%, knees y70%, ankles y85%, soles y92%. These show scale, NOT mandatory identical joint angles; bend/rotate for required stance while preserving bones. Costume/helmet closely fitted, do not inflate head inside helmet. Weapons rotate into sides, do not shrink torso to fit weapons. Elevated FRONT camera looking down30degrees, clear TOP planes of skull and both shoulders, chest/face foreshortened, chin/gaze down, NOT eyelevel with only bowed head. Exact image1 pixel density and stepped clusters, black outlines, restrained ramps. Whole body centered independently of cape/weapon, all tips visible and clear margin, transparent RGBA, no floor/base/shadow/aura/text. IMAGE2 only weapon/clothing/hair/color identity, never its skeleton. IMPORTANT: neutral image1 is BALD to expose skull; replace scalp with image2 HAIR or HELMET. Characters described with hair must NEVER be bald. Keep hair fitted around same adult skull. CELEBRIMBOR long DARK BLUE-BLACK hair, gold circlet blue jewel, blue cloak/tabard with GOLD little crosses, silver plate gold edges, ivory underrobe at knees, brown leather boots and belt with two silver smithing tools. Large SQUARE GOLD HAMMER held low viewerLEFT, actual gold head has engraved circle/keyhole-like motif. Other hand holds the small round GOLD ornamental craftwork at lower chest, exactly2hands. Ornamentation is engraved in solid objects: NO floating runes, no sparkles or glow. BOTH FEET at SAME y91% with x38% and x62%, wide planted stance. No walking foot lifted. Original image2 garment/motif identity, do not invent sword.",
+      "group": "엘프",
+      "groupKey": "elf",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/elf.png",
+        "camera": "Elevated front; crown/shoulder top planes checked",
+        "equipment": "Compared with original token, no material hand/weapon defects observed",
+        "approval": "pending"
+      },
+      "blobSHA": "511fb89e2c3861c8b4116aa62c9eedbfca7098d7",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-2f9745d1-04d7-43ce-9ebe-5eb9fc1ca792.png"
+    },
+    {
+      "id": "daeron",
+      "pose": "지팡이 낮게 잡기 · 회색 로브",
+      "detail": "DAERON dark brown shoulderlength hair, silver circlet, clean shaven, layered GRAY robes/long gray cloak with WHITE vine borders, gray/silver waist brooch and short gold chain. BROWN WOOD STAFF viewerRIGHT, top twisted fork framing a small PALE GREEN crystal. One hand grasps shaft at lower chest, other open hand at waist with palm up. Long robe near ankle but BOTH shoe tips visible, both feet at same y92% x43%/x59%, no long taller wizard anatomy. Under robe adult neutral5head short legs exactly image1. No staff glow or floor.",
+      "prompt": "Dress IMAGE1 neutral elf skeleton as IMAGE2 character identity. IMAGE1 alone controls skull, body and limb bone lengths and camera. Actual adult FIVE anatomical heads crown-to-sole, exclude hair/helmet protrusions. NOT four-head big-head chibi, NOT six-head elongated hero. Keep ordinary adult skull from image1 and exact same torso/leg length relationships. Bone LANDMARKS at neutral standing pose on this portrait canvas: anatomical crown y8%, chin y25%, shoulder tops y27%, pelvic joints y55%, knees y70%, ankles y85%, soles y92%. These show scale, NOT mandatory identical joint angles; bend/rotate for required stance while preserving bones. Costume/helmet closely fitted, do not inflate head inside helmet. Weapons rotate into sides, do not shrink torso to fit weapons. Elevated FRONT camera looking down30degrees, clear TOP planes of skull and both shoulders, chest/face foreshortened, chin/gaze down, NOT eyelevel with only bowed head. Exact image1 pixel density and stepped clusters, black outlines, restrained ramps. Whole body centered independently of cape/weapon, all tips visible and clear margin, transparent RGBA, no floor/base/shadow/aura/text. IMAGE2 only weapon/clothing/hair/color identity, never its skeleton. IMPORTANT: neutral image1 is BALD to expose skull; replace scalp with image2 HAIR or HELMET. Characters described with hair must NEVER be bald. Keep hair fitted around same adult skull. DAERON dark brown shoulderlength hair, silver circlet, clean shaven, layered GRAY robes/long gray cloak with WHITE vine borders, gray/silver waist brooch and short gold chain. BROWN WOOD STAFF viewerRIGHT, top twisted fork framing a small PALE GREEN crystal. One hand grasps shaft at lower chest, other open hand at waist with palm up. Long robe near ankle but BOTH shoe tips visible, both feet at same y92% x43%/x59%, no long taller wizard anatomy. Under robe adult neutral5head short legs exactly image1. No staff glow or floor.",
+      "group": "엘프",
+      "groupKey": "elf",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/elf.png",
+        "camera": "Elevated front; crown/shoulder top planes checked",
+        "equipment": "Compared with original token, no material hand/weapon defects observed",
+        "approval": "pending"
+      },
+      "blobSHA": "24e57fbce752e8ba25328e7ce91fcf2b1edabcd6",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-1dd8dc9a-b4a8-44be-a0e6-aa21cc934bba.png"
+    },
+    {
+      "id": "earendil",
+      "pose": "검과 빈손 · 평행 발",
+      "detail": "EARENDIL long golden blond wavy hair, SILVER circlet BLUE jewel, clean shaven. Silver and BLUE plate/scale armor, pale silver spiral decorations on blue shoulder/knee plates, darkblue cape WHITE hem, silver star/shipwheel shoulderbrooch, blue/white short tabard. Original silver straight SWORD with blue jewel hilt viewerLEFT, held low forward at BELT height pointing outward horizontally diagonal to left. Other gloved hand near belt. Both feet level y92%, x39/62, shoulders slight turn5deg. No shield, no luminous jewel.",
+      "prompt": "Dress IMAGE1 neutral elf skeleton as IMAGE2 character identity. IMAGE1 alone controls skull, body and limb bone lengths and camera. Actual adult FIVE anatomical heads crown-to-sole, exclude hair/helmet protrusions. NOT four-head big-head chibi, NOT six-head elongated hero. Keep ordinary adult skull from image1 and exact same torso/leg length relationships. Bone LANDMARKS at neutral standing pose on this portrait canvas: anatomical crown y8%, chin y25%, shoulder tops y27%, pelvic joints y55%, knees y70%, ankles y85%, soles y92%. These show scale, NOT mandatory identical joint angles; bend/rotate for required stance while preserving bones. Costume/helmet closely fitted, do not inflate head inside helmet. Weapons rotate into sides, do not shrink torso to fit weapons. Elevated FRONT camera looking down30degrees, clear TOP planes of skull and both shoulders, chest/face foreshortened, chin/gaze down, NOT eyelevel with only bowed head. Exact image1 pixel density and stepped clusters, black outlines, restrained ramps. Whole body centered independently of cape/weapon, all tips visible and clear margin, transparent RGBA, no floor/base/shadow/aura/text. IMAGE2 only weapon/clothing/hair/color identity, never its skeleton. IMPORTANT: neutral image1 is BALD to expose skull; replace scalp with image2 HAIR or HELMET. Characters described with hair must NEVER be bald. Keep hair fitted around same adult skull. EARENDIL long golden blond wavy hair, SILVER circlet BLUE jewel, clean shaven. Silver and BLUE plate/scale armor, pale silver spiral decorations on blue shoulder/knee plates, darkblue cape WHITE hem, silver star/shipwheel shoulderbrooch, blue/white short tabard. Original silver straight SWORD with blue jewel hilt viewerLEFT, held low forward at BELT height pointing outward horizontally diagonal to left. Other gloved hand near belt. Both feet level y92%, x39/62, shoulders slight turn5deg. No shield, no luminous jewel.",
+      "group": "엘프",
+      "groupKey": "elf",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/elf.png",
+        "camera": "Elevated front; crown/shoulder top planes checked",
+        "equipment": "Compared with original token, no material hand/weapon defects observed",
+        "approval": "pending"
+      },
+      "blobSHA": "2ec999e29929117c96accebabcb669db544e7587",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-0bdd1052-95fc-4614-94f0-5ef92606f5b8.png"
+    },
+    {
+      "id": "maeglin",
+      "pose": "허리 앞 검 · 넓은 버팀",
+      "detail": "MAEGLIN long BLACK hair, clean shaven, dark slate/BLACK plate armor with SILVER branch designs on shoulders/chest/tunic panels, black cape, silver gauntlets/greaves, brown crossed waistbelt and silver round cape clasp. Original silver straight SWORD gold small hilt. TWO hands on hilt at LOW waist, blade near horizontal diagonal toward viewerLEFT outside body; no overhead blade. Wide feet at same y91% x35/64%, slight bent knees, do not copy neutral marching pose. Not bald, no beard.",
+      "prompt": "Dress IMAGE1 neutral elf skeleton as IMAGE2 character identity. IMAGE1 alone controls skull, body and limb bone lengths and camera. Actual adult FIVE anatomical heads crown-to-sole, exclude hair/helmet protrusions. NOT four-head big-head chibi, NOT six-head elongated hero. Keep ordinary adult skull from image1 and exact same torso/leg length relationships. Bone LANDMARKS at neutral standing pose on this portrait canvas: anatomical crown y8%, chin y25%, shoulder tops y27%, pelvic joints y55%, knees y70%, ankles y85%, soles y92%. These show scale, NOT mandatory identical joint angles; bend/rotate for required stance while preserving bones. Costume/helmet closely fitted, do not inflate head inside helmet. Weapons rotate into sides, do not shrink torso to fit weapons. Elevated FRONT camera looking down30degrees, clear TOP planes of skull and both shoulders, chest/face foreshortened, chin/gaze down, NOT eyelevel with only bowed head. Exact image1 pixel density and stepped clusters, black outlines, restrained ramps. Whole body centered independently of cape/weapon, all tips visible and clear margin, transparent RGBA, no floor/base/shadow/aura/text. IMAGE2 only weapon/clothing/hair/color identity, never its skeleton. IMPORTANT: neutral image1 is BALD to expose skull; replace scalp with image2 HAIR or HELMET. Characters described with hair must NEVER be bald. Keep hair fitted around same adult skull. MAEGLIN long BLACK hair, clean shaven, dark slate/BLACK plate armor with SILVER branch designs on shoulders/chest/tunic panels, black cape, silver gauntlets/greaves, brown crossed waistbelt and silver round cape clasp. Original silver straight SWORD gold small hilt. TWO hands on hilt at LOW waist, blade near horizontal diagonal toward viewerLEFT outside body; no overhead blade. Wide feet at same y91% x35/64%, slight bent knees, do not copy neutral marching pose. Not bald, no beard.",
+      "group": "엘프",
+      "groupKey": "elf",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/elf.png",
+        "camera": "Elevated front; crown/shoulder top planes checked",
+        "equipment": "Compared with original token, no material hand/weapon defects observed",
+        "approval": "pending"
+      },
+      "blobSHA": "f8b2f8a4081f0e931dcb3e8a3186fdd0e8e64094",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-ba088843-8c5e-4c0e-a866-37c8cb70ab95.png"
+    },
+    {
+      "id": "eol",
+      "pose": "검 아래 · 비스듬한 경계",
+      "detail": "EOL darkbrown shoulderlength hair, clean shaven, darksilver armor and dark BLUE cape with light gray inner lining, pale silverbranch motifs on blue short tabard, round silver shoulder clasps, brown belt. Original very DARK SILVER straight long SWORD with angular silver guard in viewerLEFT hand held VERTICAL point down beside left boot without floorcontact; other closed fist slightly raised at waist. Both feet firmly planted, one toe outward, soles same y92% x41/64, slight torso turn10deg not sideview. No crown/helmet, no beard, no glow.",
+      "prompt": "Dress IMAGE1 neutral elf skeleton as IMAGE2 character identity. IMAGE1 alone controls skull, body and limb bone lengths and camera. Actual adult FIVE anatomical heads crown-to-sole, exclude hair/helmet protrusions. NOT four-head big-head chibi, NOT six-head elongated hero. Keep ordinary adult skull from image1 and exact same torso/leg length relationships. Bone LANDMARKS at neutral standing pose on this portrait canvas: anatomical crown y8%, chin y25%, shoulder tops y27%, pelvic joints y55%, knees y70%, ankles y85%, soles y92%. These show scale, NOT mandatory identical joint angles; bend/rotate for required stance while preserving bones. Costume/helmet closely fitted, do not inflate head inside helmet. Weapons rotate into sides, do not shrink torso to fit weapons. Elevated FRONT camera looking down30degrees, clear TOP planes of skull and both shoulders, chest/face foreshortened, chin/gaze down, NOT eyelevel with only bowed head. Exact image1 pixel density and stepped clusters, black outlines, restrained ramps. Whole body centered independently of cape/weapon, all tips visible and clear margin, transparent RGBA, no floor/base/shadow/aura/text. IMAGE2 only weapon/clothing/hair/color identity, never its skeleton. IMPORTANT: neutral image1 is BALD to expose skull; replace scalp with image2 HAIR or HELMET. Characters described with hair must NEVER be bald. Keep hair fitted around same adult skull. EOL darkbrown shoulderlength hair, clean shaven, darksilver armor and dark BLUE cape with light gray inner lining, pale silverbranch motifs on blue short tabard, round silver shoulder clasps, brown belt. Original very DARK SILVER straight long SWORD with angular silver guard in viewerLEFT hand held VERTICAL point down beside left boot without floorcontact; other closed fist slightly raised at waist. Both feet firmly planted, one toe outward, soles same y92% x41/64, slight torso turn10deg not sideview. No crown/helmet, no beard, no glow.",
+      "group": "엘프",
+      "groupKey": "elf",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/elf.png",
+        "camera": "Elevated front; crown/shoulder top planes checked",
+        "equipment": "Compared with original token, no material hand/weapon defects observed",
+        "approval": "pending"
+      },
+      "blobSHA": "ac37b1fc1942aa358e88691846e7e2d6a21f7ca6",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-7d576de3-556f-43c1-b14e-cdac365e3c51.png"
+    },
+    {
+      "id": "galdor",
+      "pose": "회청색 로브 · 창 모양 지팡이",
+      "detail": "GALDOR long straight BLACK hair, slim silver circlet, clean shaven, blueGRAY hooddown cloak ivory broad lining, pale layered gray robes, brown shoes visible. Slim darkgray STAFF viewerLEFT, forked silver top embracing a pale BLUE diamond/oval crystal, no glow. One hand grips staff at waist, other free hand holds robe edge at hip with short elbow. Body front, headgaze down, both feet planted level y92%, x44/60. Long robe must cover exact same compact fivehead bones, do not elongate torso or hide shoes under floor. Original identity no beard no sword.",
+      "prompt": "Dress IMAGE1 neutral elf skeleton as IMAGE2 character identity. IMAGE1 alone controls skull, body and limb bone lengths and camera. Actual adult FIVE anatomical heads crown-to-sole, exclude hair/helmet protrusions. NOT four-head big-head chibi, NOT six-head elongated hero. Keep ordinary adult skull from image1 and exact same torso/leg length relationships. Bone LANDMARKS at neutral standing pose on this portrait canvas: anatomical crown y8%, chin y25%, shoulder tops y27%, pelvic joints y55%, knees y70%, ankles y85%, soles y92%. These show scale, NOT mandatory identical joint angles; bend/rotate for required stance while preserving bones. Costume/helmet closely fitted, do not inflate head inside helmet. Weapons rotate into sides, do not shrink torso to fit weapons. Elevated FRONT camera looking down30degrees, clear TOP planes of skull and both shoulders, chest/face foreshortened, chin/gaze down, NOT eyelevel with only bowed head. Exact image1 pixel density and stepped clusters, black outlines, restrained ramps. Whole body centered independently of cape/weapon, all tips visible and clear margin, transparent RGBA, no floor/base/shadow/aura/text. IMAGE2 only weapon/clothing/hair/color identity, never its skeleton. IMPORTANT: neutral image1 is BALD to expose skull; replace scalp with image2 HAIR or HELMET. Characters described with hair must NEVER be bald. Keep hair fitted around same adult skull. GALDOR long straight BLACK hair, slim silver circlet, clean shaven, blueGRAY hooddown cloak ivory broad lining, pale layered gray robes, brown shoes visible. Slim darkgray STAFF viewerLEFT, forked silver top embracing a pale BLUE diamond/oval crystal, no glow. One hand grips staff at waist, other free hand holds robe edge at hip with short elbow. Body front, headgaze down, both feet planted level y92%, x44/60. Long robe must cover exact same compact fivehead bones, do not elongate torso or hide shoes under floor. Original identity no beard no sword.",
+      "group": "엘프",
+      "groupKey": "elf",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/elf.png",
+        "camera": "Elevated front; crown/shoulder top planes checked",
+        "equipment": "Compared with original token, no material hand/weapon defects observed",
+        "approval": "pending"
+      },
+      "blobSHA": "cb0422c65beb86f90e66680c9e1b99238bedce52",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-affc94ba-2908-413c-89e0-8cc19d0f681c.png"
+    }
+  ]
+}

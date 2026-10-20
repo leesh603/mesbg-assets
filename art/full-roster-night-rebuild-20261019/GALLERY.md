@@ -1,6 +1,72 @@
-# 전체 재제작 검토 — 242종
+# 전체 재제작 검토 — 253종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 갈도르 (galdor)
+
+![갈도르](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/galdor.png?v=cb0422c65beb86f90e66680c9e1b99238bedce52)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/galdor.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/galdor.png?v=cb0422c65beb86f90e66680c9e1b99238bedce52)
+
+### 에올 (eol)
+
+![에올](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/eol.png?v=ac37b1fc1942aa358e88691846e7e2d6a21f7ca6)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/eol.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/eol.png?v=ac37b1fc1942aa358e88691846e7e2d6a21f7ca6)
+
+### 매글린 (maeglin)
+
+![매글린](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/maeglin.png?v=f8b2f8a4081f0e931dcb3e8a3186fdd0e8e64094)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/maeglin.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/maeglin.png?v=f8b2f8a4081f0e931dcb3e8a3186fdd0e8e64094)
+
+### 에아렌딜 (earendil)
+
+![에아렌딜](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/earendil.png?v=2ec999e29929117c96accebabcb669db544e7587)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/earendil.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/earendil.png?v=2ec999e29929117c96accebabcb669db544e7587)
+
+### 다에론 (daeron)
+
+![다에론](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/daeron.png?v=24e57fbce752e8ba25328e7ce91fcf2b1edabcd6)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/daeron.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/daeron.png?v=24e57fbce752e8ba25328e7ce91fcf2b1edabcd6)
+
+### 켈레브림보르 (celebrimbor)
+
+![켈레브림보르](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/celebrimbor.png?v=511fb89e2c3861c8b4116aa62c9eedbfca7098d7)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/celebrimbor.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/celebrimbor.png?v=511fb89e2c3861c8b4116aa62c9eedbfca7098d7)
+
+### 그윈도르 (gwindor)
+
+![그윈도르](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gwindor.png?v=88827b97ccc6ff098efd47f76c91ef5ad2ad7c80)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/gwindor.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gwindor.png?v=88827b97ccc6ff098efd47f76c91ef5ad2ad7c80)
+
+### 마글로르 (maglor)
+
+![마글로르](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/maglor.png?v=a57fc9136b77def9384f8eac0a94448a2901bde7)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/maglor.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/maglor.png?v=a57fc9136b77def9384f8eac0a94448a2901bde7)
+
+### 핑골핀 (기마) (fingolfin_mounted)
+
+![핑골핀 (기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/fingolfin_mounted.png?v=ce38afe07d91fb7111beb754f65a8d6a6bd61abf)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/fingolfin_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/fingolfin_mounted.png?v=ce38afe07d91fb7111beb754f65a8d6a6bd61abf)
+
+### 머크우드 대장 (mirkwood_captain)
+
+![머크우드 대장](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/mirkwood_captain.png?v=10a0f71b1938a63f083ad87d19edc1b182a1729a)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/mirkwood_captain.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/mirkwood_captain.png?v=10a0f71b1938a63f083ad87d19edc1b182a1729a)
+
+### 곤돌린 근위병 (gondolin_guard)
+
+![곤돌린 근위병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gondolin_guard.png?v=62405088d49e29dad6f71510364c1cfb6082ead3)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/gondolin_guard.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gondolin_guard.png?v=62405088d49e29dad6f71510364c1cfb6082ead3)
 
 ### 나르고스론드 레인저 (nargothrond_ranger)
 

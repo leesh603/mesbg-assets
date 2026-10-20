@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T02:44:17.263Z",
+  "updatedAt": "2026-10-20T02:48:30.679Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 268,
-    "newlyGeneratedThisSession": 110,
-    "visuallyReviewedThisSession": 115,
+    "pending": 257,
+    "newlyGeneratedThisSession": 121,
+    "visuallyReviewedThisSession": 126,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 110,
-    "persistedReviewAssets": 242,
+    "generatedReviewAssets": 121,
+    "persistedReviewAssets": 253,
     "revisedAfterRejection": 14
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -4125,8 +4125,13 @@
       "faction": "elf",
       "role": "infantry",
       "original": "tokens/gondolin_guard.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/gondolin_guard.png",
+      "blobSHA": "62405088d49e29dad6f71510364c1cfb6082ead3",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "mirkwood_captain",
@@ -4134,8 +4139,13 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/mirkwood_captain.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/mirkwood_captain.png",
+      "blobSHA": "10a0f71b1938a63f083ad87d19edc1b182a1729a",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "mordor_uruk",
@@ -4457,8 +4467,13 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/fingolfin_mounted.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/fingolfin_mounted.png",
+      "blobSHA": "ce38afe07d91fb7111beb754f65a8d6a6bd61abf",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "pallando",
@@ -4562,8 +4577,13 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/maglor.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/maglor.png",
+      "blobSHA": "a57fc9136b77def9384f8eac0a94448a2901bde7",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "gwindor",
@@ -4571,8 +4591,13 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/gwindor.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/gwindor.png",
+      "blobSHA": "88827b97ccc6ff098efd47f76c91ef5ad2ad7c80",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "celebrimbor",
@@ -4580,8 +4605,13 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/celebrimbor.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/celebrimbor.png",
+      "blobSHA": "511fb89e2c3861c8b4116aa62c9eedbfca7098d7",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "daeron",
@@ -4589,8 +4619,13 @@
       "faction": "doriath",
       "role": "hero",
       "original": "tokens/daeron.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/daeron.png",
+      "blobSHA": "24e57fbce752e8ba25328e7ce91fcf2b1edabcd6",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "earnur",
@@ -4664,8 +4699,13 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/earendil.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/earendil.png",
+      "blobSHA": "2ec999e29929117c96accebabcb669db544e7587",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "maeglin",
@@ -4673,8 +4713,13 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/maeglin.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/maeglin.png",
+      "blobSHA": "f8b2f8a4081f0e931dcb3e8a3186fdd0e8e64094",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "eol",
@@ -4682,8 +4727,13 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/eol.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/eol.png",
+      "blobSHA": "ac37b1fc1942aa358e88691846e7e2d6a21f7ca6",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "galdor",
@@ -4691,8 +4741,13 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/galdor.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/galdor.png",
+      "blobSHA": "cb0422c65beb86f90e66680c9e1b99238bedce52",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "thrain",
@@ -5607,12 +5662,12 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 242,
+    "count": 253,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
-      "elf": 50,
+      "elf": 61,
       "isengard": 14,
       "mordor": 73,
       "rohan": 46,
