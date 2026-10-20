@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T02:31:31.857Z",
+  "updatedAt": "2026-10-20T02:33:44.704Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 282,
-    "newlyGeneratedThisSession": 96,
-    "visuallyReviewedThisSession": 101,
+    "pending": 273,
+    "newlyGeneratedThisSession": 105,
+    "visuallyReviewedThisSession": 110,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 96,
-    "persistedReviewAssets": 228,
+    "generatedReviewAssets": 105,
+    "persistedReviewAssets": 237,
     "revisedAfterRejection": 14
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -917,8 +917,13 @@
       "faction": "isengard",
       "role": "infantry",
       "original": "tokens/uruk_crossbow.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "isengard",
+      "path": "art/full-roster-night-rebuild-20261019/units/uruk_crossbow.png",
+      "blobSHA": "c8a03d0736fc82ef482cb81ee0d3965a0d5f59a3",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "uruk_scout",
@@ -926,8 +931,13 @@
       "faction": "isengard",
       "role": "infantry",
       "original": "tokens/uruk_scout.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "isengard",
+      "path": "art/full-roster-night-rebuild-20261019/units/uruk_scout.png",
+      "blobSHA": "68047f2b1ee3f80ff4d990a2f0d3946be2e07419",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "uruk_berserker2",
@@ -935,8 +945,13 @@
       "faction": "isengard",
       "role": "infantry",
       "original": "tokens/uruk_berserker2.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "isengard",
+      "path": "art/full-roster-night-rebuild-20261019/units/uruk_berserker2.png",
+      "blobSHA": "d5db4e5b99a56d6ad15e7caa71a72f37db3f3a33",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "uruk_banner",
@@ -1310,8 +1325,13 @@
       "faction": "isengard",
       "role": "infantry",
       "original": "tokens/uruk_sapper.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "isengard",
+      "path": "art/full-roster-night-rebuild-20261019/units/uruk_sapper.png",
+      "blobSHA": "1d542ba894d4821f14b52f6c6e9811cf6ec5d790",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "uruk_scout_archer",
@@ -1490,8 +1510,13 @@
       "faction": "isengard",
       "role": "hero",
       "original": "tokens/lurtz.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "isengard",
+      "path": "art/full-roster-night-rebuild-20261019/units/lurtz.png",
+      "blobSHA": "01aeda06040947484f37d4e2598b26ee30a347fc",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "sharku",
@@ -1748,8 +1773,13 @@
       "faction": "isengard",
       "role": "hero",
       "original": "tokens/uruk_captain.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "isengard",
+      "path": "art/full-roster-night-rebuild-20261019/units/uruk_captain.png",
+      "blobSHA": "859d581c0d8c5e8f8ef528316d0960bcc32b2a22",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "hill_troll",
@@ -2608,8 +2638,13 @@
       "faction": "isengard",
       "role": "hero",
       "original": "tokens/ugluk.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "isengard",
+      "path": "art/full-roster-night-rebuild-20261019/units/ugluk.png",
+      "blobSHA": "fe6f04ad07c1bc1d7e443c8953357f82c3bb3ebf",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "mauhur",
@@ -2617,8 +2652,13 @@
       "faction": "isengard",
       "role": "hero",
       "original": "tokens/mauhur.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "isengard",
+      "path": "art/full-roster-night-rebuild-20261019/units/mauhur.png",
+      "blobSHA": "0ff0b70b0877df2b3fb90a22da31803b51a4473d",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "vrasku",
@@ -2626,8 +2666,13 @@
       "faction": "isengard",
       "role": "hero",
       "original": "tokens/vrasku.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "isengard",
+      "path": "art/full-roster-night-rebuild-20261019/units/vrasku.png",
+      "blobSHA": "382e9de1fab8f71f8260b5c48fe5b541c1870015",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "stone_troll",
@@ -5536,13 +5581,13 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 228,
+    "count": 237,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
+      "isengard": 14,
       "elf": 45,
-      "isengard": 5,
       "mordor": 73,
       "rohan": 46,
       "gondor": 59
