@@ -1,8 +1,8 @@
 {
   "request": "all-194-20261020",
-  "updatedAt": "2026-10-20T05:42:34.475Z",
-  "correctedCandidates": 60,
-  "remaining": 134,
+  "updatedAt": "2026-10-20T05:47:50.010Z",
+  "correctedCandidates": 64,
+  "remaining": 130,
   "scope": [
     {
       "id": "imrahil_mounted",
@@ -99,9 +99,9 @@
       "name": "모르도르 오크(검)",
       "originalApproval": "hold",
       "originalReason": "열린 투구·얼굴 시점과 머리/하체 비중을 재검수해야 함.",
-      "state": "pending_correction",
-      "path": "art/mordor-rebuild-20261019/units/orc_sword.png",
-      "blobSHA": "0659630e41dad2d11c22747cb5504e28d8ef8b71"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/orc_sword.png",
+      "blobSHA": "eb7d5efc49d71d719774e24f4addeb8f15cf23b9"
     },
     {
       "id": "glorfindel_foot",
@@ -153,18 +153,18 @@
       "name": "우르크하이 검방",
       "originalApproval": "hold",
       "originalReason": "정상 원본으로 복구 후 비교. 열린 투구의 얼굴 시점·목·갑주 파지와 인체 비율 확인 필요.",
-      "state": "pending_correction",
-      "path": "art/full-roster-night-rebuild-20261019/units/uruk_swordshield.png",
-      "blobSHA": "3674aa0a6a428bbbf2cedc8b4d027e9fbe52623d"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/uruk_swordshield.png",
+      "blobSHA": "10aa6a074d0a0659c0e5172fc33ee5aa4f430e4e"
     },
     {
       "id": "morannon_orc",
       "name": "모라논 오크",
       "originalApproval": "hold",
       "originalReason": "맨얼굴·투구 디자인 변경과 얼굴 시점·목·하체 비중 확인 필요.",
-      "state": "pending_correction",
-      "path": "art/mordor-rebuild-20261019/units/morannon_orc.png",
-      "blobSHA": "cc3060def4c3c346b81ab322db20369d137f7a4a"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/morannon_orc.png",
+      "blobSHA": "229d9a4414942e08aac6c2b5b782410285771f3e"
     },
     {
       "id": "warg_rider",
@@ -1692,9 +1692,9 @@
       "name": "모라논 오크 검방",
       "originalApproval": "hold",
       "originalReason": "다리·골반 정합성과 얼굴 시점 재확인. 이전 꼬인 다리 지적 관련 우선 상세 검수 대상.",
-      "state": "pending_correction",
-      "path": "art/mordor-rebuild-20261019/units/morannon_swordshield.png",
-      "blobSHA": "2758decfb92b77f7d8d754e323d0d4bde72ff37e"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/morannon_swordshield.png",
+      "blobSHA": "b6974b395a2f5592e6b56b115d4adc4a7047a25f"
     },
     {
       "id": "orc_elite_tracker",

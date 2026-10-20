@@ -1,0 +1,106 @@
+{
+  "label": "orc-leg-helmet-shield-20261020",
+  "checkedAt": "2026-10-20T05:47:50.010Z",
+  "records": [
+    {
+      "id": "orc_sword",
+      "path": "/workspace/scratch/888606d1c5a1/generated_images/exec-5bed3a5f-4b22-4d3b-8c00-52fcbae0fade.png",
+      "sha": "eb7d5efc49d71d719774e24f4addeb8f15cf23b9",
+      "prompt": "Use case: style-transfer. Repair production PIXEL GAME TOKEN for 모르도르 오크(검) (orc_sword). Image 1 is the ORIGINAL identity, equipment, pose, action and silhouette. Image 2 controls crisp pixel clusters, short color ramps, stepped dark outline, elevated front camera and lowered head only; DO NOT copy its costume/weapon. Image 3 if supplied is species ANATOMY proportions only, never transfer its pose or gray clothes. Start from original action and EXACT weapon/shield/banner/staff/bow placement and relative size; preserve original body lean and hand grips, no generic pose substitution, no missing or invented gear. Repair stated defect: 열린 투구·얼굴 시점과 머리/하체 비중을 재검수해야 함.. ORC/URUK: anatomy and skull/body proportions from third standard ORC reference, retaining individual source build, neither chibi nor tall human. Camera high-angle FRONT looking DOWN45degrees over the WHOLE body, crown and shoulder tops visible; still front-facing, not top-down, side or rear. Chin and gaze point gently downward like original; face mostly hidden under hair/hood/helmet, no looking at viewer. Preserve original unique silhouette, material colors and heraldry. Crisp deliberate PIXEL artwork, not smooth painting/3D. Entire character/mount/all appendages and equipment inside INNER80percent of transparent canvas, broad empty margins, body centered excluding weapons. No floor, base, scenery, cast shadow, haze, glow, text or UI. Output ONLY this one original subject.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/orc_sword.png",
+        "/workspace/scratch/ad23164b1c38/refs/theoden-user-style.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/orc.png"
+      ],
+      "technicalCheck": {
+        "dimensions": [
+          1199,
+          1312
+        ],
+        "alpha": true,
+        "alphaBBox": [
+          0,
+          0,
+          1185,
+          1312
+        ]
+      },
+      "notes": "기존 닫힌 투구·곡검·철 갑주를 보존해 열린 투구와 정면 얼굴 노출을 수정. 숙인 머리, 분리된 무릎·발목과 전진 다리 연결을 비교함."
+    },
+    {
+      "id": "uruk_swordshield",
+      "path": "/workspace/scratch/888606d1c5a1/generated_images/exec-292d83c6-9fa8-4731-a34d-dd2878556fa5.png",
+      "sha": "10aa6a074d0a0659c0e5172fc33ee5aa4f430e4e",
+      "prompt": "Use case: style-transfer. Repair production PIXEL GAME TOKEN for 우르크하이 검방 (uruk_swordshield). Image 1 is the ORIGINAL identity, equipment, pose, action and silhouette. Image 2 controls crisp pixel clusters, short color ramps, stepped dark outline, elevated front camera and lowered head only; DO NOT copy its costume/weapon. Image 3 if supplied is species ANATOMY proportions only, never transfer its pose or gray clothes. Start from original action and EXACT weapon/shield/banner/staff/bow placement and relative size; preserve original body lean and hand grips, no generic pose substitution, no missing or invented gear. Repair stated defect: 정상 원본으로 복구 후 비교. 열린 투구의 얼굴 시점·목·갑주 파지와 인체 비율 확인 필요.. ORC/URUK: anatomy and skull/body proportions from third standard ORC reference, retaining individual source build, neither chibi nor tall human. Camera high-angle FRONT looking DOWN45degrees over the WHOLE body, crown and shoulder tops visible; still front-facing, not top-down, side or rear. Chin and gaze point gently downward like original; face mostly hidden under hair/hood/helmet, no looking at viewer. Preserve original unique silhouette, material colors and heraldry. Crisp deliberate PIXEL artwork, not smooth painting/3D. Entire character/mount/all appendages and equipment inside INNER80percent of transparent canvas, broad empty margins, body centered excluding weapons. No floor, base, scenery, cast shadow, haze, glow, text or UI. Output ONLY this one original subject.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/uruk_swordshield.png",
+        "/workspace/scratch/ad23164b1c38/refs/theoden-user-style.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/orc.png"
+      ],
+      "technicalCheck": {
+        "dimensions": [
+          1112,
+          1415
+        ],
+        "alpha": true,
+        "alphaBBox": [
+          0,
+          17,
+          1084,
+          1415
+        ]
+      },
+      "notes": "원본의 흰 손 문양 방패·갑주·검을 유지하고 투구 아래 시선을 가림. 방패를 든 팔과 검 파지, 골반에서 양쪽 무릎·발로 이어지는 구조를 비교함."
+    },
+    {
+      "id": "morannon_orc",
+      "path": "/workspace/scratch/888606d1c5a1/generated_images/exec-0cde3730-205f-4146-9b26-5654c930a925.png",
+      "sha": "229d9a4414942e08aac6c2b5b782410285771f3e",
+      "prompt": "Use case: style-transfer. Repair production PIXEL GAME TOKEN for 모라논 오크 (morannon_orc). Image 1 is the ORIGINAL identity, equipment, pose, action and silhouette. Image 2 controls crisp pixel clusters, short color ramps, stepped dark outline, elevated front camera and lowered head only; DO NOT copy its costume/weapon. Image 3 if supplied is species ANATOMY proportions only, never transfer its pose or gray clothes. Start from original action and EXACT weapon/shield/banner/staff/bow placement and relative size; preserve original body lean and hand grips, no generic pose substitution, no missing or invented gear. Repair stated defect: 맨얼굴·투구 디자인 변경과 얼굴 시점·목·하체 비중 확인 필요.. ORC/URUK: anatomy and skull/body proportions from third standard ORC reference, retaining individual source build, neither chibi nor tall human. Camera high-angle FRONT looking DOWN45degrees over the WHOLE body, crown and shoulder tops visible; still front-facing, not top-down, side or rear. Chin and gaze point gently downward like original; face mostly hidden under hair/hood/helmet, no looking at viewer. Preserve original unique silhouette, material colors and heraldry. Crisp deliberate PIXEL artwork, not smooth painting/3D. Entire character/mount/all appendages and equipment inside INNER80percent of transparent canvas, broad empty margins, body centered excluding weapons. No floor, base, scenery, cast shadow, haze, glow, text or UI. Output ONLY this one original subject.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/morannon_orc.png",
+        "/workspace/scratch/ad23164b1c38/refs/theoden-user-style.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/orc.png"
+      ],
+      "technicalCheck": {
+        "dimensions": [
+          1199,
+          1312
+        ],
+        "alpha": true,
+        "alphaBBox": [
+          0,
+          9,
+          1196,
+          1312
+        ]
+      },
+      "notes": "기존 투구·목도리·사슬갑옷·문양 방패를 보존. 머리 숙임과 어깨 윗면의 시점을 복원하고 분리된 앞뒤 무릎·발 연결을 확인함."
+    },
+    {
+      "id": "morannon_swordshield",
+      "path": "/workspace/scratch/888606d1c5a1/generated_images/exec-755e3aba-56ad-4c00-97ee-bc1392d1c827.png",
+      "sha": "b6974b395a2f5592e6b56b115d4adc4a7047a25f",
+      "prompt": "Use case: style-transfer. Repair production PIXEL GAME TOKEN for 모라논 오크 검방 (morannon_swordshield). Image 1 is the ORIGINAL identity, equipment, pose, action and silhouette. Image 2 controls crisp pixel clusters, short color ramps, stepped dark outline, elevated front camera and lowered head only; DO NOT copy its costume/weapon. Image 3 if supplied is species ANATOMY proportions only, never transfer its pose or gray clothes. Start from original action and EXACT weapon/shield/banner/staff/bow placement and relative size; preserve original body lean and hand grips, no generic pose substitution, no missing or invented gear. Repair stated defect: 다리·골반 정합성과 얼굴 시점 재확인. 이전 꼬인 다리 지적 관련 우선 상세 검수 대상.. ORC/URUK: anatomy and skull/body proportions from third standard ORC reference, retaining individual source build, neither chibi nor tall human. Camera high-angle FRONT looking DOWN45degrees over the WHOLE body, crown and shoulder tops visible; still front-facing, not top-down, side or rear. Chin and gaze point gently downward like original; face mostly hidden under hair/hood/helmet, no looking at viewer. Preserve original unique silhouette, material colors and heraldry. Crisp deliberate PIXEL artwork, not smooth painting/3D. Entire character/mount/all appendages and equipment inside INNER80percent of transparent canvas, broad empty margins, body centered excluding weapons. No floor, base, scenery, cast shadow, haze, glow, text or UI. Output ONLY this one original subject.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/morannon_swordshield.png",
+        "/workspace/scratch/ad23164b1c38/refs/theoden-user-style.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/orc.png"
+      ],
+      "technicalCheck": {
+        "dimensions": [
+          1112,
+          1414
+        ],
+        "alpha": true,
+        "alphaBBox": [
+          0,
+          0,
+          1092,
+          1414
+        ]
+      },
+      "notes": "기존 붉은 눈 문양 방패와 톱니 검을 보존. 골반에서 앞다리와 뒤다리가 각각 이어지고 무릎·발이 교차하지 않는 전진 자세로 재구성해 비교함."
+    }
+  ]
+}
