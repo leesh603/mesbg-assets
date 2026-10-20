@@ -1,6 +1,72 @@
-# 전체 재제작 검토 — 267종
+# 전체 재제작 검토 — 278종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 머크우드 레인저 (mirkwood_ranger)
+
+![머크우드 레인저](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/mirkwood_ranger.png?v=e2371c479a2a5dde8ce26e8190dab977a3d447ec)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/mirkwood_ranger.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/mirkwood_ranger.png?v=e2371c479a2a5dde8ce26e8190dab977a3d447ec)
+
+### 갈라드림 정예 궁병 (galadhrim_elite_bow)
+
+![갈라드림 정예 궁병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/galadhrim_elite_bow.png?v=b0074fe9c9bf1c49f39b6f4633fabdd3acd321fc)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/galadhrim_elite_bow.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/galadhrim_elite_bow.png?v=b0074fe9c9bf1c49f39b6f4633fabdd3acd321fc)
+
+### 갈라드림 궁수 (galadhrim_bow)
+
+![갈라드림 궁수](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/galadhrim_bow.png?v=7024e6dd9b51ec2c451448df82bacee85e9ffca5)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/galadhrim_bow.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/galadhrim_bow.png?v=7024e6dd9b51ec2c451448df82bacee85e9ffca5)
+
+### 싱골(기마) (thingol_mounted)
+
+![싱골(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/thingol_mounted.png?v=bd37b067345408102ef2777746647e6826af8f61)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/thingol_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/thingol_mounted.png?v=bd37b067345408102ef2777746647e6826af8f61)
+
+### 길갈라드(기마) (gil_galad_mounted)
+
+![길갈라드(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gil_galad_mounted.png?v=b75b8cdfd1def0e5e88250e5b8128da814e28bba)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/gil_galad_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gil_galad_mounted.png?v=b75b8cdfd1def0e5e88250e5b8128da814e28bba)
+
+### 키르단(기마) (cirdan_mounted)
+
+![키르단(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/cirdan_mounted.png?v=fbe9147314d17da7e591872884034544758ac8b8)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/cirdan_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/cirdan_mounted.png?v=fbe9147314d17da7e591872884034544758ac8b8)
+
+### 투르곤(기마) (turgon_mounted)
+
+![투르곤(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/turgon_mounted.png?v=7279b1f0eaf3026ef1b98742a0032d02b8a45981)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/turgon_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/turgon_mounted.png?v=7279b1f0eaf3026ef1b98742a0032d02b8a45981)
+
+### 켈레고름(기마) (celegorm_mounted)
+
+![켈레고름(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/celegorm_mounted.png?v=1dd380aee480fd5ea00871743dcee6e8ddeab762)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/celegorm_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/celegorm_mounted.png?v=1dd380aee480fd5ea00871743dcee6e8ddeab762)
+
+### 마이드로스(기마) (maedhros_mounted)
+
+![마이드로스(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/maedhros_mounted.png?v=c92c94107ab6f2994f4741d9b70ce22337e282d7)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/maedhros_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/maedhros_mounted.png?v=c92c94107ab6f2994f4741d9b70ce22337e282d7)
+
+### 핀로드(기마) (finrod_felagund_mounted)
+
+![핀로드(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/finrod_felagund_mounted.png?v=e7178249483045946897451f6dd999d0bdbf3348)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/finrod_felagund_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/finrod_felagund_mounted.png?v=e7178249483045946897451f6dd999d0bdbf3348)
+
+### 엑텔리온(기마) (ecthelion_mounted)
+
+![엑텔리온(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/ecthelion_mounted.png?v=8188319cfd469c28778197ec7e5d459624cf159d)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/ecthelion_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/ecthelion_mounted.png?v=8188319cfd469c28778197ec7e5d459624cf159d)
 
 ### 드워프 양손도끼 (dwarf_2haxe)
 

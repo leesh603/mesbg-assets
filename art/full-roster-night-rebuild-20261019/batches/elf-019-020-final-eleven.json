@@ -1,0 +1,215 @@
+{
+  "batch": "elf-019-020-final-eleven",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "ecthelion_mounted",
+      "mounted": true,
+      "pose": "푸른 수목 장식 · 낮은 검",
+      "detail": "ECTHELION MOUNTED on WHITE HORSE with white mane/tail. Rider enclosed blue/silver/gold wingcrest helmet BLUE jewel, silver/gold-edged armor, royalBLUE cloak and short tabard GOLD tree branches. Blue/gold horse frontbarding with blue diamond, gold-branch saddlecloth. Original mounted version has NO SHIELD: do not add foot shield. One hand SILVER straight SWORD gold hilt at hip viewerLEFT, blade angles down/outward beside horse shoulder, other hand reins near belt, exactly2hands. Horse both forelegs walking nearly level, head faces FRONT slight viewerLEFT. Helmet narrowly fitted not giant, crest excluded from skull.",
+      "prompt": "Dress IMAGE1 original NEUTRAL mounted adult skeleton as IMAGE2 character. IMAGE1 is ONLY rider bone-length/head-size and elevated-camera master. Image2 gives identity/equipment/horse colors only, IGNORE its elongated anatomy and eye-level angle. Rider if standing has EXACTLY FIVE anatomical heads crown-to-chin units excluding hair/helmet/crest: preserve same normal adult skull, torso and compact femur/shin lengths as image1. Do not create 4head chibi or6+head tall slim hero. Slender elf varies WIDTH/muscle only. Hair/circlet or helmet from image2 replaces bald neutral head, never render bald. Horse normal fullsize adult with correct four legs; no uniform rider/horse shrinking as anatomy fix. Elevated FRONT camera looking down30degrees: clearly see TOP planes of rider skull, both shoulders, saddle, horse neck/withers and horse head; foreshorten chest/face. Chin and eyes down separately. Not eye-level figure with only bowed head. New arm/horse joint pose allowed, exact bone lengths remain. Crisp discrete PIXEL CLUSTERS, stepped dark outlines and restrained color ramps same image1/Gondor. One rider and one mount, exactly2hands, no extras. Entire silhouette/all weapon tips/tail/hooves within generous transparent RGBA padding, rider torso centered independently of cape/weapon, no base/floor/shadow/glow/text. ECTHELION MOUNTED on WHITE HORSE with white mane/tail. Rider enclosed blue/silver/gold wingcrest helmet BLUE jewel, silver/gold-edged armor, royalBLUE cloak and short tabard GOLD tree branches. Blue/gold horse frontbarding with blue diamond, gold-branch saddlecloth. Original mounted version has NO SHIELD: do not add foot shield. One hand SILVER straight SWORD gold hilt at hip viewerLEFT, blade angles down/outward beside horse shoulder, other hand reins near belt, exactly2hands. Horse both forelegs walking nearly level, head faces FRONT slight viewerLEFT. Helmet narrowly fitted not giant, crest excluded from skull.",
+      "group": "엘프",
+      "groupKey": "elf",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/human-mounted.png",
+        "camera": "Elevated front; crown/shoulder upper planes and mounted saddle/neck planes checked",
+        "equipment": "Compared with original; two hands and intact weapon structure checked",
+        "approval": "pending"
+      },
+      "blobSHA": "8188319cfd469c28778197ec7e5d459624cf159d",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-7becc6c8-7a84-48c2-8155-4b2f121877d4.png"
+    },
+    {
+      "id": "finrod_felagund_mounted",
+      "mounted": true,
+      "pose": "금발 · 허리 높이 검",
+      "detail": "FINROD FELAGUND MOUNTED long GOLDEN BLOND wavy hair, gold circlet BLUE jewel, clean shaven. Silver plate gold trim, royalBLUE cloak and gold tree-branch tabard. WHITE HORSE silverwhite mane/tail, bluegold diamond frontbarding, gold branch saddlecloth. One hand silver straight SWORD gold hilt held low at waist outward viewerLEFT with blade angled toward upperleft side not overhead, other hand reins in front of belt, exactly2hands. Horse head near front slight viewerRIGHT, one forehoof lifted modestly. Keep fullsize horse and short normal adult rider legs.",
+      "prompt": "Dress IMAGE1 original NEUTRAL mounted adult skeleton as IMAGE2 character. IMAGE1 is ONLY rider bone-length/head-size and elevated-camera master. Image2 gives identity/equipment/horse colors only, IGNORE its elongated anatomy and eye-level angle. Rider if standing has EXACTLY FIVE anatomical heads crown-to-chin units excluding hair/helmet/crest: preserve same normal adult skull, torso and compact femur/shin lengths as image1. Do not create 4head chibi or6+head tall slim hero. Slender elf varies WIDTH/muscle only. Hair/circlet or helmet from image2 replaces bald neutral head, never render bald. Horse normal fullsize adult with correct four legs; no uniform rider/horse shrinking as anatomy fix. Elevated FRONT camera looking down30degrees: clearly see TOP planes of rider skull, both shoulders, saddle, horse neck/withers and horse head; foreshorten chest/face. Chin and eyes down separately. Not eye-level figure with only bowed head. New arm/horse joint pose allowed, exact bone lengths remain. Crisp discrete PIXEL CLUSTERS, stepped dark outlines and restrained color ramps same image1/Gondor. One rider and one mount, exactly2hands, no extras. Entire silhouette/all weapon tips/tail/hooves within generous transparent RGBA padding, rider torso centered independently of cape/weapon, no base/floor/shadow/glow/text. FINROD FELAGUND MOUNTED long GOLDEN BLOND wavy hair, gold circlet BLUE jewel, clean shaven. Silver plate gold trim, royalBLUE cloak and gold tree-branch tabard. WHITE HORSE silverwhite mane/tail, bluegold diamond frontbarding, gold branch saddlecloth. One hand silver straight SWORD gold hilt held low at waist outward viewerLEFT with blade angled toward upperleft side not overhead, other hand reins in front of belt, exactly2hands. Horse head near front slight viewerRIGHT, one forehoof lifted modestly. Keep fullsize horse and short normal adult rider legs.",
+      "group": "엘프",
+      "groupKey": "elf",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/human-mounted.png",
+        "camera": "Elevated front; crown/shoulder upper planes and mounted saddle/neck planes checked",
+        "equipment": "Compared with original; two hands and intact weapon structure checked",
+        "approval": "pending"
+      },
+      "blobSHA": "e7178249483045946897451f6dd999d0bdbf3348",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-7e2204a5-a91b-4922-b4ac-1ed1d844068c.png"
+    },
+    {
+      "id": "maedhros_mounted",
+      "mounted": true,
+      "pose": "적발 묶음 · 검 낮게 뻗기",
+      "detail": "MAEDHROS MOUNTED RED long hair tied HIGH ponytail blowing behind, clean shaven, black highcollar armor/cape with narrow GOLD edges and gold vine/flame hems, silverdark greaves/gauntlets. BLACK HORSE blackmane/tail, black/gold diamond frontbarding and blackgold saddlecloth, gold bridle details. Original mounted character has one sword hand viewerLEFT and one reins hand viewerRIGHT visible, exactly2hands like source. Silver straight SWORD goldhilt held low at hip angled outward horizontally, not overhead. Horse frontal with forefeet staggered and neck/withers tops visible. Do not add prosthetic, beard or extra weapon.",
+      "prompt": "Dress IMAGE1 original NEUTRAL mounted adult skeleton as IMAGE2 character. IMAGE1 is ONLY rider bone-length/head-size and elevated-camera master. Image2 gives identity/equipment/horse colors only, IGNORE its elongated anatomy and eye-level angle. Rider if standing has EXACTLY FIVE anatomical heads crown-to-chin units excluding hair/helmet/crest: preserve same normal adult skull, torso and compact femur/shin lengths as image1. Do not create 4head chibi or6+head tall slim hero. Slender elf varies WIDTH/muscle only. Hair/circlet or helmet from image2 replaces bald neutral head, never render bald. Horse normal fullsize adult with correct four legs; no uniform rider/horse shrinking as anatomy fix. Elevated FRONT camera looking down30degrees: clearly see TOP planes of rider skull, both shoulders, saddle, horse neck/withers and horse head; foreshorten chest/face. Chin and eyes down separately. Not eye-level figure with only bowed head. New arm/horse joint pose allowed, exact bone lengths remain. Crisp discrete PIXEL CLUSTERS, stepped dark outlines and restrained color ramps same image1/Gondor. One rider and one mount, exactly2hands, no extras. Entire silhouette/all weapon tips/tail/hooves within generous transparent RGBA padding, rider torso centered independently of cape/weapon, no base/floor/shadow/glow/text. MAEDHROS MOUNTED RED long hair tied HIGH ponytail blowing behind, clean shaven, black highcollar armor/cape with narrow GOLD edges and gold vine/flame hems, silverdark greaves/gauntlets. BLACK HORSE blackmane/tail, black/gold diamond frontbarding and blackgold saddlecloth, gold bridle details. Original mounted character has one sword hand viewerLEFT and one reins hand viewerRIGHT visible, exactly2hands like source. Silver straight SWORD goldhilt held low at hip angled outward horizontally, not overhead. Horse frontal with forefeet staggered and neck/withers tops visible. Do not add prosthetic, beard or extra weapon.",
+      "group": "엘프",
+      "groupKey": "elf",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/human-mounted.png",
+        "camera": "Elevated front; crown/shoulder upper planes and mounted saddle/neck planes checked",
+        "equipment": "Compared with original; two hands and intact weapon structure checked",
+        "approval": "pending"
+      },
+      "blobSHA": "c92c94107ab6f2994f4741d9b70ce22337e282d7",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-fa38792c-4b66-48f2-aced-f0146fc3ec4e.png"
+    },
+    {
+      "id": "celegorm_mounted",
+      "mounted": true,
+      "pose": "녹색 망토 · 검끝 아래",
+      "detail": "CELEGORM MOUNTED goldenBLOND hair around clean-shaven face, green hood down around shoulders, darkgreen cloak and short tunic palegold branches, white snowflake/branch chest emblem, silver plate, brown belt. Brown/chestnut HORSE with LIGHT TAN braided/streaked mane and pale tan tail, GREEN frontbarding gold edges and green saddlecloth gold leaf patterns, gold bridle. One hand straight silver SWORD goldhilt viewerLEFT held point DOWN beside horse shoulder, other hand reins near belt, exactly2hands. Whitefeather arrowquiver behind shoulder, no bow in hands. Horse faces nearlystraight FRONT with both frontfeet at slightly offset y, visible upper neck.",
+      "prompt": "Dress IMAGE1 original NEUTRAL mounted adult skeleton as IMAGE2 character. IMAGE1 is ONLY rider bone-length/head-size and elevated-camera master. Image2 gives identity/equipment/horse colors only, IGNORE its elongated anatomy and eye-level angle. Rider if standing has EXACTLY FIVE anatomical heads crown-to-chin units excluding hair/helmet/crest: preserve same normal adult skull, torso and compact femur/shin lengths as image1. Do not create 4head chibi or6+head tall slim hero. Slender elf varies WIDTH/muscle only. Hair/circlet or helmet from image2 replaces bald neutral head, never render bald. Horse normal fullsize adult with correct four legs; no uniform rider/horse shrinking as anatomy fix. Elevated FRONT camera looking down30degrees: clearly see TOP planes of rider skull, both shoulders, saddle, horse neck/withers and horse head; foreshorten chest/face. Chin and eyes down separately. Not eye-level figure with only bowed head. New arm/horse joint pose allowed, exact bone lengths remain. Crisp discrete PIXEL CLUSTERS, stepped dark outlines and restrained color ramps same image1/Gondor. One rider and one mount, exactly2hands, no extras. Entire silhouette/all weapon tips/tail/hooves within generous transparent RGBA padding, rider torso centered independently of cape/weapon, no base/floor/shadow/glow/text. CELEGORM MOUNTED goldenBLOND hair around clean-shaven face, green hood down around shoulders, darkgreen cloak and short tunic palegold branches, white snowflake/branch chest emblem, silver plate, brown belt. Brown/chestnut HORSE with LIGHT TAN braided/streaked mane and pale tan tail, GREEN frontbarding gold edges and green saddlecloth gold leaf patterns, gold bridle. One hand straight silver SWORD goldhilt viewerLEFT held point DOWN beside horse shoulder, other hand reins near belt, exactly2hands. Whitefeather arrowquiver behind shoulder, no bow in hands. Horse faces nearlystraight FRONT with both frontfeet at slightly offset y, visible upper neck.",
+      "group": "엘프",
+      "groupKey": "elf",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/human-mounted.png",
+        "camera": "Elevated front; crown/shoulder upper planes and mounted saddle/neck planes checked",
+        "equipment": "Compared with original; two hands and intact weapon structure checked",
+        "approval": "pending"
+      },
+      "blobSHA": "1dd380aee480fd5ea00871743dcee6e8ddeab762",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-d47c934b-45a3-47c4-9534-3a3af0a3daab.png"
+    },
+    {
+      "id": "turgon_mounted",
+      "mounted": true,
+      "pose": "백색·금색 별 장식 · 검 옆으로",
+      "detail": "TURGON MOUNTED enclosed WHITE SILVER helmet with gold wings/crest narrowly fitted, silverwhite plate broad goldtrim and gold SUN shoulder discs, WHITE cloak gold hem, white tabard GOLD STAR. WHITE HORSE white mane/tail, WHITE/GOLD frontbarding with LARGE GOLD STAR, white/gold saddlecloth with gold stars. One hand silver straight SWORD goldhilt held beside hip viewerLEFT, blade diagonally outward to side at y20%, NOT overhead, other hand reins near belt, exactly2hands. Horse one modest raised forehoof, strong upper surfaces saddle/withers visible. No blue clothing or shield.",
+      "prompt": "Dress IMAGE1 original NEUTRAL mounted adult skeleton as IMAGE2 character. IMAGE1 is ONLY rider bone-length/head-size and elevated-camera master. Image2 gives identity/equipment/horse colors only, IGNORE its elongated anatomy and eye-level angle. Rider if standing has EXACTLY FIVE anatomical heads crown-to-chin units excluding hair/helmet/crest: preserve same normal adult skull, torso and compact femur/shin lengths as image1. Do not create 4head chibi or6+head tall slim hero. Slender elf varies WIDTH/muscle only. Hair/circlet or helmet from image2 replaces bald neutral head, never render bald. Horse normal fullsize adult with correct four legs; no uniform rider/horse shrinking as anatomy fix. Elevated FRONT camera looking down30degrees: clearly see TOP planes of rider skull, both shoulders, saddle, horse neck/withers and horse head; foreshorten chest/face. Chin and eyes down separately. Not eye-level figure with only bowed head. New arm/horse joint pose allowed, exact bone lengths remain. Crisp discrete PIXEL CLUSTERS, stepped dark outlines and restrained color ramps same image1/Gondor. One rider and one mount, exactly2hands, no extras. Entire silhouette/all weapon tips/tail/hooves within generous transparent RGBA padding, rider torso centered independently of cape/weapon, no base/floor/shadow/glow/text. TURGON MOUNTED enclosed WHITE SILVER helmet with gold wings/crest narrowly fitted, silverwhite plate broad goldtrim and gold SUN shoulder discs, WHITE cloak gold hem, white tabard GOLD STAR. WHITE HORSE white mane/tail, WHITE/GOLD frontbarding with LARGE GOLD STAR, white/gold saddlecloth with gold stars. One hand silver straight SWORD goldhilt held beside hip viewerLEFT, blade diagonally outward to side at y20%, NOT overhead, other hand reins near belt, exactly2hands. Horse one modest raised forehoof, strong upper surfaces saddle/withers visible. No blue clothing or shield.",
+      "group": "엘프",
+      "groupKey": "elf",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/human-mounted.png",
+        "camera": "Elevated front; crown/shoulder upper planes and mounted saddle/neck planes checked",
+        "equipment": "Compared with original; two hands and intact weapon structure checked",
+        "approval": "pending"
+      },
+      "blobSHA": "7279b1f0eaf3026ef1b98742a0032d02b8a45981",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-c7b063aa-b3eb-411d-ab7f-1d6c3a227442.png"
+    },
+    {
+      "id": "cirdan_mounted",
+      "mounted": true,
+      "pose": "백발 수염 · 낮은 검",
+      "detail": "CIRDAN MOUNTED. Distinct OLD ELF has long WHITE/SILVER hair and LONG WHITE BEARD and moustache exactly source, silver blue/gold circlet; this character DOES have beard unlike other elves. Silver plate palegoldtrim, BLUE cloak/tabard with WHITE8point stars, gold sun clasps. WHITE HORSE white mane/tail, blue silver-star frontbarding and bluewhite saddlecloth. One hand silver straight SWORD gold hilt beside hip viewerLEFT pointed diagonally down/outward, other hand reins near belt, exactly2hands. Crown anatomy excludes BEARD, do not lengthen torso to accommodate beard. Horse frontal, forehooves nearly level, elevated top-plane view.",
+      "prompt": "Dress IMAGE1 original NEUTRAL mounted adult skeleton as IMAGE2 character. IMAGE1 is ONLY rider bone-length/head-size and elevated-camera master. Image2 gives identity/equipment/horse colors only, IGNORE its elongated anatomy and eye-level angle. Rider if standing has EXACTLY FIVE anatomical heads crown-to-chin units excluding hair/helmet/crest: preserve same normal adult skull, torso and compact femur/shin lengths as image1. Do not create 4head chibi or6+head tall slim hero. Slender elf varies WIDTH/muscle only. Hair/circlet or helmet from image2 replaces bald neutral head, never render bald. Horse normal fullsize adult with correct four legs; no uniform rider/horse shrinking as anatomy fix. Elevated FRONT camera looking down30degrees: clearly see TOP planes of rider skull, both shoulders, saddle, horse neck/withers and horse head; foreshorten chest/face. Chin and eyes down separately. Not eye-level figure with only bowed head. New arm/horse joint pose allowed, exact bone lengths remain. Crisp discrete PIXEL CLUSTERS, stepped dark outlines and restrained color ramps same image1/Gondor. One rider and one mount, exactly2hands, no extras. Entire silhouette/all weapon tips/tail/hooves within generous transparent RGBA padding, rider torso centered independently of cape/weapon, no base/floor/shadow/glow/text. CIRDAN MOUNTED. Distinct OLD ELF has long WHITE/SILVER hair and LONG WHITE BEARD and moustache exactly source, silver blue/gold circlet; this character DOES have beard unlike other elves. Silver plate palegoldtrim, BLUE cloak/tabard with WHITE8point stars, gold sun clasps. WHITE HORSE white mane/tail, blue silver-star frontbarding and bluewhite saddlecloth. One hand silver straight SWORD gold hilt beside hip viewerLEFT pointed diagonally down/outward, other hand reins near belt, exactly2hands. Crown anatomy excludes BEARD, do not lengthen torso to accommodate beard. Horse frontal, forehooves nearly level, elevated top-plane view.",
+      "group": "엘프",
+      "groupKey": "elf",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/human-mounted.png",
+        "camera": "Elevated front; crown/shoulder upper planes and mounted saddle/neck planes checked",
+        "equipment": "Compared with original; two hands and intact weapon structure checked",
+        "approval": "pending"
+      },
+      "blobSHA": "fbe9147314d17da7e591872884034544758ac8b8",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-d826e3e3-0dd3-4b49-a279-1a011a92c7fd.png"
+    },
+    {
+      "id": "gil_galad_mounted",
+      "mounted": true,
+      "pose": "은발·백색 장비 · 검 경계",
+      "detail": "GIL-GALAD MOUNTED source version has LONG SILVER WHITE hair; preserve SILVER hair not canon dark. Clean shaven, gold winged circlet BLUE jewel, silverwhite plate GOLD broad edges, WHITE cloak goldhem, gold STAR chest clasp, whitegold tabard. WHITE HORSE white mane/tail and silver-gold face/neck armor, WHITE/GOLD barding GOLD8point star and white/gold saddlecloth. One hand silver straight SWORD with ornate gold guard at waist viewerLEFT with blade pointing outward almost horizontal, other hand reins at belt, exactly2hands. No shield/no spear because original mounted source sword. Horse nearfront with small foreleg step.",
+      "prompt": "Dress IMAGE1 original NEUTRAL mounted adult skeleton as IMAGE2 character. IMAGE1 is ONLY rider bone-length/head-size and elevated-camera master. Image2 gives identity/equipment/horse colors only, IGNORE its elongated anatomy and eye-level angle. Rider if standing has EXACTLY FIVE anatomical heads crown-to-chin units excluding hair/helmet/crest: preserve same normal adult skull, torso and compact femur/shin lengths as image1. Do not create 4head chibi or6+head tall slim hero. Slender elf varies WIDTH/muscle only. Hair/circlet or helmet from image2 replaces bald neutral head, never render bald. Horse normal fullsize adult with correct four legs; no uniform rider/horse shrinking as anatomy fix. Elevated FRONT camera looking down30degrees: clearly see TOP planes of rider skull, both shoulders, saddle, horse neck/withers and horse head; foreshorten chest/face. Chin and eyes down separately. Not eye-level figure with only bowed head. New arm/horse joint pose allowed, exact bone lengths remain. Crisp discrete PIXEL CLUSTERS, stepped dark outlines and restrained color ramps same image1/Gondor. One rider and one mount, exactly2hands, no extras. Entire silhouette/all weapon tips/tail/hooves within generous transparent RGBA padding, rider torso centered independently of cape/weapon, no base/floor/shadow/glow/text. GIL-GALAD MOUNTED source version has LONG SILVER WHITE hair; preserve SILVER hair not canon dark. Clean shaven, gold winged circlet BLUE jewel, silverwhite plate GOLD broad edges, WHITE cloak goldhem, gold STAR chest clasp, whitegold tabard. WHITE HORSE white mane/tail and silver-gold face/neck armor, WHITE/GOLD barding GOLD8point star and white/gold saddlecloth. One hand silver straight SWORD with ornate gold guard at waist viewerLEFT with blade pointing outward almost horizontal, other hand reins at belt, exactly2hands. No shield/no spear because original mounted source sword. Horse nearfront with small foreleg step.",
+      "group": "엘프",
+      "groupKey": "elf",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/human-mounted.png",
+        "camera": "Elevated front; crown/shoulder upper planes and mounted saddle/neck planes checked",
+        "equipment": "Compared with original; two hands and intact weapon structure checked",
+        "approval": "pending"
+      },
+      "blobSHA": "b75b8cdfd1def0e5e88250e5b8128da814e28bba",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-c1f5ca40-d729-40b3-bbe8-1c4ec323d19b.png"
+    },
+    {
+      "id": "thingol_mounted",
+      "mounted": true,
+      "pose": "은회색 투구 · 수목 장식",
+      "detail": "THINGOL MOUNTED long SILVER WHITE flowing hair, clean shaven, original mounted source closefitted SILVER cap/leaf-shaped HELMET edged pale GOLD, not bare circlet. Silvergray plate with WHITE treebranch designs, slateBLUE cloak with palegray branch motifs, silver cape clasps and beigegold narrow trim. WHITE HORSE silverwhite mane/tail, slateBLUE frontbarding with WHITE star/tree motif and pale beige edging, grayblue saddlecloth pale tree branches. One hand silver straight SWORD goldhilt low outward viewerLEFT, other hand reins nearbelt exactly2hands. Horse head turns only10deg viewerRIGHT, body front. Show saddle/withers tops, not headbow alone.",
+      "prompt": "Dress IMAGE1 original NEUTRAL mounted adult skeleton as IMAGE2 character. IMAGE1 is ONLY rider bone-length/head-size and elevated-camera master. Image2 gives identity/equipment/horse colors only, IGNORE its elongated anatomy and eye-level angle. Rider if standing has EXACTLY FIVE anatomical heads crown-to-chin units excluding hair/helmet/crest: preserve same normal adult skull, torso and compact femur/shin lengths as image1. Do not create 4head chibi or6+head tall slim hero. Slender elf varies WIDTH/muscle only. Hair/circlet or helmet from image2 replaces bald neutral head, never render bald. Horse normal fullsize adult with correct four legs; no uniform rider/horse shrinking as anatomy fix. Elevated FRONT camera looking down30degrees: clearly see TOP planes of rider skull, both shoulders, saddle, horse neck/withers and horse head; foreshorten chest/face. Chin and eyes down separately. Not eye-level figure with only bowed head. New arm/horse joint pose allowed, exact bone lengths remain. Crisp discrete PIXEL CLUSTERS, stepped dark outlines and restrained color ramps same image1/Gondor. One rider and one mount, exactly2hands, no extras. Entire silhouette/all weapon tips/tail/hooves within generous transparent RGBA padding, rider torso centered independently of cape/weapon, no base/floor/shadow/glow/text. THINGOL MOUNTED long SILVER WHITE flowing hair, clean shaven, original mounted source closefitted SILVER cap/leaf-shaped HELMET edged pale GOLD, not bare circlet. Silvergray plate with WHITE treebranch designs, slateBLUE cloak with palegray branch motifs, silver cape clasps and beigegold narrow trim. WHITE HORSE silverwhite mane/tail, slateBLUE frontbarding with WHITE star/tree motif and pale beige edging, grayblue saddlecloth pale tree branches. One hand silver straight SWORD goldhilt low outward viewerLEFT, other hand reins nearbelt exactly2hands. Horse head turns only10deg viewerRIGHT, body front. Show saddle/withers tops, not headbow alone.",
+      "group": "엘프",
+      "groupKey": "elf",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/human-mounted.png",
+        "camera": "Elevated front; crown/shoulder upper planes and mounted saddle/neck planes checked",
+        "equipment": "Compared with original; two hands and intact weapon structure checked",
+        "approval": "pending"
+      },
+      "blobSHA": "bd37b067345408102ef2777746647e6826af8f61",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-a574bbf0-20e0-469c-ae7b-1d661c796a5b.png"
+    },
+    {
+      "id": "galadhrim_bow",
+      "mounted": false,
+      "pose": "금빛 잎 투구 · 활과 별도 화살",
+      "detail": "GALADHRIM ARCHER long BLOND hair, narrowly fitted GOLD leaf helmet/cap with central pointed ridge and cheekguards, lower face visible, gold layered armor, navyBLUE cloak pale lining with GOLD treebranch decoration, blue/gold short tunic, brown boots. Ornate GOLD LONG BOW viewerLEFT in ONE hand, at WAIST, complete upper AND lower limb about EQUAL LENGTH, upper tipy10%, lower tipy84%, centralgripy47%, both tips outside body, one STRAIGHT uninterrupted string tip-to-tip. Other hand holds one SEPARATE un-nocked whitefeather arrow pointing down beside right waist, arrow never crosses bow. White arrowquiver behind shoulder. Both feet planted level y92% x40/62%, no raised walking step. No sword.",
+      "prompt": "Dress IMAGE1 neutral elf skeleton as IMAGE2 character identity. IMAGE1 alone controls skull, body and limb bone lengths and camera. Actual adult FIVE anatomical heads crown-to-sole, exclude hair/helmet protrusions. NOT four-head big-head chibi, NOT six-head elongated hero. Keep ordinary adult skull from image1 and exact same torso/leg length relationships. Bone LANDMARKS at neutral standing pose on this portrait canvas: anatomical crown y8%, chin y25%, shoulder tops y27%, pelvic joints y55%, knees y70%, ankles y85%, soles y92%. These show scale, NOT mandatory identical joint angles; bend/rotate for required stance while preserving bones. Costume/helmet closely fitted, do not inflate head inside helmet. Weapons rotate into sides, do not shrink torso to fit weapons. Elevated FRONT camera looking down30degrees, clear TOP planes of skull and both shoulders, chest/face foreshortened, chin/gaze down, NOT eyelevel with only bowed head. Exact image1 pixel density and stepped clusters, black outlines, restrained ramps. Whole body centered independently of cape/weapon, all tips visible and clear margin, transparent RGBA, no floor/base/shadow/aura/text. IMAGE2 only weapon/clothing/hair/color identity, never its skeleton. IMPORTANT: neutral image1 is BALD to expose skull; replace scalp with image2 HAIR or HELMET. Characters described with hair must NEVER be bald. Keep hair fitted around same adult skull. GALADHRIM ARCHER long BLOND hair, narrowly fitted GOLD leaf helmet/cap with central pointed ridge and cheekguards, lower face visible, gold layered armor, navyBLUE cloak pale lining with GOLD treebranch decoration, blue/gold short tunic, brown boots. Ornate GOLD LONG BOW viewerLEFT in ONE hand, at WAIST, complete upper AND lower limb about EQUAL LENGTH, upper tipy10%, lower tipy84%, centralgripy47%, both tips outside body, one STRAIGHT uninterrupted string tip-to-tip. Other hand holds one SEPARATE un-nocked whitefeather arrow pointing down beside right waist, arrow never crosses bow. White arrowquiver behind shoulder. Both feet planted level y92% x40/62%, no raised walking step. No sword.",
+      "group": "엘프",
+      "groupKey": "elf",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/elf.png",
+        "camera": "Elevated front; crown/shoulder upper planes and mounted saddle/neck planes checked",
+        "equipment": "Compared with original; two hands and intact weapon structure checked",
+        "approval": "pending"
+      },
+      "blobSHA": "7024e6dd9b51ec2c451448df82bacee85e9ffca5",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-11e9b213-157b-47f8-95a6-8faa0422d865.png"
+    },
+    {
+      "id": "galadhrim_elite_bow",
+      "mounted": false,
+      "pose": "닫힌 금빛 투구 · 세운 활",
+      "detail": "GALADHRIM ELITE ARCHER GOLD/SILVER full enclosed leaf helmet tall pointed crown and engraved sweeping leafveins, long BLOND hair, elaborate gold armor engraved leaves, royalBLUE cloak and blue short tabard with WHITE branch motifs and pale lining, GOLD armored boots. Ornate GOLD LONG BOW held upright viewerRIGHT by one hand at WAIST, keep full UPPER and LOWER limbs of comparable length; tipy10% and84%, gripy47%, one thin STRAIGHT string connecting exacttips with no segmentation. Other hand viewerLEFT holds ONE separate un-nocked whitefeather arrow pointdown. White arrowquiver behind opposite shoulder. Both feet planted level y92% x39/63, front body/head down, no drawing pose. No sword.",
+      "prompt": "Dress IMAGE1 neutral elf skeleton as IMAGE2 character identity. IMAGE1 alone controls skull, body and limb bone lengths and camera. Actual adult FIVE anatomical heads crown-to-sole, exclude hair/helmet protrusions. NOT four-head big-head chibi, NOT six-head elongated hero. Keep ordinary adult skull from image1 and exact same torso/leg length relationships. Bone LANDMARKS at neutral standing pose on this portrait canvas: anatomical crown y8%, chin y25%, shoulder tops y27%, pelvic joints y55%, knees y70%, ankles y85%, soles y92%. These show scale, NOT mandatory identical joint angles; bend/rotate for required stance while preserving bones. Costume/helmet closely fitted, do not inflate head inside helmet. Weapons rotate into sides, do not shrink torso to fit weapons. Elevated FRONT camera looking down30degrees, clear TOP planes of skull and both shoulders, chest/face foreshortened, chin/gaze down, NOT eyelevel with only bowed head. Exact image1 pixel density and stepped clusters, black outlines, restrained ramps. Whole body centered independently of cape/weapon, all tips visible and clear margin, transparent RGBA, no floor/base/shadow/aura/text. IMAGE2 only weapon/clothing/hair/color identity, never its skeleton. IMPORTANT: neutral image1 is BALD to expose skull; replace scalp with image2 HAIR or HELMET. Characters described with hair must NEVER be bald. Keep hair fitted around same adult skull. GALADHRIM ELITE ARCHER GOLD/SILVER full enclosed leaf helmet tall pointed crown and engraved sweeping leafveins, long BLOND hair, elaborate gold armor engraved leaves, royalBLUE cloak and blue short tabard with WHITE branch motifs and pale lining, GOLD armored boots. Ornate GOLD LONG BOW held upright viewerRIGHT by one hand at WAIST, keep full UPPER and LOWER limbs of comparable length; tipy10% and84%, gripy47%, one thin STRAIGHT string connecting exacttips with no segmentation. Other hand viewerLEFT holds ONE separate un-nocked whitefeather arrow pointdown. White arrowquiver behind opposite shoulder. Both feet planted level y92% x39/63, front body/head down, no drawing pose. No sword.",
+      "group": "엘프",
+      "groupKey": "elf",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/elf.png",
+        "camera": "Elevated front; crown/shoulder upper planes and mounted saddle/neck planes checked",
+        "equipment": "Compared with original; two hands and intact weapon structure checked",
+        "approval": "pending"
+      },
+      "blobSHA": "b0074fe9c9bf1c49f39b6f4633fabdd3acd321fc",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-c1670d1a-29e4-41c2-966c-8ce92b23fd68.png"
+    },
+    {
+      "id": "mirkwood_ranger",
+      "mounted": false,
+      "pose": "갈색 머리 · 활과 허리 단검",
+      "detail": "MIRKWOOD RANGER long wavy medium BROWN hair, CLEAN SHAVEN face and no helmet/circlet, GREEN cape palegold edging, darkgreen layered leather leaf armor and darkgreen short tabard GOLD branching leaves, brown leather belt/bracers/boots. TWO small SILVER DAGGERS in brown sheaths at belt viewerRIGHT preserve source. Brown/gold wooden LONG BOW viewerLEFT in one hand held upright by centralgrip at WAIST, full continuous upper/lower limbs of similar length, upper tipy10% lower tipy84%, single STRAIGHT string exacttip-to-tip. Other hand open near belt with short elbow, no nocked arrow. Whitefeather quiver on back. Both feet planted level y92% x40/62, knees soft, no neutral marching pose. Original palette no added silver plate.",
+      "prompt": "Dress IMAGE1 neutral elf skeleton as IMAGE2 character identity. IMAGE1 alone controls skull, body and limb bone lengths and camera. Actual adult FIVE anatomical heads crown-to-sole, exclude hair/helmet protrusions. NOT four-head big-head chibi, NOT six-head elongated hero. Keep ordinary adult skull from image1 and exact same torso/leg length relationships. Bone LANDMARKS at neutral standing pose on this portrait canvas: anatomical crown y8%, chin y25%, shoulder tops y27%, pelvic joints y55%, knees y70%, ankles y85%, soles y92%. These show scale, NOT mandatory identical joint angles; bend/rotate for required stance while preserving bones. Costume/helmet closely fitted, do not inflate head inside helmet. Weapons rotate into sides, do not shrink torso to fit weapons. Elevated FRONT camera looking down30degrees, clear TOP planes of skull and both shoulders, chest/face foreshortened, chin/gaze down, NOT eyelevel with only bowed head. Exact image1 pixel density and stepped clusters, black outlines, restrained ramps. Whole body centered independently of cape/weapon, all tips visible and clear margin, transparent RGBA, no floor/base/shadow/aura/text. IMAGE2 only weapon/clothing/hair/color identity, never its skeleton. IMPORTANT: neutral image1 is BALD to expose skull; replace scalp with image2 HAIR or HELMET. Characters described with hair must NEVER be bald. Keep hair fitted around same adult skull. MIRKWOOD RANGER long wavy medium BROWN hair, CLEAN SHAVEN face and no helmet/circlet, GREEN cape palegold edging, darkgreen layered leather leaf armor and darkgreen short tabard GOLD branching leaves, brown leather belt/bracers/boots. TWO small SILVER DAGGERS in brown sheaths at belt viewerRIGHT preserve source. Brown/gold wooden LONG BOW viewerLEFT in one hand held upright by centralgrip at WAIST, full continuous upper/lower limbs of similar length, upper tipy10% lower tipy84%, single STRAIGHT string exacttip-to-tip. Other hand open near belt with short elbow, no nocked arrow. Whitefeather quiver on back. Both feet planted level y92% x40/62, knees soft, no neutral marching pose. Original palette no added silver plate.",
+      "group": "엘프",
+      "groupKey": "elf",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/elf.png",
+        "camera": "Elevated front; crown/shoulder upper planes and mounted saddle/neck planes checked",
+        "equipment": "Compared with original; two hands and intact weapon structure checked",
+        "approval": "pending"
+      },
+      "blobSHA": "e2371c479a2a5dde8ce26e8190dab977a3d447ec",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-0fb9df58-fcd0-45f0-9899-fe6b798f0535.png"
+    }
+  ]
+}
