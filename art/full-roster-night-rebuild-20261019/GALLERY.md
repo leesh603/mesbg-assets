@@ -1,6 +1,24 @@
-# 전체 재제작 검토 — 159종
+# 전체 재제작 검토 — 162종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 에오를의 아들들 (sons_of_eorl)
+
+![에오를의 아들들](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/sons_of_eorl.png?v=5420ebcede872c1c0cc24f1012f325091e9605ea)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/sons_of_eorl.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/sons_of_eorl.png?v=5420ebcede872c1c0cc24f1012f325091e9605ea)
+
+### 헬름 해머핸드 (helm_hammerhand)
+
+![헬름 해머핸드](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/helm_hammerhand.png?v=27ea115a01f6a5b40eeb45d2ef6b98fa7f473bdc)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/helm_hammerhand.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/helm_hammerhand.png?v=27ea115a01f6a5b40eeb45d2ef6b98fa7f473bdc)
+
+### 에오를 (eorl_the_young)
+
+![에오를](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/eorl_the_young.png?v=20eca0ebfe3da67fd8b0e8907fb2e70543c71ecf)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/eorl_the_young.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/eorl_the_young.png?v=20eca0ebfe3da67fd8b0e8907fb2e70543c71ecf)
 
 ### 프레알라프 (frealaf)
 

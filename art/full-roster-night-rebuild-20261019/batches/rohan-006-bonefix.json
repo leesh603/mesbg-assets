@@ -1,0 +1,35 @@
+{
+  "batch": "rohan-006-bonefix",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "eorl_the_young",
+      "mounted": true,
+      "pose": "표준 기수 뼈대 · 백마 지휘",
+      "prompt": "EDIT IMAGE1 BODY TEMPLATE by dressing it as IMAGE2 character. IMAGE1 is exact immutable bone-length/head-size/high-angle-front camera reference, NOT only a style. Keep its compact FIVE-HEAD human anatomy, large normal skull relative to torso, SHORT upper/lower limbs. Do not increase head-to-body ratio number or idealize into small-head long-legged hero. Original skeleton's crown/chin/shoulder/pelvis/knee/ankle proportions retained regardless of hair, cloak, armour. Width may vary for stout vs slim but bone lengths stay. Pixel cluster density and stepped dark outlines EXACTLY image1, no high-res painting, blur or 3D. Image2 is equipment/character only, ignore its proportions. True RGBA transparent empty backdrop, one complete sprite, every extremity/tip fits. Place whole silhouette in INNER80% canvas with at least100px transparent space above highest object and beneath lowest boot/hoof; do not auto zoom/crop. No base, floor, cast shadow, glow, lettering, UI or extra figures. MOUNTED EORL THE YOUNG. Preserve IMAGE1 EXACT adult rider skull/shoulder/waist/thigh/shin lengths and rider-to-horse proportion. Human upper body from skull to seated pelvis stays as short as image1; no tiny head, no long royal torso. Recolour horse WHITE with ivory mane, same horse anatomy/stance as template. Dress rider in green gold-trim cloak with white fur shoulders, gold lamellar chest, green tabard, brown boots, young reddish-brown hair and gold circlet. Right hand viewerLEFT holds straight sword diagonally upward close to shoulder, left hand holds reins. Green/gold white-horse caparison, full four hooves and tail, no invented redplume or royal helmet.",
+      "blobSHA": "20eca0ebfe3da67fd8b0e8907fb2e70543c71ecf",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-1e184d05-eb9d-4efc-ae15-6a70d347be3f.png"
+    },
+    {
+      "id": "helm_hammerhand",
+      "pose": "표준 도보 뼈대 · 넓은 체격과 낮게 든 망치",
+      "prompt": "EDIT IMAGE1 BODY TEMPLATE by dressing it as IMAGE2 character. IMAGE1 is exact immutable bone-length/head-size/high-angle-front camera reference, NOT only a style. Keep its compact FIVE-HEAD human anatomy, large normal skull relative to torso, SHORT upper/lower limbs. Do not increase head-to-body ratio number or idealize into small-head long-legged hero. Original skeleton's crown/chin/shoulder/pelvis/knee/ankle proportions retained regardless of hair, cloak, armour. Width may vary for stout vs slim but bone lengths stay. Pixel cluster density and stepped dark outlines EXACTLY image1, no high-res painting, blur or 3D. Image2 is equipment/character only, ignore its proportions. True RGBA transparent empty backdrop, one complete sprite, every extremity/tip fits. Place whole silhouette in INNER80% canvas with at least100px transparent space above highest object and beneath lowest boot/hoof; do not auto zoom/crop. No base, floor, cast shadow, glow, lettering, UI or extra figures. ON FOOT HELM HAMMERHAND. Keep human template exact crown-chin size and total anatomical body height. Make chest/upper arms30% broader, sturdy belly, but SAME short torso/femur/shins, not taller. White-blond wavy hair, thick white moustache/beard, bare muscular arms with brown gold-trim bracers, grey-brown fur mantle over green white-horse tunic, brown boots. Distinct heavy WARHAMMER held LOW beside viewerLEFT knee, metallic hammerhead with golden horse-head relief stays BELOW shoulder height to prevent clipping. Other hand clenched low at waist. Slightly widened planted stance with knees bent; do NOT copy long shoulder-high hammer that touched frame. Skull crown around top15%, soles at bottom88%, entire hammer fully within padding.",
+      "blobSHA": "27ea115a01f6a5b40eeb45d2ef6b98fa7f473bdc",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-5d1292bb-551a-4193-9e44-88e88dee2081.png"
+    },
+    {
+      "id": "sons_of_eorl",
+      "mounted": true,
+      "pose": "표준 기수 뼈대 · 정예 기창 방어",
+      "prompt": "EDIT IMAGE1 BODY TEMPLATE by dressing it as IMAGE2 character. IMAGE1 is exact immutable bone-length/head-size/high-angle-front camera reference, NOT only a style. Keep its compact FIVE-HEAD human anatomy, large normal skull relative to torso, SHORT upper/lower limbs. Do not increase head-to-body ratio number or idealize into small-head long-legged hero. Original skeleton's crown/chin/shoulder/pelvis/knee/ankle proportions retained regardless of hair, cloak, armour. Width may vary for stout vs slim but bone lengths stay. Pixel cluster density and stepped dark outlines EXACTLY image1, no high-res painting, blur or 3D. Image2 is equipment/character only, ignore its proportions. True RGBA transparent empty backdrop, one complete sprite, every extremity/tip fits. Place whole silhouette in INNER80% canvas with at least100px transparent space above highest object and beneath lowest boot/hoof; do not auto zoom/crop. No base, floor, cast shadow, glow, lettering, UI or extra figures. MOUNTED SONS OF EORL ELITE. Preserve image1 EXACT head/short-torso/seated-pelvis/thigh/shin proportions and adult rider-to-horse size. Chestnut horse reddish mane, same compact coherent anatomy as template. Rider dark-green/gold steel nasal helmet with small ivory side wings, green cloak gold edge, gold-and-steel armour, green ROUND white-horse shield viewerRIGHT and dark green/gold lance viewerLEFT. Slightly angle lance diagonally DOWN outward viewerLEFT, entire tip and butt within margin; hand near waist, no long stretched arm/torso. Saddle/stirrups/reins connected, four distinct legs/hooves. Maintain high-angle front from template, not portrait.",
+      "blobSHA": "5420ebcede872c1c0cc24f1012f325091e9605ea",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-40400de7-9589-40e5-ab42-1d564c024ee0.png"
+    }
+  ]
+}

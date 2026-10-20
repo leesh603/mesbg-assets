@@ -1,12 +1,57 @@
 {
-  "count": 159,
+  "count": 162,
   "groups": {
     "gondor": 59,
     "mordor": 73,
-    "rohan": 27
+    "rohan": 30
   },
-  "pending": 351,
+  "pending": 348,
   "units": [
+    {
+      "id": "sons_of_eorl",
+      "name": "에오를의 아들들",
+      "group": "로한",
+      "role": "cavalry",
+      "image": "art/full-roster-night-rebuild-20261019/units/sons_of_eorl.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/sons_of_eorl.png",
+      "old": "tokens/sons_of_eorl.png",
+      "status": "검토 대기",
+      "body": "인간 기수 5등신 · 하이앵글 프론트뷰",
+      "pose": "표준 기수 뼈대 · 정예 기창 방어",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/sons_of_eorl.png?v=5420ebcede872c1c0cc24f1012f325091e9605ea",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/sons_of_eorl.png?v=5420ebcede872c1c0cc24f1012f325091e9605ea",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/sons_of_eorl.png"
+    },
+    {
+      "id": "helm_hammerhand",
+      "name": "헬름 해머핸드",
+      "group": "로한",
+      "role": "hero",
+      "image": "art/full-roster-night-rebuild-20261019/units/helm_hammerhand.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/helm_hammerhand.png",
+      "old": "tokens/helm_hammerhand.png",
+      "status": "검토 대기",
+      "body": "인간 5등신 · 하이앵글 프론트뷰",
+      "pose": "표준 도보 뼈대 · 넓은 체격과 낮게 든 망치",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/helm_hammerhand.png?v=27ea115a01f6a5b40eeb45d2ef6b98fa7f473bdc",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/helm_hammerhand.png?v=27ea115a01f6a5b40eeb45d2ef6b98fa7f473bdc",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/helm_hammerhand.png"
+    },
+    {
+      "id": "eorl_the_young",
+      "name": "에오를",
+      "group": "로한",
+      "role": "hero",
+      "image": "art/full-roster-night-rebuild-20261019/units/eorl_the_young.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/eorl_the_young.png",
+      "old": "tokens/eorl_the_young.png",
+      "status": "검토 대기",
+      "body": "인간 기수 5등신 · 하이앵글 프론트뷰",
+      "pose": "표준 기수 뼈대 · 백마 지휘",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/eorl_the_young.png?v=20eca0ebfe3da67fd8b0e8907fb2e70543c71ecf",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/eorl_the_young.png?v=20eca0ebfe3da67fd8b0e8907fb2e70543c71ecf",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/eorl_the_young.png"
+    },
     {
       "id": "frealaf",
       "name": "프레알라프",

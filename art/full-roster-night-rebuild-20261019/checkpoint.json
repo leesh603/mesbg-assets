@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T00:24:25.169Z",
+  "updatedAt": "2026-10-20T00:29:01.015Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 351,
-    "newlyGeneratedThisSession": 27,
-    "visuallyReviewedThisSession": 27,
+    "pending": 348,
+    "newlyGeneratedThisSession": 30,
+    "visuallyReviewedThisSession": 30,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 27,
-    "persistedReviewAssets": 159,
+    "generatedReviewAssets": 30,
+    "persistedReviewAssets": 162,
     "revisedAfterRejection": 5
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -47,11 +47,11 @@
   "resume": {
     "nextAction": "Continue nextIds, then next pending faction. Save small batches and refresh every unified gallery artifact together.",
     "nextIds": [
-      "eorl_the_young",
-      "helm_hammerhand",
-      "sons_of_eorl",
       "rohan_yeoman",
-      "eomund"
+      "eomund",
+      "guthlaf",
+      "war_hound",
+      "deorwine_mounted"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
@@ -3403,8 +3403,13 @@
       "faction": "rohan",
       "role": "hero",
       "original": "tokens/eorl_the_young.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "rohan",
+      "path": "art/full-roster-night-rebuild-20261019/units/eorl_the_young.png",
+      "blobSHA": "20eca0ebfe3da67fd8b0e8907fb2e70543c71ecf",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "helm_hammerhand",
@@ -3412,8 +3417,13 @@
       "faction": "rohan",
       "role": "hero",
       "original": "tokens/helm_hammerhand.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "rohan",
+      "path": "art/full-roster-night-rebuild-20261019/units/helm_hammerhand.png",
+      "blobSHA": "27ea115a01f6a5b40eeb45d2ef6b98fa7f473bdc",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "tom_bombadil",
@@ -3481,8 +3491,13 @@
       "faction": "rohan",
       "role": "cavalry",
       "original": "tokens/sons_of_eorl.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "rohan",
+      "path": "art/full-roster-night-rebuild-20261019/units/sons_of_eorl.png",
+      "blobSHA": "5420ebcede872c1c0cc24f1012f325091e9605ea",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "vault_warden",
@@ -5169,14 +5184,14 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 159,
+    "count": 162,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
       "gondor": 59,
       "mordor": 73,
-      "rohan": 27
+      "rohan": 30
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,
@@ -5207,13 +5222,12 @@
       "reason": "사용자 지적: 최근 생성본 등신 상승. 프레임/장비가 아닌 원래 표준 뼈대 직접 참조로 재검수",
       "correctedCandidates": [
         "hera",
-        "frealaf"
-      ],
-      "uncommittedHeld": [
+        "frealaf",
         "eorl_the_young",
         "helm_hammerhand",
         "sons_of_eorl"
       ],
+      "uncommittedHeld": [],
       "reviewPreviouslySaved": [
         "grimbold",
         "harding",
