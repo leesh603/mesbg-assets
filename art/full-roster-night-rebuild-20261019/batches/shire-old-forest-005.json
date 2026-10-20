@@ -1,0 +1,191 @@
+{
+  "batch": "shire-old-forest-005",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "fredegar",
+      "name": "프레데가르 볼저",
+      "faction": "shire",
+      "role": "hero",
+      "original": "tokens/fredegar.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "호빗",
+      "groupKey": "shire",
+      "pose": "기존 고유 무장·행동과 숙인 고개 유지",
+      "bodyDescription": "호빗 표준 뼈대 · 하이앵글 프론트뷰",
+      "prompt": "ONE production transparent pixel GAME TOKEN, same exact number of characters as INPUT1; never add the neutral template as another figure. INPUT1 supplies exact identity/clothes/palette/hair/gear, elevated-front viewpoint and distinct original action. INPUT2 ORIGINAL SPECIES skeleton supplies immutable skull/shoulder/pelvis/knee/ankle bone lengths and proportions, crisp pixel density, stepped dark outlines and short color ramps. Dress input2 bones as input1; no changing bones into different species or inflating skull, no long-human legs on hobbits/goblins. Fat/slim/muscle variation by width. Keep all original hair/helmet despite bald neutral skeleton. HIGH-ANGLE FRONT camera DOWN40–45deg, visible crown and both shoulder TOPS; head DEEPLY BOWED further so eyes hidden by hair/hat/hood/brow and face only small lower fragment. Preserve original body lean/action and distinctive weapons; do not substitute generic upright template walk. Full silhouettes and ALL weapon/hat/staff tips inside inner80percent canvas with generous transparent margins. Body centered ignoring gear. No circular base/floor/shadow/scenery/glow/text/UI/watermark. Character: 프레데가르 볼저 (fredegar). Fat hobbit with shaggy brown curls, dark green coat, brown vest and shoulder satchel, crooked wooden walking stick, bare hairy feet. Belly/hips broad, skull not larger.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/fredegar.png",
+        "/workspace/scratch/f40d43c7f276/references/hobbit.png"
+      ],
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-cab2ad88-a92b-4180-b3a8-1eb862b459e8.png",
+      "expectedBlobSHA": "85bfb509eb649b806009050bda43b8744d58a0e4",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          195,
+          140,
+          992,
+          1161
+        ]
+      },
+      "blobSHA": "85bfb509eb649b806009050bda43b8744d58a0e4",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "tom_bombadil",
+      "name": "톰 봄바딜",
+      "faction": "shire",
+      "role": "hero",
+      "original": "tokens/tom_bombadil.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "호빗",
+      "groupKey": "shire",
+      "pose": "기존 고유 무장·행동과 숙인 고개 유지",
+      "bodyDescription": "인간형 5등신 · 하이앵글 프론트뷰",
+      "prompt": "ONE production transparent pixel GAME TOKEN, same exact number of characters as INPUT1; never add the neutral template as another figure. INPUT1 supplies exact identity/clothes/palette/hair/gear, elevated-front viewpoint and distinct original action. INPUT2 ORIGINAL SPECIES skeleton supplies immutable skull/shoulder/pelvis/knee/ankle bone lengths and proportions, crisp pixel density, stepped dark outlines and short color ramps. Dress input2 bones as input1; no changing bones into different species or inflating skull, no long-human legs on hobbits/goblins. Fat/slim/muscle variation by width. Keep all original hair/helmet despite bald neutral skeleton. HIGH-ANGLE FRONT camera DOWN40–45deg, visible crown and both shoulder TOPS; head DEEPLY BOWED further so eyes hidden by hair/hat/hood/brow and face only small lower fragment. Preserve original body lean/action and distinctive weapons; do not substitute generic upright template walk. Full silhouettes and ALL weapon/hat/staff tips inside inner80percent canvas with generous transparent margins. Body centered ignoring gear. No circular base/floor/shadow/scenery/glow/text/UI/watermark. Character: 톰 봄바딜 (tom_bombadil). TOM is adult human-proportioned, FIVE anatomical heads. Original blue coat, golden yellow boots, brown pointed hat with tall WHITE feather, gray beard, tan belt, both arms spread in open welcoming action; head bowed under hat. No weapon added.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/tom_bombadil.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human.png"
+      ],
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-76ccea24-43b4-4e68-8769-e750308bbd1e.png",
+      "expectedBlobSHA": "90a4720ebf4234365f7d2ebe5864772c353fadfc",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          103,
+          47,
+          1157,
+          1210
+        ]
+      },
+      "blobSHA": "90a4720ebf4234365f7d2ebe5864772c353fadfc",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "bandobras",
+      "name": "반도브라스 툭",
+      "faction": "shire",
+      "role": "hero",
+      "original": "tokens/bandobras.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "호빗",
+      "groupKey": "shire",
+      "pose": "기존 고유 무장·행동과 숙인 고개 유지",
+      "bodyDescription": "호빗 표준 뼈대 · 하이앵글 프론트뷰",
+      "prompt": "ONE production transparent pixel GAME TOKEN, same exact number of characters as INPUT1; never add the neutral template as another figure. INPUT1 supplies exact identity/clothes/palette/hair/gear, elevated-front viewpoint and distinct original action. INPUT2 ORIGINAL SPECIES skeleton supplies immutable skull/shoulder/pelvis/knee/ankle bone lengths and proportions, crisp pixel density, stepped dark outlines and short color ramps. Dress input2 bones as input1; no changing bones into different species or inflating skull, no long-human legs on hobbits/goblins. Fat/slim/muscle variation by width. Keep all original hair/helmet despite bald neutral skeleton. HIGH-ANGLE FRONT camera DOWN40–45deg, visible crown and both shoulder TOPS; head DEEPLY BOWED further so eyes hidden by hair/hat/hood/brow and face only small lower fragment. Preserve original body lean/action and distinctive weapons; do not substitute generic upright template walk. Full silhouettes and ALL weapon/hat/staff tips inside inner80percent canvas with generous transparent margins. Body centered ignoring gear. No circular base/floor/shadow/scenery/glow/text/UI/watermark. Character: 반도브라스 툭 (bandobras). Large sturdy hobbit with brown hair over face, pale green cape, burgundy tunic, long wooden club carried over shoulder; bare hairy feet. Bigger width and stature while same hobbit proportions.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/bandobras.png",
+        "/workspace/scratch/f40d43c7f276/references/hobbit.png"
+      ],
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-3eb39065-8db8-4229-b72f-7ea03586b8fb.png",
+      "expectedBlobSHA": "7ab012e2a8bb39e5691d6aaf399b415b939d6aae",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1110,
+          1417
+        ],
+        "bounds": [
+          71,
+          56,
+          1060,
+          1344
+        ]
+      },
+      "blobSHA": "7ab012e2a8bb39e5691d6aaf399b415b939d6aae",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "goldberry",
+      "name": "골드베리",
+      "faction": "shire",
+      "role": "hero",
+      "original": "tokens/goldberry.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "호빗",
+      "groupKey": "shire",
+      "pose": "기존 고유 무장·행동과 숙인 고개 유지",
+      "bodyDescription": "인간형 5등신 · 하이앵글 프론트뷰",
+      "prompt": "ONE production transparent pixel GAME TOKEN, same exact number of characters as INPUT1; never add the neutral template as another figure. INPUT1 supplies exact identity/clothes/palette/hair/gear, elevated-front viewpoint and distinct original action. INPUT2 ORIGINAL SPECIES skeleton supplies immutable skull/shoulder/pelvis/knee/ankle bone lengths and proportions, crisp pixel density, stepped dark outlines and short color ramps. Dress input2 bones as input1; no changing bones into different species or inflating skull, no long-human legs on hobbits/goblins. Fat/slim/muscle variation by width. Keep all original hair/helmet despite bald neutral skeleton. HIGH-ANGLE FRONT camera DOWN40–45deg, visible crown and both shoulder TOPS; head DEEPLY BOWED further so eyes hidden by hair/hat/hood/brow and face only small lower fragment. Preserve original body lean/action and distinctive weapons; do not substitute generic upright template walk. Full silhouettes and ALL weapon/hat/staff tips inside inner80percent canvas with generous transparent margins. Body centered ignoring gear. No circular base/floor/shadow/scenery/glow/text/UI/watermark. Character: 골드베리 (goldberry). GOLDBERRY is adult woman, FIVE anatomical heads. Long golden curly hair, white flower circlet, pale cream and leaf-green flowing dress with white/gold blossoms, hands gently clasping one white flower at chest. Eyes obscured by bowed golden crown of hair, not giant hair/skull.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/goldberry.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human.png"
+      ],
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-f76c7295-f3a1-436f-a88b-e7e3203e8529.png",
+      "expectedBlobSHA": "70eda4c150f51a62a748807e27ab5751a91a2d1d",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          313,
+          155,
+          904,
+          1182
+        ]
+      },
+      "blobSHA": "70eda4c150f51a62a748807e27ab5751a91a2d1d",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "hobbit_militia",
+      "name": "호빗 민병대",
+      "faction": "shire",
+      "role": "infantry",
+      "original": "tokens/hobbit_militia.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "호빗",
+      "groupKey": "shire",
+      "pose": "기존 고유 무장·행동과 숙인 고개 유지",
+      "bodyDescription": "호빗 표준 뼈대 · 하이앵글 프론트뷰",
+      "prompt": "ONE production transparent pixel GAME TOKEN, same exact number of characters as INPUT1; never add the neutral template as another figure. INPUT1 supplies exact identity/clothes/palette/hair/gear, elevated-front viewpoint and distinct original action. INPUT2 ORIGINAL SPECIES skeleton supplies immutable skull/shoulder/pelvis/knee/ankle bone lengths and proportions, crisp pixel density, stepped dark outlines and short color ramps. Dress input2 bones as input1; no changing bones into different species or inflating skull, no long-human legs on hobbits/goblins. Fat/slim/muscle variation by width. Keep all original hair/helmet despite bald neutral skeleton. HIGH-ANGLE FRONT camera DOWN40–45deg, visible crown and both shoulder TOPS; head DEEPLY BOWED further so eyes hidden by hair/hat/hood/brow and face only small lower fragment. Preserve original body lean/action and distinctive weapons; do not substitute generic upright template walk. Full silhouettes and ALL weapon/hat/staff tips inside inner80percent canvas with generous transparent margins. Body centered ignoring gear. No circular base/floor/shadow/scenery/glow/text/UI/watermark. Character: 호빗 민병대 (hobbit_militia). Feathered green cap, green cloak, brown leather belts and vest, simple curved wooden farm club raised beside head. Bare hairy feet.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/hobbit_militia.png",
+        "/workspace/scratch/f40d43c7f276/references/hobbit.png"
+      ],
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-ced29fb6-2272-437a-bbf9-bc222922a995.png",
+      "expectedBlobSHA": "87d01b57937f9b6f57e5f7e42c8e14a5addc09b9",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bounds": [
+          298,
+          149,
+          993,
+          1117
+        ]
+      },
+      "blobSHA": "87d01b57937f9b6f57e5f7e42c8e14a5addc09b9",
+      "approval": "pending",
+      "inGameVerified": false
+    }
+  ]
+}

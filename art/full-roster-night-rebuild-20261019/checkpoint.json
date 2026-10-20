@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T04:01:56.664Z",
+  "updatedAt": "2026-10-20T04:03:26.995Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 99,
-    "newlyGeneratedThisSession": 279,
-    "visuallyReviewedThisSession": 284,
+    "pending": 94,
+    "newlyGeneratedThisSession": 284,
+    "visuallyReviewedThisSession": 289,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 279,
-    "persistedReviewAssets": 411,
+    "generatedReviewAssets": 284,
+    "persistedReviewAssets": 416,
     "revisedAfterRejection": 18
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -4669,8 +4669,13 @@
       "faction": "shire",
       "role": "hero",
       "original": "tokens/fredegar.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "shire",
+      "path": "art/full-roster-night-rebuild-20261019/units/fredegar.png",
+      "blobSHA": "85bfb509eb649b806009050bda43b8744d58a0e4",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "durin_vi",
@@ -4783,8 +4788,13 @@
       "faction": "shire",
       "role": "hero",
       "original": "tokens/bandobras.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "shire",
+      "path": "art/full-roster-night-rebuild-20261019/units/bandobras.png",
+      "blobSHA": "7ab012e2a8bb39e5691d6aaf399b415b939d6aae",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "gildor",
@@ -4918,8 +4928,13 @@
       "faction": "shire",
       "role": "hero",
       "original": "tokens/tom_bombadil.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "shire",
+      "path": "art/full-roster-night-rebuild-20261019/units/tom_bombadil.png",
+      "blobSHA": "90a4720ebf4234365f7d2ebe5864772c353fadfc",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "goldberry",
@@ -4927,8 +4942,13 @@
       "faction": "shire",
       "role": "hero",
       "original": "tokens/goldberry.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "shire",
+      "path": "art/full-roster-night-rebuild-20261019/units/goldberry.png",
+      "blobSHA": "70eda4c150f51a62a748807e27ab5751a91a2d1d",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "dead_rider",
@@ -5039,8 +5059,13 @@
       "faction": "shire",
       "role": "infantry",
       "original": "tokens/hobbit_militia.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "shire",
+      "path": "art/full-roster-night-rebuild-20261019/units/hobbit_militia.png",
+      "blobSHA": "87d01b57937f9b6f57e5f7e42c8e14a5addc09b9",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "guritz",
@@ -7489,17 +7514,17 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 411,
+    "count": 416,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
+      "shire": 14,
       "arnor": 9,
       "브리": 2,
       "numenor": 4,
       "men": 8,
       "moria": 11,
-      "shire": 9,
       "이스터링·칸드": 10,
       "dunland": 8,
       "isengard": 30,
@@ -7513,7 +7538,7 @@
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,
-    "sourceValidation": "411 unique IDs; static card count and asset blob SHAs verified"
+    "sourceValidation": "416 unique IDs; static card count and asset blob SHAs verified"
   },
   "revisionRequests": {
     "witchking": {
@@ -7649,14 +7674,13 @@
     }
   },
   "lastContinuation": {
-    "batch": "north-civic-006",
+    "batch": "shire-old-forest-005",
     "newIds": [
-      "huor",
-      "arpharazon",
-      "anarion",
-      "butterbur",
-      "bill_ferny",
-      "arnor_ranger"
+      "fredegar",
+      "tom_bombadil",
+      "bandobras",
+      "goldberry",
+      "hobbit_militia"
     ],
     "qualityStandard": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
     "note": "Each image inspected against canonical skeleton and identity reference; approval pending."

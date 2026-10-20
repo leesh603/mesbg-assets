@@ -1,6 +1,36 @@
-# 전체 재제작 검토 — 411종
+# 전체 재제작 검토 — 416종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 호빗 민병대 (hobbit_militia)
+
+![호빗 민병대](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/hobbit_militia.png?v=87d01b57937f9b6f57e5f7e42c8e14a5addc09b9)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/hobbit_militia.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/hobbit_militia.png?v=87d01b57937f9b6f57e5f7e42c8e14a5addc09b9)
+
+### 골드베리 (goldberry)
+
+![골드베리](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/goldberry.png?v=70eda4c150f51a62a748807e27ab5751a91a2d1d)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/goldberry.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/goldberry.png?v=70eda4c150f51a62a748807e27ab5751a91a2d1d)
+
+### 반도브라스 툭 (bandobras)
+
+![반도브라스 툭](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/bandobras.png?v=7ab012e2a8bb39e5691d6aaf399b415b939d6aae)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/bandobras.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/bandobras.png?v=7ab012e2a8bb39e5691d6aaf399b415b939d6aae)
+
+### 톰 봄바딜 (tom_bombadil)
+
+![톰 봄바딜](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/tom_bombadil.png?v=90a4720ebf4234365f7d2ebe5864772c353fadfc)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/tom_bombadil.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/tom_bombadil.png?v=90a4720ebf4234365f7d2ebe5864772c353fadfc)
+
+### 프레데가르 볼저 (fredegar)
+
+![프레데가르 볼저](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/fredegar.png?v=85bfb509eb649b806009050bda43b8744d58a0e4)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/fredegar.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/fredegar.png?v=85bfb509eb649b806009050bda43b8744d58a0e4)
 
 ### 아르노르 레인저 (arnor_ranger)
 
