@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T05:49:16.594Z",
+  "updatedAt": "2026-10-20T05:51:18.349Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -16,9 +16,9 @@
     "generatedReviewAssets": 378,
     "persistedReviewAssets": 510,
     "revisedAfterRejection": 20,
-    "qualityRejected": 63,
-    "qualityHeld": 63,
-    "awaitingApproval": 384
+    "qualityRejected": 61,
+    "qualityHeld": 60,
+    "awaitingApproval": 389
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
   "sources": [
@@ -55,13 +55,13 @@
     "nextAction": "Continue every outstanding original 194 rejected/held ID; inspect outputs and persist small batches. No user confirmation needed to continue corrections. Main integration remains separate.",
     "nextIds": [
       "witchking_foot_mace",
-      "gimli",
-      "elrond",
-      "dwarf_guardian",
       "mountain_troll",
       "shelob",
       "sauron",
-      "nazgul_sword_2"
+      "dwimmerlaik",
+      "mt_captain",
+      "mt_fountain_guard",
+      "orc_swordshield"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
@@ -640,16 +640,30 @@
       "faction": "dwarf",
       "role": "hero",
       "original": "tokens/gimli.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "dwarf",
-      "path": "art/full-roster-night-rebuild-20261019/units/gimli.png",
-      "blobSHA": "161173ce51d24573fcdc09123e28ab72522870aa",
-      "approval": "hold",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/gimli.png",
+      "blobSHA": "0bec722a4228793aaa910cb5a678fa794e9b2afe",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "needs_revision",
-      "qualityReason": "도끼 파지 자세는 생겼으나 난쟁이 고유 머리/몸 비중·체격을 확정 골격과 대조해야 함.",
-      "preferredSource": "undecided"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "난쟁이 기준의 짧고 두꺼운 몸통·팔다리와 기존 붉은 수염·투구·낮춘 도끼 동작을 복원. 인간형처럼 길어진 허리·다리와 구분해 원본·종족 기준을 비교함.",
+      "preferredSource": "remake_candidate",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "dwarf-stature-elrond-long-robes-20261020",
+        "previous": {
+          "approval": "hold",
+          "path": "art/full-roster-night-rebuild-20261019/units/gimli.png",
+          "blobSHA": "161173ce51d24573fcdc09123e28ab72522870aa",
+          "reason": "도끼 파지 자세는 생겼으나 난쟁이 고유 머리/몸 비중·체격을 확정 골격과 대조해야 함."
+        },
+        "observations": "난쟁이 기준의 짧고 두꺼운 몸통·팔다리와 기존 붉은 수염·투구·낮춘 도끼 동작을 복원. 인간형처럼 길어진 허리·다리와 구분해 원본·종족 기준을 비교함.",
+        "checkedAt": "2026-10-20T05:51:18.349Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "boromir",
@@ -719,16 +733,30 @@
       "faction": "rivendell",
       "role": "hero",
       "original": "tokens/elrond.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "elf",
-      "path": "art/full-roster-night-rebuild-20261019/units/elrond.png",
-      "blobSHA": "cd495f73702e581dd835d53781e2ee520a7d3993",
-      "approval": "rejected",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/elrond.png",
+      "blobSHA": "db0256b39a2962ce6755e37beeb38c20eacf9dd0",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존의 숙인 머리·고유 무게감보다 정면 얼굴·직립 인상이 강해짐.",
-      "preferredSource": "old"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "기존 낮춘 머리·청금 갑주·흐르는 망토·곡검과 비대칭 걸음을 복원. 정면 응시 대신 정수리와 어깨 윗면이 보이는 시점을 비교함.",
+      "preferredSource": "remake_candidate",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "dwarf-stature-elrond-long-robes-20261020",
+        "previous": {
+          "approval": "rejected",
+          "path": "art/full-roster-night-rebuild-20261019/units/elrond.png",
+          "blobSHA": "cd495f73702e581dd835d53781e2ee520a7d3993",
+          "reason": "기존의 숙인 머리·고유 무게감보다 정면 얼굴·직립 인상이 강해짐."
+        },
+        "observations": "기존 낮춘 머리·청금 갑주·흐르는 망토·곡검과 비대칭 걸음을 복원. 정면 응시 대신 정수리와 어깨 윗면이 보이는 시점을 비교함.",
+        "checkedAt": "2026-10-20T05:51:18.349Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "gondor_archer",
@@ -769,16 +797,30 @@
       "faction": "dwarf",
       "role": "infantry",
       "original": "tokens/dwarf_guardian.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "dwarf",
-      "path": "art/full-roster-night-rebuild-20261019/units/dwarf_guardian.png",
-      "blobSHA": "4938584258987425a14feeb23f394be437b99bd1",
-      "approval": "hold",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/dwarf_guardian.png",
+      "blobSHA": "f99c0d61f9e4b73a8d7bf18fa857a89fdf74f12b",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "needs_revision",
-      "qualityReason": "기존의 짧고 묵직한 난쟁이 실루엣이 길어진 인상. 종족 표준·갑주 중량감 대조 필요.",
-      "preferredSource": "undecided"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "짧고 묵직한 난쟁이 체형과 기존 은색 투구·주황 수염·각진 방패·도끼를 유지. 방패 밖의 짧은 앞다리와 상체 중량감을 종족 기준과 비교함.",
+      "preferredSource": "remake_candidate",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "dwarf-stature-elrond-long-robes-20261020",
+        "previous": {
+          "approval": "hold",
+          "path": "art/full-roster-night-rebuild-20261019/units/dwarf_guardian.png",
+          "blobSHA": "4938584258987425a14feeb23f394be437b99bd1",
+          "reason": "기존의 짧고 묵직한 난쟁이 실루엣이 길어진 인상. 종족 표준·갑주 중량감 대조 필요."
+        },
+        "observations": "짧고 묵직한 난쟁이 체형과 기존 은색 투구·주황 수염·각진 방패·도끼를 유지. 방패 밖의 짧은 앞다리와 상체 중량감을 종족 기준과 비교함.",
+        "checkedAt": "2026-10-20T05:51:18.349Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "rohan_royal_guard",
@@ -966,14 +1008,29 @@
       "role": "hero",
       "original": "tokens/nazgul_sword_2.png",
       "source": "mordor",
-      "path": "art/mordor-rebuild-20261019/units/nazgul_sword_2.png",
-      "blobSHA": "ad7252f81670ca4f962d7d774e63cb8cbc449305",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존의 길고 유령 같은 로브 실루엣이 짧은 보행·반복 망토형으로 바뀜.",
-      "approval": "rejected",
-      "preferredSource": "old"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/nazgul_sword_2.png",
+      "blobSHA": "c26b89c8a92651b3bd95a7d866222e6cf49939f7",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "기존 빈 두건·긴 로브·금속 장갑·긴 검을 보존하고 큰 인간형의 긴 전진 실루엣을 복원. 짧은 일반 전사형으로 압축되지 않도록 비교함.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "dwarf-stature-elrond-long-robes-20261020",
+        "previous": {
+          "approval": "rejected",
+          "path": "art/mordor-rebuild-20261019/units/nazgul_sword_2.png",
+          "blobSHA": "ad7252f81670ca4f962d7d774e63cb8cbc449305",
+          "reason": "기존의 길고 유령 같은 로브 실루엣이 짧은 보행·반복 망토형으로 바뀜."
+        },
+        "observations": "기존 빈 두건·긴 로브·금속 장갑·긴 검을 보존하고 큰 인간형의 긴 전진 실루엣을 복원. 짧은 일반 전사형으로 압축되지 않도록 비교함.",
+        "checkedAt": "2026-10-20T05:51:18.349Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "nazgul_mace",
@@ -1062,14 +1119,29 @@
       "role": "infantry",
       "original": "tokens/mt_swordshield.png",
       "source": "gondor",
-      "path": "art/gondor-rebuild-20261019/units/mt_swordshield.png",
-      "blobSHA": "6c46963a6c1fbdb7d4a1de10d8285aefd86ffc76",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "needs_revision",
-      "qualityReason": "기존 대비 투구·상체에 비해 다리 길이가 압축되어 보임.",
-      "approval": "hold",
-      "preferredSource": "undecided"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/mt_swordshield.png",
+      "blobSHA": "06499d7aeac252e3bc142c0ac00169ea8248446a",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "미나스 티리스 검방의 흰 나무 방패·날개 투구·검을 보존하고 상체에 눌렸던 골반·다리의 연결과 길이를 다시 구성. 숙인 얼굴과 전진 자세를 비교함.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "dwarf-stature-elrond-long-robes-20261020",
+        "previous": {
+          "approval": "hold",
+          "path": "art/gondor-rebuild-20261019/units/mt_swordshield.png",
+          "blobSHA": "6c46963a6c1fbdb7d4a1de10d8285aefd86ffc76",
+          "reason": "기존 대비 투구·상체에 비해 다리 길이가 압축되어 보임."
+        },
+        "observations": "미나스 티리스 검방의 흰 나무 방패·날개 투구·검을 보존하고 상체에 눌렸던 골반·다리의 연결과 길이를 다시 구성. 숙인 얼굴과 전진 자세를 비교함.",
+        "checkedAt": "2026-10-20T05:51:18.349Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "mt_spear",
@@ -9177,8 +9249,8 @@
   "qualityRepairRequest": {
     "id": "all-194-20261020",
     "scopeCount": 194,
-    "correctedCandidates": 68,
-    "remaining": 126,
+    "correctedCandidates": 73,
+    "remaining": 121,
     "userApproved": 0,
     "previousMountedCorrectionsIncluded": true
   }

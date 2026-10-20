@@ -1,8 +1,8 @@
 {
   "request": "all-194-20261020",
-  "updatedAt": "2026-10-20T05:49:16.594Z",
-  "correctedCandidates": 68,
-  "remaining": 126,
+  "updatedAt": "2026-10-20T05:51:18.349Z",
+  "correctedCandidates": 73,
+  "remaining": 121,
   "scope": [
     {
       "id": "imrahil_mounted",
@@ -189,9 +189,9 @@
       "name": "김리",
       "originalApproval": "hold",
       "originalReason": "도끼 파지 자세는 생겼으나 난쟁이 고유 머리/몸 비중·체격을 확정 골격과 대조해야 함.",
-      "state": "pending_correction",
-      "path": "art/full-roster-night-rebuild-20261019/units/gimli.png",
-      "blobSHA": "161173ce51d24573fcdc09123e28ab72522870aa"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/gimli.png",
+      "blobSHA": "0bec722a4228793aaa910cb5a678fa794e9b2afe"
     },
     {
       "id": "boromir",
@@ -207,18 +207,18 @@
       "name": "엘론드",
       "originalApproval": "rejected",
       "originalReason": "기존의 숙인 머리·고유 무게감보다 정면 얼굴·직립 인상이 강해짐.",
-      "state": "pending_correction",
-      "path": "art/full-roster-night-rebuild-20261019/units/elrond.png",
-      "blobSHA": "cd495f73702e581dd835d53781e2ee520a7d3993"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/elrond.png",
+      "blobSHA": "db0256b39a2962ce6755e37beeb38c20eacf9dd0"
     },
     {
       "id": "dwarf_guardian",
       "name": "드워프 가디언",
       "originalApproval": "hold",
       "originalReason": "기존의 짧고 묵직한 난쟁이 실루엣이 길어진 인상. 종족 표준·갑주 중량감 대조 필요.",
-      "state": "pending_correction",
-      "path": "art/full-roster-night-rebuild-20261019/units/dwarf_guardian.png",
-      "blobSHA": "4938584258987425a14feeb23f394be437b99bd1"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/dwarf_guardian.png",
+      "blobSHA": "f99c0d61f9e4b73a8d7bf18fa857a89fdf74f12b"
     },
     {
       "id": "rohan_royal_guard",
@@ -270,9 +270,9 @@
       "name": "나즈굴(검·B)",
       "originalApproval": "rejected",
       "originalReason": "기존의 길고 유령 같은 로브 실루엣이 짧은 보행·반복 망토형으로 바뀜.",
-      "state": "pending_correction",
-      "path": "art/mordor-rebuild-20261019/units/nazgul_sword_2.png",
-      "blobSHA": "ad7252f81670ca4f962d7d774e63cb8cbc449305"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/nazgul_sword_2.png",
+      "blobSHA": "c26b89c8a92651b3bd95a7d866222e6cf49939f7"
     },
     {
       "id": "nazgul_mounted",
@@ -306,9 +306,9 @@
       "name": "미나스 티리스 검방",
       "originalApproval": "hold",
       "originalReason": "기존 대비 투구·상체에 비해 다리 길이가 압축되어 보임.",
-      "state": "pending_correction",
-      "path": "art/gondor-rebuild-20261019/units/mt_swordshield.png",
-      "blobSHA": "6c46963a6c1fbdb7d4a1de10d8285aefd86ffc76"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/mt_swordshield.png",
+      "blobSHA": "06499d7aeac252e3bc142c0ac00169ea8248446a"
     },
     {
       "id": "mt_captain",

@@ -1,0 +1,131 @@
+{
+  "label": "dwarf-stature-elrond-long-robes-20261020",
+  "checkedAt": "2026-10-20T05:51:18.349Z",
+  "records": [
+    {
+      "id": "gimli",
+      "path": "/workspace/scratch/888606d1c5a1/generated_images/exec-50323fa8-d61f-467a-8b85-f4f0e9bce7ee.png",
+      "sha": "0bec722a4228793aaa910cb5a678fa794e9b2afe",
+      "prompt": "Use case: style-transfer. Repair production PIXEL GAME TOKEN for 김리 (gimli). Image 1 is the ORIGINAL identity, equipment, pose, action and silhouette. Image 2 controls crisp pixel clusters, short color ramps, stepped dark outline, elevated front camera and lowered head only; DO NOT copy its costume/weapon. Image 3 if supplied is species ANATOMY proportions only, never transfer its pose or gray clothes. Start from original action and EXACT weapon/shield/banner/staff/bow placement and relative size; preserve original body lean and hand grips, no generic pose substitution, no missing or invented gear. Repair stated defect: 도끼 파지 자세는 생겼으나 난쟁이 고유 머리/몸 비중·체격을 확정 골격과 대조해야 함.. DWARF: preserve established short powerful original dwarf skeleton, broad trunk, short limbs and large beard; do not stretch to human proportions. Camera high-angle FRONT looking DOWN45degrees over the WHOLE body, crown and shoulder tops visible; still front-facing, not top-down, side or rear. Chin and gaze point gently downward like original; face mostly hidden under hair/hood/helmet, no looking at viewer. Preserve original unique silhouette, material colors and heraldry. Crisp deliberate PIXEL artwork, not smooth painting/3D. Entire character/mount/all appendages and equipment inside INNER80percent of transparent canvas, broad empty margins, body centered excluding weapons. No floor, base, scenery, cast shadow, haze, glow, text or UI. Output ONLY this one original subject. Third image is the established DWARF anatomy: use its compact trunk and short powerful limb bones, retaining original beard volume; do not lengthen into a human. Preserve image1 equipment and distinct original action.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/gimli.png",
+        "/workspace/scratch/ad23164b1c38/refs/theoden-user-style.png",
+        "/workspace/scratch/f40d43c7f276/references/dwarf.png"
+      ],
+      "technicalCheck": {
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "alpha": true,
+        "alphaBBox": [
+          0,
+          33,
+          1240,
+          1254
+        ]
+      },
+      "notes": "난쟁이 기준의 짧고 두꺼운 몸통·팔다리와 기존 붉은 수염·투구·낮춘 도끼 동작을 복원. 인간형처럼 길어진 허리·다리와 구분해 원본·종족 기준을 비교함."
+    },
+    {
+      "id": "dwarf_guardian",
+      "path": "/workspace/scratch/888606d1c5a1/generated_images/exec-1b4e5950-b8b0-480f-89ec-799adc8ed68c.png",
+      "sha": "f99c0d61f9e4b73a8d7bf18fa857a89fdf74f12b",
+      "prompt": "Use case: style-transfer. Repair production PIXEL GAME TOKEN for 드워프 가디언 (dwarf_guardian). Image 1 is the ORIGINAL identity, equipment, pose, action and silhouette. Image 2 controls crisp pixel clusters, short color ramps, stepped dark outline, elevated front camera and lowered head only; DO NOT copy its costume/weapon. Image 3 if supplied is species ANATOMY proportions only, never transfer its pose or gray clothes. Start from original action and EXACT weapon/shield/banner/staff/bow placement and relative size; preserve original body lean and hand grips, no generic pose substitution, no missing or invented gear. Repair stated defect: 기존의 짧고 묵직한 난쟁이 실루엣이 길어진 인상. 종족 표준·갑주 중량감 대조 필요.. DWARF: preserve established short powerful original dwarf skeleton, broad trunk, short limbs and large beard; do not stretch to human proportions. Camera high-angle FRONT looking DOWN45degrees over the WHOLE body, crown and shoulder tops visible; still front-facing, not top-down, side or rear. Chin and gaze point gently downward like original; face mostly hidden under hair/hood/helmet, no looking at viewer. Preserve original unique silhouette, material colors and heraldry. Crisp deliberate PIXEL artwork, not smooth painting/3D. Entire character/mount/all appendages and equipment inside INNER80percent of transparent canvas, broad empty margins, body centered excluding weapons. No floor, base, scenery, cast shadow, haze, glow, text or UI. Output ONLY this one original subject. Third image is the established DWARF anatomy: use its compact trunk and short powerful limb bones, retaining original beard volume; do not lengthen into a human. Preserve image1 equipment and distinct original action.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/dwarf_guardian.png",
+        "/workspace/scratch/ad23164b1c38/refs/theoden-user-style.png",
+        "/workspace/scratch/f40d43c7f276/references/dwarf.png"
+      ],
+      "technicalCheck": {
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "alpha": true,
+        "alphaBBox": [
+          0,
+          33,
+          1224,
+          1230
+        ]
+      },
+      "notes": "짧고 묵직한 난쟁이 체형과 기존 은색 투구·주황 수염·각진 방패·도끼를 유지. 방패 밖의 짧은 앞다리와 상체 중량감을 종족 기준과 비교함."
+    },
+    {
+      "id": "mt_swordshield",
+      "path": "/workspace/scratch/888606d1c5a1/generated_images/exec-507e8587-25e0-40f1-aa9a-b34649f25d90.png",
+      "sha": "06499d7aeac252e3bc142c0ac00169ea8248446a",
+      "prompt": "Use case: style-transfer. Repair production PIXEL GAME TOKEN for 미나스 티리스 검방 (mt_swordshield). Image 1 is the ORIGINAL identity, equipment, pose, action and silhouette. Image 2 controls crisp pixel clusters, short color ramps, stepped dark outline, elevated front camera and lowered head only; DO NOT copy its costume/weapon. Image 3 if supplied is species ANATOMY proportions only, never transfer its pose or gray clothes. Start from original action and EXACT weapon/shield/banner/staff/bow placement and relative size; preserve original body lean and hand grips, no generic pose substitution, no missing or invented gear. Repair stated defect: 기존 대비 투구·상체에 비해 다리 길이가 압축되어 보임.. HUMAN/ELF: exactly FIVE anatomical head lengths, crown-to-chin excluding hair/helmet crest. Head natural, proportionate shoulder width, neck, arms, hands, pelvis and leg bones. Never four-head chibi or six-plus-head fashion anatomy. Camera high-angle FRONT looking DOWN45degrees over the WHOLE body, crown and shoulder tops visible; still front-facing, not top-down, side or rear. Chin and gaze point gently downward like original; face mostly hidden under hair/hood/helmet, no looking at viewer. Preserve original unique silhouette, material colors and heraldry. Crisp deliberate PIXEL artwork, not smooth painting/3D. Entire character/mount/all appendages and equipment inside INNER80percent of transparent canvas, broad empty margins, body centered excluding weapons. No floor, base, scenery, cast shadow, haze, glow, text or UI. Output ONLY this one original subject.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/mt_swordshield.png",
+        "/workspace/scratch/ad23164b1c38/refs/theoden-user-style.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human.png"
+      ],
+      "technicalCheck": {
+        "dimensions": [
+          1049,
+          1500
+        ],
+        "alpha": true,
+        "alphaBBox": [
+          0,
+          0,
+          1013,
+          1467
+        ]
+      },
+      "notes": "미나스 티리스 검방의 흰 나무 방패·날개 투구·검을 보존하고 상체에 눌렸던 골반·다리의 연결과 길이를 다시 구성. 숙인 얼굴과 전진 자세를 비교함."
+    },
+    {
+      "id": "elrond",
+      "path": "/workspace/scratch/888606d1c5a1/generated_images/exec-a2b63868-5320-49f8-84a2-025815f59d22.png",
+      "sha": "db0256b39a2962ce6755e37beeb38c20eacf9dd0",
+      "prompt": "Use case: style-transfer. Repair production PIXEL GAME TOKEN for 엘론드 (elrond). Image 1 is the ORIGINAL identity, equipment, pose, action and silhouette. Image 2 controls crisp pixel clusters, short color ramps, stepped dark outline, elevated front camera and lowered head only; DO NOT copy its costume/weapon. Image 3 if supplied is species ANATOMY proportions only, never transfer its pose or gray clothes. Start from original action and EXACT weapon/shield/banner/staff/bow placement and relative size; preserve original body lean and hand grips, no generic pose substitution, no missing or invented gear. Repair stated defect: 기존의 숙인 머리·고유 무게감보다 정면 얼굴·직립 인상이 강해짐.. HUMAN/ELF: exactly FIVE anatomical head lengths, crown-to-chin excluding hair/helmet crest. Head natural, proportionate shoulder width, neck, arms, hands, pelvis and leg bones. Never four-head chibi or six-plus-head fashion anatomy. Camera high-angle FRONT looking DOWN45degrees over the WHOLE body, crown and shoulder tops visible; still front-facing, not top-down, side or rear. Chin and gaze point gently downward like original; face mostly hidden under hair/hood/helmet, no looking at viewer. Preserve original unique silhouette, material colors and heraldry. Crisp deliberate PIXEL artwork, not smooth painting/3D. Entire character/mount/all appendages and equipment inside INNER80percent of transparent canvas, broad empty margins, body centered excluding weapons. No floor, base, scenery, cast shadow, haze, glow, text or UI. Output ONLY this one original subject.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/elrond.png",
+        "/workspace/scratch/ad23164b1c38/refs/theoden-user-style.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/elf.png"
+      ],
+      "technicalCheck": {
+        "dimensions": [
+          1199,
+          1312
+        ],
+        "alpha": true,
+        "alphaBBox": [
+          0,
+          28,
+          1181,
+          1312
+        ]
+      },
+      "notes": "기존 낮춘 머리·청금 갑주·흐르는 망토·곡검과 비대칭 걸음을 복원. 정면 응시 대신 정수리와 어깨 윗면이 보이는 시점을 비교함."
+    },
+    {
+      "id": "nazgul_sword_2",
+      "path": "/workspace/scratch/888606d1c5a1/generated_images/exec-c8f0260e-7501-4461-aeba-b7d05f471fce.png",
+      "sha": "c26b89c8a92651b3bd95a7d866222e6cf49939f7",
+      "prompt": "Use case: style-transfer. Repair production PIXEL GAME TOKEN for 나즈굴(검·B) (nazgul_sword_2). Image 1 is the ORIGINAL identity, equipment, pose, action and silhouette. Image 2 controls crisp pixel clusters, short color ramps, stepped dark outline, elevated front camera and lowered head only; DO NOT copy its costume/weapon. Image 3 if supplied is species ANATOMY proportions only, never transfer its pose or gray clothes. Start from original action and EXACT weapon/shield/banner/staff/bow placement and relative size; preserve original body lean and hand grips, no generic pose substitution, no missing or invented gear. Repair stated defect: 기존의 길고 유령 같은 로브 실루엣이 짧은 보행·반복 망토형으로 바뀜.. HUMAN/ELF: exactly FIVE anatomical head lengths, crown-to-chin excluding hair/helmet crest. Head natural, proportionate shoulder width, neck, arms, hands, pelvis and leg bones. Never four-head chibi or six-plus-head fashion anatomy. Camera high-angle FRONT looking DOWN45degrees over the WHOLE body, crown and shoulder tops visible; still front-facing, not top-down, side or rear. Chin and gaze point gently downward like original; face mostly hidden under hair/hood/helmet, no looking at viewer. Preserve original unique silhouette, material colors and heraldry. Crisp deliberate PIXEL artwork, not smooth painting/3D. Entire character/mount/all appendages and equipment inside INNER80percent of transparent canvas, broad empty margins, body centered excluding weapons. No floor, base, scenery, cast shadow, haze, glow, text or UI. Output ONLY this one original subject. Keep the original LARGE-HUMAN stature and heavy long silhouette, not compressed short running legs.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/nazgul_sword_2.png",
+        "/workspace/scratch/ad23164b1c38/refs/theoden-user-style.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/large-human.png"
+      ],
+      "technicalCheck": {
+        "dimensions": [
+          1199,
+          1312
+        ],
+        "alpha": true,
+        "alphaBBox": [
+          0,
+          8,
+          1161,
+          1312
+        ]
+      },
+      "notes": "기존 빈 두건·긴 로브·금속 장갑·긴 검을 보존하고 큰 인간형의 긴 전진 실루엣을 복원. 짧은 일반 전사형으로 압축되지 않도록 비교함."
+    }
+  ]
+}
