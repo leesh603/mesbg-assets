@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T00:43:00.815Z",
+  "updatedAt": "2026-10-20T00:51:43.366Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 343,
-    "newlyGeneratedThisSession": 35,
-    "visuallyReviewedThisSession": 35,
+    "pending": 337,
+    "newlyGeneratedThisSession": 41,
+    "visuallyReviewedThisSession": 41,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 35,
-    "persistedReviewAssets": 167,
+    "generatedReviewAssets": 41,
+    "persistedReviewAssets": 173,
     "revisedAfterRejection": 10
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -4653,8 +4653,13 @@
       "faction": "rohan",
       "role": "hero",
       "original": "tokens/erkenbrand_mounted.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "rohan",
+      "path": "art/full-roster-night-rebuild-20261019/units/erkenbrand_mounted.png",
+      "blobSHA": "5a5140d9d24e7fef7dd66164222d3f7fd9bec576",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "eorl_the_young_mounted",
@@ -4662,8 +4667,13 @@
       "faction": "rohan",
       "role": "hero",
       "original": "tokens/eorl_the_young_mounted.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "rohan",
+      "path": "art/full-roster-night-rebuild-20261019/units/eorl_the_young_mounted.png",
+      "blobSHA": "acbd58d17c2602011dba5eb6953aa13f1cc1776c",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "frealaf_mounted",
@@ -4671,8 +4681,13 @@
       "faction": "rohan",
       "role": "hero",
       "original": "tokens/frealaf_mounted.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "rohan",
+      "path": "art/full-roster-night-rebuild-20261019/units/frealaf_mounted.png",
+      "blobSHA": "5210045922716b93f3cff13e2bb74a19b996538e",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "thrydan_mounted",
@@ -4689,8 +4704,13 @@
       "faction": "rohan",
       "role": "hero",
       "original": "tokens/hera_mounted.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "rohan",
+      "path": "art/full-roster-night-rebuild-20261019/units/hera_mounted.png",
+      "blobSHA": "509cd0309422a48a6583260dfce872251ae0efa3",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "elendil_mounted",
@@ -5091,8 +5111,13 @@
       "faction": "rohan",
       "role": "infantry",
       "original": "tokens/rohan_helmingas.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "rohan",
+      "path": "art/full-roster-night-rebuild-20261019/units/rohan_helmingas.png",
+      "blobSHA": "28d49016d59f7a09b9246f5e809cfb32fce2d28b",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "rohan_redshield",
@@ -5100,8 +5125,13 @@
       "faction": "rohan",
       "role": "cavalry",
       "original": "tokens/rohan_redshield.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "rohan",
+      "path": "art/full-roster-night-rebuild-20261019/units/rohan_redshield.png",
+      "blobSHA": "a6aef539d1c5893fa8b1c61fafe4b73d470d04c6",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "ironhills_warrior",
@@ -5214,14 +5244,14 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 167,
+    "count": 173,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
       "gondor": 59,
       "mordor": 73,
-      "rohan": 33
+      "rohan": 39
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,

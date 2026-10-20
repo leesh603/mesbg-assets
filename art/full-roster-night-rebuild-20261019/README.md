@@ -1,10 +1,10 @@
 [원화 제작 고정 기준](ANATOMY_STANDARD.md)
 
-# 전체 재제작 검토 — 167종
+# 전체 재제작 검토 — 173종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html) · [이미지 모음](GALLERY.md)
 
-곤도르 59 · 모르도르/나즈굴 73 · 로한 33종. 전체 510종 중 167종 원격 보존, 343종 미제작. 모두 승인 및 본게임 적용 전 검토본입니다.
+곤도르 59 · 모르도르/나즈굴 73 · 로한 39종. 전체 510종 중 173종 원격 보존, 337종 미제작. 모두 승인 및 본게임 적용 전 검토본입니다.
 
 다음 ID: grimbold_mounted, harding_mounted, dunhere_mounted, guthlaf_mounted, gamling_mounted.
 

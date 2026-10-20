@@ -1,6 +1,42 @@
-# 전체 재제작 검토 — 167종
+# 전체 재제작 검토 — 173종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 웨스트폴드 적색방패 기병 (rohan_redshield)
+
+![웨스트폴드 적색방패 기병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/rohan_redshield.png?v=a6aef539d1c5893fa8b1c61fafe4b73d470d04c6)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/rohan_redshield.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/rohan_redshield.png?v=a6aef539d1c5893fa8b1c61fafe4b73d470d04c6)
+
+### 헬밍가 전사 (rohan_helmingas)
+
+![헬밍가 전사](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/rohan_helmingas.png?v=28d49016d59f7a09b9246f5e809cfb32fce2d28b)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/rohan_helmingas.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/rohan_helmingas.png?v=28d49016d59f7a09b9246f5e809cfb32fce2d28b)
+
+### 헤라(기마) (hera_mounted)
+
+![헤라(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/hera_mounted.png?v=509cd0309422a48a6583260dfce872251ae0efa3)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/hera_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/hera_mounted.png?v=509cd0309422a48a6583260dfce872251ae0efa3)
+
+### 프레알라프(기마) (frealaf_mounted)
+
+![프레알라프(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/frealaf_mounted.png?v=5210045922716b93f3cff13e2bb74a19b996538e)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/frealaf_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/frealaf_mounted.png?v=5210045922716b93f3cff13e2bb74a19b996538e)
+
+### 에오를(기마) (eorl_the_young_mounted)
+
+![에오를(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/eorl_the_young_mounted.png?v=acbd58d17c2602011dba5eb6953aa13f1cc1776c)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/eorl_the_young_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/eorl_the_young_mounted.png?v=acbd58d17c2602011dba5eb6953aa13f1cc1776c)
+
+### 에르켄브란드(기마) (erkenbrand_mounted)
+
+![에르켄브란드(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/erkenbrand_mounted.png?v=5a5140d9d24e7fef7dd66164222d3f7fd9bec576)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/erkenbrand_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/erkenbrand_mounted.png?v=5a5140d9d24e7fef7dd66164222d3f7fd9bec576)
 
 ### 데오르바인(기마) (deorwine_mounted)
 
