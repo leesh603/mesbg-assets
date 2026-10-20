@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T04:37:47.873Z",
+  "updatedAt": "2026-10-20T04:40:37.002Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
-  "state": "checkpoint_saved",
+  "state": "quality_rework_required",
   "blocker": null,
   "counts": {
     "characters": 510,
@@ -15,7 +15,10 @@
     "excludedTerrain": 77,
     "generatedReviewAssets": 378,
     "persistedReviewAssets": 510,
-    "revisedAfterRejection": 18
+    "revisedAfterRejection": 18,
+    "qualityRejected": 105,
+    "qualityHeld": 89,
+    "awaitingApproval": 316
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
   "sources": [
@@ -49,8 +52,19 @@
     "motionAndSilhouette": "기존 구도·동작·기승 자세·숙인 고개·고유 실루엣 보존. 비율을 이유로 직립 정면 자세로 획일화 금지. 기존보다 열화 시 채택하지 않는다."
   },
   "resume": {
-    "nextAction": "Continue pending roster with original species skeletons; inspect and save small batches to unified gallery.",
-    "nextIds": [],
+    "nextAction": "All 510 IDs have stored review candidates; NOT final completion. Rework rejected 105 and held 89 first, preserve original dynamic silhouette and lowered head, original species skeletons, elevated-front view. Recheck all pending candidates; do not equate candidate coverage with accepted completion.",
+    "nextIds": [
+      "glorfindel_mounted",
+      "elf_knight",
+      "glorfindel_foot",
+      "witchking_foot_mace",
+      "aragorn",
+      "gandalf",
+      "witchking_foot",
+      "orc_sword",
+      "witchking_fellbeast",
+      "witchking_mounted"
+    ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
   },
@@ -8399,5 +8413,16 @@
     "skeletonPolicy": "old human-mounted.png deprecated; preserve each original pose, reconstruct whole rider and mount",
     "gallery": "art/full-roster-night-rebuild-20261019/corrections/mounted-proportion-rebuild-20261020/index.html",
     "userApprovedCount": 0
+  },
+  "finalCompletion": false,
+  "lastVerification": {
+    "uniqueIds": 510,
+    "remoteAssetPaths": 510,
+    "missingAssetPaths": 0,
+    "blobSHAMismatches": 0,
+    "galleryStaticCards": 510,
+    "galleryLazyImages": 1020,
+    "galleryScriptSyntax": "passed",
+    "inGameVerified": false
   }
 }
