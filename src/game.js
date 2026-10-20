@@ -12531,3 +12531,65 @@ const ART_FEET_DX={};{const _ap=applyUnitArtSprite;applyUnitArtSprite=function(s
  const sc=G.strokeCircle,fc=G.fillCircle;
  G.strokeCircle=function(x,y,r){if(hug(x,y,r))return this.strokeEllipse(x,y,r*2,r*2*BASE_TILT);return sc.apply(this,arguments);};
  G.fillCircle=function(x,y,r){if(hug(x,y,r))return this.fillEllipse(x,y,r*2,r*2*BASE_TILT);return fc.apply(this,arguments);};}
+
+/* ==== Heroic action cut-in (reference: Fire Emblem crit cut-ins, Langrisser skill splash) ====
+   Uses the unit's own pixel sprite: the head-to-waist crop is enlarged with hard pixels, tilted and slid
+   across a skewed banner. Display only, never blocks input; shortened at 2x and skipped at 4x+. */
+const HERO_CUTIN={last:0,queue:null};const hcWait=ms=>new Promise(r=>setTimeout(r,ms));
+function heroCutinStyle(){if(document.getElementById('hero-cutin-style'))return;const st=document.createElement('style');st.id='hero-cutin-style';st.textContent=`
+#hero-cutin{position:fixed;inset:0;z-index:70;pointer-events:none;overflow:hidden;--c1:#1d2c4a;--c2:#0b1222;--gold:#e8c66a}
+#hero-cutin.evil{--c1:#4a1414;--c2:#170606;--gold:#e0705a}
+#hero-cutin .hc-band{position:absolute;left:-8%;right:-8%;top:34%;height:clamp(118px,19vh,170px);transform:translateX(-110%) skewY(-7deg);
+ background:linear-gradient(90deg,var(--c2),var(--c1) 45%,var(--c2));box-shadow:0 0 0 2px var(--gold),0 0 0 5px #000a,0 14px 30px #000c;transition:transform .16s cubic-bezier(.2,.9,.3,1)}
+#hero-cutin.evil .hc-band{transform:translateX(110%) skewY(7deg)}
+#hero-cutin .hc-band::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 18px,#ffffff14 18px 20px,transparent 20px 46px,#ffffff0d 46px 47px);animation:hcSpeed .35s linear infinite}
+#hero-cutin.evil .hc-band::before{animation-direction:reverse}
+@keyframes hcSpeed{from{background-position:0 0}to{background-position:-94px 0}}
+#hero-cutin .hc-fig{position:absolute;top:calc(34% - clamp(70px,11vh,110px));left:4%;height:min(300px,33vh);transform:translateX(-140%) rotate(-7deg);transition:transform .2s cubic-bezier(.2,1.25,.4,1) .04s;filter:drop-shadow(0 0 0 #000) drop-shadow(5px 6px 0 #000b) drop-shadow(0 0 10px var(--gold))}
+#hero-cutin.evil .hc-fig{left:auto;right:4%;transform:translateX(140%) rotate(7deg) scaleX(-1)}
+#hero-cutin .hc-fig canvas{image-rendering:pixelated;image-rendering:crisp-edges;display:block;margin-top:auto}#hero-cutin .hc-fig{display:flex;align-items:flex-end;justify-content:center;width:54vw}
+#hero-cutin .hc-txt{position:absolute;top:calc(34% + clamp(26px,4.5vh,44px));left:54%;right:3%;transform:translateX(60px) skewY(-7deg);opacity:0;transition:all .18s ease-out .1s;text-align:left}
+#hero-cutin.evil .hc-txt{left:3%;right:54%;transform:translateX(-60px) skewY(7deg);text-align:right}
+#hero-cutin .hc-name{font:400 clamp(13px,3.6vw,17px)/1.3 Galmuri11,sans-serif!important;color:#efe3c2;text-shadow:0 2px 0 #000;white-space:nowrap}
+#hero-cutin .hc-act{font:700 clamp(24px,7.4vw,40px)/1.15 Galmuri11,sans-serif!important;color:var(--gold);text-shadow:0 3px 0 #000,0 0 14px #000;letter-spacing:.02em;word-break:keep-all}
+#hero-cutin .hc-cost{display:inline-block;margin-top:4px;padding:1px 6px;font:400 12px/1.4 Galmuri11,sans-serif;color:#fff;background:#000a;border:1px solid var(--gold)}
+#hero-cutin .hc-flash{position:absolute;inset:0;background:#fff;opacity:0;transition:opacity .12s}
+#hero-cutin.on .hc-band{transform:translateX(0) skewY(-7deg)}
+#hero-cutin.evil.on .hc-band{transform:translateX(0) skewY(7deg)}
+#hero-cutin.on .hc-fig{transform:translateX(0) rotate(-7deg)}
+#hero-cutin.evil.on .hc-fig{transform:translateX(0) rotate(7deg) scaleX(-1)}
+#hero-cutin.on .hc-txt{opacity:1;transform:translateX(0) skewY(-7deg)}
+#hero-cutin.evil.on .hc-txt{transform:translateX(0) skewY(7deg)}
+#hero-cutin.flash .hc-flash{opacity:.35}
+#hero-cutin.out .hc-band,#hero-cutin.out .hc-fig,#hero-cutin.out .hc-txt{opacity:0;transition:opacity .16s}
+@media (prefers-reduced-motion: reduce){#hero-cutin *{transition:none!important;animation:none!important}}`;document.head.appendChild(st);}
+async function heroCutinSource(scene,u){
+    if(scene.textures.exists(u.id))return scene.textures.get(u.id).getSourceImage();
+    const m=q.meta.get(u.id);if(!m||!m.file)return null;
+    return await new Promise(res=>{const im=new Image();im.onload=()=>res(im);im.onerror=()=>res(null);im.src=Ut(m.file);setTimeout(()=>res(null),1500);});
+}
+function heroCutinCanvas(img,u){
+    if(!img)return null;const W=img.width,H=img.height;
+    const r=UNIT_ART_PROFILES[u.id]||['human',.08,.92,.5,.5,86,'body'],rider=r[6]==='rider',bust=rider||UPRIGHT_ART_CLASSES.has(r[0]);
+    const top=bust?Math.max(0,r[1]-.05):0,span=r[2]-r[1],bot=bust?Math.min(1,rider?r[2]+.06:r[1]+span*.56):1,half=bust?(rider?.32:.36):.5;
+    const x0=Math.max(0,Math.round((r[3]-half)*W)),x1=Math.min(W,Math.round((r[3]+half)*W)),y0=Math.round(top*H),y1=Math.round(bot*H);
+    const c=document.createElement('canvas');c.width=x1-x0;c.height=y1-y0;const x=c.getContext('2d');x.imageSmoothingEnabled=false;
+    x.drawImage(img,x0,y0,c.width,c.height,0,0,c.width,c.height);
+    // fade the waist cut so the crop reads as a bust, not a sliced sprite
+    if(bust){const g=x.createLinearGradient(0,c.height*.78,0,c.height);g.addColorStop(0,'rgba(0,0,0,1)');g.addColorStop(1,'rgba(0,0,0,0)');x.globalCompositeOperation='destination-in';x.fillStyle=g;x.fillRect(0,0,c.width,c.height);}
+    return c;
+}
+async function heroCutin(scene,u,action){
+    if(!u||qt>=4||document.getElementById('dragon-cine'))return;
+    const now=performance.now();if(now-HERO_CUTIN.last<900)return;HERO_CUTIN.last=now;
+    heroCutinStyle();document.getElementById('hero-cutin')?.remove();
+    const cv=heroCutinCanvas(await heroCutinSource(scene,u),u);if(!cv)return;
+    const el=document.createElement('div');el.id='hero-cutin';if(u.side!=='good')el.classList.add('evil');
+    el.innerHTML='<div class="hc-band"></div><div class="hc-fig"></div><div class="hc-txt"><div class="hc-name" style="font-size:clamp(14px,3.8vw,18px)!important;line-height:1.3!important">'+esc(u.name)+'</div><div class="hc-act" style="font-size:clamp(26px,8vw,42px)!important;line-height:1.12!important;font-weight:700!important">'+esc(action||'영웅 행동')+'</div><span class="hc-cost" style="font-size:12px!important">Might −1</span></div><div class="hc-flash"></div>';
+    {const H=Math.min(300,innerHeight*.33),Wm=innerWidth*.54;let h=H,w=cv.width*H/cv.height;if(w>Wm){w=Wm;h=cv.height*Wm/cv.width;}cv.style.width=Math.round(w)+'px';cv.style.height=Math.round(h)+'px';}el.querySelector('.hc-fig').appendChild(cv);document.body.appendChild(el);
+    const fast=qt>=2,hold=UX.reduced?700:fast?380:720;
+    await hcWait(20);el.classList.add('on');setTimeout(()=>el.classList.add('flash'),150);setTimeout(()=>el.classList.remove('flash'),270);
+    await hcWait(hold);el.classList.add('out');await hcWait(180);el.remove();
+}
+{const _hp=Ve.prototype.play;Ve.prototype.play=function(event){try{if(event&&event.type==='Heroic'&&event.uid&&this.b){const u=this.b.unit(event.uid),m=String(event.message||'').split(/·|—/).pop().replace(/\(AI\)/,'').trim();heroCutin(this,u,m);}}catch(e){console.error('[cutin]',e);}return _hp.apply(this,arguments);};}
+if(window.MESBG)MESBG.heroCutin=(uid,act)=>heroCutin(Tt,q.unit(uid),act);
