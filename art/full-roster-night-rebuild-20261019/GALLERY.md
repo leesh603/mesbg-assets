@@ -2,7 +2,7 @@
 
 [전체 비교 갤러리](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html) · [이름·분류 확인사항](SOURCE_REVIEW_ISSUES.md)
 
-불합격·보류 194종: 136종 수정 검토본 / 58종 수정 필요 · 전체 품질 최종 통과 0종 · 사용자 승인 전
+불합격·보류 194종: 141종 수정 검토본 / 53종 수정 필요 · 전체 품질 최종 통과 0종 · 사용자 승인 전
 
 ### 움바 선장 (corsair_captain)
 
@@ -2460,9 +2460,9 @@
 
 ### 이실두르 (isildur)
 
-![이실두르](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/gondor-rebuild-20261019/units/isildur.png)
+![이실두르](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/isildur.png?v=bd2a3449e02538ca95262a318b627b65e9574460)
 
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/gondor-rebuild-20261019/references/isildur.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/gondor-rebuild-20261019/units/isildur.png)
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/gondor-rebuild-20261019/references/isildur.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/isildur.png?v=bd2a3449e02538ca95262a318b627b65e9574460)
 
 ### 데네소르 (denethor)
 
@@ -2484,9 +2484,9 @@
 
 ### 아라곤(검은문) (aragorn_blackgate)
 
-![아라곤(검은문)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/gondor-rebuild-20261019/units/aragorn_blackgate.png)
+![아라곤(검은문)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/aragorn_blackgate.png?v=9cdf1994bfa91a6791ca60b52d1355bcc1adb156)
 
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/gondor-rebuild-20261019/references/aragorn_blackgate.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/gondor-rebuild-20261019/units/aragorn_blackgate.png)
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/gondor-rebuild-20261019/references/aragorn_blackgate.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/aragorn_blackgate.png?v=9cdf1994bfa91a6791ca60b52d1355bcc1adb156)
 
 ### 아라곤(검은문·기마) (aragorn_blackgate_mounted)
 
@@ -2532,15 +2532,15 @@
 
 ### 누메노르 대장 (numenorean_captain)
 
-![누메노르 대장](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/gondor-rebuild-20261019/units/numenorean_captain.png)
+![누메노르 대장](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/numenorean_captain.png?v=2d7764e72d8e2e7f461ecc87ac732987b4d8c20a)
 
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/gondor-rebuild-20261019/references/numenorean_captain.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/gondor-rebuild-20261019/units/numenorean_captain.png)
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/gondor-rebuild-20261019/references/numenorean_captain.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/numenorean_captain.png?v=2d7764e72d8e2e7f461ecc87ac732987b4d8c20a)
 
 ### 누메노르 전사 (numenorean_warrior)
 
-![누메노르 전사](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/gondor-rebuild-20261019/units/numenorean_warrior.png)
+![누메노르 전사](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/numenorean_warrior.png?v=c08a4af58e5a2ec87c875f471c2048b643fd82a7)
 
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/gondor-rebuild-20261019/references/numenorean_warrior.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/gondor-rebuild-20261019/units/numenorean_warrior.png)
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/gondor-rebuild-20261019/references/numenorean_warrior.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/numenorean_warrior.png?v=c08a4af58e5a2ec87c875f471c2048b643fd82a7)
 
 ### 누메노르 창병 (numenorean_spearman)
 
@@ -2970,9 +2970,9 @@
 
 ### 어둠의 장군 (dark_marshal)
 
-![어둠의 장군](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/dark_marshal.png)
+![어둠의 장군](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/dark_marshal.png?v=1ddd38990884a10cd37024c00d34a74698a20600)
 
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/references/old/dark_marshal.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/dark_marshal.png)
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/references/old/dark_marshal.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/dark_marshal.png?v=1ddd38990884a10cd37024c00d34a74698a20600)
 
 ### 그림자 군주 (shadow_lord)
 

@@ -1,8 +1,8 @@
 {
   "request": "all-194-20261020",
-  "updatedAt": "2026-10-20T11:27:55.722Z",
-  "correctedCandidates": 136,
-  "remaining": 58,
+  "updatedAt": "2026-10-20T11:42:18.540Z",
+  "correctedCandidates": 141,
+  "remaining": 53,
   "scope": [
     {
       "id": "imrahil_mounted",
@@ -932,9 +932,11 @@
       "name": "어둠의 장군",
       "originalApproval": "rejected",
       "originalReason": "기존 해골 얼굴과 교차 검 실루엣이 빈 후드·다른 무장 자세로 바뀜. 정체성 확인 전 보류.",
-      "state": "pending_correction",
-      "path": "art/mordor-rebuild-20261019/units/dark_marshal.png",
-      "blobSHA": "a547e91b388eed8f7097e166aaf259af3ddea2c6"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/dark_marshal.png",
+      "blobSHA": "1ddd38990884a10cd37024c00d34a74698a20600",
+      "latestReason": "원본 후드 속 해골 얼굴과 양손을 교차한 낮은 검 파지·검은 갑주를 복원. 얼굴을 빈 후드로 바꾼 이전 회귀를 제거한 수정본 비교 완료.",
+      "checkedAt": "2026-10-20T11:42:18.540Z"
     },
     {
       "id": "shadow_lord",
@@ -985,9 +987,11 @@
       "name": "이실두르",
       "originalApproval": "hold",
       "originalReason": "추가된 문양이 과밀하고 하체가 압축되어 보임. 실루엣·비율 재검수.",
-      "state": "pending_correction",
-      "path": "art/gondor-rebuild-20261019/units/isildur.png",
-      "blobSHA": "2eff63d495184b1b528ff1f0e15c3944b59bfffe"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/isildur.png",
+      "blobSHA": "bd2a3449e02538ca95262a318b627b65e9574460",
+      "latestReason": "원본 청금 갑주·날개 투구·흰 망토·백색 나무 방패와 들어 올린 검을 복원. 하체 연결과 전진 자세를 비교했으며, 과도한 추가 장식 대신 원본 문양을 유지함.",
+      "checkedAt": "2026-10-20T11:42:18.540Z"
     },
     {
       "id": "denethor",
@@ -1072,9 +1076,11 @@
       "name": "아라곤(검은문)",
       "originalApproval": "hold",
       "originalReason": "기존 전진 동세보다 하체가 짧고 넓게 벌어져 보임. 인체 비율과 팔 자세 재확인.",
-      "state": "pending_correction",
-      "path": "art/gondor-rebuild-20261019/units/aragorn_blackgate.png",
-      "blobSHA": "98b3843e09ee8d2066bdbc5c2752ee3fa86dcca9"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/aragorn_blackgate.png",
+      "blobSHA": "9cdf1994bfa91a6791ca60b52d1355bcc1adb156",
+      "latestReason": "원본의 머리를 낮춘 양손 검 내리치기·전진 다리·붉은 망토를 복원. 정면 얼굴 노출과 넓게 벌어진 일반 가드를 제거한 수정본을 원본과 비교함.",
+      "checkedAt": "2026-10-20T11:42:18.540Z"
     },
     {
       "id": "hurin",
@@ -1110,18 +1116,22 @@
       "name": "누메노르 대장",
       "originalApproval": "rejected",
       "originalReason": "기존의 절제된 갑주 실루엣이 금색 문양 과밀·짧고 넓은 자세로 바뀜.",
-      "state": "pending_correction",
-      "path": "art/gondor-rebuild-20261019/units/numenorean_captain.png",
-      "blobSHA": "813c289e6ba0603554e05fd3f57b9fbdbd76ba96"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/numenorean_captain.png",
+      "blobSHA": "2d7764e72d8e2e7f461ecc87ac732987b4d8c20a",
+      "latestReason": "원본 은금 갑주·붉은 망토·붉은 백색 나무 방패와 아래로 향한 검을 유지. 전진 다리·숙인 투구와 원본 장비 배치를 비교함.",
+      "checkedAt": "2026-10-20T11:42:18.540Z"
     },
     {
       "id": "numenorean_warrior",
       "name": "누메노르 전사",
       "originalApproval": "hold",
       "originalReason": "하체 압축 및 갑주 문양 밀도 증가. 성인형 비율·시인성 재검수.",
-      "state": "pending_correction",
-      "path": "art/gondor-rebuild-20261019/units/numenorean_warrior.png",
-      "blobSHA": "1b878bb2dcec23b728280ba56d734b2ae73c24cd"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/numenorean_warrior.png",
+      "blobSHA": "c08a4af58e5a2ec87c875f471c2048b643fd82a7",
+      "latestReason": "원본 청은 갑주·날개 투구·백색 나무 방패·아래로 든 검을 유지. 숙인 투구와 전진 무릎·발목 연결을 원본과 비교함.",
+      "checkedAt": "2026-10-20T11:42:18.540Z"
     },
     {
       "id": "numenorean_spearman",
