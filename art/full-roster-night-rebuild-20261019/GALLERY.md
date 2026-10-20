@@ -1,6 +1,30 @@
-# 전체 재제작 검토 — 381종
+# 전체 재제작 검토 — 385종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 칸드 전차 (khandish_chariot)
+
+![칸드 전차](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/khandish_chariot.png?v=6c0757c43d94e981ae7324f544526b98b35119b2)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/khandish_chariot.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/khandish_chariot.png?v=6c0757c43d94e981ae7324f544526b98b35119b2)
+
+### 칸드 기병 (khandish_horseman)
+
+![칸드 기병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/khandish_horseman.png?v=d5f1c6524ea1793af97046a42fa9ffa8fa145feb)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/khandish_horseman.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/khandish_horseman.png?v=d5f1c6524ea1793af97046a42fa9ffa8fa145feb)
+
+### 바리악 기수 (variag_horseman)
+
+![바리악 기수](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/variag_horseman.png?v=e640a7b80f1bc49b76544003de1dc3f063966c1e)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/variag_horseman.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/variag_horseman.png?v=e640a7b80f1bc49b76544003de1dc3f063966c1e)
+
+### 이스터링 중기병 (easterling_kataphrakt)
+
+![이스터링 중기병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/easterling_kataphrakt.png?v=625ad641fac9d3ccd03a8cdf88fc05d376965b9a)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/easterling_kataphrakt.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/easterling_kataphrakt.png?v=625ad641fac9d3ccd03a8cdf88fc05d376965b9a)
 
 ### 엘렌두르 (elendur)
 

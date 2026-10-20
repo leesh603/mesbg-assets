@@ -1,12 +1,12 @@
 [원화 제작 고정 기준](ANATOMY_STANDARD.md)
 
-# 전체 재제작 검토 — 381종
+# 전체 재제작 검토 — 385종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html) · [이미지 모음](GALLERY.md)
 
-누메노르 2종 · 인간 7종 · 아르노르 8종 · 던랜드 8종 · 이스터링·칸드 6종 · 아이센가드 30종 · 하라드 20종 · 난쟁이 36종 · 마이아 9종 · 엘프 77종 · 모르도르·나즈굴 73종 · 로한 46종 · 곤도르 59종
+이스터링·칸드 10종 · 누메노르 2종 · 인간 7종 · 아르노르 8종 · 던랜드 8종 · 아이센가드 30종 · 하라드 20종 · 난쟁이 36종 · 마이아 9종 · 엘프 77종 · 모르도르·나즈굴 73종 · 로한 46종 · 곤도르 59종
 
-전체510종 중 381종 원격 보존, 129종 미제작. 사용자 승인·본게임 적용 전 검토본입니다.
+전체510종 중 385종 원격 보존, 125종 미제작. 사용자 승인·본게임 적용 전 검토본입니다.
 
 다음 ID: cave_troll, orc_shaman, frodo, balrog, barrow_wight.
 

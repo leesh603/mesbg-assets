@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T03:55:06.152Z",
+  "updatedAt": "2026-10-20T03:57:16.019Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 129,
-    "newlyGeneratedThisSession": 249,
-    "visuallyReviewedThisSession": 254,
+    "pending": 125,
+    "newlyGeneratedThisSession": 253,
+    "visuallyReviewedThisSession": 258,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 249,
-    "persistedReviewAssets": 381,
+    "generatedReviewAssets": 253,
+    "persistedReviewAssets": 385,
     "revisedAfterRejection": 18
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -1333,8 +1333,13 @@
       "faction": "easterling",
       "role": "cavalry",
       "original": "tokens/easterling_kataphrakt.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "easterling",
+      "path": "art/full-roster-night-rebuild-20261019/units/easterling_kataphrakt.png",
+      "blobSHA": "625ad641fac9d3ccd03a8cdf88fc05d376965b9a",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "dol_amroth_knight",
@@ -2731,8 +2736,13 @@
       "faction": "rhun",
       "role": "cavalry",
       "original": "tokens/variag_horseman.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "easterling",
+      "path": "art/full-roster-night-rebuild-20261019/units/variag_horseman.png",
+      "blobSHA": "e640a7b80f1bc49b76544003de1dc3f063966c1e",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "shagrat",
@@ -4373,8 +4383,13 @@
       "faction": "easterling",
       "role": "cavalry",
       "original": "tokens/khandish_horseman.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "easterling",
+      "path": "art/full-roster-night-rebuild-20261019/units/khandish_horseman.png",
+      "blobSHA": "d5f1c6524ea1793af97046a42fa9ffa8fa145feb",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "forsaken",
@@ -5012,8 +5027,13 @@
       "faction": "easterling",
       "role": "cavalry",
       "original": "tokens/khandish_chariot.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "easterling",
+      "path": "art/full-roster-night-rebuild-20261019/units/khandish_chariot.png",
+      "blobSHA": "6c0757c43d94e981ae7324f544526b98b35119b2",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "great_beast_gorgoroth",
@@ -7339,19 +7359,19 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 381,
+    "count": 385,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
-      "numenor": 2,
-      "men": 7,
-      "arnor": 8,
-      "dunland": 8,
-      "이스터링·칸드": 6,
+      "easterling": 10,
+      "누메노르": 2,
+      "인간": 7,
+      "아르노르": 8,
+      "던랜드": 8,
       "isengard": 30,
       "harad": 20,
-      "dwarf": 36,
+      "난쟁이": 36,
       "maiar": 9,
       "elf": 77,
       "mordor": 73,

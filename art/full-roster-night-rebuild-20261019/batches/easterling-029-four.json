@@ -1,0 +1,86 @@
+{
+  "batch": "easterling-029-four",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "easterling_kataphrakt",
+      "mounted": true,
+      "pose": "중장갑 말 · 낮은 기창",
+      "detail": "EASTERLING KATAPHRAKT: fitted BLACK/GOLD helmet with short RED plume and thick BROWN fur collar, black/bronze lamellar armor, red/gold short tunic/saddlecloth, blackgold greaves. DARK BROWN HORSE fully covered BLACK segmented neck/body armor with GOLD central ridge/edges, angular black/gold chamfron faceplate, dark ears and dark hooves with goldlegbands. One hand viewerLEFT ONE straight brown/redwrapped lance GOLD collars and SILVER leafhead point DOWN/outward, whole tip/butt visible, rigid collinear shaft; other hand reins at belt, exactly2hands. No shield, no exposed riderface. Horse stands nearfront with one foreleg modestly stepped, upper neck/saddle/shoulder planes clear.",
+      "prompt": "Dress IMAGE1 original NEUTRAL HUMAN skeleton as IMAGE2 character. IMAGE1 alone controls normal adult skull, torso/limb bone lengths and elevated front camera. EXACTLY FIVE anatomical heads crown-to-sole, one head crown-to-CHIN excluding HAIR, BEARD, HAT or crown. No4head bighead chibi, no6+head tall hero. Copy exact bone segment relationships, use old age/slenderness through face, width and posture only. Full robes cover same compact fivehead bones, never lengthen body or hide feet. If hat/staff needs space, zoom out whole figure and expand clear canvas padding; do NOT shrink body relative to head to fit hat. Image2 identity/equipment/palette only, ignore its proportions. New joint poses required while preserving bone LENGTHS. Elevated FRONT camera looking DOWN30deg, clear TOP planes of head/hat and both shoulders, foreshortened chest/face, chin/gaze angled down separately. Not eyelevel with only bowed head. Crisp discrete pixel clusters, stepped dark outlines, limited color ramps matching image1/new Gondor/Mordor, no smooth painting/3D. Entire figure/weapons inside transparent RGBA clear margin, torso centered independently of equipment. No floor/base/shadow/aura/glow/text. Replace neutral bald scalp with required HAIR/BEARD/HAT exactly as source.  MOUNTED unit: Image1 human-mounted neutral controls ONLY rider normal skull/torso/femur/shin BONE LENGTHS and elevated camera. FIVE anatomical heads if rider stands; inspect rider independently from animal total height. Ignore footstanding framing. Animal anatomy/color/species come from image2; no5head rule for animal, no uniform shrinking of mount/rider to fix ratios. Show TOP planes of rider skull, shoulders, saddle and animal neck/withers/head through genuinely elevated front camera, not only bowed head. Exactly2hands on specified objects. EASTERLING KATAPHRAKT: fitted BLACK/GOLD helmet with short RED plume and thick BROWN fur collar, black/bronze lamellar armor, red/gold short tunic/saddlecloth, blackgold greaves. DARK BROWN HORSE fully covered BLACK segmented neck/body armor with GOLD central ridge/edges, angular black/gold chamfron faceplate, dark ears and dark hooves with goldlegbands. One hand viewerLEFT ONE straight brown/redwrapped lance GOLD collars and SILVER leafhead point DOWN/outward, whole tip/butt visible, rigid collinear shaft; other hand reins at belt, exactly2hands. No shield, no exposed riderface. Horse stands nearfront with one foreleg modestly stepped, upper neck/saddle/shoulder planes clear.",
+      "group": "이스터링·칸드",
+      "groupKey": "easterling",
+      "bodyDescription": "인간 기수 5등신 · 하이앵글 프론트뷰",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/human-mounted.png (rider)",
+        "equipment": "Two hands, original shield/axe/lance, intact mount silhouette checked",
+        "camera": "Elevated front with skull/shoulder/saddle upper planes visible",
+        "approval": "pending"
+      },
+      "blobSHA": "625ad641fac9d3ccd03a8cdf88fc05d376965b9a",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-bafaf956-d7ce-46ce-b82a-6f3425022e1c.png"
+    },
+    {
+      "id": "variag_horseman",
+      "mounted": true,
+      "pose": "흰 모피·원형 방패 · 검 기마",
+      "detail": "VARIAG HORSEMAN fitted blackbronze helmet GOLD ridge with TWO ivory horns and small RED crest, BLACK faceopening, large WHITE fur collar/cuffs/hem over brown leather armor and RED cape/tunic, brown boots. DARK BROWN/BLACK HORSE with blackmane/tail, simple brown/gold bridle and mutedred/brown sidetraps/tassels, NO heavy barding. One hand viewerLEFT curved SILVER SABRE pointed low outward, other hand viewerRIGHT ROUND BROWN SHIELD with RED/bronze rim and GOLD centralboss. Exactly2hands both weapons; loose reins drape at saddle, no third hand. Backquiver white arrows and brown bow like source, no bow in hands. Compact adult5head rider, horse head nearfront slightleft.",
+      "prompt": "Dress IMAGE1 original NEUTRAL HUMAN skeleton as IMAGE2 character. IMAGE1 alone controls normal adult skull, torso/limb bone lengths and elevated front camera. EXACTLY FIVE anatomical heads crown-to-sole, one head crown-to-CHIN excluding HAIR, BEARD, HAT or crown. No4head bighead chibi, no6+head tall hero. Copy exact bone segment relationships, use old age/slenderness through face, width and posture only. Full robes cover same compact fivehead bones, never lengthen body or hide feet. If hat/staff needs space, zoom out whole figure and expand clear canvas padding; do NOT shrink body relative to head to fit hat. Image2 identity/equipment/palette only, ignore its proportions. New joint poses required while preserving bone LENGTHS. Elevated FRONT camera looking DOWN30deg, clear TOP planes of head/hat and both shoulders, foreshortened chest/face, chin/gaze angled down separately. Not eyelevel with only bowed head. Crisp discrete pixel clusters, stepped dark outlines, limited color ramps matching image1/new Gondor/Mordor, no smooth painting/3D. Entire figure/weapons inside transparent RGBA clear margin, torso centered independently of equipment. No floor/base/shadow/aura/glow/text. Replace neutral bald scalp with required HAIR/BEARD/HAT exactly as source.  MOUNTED unit: Image1 human-mounted neutral controls ONLY rider normal skull/torso/femur/shin BONE LENGTHS and elevated camera. FIVE anatomical heads if rider stands; inspect rider independently from animal total height. Ignore footstanding framing. Animal anatomy/color/species come from image2; no5head rule for animal, no uniform shrinking of mount/rider to fix ratios. Show TOP planes of rider skull, shoulders, saddle and animal neck/withers/head through genuinely elevated front camera, not only bowed head. Exactly2hands on specified objects. VARIAG HORSEMAN fitted blackbronze helmet GOLD ridge with TWO ivory horns and small RED crest, BLACK faceopening, large WHITE fur collar/cuffs/hem over brown leather armor and RED cape/tunic, brown boots. DARK BROWN/BLACK HORSE with blackmane/tail, simple brown/gold bridle and mutedred/brown sidetraps/tassels, NO heavy barding. One hand viewerLEFT curved SILVER SABRE pointed low outward, other hand viewerRIGHT ROUND BROWN SHIELD with RED/bronze rim and GOLD centralboss. Exactly2hands both weapons; loose reins drape at saddle, no third hand. Backquiver white arrows and brown bow like source, no bow in hands. Compact adult5head rider, horse head nearfront slightleft.",
+      "group": "이스터링·칸드",
+      "groupKey": "easterling",
+      "bodyDescription": "인간 기수 5등신 · 하이앵글 프론트뷰",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/human-mounted.png (rider)",
+        "equipment": "Two hands, original shield/axe/lance, intact mount silhouette checked",
+        "camera": "Elevated front with skull/shoulder/saddle upper planes visible",
+        "approval": "pending"
+      },
+      "blobSHA": "e640a7b80f1bc49b76544003de1dc3f063966c1e",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-923d1441-be99-4f9d-ac6e-43c51ce078a2.png"
+    },
+    {
+      "id": "khandish_horseman",
+      "mounted": true,
+      "pose": "뿔 투구·모피 · 양손 도끼",
+      "detail": "KHANDISH HORSEMAN fitted BRONZE helmet GOLD face ridge with TWO ivoryhorns, WHITE fur collar/cuffs and red cape over brown layered leather/scale armor, brown boots, backquiver white arrows. Warm BROWN HORSE blackmane/tail, brown/gold bridle, small GOLD foreheaddiamond and SMALL WHITE diamond/blaze on MUZZLE like source, mutedred/brown saddlecloth. Exactly TWO hands hold ONE long BROWN WOOD AXE diagonally across low front: broad DARK IRON crescent blade with SILVER edge and GOLD etching at upper viewerLEFT side y15%, hands at chest/waist, shaft straightunbroken. Reins drape loosely at pommel with NO third hand. Normal5head seatedrider, no extra spear/sword/shield. Frontcamera with saddle/neck topplanes.",
+      "prompt": "Dress IMAGE1 original NEUTRAL HUMAN skeleton as IMAGE2 character. IMAGE1 alone controls normal adult skull, torso/limb bone lengths and elevated front camera. EXACTLY FIVE anatomical heads crown-to-sole, one head crown-to-CHIN excluding HAIR, BEARD, HAT or crown. No4head bighead chibi, no6+head tall hero. Copy exact bone segment relationships, use old age/slenderness through face, width and posture only. Full robes cover same compact fivehead bones, never lengthen body or hide feet. If hat/staff needs space, zoom out whole figure and expand clear canvas padding; do NOT shrink body relative to head to fit hat. Image2 identity/equipment/palette only, ignore its proportions. New joint poses required while preserving bone LENGTHS. Elevated FRONT camera looking DOWN30deg, clear TOP planes of head/hat and both shoulders, foreshortened chest/face, chin/gaze angled down separately. Not eyelevel with only bowed head. Crisp discrete pixel clusters, stepped dark outlines, limited color ramps matching image1/new Gondor/Mordor, no smooth painting/3D. Entire figure/weapons inside transparent RGBA clear margin, torso centered independently of equipment. No floor/base/shadow/aura/glow/text. Replace neutral bald scalp with required HAIR/BEARD/HAT exactly as source.  MOUNTED unit: Image1 human-mounted neutral controls ONLY rider normal skull/torso/femur/shin BONE LENGTHS and elevated camera. FIVE anatomical heads if rider stands; inspect rider independently from animal total height. Ignore footstanding framing. Animal anatomy/color/species come from image2; no5head rule for animal, no uniform shrinking of mount/rider to fix ratios. Show TOP planes of rider skull, shoulders, saddle and animal neck/withers/head through genuinely elevated front camera, not only bowed head. Exactly2hands on specified objects. KHANDISH HORSEMAN fitted BRONZE helmet GOLD face ridge with TWO ivoryhorns, WHITE fur collar/cuffs and red cape over brown layered leather/scale armor, brown boots, backquiver white arrows. Warm BROWN HORSE blackmane/tail, brown/gold bridle, small GOLD foreheaddiamond and SMALL WHITE diamond/blaze on MUZZLE like source, mutedred/brown saddlecloth. Exactly TWO hands hold ONE long BROWN WOOD AXE diagonally across low front: broad DARK IRON crescent blade with SILVER edge and GOLD etching at upper viewerLEFT side y15%, hands at chest/waist, shaft straightunbroken. Reins drape loosely at pommel with NO third hand. Normal5head seatedrider, no extra spear/sword/shield. Frontcamera with saddle/neck topplanes.",
+      "group": "이스터링·칸드",
+      "groupKey": "easterling",
+      "bodyDescription": "인간 기수 5등신 · 하이앵글 프론트뷰",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/human-mounted.png (rider)",
+        "equipment": "Two hands, original shield/axe/lance, intact mount silhouette checked",
+        "camera": "Elevated front with skull/shoulder/saddle upper planes visible",
+        "approval": "pending"
+      },
+      "blobSHA": "d5f1c6524ea1793af97046a42fa9ffa8fa145feb",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-5800e7c6-9d21-45e1-bc27-ffcbc5f5171b.png"
+    },
+    {
+      "id": "khandish_chariot",
+      "vehicle": true,
+      "mounted": false,
+      "pose": "전차·운전자 1명·말 2마리",
+      "group": "이스터링·칸드",
+      "groupKey": "easterling",
+      "bodyDescription": "운전자 인간형 5등신·말 2마리 전차 · 하이앵글 프론트뷰",
+      "prompt": "Rebuild IMAGE1 KHANDISH CHARIOT unit in new consistent crisp PIXEL ART. IMAGE1 is CHARIOT/HORSE anatomy, composition and identity master. IMAGE2 original NEUTRAL HUMAN skeleton controls ONLY single DRIVER FIVE-head adult bone lengths and pixelstyle, NOT vehicle anatomy. Exactly ONE human driver standing inside one wooden chariot pulled by exactly TWO BROWN HORSES side by side, NOT one mountedhorse figure. Driver fitted BRONZE pointed helmet GOLD face ridge, WHITE fur collar/cuffs, RED cloak/tunic brown leather armor and brownboots like source. Exactly TWO hands holding ONE straight BROWN SPEAR diagonally across front with SILVER leafhead UP viewerLEFT; no extradriver/thirdhand/reinhand. Loose reins attach logically to pair and drape toward chariot. DarkBROWN WOOD chariot curved frontwall has RED panels GOLD TREE motifs and gold/bronze rims; TWO large whole wheels left/right with GOLD central spiked axle hubs, structural axle below platform, single curved GOLD/BROWN yoke attaches to both horses with continuous shafts/traces. TWO brownhorses blackmanes/tails, RED/GOLD forehead/breastcloths with gold tree glyphs and brown/gold bridles, no white horse added. Horses natural fourleganatomy each, heads nearfront; occluded legs plausible not extra legs. Elevated FRONT looking down30deg shows driver crown/shoulder tops, chariot floor/frontwall upper surfaces, both horse skull/back/neck planes. Driver ifstanding FIVE anatomicalheads excluding helmet/fur, ordinary skull not hugechibi, no longlimbed6+hero. Source equipment/colours preserved, no added passenger/flags. Entire wheels/hubs/spear tips/hooves inside generous clear transparent RGBA padding, combined chariot+horse bodycenter independent of spear. Discrete pixelclusters, stepped dark outlines, restrained brown/red/gold ramps like image2/new Gondor; no smooth3D, no floor/base/terrain/shadow/smoke/glow/text.",
+      "visualReview": {
+        "anatomyReference": "tokens/khandish_chariot.png (cart/horses); bases/human.png (driver)",
+        "equipment": "One driver, two horses, two wheels, complete spear and connected yoke checked",
+        "camera": "Elevated front with skull/shoulder/saddle upper planes visible",
+        "approval": "pending"
+      },
+      "blobSHA": "6c0757c43d94e981ae7324f544526b98b35119b2",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-0c62343e-048a-470a-aa16-8bf7db81ae14.png"
+    }
+  ]
+}
