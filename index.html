@@ -19419,7 +19419,7 @@ if(window.MESBG){MESBG.bonds=HERO_BONDS;MESBG.aiMove=uid=>be(q,q.unit(uid));}
    slot, guest = 'evil' slot) and pushes snapshots; the guest's device shows the snapshot with sides swapped
    (its own army is "아군") and relays its orders as commands. Transport: lwb-worker /room API, HTTP polling. */
 const ONLINE={role:null,code:null,token:null,settings:null,seq:0,stateSeq:-1,cmdSince:0,timer:null,busy:false,pushQueued:false,bfKey:'',events:[],lastErr:0};
-const PVP_BUDGETS=[300,500,800];
+const PVP_BUDGETS=[300,500,800];const PVP_GOLDS=[100,200,350];
 const pvpApi=()=>{try{const u=new URLSearchParams(location.search).get('pvpapi');if(u)return u.replace(/\/$/,'');const s=localStorage.getItem('lwb_pvp_api');if(s)return s;}catch(e){}return LWB_API;};
 async function pvpFetch(path,opt={}){const api=pvpApi();if(!api)throw new Error('서버가 연결되지 않았습니다');
     const r=await fetch(api+path,{method:opt.method||'GET',headers:{'Content-Type':'application/json'},body:opt.body?JSON.stringify(opt.body):undefined});
@@ -19429,10 +19429,28 @@ function pvpStop(){clearTimeout(ONLINE.timer);ONLINE.timer=null;Object.assign(ON
 
 // ---------- band rules ----------
 function pvpCatalog(align){return Object.values(UnitCatalog).filter(d=>d.enabled&&d.meta.side===align&&d.points>0&&q.meta.has(d.id)).sort((a,b)=>(a.meta.faction||'').localeCompare(b.meta.faction||'')||(b.points-a.points));}
-function pvpBandCheck(band,budget){const ids=band.units||[];let pts=0;const uniq=new Set();
+function pvpBandCheck(band,budget,gold){const ids=band.units||[];let pts=0;const uniq=new Set();
     for(const id of ids){const d=UnitCatalog[id];if(!d||!d.enabled||d.meta.side!==band.align)return '편성할 수 없는 유닛이 있습니다';pts+=d.points;const k=d.uniqueKey;if(k){if(uniq.has(k))return esc(d.meta.name_ko)+'은(는) 한 명만 편성할 수 있습니다';uniq.add(k);}}
-    if(!ids.length)return '유닛을 한 명 이상 편성하세요';if(ids.length>30)return '최대 30명까지 편성할 수 있습니다';if(pts>budget)return '포인트 초과 ('+pts+' / '+budget+')';return '';}
+    if(!ids.length)return '유닛을 한 명 이상 편성하세요';if(ids.length+(band.mercs||[]).length>30)return '최대 30명까지 편성할 수 있습니다';if(pts>budget)return '포인트 초과 ('+pts+' / '+budget+')';
+    for(const id of band.mercs||[]){const d=UnitCatalog[id];if(!d||d.meta.side!==band.align)return '고용할 수 없는 용병이 있습니다';}
+    if(gold!=null&&(band.spent||0)>gold)return '군자금 초과 ('+(band.spent||0)+' / '+gold+')';
+    const per={},uniqEq=new Set();
+    for(const {eq,idx} of band.equip||[]){const a=LWB_EQUIP.find(x=>x.id===eq),id=ids[idx];if(!a||!id)return '장비 대상이 없습니다';const why=pvpEquipWhy(a,id,per[idx]||[]);if(why)return esc(UnitCatalog[id].meta.name_ko)+': '+why;
+        if(a.rare>=2){if(uniqEq.has(eq))return a.label+'은(는) 하나만 가질 수 있습니다';uniqEq.add(eq);}(per[idx]||(per[idx]=[])).push(eq);}
+    return '';}
 const pvpPoints=ids=>ids.reduce((a,id)=>a+(UnitCatalog[id]?.points||0),0);
+// ---------- war chest shop (random offers per player) ----------
+const PVP_REROLL=15;
+function pvpMock(id){const p=zt[id]||{};return {id,traits:(p.traits||[]).slice(),stats:{...p},resources:{might:p.might||0,will:p.will||0,fate:p.fate||0}};}
+function pvpEquipWhy(a,id,has){const u=pvpMock(id);if(!(typeof isHeroUnit==='function'?isHeroUnit(id):u.traits.includes('hero')))return '영웅만 장비를 착용할 수 있습니다';
+    if(a.req&&!a.req(u))return '착용 조건이 맞지 않습니다';if(has.includes(a.id))return '이미 착용 중';if(has.length>=2)return '장비 칸(2)이 가득 찼습니다';return '';}
+function pvpRng(str){let h=2166136261;for(const c of str){h^=c.charCodeAt(0);h=Math.imul(h,16777619);}return Ne(h>>>0);}
+function pvpOffers(band){const rng=pvpRng((ONLINE.code||'')+'|'+ONLINE.role+'|'+(band.rerolls||0)+'|'+band.align),out=[];
+    const bag=LWB_EQUIP.filter(a=>!a.once&&!a.mount&&!a.mountGear&&a.cost>0&&a.fx).flatMap(a=>Array(a.rare>=2?1:4).fill(a));
+    while(out.length<4&&bag.length){const k=Math.floor(rng()*bag.length),a=bag[k];bag.splice(k,1);if(!out.some(o=>o.id===a.id))out.push({kind:'eq',id:a.id,cost:a.cost});}
+    const cat=pvpCatalog(band.align).filter(d=>d.points<=110&&!(typeof isHeroUnit==='function'&&isHeroUnit(d.id)));
+    for(let n=0;n<2&&cat.length;n++){const k=Math.floor(rng()*cat.length),d=cat[k];cat.splice(k,1);out.push({kind:'merc',id:d.id,cost:Math.max(10,Math.round(d.points*.8/5)*5)});}
+    return out;}
 
 // ---------- host: build and run the battle ----------
 P.startPvp=function(hostBand,guestBand,settings,seed){
@@ -19441,16 +19459,18 @@ P.startPvp=function(hostBand,guestBand,settings,seed){
     this.rng=Ne(seed>>>0);this.units=[];this.recruitOffers=[];this.recruitDraft=[];this.initialDraft=false;this.relics={};this.gold=0;this.cp=0;
     this.pvp={manual:settings.mode!=='auto',hostAlign:hostBand.align,guestAlign:guestBand.align,hostName:hostBand.name||'방장',guestName:guestBand.name||'도전자',result:null};
     this._darkEvent=true;this._eagleSent=true;this._midReinforced=true;this.nemeses=[];
-    for(const id of hostBand.units){const u=this.spawn(id,'good',{x:-1000,y:-1000});u.quirkChecked=true;u.pvpBand=true;}
+    const gearUp=(u,band,idx)=>{const eq=(band.equip||[]).filter(e=>e.idx===idx).map(e=>e.eq).filter(id=>LWB_EQUIP.some(a=>a.id===id));if(eq.length){u.equipment=eq;this.refreshUnit(u);u.currentWounds=u.stats.wounds;}};
+    hostBand.units.forEach((id,idx)=>{const u=this.spawn(id,'good',{x:-1000,y:-1000});u.quirkChecked=true;u.pvpBand=true;gearUp(u,hostBand,idx);});
+    for(const id of hostBand.mercs||[]){const u=this.spawn(id,'good',{x:-1000,y:-1000});u.quirkChecked=true;u.pvpBand=true;u.pvpMerc=true;}
     const base=this.stageInfo(3);
-    this._routeChoice={...base,map:Number.isInteger(settings.map)?settings.map%CX.maps.length:base.map,mission:'annihilation',ids:guestBand.units.slice(),boss:null,bossAll:null,modifier:null,n:3};
+    this._routeChoice={...base,map:Number.isInteger(settings.map)?settings.map%CX.maps.length:base.map,mission:'annihilation',ids:guestBand.units.concat(guestBand.mercs||[]),boss:null,bossAll:null,modifier:null,n:3};
     this.prepareStage();
     for(const u of this.alive('good'))if(u.x<0)this.placeInDeployment(u);
     this.startWave();
     this._darkEvent=true;this.darkPending=null;this.darkActive=null;
     // Campaign extras never belong in a duel: drop anything not in the two bands.
-    const want={};for(const id of guestBand.units)want[id]=(want[id]||0)+1;
-    for(const u of this.units){if(u.side==='good'&&!u.pvpBand){u.alive=false;continue;}if(u.side==='evil'){if(want[u.id]>0){want[u.id]--;u.pvpBand=true;}else u.alive=false;}}
+    const slots=guestBand.units.map((id,idx)=>({id,idx})).concat((guestBand.mercs||[]).map(id=>({id,idx:-1})));
+    for(const u of this.units){if(u.side==='good'&&!u.pvpBand){u.alive=false;continue;}if(u.side!=='evil')continue;const k=slots.findIndex(x=>x.id===u.id);if(k<0){u.alive=false;continue;}const sl=slots.splice(k,1)[0];u.pvpBand=true;if(sl.idx<0)u.pvpMerc=true;else gearUp(u,guestBand,sl.idx);}
     this.units=this.units.filter(u=>u.alive||u.pvpBand);
     if(!this.pvp.manual)AUTO=true;
     return true;
@@ -19553,51 +19573,93 @@ function pvpLobbyStyle(){if(document.getElementById('pvp-style'))return;const st
 #pvp-lobby .pv-band{display:flex;flex-wrap:wrap;gap:4px;min-height:48px;padding:4px;border:1px dashed #6f6446;margin:6px 0}
 #pvp-lobby .pv-band button{min-height:44px;width:44px;padding:0;position:relative}
 #pvp-lobby .pv-band button img{width:40px;height:40px;object-fit:contain;image-rendering:pixelated}
-#pvp-lobby .pv-err{color:#ff9c8c;font-size:13px;min-height:1.4em}`;document.head.appendChild(st);}
+#pvp-lobby .pv-err{color:#ff9c8c;font-size:13px;min-height:1.4em}
+#pvp-lobby .pv-offers{display:grid;gap:6px;margin:8px 0}
+#pvp-lobby .pv-offer{display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:8px;align-items:center;padding:6px;border:1px solid #6f6446;background:#14100acc}
+#pvp-lobby .pv-offer.sold{opacity:.55}
+#pvp-lobby .pv-offer>img{width:40px;height:40px;object-fit:contain;image-rendering:pixelated}
+#pvp-lobby .pv-o-tx{display:flex;flex-direction:column;gap:2px;min-width:0;font-size:13px;line-height:1.4}
+#pvp-lobby .pv-o-tx small{color:#c8b896;font-size:12px;line-height:1.45;word-break:keep-all;overflow-wrap:anywhere}
+#pvp-lobby .pv-o-tx select{min-height:32px;font-size:13px;background:#11160d;color:#efe6cf;border:1px solid #6f6446;max-width:100%}
+#pvp-lobby .pv-offer>button{min-width:84px;padding:0 8px}
+#pvp-lobby .pv-warn{color:#ff9c8c!important}
+#pvp-lobby .pv-owned{display:flex;flex-wrap:wrap;gap:4px}
+#pvp-lobby .pv-own{display:flex;align-items:center;gap:4px;min-height:36px;padding:2px 8px;font-size:12px;white-space:normal}
+#pvp-lobby .pv-own img{width:24px;height:24px;object-fit:contain;image-rendering:pixelated}
+#pvp-lobby .pv-band button.merc{outline:2px solid #d8b45e;outline-offset:-2px;opacity:1}
+#pvp-lobby .pv-eqn{position:absolute;right:1px;top:1px;font:700 10px/12px Galmuri11,sans-serif;color:#1a1206;background:#e8c66a;padding:0 3px;font-style:normal}
+#pvp-lobby .pv-tabs button{font-size:13px}`;document.head.appendChild(st);}
 function pvpLobby(){pvpLobbyStyle();closePvpLobby();const el=document.createElement('div');el.id='pvp-lobby';el.innerHTML='<div class="pv-sheet"></div>';document.body.appendChild(el);
-    PVP_LOBBY={el,step:'home',settings:{budget:500,mode:'auto',map:Math.floor(Math.random()*CX.maps.length)},band:{align:'good',units:[],name:''},faction:'',timer:null,info:null,err:''};
+    PVP_LOBBY={el,step:'home',tab:'band',settings:{budget:500,gold:200,mode:'auto',map:Math.floor(Math.random()*CX.maps.length)},band:{align:'good',units:[],name:'',equip:[],mercs:[],spent:0,rerolls:0,sold:[]},faction:'',timer:null,info:null,err:''};
     el.addEventListener('click',e=>{if(e.target===el)return;});pvpRender();}
 function pvpRender(){const L=PVP_LOBBY;if(!L)return;const box=L.el.querySelector('.pv-sheet');const s=L.settings;
     const err='<div class="pv-err" role="status">'+esc(L.err||'')+'</div>';
     if(L.step==='home'){box.innerHTML='<h2>온라인 대전</h2><p>두 사람이 같은 포인트로 부대를 짜서 맞붙습니다. 방장이 만든 비공개 코드로만 들어올 수 있습니다.</p>'
         +'<div class="pv-label">편성 포인트</div><div class="pv-row">'+PVP_BUDGETS.map(b=>'<button type="button" data-budget="'+b+'" class="'+(s.budget===b?'on':'')+'">'+b+'pt</button>').join('')+'</div>'
+        +'<div class="pv-label">군자금 (상점에서 사용)</div><div class="pv-row">'+PVP_GOLDS.map(g=>'<button type="button" data-gold="'+g+'" class="'+(s.gold===g?'on':'')+'">금화 '+g+'</button>').join('')+'</div>'
         +'<div class="pv-label">대전 방식</div><div class="pv-row two"><button type="button" data-mode="auto" class="'+(s.mode==='auto'?'on':'')+'">오토 대전</button><button type="button" data-mode="manual" class="'+(s.mode==='manual'?'on':'')+'">수동 대전</button></div>'
         +'<button type="button" class="primary" id="pv-create" style="width:100%">방 만들기</button>'
         +'<div class="pv-label" style="margin-top:14px">코드로 참가</div><input id="pv-code" maxlength="6" autocomplete="off" placeholder="ABC123"><div class="pv-row two" style="margin-top:8px"><button type="button" id="pv-join" class="secondary">참가하기</button><button type="button" id="pv-close" class="secondary">닫기</button></div>'+err;
         box.querySelectorAll('[data-budget]').forEach(b=>b.onclick=()=>{s.budget=+b.dataset.budget;pvpRender();});
-        box.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{s.mode=b.dataset.mode;pvpRender();});
+        box.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{s.mode=b.dataset.mode;pvpRender();});box.querySelectorAll('[data-gold]').forEach(b=>b.onclick=()=>{s.gold=+b.dataset.gold;pvpRender();});
         box.querySelector('#pv-close').onclick=()=>{closePvpLobby();pvpStop();};
         box.querySelector('#pv-create').onclick=async()=>{L.err='';try{const r=await pvpFetch('/room',{method:'POST',body:{settings:s}});Object.assign(ONLINE,{role:'host',code:r.code,token:r.token,settings:{...s}});L.step='build';pvpRender();pvpLobbyPoll();}catch(e){L.err=e.message;pvpRender();}};
         box.querySelector('#pv-join').onclick=async()=>{L.err='';const code=(box.querySelector('#pv-code').value||'').trim().toUpperCase();if(!/^[A-Z0-9]{6}$/.test(code)){L.err='6자리 코드를 입력하세요';pvpRender();return;}
             try{const r=await pvpFetch('/room/'+code+'/join',{method:'POST',body:{}});Object.assign(ONLINE,{role:'guest',code,token:r.token,settings:r.settings||{}});L.settings={...L.settings,...(r.settings||{})};L.step='build';pvpRender();pvpLobbyPoll();}catch(e){L.err=e.message;pvpRender();}};
         return;}
-    const budget=ONLINE.settings?.budget||s.budget,band=L.band,pts=pvpPoints(band.units),info=L.info||{};
+    const budget=ONLINE.settings?.budget||s.budget,gold=ONLINE.settings?.gold??s.gold,band=L.band,pts=pvpPoints(band.units),info=L.info||{};
     const mineReady=ONLINE.role==='host'?!!info.hostBand:!!info.guestBand,otherReady=ONLINE.role==='host'?!!info.guestBand:!!info.hostBand;
-    const status='<div class="pv-status">방 코드<div class="pv-code">'+esc(ONLINE.code)+'</div>'+(ONLINE.settings?.mode==='manual'?'수동 대전':'오토 대전')+' · '+budget+'pt · '+(ONLINE.role==='host'?(info.guest?'상대 입장 완료':'상대를 기다리는 중 — 코드를 알려 주세요'):'방장과 연결됨')+'<br>내 편성 '+(mineReady?'준비 완료':'작성 중')+' · 상대 편성 '+(otherReady?'준비 완료':'작성 중')+'</div>';
+    const status='<div class="pv-status">방 코드<div class="pv-code">'+esc(ONLINE.code)+'</div>'+(ONLINE.settings?.mode==='manual'?'수동 대전':'오토 대전')+' · '+budget+'pt · 금화 '+gold+' · '+(ONLINE.role==='host'?(info.guest?'상대 입장 완료':'상대를 기다리는 중 — 코드를 알려 주세요'):'방장과 연결됨')+'<br>내 편성 '+(mineReady?'준비 완료':'작성 중')+' · 상대 편성 '+(otherReady?'준비 완료':'작성 중')+'</div>';
     if(L.step==='ready'){box.innerHTML='<h2>대기실</h2>'+status+(ONLINE.role==='host'?'<button type="button" class="primary" id="pv-start" style="width:100%;margin-top:10px"'+(otherReady&&mineReady?'':' disabled')+'>전투 시작</button>':'<p>방장이 전투를 시작하면 바로 넘어갑니다.</p>')+'<div class="pv-row two" style="margin-top:8px"><button type="button" id="pv-edit" class="secondary">편성 수정</button><button type="button" id="pv-leave" class="secondary">나가기</button></div>'+err;
         box.querySelector('#pv-edit').onclick=()=>{L.step='build';pvpRender();};
         box.querySelector('#pv-leave').onclick=()=>{closePvpLobby();pvpStop();};
         const st=box.querySelector('#pv-start');if(st)st.onclick=()=>pvpHostStart();return;}
+    const tabs='<div class="pv-row two pv-tabs"><button type="button" data-tab="band" class="'+(L.tab!=='shop'?'on':'')+'">부대 편성 ('+pts+'/'+budget+'pt)</button><button type="button" data-tab="shop" class="'+(L.tab==='shop'?'on':'')+'">상점 (금화 '+Math.max(0,gold-(band.spent||0))+')</button></div>';
+    const wireTabs=()=>box.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{L.tab=b.dataset.tab;L.err='';pvpRender();});
+    const img=id=>(typeof Th==='function'?Th(UnitCatalog[id].meta.file):Ut(UnitCatalog[id].meta.file));
+    if(L.tab==='shop'){
+        const left=gold-(band.spent||0),offers=pvpOffers(band),sold=band.sold||[];
+        const heroes=band.units.map((id,idx)=>({id,idx})).filter(h=>typeof isHeroUnit==='function'?isHeroUnit(h.id):true);
+        const card=(o,i)=>{const isEq=o.kind==='eq',a=isEq&&LWB_EQUIP.find(x=>x.id===o.id),d=!isEq&&UnitCatalog[o.id],done=sold.includes(i);
+            let pickHtml='';if(isEq&&!done){const ok=heroes.filter(h=>!pvpEquipWhy(a,h.id,band.equip.filter(e=>e.idx===h.idx).map(e=>e.eq)));
+                pickHtml=ok.length?'<select data-target="'+i+'" aria-label="장착할 영웅">'+ok.map(h=>'<option value="'+h.idx+'">'+esc(UnitCatalog[h.id].meta.name_ko)+'</option>').join('')+'</select>':'<small class="pv-warn">장착할 수 있는 영웅이 없습니다</small>';}
+            return '<div class="pv-offer'+(done?' sold':'')+'"><img src="'+(isEq?(a.iconImg||'icons/ui_swords.png'):img(o.id))+'" alt=""><div class="pv-o-tx"><b>'+esc(isEq?a.label:d.meta.name_ko)+'</b><small>'+esc(isEq?a.desc:'용병 · 포인트 대신 금화로 고용 · '+d.points+'pt 상당')+'</small>'+pickHtml+'</div><button type="button" class="'+(done?'secondary':'primary')+'" data-buy="'+i+'"'+(done||o.cost>left||(isEq&&!pickHtml.includes('<select'))?' disabled':'')+'>'+(done?'구매함':'금화 '+o.cost)+'</button></div>';};
+        const owned=band.equip.map((e,k)=>{const a=LWB_EQUIP.find(x=>x.id===e.eq);return '<button type="button" class="pv-own" data-unequip="'+k+'" title="되팔기 (전액 환불)"><img src="'+(a?.iconImg||'icons/ui_swords.png')+'" alt=""><span>'+esc(a?.label||e.eq)+' → '+esc(UnitCatalog[band.units[e.idx]]?.meta.name_ko||'')+'</span></button>';}).join('')
+            +band.mercs.map((id,k)=>'<button type="button" class="pv-own" data-unmerc="'+k+'" title="계약 해지 (전액 환불)"><img src="'+img(id)+'" alt=""><span>용병 '+esc(UnitCatalog[id].meta.name_ko)+'</span></button>').join('');
+        box.innerHTML='<h2>상점</h2>'+status+tabs+'<p>상품은 사람마다 무작위로 나옵니다. 장비는 편성한 영웅에게 붙고, 용병은 포인트 대신 금화로 고용합니다.</p>'
+            +'<div class="pv-offers">'+offers.map(card).join('')+'</div>'
+            +'<div class="pv-row two"><button type="button" class="secondary" id="pv-reroll"'+(left<PVP_REROLL?' disabled':'')+'>상품 바꾸기 · 금화 '+PVP_REROLL+'</button><button type="button" class="primary" id="pv-ready">편성 완료</button></div>'
+            +(owned?'<div class="pv-label">구매한 것 (누르면 환불)</div><div class="pv-owned">'+owned+'</div>':'')+err;
+        wireTabs();
+        box.querySelectorAll('[data-buy]').forEach(b=>b.onclick=()=>{const i=+b.dataset.buy,o=offers[i];if(!o||sold.includes(i)||o.cost>gold-(band.spent||0))return;
+            if(o.kind==='eq'){const sel=box.querySelector('[data-target="'+i+'"]');if(!sel)return;band.equip.push({eq:o.id,idx:+sel.value});}else{if(band.units.length+band.mercs.length>=30){L.err='최대 30명까지 편성할 수 있습니다';pvpRender();return;}band.mercs.push(o.id);}
+            band.spent=(band.spent||0)+o.cost;(band.sold||(band.sold=[])).push(i);L.err='';wt.play&&wt.play('ui_select');pvpRender();});
+        box.querySelector('#pv-reroll').onclick=()=>{if(gold-(band.spent||0)<PVP_REROLL)return;band.rerolls=(band.rerolls||0)+1;band.spent=(band.spent||0)+PVP_REROLL;band.sold=[];pvpRender();};
+        box.querySelectorAll('[data-unequip]').forEach(b=>b.onclick=()=>{const e=band.equip.splice(+b.dataset.unequip,1)[0];band.spent-=(LWB_EQUIP.find(a=>a.id===e.eq)?.cost||0);pvpRender();});
+        box.querySelectorAll('[data-unmerc]').forEach(b=>b.onclick=()=>{const id=band.mercs.splice(+b.dataset.unmerc,1)[0];band.spent-=Math.max(10,Math.round((UnitCatalog[id]?.points||0)*.8/5)*5);pvpRender();});
+        box.querySelector('#pv-ready').onclick=async()=>{const why=pvpBandCheck(band,budget,gold);if(why){L.err=why;pvpRender();return;}L.err='';
+            try{await pvpFetch('/room/'+ONLINE.code+'/band',{method:'POST',body:{token:ONLINE.token,band:{align:band.align,units:band.units,mercs:band.mercs,equip:band.equip,spent:band.spent,name:(band.name||'').trim()||(ONLINE.role==='host'?'방장':'도전자')}}});L.step='ready';pvpRender();}catch(e){L.err=e.message;pvpRender();}};
+        return;}
     // build
     const cat=pvpCatalog(band.align),facs=[...new Set(cat.map(d=>d.meta.faction))];
     const fk=f=>({other:'기타',men:'인간'})[f]||FACTION_LABEL(cat.find(d=>d.meta.faction===f)?.id||'')||f;
     const shown=cat.filter(d=>!L.faction||d.meta.faction===L.faction);
-    box.innerHTML='<h2>부대 편성</h2>'+status
+    box.innerHTML='<h2>부대 편성</h2>'+status+tabs
         +'<div class="pv-label">부대 이름</div><input class="pv-name" id="pv-name" maxlength="16" placeholder="'+(ONLINE.role==='host'?'방장':'도전자')+'" value="'+esc(band.name||'')+'">'
         +'<div class="pv-label">진영</div><div class="pv-row two"><button type="button" data-align="good" class="'+(band.align==='good'?'on':'')+'">자유 민족 (선)</button><button type="button" data-align="evil" class="'+(band.align==='evil'?'on':'')+'">어둠의 세력 (악)</button></div>'
         +'<div class="pv-chips"><button type="button" data-fac="" class="'+(!L.faction?'on':'')+'">전체</button>'+facs.map(f=>'<button type="button" data-fac="'+f+'" class="'+(L.faction===f?'on':'')+'">'+esc(fk(f))+'</button>').join('')+'</div>'
         +'<div class="pv-list">'+shown.slice(0,120).map(d=>'<button type="button" class="pv-unit" data-add="'+d.id+'"'+(pts+d.points>budget?' disabled':'')+'><img src="'+(typeof Th==='function'?Th(d.meta.file):Ut(d.meta.file))+'" alt=""><span><b>'+esc(d.meta.name_ko)+'</b><small>'+d.points+'pt</small></span></button>').join('')+'</div>'
         +'<div class="pv-pts"><span>내 부대 '+band.units.length+'명</span><b class="'+(pts>budget?'over':'')+'">'+pts+' / '+budget+'pt</b></div>'
-        +'<div class="pv-band">'+band.units.map((id,i)=>'<button type="button" data-rm="'+i+'" title="'+esc(UnitCatalog[id].meta.name_ko)+' 빼기" aria-label="'+esc(UnitCatalog[id].meta.name_ko)+' 빼기"><img src="'+(typeof Th==='function'?Th(UnitCatalog[id].meta.file):Ut(UnitCatalog[id].meta.file))+'" alt=""></button>').join('')+'</div>'
+        +'<div class="pv-band">'+band.mercs.map(id=>'<button type="button" class="merc" disabled title="용병 (상점에서 관리)"><img src="'+img(id)+'" alt=""></button>').join('')+band.units.map((id,i)=>'<button type="button" data-rm="'+i+'" title="'+esc(UnitCatalog[id].meta.name_ko)+' 빼기" aria-label="'+esc(UnitCatalog[id].meta.name_ko)+' 빼기"><img src="'+img(id)+'" alt="">'+(band.equip.some(e=>e.idx===i)?'<i class="pv-eqn">'+band.equip.filter(e=>e.idx===i).length+'</i>':'')+'</button>').join('')+'</div>'
         +'<div class="pv-row two"><button type="button" class="primary" id="pv-ready">편성 완료</button><button type="button" id="pv-leave" class="secondary">나가기</button></div>'+err;
-    box.querySelector('#pv-name').oninput=e=>{band.name=e.target.value.slice(0,16);};
-    box.querySelectorAll('[data-align]').forEach(b=>b.onclick=()=>{if(band.align!==b.dataset.align){band.align=b.dataset.align;band.units=[];L.faction='';}pvpRender();});
+    wireTabs();box.querySelector('#pv-name').oninput=e=>{band.name=e.target.value.slice(0,16);};
+    box.querySelectorAll('[data-align]').forEach(b=>b.onclick=()=>{if(band.align!==b.dataset.align){band.align=b.dataset.align;band.units=[];band.mercs=[];band.equip=[];band.spent=(band.rerolls||0)*PVP_REROLL;band.sold=[];L.faction='';}pvpRender();});
     box.querySelectorAll('[data-fac]').forEach(b=>b.onclick=()=>{L.faction=b.dataset.fac;pvpRender();});
-    box.querySelectorAll('[data-add]').forEach(b=>b.onclick=()=>{const id=b.dataset.add,t={...band,units:band.units.concat(id)};const why=pvpBandCheck(t,budget);if(why&&!/^유닛을/.test(why)){L.err=why;pvpRender();return;}L.err='';band.units.push(id);const sc=box.querySelector('.pv-list').scrollTop;pvpRender();PVP_LOBBY.el.querySelector('.pv-list').scrollTop=sc;});
-    box.querySelectorAll('[data-rm]').forEach(b=>b.onclick=()=>{band.units.splice(+b.dataset.rm,1);const sc=box.querySelector('.pv-list').scrollTop;pvpRender();PVP_LOBBY.el.querySelector('.pv-list').scrollTop=sc;});
+    box.querySelectorAll('[data-add]').forEach(b=>b.onclick=()=>{const id=b.dataset.add,t={...band,units:band.units.concat(id)};const why=pvpBandCheck(t,budget,null);if(why&&!/^유닛을/.test(why)){L.err=why;pvpRender();return;}L.err='';band.units.push(id);const sc=box.querySelector('.pv-list').scrollTop;pvpRender();PVP_LOBBY.el.querySelector('.pv-list').scrollTop=sc;});
+    box.querySelectorAll('[data-rm]').forEach(b=>b.onclick=()=>{const k=+b.dataset.rm;for(const e of band.equip.filter(e=>e.idx===k))band.spent-=(LWB_EQUIP.find(a=>a.id===e.eq)?.cost||0);band.equip=band.equip.filter(e=>e.idx!==k).map(e=>({...e,idx:e.idx>k?e.idx-1:e.idx}));band.units.splice(k,1);const sc=box.querySelector('.pv-list').scrollTop;pvpRender();PVP_LOBBY.el.querySelector('.pv-list').scrollTop=sc;});
     box.querySelector('#pv-leave').onclick=()=>{closePvpLobby();pvpStop();};
-    box.querySelector('#pv-ready').onclick=async()=>{const why=pvpBandCheck(band,budget);if(why){L.err=why;pvpRender();return;}L.err='';
-        try{await pvpFetch('/room/'+ONLINE.code+'/band',{method:'POST',body:{token:ONLINE.token,band:{align:band.align,units:band.units,name:(band.name||'').trim()||(ONLINE.role==='host'?'방장':'도전자')}}});L.step='ready';pvpRender();}catch(e){L.err=e.message;pvpRender();}};
+    box.querySelector('#pv-ready').onclick=async()=>{const why=pvpBandCheck(band,budget,gold);if(why){L.err=why;pvpRender();return;}L.err='';
+        try{await pvpFetch('/room/'+ONLINE.code+'/band',{method:'POST',body:{token:ONLINE.token,band:{align:band.align,units:band.units,mercs:band.mercs,equip:band.equip,spent:band.spent,name:(band.name||'').trim()||(ONLINE.role==='host'?'방장':'도전자')}}});L.step='ready';pvpRender();}catch(e){L.err=e.message;pvpRender();}};
 }
 async function pvpLobbyPoll(){const L=PVP_LOBBY;if(!L||!ONLINE.role)return;
     try{const r=await pvpFetch('/room/'+ONLINE.code+'?token='+ONLINE.token+'&since='+ONLINE.stateSeq);const before=JSON.stringify([L.info?.guest,!!L.info?.hostBand,!!L.info?.guestBand]);L.info=r;if(r.settings)ONLINE.settings=r.settings;
@@ -19606,7 +19668,7 @@ async function pvpLobbyPoll(){const L=PVP_LOBBY;if(!L||!ONLINE.role)return;
     catch(e){L.err=e.message;}
     if(PVP_LOBBY)PVP_LOBBY.timer=setTimeout(pvpLobbyPoll,1200);}
 async function pvpHostStart(){const L=PVP_LOBBY;try{const r=await pvpFetch('/room/'+ONLINE.code+'?token='+ONLINE.token);
-        const budget=ONLINE.settings.budget;for(const [b,who] of [[r.hostBand,'내'],[r.guestBand,'상대']]){const why=b?pvpBandCheck(b,budget):'편성이 없습니다';if(why){L.err=who+' 편성: '+why;pvpRender();return;}}
+        const budget=ONLINE.settings.budget,gold=ONLINE.settings.gold??0;for(const [b,who] of [[r.hostBand,'내'],[r.guestBand,'상대']]){const why=b?pvpBandCheck(b,budget,gold):'편성이 없습니다';if(why){L.err=who+' 편성: '+why;pvpRender();return;}}
         closePvpLobby();const seed=(Math.random()*2**31)|0;
         let failed=null;await Rt(()=>{try{q.startPvp(r.hostBand,r.guestBand,ONLINE.settings,seed);}catch(e){failed=e;console.error('[pvp start]',e);}});if(failed){Xt('대전 시작 실패 — '+failed.message);return;}pvpPush();clearTimeout(ONLINE.timer);pvpHostPoll();}
     catch(e){if(L){L.err=e.message;pvpRender();}else Xt('대전 시작 실패 — '+e.message);}}
