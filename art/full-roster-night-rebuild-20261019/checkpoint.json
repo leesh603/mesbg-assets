@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T04:24:51.140Z",
+  "updatedAt": "2026-10-20T04:25:10.702Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 47,
-    "newlyGeneratedThisSession": 331,
-    "visuallyReviewedThisSession": 336,
+    "pending": 42,
+    "newlyGeneratedThisSession": 336,
+    "visuallyReviewedThisSession": 341,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 331,
-    "persistedReviewAssets": 463,
+    "generatedReviewAssets": 336,
+    "persistedReviewAssets": 468,
     "revisedAfterRejection": 18
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -51,11 +51,11 @@
   "resume": {
     "nextAction": "Continue pending roster with original species skeletons; inspect and save small batches to unified gallery.",
     "nextIds": [
-      "great_eagle",
-      "melkor",
-      "draugluin",
-      "thuringwethil",
-      "boldog"
+      "bard",
+      "azog",
+      "azog_foot",
+      "necromancer",
+      "hunter_orc"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
@@ -1878,8 +1878,13 @@
       "faction": "eagle",
       "role": "monster",
       "original": "tokens/great_eagle.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "eagle",
+      "path": "art/full-roster-night-rebuild-20261019/units/great_eagle.png",
+      "blobSHA": "aedb31cfc39b9a9c60f59daa54d275233a49184a",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "ent",
@@ -2215,8 +2220,13 @@
       "faction": "angband",
       "role": "hero",
       "original": "tokens/melkor.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "angband",
+      "path": "art/full-roster-night-rebuild-20261019/units/melkor.png",
+      "blobSHA": "a0cf83ed1244d17770ece3d36e0c754c4e2d68f3",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "mumakil",
@@ -2614,8 +2624,13 @@
       "faction": "angband",
       "role": "monster",
       "original": "tokens/draugluin.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "angband",
+      "path": "art/full-roster-night-rebuild-20261019/units/draugluin.png",
+      "blobSHA": "d3d08966ffa6e31e87fd246858b5f94ab5c6da85",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "thuringwethil",
@@ -2623,8 +2638,13 @@
       "faction": "angband",
       "role": "monster",
       "original": "tokens/thuringwethil.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "angband",
+      "path": "art/full-roster-night-rebuild-20261019/units/thuringwethil.png",
+      "blobSHA": "dcb90947c7f225d6d9397f47e5bf66193113cda9",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "boldog",
@@ -2632,8 +2652,13 @@
       "faction": "angband",
       "role": "hero",
       "original": "tokens/boldog.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "angband",
+      "path": "art/full-roster-night-rebuild-20261019/units/boldog.png",
+      "blobSHA": "16137e009a463ec2beebe55c5d1371196dc78925",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "thorin",
@@ -7749,17 +7774,18 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 463,
+    "count": 468,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
+      "앙그반드": 8,
+      "독수리": 1,
       "arnor": 14,
       "men": 11,
-      "앙그반드": 4,
       "앙마르": 3,
       "돌 굴두르": 4,
-      "모리아": 17,
+      "moria": 17,
       "에레보르": 1,
       "엔트": 1,
       "numenor": 6,
@@ -7767,12 +7793,12 @@
       "망자": 3,
       "베오른 일족": 2,
       "dunland": 10,
-      "easterling": 15,
-      "호빗": 14,
+      "이스터링·칸드": 15,
+      "shire": 14,
       "브리": 2,
       "isengard": 30,
       "harad": 20,
-      "난쟁이": 36,
+      "dwarf": 36,
       "maiar": 9,
       "elf": 77,
       "mordor": 73,
@@ -7781,7 +7807,7 @@
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,
-    "sourceValidation": "457 unique IDs; static card count and asset blob SHAs verified"
+    "sourceValidation": "468 unique IDs; static card count and asset blob SHAs verified"
   },
   "revisionRequests": {
     "witchking": {
@@ -7917,19 +7943,13 @@
     }
   },
   "lastContinuation": {
-    "batch": "monsters-ancient-011",
+    "batch": "continuation-beasts-20261020-1324",
     "newIds": [
-      "cave_troll",
-      "balrog",
-      "ent",
-      "smaug",
-      "ungoliant",
-      "watcher_in_the_water",
-      "mirkwood_spider",
-      "hill_troll",
-      "glaurung",
-      "carcharoth",
-      "gothmog_balrog"
+      "great_eagle",
+      "melkor",
+      "draugluin",
+      "thuringwethil",
+      "boldog"
     ],
     "qualityStandard": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
     "note": "Each image inspected against canonical skeleton and identity reference; approval pending."

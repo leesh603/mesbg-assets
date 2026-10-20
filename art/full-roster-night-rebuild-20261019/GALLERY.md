@@ -1,6 +1,36 @@
-# 전체 재제작 검토 — 463종
+# 전체 재제작 검토 — 468종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 볼독 (boldog)
+
+![볼독](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/boldog.png?v=16137e009a463ec2beebe55c5d1371196dc78925)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/boldog.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/boldog.png?v=16137e009a463ec2beebe55c5d1371196dc78925)
+
+### 수링웨실 (thuringwethil)
+
+![수링웨실](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/thuringwethil.png?v=dcb90947c7f225d6d9397f47e5bf66193113cda9)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/thuringwethil.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/thuringwethil.png?v=dcb90947c7f225d6d9397f47e5bf66193113cda9)
+
+### 드라우글루인 (draugluin)
+
+![드라우글루인](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/draugluin.png?v=d3d08966ffa6e31e87fd246858b5f94ab5c6da85)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/draugluin.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/draugluin.png?v=d3d08966ffa6e31e87fd246858b5f94ab5c6da85)
+
+### 멜코르 (melkor)
+
+![멜코르](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/melkor.png?v=a0cf83ed1244d17770ece3d36e0c754c4e2d68f3)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/melkor.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/melkor.png?v=a0cf83ed1244d17770ece3d36e0c754c4e2d68f3)
+
+### 대독수리 (great_eagle)
+
+![대독수리](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/great_eagle.png?v=aedb31cfc39b9a9c60f59daa54d275233a49184a)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/great_eagle.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/great_eagle.png?v=aedb31cfc39b9a9c60f59daa54d275233a49184a)
 
 ### 할바라드(기마) (halbarad_mounted)
 

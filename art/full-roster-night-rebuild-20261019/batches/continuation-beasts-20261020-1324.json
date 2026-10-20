@@ -1,0 +1,188 @@
+{
+  "batch": "continuation-beasts-20261020-1324",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "great_eagle",
+      "name": "대독수리",
+      "faction": "eagle",
+      "role": "monster",
+      "original": "tokens/great_eagle.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "독수리",
+      "groupKey": "eagle",
+      "bodyDescription": "원본 종족 고유 골격 · 하이앵글 프론트뷰",
+      "pose": "원본 종족 고유 행동·실루엣 유지",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/great_eagle.png"
+      ],
+      "prompt": "Rebuild production PIXEL GAME TOKEN from the single attached ORIGINAL source. Source controls exact identity/species/anatomy/equipment/colors/action. This is a MONSTER/ANIMAL, never add a soldier, rider, human template or extra actor. Match established Gondor/Mordor crisp stepped dark outlines, deliberate solid pixel clusters, short restrained color ramps and game-token detail density; no smooth painterly blur or photorealism. Keep original distinctive body tilt/action while rotating to HIGH-ANGLE FRONT camera DOWN45–50degrees, NOT eye-level frontal portrait, NOT side profile or rear view. Entire exact silhouette including every wing, leg, tail, root, tentacle and weapon tip inside INNER80percent of canvas, generous transparent margins, body independently centered. Transparent background, no base/floor/cast shadow/scenery/text/UI/watermark. Identity: 대독수리 (great_eagle). ONE eagle ONLY. Elevated FRONT45–50deg, not side profile: beak/head at lower central foreground, tail extends toward TOP/rear, left wing reaches LEFT and right wing RIGHT, both wings have visible TOP feather planes. Two taloned legs/two spread wings, natural neck tucked/bowed, preserve distinctive exact brown/white/gold original feather pattern and landing/attack pose. All wingtip feathers fully inside margin. No rider or humanoid.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-2e0b5bd4-d2c2-4d51-ac33-7701bb86eab4.png",
+      "expectedBlobSHA": "aedb31cfc39b9a9c60f59daa54d275233a49184a",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1312,
+          1199
+        ],
+        "bounds": [
+          24,
+          44,
+          1291,
+          1145
+        ]
+      },
+      "blobSHA": "aedb31cfc39b9a9c60f59daa54d275233a49184a",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "melkor",
+      "name": "멜코르",
+      "faction": "angband",
+      "role": "hero",
+      "original": "tokens/melkor.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "앙그반드",
+      "groupKey": "angband",
+      "pose": "원본 고유 무장·기울임·동작 유지",
+      "bodyDescription": "인간형 5등신 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/melkor.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/large-human.png"
+      ],
+      "prompt": "Rebuild ONE complete production transparent PIXEL game token. INPUT1 original character controls EXACT costume/hair/helmet/beard/palette/weapons, elevated FRONT camera, deeply BOWED hidden face and distinct action silhouette; preserve those identity details. INPUT2 neutral HUMAN skeleton controls EXACT FIVE anatomical crown-to-chin heads for crown-to-sole body, ordinary adult skull and shoulder/pelvis/knee/ankle bone lengths, crisp pixel density/stepped dark outlines/short restrained shade ramps. Redress and rotate original neutral bones into INPUT1 action, NEVER lengthen to6–8heads, shrink to4heads or inflate helmet/skull. Slim/muscular/fat changes WIDTH only. Elevated front camera down40–45degrees with crown and both shoulder TOPS obvious, torso/face foreshortened. Head firmly tucked down, eyes covered by hair/helmet/hood/brow; NO frontal facial portrait/eye contact. Retain original body's forward lean or combat action. Do not default to template's walking pose: grounded/braced feet or original lunging as equipment/action warrants, varied lead foot, uncrossed coherent limbs. Complete exact original weapons with logical handgrips; no weapons borrowed from INPUT2. Full silhouette and ALL weapon/banner/antler tips inside INNER80percent canvas. Body center ignores equipment. Transparent background, no base/floor/shadow/scenery/text/watermark/extra figures. Character identity: 멜코르 (melkor). EXACT original loadout/palette/materials/action from INPUT1. Five anatomical heads crown-to-sole, helmet/crown not skull.  CRITICAL CORRECTION: camera EXTREMELY elevated FRONT down50–55degrees. Crown embedded in real forward-bowed helmet, helmet front is tiny lower plane; show wide TOP shell of head, broad top plates of both shoulders/back. Chin tucked into breastplate. No upright faceplate portrait. Original neutral 5head bones and original silver-black crown with3white jewels and red-black cape/huge mace remain.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-06d7c310-f65e-4151-aaf9-44d0ff36ca90.png",
+      "expectedBlobSHA": "a0cf83ed1244d17770ece3d36e0c754c4e2d68f3",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1230,
+          1278
+        ],
+        "bounds": [
+          12,
+          69,
+          1210,
+          1214
+        ]
+      },
+      "blobSHA": "a0cf83ed1244d17770ece3d36e0c754c4e2d68f3",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "draugluin",
+      "name": "드라우글루인",
+      "faction": "angband",
+      "role": "monster",
+      "original": "tokens/draugluin.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "앙그반드",
+      "groupKey": "angband",
+      "bodyDescription": "원본 종족 고유 골격 · 하이앵글 프론트뷰",
+      "pose": "원본 종족 고유 행동·실루엣 유지",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/draugluin.png"
+      ],
+      "prompt": "Rebuild production PIXEL GAME TOKEN from the single attached ORIGINAL source. Source controls exact identity/species/anatomy/equipment/colors/action. This is a MONSTER/ANIMAL, never add a soldier, rider, human template or extra actor. Match established Gondor/Mordor crisp stepped dark outlines, deliberate solid pixel clusters, short restrained color ramps and game-token detail density; no smooth painterly blur or photorealism. Keep original distinctive body tilt/action while rotating to HIGH-ANGLE FRONT camera DOWN45–50degrees, NOT eye-level frontal portrait, NOT side profile or rear view. Entire exact silhouette including every wing, leg, tail, root, tentacle and weapon tip inside INNER80percent of canvas, generous transparent margins, body independently centered. Transparent background, no base/floor/cast shadow/scenery/text/UI/watermark. Identity: 드라우글루인 (draugluin). ONE original enormous WOLF beast, FOUR legs, natural wolf skull and original mane/fur/tail. Elevated FRONT45deg shows crown/back/shoulder tops, head lowered toward lower-center foreground, body recedes upward. Preserve ferocious original action and red/black mane where present. Full paws/tail inside canvas, no rider or human.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-500138e7-f74d-4223-b980-16caee55690d.png",
+      "expectedBlobSHA": "d3d08966ffa6e31e87fd246858b5f94ab5c6da85",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bounds": [
+          150,
+          30,
+          1111,
+          1208
+        ]
+      },
+      "blobSHA": "d3d08966ffa6e31e87fd246858b5f94ab5c6da85",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "thuringwethil",
+      "name": "수링웨실",
+      "faction": "angband",
+      "role": "monster",
+      "original": "tokens/thuringwethil.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "앙그반드",
+      "groupKey": "angband",
+      "bodyDescription": "원본 종족 고유 골격 · 하이앵글 프론트뷰",
+      "pose": "원본 종족 고유 행동·실루엣 유지",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/thuringwethil.png"
+      ],
+      "prompt": "Rebuild production PIXEL GAME TOKEN from the single attached ORIGINAL source. Source controls exact identity/species/anatomy/equipment/colors/action. This is a MONSTER/ANIMAL, never add a soldier, rider, human template or extra actor. Match established Gondor/Mordor crisp stepped dark outlines, deliberate solid pixel clusters, short restrained color ramps and game-token detail density; no smooth painterly blur or photorealism. Keep original distinctive body tilt/action while rotating to HIGH-ANGLE FRONT camera DOWN45–50degrees, NOT eye-level frontal portrait, NOT side profile or rear view. Entire exact silhouette including every wing, leg, tail, root, tentacle and weapon tip inside INNER80percent of canvas, generous transparent margins, body independently centered. Transparent background, no base/floor/cast shadow/scenery/text/UI/watermark. Identity: 수링웨실 (thuringwethil). ONE female vampire bat shapeshifter exactly original hooded face, pale hands and long black/purple robe with TWO membranous wings and original toes. Elevated FRONT45deg, hood/head firmly bowed, face almost hidden, shoulders/wings top planes obvious. Entire wing tips and robe inside margins, no extra bats.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-b7e7c962-6fc5-4f62-85eb-76ea6b026a54.png",
+      "expectedBlobSHA": "dcb90947c7f225d6d9397f47e5bf66193113cda9",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1029,
+          1528
+        ],
+        "bounds": [
+          26,
+          123,
+          1004,
+          1415
+        ]
+      },
+      "blobSHA": "dcb90947c7f225d6d9397f47e5bf66193113cda9",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "boldog",
+      "name": "볼독",
+      "faction": "angband",
+      "role": "hero",
+      "original": "tokens/boldog.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "앙그반드",
+      "groupKey": "angband",
+      "pose": "원본 고유 무장·기울임·동작 유지",
+      "bodyDescription": "오크 표준 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/boldog.png",
+        "/workspace/scratch/bb0324dc7a4d/references/orc.png"
+      ],
+      "prompt": "Rebuild ONE complete production transparent PIXEL game token. INPUT1 original character controls EXACT costume/hair/helmet/beard/palette/weapons, elevated FRONT camera, deeply BOWED hidden face and distinct action silhouette; preserve those identity details. INPUT2 neutral ORC species skeleton controls EXACT FIVE anatomical crown-to-chin heads for crown-to-sole body, ordinary adult skull and shoulder/pelvis/knee/ankle bone lengths, crisp pixel density/stepped dark outlines/short restrained shade ramps. Redress and rotate original neutral bones into INPUT1 action, NEVER lengthen to6–8heads, shrink to4heads or inflate helmet/skull. Slim/muscular/fat changes WIDTH only. Elevated front camera down40–45degrees with crown and both shoulder TOPS obvious, torso/face foreshortened. Head firmly tucked down, eyes covered by hair/helmet/hood/brow; NO frontal facial portrait/eye contact. Retain original body's forward lean or combat action. Do not default to template's walking pose: grounded/braced feet or original lunging as equipment/action warrants, varied lead foot, uncrossed coherent limbs. Complete exact original weapons with logical handgrips; no weapons borrowed from INPUT2. Full silhouette and ALL weapon/banner/antler tips inside INNER80percent canvas. Body center ignores equipment. Transparent background, no base/floor/shadow/scenery/text/watermark/extra figures. Character identity: 볼독 (boldog). EXACT original loadout/palette/materials/action from INPUT1. Use ORIGINAL ORC bone proportions exactly; preserve original larger muscle WIDTH for Bolg/Azog and exact claws/prosthetic weapon. ",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-c985d66c-cfaa-4a4e-8154-c1ef6d20c9d9.png",
+      "expectedBlobSHA": "16137e009a463ec2beebe55c5d1371196dc78925",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          140,
+          97,
+          1087,
+          1215
+        ]
+      },
+      "blobSHA": "16137e009a463ec2beebe55c5d1371196dc78925",
+      "approval": "pending",
+      "inGameVerified": false
+    }
+  ]
+}
