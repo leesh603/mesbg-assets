@@ -1,6 +1,12 @@
-# 전체 재제작 검토 — 501종
+# 전체 재제작 검토 — 502종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 앙칼라곤 (ancalagon)
+
+![앙칼라곤](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/ancalagon.png?v=54c2ecfd3c2b98050edde5d25aa64f63165df6ec)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/ancalagon.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/ancalagon.png?v=54c2ecfd3c2b98050edde5d25aa64f63165df6ec)
 
 ### 바드 (bard)
 
