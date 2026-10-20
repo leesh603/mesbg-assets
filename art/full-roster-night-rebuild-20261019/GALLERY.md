@@ -1,6 +1,30 @@
-# 전체 재제작 검토 — 258종
+# 전체 재제작 검토 — 262종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 벨레그(기마) (beleg_mounted)
+
+![벨레그(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/beleg_mounted.png?v=4548677db1ee2e3ce47246c6a5f9563c88564c58)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/beleg_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/beleg_mounted.png?v=4548677db1ee2e3ce47246c6a5f9563c88564c58)
+
+### 핑곤(기마) (fingon_mounted)
+
+![핑곤(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/fingon_mounted.png?v=3f6f744022ff4a38a1c7838177e863ede015d4aa)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/fingon_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/fingon_mounted.png?v=3f6f744022ff4a38a1c7838177e863ede015d4aa)
+
+### 페아노르(기마) (feanor_mounted)
+
+![페아노르(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/feanor_mounted.png?v=ab3267fa94993f3d9ffda9baa9ee11350d245b55)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/feanor_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/feanor_mounted.png?v=ab3267fa94993f3d9ffda9baa9ee11350d245b55)
+
+### 갈라드림 기사 (galadhrim_knight)
+
+![갈라드림 기사](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/galadhrim_knight.png?v=87c7aee066a43360376644918072da5b14dd40dd)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/galadhrim_knight.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/galadhrim_knight.png?v=87c7aee066a43360376644918072da5b14dd40dd)
 
 ### 타르그쉬 (targsh)
 

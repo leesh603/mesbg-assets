@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T02:48:54.357Z",
+  "updatedAt": "2026-10-20T02:56:13.717Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 252,
-    "newlyGeneratedThisSession": 126,
-    "visuallyReviewedThisSession": 131,
+    "pending": 248,
+    "newlyGeneratedThisSession": 130,
+    "visuallyReviewedThisSession": 135,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 126,
-    "persistedReviewAssets": 258,
+    "generatedReviewAssets": 130,
+    "persistedReviewAssets": 262,
     "revisedAfterRejection": 14
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -4923,8 +4923,13 @@
       "faction": "lothlorien",
       "role": "cavalry",
       "original": "tokens/galadhrim_knight.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/galadhrim_knight.png",
+      "blobSHA": "87c7aee066a43360376644918072da5b14dd40dd",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "mahud_raider",
@@ -5359,8 +5364,13 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/feanor_mounted.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/feanor_mounted.png",
+      "blobSHA": "ab3267fa94993f3d9ffda9baa9ee11350d245b55",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "turin_mounted",
@@ -5386,8 +5396,13 @@
       "faction": "doriath",
       "role": "hero",
       "original": "tokens/beleg_mounted.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/beleg_mounted.png",
+      "blobSHA": "4548677db1ee2e3ce47246c6a5f9563c88564c58",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "hurin_thalion_mounted",
@@ -5413,8 +5428,13 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/fingon_mounted.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/fingon_mounted.png",
+      "blobSHA": "3f6f744022ff4a38a1c7838177e863ede015d4aa",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "ecthelion_mounted",
@@ -5687,13 +5707,13 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 258,
+    "count": 262,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
+      "elf": 65,
       "isengard": 19,
-      "elf": 61,
       "mordor": 73,
       "rohan": 46,
       "gondor": 59
