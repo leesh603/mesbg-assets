@@ -1,6 +1,60 @@
-# 전체 재제작 검토 — 314종
+# 전체 재제작 검토 — 323종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 스로르 (thror)
+
+![스로르](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/thror.png?v=2721845df5f4dac707b383ffa0b98f9405ba9560)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/thror.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/thror.png?v=2721845df5f4dac707b383ffa0b98f9405ba9560)
+
+### 스라인 (thrain)
+
+![스라인](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/thrain.png?v=615eb8945d08db500c9a0bb2ab049c22369486e8)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/thrain.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/thrain.png?v=615eb8945d08db500c9a0bb2ab049c22369486e8)
+
+### 나인 (nain)
+
+![나인](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/nain.png?v=66271564a33c236863503241b2ce77eed6f21e35)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/nain.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/nain.png?v=66271564a33c236863503241b2ce77eed6f21e35)
+
+### 아자갈 (azaghal)
+
+![아자갈](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/azaghal.png?v=00cf871560d63e2070935c687f7b259c8bce24a9)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/azaghal.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/azaghal.png?v=00cf871560d63e2070935c687f7b259c8bce24a9)
+
+### 아이언 힐즈 대장 (iron_hills_captain)
+
+![아이언 힐즈 대장](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/iron_hills_captain.png?v=fac9a8421d146d781622fc11712d1bdf137030b8)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/iron_hills_captain.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/iron_hills_captain.png?v=fac9a8421d146d781622fc11712d1bdf137030b8)
+
+### 드워프 방패 운반병 (dwarf_shieldbearers)
+
+![드워프 방패 운반병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dwarf_shieldbearers.png?v=fbb11b7e36ddf43e31d44772f238114c0700911c)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/dwarf_shieldbearers.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dwarf_shieldbearers.png?v=fbb11b7e36ddf43e31d44772f238114c0700911c)
+
+### 철언덕 방벽병 (vault_warden)
+
+![철언덕 방벽병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/vault_warden.png?v=43de4a760778952283c80152ab362af215861f2a)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/vault_warden.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/vault_warden.png?v=43de4a760778952283c80152ab362af215861f2a)
+
+### 밈 (mim)
+
+![밈](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/mim.png?v=125aa8af831de1d3e1f2d93558397253d47ecdf7)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/mim.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/mim.png?v=125aa8af831de1d3e1f2d93558397253d47ecdf7)
+
+### 두린 6세 (durin_vi)
+
+![두린 6세](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/durin_vi.png?v=3dee28ab8f24d0107f685c12bff55be0ffb489e5)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/durin_vi.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/durin_vi.png?v=3dee28ab8f24d0107f685c12bff55be0ffb489e5)
 
 ### 하라드 족장 (harad_chieftain)
 
