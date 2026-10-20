@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T14:22:20.204489+00:00",
+  "updatedAt": "2026-10-20T15:25:05.584414+00:00",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
-  "state": "quality_repair_in_progress",
+  "state": "correction_candidates_saved_pending_acceptance",
   "blocker": null,
   "counts": {
     "characters": 510,
@@ -16,8 +16,8 @@
     "generatedReviewAssets": 378,
     "persistedReviewAssets": 510,
     "revisedAfterRejection": 20,
-    "qualityRejected": 5,
-    "qualityHeld": 2,
+    "qualityRejected": 0,
+    "qualityHeld": 0,
     "awaitingApproval": 493,
     "correctionCandidatesGenerated": 64
   },
@@ -10877,18 +10877,15 @@
     "note": "Each image inspected against canonical skeleton and identity reference; approval pending."
   },
   "lastCorrection": {
-    "batch": "finish-recovered-ten-20261020",
+    "batch": "finish-last-seven-20261021",
     "ids": [
-      "annatar",
-      "celebrimbor",
-      "daeron",
-      "earnur",
-      "gwindor",
-      "maeglin",
-      "eol",
-      "earendil",
-      "galdor",
-      "ingold"
+      "galadhrim_bow",
+      "war_hound",
+      "dol_amroth_knight_foot",
+      "troll_shaman",
+      "galadhrim_elite_bow",
+      "mirkwood_ranger",
+      "orc_elite_tracker"
     ],
     "qualityAccepted": false,
     "inGameScaleVerified": false
@@ -10963,8 +10960,8 @@
   "qualityRepairRequest": {
     "id": "all-194-20261020",
     "scopeCount": 194,
-    "correctedCandidates": 187,
-    "remaining": 7,
+    "correctedCandidates": 194,
+    "remaining": 0,
     "userApproved": 0,
     "previousMountedCorrectionsIncluded": true
   }
