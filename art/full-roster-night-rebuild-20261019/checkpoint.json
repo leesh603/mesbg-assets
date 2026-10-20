@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T03:15:40.480Z",
+  "updatedAt": "2026-10-20T03:16:21.813Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 206,
-    "newlyGeneratedThisSession": 172,
-    "visuallyReviewedThisSession": 177,
+    "pending": 201,
+    "newlyGeneratedThisSession": 177,
+    "visuallyReviewedThisSession": 182,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 172,
-    "persistedReviewAssets": 304,
+    "generatedReviewAssets": 177,
+    "persistedReviewAssets": 309,
     "revisedAfterRejection": 14
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -3526,8 +3526,13 @@
       "faction": "maiar",
       "role": "hero",
       "original": "tokens/gandalf_white_mounted.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "maiar",
+      "path": "art/full-roster-night-rebuild-20261019/units/gandalf_white_mounted.png",
+      "blobSHA": "851b4398aafb6ec2129741a455ad12d003d8acad",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "theoden_foot",
@@ -4969,8 +4974,13 @@
       "faction": "maiar",
       "role": "hero",
       "original": "tokens/melian.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "maiar",
+      "path": "art/full-roster-night-rebuild-20261019/units/melian.png",
+      "blobSHA": "064902eef61f695a2314aae4bd8c67f28bfcd550",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "mim",
@@ -5465,8 +5475,13 @@
       "faction": "maiar",
       "role": "hero",
       "original": "tokens/pallando.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "maiar",
+      "path": "art/full-roster-night-rebuild-20261019/units/pallando.png",
+      "blobSHA": "3e578bbb2acc01aea51af6e8a48140c8e9ce9cf4",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "alatar",
@@ -5474,8 +5489,13 @@
       "faction": "maiar",
       "role": "hero",
       "original": "tokens/alatar.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "maiar",
+      "path": "art/full-roster-night-rebuild-20261019/units/alatar.png",
+      "blobSHA": "1bc09913c464c3a83685063a85bcf7b7a9bc6db6",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "annatar",
@@ -5996,8 +6016,13 @@
       "faction": "maiar",
       "role": "beast",
       "original": "tokens/rhosgobel_rabbit.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "maiar",
+      "path": "art/full-roster-night-rebuild-20261019/units/rhosgobel_rabbit.png",
+      "blobSHA": "7602b0b52cb1c54286425c81cf7bff0656f2a9dd",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "morgul_duellist",
@@ -6946,13 +6971,13 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 304,
+    "count": 309,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
-      "dwarf": 16,
-      "maiar": 4,
+      "maiar": 9,
+      "난쟁이": 16,
       "isengard": 29,
       "elf": 77,
       "mordor": 73,
@@ -7110,5 +7135,13 @@
       "preserve_original": 122
     },
     "qualityAcceptedCount": 0
+  },
+  "reviewIssues": {
+    "watcher_karna": {
+      "state": "source_identity_mismatch",
+      "observed": "Roster name 카르나의 감시자 and role infantry; original tokens/watcher_karna.png depicts an eight-tentacled aquatic creature.",
+      "handling": "Keep pending while other units proceed; preserve original source and flag for identity review.",
+      "approval": "pending"
+    }
   }
 }

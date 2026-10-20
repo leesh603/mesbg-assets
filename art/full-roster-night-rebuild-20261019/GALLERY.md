@@ -1,6 +1,36 @@
-# 전체 재제작 검토 — 304종
+# 전체 재제작 검토 — 309종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 로스고벨 토끼썰매 (rhosgobel_rabbit)
+
+![로스고벨 토끼썰매](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/rhosgobel_rabbit.png?v=7602b0b52cb1c54286425c81cf7bff0656f2a9dd)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/rhosgobel_rabbit.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/rhosgobel_rabbit.png?v=7602b0b52cb1c54286425c81cf7bff0656f2a9dd)
+
+### 알라타르 (alatar)
+
+![알라타르](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/alatar.png?v=1bc09913c464c3a83685063a85bcf7b7a9bc6db6)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/alatar.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/alatar.png?v=1bc09913c464c3a83685063a85bcf7b7a9bc6db6)
+
+### 팔란도 (pallando)
+
+![팔란도](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/pallando.png?v=3e578bbb2acc01aea51af6e8a48140c8e9ce9cf4)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/pallando.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/pallando.png?v=3e578bbb2acc01aea51af6e8a48140c8e9ce9cf4)
+
+### 멜리안 (melian)
+
+![멜리안](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/melian.png?v=064902eef61f695a2314aae4bd8c67f28bfcd550)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/melian.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/melian.png?v=064902eef61f695a2314aae4bd8c67f28bfcd550)
+
+### 간달프 백색(기마) (gandalf_white_mounted)
+
+![간달프 백색(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gandalf_white_mounted.png?v=851b4398aafb6ec2129741a455ad12d003d8acad)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/gandalf_white_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gandalf_white_mounted.png?v=851b4398aafb6ec2129741a455ad12d003d8acad)
 
 ### 도리 (dori)
 

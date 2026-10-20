@@ -1,0 +1,116 @@
+{
+  "batch": "maiar-022-final-five",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "gandalf_white_mounted",
+      "mounted": true,
+      "beast": false,
+      "pose": "백색 기수 · 검과 흰 지팡이",
+      "detail": "GANDALF WHITE MOUNTED old man long flowing WHITE hair and full long WHITE beard/moustache, BARE HEAD no hat/crown. White layered robes and cape palegray folds, brown waistbelt and palegray wrapped boots. WHITE HORSE with silverwhite mane/tail, plain simple pale GOLD/BROWN bridle and plain white/lightgray saddlecloth, NO heraldic stars or added armor. Image1 mounted neutral controls rider fivehead bones and horse fullsize adult anatomy; ignore footstanding framing. Exactly TWO hands: viewerLEFT hand silver straight SWORD simplegold/silver hilt held low outward, viewerRIGHT hand holds SLIM WHITE STAFF with carved interwoven leaf/cage tip upright. Both hands occupied by weapons, loose reins drape at saddle/pommel with NO third hand. Strong elevated front camera showing rider skull/shoulder tops AND saddle/horse neck/withers tops, body nearfront. No staff glow.",
+      "prompt": "Dress IMAGE1 original NEUTRAL HUMAN skeleton as IMAGE2 character. IMAGE1 alone controls normal adult skull, torso/limb bone lengths and elevated front camera. EXACTLY FIVE anatomical heads crown-to-sole, one head crown-to-CHIN excluding HAIR, BEARD, HAT or crown. No4head bighead chibi, no6+head tall hero. Copy exact bone segment relationships, use old age/slenderness through face, width and posture only. Full robes cover same compact fivehead bones, never lengthen body or hide feet. If hat/staff needs space, zoom out whole figure and expand clear canvas padding; do NOT shrink body relative to head to fit hat. Image2 identity/equipment/palette only, ignore its proportions. New joint poses required while preserving bone LENGTHS. Elevated FRONT camera looking DOWN30deg, clear TOP planes of head/hat and both shoulders, foreshortened chest/face, chin/gaze angled down separately. Not eyelevel with only bowed head. Crisp discrete pixel clusters, stepped dark outlines, limited color ramps matching image1/new Gondor/Mordor, no smooth painting/3D. Entire figure/weapons inside transparent RGBA clear margin, torso centered independently of equipment. No floor/base/shadow/aura/glow/text. Replace neutral bald scalp with required HAIR/BEARD/HAT exactly as source. GANDALF WHITE MOUNTED old man long flowing WHITE hair and full long WHITE beard/moustache, BARE HEAD no hat/crown. White layered robes and cape palegray folds, brown waistbelt and palegray wrapped boots. WHITE HORSE with silverwhite mane/tail, plain simple pale GOLD/BROWN bridle and plain white/lightgray saddlecloth, NO heraldic stars or added armor. Image1 mounted neutral controls rider fivehead bones and horse fullsize adult anatomy; ignore footstanding framing. Exactly TWO hands: viewerLEFT hand silver straight SWORD simplegold/silver hilt held low outward, viewerRIGHT hand holds SLIM WHITE STAFF with carved interwoven leaf/cage tip upright. Both hands occupied by weapons, loose reins drape at saddle/pommel with NO third hand. Strong elevated front camera showing rider skull/shoulder tops AND saddle/horse neck/withers tops, body nearfront. No staff glow.",
+      "group": "마이아",
+      "groupKey": "maiar",
+      "bodyDescription": "인간 기수 5등신 · 하이앵글 프론트뷰",
+      "base": "human-mounted",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/human-mounted.png",
+        "equipment": "Two hands and staff/gem identity compared with source",
+        "camera": "Elevated front with upper planes visible",
+        "approval": "pending"
+      },
+      "blobSHA": "851b4398aafb6ec2129741a455ad12d003d8acad",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-87a10a32-733b-4c13-aed9-a10feb7a0a3e.png"
+    },
+    {
+      "id": "melian",
+      "mounted": false,
+      "beast": false,
+      "pose": "은발·회백색 로브 · 가지 지팡이",
+      "detail": "MELIAN adult feminine elf-like Maia, long straight SILVER WHITE hair with central part, gold circlet BLUE jewel, clean face no beard. Gray WHITE/ivory layered robes and cape with pale gray-blue shaded panels, silver diamond/leaf chest brooch, delicate pale gold/white branch embroidery and pale shoes. One hand viewerLEFT holds thin SILVER STAFF upright, top is white/silver branching tree framing pale BLUE crystal. Other hand open at low waist, short bent elbow, exactly2hands. No hat/sword/shield. Feminine width/face only, same mature FIVE-head neutral bones, no long fashion legs or tiny skull. Both feet planted parallel under robe; shoe tips visible. Small solid gem no aura. Image1 elf skeleton source governs anatomy, not pointedelftower proportions.",
+      "prompt": "Dress IMAGE1 original NEUTRAL HUMAN skeleton as IMAGE2 character. IMAGE1 alone controls normal adult skull, torso/limb bone lengths and elevated front camera. EXACTLY FIVE anatomical heads crown-to-sole, one head crown-to-CHIN excluding HAIR, BEARD, HAT or crown. No4head bighead chibi, no6+head tall hero. Copy exact bone segment relationships, use old age/slenderness through face, width and posture only. Full robes cover same compact fivehead bones, never lengthen body or hide feet. If hat/staff needs space, zoom out whole figure and expand clear canvas padding; do NOT shrink body relative to head to fit hat. Image2 identity/equipment/palette only, ignore its proportions. New joint poses required while preserving bone LENGTHS. Elevated FRONT camera looking DOWN30deg, clear TOP planes of head/hat and both shoulders, foreshortened chest/face, chin/gaze angled down separately. Not eyelevel with only bowed head. Crisp discrete pixel clusters, stepped dark outlines, limited color ramps matching image1/new Gondor/Mordor, no smooth painting/3D. Entire figure/weapons inside transparent RGBA clear margin, torso centered independently of equipment. No floor/base/shadow/aura/glow/text. Replace neutral bald scalp with required HAIR/BEARD/HAT exactly as source. MELIAN adult feminine elf-like Maia, long straight SILVER WHITE hair with central part, gold circlet BLUE jewel, clean face no beard. Gray WHITE/ivory layered robes and cape with pale gray-blue shaded panels, silver diamond/leaf chest brooch, delicate pale gold/white branch embroidery and pale shoes. One hand viewerLEFT holds thin SILVER STAFF upright, top is white/silver branching tree framing pale BLUE crystal. Other hand open at low waist, short bent elbow, exactly2hands. No hat/sword/shield. Feminine width/face only, same mature FIVE-head neutral bones, no long fashion legs or tiny skull. Both feet planted parallel under robe; shoe tips visible. Small solid gem no aura. Image1 elf skeleton source governs anatomy, not pointedelftower proportions.",
+      "group": "마이아",
+      "groupKey": "maiar",
+      "bodyDescription": "인간형 5등신 · 하이앵글 프론트뷰",
+      "base": "elf",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/elf.png",
+        "equipment": "Two hands and staff/gem identity compared with source",
+        "camera": "Elevated front with upper planes visible",
+        "approval": "pending"
+      },
+      "blobSHA": "064902eef61f695a2314aae4bd8c67f28bfcd550",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-38fb1a61-0463-49b6-a633-b013c7446500.png"
+    },
+    {
+      "id": "pallando",
+      "mounted": false,
+      "beast": false,
+      "pose": "청색 모자 · 둥근 구슬 지팡이",
+      "detail": "PALLANDO old human wizard WHITE GRAY full beard/hair, tall floppy pointed COBALT BLUE HAT with broad WHITE band/hem. Cobalt blue layered robes and blue cloak WHITE/silver broad trim, brown crossbody strap and small brown satchel on viewerRIGHT, brown boots. ViewerLEFT hand holds simple BROWN forked tree STAFF wrapping a ROUND PALE BLUE ORB, orb solid shaded blue, NO glow. Other open hand beside satchel at belt, exactly2hands. Both feet planted wide/level with shallow knee flex, no dwarfchibi. Keep skull/torso/bones5head, hat/beard not head units.",
+      "prompt": "Dress IMAGE1 original NEUTRAL HUMAN skeleton as IMAGE2 character. IMAGE1 alone controls normal adult skull, torso/limb bone lengths and elevated front camera. EXACTLY FIVE anatomical heads crown-to-sole, one head crown-to-CHIN excluding HAIR, BEARD, HAT or crown. No4head bighead chibi, no6+head tall hero. Copy exact bone segment relationships, use old age/slenderness through face, width and posture only. Full robes cover same compact fivehead bones, never lengthen body or hide feet. If hat/staff needs space, zoom out whole figure and expand clear canvas padding; do NOT shrink body relative to head to fit hat. Image2 identity/equipment/palette only, ignore its proportions. New joint poses required while preserving bone LENGTHS. Elevated FRONT camera looking DOWN30deg, clear TOP planes of head/hat and both shoulders, foreshortened chest/face, chin/gaze angled down separately. Not eyelevel with only bowed head. Crisp discrete pixel clusters, stepped dark outlines, limited color ramps matching image1/new Gondor/Mordor, no smooth painting/3D. Entire figure/weapons inside transparent RGBA clear margin, torso centered independently of equipment. No floor/base/shadow/aura/glow/text. Replace neutral bald scalp with required HAIR/BEARD/HAT exactly as source. PALLANDO old human wizard WHITE GRAY full beard/hair, tall floppy pointed COBALT BLUE HAT with broad WHITE band/hem. Cobalt blue layered robes and blue cloak WHITE/silver broad trim, brown crossbody strap and small brown satchel on viewerRIGHT, brown boots. ViewerLEFT hand holds simple BROWN forked tree STAFF wrapping a ROUND PALE BLUE ORB, orb solid shaded blue, NO glow. Other open hand beside satchel at belt, exactly2hands. Both feet planted wide/level with shallow knee flex, no dwarfchibi. Keep skull/torso/bones5head, hat/beard not head units.",
+      "group": "마이아",
+      "groupKey": "maiar",
+      "bodyDescription": "인간형 5등신 · 하이앵글 프론트뷰",
+      "base": "human",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/human.png",
+        "equipment": "Two hands and staff/gem identity compared with source",
+        "camera": "Elevated front with upper planes visible",
+        "approval": "pending"
+      },
+      "blobSHA": "3e578bbb2acc01aea51af6e8a48140c8e9ce9cf4",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-145884ea-d9b4-4744-ae48-6030a9d91f8f.png"
+    },
+    {
+      "id": "alatar",
+      "mounted": false,
+      "beast": false,
+      "pose": "가죽 모자띠 · 푸른 마름모 보석",
+      "detail": "ALATAR old human wizard WHITE GRAY full beard and hair, floppy pointed deepBLUE hat with BROWN LEATHER BAND and silver round buckle at viewerRIGHT brim. Blue robes and darkblue cape WHITE broad hems, brown leather waistbelt and brown satchel at viewerRIGHT, brown boots. ViewerLEFT hand holds ONE twisted BROWN WOOD STAFF with PALE BLUE DIAMOND crystal enclosed in curling top and a small blue diamond lower down; gemstones solidblue NO glow. Other hand near belt with relaxed elbow, exactly2hands. Both feet planted level x40/62% with bodyfront and headgaze down. Distinct leather hatband, not white Pallando hatband. Normal adult5head bones excluding hat/beard, no long robe anatomy.",
+      "prompt": "Dress IMAGE1 original NEUTRAL HUMAN skeleton as IMAGE2 character. IMAGE1 alone controls normal adult skull, torso/limb bone lengths and elevated front camera. EXACTLY FIVE anatomical heads crown-to-sole, one head crown-to-CHIN excluding HAIR, BEARD, HAT or crown. No4head bighead chibi, no6+head tall hero. Copy exact bone segment relationships, use old age/slenderness through face, width and posture only. Full robes cover same compact fivehead bones, never lengthen body or hide feet. If hat/staff needs space, zoom out whole figure and expand clear canvas padding; do NOT shrink body relative to head to fit hat. Image2 identity/equipment/palette only, ignore its proportions. New joint poses required while preserving bone LENGTHS. Elevated FRONT camera looking DOWN30deg, clear TOP planes of head/hat and both shoulders, foreshortened chest/face, chin/gaze angled down separately. Not eyelevel with only bowed head. Crisp discrete pixel clusters, stepped dark outlines, limited color ramps matching image1/new Gondor/Mordor, no smooth painting/3D. Entire figure/weapons inside transparent RGBA clear margin, torso centered independently of equipment. No floor/base/shadow/aura/glow/text. Replace neutral bald scalp with required HAIR/BEARD/HAT exactly as source. ALATAR old human wizard WHITE GRAY full beard and hair, floppy pointed deepBLUE hat with BROWN LEATHER BAND and silver round buckle at viewerRIGHT brim. Blue robes and darkblue cape WHITE broad hems, brown leather waistbelt and brown satchel at viewerRIGHT, brown boots. ViewerLEFT hand holds ONE twisted BROWN WOOD STAFF with PALE BLUE DIAMOND crystal enclosed in curling top and a small blue diamond lower down; gemstones solidblue NO glow. Other hand near belt with relaxed elbow, exactly2hands. Both feet planted level x40/62% with bodyfront and headgaze down. Distinct leather hatband, not white Pallando hatband. Normal adult5head bones excluding hat/beard, no long robe anatomy.",
+      "group": "마이아",
+      "groupKey": "maiar",
+      "bodyDescription": "인간형 5등신 · 하이앵글 프론트뷰",
+      "base": "human",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/human.png",
+        "equipment": "Two hands and staff/gem identity compared with source",
+        "camera": "Elevated front with upper planes visible",
+        "approval": "pending"
+      },
+      "blobSHA": "1bc09913c464c3a83685063a85bcf7b7a9bc6db6",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-bf56aad0-46dc-4dda-94a4-de6b978cce3d.png"
+    },
+    {
+      "id": "rhosgobel_rabbit",
+      "mounted": false,
+      "beast": true,
+      "pose": "토끼 두 마리 · 짐을 실은 썰매",
+      "detail": "Rebuild IMAGE1 original TWO RABBIT BAGGAGE SLED unit in consistent NEW PIXEL style. IMAGE1 is animal/sled ANATOMY and composition master; IMAGE2 neutral human is PIXEL CLUSTER DENSITY/outline/palette STYLE ONLY, ignore human anatomy entirely. This unit has NO human rider/driver. Preserve exactly TWO brown-gray large rabbits side by side facing front/down, one slightly ahead, each has ONE head and exactly TWO LONG EARS (four ears total), normal rabbit torso and fore/hind paws, no extra limbs or faces. Brown leather chest/head harnesses GOLD buckles connect each rabbit to same wooden hitch assembly. Behind them a compact DARK BROWN WOOD SLED with two whole curved runners; baggage is TAN sack, darkGREEN rolled blanket with WHITE furry rim and small brown tied logs exactly source. No passenger. Elevated FRONT view looking down30deg showing tops of rabbit heads/backs and sled/baggage surfaces, preserve top/front orientation not sideview. New small paw movement allowed but correct rabbit bones, no humanoid5head rule for animals. Every ear/paw/harness/sledrunner fits inside clear transparent RGBA padding, whole unit centered by rabbit+sled body not equipment. Crisp discrete pixel clusters and stepped dark outline like image2/new Gondor, restrained brown/gray/green ramps. No floor/snow patch/base/contact shadow/glow/text, no smooth 3D fur. Accurate connected traces/harnesses, exactly2rabbits.",
+      "prompt": "Rebuild IMAGE1 original TWO RABBIT BAGGAGE SLED unit in consistent NEW PIXEL style. IMAGE1 is animal/sled ANATOMY and composition master; IMAGE2 neutral human is PIXEL CLUSTER DENSITY/outline/palette STYLE ONLY, ignore human anatomy entirely. This unit has NO human rider/driver. Preserve exactly TWO brown-gray large rabbits side by side facing front/down, one slightly ahead, each has ONE head and exactly TWO LONG EARS (four ears total), normal rabbit torso and fore/hind paws, no extra limbs or faces. Brown leather chest/head harnesses GOLD buckles connect each rabbit to same wooden hitch assembly. Behind them a compact DARK BROWN WOOD SLED with two whole curved runners; baggage is TAN sack, darkGREEN rolled blanket with WHITE furry rim and small brown tied logs exactly source. No passenger. Elevated FRONT view looking down30deg showing tops of rabbit heads/backs and sled/baggage surfaces, preserve top/front orientation not sideview. New small paw movement allowed but correct rabbit bones, no humanoid5head rule for animals. Every ear/paw/harness/sledrunner fits inside clear transparent RGBA padding, whole unit centered by rabbit+sled body not equipment. Crisp discrete pixel clusters and stepped dark outline like image2/new Gondor, restrained brown/gray/green ramps. No floor/snow patch/base/contact shadow/glow/text, no smooth 3D fur. Accurate connected traces/harnesses, exactly2rabbits.",
+      "group": "마이아",
+      "groupKey": "maiar",
+      "bodyDescription": "토끼 2마리·짐썰매 · 하이앵글 프론트뷰",
+      "base": "human",
+      "visualReview": {
+        "anatomyReference": "tokens/rhosgobel_rabbit.png",
+        "equipment": "Exactly two rabbits, four ears, connected harnesses and full baggage sled checked",
+        "camera": "Elevated front with upper planes visible",
+        "approval": "pending"
+      },
+      "blobSHA": "7602b0b52cb1c54286425c81cf7bff0656f2a9dd",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-0c400b01-e58f-45d3-a6b5-f8a849f1cd4a.png"
+    }
+  ]
+}
