@@ -1,6 +1,24 @@
-# 전체 재제작 검토 — 281종
+# 전체 재제작 검토 — 284종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 간달프(섀도우팩스) (gandalf_mounted)
+
+![간달프(섀도우팩스)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gandalf_mounted.png?v=46a2c7ee1662f5088b162c51ffae36efb591e069)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/gandalf_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gandalf_mounted.png?v=46a2c7ee1662f5088b162c51ffae36efb591e069)
+
+### 라다가스트 (radagast)
+
+![라다가스트](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/radagast.png?v=527a1ca3e43b7cb083342a6133ba23fcae983e42)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/radagast.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/radagast.png?v=527a1ca3e43b7cb083342a6133ba23fcae983e42)
+
+### 간달프 (gandalf)
+
+![간달프](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gandalf.png?v=df0c9413131ba16b1b39f50c65879f16140a5493)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/gandalf.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gandalf.png?v=df0c9413131ba16b1b39f50c65879f16140a5493)
 
 ### 아이언 가드 (iron_guard)
 

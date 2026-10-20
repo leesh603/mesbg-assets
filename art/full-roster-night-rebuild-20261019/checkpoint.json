@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T03:05:28.095Z",
+  "updatedAt": "2026-10-20T03:06:38.017Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 229,
-    "newlyGeneratedThisSession": 149,
-    "visuallyReviewedThisSession": 154,
+    "pending": 226,
+    "newlyGeneratedThisSession": 152,
+    "visuallyReviewedThisSession": 157,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 149,
-    "persistedReviewAssets": 281,
+    "generatedReviewAssets": 152,
+    "persistedReviewAssets": 284,
     "revisedAfterRejection": 14
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -51,11 +51,11 @@
   "resume": {
     "nextAction": "Continue pending roster with original species skeletons; inspect and save small batches to unified gallery.",
     "nextIds": [
-      "gandalf",
       "cave_troll",
       "orc_shaman",
       "haradrim_spearman",
-      "frodo"
+      "frodo",
+      "balrog"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
@@ -83,8 +83,13 @@
       "faction": "maiar",
       "role": "hero",
       "original": "tokens/gandalf.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "maiar",
+      "path": "art/full-roster-night-rebuild-20261019/units/gandalf.png",
+      "blobSHA": "df0c9413131ba16b1b39f50c65879f16140a5493",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "warrior_minas_tirith",
@@ -2059,8 +2064,13 @@
       "faction": "maiar",
       "role": "hero",
       "original": "tokens/radagast.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "maiar",
+      "path": "art/full-roster-night-rebuild-20261019/units/radagast.png",
+      "blobSHA": "527a1ca3e43b7cb083342a6133ba23fcae983e42",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "thranduil",
@@ -2936,8 +2946,13 @@
       "faction": "maiar",
       "role": "hero",
       "original": "tokens/gandalf_mounted.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "maiar",
+      "path": "art/full-roster-night-rebuild-20261019/units/gandalf_mounted.png",
+      "blobSHA": "46a2c7ee1662f5088b162c51ffae36efb591e069",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "thranduil_mounted",
@@ -6783,11 +6798,12 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 281,
+    "count": 284,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
+      "maiar": 3,
       "난쟁이": 7,
       "elf": 77,
       "isengard": 19,

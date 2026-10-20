@@ -1,0 +1,66 @@
+{
+  "batch": "maiar-021-first-three",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "gandalf",
+      "mounted": false,
+      "pose": "회색 모자 · 검과 지팡이",
+      "detail": "GANDALF THE GREY, old man long GRAY WHITE hair and full long GRAY WHITE beard/moustache, broad floppy pointed GRAY hat with top plane visible, gray layered robes and slateGRAY/BLUE cloak, brown leather belt and darkbrown boots. One hand viewerLEFT holds STRAIGHT SILVER SWORD simple silver hilt low outward, other hand viewerRIGHT holds tall BROWN wooden STAFF upright with fork top and small solid paleivory crystal. Exactly2hands, no third hand. Crystal has NO glow/aura. Beard does not count as anatomical head, no elongated neck/torso. Both boots visible, feet planted parallel with shallow knee bend, hat not oversized.",
+      "prompt": "Dress IMAGE1 original NEUTRAL HUMAN skeleton as IMAGE2 character. IMAGE1 alone controls normal adult skull, torso/limb bone lengths and elevated front camera. EXACTLY FIVE anatomical heads crown-to-sole, one head crown-to-CHIN excluding HAIR, BEARD, HAT or crown. No4head bighead chibi, no6+head tall hero. Copy exact bone segment relationships, use old age/slenderness through face, width and posture only. Full robes cover same compact fivehead bones, never lengthen body or hide feet. If hat/staff needs space, zoom out whole figure and expand clear canvas padding; do NOT shrink body relative to head to fit hat. Image2 identity/equipment/palette only, ignore its proportions. New joint poses required while preserving bone LENGTHS. Elevated FRONT camera looking DOWN30deg, clear TOP planes of head/hat and both shoulders, foreshortened chest/face, chin/gaze angled down separately. Not eyelevel with only bowed head. Crisp discrete pixel clusters, stepped dark outlines, limited color ramps matching image1/new Gondor/Mordor, no smooth painting/3D. Entire figure/weapons inside transparent RGBA clear margin, torso centered independently of equipment. No floor/base/shadow/aura/glow/text. Replace neutral bald scalp with required HAIR/BEARD/HAT exactly as source. GANDALF THE GREY, old man long GRAY WHITE hair and full long GRAY WHITE beard/moustache, broad floppy pointed GRAY hat with top plane visible, gray layered robes and slateGRAY/BLUE cloak, brown leather belt and darkbrown boots. One hand viewerLEFT holds STRAIGHT SILVER SWORD simple silver hilt low outward, other hand viewerRIGHT holds tall BROWN wooden STAFF upright with fork top and small solid paleivory crystal. Exactly2hands, no third hand. Crystal has NO glow/aura. Beard does not count as anatomical head, no elongated neck/torso. Both boots visible, feet planted parallel with shallow knee bend, hat not oversized.",
+      "group": "마이아",
+      "groupKey": "maiar",
+      "bodyDescription": "인간형 5등신 · 하이앵글 프론트뷰",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/human.png",
+        "equipment": "Two hands, staff/sword or Radagast bird and satchel checked against original",
+        "camera": "Elevated front, shoulder/hat upper planes checked",
+        "approval": "pending"
+      },
+      "blobSHA": "df0c9413131ba16b1b39f50c65879f16140a5493",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-d996e71f-496d-4500-9aa5-6e6aa96f604a.png"
+    },
+    {
+      "id": "radagast",
+      "mounted": false,
+      "pose": "갈색 잎 장식 · 굽은 나무 지팡이",
+      "detail": "RADAGAST old man full long GRAY WHITE beard and hair, slouched pointed BROWN floppy wizard hat with GREEN leaves on brim, brown layered robes/cloak with green leaf shoulder/hem details, brown crossbelt and small brown satchel, brown boots. Exactly ONE small BROWN BIRD perched on viewerRIGHT shoulder like original. ViewerLEFT hand holds ONE twisted BROWN WOOD STAFF with curling forked branches and a few green leaves, continuous shaft. Other free hand rests near satchel at waist, exactly2human hands. No sword or extra animals. Both feet firmly planted wide, knee bend subtle, mature5head bones not dwarf. Entire bird/hat/staff fit clear padding.",
+      "prompt": "Dress IMAGE1 original NEUTRAL HUMAN skeleton as IMAGE2 character. IMAGE1 alone controls normal adult skull, torso/limb bone lengths and elevated front camera. EXACTLY FIVE anatomical heads crown-to-sole, one head crown-to-CHIN excluding HAIR, BEARD, HAT or crown. No4head bighead chibi, no6+head tall hero. Copy exact bone segment relationships, use old age/slenderness through face, width and posture only. Full robes cover same compact fivehead bones, never lengthen body or hide feet. If hat/staff needs space, zoom out whole figure and expand clear canvas padding; do NOT shrink body relative to head to fit hat. Image2 identity/equipment/palette only, ignore its proportions. New joint poses required while preserving bone LENGTHS. Elevated FRONT camera looking DOWN30deg, clear TOP planes of head/hat and both shoulders, foreshortened chest/face, chin/gaze angled down separately. Not eyelevel with only bowed head. Crisp discrete pixel clusters, stepped dark outlines, limited color ramps matching image1/new Gondor/Mordor, no smooth painting/3D. Entire figure/weapons inside transparent RGBA clear margin, torso centered independently of equipment. No floor/base/shadow/aura/glow/text. Replace neutral bald scalp with required HAIR/BEARD/HAT exactly as source. RADAGAST old man full long GRAY WHITE beard and hair, slouched pointed BROWN floppy wizard hat with GREEN leaves on brim, brown layered robes/cloak with green leaf shoulder/hem details, brown crossbelt and small brown satchel, brown boots. Exactly ONE small BROWN BIRD perched on viewerRIGHT shoulder like original. ViewerLEFT hand holds ONE twisted BROWN WOOD STAFF with curling forked branches and a few green leaves, continuous shaft. Other free hand rests near satchel at waist, exactly2human hands. No sword or extra animals. Both feet firmly planted wide, knee bend subtle, mature5head bones not dwarf. Entire bird/hat/staff fit clear padding.",
+      "group": "마이아",
+      "groupKey": "maiar",
+      "bodyDescription": "인간형 5등신 · 하이앵글 프론트뷰",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/human.png",
+        "equipment": "Two hands, staff/sword or Radagast bird and satchel checked against original",
+        "camera": "Elevated front, shoulder/hat upper planes checked",
+        "approval": "pending"
+      },
+      "blobSHA": "527a1ca3e43b7cb083342a6133ba23fcae983e42",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-63fd7ab7-864f-4e79-8597-bf9416ae73a0.png"
+    },
+    {
+      "id": "gandalf_mounted",
+      "mounted": true,
+      "pose": "회색 기수 · 갈색 말 · 검과 지팡이",
+      "detail": "GANDALF GREY MOUNTED. Preserve SOURCE horse color: BROWN HORSE with darkbrown mane/tail and simple BROWN/GOLD bridle, no white Shadowfax change despite roster label. Old rider long GRAY WHITE beard/hair, broad GRAY pointed hat, gray robes and slatebluegray cloak, brown belt/boots. Image1 mounted HUMAN skeleton controls rider5head bones and horse normal anatomy; ignore foot standing instructions. One hand viewerLEFT holds SILVER straight SWORD low outward, other hand viewerRIGHT holds BROWN STAFF upright with small paleivory forked crystal top. Exactly TWO hands, BOTH occupied by weapons; reins drape loosely over saddle/pommel with NO third hand on reins. No shield. Full horse hooves, rider boots in stirrups, top planes saddle/horse neck/withers clearly visible due elevated front camera, not only bowed riderhead. Solidcrystal no glow.",
+      "prompt": "Dress IMAGE1 original NEUTRAL HUMAN skeleton as IMAGE2 character. IMAGE1 alone controls normal adult skull, torso/limb bone lengths and elevated front camera. EXACTLY FIVE anatomical heads crown-to-sole, one head crown-to-CHIN excluding HAIR, BEARD, HAT or crown. No4head bighead chibi, no6+head tall hero. Copy exact bone segment relationships, use old age/slenderness through face, width and posture only. Full robes cover same compact fivehead bones, never lengthen body or hide feet. If hat/staff needs space, zoom out whole figure and expand clear canvas padding; do NOT shrink body relative to head to fit hat. Image2 identity/equipment/palette only, ignore its proportions. New joint poses required while preserving bone LENGTHS. Elevated FRONT camera looking DOWN30deg, clear TOP planes of head/hat and both shoulders, foreshortened chest/face, chin/gaze angled down separately. Not eyelevel with only bowed head. Crisp discrete pixel clusters, stepped dark outlines, limited color ramps matching image1/new Gondor/Mordor, no smooth painting/3D. Entire figure/weapons inside transparent RGBA clear margin, torso centered independently of equipment. No floor/base/shadow/aura/glow/text. Replace neutral bald scalp with required HAIR/BEARD/HAT exactly as source. GANDALF GREY MOUNTED. Preserve SOURCE horse color: BROWN HORSE with darkbrown mane/tail and simple BROWN/GOLD bridle, no white Shadowfax change despite roster label. Old rider long GRAY WHITE beard/hair, broad GRAY pointed hat, gray robes and slatebluegray cloak, brown belt/boots. Image1 mounted HUMAN skeleton controls rider5head bones and horse normal anatomy; ignore foot standing instructions. One hand viewerLEFT holds SILVER straight SWORD low outward, other hand viewerRIGHT holds BROWN STAFF upright with small paleivory forked crystal top. Exactly TWO hands, BOTH occupied by weapons; reins drape loosely over saddle/pommel with NO third hand on reins. No shield. Full horse hooves, rider boots in stirrups, top planes saddle/horse neck/withers clearly visible due elevated front camera, not only bowed riderhead. Solidcrystal no glow.",
+      "group": "마이아",
+      "groupKey": "maiar",
+      "bodyDescription": "인간 기수 5등신 · 하이앵글 프론트뷰",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/human-mounted.png",
+        "equipment": "Two hands, staff/sword or Radagast bird and satchel checked against original",
+        "camera": "Elevated front, shoulder/hat upper planes checked",
+        "approval": "pending"
+      },
+      "blobSHA": "46a2c7ee1662f5088b162c51ffae36efb591e069",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-911b82c1-a211-43f7-8690-b7eff3d12307.png"
+    }
+  ]
+}

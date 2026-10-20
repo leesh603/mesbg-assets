@@ -1,6 +1,7 @@
 {
-  "count": 281,
+  "count": 284,
   "groups": {
+    "maiar": 3,
     "난쟁이": 7,
     "elf": 77,
     "isengard": 19,
@@ -8,8 +9,53 @@
     "rohan": 46,
     "gondor": 59
   },
-  "pending": 229,
+  "pending": 226,
   "units": [
+    {
+      "id": "gandalf_mounted",
+      "name": "간달프(섀도우팩스)",
+      "group": "마이아",
+      "role": "hero",
+      "image": "art/full-roster-night-rebuild-20261019/units/gandalf_mounted.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/gandalf_mounted.png",
+      "old": "tokens/gandalf_mounted.png",
+      "status": "검토 대기",
+      "body": "인간 기수 5등신 · 하이앵글 프론트뷰",
+      "pose": "회색 기수 · 갈색 말 · 검과 지팡이",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gandalf_mounted.png?v=46a2c7ee1662f5088b162c51ffae36efb591e069",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gandalf_mounted.png?v=46a2c7ee1662f5088b162c51ffae36efb591e069",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/gandalf_mounted.png"
+    },
+    {
+      "id": "radagast",
+      "name": "라다가스트",
+      "group": "마이아",
+      "role": "hero",
+      "image": "art/full-roster-night-rebuild-20261019/units/radagast.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/radagast.png",
+      "old": "tokens/radagast.png",
+      "status": "검토 대기",
+      "body": "인간형 5등신 · 하이앵글 프론트뷰",
+      "pose": "갈색 잎 장식 · 굽은 나무 지팡이",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/radagast.png?v=527a1ca3e43b7cb083342a6133ba23fcae983e42",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/radagast.png?v=527a1ca3e43b7cb083342a6133ba23fcae983e42",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/radagast.png"
+    },
+    {
+      "id": "gandalf",
+      "name": "간달프",
+      "group": "마이아",
+      "role": "hero",
+      "image": "art/full-roster-night-rebuild-20261019/units/gandalf.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/gandalf.png",
+      "old": "tokens/gandalf.png",
+      "status": "검토 대기",
+      "body": "인간형 5등신 · 하이앵글 프론트뷰",
+      "pose": "회색 모자 · 검과 지팡이",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gandalf.png?v=df0c9413131ba16b1b39f50c65879f16140a5493",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gandalf.png?v=df0c9413131ba16b1b39f50c65879f16140a5493",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/gandalf.png"
+    },
     {
       "id": "iron_guard",
       "name": "아이언 가드",
