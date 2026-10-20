@@ -1,12 +1,12 @@
 {
-  "count": 416,
+  "count": 417,
   "groups": {
+    "moria": 12,
     "shire": 14,
     "arnor": 9,
     "브리": 2,
     "numenor": 4,
     "men": 8,
-    "moria": 11,
     "이스터링·칸드": 10,
     "dunland": 8,
     "isengard": 30,
@@ -18,8 +18,23 @@
     "rohan": 46,
     "gondor": 59
   },
-  "pending": 94,
+  "pending": 93,
   "units": [
+    {
+      "id": "golfimbul",
+      "name": "골핌불",
+      "group": "모리아",
+      "role": "hero",
+      "image": "art/full-roster-night-rebuild-20261019/units/golfimbul.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/golfimbul.png",
+      "old": "tokens/golfimbul.png",
+      "status": "검토 대기",
+      "body": "고블린 표준 뼈대 · 하이앵글 프론트뷰",
+      "pose": "기존 고유 무장·행동과 숙인 고개 유지",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/golfimbul.png?v=192171d42900ec1acdef8d825c2fc30e81f10b6b",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/golfimbul.png?v=192171d42900ec1acdef8d825c2fc30e81f10b6b",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/golfimbul.png"
+    },
     {
       "id": "hobbit_militia",
       "name": "호빗 민병대",

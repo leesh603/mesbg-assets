@@ -1,0 +1,43 @@
+{
+  "batch": "golfimbul-001",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "golfimbul",
+      "name": "골핌불",
+      "faction": "moria",
+      "role": "hero",
+      "original": "tokens/golfimbul.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "모리아",
+      "groupKey": "moria",
+      "pose": "기존 고유 무장·행동과 숙인 고개 유지",
+      "bodyDescription": "고블린 표준 뼈대 · 하이앵글 프론트뷰",
+      "prompt": "ONE production transparent pixel GAME TOKEN, same exact number of characters as INPUT1; never add the neutral template as another figure. INPUT1 supplies exact identity/clothes/palette/hair/gear, elevated-front viewpoint and distinct original action. INPUT2 ORIGINAL SPECIES skeleton supplies immutable skull/shoulder/pelvis/knee/ankle bone lengths and proportions, crisp pixel density, stepped dark outlines and short color ramps. Dress input2 bones as input1; no changing bones into different species or inflating skull, no long-human legs on hobbits/goblins. Fat/slim/muscle variation by width. Keep all original hair/helmet despite bald neutral skeleton. HIGH-ANGLE FRONT camera DOWN40–45deg, visible crown and both shoulder TOPS; head DEEPLY BOWED further so eyes hidden by hair/hat/hood/brow and face only small lower fragment. Preserve original body lean/action and distinctive weapons; do not substitute generic upright template walk. Full silhouettes and ALL weapon/hat/staff tips inside inner80percent canvas with generous transparent margins. Body centered ignoring gear. No circular base/floor/shadow/scenery/glow/text/UI/watermark. Character: 골핌불 (golfimbul). Original iron spiked face-covering helmet and black plate armour, burgundy waistcloth, big spiked iron mace held above shoulder, all mace points inside margins; compact goblin/large orc identity exactly source.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/golfimbul.png",
+        "/workspace/scratch/f40d43c7f276/references/goblin.png"
+      ],
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-e3ad2b61-7a63-4800-93cd-2be2583f4f2b.png",
+      "expectedBlobSHA": "192171d42900ec1acdef8d825c2fc30e81f10b6b",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          162,
+          29,
+          1068,
+          1230
+        ]
+      },
+      "blobSHA": "192171d42900ec1acdef8d825c2fc30e81f10b6b",
+      "approval": "pending",
+      "inGameVerified": false
+    }
+  ]
+}

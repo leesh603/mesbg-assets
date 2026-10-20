@@ -1,6 +1,12 @@
-# 전체 재제작 검토 — 416종
+# 전체 재제작 검토 — 417종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 골핌불 (golfimbul)
+
+![골핌불](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/golfimbul.png?v=192171d42900ec1acdef8d825c2fc30e81f10b6b)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/golfimbul.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/golfimbul.png?v=192171d42900ec1acdef8d825c2fc30e81f10b6b)
 
 ### 호빗 민병대 (hobbit_militia)
 
