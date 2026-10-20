@@ -1,6 +1,12 @@
-# 전체 재제작 검토 — 509종
+# 전체 재제작 검토 — 510종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 움바 선장 (corsair_captain)
+
+![움바 선장](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/corsair_captain.png?v=f14d1e5d8baeeaed587dcfb2d00c52cfd8686694)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/corsair_captain.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/corsair_captain.png?v=f14d1e5d8baeeaed587dcfb2d00c52cfd8686694)
 
 ### 코르사 석궁병 (corsair_crossbowman)
 
