@@ -12796,7 +12796,7 @@ async function pvpFetch(path,opt={}){const api=pvpApi();if(!api)throw new Error(
     const r=await fetch(api+path,{method:opt.method||'GET',headers:{'Content-Type':'application/json'},body:opt.body?JSON.stringify(opt.body):undefined});
     const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(({'not found':'대전 서버가 아직 준비되지 않았습니다 (서버 업데이트 필요)','room not found':'방을 찾을 수 없습니다','room is full':'이미 두 명이 들어간 방입니다','invalid token':'방 접속이 끊겼습니다'})[j.detail]||j.detail||('서버 오류 '+r.status));return j;}
 const swapSide=s=>s==='good'?'evil':s==='evil'?'good':s;
-function pvpStop(){clearTimeout(ONLINE.timer);ONLINE.timer=null;Object.assign(ONLINE,{role:null,code:null,token:null,settings:null,seq:0,stateSeq:-1,cmdSince:0,busy:false,pushQueued:false,bfKey:'',events:[],evN:0,lastEv:0});if(q)q.pvp=null;}
+function pvpStop(){try{clearRemnants();}catch(e){}clearTimeout(ONLINE.timer);ONLINE.timer=null;Object.assign(ONLINE,{role:null,code:null,token:null,settings:null,seq:0,stateSeq:-1,cmdSince:0,busy:false,pushQueued:false,bfKey:'',events:[],evN:0,lastEv:0});if(q)q.pvp=null;}
 
 // ---------- band rules ----------
 function pvpCatalog(align){const bans=(ONLINE.settings&&ONLINE.settings.bans)||[];return Object.values(UnitCatalog).filter(d=>d.enabled&&d.meta.side===align&&d.points>0&&q.meta.has(d.id)&&!bans.includes(d.id)).sort((a,b)=>(a.meta.faction||'').localeCompare(b.meta.faction||'')||(b.points-a.points));}
@@ -13104,3 +13104,59 @@ async function pvpHostStart(){const L=PVP_LOBBY;try{const r=await pvpFetch('/roo
 // Title button
 {const _yt=Yt;Yt=function(){const r=_yt.apply(this,arguments);try{if(q.phase==='menu'&&!document.getElementById('pvp-open')){const g=document.getElementById('t-menu-open');if(g){g.insertAdjacentHTML('beforebegin','<button id="pvp-open" class="t-btn dock-it" aria-label="온라인 대전"><i class="medal">'+pxSvg('duel')+'</i><span>대전</span></button>');document.getElementById('pvp-open').onclick=()=>pvpLobby();}}}catch(e){console.error('[pvp]',e);}return r;};}
 if(window.MESBG){MESBG.online=ONLINE;MESBG.pvpLobby=pvpLobby;}
+
+/* ==== Danger zone (reference: Fire Emblem enemy range overlay) ====
+   Toggle in the settings menu. During the player's deployment and turns, every enemy's reach this round is
+   shaded: red = can charge into contact (move + bases), orange outline = shooting range. Ignores terrain
+   detours, so it is an upper bound. Display only. */
+const DANGER_UI={on:(()=>{try{return localStorage.getItem('lwb_danger')==='1';}catch(e){return false;}})(),g:null,sig:'',t:0};
+function drawDanger(scene){const b=scene.b;if(!DANGER_UI.g||!DANGER_UI.g.scene)DANGER_UI.g=scene.add.graphics().setDepth(2.9);const g=DANGER_UI.g;
+    const show=DANGER_UI.on&&b&&!AUTO&&['preparation','move','shoot'].includes(b.phase)&&(b.phase==='preparation'||b.side==='good');
+    const foes=show?b.alive('evil').filter(u=>u.x>=0&&!u.static&&!u.lair&&!u._arriving):[];
+    const sig=foes.map(u=>u.uid+(u.x>>4)+','+(u.y>>4)+(b.engaged(u)?'e':'')).join(';')+'|'+show;if(sig===DANGER_UI.sig)return;DANGER_UI.sig=sig;g.clear();if(!show)return;
+    for(const u of foes){if(b.engaged(u))continue;const reach=(u.stats.move||0)+u.radius+38;g.fillStyle(0xd23a2a,.12).fillCircle(u.x,u.y,reach);}
+    for(const u of foes){if(b.engaged(u))continue;const reach=(u.stats.move||0)+u.radius+38;g.lineStyle(2.5,0xe0452f,.6).strokeCircle(u.x,u.y,reach);
+        if(u.stats.shootRange>0){const r=u.stats.shootRange;for(let i=0;i<48;i+=2){const a0=i*Math.PI/24,a1=(i+1)*Math.PI/24;g.lineStyle(2,0xf0a030,.55);g.beginPath();g.arc(u.x,u.y,r,a0,a1);g.strokePath();}}}
+}
+{const _du=Ve.prototype.update;Ve.prototype.update=function(t){_du.call(this,t);if(!this.b||!this.add)return;if(t-DANGER_UI.t<250&&DANGER_UI.sig)return;DANGER_UI.t=t;try{drawDanger(this);}catch(e){console.error('[danger]',e);}};}
+function installDangerToggle(){if(document.getElementById('danger-toggle'))return;const it=document.getElementById('intent-toggle'),menu=document.querySelector('#app .top-actions')||document.querySelector('.top-actions');if(!menu)return;
+    const bt=document.createElement('button');bt.id='danger-toggle';bt.type='button';bt.className='iconbtn';
+    const paint=()=>{bt.innerHTML='<img src="icons/ui_warning.png" alt="" style="width:14px;height:14px;image-rendering:pixelated;vertical-align:-2px;margin-right:4px">위험 지역 '+(DANGER_UI.on?'표시 중':'꺼짐');bt.setAttribute('aria-pressed',String(DANGER_UI.on));bt.style.opacity=DANGER_UI.on?'':'.7';};
+    bt.onclick=()=>{DANGER_UI.on=!DANGER_UI.on;DANGER_UI.sig='x';try{localStorage.setItem('lwb_danger',DANGER_UI.on?'1':'0');}catch(e){}paint();Xt(DANGER_UI.on?'위험 지역 — 붉은 영역: 적이 이번 라운드에 돌격할 수 있는 곳 · 주황 점선: 사거리':'위험 지역 표시를 껐습니다.');};
+    paint();it&&it.parentNode===menu?it.after(bt):menu.appendChild(bt);const sync=()=>{if(it){const o=getComputedStyle(it).order||it.style.order;if(o)bt.style.order=o;}};sync();setTimeout(sync,1300);}
+installDangerToggle();setTimeout(installDangerToggle,1600);
+
+/* ==== Impact tiers (reference: Hades, Into the Breach) ====
+   Each resolved fight or shot gets a hit-stop and camera kick sized to what happened: a wound, a kill,
+   or several kills at once. Shorter at 2x, camera-only at 4x, off at 8x+ and with reduced motion. */
+let IMPACT_BUSY=0;
+function impactTier(r){if(!r)return 0;const kills=(r.kills||[]).length||(r.strikeResults||[]).filter(s=>s.killed).length,wounds=(r.wounds||[]).length||(r.strikeResults||[]).filter(s=>s.wound).length;return kills>=2?3:kills?2:wounds?1:0;}
+async function impact(scene,tier){if(!tier||UX.reduced||qt>=8||window._lwbFx)return;const cam=scene.cameras?.main;if(!cam)return;
+    const fast=qt>=4,mag=[0,.0012,.0024,.0042][tier]*(fast?.6:1),dur=[0,70,130,220][tier]*(qt>=2?.7:1);
+    cam.shake(dur,mag);
+    if(tier===3&&!fast)cam.flash(120,255,240,210,false);
+    if(fast||IMPACT_BUSY)return;const stop=[0,0,55,95][tier]*(qt>=2?.6:1);if(!stop)return;
+    IMPACT_BUSY=1;const tw=scene.tweens,prev=tw.timeScale;tw.timeScale=.05;await new Promise(r=>setTimeout(r,stop));tw.timeScale=prev||1;IMPACT_BUSY=0;}
+{const _ip=Ve.prototype.play;Ve.prototype.play=function(event){const r=event&&event.result,tier=r&&(r.kind==='shot'||r.diceResults)?impactTier(r):0;const p=_ip.apply(this,arguments);if(tier)setTimeout(()=>impact(this,tier),qt>=2?60:140);return p;};}
+
+/* ==== Battlefield remnants (reference: Battle Brothers) ====
+   Where a soldier falls a small pixel mark stays for the rest of the battle: blood, a broken weapon,
+   a dropped banner for heroes. Cleared when the next battle begins. Routed (fled) units leave nothing. */
+const REMNANTS={list:[],seed:1};
+function remnantRng(){REMNANTS.seed=(REMNANTS.seed*1103515245+12345)&0x7fffffff;return REMNANTS.seed/0x7fffffff;}
+function dropRemnant(scene,u){if(!u||u.x==null||u.x<0||u.static||u.lair)return;const g=scene.add.graphics().setDepth(2.7),x=u.x,y=u.y+(u.radius||38)*.15,s=Math.max(1,(u.radius||38)/38);
+    const px=(dx,dy,w,h,c,a)=>{g.fillStyle(c,a).fillRect(Math.round(x+dx*s),Math.round(y+dy*s),Math.max(2,Math.round(w*s)),Math.max(2,Math.round(h*s)));};
+    const blood=u.traits?.includes('monster')?0x4a1a12:0x6a1410;
+    px(-14,-6,28,12,blood,.5);px(-9,-9,18,18*.6,blood,.55);for(let i=0;i<16;i++){const a=remnantRng()*Math.PI*2,d=8+remnantRng()*20;px(Math.cos(a)*d-3,Math.sin(a)*d*.6-2,4+remnantRng()*7,3+remnantRng()*4,blood,.6+remnantRng()*.3);}
+    const ang=remnantRng()*Math.PI,len=34*s,cx=x+(remnantRng()*10-5)*s,cy=y+(remnantRng()*6-3)*s;
+    g.lineStyle(5*s,0x1a120c,.9).lineBetween(cx-Math.cos(ang)*len/2,cy-Math.sin(ang)*len*.5/2,cx-Math.cos(ang)*len*.05,cy-Math.sin(ang)*len*.05*.5);
+    g.lineStyle(3*s,0x8a6a44,1).lineBetween(cx-Math.cos(ang)*len/2,cy-Math.sin(ang)*len*.5/2,cx-Math.cos(ang)*len*.05,cy-Math.sin(ang)*len*.05*.5);
+    g.lineStyle(3*s,0xc8c0b0,1).lineBetween(cx+Math.cos(ang)*len*.1,cy+Math.sin(ang)*len*.05,cx+Math.cos(ang)*len/2,cy+Math.sin(ang)*len*.25);
+    if(u.traits?.includes('hero')){const col=u.side==='good'?0x2f5f80:0x7a2a1e;g.fillStyle(0x3a2a18,1).fillRect(x+10*s,y-14*s,2*s,18*s);g.fillStyle(col,.95).fillRect(x+12*s,y-14*s,10*s,7*s);g.fillStyle(0xe8c66a,.9).fillRect(x+12*s,y-14*s,10*s,1.5*s);}
+    g.setAlpha(0);scene.tweens.add({targets:g,alpha:1,duration:400});REMNANTS.list.push(g);if(REMNANTS.list.length>80)REMNANTS.list.shift().destroy();}
+function clearRemnants(){for(const g of REMNANTS.list)try{g.destroy();}catch(e){}REMNANTS.list=[];}
+{const _rp=Ve.prototype.play;Ve.prototype.play=function(event){try{if(event&&event.type==='UnitKilled'&&event.uid&&this.b){const u=this.b.unit(event.uid),fled=typeof event.message==='string'&&event.message.includes('도주');if(u&&!fled&&!u.fled)dropRemnant(this,u);}
+    if(event&&event.type==='WaveStarted')clearRemnants();}catch(e){console.error('[remnant]',e);}return _rp.apply(this,arguments);};}
+{const _rs=P.start;P.start=function(){clearRemnants();return _rs.apply(this,arguments);};}
+{const _rpv=P.startPvp;if(_rpv)P.startPvp=function(){clearRemnants();return _rpv.apply(this,arguments);};}
+if(window.MESBG)MESBG.remnants=REMNANTS;
