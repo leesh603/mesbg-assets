@@ -1,6 +1,36 @@
-# 전체 재제작 검토 — 173종
+# 전체 재제작 검토 — 178종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 감링(기마) (gamling_mounted)
+
+![감링(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gamling_mounted.png?v=43329f41b563466f88a845e4b283edce90f0737a)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/gamling_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gamling_mounted.png?v=43329f41b563466f88a845e4b283edce90f0737a)
+
+### 구슬라프(기마) (guthlaf_mounted)
+
+![구슬라프(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/guthlaf_mounted.png?v=98f68a6b370d078ab944497164c7a2c963955038)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/guthlaf_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/guthlaf_mounted.png?v=98f68a6b370d078ab944497164c7a2c963955038)
+
+### 둔헤레(기마) (dunhere_mounted)
+
+![둔헤레(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dunhere_mounted.png?v=4d883372435c1cc84bf0da85786f07586ff49209)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/dunhere_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dunhere_mounted.png?v=4d883372435c1cc84bf0da85786f07586ff49209)
+
+### 하딩(기마) (harding_mounted)
+
+![하딩(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/harding_mounted.png?v=b2187aba0ca6b57e5aa979f116387b779c92925c)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/harding_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/harding_mounted.png?v=b2187aba0ca6b57e5aa979f116387b779c92925c)
+
+### 그림볼드(기마) (grimbold_mounted)
+
+![그림볼드(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/grimbold_mounted.png?v=294b6cbc3ae272f1e60c8d02b2f53833bdbad1b0)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/grimbold_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/grimbold_mounted.png?v=294b6cbc3ae272f1e60c8d02b2f53833bdbad1b0)
 
 ### 웨스트폴드 적색방패 기병 (rohan_redshield)
 
