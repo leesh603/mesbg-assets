@@ -1,6 +1,30 @@
-# 전체 재제작 검토 — 263종
+# 전체 재제작 검토 — 267종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 드워프 양손도끼 (dwarf_2haxe)
+
+![드워프 양손도끼](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dwarf_2haxe.png?v=efd39f2d783bc1bbf62994a723b9163d881bdc36)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/dwarf_2haxe.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dwarf_2haxe.png?v=efd39f2d783bc1bbf62994a723b9163d881bdc36)
+
+### 드워프 도끼방 (dwarf_axeshield)
+
+![드워프 도끼방](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dwarf_axeshield.png?v=9c2e0e2ab8fe157ebe6db3338b748c7fe3127fc7)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/dwarf_axeshield.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dwarf_axeshield.png?v=9c2e0e2ab8fe157ebe6db3338b748c7fe3127fc7)
+
+### 드워프 가디언 (dwarf_guardian)
+
+![드워프 가디언](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dwarf_guardian.png?v=4938584258987425a14feeb23f394be437b99bd1)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/dwarf_guardian.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dwarf_guardian.png?v=4938584258987425a14feeb23f394be437b99bd1)
+
+### 김리 (gimli)
+
+![김리](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gimli.png?v=161173ce51d24573fcdc09123e28ab72522870aa)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/gimli.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gimli.png?v=161173ce51d24573fcdc09123e28ab72522870aa)
 
 ### 매글린(기마) (maeglin_mounted)
 

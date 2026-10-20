@@ -1,0 +1,78 @@
+{
+  "batch": "dwarf-001-four-20261020",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "gimli",
+      "pose": "도끼를 양손으로 낮춘 정면 방어",
+      "detail": "GIMLI orange-red long braided beard, fitted dark domed helmet with gold bands, burgundy-gold short tunic, chainmail sleeves, leather bracers/boots. Hold original broad double-bladed axe BOTH HANDS horizontally low before waist. Feet planted wide, both knees soft, not walking.",
+      "group": "난쟁이",
+      "groupKey": "dwarf",
+      "bodyDescription": "난쟁이 표준 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "prompt": "ONE isolated full-body production PIXEL game token, transparent RGBA. Dress IMAGE1 ORIGINAL DWARF skeleton in IMAGE2 exact character identity/costume/weapons, ignore old proportions. Preserve dwarf skull/shoulder/pelvis/knee/ankle landmarks and short broad dwarf bone lengths EXACTLY image1. Beard/hair/helm sits outside anatomical skull; NEVER count beard/helmet as head. No human long legs, no inflated skull or chibi. Body width may vary. HIGH-ANGLE FRONT camera DOWN35deg with pronounced visible crown and both shoulder TOP planes. Head DEEPLY BOWED, eyes hidden under helmet/hood/hair/brow, face only a small lower fragment. Pixel density, stepped dark outlines and short color ramps exactly image1, no smooth painting. Body centered independent of weapon/banner. Full silhouette and all weapon tips inside generous transparent margin. No base/floor/shadow/scenery/glow/text. GIMLI orange-red long braided beard, fitted dark domed helmet with gold bands, burgundy-gold short tunic, chainmail sleeves, leather bracers/boots. Hold original broad double-bladed axe BOTH HANDS horizontally low before waist. Feet planted wide, both knees soft, not walking.",
+      "refs": [
+        "/workspace/scratch/f40d43c7f276/references/dwarf.png",
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/gimli.png"
+      ],
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-f31fa341-b3ec-43a6-b119-e302d2eba646.png",
+      "status": "awaiting_visual_review",
+      "blobSHA": "161173ce51d24573fcdc09123e28ab72522870aa",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "dwarf_guardian",
+      "pose": "방패를 앞세운 수비",
+      "detail": "Orange braided beard, silver ridge helmet, silver chainmail and black-gold armour, tall black angular rectangular shield with gold rim and silver chevron/rune motif, axe in other hand lowered outward. Shield forward, both feet parallel, no stride.",
+      "group": "난쟁이",
+      "groupKey": "dwarf",
+      "bodyDescription": "난쟁이 표준 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "prompt": "ONE isolated full-body production PIXEL game token, transparent RGBA. Dress IMAGE1 ORIGINAL DWARF skeleton in IMAGE2 exact character identity/costume/weapons, ignore old proportions. Preserve dwarf skull/shoulder/pelvis/knee/ankle landmarks and short broad dwarf bone lengths EXACTLY image1. Beard/hair/helm sits outside anatomical skull; NEVER count beard/helmet as head. No human long legs, no inflated skull or chibi. Body width may vary. HIGH-ANGLE FRONT camera DOWN35deg with pronounced visible crown and both shoulder TOP planes. Head DEEPLY BOWED, eyes hidden under helmet/hood/hair/brow, face only a small lower fragment. Pixel density, stepped dark outlines and short color ramps exactly image1, no smooth painting. Body centered independent of weapon/banner. Full silhouette and all weapon tips inside generous transparent margin. No base/floor/shadow/scenery/glow/text. Orange braided beard, silver ridge helmet, silver chainmail and black-gold armour, tall black angular rectangular shield with gold rim and silver chevron/rune motif, axe in other hand lowered outward. Shield forward, both feet parallel, no stride.",
+      "refs": [
+        "/workspace/scratch/f40d43c7f276/references/dwarf.png",
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/dwarf_guardian.png"
+      ],
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-b7140df4-65d8-45eb-8efb-bf4326e790f3.png",
+      "status": "awaiting_visual_review",
+      "blobSHA": "4938584258987425a14feeb23f394be437b99bd1",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "dwarf_axeshield",
+      "pose": "도끼 든 전진 준비",
+      "detail": "Brown-orange long beard, plain silver nasal helmet, dark iron plate over mail, brown boots, round brown wood shield with steel boss/rim, one steel axe. One boot a short step forward, shield near hip, axe low beside shoulder.",
+      "group": "난쟁이",
+      "groupKey": "dwarf",
+      "bodyDescription": "난쟁이 표준 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "prompt": "ONE isolated full-body production PIXEL game token, transparent RGBA. Dress IMAGE1 ORIGINAL DWARF skeleton in IMAGE2 exact character identity/costume/weapons, ignore old proportions. Preserve dwarf skull/shoulder/pelvis/knee/ankle landmarks and short broad dwarf bone lengths EXACTLY image1. Beard/hair/helm sits outside anatomical skull; NEVER count beard/helmet as head. No human long legs, no inflated skull or chibi. Body width may vary. HIGH-ANGLE FRONT camera DOWN35deg with pronounced visible crown and both shoulder TOP planes. Head DEEPLY BOWED, eyes hidden under helmet/hood/hair/brow, face only a small lower fragment. Pixel density, stepped dark outlines and short color ramps exactly image1, no smooth painting. Body centered independent of weapon/banner. Full silhouette and all weapon tips inside generous transparent margin. No base/floor/shadow/scenery/glow/text. Brown-orange long beard, plain silver nasal helmet, dark iron plate over mail, brown boots, round brown wood shield with steel boss/rim, one steel axe. One boot a short step forward, shield near hip, axe low beside shoulder.",
+      "refs": [
+        "/workspace/scratch/f40d43c7f276/references/dwarf.png",
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/dwarf_axeshield.png"
+      ],
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-7040ac00-18f9-4cc9-adf6-66d02d755b0e.png",
+      "status": "awaiting_visual_review",
+      "blobSHA": "9c2e0e2ab8fe157ebe6db3338b748c7fe3127fc7",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "dwarf_2haxe",
+      "pose": "어깨에 양손도끼를 건 중량 자세",
+      "detail": "Orange braided beard, gold-rimmed iron helmet, brown-gold armour/mail and boots. Complete original double-bladed great axe held BOTH HANDS diagonally across shoulder, not above canvas; feet very wide planted, knees bent, torso slightly twisted but front camera.",
+      "group": "난쟁이",
+      "groupKey": "dwarf",
+      "bodyDescription": "난쟁이 표준 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "prompt": "ONE isolated full-body production PIXEL game token, transparent RGBA. Dress IMAGE1 ORIGINAL DWARF skeleton in IMAGE2 exact character identity/costume/weapons, ignore old proportions. Preserve dwarf skull/shoulder/pelvis/knee/ankle landmarks and short broad dwarf bone lengths EXACTLY image1. Beard/hair/helm sits outside anatomical skull; NEVER count beard/helmet as head. No human long legs, no inflated skull or chibi. Body width may vary. HIGH-ANGLE FRONT camera DOWN35deg with pronounced visible crown and both shoulder TOP planes. Head DEEPLY BOWED, eyes hidden under helmet/hood/hair/brow, face only a small lower fragment. Pixel density, stepped dark outlines and short color ramps exactly image1, no smooth painting. Body centered independent of weapon/banner. Full silhouette and all weapon tips inside generous transparent margin. No base/floor/shadow/scenery/glow/text. Orange braided beard, gold-rimmed iron helmet, brown-gold armour/mail and boots. Complete original double-bladed great axe held BOTH HANDS diagonally across shoulder, not above canvas; feet very wide planted, knees bent, torso slightly twisted but front camera.",
+      "refs": [
+        "/workspace/scratch/f40d43c7f276/references/dwarf.png",
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/dwarf_2haxe.png"
+      ],
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-59013913-c91d-4e81-aca2-1df92843765d.png",
+      "status": "awaiting_visual_review",
+      "blobSHA": "efd39f2d783bc1bbf62994a723b9163d881bdc36",
+      "approval": "pending",
+      "inGameVerified": false
+    }
+  ]
+}

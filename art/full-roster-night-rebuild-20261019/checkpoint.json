@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T02:57:08.113Z",
+  "updatedAt": "2026-10-20T02:58:46.118Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 247,
-    "newlyGeneratedThisSession": 131,
-    "visuallyReviewedThisSession": 136,
+    "pending": 243,
+    "newlyGeneratedThisSession": 135,
+    "visuallyReviewedThisSession": 140,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 131,
-    "persistedReviewAssets": 263,
+    "generatedReviewAssets": 135,
+    "persistedReviewAssets": 267,
     "revisedAfterRejection": 14
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -55,7 +55,7 @@
       "cave_troll",
       "orc_shaman",
       "haradrim_spearman",
-      "gimli"
+      "frodo"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
@@ -340,8 +340,13 @@
       "faction": "dwarf",
       "role": "hero",
       "original": "tokens/gimli.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dwarf",
+      "path": "art/full-roster-night-rebuild-20261019/units/gimli.png",
+      "blobSHA": "161173ce51d24573fcdc09123e28ab72522870aa",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "boromir",
@@ -423,8 +428,13 @@
       "faction": "dwarf",
       "role": "infantry",
       "original": "tokens/dwarf_guardian.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dwarf",
+      "path": "art/full-roster-night-rebuild-20261019/units/dwarf_guardian.png",
+      "blobSHA": "4938584258987425a14feeb23f394be437b99bd1",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "rohan_royal_guard",
@@ -751,8 +761,13 @@
       "faction": "dwarf",
       "role": "infantry",
       "original": "tokens/dwarf_axeshield.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dwarf",
+      "path": "art/full-roster-night-rebuild-20261019/units/dwarf_axeshield.png",
+      "blobSHA": "9c2e0e2ab8fe157ebe6db3338b748c7fe3127fc7",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "dwarf_2haxe",
@@ -760,8 +775,13 @@
       "faction": "dwarf",
       "role": "infantry",
       "original": "tokens/dwarf_2haxe.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dwarf",
+      "path": "art/full-roster-night-rebuild-20261019/units/dwarf_2haxe.png",
+      "blobSHA": "efd39f2d783bc1bbf62994a723b9163d881bdc36",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "dwarf_ranger",
@@ -5712,11 +5732,12 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 263,
+    "count": 267,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
+      "난쟁이": 4,
       "elf": 66,
       "isengard": 19,
       "mordor": 73,
@@ -5725,7 +5746,7 @@
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,
-    "sourceValidation": "258 unique IDs; static card count and asset blob SHAs verified"
+    "sourceValidation": "267 unique IDs; static card count and asset blob SHAs verified"
   },
   "revisionRequests": {
     "witchking": {
@@ -5822,13 +5843,12 @@
     }
   },
   "lastContinuation": {
-    "batch": "isengard-003-five-20261020",
+    "batch": "dwarf-001-four-20261020",
     "newIds": [
-      "uruk_banner",
-      "grima",
-      "ruffian",
-      "snaga",
-      "targsh"
+      "gimli",
+      "dwarf_guardian",
+      "dwarf_axeshield",
+      "dwarf_2haxe"
     ],
     "qualityStandard": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
     "note": "Each image inspected against canonical skeleton and identity reference; approval pending."
