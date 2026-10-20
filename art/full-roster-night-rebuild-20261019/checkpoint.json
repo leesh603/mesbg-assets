@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T13:19:15.250Z",
+  "updatedAt": "2026-10-20T14:22:20.204489+00:00",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -16,8 +16,8 @@
     "generatedReviewAssets": 378,
     "persistedReviewAssets": 510,
     "revisedAfterRejection": 20,
-    "qualityRejected": 13,
-    "qualityHeld": 4,
+    "qualityRejected": 5,
+    "qualityHeld": 2,
     "awaitingApproval": 493,
     "correctionCandidatesGenerated": 64
   },
@@ -10877,20 +10877,21 @@
     "note": "Each image inspected against canonical skeleton and identity reference; approval pending."
   },
   "lastCorrection": {
-    "at": "2026-10-20T12:30:13.247Z",
-    "batch": "resume-finish-48-01-20261020",
+    "batch": "finish-recovered-ten-20261020",
     "ids": [
-      "numenorean_spearman",
-      "haleth",
-      "gildor",
-      "grishnakh",
-      "dol_amroth_man_at_arms",
-      "guritz",
-      "turgon"
+      "annatar",
+      "celebrimbor",
+      "daeron",
+      "earnur",
+      "gwindor",
+      "maeglin",
+      "eol",
+      "earendil",
+      "galdor",
+      "ingold"
     ],
-    "newCharacterCount": 0,
-    "qualityAcceptedCount": 0,
-    "purpose": "Correct audit regressions; final approval pending"
+    "qualityAccepted": false,
+    "inGameScaleVerified": false
   },
   "qualityHold": {
     "enabled": true,
@@ -10962,8 +10963,8 @@
   "qualityRepairRequest": {
     "id": "all-194-20261020",
     "scopeCount": 194,
-    "correctedCandidates": 177,
-    "remaining": 17,
+    "correctedCandidates": 187,
+    "remaining": 7,
     "userApproved": 0,
     "previousMountedCorrectionsIncluded": true
   }

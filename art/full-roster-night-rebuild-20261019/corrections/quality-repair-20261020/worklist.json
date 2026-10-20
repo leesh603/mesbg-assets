@@ -1,8 +1,8 @@
 {
   "request": "all-194-20261020",
-  "updatedAt": "2026-10-20T13:19:15.250Z",
-  "correctedCandidates": 177,
-  "remaining": 17,
+  "updatedAt": "2026-10-20T14:22:20.204489+00:00",
+  "correctedCandidates": 187,
+  "remaining": 7,
   "scope": [
     {
       "id": "imrahil_mounted",
@@ -1341,9 +1341,10 @@
       "name": "안나타르",
       "originalApproval": "rejected",
       "originalReason": "기존의 숙인 고개가 정면 얼굴 응시로 바뀜. 사용자 고개·시점 기준 위반.",
-      "state": "pending_correction",
-      "path": "art/mordor-rebuild-20261019/units/annatar.png",
-      "blobSHA": "7260889eb9c207033d4844cc6e7ff0f669932c44"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/annatar.png",
+      "blobSHA": "4acd5e299df69b32e88b9605a571e593e8759a28",
+      "review": "visual original/new comparison; final in-game scale acceptance pending"
     },
     {
       "id": "sauron_wolf",
@@ -1368,72 +1369,80 @@
       "name": "그윈도르",
       "originalApproval": "rejected",
       "originalReason": "기존의 숙인 머리·검/등불 흐름보다 정면 얼굴 노출이 강해짐.",
-      "state": "pending_correction",
-      "path": "art/full-roster-night-rebuild-20261019/units/gwindor.png",
-      "blobSHA": "88827b97ccc6ff098efd47f76c91ef5ad2ad7c80"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/gwindor.png",
+      "blobSHA": "0dc766ef4c8657014c956c4fee8e05647b7e6565",
+      "review": "visual original/new comparison; final in-game scale acceptance pending"
     },
     {
       "id": "celebrimbor",
       "name": "켈레브림보르",
       "originalApproval": "rejected",
       "originalReason": "기존 숙인 머리·마법 제작 제스처와 빛나는 물건의 개성이 정면 얼굴·일반 직립형으로 약화됨.",
-      "state": "pending_correction",
-      "path": "art/full-roster-night-rebuild-20261019/units/celebrimbor.png",
-      "blobSHA": "511fb89e2c3861c8b4116aa62c9eedbfca7098d7"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/celebrimbor.png",
+      "blobSHA": "1f70c3ba37ea3e0a1c92a3be9926d5a866b6dd12",
+      "review": "visual original/new comparison; final in-game scale acceptance pending"
     },
     {
       "id": "daeron",
       "name": "다에론",
       "originalApproval": "rejected",
       "originalReason": "기존의 숙인 머리·그늘진 얼굴과 긴 로브가 정면 얼굴·짧은 로브형으로 바뀜.",
-      "state": "pending_correction",
-      "path": "art/full-roster-night-rebuild-20261019/units/daeron.png",
-      "blobSHA": "24e57fbce752e8ba25328e7ce91fcf2b1edabcd6"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/daeron.png",
+      "blobSHA": "20b0022518a39b5f437415ce6b00ca5e02313f49",
+      "review": "visual original/new comparison; final in-game scale acceptance pending"
     },
     {
       "id": "earnur",
       "name": "에아르누르",
       "originalApproval": "hold",
       "originalReason": "짧고 넓어진 자세의 골반·다리 비율 재검수 필요.",
-      "state": "pending_correction",
-      "path": "art/gondor-rebuild-20261019/units/earnur.png",
-      "blobSHA": "925baaefe7732ce13f8bab42858beb296f449a9a"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/earnur.png",
+      "blobSHA": "3e7db4108d6c630da909d52375065fd4194756be",
+      "review": "visual original/new comparison; final in-game scale acceptance pending"
     },
     {
       "id": "earendil",
       "name": "에아렌딜",
       "originalApproval": "rejected",
       "originalReason": "기존 숙인 머리·흐르는 머리/망토보다 정면 얼굴 응시가 강해짐.",
-      "state": "pending_correction",
-      "path": "art/full-roster-night-rebuild-20261019/units/earendil.png",
-      "blobSHA": "2ec999e29929117c96accebabcb669db544e7587"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/earendil.png",
+      "blobSHA": "99540938bbd073d84367ac7691263d2791404cf0",
+      "review": "visual original/new comparison; final in-game scale acceptance pending"
     },
     {
       "id": "maeglin",
       "name": "매글린",
       "originalApproval": "rejected",
       "originalReason": "기존 숙인 머리·그늘진 얼굴이 정면 얼굴 노출 중심으로 바뀜.",
-      "state": "pending_correction",
-      "path": "art/full-roster-night-rebuild-20261019/units/maeglin.png",
-      "blobSHA": "f8b2f8a4081f0e931dcb3e8a3186fdd0e8e64094"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/maeglin.png",
+      "blobSHA": "d63aec3b7dd84ce38cf380f9584d7117f19972f3",
+      "review": "visual original/new comparison; final in-game scale acceptance pending"
     },
     {
       "id": "eol",
       "name": "에올",
       "originalApproval": "rejected",
       "originalReason": "기존 고개를 깊이 숙인 어두운 실루엣이 정면 얼굴·일반 보행형으로 바뀜.",
-      "state": "pending_correction",
-      "path": "art/full-roster-night-rebuild-20261019/units/eol.png",
-      "blobSHA": "ac37b1fc1942aa358e88691846e7e2d6a21f7ca6"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/eol.png",
+      "blobSHA": "a26d121f064049827584059645555e7eaaf54b87",
+      "review": "visual original/new comparison; final in-game scale acceptance pending"
     },
     {
       "id": "galdor",
       "name": "갈도르",
       "originalApproval": "rejected",
       "originalReason": "기존 숙인 머리·가려진 얼굴·긴 로브가 정면 얼굴·짧은 로브형으로 바뀜. 외형 정합성도 확인 필요.",
-      "state": "pending_correction",
-      "path": "art/full-roster-night-rebuild-20261019/units/galdor.png",
-      "blobSHA": "cb0422c65beb86f90e66680c9e1b99238bedce52"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/galdor.png",
+      "blobSHA": "1a4d8533f1fce450141ed6193b8706c4febfc9e0",
+      "review": "visual original/new comparison; final in-game scale acceptance pending"
     },
     {
       "id": "eomund",
@@ -1449,9 +1458,10 @@
       "name": "잉골드",
       "originalApproval": "hold",
       "originalReason": "넓어진 자세에서 다리가 압축되어 보임. 인간형 5등신 인체 재검수.",
-      "state": "pending_correction",
-      "path": "art/gondor-rebuild-20261019/units/ingold.png",
-      "blobSHA": "d29c7fe4ba40380913e2bf242bd0822cc8f986e4"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/ingold.png",
+      "blobSHA": "20980a9d1225eb48a6d657e8683f1d0ce7586a7e",
+      "review": "visual original/new comparison; final in-game scale acceptance pending"
     },
     {
       "id": "war_hound",
