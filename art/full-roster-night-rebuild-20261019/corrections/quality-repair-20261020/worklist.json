@@ -1,8 +1,8 @@
 {
   "request": "all-194-20261020",
-  "updatedAt": "2026-10-20T05:40:52.433Z",
-  "correctedCandidates": 56,
-  "remaining": 138,
+  "updatedAt": "2026-10-20T05:42:34.475Z",
+  "correctedCandidates": 60,
+  "remaining": 134,
   "scope": [
     {
       "id": "imrahil_mounted",
@@ -108,9 +108,9 @@
       "name": "글로르핀델(도보)",
       "originalApproval": "rejected",
       "originalReason": "기존 숙인 머리·곡검·무게감보다 정면 얼굴 노출이 강해짐.",
-      "state": "pending_correction",
-      "path": "art/full-roster-night-rebuild-20261019/units/glorfindel_foot.png",
-      "blobSHA": "38dee985e0322b064c2060c69322c9cd29e5d262"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/glorfindel_foot.png",
+      "blobSHA": "6ff930a974f4adc4ec5d6c4d3556b9ea4932cfc7"
     },
     {
       "id": "nazgul_sword",
@@ -126,27 +126,27 @@
       "name": "오크 대장",
       "originalApproval": "rejected",
       "originalReason": "기존 군기와 가려진 투구 얼굴이 사라져 검을 든 일반 오크와 역할 실루엣이 겹침.",
-      "state": "pending_correction",
-      "path": "art/mordor-rebuild-20261019/units/orc_captain.png",
-      "blobSHA": "337e29c3901bf18f2ea99374d97854da97e241be"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/orc_captain.png",
+      "blobSHA": "ed84e3254a0349d5c9cc17ede515e08912436a14"
     },
     {
       "id": "orc_spearman",
       "name": "오크 창병",
       "originalApproval": "hold",
       "originalReason": "기존 방패가 사라지고 창 자세·장비 구성이 변경됨. 병종 무장 매핑·인체 비율 확인 필요.",
-      "state": "pending_correction",
-      "path": "art/mordor-rebuild-20261019/units/orc_spearman.png",
-      "blobSHA": "b9be5983312beb8d1a3e8be58c92593dc19c8e22"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/orc_spearman.png",
+      "blobSHA": "ff592240bdb863377a2431a541cc9316f9acf1eb"
     },
     {
       "id": "orc_archer",
       "name": "오크 궁수",
       "originalApproval": "hold",
       "originalReason": "조준 동작은 생겼으나 얼굴 정면 노출과 압축된 하체 비중을 재검수해야 함.",
-      "state": "pending_correction",
-      "path": "art/mordor-rebuild-20261019/units/orc_archer.png",
-      "blobSHA": "ed1cf732b292483d4fd244637a2a10136f53c617"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/orc_archer.png",
+      "blobSHA": "27052aee8cf8113d269c74729893bf06971a02bd"
     },
     {
       "id": "uruk_swordshield",
