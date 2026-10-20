@@ -1,0 +1,165 @@
+{
+  "batch": "resume-finish-48-01-20261020",
+  "tool": "image_gen",
+  "at": "2026-10-20T12:30:13.247Z",
+  "sourceHead": "ffc08e72c21935953e471ea7b233fcbdd54c4d07",
+  "generatedCharacters": 7,
+  "newRosterIds": 0,
+  "qualityAcceptedCount": 0,
+  "records": [
+    {
+      "id": "numenorean_spearman",
+      "prompt": "Use case: style-transfer. Asset type: corrected transparent pixel-art tactical game unit for MIDDLE-EARTH WARBANDS.\nImage 1 is the AUTHORITATIVE ORIGINAL character identity, equipment, colors and dynamic pose to redraw. Image 2 is only the approved PIXEL STYLE / elevated camera reference, not an outfit, silhouette or body-size template.\nRestore the ORIGINAL identity and action instead of inventing a redesign. Keep exact armor shapes, helmet/hood, face visibility, hair, cape, weapons and meaningful emblems from image 1. No ornate additions. Preserve torso lean, arm gestures, weapon diagonal, forward step and flowing silhouette; never standardize everyone into the same wide-legged upright guard pose.\nCAMERA: elevated FRONT view looking down 30–40 degrees, showing crown and both shoulder TOPS, chest foreshortening and top surfaces of the feet. Keep original front-facing action with slight diagonal, not eye-level frontal, not side view, not vertical overhead. Head naturally bowed, chin down, gaze toward forward-ground; hair/helmet brow shadows the eyes. Raising camera is separate from bowing the head.\nANATOMY: human/elf adult standing anatomy exactly FIVE anatomical heads tall, crown-to-chin unit excludes hair and helmet decorations. Cohesive shoulders, arms, hands, pelvis, naturally bent knees and ankles, moderate stance width, useful leg length. Not chibi four-head body, not elongated six-to-eight-head adult. For orcs, hobbits, wraiths, trolls and animals retain the source's SPECIES proportions, not human anatomy. Do not shrink the head alone.\nSTYLE: deliberately clustered crisp PIXEL ART, stepped dark outlines, matching image 2's pixel density, restrained colors and top-left lighting. Avoid glossy smooth illustration, 3D or airbrushed detail. Preserve readable material planes.\nOne complete isolated unit, actual transparent alpha, NO base, ground shadow, scenery, lettering or extra objects. All weapon tips, cape edges and feet fully inside canvas with at least 4% clear transparent margin. Center on BODY, not weapon. Finish all connected limbs and weapon grips cleanly.\nCharacter: numenorean_spearman (누메노르 창병). Specific failed previous redesign to FIX: 원본 대비 하체가 짧고 자세가 넓어짐. 투구·신체 비율 재검수.\nRecreate the original equipment and dynamic silhouette faithfully; avoid excessive decorative gold and preserve anatomical leg length with a moderate stance.\nImage 3 is the canonical human anatomy reference ONLY: preserve its body proportions while matching the ORIGINAL character's own pose and fully clothed identity. Do not copy its bald head, gray tunic or generic hands/stance.",
+      "refs": [
+        "/workspace/scratch/5874a6c78c71/mesbg-work/refs/numenorean_spearman.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/gondor-rebuild-20261019/units/warrior_minas_tirith.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human.png"
+      ],
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/numenorean_spearman.png",
+      "blobSHA": "41c5f310a594405386357a4cd962530ea2504dce",
+      "previous": {
+        "path": "art/gondor-rebuild-20261019/units/numenorean_spearman.png",
+        "blobSHA": "0ea14e97f6960b034a6fcbdc912c3710196ffda9",
+        "approval": "hold",
+        "reason": "원본 대비 하체가 짧고 자세가 넓어짐. 투구·신체 비율 재검수."
+      },
+      "auditSourceBlobCompared": "0ea14e97f6960b034a6fcbdc912c3710196ffda9",
+      "observations": "청백 갑주·날개 투구·별 방패·긴 창과 전진 자세를 원화와 대조. 정수리·어깨 윗면이 보이고 얼굴은 투구 아래로 가려진 수정본.",
+      "decision": "revised_awaiting_review",
+      "userApproval": "pending",
+      "anatomicalMeasurement": "not_claimed"
+    },
+    {
+      "id": "haleth",
+      "prompt": "Use case: style-transfer. Asset type: corrected transparent pixel-art tactical game unit for MIDDLE-EARTH WARBANDS.\nImage 1 is the AUTHORITATIVE ORIGINAL character identity, equipment, colors and dynamic pose to redraw. Image 2 is only the approved PIXEL STYLE / elevated camera reference, not an outfit, silhouette or body-size template.\nRestore the ORIGINAL identity and action instead of inventing a redesign. Keep exact armor shapes, helmet/hood, face visibility, hair, cape, weapons and meaningful emblems from image 1. No ornate additions. Preserve torso lean, arm gestures, weapon diagonal, forward step and flowing silhouette; never standardize everyone into the same wide-legged upright guard pose.\nCAMERA: elevated FRONT view looking down 30–40 degrees, showing crown and both shoulder TOPS, chest foreshortening and top surfaces of the feet. Keep original front-facing action with slight diagonal, not eye-level frontal, not side view, not vertical overhead. Head naturally bowed, chin down, gaze toward forward-ground; hair/helmet brow shadows the eyes. Raising camera is separate from bowing the head.\nANATOMY: human/elf adult standing anatomy exactly FIVE anatomical heads tall, crown-to-chin unit excludes hair and helmet decorations. Cohesive shoulders, arms, hands, pelvis, naturally bent knees and ankles, moderate stance width, useful leg length. Not chibi four-head body, not elongated six-to-eight-head adult. For orcs, hobbits, wraiths, trolls and animals retain the source's SPECIES proportions, not human anatomy. Do not shrink the head alone.\nSTYLE: deliberately clustered crisp PIXEL ART, stepped dark outlines, matching image 2's pixel density, restrained colors and top-left lighting. Avoid glossy smooth illustration, 3D or airbrushed detail. Preserve readable material planes.\nOne complete isolated unit, actual transparent alpha, NO base, ground shadow, scenery, lettering or extra objects. All weapon tips, cape edges and feet fully inside canvas with at least 4% clear transparent margin. Center on BODY, not weapon. Finish all connected limbs and weapon grips cleanly.\nCharacter: haleth (할레스). Specific failed previous redesign to FIX: 기존의 숙인 머리·그늘진 얼굴이 정면 노출 중심으로 바뀜. 연령 인상·실루엣도 재확인 필요.\nRecreate the original equipment and dynamic silhouette faithfully; avoid excessive decorative gold and preserve anatomical leg length with a moderate stance.\nImage 3 is the canonical human anatomy reference ONLY: preserve its body proportions while matching the ORIGINAL character's own pose and fully clothed identity. Do not copy its bald head, gray tunic or generic hands/stance.",
+      "refs": [
+        "/workspace/scratch/5874a6c78c71/mesbg-work/refs/haleth.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/gondor-rebuild-20261019/units/warrior_minas_tirith.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human.png"
+      ],
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/haleth.png",
+      "blobSHA": "7940bdeb581f490afc120e927d168dfc155df8d6",
+      "previous": {
+        "path": "art/full-roster-night-rebuild-20261019/units/haleth.png",
+        "blobSHA": "0f30924d014427f4163864a68049cc6101f4f66f",
+        "approval": "rejected",
+        "reason": "기존의 숙인 머리·그늘진 얼굴이 정면 노출 중심으로 바뀜. 연령 인상·실루엣도 재확인 필요."
+      },
+      "auditSourceBlobCompared": "0f30924d014427f4163864a68049cc6101f4f66f",
+      "observations": "갈색 가죽 갑주·초록 옷·말 문양 방패·아래로 든 검과 원래 전진 동작을 유지. 숙인 머리와 연결된 무릎·발목을 비교.",
+      "decision": "revised_awaiting_review",
+      "userApproval": "pending",
+      "anatomicalMeasurement": "not_claimed"
+    },
+    {
+      "id": "gildor",
+      "prompt": "Use case: style-transfer. Asset type: corrected transparent pixel-art tactical game unit for MIDDLE-EARTH WARBANDS.\nImage 1 is the AUTHORITATIVE ORIGINAL character identity, equipment, colors and dynamic pose to redraw. Image 2 is only the approved PIXEL STYLE / elevated camera reference, not an outfit, silhouette or body-size template.\nRestore the ORIGINAL identity and action instead of inventing a redesign. Keep exact armor shapes, helmet/hood, face visibility, hair, cape, weapons and meaningful emblems from image 1. No ornate additions. Preserve torso lean, arm gestures, weapon diagonal, forward step and flowing silhouette; never standardize everyone into the same wide-legged upright guard pose.\nCAMERA: elevated FRONT view looking down 30–40 degrees, showing crown and both shoulder TOPS, chest foreshortening and top surfaces of the feet. Keep original front-facing action with slight diagonal, not eye-level frontal, not side view, not vertical overhead. Head naturally bowed, chin down, gaze toward forward-ground; hair/helmet brow shadows the eyes. Raising camera is separate from bowing the head.\nANATOMY: human/elf adult standing anatomy exactly FIVE anatomical heads tall, crown-to-chin unit excludes hair and helmet decorations. Cohesive shoulders, arms, hands, pelvis, naturally bent knees and ankles, moderate stance width, useful leg length. Not chibi four-head body, not elongated six-to-eight-head adult. For orcs, hobbits, wraiths, trolls and animals retain the source's SPECIES proportions, not human anatomy. Do not shrink the head alone.\nSTYLE: deliberately clustered crisp PIXEL ART, stepped dark outlines, matching image 2's pixel density, restrained colors and top-left lighting. Avoid glossy smooth illustration, 3D or airbrushed detail. Preserve readable material planes.\nOne complete isolated unit, actual transparent alpha, NO base, ground shadow, scenery, lettering or extra objects. All weapon tips, cape edges and feet fully inside canvas with at least 4% clear transparent margin. Center on BODY, not weapon. Finish all connected limbs and weapon grips cleanly.\nCharacter: gildor (길도르). Specific failed previous redesign to FIX: 기존 후드·낮춘 머리의 실루엣이 후드를 벗은 정면 얼굴형으로 변경됨.\nPreserve source hood/cape and lowered face; the folded hood must stay on the head if present in source.\nImage 3 is the canonical elf anatomy reference ONLY: preserve its body proportions while matching the ORIGINAL character's own pose and fully clothed identity. Do not copy its bald head, gray tunic or generic hands/stance.",
+      "refs": [
+        "/workspace/scratch/5874a6c78c71/mesbg-work/refs/gildor.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/gondor-rebuild-20261019/units/warrior_minas_tirith.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/elf.png"
+      ],
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/gildor.png",
+      "blobSHA": "628d8169e6aa8683ae2da11c296b2f31d0d80c5a",
+      "previous": {
+        "path": "art/full-roster-night-rebuild-20261019/units/gildor.png",
+        "blobSHA": "c011ec40440b705c545bd6eec1847ffd8b25954c",
+        "approval": "rejected",
+        "reason": "기존 후드·낮춘 머리의 실루엣이 후드를 벗은 정면 얼굴형으로 변경됨."
+      },
+      "auditSourceBlobCompared": "c011ec40440b705c545bd6eec1847ffd8b25954c",
+      "observations": "금발·은색 머리띠·녹색 망토·사슬 갑주·아래로 든 검·등의 활을 보존. 기존 숙인 고개와 전진 다리 연결을 대조.",
+      "decision": "revised_awaiting_review",
+      "userApproval": "pending",
+      "anatomicalMeasurement": "not_claimed"
+    },
+    {
+      "id": "grishnakh",
+      "prompt": "Use case: style-transfer. Asset type: corrected transparent pixel-art tactical game unit for MIDDLE-EARTH WARBANDS.\nImage 1 is the AUTHORITATIVE ORIGINAL character identity, equipment, colors and dynamic pose to redraw. Image 2 is only the approved PIXEL STYLE / elevated camera reference, not an outfit, silhouette or body-size template.\nRestore the ORIGINAL identity and action instead of inventing a redesign. Keep exact armor shapes, helmet/hood, face visibility, hair, cape, weapons and meaningful emblems from image 1. No ornate additions. Preserve torso lean, arm gestures, weapon diagonal, forward step and flowing silhouette; never standardize everyone into the same wide-legged upright guard pose.\nCAMERA: elevated FRONT view looking down 30–40 degrees, showing crown and both shoulder TOPS, chest foreshortening and top surfaces of the feet. Keep original front-facing action with slight diagonal, not eye-level frontal, not side view, not vertical overhead. Head naturally bowed, chin down, gaze toward forward-ground; hair/helmet brow shadows the eyes. Raising camera is separate from bowing the head.\nANATOMY: human/elf adult standing anatomy exactly FIVE anatomical heads tall, crown-to-chin unit excludes hair and helmet decorations. Cohesive shoulders, arms, hands, pelvis, naturally bent knees and ankles, moderate stance width, useful leg length. Not chibi four-head body, not elongated six-to-eight-head adult. For orcs, hobbits, wraiths, trolls and animals retain the source's SPECIES proportions, not human anatomy. Do not shrink the head alone.\nSTYLE: deliberately clustered crisp PIXEL ART, stepped dark outlines, matching image 2's pixel density, restrained colors and top-left lighting. Avoid glossy smooth illustration, 3D or airbrushed detail. Preserve readable material planes.\nOne complete isolated unit, actual transparent alpha, NO base, ground shadow, scenery, lettering or extra objects. All weapon tips, cape edges and feet fully inside canvas with at least 4% clear transparent margin. Center on BODY, not weapon. Finish all connected limbs and weapon grips cleanly.\nCharacter: grishnakh (그리쉬나크). Specific failed previous redesign to FIX: 투구·얼굴·갑주 형상이 크게 변경됨. 캐릭터별 지정 디자인 또는 기존 에셋 매핑 확인 필요.\nKeep the source's tall dark closed face helmet and jagged brow, dark red sash, leather/iron armor, curved sword and coiled whip. Do not change face or helmet into a generic orc.\nImage 3 is the canonical orc anatomy reference ONLY: preserve its body proportions while matching the ORIGINAL character's own pose and fully clothed identity. Do not copy its bald head, gray tunic or generic hands/stance.",
+      "refs": [
+        "/workspace/scratch/5874a6c78c71/mesbg-work/refs/grishnakh.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/gondor-rebuild-20261019/units/warrior_minas_tirith.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/orc.png"
+      ],
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/grishnakh.png",
+      "blobSHA": "7cae8d101ef054d781c218b48064c0d11efca2a3",
+      "previous": {
+        "path": "art/mordor-rebuild-20261019/units/grishnakh.png",
+        "blobSHA": "b29b5a1a92d782e8efdf6e41eab7935309c6b684",
+        "approval": "hold",
+        "reason": "투구·얼굴·갑주 형상이 크게 변경됨. 캐릭터별 지정 디자인 또는 기존 에셋 매핑 확인 필요."
+      },
+      "auditSourceBlobCompared": "b29b5a1a92d782e8efdf6e41eab7935309c6b684",
+      "observations": "어두운 뿔 투구·털 견갑·붉은 망토·곡검·밧줄을 보존. 열린 얼굴로 바뀌지 않았으며 정수리와 어깨 윗면을 대조.",
+      "decision": "revised_awaiting_review",
+      "userApproval": "pending",
+      "anatomicalMeasurement": "not_claimed"
+    },
+    {
+      "id": "dol_amroth_man_at_arms",
+      "prompt": "Use case: style-transfer. Asset type: corrected transparent pixel-art tactical game unit for MIDDLE-EARTH WARBANDS.\nImage 1 is the AUTHORITATIVE ORIGINAL character identity, equipment, colors and dynamic pose to redraw. Image 2 is only the approved PIXEL STYLE / elevated camera reference, not an outfit, silhouette or body-size template.\nRestore the ORIGINAL identity and action instead of inventing a redesign. Keep exact armor shapes, helmet/hood, face visibility, hair, cape, weapons and meaningful emblems from image 1. No ornate additions. Preserve torso lean, arm gestures, weapon diagonal, forward step and flowing silhouette; never standardize everyone into the same wide-legged upright guard pose.\nCAMERA: elevated FRONT view looking down 30–40 degrees, showing crown and both shoulder TOPS, chest foreshortening and top surfaces of the feet. Keep original front-facing action with slight diagonal, not eye-level frontal, not side view, not vertical overhead. Head naturally bowed, chin down, gaze toward forward-ground; hair/helmet brow shadows the eyes. Raising camera is separate from bowing the head.\nANATOMY: human/elf adult standing anatomy exactly FIVE anatomical heads tall, crown-to-chin unit excludes hair and helmet decorations. Cohesive shoulders, arms, hands, pelvis, naturally bent knees and ankles, moderate stance width, useful leg length. Not chibi four-head body, not elongated six-to-eight-head adult. For orcs, hobbits, wraiths, trolls and animals retain the source's SPECIES proportions, not human anatomy. Do not shrink the head alone.\nSTYLE: deliberately clustered crisp PIXEL ART, stepped dark outlines, matching image 2's pixel density, restrained colors and top-left lighting. Avoid glossy smooth illustration, 3D or airbrushed detail. Preserve readable material planes.\nOne complete isolated unit, actual transparent alpha, NO base, ground shadow, scenery, lettering or extra objects. All weapon tips, cape edges and feet fully inside canvas with at least 4% clear transparent margin. Center on BODY, not weapon. Finish all connected limbs and weapon grips cleanly.\nCharacter: dol_amroth_man_at_arms (돌 암로스 병사). Specific failed previous redesign to FIX: 창을 비스듬히 받친 기존 동작이 수직 창의 직립 자세로 바뀜. 동세 복원 필요.\nThe spear must remain DIAGONALLY braced across the advancing torso as in the source, one straight shaft, hands naturally gripping it. Do not replace with a vertical parade spear.\nImage 3 is the canonical human anatomy reference ONLY: preserve its body proportions while matching the ORIGINAL character's own pose and fully clothed identity. Do not copy its bald head, gray tunic or generic hands/stance.",
+      "refs": [
+        "/workspace/scratch/5874a6c78c71/mesbg-work/refs/dol_amroth_man_at_arms.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/gondor-rebuild-20261019/units/warrior_minas_tirith.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human.png"
+      ],
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/dol_amroth_man_at_arms.png",
+      "blobSHA": "e4881296e023325f9d941c40f4fd330d626703fa",
+      "previous": {
+        "path": "art/gondor-rebuild-20261019/units/dol_amroth_man_at_arms.png",
+        "blobSHA": "932d6a27a76da80919237977f0589b617eaa69cc",
+        "approval": "hold",
+        "reason": "창을 비스듬히 받친 기존 동작이 수직 창의 직립 자세로 바뀜. 동세 복원 필요."
+      },
+      "auditSourceBlobCompared": "932d6a27a76da80919237977f0589b617eaa69cc",
+      "observations": "청색 휘장·날개 투구·선박과 별 방패·대각선 창 파지를 유지. 기존의 전진 동세와 숙인 투구를 비교.",
+      "decision": "revised_awaiting_review",
+      "userApproval": "pending",
+      "anatomicalMeasurement": "not_claimed"
+    },
+    {
+      "id": "guritz",
+      "prompt": "Use case: style-transfer. Asset type: corrected transparent pixel-art tactical game unit for MIDDLE-EARTH WARBANDS.\nImage 1 is the AUTHORITATIVE ORIGINAL character identity, equipment, colors and dynamic pose to redraw. Image 2 is only the approved PIXEL STYLE / elevated camera reference, not an outfit, silhouette or body-size template.\nRestore the ORIGINAL identity and action instead of inventing a redesign. Keep exact armor shapes, helmet/hood, face visibility, hair, cape, weapons and meaningful emblems from image 1. No ornate additions. Preserve torso lean, arm gestures, weapon diagonal, forward step and flowing silhouette; never standardize everyone into the same wide-legged upright guard pose.\nCAMERA: elevated FRONT view looking down 30–40 degrees, showing crown and both shoulder TOPS, chest foreshortening and top surfaces of the feet. Keep original front-facing action with slight diagonal, not eye-level frontal, not side view, not vertical overhead. Head naturally bowed, chin down, gaze toward forward-ground; hair/helmet brow shadows the eyes. Raising camera is separate from bowing the head.\nANATOMY: human/elf adult standing anatomy exactly FIVE anatomical heads tall, crown-to-chin unit excludes hair and helmet decorations. Cohesive shoulders, arms, hands, pelvis, naturally bent knees and ankles, moderate stance width, useful leg length. Not chibi four-head body, not elongated six-to-eight-head adult. For orcs, hobbits, wraiths, trolls and animals retain the source's SPECIES proportions, not human anatomy. Do not shrink the head alone.\nSTYLE: deliberately clustered crisp PIXEL ART, stepped dark outlines, matching image 2's pixel density, restrained colors and top-left lighting. Avoid glossy smooth illustration, 3D or airbrushed detail. Preserve readable material planes.\nOne complete isolated unit, actual transparent alpha, NO base, ground shadow, scenery, lettering or extra objects. All weapon tips, cape edges and feet fully inside canvas with at least 4% clear transparent margin. Center on BODY, not weapon. Finish all connected limbs and weapon grips cleanly.\nCharacter: guritz (구리츠). Specific failed previous redesign to FIX: 투구·얼굴·무장·해골 장식이 크게 변경됨. 지정 디자인/기존 에셋 매핑 확인 필요.\nKeep source-specific skull ornament on helmet, armor and weapon arrangement exactly, without inventing a different skull/helmet combination.\nImage 3 is the canonical orc anatomy reference ONLY: preserve its body proportions while matching the ORIGINAL character's own pose and fully clothed identity. Do not copy its bald head, gray tunic or generic hands/stance.",
+      "refs": [
+        "/workspace/scratch/5874a6c78c71/mesbg-work/refs/guritz.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/gondor-rebuild-20261019/units/warrior_minas_tirith.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/orc.png"
+      ],
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/guritz.png",
+      "blobSHA": "afbbcab6fb8e757cfd33c4b949935a926a669d93",
+      "previous": {
+        "path": "art/mordor-rebuild-20261019/units/guritz.png",
+        "blobSHA": "b320712767f5170cd82ad9d68825debafb37f056",
+        "approval": "hold",
+        "reason": "투구·얼굴·무장·해골 장식이 크게 변경됨. 지정 디자인/기존 에셋 매핑 확인 필요."
+      },
+      "auditSourceBlobCompared": "b320712767f5170cd82ad9d68825debafb37f056",
+      "observations": "가면 투구·붉은 천·검은 갑주·흰 손 방패·채찍을 보존. 숙인 머리와 좌우 다리·손 파지 연결을 대조.",
+      "decision": "revised_awaiting_review",
+      "userApproval": "pending",
+      "anatomicalMeasurement": "not_claimed"
+    },
+    {
+      "id": "turgon",
+      "prompt": "Use case: style-transfer. Asset type: corrected transparent pixel-art tactical game unit for MIDDLE-EARTH WARBANDS.\nImage 1 is the AUTHORITATIVE ORIGINAL character identity, equipment, colors and dynamic pose to redraw. Image 2 is only the approved PIXEL STYLE / elevated camera reference, not an outfit, silhouette or body-size template.\nRestore the ORIGINAL identity and action instead of inventing a redesign. Keep exact armor shapes, helmet/hood, face visibility, hair, cape, weapons and meaningful emblems from image 1. No ornate additions. Preserve torso lean, arm gestures, weapon diagonal, forward step and flowing silhouette; never standardize everyone into the same wide-legged upright guard pose.\nCAMERA: elevated FRONT view looking down 30–40 degrees, showing crown and both shoulder TOPS, chest foreshortening and top surfaces of the feet. Keep original front-facing action with slight diagonal, not eye-level frontal, not side view, not vertical overhead. Head naturally bowed, chin down, gaze toward forward-ground; hair/helmet brow shadows the eyes. Raising camera is separate from bowing the head.\nANATOMY: human/elf adult standing anatomy exactly FIVE anatomical heads tall, crown-to-chin unit excludes hair and helmet decorations. Cohesive shoulders, arms, hands, pelvis, naturally bent knees and ankles, moderate stance width, useful leg length. Not chibi four-head body, not elongated six-to-eight-head adult. For orcs, hobbits, wraiths, trolls and animals retain the source's SPECIES proportions, not human anatomy. Do not shrink the head alone.\nSTYLE: deliberately clustered crisp PIXEL ART, stepped dark outlines, matching image 2's pixel density, restrained colors and top-left lighting. Avoid glossy smooth illustration, 3D or airbrushed detail. Preserve readable material planes.\nOne complete isolated unit, actual transparent alpha, NO base, ground shadow, scenery, lettering or extra objects. All weapon tips, cape edges and feet fully inside canvas with at least 4% clear transparent margin. Center on BODY, not weapon. Finish all connected limbs and weapon grips cleanly.\nCharacter: turgon (투르곤). Specific failed previous redesign to FIX: 기존 몸을 낮춘 검 공격·밝은 갑주 실루엣이 일반 양손 검 가드 자세로 바뀜.\nRecreate the original equipment and dynamic silhouette faithfully; avoid excessive decorative gold and preserve anatomical leg length with a moderate stance.\nImage 3 is the canonical elf anatomy reference ONLY: preserve its body proportions while matching the ORIGINAL character's own pose and fully clothed identity. Do not copy its bald head, gray tunic or generic hands/stance.",
+      "refs": [
+        "/workspace/scratch/5874a6c78c71/mesbg-work/refs/turgon.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/gondor-rebuild-20261019/units/warrior_minas_tirith.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/elf.png"
+      ],
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/turgon.png",
+      "blobSHA": "aee7090e8eafa3c81008cd96856bfdc3b9ec0f08",
+      "previous": {
+        "path": "art/full-roster-night-rebuild-20261019/units/turgon.png",
+        "blobSHA": "6360c0257a4bc631af9cc0683b9f2081d7632e3c",
+        "approval": "rejected",
+        "reason": "기존 몸을 낮춘 검 공격·밝은 갑주 실루엣이 일반 양손 검 가드 자세로 바뀜."
+      },
+      "auditSourceBlobCompared": "6360c0257a4bc631af9cc0683b9f2081d7632e3c",
+      "observations": "백금 갑주·흰 망토·양손으로 머리 위에 든 검의 공격 동작을 유지. 정수리와 어깨 상면·굽힌 두 무릎을 대조.",
+      "decision": "revised_awaiting_review",
+      "userApproval": "pending",
+      "anatomicalMeasurement": "not_claimed"
+    }
+  ]
+}

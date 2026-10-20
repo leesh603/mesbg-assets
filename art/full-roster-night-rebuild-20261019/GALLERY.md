@@ -2,7 +2,7 @@
 
 [전체 비교 갤러리](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html) · [이름·분류 확인사항](SOURCE_REVIEW_ISSUES.md)
 
-불합격·보류 194종: 146종 수정 검토본 / 48종 수정 필요 · 전체 품질 최종 통과 0종 · 사용자 승인 전
+불합격·보류 194종: 153종 수정 검토본 / 41종 수정 필요 · 전체 품질 최종 통과 0종 · 사용자 승인 전
 
 ### 움바 선장 (corsair_captain)
 
@@ -1728,9 +1728,9 @@
 
 ### 투르곤 (turgon)
 
-![투르곤](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/turgon.png?v=6360c0257a4bc631af9cc0683b9f2081d7632e3c)
+![투르곤](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/turgon.png?v=aee7090e8eafa3c81008cd96856bfdc3b9ec0f08)
 
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/turgon.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/turgon.png?v=6360c0257a4bc631af9cc0683b9f2081d7632e3c)
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/turgon.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/turgon.png?v=aee7090e8eafa3c81008cd96856bfdc3b9ec0f08)
 
 ### 궁정 근위병 (palace_guard)
 
@@ -1740,9 +1740,9 @@
 
 ### 길도르 (gildor)
 
-![길도르](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gildor.png?v=c011ec40440b705c545bd6eec1847ffd8b25954c)
+![길도르](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/gildor.png?v=628d8169e6aa8683ae2da11c296b2f31d0d80c5a)
 
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/gildor.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gildor.png?v=c011ec40440b705c545bd6eec1847ffd8b25954c)
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/gildor.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/gildor.png?v=628d8169e6aa8683ae2da11c296b2f31d0d80c5a)
 
 ### 엘론드(기마) (elrond_mounted)
 
@@ -2124,9 +2124,9 @@
 
 ### 할레스 (haleth)
 
-![할레스](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/haleth.png?v=0f30924d014427f4163864a68049cc6101f4f66f)
+![할레스](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/haleth.png?v=7940bdeb581f490afc120e927d168dfc155df8d6)
 
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/haleth.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/haleth.png?v=0f30924d014427f4163864a68049cc6101f4f66f)
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/haleth.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/haleth.png?v=7940bdeb581f490afc120e927d168dfc155df8d6)
 
 ### 둔헤레 (dunhere)
 
@@ -2544,9 +2544,9 @@
 
 ### 누메노르 창병 (numenorean_spearman)
 
-![누메노르 창병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/gondor-rebuild-20261019/units/numenorean_spearman.png)
+![누메노르 창병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/numenorean_spearman.png?v=41c5f310a594405386357a4cd962530ea2504dce)
 
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/gondor-rebuild-20261019/references/numenorean_spearman.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/gondor-rebuild-20261019/units/numenorean_spearman.png)
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/gondor-rebuild-20261019/references/numenorean_spearman.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/numenorean_spearman.png?v=41c5f310a594405386357a4cd962530ea2504dce)
 
 ### 앵보르 무서운 자 (angbor)
 
@@ -2562,9 +2562,9 @@
 
 ### 돌 암로스 병사 (dol_amroth_man_at_arms)
 
-![돌 암로스 병사](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/gondor-rebuild-20261019/units/dol_amroth_man_at_arms.png)
+![돌 암로스 병사](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/dol_amroth_man_at_arms.png?v=e4881296e023325f9d941c40f4fd330d626703fa)
 
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/gondor-rebuild-20261019/references/dol_amroth_man_at_arms.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/gondor-rebuild-20261019/units/dol_amroth_man_at_arms.png)
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/gondor-rebuild-20261019/references/dol_amroth_man_at_arms.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/dol_amroth_man_at_arms.png?v=e4881296e023325f9d941c40f4fd330d626703fa)
 
 ### 두일린 (duilin)
 
@@ -2838,15 +2838,15 @@
 
 ### 그리쉬나크 (grishnakh)
 
-![그리쉬나크](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/grishnakh.png)
+![그리쉬나크](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/grishnakh.png?v=7cae8d101ef054d781c218b48064c0d11efca2a3)
 
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/references/old/grishnakh.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/grishnakh.png)
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/references/old/grishnakh.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/grishnakh.png?v=7cae8d101ef054d781c218b48064c0d11efca2a3)
 
 ### 구리츠 (guritz)
 
-![구리츠](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/guritz.png)
+![구리츠](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/guritz.png?v=afbbcab6fb8e757cfd33c4b949935a926a669d93)
 
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/references/old/guritz.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/guritz.png)
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/references/old/guritz.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/guritz.png?v=afbbcab6fb8e757cfd33c4b949935a926a669d93)
 
 ### 고르고로스 거수 (great_beast_gorgoroth)
 

@@ -1,8 +1,8 @@
 {
   "request": "all-194-20261020",
-  "updatedAt": "2026-10-20T11:44:51.286Z",
-  "correctedCandidates": 146,
-  "remaining": 48,
+  "updatedAt": "2026-10-20T12:30:13.247Z",
+  "correctedCandidates": 153,
+  "remaining": 41,
   "scope": [
     {
       "id": "imrahil_mounted",
@@ -1140,9 +1140,11 @@
       "name": "누메노르 창병",
       "originalApproval": "hold",
       "originalReason": "원본 대비 하체가 짧고 자세가 넓어짐. 투구·신체 비율 재검수.",
-      "state": "pending_correction",
-      "path": "art/gondor-rebuild-20261019/units/numenorean_spearman.png",
-      "blobSHA": "0ea14e97f6960b034a6fcbdc912c3710196ffda9"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/numenorean_spearman.png",
+      "blobSHA": "41c5f310a594405386357a4cd962530ea2504dce",
+      "latestReason": "청백 갑주·날개 투구·별 방패·긴 창과 전진 자세를 원화와 대조. 정수리·어깨 윗면이 보이고 얼굴은 투구 아래로 가려진 수정본.",
+      "checkedAt": "2026-10-20T12:30:13.247Z"
     },
     {
       "id": "forsaken",
@@ -1193,36 +1195,44 @@
       "name": "할레스",
       "originalApproval": "rejected",
       "originalReason": "기존의 숙인 머리·그늘진 얼굴이 정면 노출 중심으로 바뀜. 연령 인상·실루엣도 재확인 필요.",
-      "state": "pending_correction",
-      "path": "art/full-roster-night-rebuild-20261019/units/haleth.png",
-      "blobSHA": "0f30924d014427f4163864a68049cc6101f4f66f"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/haleth.png",
+      "blobSHA": "7940bdeb581f490afc120e927d168dfc155df8d6",
+      "latestReason": "갈색 가죽 갑주·초록 옷·말 문양 방패·아래로 든 검과 원래 전진 동작을 유지. 숙인 머리와 연결된 무릎·발목을 비교.",
+      "checkedAt": "2026-10-20T12:30:13.247Z"
     },
     {
       "id": "gildor",
       "name": "길도르",
       "originalApproval": "rejected",
       "originalReason": "기존 후드·낮춘 머리의 실루엣이 후드를 벗은 정면 얼굴형으로 변경됨.",
-      "state": "pending_correction",
-      "path": "art/full-roster-night-rebuild-20261019/units/gildor.png",
-      "blobSHA": "c011ec40440b705c545bd6eec1847ffd8b25954c"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/gildor.png",
+      "blobSHA": "628d8169e6aa8683ae2da11c296b2f31d0d80c5a",
+      "latestReason": "금발·은색 머리띠·녹색 망토·사슬 갑주·아래로 든 검·등의 활을 보존. 기존 숙인 고개와 전진 다리 연결을 대조.",
+      "checkedAt": "2026-10-20T12:30:13.247Z"
     },
     {
       "id": "grishnakh",
       "name": "그리쉬나크",
       "originalApproval": "hold",
       "originalReason": "투구·얼굴·갑주 형상이 크게 변경됨. 캐릭터별 지정 디자인 또는 기존 에셋 매핑 확인 필요.",
-      "state": "pending_correction",
-      "path": "art/mordor-rebuild-20261019/units/grishnakh.png",
-      "blobSHA": "b29b5a1a92d782e8efdf6e41eab7935309c6b684"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/grishnakh.png",
+      "blobSHA": "7cae8d101ef054d781c218b48064c0d11efca2a3",
+      "latestReason": "어두운 뿔 투구·털 견갑·붉은 망토·곡검·밧줄을 보존. 열린 얼굴로 바뀌지 않았으며 정수리와 어깨 윗면을 대조.",
+      "checkedAt": "2026-10-20T12:30:13.247Z"
     },
     {
       "id": "dol_amroth_man_at_arms",
       "name": "돌 암로스 병사",
       "originalApproval": "hold",
       "originalReason": "창을 비스듬히 받친 기존 동작이 수직 창의 직립 자세로 바뀜. 동세 복원 필요.",
-      "state": "pending_correction",
-      "path": "art/gondor-rebuild-20261019/units/dol_amroth_man_at_arms.png",
-      "blobSHA": "932d6a27a76da80919237977f0589b617eaa69cc"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/dol_amroth_man_at_arms.png",
+      "blobSHA": "e4881296e023325f9d941c40f4fd330d626703fa",
+      "latestReason": "청색 휘장·날개 투구·선박과 별 방패·대각선 창 파지를 유지. 기존의 전진 동세와 숙인 투구를 비교.",
+      "checkedAt": "2026-10-20T12:30:13.247Z"
     },
     {
       "id": "sons_of_eorl",
@@ -1247,9 +1257,11 @@
       "name": "구리츠",
       "originalApproval": "hold",
       "originalReason": "투구·얼굴·무장·해골 장식이 크게 변경됨. 지정 디자인/기존 에셋 매핑 확인 필요.",
-      "state": "pending_correction",
-      "path": "art/mordor-rebuild-20261019/units/guritz.png",
-      "blobSHA": "b320712767f5170cd82ad9d68825debafb37f056"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/guritz.png",
+      "blobSHA": "afbbcab6fb8e757cfd33c4b949935a926a669d93",
+      "latestReason": "가면 투구·붉은 천·검은 갑주·흰 손 방패·채찍을 보존. 숙인 머리와 좌우 다리·손 파지 연결을 대조.",
+      "checkedAt": "2026-10-20T12:30:13.247Z"
     },
     {
       "id": "great_beast_gorgoroth",
@@ -1265,9 +1277,11 @@
       "name": "투르곤",
       "originalApproval": "rejected",
       "originalReason": "기존 몸을 낮춘 검 공격·밝은 갑주 실루엣이 일반 양손 검 가드 자세로 바뀜.",
-      "state": "pending_correction",
-      "path": "art/full-roster-night-rebuild-20261019/units/turgon.png",
-      "blobSHA": "6360c0257a4bc631af9cc0683b9f2081d7632e3c"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/turgon.png",
+      "blobSHA": "aee7090e8eafa3c81008cd96856bfdc3b9ec0f08",
+      "latestReason": "백금 갑주·흰 망토·양손으로 머리 위에 든 검의 공격 동작을 유지. 정수리와 어깨 상면·굽힌 두 무릎을 대조.",
+      "checkedAt": "2026-10-20T12:30:13.247Z"
     },
     {
       "id": "fingon",

@@ -16,9 +16,9 @@
 
 ## 최근 재수정 진행
 
-불합격·보류 194종: 146종 수정 검토본 / 48종 수정 필요 · 전체 품질 최종 통과 0종 · 사용자 승인 전
+불합격·보류 194종: 153종 수정 검토본 / 41종 수정 필요 · 전체 품질 최종 통과 0종 · 사용자 승인 전
 
-최근 저장: 2026-10-20T11:44:51.286Z · finish-58-02-20261020 · 5종 수정 검토본. 본게임 적용·최종 품질 통과와 구분합니다.
+최근 저장: 2026-10-20T12:30:13.247Z · resume-finish-48-01-20261020 · 7종 수정 후보. 본게임 적용·최종 품질 통과와 구분합니다.
 
-다음 수정: numenorean_spearman, haleth, gildor, grishnakh, dol_amroth_man_at_arms, palace_guard, guritz, turgon
+다음 수정: palace_guard, fingon, finrod_felagund, maedhros, celegorm, thingol, mablung_sindar, doriath_warrior.
 
