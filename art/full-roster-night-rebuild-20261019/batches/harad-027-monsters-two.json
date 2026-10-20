@@ -1,0 +1,44 @@
+{
+  "batch": "harad-027-monsters-two",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "mumakil",
+      "beast": true,
+      "pose": "전쟁 코끼리·탑·승무원 4명",
+      "group": "하라드",
+      "groupKey": "harad",
+      "bodyDescription": "코끼리 원본 체형·승무원 인간형 5등신 · 하이앵글 프론트뷰",
+      "prompt": "Rebuild IMAGE1 MUMAKIL war-elephant unit in the new consistent crisp PIXEL ART. IMAGE1 controls elephant ANATOMY, original gray/red/gold identity and exact tower/crew composition. IMAGE2 original neutral HUMAN skeleton controls only four MINIATURE HUMAN CREW fivehead bones and overall pixelcluster/outline style, never elephant anatomy. Exactly ONE huge GRAY elephant, ONE long trunk pointing down/front, TWO whole gigantic curved IVORY tusks with GOLD/bronze binding bands, four plausible massive legs and broad toenails, two large ears. Natural elephant proportions from source, no humanoid5head rule for elephant, no mammoth fur. Source RED painted stripes on ears/trunk/forehead are decorative PAINT, not new blood. Gray/bronzegold forehead armor carries RED panel GOLD branch/tree motif. Red/black GOLD-edged saddlecloth with black serpentlike motifs and gold tassels. Tall darkBROWN WOOD howdah/tower on back has intact plank walls, rope joins and GOLD round corner finials, TWO RED vertical side pennants with GOLD tree motifs. Exactly FOUR small adult HARADRIM crew in fitted bronze/silver helmets, red face scarves and brownbronze armor at original tower positions, normal human FIVE-head bones if standing; keep tiny relative to elephant, not giant chibi heads. Simple complete wood bows at rest for visible archers, no extra people/arms. Elevated FRONT slight diagonal looking down30deg, see top of elephant skull/back/shoulders and upper howdah floors, no sideview/verticaltopview. Preserve original whole-unit bodycenter, full trunk/tusk tips/legs/tower/flags within generous clear transparent RGBA margin. Discrete restrained gray/brown/red/gold color ramps, stepped black/dark outlines and pixelclusters like image2/new Gondor; no smooth painted3D fur or photorealtexture. No floor/base/terrain/shadow/smoke/aura/text, no cropped finials/tusks.",
+      "visualReview": {
+        "anatomyReference": "tokens/mumakil.png (elephant); bases/human.png (crew)",
+        "equipment": "Four crew, full tower/two tusks/one trunk and limbs checked",
+        "camera": "Elevated front with skull/back/shoulder top planes visible",
+        "approval": "pending"
+      },
+      "blobSHA": "58e6a0695df162e4ec1bf402046c2fb470480412",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-5cb66713-3a2f-4117-a7bc-5fae726e94f1.png"
+    },
+    {
+      "id": "half_troll",
+      "beast": true,
+      "pose": "갈색 괴수 · 낮게 든 무거운 칼",
+      "group": "하라드",
+      "groupKey": "harad",
+      "bodyDescription": "큰 인간형 표준 뼈대·괴수 근육/피부 · 하이앵글 프론트뷰",
+      "prompt": "Dress/transform IMAGE1 ORIGINAL LARGE-HUMAN neutral fivehead anatomical skeleton as IMAGE2 HALF-TROLL identity. Image1 controls compact skull/torso/arm/femur/shin BONE LENGTHS and elevated front camera; image2 controls monster musculature/skin/face/equipment only. Keep FIVE anatomical skull-to-chin units if standing, exclude tusks, avoid tall6+head longlimbed ogre or4head baby. Width and extreme muscle mass can increase substantially without lengthening bones. HALF-TROLL brown/reddish-brown skin, bald broad skull with pointed ears and TWO ivory lowerjaw tusks, heavy hunched shoulders/back with source diamond-segmented bulging muscle/skin shapes, thick forearms and large plausible clawed hands/feet. NO human hair/beard/clothes/boots from neutral template. Exactly2arms2legs. Source BRONZE rectangular riveted shoulderpads, bronze upperarm/wrist/knee/ankle bands, crossed BROWN LEATHER chest harness with ivory tooth pendants, bronze belt ring and short ragged BROWN loincloth. ViewerLEFT hand holds ONE heavy DARK IRON jagged broad CLEAVER/chisel-edged machete with short brown wrapped handle, whole angular blade point down outside leg, source weapon shape not spear/axe/woodenclub. Other hand empty fist at hip, exactly2hands. Feet firmly planted wide with shallow knee bend, one toe outward, massive broad clawed bare feet. Elevated FRONT looking down30deg shows crown and BOTH shoulder/back tops with chest foreshortening, chin/gaze down, not merely bowed head on eyelevelbody. Whole skull/hands/feet/blade within clear transparent RGBA margin, body centered independently from weapon. Same crisp discrete pixelclusters, stepped dark outlines and restrained brown/bronze ramps as image1/new Mordor; no smooth3D sculpt or cartoon/chibi. No floor/base/shadow/glow/gore/text.",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/large-human.png with original half-troll identity",
+        "equipment": "Tusks, bronze gear, two arms/two legs and source cleaver checked",
+        "camera": "Elevated front with skull/back/shoulder top planes visible",
+        "approval": "pending"
+      },
+      "blobSHA": "c99f86d4be7f04d550d69c745ceb48940dcc35c8",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-93db9286-35b1-408e-95c5-1a46234b6cc6.png"
+    }
+  ]
+}

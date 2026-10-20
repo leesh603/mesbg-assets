@@ -1,7 +1,7 @@
 {
-  "count": 346,
+  "count": 348,
   "groups": {
-    "harad": 17,
+    "harad": 19,
     "isengard": 29,
     "난쟁이": 36,
     "maiar": 9,
@@ -10,8 +10,38 @@
     "rohan": 46,
     "gondor": 59
   },
-  "pending": 164,
+  "pending": 162,
   "units": [
+    {
+      "id": "half_troll",
+      "name": "하프 트롤",
+      "group": "하라드",
+      "role": "monster",
+      "image": "art/full-roster-night-rebuild-20261019/units/half_troll.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/half_troll.png",
+      "old": "tokens/half_troll.png",
+      "status": "검토 대기",
+      "body": "큰 인간형 표준 뼈대·괴수 근육/피부 · 하이앵글 프론트뷰",
+      "pose": "갈색 괴수 · 낮게 든 무거운 칼",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/half_troll.png?v=c99f86d4be7f04d550d69c745ceb48940dcc35c8",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/half_troll.png?v=c99f86d4be7f04d550d69c745ceb48940dcc35c8",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/half_troll.png"
+    },
+    {
+      "id": "mumakil",
+      "name": "무마킬",
+      "group": "하라드",
+      "role": "monster",
+      "image": "art/full-roster-night-rebuild-20261019/units/mumakil.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/mumakil.png",
+      "old": "tokens/mumakil.png",
+      "status": "검토 대기",
+      "body": "코끼리 원본 체형·승무원 인간형 5등신 · 하이앵글 프론트뷰",
+      "pose": "전쟁 코끼리·탑·승무원 4명",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/mumakil.png?v=58e6a0695df162e4ec1bf402046c2fb470480412",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/mumakil.png?v=58e6a0695df162e4ec1bf402046c2fb470480412",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/mumakil.png"
+    },
     {
       "id": "mahud_camel_raider",
       "name": "마후드 낙타기병",

@@ -1,6 +1,18 @@
-# 전체 재제작 검토 — 346종
+# 전체 재제작 검토 — 348종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 하프 트롤 (half_troll)
+
+![하프 트롤](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/half_troll.png?v=c99f86d4be7f04d550d69c745ceb48940dcc35c8)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/half_troll.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/half_troll.png?v=c99f86d4be7f04d550d69c745ceb48940dcc35c8)
+
+### 무마킬 (mumakil)
+
+![무마킬](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/mumakil.png?v=58e6a0695df162e4ec1bf402046c2fb470480412)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/mumakil.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/mumakil.png?v=58e6a0695df162e4ec1bf402046c2fb470480412)
 
 ### 마후드 낙타기병 (mahud_camel_raider)
 

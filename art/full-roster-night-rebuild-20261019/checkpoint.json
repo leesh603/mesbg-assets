@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T03:35:02.775Z",
+  "updatedAt": "2026-10-20T03:38:35.391Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 164,
-    "newlyGeneratedThisSession": 214,
-    "visuallyReviewedThisSession": 219,
+    "pending": 162,
+    "newlyGeneratedThisSession": 216,
+    "visuallyReviewedThisSession": 221,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 214,
-    "persistedReviewAssets": 346,
+    "generatedReviewAssets": 216,
+    "persistedReviewAssets": 348,
     "revisedAfterRejection": 18
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -2084,8 +2084,13 @@
       "faction": "harad",
       "role": "monster",
       "original": "tokens/mumakil.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "harad",
+      "path": "art/full-roster-night-rebuild-20261019/units/mumakil.png",
+      "blobSHA": "58e6a0695df162e4ec1bf402046c2fb470480412",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "smaug",
@@ -3173,8 +3178,13 @@
       "faction": "harad",
       "role": "monster",
       "original": "tokens/half_troll.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "harad",
+      "path": "art/full-roster-night-rebuild-20261019/units/half_troll.png",
+      "blobSHA": "c99f86d4be7f04d550d69c745ceb48940dcc35c8",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "cave_drake",
@@ -7164,12 +7174,12 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 346,
+    "count": 348,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
-      "harad": 17,
+      "harad": 19,
       "isengard": 29,
       "난쟁이": 36,
       "maiar": 9,
