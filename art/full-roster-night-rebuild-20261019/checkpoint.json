@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T03:26:19.552Z",
+  "updatedAt": "2026-10-20T03:27:33.757Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 187,
-    "newlyGeneratedThisSession": 191,
-    "visuallyReviewedThisSession": 196,
+    "pending": 181,
+    "newlyGeneratedThisSession": 197,
+    "visuallyReviewedThisSession": 202,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 191,
-    "persistedReviewAssets": 323,
+    "generatedReviewAssets": 197,
+    "persistedReviewAssets": 329,
     "revisedAfterRejection": 14
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -2634,8 +2634,13 @@
       "faction": "harad",
       "role": "hero",
       "original": "tokens/suladan.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "harad",
+      "path": "art/full-roster-night-rebuild-20261019/units/suladan.png",
+      "blobSHA": "f924a1975289736072daeee56e36210182876ed4",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "corsair_umbra",
@@ -3174,8 +3179,13 @@
       "faction": "harad",
       "role": "hero",
       "original": "tokens/mahud_chieftain.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "harad",
+      "path": "art/full-roster-night-rebuild-20261019/units/mahud_chieftain.png",
+      "blobSHA": "f1e8adfa0dd79af1cf9b4ad7908ba62ae2951915",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "eowyn_mounted",
@@ -4091,8 +4101,13 @@
       "faction": "harad",
       "role": "hero",
       "original": "tokens/hasharin.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "harad",
+      "path": "art/full-roster-night-rebuild-20261019/units/hasharin.png",
+      "blobSHA": "36d64a3f78e115d81ec9ec57fb6ef9c241125f3f",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "golden_king",
@@ -4100,8 +4115,13 @@
       "faction": "harad",
       "role": "hero",
       "original": "tokens/golden_king.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "harad",
+      "path": "art/full-roster-night-rebuild-20261019/units/golden_king.png",
+      "blobSHA": "39e32eb89445e982f5648cd3736a86a90db71056",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "mahud_beastmaster",
@@ -4109,8 +4129,13 @@
       "faction": "harad",
       "role": "hero",
       "original": "tokens/mahud_beastmaster.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "harad",
+      "path": "art/full-roster-night-rebuild-20261019/units/mahud_beastmaster.png",
+      "blobSHA": "0872c1a8326c1fdd459d1acc43d0c0378dd5c38e",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "watcher_karna",
@@ -4828,8 +4853,13 @@
       "faction": "harad",
       "role": "infantry",
       "original": "tokens/abrakhan_guard.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "harad",
+      "path": "art/full-roster-night-rebuild-20261019/units/abrakhan_guard.png",
+      "blobSHA": "ec676ae60000fab82a5c913567b09d4d390a96bd",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "corsair_bosun",
@@ -7041,13 +7071,13 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 323,
+    "count": 329,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
-      "dwarf": 25,
-      "harad": 5,
+      "harad": 11,
+      "난쟁이": 25,
       "maiar": 9,
       "isengard": 29,
       "elf": 77,

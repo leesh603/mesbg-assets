@@ -1,6 +1,42 @@
-# 전체 재제작 검토 — 323종
+# 전체 재제작 검토 — 329종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 아브라칸 근위대 (abrakhan_guard)
+
+![아브라칸 근위대](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/abrakhan_guard.png?v=ec676ae60000fab82a5c913567b09d4d390a96bd)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/abrakhan_guard.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/abrakhan_guard.png?v=ec676ae60000fab82a5c913567b09d4d390a96bd)
+
+### 마후드 야수조련사 (mahud_beastmaster)
+
+![마후드 야수조련사](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/mahud_beastmaster.png?v=0872c1a8326c1fdd459d1acc43d0c0378dd5c38e)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/mahud_beastmaster.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/mahud_beastmaster.png?v=0872c1a8326c1fdd459d1acc43d0c0378dd5c38e)
+
+### 아브라칸의 황금왕 (golden_king)
+
+![아브라칸의 황금왕](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/golden_king.png?v=39e32eb89445e982f5648cd3736a86a90db71056)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/golden_king.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/golden_king.png?v=39e32eb89445e982f5648cd3736a86a90db71056)
+
+### 하샤린 (hasharin)
+
+![하샤린](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/hasharin.png?v=36d64a3f78e115d81ec9ec57fb6ef9c241125f3f)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/hasharin.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/hasharin.png?v=36d64a3f78e115d81ec9ec57fb6ef9c241125f3f)
+
+### 마후드 족장 (mahud_chieftain)
+
+![마후드 족장](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/mahud_chieftain.png?v=f1e8adfa0dd79af1cf9b4ad7908ba62ae2951915)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/mahud_chieftain.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/mahud_chieftain.png?v=f1e8adfa0dd79af1cf9b4ad7908ba62ae2951915)
+
+### 술라단 (suladan)
+
+![술라단](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/suladan.png?v=f924a1975289736072daeee56e36210182876ed4)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/suladan.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/suladan.png?v=f924a1975289736072daeee56e36210182876ed4)
 
 ### 스로르 (thror)
 

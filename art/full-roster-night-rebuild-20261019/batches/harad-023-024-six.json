@@ -1,0 +1,120 @@
+{
+  "batch": "harad-023-024-six",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "suladan",
+      "pose": "황금 뱀 투구 · 검끝 아래",
+      "detail": "SULADAN fitted ornate GOLD SERPENT helmet with ruby gem and high flared gold cobra-shaped collar, black shadowed face opening, goldbronze scale armor, RED cloak with GOLD SNAKE motifs and broad gold hems, red layered short tunic, goldbrown boots. ONE visible gloved swordhand viewerLEFT holds curved SILVER SABRE gold hilt LOW across front with point down/outward beside knee, other arm hidden under cape at waist like original, no extrahand. No shield or spear. Both feet planted apart level y92%, torsofront and shouldersslightlyturned5deg. Collar changes width only, compact FIVE-head bones unchanged and ordinary skull under closelyfit helmet.",
+      "prompt": "Dress IMAGE1 original NEUTRAL HUMAN skeleton as IMAGE2 character. IMAGE1 alone controls normal adult skull, torso/limb bone lengths and elevated front camera. EXACTLY FIVE anatomical heads crown-to-sole, one head crown-to-CHIN excluding HAIR, BEARD, HAT or crown. No4head bighead chibi, no6+head tall hero. Copy exact bone segment relationships, use old age/slenderness through face, width and posture only. Full robes cover same compact fivehead bones, never lengthen body or hide feet. If hat/staff needs space, zoom out whole figure and expand clear canvas padding; do NOT shrink body relative to head to fit hat. Image2 identity/equipment/palette only, ignore its proportions. New joint poses required while preserving bone LENGTHS. Elevated FRONT camera looking DOWN30deg, clear TOP planes of head/hat and both shoulders, foreshortened chest/face, chin/gaze angled down separately. Not eyelevel with only bowed head. Crisp discrete pixel clusters, stepped dark outlines, limited color ramps matching image1/new Gondor/Mordor, no smooth painting/3D. Entire figure/weapons inside transparent RGBA clear margin, torso centered independently of equipment. No floor/base/shadow/aura/glow/text. Replace neutral bald scalp with required HAIR/BEARD/HAT exactly as source.  For these Harad units the SOURCE head is wrapped or helmeted: retain covered/shadowed face and fitted helmet/turban exactly; do NOT leave neutral bald scalp or uncovered face. Bronze/brown metal and red/gold cloth ramps remain source palette. SULADAN fitted ornate GOLD SERPENT helmet with ruby gem and high flared gold cobra-shaped collar, black shadowed face opening, goldbronze scale armor, RED cloak with GOLD SNAKE motifs and broad gold hems, red layered short tunic, goldbrown boots. ONE visible gloved swordhand viewerLEFT holds curved SILVER SABRE gold hilt LOW across front with point down/outward beside knee, other arm hidden under cape at waist like original, no extrahand. No shield or spear. Both feet planted apart level y92%, torsofront and shouldersslightlyturned5deg. Collar changes width only, compact FIVE-head bones unchanged and ordinary skull under closelyfit helmet.",
+      "group": "하라드",
+      "groupKey": "harad",
+      "bodyDescription": "인간 5등신 · 하이앵글 프론트뷰",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/human.png",
+        "camera": "Head/shoulder upper planes checked against neutral human",
+        "equipment": "Source masks, horns, daggers/sword, whip/hanging horn and polearm/shield checked",
+        "approval": "pending"
+      },
+      "blobSHA": "f924a1975289736072daeee56e36210182876ed4",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-a6d0599b-a4bd-471d-b738-917df6df4d6c.png"
+    },
+    {
+      "id": "mahud_chieftain",
+      "pose": "뿔·엄니 가면 · 굽은 검",
+      "detail": "MAHUD CHIEFTAIN source is ONE armored human with fitted darkBRONZE helmet, TWO IVORY horns, darkred high crest, tusk/teeth-shaped bone ornaments around lower face and ivory skull necklace. Darkbrown leather/bronze armor, RED cloak/short red tunic GOLD borders, bone chest charms, brown gloves/boots, broad muscular WIDTH only. One hand viewerLEFT large curved SILVER SABRE gold/red wrapped handle held point DOWN beside leg, other fist low at belt, exactly2hands. Both feet firmly planted level and wide. Horns/crest/teeth ornaments are helmet equipment, not giant anatomical head; normal5head bones under armor, no animal face or extra tusks beyond source.",
+      "prompt": "Dress IMAGE1 original NEUTRAL HUMAN skeleton as IMAGE2 character. IMAGE1 alone controls normal adult skull, torso/limb bone lengths and elevated front camera. EXACTLY FIVE anatomical heads crown-to-sole, one head crown-to-CHIN excluding HAIR, BEARD, HAT or crown. No4head bighead chibi, no6+head tall hero. Copy exact bone segment relationships, use old age/slenderness through face, width and posture only. Full robes cover same compact fivehead bones, never lengthen body or hide feet. If hat/staff needs space, zoom out whole figure and expand clear canvas padding; do NOT shrink body relative to head to fit hat. Image2 identity/equipment/palette only, ignore its proportions. New joint poses required while preserving bone LENGTHS. Elevated FRONT camera looking DOWN30deg, clear TOP planes of head/hat and both shoulders, foreshortened chest/face, chin/gaze angled down separately. Not eyelevel with only bowed head. Crisp discrete pixel clusters, stepped dark outlines, limited color ramps matching image1/new Gondor/Mordor, no smooth painting/3D. Entire figure/weapons inside transparent RGBA clear margin, torso centered independently of equipment. No floor/base/shadow/aura/glow/text. Replace neutral bald scalp with required HAIR/BEARD/HAT exactly as source.  For these Harad units the SOURCE head is wrapped or helmeted: retain covered/shadowed face and fitted helmet/turban exactly; do NOT leave neutral bald scalp or uncovered face. Bronze/brown metal and red/gold cloth ramps remain source palette. MAHUD CHIEFTAIN source is ONE armored human with fitted darkBRONZE helmet, TWO IVORY horns, darkred high crest, tusk/teeth-shaped bone ornaments around lower face and ivory skull necklace. Darkbrown leather/bronze armor, RED cloak/short red tunic GOLD borders, bone chest charms, brown gloves/boots, broad muscular WIDTH only. One hand viewerLEFT large curved SILVER SABRE gold/red wrapped handle held point DOWN beside leg, other fist low at belt, exactly2hands. Both feet firmly planted level and wide. Horns/crest/teeth ornaments are helmet equipment, not giant anatomical head; normal5head bones under armor, no animal face or extra tusks beyond source.",
+      "group": "하라드",
+      "groupKey": "harad",
+      "bodyDescription": "인간 5등신 · 하이앵글 프론트뷰",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/human.png",
+        "camera": "Head/shoulder upper planes checked against neutral human",
+        "equipment": "Source masks, horns, daggers/sword, whip/hanging horn and polearm/shield checked",
+        "approval": "pending"
+      },
+      "blobSHA": "f1e8adfa0dd79af1cf9b4ad7908ba62ae2951915",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-810ec895-c040-46be-918a-b0f84155c79a.png"
+    },
+    {
+      "id": "hasharin",
+      "pose": "붉은 후드 · 양손 굽은 단검",
+      "detail": "HASHARIN assassin, pointed deepRED hood/cape gold edging, fitted GOLD V-shaped MASK hides face, darkbrown layered leather armor with gold etched edges, red short tunic panels, brown boots. Exactly TWO hands, each holds ONE INWARD-CURVED short SILVER DAGGER with a thin subdued GREEN cutting edge like original, solid green not glowing poison. Both dagger points angle DOWN outside each thigh, arms low and slightly apart, short elbows; no extra blades. Both feet planted wide same level with shallow crouch, bodyfront and headgaze down. Adult5head short bones, no chibi or tall assassin.",
+      "prompt": "Dress IMAGE1 original NEUTRAL HUMAN skeleton as IMAGE2 character. IMAGE1 alone controls normal adult skull, torso/limb bone lengths and elevated front camera. EXACTLY FIVE anatomical heads crown-to-sole, one head crown-to-CHIN excluding HAIR, BEARD, HAT or crown. No4head bighead chibi, no6+head tall hero. Copy exact bone segment relationships, use old age/slenderness through face, width and posture only. Full robes cover same compact fivehead bones, never lengthen body or hide feet. If hat/staff needs space, zoom out whole figure and expand clear canvas padding; do NOT shrink body relative to head to fit hat. Image2 identity/equipment/palette only, ignore its proportions. New joint poses required while preserving bone LENGTHS. Elevated FRONT camera looking DOWN30deg, clear TOP planes of head/hat and both shoulders, foreshortened chest/face, chin/gaze angled down separately. Not eyelevel with only bowed head. Crisp discrete pixel clusters, stepped dark outlines, limited color ramps matching image1/new Gondor/Mordor, no smooth painting/3D. Entire figure/weapons inside transparent RGBA clear margin, torso centered independently of equipment. No floor/base/shadow/aura/glow/text. Replace neutral bald scalp with required HAIR/BEARD/HAT exactly as source.  For these Harad units the SOURCE head is wrapped or helmeted: retain covered/shadowed face and fitted helmet/turban exactly; do NOT leave neutral bald scalp or uncovered face. Bronze/brown metal and red/gold cloth ramps remain source palette. HASHARIN assassin, pointed deepRED hood/cape gold edging, fitted GOLD V-shaped MASK hides face, darkbrown layered leather armor with gold etched edges, red short tunic panels, brown boots. Exactly TWO hands, each holds ONE INWARD-CURVED short SILVER DAGGER with a thin subdued GREEN cutting edge like original, solid green not glowing poison. Both dagger points angle DOWN outside each thigh, arms low and slightly apart, short elbows; no extra blades. Both feet planted wide same level with shallow crouch, bodyfront and headgaze down. Adult5head short bones, no chibi or tall assassin.",
+      "group": "하라드",
+      "groupKey": "harad",
+      "bodyDescription": "인간 5등신 · 하이앵글 프론트뷰",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/human.png",
+        "camera": "Head/shoulder upper planes checked against neutral human",
+        "equipment": "Source masks, horns, daggers/sword, whip/hanging horn and polearm/shield checked",
+        "approval": "pending"
+      },
+      "blobSHA": "36d64a3f78e115d81ec9ec57fb6ef9c241125f3f",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-c18c15bc-f542-4f38-b875-2d4bd60cc9db.png"
+    },
+    {
+      "id": "golden_king",
+      "pose": "황금 뱀 왕관 · 금빛 검",
+      "detail": "GOLDEN KING original source is ONE standing armored man: full brightGOLD plate, fitted GOLD snake-shaped CROWN/helmet redruby center, darkface opening, gold plated shoulders/chest/greaves, RED cloak with fine GOLD motifs and ruby clasps. ViewerLEFT hand ONE ornate curved GOLD SWORD with RED jewel inlays down outside thigh, other hand closed fist at waist. Exactly2hands. No palanquin/throne/carriers added; preserve singlefigure source design. Both feet planted parallel level; broad armor width only, ordinary adult skull and5head torso/limbs. Crown protrusions excluded from anatomicalhead, entire crown/sword fit padding.",
+      "prompt": "Dress IMAGE1 original NEUTRAL HUMAN skeleton as IMAGE2 character. IMAGE1 alone controls normal adult skull, torso/limb bone lengths and elevated front camera. EXACTLY FIVE anatomical heads crown-to-sole, one head crown-to-CHIN excluding HAIR, BEARD, HAT or crown. No4head bighead chibi, no6+head tall hero. Copy exact bone segment relationships, use old age/slenderness through face, width and posture only. Full robes cover same compact fivehead bones, never lengthen body or hide feet. If hat/staff needs space, zoom out whole figure and expand clear canvas padding; do NOT shrink body relative to head to fit hat. Image2 identity/equipment/palette only, ignore its proportions. New joint poses required while preserving bone LENGTHS. Elevated FRONT camera looking DOWN30deg, clear TOP planes of head/hat and both shoulders, foreshortened chest/face, chin/gaze angled down separately. Not eyelevel with only bowed head. Crisp discrete pixel clusters, stepped dark outlines, limited color ramps matching image1/new Gondor/Mordor, no smooth painting/3D. Entire figure/weapons inside transparent RGBA clear margin, torso centered independently of equipment. No floor/base/shadow/aura/glow/text. Replace neutral bald scalp with required HAIR/BEARD/HAT exactly as source.  For these Harad units the SOURCE head is wrapped or helmeted: retain covered/shadowed face and fitted helmet/turban exactly; do NOT leave neutral bald scalp or uncovered face. Bronze/brown metal and red/gold cloth ramps remain source palette. GOLDEN KING original source is ONE standing armored man: full brightGOLD plate, fitted GOLD snake-shaped CROWN/helmet redruby center, darkface opening, gold plated shoulders/chest/greaves, RED cloak with fine GOLD motifs and ruby clasps. ViewerLEFT hand ONE ornate curved GOLD SWORD with RED jewel inlays down outside thigh, other hand closed fist at waist. Exactly2hands. No palanquin/throne/carriers added; preserve singlefigure source design. Both feet planted parallel level; broad armor width only, ordinary adult skull and5head torso/limbs. Crown protrusions excluded from anatomicalhead, entire crown/sword fit padding.",
+      "group": "하라드",
+      "groupKey": "harad",
+      "bodyDescription": "인간 5등신 · 하이앵글 프론트뷰",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/human.png",
+        "camera": "Head/shoulder upper planes checked against neutral human",
+        "equipment": "Source masks, horns, daggers/sword, whip/hanging horn and polearm/shield checked",
+        "approval": "pending"
+      },
+      "blobSHA": "39e32eb89445e982f5648cd3736a86a90db71056",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-be291554-1755-4fa0-8af5-1f22d5f5bca8.png"
+    },
+    {
+      "id": "mahud_beastmaster",
+      "pose": "뿔 투구 · 채찍과 신호나팔",
+      "detail": "MAHUD BEASTMASTER fitted DARK BRONZE enclosed helmet with TWO small IVORY horns and roundgoldbrowrivet, darkshadowed face, chainmail/bronze segmented armor, darkRED cloak geometric trim, darkbrown short tunic/boots, brown belt. ViewerLEFT hand holds ONE coiled BROWN LEATHER WHIP: central handle in fist, ONE visible continuous loop with free thin tail hanging down outside left leg, no disconnected ropes or extra hands. Large curved IVORY SIGNAL HORN hangs by strap at viewerRIGHT waist, NOT held by another hand. Other hand closed near belt beneath cape, exactly2humanhands. Feet planted level, short elbows and5head bones; no beasts/extra figures.",
+      "prompt": "Dress IMAGE1 original NEUTRAL HUMAN skeleton as IMAGE2 character. IMAGE1 alone controls normal adult skull, torso/limb bone lengths and elevated front camera. EXACTLY FIVE anatomical heads crown-to-sole, one head crown-to-CHIN excluding HAIR, BEARD, HAT or crown. No4head bighead chibi, no6+head tall hero. Copy exact bone segment relationships, use old age/slenderness through face, width and posture only. Full robes cover same compact fivehead bones, never lengthen body or hide feet. If hat/staff needs space, zoom out whole figure and expand clear canvas padding; do NOT shrink body relative to head to fit hat. Image2 identity/equipment/palette only, ignore its proportions. New joint poses required while preserving bone LENGTHS. Elevated FRONT camera looking DOWN30deg, clear TOP planes of head/hat and both shoulders, foreshortened chest/face, chin/gaze angled down separately. Not eyelevel with only bowed head. Crisp discrete pixel clusters, stepped dark outlines, limited color ramps matching image1/new Gondor/Mordor, no smooth painting/3D. Entire figure/weapons inside transparent RGBA clear margin, torso centered independently of equipment. No floor/base/shadow/aura/glow/text. Replace neutral bald scalp with required HAIR/BEARD/HAT exactly as source.  For these Harad units the SOURCE head is wrapped or helmeted: retain covered/shadowed face and fitted helmet/turban exactly; do NOT leave neutral bald scalp or uncovered face. Bronze/brown metal and red/gold cloth ramps remain source palette. MAHUD BEASTMASTER fitted DARK BRONZE enclosed helmet with TWO small IVORY horns and roundgoldbrowrivet, darkshadowed face, chainmail/bronze segmented armor, darkRED cloak geometric trim, darkbrown short tunic/boots, brown belt. ViewerLEFT hand holds ONE coiled BROWN LEATHER WHIP: central handle in fist, ONE visible continuous loop with free thin tail hanging down outside left leg, no disconnected ropes or extra hands. Large curved IVORY SIGNAL HORN hangs by strap at viewerRIGHT waist, NOT held by another hand. Other hand closed near belt beneath cape, exactly2humanhands. Feet planted level, short elbows and5head bones; no beasts/extra figures.",
+      "group": "하라드",
+      "groupKey": "harad",
+      "bodyDescription": "인간 5등신 · 하이앵글 프론트뷰",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/human.png",
+        "camera": "Head/shoulder upper planes checked against neutral human",
+        "equipment": "Source masks, horns, daggers/sword, whip/hanging horn and polearm/shield checked",
+        "approval": "pending"
+      },
+      "blobSHA": "0872c1a8326c1fdd459d1acc43d0c0378dd5c38e",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-77d4b859-5aeb-4e6b-908c-5e60011c11f2.png"
+    },
+    {
+      "id": "abrakhan_guard",
+      "pose": "은빛 폴암·붉은 방패",
+      "detail": "ABRAKHAN GUARD fitted GOLD fullface helmet with RED tall plume/crest and red vertical facegrille, GOLD layered plate, RED cloak/tabard with GOLD treebranch motifs, red/gold pointed SHIELD viewerRIGHT and silver round shoulderclasps. ViewerLEFT hand grips ONE upright BROWN POLEARM shaft with GOLD rings; top SILVER SPEAR point plus ONE side SILVER AXE blade with gold etched ornament, full tip and gold butt cap visible. Shaft is rigid perfectly straight continuous line, no kinks at grip. Other hand holds shield, exactly2hands. Both feet level x40/62% and knees soft, torsofront. Helmet/crest fitted around ordinary skull, compact adult5head anatomy, not oversizedhead.",
+      "prompt": "Dress IMAGE1 original NEUTRAL HUMAN skeleton as IMAGE2 character. IMAGE1 alone controls normal adult skull, torso/limb bone lengths and elevated front camera. EXACTLY FIVE anatomical heads crown-to-sole, one head crown-to-CHIN excluding HAIR, BEARD, HAT or crown. No4head bighead chibi, no6+head tall hero. Copy exact bone segment relationships, use old age/slenderness through face, width and posture only. Full robes cover same compact fivehead bones, never lengthen body or hide feet. If hat/staff needs space, zoom out whole figure and expand clear canvas padding; do NOT shrink body relative to head to fit hat. Image2 identity/equipment/palette only, ignore its proportions. New joint poses required while preserving bone LENGTHS. Elevated FRONT camera looking DOWN30deg, clear TOP planes of head/hat and both shoulders, foreshortened chest/face, chin/gaze angled down separately. Not eyelevel with only bowed head. Crisp discrete pixel clusters, stepped dark outlines, limited color ramps matching image1/new Gondor/Mordor, no smooth painting/3D. Entire figure/weapons inside transparent RGBA clear margin, torso centered independently of equipment. No floor/base/shadow/aura/glow/text. Replace neutral bald scalp with required HAIR/BEARD/HAT exactly as source.  For these Harad units the SOURCE head is wrapped or helmeted: retain covered/shadowed face and fitted helmet/turban exactly; do NOT leave neutral bald scalp or uncovered face. Bronze/brown metal and red/gold cloth ramps remain source palette. ABRAKHAN GUARD fitted GOLD fullface helmet with RED tall plume/crest and red vertical facegrille, GOLD layered plate, RED cloak/tabard with GOLD treebranch motifs, red/gold pointed SHIELD viewerRIGHT and silver round shoulderclasps. ViewerLEFT hand grips ONE upright BROWN POLEARM shaft with GOLD rings; top SILVER SPEAR point plus ONE side SILVER AXE blade with gold etched ornament, full tip and gold butt cap visible. Shaft is rigid perfectly straight continuous line, no kinks at grip. Other hand holds shield, exactly2hands. Both feet level x40/62% and knees soft, torsofront. Helmet/crest fitted around ordinary skull, compact adult5head anatomy, not oversizedhead.",
+      "group": "하라드",
+      "groupKey": "harad",
+      "bodyDescription": "인간 5등신 · 하이앵글 프론트뷰",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/human.png",
+        "camera": "Head/shoulder upper planes checked against neutral human",
+        "equipment": "Source masks, horns, daggers/sword, whip/hanging horn and polearm/shield checked",
+        "approval": "pending"
+      },
+      "blobSHA": "ec676ae60000fab82a5c913567b09d4d390a96bd",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-4dcb3d55-b755-44bc-9769-eea01effa19d.png"
+    }
+  ]
+}
