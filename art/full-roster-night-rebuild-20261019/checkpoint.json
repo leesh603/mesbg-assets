@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T02:27:03.316Z",
+  "updatedAt": "2026-10-20T02:31:31.857Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 283,
-    "newlyGeneratedThisSession": 95,
-    "visuallyReviewedThisSession": 100,
+    "pending": 282,
+    "newlyGeneratedThisSession": 96,
+    "visuallyReviewedThisSession": 101,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 95,
-    "persistedReviewAssets": 227,
+    "generatedReviewAssets": 96,
+    "persistedReviewAssets": 228,
     "revisedAfterRejection": 14
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -48,7 +48,7 @@
     "cameraGate": "Actual elevated-front reprojection of whole rider and horse; crown, shoulder tops, horse withers and saddle top visible. Do not substitute chin tuck or head-size-only edits for camera elevation."
   },
   "resume": {
-    "nextAction": "Continue nextIds, then next pending faction. Save small batches and refresh every unified gallery artifact together.",
+    "nextAction": "Continue pending roster with original species skeletons; inspect and save small batches to unified gallery.",
     "nextIds": [
       "gandalf",
       "cave_troll",
@@ -3894,8 +3894,13 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/fingon.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/fingon.png",
+      "blobSHA": "d3a0c4e00277a1e5956d64fd880d8396f5078880",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "ecthelion",
@@ -5531,13 +5536,13 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 227,
+    "count": 228,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
-      "elf": 44,
-      "아이센가드": 5,
+      "elf": 45,
+      "isengard": 5,
       "mordor": 73,
       "rohan": 46,
       "gondor": 59
@@ -5619,6 +5624,16 @@
       "approval": "pending",
       "inGameVerified": false,
       "report": "art/full-roster-night-rebuild-20261019/corrections/cavalry-camera-20261020.json"
+    },
+    "elfProportion20261020": {
+      "ids": [
+        "turgon",
+        "fingon"
+      ],
+      "reason": "Raised sword composition compressed torso and legs; reset crown/pelvis/knee/sole landmarks to neutral elf skeleton.",
+      "state": "corrected-review-candidates",
+      "approval": "pending",
+      "excludedVariants": "Initial compressed variants and bald Fingon correction are not published."
     }
   },
   "lastContinuation": {

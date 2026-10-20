@@ -1,0 +1,31 @@
+{
+  "batch": "elf-015-fingon-fix",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "fingon",
+      "group": "엘프",
+      "groupKey": "elf",
+      "pose": "양발 버팀 · 허리 높이 양손 검",
+      "prompt": "EDIT IMAGE2 only, repairing missing HAIR. Image1 is original neutral anatomy/camera master, image3 is exact Fingon identity. Image2 already has corrected fivehead adult bones, short torso/shins and suitable high-angle front camera; preserve its ENTIRE body, armor, cape, hands, sword pose and canvas unchanged. Crucial repair: FINGON IS NOT BALD. Restore full dark BROWN/BLACK shoulder-length hair from image3, centre part with the whole scalp covered, hair flowing behind BOTH ears and resting against red cloak; keep gold circlet red jewel on top of hair. Cover exposed bald skin at crown with dark hair pixelclusters, normal fitted hair volume without enlarging skull. Keep adult clean-shaven face, exactly same skull size and face location, no beard. Crisp stepped pixel edge/style same image2. Add NO other element, keep transparent RGBA, no shadow/base/glow, no crop.",
+      "referencePaths": [
+        "art/rebuild-skeletons/bases/elf.png",
+        "/workspace/scratch/b57ccc107719/generated_images/exec-3a46b286-c5b3-4a40-a434-b0ddb5471cfe.png",
+        "tokens/fingon.png"
+      ],
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/elf.png",
+        "camera": "Elevated front with crown and shoulder tops visible",
+        "identity": "Dark hair restored; two hands and sword checked"
+      },
+      "discardedVariants": [
+        "Compressed body from raised-sword composition",
+        "Bald first proportion correction"
+      ],
+      "blobSHA": "d3a0c4e00277a1e5956d64fd880d8396f5078880",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-66bcf337-fc22-4941-a6d4-f580335786f6.png"
+    }
+  ]
+}

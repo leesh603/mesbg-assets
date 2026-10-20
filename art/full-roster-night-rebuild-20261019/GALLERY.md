@@ -1,6 +1,12 @@
-# 전체 재제작 검토 — 227종
+# 전체 재제작 검토 — 228종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 핑곤 (fingon)
+
+![핑곤](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/fingon.png?v=d3a0c4e00277a1e5956d64fd880d8396f5078880)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/fingon.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/fingon.png?v=d3a0c4e00277a1e5956d64fd880d8396f5078880)
 
 ### 켈레고름 (celegorm)
 

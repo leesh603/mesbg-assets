@@ -1,14 +1,29 @@
 {
-  "count": 227,
+  "count": 228,
   "groups": {
-    "elf": 44,
-    "아이센가드": 5,
+    "elf": 45,
+    "isengard": 5,
     "mordor": 73,
     "rohan": 46,
     "gondor": 59
   },
-  "pending": 283,
+  "pending": 282,
   "units": [
+    {
+      "id": "fingon",
+      "name": "핑곤",
+      "group": "엘프",
+      "role": "hero",
+      "image": "art/full-roster-night-rebuild-20261019/units/fingon.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/fingon.png",
+      "old": "tokens/fingon.png",
+      "status": "검토 대기",
+      "body": "엘프 5등신 · 하이앵글 프론트뷰",
+      "pose": "양발 버팀 · 허리 높이 양손 검",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/fingon.png?v=d3a0c4e00277a1e5956d64fd880d8396f5078880",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/fingon.png?v=d3a0c4e00277a1e5956d64fd880d8396f5078880",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/fingon.png"
+    },
     {
       "id": "celegorm",
       "name": "켈레고름",
