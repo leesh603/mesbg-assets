@@ -1,14 +1,29 @@
 {
-  "count": 262,
+  "count": 263,
   "groups": {
-    "elf": 65,
+    "elf": 66,
     "isengard": 19,
     "mordor": 73,
     "rohan": 46,
     "gondor": 59
   },
-  "pending": 248,
+  "pending": 247,
   "units": [
+    {
+      "id": "maeglin_mounted",
+      "name": "매글린(기마)",
+      "group": "엘프",
+      "role": "hero",
+      "image": "art/full-roster-night-rebuild-20261019/units/maeglin_mounted.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/maeglin_mounted.png",
+      "old": "tokens/maeglin_mounted.png",
+      "status": "검토 대기",
+      "body": "엘프 기수 5등신 · 하이앵글 프론트뷰",
+      "pose": "흑색 장비 · 검 가로 경계",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/maeglin_mounted.png?v=8eb6060512a8fa92c74b92fa2ce8cac44873cc86",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/maeglin_mounted.png?v=8eb6060512a8fa92c74b92fa2ce8cac44873cc86",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/maeglin_mounted.png"
+    },
     {
       "id": "beleg_mounted",
       "name": "벨레그(기마)",

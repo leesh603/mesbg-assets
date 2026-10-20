@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T02:56:13.717Z",
+  "updatedAt": "2026-10-20T02:57:08.113Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 248,
-    "newlyGeneratedThisSession": 130,
-    "visuallyReviewedThisSession": 135,
+    "pending": 247,
+    "newlyGeneratedThisSession": 131,
+    "visuallyReviewedThisSession": 136,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 130,
-    "persistedReviewAssets": 262,
+    "generatedReviewAssets": 131,
+    "persistedReviewAssets": 263,
     "revisedAfterRejection": 14
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -5419,8 +5419,13 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/maeglin_mounted.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/maeglin_mounted.png",
+      "blobSHA": "8eb6060512a8fa92c74b92fa2ce8cac44873cc86",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "fingon_mounted",
@@ -5707,12 +5712,12 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 262,
+    "count": 263,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
-      "elf": 65,
+      "elf": 66,
       "isengard": 19,
       "mordor": 73,
       "rohan": 46,

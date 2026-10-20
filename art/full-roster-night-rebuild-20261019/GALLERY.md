@@ -1,6 +1,12 @@
-# 전체 재제작 검토 — 262종
+# 전체 재제작 검토 — 263종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 매글린(기마) (maeglin_mounted)
+
+![매글린(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/maeglin_mounted.png?v=8eb6060512a8fa92c74b92fa2ce8cac44873cc86)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/maeglin_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/maeglin_mounted.png?v=8eb6060512a8fa92c74b92fa2ce8cac44873cc86)
 
 ### 벨레그(기마) (beleg_mounted)
 

@@ -1,0 +1,19 @@
+{
+  "batch": "elf-018-maeglin-last",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "maeglin_mounted",
+      "mounted": true,
+      "pose": "흑색 장비 · 검 가로 경계",
+      "detail": "MAEGLIN MOUNTED long BLACK hair, clean shaven. Dark BLACK/slate armor with SILVER branch motifs, black cape pale gray hem/lining, silver clasps and gloves, brown belt. BLACK/DARK GRAY HORSE blackmane/tail, white facial blaze, black/gray frontbarding with SILVER branches, dark saddlecloth pale hems, silver bridle details. Sword hand viewerLEFT at waist holds SILVER straight SWORD gold/ivory hilt pointing outward nearly horizontal at y32%; other hand reins near pommel, exactly2hands. No shield. Horse walks slightly diagonal FRONT only10deg, not side.",
+      "prompt": "Dress IMAGE1 original NEUTRAL mounted adult skeleton as IMAGE2 character. IMAGE1 is ONLY rider bone-length/head-size and elevated-camera master. Image2 gives identity/equipment/horse colors only, IGNORE its elongated anatomy and eye-level angle. Rider if standing has EXACTLY FIVE anatomical heads crown-to-chin units excluding hair/helmet/crest: preserve same normal adult skull, torso and compact femur/shin lengths as image1. Do not create 4head chibi or6+head tall slim hero. Slender elf varies WIDTH/muscle only. Hair/circlet or helmet from image2 replaces bald neutral head, never render bald. Horse normal fullsize adult with correct four legs; no uniform rider/horse shrinking as anatomy fix. Elevated FRONT camera looking down30degrees: clearly see TOP planes of rider skull, both shoulders, saddle, horse neck/withers and horse head; foreshorten chest/face. Chin and eyes down separately. Not eye-level figure with only bowed head. New arm/horse joint pose allowed, exact bone lengths remain. Crisp discrete PIXEL CLUSTERS, stepped dark outlines and restrained color ramps same image1/Gondor. One rider and one mount, exactly2hands, no extras. Entire silhouette/all weapon tips/tail/hooves within generous transparent RGBA padding, rider torso centered independently of cape/weapon, no base/floor/shadow/glow/text. MAEGLIN MOUNTED long BLACK hair, clean shaven. Dark BLACK/slate armor with SILVER branch motifs, black cape pale gray hem/lining, silver clasps and gloves, brown belt. BLACK/DARK GRAY HORSE blackmane/tail, white facial blaze, black/gray frontbarding with SILVER branches, dark saddlecloth pale hems, silver bridle details. Sword hand viewerLEFT at waist holds SILVER straight SWORD gold/ivory hilt pointing outward nearly horizontal at y32%; other hand reins near pommel, exactly2hands. No shield. Horse walks slightly diagonal FRONT only10deg, not side.",
+      "group": "엘프",
+      "groupKey": "elf",
+      "blobSHA": "8eb6060512a8fa92c74b92fa2ce8cac44873cc86",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-607f96fe-5091-48cd-9c93-e9fc7222fc91.png"
+    }
+  ]
+}
