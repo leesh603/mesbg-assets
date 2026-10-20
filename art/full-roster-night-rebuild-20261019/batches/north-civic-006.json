@@ -1,0 +1,228 @@
+{
+  "batch": "north-civic-006",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "huor",
+      "name": "후오르",
+      "faction": "men",
+      "role": "hero",
+      "original": "tokens/huor.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "인간",
+      "groupKey": "men",
+      "bodyDescription": "인간형 5등신 · 원본 동작 · 숙인 고개 · 하이앵글 프론트뷰",
+      "pose": "기존 무장·기울임을 유지한 전투 자세",
+      "prompt": "Rebuild ONE complete production transparent PIXEL game token. INPUT1 original character controls EXACT costume/hair/helmet/beard/palette/weapons, elevated FRONT camera, deeply BOWED hidden face and distinct action silhouette; preserve those identity details. INPUT2 neutral HUMAN skeleton controls EXACT FIVE anatomical crown-to-chin heads for crown-to-sole body, ordinary adult skull and shoulder/pelvis/knee/ankle bone lengths, crisp pixel density/stepped dark outlines/short restrained shade ramps. Redress and rotate original neutral bones into INPUT1 action, NEVER lengthen to6–8heads, shrink to4heads or inflate helmet/skull. Slim/muscular/fat changes WIDTH only. Elevated front camera down40–45degrees with crown and both shoulder TOPS obvious, torso/face foreshortened. Head firmly tucked down, eyes covered by hair/helmet/hood/brow; NO frontal facial portrait/eye contact. Retain original body's forward lean or combat action. Do not default to template's walking pose: grounded/braced feet or original lunging as equipment/action warrants, varied lead foot, uncrossed coherent limbs. Complete exact original weapons with logical handgrips; no weapons borrowed from INPUT2. Full silhouette and ALL weapon/banner/antler tips inside INNER80percent canvas. Body center ignores equipment. Transparent background, no base/floor/shadow/scenery/text/watermark/extra figures. Character identity: 후오르 (huor). Exactly use INPUT1 design. Keep every distinctive original motif, hair/beard/helmet and exact weapon loadout. Hide eyes through bowed head, preserve strong original top/front angle.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/huor.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human.png"
+      ],
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-d2b5de61-a41f-4f39-8782-d840db21ae92.png",
+      "expectedBlobSHA": "08ebf24c31900440d813f09a26d44e0572f5cd6a",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          234,
+          36,
+          1121,
+          1226
+        ]
+      },
+      "blobSHA": "08ebf24c31900440d813f09a26d44e0572f5cd6a",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "arpharazon",
+      "name": "아르파라존",
+      "faction": "numenor",
+      "role": "hero",
+      "original": "tokens/arpharazon.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "누메노르",
+      "groupKey": "numenor",
+      "bodyDescription": "인간형 5등신 · 원본 동작 · 숙인 고개 · 하이앵글 프론트뷰",
+      "pose": "기존 무장·기울임을 유지한 전투 자세",
+      "prompt": "Rebuild ONE complete production transparent PIXEL game token. INPUT1 original character controls EXACT costume/hair/helmet/beard/palette/weapons, elevated FRONT camera, deeply BOWED hidden face and distinct action silhouette; preserve those identity details. INPUT2 neutral HUMAN skeleton controls EXACT FIVE anatomical crown-to-chin heads for crown-to-sole body, ordinary adult skull and shoulder/pelvis/knee/ankle bone lengths, crisp pixel density/stepped dark outlines/short restrained shade ramps. Redress and rotate original neutral bones into INPUT1 action, NEVER lengthen to6–8heads, shrink to4heads or inflate helmet/skull. Slim/muscular/fat changes WIDTH only. Elevated front camera down40–45degrees with crown and both shoulder TOPS obvious, torso/face foreshortened. Head firmly tucked down, eyes covered by hair/helmet/hood/brow; NO frontal facial portrait/eye contact. Retain original body's forward lean or combat action. Do not default to template's walking pose: grounded/braced feet or original lunging as equipment/action warrants, varied lead foot, uncrossed coherent limbs. Complete exact original weapons with logical handgrips; no weapons borrowed from INPUT2. Full silhouette and ALL weapon/banner/antler tips inside INNER80percent canvas. Body center ignores equipment. Transparent background, no base/floor/shadow/scenery/text/watermark/extra figures. Character identity: 아르파라존 (arpharazon). Exactly use INPUT1 design. Keep every distinctive original motif, hair/beard/helmet and exact weapon loadout. Hide eyes through bowed head, preserve strong original top/front angle.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/arpharazon.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human.png"
+      ],
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-210b6030-9f66-4084-b872-30b4e00be3af.png",
+      "expectedBlobSHA": "e211bfd3b34f87718dc2b00a9d15705ae66f72e8",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          225,
+          104,
+          1052,
+          1169
+        ]
+      },
+      "blobSHA": "e211bfd3b34f87718dc2b00a9d15705ae66f72e8",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "anarion",
+      "name": "아나리온",
+      "faction": "numenor",
+      "role": "hero",
+      "original": "tokens/anarion.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "누메노르",
+      "groupKey": "numenor",
+      "bodyDescription": "인간형 5등신 · 원본 동작 · 숙인 고개 · 하이앵글 프론트뷰",
+      "pose": "기존 무장·기울임을 유지한 전투 자세",
+      "prompt": "Rebuild ONE complete production transparent PIXEL game token. INPUT1 original character controls EXACT costume/hair/helmet/beard/palette/weapons, elevated FRONT camera, deeply BOWED hidden face and distinct action silhouette; preserve those identity details. INPUT2 neutral HUMAN skeleton controls EXACT FIVE anatomical crown-to-chin heads for crown-to-sole body, ordinary adult skull and shoulder/pelvis/knee/ankle bone lengths, crisp pixel density/stepped dark outlines/short restrained shade ramps. Redress and rotate original neutral bones into INPUT1 action, NEVER lengthen to6–8heads, shrink to4heads or inflate helmet/skull. Slim/muscular/fat changes WIDTH only. Elevated front camera down40–45degrees with crown and both shoulder TOPS obvious, torso/face foreshortened. Head firmly tucked down, eyes covered by hair/helmet/hood/brow; NO frontal facial portrait/eye contact. Retain original body's forward lean or combat action. Do not default to template's walking pose: grounded/braced feet or original lunging as equipment/action warrants, varied lead foot, uncrossed coherent limbs. Complete exact original weapons with logical handgrips; no weapons borrowed from INPUT2. Full silhouette and ALL weapon/banner/antler tips inside INNER80percent canvas. Body center ignores equipment. Transparent background, no base/floor/shadow/scenery/text/watermark/extra figures. Character identity: 아나리온 (anarion). Exactly use INPUT1 design. Keep every distinctive original motif, hair/beard/helmet and exact weapon loadout. Hide eyes through bowed head, preserve strong original top/front angle.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/anarion.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human.png"
+      ],
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-7782517c-de7f-4fc1-b648-420e56386d64.png",
+      "expectedBlobSHA": "b5f6f59975687b65c28b1bafc62785f3330282d1",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          184,
+          84,
+          1087,
+          1222
+        ]
+      },
+      "blobSHA": "b5f6f59975687b65c28b1bafc62785f3330282d1",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "butterbur",
+      "name": "버터버",
+      "faction": "bree",
+      "role": "civil",
+      "original": "tokens/butterbur.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "브리",
+      "groupKey": "bree",
+      "bodyDescription": "인간형 5등신 · 원본 동작 · 숙인 고개 · 하이앵글 프론트뷰",
+      "pose": "기존 무장·기울임을 유지한 전투 자세",
+      "prompt": "Rebuild ONE complete production transparent PIXEL game token. INPUT1 original character controls EXACT costume/hair/helmet/beard/palette/weapons, elevated FRONT camera, deeply BOWED hidden face and distinct action silhouette; preserve those identity details. INPUT2 neutral HUMAN skeleton controls EXACT FIVE anatomical crown-to-chin heads for crown-to-sole body, ordinary adult skull and shoulder/pelvis/knee/ankle bone lengths, crisp pixel density/stepped dark outlines/short restrained shade ramps. Redress and rotate original neutral bones into INPUT1 action, NEVER lengthen to6–8heads, shrink to4heads or inflate helmet/skull. Slim/muscular/fat changes WIDTH only. Elevated front camera down40–45degrees with crown and both shoulder TOPS obvious, torso/face foreshortened. Head firmly tucked down, eyes covered by hair/helmet/hood/brow; NO frontal facial portrait/eye contact. Retain original body's forward lean or combat action. Do not default to template's walking pose: grounded/braced feet or original lunging as equipment/action warrants, varied lead foot, uncrossed coherent limbs. Complete exact original weapons with logical handgrips; no weapons borrowed from INPUT2. Full silhouette and ALL weapon/banner/antler tips inside INNER80percent canvas. Body center ignores equipment. Transparent background, no base/floor/shadow/scenery/text/watermark/extra figures. Character identity: 버터버 (butterbur). Exactly use INPUT1 design. Rotund bald innkeeper with white rolled sleeves, brown apron/tunic and boots, foaming tankard in hand. Fatness by torso width and belly only, retain human FIVE-head bones and ordinary skull. Head bowed, no full smiling face.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/butterbur.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human.png"
+      ],
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-0aff53f6-723f-418b-9b34-e27a4d3e4ace.png",
+      "expectedBlobSHA": "6ca6db345e1b9180a1940fe4ff8f0bf10bee3d04",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1077,
+          1461
+        ],
+        "bounds": [
+          69,
+          101,
+          1018,
+          1377
+        ]
+      },
+      "blobSHA": "6ca6db345e1b9180a1940fe4ff8f0bf10bee3d04",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "bill_ferny",
+      "name": "빌 페르니",
+      "faction": "bree",
+      "role": "civil",
+      "original": "tokens/bill_ferny.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "브리",
+      "groupKey": "bree",
+      "bodyDescription": "인간형 5등신 · 원본 동작 · 숙인 고개 · 하이앵글 프론트뷰",
+      "pose": "기존 무장·기울임을 유지한 전투 자세",
+      "prompt": "Rebuild ONE complete production transparent PIXEL game token. INPUT1 original character controls EXACT costume/hair/helmet/beard/palette/weapons, elevated FRONT camera, deeply BOWED hidden face and distinct action silhouette; preserve those identity details. INPUT2 neutral HUMAN skeleton controls EXACT FIVE anatomical crown-to-chin heads for crown-to-sole body, ordinary adult skull and shoulder/pelvis/knee/ankle bone lengths, crisp pixel density/stepped dark outlines/short restrained shade ramps. Redress and rotate original neutral bones into INPUT1 action, NEVER lengthen to6–8heads, shrink to4heads or inflate helmet/skull. Slim/muscular/fat changes WIDTH only. Elevated front camera down40–45degrees with crown and both shoulder TOPS obvious, torso/face foreshortened. Head firmly tucked down, eyes covered by hair/helmet/hood/brow; NO frontal facial portrait/eye contact. Retain original body's forward lean or combat action. Do not default to template's walking pose: grounded/braced feet or original lunging as equipment/action warrants, varied lead foot, uncrossed coherent limbs. Complete exact original weapons with logical handgrips; no weapons borrowed from INPUT2. Full silhouette and ALL weapon/banner/antler tips inside INNER80percent canvas. Body center ignores equipment. Transparent background, no base/floor/shadow/scenery/text/watermark/extra figures. Character identity: 빌 페르니 (bill_ferny). Exactly use INPUT1 design. Keep original dark purple hood/cloak, ragged brown tunic/boots and simple wooden club. Slim narrow width, eyes entirely hidden in deep hood.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/bill_ferny.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human.png"
+      ],
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-a4f815ea-3895-4a13-a601-2c3ad003ac2c.png",
+      "expectedBlobSHA": "61df0e0b80d51a3fef1b764d31553a539a94e839",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          235,
+          144,
+          987,
+          1171
+        ]
+      },
+      "blobSHA": "61df0e0b80d51a3fef1b764d31553a539a94e839",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "arnor_ranger",
+      "name": "아르노르 레인저",
+      "faction": "arnor",
+      "role": "infantry",
+      "original": "tokens/arnor_ranger.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "아르노르",
+      "groupKey": "arnor",
+      "bodyDescription": "인간형 5등신 · 원본 동작 · 숙인 고개 · 하이앵글 프론트뷰",
+      "pose": "기존 무장·기울임을 유지한 전투 자세",
+      "prompt": "Rebuild ONE complete production transparent PIXEL game token. INPUT1 original character controls EXACT costume/hair/helmet/beard/palette/weapons, elevated FRONT camera, deeply BOWED hidden face and distinct action silhouette; preserve those identity details. INPUT2 neutral HUMAN skeleton controls EXACT FIVE anatomical crown-to-chin heads for crown-to-sole body, ordinary adult skull and shoulder/pelvis/knee/ankle bone lengths, crisp pixel density/stepped dark outlines/short restrained shade ramps. Redress and rotate original neutral bones into INPUT1 action, NEVER lengthen to6–8heads, shrink to4heads or inflate helmet/skull. Slim/muscular/fat changes WIDTH only. Elevated front camera down40–45degrees with crown and both shoulder TOPS obvious, torso/face foreshortened. Head firmly tucked down, eyes covered by hair/helmet/hood/brow; NO frontal facial portrait/eye contact. Retain original body's forward lean or combat action. Do not default to template's walking pose: grounded/braced feet or original lunging as equipment/action warrants, varied lead foot, uncrossed coherent limbs. Complete exact original weapons with logical handgrips; no weapons borrowed from INPUT2. Full silhouette and ALL weapon/banner/antler tips inside INNER80percent canvas. Body center ignores equipment. Transparent background, no base/floor/shadow/scenery/text/watermark/extra figures. Character identity: 아르노르 레인저 (arnor_ranger). Exactly use INPUT1 design. Keep original unhooded brown hair bowed over face, green cloak/leaf clasp, leather ranger armour, quiver and full brown bow with ONE clean taut bold tan string.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/arnor_ranger.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human.png"
+      ],
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-5e397c8f-cfc7-48c6-81d7-e7fc99f1ec99.png",
+      "expectedBlobSHA": "fef5192c4f433d8b68ffcd513348fb817db5b422",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          156,
+          50,
+          1119,
+          1246
+        ]
+      },
+      "blobSHA": "fef5192c4f433d8b68ffcd513348fb817db5b422",
+      "approval": "pending",
+      "inGameVerified": false
+    }
+  ]
+}

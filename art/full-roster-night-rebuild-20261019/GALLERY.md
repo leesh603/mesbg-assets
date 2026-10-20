@@ -1,6 +1,42 @@
-# 전체 재제작 검토 — 405종
+# 전체 재제작 검토 — 411종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 아르노르 레인저 (arnor_ranger)
+
+![아르노르 레인저](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/arnor_ranger.png?v=fef5192c4f433d8b68ffcd513348fb817db5b422)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/arnor_ranger.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/arnor_ranger.png?v=fef5192c4f433d8b68ffcd513348fb817db5b422)
+
+### 빌 페르니 (bill_ferny)
+
+![빌 페르니](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/bill_ferny.png?v=61df0e0b80d51a3fef1b764d31553a539a94e839)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/bill_ferny.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/bill_ferny.png?v=61df0e0b80d51a3fef1b764d31553a539a94e839)
+
+### 버터버 (butterbur)
+
+![버터버](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/butterbur.png?v=6ca6db345e1b9180a1940fe4ff8f0bf10bee3d04)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/butterbur.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/butterbur.png?v=6ca6db345e1b9180a1940fe4ff8f0bf10bee3d04)
+
+### 아나리온 (anarion)
+
+![아나리온](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/anarion.png?v=b5f6f59975687b65c28b1bafc62785f3330282d1)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/anarion.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/anarion.png?v=b5f6f59975687b65c28b1bafc62785f3330282d1)
+
+### 아르파라존 (arpharazon)
+
+![아르파라존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/arpharazon.png?v=e211bfd3b34f87718dc2b00a9d15705ae66f72e8)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/arpharazon.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/arpharazon.png?v=e211bfd3b34f87718dc2b00a9d15705ae66f72e8)
+
+### 후오르 (huor)
+
+![후오르](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/huor.png?v=08ebf24c31900440d813f09a26d44e0572f5cd6a)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/huor.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/huor.png?v=08ebf24c31900440d813f09a26d44e0572f5cd6a)
 
 ### 고블린 서기 (goblin_scribe)
 

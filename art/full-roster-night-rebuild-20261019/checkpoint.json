@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T04:00:50.126Z",
+  "updatedAt": "2026-10-20T04:01:56.664Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 105,
-    "newlyGeneratedThisSession": 273,
-    "visuallyReviewedThisSession": 278,
+    "pending": 99,
+    "newlyGeneratedThisSession": 279,
+    "visuallyReviewedThisSession": 284,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 273,
-    "persistedReviewAssets": 405,
+    "generatedReviewAssets": 279,
+    "persistedReviewAssets": 411,
     "revisedAfterRejection": 18
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -6125,8 +6125,13 @@
       "faction": "men",
       "role": "hero",
       "original": "tokens/huor.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "men",
+      "path": "art/full-roster-night-rebuild-20261019/units/huor.png",
+      "blobSHA": "08ebf24c31900440d813f09a26d44e0572f5cd6a",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "barahir",
@@ -6162,8 +6167,13 @@
       "faction": "numenor",
       "role": "hero",
       "original": "tokens/arpharazon.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "numenor",
+      "path": "art/full-roster-night-rebuild-20261019/units/arpharazon.png",
+      "blobSHA": "e211bfd3b34f87718dc2b00a9d15705ae66f72e8",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "anarion",
@@ -6171,8 +6181,13 @@
       "faction": "numenor",
       "role": "hero",
       "original": "tokens/anarion.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "numenor",
+      "path": "art/full-roster-night-rebuild-20261019/units/anarion.png",
+      "blobSHA": "b5f6f59975687b65c28b1bafc62785f3330282d1",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "earendil",
@@ -6373,8 +6388,13 @@
       "faction": "bree",
       "role": "civil",
       "original": "tokens/butterbur.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "bree",
+      "path": "art/full-roster-night-rebuild-20261019/units/butterbur.png",
+      "blobSHA": "6ca6db345e1b9180a1940fe4ff8f0bf10bee3d04",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "bill_ferny",
@@ -6382,8 +6402,13 @@
       "faction": "bree",
       "role": "civil",
       "original": "tokens/bill_ferny.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "bree",
+      "path": "art/full-roster-night-rebuild-20261019/units/bill_ferny.png",
+      "blobSHA": "61df0e0b80d51a3fef1b764d31553a539a94e839",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "scatha",
@@ -7409,8 +7434,13 @@
       "faction": "arnor",
       "role": "infantry",
       "original": "tokens/arnor_ranger.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "arnor",
+      "path": "art/full-roster-night-rebuild-20261019/units/arnor_ranger.png",
+      "blobSHA": "fef5192c4f433d8b68ffcd513348fb817db5b422",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "morannon_swordshield",
@@ -7459,17 +7489,18 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 405,
+    "count": 411,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
+      "arnor": 9,
+      "브리": 2,
+      "numenor": 4,
+      "men": 8,
       "moria": 11,
       "shire": 9,
       "이스터링·칸드": 10,
-      "numenor": 2,
-      "men": 7,
-      "arnor": 8,
       "dunland": 8,
       "isengard": 30,
       "harad": 20,
@@ -7482,7 +7513,7 @@
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,
-    "sourceValidation": "405 unique IDs; static card count and asset blob SHAs verified"
+    "sourceValidation": "411 unique IDs; static card count and asset blob SHAs verified"
   },
   "revisionRequests": {
     "witchking": {
@@ -7618,19 +7649,14 @@
     }
   },
   "lastContinuation": {
-    "batch": "moria-goblin-011",
+    "batch": "north-civic-006",
     "newIds": [
-      "moria_goblin",
-      "goblin_spear",
-      "goblin_shield",
-      "goblin_prowler",
-      "goblin_bow",
-      "goblin_king",
-      "goblin_mercenary",
-      "goblin_shaman",
-      "goblin_drummer",
-      "durburz",
-      "goblin_scribe"
+      "huor",
+      "arpharazon",
+      "anarion",
+      "butterbur",
+      "bill_ferny",
+      "arnor_ranger"
     ],
     "qualityStandard": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
     "note": "Each image inspected against canonical skeleton and identity reference; approval pending."
