@@ -16,9 +16,9 @@
 
 ## 최근 재수정 진행
 
-불합격·보류 194종: 141종 수정 검토본 / 53종 수정 필요 · 전체 품질 최종 통과 0종 · 사용자 승인 전
+불합격·보류 194종: 146종 수정 검토본 / 48종 수정 필요 · 전체 품질 최종 통과 0종 · 사용자 승인 전
 
-최근 저장: 2026-10-20T11:42:18.540Z · finish-58-01-20261020 · 5종 수정 검토본. 본게임 적용·최종 품질 통과와 구분합니다.
+최근 저장: 2026-10-20T11:44:51.286Z · finish-58-02-20261020 · 5종 수정 검토본. 본게임 적용·최종 품질 통과와 구분합니다.
 
-다음 수정: cirion, numenorean_spearman, forsaken, kardush, morgul_stalker, angbor, haleth, gildor
+다음 수정: numenorean_spearman, haleth, gildor, grishnakh, dol_amroth_man_at_arms, palace_guard, guritz, turgon
 

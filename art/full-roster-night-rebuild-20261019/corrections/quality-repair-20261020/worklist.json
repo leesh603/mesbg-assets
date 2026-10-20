@@ -1,8 +1,8 @@
 {
   "request": "all-194-20261020",
-  "updatedAt": "2026-10-20T11:42:18.540Z",
-  "correctedCandidates": 141,
-  "remaining": 53,
+  "updatedAt": "2026-10-20T11:44:51.286Z",
+  "correctedCandidates": 146,
+  "remaining": 48,
   "scope": [
     {
       "id": "imrahil_mounted",
@@ -1098,9 +1098,11 @@
       "name": "키리온",
       "originalApproval": "rejected",
       "originalReason": "흰 머리·수염·로브 외형이 투구·중갑으로 크게 바뀜. 캐릭터 정체성 확인 전 교체 보류.",
-      "state": "pending_correction",
-      "path": "art/gondor-rebuild-20261019/units/cirion.png",
-      "blobSHA": "11dcd698abc8b9fe4bd1ad2b5437f64eb1a19bae"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/cirion.png",
+      "blobSHA": "66056f7f8690c8906b851713f22501c866f9268b",
+      "latestReason": "백발·수염·긴 로브와 두루마리의 원본 인물상을 복원하고 투구·중갑으로 바뀐 회귀를 제거. 숙인 머리와 어깨 윗면을 원본과 비교함.",
+      "checkedAt": "2026-10-20T11:44:51.286Z"
     },
     {
       "id": "rohan_royal_guard_mounted",
@@ -1147,36 +1149,44 @@
       "name": "버려진 자(나즈굴)",
       "originalApproval": "rejected",
       "originalReason": "기존 유령 같은 긴 실루엣이 다리와 갑주가 드러난 전사형으로 크게 바뀜. 정체성 확인 필요.",
-      "state": "pending_correction",
-      "path": "art/mordor-rebuild-20261019/units/forsaken.png",
-      "blobSHA": "bf0c6178947e3f29885d9951110d3a7771efc403"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/forsaken.png",
+      "blobSHA": "ff66828051c1f1df808123acc79aad6c0aeb0f6e",
+      "latestReason": "원본 빈 후드·긴 유령 로브·짧은 검·갈고리 같은 손과 청회색 영체 흔적을 복원. 갑주 전사로 변경된 회귀를 제거하고 긴 실루엣을 비교함.",
+      "checkedAt": "2026-10-20T11:44:51.286Z"
     },
     {
       "id": "kardush",
       "name": "카두쉬 화염술사",
       "originalApproval": "hold",
       "originalReason": "후드형 주술사가 맨얼굴의 비대한 주술사로 변경됨. 지정 디자인/기존 에셋 매핑 확인 필요.",
-      "state": "pending_correction",
-      "path": "art/mordor-rebuild-20261019/units/kardush.png",
-      "blobSHA": "8bd712ebc6657412e2c26f9e1f9d38f823c0d7c0"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/kardush.png",
+      "blobSHA": "93080f3fcbf6a9c5b389c75a75c249121f715665",
+      "latestReason": "원본의 얼굴을 가린 뾰족한 두건/투구·붉은 표식·이빨 장식·불붙은 지팡이와 녹갈색 의복을 복원. 맨얼굴의 비대한 주술사로 바뀐 회귀를 제거함.",
+      "checkedAt": "2026-10-20T11:44:51.286Z"
     },
     {
       "id": "morgul_stalker",
       "name": "모르굴 추적자",
       "originalApproval": "rejected",
       "originalReason": "기존의 얼굴이 가려진 은밀한 실루엣이 얼굴을 드러낸 일반 전사형으로 바뀜.",
-      "state": "pending_correction",
-      "path": "art/mordor-rebuild-20261019/units/morgul_stalker.png",
-      "blobSHA": "58321afb9ccc814917dfa04a443e4291e71bd176"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/morgul_stalker.png",
+      "blobSHA": "a3dede9f246b6b8dbcbb6d8678e3b64eb35995fb",
+      "latestReason": "깊은 녹색 후드 속 가려진 얼굴·앞으로 낮춘 상체·곡검·등의 화살통을 복원. 정면 얼굴을 드러낸 일반 전사형 대신 원본의 은밀한 전진 동작을 비교함.",
+      "checkedAt": "2026-10-20T11:44:51.286Z"
     },
     {
       "id": "angbor",
       "name": "앵보르 무서운 자",
       "originalApproval": "hold",
       "originalReason": "상체·팔 대비 다리가 짧아 보임. 기수 아닌 인간형 5등신 비율 재확인.",
-      "state": "pending_correction",
-      "path": "art/gondor-rebuild-20261019/units/angbor.png",
-      "blobSHA": "2530368e43732f7f376b1f2c8bcf67f884534fdb"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/angbor.png",
+      "blobSHA": "bddea64e226ff2bea6f9605daad9b3d29746dfc0",
+      "latestReason": "원본의 털 장식 녹색 망토·검은 갑주·양손의 사선 검과 숙인 머리를 유지. 다리와 골반·전진 무릎 연결을 원본과 비교함.",
+      "checkedAt": "2026-10-20T11:44:51.286Z"
     },
     {
       "id": "haleth",

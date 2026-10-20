@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T11:42:18.540Z",
+  "updatedAt": "2026-10-20T11:44:51.286Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -16,9 +16,9 @@
     "generatedReviewAssets": 378,
     "persistedReviewAssets": 510,
     "revisedAfterRejection": 20,
-    "qualityRejected": 32,
-    "qualityHeld": 21,
-    "awaitingApproval": 457,
+    "qualityRejected": 29,
+    "qualityHeld": 19,
+    "awaitingApproval": 462,
     "correctionCandidatesGenerated": 57
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -56,14 +56,14 @@
   "resume": {
     "nextAction": "Continue every remaining rejected/held unit. Preserve source identity, anatomy and elevated-front camera.",
     "nextIds": [
-      "cirion",
       "numenorean_spearman",
-      "forsaken",
-      "kardush",
-      "morgul_stalker",
-      "angbor",
       "haleth",
-      "gildor"
+      "gildor",
+      "grishnakh",
+      "dol_amroth_man_at_arms",
+      "palace_guard",
+      "guritz",
+      "turgon"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
@@ -6041,14 +6041,30 @@
       "role": "hero",
       "original": "tokens/cirion.png",
       "source": "gondor",
-      "path": "art/gondor-rebuild-20261019/units/cirion.png",
-      "blobSHA": "11dcd698abc8b9fe4bd1ad2b5437f64eb1a19bae",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "흰 머리·수염·로브 외형이 투구·중갑으로 크게 바뀜. 캐릭터 정체성 확인 전 교체 보류.",
-      "approval": "rejected",
-      "preferredSource": "old"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/cirion.png",
+      "blobSHA": "66056f7f8690c8906b851713f22501c866f9268b",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "백발·수염·긴 로브와 두루마리의 원본 인물상을 복원하고 투구·중갑으로 바뀐 회귀를 제거. 숙인 머리와 어깨 윗면을 원본과 비교함.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-58-02-20261020",
+        "previous": {
+          "path": "art/gondor-rebuild-20261019/units/cirion.png",
+          "blobSHA": "11dcd698abc8b9fe4bd1ad2b5437f64eb1a19bae",
+          "approval": "rejected",
+          "qualityDecision": "preserve_original",
+          "reason": "흰 머리·수염·로브 외형이 투구·중갑으로 크게 바뀜. 캐릭터 정체성 확인 전 교체 보류."
+        },
+        "observations": "백발·수염·긴 로브와 두루마리의 원본 인물상을 복원하고 투구·중갑으로 바뀐 회귀를 제거. 숙인 머리와 어깨 윗면을 원본과 비교함.",
+        "checkedAt": "2026-10-20T11:44:51.286Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "theodred",
@@ -6492,14 +6508,30 @@
       "role": "hero",
       "original": "tokens/forsaken.png",
       "source": "mordor",
-      "path": "art/mordor-rebuild-20261019/units/forsaken.png",
-      "blobSHA": "bf0c6178947e3f29885d9951110d3a7771efc403",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존 유령 같은 긴 실루엣이 다리와 갑주가 드러난 전사형으로 크게 바뀜. 정체성 확인 필요.",
-      "approval": "rejected",
-      "preferredSource": "old"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/forsaken.png",
+      "blobSHA": "ff66828051c1f1df808123acc79aad6c0aeb0f6e",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "원본 빈 후드·긴 유령 로브·짧은 검·갈고리 같은 손과 청회색 영체 흔적을 복원. 갑주 전사로 변경된 회귀를 제거하고 긴 실루엣을 비교함.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-58-02-20261020",
+        "previous": {
+          "path": "art/mordor-rebuild-20261019/units/forsaken.png",
+          "blobSHA": "bf0c6178947e3f29885d9951110d3a7771efc403",
+          "approval": "rejected",
+          "qualityDecision": "preserve_original",
+          "reason": "기존 유령 같은 긴 실루엣이 다리와 갑주가 드러난 전사형으로 크게 바뀜. 정체성 확인 필요."
+        },
+        "observations": "원본 빈 후드·긴 유령 로브·짧은 검·갈고리 같은 손과 청회색 영체 흔적을 복원. 갑주 전사로 변경된 회귀를 제거하고 긴 실루엣을 비교함.",
+        "checkedAt": "2026-10-20T11:44:51.286Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "castellan",
@@ -6536,14 +6568,30 @@
       "role": "hero",
       "original": "tokens/kardush.png",
       "source": "mordor",
-      "path": "art/mordor-rebuild-20261019/units/kardush.png",
-      "blobSHA": "8bd712ebc6657412e2c26f9e1f9d38f823c0d7c0",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "needs_revision",
-      "qualityReason": "후드형 주술사가 맨얼굴의 비대한 주술사로 변경됨. 지정 디자인/기존 에셋 매핑 확인 필요.",
-      "approval": "hold",
-      "preferredSource": "undecided"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/kardush.png",
+      "blobSHA": "93080f3fcbf6a9c5b389c75a75c249121f715665",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "원본의 얼굴을 가린 뾰족한 두건/투구·붉은 표식·이빨 장식·불붙은 지팡이와 녹갈색 의복을 복원. 맨얼굴의 비대한 주술사로 바뀐 회귀를 제거함.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-58-02-20261020",
+        "previous": {
+          "path": "art/mordor-rebuild-20261019/units/kardush.png",
+          "blobSHA": "8bd712ebc6657412e2c26f9e1f9d38f823c0d7c0",
+          "approval": "hold",
+          "qualityDecision": "needs_revision",
+          "reason": "후드형 주술사가 맨얼굴의 비대한 주술사로 변경됨. 지정 디자인/기존 에셋 매핑 확인 필요."
+        },
+        "observations": "원본의 얼굴을 가린 뾰족한 두건/투구·붉은 표식·이빨 장식·불붙은 지팡이와 녹갈색 의복을 복원. 맨얼굴의 비대한 주술사로 바뀐 회귀를 제거함.",
+        "checkedAt": "2026-10-20T11:44:51.286Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "morgul_stalker",
@@ -6552,14 +6600,30 @@
       "role": "infantry",
       "original": "tokens/morgul_stalker.png",
       "source": "mordor",
-      "path": "art/mordor-rebuild-20261019/units/morgul_stalker.png",
-      "blobSHA": "58321afb9ccc814917dfa04a443e4291e71bd176",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존의 얼굴이 가려진 은밀한 실루엣이 얼굴을 드러낸 일반 전사형으로 바뀜.",
-      "approval": "rejected",
-      "preferredSource": "old"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/morgul_stalker.png",
+      "blobSHA": "a3dede9f246b6b8dbcbb6d8678e3b64eb35995fb",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "깊은 녹색 후드 속 가려진 얼굴·앞으로 낮춘 상체·곡검·등의 화살통을 복원. 정면 얼굴을 드러낸 일반 전사형 대신 원본의 은밀한 전진 동작을 비교함.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-58-02-20261020",
+        "previous": {
+          "path": "art/mordor-rebuild-20261019/units/morgul_stalker.png",
+          "blobSHA": "58321afb9ccc814917dfa04a443e4291e71bd176",
+          "approval": "rejected",
+          "qualityDecision": "preserve_original",
+          "reason": "기존의 얼굴이 가려진 은밀한 실루엣이 얼굴을 드러낸 일반 전사형으로 바뀜."
+        },
+        "observations": "깊은 녹색 후드 속 가려진 얼굴·앞으로 낮춘 상체·곡검·등의 화살통을 복원. 정면 얼굴을 드러낸 일반 전사형 대신 원본의 은밀한 전진 동작을 비교함.",
+        "checkedAt": "2026-10-20T11:44:51.286Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "numenorean_marshal",
@@ -6783,14 +6847,30 @@
       "role": "hero",
       "original": "tokens/angbor.png",
       "source": "gondor",
-      "path": "art/gondor-rebuild-20261019/units/angbor.png",
-      "blobSHA": "2530368e43732f7f376b1f2c8bcf67f884534fdb",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "needs_revision",
-      "qualityReason": "상체·팔 대비 다리가 짧아 보임. 기수 아닌 인간형 5등신 비율 재확인.",
-      "approval": "hold",
-      "preferredSource": "undecided"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/angbor.png",
+      "blobSHA": "bddea64e226ff2bea6f9605daad9b3d29746dfc0",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "원본의 털 장식 녹색 망토·검은 갑주·양손의 사선 검과 숙인 머리를 유지. 다리와 골반·전진 무릎 연결을 원본과 비교함.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-58-02-20261020",
+        "previous": {
+          "path": "art/gondor-rebuild-20261019/units/angbor.png",
+          "blobSHA": "2530368e43732f7f376b1f2c8bcf67f884534fdb",
+          "approval": "hold",
+          "qualityDecision": "needs_revision",
+          "reason": "상체·팔 대비 다리가 짧아 보임. 기수 아닌 인간형 5등신 비율 재확인."
+        },
+        "observations": "원본의 털 장식 녹색 망토·검은 갑주·양손의 사선 검과 숙인 머리를 유지. 다리와 골반·전진 무릎 연결을 원본과 비교함.",
+        "checkedAt": "2026-10-20T11:44:51.286Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "dunhere",
@@ -10330,14 +10410,14 @@
     "note": "Each image inspected against canonical skeleton and identity reference; approval pending."
   },
   "lastCorrection": {
-    "at": "2026-10-20T11:42:18.540Z",
-    "batch": "finish-58-01-20261020",
+    "at": "2026-10-20T11:44:51.286Z",
+    "batch": "finish-58-02-20261020",
     "ids": [
-      "aragorn_blackgate",
-      "isildur",
-      "numenorean_warrior",
-      "dark_marshal",
-      "numenorean_captain"
+      "cirion",
+      "kardush",
+      "morgul_stalker",
+      "angbor",
+      "forsaken"
     ],
     "newCharacterCount": 0,
     "qualityAcceptedCount": 0,
@@ -10413,8 +10493,8 @@
   "qualityRepairRequest": {
     "id": "all-194-20261020",
     "scopeCount": 194,
-    "correctedCandidates": 141,
-    "remaining": 53,
+    "correctedCandidates": 146,
+    "remaining": 48,
     "userApproved": 0,
     "previousMountedCorrectionsIncluded": true
   }
