@@ -1,14 +1,29 @@
 {
-  "count": 240,
+  "count": 241,
   "groups": {
-    "elf": 48,
+    "elf": 49,
     "isengard": 14,
     "mordor": 73,
     "rohan": 46,
     "gondor": 59
   },
-  "pending": 270,
+  "pending": 269,
   "units": [
+    {
+      "id": "falathrim_archer",
+      "name": "팔라스림 궁수",
+      "group": "엘프",
+      "role": "infantry",
+      "image": "art/full-roster-night-rebuild-20261019/units/falathrim_archer.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/falathrim_archer.png",
+      "old": "tokens/falathrim_archer.png",
+      "status": "검토 대기",
+      "body": "엘프 5등신 · 하이앵글 프론트뷰",
+      "pose": "활 세워 들기 · 별도 화살",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/falathrim_archer.png?v=648ea430ba19d3b16966e6cc2c83c533c817fef8",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/falathrim_archer.png?v=648ea430ba19d3b16966e6cc2c83c533c817fef8",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/falathrim_archer.png"
+    },
     {
       "id": "doriath_warrior",
       "name": "도리아스 전사",

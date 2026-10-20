@@ -1,6 +1,12 @@
-# 전체 재제작 검토 — 240종
+# 전체 재제작 검토 — 241종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 팔라스림 궁수 (falathrim_archer)
+
+![팔라스림 궁수](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/falathrim_archer.png?v=648ea430ba19d3b16966e6cc2c83c533c817fef8)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/falathrim_archer.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/falathrim_archer.png?v=648ea430ba19d3b16966e6cc2c83c533c817fef8)
 
 ### 도리아스 전사 (doriath_warrior)
 

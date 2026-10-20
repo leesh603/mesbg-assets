@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T02:40:05.340Z",
+  "updatedAt": "2026-10-20T02:42:00.092Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 270,
-    "newlyGeneratedThisSession": 108,
-    "visuallyReviewedThisSession": 113,
+    "pending": 269,
+    "newlyGeneratedThisSession": 109,
+    "visuallyReviewedThisSession": 114,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 108,
-    "persistedReviewAssets": 240,
+    "generatedReviewAssets": 109,
+    "persistedReviewAssets": 241,
     "revisedAfterRejection": 14
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -4088,8 +4088,13 @@
       "faction": "elf",
       "role": "infantry",
       "original": "tokens/falathrim_archer.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/falathrim_archer.png",
+      "blobSHA": "648ea430ba19d3b16966e6cc2c83c533c817fef8",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "nargothrond_ranger",
@@ -5597,12 +5602,12 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 240,
+    "count": 241,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
-      "elf": 48,
+      "elf": 49,
       "isengard": 14,
       "mordor": 73,
       "rohan": 46,
@@ -5610,7 +5615,7 @@
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,
-    "sourceValidation": "208 unique IDs; static card count and asset blob SHAs verified"
+    "sourceValidation": "241 unique IDs; static card count and asset blob SHAs verified"
   },
   "revisionRequests": {
     "witchking": {
@@ -5698,16 +5703,12 @@
     }
   },
   "lastContinuation": {
-    "batch": "isengard-001",
+    "batch": "elf-016-additional-20261020",
     "newIds": [
-      "uruk_pike",
-      "uruk_swordshield2",
-      "saruman",
-      "uruk_berserker",
-      "uruk_swordshield"
+      "falathrim_archer"
     ],
     "qualityStandard": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
-    "note": "Original canonical body templates used. Recovered images visually compared to references. Review candidates, approval pending."
+    "note": "Each image inspected against canonical skeleton and identity reference; approval pending."
   },
   "lastCorrection": {
     "at": "2026-10-20T02:20:00.187Z",
