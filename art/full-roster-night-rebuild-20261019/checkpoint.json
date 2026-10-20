@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T03:41:55.952Z",
+  "updatedAt": "2026-10-20T03:51:26.202Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 154,
-    "newlyGeneratedThisSession": 224,
-    "visuallyReviewedThisSession": 229,
+    "pending": 148,
+    "newlyGeneratedThisSession": 230,
+    "visuallyReviewedThisSession": 235,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 224,
-    "persistedReviewAssets": 356,
+    "generatedReviewAssets": 230,
+    "persistedReviewAssets": 362,
     "revisedAfterRejection": 18
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -1305,8 +1305,13 @@
       "faction": "easterling",
       "role": "infantry",
       "original": "tokens/easterling_phalanx.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "easterling",
+      "path": "art/full-roster-night-rebuild-20261019/units/easterling_phalanx.png",
+      "blobSHA": "00b5f511937d2af6d9ed40414a50ce8675dde82f",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "easterling_swordshield",
@@ -1314,8 +1319,13 @@
       "faction": "easterling",
       "role": "infantry",
       "original": "tokens/easterling_swordshield.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "easterling",
+      "path": "art/full-roster-night-rebuild-20261019/units/easterling_swordshield.png",
+      "blobSHA": "909ea9c2f64ec3a6502e3dfd27bf3345042ed324",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "easterling_kataphrakt",
@@ -2150,8 +2160,13 @@
       "faction": "easterling",
       "role": "hero",
       "original": "tokens/easterling_warlord.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "easterling",
+      "path": "art/full-roster-night-rebuild-20261019/units/easterling_warlord.png",
+      "blobSHA": "a660624804697f39538989b6187690b8675efaaf",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "radagast",
@@ -4273,8 +4288,13 @@
       "faction": "easterling",
       "role": "hero",
       "original": "tokens/amdur.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "easterling",
+      "path": "art/full-roster-night-rebuild-20261019/units/amdur.png",
+      "blobSHA": "da9f95dae5b5fef45f52c531863a979e0fd9ab35",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "dragon_knight",
@@ -4291,8 +4311,13 @@
       "faction": "easterling",
       "role": "support",
       "original": "tokens/easterling_priest.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "easterling",
+      "path": "art/full-roster-night-rebuild-20261019/units/easterling_priest.png",
+      "blobSHA": "4a703bbab933bbbc8792ad3a1dc2e7a5762bb094",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "easterling_archer",
@@ -4300,8 +4325,13 @@
       "faction": "easterling",
       "role": "infantry",
       "original": "tokens/easterling_archer.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "easterling",
+      "path": "art/full-roster-night-rebuild-20261019/units/easterling_archer.png",
+      "blobSHA": "6bc133d733c4b6906ea977cfc223d26cc58c68b2",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "variag_warrior",
@@ -7214,17 +7244,18 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 356,
+    "count": 362,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
-      "men": 2,
-      "arnor": 2,
-      "dunland": 2,
+      "easterling": 6,
+      "인간": 2,
+      "아르노르": 2,
+      "던랜드": 2,
       "isengard": 30,
       "harad": 20,
-      "dwarf": 36,
+      "난쟁이": 36,
       "maiar": 9,
       "elf": 77,
       "mordor": 73,
@@ -7357,6 +7388,15 @@
       "state": "corrected-review-candidate",
       "reason": "Initial generation copied horse from rider skeleton; corrected to source camel anatomy.",
       "approval": "pending"
+    },
+    "easterlingFirstTwo": {
+      "ids": [
+        "easterling_phalanx",
+        "easterling_swordshield"
+      ],
+      "state": "corrected-review-candidates",
+      "reason": "Closer neutral skull/helmet fitting and phalanx spear padding.",
+      "approval": "pending"
     }
   },
   "lastContinuation": {
@@ -7402,6 +7442,12 @@
       "state": "source_identity_mismatch",
       "observed": "Roster name 카르나의 감시자 and role infantry; original tokens/watcher_karna.png depicts an eight-tentacled aquatic creature.",
       "handling": "Keep pending while other units proceed; preserve original source and flag for identity review.",
+      "approval": "pending"
+    },
+    "dragon_knight": {
+      "state": "role_source_mismatch",
+      "observed": "Roster role cavalry; original tokens/dragon_knight.png depicts a knight on foot.",
+      "handling": "Preserve original foot design in review candidate; role remains unchanged pending review.",
       "approval": "pending"
     }
   }

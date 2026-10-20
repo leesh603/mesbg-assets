@@ -1,6 +1,42 @@
-# 전체 재제작 검토 — 356종
+# 전체 재제작 검토 — 362종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 이스터링 궁수 (easterling_archer)
+
+![이스터링 궁수](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/easterling_archer.png?v=6bc133d733c4b6906ea977cfc223d26cc58c68b2)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/easterling_archer.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/easterling_archer.png?v=6bc133d733c4b6906ea977cfc223d26cc58c68b2)
+
+### 이스터링 전쟁사제 (easterling_priest)
+
+![이스터링 전쟁사제](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/easterling_priest.png?v=4a703bbab933bbbc8792ad3a1dc2e7a5762bb094)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/easterling_priest.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/easterling_priest.png?v=4a703bbab933bbbc8792ad3a1dc2e7a5762bb094)
+
+### 암두르 검의 군주 (amdur)
+
+![암두르 검의 군주](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/amdur.png?v=da9f95dae5b5fef45f52c531863a979e0fd9ab35)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/amdur.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/amdur.png?v=da9f95dae5b5fef45f52c531863a979e0fd9ab35)
+
+### 이스터링 장군 (easterling_warlord)
+
+![이스터링 장군](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/easterling_warlord.png?v=a660624804697f39538989b6187690b8675efaaf)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/easterling_warlord.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/easterling_warlord.png?v=a660624804697f39538989b6187690b8675efaaf)
+
+### 이스터링 검방 (easterling_swordshield)
+
+![이스터링 검방](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/easterling_swordshield.png?v=909ea9c2f64ec3a6502e3dfd27bf3345042ed324)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/easterling_swordshield.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/easterling_swordshield.png?v=909ea9c2f64ec3a6502e3dfd27bf3345042ed324)
+
+### 이스터링 방진병 (easterling_phalanx)
+
+![이스터링 방진병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/easterling_phalanx.png?v=00b5f511937d2af6d9ed40414a50ce8675dde82f)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/easterling_phalanx.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/easterling_phalanx.png?v=00b5f511937d2af6d9ed40414a50ce8675dde82f)
 
 ### 투린 (turin)
 
