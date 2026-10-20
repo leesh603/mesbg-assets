@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T00:58:08.118Z",
+  "updatedAt": "2026-10-20T01:06:07.894Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 332,
-    "newlyGeneratedThisSession": 46,
-    "visuallyReviewedThisSession": 46,
+    "pending": 327,
+    "newlyGeneratedThisSession": 51,
+    "visuallyReviewedThisSession": 51,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 46,
-    "persistedReviewAssets": 178,
+    "generatedReviewAssets": 51,
+    "persistedReviewAssets": 183,
     "revisedAfterRejection": 10
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -50,9 +50,9 @@
     "nextIds": [
       "gandalf",
       "cave_troll",
-      "glorfindel_foot",
-      "glorfindel_mounted",
-      "saruman"
+      "saruman",
+      "orc_shaman",
+      "uruk_swordshield"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
@@ -131,8 +131,13 @@
       "faction": "rivendell",
       "role": "hero",
       "original": "tokens/glorfindel_foot.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/glorfindel_foot.png",
+      "blobSHA": "38dee985e0322b064c2060c69322c9cd29e5d262",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "glorfindel_mounted",
@@ -140,8 +145,13 @@
       "faction": "rivendell",
       "role": "hero",
       "original": "tokens/glorfindel_mounted.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/glorfindel_mounted.png",
+      "blobSHA": "36f85d6e55303a88626b3cdf5910c27badc700c0",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "witchking_fellbeast",
@@ -296,8 +306,13 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/legolas.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/legolas.png",
+      "blobSHA": "5eebf6f0d1eeb3404353342c62098ce7c27fe85d",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "gimli",
@@ -348,8 +363,13 @@
       "faction": "rivendell",
       "role": "hero",
       "original": "tokens/elrond.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/elrond.png",
+      "blobSHA": "cd495f73702e581dd835d53781e2ee520a7d3993",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "gondor_archer",
@@ -369,8 +389,13 @@
       "faction": "rivendell",
       "role": "infantry",
       "original": "tokens/elf_swordsman.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/elf_swordsman.png",
+      "blobSHA": "90c69db4ac7839e72df898aff0f92525f5b13e44",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "dwarf_guardian",
@@ -5269,14 +5294,15 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 178,
+    "count": 183,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
       "gondor": 59,
       "mordor": 73,
-      "rohan": 44
+      "rohan": 44,
+      "elf": 5
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,

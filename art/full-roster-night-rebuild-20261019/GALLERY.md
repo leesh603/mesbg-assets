@@ -1,6 +1,36 @@
-# 전체 재제작 검토 — 178종
+# 전체 재제작 검토 — 183종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 엘프 검사 (elf_swordsman)
+
+![엘프 검사](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/elf_swordsman.png?v=90c69db4ac7839e72df898aff0f92525f5b13e44)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/elf_swordsman.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/elf_swordsman.png?v=90c69db4ac7839e72df898aff0f92525f5b13e44)
+
+### 엘론드 (elrond)
+
+![엘론드](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/elrond.png?v=cd495f73702e581dd835d53781e2ee520a7d3993)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/elrond.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/elrond.png?v=cd495f73702e581dd835d53781e2ee520a7d3993)
+
+### 레골라스 (legolas)
+
+![레골라스](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/legolas.png?v=5eebf6f0d1eeb3404353342c62098ce7c27fe85d)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/legolas.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/legolas.png?v=5eebf6f0d1eeb3404353342c62098ce7c27fe85d)
+
+### 글로르핀델(기마) (glorfindel_mounted)
+
+![글로르핀델(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/glorfindel_mounted.png?v=36f85d6e55303a88626b3cdf5910c27badc700c0)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/glorfindel_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/glorfindel_mounted.png?v=36f85d6e55303a88626b3cdf5910c27badc700c0)
+
+### 글로르핀델(도보) (glorfindel_foot)
+
+![글로르핀델(도보)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/glorfindel_foot.png?v=38dee985e0322b064c2060c69322c9cd29e5d262)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/glorfindel_foot.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/glorfindel_foot.png?v=38dee985e0322b064c2060c69322c9cd29e5d262)
 
 ### 감링(기마) (gamling_mounted)
 

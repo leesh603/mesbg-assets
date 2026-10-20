@@ -1,0 +1,67 @@
+{
+  "batch": "elf-010",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "glorfindel_foot",
+      "group": "엘프",
+      "groupKey": "elf",
+      "pose": "낮게 든 곡검의 엘프 군주",
+      "detail": "GLORFINDEL ON FOOT. Long golden-blond hair, visible elf ears, clean-shaven face, dark navy tunic/armour with GOLD sun/star chest emblem, layered gold shoulder/arm/knee plates, white cape navy lining and narrow gold edge. Single fine silver CURVED elven sword viewerLEFT. No shield/helmet/crown. Lean width only, exact compact5head body. Distinct low counterguard: sword points down outward left, free right hand relaxed near belt, feet apart gently pivot right. Hair volume excluded from head measurement, do not create long torso or elegant7head legs.",
+      "prompt": "EDIT IMAGE1 fixed neutral anatomy template by dressing it as IMAGE2 character. IMAGE1 is immutable skull/head-to-torso/limb-length and HIGH-ANGLE FRONT camera master. ELF humanoid EXACTLY FIVE anatomical heads, crown of skull to chin excluding hair/helmet. Slenderness changes width only, NEVER lengthen torso/thighs/shins or shrink head for handsome tall elf. Keep compact short bone lengths and relatively large normal skull of image1. Pose joints may rotate independently but segment lengths stay. Looking down25–30deg from front with slight diagonal only, crown/shoulder tops visible, eyes shaded, no eye-level portrait or side view. Image2 identity/equipment/palette only, ignore its proportions. Exact reference pixel density: crisp discrete clusters, stepped black outline, restrained colour ramps, no smooth painted illustration or3D. Whole silhouette including weapons fits inner80% transparent RGBA canvas with generous clear margin, torso centered independently from hair/weapon/cape. No floor/base/shadow/glow/text/UI/additional figures. GLORFINDEL ON FOOT. Long golden-blond hair, visible elf ears, clean-shaven face, dark navy tunic/armour with GOLD sun/star chest emblem, layered gold shoulder/arm/knee plates, white cape navy lining and narrow gold edge. Single fine silver CURVED elven sword viewerLEFT. No shield/helmet/crown. Lean width only, exact compact5head body. Distinct low counterguard: sword points down outward left, free right hand relaxed near belt, feet apart gently pivot right. Hair volume excluded from head measurement, do not create long torso or elegant7head legs.",
+      "blobSHA": "38dee985e0322b064c2060c69322c9cd29e5d262",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-efaad9a9-605c-4be5-abf3-ac7a8aa3ba8e.png"
+    },
+    {
+      "id": "glorfindel_mounted",
+      "mounted": true,
+      "group": "엘프",
+      "groupKey": "elf",
+      "pose": "백마의 곡검 반격 기마",
+      "detail": "GLORFINDEL MOUNTED on WHITE horse ivory mane and tail with navy/gold leaf/star caparison. Long golden-blond clean-shaven elf, navy/gold armour and white cape navy lining, silver curved elven sword viewerLEFT, other hand reins. Image1 human-mounted anatomy controls skull-to-seated-pelvis, short thighs/shins and full adult rider-to-horse ratio; keep ELF slender by width only, pointed ears. Distinct curved sword held diagonally up close beside left shoulder with bent elbow; horse collected step, near-frontal mild turn left. Four coherent horse legs, saddle/stirrups/reins connected, not tiny rider.",
+      "prompt": "EDIT IMAGE1 fixed neutral anatomy template by dressing it as IMAGE2 character. IMAGE1 is immutable skull/head-to-torso/limb-length and HIGH-ANGLE FRONT camera master. ELF humanoid EXACTLY FIVE anatomical heads, crown of skull to chin excluding hair/helmet. Slenderness changes width only, NEVER lengthen torso/thighs/shins or shrink head for handsome tall elf. Keep compact short bone lengths and relatively large normal skull of image1. Pose joints may rotate independently but segment lengths stay. Looking down25–30deg from front with slight diagonal only, crown/shoulder tops visible, eyes shaded, no eye-level portrait or side view. Image2 identity/equipment/palette only, ignore its proportions. Exact reference pixel density: crisp discrete clusters, stepped black outline, restrained colour ramps, no smooth painted illustration or3D. Whole silhouette including weapons fits inner80% transparent RGBA canvas with generous clear margin, torso centered independently from hair/weapon/cape. No floor/base/shadow/glow/text/UI/additional figures. GLORFINDEL MOUNTED on WHITE horse ivory mane and tail with navy/gold leaf/star caparison. Long golden-blond clean-shaven elf, navy/gold armour and white cape navy lining, silver curved elven sword viewerLEFT, other hand reins. Image1 human-mounted anatomy controls skull-to-seated-pelvis, short thighs/shins and full adult rider-to-horse ratio; keep ELF slender by width only, pointed ears. Distinct curved sword held diagonally up close beside left shoulder with bent elbow; horse collected step, near-frontal mild turn left. Four coherent horse legs, saddle/stirrups/reins connected, not tiny rider.",
+      "blobSHA": "36f85d6e55303a88626b3cdf5910c27badc700c0",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-1c750aad-ce0c-42bc-9160-3fa13385ca9a.png"
+    },
+    {
+      "id": "legolas",
+      "group": "엘프",
+      "groupKey": "elf",
+      "pose": "활시위를 짧게 당기는 레골라스",
+      "detail": "LEGOLAS ON FOOT. Blond straight long hair half-tied, pointed ears, clean-shaven youthful male elf; green-grey layered woodland tunic, dark green cloak with silver leaf clasp, grey mail cuffs, brown leather bracers/boots/belts and quiver. Brown elegant LONG BOW held low diagonal viewerRIGHT, other hand draws arrow to chest in compact preparation. Retain original woodland equipment, no invented golden royal armour. Lean torso width only, exact5head compact bone lengths. Bowstring and arrow/hands connect correctly; bent knees slight open stance different from neutral straight template, no length changes.",
+      "prompt": "EDIT IMAGE1 fixed neutral anatomy template by dressing it as IMAGE2 character. IMAGE1 is immutable skull/head-to-torso/limb-length and HIGH-ANGLE FRONT camera master. ELF humanoid EXACTLY FIVE anatomical heads, crown of skull to chin excluding hair/helmet. Slenderness changes width only, NEVER lengthen torso/thighs/shins or shrink head for handsome tall elf. Keep compact short bone lengths and relatively large normal skull of image1. Pose joints may rotate independently but segment lengths stay. Looking down25–30deg from front with slight diagonal only, crown/shoulder tops visible, eyes shaded, no eye-level portrait or side view. Image2 identity/equipment/palette only, ignore its proportions. Exact reference pixel density: crisp discrete clusters, stepped black outline, restrained colour ramps, no smooth painted illustration or3D. Whole silhouette including weapons fits inner80% transparent RGBA canvas with generous clear margin, torso centered independently from hair/weapon/cape. No floor/base/shadow/glow/text/UI/additional figures. LEGOLAS ON FOOT. Blond straight long hair half-tied, pointed ears, clean-shaven youthful male elf; green-grey layered woodland tunic, dark green cloak with silver leaf clasp, grey mail cuffs, brown leather bracers/boots/belts and quiver. Brown elegant LONG BOW held low diagonal viewerRIGHT, other hand draws arrow to chest in compact preparation. Retain original woodland equipment, no invented golden royal armour. Lean torso width only, exact5head compact bone lengths. Bowstring and arrow/hands connect correctly; bent knees slight open stance different from neutral straight template, no length changes.",
+      "blobSHA": "5eebf6f0d1eeb3404353342c62098ce7c27fe85d",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-a416dd79-2d4f-4cdc-b438-86c56aef34b6.png"
+    },
+    {
+      "id": "elrond",
+      "group": "엘프",
+      "groupKey": "elf",
+      "pose": "푸른 망토의 낮은 곡검 지휘",
+      "detail": "ELROND ON FOOT. Long dark-brown hair, elf ears, silver brow circlet with small blue gem, CLEAN-SHAVEN mature face. BLUE layered elven armour with GOLD edging/filigree, blue cape white-leaf branching patterns, blue/gold boots. Silver curved elven sword with gold hilt viewerLEFT, free right hand slightly raised palm down in command, no shield. Broad mature shoulders but compact5head humanlike length exactly image1. Sword angled horizontally LOW outward left with elbow near waist; no tall slim noble7head proportions.",
+      "prompt": "EDIT IMAGE1 fixed neutral anatomy template by dressing it as IMAGE2 character. IMAGE1 is immutable skull/head-to-torso/limb-length and HIGH-ANGLE FRONT camera master. ELF humanoid EXACTLY FIVE anatomical heads, crown of skull to chin excluding hair/helmet. Slenderness changes width only, NEVER lengthen torso/thighs/shins or shrink head for handsome tall elf. Keep compact short bone lengths and relatively large normal skull of image1. Pose joints may rotate independently but segment lengths stay. Looking down25–30deg from front with slight diagonal only, crown/shoulder tops visible, eyes shaded, no eye-level portrait or side view. Image2 identity/equipment/palette only, ignore its proportions. Exact reference pixel density: crisp discrete clusters, stepped black outline, restrained colour ramps, no smooth painted illustration or3D. Whole silhouette including weapons fits inner80% transparent RGBA canvas with generous clear margin, torso centered independently from hair/weapon/cape. No floor/base/shadow/glow/text/UI/additional figures. ELROND ON FOOT. Long dark-brown hair, elf ears, silver brow circlet with small blue gem, CLEAN-SHAVEN mature face. BLUE layered elven armour with GOLD edging/filigree, blue cape white-leaf branching patterns, blue/gold boots. Silver curved elven sword with gold hilt viewerLEFT, free right hand slightly raised palm down in command, no shield. Broad mature shoulders but compact5head humanlike length exactly image1. Sword angled horizontally LOW outward left with elbow near waist; no tall slim noble7head proportions.",
+      "blobSHA": "cd495f73702e581dd835d53781e2ee520a7d3993",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-cd94b9ea-05c8-4c14-8b3c-635f1347733b.png"
+    },
+    {
+      "id": "elf_swordsman",
+      "group": "엘프",
+      "groupKey": "elf",
+      "pose": "금빛 잎 투구의 검병 방어",
+      "detail": "RIVENDELL ELF SWORDSMAN. Gold pointed LEAF-shaped helmet and face guard (crest excluded from skull size), gold layered leaf armour over navy tunic, blue cape gold trim, gold gauntlets and boots, single silver CURVED elven sword viewerLEFT. No shield. Slim width only and exact5head short-bone anatomy. Distinct two-hand low sword guard: both hands hold hilt near chest, curved blade points diagonally upper-left, both elbows bent compactly. Entire helmet tip and sword fit margin, not eye-level.",
+      "prompt": "EDIT IMAGE1 fixed neutral anatomy template by dressing it as IMAGE2 character. IMAGE1 is immutable skull/head-to-torso/limb-length and HIGH-ANGLE FRONT camera master. ELF humanoid EXACTLY FIVE anatomical heads, crown of skull to chin excluding hair/helmet. Slenderness changes width only, NEVER lengthen torso/thighs/shins or shrink head for handsome tall elf. Keep compact short bone lengths and relatively large normal skull of image1. Pose joints may rotate independently but segment lengths stay. Looking down25–30deg from front with slight diagonal only, crown/shoulder tops visible, eyes shaded, no eye-level portrait or side view. Image2 identity/equipment/palette only, ignore its proportions. Exact reference pixel density: crisp discrete clusters, stepped black outline, restrained colour ramps, no smooth painted illustration or3D. Whole silhouette including weapons fits inner80% transparent RGBA canvas with generous clear margin, torso centered independently from hair/weapon/cape. No floor/base/shadow/glow/text/UI/additional figures. RIVENDELL ELF SWORDSMAN. Gold pointed LEAF-shaped helmet and face guard (crest excluded from skull size), gold layered leaf armour over navy tunic, blue cape gold trim, gold gauntlets and boots, single silver CURVED elven sword viewerLEFT. No shield. Slim width only and exact5head short-bone anatomy. Distinct two-hand low sword guard: both hands hold hilt near chest, curved blade points diagonally upper-left, both elbows bent compactly. Entire helmet tip and sword fit margin, not eye-level.",
+      "blobSHA": "90c69db4ac7839e72df898aff0f92525f5b13e44",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-042dbd37-2c8a-4e1f-a002-cb191977fe9b.png"
+    }
+  ]
+}
