@@ -19419,7 +19419,7 @@ if(window.MESBG){MESBG.bonds=HERO_BONDS;MESBG.aiMove=uid=>be(q,q.unit(uid));}
    slot, guest = 'evil' slot) and pushes snapshots; the guest's device shows the snapshot with sides swapped
    (its own army is "아군") and relays its orders as commands. Transport: lwb-worker /room API, HTTP polling. */
 const ONLINE={role:null,code:null,token:null,settings:null,seq:0,stateSeq:-1,cmdSince:0,timer:null,busy:false,pushQueued:false,bfKey:'',events:[],lastErr:0};
-const PVP_GOLDS=[500,800,1200];
+const PVP_GOLDS=[1500,2500,4000];
 const pvpApi=()=>{try{const u=new URLSearchParams(location.search).get('pvpapi');if(u)return u.replace(/\/$/,'');const s=localStorage.getItem('lwb_pvp_api');if(s)return s;}catch(e){}return LWB_API;};
 async function pvpFetch(path,opt={}){const api=pvpApi();if(!api)throw new Error('서버가 연결되지 않았습니다');
     const r=await fetch(api+path,{method:opt.method||'GET',headers:{'Content-Type':'application/json'},body:opt.body?JSON.stringify(opt.body):undefined});
@@ -19592,7 +19592,7 @@ function pvpLobbyStyle(){if(document.getElementById('pvp-style'))return;const st
 #pvp-lobby .pv-eqn{position:absolute;right:1px;top:1px;font:700 10px/12px Galmuri11,sans-serif;color:#1a1206;background:#e8c66a;padding:0 3px;font-style:normal}
 #pvp-lobby .pv-tabs button{font-size:13px}`;document.head.appendChild(st);}
 function pvpLobby(){pvpLobbyStyle();closePvpLobby();const el=document.createElement('div');el.id='pvp-lobby';el.innerHTML='<div class="pv-sheet"></div>';document.body.appendChild(el);
-    PVP_LOBBY={el,step:'home',tab:'band',settings:{gold:800,mode:'auto',map:Math.floor(Math.random()*CX.maps.length)},band:{align:'good',units:[],name:'',equip:[],mercs:[],spent:0,rerolls:0,sold:[]},faction:'',timer:null,info:null,err:''};
+    PVP_LOBBY={el,step:'home',tab:'band',settings:{gold:2500,mode:'auto',map:Math.floor(Math.random()*CX.maps.length)},band:{align:'good',units:[],name:'',equip:[],mercs:[],spent:0,rerolls:0,sold:[]},faction:'',timer:null,info:null,err:''};
     el.addEventListener('click',e=>{if(e.target===el)return;});pvpRender();}
 function pvpRender(){const L=PVP_LOBBY;if(!L)return;const box=L.el.querySelector('.pv-sheet');const s=L.settings;
     const err='<div class="pv-err" role="status">'+esc(L.err||'')+'</div>';
