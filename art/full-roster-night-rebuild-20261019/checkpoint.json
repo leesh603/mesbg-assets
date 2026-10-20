@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T02:33:44.704Z",
+  "updatedAt": "2026-10-20T02:37:27.038Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -45,10 +45,11 @@
     "proportionGate": "Judge generated output, not prompt text: compare anatomical skull-crown to chin, shoulder, pelvis, knee, ankle and sole positions with immutable original skeleton. Exclude hair/helmet/crest/beard/weapon. Human exactly FIVE heads; reject four or six-plus. Riders judged as human anatomy separately from horse. Preserve pixel style and elevated front camera.",
     "qualityContract": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
     "headPose": "전체적으로 기존처럼 고개를 살짝 숙여 턱과 시선은 앞쪽 아래; 정수리 노출. 턱 들기·정면 응시 금지.",
-    "cameraGate": "Actual elevated-front reprojection of whole rider and horse; crown, shoulder tops, horse withers and saddle top visible. Do not substitute chin tuck or head-size-only edits for camera elevation."
+    "cameraGate": "Actual elevated-front reprojection of whole rider and horse; crown, shoulder tops, horse withers and saddle top visible. Do not substitute chin tuck or head-size-only edits for camera elevation.",
+    "motionAndSilhouette": "기존의 동세·기승 자세·실루엣·숙인 고개를 우선 보존. 비율 통일을 이유로 획일적인 정면 자세로 바꾸지 않는다. 기존보다 멋/완성도/가독성이 떨어지면 불합격 또는 기존 유지."
   },
   "resume": {
-    "nextAction": "Continue pending roster with original species skeletons; inspect and save small batches to unified gallery.",
+    "nextAction": "First complete full old/new quality audit at art/full-roster-night-rebuild-20261019/quality-audit-20261020/. Preserve original pose, silhouette and identity; reject regressions. Do not equate saved images with quality acceptance.",
     "nextIds": [
       "gandalf",
       "cave_troll",
@@ -5705,5 +5706,13 @@
     ],
     "purpose": "기마 대두/4등신, 정면 카메라 교정 및 숙인 고개 유지",
     "newCharacterCount": 0
+  },
+  "qualityHold": {
+    "enabled": true,
+    "reason": "사용자 전체 재점검 요청: 기존 대비 열화·정면화·대두·포즈 단순화",
+    "auditPath": "art/full-roster-night-rebuild-20261019/quality-audit-20261020/checkpoint.json",
+    "snapshotSHA": "697fdd87c50e7021958f12bee83d928d337b2d67",
+    "snapshotCount": 237,
+    "reviewedCount": 0
   }
 }
