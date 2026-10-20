@@ -1,6 +1,12 @@
-# 전체 재제작 검토 — 343종
+# 전체 재제작 검토 — 344종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 드워프 기수 (dwarf_banner)
+
+![드워프 기수](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dwarf_banner.png?v=429eea8240e5ea699212d4bbd8b6cb62aea453e8)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/dwarf_banner.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dwarf_banner.png?v=429eea8240e5ea699212d4bbd8b6cb62aea453e8)
 
 ### 철산 석궁병 (ironhills_crossbow)
 

@@ -1,0 +1,21 @@
+{
+  "batch": "dwarf-banner-margin-fix-20261020",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "dwarf_banner",
+      "group": "난쟁이",
+      "groupKey": "dwarf",
+      "pose": "완전한 깃발 여백을 확보한 군기 지휘",
+      "bodyDescription": "난쟁이 표준 뼈대 · 하이앵글 프론트뷰",
+      "prompt": "Precise image edit: image1 is target. Keep dwarf body, head size, bone lengths, bowed head, high-angle camera, clothing and crisp pixel art unchanged. ONLY shorten the banner pole height and flag width/height by about25percent so the COMPLETE golden pole finial and complete blue flag are comfortably inside canvas with at least10percent transparent margin on TOP and RIGHT. Reconstruct missing clipped tips. Do NOT shrink dwarf body. Preserve seven golden stars and gold geometric border, whole straight pole, hands gripping logically. Transparent background, no base/shadow/text.",
+      "refs": [
+        "/workspace/scratch/f40d43c7f276/generated_images/exec-0e886814-1980-4d79-95d3-1f5f7b037e1e.png"
+      ],
+      "blobSHA": "429eea8240e5ea699212d4bbd8b6cb62aea453e8",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-ab98ad3a-9bd4-43f3-9d2c-7089c1db107c.png"
+    }
+  ]
+}
