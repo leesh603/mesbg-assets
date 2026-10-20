@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T04:31:31.716Z",
+  "updatedAt": "2026-10-20T04:35:47.717Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 8,
-    "newlyGeneratedThisSession": 370,
-    "visuallyReviewedThisSession": 375,
+    "pending": 4,
+    "newlyGeneratedThisSession": 374,
+    "visuallyReviewedThisSession": 379,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 370,
-    "persistedReviewAssets": 502,
+    "generatedReviewAssets": 374,
+    "persistedReviewAssets": 506,
     "revisedAfterRejection": 18
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -52,10 +52,9 @@
     "nextAction": "Continue pending roster with original species skeletons; inspect and save small batches to unified gallery.",
     "nextIds": [
       "azog",
-      "corsair_umbra",
       "watcher_karna",
-      "dalamyr",
-      "corsair_bosun"
+      "corsair_crossbowman",
+      "corsair_captain"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
@@ -2968,8 +2967,13 @@
       "faction": "umbar",
       "role": "infantry",
       "original": "tokens/corsair_umbra.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "umbar",
+      "path": "art/full-roster-night-rebuild-20261019/units/corsair_umbra.png",
+      "blobSHA": "ecb9b4e01246641412f9797a384dbd9970d912ee",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "variag_horseman",
@@ -5138,8 +5142,13 @@
       "faction": "umbar",
       "role": "hero",
       "original": "tokens/dalamyr.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "umbar",
+      "path": "art/full-roster-night-rebuild-20261019/units/dalamyr.png",
+      "blobSHA": "53b47d71e71a0e3be48dbee7a10223df3fe110a6",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "goblin_drummer",
@@ -5515,8 +5524,13 @@
       "faction": "umbar",
       "role": "infantry",
       "original": "tokens/corsair_bosun.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "umbar",
+      "path": "art/full-roster-night-rebuild-20261019/units/corsair_bosun.png",
+      "blobSHA": "1d558f27164f4af25be5b4f45209f3394f01ed72",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "spider_queen",
@@ -6529,8 +6543,13 @@
       "faction": "umbar",
       "role": "hero",
       "original": "tokens/sangarunya.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "umbar",
+      "path": "art/full-roster-night-rebuild-20261019/units/sangarunya.png",
+      "blobSHA": "e63b028465e39beab43bed2c585db770a31923c5",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "huor",
@@ -8064,11 +8083,12 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 502,
+    "count": 506,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
+      "움바르": 4,
       "괴수": 1,
       "men": 12,
       "데일": 3,

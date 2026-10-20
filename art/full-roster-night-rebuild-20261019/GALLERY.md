@@ -1,6 +1,30 @@
-# 전체 재제작 검토 — 502종
+# 전체 재제작 검토 — 506종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 상가루냐 (sangarunya)
+
+![상가루냐](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/sangarunya.png?v=e63b028465e39beab43bed2c585db770a31923c5)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/sangarunya.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/sangarunya.png?v=e63b028465e39beab43bed2c585db770a31923c5)
+
+### 움바르 해적 (corsair_umbra)
+
+![움바르 해적](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/corsair_umbra.png?v=ecb9b4e01246641412f9797a384dbd9970d912ee)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/corsair_umbra.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/corsair_umbra.png?v=ecb9b4e01246641412f9797a384dbd9970d912ee)
+
+### 코르사 갑판장 (corsair_bosun)
+
+![코르사 갑판장](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/corsair_bosun.png?v=1d558f27164f4af25be5b4f45209f3394f01ed72)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/corsair_bosun.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/corsair_bosun.png?v=1d558f27164f4af25be5b4f45209f3394f01ed72)
+
+### 달라미르 (dalamyr)
+
+![달라미르](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dalamyr.png?v=53b47d71e71a0e3be48dbee7a10223df3fe110a6)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/dalamyr.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dalamyr.png?v=53b47d71e71a0e3be48dbee7a10223df3fe110a6)
 
 ### 앙칼라곤 (ancalagon)
 

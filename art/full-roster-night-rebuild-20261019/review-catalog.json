@@ -1,6 +1,7 @@
 {
-  "count": 502,
+  "count": 506,
   "groups": {
+    "움바르": 4,
     "괴수": 1,
     "men": 12,
     "데일": 3,
@@ -31,8 +32,68 @@
     "rohan": 46,
     "gondor": 59
   },
-  "pending": 8,
+  "pending": 4,
   "units": [
+    {
+      "id": "sangarunya",
+      "name": "상가루냐",
+      "group": "움바르",
+      "role": "hero",
+      "image": "art/full-roster-night-rebuild-20261019/units/sangarunya.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/sangarunya.png",
+      "old": "tokens/sangarunya.png",
+      "status": "검토 대기",
+      "body": "인간 5등신 · 하이앵글 프론트뷰",
+      "pose": "원본 두건·도검 보존 · 개별 팔 자세",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/sangarunya.png?v=e63b028465e39beab43bed2c585db770a31923c5",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/sangarunya.png?v=e63b028465e39beab43bed2c585db770a31923c5",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/sangarunya.png"
+    },
+    {
+      "id": "corsair_umbra",
+      "name": "움바르 해적",
+      "group": "움바르",
+      "role": "infantry",
+      "image": "art/full-roster-night-rebuild-20261019/units/corsair_umbra.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/corsair_umbra.png",
+      "old": "tokens/corsair_umbra.png",
+      "status": "검토 대기",
+      "body": "인간 5등신 · 하이앵글 프론트뷰",
+      "pose": "원본 두건·도검 보존 · 개별 팔 자세",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/corsair_umbra.png?v=ecb9b4e01246641412f9797a384dbd9970d912ee",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/corsair_umbra.png?v=ecb9b4e01246641412f9797a384dbd9970d912ee",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/corsair_umbra.png"
+    },
+    {
+      "id": "corsair_bosun",
+      "name": "코르사 갑판장",
+      "group": "움바르",
+      "role": "infantry",
+      "image": "art/full-roster-night-rebuild-20261019/units/corsair_bosun.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/corsair_bosun.png",
+      "old": "tokens/corsair_bosun.png",
+      "status": "검토 대기",
+      "body": "인간 5등신 · 하이앵글 프론트뷰",
+      "pose": "원본 두건·도검 보존 · 개별 팔 자세",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/corsair_bosun.png?v=1d558f27164f4af25be5b4f45209f3394f01ed72",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/corsair_bosun.png?v=1d558f27164f4af25be5b4f45209f3394f01ed72",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/corsair_bosun.png"
+    },
+    {
+      "id": "dalamyr",
+      "name": "달라미르",
+      "group": "움바르",
+      "role": "hero",
+      "image": "art/full-roster-night-rebuild-20261019/units/dalamyr.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/dalamyr.png",
+      "old": "tokens/dalamyr.png",
+      "status": "검토 대기",
+      "body": "인간 5등신 · 하이앵글 프론트뷰",
+      "pose": "보라 후드 · 금빛 코브라 지팡이",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dalamyr.png?v=53b47d71e71a0e3be48dbee7a10223df3fe110a6",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dalamyr.png?v=53b47d71e71a0e3be48dbee7a10223df3fe110a6",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/dalamyr.png"
+    },
     {
       "id": "ancalagon",
       "name": "앙칼라곤",
