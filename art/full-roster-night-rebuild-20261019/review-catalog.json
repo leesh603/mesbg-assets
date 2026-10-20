@@ -1,12 +1,42 @@
 {
-  "count": 152,
+  "count": 154,
   "groups": {
     "gondor": 59,
     "mordor": 73,
-    "rohan": 20
+    "rohan": 22
   },
-  "pending": 358,
+  "pending": 356,
   "units": [
+    {
+      "id": "harding",
+      "name": "하딩",
+      "group": "로한",
+      "role": "hero",
+      "image": "art/full-roster-night-rebuild-20261019/units/harding.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/harding.png",
+      "old": "tokens/harding.png",
+      "status": "검토 대기",
+      "body": "인간 5등신 · 하이앵글 프론트뷰",
+      "pose": "화살을 거는 궁병",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/harding.png?v=1aa1459d96e218fc19da7a00af58c09fd30ccea5",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/harding.png?v=1aa1459d96e218fc19da7a00af58c09fd30ccea5",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/harding.png"
+    },
+    {
+      "id": "grimbold",
+      "name": "그림볼드",
+      "group": "로한",
+      "role": "hero",
+      "image": "art/full-roster-night-rebuild-20261019/units/grimbold.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/grimbold.png",
+      "old": "tokens/grimbold.png",
+      "status": "검토 대기",
+      "body": "인간 5등신 · 하이앵글 프론트뷰",
+      "pose": "후드·장방패 낮은 검 방어",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/grimbold.png?v=f515caa56a1ef3cf6b5857f4429fd2a2d1980301",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/grimbold.png?v=f515caa56a1ef3cf6b5857f4429fd2a2d1980301",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/grimbold.png"
+    },
     {
       "id": "eowyn",
       "name": "에오윈",
@@ -1939,12 +1969,12 @@
       "thumb": "art/mordor-rebuild-20261019/units/witchking_foot_mace.png",
       "old": "art/mordor-rebuild-20261019/references/old/witchking_foot_mace.png",
       "status": "검토 대기",
-      "body": "GW 공식 모델 직접 참조 · 눈구멍·가시·홈이 있는 어깨 판금",
+      "body": "GW 투구·어깨 유지 · 하이앵글 프론트뷰 시점 재제작",
       "pose": "큰 인간 · 모르굴 왕관과 철퇴",
-      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_foot_mace.png?v=04b986fc256908b8506f5ffbb9b43b1762563880",
-      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_foot_mace.png?v=04b986fc256908b8506f5ffbb9b43b1762563880",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_foot_mace.png?v=aa0fb8b5d63883f9382e8045b81868923b1f9411",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_foot_mace.png?v=aa0fb8b5d63883f9382e8045b81868923b1f9411",
       "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/references/old/witchking_foot_mace.png",
-      "revision": "gw-direct-v3",
+      "revision": "gw-high-angle-v4",
       "referenceURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/references/gw-witchking/official-model-detail.jpg"
     },
     {

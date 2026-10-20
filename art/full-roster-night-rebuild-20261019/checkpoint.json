@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-19T23:30:37.487Z",
+  "updatedAt": "2026-10-20T00:10:28.346Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
-  "state": "generation_resumed_direct_tools",
+  "state": "generation_in_progress",
   "blocker": null,
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 358,
-    "newlyGeneratedThisSession": 20,
-    "visuallyReviewedThisSession": 20,
+    "pending": 356,
+    "newlyGeneratedThisSession": 22,
+    "visuallyReviewedThisSession": 22,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 20,
-    "persistedReviewAssets": 152,
+    "generatedReviewAssets": 22,
+    "persistedReviewAssets": 154,
     "revisedAfterRejection": 5
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -43,13 +43,13 @@
     "deployment": "승인 전 main 병합·배포 금지"
   },
   "resume": {
-    "nextAction": "Continue remaining Rohan IDs through direct reference-image reads and image_gen; save in 5–10-asset commits. Game integration and browser checks wait for executable environment.",
+    "nextAction": "Continue next pending Rohan IDs; executable environment now available. Preserve and update unified gallery for every checkpoint.",
     "nextIds": [
-      "grimbold",
-      "harding",
       "rohan_royal_guard_mounted",
       "dunhere",
-      "haleth"
+      "haleth",
+      "eorl_the_young",
+      "helm_hammerhand"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
@@ -174,10 +174,10 @@
       "original": "tokens/witchking_foot_mace.png",
       "source": "mordor",
       "path": "art/mordor-rebuild-20261019/units/witchking_foot_mace.png",
-      "blobSHA": "04b986fc256908b8506f5ffbb9b43b1762563880",
+      "blobSHA": "aa0fb8b5d63883f9382e8045b81868923b1f9411",
       "status": "restored_review_asset",
       "visualReviewThisSession": true,
-      "revision": "gw-direct-v3"
+      "revision": "gw-high-angle-v4"
     },
     {
       "id": "nazgul_sword",
@@ -2881,8 +2881,13 @@
       "faction": "rohan",
       "role": "hero",
       "original": "tokens/grimbold.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "rohan",
+      "path": "art/full-roster-night-rebuild-20261019/units/grimbold.png",
+      "blobSHA": "f515caa56a1ef3cf6b5857f4429fd2a2d1980301",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "harding",
@@ -2890,8 +2895,13 @@
       "faction": "rohan",
       "role": "hero",
       "original": "tokens/harding.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "rohan",
+      "path": "art/full-roster-night-rebuild-20261019/units/harding.png",
+      "blobSHA": "1aa1459d96e218fc19da7a00af58c09fd30ccea5",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "rohan_royal_guard_mounted",
@@ -5128,18 +5138,18 @@
     }
   ],
   "limitations": [
-    "Shell/image-processing/browser environment unavailable; reference images read through GitHub connector and new PNG bytes generated/uploaded directly.",
-    "New images have visual review and PNG-header checks; in-game size, full alpha-pixel and browser checks remain pending."
+    "All catalog assets are unapproved review images; game integration not performed.",
+    "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 152,
+    "count": 154,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
       "gondor": 59,
       "mordor": 73,
-      "rohan": 20
+      "rohan": 22
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,

@@ -1,0 +1,18 @@
+{
+  "batch": "005a",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "grimbold",
+      "prompt": "Use case: style-transfer. ONE complete isolated transparent PIXEL tactical-game character. Reference1 Theoden specifies pixel density, stepped shading, palette and outline; reference2 approved Gondor specifies strict HIGH-ANGLE FRONT camera looking DOWN 35–40 degrees and compact FIVE-HEAD ADULT human body. Show clearly helmet crown, shoulder top surfaces, boot tops; front with slight diagonal turn, foreshortened torso, NO eye-level portrait, side view, 7-head long legs, childlike chibi. Reference3 supplies ONLY this character's original identity/equipment. Crisp manually clustered pixels, dark outlines, restrained natural colours, no painterly gradients/photoreal miniature surface. Full weapons, head and boots WITH generous 10 percent empty margins. Center the torso independently of weapon bounds. Genuine transparent RGBA, alpha zero outside character, no base, floor, shadow, haze, glow, text, UI, additional character. Redraw GRIMBOLD ON FOOT from reference3: deep-green hood over simple steel nasal helmet, face in shadow, green cloak and gold-edged green tabard over dark mail, brown belt/boots, green long kite shield with white horse on viewer RIGHT, straight silver sword in viewer LEFT hand. Mature strong Westfold veteran, broad shoulders but normal five-head height. Distinct low shield-forward compact ready pose: feet apart, left knee bent behind shield; sword hand near waist with blade pointing diagonally DOWN toward viewer LEFT, no copied upright raised-sword stance. Correct hands, separate legs, straight sword and coherent shield grip. Preserve original hood/kite shield, no invented royal fur or red plume.",
+      "blobSHA": "f515caa56a1ef3cf6b5857f4429fd2a2d1980301",
+      "approval": "pending"
+    },
+    {
+      "id": "harding",
+      "prompt": "Use case: style-transfer. ONE complete isolated transparent PIXEL tactical-game character. Reference1 Theoden specifies pixel density, stepped shading, palette and outline; reference2 approved Gondor specifies strict HIGH-ANGLE FRONT camera looking DOWN 35–40 degrees and compact FIVE-HEAD ADULT human body. Show clearly helmet crown, shoulder top surfaces, boot tops; front with slight diagonal turn, foreshortened torso, NO eye-level portrait, side view, 7-head long legs, childlike chibi. Reference3 supplies ONLY this character's original identity/equipment. Crisp manually clustered pixels, dark outlines, restrained natural colours, no painterly gradients/photoreal miniature surface. Full weapons, head and boots WITH generous 10 percent empty margins. Center the torso independently of weapon bounds. Genuine transparent RGBA, alpha zero outside character, no base, floor, shadow, haze, glow, text, UI, additional character. Redraw HARDING ON FOOT from reference3: steel conical nasal helmet with central ridge, mature bearded face, short green cape with gold clasp/trim, leather chest armour over mail sleeves, decorated green split tunic, brown boots, brown wooden LONG BOW in viewer RIGHT hand and quiver behind viewer LEFT shoulder. Lean wiry adult five-head human same stature as baseline, no elongated legs. Distinct ranged-ready pose: hips shift to viewer left, knees lightly bent, bow held diagonally across front while other hand places a single arrow on string, bow LOW not aiming at camera. Correct two hands/bowstring/arrow connection, quiver fletchings, no extra weapons. Retain original bowman identity and colours.",
+      "blobSHA": "1aa1459d96e218fc19da7a00af58c09fd30ccea5",
+      "approval": "pending"
+    }
+  ]
+}
