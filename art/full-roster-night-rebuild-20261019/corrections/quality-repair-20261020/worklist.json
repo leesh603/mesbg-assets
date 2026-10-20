@@ -1,8 +1,8 @@
 {
   "request": "all-194-20261020",
-  "updatedAt": "2026-10-20T05:51:18.349Z",
-  "correctedCandidates": 73,
-  "remaining": 121,
+  "updatedAt": "2026-10-20T05:52:58.612Z",
+  "correctedCandidates": 78,
+  "remaining": 116,
   "scope": [
     {
       "id": "imrahil_mounted",
@@ -243,18 +243,18 @@
       "name": "산악 트롤",
       "originalApproval": "hold",
       "originalReason": "암석질·얼굴·무장 등 본체 디자인이 크게 변경됨. 지정 디자인과 괴수 표준 확인 필요.",
-      "state": "pending_correction",
-      "path": "art/mordor-rebuild-20261019/units/mountain_troll.png",
-      "blobSHA": "80dbf3090600bb762767fe43bf4f8101cc0a14a3"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/mountain_troll.png",
+      "blobSHA": "23430c7848fa9c94526eb4432809a3e5404e8090"
     },
     {
       "id": "shelob",
       "name": "셀로브",
       "originalApproval": "hold",
       "originalReason": "검은 갑각 중심의 기존 형태가 황갈색 털 질감으로 크게 변경됨. 지정 디자인·질감 일치 확인 필요.",
-      "state": "pending_correction",
-      "path": "art/mordor-rebuild-20261019/units/shelob.png",
-      "blobSHA": "b2c88bbe3064b05258bac11d137a39f58fc9f98e"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/shelob.png",
+      "blobSHA": "e16cd759e6f58be7f80ece1dfe21a478bc67962c"
     },
     {
       "id": "sauron",
@@ -297,9 +297,9 @@
       "name": "드위머레이크(갑옷 나즈굴)",
       "originalApproval": "hold",
       "originalReason": "원본 대비 넓고 압축된 인체 비중 및 양손 검 자세 재검수.",
-      "state": "pending_correction",
-      "path": "art/mordor-rebuild-20261019/units/dwimmerlaik.png",
-      "blobSHA": "65bdc6414e0eae4c95a918cb0d421ceb1b49909f"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/dwimmerlaik.png",
+      "blobSHA": "f64161315d679e0309617cbe797d8c8b75610ea7"
     },
     {
       "id": "mt_swordshield",
@@ -315,9 +315,9 @@
       "name": "미나스 티리스 장교",
       "originalApproval": "hold",
       "originalReason": "넓은 발 간격과 압축된 하체의 비율을 재확인해야 함.",
-      "state": "pending_correction",
-      "path": "art/gondor-rebuild-20261019/units/mt_captain.png",
-      "blobSHA": "483760ed6f70ad40b928384e6ba5ca87b9a45dd1"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/mt_captain.png",
+      "blobSHA": "2e1aa94e809dae3cdb9b65e2d8399a13cd09b4e4"
     },
     {
       "id": "mt_fountain_guard",
@@ -531,9 +531,9 @@
       "name": "갈라드리엘",
       "originalApproval": "rejected",
       "originalReason": "기존의 숙인 고개·드레스 흐름보다 정면 응시 인상이 강해짐.",
-      "state": "pending_correction",
-      "path": "art/full-roster-night-rebuild-20261019/units/galadriel.png",
-      "blobSHA": "6350df9416f54e1e43a141ead3039d8a79e146ee"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/galadriel.png",
+      "blobSHA": "8666971d76294d12e5bf0e476eb3dc996c17e8c1"
     },
     {
       "id": "mouth_of_sauron",

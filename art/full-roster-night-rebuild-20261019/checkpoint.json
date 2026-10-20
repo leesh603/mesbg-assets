@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T05:51:18.349Z",
+  "updatedAt": "2026-10-20T05:52:58.612Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -16,9 +16,9 @@
     "generatedReviewAssets": 378,
     "persistedReviewAssets": 510,
     "revisedAfterRejection": 20,
-    "qualityRejected": 61,
-    "qualityHeld": 60,
-    "awaitingApproval": 389
+    "qualityRejected": 60,
+    "qualityHeld": 56,
+    "awaitingApproval": 394
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
   "sources": [
@@ -55,13 +55,13 @@
     "nextAction": "Continue every outstanding original 194 rejected/held ID; inspect outputs and persist small batches. No user confirmation needed to continue corrections. Main integration remains separate.",
     "nextIds": [
       "witchking_foot_mace",
-      "mountain_troll",
-      "shelob",
       "sauron",
-      "dwimmerlaik",
-      "mt_captain",
       "mt_fountain_guard",
-      "orc_swordshield"
+      "orc_swordshield",
+      "orc_spear2",
+      "orc_bow",
+      "orc_drummer",
+      "dwarf_axeshield"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
@@ -915,14 +915,29 @@
       "role": "monster",
       "original": "tokens/mountain_troll.png",
       "source": "mordor",
-      "path": "art/mordor-rebuild-20261019/units/mountain_troll.png",
-      "blobSHA": "80dbf3090600bb762767fe43bf4f8101cc0a14a3",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "needs_revision",
-      "qualityReason": "암석질·얼굴·무장 등 본체 디자인이 크게 변경됨. 지정 디자인과 괴수 표준 확인 필요.",
-      "approval": "hold",
-      "preferredSource": "undecided"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/mountain_troll.png",
+      "blobSHA": "23430c7848fa9c94526eb4432809a3e5404e8090",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "기존 암석질 피부·작은 낮은 머리·무기 없는 주먹·허리 가죽·팔찌를 복원. 양팔·양다리와 위에서 보이는 어깨·등의 종족 골격을 비교함.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "stone-carapace-and-lowered-heads-20261020",
+        "previous": {
+          "approval": "hold",
+          "path": "art/mordor-rebuild-20261019/units/mountain_troll.png",
+          "blobSHA": "80dbf3090600bb762767fe43bf4f8101cc0a14a3",
+          "reason": "암석질·얼굴·무장 등 본체 디자인이 크게 변경됨. 지정 디자인과 괴수 표준 확인 필요."
+        },
+        "observations": "기존 암석질 피부·작은 낮은 머리·무기 없는 주먹·허리 가죽·팔찌를 복원. 양팔·양다리와 위에서 보이는 어깨·등의 종족 골격을 비교함.",
+        "checkedAt": "2026-10-20T05:52:58.612Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "shelob",
@@ -931,14 +946,29 @@
       "role": "monster",
       "original": "tokens/shelob.png",
       "source": "mordor",
-      "path": "art/mordor-rebuild-20261019/units/shelob.png",
-      "blobSHA": "b2c88bbe3064b05258bac11d137a39f58fc9f98e",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "needs_revision",
-      "qualityReason": "검은 갑각 중심의 기존 형태가 황갈색 털 질감으로 크게 변경됨. 지정 디자인·질감 일치 확인 필요.",
-      "approval": "hold",
-      "preferredSource": "undecided"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/shelob.png",
+      "blobSHA": "e16cd759e6f58be7f80ece1dfe21a478bc67962c",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "황갈색 털 중심 질감을 검은 갑각 중심으로 복원. 배·앞몸통·여덟 보행 다리와 앞쪽 입 부속지의 구분, 하이앵글 전방 자세를 비교함.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "stone-carapace-and-lowered-heads-20261020",
+        "previous": {
+          "approval": "hold",
+          "path": "art/mordor-rebuild-20261019/units/shelob.png",
+          "blobSHA": "b2c88bbe3064b05258bac11d137a39f58fc9f98e",
+          "reason": "검은 갑각 중심의 기존 형태가 황갈색 털 질감으로 크게 변경됨. 지정 디자인·질감 일치 확인 필요."
+        },
+        "observations": "황갈색 털 중심 질감을 검은 갑각 중심으로 복원. 배·앞몸통·여덟 보행 다리와 앞쪽 입 부속지의 구분, 하이앵글 전방 자세를 비교함.",
+        "checkedAt": "2026-10-20T05:52:58.612Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "barrow_wight",
@@ -1103,14 +1133,29 @@
       "role": "hero",
       "original": "tokens/dwimmerlaik.png",
       "source": "mordor",
-      "path": "art/mordor-rebuild-20261019/units/dwimmerlaik.png",
-      "blobSHA": "65bdc6414e0eae4c95a918cb0d421ceb1b49909f",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "needs_revision",
-      "qualityReason": "원본 대비 넓고 압축된 인체 비중 및 양손 검 자세 재검수.",
-      "approval": "hold",
-      "preferredSource": "undecided"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/dwimmerlaik.png",
+      "blobSHA": "f64161315d679e0309617cbe797d8c8b75610ea7",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "기존 뿔 달린 두건·흑금 갑주·붉은 안감·아래로 든 검을 보존. 큰 인간형의 긴 몸통과 늘어진 망토 실루엣을 비교함.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "stone-carapace-and-lowered-heads-20261020",
+        "previous": {
+          "approval": "hold",
+          "path": "art/mordor-rebuild-20261019/units/dwimmerlaik.png",
+          "blobSHA": "65bdc6414e0eae4c95a918cb0d421ceb1b49909f",
+          "reason": "원본 대비 넓고 압축된 인체 비중 및 양손 검 자세 재검수."
+        },
+        "observations": "기존 뿔 달린 두건·흑금 갑주·붉은 안감·아래로 든 검을 보존. 큰 인간형의 긴 몸통과 늘어진 망토 실루엣을 비교함.",
+        "checkedAt": "2026-10-20T05:52:58.612Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "mt_swordshield",
@@ -1198,14 +1243,29 @@
       "role": "hero",
       "original": "tokens/mt_captain.png",
       "source": "gondor",
-      "path": "art/gondor-rebuild-20261019/units/mt_captain.png",
-      "blobSHA": "483760ed6f70ad40b928384e6ba5ca87b9a45dd1",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "needs_revision",
-      "qualityReason": "넓은 발 간격과 압축된 하체의 비율을 재확인해야 함.",
-      "approval": "hold",
-      "preferredSource": "undecided"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/mt_captain.png",
+      "blobSHA": "2e1aa94e809dae3cdb9b65e2d8399a13cd09b4e4",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "기존 날개 투구·흰 나무 갑주/방패·검 가드를 보존. 넓게 벌어져 눌리던 하체 대신 연결된 앞뒤 다리와 전진 동작을 인간형 기준과 비교함.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "stone-carapace-and-lowered-heads-20261020",
+        "previous": {
+          "approval": "hold",
+          "path": "art/gondor-rebuild-20261019/units/mt_captain.png",
+          "blobSHA": "483760ed6f70ad40b928384e6ba5ca87b9a45dd1",
+          "reason": "넓은 발 간격과 압축된 하체의 비율을 재확인해야 함."
+        },
+        "observations": "기존 날개 투구·흰 나무 갑주/방패·검 가드를 보존. 넓게 벌어져 눌리던 하체 대신 연결된 앞뒤 다리와 전진 동작을 인간형 기준과 비교함.",
+        "checkedAt": "2026-10-20T05:52:58.612Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "mt_fountain_guard",
@@ -2389,16 +2449,30 @@
       "faction": "lothlorien",
       "role": "hero",
       "original": "tokens/galadriel.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "elf",
-      "path": "art/full-roster-night-rebuild-20261019/units/galadriel.png",
-      "blobSHA": "6350df9416f54e1e43a141ead3039d8a79e146ee",
-      "approval": "rejected",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/galadriel.png",
+      "blobSHA": "8666971d76294d12e5bf0e476eb3dc996c17e8c1",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존의 숙인 고개·드레스 흐름보다 정면 응시 인상이 강해짐.",
-      "preferredSource": "old"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "기존 숙인 금발·은색 관·흰 드레스·작은 푸른 물건의 손 제스처를 보존. 얼굴 정면 응시를 가리고 드레스의 길이와 흐름을 비교함.",
+      "preferredSource": "remake_candidate",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "stone-carapace-and-lowered-heads-20261020",
+        "previous": {
+          "approval": "rejected",
+          "path": "art/full-roster-night-rebuild-20261019/units/galadriel.png",
+          "blobSHA": "6350df9416f54e1e43a141ead3039d8a79e146ee",
+          "reason": "기존의 숙인 고개·드레스 흐름보다 정면 응시 인상이 강해짐."
+        },
+        "observations": "기존 숙인 금발·은색 관·흰 드레스·작은 푸른 물건의 손 제스처를 보존. 얼굴 정면 응시를 가리고 드레스의 길이와 흐름을 비교함.",
+        "checkedAt": "2026-10-20T05:52:58.612Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "gamling",
@@ -9249,8 +9323,8 @@
   "qualityRepairRequest": {
     "id": "all-194-20261020",
     "scopeCount": 194,
-    "correctedCandidates": 73,
-    "remaining": 121,
+    "correctedCandidates": 78,
+    "remaining": 116,
     "userApproved": 0,
     "previousMountedCorrectionsIncluded": true
   }
