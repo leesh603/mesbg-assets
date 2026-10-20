@@ -1,0 +1,9 @@
+const fs=require('node:fs'),vm=require('node:vm'),path=require('node:path'),T=require('../src/tactical-terrain');
+const src=fs.readFileSync('src/game.js','utf8');
+function read(a,b){const i=src.indexOf(a),j=src.indexOf(b,i);if(i<0||j<0)throw Error(a);return vm.runInNewContext('('+src.slice(i+a.length,j).trim().replace(/;$/,'' )+')');}
+const maps=vm.runInNewContext(src.match(/maps:\s*(\[[^\]]+\])/)[1]),names=vm.runInNewContext(src.match(/mapNames:\s*(\[[^\]]+\])/)[1]);
+const zones=read('const MAP_ZONE_NAMES =','function mapVariant');
+if(maps.length!==new Set(maps).size||maps.some(k=>!T.THEMES[k])||Object.keys(T.THEMES).some(k=>!maps.includes(k)))throw Error('Map/theme registry mismatch');
+const ls=d=>fs.existsSync(d)?fs.readdirSync(d).filter(x=>/\.(png|webp|jpg)$/.test(x)).map(x=>({file:d+'/'+x,bytes:fs.statSync(d+'/'+x).size})):[];
+const report={base:'a3e8a6983a9f5d701df0669d92de41941d5cffe5',branch:'art/all-maps-world-renewal-20261020',mapCount:maps.length,progressVariants:maps.length*5,terrainTypes:Object.keys(T.TYPES),groundFamilies:[...new Set(Object.values(T.THEMES).map(t=>t.ground))],maps:maps.map((key,i)=>({key,name:names[i],...T.THEMES[key],variants:Array.from({length:5},(_,j)=>({stage:j+1,zone:zones[key]?.[j]||T.THEMES[key].title,phase:T.build(key,j+1).phase,status:'pending'}))})),legacyBackgrounds:ls('assets/mesbg/backgrounds'),legacyTerrain:ls('assets/mesbg/terrain'),note:'Production uses 5 repeating terrain-ground families, not the 28 archived background paintings. 27 regions x 5 progression states are in scope. Character PNGs, stature profiles and terrain rules are outside the edit scope.'};
+fs.mkdirSync('review/world-art-20261020',{recursive:true});fs.writeFileSync('review/world-art-20261020/inventory.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({maps:report.mapCount,variants:report.progressVariants,terrain:report.terrainTypes.length,backgrounds:report.legacyBackgrounds.length}));

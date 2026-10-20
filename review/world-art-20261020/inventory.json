@@ -1,0 +1,1508 @@
+{
+  "base": "a3e8a6983a9f5d701df0669d92de41941d5cffe5",
+  "branch": "art/all-maps-world-renewal-20261020",
+  "mapCount": 27,
+  "progressVariants": 135,
+  "terrainTypes": [
+    "oak",
+    "pine",
+    "dead",
+    "rock",
+    "stone",
+    "fence",
+    "palisade",
+    "ruin",
+    "whitewall",
+    "darkwall",
+    "cliff",
+    "rim",
+    "woodbridge",
+    "stonebridge",
+    "rubble",
+    "burnt"
+  ],
+  "groundFamilies": [
+    "gondor",
+    "meadow",
+    "forest",
+    "stone",
+    "ash"
+  ],
+  "maps": [
+    {
+      "key": "minas_tirith",
+      "name": "미나스 티리스",
+      "ground": "gondor",
+      "layout": "gate",
+      "palette": [
+        "whitewall",
+        "ruin",
+        "rock",
+        "oak"
+      ],
+      "title": "람마스 에코르 성문길",
+      "story": "성문 앞 석벽과 농지, 좌우 돌담 우회로",
+      "variants": [
+        {
+          "stage": 1,
+          "zone": "성벽 아래",
+          "phase": "접근",
+          "status": "pending"
+        },
+        {
+          "stage": 2,
+          "zone": "성문 앞",
+          "phase": "교전",
+          "status": "pending"
+        },
+        {
+          "stage": 3,
+          "zone": "펠렌노르 평원",
+          "phase": "격전",
+          "status": "pending"
+        },
+        {
+          "stage": 4,
+          "zone": "돌격 참호",
+          "phase": "포위",
+          "status": "pending"
+        },
+        {
+          "stage": 5,
+          "zone": "외곽 들판",
+          "phase": "결전",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "key": "osgiliath",
+      "name": "오스길리아스",
+      "ground": "gondor",
+      "layout": "river",
+      "cross": [
+        760,
+        1670
+      ],
+      "palette": [
+        "ruin",
+        "whitewall",
+        "rock"
+      ],
+      "title": "안두인 도하전",
+      "story": "깊은 안두인과 두 석교, 폐허 사이 측면길",
+      "variants": [
+        {
+          "stage": 1,
+          "zone": "강과 다리",
+          "phase": "접근",
+          "status": "pending"
+        },
+        {
+          "stage": 2,
+          "zone": "폐허 광장",
+          "phase": "교전",
+          "status": "pending"
+        },
+        {
+          "stage": 3,
+          "zone": "강변 수풀",
+          "phase": "격전",
+          "status": "pending"
+        },
+        {
+          "stage": 4,
+          "zone": "무너진 궁전",
+          "phase": "포위",
+          "status": "pending"
+        },
+        {
+          "stage": 5,
+          "zone": "강 건너편",
+          "phase": "결전",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "key": "amon_sul",
+      "name": "아몬 술",
+      "ground": "meadow",
+      "layout": "ruins",
+      "palette": [
+        "ruin",
+        "rock",
+        "dead"
+      ],
+      "title": "웨더톱의 옛 성터",
+      "story": "무너진 아르노르 석벽과 정상으로 오르는 틈길",
+      "variants": [
+        {
+          "stage": 1,
+          "zone": "순찰탑",
+          "phase": "접근",
+          "status": "pending"
+        },
+        {
+          "stage": 2,
+          "zone": "둥근 고개",
+          "phase": "교전",
+          "status": "pending"
+        },
+        {
+          "stage": 3,
+          "zone": "무너진 돌무덤",
+          "phase": "격전",
+          "status": "pending"
+        },
+        {
+          "stage": 4,
+          "zone": "바위 산등성이",
+          "phase": "포위",
+          "status": "pending"
+        },
+        {
+          "stage": 5,
+          "zone": "탑 그늘",
+          "phase": "결전",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "key": "helms_deep",
+      "name": "헬름 협곡",
+      "ground": "meadow",
+      "layout": "valley",
+      "cross": [
+        1250,
+        550
+      ],
+      "palette": [
+        "cliff",
+        "stone",
+        "palisade"
+      ],
+      "title": "디핑 계류 방어선",
+      "story": "협곡 절벽, 디핑 개울과 돌담 뒤 방어선",
+      "variants": [
+        {
+          "stage": 1,
+          "zone": "성벽 앞",
+          "phase": "접근",
+          "status": "pending"
+        },
+        {
+          "stage": 2,
+          "zone": "협곡 입구",
+          "phase": "교전",
+          "status": "pending"
+        },
+        {
+          "stage": 3,
+          "zone": "개울 하류",
+          "phase": "격전",
+          "status": "pending"
+        },
+        {
+          "stage": 4,
+          "zone": "디핑 성벽",
+          "phase": "포위",
+          "status": "pending"
+        },
+        {
+          "stage": 5,
+          "zone": "협곡 중턱",
+          "phase": "결전",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "key": "fangorn",
+      "name": "팡고른",
+      "ground": "forest",
+      "layout": "stream",
+      "cross": [
+        680,
+        1660
+      ],
+      "palette": [
+        "oak",
+        "pine",
+        "rock"
+      ],
+      "title": "엔트워시 숲길",
+      "story": "고목 군락이 동선을 나누고 여울과 목교가 연결",
+      "variants": [
+        {
+          "stage": 1,
+          "zone": "강과 여울",
+          "phase": "접근",
+          "status": "pending"
+        },
+        {
+          "stage": 2,
+          "zone": "깊은 숲",
+          "phase": "교전",
+          "status": "pending"
+        },
+        {
+          "stage": 3,
+          "zone": "숲 가장자리",
+          "phase": "격전",
+          "status": "pending"
+        },
+        {
+          "stage": 4,
+          "zone": "강 어귀",
+          "phase": "포위",
+          "status": "pending"
+        },
+        {
+          "stage": 5,
+          "zone": "최고목 언덕",
+          "phase": "결전",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "key": "edoras",
+      "name": "에도라스",
+      "ground": "meadow",
+      "layout": "stream",
+      "cross": [
+        1400,
+        560
+      ],
+      "palette": [
+        "palisade",
+        "fence",
+        "stone"
+      ],
+      "title": "스노우번 목책길",
+      "story": "로한 초지와 개울, 목책 문과 농가 울타리",
+      "variants": [
+        {
+          "stage": 1,
+          "zone": "목책 앞",
+          "phase": "접근",
+          "status": "pending"
+        },
+        {
+          "stage": 2,
+          "zone": "평원 들판",
+          "phase": "교전",
+          "status": "pending"
+        },
+        {
+          "stage": 3,
+          "zone": "메두셀드 외곽",
+          "phase": "격전",
+          "status": "pending"
+        },
+        {
+          "stage": 4,
+          "zone": "언덕 초원",
+          "phase": "포위",
+          "status": "pending"
+        },
+        {
+          "stage": 5,
+          "zone": "남쪽 개울",
+          "phase": "결전",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "key": "moria",
+      "name": "모리아",
+      "ground": "stone",
+      "layout": "chasm",
+      "cross": [
+        1110,
+        1850
+      ],
+      "palette": [
+        "rim",
+        "rock",
+        "ruin"
+      ],
+      "title": "카자드둠의 다리",
+      "story": "깊은 균열 위 석교와 바위 사이 좁은 우회길",
+      "variants": [
+        {
+          "stage": 1,
+          "zone": "카자드둠 다리",
+          "phase": "접근",
+          "status": "pending"
+        },
+        {
+          "stage": 2,
+          "zone": "기둥의 전당",
+          "phase": "교전",
+          "status": "pending"
+        },
+        {
+          "stage": 3,
+          "zone": "깊은 계단",
+          "phase": "격전",
+          "status": "pending"
+        },
+        {
+          "stage": 4,
+          "zone": "동쪽 회랑",
+          "phase": "포위",
+          "status": "pending"
+        },
+        {
+          "stage": 5,
+          "zone": "무너진 경사로",
+          "phase": "결전",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "key": "isengard",
+      "name": "아이센가드",
+      "ground": "ash",
+      "layout": "ring",
+      "palette": [
+        "darkwall",
+        "dead",
+        "rock"
+      ],
+      "title": "오르상크 외곽 공성로",
+      "story": "검은 원형 방벽의 문과 벌목 잔해",
+      "variants": [
+        {
+          "stage": 1,
+          "zone": "오르상크 링",
+          "phase": "접근",
+          "status": "pending"
+        },
+        {
+          "stage": 2,
+          "zone": "공사 구덩이",
+          "phase": "교전",
+          "status": "pending"
+        },
+        {
+          "stage": 3,
+          "zone": "물길 플랜트",
+          "phase": "격전",
+          "status": "pending"
+        },
+        {
+          "stage": 4,
+          "zone": "오르상크 그늘",
+          "phase": "포위",
+          "status": "pending"
+        },
+        {
+          "stage": 5,
+          "zone": "물길 제방",
+          "phase": "결전",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "key": "black_gate",
+      "name": "검은 문",
+      "ground": "ash",
+      "layout": "gate",
+      "palette": [
+        "darkwall",
+        "cliff",
+        "rock"
+      ],
+      "title": "모란논의 길목",
+      "story": "검은 성벽의 중앙문과 바위 측면 통로",
+      "variants": [
+        {
+          "stage": 1,
+          "zone": "모란논 정면",
+          "phase": "접근",
+          "status": "pending"
+        },
+        {
+          "stage": 2,
+          "zone": "북쪽 설원",
+          "phase": "교전",
+          "status": "pending"
+        },
+        {
+          "stage": 3,
+          "zone": "폐허 참호선",
+          "phase": "격전",
+          "status": "pending"
+        },
+        {
+          "stage": 4,
+          "zone": "재 언덕",
+          "phase": "포위",
+          "status": "pending"
+        },
+        {
+          "stage": 5,
+          "zone": "철조망 선",
+          "phase": "결전",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "key": "gorgoroth",
+      "name": "고르고로스",
+      "ground": "ash",
+      "layout": "rocks",
+      "palette": [
+        "rock",
+        "cliff",
+        "dead"
+      ],
+      "title": "재의 평원",
+      "story": "검은 암반이 전열을 나누는 세 갈래 길",
+      "variants": [
+        {
+          "stage": 1,
+          "zone": "화산 아래",
+          "phase": "접근",
+          "status": "pending"
+        },
+        {
+          "stage": 2,
+          "zone": "용암 절벽",
+          "phase": "교전",
+          "status": "pending"
+        },
+        {
+          "stage": 3,
+          "zone": "재의 평원",
+          "phase": "격전",
+          "status": "pending"
+        },
+        {
+          "stage": 4,
+          "zone": "용암 갈라진 땅",
+          "phase": "포위",
+          "status": "pending"
+        },
+        {
+          "stage": 5,
+          "zone": "검은 바위산",
+          "phase": "결전",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "key": "rivendell",
+      "name": "리븐델",
+      "ground": "forest",
+      "layout": "river",
+      "cross": [
+        1000,
+        1830
+      ],
+      "palette": [
+        "rock",
+        "oak",
+        "stone"
+      ],
+      "title": "브루이넨 계곡",
+      "story": "깊은 계곡 강, 두 석교와 바위 사이 접근로",
+      "variants": [
+        {
+          "stage": 1,
+          "zone": "협곡 다리",
+          "phase": "접근",
+          "status": "pending"
+        },
+        {
+          "stage": 2,
+          "zone": "폭포 계곡",
+          "phase": "교전",
+          "status": "pending"
+        },
+        {
+          "stage": 3,
+          "zone": "숲속 정원",
+          "phase": "격전",
+          "status": "pending"
+        },
+        {
+          "stage": 4,
+          "zone": "돌다리",
+          "phase": "포위",
+          "status": "pending"
+        },
+        {
+          "stage": 5,
+          "zone": "절벽 테라스",
+          "phase": "결전",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "key": "lothlorien",
+      "name": "로스로리엔",
+      "ground": "forest",
+      "layout": "stream",
+      "cross": [
+        850,
+        1680
+      ],
+      "palette": [
+        "oak",
+        "oak",
+        "rock"
+      ],
+      "title": "실버로드 강숲",
+      "story": "말로른 숲의 통로와 여울을 통한 측면 도하",
+      "variants": [
+        {
+          "stage": 1,
+          "zone": "강가",
+          "phase": "접근",
+          "status": "pending"
+        },
+        {
+          "stage": 2,
+          "zone": "말론 숲",
+          "phase": "교전",
+          "status": "pending"
+        },
+        {
+          "stage": 3,
+          "zone": "물가 초원",
+          "phase": "격전",
+          "status": "pending"
+        },
+        {
+          "stage": 4,
+          "zone": "은빛 시내",
+          "phase": "포위",
+          "status": "pending"
+        },
+        {
+          "stage": 5,
+          "zone": "높은 공터",
+          "phase": "결전",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "key": "pelennor",
+      "name": "펠렌노르",
+      "ground": "meadow",
+      "layout": "fields",
+      "palette": [
+        "stone",
+        "fence",
+        "oak",
+        "rock"
+      ],
+      "title": "펠렌노르 농지",
+      "story": "낮은 농지 경계와 열린 기병 통로",
+      "variants": [
+        {
+          "stage": 1,
+          "zone": "외성벽",
+          "phase": "접근",
+          "status": "pending"
+        },
+        {
+          "stage": 2,
+          "zone": "들판 농장",
+          "phase": "교전",
+          "status": "pending"
+        },
+        {
+          "stage": 3,
+          "zone": "강변 초지",
+          "phase": "격전",
+          "status": "pending"
+        },
+        {
+          "stage": 4,
+          "zone": "농장 사잇길",
+          "phase": "포위",
+          "status": "pending"
+        },
+        {
+          "stage": 5,
+          "zone": "외성 평원",
+          "phase": "결전",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "key": "dead_marshes",
+      "name": "죽은 늪",
+      "ground": "forest",
+      "layout": "marsh",
+      "cross": [
+        760,
+        1640
+      ],
+      "palette": [
+        "dead",
+        "rock",
+        "burnt"
+      ],
+      "title": "늪의 마른 둑길",
+      "story": "깊은 물웅덩이를 피해 얕은 여울과 마른 둑으로 이동",
+      "variants": [
+        {
+          "stage": 1,
+          "zone": "죽음의 늪",
+          "phase": "접근",
+          "status": "pending"
+        },
+        {
+          "stage": 2,
+          "zone": "밀집 웅덩이",
+          "phase": "교전",
+          "status": "pending"
+        },
+        {
+          "stage": 3,
+          "zone": "마른 갈대밭",
+          "phase": "격전",
+          "status": "pending"
+        },
+        {
+          "stage": 4,
+          "zone": "안개 늪",
+          "phase": "포위",
+          "status": "pending"
+        },
+        {
+          "stage": 5,
+          "zone": "죽은 수로",
+          "phase": "결전",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "key": "dunharrow",
+      "name": "던하로우",
+      "ground": "stone",
+      "layout": "valley",
+      "palette": [
+        "cliff",
+        "rim",
+        "rock"
+      ],
+      "title": "망자의 길 입구",
+      "story": "백색산맥의 절벽 사이 좁은 산길",
+      "variants": [
+        {
+          "stage": 1,
+          "zone": "산 입구",
+          "phase": "접근",
+          "status": "pending"
+        },
+        {
+          "stage": 2,
+          "zone": "영혼의 길",
+          "phase": "교전",
+          "status": "pending"
+        },
+        {
+          "stage": 3,
+          "zone": "풀밭 고원",
+          "phase": "격전",
+          "status": "pending"
+        },
+        {
+          "stage": 4,
+          "zone": "절벽 전망",
+          "phase": "포위",
+          "status": "pending"
+        },
+        {
+          "stage": 5,
+          "zone": "벼랑 위 풀밭",
+          "phase": "결전",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "key": "erebor",
+      "name": "에레보르",
+      "ground": "stone",
+      "layout": "river",
+      "cross": [
+        1190,
+        550
+      ],
+      "palette": [
+        "cliff",
+        "ruin",
+        "rock"
+      ],
+      "title": "러닝 강의 산문",
+      "story": "산문 앞 강과 두 석교, 바위 사이 측면 접근",
+      "variants": [
+        {
+          "stage": 1,
+          "zone": "성문 앞",
+          "phase": "접근",
+          "status": "pending"
+        },
+        {
+          "stage": 2,
+          "zone": "외로운 산 비탈",
+          "phase": "교전",
+          "status": "pending"
+        },
+        {
+          "stage": 3,
+          "zone": "호수 건너",
+          "phase": "격전",
+          "status": "pending"
+        },
+        {
+          "stage": 4,
+          "zone": "회색 산기슭",
+          "phase": "포위",
+          "status": "pending"
+        },
+        {
+          "stage": 5,
+          "zone": "호수 잔교",
+          "phase": "결전",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "key": "mirkwood",
+      "name": "머크우드",
+      "ground": "forest",
+      "layout": "forest",
+      "palette": [
+        "pine",
+        "oak",
+        "dead",
+        "rock"
+      ],
+      "title": "어둠숲 사냥길",
+      "story": "밀집한 수목이 막는 중심부와 좌우 좁은 숲길",
+      "variants": [
+        {
+          "stage": 1,
+          "zone": "숲길",
+          "phase": "접근",
+          "status": "pending"
+        },
+        {
+          "stage": 2,
+          "zone": "거미줄 숲",
+          "phase": "교전",
+          "status": "pending"
+        },
+        {
+          "stage": 3,
+          "zone": "쓰러진 거목",
+          "phase": "격전",
+          "status": "pending"
+        },
+        {
+          "stage": 4,
+          "zone": "버섯 골짜기",
+          "phase": "포위",
+          "status": "pending"
+        },
+        {
+          "stage": 5,
+          "zone": "시냇물가",
+          "phase": "결전",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "key": "dol_guldur",
+      "name": "돌 굴두르",
+      "ground": "ash",
+      "layout": "ruins",
+      "palette": [
+        "darkwall",
+        "dead",
+        "ruin"
+      ],
+      "title": "남부 어둠숲 폐허",
+      "story": "버려진 검은 벽과 고목 사이의 세 갈래 길",
+      "variants": [
+        {
+          "stage": 1,
+          "zone": "너른 폐허",
+          "phase": "접근",
+          "status": "pending"
+        },
+        {
+          "stage": 2,
+          "zone": "독안개 들판",
+          "phase": "교전",
+          "status": "pending"
+        },
+        {
+          "stage": 3,
+          "zone": "무너진 회랑",
+          "phase": "격전",
+          "status": "pending"
+        },
+        {
+          "stage": 4,
+          "zone": "가시덤불 벌판",
+          "phase": "포위",
+          "status": "pending"
+        },
+        {
+          "stage": 5,
+          "zone": "지하 구덩이",
+          "phase": "결전",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "key": "gondolin",
+      "name": "곤돌린",
+      "ground": "gondor",
+      "layout": "gate",
+      "palette": [
+        "whitewall",
+        "cliff",
+        "ruin"
+      ],
+      "title": "숨겨진 도시의 문",
+      "story": "흰 성벽과 산벽 사이 중앙문과 외곽길",
+      "variants": [
+        {
+          "stage": 1,
+          "zone": "하얀 성벽",
+          "phase": "접근",
+          "status": "pending"
+        },
+        {
+          "stage": 2,
+          "zone": "숨겨진 계곡",
+          "phase": "교전",
+          "status": "pending"
+        },
+        {
+          "stage": 3,
+          "zone": "왕의 탑 앞",
+          "phase": "격전",
+          "status": "pending"
+        },
+        {
+          "stage": 4,
+          "zone": "수정 개울가",
+          "phase": "포위",
+          "status": "pending"
+        },
+        {
+          "stage": 5,
+          "zone": "은빛 들판",
+          "phase": "결전",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "key": "angband",
+      "name": "앙그반드",
+      "ground": "ash",
+      "layout": "valley",
+      "palette": [
+        "darkwall",
+        "cliff",
+        "rock"
+      ],
+      "title": "탕고로드림 철벽길",
+      "story": "재의 협곡과 철벽 문 사이의 좁은 진군로",
+      "variants": [
+        {
+          "stage": 1,
+          "zone": "철의 성벽 앞",
+          "phase": "접근",
+          "status": "pending"
+        },
+        {
+          "stage": 2,
+          "zone": "탕고로드림 아래",
+          "phase": "교전",
+          "status": "pending"
+        },
+        {
+          "stage": 3,
+          "zone": "재의 평원",
+          "phase": "격전",
+          "status": "pending"
+        },
+        {
+          "stage": 4,
+          "zone": "용암 균열",
+          "phase": "포위",
+          "status": "pending"
+        },
+        {
+          "stage": 5,
+          "zone": "검은 문터",
+          "phase": "결전",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "key": "minas_court",
+      "name": "미나스 티리스 성 안",
+      "ground": "gondor",
+      "layout": "court",
+      "palette": [
+        "whitewall",
+        "ruin",
+        "oak"
+      ],
+      "title": "백색 도시의 안뜰",
+      "story": "석조 회랑과 분리된 안뜰 통로",
+      "variants": [
+        {
+          "stage": 1,
+          "zone": "성채 안마당",
+          "phase": "접근",
+          "status": "pending"
+        },
+        {
+          "stage": 2,
+          "zone": "백색 회랑",
+          "phase": "교전",
+          "status": "pending"
+        },
+        {
+          "stage": 3,
+          "zone": "샘터 정원",
+          "phase": "격전",
+          "status": "pending"
+        },
+        {
+          "stage": 4,
+          "zone": "북쪽 계단",
+          "phase": "포위",
+          "status": "pending"
+        },
+        {
+          "stage": 5,
+          "zone": "남쪽 계단",
+          "phase": "결전",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "key": "orthanc",
+      "name": "오르상크 내부",
+      "ground": "ash",
+      "layout": "court",
+      "palette": [
+        "darkwall",
+        "rock",
+        "ruin"
+      ],
+      "title": "오르상크 기단",
+      "story": "검은 석조 기단과 공성로 사이 회랑",
+      "variants": [
+        {
+          "stage": 1,
+          "zone": "흑요석 전당",
+          "phase": "접근",
+          "status": "pending"
+        },
+        {
+          "stage": 2,
+          "zone": "용광로 격자",
+          "phase": "교전",
+          "status": "pending"
+        },
+        {
+          "stage": 3,
+          "zone": "북쪽 철계단",
+          "phase": "격전",
+          "status": "pending"
+        },
+        {
+          "stage": 4,
+          "zone": "남쪽 철계단",
+          "phase": "포위",
+          "status": "pending"
+        },
+        {
+          "stage": 5,
+          "zone": "기어 원반 광장",
+          "phase": "결전",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "key": "barad_dur",
+      "name": "바랏두르 평야",
+      "ground": "ash",
+      "layout": "rocks",
+      "palette": [
+        "darkwall",
+        "cliff",
+        "rock"
+      ],
+      "title": "흑탑의 그림자",
+      "story": "검은 암반과 무너진 방벽이 갈라놓은 전선",
+      "variants": [
+        {
+          "stage": 1,
+          "zone": "고르고로스 평원",
+          "phase": "접근",
+          "status": "pending"
+        },
+        {
+          "stage": 2,
+          "zone": "용암 갈라진 틈",
+          "phase": "교전",
+          "status": "pending"
+        },
+        {
+          "stage": 3,
+          "zone": "재 언덕",
+          "phase": "격전",
+          "status": "pending"
+        },
+        {
+          "stage": 4,
+          "zone": "현무암 마루",
+          "phase": "포위",
+          "status": "pending"
+        },
+        {
+          "stage": 5,
+          "zone": "검은 탑 전망",
+          "phase": "결전",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "key": "minas_morgul",
+      "name": "미나스 모르굴 계곡",
+      "ground": "ash",
+      "layout": "river",
+      "cross": [
+        870,
+        1690
+      ],
+      "palette": [
+        "darkwall",
+        "dead",
+        "cliff"
+      ],
+      "title": "모르굴 계곡의 다리",
+      "story": "모르굴두인 깊은 수로와 검은 성벽의 문",
+      "variants": [
+        {
+          "stage": 1,
+          "zone": "시든 계곡",
+          "phase": "접근",
+          "status": "pending"
+        },
+        {
+          "stage": 2,
+          "zone": "빛나는 시내",
+          "phase": "교전",
+          "status": "pending"
+        },
+        {
+          "stage": 3,
+          "zone": "창백한 언덕",
+          "phase": "격전",
+          "status": "pending"
+        },
+        {
+          "stage": 4,
+          "zone": "망령 안개",
+          "phase": "포위",
+          "status": "pending"
+        },
+        {
+          "stage": 5,
+          "zone": "무너진 언덕길",
+          "phase": "결전",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "key": "dale",
+      "name": "데일 강변",
+      "ground": "gondor",
+      "layout": "river",
+      "cross": [
+        700,
+        1590
+      ],
+      "palette": [
+        "ruin",
+        "stone",
+        "rock"
+      ],
+      "title": "데일의 러닝 강변",
+      "story": "석조 골목과 강을 건너는 두 석교",
+      "variants": [
+        {
+          "stage": 1,
+          "zone": "강변 들판",
+          "phase": "접근",
+          "status": "pending"
+        },
+        {
+          "stage": 2,
+          "zone": "갈대밭",
+          "phase": "교전",
+          "status": "pending"
+        },
+        {
+          "stage": 3,
+          "zone": "둑길 언덕",
+          "phase": "격전",
+          "status": "pending"
+        },
+        {
+          "stage": 4,
+          "zone": "베리 덤불",
+          "phase": "포위",
+          "status": "pending"
+        },
+        {
+          "stage": 5,
+          "zone": "낮은 언덕",
+          "phase": "결전",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "key": "hornburg",
+      "name": "혼부르크 대전당",
+      "ground": "stone",
+      "layout": "court",
+      "palette": [
+        "stone",
+        "palisade",
+        "rock"
+      ],
+      "title": "혼부르크 대전당",
+      "story": "로한 석조 회랑과 방책 사이 전열",
+      "variants": [
+        {
+          "stage": 1,
+          "zone": "대전당",
+          "phase": "접근",
+          "status": "pending"
+        },
+        {
+          "stage": 2,
+          "zone": "계단 어귀",
+          "phase": "교전",
+          "status": "pending"
+        },
+        {
+          "stage": 3,
+          "zone": "기둥 사이",
+          "phase": "격전",
+          "status": "pending"
+        },
+        {
+          "stage": 4,
+          "zone": "왕좌 앞",
+          "phase": "포위",
+          "status": "pending"
+        },
+        {
+          "stage": 5,
+          "zone": "후문 회랑",
+          "phase": "결전",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "key": "erebor_hall",
+      "name": "에레보르 대전당",
+      "ground": "stone",
+      "layout": "court",
+      "palette": [
+        "ruin",
+        "rock",
+        "whitewall"
+      ],
+      "title": "두린의 돌기둥 전당",
+      "story": "드워프 석주와 방벽 사이의 넓고 좁은 회랑",
+      "variants": [
+        {
+          "stage": 1,
+          "zone": "대전당",
+          "phase": "접근",
+          "status": "pending"
+        },
+        {
+          "stage": 2,
+          "zone": "금맥 바닥",
+          "phase": "교전",
+          "status": "pending"
+        },
+        {
+          "stage": 3,
+          "zone": "왕좌 계단",
+          "phase": "격전",
+          "status": "pending"
+        },
+        {
+          "stage": 4,
+          "zone": "기둥 회랑",
+          "phase": "포위",
+          "status": "pending"
+        },
+        {
+          "stage": 5,
+          "zone": "보물 곳간 앞",
+          "phase": "결전",
+          "status": "pending"
+        }
+      ]
+    }
+  ],
+  "legacyBackgrounds": [
+    {
+      "file": "assets/mesbg/backgrounds/bg_amon_sul.png",
+      "bytes": 2207109
+    },
+    {
+      "file": "assets/mesbg/backgrounds/bg_angband.png",
+      "bytes": 2242283
+    },
+    {
+      "file": "assets/mesbg/backgrounds/bg_barad_dur.png",
+      "bytes": 3121298
+    },
+    {
+      "file": "assets/mesbg/backgrounds/bg_black_gate.png",
+      "bytes": 2261050
+    },
+    {
+      "file": "assets/mesbg/backgrounds/bg_dale.png",
+      "bytes": 3182214
+    },
+    {
+      "file": "assets/mesbg/backgrounds/bg_dead_marshes.png",
+      "bytes": 1937838
+    },
+    {
+      "file": "assets/mesbg/backgrounds/bg_dol_guldur.png",
+      "bytes": 2389280
+    },
+    {
+      "file": "assets/mesbg/backgrounds/bg_dunharrow.png",
+      "bytes": 2232163
+    },
+    {
+      "file": "assets/mesbg/backgrounds/bg_edoras.png",
+      "bytes": 2362384
+    },
+    {
+      "file": "assets/mesbg/backgrounds/bg_erebor.png",
+      "bytes": 2379776
+    },
+    {
+      "file": "assets/mesbg/backgrounds/bg_erebor_hall.png",
+      "bytes": 2603428
+    },
+    {
+      "file": "assets/mesbg/backgrounds/bg_fangorn.png",
+      "bytes": 2347196
+    },
+    {
+      "file": "assets/mesbg/backgrounds/bg_gondolin.png",
+      "bytes": 2494827
+    },
+    {
+      "file": "assets/mesbg/backgrounds/bg_gorgoroth.png",
+      "bytes": 2143037
+    },
+    {
+      "file": "assets/mesbg/backgrounds/bg_helms_deep.png",
+      "bytes": 2446669
+    },
+    {
+      "file": "assets/mesbg/backgrounds/bg_hornburg.png",
+      "bytes": 2356276
+    },
+    {
+      "file": "assets/mesbg/backgrounds/bg_isengard.png",
+      "bytes": 2539221
+    },
+    {
+      "file": "assets/mesbg/backgrounds/bg_lothlorien.png",
+      "bytes": 2599499
+    },
+    {
+      "file": "assets/mesbg/backgrounds/bg_minas_court.png",
+      "bytes": 2210440
+    },
+    {
+      "file": "assets/mesbg/backgrounds/bg_minas_gate.png",
+      "bytes": 2153610
+    },
+    {
+      "file": "assets/mesbg/backgrounds/bg_minas_morgul.png",
+      "bytes": 3435769
+    },
+    {
+      "file": "assets/mesbg/backgrounds/bg_minas_tirith.png",
+      "bytes": 2398973
+    },
+    {
+      "file": "assets/mesbg/backgrounds/bg_mirkwood.png",
+      "bytes": 2343386
+    },
+    {
+      "file": "assets/mesbg/backgrounds/bg_moria.png",
+      "bytes": 1422918
+    },
+    {
+      "file": "assets/mesbg/backgrounds/bg_orthanc.png",
+      "bytes": 2166759
+    },
+    {
+      "file": "assets/mesbg/backgrounds/bg_osgiliath.png",
+      "bytes": 2215066
+    },
+    {
+      "file": "assets/mesbg/backgrounds/bg_pelennor.png",
+      "bytes": 2040865
+    },
+    {
+      "file": "assets/mesbg/backgrounds/bg_rivendell.png",
+      "bytes": 2677198
+    }
+  ],
+  "legacyTerrain": [
+    {
+      "file": "assets/mesbg/terrain/ash.webp",
+      "bytes": 112266
+    },
+    {
+      "file": "assets/mesbg/terrain/burnt.png",
+      "bytes": 150831
+    },
+    {
+      "file": "assets/mesbg/terrain/chasm.webp",
+      "bytes": 38286
+    },
+    {
+      "file": "assets/mesbg/terrain/cliff.png",
+      "bytes": 180712
+    },
+    {
+      "file": "assets/mesbg/terrain/darkwall.png",
+      "bytes": 110524
+    },
+    {
+      "file": "assets/mesbg/terrain/dead.png",
+      "bytes": 120875
+    },
+    {
+      "file": "assets/mesbg/terrain/deep.webp",
+      "bytes": 34884
+    },
+    {
+      "file": "assets/mesbg/terrain/fence.png",
+      "bytes": 87353
+    },
+    {
+      "file": "assets/mesbg/terrain/forest.webp",
+      "bytes": 135924
+    },
+    {
+      "file": "assets/mesbg/terrain/gondor.webp",
+      "bytes": 127918
+    },
+    {
+      "file": "assets/mesbg/terrain/meadow.webp",
+      "bytes": 137218
+    },
+    {
+      "file": "assets/mesbg/terrain/oak.png",
+      "bytes": 199832
+    },
+    {
+      "file": "assets/mesbg/terrain/palisade.png",
+      "bytes": 141736
+    },
+    {
+      "file": "assets/mesbg/terrain/pine.png",
+      "bytes": 137472
+    },
+    {
+      "file": "assets/mesbg/terrain/rim.png",
+      "bytes": 161781
+    },
+    {
+      "file": "assets/mesbg/terrain/road.webp",
+      "bytes": 106968
+    },
+    {
+      "file": "assets/mesbg/terrain/rock.png",
+      "bytes": 144636
+    },
+    {
+      "file": "assets/mesbg/terrain/rubble.png",
+      "bytes": 170458
+    },
+    {
+      "file": "assets/mesbg/terrain/ruin.png",
+      "bytes": 139399
+    },
+    {
+      "file": "assets/mesbg/terrain/shallow.webp",
+      "bytes": 106206
+    },
+    {
+      "file": "assets/mesbg/terrain/stone.png",
+      "bytes": 101895
+    },
+    {
+      "file": "assets/mesbg/terrain/stonebridge.png",
+      "bytes": 203799
+    },
+    {
+      "file": "assets/mesbg/terrain/whitewall.png",
+      "bytes": 153333
+    },
+    {
+      "file": "assets/mesbg/terrain/woodbridge.png",
+      "bytes": 182113
+    }
+  ],
+  "note": "Production uses 5 repeating terrain-ground families, not the 28 archived background paintings. 27 regions x 5 progression states are in scope. Character PNGs, stature profiles and terrain rules are outside the edit scope."
+}
