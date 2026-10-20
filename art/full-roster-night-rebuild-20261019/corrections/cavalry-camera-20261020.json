@@ -1,0 +1,30 @@
+{
+  "requestedAt": "2026-10-20T02:06:38+00:00",
+  "status": "regenerating",
+  "userRequirements": {
+    "humanRider": "엄격한 5등신. 기수 대두·4등신 및 6등신 이상 불합격.",
+    "headPose": "전체적으로 기존처럼 고개를 살짝 숙이고 시선은 앞쪽 아래.",
+    "camera": "실제 하이앵글 프론트뷰. 정수리·양 어깨·손등·말 목과 기갑·안장 윗면이 보이는 높은 카메라. 정면뷰에서 머리만 줄이거나 숙이는 수정 불합격.",
+    "style": "기제작 곤도르·모르도르 픽셀 그림체 유지."
+  },
+  "priorityIds": ["glorfindel_mounted", "eorl_the_young_mounted", "eorl_the_young", "hera_mounted", "elf_knight", "eowyn_mounted"],
+  "rejectedAttempt": {
+    "name": "20261020-head-size-only-v1",
+    "reason": "사용자 시점 불합격: 머리 비중만 줄이고 원본의 낮은 정면 카메라를 보존함.",
+    "adopted": false
+  },
+  "cameraReferencePaths": [
+    "art/rebuild-skeletons/references/theoden-user-style.png",
+    "art/gondor-rebuild-20261019/units/warrior_minas_tirith.png"
+  ],
+  "audit": {
+    "mountedCandidatesInspected": 54,
+    "note": "Includes three dismounted text matches and two flying mounts; this is a visual triage, not a final 5-head or camera approval.",
+    "passed": false
+  },
+  "generationMode": "built-in image_gen, one call per asset",
+  "nextAction": "Reproject first Glorfindel/Eorl from clearly higher front camera; verify actual image, then apply validated camera to the remaining priority IDs.",
+  "approval": "pending",
+  "inGameVerified": false,
+  "mainMerged": false
+}
