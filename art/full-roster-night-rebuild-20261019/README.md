@@ -16,9 +16,9 @@
 
 ## 최근 재수정 진행
 
-불합격·보류 194종: 94종 수정 검토본 / 100종 수정 필요 · 전체 품질 최종 통과 0종 · 사용자 승인 전
+불합격·보류 194종: 104종 수정 검토본 / 90종 수정 필요 · 전체 품질 최종 통과 0종 · 사용자 승인 전
 
-최근 저장: 2026-10-20T07:52:36.578Z · dwarf-wraith-tracker-20261020-0753 · 6종 수정 후보. 본게임 적용·최종 품질 통과와 구분합니다.
+최근 저장: 2026-10-20T08:36:58.307Z · continue-all100-01-20261020 · 10종 수정 후보. 본게임 적용·최종 품질 통과와 구분합니다.
 
-다음 수정: galadhrim_warrior, rohan_banner, black_numenorean, warg, uruk_scout_archer, khamul, fingolfin, radagast.
+다음 수정: olog_hai, feanor, luthien, beleg, huan, tauriel, beregond, elladan.
 
