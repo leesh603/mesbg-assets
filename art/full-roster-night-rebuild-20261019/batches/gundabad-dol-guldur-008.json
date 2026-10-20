@@ -1,0 +1,302 @@
+{
+  "batch": "gundabad-dol-guldur-008",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "muzgur",
+      "name": "무즈구르",
+      "faction": "angmar",
+      "role": "hero",
+      "original": "tokens/muzgur.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "앙마르",
+      "groupKey": "angmar",
+      "pose": "원본 고유 무장·기울임·동작 유지",
+      "bodyDescription": "인간형 5등신 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/muzgur.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human.png"
+      ],
+      "prompt": "Rebuild ONE complete production transparent PIXEL game token. INPUT1 original character controls EXACT costume/hair/helmet/beard/palette/weapons, elevated FRONT camera, deeply BOWED hidden face and distinct action silhouette; preserve those identity details. INPUT2 neutral HUMAN skeleton controls EXACT FIVE anatomical crown-to-chin heads for crown-to-sole body, ordinary adult skull and shoulder/pelvis/knee/ankle bone lengths, crisp pixel density/stepped dark outlines/short restrained shade ramps. Redress and rotate original neutral bones into INPUT1 action, NEVER lengthen to6–8heads, shrink to4heads or inflate helmet/skull. Slim/muscular/fat changes WIDTH only. Elevated front camera down40–45degrees with crown and both shoulder TOPS obvious, torso/face foreshortened. Head firmly tucked down, eyes covered by hair/helmet/hood/brow; NO frontal facial portrait/eye contact. Retain original body's forward lean or combat action. Do not default to template's walking pose: grounded/braced feet or original lunging as equipment/action warrants, varied lead foot, uncrossed coherent limbs. Complete exact original weapons with logical handgrips; no weapons borrowed from INPUT2. Full silhouette and ALL weapon/banner/antler tips inside INNER80percent canvas. Body center ignores equipment. Transparent background, no base/floor/shadow/scenery/text/watermark/extra figures. Character identity: 무즈구르 (muzgur). EXACT original loadout/palette/materials/action from INPUT1. Five anatomical heads crown-to-sole, helmet/crown not skull. Face fully hooded, exact original dark armored/robed silhouette and original staff/sword, no invented gear. ",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-f89f0ec8-22d3-4307-9f3c-15f7fd610175.png",
+      "expectedBlobSHA": "aeece6b98d04d2a5cfee18b48cbe5c751a710a07",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          62,
+          68,
+          1151,
+          1272
+        ]
+      },
+      "blobSHA": "aeece6b98d04d2a5cfee18b48cbe5c751a710a07",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "castellan",
+      "name": "돌 굴두르 성주",
+      "faction": "dol_guldur",
+      "role": "hero",
+      "original": "tokens/castellan.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "돌 굴두르",
+      "groupKey": "dol_guldur",
+      "pose": "원본 고유 무장·기울임·동작 유지",
+      "bodyDescription": "인간형 5등신 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/castellan.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human.png"
+      ],
+      "prompt": "Rebuild ONE complete production transparent PIXEL game token. INPUT1 original character controls EXACT costume/hair/helmet/beard/palette/weapons, elevated FRONT camera, deeply BOWED hidden face and distinct action silhouette; preserve those identity details. INPUT2 neutral HUMAN skeleton controls EXACT FIVE anatomical crown-to-chin heads for crown-to-sole body, ordinary adult skull and shoulder/pelvis/knee/ankle bone lengths, crisp pixel density/stepped dark outlines/short restrained shade ramps. Redress and rotate original neutral bones into INPUT1 action, NEVER lengthen to6–8heads, shrink to4heads or inflate helmet/skull. Slim/muscular/fat changes WIDTH only. Elevated front camera down40–45degrees with crown and both shoulder TOPS obvious, torso/face foreshortened. Head firmly tucked down, eyes covered by hair/helmet/hood/brow; NO frontal facial portrait/eye contact. Retain original body's forward lean or combat action. Do not default to template's walking pose: grounded/braced feet or original lunging as equipment/action warrants, varied lead foot, uncrossed coherent limbs. Complete exact original weapons with logical handgrips; no weapons borrowed from INPUT2. Full silhouette and ALL weapon/banner/antler tips inside INNER80percent canvas. Body center ignores equipment. Transparent background, no base/floor/shadow/scenery/text/watermark/extra figures. Character identity: 돌 굴두르 성주 (castellan). EXACT original loadout/palette/materials/action from INPUT1. Five anatomical heads crown-to-sole, helmet/crown not skull. ",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-58eb6d5f-de3d-48ae-8640-f386a9666549.png",
+      "expectedBlobSHA": "54902a2e67ac4c7e2889535f307b0d5053a7258a",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          138,
+          83,
+          1092,
+          1244
+        ]
+      },
+      "blobSHA": "54902a2e67ac4c7e2889535f307b0d5053a7258a",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "zagdush",
+      "name": "자그두쉬",
+      "faction": "moria",
+      "role": "hero",
+      "original": "tokens/zagdush.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "모리아",
+      "groupKey": "moria",
+      "pose": "원본 고유 무장·기울임·동작 유지",
+      "bodyDescription": "오크 표준 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/zagdush.png",
+        "/workspace/scratch/bb0324dc7a4d/references/orc.png"
+      ],
+      "prompt": "Rebuild ONE complete production transparent PIXEL game token. INPUT1 original character controls EXACT costume/hair/helmet/beard/palette/weapons, elevated FRONT camera, deeply BOWED hidden face and distinct action silhouette; preserve those identity details. INPUT2 neutral ORC species skeleton controls EXACT FIVE anatomical crown-to-chin heads for crown-to-sole body, ordinary adult skull and shoulder/pelvis/knee/ankle bone lengths, crisp pixel density/stepped dark outlines/short restrained shade ramps. Redress and rotate original neutral bones into INPUT1 action, NEVER lengthen to6–8heads, shrink to4heads or inflate helmet/skull. Slim/muscular/fat changes WIDTH only. Elevated front camera down40–45degrees with crown and both shoulder TOPS obvious, torso/face foreshortened. Head firmly tucked down, eyes covered by hair/helmet/hood/brow; NO frontal facial portrait/eye contact. Retain original body's forward lean or combat action. Do not default to template's walking pose: grounded/braced feet or original lunging as equipment/action warrants, varied lead foot, uncrossed coherent limbs. Complete exact original weapons with logical handgrips; no weapons borrowed from INPUT2. Full silhouette and ALL weapon/banner/antler tips inside INNER80percent canvas. Body center ignores equipment. Transparent background, no base/floor/shadow/scenery/text/watermark/extra figures. Character identity: 자그두쉬 (zagdush). EXACT original loadout/palette/materials/action from INPUT1. Use ORIGINAL ORC bone proportions exactly; preserve original larger muscle WIDTH for Bolg/Azog and exact claws/prosthetic weapon. ",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-ee2ff400-520f-497f-8f4b-c28f71420cc2.png",
+      "expectedBlobSHA": "18cd04a6f66ff12a2cf7541ce653d793d3fc843b",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          176,
+          67,
+          1107,
+          1224
+        ]
+      },
+      "blobSHA": "18cd04a6f66ff12a2cf7541ce653d793d3fc843b",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "dungeon_keeper",
+      "name": "감옥지기",
+      "faction": "dol_guldur",
+      "role": "hero",
+      "original": "tokens/dungeon_keeper.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "돌 굴두르",
+      "groupKey": "dol_guldur",
+      "pose": "원본 고유 무장·기울임·동작 유지",
+      "bodyDescription": "오크 표준 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/dungeon_keeper.png",
+        "/workspace/scratch/bb0324dc7a4d/references/orc.png"
+      ],
+      "prompt": "Rebuild ONE complete production transparent PIXEL game token. INPUT1 original character controls EXACT costume/hair/helmet/beard/palette/weapons, elevated FRONT camera, deeply BOWED hidden face and distinct action silhouette; preserve those identity details. INPUT2 neutral ORC species skeleton controls EXACT FIVE anatomical crown-to-chin heads for crown-to-sole body, ordinary adult skull and shoulder/pelvis/knee/ankle bone lengths, crisp pixel density/stepped dark outlines/short restrained shade ramps. Redress and rotate original neutral bones into INPUT1 action, NEVER lengthen to6–8heads, shrink to4heads or inflate helmet/skull. Slim/muscular/fat changes WIDTH only. Elevated front camera down40–45degrees with crown and both shoulder TOPS obvious, torso/face foreshortened. Head firmly tucked down, eyes covered by hair/helmet/hood/brow; NO frontal facial portrait/eye contact. Retain original body's forward lean or combat action. Do not default to template's walking pose: grounded/braced feet or original lunging as equipment/action warrants, varied lead foot, uncrossed coherent limbs. Complete exact original weapons with logical handgrips; no weapons borrowed from INPUT2. Full silhouette and ALL weapon/banner/antler tips inside INNER80percent canvas. Body center ignores equipment. Transparent background, no base/floor/shadow/scenery/text/watermark/extra figures. Character identity: 감옥지기 (dungeon_keeper). EXACT original loadout/palette/materials/action from INPUT1. Use ORIGINAL ORC bone proportions exactly; preserve original larger muscle WIDTH for Bolg/Azog and exact claws/prosthetic weapon. Retain original keys, handcuffs/chain and whip as clearly distinct coherent handheld items, all lengths inside canvas. ",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-9d5bf0b5-319a-4b38-9da9-ce7b45e4abc4.png",
+      "expectedBlobSHA": "f49376035648ca0c24f0e08573a0152fe21b9db0",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1243,
+          1265
+        ],
+        "bounds": [
+          162,
+          54,
+          1152,
+          1168
+        ]
+      },
+      "blobSHA": "f49376035648ca0c24f0e08573a0152fe21b9db0",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "yazneg",
+      "name": "야즈네그",
+      "faction": "gundabad",
+      "role": "hero",
+      "original": "tokens/yazneg.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "군다바드",
+      "groupKey": "gundabad",
+      "pose": "원본 고유 무장·기울임·동작 유지",
+      "bodyDescription": "오크 표준 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/yazneg.png",
+        "/workspace/scratch/bb0324dc7a4d/references/orc.png"
+      ],
+      "prompt": "Rebuild ONE complete production transparent PIXEL game token. INPUT1 original character controls EXACT costume/hair/helmet/beard/palette/weapons, elevated FRONT camera, deeply BOWED hidden face and distinct action silhouette; preserve those identity details. INPUT2 neutral ORC species skeleton controls EXACT FIVE anatomical crown-to-chin heads for crown-to-sole body, ordinary adult skull and shoulder/pelvis/knee/ankle bone lengths, crisp pixel density/stepped dark outlines/short restrained shade ramps. Redress and rotate original neutral bones into INPUT1 action, NEVER lengthen to6–8heads, shrink to4heads or inflate helmet/skull. Slim/muscular/fat changes WIDTH only. Elevated front camera down40–45degrees with crown and both shoulder TOPS obvious, torso/face foreshortened. Head firmly tucked down, eyes covered by hair/helmet/hood/brow; NO frontal facial portrait/eye contact. Retain original body's forward lean or combat action. Do not default to template's walking pose: grounded/braced feet or original lunging as equipment/action warrants, varied lead foot, uncrossed coherent limbs. Complete exact original weapons with logical handgrips; no weapons borrowed from INPUT2. Full silhouette and ALL weapon/banner/antler tips inside INNER80percent canvas. Body center ignores equipment. Transparent background, no base/floor/shadow/scenery/text/watermark/extra figures. Character identity: 야즈네그 (yazneg). EXACT original loadout/palette/materials/action from INPUT1. Use ORIGINAL ORC bone proportions exactly; preserve original larger muscle WIDTH for Bolg/Azog and exact claws/prosthetic weapon. ",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-e9fc5a9a-f76f-40a1-b27f-266e9ffbe374.png",
+      "expectedBlobSHA": "31cbb4491a7dfa4fed234c366a582308610bda42",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          184,
+          13,
+          1058,
+          1206
+        ]
+      },
+      "blobSHA": "31cbb4491a7dfa4fed234c366a582308610bda42",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "narzug",
+      "name": "나르주그",
+      "faction": "gundabad",
+      "role": "hero",
+      "original": "tokens/narzug.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "군다바드",
+      "groupKey": "gundabad",
+      "pose": "원본 고유 무장·기울임·동작 유지",
+      "bodyDescription": "오크 표준 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/narzug.png",
+        "/workspace/scratch/bb0324dc7a4d/references/orc.png"
+      ],
+      "prompt": "Rebuild ONE complete production transparent PIXEL game token. INPUT1 original character controls EXACT costume/hair/helmet/beard/palette/weapons, elevated FRONT camera, deeply BOWED hidden face and distinct action silhouette; preserve those identity details. INPUT2 neutral ORC species skeleton controls EXACT FIVE anatomical crown-to-chin heads for crown-to-sole body, ordinary adult skull and shoulder/pelvis/knee/ankle bone lengths, crisp pixel density/stepped dark outlines/short restrained shade ramps. Redress and rotate original neutral bones into INPUT1 action, NEVER lengthen to6–8heads, shrink to4heads or inflate helmet/skull. Slim/muscular/fat changes WIDTH only. Elevated front camera down40–45degrees with crown and both shoulder TOPS obvious, torso/face foreshortened. Head firmly tucked down, eyes covered by hair/helmet/hood/brow; NO frontal facial portrait/eye contact. Retain original body's forward lean or combat action. Do not default to template's walking pose: grounded/braced feet or original lunging as equipment/action warrants, varied lead foot, uncrossed coherent limbs. Complete exact original weapons with logical handgrips; no weapons borrowed from INPUT2. Full silhouette and ALL weapon/banner/antler tips inside INNER80percent canvas. Body center ignores equipment. Transparent background, no base/floor/shadow/scenery/text/watermark/extra figures. Character identity: 나르주그 (narzug). EXACT original loadout/palette/materials/action from INPUT1. Use ORIGINAL ORC bone proportions exactly; preserve original larger muscle WIDTH for Bolg/Azog and exact claws/prosthetic weapon. ",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-65f44320-a239-47e5-bd40-f7176732632f.png",
+      "expectedBlobSHA": "919432fd1789d4c015f6da6fa51ed31843d2cd58",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1246,
+          1263
+        ],
+        "bounds": [
+          85,
+          17,
+          1129,
+          1194
+        ]
+      },
+      "blobSHA": "919432fd1789d4c015f6da6fa51ed31843d2cd58",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "fimbul",
+      "name": "핌불",
+      "faction": "gundabad",
+      "role": "hero",
+      "original": "tokens/fimbul.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "군다바드",
+      "groupKey": "gundabad",
+      "pose": "원본 고유 무장·기울임·동작 유지",
+      "bodyDescription": "오크 표준 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/fimbul.png",
+        "/workspace/scratch/bb0324dc7a4d/references/orc.png"
+      ],
+      "prompt": "Rebuild ONE complete production transparent PIXEL game token. INPUT1 original character controls EXACT costume/hair/helmet/beard/palette/weapons, elevated FRONT camera, deeply BOWED hidden face and distinct action silhouette; preserve those identity details. INPUT2 neutral ORC species skeleton controls EXACT FIVE anatomical crown-to-chin heads for crown-to-sole body, ordinary adult skull and shoulder/pelvis/knee/ankle bone lengths, crisp pixel density/stepped dark outlines/short restrained shade ramps. Redress and rotate original neutral bones into INPUT1 action, NEVER lengthen to6–8heads, shrink to4heads or inflate helmet/skull. Slim/muscular/fat changes WIDTH only. Elevated front camera down40–45degrees with crown and both shoulder TOPS obvious, torso/face foreshortened. Head firmly tucked down, eyes covered by hair/helmet/hood/brow; NO frontal facial portrait/eye contact. Retain original body's forward lean or combat action. Do not default to template's walking pose: grounded/braced feet or original lunging as equipment/action warrants, varied lead foot, uncrossed coherent limbs. Complete exact original weapons with logical handgrips; no weapons borrowed from INPUT2. Full silhouette and ALL weapon/banner/antler tips inside INNER80percent canvas. Body center ignores equipment. Transparent background, no base/floor/shadow/scenery/text/watermark/extra figures. Character identity: 핌불 (fimbul). EXACT original loadout/palette/materials/action from INPUT1. Use ORIGINAL ORC bone proportions exactly; preserve original larger muscle WIDTH for Bolg/Azog and exact claws/prosthetic weapon. ",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-2760a8be-2aad-42be-b5dc-17fc1fa9c038.png",
+      "expectedBlobSHA": "ec1649b73b0a58f15417b0afda748e9115f2ba15",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1241,
+          1268
+        ],
+        "bounds": [
+          274,
+          32,
+          980,
+          1194
+        ]
+      },
+      "blobSHA": "ec1649b73b0a58f15417b0afda748e9115f2ba15",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "ashrak",
+      "name": "아슈라크",
+      "faction": "dol_guldur",
+      "role": "hero",
+      "original": "tokens/ashrak.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "돌 굴두르",
+      "groupKey": "dol_guldur",
+      "pose": "원본 고유 무장·기울임·동작 유지",
+      "bodyDescription": "오크 표준 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/ashrak.png",
+        "/workspace/scratch/bb0324dc7a4d/references/orc.png"
+      ],
+      "prompt": "Rebuild ONE complete production transparent PIXEL game token. INPUT1 original character controls EXACT costume/hair/helmet/beard/palette/weapons, elevated FRONT camera, deeply BOWED hidden face and distinct action silhouette; preserve those identity details. INPUT2 neutral ORC species skeleton controls EXACT FIVE anatomical crown-to-chin heads for crown-to-sole body, ordinary adult skull and shoulder/pelvis/knee/ankle bone lengths, crisp pixel density/stepped dark outlines/short restrained shade ramps. Redress and rotate original neutral bones into INPUT1 action, NEVER lengthen to6–8heads, shrink to4heads or inflate helmet/skull. Slim/muscular/fat changes WIDTH only. Elevated front camera down40–45degrees with crown and both shoulder TOPS obvious, torso/face foreshortened. Head firmly tucked down, eyes covered by hair/helmet/hood/brow; NO frontal facial portrait/eye contact. Retain original body's forward lean or combat action. Do not default to template's walking pose: grounded/braced feet or original lunging as equipment/action warrants, varied lead foot, uncrossed coherent limbs. Complete exact original weapons with logical handgrips; no weapons borrowed from INPUT2. Full silhouette and ALL weapon/banner/antler tips inside INNER80percent canvas. Body center ignores equipment. Transparent background, no base/floor/shadow/scenery/text/watermark/extra figures. Character identity: 아슈라크 (ashrak). EXACT original loadout/palette/materials/action from INPUT1. Use ORIGINAL ORC bone proportions exactly; preserve original larger muscle WIDTH for Bolg/Azog and exact claws/prosthetic weapon. ",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-e02850c9-482f-43a9-81e2-22468c3c43a2.png",
+      "expectedBlobSHA": "4705d75ac23ed78a411e98927acc1dafe56fa568",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1160,
+          1356
+        ],
+        "bounds": [
+          107,
+          79,
+          1053,
+          1248
+        ]
+      },
+      "blobSHA": "4705d75ac23ed78a411e98927acc1dafe56fa568",
+      "approval": "pending",
+      "inGameVerified": false
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T04:07:07.809Z",
+  "updatedAt": "2026-10-20T04:09:16.357Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 79,
-    "newlyGeneratedThisSession": 299,
-    "visuallyReviewedThisSession": 304,
+    "pending": 71,
+    "newlyGeneratedThisSession": 307,
+    "visuallyReviewedThisSession": 312,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 299,
-    "persistedReviewAssets": 431,
+    "generatedReviewAssets": 307,
+    "persistedReviewAssets": 439,
     "revisedAfterRejection": 18
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -3390,8 +3390,13 @@
       "faction": "angmar",
       "role": "hero",
       "original": "tokens/muzgur.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "angmar",
+      "path": "art/full-roster-night-rebuild-20261019/units/muzgur.png",
+      "blobSHA": "aeece6b98d04d2a5cfee18b48cbe5c751a710a07",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "buhrdur",
@@ -4533,8 +4538,13 @@
       "faction": "dol_guldur",
       "role": "hero",
       "original": "tokens/castellan.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dol_guldur",
+      "path": "art/full-roster-night-rebuild-20261019/units/castellan.png",
+      "blobSHA": "54902a2e67ac4c7e2889535f307b0d5053a7258a",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "dungeon_keeper",
@@ -4542,8 +4552,13 @@
       "faction": "dol_guldur",
       "role": "hero",
       "original": "tokens/dungeon_keeper.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dol_guldur",
+      "path": "art/full-roster-night-rebuild-20261019/units/dungeon_keeper.png",
+      "blobSHA": "f49376035648ca0c24f0e08573a0152fe21b9db0",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "kardush",
@@ -4897,8 +4912,13 @@
       "faction": "moria",
       "role": "hero",
       "original": "tokens/zagdush.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "moria",
+      "path": "art/full-roster-night-rebuild-20261019/units/zagdush.png",
+      "blobSHA": "18cd04a6f66ff12a2cf7541ce653d793d3fc843b",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "dalamyr",
@@ -4929,8 +4949,13 @@
       "faction": "gundabad",
       "role": "hero",
       "original": "tokens/yazneg.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "gundabad",
+      "path": "art/full-roster-night-rebuild-20261019/units/yazneg.png",
+      "blobSHA": "31cbb4491a7dfa4fed234c366a582308610bda42",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "eorl_the_young",
@@ -5179,8 +5204,13 @@
       "faction": "gundabad",
       "role": "hero",
       "original": "tokens/fimbul.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "gundabad",
+      "path": "art/full-roster-night-rebuild-20261019/units/fimbul.png",
+      "blobSHA": "ec1649b73b0a58f15417b0afda748e9115f2ba15",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "narzug",
@@ -5188,8 +5218,13 @@
       "faction": "gundabad",
       "role": "hero",
       "original": "tokens/narzug.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "gundabad",
+      "path": "art/full-roster-night-rebuild-20261019/units/narzug.png",
+      "blobSHA": "919432fd1789d4c015f6da6fa51ed31843d2cd58",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "khandish_chariot",
@@ -5644,8 +5679,13 @@
       "faction": "dol_guldur",
       "role": "hero",
       "original": "tokens/ashrak.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dol_guldur",
+      "path": "art/full-roster-night-rebuild-20261019/units/ashrak.png",
+      "blobSHA": "4705d75ac23ed78a411e98927acc1dafe56fa568",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "isengard_troll",
@@ -7589,16 +7629,17 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 431,
+    "count": 439,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
+      "돌 굴두르": 3,
+      "군다바드": 4,
+      "moria": 14,
+      "앙마르": 2,
       "망자": 2,
-      "군다바드": 1,
       "베오른 일족": 2,
-      "앙마르": 1,
-      "moria": 13,
       "dunland": 10,
       "이스터링·칸드": 15,
       "shire": 14,
@@ -7617,7 +7658,7 @@
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,
-    "sourceValidation": "431 unique IDs; static card count and asset blob SHAs verified"
+    "sourceValidation": "439 unique IDs; static card count and asset blob SHAs verified"
   },
   "revisionRequests": {
     "witchking": {
@@ -7753,15 +7794,16 @@
     }
   },
   "lastContinuation": {
-    "batch": "moria-dead-beorn-007",
+    "batch": "gundabad-dol-guldur-008",
     "newIds": [
-      "orc_shaman",
-      "beorning",
-      "barrow_wight",
-      "beorn",
-      "bolg",
-      "king_of_the_dead",
-      "dead_soldier"
+      "muzgur",
+      "castellan",
+      "zagdush",
+      "dungeon_keeper",
+      "yazneg",
+      "narzug",
+      "fimbul",
+      "ashrak"
     ],
     "qualityStandard": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
     "note": "Each image inspected against canonical skeleton and identity reference; approval pending."

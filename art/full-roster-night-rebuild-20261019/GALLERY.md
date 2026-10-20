@@ -1,6 +1,54 @@
-# 전체 재제작 검토 — 431종
+# 전체 재제작 검토 — 439종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 아슈라크 (ashrak)
+
+![아슈라크](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/ashrak.png?v=4705d75ac23ed78a411e98927acc1dafe56fa568)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/ashrak.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/ashrak.png?v=4705d75ac23ed78a411e98927acc1dafe56fa568)
+
+### 핌불 (fimbul)
+
+![핌불](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/fimbul.png?v=ec1649b73b0a58f15417b0afda748e9115f2ba15)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/fimbul.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/fimbul.png?v=ec1649b73b0a58f15417b0afda748e9115f2ba15)
+
+### 나르주그 (narzug)
+
+![나르주그](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/narzug.png?v=919432fd1789d4c015f6da6fa51ed31843d2cd58)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/narzug.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/narzug.png?v=919432fd1789d4c015f6da6fa51ed31843d2cd58)
+
+### 야즈네그 (yazneg)
+
+![야즈네그](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/yazneg.png?v=31cbb4491a7dfa4fed234c366a582308610bda42)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/yazneg.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/yazneg.png?v=31cbb4491a7dfa4fed234c366a582308610bda42)
+
+### 감옥지기 (dungeon_keeper)
+
+![감옥지기](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dungeon_keeper.png?v=f49376035648ca0c24f0e08573a0152fe21b9db0)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/dungeon_keeper.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dungeon_keeper.png?v=f49376035648ca0c24f0e08573a0152fe21b9db0)
+
+### 자그두쉬 (zagdush)
+
+![자그두쉬](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/zagdush.png?v=18cd04a6f66ff12a2cf7541ce653d793d3fc843b)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/zagdush.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/zagdush.png?v=18cd04a6f66ff12a2cf7541ce653d793d3fc843b)
+
+### 돌 굴두르 성주 (castellan)
+
+![돌 굴두르 성주](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/castellan.png?v=54902a2e67ac4c7e2889535f307b0d5053a7258a)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/castellan.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/castellan.png?v=54902a2e67ac4c7e2889535f307b0d5053a7258a)
+
+### 무즈구르 (muzgur)
+
+![무즈구르](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/muzgur.png?v=aeece6b98d04d2a5cfee18b48cbe5c751a710a07)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/muzgur.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/muzgur.png?v=aeece6b98d04d2a5cfee18b48cbe5c751a710a07)
 
 ### 망자 병사 (dead_soldier)
 
