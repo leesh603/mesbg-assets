@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T01:23:19.063Z",
+  "updatedAt": "2026-10-20T01:37:53.340Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 317,
-    "newlyGeneratedThisSession": 61,
-    "visuallyReviewedThisSession": 61,
+    "pending": 307,
+    "newlyGeneratedThisSession": 71,
+    "visuallyReviewedThisSession": 71,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 61,
-    "persistedReviewAssets": 193,
+    "generatedReviewAssets": 71,
+    "persistedReviewAssets": 203,
     "revisedAfterRejection": 10
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -1633,8 +1633,13 @@
       "faction": "lothlorien",
       "role": "hero",
       "original": "tokens/celeborn.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/celeborn.png",
+      "blobSHA": "fc7e5924b47967da71f38a5dc4a18d0173659b41",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "bilbo",
@@ -1726,8 +1731,13 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/feanor.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/feanor.png",
+      "blobSHA": "a265f0cc7ae508f5ae90832161683819acbee5b4",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "luthien",
@@ -1735,8 +1745,13 @@
       "faction": "doriath",
       "role": "hero",
       "original": "tokens/luthien.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/luthien.png",
+      "blobSHA": "7579481efaca2efca849d2e11e80537635d0db8e",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "beren",
@@ -1762,8 +1777,13 @@
       "faction": "doriath",
       "role": "hero",
       "original": "tokens/beleg.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/beleg.png",
+      "blobSHA": "1a574e6c977b93a084f1ddcf770a290f3b74303b",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "huan",
@@ -1771,8 +1791,13 @@
       "faction": "valinor",
       "role": "hero",
       "original": "tokens/huan.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/huan.png",
+      "blobSHA": "acd63541a0cad576658b42564fa475c1b522c621",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "glaurung",
@@ -1843,8 +1868,13 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/tauriel.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/tauriel.png",
+      "blobSHA": "767d2f1e388ecb8acd77857ecf4985bd21f6781f",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "bard",
@@ -1972,8 +2002,13 @@
       "faction": "rivendell",
       "role": "hero",
       "original": "tokens/elladan.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/elladan.png",
+      "blobSHA": "78d12a5db95c8dcb3b7d063c81c63414d42cbae7",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "elrohir",
@@ -1981,8 +2016,13 @@
       "faction": "rivendell",
       "role": "hero",
       "original": "tokens/elrohir.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/elrohir.png",
+      "blobSHA": "f33f21dec10f59ebb0b581fb89593c196fac90ac",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "grimbeorn",
@@ -2176,8 +2216,13 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/gil_galad.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/gil_galad.png",
+      "blobSHA": "6214c931959dfc0d3f12da1d4145bf1f37f95508",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "cirdan",
@@ -2185,8 +2230,13 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/cirdan.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/cirdan.png",
+      "blobSHA": "c08ca86d8fe1dde830ae73a01864f9e496653f79",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "arwen",
@@ -5344,12 +5394,12 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 193,
+    "count": 203,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
-      "elf": 15,
+      "elf": 25,
       "rohan": 46,
       "gondor": 59,
       "mordor": 73
