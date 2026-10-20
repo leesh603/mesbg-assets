@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T03:33:28.714Z",
+  "updatedAt": "2026-10-20T03:34:39.889Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -15,7 +15,7 @@
     "excludedTerrain": 77,
     "generatedReviewAssets": 212,
     "persistedReviewAssets": 344,
-    "revisedAfterRejection": 14
+    "revisedAfterRejection": 18
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
   "sources": [
@@ -1215,11 +1215,13 @@
       "source": "isengard",
       "path": "art/full-roster-night-rebuild-20261019/units/uruk_scout.png",
       "blobSHA": "68047f2b1ee3f80ff4d990a2f0d3946be2e07419",
-      "approval": "rejected",
+      "approval": "pending",
       "inGameVerified": false,
       "qualityDecision": "preserve_original",
       "qualityReason": "기존 후드·그늘진 얼굴·낮은 추격 자세가 얼굴을 드러낸 일반 보행형으로 바뀜.",
-      "preferredSource": "old"
+      "preferredSource": "old",
+      "revision": "quality-bowed-charge-004-20261020",
+      "qualityAuditFollowup": "revised_awaiting_recheck"
     },
     {
       "id": "uruk_berserker2",
@@ -1718,11 +1720,13 @@
       "source": "isengard",
       "path": "art/full-roster-night-rebuild-20261019/units/uruk_sapper.png",
       "blobSHA": "1d542ba894d4821f14b52f6c6e9811cf6ec5d790",
-      "approval": "hold",
+      "approval": "pending",
       "inGameVerified": false,
       "qualityDecision": "needs_revision",
       "qualityReason": "얼굴 정면 노출과 몸 기울임·체형 변화, 폭발물/횃불 파지와 무장 설계 재확인 필요.",
-      "preferredSource": "undecided"
+      "preferredSource": "undecided",
+      "revision": "quality-bowed-charge-004-20261020",
+      "qualityAuditFollowup": "revised_awaiting_recheck"
     },
     {
       "id": "uruk_scout_archer",
@@ -3332,11 +3336,13 @@
       "source": "isengard",
       "path": "art/full-roster-night-rebuild-20261019/units/ugluk.png",
       "blobSHA": "fe6f04ad07c1bc1d7e443c8953357f82c3bb3ebf",
-      "approval": "rejected",
+      "approval": "pending",
       "inGameVerified": false,
       "qualityDecision": "preserve_original",
       "qualityReason": "기존의 몸을 낮춘 공격 동세와 그늘진 얼굴이 얼굴을 드러낸 직립 보행형으로 바뀜.",
-      "preferredSource": "old"
+      "preferredSource": "old",
+      "revision": "quality-bowed-charge-004-20261020",
+      "qualityAuditFollowup": "revised_awaiting_recheck"
     },
     {
       "id": "mauhur",
@@ -3349,11 +3355,13 @@
       "source": "isengard",
       "path": "art/full-roster-night-rebuild-20261019/units/mauhur.png",
       "blobSHA": "0ff0b70b0877df2b3fb90a22da31803b51a4473d",
-      "approval": "rejected",
+      "approval": "pending",
       "inGameVerified": false,
       "qualityDecision": "preserve_original",
       "qualityReason": "기존의 몸을 낮춘 돌진과 숙인 머리가 얼굴을 드러낸 일반 보행 자세로 바뀜.",
-      "preferredSource": "old"
+      "preferredSource": "old",
+      "revision": "quality-bowed-charge-004-20261020",
+      "qualityAuditFollowup": "revised_awaiting_recheck"
     },
     {
       "id": "vrasku",
@@ -7151,10 +7159,10 @@
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
+      "isengard": 29,
       "dwarf": 36,
       "harad": 15,
       "maiar": 9,
-      "isengard": 29,
       "elf": 77,
       "mordor": 73,
       "rohan": 46,
@@ -7267,27 +7275,39 @@
       },
       "qualityAcceptedCount": 0,
       "report": "art/full-roster-night-rebuild-20261019/quality-audit-20261020/results.json"
+    },
+    "qualityAuditFollowup": {
+      "ids": [
+        "uruk_scout",
+        "mauhur",
+        "ugluk",
+        "uruk_sapper"
+      ],
+      "state": "revised_awaiting_recheck",
+      "report": "art/full-roster-night-rebuild-20261019/quality-audit-20261020/results.json",
+      "approval": "pending"
     }
   },
   "lastContinuation": {
-    "batch": "dwarf-banner-margin-fix-20261020",
-    "newIds": [
-      "dwarf_banner"
+    "batch": "quality-bowed-charge-004-20261020",
+    "revisedIds": [
+      "uruk_scout",
+      "mauhur",
+      "ugluk",
+      "uruk_sapper"
     ],
     "qualityStandard": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
     "note": "Each image inspected against canonical skeleton and identity reference; approval pending."
   },
   "lastCorrection": {
-    "at": "2026-10-20T02:20:00.187Z",
+    "at": "2026-10-20T03:34:39.889Z",
     "ids": [
-      "glorfindel_mounted",
-      "eorl_the_young_mounted",
-      "eorl_the_young",
-      "hera_mounted",
-      "elf_knight",
-      "eowyn_mounted"
+      "uruk_scout",
+      "mauhur",
+      "ugluk",
+      "uruk_sapper"
     ],
-    "purpose": "기마 대두/4등신, 정면 카메라 교정 및 숙인 고개 유지",
+    "purpose": "Restore bowed hidden face and low forward action; approval pending",
     "newCharacterCount": 0
   },
   "qualityHold": {

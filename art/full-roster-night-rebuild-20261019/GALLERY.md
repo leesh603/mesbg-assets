@@ -2,6 +2,30 @@
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
 
+### 우르크 폭파반 (uruk_sapper)
+
+![우르크 폭파반](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/uruk_sapper.png?v=1d542ba894d4821f14b52f6c6e9811cf6ec5d790)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/uruk_sapper.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/uruk_sapper.png?v=1d542ba894d4821f14b52f6c6e9811cf6ec5d790)
+
+### 우글룩 (ugluk)
+
+![우글룩](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/ugluk.png?v=fe6f04ad07c1bc1d7e443c8953357f82c3bb3ebf)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/ugluk.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/ugluk.png?v=fe6f04ad07c1bc1d7e443c8953357f82c3bb3ebf)
+
+### 마우후르 (mauhur)
+
+![마우후르](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/mauhur.png?v=0ff0b70b0877df2b3fb90a22da31803b51a4473d)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/mauhur.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/mauhur.png?v=0ff0b70b0877df2b3fb90a22da31803b51a4473d)
+
+### 우르크하이 스카웃 (uruk_scout)
+
+![우르크하이 스카웃](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/uruk_scout.png?v=68047f2b1ee3f80ff4d990a2f0d3946be2e07419)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/uruk_scout.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/uruk_scout.png?v=68047f2b1ee3f80ff4d990a2f0d3946be2e07419)
+
 ### 드워프 기수 (dwarf_banner)
 
 ![드워프 기수](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dwarf_banner.png?v=429eea8240e5ea699212d4bbd8b6cb62aea453e8)
@@ -656,41 +680,17 @@
 
 [기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/vrasku.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/vrasku.png?v=382e9de1fab8f71f8260b5c48fe5b541c1870015)
 
-### 마우후르 (mauhur)
-
-![마우후르](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/mauhur.png?v=0ff0b70b0877df2b3fb90a22da31803b51a4473d)
-
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/mauhur.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/mauhur.png?v=0ff0b70b0877df2b3fb90a22da31803b51a4473d)
-
-### 우글룩 (ugluk)
-
-![우글룩](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/ugluk.png?v=fe6f04ad07c1bc1d7e443c8953357f82c3bb3ebf)
-
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/ugluk.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/ugluk.png?v=fe6f04ad07c1bc1d7e443c8953357f82c3bb3ebf)
-
 ### 루르츠 (lurtz)
 
 ![루르츠](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/lurtz.png?v=01aeda06040947484f37d4e2598b26ee30a347fc)
 
 [기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/lurtz.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/lurtz.png?v=01aeda06040947484f37d4e2598b26ee30a347fc)
 
-### 우르크 폭파반 (uruk_sapper)
-
-![우르크 폭파반](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/uruk_sapper.png?v=1d542ba894d4821f14b52f6c6e9811cf6ec5d790)
-
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/uruk_sapper.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/uruk_sapper.png?v=1d542ba894d4821f14b52f6c6e9811cf6ec5d790)
-
 ### 우르크하이 광전사 (uruk_berserker2)
 
 ![우르크하이 광전사](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/uruk_berserker2.png?v=d5db4e5b99a56d6ad15e7caa71a72f37db3f3a33)
 
 [기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/uruk_berserker2.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/uruk_berserker2.png?v=d5db4e5b99a56d6ad15e7caa71a72f37db3f3a33)
-
-### 우르크하이 스카웃 (uruk_scout)
-
-![우르크하이 스카웃](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/uruk_scout.png?v=68047f2b1ee3f80ff4d990a2f0d3946be2e07419)
-
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/uruk_scout.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/uruk_scout.png?v=68047f2b1ee3f80ff4d990a2f0d3946be2e07419)
 
 ### 우르크하이 석궁 (uruk_crossbow)
 
