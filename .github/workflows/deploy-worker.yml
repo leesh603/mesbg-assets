@@ -1,0 +1,24 @@
+name: Deploy lwb-worker (save, ranking, online match API)
+on:
+  push:
+    branches: [main]
+    paths: ['lwb-worker/**', '.github/workflows/deploy-worker.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - id: token
+        run: echo "present=${{ secrets.CLOUDFLARE_API_TOKEN != '' }}" >> "$GITHUB_OUTPUT"
+      - name: Skip (no CLOUDFLARE_API_TOKEN secret)
+        if: steps.token.outputs.present != 'true'
+        run: echo "::warning::Add the CLOUDFLARE_API_TOKEN repository secret to deploy lwb-worker automatically."
+      - name: Deploy
+        if: steps.token.outputs.present == 'true'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          workingDirectory: lwb-worker
