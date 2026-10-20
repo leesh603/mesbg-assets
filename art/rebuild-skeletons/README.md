@@ -1,3 +1,7 @@
+## 2026-10-20 기마 기준 폐기
+
+**bases/human-mounted.png는 기수 비례 오류로 사용 중단합니다.** 이 이미지와 그 파생본을 새 기마 제작의 구조 참조 또는 승인 근거로 사용하지 않습니다. 아래 시험 제작 설명, measurements.json과 과거 프리뷰는 역사 기록입니다. 기마는 캐릭터별 원본 동세를 참고해 기수 전신과 탑승체의 골격·시점을 함께 재구성합니다. 현재 기준은 art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md, 재제작 84종은 해당 폴더의 corrections/mounted-proportion-rebuild-20261020/index.html을 확인합니다.
+
 # 표준 바디 + 신규 10유닛 시험 제작
 
 - 저장소: `leesh603/mesbg-assets`

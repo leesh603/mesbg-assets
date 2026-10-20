@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T05:14:54.872Z",
+  "updatedAt": "2026-10-20T05:18:57.614Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -44,15 +44,15 @@
     "batchSize": "5–10",
     "center": "몸체; 무기·장식 제외",
     "deployment": "승인 전 main 병합·배포 금지",
-    "proportionReference": "art/rebuild-skeletons/bases/human.png and human-mounted.png are immutable anatomy references; do not derive proportions from newly generated dressed characters.",
-    "proportionGate": "Judge generated output, not prompt text: compare anatomical skull-crown to chin, shoulder, pelvis, knee, ankle and sole positions with immutable original skeleton. Exclude hair/helmet/crest/beard/weapon. Human exactly FIVE heads; reject four or six-plus. Riders judged as human anatomy separately from horse. Preserve pixel style and elevated front camera.",
+    "proportionReference": "Foot anatomy reference human.png is retained for foot units only. human-mounted.png is DEPRECATED due to user-rejected proportions; rebuild each mounted pose as a coherent rider-and-mount anatomy, never copy an old or new dressed sprite as a universal body template.",
+    "proportionGate": "Judge actual output: human/elf rider has a five-head adult anatomy target separately from mount. Check head/helmet visual mass together with shoulders, arms, hands, pelvis, bent thighs, calves and boots, saddle and reins; do not fix by shrinking only the head. Preserve species-specific dwarf/orc proportions, elevated-front camera, bowed head and original combat action. Old human-mounted.png cannot be used as an approval reference.",
     "qualityContract": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
     "headPose": "전체적으로 기존처럼 고개를 살짝 숙여 턱과 시선은 앞쪽 아래; 정수리 노출. 턱 들기·정면 응시 금지.",
     "cameraGate": "Actual elevated-front reprojection of whole rider and horse; crown, shoulder tops, horse withers and saddle top visible. Do not substitute chin tuck or head-size-only edits for camera elevation.",
     "motionAndSilhouette": "기존 구도·동작·기승 자세·숙인 고개·고유 실루엣 보존. 비율을 이유로 직립 정면 자세로 획일화 금지. 기존보다 열화 시 채택하지 않는다."
   },
   "resume": {
-    "nextAction": "Candidate coverage is 510/510, not final completion. Continue outstanding quality rework and mounted proportion rebuild, and resolve source identity/role issues before user-approved integration. No merge or deployment has been performed.",
+    "nextAction": "Mounted proportion rebuild: 84/84 forms reconstructed and visually compared; user art review pending. Continue separately outstanding non-mounted quality work before any user-authorized integration. No main merge or deployment.",
     "nextIds": [],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
@@ -7098,7 +7098,7 @@
       "blobSHA": "654073ab4ccabe2f84237d63a1c91537de991569",
       "approval": "pending",
       "inGameVerified": false,
-      "proportionReference": "art/rebuild-skeletons/bases/human-mounted.png",
+      "proportionReference": "Deprecated old mounted template; replaced by individual whole-body rebuild",
       "reviewStandard": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
       "qualityDecision": "rebuild_review",
       "qualityReason": "잘못된 공통 기마 뼈대 사용 중단. 기존 동세를 참고해 기수·탑승체 전신을 개별 재제작함. 사용자 확인 대기.",
@@ -8891,7 +8891,14 @@
       "needs_revision": 75,
       "preserve_original": 122
     },
-    "qualityAcceptedCount": 0
+    "qualityAcceptedCount": 0,
+    "mountedRebuild": {
+      "generatedCount": 84,
+      "visualComparisonCount": 84,
+      "userApprovedCount": 0,
+      "gallery": "art/full-roster-night-rebuild-20261019/corrections/mounted-proportion-rebuild-20261020/index.html",
+      "originalAuditRemainsHistorical": true
+    }
   },
   "reviewIssues": {
     "watcher_karna": {
