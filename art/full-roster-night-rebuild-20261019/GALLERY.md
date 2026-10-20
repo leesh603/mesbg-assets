@@ -1,19 +1,12 @@
-## 전수 재점검
-
-
-278종을 기존·신규로 직접 비교했습니다. 기존 우세 122종, 재수정·확인 보류 75종, 뚜렷한 열화 미확인 후보 81종입니다. 후보는 품질 통과나 사용자 승인이 아닙니다. 최신 목록에서 추가된 미검수는 16종입니다.
-
-주요 회귀는 기마의 돌진·기울임이 일반 직립 자세로 바뀐 것, 특히 엘프의 숙인 고개가 정면 얼굴 노출로 바뀐 것, 일부 도보의 하체 압축, 고유 무장·로브·효과 실루엣 손실입니다. 디자인/무장 차이는 기존 이미지 매핑 오류 가능성과 구분해 보류했습니다.
-
-사루만·우르크 검방 2종·우르크 장창 PNG는 원격 바이트가 잘려 검증에 실패했습니다. 정상 생성 원본의 원래 blob SHA로 복구했습니다. 새로 그리지 않았습니다.
-
-이 검수는 원화 시각 비교입니다. 정량 뼈대 측정 및 게임 크기 검증을 완료했다고 주장하지 않습니다. 기존 우세·보류 시안은 다음 제작 기준으로 쓰지 않습니다. 기존 원화의 구도·동작·숙인 고개·고유 실루엣을 보존해야 합니다.
-
-main 병합과 게임 에셋 교체는 하지 않았습니다.
-
-# 전체 재제작 검토 — 294종
+# 전체 재제작 검토 — 295종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 간달프(백색) (gandalf_white)
+
+![간달프(백색)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gandalf_white.png?v=8d571f3feb8126c58263c4c8dcdc37c9ce0ac98a)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/gandalf_white.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gandalf_white.png?v=8d571f3feb8126c58263c4c8dcdc37c9ce0ac98a)
 
 ### 우르크 스카웃 궁수 (uruk_scout_archer)
 

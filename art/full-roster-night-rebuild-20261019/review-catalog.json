@@ -1,16 +1,31 @@
 {
-  "count": 294,
+  "count": 295,
   "groups": {
+    "maiar": 4,
     "isengard": 29,
-    "마이아": 3,
     "난쟁이": 7,
     "elf": 77,
     "mordor": 73,
     "rohan": 46,
     "gondor": 59
   },
-  "pending": 216,
+  "pending": 215,
   "units": [
+    {
+      "id": "gandalf_white",
+      "name": "간달프(백색)",
+      "group": "마이아",
+      "role": "hero",
+      "image": "art/full-roster-night-rebuild-20261019/units/gandalf_white.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/gandalf_white.png",
+      "old": "tokens/gandalf_white.png",
+      "status": "검토 대기",
+      "body": "인간형 5등신 · 하이앵글 프론트뷰",
+      "pose": "백색 로브 · 검과 흰 지팡이",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gandalf_white.png?v=8d571f3feb8126c58263c4c8dcdc37c9ce0ac98a",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gandalf_white.png?v=8d571f3feb8126c58263c4c8dcdc37c9ce0ac98a",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/gandalf_white.png"
+    },
     {
       "id": "uruk_scout_archer",
       "name": "우르크 스카웃 궁수",

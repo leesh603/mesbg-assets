@@ -1,0 +1,29 @@
+{
+  "batch": "maiar-021-white-staff-fixed",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "gandalf_white",
+      "mounted": false,
+      "pose": "백색 로브 · 검과 흰 지팡이",
+      "detail": "GANDALF THE WHITE, old man long flowing WHITE hair and WHITE long beard/moustache, BARE HEAD no hat/crown, white layered robes and white cape with palegray folds and silver round brooch, brown rope/leather waistbelt, palegray/brown wrapped boots. ViewerLEFT hand holds SILVER straight SWORD simple hilt angled low down/outward. ViewerRIGHT hand holds SLIM WHITE STAFF upright, top is carved interwoven white leaf/cage shape with NO crystal glow. Exactly2hands, elbows short and low near waist, staff whole tip/butt visible. Both feet planted level and apart, no long lunge. Beard not anatomical head, retain neutral5head bones under clothes.",
+      "prompt": "EDIT IMAGE2 only: repair the BENT WHITE STAFF SHAFT. Image1 is original neutral human5head skeleton/camera master, image3 is character/staff identity only. Preserve image2 body, fivehead bones, head/hair/beard, garments, feet, hands and sword unchanged. Replace the crooked white staff with ONE STRAIGHT rigid slim WHITE STAFF, preserving its interwoven carved white leaf/cage tip exactly. The straight shaft has one constant vertical centerline at x77% from the base of carved head around y18% down to staff butt at y86%. NO bend, zigzag, kinks or offset segments under the gripping hand, no taper-induced centerline change. Existing viewerRIGHT hand grips this same single staff at y43%, fingers wrap naturally, exactly2hands total. Staff remains outside robe silhouette with a clear dark stepped pixel outline. Keep high-angle front camera and existing crisp pixel density, no restyling. Whole tip and butt within clear transparent RGBA padding, no glow/base/shadow/text.",
+      "group": "마이아",
+      "groupKey": "maiar",
+      "bodyDescription": "인간형 5등신 · 하이앵글 프론트뷰",
+      "repairPath": "/workspace/scratch/b57ccc107719/generated_images/exec-99c4a63b-3ea7-491d-a79c-e18b461c3487.png",
+      "repairPrompt": "EDIT IMAGE2 only: repair the BENT WHITE STAFF SHAFT. Image1 is original neutral human5head skeleton/camera master, image3 is character/staff identity only. Preserve image2 body, fivehead bones, head/hair/beard, garments, feet, hands and sword unchanged. Replace the crooked white staff with ONE STRAIGHT rigid slim WHITE STAFF, preserving its interwoven carved white leaf/cage tip exactly. The straight shaft has one constant vertical centerline at x77% from the base of carved head around y18% down to staff butt at y86%. NO bend, zigzag, kinks or offset segments under the gripping hand, no taper-induced centerline change. Existing viewerRIGHT hand grips this same single staff at y43%, fingers wrap naturally, exactly2hands total. Staff remains outside robe silhouette with a clear dark stepped pixel outline. Keep high-angle front camera and existing crisp pixel density, no restyling. Whole tip and butt within clear transparent RGBA padding, no glow/base/shadow/text.",
+      "originalPrompt": "Dress IMAGE1 original NEUTRAL HUMAN skeleton as IMAGE2 character. IMAGE1 alone controls normal adult skull, torso/limb bone lengths and elevated front camera. EXACTLY FIVE anatomical heads crown-to-sole, one head crown-to-CHIN excluding HAIR, BEARD, HAT or crown. No4head bighead chibi, no6+head tall hero. Copy exact bone segment relationships, use old age/slenderness through face, width and posture only. Full robes cover same compact fivehead bones, never lengthen body or hide feet. If hat/staff needs space, zoom out whole figure and expand clear canvas padding; do NOT shrink body relative to head to fit hat. Image2 identity/equipment/palette only, ignore its proportions. New joint poses required while preserving bone LENGTHS. Elevated FRONT camera looking DOWN30deg, clear TOP planes of head/hat and both shoulders, foreshortened chest/face, chin/gaze angled down separately. Not eyelevel with only bowed head. Crisp discrete pixel clusters, stepped dark outlines, limited color ramps matching image1/new Gondor/Mordor, no smooth painting/3D. Entire figure/weapons inside transparent RGBA clear margin, torso centered independently of equipment. No floor/base/shadow/aura/glow/text. Replace neutral bald scalp with required HAIR/BEARD/HAT exactly as source. GANDALF THE WHITE, old man long flowing WHITE hair and WHITE long beard/moustache, BARE HEAD no hat/crown, white layered robes and white cape with palegray folds and silver round brooch, brown rope/leather waistbelt, palegray/brown wrapped boots. ViewerLEFT hand holds SILVER straight SWORD simple hilt angled low down/outward. ViewerRIGHT hand holds SLIM WHITE STAFF upright, top is carved interwoven white leaf/cage shape with NO crystal glow. Exactly2hands, elbows short and low near waist, staff whole tip/butt visible. Both feet planted level and apart, no long lunge. Beard not anatomical head, retain neutral5head bones under clothes.",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/human.png",
+        "staff": "Straight continuous rigid shaft confirmed; carved top retained",
+        "camera": "Elevated front with skull and shoulder upper planes visible",
+        "approval": "pending"
+      },
+      "blobSHA": "8d571f3feb8126c58263c4c8dcdc37c9ce0ac98a",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-60345cc1-471c-4d6b-9547-3575e32d37d7.png"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T03:07:10.947Z",
+  "updatedAt": "2026-10-20T03:09:55.100Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 216,
-    "newlyGeneratedThisSession": 162,
-    "visuallyReviewedThisSession": 167,
+    "pending": 215,
+    "newlyGeneratedThisSession": 163,
+    "visuallyReviewedThisSession": 168,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 162,
-    "persistedReviewAssets": 294,
+    "generatedReviewAssets": 163,
+    "persistedReviewAssets": 295,
     "revisedAfterRejection": 14
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -49,7 +49,7 @@
     "motionAndSilhouette": "기존 구도·동작·기승 자세·숙인 고개·고유 실루엣 보존. 비율을 이유로 직립 정면 자세로 획일화 금지. 기존보다 열화 시 채택하지 않는다."
   },
   "resume": {
-    "nextAction": "Process quality-audit-20261020/results.json first. Preserve original poses/silhouettes/lowered gaze. Reject preserve_original candidates and verify needs_revision mappings/anatomy before any acceptance. Later additions are unreviewed until compared. New Glorfindel/elf-knight alternatives remain unapproved in corrections/elf-rebuild-20261020/.",
+    "nextAction": "Continue pending roster with original species skeletons; inspect and save small batches to unified gallery.",
     "nextIds": [
       "cave_troll",
       "orc_shaman",
@@ -3409,8 +3409,13 @@
       "faction": "maiar",
       "role": "hero",
       "original": "tokens/gandalf_white.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "maiar",
+      "path": "art/full-roster-night-rebuild-20261019/units/gandalf_white.png",
+      "blobSHA": "8d571f3feb8126c58263c4c8dcdc37c9ce0ac98a",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "denethor",
@@ -6896,13 +6901,13 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 294,
+    "count": 295,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
+      "maiar": 4,
       "isengard": 29,
-      "마이아": 3,
       "난쟁이": 7,
       "elf": 77,
       "mordor": 73,
