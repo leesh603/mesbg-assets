@@ -17,7 +17,7 @@ from PIL import Image
 UPRIGHT = {'human', 'large-human', 'orc', 'dwarf', 'hobbit', 'goblin', 'troll', 'half-troll',
            'ent', 'balrog', 'giant', 'giant-humanoid', 'dark-lord'}
 MIN_SHIFT = 3  # world px; smaller offsets are not visible
-NEAR = .22     # boots lie within this fraction of the image width from the body centre; blades and shields further out are ignored
+WIDE = .3      # feet lie within this fraction of the image width from the body centre; blades and shields further out are ignored
 
 src = open('src/game.js', encoding='utf-8').read()
 profiles = json.loads(re.search(r'const UNIT_ART_PROFILES = (\{.*?\});', src).group(1))
@@ -32,39 +32,49 @@ for uid, r in sorted(profiles.items()):
     w, h = im.size
     alpha = im.split()[3].load()
     world_per_px = r[5] / (h * (r[2] - r[1]))
-    centres, weights = [], []
-    for y in range(max(0, int(h * (r[2] - .06))), min(h - 1, int(h * r[2])) + 1):
-        x = 0
+    def runs(y):
+        out, x = [], 0
         while x < w:
             if alpha[x, y] > 160:
                 start = x
                 while x < w and alpha[x, y] > 160:
                     x += 1
-                if x - start >= w * .05 and abs((start + x) / 2 / w - r[3]) <= NEAR:
-                    centres.append((start + x) / 2)
-                    weights.append(x - start)
+                if x - start >= w * .05:
+                    out.append(((start + x) / 2 / w, (x - start) / w))
             else:
                 x += 1
-    # Lowest row that still holds a boot-width run = where the soles really are.
+        return out
+    # Soles: the lowest row holding a boot-width run near the body (blades/shields further out are ignored).
     sole = None
     for y in range(h - 1, int(h * .5), -1):
-        x, hit = 0, False
-        while x < w and not hit:
-            if alpha[x, y] > 160:
-                start = x
-                while x < w and alpha[x, y] > 160:
-                    x += 1
-                hit = x - start >= w * .05 and abs((start + x) / 2 / w - r[3]) <= NEAR
-            else:
-                x += 1
-        if hit:
+        if any(abs(c - r[3]) <= WIDE for c, _ in runs(y)):
             sole = y
             break
     dy = round((sole / h - r[2]) * h * world_per_px, 1) if sole is not None else 0
+    # Stance centre: in the band just above the soles, take the boot run closest to the body centre on
+    # each side and use the midpoint between the two feet (a single run = feet together).
     dx = 0
-    if weights:
-        feet = sum(c * k for c, k in zip(centres, weights)) / sum(weights) / w
-        dx = round((feet - r[3]) * w * world_per_px, 1)
+    if sole is not None:
+        left, right = [], []
+        for y in range(max(0, sole - int(h * .06)), sole + 1):
+            for c, k in runs(y):
+                if abs(c - r[3]) > WIDE:
+                    continue
+                (left if c < r[3] else right).append((abs(c - r[3]), c, k))
+        # Use the median foot position per side to resist single noisy rows.
+        def foot(side):
+            if not side:
+                return None
+            near = sorted(side)[:max(1, len(side) // 2)]
+            cs = sorted(c for _, c, _ in near)
+            return cs[len(cs) // 2]
+        l, rr = foot(left), foot(right)
+        if l is not None and rr is not None:
+            centre = (l + rr) / 2
+        else:
+            centre = l if l is not None else rr
+        if centre is not None:
+            dx = round((centre - r[3]) * w * world_per_px, 1)
     dx = dx if abs(dx) >= MIN_SHIFT else 0
     dy = dy if abs(dy) >= MIN_SHIFT else 0
     if dx or dy:
