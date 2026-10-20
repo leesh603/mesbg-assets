@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T04:25:10.702Z",
+  "updatedAt": "2026-10-20T04:25:50.650Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 42,
-    "newlyGeneratedThisSession": 336,
-    "visuallyReviewedThisSession": 341,
+    "pending": 34,
+    "newlyGeneratedThisSession": 344,
+    "visuallyReviewedThisSession": 349,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 336,
-    "persistedReviewAssets": 468,
+    "generatedReviewAssets": 344,
+    "persistedReviewAssets": 476,
     "revisedAfterRejection": 18
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -53,9 +53,9 @@
     "nextIds": [
       "bard",
       "azog",
-      "azog_foot",
-      "necromancer",
-      "hunter_orc"
+      "corsair_umbra",
+      "buhrdur",
+      "stone_troll"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
@@ -2771,8 +2771,13 @@
       "faction": "gundabad",
       "role": "hero",
       "original": "tokens/azog_foot.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "gundabad",
+      "path": "art/full-roster-night-rebuild-20261019/units/azog_foot.png",
+      "blobSHA": "261528f2de296e1332fcb49ec47c18e3feeb0795",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "necromancer",
@@ -2780,8 +2785,13 @@
       "faction": "dol_guldur",
       "role": "hero",
       "original": "tokens/necromancer.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dol_guldur",
+      "path": "art/full-roster-night-rebuild-20261019/units/necromancer.png",
+      "blobSHA": "1dfb4b365ac2a8730f6a072535c7b1cc34f4fc1f",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "hunter_orc",
@@ -2789,8 +2799,13 @@
       "faction": "gundabad",
       "role": "infantry",
       "original": "tokens/hunter_orc.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "gundabad",
+      "path": "art/full-roster-night-rebuild-20261019/units/hunter_orc.png",
+      "blobSHA": "a27fa36cfd136ec054f7198cbbe65654660fe175",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "gundabad_orc",
@@ -2798,8 +2813,13 @@
       "faction": "gundabad",
       "role": "infantry",
       "original": "tokens/gundabad_orc.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "gundabad",
+      "path": "art/full-roster-night-rebuild-20261019/units/gundabad_orc.png",
+      "blobSHA": "bf20eb39e47cd06356afefeff0ade731d00cbb89",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "goblin_mercenary",
@@ -2885,8 +2905,13 @@
       "faction": "beorning",
       "role": "hero",
       "original": "tokens/grimbeorn.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "beorning",
+      "path": "art/full-roster-night-rebuild-20261019/units/grimbeorn.png",
+      "blobSHA": "c38f5c4f7341bf4d37215606dee7e2580dba54d0",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "ghan_buri_ghan",
@@ -3148,8 +3173,13 @@
       "faction": "moria",
       "role": "beast",
       "original": "tokens/gollum.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "moria",
+      "path": "art/full-roster-night-rebuild-20261019/units/gollum.png",
+      "blobSHA": "a6d2a98f2e9f6e2633355de7dcaa80542717f965",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "gil_galad",
@@ -3457,8 +3487,13 @@
       "faction": "moria",
       "role": "monster",
       "original": "tokens/cave_drake.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "moria",
+      "path": "art/full-roster-night-rebuild-20261019/units/cave_drake.png",
+      "blobSHA": "68ba0b177beea4f0e44ebeaef9704cd9b5b39961",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "bat_swarm",
@@ -3466,8 +3501,13 @@
       "faction": "dol_guldur",
       "role": "monster",
       "original": "tokens/bat_swarm.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dol_guldur",
+      "path": "art/full-roster-night-rebuild-20261019/units/bat_swarm.png",
+      "blobSHA": "d41ccabaab90c58252b5a0c7e2e514305e32a7df",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "muzgur",
@@ -7774,24 +7814,24 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 468,
+    "count": 476,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
+      "돌 굴두르": 6,
+      "moria": 19,
+      "베오른 일족": 3,
+      "군다바드": 9,
       "앙그반드": 8,
       "독수리": 1,
       "arnor": 14,
       "men": 11,
       "앙마르": 3,
-      "돌 굴두르": 4,
-      "moria": 17,
       "에레보르": 1,
       "엔트": 1,
       "numenor": 6,
-      "군다바드": 6,
       "망자": 3,
-      "베오른 일족": 2,
       "dunland": 10,
       "이스터링·칸드": 15,
       "shire": 14,
@@ -7807,7 +7847,7 @@
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,
-    "sourceValidation": "468 unique IDs; static card count and asset blob SHAs verified"
+    "sourceValidation": "476 unique IDs; static card count and asset blob SHAs verified"
   },
   "revisionRequests": {
     "witchking": {
@@ -7943,13 +7983,16 @@
     }
   },
   "lastContinuation": {
-    "batch": "continuation-beasts-20261020-1324",
+    "batch": "continuation-orcs-beasts-20261020-1330",
     "newIds": [
-      "great_eagle",
-      "melkor",
-      "draugluin",
-      "thuringwethil",
-      "boldog"
+      "azog_foot",
+      "necromancer",
+      "hunter_orc",
+      "gundabad_orc",
+      "grimbeorn",
+      "gollum",
+      "cave_drake",
+      "bat_swarm"
     ],
     "qualityStandard": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
     "note": "Each image inspected against canonical skeleton and identity reference; approval pending."

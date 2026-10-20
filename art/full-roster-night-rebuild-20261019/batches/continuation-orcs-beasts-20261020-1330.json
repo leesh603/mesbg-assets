@@ -1,0 +1,299 @@
+{
+  "batch": "continuation-orcs-beasts-20261020-1330",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "azog_foot",
+      "name": "아조그(도보)",
+      "faction": "gundabad",
+      "role": "hero",
+      "original": "tokens/azog_foot.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "군다바드",
+      "groupKey": "gundabad",
+      "pose": "원본 고유 무장·기울임·동작 유지",
+      "bodyDescription": "오크 표준 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/azog_foot.png",
+        "/workspace/scratch/bb0324dc7a4d/references/orc.png"
+      ],
+      "prompt": "Rebuild ONE complete production transparent PIXEL game token. INPUT1 original character controls EXACT costume/hair/helmet/beard/palette/weapons, elevated FRONT camera, deeply BOWED hidden face and distinct action silhouette; preserve those identity details. INPUT2 neutral ORC species skeleton controls EXACT FIVE anatomical crown-to-chin heads for crown-to-sole body, ordinary adult skull and shoulder/pelvis/knee/ankle bone lengths, crisp pixel density/stepped dark outlines/short restrained shade ramps. Redress and rotate original neutral bones into INPUT1 action, NEVER lengthen to6–8heads, shrink to4heads or inflate helmet/skull. Slim/muscular/fat changes WIDTH only. Elevated front camera down40–45degrees with crown and both shoulder TOPS obvious, torso/face foreshortened. Head firmly tucked down, eyes covered by hair/helmet/hood/brow; NO frontal facial portrait/eye contact. Retain original body's forward lean or combat action. Do not default to template's walking pose: grounded/braced feet or original lunging as equipment/action warrants, varied lead foot, uncrossed coherent limbs. Complete exact original weapons with logical handgrips; no weapons borrowed from INPUT2. Full silhouette and ALL weapon/banner/antler tips inside INNER80percent canvas. Body center ignores equipment. Transparent background, no base/floor/shadow/scenery/text/watermark/extra figures. Character identity: 아조그(도보) (azog_foot). EXACT original loadout/palette/materials/action from INPUT1. Use ORIGINAL ORC bone proportions exactly; preserve original larger muscle WIDTH for Bolg/Azog and exact claws/prosthetic weapon. ",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-a5b06fc1-994d-4988-ab44-5a9ef5f8e099.png",
+      "expectedBlobSHA": "261528f2de296e1332fcb49ec47c18e3feeb0795",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          50,
+          14,
+          1183,
+          1288
+        ]
+      },
+      "blobSHA": "261528f2de296e1332fcb49ec47c18e3feeb0795",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "necromancer",
+      "name": "네크로맨서",
+      "faction": "dol_guldur",
+      "role": "hero",
+      "original": "tokens/necromancer.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "돌 굴두르",
+      "groupKey": "dol_guldur",
+      "pose": "원본 고유 무장·기울임·동작 유지",
+      "bodyDescription": "인간형 5등신 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/necromancer.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human.png"
+      ],
+      "prompt": "Rebuild ONE complete production transparent PIXEL game token. INPUT1 original character controls EXACT costume/hair/helmet/beard/palette/weapons, elevated FRONT camera, deeply BOWED hidden face and distinct action silhouette; preserve those identity details. INPUT2 neutral HUMAN skeleton controls EXACT FIVE anatomical crown-to-chin heads for crown-to-sole body, ordinary adult skull and shoulder/pelvis/knee/ankle bone lengths, crisp pixel density/stepped dark outlines/short restrained shade ramps. Redress and rotate original neutral bones into INPUT1 action, NEVER lengthen to6–8heads, shrink to4heads or inflate helmet/skull. Slim/muscular/fat changes WIDTH only. Elevated front camera down40–45degrees with crown and both shoulder TOPS obvious, torso/face foreshortened. Head firmly tucked down, eyes covered by hair/helmet/hood/brow; NO frontal facial portrait/eye contact. Retain original body's forward lean or combat action. Do not default to template's walking pose: grounded/braced feet or original lunging as equipment/action warrants, varied lead foot, uncrossed coherent limbs. Complete exact original weapons with logical handgrips; no weapons borrowed from INPUT2. Full silhouette and ALL weapon/banner/antler tips inside INNER80percent canvas. Body center ignores equipment. Transparent background, no base/floor/shadow/scenery/text/watermark/extra figures. Character identity: 네크로맨서 (necromancer). EXACT original loadout/palette/materials/action from INPUT1. Five anatomical heads crown-to-sole, helmet/crown not skull. Face fully hooded, exact original dark armored/robed silhouette and original staff/sword, no invented gear. ",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-b51faa10-60ae-47a5-8c35-90bde16c98f8.png",
+      "expectedBlobSHA": "1dfb4b365ac2a8730f6a072535c7b1cc34f4fc1f",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          93,
+          43,
+          1115,
+          1273
+        ]
+      },
+      "blobSHA": "1dfb4b365ac2a8730f6a072535c7b1cc34f4fc1f",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "hunter_orc",
+      "name": "헌터 오크",
+      "faction": "gundabad",
+      "role": "infantry",
+      "original": "tokens/hunter_orc.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "군다바드",
+      "groupKey": "gundabad",
+      "pose": "원본 고유 무장·기울임·동작 유지",
+      "bodyDescription": "오크 표준 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/hunter_orc.png",
+        "/workspace/scratch/bb0324dc7a4d/references/orc.png"
+      ],
+      "prompt": "Rebuild ONE complete production transparent PIXEL game token. INPUT1 original character controls EXACT costume/hair/helmet/beard/palette/weapons, elevated FRONT camera, deeply BOWED hidden face and distinct action silhouette; preserve those identity details. INPUT2 neutral ORC species skeleton controls EXACT FIVE anatomical crown-to-chin heads for crown-to-sole body, ordinary adult skull and shoulder/pelvis/knee/ankle bone lengths, crisp pixel density/stepped dark outlines/short restrained shade ramps. Redress and rotate original neutral bones into INPUT1 action, NEVER lengthen to6–8heads, shrink to4heads or inflate helmet/skull. Slim/muscular/fat changes WIDTH only. Elevated front camera down40–45degrees with crown and both shoulder TOPS obvious, torso/face foreshortened. Head firmly tucked down, eyes covered by hair/helmet/hood/brow; NO frontal facial portrait/eye contact. Retain original body's forward lean or combat action. Do not default to template's walking pose: grounded/braced feet or original lunging as equipment/action warrants, varied lead foot, uncrossed coherent limbs. Complete exact original weapons with logical handgrips; no weapons borrowed from INPUT2. Full silhouette and ALL weapon/banner/antler tips inside INNER80percent canvas. Body center ignores equipment. Transparent background, no base/floor/shadow/scenery/text/watermark/extra figures. Character identity: 헌터 오크 (hunter_orc). EXACT original loadout/palette/materials/action from INPUT1. Use ORIGINAL ORC bone proportions exactly; preserve original larger muscle WIDTH for Bolg/Azog and exact claws/prosthetic weapon. ",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-2b70f694-2b3c-4181-9077-b248ca06e153.png",
+      "expectedBlobSHA": "a27fa36cfd136ec054f7198cbbe65654660fe175",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1247,
+          1261
+        ],
+        "bounds": [
+          234,
+          27,
+          1059,
+          1230
+        ]
+      },
+      "blobSHA": "a27fa36cfd136ec054f7198cbbe65654660fe175",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "gundabad_orc",
+      "name": "군다바드 오크",
+      "faction": "gundabad",
+      "role": "infantry",
+      "original": "tokens/gundabad_orc.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "군다바드",
+      "groupKey": "gundabad",
+      "pose": "원본 고유 무장·기울임·동작 유지",
+      "bodyDescription": "오크 표준 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/gundabad_orc.png",
+        "/workspace/scratch/bb0324dc7a4d/references/orc.png"
+      ],
+      "prompt": "Rebuild ONE complete production transparent PIXEL game token. INPUT1 original character controls EXACT costume/hair/helmet/beard/palette/weapons, elevated FRONT camera, deeply BOWED hidden face and distinct action silhouette; preserve those identity details. INPUT2 neutral ORC species skeleton controls EXACT FIVE anatomical crown-to-chin heads for crown-to-sole body, ordinary adult skull and shoulder/pelvis/knee/ankle bone lengths, crisp pixel density/stepped dark outlines/short restrained shade ramps. Redress and rotate original neutral bones into INPUT1 action, NEVER lengthen to6–8heads, shrink to4heads or inflate helmet/skull. Slim/muscular/fat changes WIDTH only. Elevated front camera down40–45degrees with crown and both shoulder TOPS obvious, torso/face foreshortened. Head firmly tucked down, eyes covered by hair/helmet/hood/brow; NO frontal facial portrait/eye contact. Retain original body's forward lean or combat action. Do not default to template's walking pose: grounded/braced feet or original lunging as equipment/action warrants, varied lead foot, uncrossed coherent limbs. Complete exact original weapons with logical handgrips; no weapons borrowed from INPUT2. Full silhouette and ALL weapon/banner/antler tips inside INNER80percent canvas. Body center ignores equipment. Transparent background, no base/floor/shadow/scenery/text/watermark/extra figures. Character identity: 군다바드 오크 (gundabad_orc). EXACT original loadout/palette/materials/action from INPUT1. Use ORIGINAL ORC bone proportions exactly; preserve original larger muscle WIDTH for Bolg/Azog and exact claws/prosthetic weapon. ",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-d3b78678-814f-47d7-b42e-3dfe28b11b86.png",
+      "expectedBlobSHA": "bf20eb39e47cd06356afefeff0ade731d00cbb89",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          147,
+          95,
+          1115,
+          1179
+        ]
+      },
+      "blobSHA": "bf20eb39e47cd06356afefeff0ade731d00cbb89",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "grimbeorn",
+      "name": "그림베오른",
+      "faction": "beorning",
+      "role": "hero",
+      "original": "tokens/grimbeorn.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "베오른 일족",
+      "groupKey": "beorning",
+      "pose": "원본 고유 무장·기울임·동작 유지",
+      "bodyDescription": "인간형 5등신 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/grimbeorn.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/large-human.png"
+      ],
+      "prompt": "Rebuild ONE complete production transparent PIXEL game token. INPUT1 original character controls EXACT costume/hair/helmet/beard/palette/weapons, elevated FRONT camera, deeply BOWED hidden face and distinct action silhouette; preserve those identity details. INPUT2 neutral HUMAN skeleton controls EXACT FIVE anatomical crown-to-chin heads for crown-to-sole body, ordinary adult skull and shoulder/pelvis/knee/ankle bone lengths, crisp pixel density/stepped dark outlines/short restrained shade ramps. Redress and rotate original neutral bones into INPUT1 action, NEVER lengthen to6–8heads, shrink to4heads or inflate helmet/skull. Slim/muscular/fat changes WIDTH only. Elevated front camera down40–45degrees with crown and both shoulder TOPS obvious, torso/face foreshortened. Head firmly tucked down, eyes covered by hair/helmet/hood/brow; NO frontal facial portrait/eye contact. Retain original body's forward lean or combat action. Do not default to template's walking pose: grounded/braced feet or original lunging as equipment/action warrants, varied lead foot, uncrossed coherent limbs. Complete exact original weapons with logical handgrips; no weapons borrowed from INPUT2. Full silhouette and ALL weapon/banner/antler tips inside INNER80percent canvas. Body center ignores equipment. Transparent background, no base/floor/shadow/scenery/text/watermark/extra figures. Character identity: 그림베오른 (grimbeorn). EXACT original loadout/palette/materials/action from INPUT1. Five anatomical heads crown-to-sole, helmet/crown not skull. ",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-a042065d-dc1a-4d84-a9b4-5af54ed2ddd0.png",
+      "expectedBlobSHA": "c38f5c4f7341bf4d37215606dee7e2580dba54d0",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          258,
+          139,
+          968,
+          1156
+        ]
+      },
+      "blobSHA": "c38f5c4f7341bf4d37215606dee7e2580dba54d0",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "gollum",
+      "name": "골룸",
+      "faction": "moria",
+      "role": "beast",
+      "original": "tokens/gollum.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "모리아",
+      "groupKey": "moria",
+      "bodyDescription": "원본 종족 고유 골격 · 하이앵글 프론트뷰",
+      "pose": "원본 종족 고유 행동·실루엣 유지",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/gollum.png"
+      ],
+      "prompt": "Rebuild production PIXEL GAME TOKEN from the single attached ORIGINAL source. Source controls exact identity/species/anatomy/equipment/colors/action. This is a MONSTER/ANIMAL, never add a soldier, rider, human template or extra actor. Match established Gondor/Mordor crisp stepped dark outlines, deliberate solid pixel clusters, short restrained color ramps and game-token detail density; no smooth painterly blur or photorealism. Keep original distinctive body tilt/action while rotating to HIGH-ANGLE FRONT camera DOWN45–50degrees, NOT eye-level frontal portrait, NOT side profile or rear view. Entire exact silhouette including every wing, leg, tail, root, tentacle and weapon tip inside INNER80percent of canvas, generous transparent margins, body independently centered. Transparent background, no base/floor/cast shadow/scenery/text/UI/watermark. Identity: 골룸 (gollum). ONE Gollum only. Preserve original unique emaciated hunched crouching anatomy, bald small bowed skull, huge knuckles and long thin limbs, ragged brown loincloth, both hands forward on invisible ground but no actual floor. High FRONT/down45degrees, crown dominates face, eyes mostly under brow. Do NOT use normal adult human5head/dwarf/chibi bones. Exact original original silhouette.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-2b375aae-fe52-436f-a56e-9bc435b6a4a9.png",
+      "expectedBlobSHA": "a6d2a98f2e9f6e2633355de7dcaa80542717f965",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bounds": [
+          325,
+          170,
+          979,
+          1125
+        ]
+      },
+      "blobSHA": "a6d2a98f2e9f6e2633355de7dcaa80542717f965",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "cave_drake",
+      "name": "동굴 드레이크",
+      "faction": "moria",
+      "role": "monster",
+      "original": "tokens/cave_drake.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "모리아",
+      "groupKey": "moria",
+      "bodyDescription": "원본 종족 고유 골격 · 하이앵글 프론트뷰",
+      "pose": "원본 종족 고유 행동·실루엣 유지",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/cave_drake.png"
+      ],
+      "prompt": "Rebuild production PIXEL GAME TOKEN from the single attached ORIGINAL source. Source controls exact identity/species/anatomy/equipment/colors/action. This is a MONSTER/ANIMAL, never add a soldier, rider, human template or extra actor. Match established Gondor/Mordor crisp stepped dark outlines, deliberate solid pixel clusters, short restrained color ramps and game-token detail density; no smooth painterly blur or photorealism. Keep original distinctive body tilt/action while rotating to HIGH-ANGLE FRONT camera DOWN45–50degrees, NOT eye-level frontal portrait, NOT side profile or rear view. Entire exact silhouette including every wing, leg, tail, root, tentacle and weapon tip inside INNER80percent of canvas, generous transparent margins, body independently centered. Transparent background, no base/floor/cast shadow/scenery/text/UI/watermark. Identity: 동굴 드레이크 (cave_drake). ONE exact original DRAGON species, original number of wings/legs, scale color, horns, spines and complete long tail. HIGH-angle FRONT45deg so head points toward LOWER CENTER and spine/body/tail recede toward TOP, visible crown and back/wing top planes; NOT side profile. Preserve original coiled/striking silhouette but rotate to front. NO invented wings on wingless dragons (Glaurung/CaveDrake/Scatha), no missing wings on Smaug/Ancalagon. All appendages inside wide canvas.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-289c6226-1f1d-4e05-bce1-7d01ad83380b.png",
+      "expectedBlobSHA": "68ba0b177beea4f0e44ebeaef9704cd9b5b39961",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bounds": [
+          102,
+          48,
+          1215,
+          1217
+        ]
+      },
+      "blobSHA": "68ba0b177beea4f0e44ebeaef9704cd9b5b39961",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "bat_swarm",
+      "name": "박쥐 떼",
+      "faction": "dol_guldur",
+      "role": "monster",
+      "original": "tokens/bat_swarm.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "돌 굴두르",
+      "groupKey": "dol_guldur",
+      "bodyDescription": "원본 종족 고유 골격 · 하이앵글 프론트뷰",
+      "pose": "원본 종족 고유 행동·실루엣 유지",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/bat_swarm.png"
+      ],
+      "prompt": "Rebuild production PIXEL GAME TOKEN from the single attached ORIGINAL source. Source controls exact identity/species/anatomy/equipment/colors/action. This is a MONSTER/ANIMAL, never add a soldier, rider, human template or extra actor. Match established Gondor/Mordor crisp stepped dark outlines, deliberate solid pixel clusters, short restrained color ramps and game-token detail density; no smooth painterly blur or photorealism. Keep original distinctive body tilt/action while rotating to HIGH-ANGLE FRONT camera DOWN45–50degrees, NOT eye-level frontal portrait, NOT side profile or rear view. Entire exact silhouette including every wing, leg, tail, root, tentacle and weapon tip inside INNER80percent of canvas, generous transparent margins, body independently centered. Transparent background, no base/floor/cast shadow/scenery/text/UI/watermark. Identity: 박쥐 떼 (bat_swarm). ONLY original cluster of multiple distinct BATS, same exact number visible in source; each bat has one small bowed head, one body, TWO membranous wings and TWO tiny feet, all coherent and separated enough to read. All oriented flying toward viewer from upper-rear to lower-front, camera down50deg, crowns and top wing planes visible. Keep original cluster silhouette, no human, no bird feathers, no circular background.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-82a6c6c3-1382-41ec-9b47-bd1e98b56bf8.png",
+      "expectedBlobSHA": "d41ccabaab90c58252b5a0c7e2e514305e32a7df",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1312,
+          1199
+        ],
+        "bounds": [
+          49,
+          27,
+          1261,
+          1176
+        ]
+      },
+      "blobSHA": "d41ccabaab90c58252b5a0c7e2e514305e32a7df",
+      "approval": "pending",
+      "inGameVerified": false
+    }
+  ]
+}

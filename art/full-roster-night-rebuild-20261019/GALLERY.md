@@ -1,6 +1,54 @@
-# 전체 재제작 검토 — 468종
+# 전체 재제작 검토 — 476종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 박쥐 떼 (bat_swarm)
+
+![박쥐 떼](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/bat_swarm.png?v=d41ccabaab90c58252b5a0c7e2e514305e32a7df)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/bat_swarm.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/bat_swarm.png?v=d41ccabaab90c58252b5a0c7e2e514305e32a7df)
+
+### 동굴 드레이크 (cave_drake)
+
+![동굴 드레이크](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/cave_drake.png?v=68ba0b177beea4f0e44ebeaef9704cd9b5b39961)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/cave_drake.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/cave_drake.png?v=68ba0b177beea4f0e44ebeaef9704cd9b5b39961)
+
+### 골룸 (gollum)
+
+![골룸](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gollum.png?v=a6d2a98f2e9f6e2633355de7dcaa80542717f965)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/gollum.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gollum.png?v=a6d2a98f2e9f6e2633355de7dcaa80542717f965)
+
+### 그림베오른 (grimbeorn)
+
+![그림베오른](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/grimbeorn.png?v=c38f5c4f7341bf4d37215606dee7e2580dba54d0)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/grimbeorn.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/grimbeorn.png?v=c38f5c4f7341bf4d37215606dee7e2580dba54d0)
+
+### 군다바드 오크 (gundabad_orc)
+
+![군다바드 오크](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gundabad_orc.png?v=bf20eb39e47cd06356afefeff0ade731d00cbb89)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/gundabad_orc.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gundabad_orc.png?v=bf20eb39e47cd06356afefeff0ade731d00cbb89)
+
+### 헌터 오크 (hunter_orc)
+
+![헌터 오크](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/hunter_orc.png?v=a27fa36cfd136ec054f7198cbbe65654660fe175)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/hunter_orc.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/hunter_orc.png?v=a27fa36cfd136ec054f7198cbbe65654660fe175)
+
+### 네크로맨서 (necromancer)
+
+![네크로맨서](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/necromancer.png?v=1dfb4b365ac2a8730f6a072535c7b1cc34f4fc1f)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/necromancer.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/necromancer.png?v=1dfb4b365ac2a8730f6a072535c7b1cc34f4fc1f)
+
+### 아조그(도보) (azog_foot)
+
+![아조그(도보)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/azog_foot.png?v=261528f2de296e1332fcb49ec47c18e3feeb0795)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/azog_foot.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/azog_foot.png?v=261528f2de296e1332fcb49ec47c18e3feeb0795)
 
 ### 볼독 (boldog)
 
