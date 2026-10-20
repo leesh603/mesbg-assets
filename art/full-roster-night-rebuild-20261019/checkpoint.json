@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T03:39:59.961Z",
+  "updatedAt": "2026-10-20T03:40:19.477Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 161,
-    "newlyGeneratedThisSession": 217,
-    "visuallyReviewedThisSession": 222,
+    "pending": 160,
+    "newlyGeneratedThisSession": 218,
+    "visuallyReviewedThisSession": 223,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 217,
-    "persistedReviewAssets": 349,
+    "generatedReviewAssets": 218,
+    "persistedReviewAssets": 350,
     "revisedAfterRejection": 18
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -1751,8 +1751,13 @@
       "faction": "isengard",
       "role": "support",
       "original": "tokens/crebain_swarm.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "isengard",
+      "path": "art/full-roster-night-rebuild-20261019/units/crebain_swarm.png",
+      "blobSHA": "125348a36d2bcfb04f55785ee1829aeef009f3a7",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "hobbit_shirriff",
@@ -7179,14 +7184,14 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 349,
+    "count": 350,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
+      "isengard": 30,
       "harad": 20,
-      "isengard": 29,
-      "난쟁이": 36,
+      "dwarf": 36,
       "maiar": 9,
       "elf": 77,
       "mordor": 73,
@@ -7195,7 +7200,7 @@
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,
-    "sourceValidation": "344 unique IDs; static card count and asset blob SHAs verified"
+    "sourceValidation": "350 unique IDs; static card count and asset blob SHAs verified"
   },
   "revisionRequests": {
     "witchking": {
@@ -7322,12 +7327,9 @@
     }
   },
   "lastContinuation": {
-    "batch": "quality-bowed-charge-004-20261020",
-    "revisedIds": [
-      "uruk_scout",
-      "mauhur",
-      "ugluk",
-      "uruk_sapper"
+    "batch": "crebain-forward-flock-20261020",
+    "newIds": [
+      "crebain_swarm"
     ],
     "qualityStandard": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
     "note": "Each image inspected against canonical skeleton and identity reference; approval pending."

@@ -1,17 +1,32 @@
 {
-  "count": 349,
+  "count": 350,
   "groups": {
+    "isengard": 30,
     "harad": 20,
-    "isengard": 29,
-    "난쟁이": 36,
+    "dwarf": 36,
     "maiar": 9,
     "elf": 77,
     "mordor": 73,
     "rohan": 46,
     "gondor": 59
   },
-  "pending": 161,
+  "pending": 160,
   "units": [
+    {
+      "id": "crebain_swarm",
+      "name": "크레반 까마귀 떼",
+      "group": "아이센가드",
+      "role": "support",
+      "image": "art/full-roster-night-rebuild-20261019/units/crebain_swarm.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/crebain_swarm.png",
+      "old": "tokens/crebain_swarm.png",
+      "status": "검토 대기",
+      "body": "까마귀 군집 · 하이앵글 프론트뷰",
+      "pose": "정면으로 날아오는 고각 까마귀 여섯 마리",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/crebain_swarm.png?v=125348a36d2bcfb04f55785ee1829aeef009f3a7",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/crebain_swarm.png?v=125348a36d2bcfb04f55785ee1829aeef009f3a7",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/crebain_swarm.png"
+    },
     {
       "id": "camel_rider",
       "name": "낙타 기병",

@@ -1,0 +1,21 @@
+{
+  "batch": "crebain-forward-flock-20261020",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "crebain_swarm",
+      "group": "아이센가드",
+      "groupKey": "isengard",
+      "pose": "정면으로 날아오는 고각 까마귀 여섯 마리",
+      "bodyDescription": "까마귀 군집 · 하이앵글 프론트뷰",
+      "prompt": "ONE sprite containing EXACTLY SIX CROWS ONLY, transparent RGBA. Input image supplies charcoal feather PIXEL STYLE only. Completely REDRAW the body projection of EVERY crow: all six are FLYING TOWARD VIEWER / toward BOTTOM edge of canvas, viewed from ABOVE and IN FRONT at50degree downward angle. For EACH crow: its head/beak is at the LOWER CENTER of its body, its tail extends toward TOP of canvas, its LEFT wing spreads toward LEFT and RIGHT wing spreads toward RIGHT. Beaks point DOWN toward bottom canvas, NEVER sideways left/right. Backs, crown tops and wing tops visible. Different wingbeat poses, all share same forward heading, full foreshortened bodies. Exactly 6 distinct heads, 6 tails and 12 complete wings. Clear transparent gaps separating birds. Deep charcoal gray/blue feathers, tiny gold eyes, crisp discrete pixel clusters and stepped dark outlines, restrained short color ramps, no smooth painting. Fit entire flock within central80percent canvas. NO humans, knight, equipment, other objects, background, shadow, base or text.",
+      "refs": [
+        "/workspace/scratch/f40d43c7f276/generated_images/exec-c31c70b4-77f1-40e7-a013-913c35419c0f.png"
+      ],
+      "blobSHA": "125348a36d2bcfb04f55785ee1829aeef009f3a7",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-7cdf3843-2d7e-460e-af74-df76419fee7b.png"
+    }
+  ]
+}

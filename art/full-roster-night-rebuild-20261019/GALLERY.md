@@ -1,6 +1,12 @@
-# 전체 재제작 검토 — 349종
+# 전체 재제작 검토 — 350종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 크레반 까마귀 떼 (crebain_swarm)
+
+![크레반 까마귀 떼](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/crebain_swarm.png?v=125348a36d2bcfb04f55785ee1829aeef009f3a7)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/crebain_swarm.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/crebain_swarm.png?v=125348a36d2bcfb04f55785ee1829aeef009f3a7)
 
 ### 낙타 기병 (camel_rider)
 
