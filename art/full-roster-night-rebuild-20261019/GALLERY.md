@@ -1,6 +1,24 @@
-# 전체 재제작 검토 — 506종
+# 전체 재제작 검토 — 509종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 코르사 석궁병 (corsair_crossbowman)
+
+![코르사 석궁병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/corsair_crossbowman.png?v=6b4bafaf3e8d3598982c04cd39c11bb71d6d5faf)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/corsair_crossbowman.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/corsair_crossbowman.png?v=6b4bafaf3e8d3598982c04cd39c11bb71d6d5faf)
+
+### 카르나의 감시자 (watcher_karna)
+
+![카르나의 감시자](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/watcher_karna.png?v=cb8781b465c22060591054f18f28475f4d5c0d65)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/watcher_karna.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/watcher_karna.png?v=cb8781b465c22060591054f18f28475f4d5c0d65)
+
+### 아조그 (azog)
+
+![아조그](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/azog.png?v=ab6dd93493a0826a94d647748e0ea24092b9eef2)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/azog.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/azog.png?v=ab6dd93493a0826a94d647748e0ea24092b9eef2)
 
 ### 상가루냐 (sangarunya)
 

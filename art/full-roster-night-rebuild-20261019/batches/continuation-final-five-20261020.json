@@ -1,0 +1,108 @@
+{
+  "batch": "continuation-final-five-20261020",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "azog",
+      "name": "아조그",
+      "faction": "gundabad",
+      "role": "hero",
+      "original": "tokens/azog.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "군다바드",
+      "groupKey": "gundabad",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/azog.png"
+      ],
+      "prompt": "Rebuild one production PIXEL GAME TOKEN using attached ORIGINAL as identity, exact equipment, species, action and silhouette reference. Keep original lowered head and dynamic pose. High-angle FRONT camera looking DOWN 45 degrees with crown, shoulder tops and top of body clearly visible; no eye-level frontal portrait. Match original deliberate crisp pixel clusters, stepped dark outline and restrained color ramps; no smooth airbrush. Human anatomy exactly FIVE heads excluding helmet, never chibi four heads or tall six-plus. For mounted Azog assess rider anatomy separately, retain large white warg and correct seat, legs and reins. For Ancalagon retain original huge BLACK DRAGON with TWO full red-veined WINGS, four legs and tail, every tip entirely inside INNER 75 percent canvas with large transparent margins, no clipping. For watcher_karna preserve source tentacled creature anatomy instead of humanoid. Preserve source equipment, no invented weapons, no extra actors. Body centered excluding weapons. Transparent background, no floor, no base, no text. Identity 아조그 (azog).",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-db105604-e086-4b1c-90b8-9fcc3d4bf940.png",
+      "expectedBlobSHA": "ab6dd93493a0826a94d647748e0ea24092b9eef2",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1056,
+          1489
+        ],
+        "bounds": [
+          107,
+          112,
+          966,
+          1426
+        ]
+      },
+      "blobSHA": "ab6dd93493a0826a94d647748e0ea24092b9eef2",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "watcher_karna",
+      "name": "카르나의 감시자",
+      "faction": "harad",
+      "role": "infantry",
+      "original": "tokens/watcher_karna.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "하라드",
+      "groupKey": "harad",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/watcher_karna.png"
+      ],
+      "prompt": "Rebuild one production PIXEL GAME TOKEN using attached ORIGINAL as identity, exact equipment, species, action and silhouette reference. Keep original lowered head and dynamic pose. High-angle FRONT camera looking DOWN 45 degrees with crown, shoulder tops and top of body clearly visible; no eye-level frontal portrait. Match original deliberate crisp pixel clusters, stepped dark outline and restrained color ramps; no smooth airbrush. Human anatomy exactly FIVE heads excluding helmet, never chibi four heads or tall six-plus. For mounted Azog assess rider anatomy separately, retain large white warg and correct seat, legs and reins. For Ancalagon retain original huge BLACK DRAGON with TWO full red-veined WINGS, four legs and tail, every tip entirely inside INNER 75 percent canvas with large transparent margins, no clipping. For watcher_karna preserve source tentacled creature anatomy instead of humanoid. Preserve source equipment, no invented weapons, no extra actors. Body centered excluding weapons. Transparent background, no floor, no base, no text. Identity 카르나의 감시자 (watcher_karna).",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-3b60190e-6b5a-4375-9b21-73e195a94303.png",
+      "expectedBlobSHA": "cb8781b465c22060591054f18f28475f4d5c0d65",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bounds": [
+          13,
+          34,
+          1241,
+          1228
+        ]
+      },
+      "blobSHA": "cb8781b465c22060591054f18f28475f4d5c0d65",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "corsair_crossbowman",
+      "name": "코르사 석궁병",
+      "faction": "umbar",
+      "role": "infantry",
+      "original": "tokens/corsair_crossbowman.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "하라드",
+      "groupKey": "umbar",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/corsair_crossbowman.png"
+      ],
+      "prompt": "Rebuild one production PIXEL GAME TOKEN using attached ORIGINAL as identity, exact equipment, species, action and silhouette reference. Keep original lowered head and dynamic pose. High-angle FRONT camera looking DOWN 45 degrees with crown, shoulder tops and top of body clearly visible; no eye-level frontal portrait. Match original deliberate crisp pixel clusters, stepped dark outline and restrained color ramps; no smooth airbrush. Human anatomy exactly FIVE heads excluding helmet, never chibi four heads or tall six-plus. For mounted Azog assess rider anatomy separately, retain large white warg and correct seat, legs and reins. For Ancalagon retain original huge BLACK DRAGON with TWO full red-veined WINGS, four legs and tail, every tip entirely inside INNER 75 percent canvas with large transparent margins, no clipping. For watcher_karna preserve source tentacled creature anatomy instead of humanoid. Preserve source equipment, no invented weapons, no extra actors. Body centered excluding weapons. Transparent background, no floor, no base, no text. Identity 코르사 석궁병 (corsair_crossbowman).",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-c60473ed-6d6f-4b6c-802d-62df93a66a5a.png",
+      "expectedBlobSHA": "6b4bafaf3e8d3598982c04cd39c11bb71d6d5faf",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1081,
+          1455
+        ],
+        "bounds": [
+          178,
+          86,
+          995,
+          1382
+        ]
+      },
+      "blobSHA": "6b4bafaf3e8d3598982c04cd39c11bb71d6d5faf",
+      "approval": "pending",
+      "inGameVerified": false
+    }
+  ]
+}

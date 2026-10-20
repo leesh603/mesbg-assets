@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T04:35:47.717Z",
+  "updatedAt": "2026-10-20T04:36:04.779Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 4,
-    "newlyGeneratedThisSession": 374,
-    "visuallyReviewedThisSession": 379,
+    "pending": 1,
+    "newlyGeneratedThisSession": 377,
+    "visuallyReviewedThisSession": 382,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 374,
-    "persistedReviewAssets": 506,
+    "generatedReviewAssets": 377,
+    "persistedReviewAssets": 509,
     "revisedAfterRejection": 18
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -51,9 +51,6 @@
   "resume": {
     "nextAction": "Continue pending roster with original species skeletons; inspect and save small batches to unified gallery.",
     "nextIds": [
-      "azog",
-      "watcher_karna",
-      "corsair_crossbowman",
       "corsair_captain"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
@@ -2768,8 +2765,13 @@
       "faction": "gundabad",
       "role": "hero",
       "original": "tokens/azog.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "gundabad",
+      "path": "art/full-roster-night-rebuild-20261019/units/azog.png",
+      "blobSHA": "ab6dd93493a0826a94d647748e0ea24092b9eef2",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "azog_warg_rider",
@@ -4602,8 +4604,13 @@
       "faction": "harad",
       "role": "infantry",
       "original": "tokens/watcher_karna.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "harad",
+      "path": "art/full-roster-night-rebuild-20261019/units/watcher_karna.png",
+      "blobSHA": "cb8781b465c22060591054f18f28475f4d5c0d65",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "haradrim_raider",
@@ -6049,8 +6056,13 @@
       "faction": "umbar",
       "role": "infantry",
       "original": "tokens/corsair_crossbowman.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "umbar",
+      "path": "art/full-roster-night-rebuild-20261019/units/corsair_crossbowman.png",
+      "blobSHA": "6b4bafaf3e8d3598982c04cd39c11bb71d6d5faf",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "mahud_blowpipe",
@@ -8083,36 +8095,36 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 506,
+    "count": 509,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
+      "harad": 22,
+      "군다바드": 12,
       "움바르": 4,
-      "괴수": 1,
+      "monsters": 1,
       "men": 12,
       "데일": 3,
-      "군다바드": 11,
       "독수리": 5,
       "용": 1,
       "앙그반드": 9,
       "엔트": 4,
-      "호빗": 16,
+      "shire": 16,
       "베오른 일족": 4,
       "돌 굴두르": 7,
       "망자": 4,
       "앙마르": 7,
       "팡고른": 1,
-      "모리아": 19,
+      "moria": 19,
       "arnor": 14,
       "에레보르": 1,
       "numenor": 6,
       "dunland": 10,
-      "easterling": 15,
+      "이스터링·칸드": 15,
       "브리": 2,
       "isengard": 30,
-      "harad": 20,
-      "난쟁이": 36,
+      "dwarf": 36,
       "maiar": 9,
       "elf": 77,
       "mordor": 73,
@@ -8121,7 +8133,7 @@
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,
-    "sourceValidation": "501 unique IDs; static card count and asset blob SHAs verified"
+    "sourceValidation": "509 unique IDs; static card count and asset blob SHAs verified"
   },
   "revisionRequests": {
     "witchking": {
@@ -8257,9 +8269,11 @@
     }
   },
   "lastContinuation": {
-    "batch": "continuation-bard-review-20261020",
+    "batch": "continuation-final-five-20261020",
     "newIds": [
-      "bard"
+      "azog",
+      "watcher_karna",
+      "corsair_crossbowman"
     ],
     "qualityStandard": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
     "note": "Each image inspected against canonical skeleton and identity reference; approval pending."
