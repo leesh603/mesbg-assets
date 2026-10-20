@@ -1,6 +1,72 @@
-# 전체 재제작 검토 — 394종
+# 전체 재제작 검토 — 405종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 고블린 서기 (goblin_scribe)
+
+![고블린 서기](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/goblin_scribe.png?v=7f50becdc432cf9473161f031a4a50ec2fbc5d2e)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/goblin_scribe.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/goblin_scribe.png?v=7f50becdc432cf9473161f031a4a50ec2fbc5d2e)
+
+### 두르부르즈 (durburz)
+
+![두르부르즈](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/durburz.png?v=d0a237b4d8bdcf096438d6181e14bf107c9afaf1)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/durburz.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/durburz.png?v=d0a237b4d8bdcf096438d6181e14bf107c9afaf1)
+
+### 고블린 북병 (goblin_drummer)
+
+![고블린 북병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/goblin_drummer.png?v=f162e4ad8c85c55692fa787e5a546a44b6b05981)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/goblin_drummer.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/goblin_drummer.png?v=f162e4ad8c85c55692fa787e5a546a44b6b05981)
+
+### 고블린 샤먼 (goblin_shaman)
+
+![고블린 샤먼](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/goblin_shaman.png?v=3154d3490ee97e62964bad228e7c9fd7cfdee4ad)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/goblin_shaman.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/goblin_shaman.png?v=3154d3490ee97e62964bad228e7c9fd7cfdee4ad)
+
+### 고블린 용병 (goblin_mercenary)
+
+![고블린 용병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/goblin_mercenary.png?v=03b01698a2262e54b895952c5523a698b1871dbb)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/goblin_mercenary.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/goblin_mercenary.png?v=03b01698a2262e54b895952c5523a698b1871dbb)
+
+### 고블린 왕 (goblin_king)
+
+![고블린 왕](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/goblin_king.png?v=71e33e974e32031229695ca7c25e1bc4573bdf4a)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/goblin_king.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/goblin_king.png?v=71e33e974e32031229695ca7c25e1bc4573bdf4a)
+
+### 고블린 궁수 (goblin_bow)
+
+![고블린 궁수](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/goblin_bow.png?v=96922b9f3d299a64b656203500d4f6cb688d78a7)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/goblin_bow.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/goblin_bow.png?v=96922b9f3d299a64b656203500d4f6cb688d78a7)
+
+### 고블린 프라울러 (goblin_prowler)
+
+![고블린 프라울러](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/goblin_prowler.png?v=120617da16a2db493e7ed25af29f4596863fd1e9)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/goblin_prowler.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/goblin_prowler.png?v=120617da16a2db493e7ed25af29f4596863fd1e9)
+
+### 고블린 방패병 (goblin_shield)
+
+![고블린 방패병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/goblin_shield.png?v=fd4fb7b0e80265577b56d2ec22a40f4ee19b2593)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/goblin_shield.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/goblin_shield.png?v=fd4fb7b0e80265577b56d2ec22a40f4ee19b2593)
+
+### 고블린 창병 (goblin_spear)
+
+![고블린 창병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/goblin_spear.png?v=3d15da3c83d74934d3e6f0f6032229169ab361c1)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/goblin_spear.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/goblin_spear.png?v=3d15da3c83d74934d3e6f0f6032229169ab361c1)
+
+### 모리아 고블린 (moria_goblin)
+
+![모리아 고블린](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/moria_goblin.png?v=5964362c3b05ed236b314032f614f1cd0cd576be)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/moria_goblin.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/moria_goblin.png?v=5964362c3b05ed236b314032f614f1cd0cd576be)
 
 ### 농부 매곳 (farmer_maggot)
 

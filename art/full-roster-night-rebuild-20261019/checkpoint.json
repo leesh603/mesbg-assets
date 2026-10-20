@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T03:57:43.808Z",
+  "updatedAt": "2026-10-20T04:00:50.126Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 116,
-    "newlyGeneratedThisSession": 262,
-    "visuallyReviewedThisSession": 267,
+    "pending": 105,
+    "newlyGeneratedThisSession": 273,
+    "visuallyReviewedThisSession": 278,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 262,
-    "persistedReviewAssets": 394,
+    "generatedReviewAssets": 273,
+    "persistedReviewAssets": 405,
     "revisedAfterRejection": 18
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -55,7 +55,7 @@
       "orc_shaman",
       "balrog",
       "barrow_wight",
-      "moria_goblin"
+      "great_eagle"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
@@ -648,8 +648,13 @@
       "faction": "moria",
       "role": "infantry",
       "original": "tokens/moria_goblin.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "moria",
+      "path": "art/full-roster-night-rebuild-20261019/units/moria_goblin.png",
+      "blobSHA": "5964362c3b05ed236b314032f614f1cd0cd576be",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "uruk_berserker",
@@ -1646,8 +1651,13 @@
       "faction": "moria",
       "role": "infantry",
       "original": "tokens/goblin_spear.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "moria",
+      "path": "art/full-roster-night-rebuild-20261019/units/goblin_spear.png",
+      "blobSHA": "3d15da3c83d74934d3e6f0f6032229169ab361c1",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "goblin_shield",
@@ -1655,8 +1665,13 @@
       "faction": "moria",
       "role": "infantry",
       "original": "tokens/goblin_shield.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "moria",
+      "path": "art/full-roster-night-rebuild-20261019/units/goblin_shield.png",
+      "blobSHA": "fd4fb7b0e80265577b56d2ec22a40f4ee19b2593",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "goblin_bow",
@@ -1664,8 +1679,13 @@
       "faction": "moria",
       "role": "infantry",
       "original": "tokens/goblin_bow.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "moria",
+      "path": "art/full-roster-night-rebuild-20261019/units/goblin_bow.png",
+      "blobSHA": "96922b9f3d299a64b656203500d4f6cb688d78a7",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "goblin_prowler",
@@ -1673,8 +1693,13 @@
       "faction": "moria",
       "role": "infantry",
       "original": "tokens/goblin_prowler.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "moria",
+      "path": "art/full-roster-night-rebuild-20261019/units/goblin_prowler.png",
+      "blobSHA": "120617da16a2db493e7ed25af29f4596863fd1e9",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "goblin_king",
@@ -1682,8 +1707,13 @@
       "faction": "moria",
       "role": "hero",
       "original": "tokens/goblin_king.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "moria",
+      "path": "art/full-roster-night-rebuild-20261019/units/goblin_king.png",
+      "blobSHA": "71e33e974e32031229695ca7c25e1bc4573bdf4a",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "goblin_shaman",
@@ -1691,8 +1721,13 @@
       "faction": "moria",
       "role": "support",
       "original": "tokens/goblin_shaman.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "moria",
+      "path": "art/full-roster-night-rebuild-20261019/units/goblin_shaman.png",
+      "blobSHA": "3154d3490ee97e62964bad228e7c9fd7cfdee4ad",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "dunlending_warrior",
@@ -2652,8 +2687,13 @@
       "faction": "moria",
       "role": "infantry",
       "original": "tokens/goblin_mercenary.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "moria",
+      "path": "art/full-roster-night-rebuild-20261019/units/goblin_mercenary.png",
+      "blobSHA": "03b01698a2262e54b895952c5523a698b1871dbb",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "halbarad",
@@ -4820,8 +4860,13 @@
       "faction": "moria",
       "role": "support",
       "original": "tokens/goblin_drummer.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "moria",
+      "path": "art/full-roster-night-rebuild-20261019/units/goblin_drummer.png",
+      "blobSHA": "f162e4ad8c85c55692fa787e5a546a44b6b05981",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "yazneg",
@@ -5036,8 +5081,13 @@
       "faction": "moria",
       "role": "hero",
       "original": "tokens/durburz.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "moria",
+      "path": "art/full-roster-night-rebuild-20261019/units/durburz.png",
+      "blobSHA": "d0a237b4d8bdcf096438d6181e14bf107c9afaf1",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "goblin_scribe",
@@ -5045,8 +5095,13 @@
       "faction": "moria",
       "role": "support",
       "original": "tokens/goblin_scribe.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "moria",
+      "path": "art/full-roster-night-rebuild-20261019/units/goblin_scribe.png",
+      "blobSHA": "7f50becdc432cf9473161f031a4a50ec2fbc5d2e",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "fimbul",
@@ -7404,11 +7459,12 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 394,
+    "count": 405,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
+      "moria": 11,
       "shire": 9,
       "이스터링·칸드": 10,
       "numenor": 2,
@@ -7426,7 +7482,7 @@
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,
-    "sourceValidation": "394 unique IDs; static card count and asset blob SHAs verified"
+    "sourceValidation": "405 unique IDs; static card count and asset blob SHAs verified"
   },
   "revisionRequests": {
     "witchking": {
@@ -7562,17 +7618,19 @@
     }
   },
   "lastContinuation": {
-    "batch": "shire-fellowship-009",
+    "batch": "moria-goblin-011",
     "newIds": [
-      "hobbit_shirriff",
-      "frodo",
-      "samwise",
-      "pippin",
-      "bilbo",
-      "paladin_took",
-      "hobbit_bounder",
-      "merry",
-      "farmer_maggot"
+      "moria_goblin",
+      "goblin_spear",
+      "goblin_shield",
+      "goblin_prowler",
+      "goblin_bow",
+      "goblin_king",
+      "goblin_mercenary",
+      "goblin_shaman",
+      "goblin_drummer",
+      "durburz",
+      "goblin_scribe"
     ],
     "qualityStandard": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
     "note": "Each image inspected against canonical skeleton and identity reference; approval pending."

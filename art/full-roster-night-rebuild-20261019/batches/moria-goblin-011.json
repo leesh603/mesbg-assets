@@ -1,0 +1,413 @@
+{
+  "batch": "moria-goblin-011",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "moria_goblin",
+      "name": "모리아 고블린",
+      "faction": "moria",
+      "role": "infantry",
+      "original": "tokens/moria_goblin.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "모리아",
+      "groupKey": "moria",
+      "pose": "기존 고유 무장·행동과 숙인 고개 유지",
+      "bodyDescription": "고블린 표준 뼈대 · 하이앵글 프론트뷰",
+      "prompt": "ONE production transparent pixel GAME TOKEN, same exact number of characters as INPUT1; never add the neutral template as another figure. INPUT1 supplies exact identity/clothes/palette/hair/gear, elevated-front viewpoint and distinct original action. INPUT2 ORIGINAL SPECIES skeleton supplies immutable skull/shoulder/pelvis/knee/ankle bone lengths and proportions, crisp pixel density, stepped dark outlines and short color ramps. Dress input2 bones as input1; no changing bones into different species or inflating skull, no long-human legs on hobbits/goblins. Fat/slim/muscle variation by width. Keep all original hair/helmet despite bald neutral skeleton. HIGH-ANGLE FRONT camera DOWN40–45deg, visible crown and both shoulder TOPS; head DEEPLY BOWED further so eyes hidden by hair/hat/hood/brow and face only small lower fragment. Preserve original body lean/action and distinctive weapons; do not substitute generic upright template walk. Full silhouettes and ALL weapon/hat/staff tips inside inner80percent canvas with generous transparent margins. Body centered ignoring gear. No circular base/floor/shadow/scenery/glow/text/UI/watermark. Character: 모리아 고블린 (moria_goblin). Exactly retain all distinctive features and exact original weapon loadout visible in INPUT1.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/moria_goblin.png",
+        "/workspace/scratch/f40d43c7f276/references/goblin.png"
+      ],
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-176a37d8-9029-4bb4-b7f8-817354b64123.png",
+      "expectedBlobSHA": "5964362c3b05ed236b314032f614f1cd0cd576be",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          207,
+          156,
+          1055,
+          1180
+        ]
+      },
+      "blobSHA": "5964362c3b05ed236b314032f614f1cd0cd576be",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "goblin_spear",
+      "name": "고블린 창병",
+      "faction": "moria",
+      "role": "infantry",
+      "original": "tokens/goblin_spear.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "모리아",
+      "groupKey": "moria",
+      "pose": "기존 고유 무장·행동과 숙인 고개 유지",
+      "bodyDescription": "고블린 표준 뼈대 · 하이앵글 프론트뷰",
+      "prompt": "ONE production transparent pixel GAME TOKEN, same exact number of characters as INPUT1; never add the neutral template as another figure. INPUT1 supplies exact identity/clothes/palette/hair/gear, elevated-front viewpoint and distinct original action. INPUT2 ORIGINAL SPECIES skeleton supplies immutable skull/shoulder/pelvis/knee/ankle bone lengths and proportions, crisp pixel density, stepped dark outlines and short color ramps. Dress input2 bones as input1; no changing bones into different species or inflating skull, no long-human legs on hobbits/goblins. Fat/slim/muscle variation by width. Keep all original hair/helmet despite bald neutral skeleton. HIGH-ANGLE FRONT camera DOWN40–45deg, visible crown and both shoulder TOPS; head DEEPLY BOWED further so eyes hidden by hair/hat/hood/brow and face only small lower fragment. Preserve original body lean/action and distinctive weapons; do not substitute generic upright template walk. Full silhouettes and ALL weapon/hat/staff tips inside inner80percent canvas with generous transparent margins. Body centered ignoring gear. No circular base/floor/shadow/scenery/glow/text/UI/watermark. Character: 고블린 창병 (goblin_spear). Exactly retain all distinctive features and exact original weapon loadout visible in INPUT1.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/goblin_spear.png",
+        "/workspace/scratch/f40d43c7f276/references/goblin.png"
+      ],
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-4485b964-0db3-4107-984a-6e37f802d4f1.png",
+      "expectedBlobSHA": "3d15da3c83d74934d3e6f0f6032229169ab361c1",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bounds": [
+          337,
+          110,
+          941,
+          1142
+        ]
+      },
+      "blobSHA": "3d15da3c83d74934d3e6f0f6032229169ab361c1",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "goblin_shield",
+      "name": "고블린 방패병",
+      "faction": "moria",
+      "role": "infantry",
+      "original": "tokens/goblin_shield.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "모리아",
+      "groupKey": "moria",
+      "pose": "기존 고유 무장·행동과 숙인 고개 유지",
+      "bodyDescription": "고블린 표준 뼈대 · 하이앵글 프론트뷰",
+      "prompt": "ONE production transparent pixel GAME TOKEN, same exact number of characters as INPUT1; never add the neutral template as another figure. INPUT1 supplies exact identity/clothes/palette/hair/gear, elevated-front viewpoint and distinct original action. INPUT2 ORIGINAL SPECIES skeleton supplies immutable skull/shoulder/pelvis/knee/ankle bone lengths and proportions, crisp pixel density, stepped dark outlines and short color ramps. Dress input2 bones as input1; no changing bones into different species or inflating skull, no long-human legs on hobbits/goblins. Fat/slim/muscle variation by width. Keep all original hair/helmet despite bald neutral skeleton. HIGH-ANGLE FRONT camera DOWN40–45deg, visible crown and both shoulder TOPS; head DEEPLY BOWED further so eyes hidden by hair/hat/hood/brow and face only small lower fragment. Preserve original body lean/action and distinctive weapons; do not substitute generic upright template walk. Full silhouettes and ALL weapon/hat/staff tips inside inner80percent canvas with generous transparent margins. Body centered ignoring gear. No circular base/floor/shadow/scenery/glow/text/UI/watermark. Character: 고블린 방패병 (goblin_shield). Exactly retain all distinctive features and exact original weapon loadout visible in INPUT1.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/goblin_shield.png",
+        "/workspace/scratch/f40d43c7f276/references/goblin.png"
+      ],
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-6ee36506-0fb3-4b23-b1cc-d155f4697ec0.png",
+      "expectedBlobSHA": "fd4fb7b0e80265577b56d2ec22a40f4ee19b2593",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          209,
+          211,
+          1039,
+          1123
+        ]
+      },
+      "blobSHA": "fd4fb7b0e80265577b56d2ec22a40f4ee19b2593",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "goblin_prowler",
+      "name": "고블린 프라울러",
+      "faction": "moria",
+      "role": "infantry",
+      "original": "tokens/goblin_prowler.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "모리아",
+      "groupKey": "moria",
+      "pose": "기존 고유 무장·행동과 숙인 고개 유지",
+      "bodyDescription": "고블린 표준 뼈대 · 하이앵글 프론트뷰",
+      "prompt": "ONE production transparent pixel GAME TOKEN, same exact number of characters as INPUT1; never add the neutral template as another figure. INPUT1 supplies exact identity/clothes/palette/hair/gear, elevated-front viewpoint and distinct original action. INPUT2 ORIGINAL SPECIES skeleton supplies immutable skull/shoulder/pelvis/knee/ankle bone lengths and proportions, crisp pixel density, stepped dark outlines and short color ramps. Dress input2 bones as input1; no changing bones into different species or inflating skull, no long-human legs on hobbits/goblins. Fat/slim/muscle variation by width. Keep all original hair/helmet despite bald neutral skeleton. HIGH-ANGLE FRONT camera DOWN40–45deg, visible crown and both shoulder TOPS; head DEEPLY BOWED further so eyes hidden by hair/hat/hood/brow and face only small lower fragment. Preserve original body lean/action and distinctive weapons; do not substitute generic upright template walk. Full silhouettes and ALL weapon/hat/staff tips inside inner80percent canvas with generous transparent margins. Body centered ignoring gear. No circular base/floor/shadow/scenery/glow/text/UI/watermark. Character: 고블린 프라울러 (goblin_prowler). Exactly retain all distinctive features and exact original weapon loadout visible in INPUT1.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/goblin_prowler.png",
+        "/workspace/scratch/f40d43c7f276/references/goblin.png"
+      ],
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-007c2f9e-00a7-40b7-850c-b3d8001cfeee.png",
+      "expectedBlobSHA": "120617da16a2db493e7ed25af29f4596863fd1e9",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1243,
+          1266
+        ],
+        "bounds": [
+          149,
+          123,
+          1137,
+          1136
+        ]
+      },
+      "blobSHA": "120617da16a2db493e7ed25af29f4596863fd1e9",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "goblin_bow",
+      "name": "고블린 궁수",
+      "faction": "moria",
+      "role": "infantry",
+      "original": "tokens/goblin_bow.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "모리아",
+      "groupKey": "moria",
+      "pose": "기존 고유 무장·행동과 숙인 고개 유지",
+      "bodyDescription": "고블린 표준 뼈대 · 하이앵글 프론트뷰",
+      "prompt": "ONE production transparent pixel GAME TOKEN, same exact number of characters as INPUT1; never add the neutral template as another figure. INPUT1 supplies exact identity/clothes/palette/hair/gear, elevated-front viewpoint and distinct original action. INPUT2 ORIGINAL SPECIES skeleton supplies immutable skull/shoulder/pelvis/knee/ankle bone lengths and proportions, crisp pixel density, stepped dark outlines and short color ramps. Dress input2 bones as input1; no changing bones into different species or inflating skull, no long-human legs on hobbits/goblins. Fat/slim/muscle variation by width. Keep all original hair/helmet despite bald neutral skeleton. HIGH-ANGLE FRONT camera DOWN40–45deg, visible crown and both shoulder TOPS; head DEEPLY BOWED further so eyes hidden by hair/hat/hood/brow and face only small lower fragment. Preserve original body lean/action and distinctive weapons; do not substitute generic upright template walk. Full silhouettes and ALL weapon/hat/staff tips inside inner80percent canvas with generous transparent margins. Body centered ignoring gear. No circular base/floor/shadow/scenery/glow/text/UI/watermark. Character: 고블린 궁수 (goblin_bow). Green bald goblin archer in ragged dark hood/cape and leather/wraps, white-arrow quiver, short brown bow. Hold complete bow vertically to side with one clean bold tan string between tips; other hand holds separate arrow down, no nocked tangle, no red fringe.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/goblin_bow.png",
+        "/workspace/scratch/f40d43c7f276/references/goblin.png"
+      ],
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-8c15eb66-d1e4-4599-8b18-511ab55846fd.png",
+      "expectedBlobSHA": "96922b9f3d299a64b656203500d4f6cb688d78a7",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          249,
+          101,
+          994,
+          1189
+        ]
+      },
+      "blobSHA": "96922b9f3d299a64b656203500d4f6cb688d78a7",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "goblin_king",
+      "name": "고블린 왕",
+      "faction": "moria",
+      "role": "hero",
+      "original": "tokens/goblin_king.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "모리아",
+      "groupKey": "moria",
+      "pose": "기존 고유 무장·행동과 숙인 고개 유지",
+      "bodyDescription": "고블린 표준 뼈대 · 하이앵글 프론트뷰",
+      "prompt": "ONE production transparent pixel GAME TOKEN, same exact number of characters as INPUT1; never add the neutral template as another figure. INPUT1 supplies exact identity/clothes/palette/hair/gear, elevated-front viewpoint and distinct original action. INPUT2 ORIGINAL SPECIES skeleton supplies immutable skull/shoulder/pelvis/knee/ankle bone lengths and proportions, crisp pixel density, stepped dark outlines and short color ramps. Dress input2 bones as input1; no changing bones into different species or inflating skull, no long-human legs on hobbits/goblins. Fat/slim/muscle variation by width. Keep all original hair/helmet despite bald neutral skeleton. HIGH-ANGLE FRONT camera DOWN40–45deg, visible crown and both shoulder TOPS; head DEEPLY BOWED further so eyes hidden by hair/hat/hood/brow and face only small lower fragment. Preserve original body lean/action and distinctive weapons; do not substitute generic upright template walk. Full silhouettes and ALL weapon/hat/staff tips inside inner80percent canvas with generous transparent margins. Body centered ignoring gear. No circular base/floor/shadow/scenery/glow/text/UI/watermark. Character: 고블린 왕 (goblin_king). Very OBESE GOBLIN KING: broad bare green belly, same ordinary goblin skull size and limb bone lengths; fatness by width only. Original spiked gold crown, red fur cape, teeth/skull necklace, spiked leather/iron pauldrons and bracers, short jagged sword low. Head bows, crown top visible, eyes shaded, not frontal.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/goblin_king.png",
+        "/workspace/scratch/f40d43c7f276/references/goblin.png"
+      ],
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-062112d3-1475-4b45-8696-d5fca948ba94.png",
+      "expectedBlobSHA": "71e33e974e32031229695ca7c25e1bc4573bdf4a",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bounds": [
+          164,
+          139,
+          1126,
+          1126
+        ]
+      },
+      "blobSHA": "71e33e974e32031229695ca7c25e1bc4573bdf4a",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "goblin_mercenary",
+      "name": "고블린 용병",
+      "faction": "moria",
+      "role": "infantry",
+      "original": "tokens/goblin_mercenary.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "모리아",
+      "groupKey": "moria",
+      "pose": "기존 고유 무장·행동과 숙인 고개 유지",
+      "bodyDescription": "고블린 표준 뼈대 · 하이앵글 프론트뷰",
+      "prompt": "ONE production transparent pixel GAME TOKEN, same exact number of characters as INPUT1; never add the neutral template as another figure. INPUT1 supplies exact identity/clothes/palette/hair/gear, elevated-front viewpoint and distinct original action. INPUT2 ORIGINAL SPECIES skeleton supplies immutable skull/shoulder/pelvis/knee/ankle bone lengths and proportions, crisp pixel density, stepped dark outlines and short color ramps. Dress input2 bones as input1; no changing bones into different species or inflating skull, no long-human legs on hobbits/goblins. Fat/slim/muscle variation by width. Keep all original hair/helmet despite bald neutral skeleton. HIGH-ANGLE FRONT camera DOWN40–45deg, visible crown and both shoulder TOPS; head DEEPLY BOWED further so eyes hidden by hair/hat/hood/brow and face only small lower fragment. Preserve original body lean/action and distinctive weapons; do not substitute generic upright template walk. Full silhouettes and ALL weapon/hat/staff tips inside inner80percent canvas with generous transparent margins. Body centered ignoring gear. No circular base/floor/shadow/scenery/glow/text/UI/watermark. Character: 고블린 용병 (goblin_mercenary). Exactly retain all distinctive features and exact original weapon loadout visible in INPUT1.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/goblin_mercenary.png",
+        "/workspace/scratch/f40d43c7f276/references/goblin.png"
+      ],
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-7256d1e3-0ef0-4533-94e2-c92d6437adf4.png",
+      "expectedBlobSHA": "03b01698a2262e54b895952c5523a698b1871dbb",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1247,
+          1261
+        ],
+        "bounds": [
+          276,
+          189,
+          1017,
+          1094
+        ]
+      },
+      "blobSHA": "03b01698a2262e54b895952c5523a698b1871dbb",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "goblin_shaman",
+      "name": "고블린 샤먼",
+      "faction": "moria",
+      "role": "support",
+      "original": "tokens/goblin_shaman.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "모리아",
+      "groupKey": "moria",
+      "pose": "기존 고유 무장·행동과 숙인 고개 유지",
+      "bodyDescription": "고블린 표준 뼈대 · 하이앵글 프론트뷰",
+      "prompt": "ONE production transparent pixel GAME TOKEN, same exact number of characters as INPUT1; never add the neutral template as another figure. INPUT1 supplies exact identity/clothes/palette/hair/gear, elevated-front viewpoint and distinct original action. INPUT2 ORIGINAL SPECIES skeleton supplies immutable skull/shoulder/pelvis/knee/ankle bone lengths and proportions, crisp pixel density, stepped dark outlines and short color ramps. Dress input2 bones as input1; no changing bones into different species or inflating skull, no long-human legs on hobbits/goblins. Fat/slim/muscle variation by width. Keep all original hair/helmet despite bald neutral skeleton. HIGH-ANGLE FRONT camera DOWN40–45deg, visible crown and both shoulder TOPS; head DEEPLY BOWED further so eyes hidden by hair/hat/hood/brow and face only small lower fragment. Preserve original body lean/action and distinctive weapons; do not substitute generic upright template walk. Full silhouettes and ALL weapon/hat/staff tips inside inner80percent canvas with generous transparent margins. Body centered ignoring gear. No circular base/floor/shadow/scenery/glow/text/UI/watermark. Character: 고블린 샤먼 (goblin_shaman). Original green goblin under dark hood with red lining, black/red torn robes, teeth necklace, tall wooden staff with ivory animal skull and red cloth strips, free fingers casting low. Full skull/staff margin, eyes deep in hood, no generic aura.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/goblin_shaman.png",
+        "/workspace/scratch/f40d43c7f276/references/goblin.png"
+      ],
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-261fbd5c-a307-4109-ab76-a50dc106db5d.png",
+      "expectedBlobSHA": "3154d3490ee97e62964bad228e7c9fd7cfdee4ad",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          243,
+          97,
+          1106,
+          1215
+        ]
+      },
+      "blobSHA": "3154d3490ee97e62964bad228e7c9fd7cfdee4ad",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "goblin_drummer",
+      "name": "고블린 북병",
+      "faction": "moria",
+      "role": "support",
+      "original": "tokens/goblin_drummer.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "모리아",
+      "groupKey": "moria",
+      "pose": "기존 고유 무장·행동과 숙인 고개 유지",
+      "bodyDescription": "고블린 표준 뼈대 · 하이앵글 프론트뷰",
+      "prompt": "ONE production transparent pixel GAME TOKEN, same exact number of characters as INPUT1; never add the neutral template as another figure. INPUT1 supplies exact identity/clothes/palette/hair/gear, elevated-front viewpoint and distinct original action. INPUT2 ORIGINAL SPECIES skeleton supplies immutable skull/shoulder/pelvis/knee/ankle bone lengths and proportions, crisp pixel density, stepped dark outlines and short color ramps. Dress input2 bones as input1; no changing bones into different species or inflating skull, no long-human legs on hobbits/goblins. Fat/slim/muscle variation by width. Keep all original hair/helmet despite bald neutral skeleton. HIGH-ANGLE FRONT camera DOWN40–45deg, visible crown and both shoulder TOPS; head DEEPLY BOWED further so eyes hidden by hair/hat/hood/brow and face only small lower fragment. Preserve original body lean/action and distinctive weapons; do not substitute generic upright template walk. Full silhouettes and ALL weapon/hat/staff tips inside inner80percent canvas with generous transparent margins. Body centered ignoring gear. No circular base/floor/shadow/scenery/glow/text/UI/watermark. Character: 고블린 북병 (goblin_drummer). ONE goblin with animal-skull mask on head, red/black tattered cloth, leather straps, ROUND belly-mounted wood/leather drum with red eye/hand emblem, TWO short drumsticks with pale round ends. One stick raised, one at drum, full logical grip. Keep same goblin body under drum, no extra drummer.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/goblin_drummer.png",
+        "/workspace/scratch/f40d43c7f276/references/goblin.png"
+      ],
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-da23ce0e-e146-457c-b2dc-4c7a9dbb8c22.png",
+      "expectedBlobSHA": "f162e4ad8c85c55692fa787e5a546a44b6b05981",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          193,
+          141,
+          1025,
+          1202
+        ]
+      },
+      "blobSHA": "f162e4ad8c85c55692fa787e5a546a44b6b05981",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "durburz",
+      "name": "두르부르즈",
+      "faction": "moria",
+      "role": "hero",
+      "original": "tokens/durburz.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "모리아",
+      "groupKey": "moria",
+      "pose": "기존 고유 무장·행동과 숙인 고개 유지",
+      "bodyDescription": "고블린 표준 뼈대 · 하이앵글 프론트뷰",
+      "prompt": "ONE production transparent pixel GAME TOKEN, same exact number of characters as INPUT1; never add the neutral template as another figure. INPUT1 supplies exact identity/clothes/palette/hair/gear, elevated-front viewpoint and distinct original action. INPUT2 ORIGINAL SPECIES skeleton supplies immutable skull/shoulder/pelvis/knee/ankle bone lengths and proportions, crisp pixel density, stepped dark outlines and short color ramps. Dress input2 bones as input1; no changing bones into different species or inflating skull, no long-human legs on hobbits/goblins. Fat/slim/muscle variation by width. Keep all original hair/helmet despite bald neutral skeleton. HIGH-ANGLE FRONT camera DOWN40–45deg, visible crown and both shoulder TOPS; head DEEPLY BOWED further so eyes hidden by hair/hat/hood/brow and face only small lower fragment. Preserve original body lean/action and distinctive weapons; do not substitute generic upright template walk. Full silhouettes and ALL weapon/hat/staff tips inside inner80percent canvas with generous transparent margins. Body centered ignoring gear. No circular base/floor/shadow/scenery/glow/text/UI/watermark. Character: 두르부르즈 (durburz). Original heavy spiked iron crowned helmet and dark plate, ivory tusk/skull necklace, leather skirt and curved broad sawtooth sword held low; head bowed hides eyes.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/durburz.png",
+        "/workspace/scratch/f40d43c7f276/references/goblin.png"
+      ],
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-1a527d46-f1d4-4191-ba8e-c49bd2c61daa.png",
+      "expectedBlobSHA": "d0a237b4d8bdcf096438d6181e14bf107c9afaf1",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1233,
+          1275
+        ],
+        "bounds": [
+          220,
+          138,
+          1046,
+          1150
+        ]
+      },
+      "blobSHA": "d0a237b4d8bdcf096438d6181e14bf107c9afaf1",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "goblin_scribe",
+      "name": "고블린 서기",
+      "faction": "moria",
+      "role": "support",
+      "original": "tokens/goblin_scribe.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "모리아",
+      "groupKey": "moria",
+      "pose": "기존 고유 무장·행동과 숙인 고개 유지",
+      "bodyDescription": "고블린 표준 뼈대 · 하이앵글 프론트뷰",
+      "prompt": "ONE production transparent pixel GAME TOKEN, same exact number of characters as INPUT1; never add the neutral template as another figure. INPUT1 supplies exact identity/clothes/palette/hair/gear, elevated-front viewpoint and distinct original action. INPUT2 ORIGINAL SPECIES skeleton supplies immutable skull/shoulder/pelvis/knee/ankle bone lengths and proportions, crisp pixel density, stepped dark outlines and short color ramps. Dress input2 bones as input1; no changing bones into different species or inflating skull, no long-human legs on hobbits/goblins. Fat/slim/muscle variation by width. Keep all original hair/helmet despite bald neutral skeleton. HIGH-ANGLE FRONT camera DOWN40–45deg, visible crown and both shoulder TOPS; head DEEPLY BOWED further so eyes hidden by hair/hat/hood/brow and face only small lower fragment. Preserve original body lean/action and distinctive weapons; do not substitute generic upright template walk. Full silhouettes and ALL weapon/hat/staff tips inside inner80percent canvas with generous transparent margins. Body centered ignoring gear. No circular base/floor/shadow/scenery/glow/text/UI/watermark. Character: 고블린 서기 (goblin_scribe). Hooded goblin in ragged gray/brown robes, rolled scrolls in backpack, one WHITE quill and parchment/ink-pot gear, long pointed nose under hood. No readable written text added.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/goblin_scribe.png",
+        "/workspace/scratch/f40d43c7f276/references/goblin.png"
+      ],
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-508b8aea-d52b-4e2c-bb76-bea0bcf24a51.png",
+      "expectedBlobSHA": "7f50becdc432cf9473161f031a4a50ec2fbc5d2e",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          270,
+          173,
+          952,
+          1158
+        ]
+      },
+      "blobSHA": "7f50becdc432cf9473161f031a4a50ec2fbc5d2e",
+      "approval": "pending",
+      "inGameVerified": false
+    }
+  ]
+}
