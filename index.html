@@ -12835,7 +12835,7 @@ function updateWorldUI(){
     g.fillStyle(0xf6e3a6,1);g.fillTriangle(x-5.5/z,y-r*BASE_TILT-10/z,x+5.5/z,y-r*BASE_TILT-10/z,x,y-r*BASE_TILT-3/z);
     if(!UX.reduced&&!Tt._ringPulse)Tt._ringPulse=Tt.tweens.add({targets:g,alpha:{from:1,to:.62},duration:760,yoyo:true,repeat:-1,ease:'Sine.easeInOut'});
     tag.classList.toggle('hidden',!on);out.classList.toggle('hidden',on);
-    if(on){tag.textContent=text;tag.style.left=left+'px';tag.style.top=top+'px';}
+    if(on){const _ph=q.phase==='preparation'?'배치':q.phase==='move'?'이동':'사격';tag.innerHTML='<b>'+esc(shortName(u))+'</b><i>'+_ph+'</i>';tag.dataset.phase=q.phase;tag.style.left=left+'px';tag.style.top=top+'px';}
 }
 const clarityUpdate=Ve.prototype.update;
 Ve.prototype.update=function(t){if(!UX.reduced)clarityUpdate.call(this,t);updateWorldUI();};
@@ -19024,9 +19024,14 @@ function drawIntent(scene){
         const h=11;g.fillStyle(col,.95).fillTriangle(ex,ey,ex-Math.cos(a-.45)*h,ey-Math.sin(a-.45)*h,ex-Math.cos(a+.45)*h,ey-Math.sin(a+.45)*h);
         const k=hits.get(t.uid)||{t,n:0,charge:0};k.n++;if(it.kind==='charge')k.charge++;hits.set(t.uid,k);}
     let i=0;
-    for(const {t,n,charge} of hits.values()){g.lineStyle(2,charge?0xe0452f:0xf0a030,.8).strokeCircle(t.x,t.y,t.radius+5);
-        let l=INTENT_UI.labels[i];if(!l||!l.scene){l=scene.add.text(0,0,'',{fontFamily:'Galmuri11, sans-serif',fontSize:'15px',color:'#fff4e0',backgroundColor:'#7a1d12',padding:{x:4,y:1}}).setOrigin(.5,1).setDepth(19);INTENT_UI.labels[i]=l;}
-        l.setText(n>1?'표적 '+n:'표적').setPosition(t.x+t.radius*.7,t.y-t.radius*.7).setVisible(true);i++;}
+    for(const {t,n,charge} of hits.values()){const col=charge?0xe0452f:0xf0a030;
+        // A small pixel diamond at the base's front-right edge: red = charge expected, amber = only shots. Number = attackers.
+        const bx=t.x+t.radius*.95,by=t.y+t.radius*.1,R=12;g.lineStyle(2,col,.75).strokeCircle(t.x,t.y,t.radius+4);
+        g.fillStyle(0x0b0604,.95).fillPoints([{x:bx,y:by-R-2},{x:bx+R+2,y:by},{x:bx,y:by+R+2},{x:bx-R-2,y:by}],true);
+        g.fillStyle(col,1).fillPoints([{x:bx,y:by-R},{x:bx+R,y:by},{x:bx,y:by+R},{x:bx-R,y:by}],true);
+        g.fillStyle(0xffffff,.35).fillPoints([{x:bx,y:by-R},{x:bx+R*.5,y:by-R*.5},{x:bx,y:by},{x:bx-R*.5,y:by-R*.5}],true);
+        let l=INTENT_UI.labels[i];if(!l||!l.scene){l=scene.add.text(0,0,'',{fontFamily:'Galmuri11, sans-serif',fontSize:'14px',fontStyle:'bold',color:'#fff8ec',stroke:'#2a0804',strokeThickness:3}).setOrigin(.5,.5).setDepth(19);INTENT_UI.labels[i]=l;}
+        l.setText(n>1?String(n):'!').setPosition(bx,by+.5).setVisible(true);i++;}
     for(;i<INTENT_UI.labels.length;i++)INTENT_UI.labels[i]?.setVisible(false);
 }
 {const _iu=Ve.prototype.update;Ve.prototype.update=function(t){_iu.call(this,t);if(!this.b||!this.add)return;if(t-INTENT_UI.t<200&&INTENT_UI.sig)return;INTENT_UI.t=t;try{drawIntent(this);}catch(e){console.error('[intent]',e);INTENT_UI.on=false;}};}
@@ -22563,6 +22568,14 @@ dialog#warband-deployment [data-deployment-summary]{font-size:17px!important}
 html body #app#app#app#app .top-actions.open{padding:30px 26px 30px!important;box-sizing:border-box}
 html body #app#app#app#app .top-actions.open #undo{flex-direction:row!important;align-items:center!important;justify-content:center!important;gap:6px;height:48px!important;padding:8px!important}
 html body #app#app#app#app .top-actions.open #undo img{margin:0!important}
+
+/* Active unit tag: two-part pixel plaque (name on dark iron, phase on gold), small pointer to the unit. */
+html body #app#app#app#app #active-tag{display:flex!important;align-items:stretch;gap:0;padding:0!important;border:0!important;border-image:none!important;background:none!important;box-shadow:0 2px 0 #000a,0 0 0 1px #0b0806!important;font:400 12px/1 var(--px11),Galmuri11,sans-serif!important;color:#f4ead2!important;transform:translate(-50%,-100%);white-space:nowrap;image-rendering:pixelated}
+html body #app#app#app#app #active-tag b{display:block;padding:4px 7px 4px 8px;background:linear-gradient(#2b2318,#1a140c);border:1px solid #8a7340;border-right:0;font-weight:700;color:#f4ead2;text-shadow:0 1px 0 #000}
+html body #app#app#app#app #active-tag i{display:block;padding:4px 7px;font-style:normal;font-weight:700;color:#2a1a04;background:linear-gradient(#f2d58a,#c9a24e);border:1px solid #8a7340;text-shadow:0 1px 0 #f8e6b088}
+html body #app#app#app#app #active-tag[data-phase="shoot"] i{background:linear-gradient(#f0c08a,#c97d3e)}
+html body #app#app#app#app #active-tag[data-phase="preparation"] i{background:linear-gradient(#b8d8f0,#6f9cc0)}
+html body #app#app#app#app #active-tag::after{content:"";position:absolute;left:calc(50% - 5px);bottom:-6px;width:10px;height:6px;background:#8a7340;clip-path:polygon(0 0,100% 0,50% 100%);border:0}
 </style></head><body><div id="app"></div><style id="integrated-rework">
 /* Integrated mobile layout: content first, stable controls, original artwork. */
 html body.lwb-polished.ui-rebuilt #app #overlay .t-title .title-controls{display:flex!important;flex-direction:column!important;gap:10px!important}
