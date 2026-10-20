@@ -1,0 +1,265 @@
+{
+  "batch": "moria-dead-beorn-007",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "orc_shaman",
+      "name": "오크 주술사",
+      "faction": "moria",
+      "role": "support",
+      "original": "tokens/orc_shaman.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "모리아",
+      "groupKey": "moria",
+      "pose": "원본 고유 무장·기울임·동작 유지",
+      "bodyDescription": "오크 표준 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/orc_shaman.png",
+        "/workspace/scratch/bb0324dc7a4d/references/orc.png"
+      ],
+      "prompt": "Rebuild ONE complete production transparent PIXEL game token. INPUT1 original character controls EXACT costume/hair/helmet/beard/palette/weapons, elevated FRONT camera, deeply BOWED hidden face and distinct action silhouette; preserve those identity details. INPUT2 neutral ORC species skeleton controls EXACT FIVE anatomical crown-to-chin heads for crown-to-sole body, ordinary adult skull and shoulder/pelvis/knee/ankle bone lengths, crisp pixel density/stepped dark outlines/short restrained shade ramps. Redress and rotate original neutral bones into INPUT1 action, NEVER lengthen to6–8heads, shrink to4heads or inflate helmet/skull. Slim/muscular/fat changes WIDTH only. Elevated front camera down40–45degrees with crown and both shoulder TOPS obvious, torso/face foreshortened. Head firmly tucked down, eyes covered by hair/helmet/hood/brow; NO frontal facial portrait/eye contact. Retain original body's forward lean or combat action. Do not default to template's walking pose: grounded/braced feet or original lunging as equipment/action warrants, varied lead foot, uncrossed coherent limbs. Complete exact original weapons with logical handgrips; no weapons borrowed from INPUT2. Full silhouette and ALL weapon/banner/antler tips inside INNER80percent canvas. Body center ignores equipment. Transparent background, no base/floor/shadow/scenery/text/watermark/extra figures. Character identity: 오크 주술사 (orc_shaman). EXACT original loadout/palette/materials/action from INPUT1. Use ORIGINAL ORC bone proportions exactly; preserve original larger muscle WIDTH for Bolg/Azog and exact claws/prosthetic weapon. ",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-0dbedae7-d0e6-4657-b508-dfe7fda1e237.png",
+      "expectedBlobSHA": "6d403a8f634c3d0bed5ac7e349b8a7d99fed8194",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          137,
+          11,
+          1066,
+          1292
+        ]
+      },
+      "blobSHA": "6d403a8f634c3d0bed5ac7e349b8a7d99fed8194",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "beorning",
+      "name": "베오르닝 전사",
+      "faction": "beorning",
+      "role": "hero",
+      "original": "tokens/beorning.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "베오른 일족",
+      "groupKey": "beorning",
+      "pose": "원본 고유 무장·기울임·동작 유지",
+      "bodyDescription": "인간형 5등신 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/beorning.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human.png"
+      ],
+      "prompt": "Rebuild ONE complete production transparent PIXEL game token. INPUT1 original character controls EXACT costume/hair/helmet/beard/palette/weapons, elevated FRONT camera, deeply BOWED hidden face and distinct action silhouette; preserve those identity details. INPUT2 neutral HUMAN skeleton controls EXACT FIVE anatomical crown-to-chin heads for crown-to-sole body, ordinary adult skull and shoulder/pelvis/knee/ankle bone lengths, crisp pixel density/stepped dark outlines/short restrained shade ramps. Redress and rotate original neutral bones into INPUT1 action, NEVER lengthen to6–8heads, shrink to4heads or inflate helmet/skull. Slim/muscular/fat changes WIDTH only. Elevated front camera down40–45degrees with crown and both shoulder TOPS obvious, torso/face foreshortened. Head firmly tucked down, eyes covered by hair/helmet/hood/brow; NO frontal facial portrait/eye contact. Retain original body's forward lean or combat action. Do not default to template's walking pose: grounded/braced feet or original lunging as equipment/action warrants, varied lead foot, uncrossed coherent limbs. Complete exact original weapons with logical handgrips; no weapons borrowed from INPUT2. Full silhouette and ALL weapon/banner/antler tips inside INNER80percent canvas. Body center ignores equipment. Transparent background, no base/floor/shadow/scenery/text/watermark/extra figures. Character identity: 베오르닝 전사 (beorning). EXACT original loadout/palette/materials/action from INPUT1. Five anatomical heads crown-to-sole, helmet/crown not skull. ",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-fff20bf9-c6e6-4134-af3f-80231308ded1.png",
+      "expectedBlobSHA": "22e83af333291447c986f5cab1639d0c2409f4d0",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          265,
+          88,
+          956,
+          1206
+        ]
+      },
+      "blobSHA": "22e83af333291447c986f5cab1639d0c2409f4d0",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "barrow_wight",
+      "name": "고분 망령",
+      "faction": "angmar",
+      "role": "hero",
+      "original": "tokens/barrow_wight.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "앙마르",
+      "groupKey": "angmar",
+      "pose": "원본 고유 무장·기울임·동작 유지",
+      "bodyDescription": "인간형 5등신 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/barrow_wight.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human.png"
+      ],
+      "prompt": "Rebuild ONE complete production transparent PIXEL game token. INPUT1 original character controls EXACT costume/hair/helmet/beard/palette/weapons, elevated FRONT camera, deeply BOWED hidden face and distinct action silhouette; preserve those identity details. INPUT2 neutral HUMAN skeleton controls EXACT FIVE anatomical crown-to-chin heads for crown-to-sole body, ordinary adult skull and shoulder/pelvis/knee/ankle bone lengths, crisp pixel density/stepped dark outlines/short restrained shade ramps. Redress and rotate original neutral bones into INPUT1 action, NEVER lengthen to6–8heads, shrink to4heads or inflate helmet/skull. Slim/muscular/fat changes WIDTH only. Elevated front camera down40–45degrees with crown and both shoulder TOPS obvious, torso/face foreshortened. Head firmly tucked down, eyes covered by hair/helmet/hood/brow; NO frontal facial portrait/eye contact. Retain original body's forward lean or combat action. Do not default to template's walking pose: grounded/braced feet or original lunging as equipment/action warrants, varied lead foot, uncrossed coherent limbs. Complete exact original weapons with logical handgrips; no weapons borrowed from INPUT2. Full silhouette and ALL weapon/banner/antler tips inside INNER80percent canvas. Body center ignores equipment. Transparent background, no base/floor/shadow/scenery/text/watermark/extra figures. Character identity: 고분 망령 (barrow_wight). EXACT original loadout/palette/materials/action from INPUT1. Five anatomical heads crown-to-sole, helmet/crown not skull. Preserve original restrained spectral sea-green/grey material and ragged armor; single visible coherent body, no mist floor or effects. ",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-d67338db-fde2-4665-9c15-4f464ca0b6cc.png",
+      "expectedBlobSHA": "7064085c4ea3e3d59eb92c9266094f1bfd6dfb76",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          217,
+          91,
+          1046,
+          1241
+        ]
+      },
+      "blobSHA": "7064085c4ea3e3d59eb92c9266094f1bfd6dfb76",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "beorn",
+      "name": "베오른",
+      "faction": "beorning",
+      "role": "hero",
+      "original": "tokens/beorn.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "베오른 일족",
+      "groupKey": "beorning",
+      "pose": "원본 고유 무장·기울임·동작 유지",
+      "bodyDescription": "인간형 5등신 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/beorn.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/large-human.png"
+      ],
+      "prompt": "Rebuild ONE complete production transparent PIXEL game token. INPUT1 original character controls EXACT costume/hair/helmet/beard/palette/weapons, elevated FRONT camera, deeply BOWED hidden face and distinct action silhouette; preserve those identity details. INPUT2 neutral HUMAN skeleton controls EXACT FIVE anatomical crown-to-chin heads for crown-to-sole body, ordinary adult skull and shoulder/pelvis/knee/ankle bone lengths, crisp pixel density/stepped dark outlines/short restrained shade ramps. Redress and rotate original neutral bones into INPUT1 action, NEVER lengthen to6–8heads, shrink to4heads or inflate helmet/skull. Slim/muscular/fat changes WIDTH only. Elevated front camera down40–45degrees with crown and both shoulder TOPS obvious, torso/face foreshortened. Head firmly tucked down, eyes covered by hair/helmet/hood/brow; NO frontal facial portrait/eye contact. Retain original body's forward lean or combat action. Do not default to template's walking pose: grounded/braced feet or original lunging as equipment/action warrants, varied lead foot, uncrossed coherent limbs. Complete exact original weapons with logical handgrips; no weapons borrowed from INPUT2. Full silhouette and ALL weapon/banner/antler tips inside INNER80percent canvas. Body center ignores equipment. Transparent background, no base/floor/shadow/scenery/text/watermark/extra figures. Character identity: 베오른 (beorn). EXACT original loadout/palette/materials/action from INPUT1. Five anatomical heads crown-to-sole, helmet/crown not skull. ",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-3232b3d1-5bfc-4eb9-be73-1cf9c90374dd.png",
+      "expectedBlobSHA": "08cd4be76c9f13c6848b45601876e4fca4b87430",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          235,
+          133,
+          984,
+          1175
+        ]
+      },
+      "blobSHA": "08cd4be76c9f13c6848b45601876e4fca4b87430",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "bolg",
+      "name": "볼그",
+      "faction": "gundabad",
+      "role": "hero",
+      "original": "tokens/bolg.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "군다바드",
+      "groupKey": "gundabad",
+      "pose": "원본 고유 무장·기울임·동작 유지",
+      "bodyDescription": "오크 표준 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/bolg.png",
+        "/workspace/scratch/bb0324dc7a4d/references/orc.png"
+      ],
+      "prompt": "Rebuild ONE complete production transparent PIXEL game token. INPUT1 original character controls EXACT costume/hair/helmet/beard/palette/weapons, elevated FRONT camera, deeply BOWED hidden face and distinct action silhouette; preserve those identity details. INPUT2 neutral ORC species skeleton controls EXACT FIVE anatomical crown-to-chin heads for crown-to-sole body, ordinary adult skull and shoulder/pelvis/knee/ankle bone lengths, crisp pixel density/stepped dark outlines/short restrained shade ramps. Redress and rotate original neutral bones into INPUT1 action, NEVER lengthen to6–8heads, shrink to4heads or inflate helmet/skull. Slim/muscular/fat changes WIDTH only. Elevated front camera down40–45degrees with crown and both shoulder TOPS obvious, torso/face foreshortened. Head firmly tucked down, eyes covered by hair/helmet/hood/brow; NO frontal facial portrait/eye contact. Retain original body's forward lean or combat action. Do not default to template's walking pose: grounded/braced feet or original lunging as equipment/action warrants, varied lead foot, uncrossed coherent limbs. Complete exact original weapons with logical handgrips; no weapons borrowed from INPUT2. Full silhouette and ALL weapon/banner/antler tips inside INNER80percent canvas. Body center ignores equipment. Transparent background, no base/floor/shadow/scenery/text/watermark/extra figures. Character identity: 볼그 (bolg). EXACT original loadout/palette/materials/action from INPUT1. Use ORIGINAL ORC bone proportions exactly; preserve original larger muscle WIDTH for Bolg/Azog and exact claws/prosthetic weapon. ",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-bfc3e832-7645-47e6-9495-803e13a189ac.png",
+      "expectedBlobSHA": "313f1b22a6915c410da11ae9d667149f38fa6d7c",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1261,
+          1247
+        ],
+        "bounds": [
+          65,
+          63,
+          1240,
+          1196
+        ]
+      },
+      "blobSHA": "313f1b22a6915c410da11ae9d667149f38fa6d7c",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "king_of_the_dead",
+      "name": "망자의 왕",
+      "faction": "dead",
+      "role": "hero",
+      "original": "tokens/king_of_the_dead.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "망자",
+      "groupKey": "dead",
+      "pose": "원본 고유 무장·기울임·동작 유지",
+      "bodyDescription": "인간형 5등신 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/king_of_the_dead.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human.png"
+      ],
+      "prompt": "Rebuild ONE complete production transparent PIXEL game token. INPUT1 original character controls EXACT costume/hair/helmet/beard/palette/weapons, elevated FRONT camera, deeply BOWED hidden face and distinct action silhouette; preserve those identity details. INPUT2 neutral HUMAN skeleton controls EXACT FIVE anatomical crown-to-chin heads for crown-to-sole body, ordinary adult skull and shoulder/pelvis/knee/ankle bone lengths, crisp pixel density/stepped dark outlines/short restrained shade ramps. Redress and rotate original neutral bones into INPUT1 action, NEVER lengthen to6–8heads, shrink to4heads or inflate helmet/skull. Slim/muscular/fat changes WIDTH only. Elevated front camera down40–45degrees with crown and both shoulder TOPS obvious, torso/face foreshortened. Head firmly tucked down, eyes covered by hair/helmet/hood/brow; NO frontal facial portrait/eye contact. Retain original body's forward lean or combat action. Do not default to template's walking pose: grounded/braced feet or original lunging as equipment/action warrants, varied lead foot, uncrossed coherent limbs. Complete exact original weapons with logical handgrips; no weapons borrowed from INPUT2. Full silhouette and ALL weapon/banner/antler tips inside INNER80percent canvas. Body center ignores equipment. Transparent background, no base/floor/shadow/scenery/text/watermark/extra figures. Character identity: 망자의 왕 (king_of_the_dead). EXACT original loadout/palette/materials/action from INPUT1. Five anatomical heads crown-to-sole, helmet/crown not skull. Preserve original restrained spectral sea-green/grey material and ragged armor; single visible coherent body, no mist floor or effects. ",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-ac8d417c-fc12-43a4-a7f1-85e9765569d4.png",
+      "expectedBlobSHA": "89d5c858ba21c9275f0a854ed0aead255a8bb396",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          171,
+          66,
+          1099,
+          1273
+        ]
+      },
+      "blobSHA": "89d5c858ba21c9275f0a854ed0aead255a8bb396",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "dead_soldier",
+      "name": "망자 병사",
+      "faction": "dead",
+      "role": "infantry",
+      "original": "tokens/dead_soldier.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "망자",
+      "groupKey": "dead",
+      "pose": "원본 고유 무장·기울임·동작 유지",
+      "bodyDescription": "인간형 5등신 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/dead_soldier.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human.png"
+      ],
+      "prompt": "Rebuild ONE complete production transparent PIXEL game token. INPUT1 original character controls EXACT costume/hair/helmet/beard/palette/weapons, elevated FRONT camera, deeply BOWED hidden face and distinct action silhouette; preserve those identity details. INPUT2 neutral HUMAN skeleton controls EXACT FIVE anatomical crown-to-chin heads for crown-to-sole body, ordinary adult skull and shoulder/pelvis/knee/ankle bone lengths, crisp pixel density/stepped dark outlines/short restrained shade ramps. Redress and rotate original neutral bones into INPUT1 action, NEVER lengthen to6–8heads, shrink to4heads or inflate helmet/skull. Slim/muscular/fat changes WIDTH only. Elevated front camera down40–45degrees with crown and both shoulder TOPS obvious, torso/face foreshortened. Head firmly tucked down, eyes covered by hair/helmet/hood/brow; NO frontal facial portrait/eye contact. Retain original body's forward lean or combat action. Do not default to template's walking pose: grounded/braced feet or original lunging as equipment/action warrants, varied lead foot, uncrossed coherent limbs. Complete exact original weapons with logical handgrips; no weapons borrowed from INPUT2. Full silhouette and ALL weapon/banner/antler tips inside INNER80percent canvas. Body center ignores equipment. Transparent background, no base/floor/shadow/scenery/text/watermark/extra figures. Character identity: 망자 병사 (dead_soldier). EXACT original loadout/palette/materials/action from INPUT1. Five anatomical heads crown-to-sole, helmet/crown not skull. Preserve original restrained spectral sea-green/grey material and ragged armor; single visible coherent body, no mist floor or effects. ",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-085698df-977e-4a8a-8932-440679c93dec.png",
+      "expectedBlobSHA": "7d57ead46f1b8e184b45a7f7fb2ea273a6fa945c",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          263,
+          121,
+          982,
+          1216
+        ]
+      },
+      "blobSHA": "7d57ead46f1b8e184b45a7f7fb2ea273a6fa945c",
+      "approval": "pending",
+      "inGameVerified": false
+    }
+  ]
+}

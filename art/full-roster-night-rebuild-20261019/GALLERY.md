@@ -1,6 +1,48 @@
-# 전체 재제작 검토 — 424종
+# 전체 재제작 검토 — 431종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 망자 병사 (dead_soldier)
+
+![망자 병사](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dead_soldier.png?v=7d57ead46f1b8e184b45a7f7fb2ea273a6fa945c)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/dead_soldier.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dead_soldier.png?v=7d57ead46f1b8e184b45a7f7fb2ea273a6fa945c)
+
+### 망자의 왕 (king_of_the_dead)
+
+![망자의 왕](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/king_of_the_dead.png?v=89d5c858ba21c9275f0a854ed0aead255a8bb396)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/king_of_the_dead.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/king_of_the_dead.png?v=89d5c858ba21c9275f0a854ed0aead255a8bb396)
+
+### 볼그 (bolg)
+
+![볼그](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/bolg.png?v=313f1b22a6915c410da11ae9d667149f38fa6d7c)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/bolg.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/bolg.png?v=313f1b22a6915c410da11ae9d667149f38fa6d7c)
+
+### 베오른 (beorn)
+
+![베오른](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/beorn.png?v=08cd4be76c9f13c6848b45601876e4fca4b87430)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/beorn.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/beorn.png?v=08cd4be76c9f13c6848b45601876e4fca4b87430)
+
+### 고분 망령 (barrow_wight)
+
+![고분 망령](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/barrow_wight.png?v=7064085c4ea3e3d59eb92c9266094f1bfd6dfb76)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/barrow_wight.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/barrow_wight.png?v=7064085c4ea3e3d59eb92c9266094f1bfd6dfb76)
+
+### 베오르닝 전사 (beorning)
+
+![베오르닝 전사](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/beorning.png?v=22e83af333291447c986f5cab1639d0c2409f4d0)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/beorning.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/beorning.png?v=22e83af333291447c986f5cab1639d0c2409f4d0)
+
+### 오크 주술사 (orc_shaman)
+
+![오크 주술사](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/orc_shaman.png?v=6d403a8f634c3d0bed5ac7e349b8a7d99fed8194)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/orc_shaman.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/orc_shaman.png?v=6d403a8f634c3d0bed5ac7e349b8a7d99fed8194)
 
 ### 트리단(기마) (thrydan_mounted)
 

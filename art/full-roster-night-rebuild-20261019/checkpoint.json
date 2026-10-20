@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T04:06:38.818Z",
+  "updatedAt": "2026-10-20T04:07:07.809Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 86,
-    "newlyGeneratedThisSession": 292,
-    "visuallyReviewedThisSession": 297,
+    "pending": 79,
+    "newlyGeneratedThisSession": 299,
+    "visuallyReviewedThisSession": 304,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 292,
-    "persistedReviewAssets": 424,
+    "generatedReviewAssets": 299,
+    "persistedReviewAssets": 431,
     "revisedAfterRejection": 18
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -52,10 +52,10 @@
     "nextAction": "Continue pending roster with original species skeletons; inspect and save small batches to unified gallery.",
     "nextIds": [
       "cave_troll",
-      "orc_shaman",
       "balrog",
-      "barrow_wight",
-      "great_eagle"
+      "great_eagle",
+      "ent",
+      "melkor"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
@@ -280,8 +280,13 @@
       "faction": "moria",
       "role": "support",
       "original": "tokens/orc_shaman.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "moria",
+      "path": "art/full-roster-night-rebuild-20261019/units/orc_shaman.png",
+      "blobSHA": "6d403a8f634c3d0bed5ac7e349b8a7d99fed8194",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "orc_captain",
@@ -639,8 +644,13 @@
       "faction": "angmar",
       "role": "hero",
       "original": "tokens/barrow_wight.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "angmar",
+      "path": "art/full-roster-night-rebuild-20261019/units/barrow_wight.png",
+      "blobSHA": "7064085c4ea3e3d59eb92c9266094f1bfd6dfb76",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "moria_goblin",
@@ -1876,8 +1886,13 @@
       "faction": "beorning",
       "role": "hero",
       "original": "tokens/beorning.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "beorning",
+      "path": "art/full-roster-night-rebuild-20261019/units/beorning.png",
+      "blobSHA": "22e83af333291447c986f5cab1639d0c2409f4d0",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "ranger_north",
@@ -2157,8 +2172,13 @@
       "faction": "beorning",
       "role": "hero",
       "original": "tokens/beorn.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "beorning",
+      "path": "art/full-roster-night-rebuild-20261019/units/beorn.png",
+      "blobSHA": "08cd4be76c9f13c6848b45601876e4fca4b87430",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "elendil",
@@ -2221,8 +2241,13 @@
       "faction": "gundabad",
       "role": "hero",
       "original": "tokens/bolg.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "gundabad",
+      "path": "art/full-roster-night-rebuild-20261019/units/bolg.png",
+      "blobSHA": "313f1b22a6915c410da11ae9d667149f38fa6d7c",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "easterling_warlord",
@@ -2309,8 +2334,13 @@
       "faction": "dead",
       "role": "hero",
       "original": "tokens/king_of_the_dead.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dead",
+      "path": "art/full-roster-night-rebuild-20261019/units/king_of_the_dead.png",
+      "blobSHA": "89d5c858ba21c9275f0a854ed0aead255a8bb396",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "dead_soldier",
@@ -2318,8 +2348,13 @@
       "faction": "dead",
       "role": "infantry",
       "original": "tokens/dead_soldier.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dead",
+      "path": "art/full-roster-night-rebuild-20261019/units/dead_soldier.png",
+      "blobSHA": "7d57ead46f1b8e184b45a7f7fb2ea273a6fa945c",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "olog_hai",
@@ -7554,22 +7589,26 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 424,
+    "count": 431,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
+      "망자": 2,
+      "군다바드": 1,
+      "베오른 일족": 2,
+      "앙마르": 1,
+      "moria": 13,
       "dunland": 10,
-      "easterling": 15,
-      "모리아": 12,
-      "호빗": 14,
-      "아르노르": 9,
+      "이스터링·칸드": 15,
+      "shire": 14,
+      "arnor": 9,
       "브리": 2,
-      "누메노르": 4,
-      "인간": 8,
+      "numenor": 4,
+      "men": 8,
       "isengard": 30,
       "harad": 20,
-      "난쟁이": 36,
+      "dwarf": 36,
       "maiar": 9,
       "elf": 77,
       "mordor": 73,
@@ -7578,7 +7617,7 @@
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,
-    "sourceValidation": "417 unique IDs; static card count and asset blob SHAs verified"
+    "sourceValidation": "431 unique IDs; static card count and asset blob SHAs verified"
   },
   "revisionRequests": {
     "witchking": {
@@ -7714,9 +7753,15 @@
     }
   },
   "lastContinuation": {
-    "batch": "golfimbul-001",
+    "batch": "moria-dead-beorn-007",
     "newIds": [
-      "golfimbul"
+      "orc_shaman",
+      "beorning",
+      "barrow_wight",
+      "beorn",
+      "bolg",
+      "king_of_the_dead",
+      "dead_soldier"
     ],
     "qualityStandard": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
     "note": "Each image inspected against canonical skeleton and identity reference; approval pending."
