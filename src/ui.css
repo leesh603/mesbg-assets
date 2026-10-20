@@ -1373,3 +1373,8 @@ dialog#warband-deployment [data-deployment-summary]{font-size:17px!important}
 :is(html,#_o#_v#_r) body .ready-unit.is-reserve { opacity:.72; }
 :is(html,#_o#_v#_r) body .ready-deployment-error { color:#ffd08a; min-height:1.3em; }
 @media(max-width:600px){:is(html,#_o#_v#_r) body #ready-battlefield { height:280px; } :is(html,#_o#_v#_r) body .ready-unit-list { grid-template-columns:1fr; }}
+
+/* Settings menu: keep labels clear of the framed corners now that the menu has more rows */
+html body #app#app#app#app .top-actions.open{padding:30px 26px 30px!important;box-sizing:border-box}
+html body #app#app#app#app .top-actions.open #undo{flex-direction:row!important;align-items:center!important;justify-content:center!important;gap:6px;height:48px!important;padding:8px!important}
+html body #app#app#app#app .top-actions.open #undo img{margin:0!important}

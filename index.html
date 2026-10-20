@@ -19166,63 +19166,60 @@ const ART_FEET_DX={};{const _ap=applyUnitArtSprite;applyUnitArtSprite=function(s
  G.fillCircle=function(x,y,r){if(hug(x,y,r))return this.fillEllipse(x,y,r*2,r*2*BASE_TILT);return fc.apply(this,arguments);};}
 
 /* ==== Heroic action cut-in (reference: Fire Emblem crit cut-ins, Langrisser skill splash) ====
-   Uses the unit's own pixel sprite: the head-to-waist crop is enlarged with hard pixels, tilted and slid
-   across a skewed banner. Display only, never blocks input; shortened at 2x and skipped at 4x+. */
+   A small card at the bottom-left of the battlefield: the unit's own pixel sprite enlarged with hard pixels
+   and a slight tilt, its name and the action. Never covers the field or blocks input; shorter at high speed. */
 const HERO_CUTIN={last:0,queue:null};const hcWait=ms=>new Promise(r=>setTimeout(r,ms));
 function heroCutinStyle(){if(document.getElementById('hero-cutin-style'))return;const st=document.createElement('style');st.id='hero-cutin-style';st.textContent=`
-#hero-cutin{position:fixed;inset:0;z-index:70;pointer-events:none;overflow:hidden;--c1:#1d2c4a;--c2:#0b1222;--gold:#e8c66a}
+#hero-cutin{position:absolute;left:8px;bottom:72px;z-index:12;pointer-events:none;width:min(250px,64vw);height:86px;--c1:#1d2c4a;--c2:#0b1222;--gold:#e8c66a;
+ transform:translateX(-115%);opacity:0;transition:transform .18s cubic-bezier(.2,1.1,.4,1),opacity .14s}
 #hero-cutin.evil{--c1:#4a1414;--c2:#170606;--gold:#e0705a}
-#hero-cutin .hc-band{position:absolute;left:-8%;right:-8%;top:34%;height:clamp(118px,19vh,170px);transform:translateX(-110%) skewY(-7deg);
- background:linear-gradient(90deg,var(--c2),var(--c1) 45%,var(--c2));box-shadow:0 0 0 2px var(--gold),0 0 0 5px #000a,0 14px 30px #000c;transition:transform .16s cubic-bezier(.2,.9,.3,1)}
-#hero-cutin.evil .hc-band{transform:translateX(110%) skewY(7deg)}
-#hero-cutin .hc-band::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 18px,#ffffff14 18px 20px,transparent 20px 46px,#ffffff0d 46px 47px);animation:hcSpeed .35s linear infinite}
-#hero-cutin.evil .hc-band::before{animation-direction:reverse}
-@keyframes hcSpeed{from{background-position:0 0}to{background-position:-94px 0}}
-#hero-cutin .hc-fig{position:absolute;top:calc(34% - clamp(70px,11vh,110px));left:4%;height:min(300px,33vh);transform:translateX(-140%) rotate(-7deg);transition:transform .2s cubic-bezier(.2,1.25,.4,1) .04s;filter:drop-shadow(0 0 0 #000) drop-shadow(5px 6px 0 #000b) drop-shadow(0 0 10px var(--gold))}
-#hero-cutin.evil .hc-fig{left:auto;right:4%;transform:translateX(140%) rotate(7deg) scaleX(-1)}
-#hero-cutin .hc-fig canvas{image-rendering:pixelated;image-rendering:crisp-edges;display:block;margin-top:auto}#hero-cutin .hc-fig{display:flex;align-items:flex-end;justify-content:center;width:54vw}
-#hero-cutin .hc-txt{position:absolute;top:calc(34% + clamp(26px,4.5vh,44px));left:54%;right:3%;transform:translateX(60px) skewY(-7deg);opacity:0;transition:all .18s ease-out .1s;text-align:left}
-#hero-cutin.evil .hc-txt{left:3%;right:54%;transform:translateX(-60px) skewY(7deg);text-align:right}
-#hero-cutin .hc-name{font:400 clamp(13px,3.6vw,17px)/1.3 Galmuri11,sans-serif!important;color:#efe3c2;text-shadow:0 2px 0 #000;white-space:nowrap}
-#hero-cutin .hc-act{font:700 clamp(24px,7.4vw,40px)/1.15 Galmuri11,sans-serif!important;color:var(--gold);text-shadow:0 3px 0 #000,0 0 14px #000;letter-spacing:.02em;word-break:keep-all}
-#hero-cutin .hc-cost{display:inline-block;margin-top:4px;padding:1px 6px;font:400 12px/1.4 Galmuri11,sans-serif;color:#fff;background:#000a;border:1px solid var(--gold)}
-#hero-cutin .hc-flash{position:absolute;inset:0;background:#fff;opacity:0;transition:opacity .12s}
-#hero-cutin.on .hc-band{transform:translateX(0) skewY(-7deg)}
-#hero-cutin.evil.on .hc-band{transform:translateX(0) skewY(7deg)}
-#hero-cutin.on .hc-fig{transform:translateX(0) rotate(-7deg)}
-#hero-cutin.evil.on .hc-fig{transform:translateX(0) rotate(7deg) scaleX(-1)}
-#hero-cutin.on .hc-txt{opacity:1;transform:translateX(0) skewY(-7deg)}
-#hero-cutin.evil.on .hc-txt{transform:translateX(0) skewY(7deg)}
-#hero-cutin.flash .hc-flash{opacity:.35}
-#hero-cutin.out .hc-band,#hero-cutin.out .hc-fig,#hero-cutin.out .hc-txt{opacity:0;transition:opacity .16s}
-@media (prefers-reduced-motion: reduce){#hero-cutin *{transition:none!important;animation:none!important}}`;document.head.appendChild(st);}
+#hero-cutin .hc-band{position:absolute;inset:14px 0 0 0;background:linear-gradient(90deg,var(--c1),var(--c2));box-shadow:0 0 0 2px var(--gold),0 0 0 4px #000b,0 6px 14px #000a;transform:skewX(-8deg);overflow:hidden}
+#hero-cutin .hc-band::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 14px,#ffffff12 14px 16px,transparent 16px 34px);animation:hcSpeed .4s linear infinite}
+@keyframes hcSpeed{from{background-position:0 0}to{background-position:-68px 0}}
+#hero-cutin .hc-fig{position:absolute;left:2px;bottom:0;width:92px;height:100px;display:flex;align-items:flex-end;justify-content:center;overflow:visible}
+#hero-cutin .hc-fig canvas{display:block;image-rendering:pixelated;image-rendering:crisp-edges;transform:rotate(-6deg);transform-origin:50% 100%;filter:drop-shadow(2px 3px 0 #000c) drop-shadow(0 0 6px var(--gold))}
+#hero-cutin .hc-txt{position:absolute;left:100px;right:8px;top:20px;bottom:6px;display:flex;flex-direction:column;justify-content:center;min-width:0}
+#hero-cutin .hc-name{color:#efe3c2;text-shadow:0 1px 0 #000;white-space:nowrap;overflow:hidden;text-overflow:clip}
+#hero-cutin .hc-act{color:var(--gold);text-shadow:0 2px 0 #000;word-break:keep-all}
+#hero-cutin .hc-cost{align-self:flex-start;margin-top:2px;padding:0 5px;color:#fff;background:#000a;border:1px solid var(--gold)}
+#hero-cutin.on{transform:translateX(0);opacity:1}
+#hero-cutin.out{transform:translateX(-115%);opacity:0}
+@media (prefers-reduced-motion: reduce){#hero-cutin,#hero-cutin *{transition:none!important;animation:none!important}}`;document.head.appendChild(st);}
 async function heroCutinSource(scene,u){
     if(scene.textures.exists(u.id))return scene.textures.get(u.id).getSourceImage();
     const m=q.meta.get(u.id);if(!m||!m.file)return null;
     return await new Promise(res=>{const im=new Image();im.onload=()=>res(im);im.onerror=()=>res(null);im.src=Ut(m.file);setTimeout(()=>res(null),1500);});
 }
+// Crop at a natural line: head to just below the belt for figures (a waist cut through the torso looked
+// chopped), the whole rider and the horse's chest for cavalry, the whole sprite for beasts. The crop box is
+// then trimmed to the opaque pixels inside it so nothing is clipped at the sides.
 function heroCutinCanvas(img,u){
     if(!img)return null;const W=img.width,H=img.height;
     const r=UNIT_ART_PROFILES[u.id]||['human',.08,.92,.5,.5,86,'body'],rider=r[6]==='rider',bust=rider||UPRIGHT_ART_CLASSES.has(r[0]);
-    const top=bust?Math.max(0,r[1]-.05):0,span=r[2]-r[1],bot=bust?Math.min(1,rider?r[2]+.06:r[1]+span*.56):1,half=bust?(rider?.32:.36):.5;
-    const x0=Math.max(0,Math.round((r[3]-half)*W)),x1=Math.min(W,Math.round((r[3]+half)*W)),y0=Math.round(top*H),y1=Math.round(bot*H);
-    const c=document.createElement('canvas');c.width=x1-x0;c.height=y1-y0;const x=c.getContext('2d');x.imageSmoothingEnabled=false;
-    x.drawImage(img,x0,y0,c.width,c.height,0,0,c.width,c.height);
-    // fade the waist cut so the crop reads as a bust, not a sliced sprite
-    if(bust){const g=x.createLinearGradient(0,c.height*.78,0,c.height);g.addColorStop(0,'rgba(0,0,0,1)');g.addColorStop(1,'rgba(0,0,0,0)');x.globalCompositeOperation='destination-in';x.fillStyle=g;x.fillRect(0,0,c.width,c.height);}
+    const span=r[2]-r[1];
+    let y0=0,y1=H;if(bust){y0=Math.round(Math.max(0,r[1]-.06)*H);y1=Math.round(Math.min(1,rider?r[2]+.22:r[1]+span*.68)*H);}
+    const full=document.createElement('canvas');full.width=W;full.height=H;const fx=full.getContext('2d');fx.drawImage(img,0,0);
+    const a=fx.getImageData(0,y0,W,y1-y0).data;let x0=W,x1=0,yy0=y1-y0,yy1=0;
+    for(let y=0;y<y1-y0;y++)for(let x=0;x<W;x++)if(a[(y*W+x)*4+3]>40){if(x<x0)x0=x;if(x>x1)x1=x;if(y<yy0)yy0=y;if(y>yy1)yy1=y;}
+    if(x1<=x0)return null;
+    const cw=x1-x0+1,ch=yy1-yy0+1,c=document.createElement('canvas');c.width=cw;c.height=ch;const x=c.getContext('2d');x.imageSmoothingEnabled=false;
+    x.drawImage(full,x0,y0+yy0,cw,ch,0,0,cw,ch);
+    if(bust){const g=x.createLinearGradient(0,ch*.86,0,ch);g.addColorStop(0,'rgba(0,0,0,1)');g.addColorStop(1,'rgba(0,0,0,0)');x.globalCompositeOperation='destination-in';x.fillStyle=g;x.fillRect(0,0,cw,ch);}
     return c;
 }
 async function heroCutin(scene,u,action,cost='Might −1'){
-    if(!u||qt>=4||document.getElementById('dragon-cine'))return;
-    const now=performance.now();if(now-HERO_CUTIN.last<900)return;HERO_CUTIN.last=now;
+    if(!u||document.getElementById('dragon-cine'))return;
+    const now=performance.now(),gap=qt>=8?350:qt>=4?500:700;if(now-HERO_CUTIN.last<gap)return;HERO_CUTIN.last=now;
     heroCutinStyle();document.getElementById('hero-cutin')?.remove();
     const cv=heroCutinCanvas(await heroCutinSource(scene,u),u);if(!cv)return;
-    const el=document.createElement('div');el.id='hero-cutin';if(u.side!=='good')el.classList.add('evil');
-    el.innerHTML='<div class="hc-band"></div><div class="hc-fig"></div><div class="hc-txt"><div class="hc-name" style="font-size:clamp(14px,3.8vw,18px)!important;line-height:1.3!important">'+esc(u.name)+'</div><div class="hc-act" style="font-size:clamp(26px,8vw,42px)!important;line-height:1.12!important;font-weight:700!important">'+esc(action||'영웅 행동')+'</div>'+(cost?'<span class="hc-cost" style="font-size:12px!important">'+esc(cost)+'</span>':'')+'</div><div class="hc-flash"></div>';
-    {const H=Math.min(300,innerHeight*.33),Wm=innerWidth*.54;let h=H,w=cv.width*H/cv.height;if(w>Wm){w=Wm;h=cv.height*Wm/cv.width;}cv.style.width=Math.round(w)+'px';cv.style.height=Math.round(h)+'px';}el.querySelector('.hc-fig').appendChild(cv);document.body.appendChild(el);
-    const fast=qt>=2,hold=UX.reduced?700:fast?380:720;
-    await hcWait(20);el.classList.add('on');setTimeout(()=>el.classList.add('flash'),150);setTimeout(()=>el.classList.remove('flash'),270);
-    await hcWait(hold);el.classList.add('out');await hcWait(180);el.remove();
+    const host=document.querySelector('#app .field')||document.body;
+    const el=document.createElement('div');el.id='hero-cutin';el.setAttribute('aria-live','polite');if(u.side!=='good')el.classList.add('evil');
+    el.innerHTML='<div class="hc-band"></div><div class="hc-fig"></div><div class="hc-txt"><div class="hc-name" style="font-size:12px!important;line-height:1.3!important">'+esc(u.name)+'</div><div class="hc-act" style="font-size:17px!important;line-height:1.2!important;font-weight:700!important">'+esc(action||'영웅 행동')+'</div>'+(cost?'<span class="hc-cost" style="font-size:11px!important;line-height:1.5!important">'+esc(cost)+'</span>':'')+'</div>';
+    // integer-ish pixel scale that fits a 92x100 box
+    let sc=Math.min(92/cv.width,100/cv.height);if(sc>1)sc=Math.max(1,Math.floor(sc*2)/2);cv.style.width=Math.round(cv.width*sc)+'px';cv.style.height=Math.round(cv.height*sc)+'px';
+    el.querySelector('.hc-fig').appendChild(cv);host.appendChild(el);
+    const hold=qt>=8?380:qt>=4?560:qt>=2?820:1250;
+    await hcWait(20);el.classList.add('on');await hcWait(hold);el.classList.add('out');await hcWait(200);el.remove();
 }
 {const _hp=Ve.prototype.play;Ve.prototype.play=function(event){try{if(event&&event.type==='Heroic'&&event.uid&&this.b){const u=this.b.unit(event.uid),m=String(event.message||'').split(/·|—/).pop().replace(/\(AI\)/,'').trim();heroCutin(this,u,m);}}catch(e){console.error('[cutin]',e);}return _hp.apply(this,arguments);};}
 if(window.MESBG)MESBG.heroCutin=(uid,act)=>heroCutin(Tt,q.unit(uid),act);
@@ -19267,7 +19264,7 @@ function nemesisName(n){return NEMESIS_TITLES[Math.min(2,n.level-1)]+' '+n.base;
 
 /* ==== Per-unit tactics for auto play (reference: Unicorn Overlord tactics) ====
    A soldier's tactic only changes where the AI moves it (auto play / one-phase auto). Rules are unchanged. */
-const UNIT_TACTICS={free:{n:'자유',d:'기본 판단대로 움직입니다'},hold:{n:'사수',d:'적이 3″ 안에 들어오기 전에는 자리를 지킵니다'},guard:{n:'호위',d:'가장 가까운 아군 영웅 곁을 지킵니다'},weak:{n:'약한 적',d:'남은 상처가 가장 적은 적부터 노립니다'}};
+const UNIT_TACTICS={free:{n:'자유',d:'기본 판단대로 움직입니다'},hold:{n:'사수',d:'적이 3″ 안에 들어오기 전에는 자리를 지킵니다'},guard:{n:'호위',d:'가장 가까운 아군 영웅 곁을 지킵니다'},weak:{n:'약한 적',d:'남은 상처가 가장 적은 적부터 노립니다'},strong:{n:'강한 적',d:'적 영웅·괴수 등 가장 위협적인 적을 추격합니다'}};
 {const _be=be;be=function(b,u){
     const t=u&&u.side==='good'&&u.tactic;if(!t||t==='free'||u.static||b.engaged(u)||b.remaining(u)<12)return _be(b,u);
     try{const foes=b.alive('evil'),all=b.alive(),gap=v=>ht(u,v)-u.radius-v.radius;
@@ -19277,9 +19274,11 @@ const UNIT_TACTICS={free:{n:'자유',d:'기본 판단대로 움직입니다'},ho
             const d=ht(u,hero),keep=u.radius+hero.radius+24;if(d<=keep+30)return null;
             const k=Math.min(b.remaining(u),d-keep)/d,to={x:u.x+(hero.x-u.x)*k,y:u.y+(hero.y-u.y)*k};
             const legal=ve(u,to,all,b.terrain,b.remaining(u),{snap:false});return legal&&legal.distance>=12?legal.to:_be(b,u);}
-        if(t==='weak'){if(u.stats.shootRange)return _be(b,u);
-            const order=foes.slice().sort((a,c)=>(a.currentWounds-c.currentWounds)||(a.stats.defence-c.stats.defence)||(ht(u,a)-ht(u,c))).slice(0,4);
+        if(t==='weak'||t==='strong'){if(u.stats.shootRange)return _be(b,u);
+            const threat=v=>((v.traits||[]).includes('hero')?40:0)+((v.traits||[]).includes('monster')?30:0)+v.stats.fight*3+v.stats.strength*2+v.stats.attacks*4+v.currentWounds*3;
+            const order=t==='weak'?foes.slice().sort((a,c)=>(a.currentWounds-c.currentWounds)||(a.stats.defence-c.stats.defence)||(ht(u,a)-ht(u,c))).slice(0,4):foes.slice().sort((a,c)=>threat(c)-threat(a)||(ht(u,a)-ht(u,c))).slice(0,3);
             for(const v of order){const legal=ve(u,ue(u,v),all,b.terrain,b.remaining(u),{snap:false});if(legal&&ht(legal.to,v)<=u.radius+v.radius+4)return legal.to;}
+            if(t==='strong'&&order[0]){const v=order[0],d=ht(u,v),k=Math.min(b.remaining(u),Math.max(0,d-u.radius-v.radius-8))/d,to={x:u.x+(v.x-u.x)*k,y:u.y+(v.y-u.y)*k},legal=ve(u,to,all,b.terrain,b.remaining(u),{snap:false});if(legal&&legal.distance>=12)return legal.to;}
             return _be(b,u);}
     }catch(e){console.error('[tactic]',e);}
     return _be(b,u);};}
@@ -19288,7 +19287,7 @@ const UNIT_TACTICS={free:{n:'자유',d:'기본 판단대로 움직입니다'},ho
 document.addEventListener('click',e=>{const bt=e.target.closest&&e.target.closest('.tactic-btn[data-tactic]');if(!bt)return;e.preventDefault();e.stopPropagation();const u=q.unit(bt.dataset.uid);if(!u)return;
     u.tactic=bt.dataset.tactic;const sec=bt.closest('.tactic-row');sec.querySelectorAll('.tactic-btn').forEach(b=>{const on=b===bt;b.classList.toggle('on',on);b.setAttribute('aria-pressed',String(on));});
     const d=sec.querySelector('.tactic-desc');if(d)d.textContent=UNIT_TACTICS[u.tactic].d;try{q.save();}catch(_){}},true);
-{const st=document.createElement('style');st.textContent='.tactic-btns{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}.tactic-btn{min-height:36px!important;padding:4px 2px!important;font-size:13px!important;white-space:nowrap!important;word-break:keep-all}.tactic-btn.on{outline:2px solid #e8c66a;outline-offset:-2px;color:#fff3c8!important}.tactic-desc{margin:6px 0 0;font-size:12px;line-height:1.5;color:#c8bd9e}';document.head.appendChild(st);}
+{const st=document.createElement('style');st.textContent='.tactic-btns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.tactic-btn{min-height:36px!important;padding:4px 2px!important;font-size:13px!important;white-space:nowrap!important;word-break:keep-all}.tactic-btn.on{outline:2px solid #e8c66a;outline-offset:-2px;color:#fff3c8!important}.tactic-desc{margin:6px 0 0;font-size:12px;line-height:1.5;color:#c8bd9e}';document.head.appendChild(st);}
 
 /* ==== Dice tray (reference: Blood Bowl 3) ====
    Every fight, shot and priority roll of the current battle is kept with all its dice: the deciding die is
@@ -22178,6 +22177,11 @@ dialog#warband-deployment [data-deployment-summary]{font-size:17px!important}
 :is(html,#_o#_v#_r) body .ready-unit.is-reserve { opacity:.72; }
 :is(html,#_o#_v#_r) body .ready-deployment-error { color:#ffd08a; min-height:1.3em; }
 @media(max-width:600px){:is(html,#_o#_v#_r) body #ready-battlefield { height:280px; } :is(html,#_o#_v#_r) body .ready-unit-list { grid-template-columns:1fr; }}
+
+/* Settings menu: keep labels clear of the framed corners now that the menu has more rows */
+html body #app#app#app#app .top-actions.open{padding:30px 26px 30px!important;box-sizing:border-box}
+html body #app#app#app#app .top-actions.open #undo{flex-direction:row!important;align-items:center!important;justify-content:center!important;gap:6px;height:48px!important;padding:8px!important}
+html body #app#app#app#app .top-actions.open #undo img{margin:0!important}
 </style></head><body><div id="app"></div><style id="integrated-rework">
 /* Integrated mobile layout: content first, stable controls, original artwork. */
 html body.lwb-polished.ui-rebuilt #app #overlay .t-title .title-controls{display:flex!important;flex-direction:column!important;gap:10px!important}
