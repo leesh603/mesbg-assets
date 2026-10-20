@@ -1,6 +1,42 @@
-# 전체 재제작 검토 — 350종
+# 전체 재제작 검토 — 356종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 투린 (turin)
+
+![투린](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/turin.png?v=85deb81a8ef5638b5057079277d4562a368e5138)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/turin.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/turin.png?v=85deb81a8ef5638b5057079277d4562a368e5138)
+
+### 베렌 (beren)
+
+![베렌](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/beren.png?v=a0f25bc63591a5ff4102d3b48b48bbcda2ebea0f)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/beren.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/beren.png?v=a0f25bc63591a5ff4102d3b48b48bbcda2ebea0f)
+
+### 엘렌딜 (elendil)
+
+![엘렌딜](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/elendil.png?v=960c5e6cbde3bd545ad4118ab0af476e3e359ea3)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/elendil.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/elendil.png?v=960c5e6cbde3bd545ad4118ab0af476e3e359ea3)
+
+### 북부 레인저 (ranger_north)
+
+![북부 레인저](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/ranger_north.png?v=f903eff2d245545d43a8ca1a87eee66ac416e6f8)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/ranger_north.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/ranger_north.png?v=f903eff2d245545d43a8ca1a87eee66ac416e6f8)
+
+### 던랜딩 전사 (dunlending_warrior)
+
+![던랜딩 전사](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dunlending_warrior.png?v=a619a36eb4d5f857b14d6007f48b00189c644eb5)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/dunlending_warrior.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dunlending_warrior.png?v=a619a36eb4d5f857b14d6007f48b00189c644eb5)
+
+### 던랜딩 허스칼 (dunlending_huscarl)
+
+![던랜딩 허스칼](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dunlending_huscarl.png?v=16fcfa062d714c94e645a38bba30ff986e2e6ecd)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/dunlending_huscarl.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dunlending_huscarl.png?v=16fcfa062d714c94e645a38bba30ff986e2e6ecd)
 
 ### 크레반 까마귀 떼 (crebain_swarm)
 

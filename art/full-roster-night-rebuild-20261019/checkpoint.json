@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T03:40:19.477Z",
+  "updatedAt": "2026-10-20T03:41:55.952Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 160,
-    "newlyGeneratedThisSession": 218,
-    "visuallyReviewedThisSession": 223,
+    "pending": 154,
+    "newlyGeneratedThisSession": 224,
+    "visuallyReviewedThisSession": 229,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 218,
-    "persistedReviewAssets": 350,
+    "generatedReviewAssets": 224,
+    "persistedReviewAssets": 356,
     "revisedAfterRejection": 18
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -1680,8 +1680,13 @@
       "faction": "dunland",
       "role": "infantry",
       "original": "tokens/dunlending_warrior.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dunland",
+      "path": "art/full-roster-night-rebuild-20261019/units/dunlending_warrior.png",
+      "blobSHA": "a619a36eb4d5f857b14d6007f48b00189c644eb5",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "dunlending_huscarl",
@@ -1689,8 +1694,13 @@
       "faction": "dunland",
       "role": "infantry",
       "original": "tokens/dunlending_huscarl.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dunland",
+      "path": "art/full-roster-night-rebuild-20261019/units/dunlending_huscarl.png",
+      "blobSHA": "16fcfa062d714c94e645a38bba30ff986e2e6ecd",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "warg",
@@ -1810,8 +1820,13 @@
       "faction": "arnor",
       "role": "hero",
       "original": "tokens/ranger_north.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "arnor",
+      "path": "art/full-roster-night-rebuild-20261019/units/ranger_north.png",
+      "blobSHA": "f903eff2d245545d43a8ca1a87eee66ac416e6f8",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "theoden",
@@ -2071,8 +2086,13 @@
       "faction": "arnor",
       "role": "hero",
       "original": "tokens/elendil.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "arnor",
+      "path": "art/full-roster-night-rebuild-20261019/units/elendil.png",
+      "blobSHA": "960c5e6cbde3bd545ad4118ab0af476e3e359ea3",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "melkor",
@@ -2325,8 +2345,13 @@
       "faction": "men",
       "role": "hero",
       "original": "tokens/beren.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "men",
+      "path": "art/full-roster-night-rebuild-20261019/units/beren.png",
+      "blobSHA": "a0f25bc63591a5ff4102d3b48b48bbcda2ebea0f",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "turin",
@@ -2334,8 +2359,13 @@
       "faction": "men",
       "role": "hero",
       "original": "tokens/turin.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "men",
+      "path": "art/full-roster-night-rebuild-20261019/units/turin.png",
+      "blobSHA": "85deb81a8ef5638b5057079277d4562a368e5138",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "beleg",
@@ -7184,11 +7214,14 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 350,
+    "count": 356,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
+      "men": 2,
+      "arnor": 2,
+      "dunland": 2,
       "isengard": 30,
       "harad": 20,
       "dwarf": 36,
@@ -7200,7 +7233,7 @@
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,
-    "sourceValidation": "350 unique IDs; static card count and asset blob SHAs verified"
+    "sourceValidation": "356 unique IDs; static card count and asset blob SHAs verified"
   },
   "revisionRequests": {
     "witchking": {
@@ -7327,9 +7360,14 @@
     }
   },
   "lastContinuation": {
-    "batch": "crebain-forward-flock-20261020",
+    "batch": "north-001-six-20261020",
     "newIds": [
-      "crebain_swarm"
+      "dunlending_huscarl",
+      "dunlending_warrior",
+      "ranger_north",
+      "elendil",
+      "beren",
+      "turin"
     ],
     "qualityStandard": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
     "note": "Each image inspected against canonical skeleton and identity reference; approval pending."
