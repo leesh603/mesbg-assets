@@ -1,13 +1,58 @@
 {
   "count": 203,
   "groups": {
+    "mordor": 73,
     "elf": 25,
     "rohan": 46,
-    "gondor": 59,
-    "mordor": 73
+    "gondor": 59
   },
   "pending": 307,
   "units": [
+    {
+      "id": "witchking_foot",
+      "name": "마술사왕(두건)",
+      "group": "모르도르·나즈굴",
+      "role": "hero",
+      "image": "art/mordor-rebuild-20261019/units/witchking_foot.png",
+      "thumb": "art/mordor-rebuild-20261019/units/witchking_foot.png",
+      "old": "tokens/witchking_foot.png",
+      "status": "검토 대기",
+      "body": "큰 인간 5등신 · 두건형",
+      "pose": "표준 큰 인간 뼈대의 두건 도보형",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_foot.png?v=a4c1348d1fffaa8ca0faf4b747f2c0fcb3a887e7",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_foot.png?v=a4c1348d1fffaa8ca0faf4b747f2c0fcb3a887e7",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/witchking_foot.png"
+    },
+    {
+      "id": "witchking_mounted_sheet",
+      "name": "마술사왕 기마",
+      "group": "모르도르·나즈굴",
+      "role": "hero",
+      "image": "art/mordor-rebuild-20261019/units/witchking_mounted_sheet.png",
+      "thumb": "art/mordor-rebuild-20261019/units/witchking_mounted_sheet.png",
+      "old": "tokens/witchking_mounted_sheet.png",
+      "status": "검토 대기",
+      "body": "인간 기수 5등신 · 하이앵글 프론트뷰",
+      "pose": "GW 투구·어깨의 치켜든 검 기마",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_mounted_sheet.png?v=ee962ea4c18c97a8bbc92aeb4190285ed8375f74",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_mounted_sheet.png?v=ee962ea4c18c97a8bbc92aeb4190285ed8375f74",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/witchking_mounted_sheet.png"
+    },
+    {
+      "id": "witchking_mounted",
+      "name": "마술사왕(기마)",
+      "group": "모르도르·나즈굴",
+      "role": "hero",
+      "image": "art/mordor-rebuild-20261019/units/witchking_mounted.png",
+      "thumb": "art/mordor-rebuild-20261019/units/witchking_mounted.png",
+      "old": "tokens/witchking_mounted.png",
+      "status": "검토 대기",
+      "body": "인간 기수 5등신 · 하이앵글 프론트뷰",
+      "pose": "GW 투구·어깨의 낮은 검 기마",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_mounted.png?v=fd6b274e4640889f35d1ef2f88d7741e638f8d8f",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_mounted.png?v=fd6b274e4640889f35d1ef2f88d7741e638f8d8f",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/witchking_mounted.png"
+    },
     {
       "id": "cirdan",
       "name": "키르단",
@@ -2649,22 +2694,6 @@
       "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/references/old/orc_elite_tracker.png"
     },
     {
-      "id": "witchking_foot",
-      "name": "마술사왕(두건)",
-      "group": "모르도르·나즈굴",
-      "role": "hero",
-      "image": "art/mordor-rebuild-20261019/units/witchking_foot.png",
-      "thumb": "art/mordor-rebuild-20261019/units/witchking_foot.png",
-      "old": "art/mordor-rebuild-20261019/references/old/witchking_foot.png",
-      "status": "검토 대기",
-      "body": "큰 인간 · 검은 천 두건·천 어깨",
-      "pose": "큰 인간 · 두건과 검",
-      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_foot.png?v=51b5be65e0bcd36e8a21654b3d83dd0bdef74bc0",
-      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_foot.png?v=51b5be65e0bcd36e8a21654b3d83dd0bdef74bc0",
-      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/references/old/witchking_foot.png",
-      "revision": "witchking-design-v2"
-    },
-    {
       "id": "witchking_fellbeast",
       "name": "마술사왕(펠비스트)",
       "group": "모르도르·나즈굴",
@@ -2678,22 +2707,6 @@
       "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_fellbeast.png?v=b58b0693872ef5541a2f37bbfc02d0c1b78e8dfe",
       "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_fellbeast.png?v=b58b0693872ef5541a2f37bbfc02d0c1b78e8dfe",
       "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/references/old/witchking_fellbeast.png",
-      "revision": "witchking-design-v2"
-    },
-    {
-      "id": "witchking_mounted",
-      "name": "마술사왕(기마)",
-      "group": "모르도르·나즈굴",
-      "role": "hero",
-      "image": "art/mordor-rebuild-20261019/units/witchking_mounted.png",
-      "thumb": "art/mordor-rebuild-20261019/units/witchking_mounted.png",
-      "old": "art/mordor-rebuild-20261019/references/old/witchking_mounted.png",
-      "status": "검토 대기",
-      "body": "큰 인간 · 세로형 모르굴 철제 투구·검은 천 어깨",
-      "pose": "큰 인간 기수 · 왕관과 검 지휘",
-      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_mounted.png?v=29aa266d7ede7e26665ae27bd13ad4c8fdbb626d",
-      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_mounted.png?v=29aa266d7ede7e26665ae27bd13ad4c8fdbb626d",
-      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/references/old/witchking_mounted.png",
       "revision": "witchking-design-v2"
     },
     {
@@ -2922,22 +2935,6 @@
       "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/forsaken.png",
       "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/thumbs/forsaken.png",
       "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/references/old/forsaken.png"
-    },
-    {
-      "id": "witchking_mounted_sheet",
-      "name": "마술사왕 기마",
-      "group": "모르도르·나즈굴",
-      "role": "hero",
-      "image": "art/mordor-rebuild-20261019/units/witchking_mounted_sheet.png",
-      "thumb": "art/mordor-rebuild-20261019/units/witchking_mounted_sheet.png",
-      "old": "art/mordor-rebuild-20261019/references/old/witchking_mounted_sheet.png",
-      "status": "검토 대기",
-      "body": "큰 인간 · 세로형 모르굴 철제 투구·검은 천 어깨",
-      "pose": "큰 인간 기수 · 왕관과 치켜든 검",
-      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_mounted_sheet.png?v=8ef5191772d4ade4e948510906e3abf7b3e4ec63",
-      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_mounted_sheet.png?v=8ef5191772d4ade4e948510906e3abf7b3e4ec63",
-      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/references/old/witchking_mounted_sheet.png",
-      "revision": "witchking-design-v2"
     },
     {
       "id": "khamul_mounted",

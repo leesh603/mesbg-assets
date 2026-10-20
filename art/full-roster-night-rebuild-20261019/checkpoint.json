@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T01:37:53.340Z",
+  "updatedAt": "2026-10-20T01:44:51.727Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -15,7 +15,7 @@
     "excludedTerrain": 77,
     "generatedReviewAssets": 71,
     "persistedReviewAssets": 203,
-    "revisedAfterRejection": 10
+    "revisedAfterRejection": 13
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
   "sources": [
@@ -99,10 +99,12 @@
       "original": "tokens/witchking_foot.png",
       "source": "mordor",
       "path": "art/mordor-rebuild-20261019/units/witchking_foot.png",
-      "blobSHA": "51b5be65e0bcd36e8a21654b3d83dd0bdef74bc0",
-      "status": "restored_review_asset",
+      "blobSHA": "a4c1348d1fffaa8ca0faf4b747f2c0fcb3a887e7",
+      "status": "generated_review_asset",
       "visualReviewThisSession": true,
-      "revision": "witchking-design-v2"
+      "revision": "witchking-design-v2",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "orc_sword",
@@ -174,10 +176,12 @@
       "original": "tokens/witchking_mounted.png",
       "source": "mordor",
       "path": "art/mordor-rebuild-20261019/units/witchking_mounted.png",
-      "blobSHA": "29aa266d7ede7e26665ae27bd13ad4c8fdbb626d",
-      "status": "restored_review_asset",
+      "blobSHA": "fd6b274e4640889f35d1ef2f88d7741e638f8d8f",
+      "status": "generated_review_asset",
       "visualReviewThisSession": true,
-      "revision": "witchking-design-v2"
+      "revision": "witchking-design-v2",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "witchking_foot_mace",
@@ -4571,10 +4575,12 @@
       "original": "tokens/witchking_mounted_sheet.png",
       "source": "mordor",
       "path": "art/mordor-rebuild-20261019/units/witchking_mounted_sheet.png",
-      "blobSHA": "8ef5191772d4ade4e948510906e3abf7b3e4ec63",
-      "status": "restored_review_asset",
+      "blobSHA": "ee962ea4c18c97a8bbc92aeb4190285ed8375f74",
+      "status": "generated_review_asset",
       "visualReviewThisSession": true,
-      "revision": "witchking-design-v2"
+      "revision": "witchking-design-v2",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "corsair_captain",
@@ -5399,10 +5405,10 @@
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
+      "mordor": 73,
       "elf": 25,
       "rohan": 46,
-      "gondor": 59,
-      "mordor": 73
+      "gondor": 59
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,
@@ -5419,15 +5425,16 @@
         "witchking_foot"
       ],
       "revised": [
-        "witchking_foot_mace"
-      ],
-      "remaining": [
+        "witchking_foot_mace",
         "witchking_mounted",
         "witchking_mounted_sheet",
-        "witchking_fellbeast",
         "witchking_foot"
       ],
-      "reference": "art/full-roster-night-rebuild-20261019/references/gw-witchking/official-model-detail.jpg"
+      "remaining": [
+        "witchking_fellbeast"
+      ],
+      "reference": "art/full-roster-night-rebuild-20261019/references/gw-witchking/official-model-detail.jpg",
+      "remainingReason": "Fellbeast revision generated; remove unwanted background haze before persistence."
     },
     "proportionDrift20261020": {
       "reason": "사용자 지적: 최근 생성본 등신 상승. 프레임/장비가 아닌 원래 표준 뼈대 직접 참조로 재검수",

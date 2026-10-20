@@ -2,6 +2,24 @@
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
 
+### 마술사왕(두건) (witchking_foot)
+
+![마술사왕(두건)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_foot.png?v=a4c1348d1fffaa8ca0faf4b747f2c0fcb3a887e7)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/witchking_foot.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_foot.png?v=a4c1348d1fffaa8ca0faf4b747f2c0fcb3a887e7)
+
+### 마술사왕 기마 (witchking_mounted_sheet)
+
+![마술사왕 기마](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_mounted_sheet.png?v=ee962ea4c18c97a8bbc92aeb4190285ed8375f74)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/witchking_mounted_sheet.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_mounted_sheet.png?v=ee962ea4c18c97a8bbc92aeb4190285ed8375f74)
+
+### 마술사왕(기마) (witchking_mounted)
+
+![마술사왕(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_mounted.png?v=fd6b274e4640889f35d1ef2f88d7741e638f8d8f)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/witchking_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_mounted.png?v=fd6b274e4640889f35d1ef2f88d7741e638f8d8f)
+
 ### 키르단 (cirdan)
 
 ![키르단](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/cirdan.png?v=c08ca86d8fe1dde830ae73a01864f9e496653f79)
@@ -1058,23 +1076,11 @@
 
 [기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/references/old/orc_elite_tracker.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/orc_elite_tracker.png)
 
-### 마술사왕(두건) (witchking_foot)
-
-![마술사왕(두건)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_foot.png?v=51b5be65e0bcd36e8a21654b3d83dd0bdef74bc0)
-
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/references/old/witchking_foot.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_foot.png?v=51b5be65e0bcd36e8a21654b3d83dd0bdef74bc0)
-
 ### 마술사왕(펠비스트) (witchking_fellbeast)
 
 ![마술사왕(펠비스트)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_fellbeast.png?v=b58b0693872ef5541a2f37bbfc02d0c1b78e8dfe)
 
 [기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/references/old/witchking_fellbeast.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_fellbeast.png?v=b58b0693872ef5541a2f37bbfc02d0c1b78e8dfe)
-
-### 마술사왕(기마) (witchking_mounted)
-
-![마술사왕(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_mounted.png?v=29aa266d7ede7e26665ae27bd13ad4c8fdbb626d)
-
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/references/old/witchking_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_mounted.png?v=29aa266d7ede7e26665ae27bd13ad4c8fdbb626d)
 
 ### 마술사왕(투구) (witchking_foot_mace)
 
@@ -1165,12 +1171,6 @@
 ![버려진 자(나즈굴)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/forsaken.png)
 
 [기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/references/old/forsaken.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/forsaken.png)
-
-### 마술사왕 기마 (witchking_mounted_sheet)
-
-![마술사왕 기마](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_mounted_sheet.png?v=8ef5191772d4ade4e948510906e3abf7b3e4ec63)
-
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/references/old/witchking_mounted_sheet.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_mounted_sheet.png?v=8ef5191772d4ade4e948510906e3abf7b3e4ec63)
 
 ### 카물(기마) (khamul_mounted)
 

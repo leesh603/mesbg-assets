@@ -4,7 +4,7 @@
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html) · [이미지 모음](GALLERY.md)
 
-엘프 25종 · 로한 46종 · 곤도르 59종 · 모르도르·나즈굴 73종
+모르도르·나즈굴 73종 · 엘프 25종 · 로한 46종 · 곤도르 59종
 
 전체510종 중 203종 원격 보존, 307종 미제작. 사용자 승인·본게임 적용 전 검토본입니다.
 
