@@ -1,27 +1,17 @@
 {
   "schemaVersion": 1,
-  "state": "preparing_full_visual_review",
+  "state": "visual_review_in_progress",
   "snapshotSHA": "697fdd87c50e7021958f12bee83d928d337b2d67",
   "snapshotCount": 237,
-  "reviewedCount": 0,
-  "sourceCatalog": "source-catalog.json",
-  "requestedByUser": "지금까지 제작한 전체 기존·신규 전수 비교. 기존보다 열화된 결과를 통과시키지 말 것.",
-  "criteria": [
-    "인간형/기수 자체 5등신",
-    "실제 하이앵글 프론트뷰와 숙인 고개",
-    "픽셀 화풍·밀도·명암",
-    "기존 포즈와 동작의 힘",
-    "실루엣·캐릭터 정체성",
-    "기승/해부학·무장 형태"
-  ],
-  "knownUserRejections": [
-    "glorfindel_mounted",
-    "elf_knight",
-    "thranduil_mounted"
-  ],
-  "countPolicy": "제작/저장 개수와 검수 통과 개수 분리. 비교 우위가 불분명하면 기존 유지 또는 보류. 불합격 시안을 다음 제작 기준으로 사용하지 않는다.",
-  "newGenerationPriority": "기존 제작분 전수 재검수 우선",
-  "updatedAt": "2026-10-20T02:37:27.038Z",
+  "reviewedCount": 132,
+  "counts": {
+    "candidate_review": 54,
+    "needs_revision": 39,
+    "preserve_original": 39
+  },
+  "qualityAcceptedCount": 0,
+  "results": "results.json",
   "approval": "pending",
-  "mainMerged": false
+  "updatedAt": "2026-10-20T02:45:14.573Z",
+  "note": "candidate_review means no obvious regression at comparison scale; it is not user approval or exact anatomical measurement. Identity changes may be source mapping errors and require verification."
 }

@@ -1,0 +1,926 @@
+[
+  {
+    "id": "anborn",
+    "decision": "candidate_review",
+    "note": "활을 다루는 동작이 선명해졌으며 기존 시점·장비를 대체로 유지.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "angbor",
+    "decision": "needs_revision",
+    "note": "상체·팔 대비 다리가 짧아 보임. 기수 아닌 인간형 5등신 비율 재확인.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "aragorn",
+    "decision": "preserve_original",
+    "note": "기존의 세운 검과 전진 가드 자세가 넓은 다리의 일반 전투 자세로 바뀜. 원래 실루엣 우선.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "aragorn_blackgate",
+    "decision": "needs_revision",
+    "note": "기존 전진 동세보다 하체가 짧고 넓게 벌어져 보임. 인체 비율과 팔 자세 재확인.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "aragorn_blackgate_mounted",
+    "decision": "candidate_review",
+    "note": "기존의 검 공격·붉은 망토·기승 동작을 대체로 보존.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "aragorn_mounted",
+    "decision": "preserve_original",
+    "note": "기존의 숙인 고개와 세운 검 가드가 얼굴·가슴을 드러낸 일반 기승 자세로 바뀜.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "beregond",
+    "decision": "needs_revision",
+    "note": "원본 대비 하체가 압축되고 넓어진 인상. 골반·무릎·발목 간격 재확인.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "blackroot_archer",
+    "decision": "candidate_review",
+    "note": "기존 무장과 숙인 고개를 유지하며 활 동작이 구체화됨.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "boromir",
+    "decision": "needs_revision",
+    "note": "넓어진 상체와 짧아진 하체의 균형을 재검수. 기존 지휘관 실루엣과 비교 필요.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "boromir_mounted",
+    "decision": "candidate_review",
+    "note": "기존의 곡선형 검 공격과 숙인 기수·말의 관계를 대체로 유지.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "cirion",
+    "decision": "preserve_original",
+    "note": "흰 머리·수염·로브 외형이 투구·중갑으로 크게 바뀜. 캐릭터 정체성 확인 전 교체 보류.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "cirion_mounted",
+    "decision": "preserve_original",
+    "note": "기존의 흰 머리와 역동적 기승 자세가 가려진 투구·일반 기승 자세로 바뀜.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "citadel_guard",
+    "decision": "candidate_review",
+    "note": "기존 무장·투구·방패·숙인 고개가 유지됨.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "citadel_guard_bow",
+    "decision": "candidate_review",
+    "note": "활과 몸 기울임이 연결된 동작으로 정리됨. 뚜렷한 열화 미확인.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "damrod",
+    "decision": "candidate_review",
+    "note": "기존 활·단검과 숙인 고개, 전진 동작이 대체로 유지됨.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "denethor",
+    "decision": "preserve_original",
+    "note": "로브의 길고 무게감 있는 기존 실루엣이 짧고 넓게 압축됨.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "derufin",
+    "decision": "needs_revision",
+    "note": "단검 동작은 생겼으나 하체와 상체 비율 재검수 필요.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "dervorin",
+    "decision": "candidate_review",
+    "note": "검 자세 변주는 있으나 장비·망토·상체 각도를 대체로 유지.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "dol_amroth_knight",
+    "decision": "preserve_original",
+    "note": "기존 돌진 기승 자세와 몸 기울임이 직립한 일반 기승 자세로 약해짐.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "dol_amroth_knight_foot",
+    "decision": "needs_revision",
+    "note": "투구·상체에 비해 다리가 짧아 보임. 5등신 인체 기준 확인 필요.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "dol_amroth_man_at_arms",
+    "decision": "needs_revision",
+    "note": "창을 비스듬히 받친 기존 동작이 수직 창의 직립 자세로 바뀜. 동세 복원 필요.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "dol_amroth_swordshield",
+    "decision": "candidate_review",
+    "note": "기존 검·방패·전진 자세를 유지한 변화. 뚜렷한 열화 미확인.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "duilin",
+    "decision": "candidate_review",
+    "note": "기존 궁병 무장을 보존하며 조준 동작이 구체화됨.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "duinhir",
+    "decision": "candidate_review",
+    "note": "기존 장비를 유지한 궁병 지휘 동작. 뚜렷한 열화 미확인.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "earnur",
+    "decision": "needs_revision",
+    "note": "짧고 넓어진 자세의 골반·다리 비율 재검수 필요.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "earnur_mounted",
+    "decision": "preserve_original",
+    "note": "기존의 몸을 기울인 공격 동작이 직립한 일반 기승 자세로 약화됨.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "faramir",
+    "decision": "candidate_review",
+    "note": "기존 장비와 숙인 시점을 보존하며 활 동작이 구체화됨.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "faramir_mounted",
+    "decision": "preserve_original",
+    "note": "기존의 낮춘 고개·슬림한 실루엣보다 머리와 가슴 노출이 커지고 일반 기승 자세로 바뀜.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "forlong",
+    "decision": "needs_revision",
+    "note": "건장함·비대함 변주와 별개로 상체 대비 다리 길이 및 5등신 기준 재확인.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "gondor_archer",
+    "decision": "candidate_review",
+    "note": "기존 궁병 디자인을 유지하며 조준 동작을 명확히 함.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "gondor_knight",
+    "decision": "preserve_original",
+    "note": "기존의 기울어진 돌진 자세보다 기수가 세워져 공격 동세가 약해짐.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "hirgon",
+    "decision": "candidate_review",
+    "note": "기존 외형을 유지하며 화살 전달 제스처가 드러남.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "hirluin",
+    "decision": "candidate_review",
+    "note": "원본의 큰 머리 비중을 줄이고 장비·시점·실루엣을 대체로 유지.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "hurin",
+    "decision": "preserve_original",
+    "note": "흰 머리·수염·로브 외형이 투구·중갑으로 크게 바뀜. 캐릭터 정체성 확인 전 교체 보류.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "imrahil",
+    "decision": "candidate_review",
+    "note": "얼굴·백조 상징·청색 갑주와 숙인 고개를 대체로 보존.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "imrahil_mounted",
+    "decision": "preserve_original",
+    "note": "기존 랜스 돌격이 검을 든 일반 기승으로 바뀌며 무장·동세가 함께 달라짐.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "ingold",
+    "decision": "needs_revision",
+    "note": "넓어진 자세에서 다리가 압축되어 보임. 인간형 5등신 인체 재검수.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "irolas",
+    "decision": "candidate_review",
+    "note": "기존 디자인과 이동 동작을 대체로 유지.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "isildur",
+    "decision": "needs_revision",
+    "note": "추가된 문양이 과밀하고 하체가 압축되어 보임. 실루엣·비율 재검수.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "isildur_mounted",
+    "decision": "preserve_original",
+    "note": "기존 검 공격·몸 기울임이 직립한 일반 기승 자세로 약화됨.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "ithilien_ranger",
+    "decision": "candidate_review",
+    "note": "기존 후드·장비를 유지하면서 활 동작을 명확히 함.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "lossarnach_axeman",
+    "decision": "candidate_review",
+    "note": "기존 무장을 유지하며 인체·도끼 자세가 정리됨. 뚜렷한 열화 미확인.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "mablung",
+    "decision": "candidate_review",
+    "note": "기존 후드·색·장비 정체성을 유지한 전투 자세.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "madril",
+    "decision": "candidate_review",
+    "note": "기존 얼굴·장비·숙인 고개를 유지하며 지휘 제스처를 추가.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "mt_bowman",
+    "decision": "candidate_review",
+    "note": "활 사용 동작과 장비 시인성이 구체화됨.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "mt_captain",
+    "decision": "needs_revision",
+    "note": "넓은 발 간격과 압축된 하체의 비율을 재확인해야 함.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "mt_fountain_guard",
+    "decision": "needs_revision",
+    "note": "상체·투구 대비 골반·다리 길이 재검수 필요.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "mt_spear",
+    "decision": "candidate_review",
+    "note": "기존 창·방패 디자인을 보존하며 창을 받치는 동작을 구체화.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "mt_spearshield",
+    "decision": "candidate_review",
+    "note": "창을 받치는 자세 변주와 기존 장비·색·숙인 고개를 대체로 유지.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "mt_swordshield",
+    "decision": "needs_revision",
+    "note": "기존 대비 투구·상체에 비해 다리 길이가 압축되어 보임.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "numenorean_captain",
+    "decision": "preserve_original",
+    "note": "기존의 절제된 갑주 실루엣이 금색 문양 과밀·짧고 넓은 자세로 바뀜.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "numenorean_spearman",
+    "decision": "needs_revision",
+    "note": "원본 대비 하체가 짧고 자세가 넓어짐. 투구·신체 비율 재검수.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "numenorean_warrior",
+    "decision": "needs_revision",
+    "note": "하체 압축 및 갑주 문양 밀도 증가. 성인형 비율·시인성 재검수.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "osgiliath_bow",
+    "decision": "candidate_review",
+    "note": "궁병의 조준 동작을 구체화하고 기존 장비·낡은 망토를 유지.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "osgiliath_spearshield",
+    "decision": "candidate_review",
+    "note": "기존 창·방패·망토와 전진 자세를 대체로 유지.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "osgiliath_veteran",
+    "decision": "candidate_review",
+    "note": "기존 장비를 유지하며 하체 형태를 정리. 뚜렷한 열화 미확인.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "pelennor_militia",
+    "decision": "candidate_review",
+    "note": "기존 민병 외형·장비·자세를 대체로 보존.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "pippin_citadel",
+    "decision": "needs_revision",
+    "note": "호빗의 종족 비율 확인 필요. 작은 인간형처럼 길어진 인체와 머리 비중 재검수.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "warrior_minas_tirith",
+    "decision": "candidate_review",
+    "note": "기존 장비와 숙인 고개를 유지하며 검 동작·픽셀 명암이 구체화됨.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "deorwine",
+    "decision": "candidate_review",
+    "note": "원래 장비·문양을 보존하면서 검 동작을 구체화.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "deorwine_mounted",
+    "decision": "preserve_original",
+    "note": "기존의 몸 기울임·말 돌진 동작이 직립한 일반 기승으로 약화됨.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "dunhere",
+    "decision": "candidate_review",
+    "note": "기존 색·투구·무장과 이동 자세를 대체로 유지.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "dunhere_mounted",
+    "decision": "preserve_original",
+    "note": "기존의 낮춘 기수와 말 관계보다 얼굴·상체 노출이 커지고 동작이 정적임.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "elfhelm",
+    "decision": "candidate_review",
+    "note": "기존 디자인·무장·숙인 고개를 대체로 유지.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "elfhelm_mounted",
+    "decision": "needs_revision",
+    "note": "기승 동작은 생겼으나 원본보다 측면 방향이 강해짐. 전방 하이앵글 정합성 확인 필요.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "eomer",
+    "decision": "candidate_review",
+    "note": "기존 기종·갑주·투구를 보존한 검 공격 변주. 뚜렷한 열화 미확인.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "eomer_foot",
+    "decision": "candidate_review",
+    "note": "기존 캐릭터 디자인을 유지하며 검 자세·하체 동작을 정리.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "eomund",
+    "decision": "preserve_original",
+    "note": "기존의 숙인 기수·말 관계가 얼굴을 드러내고 몸을 세운 일반 기승으로 바뀜.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "eorl_the_young",
+    "decision": "needs_revision",
+    "note": "머리 축소 후에도 기존의 공격 동작·몸 기울임 대비 실루엣을 재확인해야 함.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "eorl_the_young_mounted",
+    "decision": "preserve_original",
+    "note": "기존의 든 검과 돌진 동작이 내려 든 검·기수가 세워진 자세로 바뀜.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "eowyn",
+    "decision": "candidate_review",
+    "note": "기존 디자인·종족을 보존하며 머리와 몸 비중이 정리됨.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "eowyn_mounted",
+    "decision": "candidate_review",
+    "note": "기존의 숙인 기수 시점을 유지하며 머리 비중을 줄인 시안. 사용자 승인 대기.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "erkenbrand",
+    "decision": "needs_revision",
+    "note": "동작 변주는 있으나 짧아 보이는 하체와 넓은 자세의 비율을 재확인해야 함.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "erkenbrand_mounted",
+    "decision": "preserve_original",
+    "note": "기존의 몸을 낮춘 돌격 실루엣보다 직립·일반 기승 인상이 강해짐.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "frealaf",
+    "decision": "preserve_original",
+    "note": "기존의 숙인 머리·그늘진 얼굴이 정면 얼굴과 가슴 노출 중심으로 바뀜.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "frealaf_mounted",
+    "decision": "preserve_original",
+    "note": "기존의 낮춘 기수·빠른 기승 실루엣이 일반 직립 기승으로 약화됨.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "gamling",
+    "decision": "candidate_review",
+    "note": "군기·방패·투구와 숙인 고개를 대체로 유지.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "gamling_mounted",
+    "decision": "preserve_original",
+    "note": "기존의 말·기수·군기가 연결된 돌진 동세와 고유 투구 외형이 일반 기승으로 바뀜.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "grimbold",
+    "decision": "candidate_review",
+    "note": "기존 후드·색·무장 정체성을 유지한 이동·검 자세 변주.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "grimbold_mounted",
+    "decision": "preserve_original",
+    "note": "기존의 낮춘 머리와 기승 실루엣이 일반적인 직립 기승으로 바뀜.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "guthlaf",
+    "decision": "candidate_review",
+    "note": "기존 군기·숙인 고개·장비·전체 자세를 대체로 보존.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "guthlaf_mounted",
+    "decision": "preserve_original",
+    "note": "기존 군기와 말이 대각선으로 달리는 돌진 동세가 정적 기승으로 약화됨.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "haleth",
+    "decision": "preserve_original",
+    "note": "기존의 숙인 머리·그늘진 얼굴이 정면 노출 중심으로 바뀜. 연령 인상·실루엣도 재확인 필요.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "hama",
+    "decision": "candidate_review",
+    "note": "기존 장비·색·시점을 유지하며 손 제스처를 구체화.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "harding",
+    "decision": "candidate_review",
+    "note": "기존 장비·색·시점을 보존하며 활 준비 동작을 구체화.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "harding_mounted",
+    "decision": "candidate_review",
+    "note": "기승 궁술 동작과 기존 장비·기수/말 관계를 대체로 유지.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "helm_hammerhand",
+    "decision": "candidate_review",
+    "note": "기존 흰 머리·수염·망치·건장한 체형을 보존. 뚜렷한 열화 미확인.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "hera",
+    "decision": "candidate_review",
+    "note": "기존 땋은 머리·도끼·방패와 숙인 고개를 대체로 유지.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "hera_mounted",
+    "decision": "preserve_original",
+    "note": "머리만 줄인 뒤에도 기존의 달리는 기승 실루엣보다 정적·늘어진 말 목 인상이 강해짐.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "rohan_archer",
+    "decision": "candidate_review",
+    "note": "궁병의 조준 동작이 구체화되며 기존 디자인을 대체로 유지.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "rohan_banner",
+    "decision": "needs_revision",
+    "note": "기존의 숙인 고개보다 시점·몸이 세워진 인상. 카메라와 기수 아닌 인체 비율 재확인.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "rohan_helmingas",
+    "decision": "candidate_review",
+    "note": "기존 도끼·방패·깃 장식·자세를 대체로 유지하며 신체 비중 정리.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "rohan_outrider",
+    "decision": "preserve_original",
+    "note": "기존 말·기수가 함께 기울어진 이동 동세가 직립한 일반 기승으로 약화됨.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "rohan_redshield",
+    "decision": "preserve_original",
+    "note": "기존의 전진 돌격과 창 방향이 새 일반 기승 실루엣보다 강함.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "rohan_rider",
+    "decision": "needs_revision",
+    "note": "새 동작은 있으나 원본과 전방 하이앵글 정합성·기수 시점 비교 필요.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "rohan_royal_guard",
+    "decision": "needs_revision",
+    "note": "투구·상체 대비 다리 길이, 추가된 금색 비중과 기존 색 균형 재확인.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "rohan_royal_guard_mounted",
+    "decision": "needs_revision",
+    "note": "기수 인체·투구의 시각 비중 및 기존 기승 자세와의 관계 재검수.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "rohan_spear",
+    "decision": "candidate_review",
+    "note": "기존 창·방패·디자인을 유지하며 머리와 몸 비중을 정리.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "rohan_swordshield",
+    "decision": "candidate_review",
+    "note": "기존 검·방패 정체성을 보존하며 전투 자세를 구체화.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "rohan_yeoman",
+    "decision": "preserve_original",
+    "note": "기존의 숙인 머리·방어 실루엣이 정면 얼굴 노출과 일반 직립 자세로 바뀜.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "sons_of_eorl",
+    "decision": "preserve_original",
+    "note": "기존의 낮춘 기수와 말의 돌진 실루엣이 일반 직립 기승으로 약화됨.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "theoden",
+    "decision": "preserve_original",
+    "note": "기존 검·몸 기울임·말의 돌진 동작이 보다 정적인 기승으로 바뀜.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "theoden_foot",
+    "decision": "candidate_review",
+    "note": "사용자 기준 원화의 숙인 고개·무장·전체 실루엣을 대체로 유지. 사용자 승인 전 기준 교체 금지.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "theodred",
+    "decision": "candidate_review",
+    "note": "기존 검 자세·몸 기울임·장비를 대체로 보존.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "war_hound",
+    "decision": "preserve_original",
+    "note": "기존의 위에서 본 몸통·근육·긴장감보다 정면 얼굴과 만화적 머리 인상이 강해짐.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "annatar",
+    "decision": "preserve_original",
+    "note": "기존의 숙인 고개가 정면 얼굴 응시로 바뀜. 사용자 고개·시점 기준 위반.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "betrayer",
+    "decision": "candidate_review",
+    "note": "기존 색·무장·공격 제스처와 가려진 얼굴을 대체로 보존.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "betrayer_mounted",
+    "decision": "preserve_original",
+    "note": "기존의 몸 기울임·철퇴 공격이 직립한 일반 기승 자세로 약화됨.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "black_guard",
+    "decision": "candidate_review",
+    "note": "기존 갑주·방패 정체성을 유지하며 과도한 발광색과 명암을 정리.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "black_numenorean",
+    "decision": "needs_revision",
+    "note": "기존보다 넓고 짧아 보이는 체형 및 변경된 방패 문양·색 확인 필요.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "black_numenorean_mounted",
+    "decision": "preserve_original",
+    "note": "기존 랜스와 문양·색·돌진 실루엣이 검과 다른 갑주·일반 기승으로 크게 변경됨.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "dark_marshal",
+    "decision": "preserve_original",
+    "note": "기존 해골 얼굴과 교차 검 실루엣이 빈 후드·다른 무장 자세로 바뀜. 정체성 확인 전 보류.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "dark_marshal_mounted",
+    "decision": "preserve_original",
+    "note": "기존 해골 얼굴·공격 자세가 빈 후드·일반 기승으로 바뀜. 캐릭터 재현 재검수.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "dwimmerlaik",
+    "decision": "needs_revision",
+    "note": "원본 대비 넓고 압축된 인체 비중 및 양손 검 자세 재검수.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "dwimmerlaik_mounted",
+    "decision": "candidate_review",
+    "note": "기존 뿔 투구·색·검·기승 관계를 대체로 유지. 뚜렷한 열화 미확인.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "forsaken",
+    "decision": "preserve_original",
+    "note": "기존 유령 같은 긴 실루엣이 다리와 갑주가 드러난 전사형으로 크게 바뀜. 정체성 확인 필요.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "forsaken_mounted",
+    "decision": "preserve_original",
+    "note": "기존 검을 내민 기수 동작이 일반 기승으로 약화되며 망토 형상도 크게 변경됨.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "gorbag",
+    "decision": "needs_revision",
+    "note": "얼굴 정면 노출·머리 비중·하체 압축을 재검수해야 함.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "gothmog",
+    "decision": "needs_revision",
+    "note": "기존 투구·철퇴 외형이 맨얼굴·다른 무장으로 변경됨. 지정 디자인/기존 에셋 매핑 확인 필요.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "great_beast_gorgoroth",
+    "decision": "needs_revision",
+    "note": "승무원·탑승 구조가 추가되며 본체 형상이 크게 변경됨. 본체 시점·구조·상대 크기 별도 검수 필요.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "grishnakh",
+    "decision": "needs_revision",
+    "note": "투구·얼굴·갑주 형상이 크게 변경됨. 캐릭터별 지정 디자인 또는 기존 에셋 매핑 확인 필요.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "guritz",
+    "decision": "needs_revision",
+    "note": "투구·얼굴·무장·해골 장식이 크게 변경됨. 지정 디자인/기존 에셋 매핑 확인 필요.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "guritz_mounted",
+    "decision": "needs_revision",
+    "note": "무장과 기수 외형이 크게 변경됨. 지정 디자인·탑승체·실루엣 확인 전 채택 보류.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "kardush",
+    "decision": "needs_revision",
+    "note": "후드형 주술사가 맨얼굴의 비대한 주술사로 변경됨. 지정 디자인/기존 에셋 매핑 확인 필요.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "khamul",
+    "decision": "needs_revision",
+    "note": "기존 대비 금색·투구·상체 비중이 커지고 하체가 압축되어 보임.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "khamul_mounted",
+    "decision": "preserve_original",
+    "note": "기존의 몸을 낮춘 철퇴 공격이 직립한 일반 기승으로 약화됨.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "knight_of_umbar",
+    "decision": "needs_revision",
+    "note": "기존 큰 인간형 대비 하체 압축과 투구·상체 비중 재검수 필요.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "morannon_orc",
+    "decision": "needs_revision",
+    "note": "맨얼굴·투구 디자인 변경과 얼굴 시점·목·하체 비중 확인 필요.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "morannon_swordshield",
+    "decision": "needs_revision",
+    "note": "다리·골반 정합성과 얼굴 시점 재확인. 이전 꼬인 다리 지적 관련 우선 상세 검수 대상.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "mordor_uruk",
+    "decision": "needs_revision",
+    "note": "투구 제거 및 얼굴·몸 비율 변경. 지정 디자인과 하이앵글 확인 필요.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "morgul_duellist",
+    "decision": "candidate_review",
+    "note": "기존 쌍검·갑주·색을 보존하며 공격 동작을 구체화. 뚜렷한 열화 미확인.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  },
+  {
+    "id": "morgul_knight",
+    "decision": "needs_revision",
+    "note": "기존 비교 이미지는 도보형처럼 보이고 신규는 기마형임. 동일 형태 비교가 가능한지 에셋 매핑 확인 필요.",
+    "reviewLevel": "visual_side_by_side",
+    "userApproval": "pending"
+  }
+]
