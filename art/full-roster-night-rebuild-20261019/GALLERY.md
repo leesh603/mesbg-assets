@@ -1,6 +1,60 @@
-# 전체 재제작 검토 — 385종
+# 전체 재제작 검토 — 394종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 농부 매곳 (farmer_maggot)
+
+![농부 매곳](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/farmer_maggot.png?v=bb6128eb6d614bc121a65343123e82321dde3178)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/farmer_maggot.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/farmer_maggot.png?v=bb6128eb6d614bc121a65343123e82321dde3178)
+
+### 메리아독 (merry)
+
+![메리아독](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/merry.png?v=8c2dc8e388a138e8c5009f51d48716bb106a1c4c)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/merry.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/merry.png?v=8c2dc8e388a138e8c5009f51d48716bb106a1c4c)
+
+### 호빗 궁수 (hobbit_bounder)
+
+![호빗 궁수](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/hobbit_bounder.png?v=6a3c62c90523d66e8cac8d005a82bf90227ef594)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/hobbit_bounder.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/hobbit_bounder.png?v=6a3c62c90523d66e8cac8d005a82bf90227ef594)
+
+### 팔라딘 툭 (paladin_took)
+
+![팔라딘 툭](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/paladin_took.png?v=c1653ddfd9b322c220589de289ff2dbff63a7c71)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/paladin_took.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/paladin_took.png?v=c1653ddfd9b322c220589de289ff2dbff63a7c71)
+
+### 빌보 (bilbo)
+
+![빌보](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/bilbo.png?v=cb82e939ee946e65ad25f8d18cf90f13318ec579)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/bilbo.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/bilbo.png?v=cb82e939ee946e65ad25f8d18cf90f13318ec579)
+
+### 피핀 (pippin)
+
+![피핀](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/pippin.png?v=3b5b9a1c73360a398730c2fb329fea8b9ea1455f)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/pippin.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/pippin.png?v=3b5b9a1c73360a398730c2fb329fea8b9ea1455f)
+
+### 샘와이즈 (samwise)
+
+![샘와이즈](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/samwise.png?v=096e97af81aa043518a7f5d51a1087b3daa47840)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/samwise.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/samwise.png?v=096e97af81aa043518a7f5d51a1087b3daa47840)
+
+### 프로도 (frodo)
+
+![프로도](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/frodo.png?v=80d8835ddf958972bcc0db81e20cdbe4b1718dc9)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/frodo.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/frodo.png?v=80d8835ddf958972bcc0db81e20cdbe4b1718dc9)
+
+### 호빗 민병 (hobbit_shirriff)
+
+![호빗 민병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/hobbit_shirriff.png?v=c78cbce576fba07d785cfbcbcef87ee452b8028d)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/hobbit_shirriff.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/hobbit_shirriff.png?v=c78cbce576fba07d785cfbcbcef87ee452b8028d)
 
 ### 칸드 전차 (khandish_chariot)
 

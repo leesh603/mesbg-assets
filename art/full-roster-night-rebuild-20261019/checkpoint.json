@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T03:57:16.019Z",
+  "updatedAt": "2026-10-20T03:57:43.808Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 125,
-    "newlyGeneratedThisSession": 253,
-    "visuallyReviewedThisSession": 258,
+    "pending": 116,
+    "newlyGeneratedThisSession": 262,
+    "visuallyReviewedThisSession": 267,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 253,
-    "persistedReviewAssets": 385,
+    "generatedReviewAssets": 262,
+    "persistedReviewAssets": 394,
     "revisedAfterRejection": 18
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -53,9 +53,9 @@
     "nextIds": [
       "cave_troll",
       "orc_shaman",
-      "frodo",
       "balrog",
-      "barrow_wight"
+      "barrow_wight",
+      "moria_goblin"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
@@ -467,8 +467,13 @@
       "faction": "shire",
       "role": "hero",
       "original": "tokens/frodo.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "shire",
+      "path": "art/full-roster-night-rebuild-20261019/units/frodo.png",
+      "blobSHA": "80d8835ddf958972bcc0db81e20cdbe4b1718dc9",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "elrond",
@@ -1790,8 +1795,13 @@
       "faction": "shire",
       "role": "infantry",
       "original": "tokens/hobbit_shirriff.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "shire",
+      "path": "art/full-roster-night-rebuild-20261019/units/hobbit_shirriff.png",
+      "blobSHA": "c78cbce576fba07d785cfbcbcef87ee452b8028d",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "hobbit_bounder",
@@ -1799,8 +1809,13 @@
       "faction": "shire",
       "role": "infantry",
       "original": "tokens/hobbit_bounder.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "shire",
+      "path": "art/full-roster-night-rebuild-20261019/units/hobbit_bounder.png",
+      "blobSHA": "6a3c62c90523d66e8cac8d005a82bf90227ef594",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "great_eagle",
@@ -1933,8 +1948,13 @@
       "faction": "shire",
       "role": "hero",
       "original": "tokens/samwise.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "shire",
+      "path": "art/full-roster-night-rebuild-20261019/units/samwise.png",
+      "blobSHA": "096e97af81aa043518a7f5d51a1087b3daa47840",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "mouth_of_sauron",
@@ -2074,8 +2094,13 @@
       "faction": "shire",
       "role": "hero",
       "original": "tokens/merry.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "shire",
+      "path": "art/full-roster-night-rebuild-20261019/units/merry.png",
+      "blobSHA": "8c2dc8e388a138e8c5009f51d48716bb106a1c4c",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "pippin",
@@ -2083,8 +2108,13 @@
       "faction": "shire",
       "role": "hero",
       "original": "tokens/pippin.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "shire",
+      "path": "art/full-roster-night-rebuild-20261019/units/pippin.png",
+      "blobSHA": "3b5b9a1c73360a398730c2fb329fea8b9ea1455f",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "beorn",
@@ -2230,8 +2260,13 @@
       "faction": "shire",
       "role": "hero",
       "original": "tokens/bilbo.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "shire",
+      "path": "art/full-roster-night-rebuild-20261019/units/bilbo.png",
+      "blobSHA": "cb82e939ee946e65ad25f8d18cf90f13318ec579",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "king_of_the_dead",
@@ -4566,8 +4601,13 @@
       "faction": "shire",
       "role": "hero",
       "original": "tokens/paladin_took.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "shire",
+      "path": "art/full-roster-night-rebuild-20261019/units/paladin_took.png",
+      "blobSHA": "c1653ddfd9b322c220589de289ff2dbff63a7c71",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "farmer_maggot",
@@ -4575,8 +4615,13 @@
       "faction": "shire",
       "role": "hero",
       "original": "tokens/farmer_maggot.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "shire",
+      "path": "art/full-roster-night-rebuild-20261019/units/farmer_maggot.png",
+      "blobSHA": "bb6128eb6d614bc121a65343123e82321dde3178",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "fredegar",
@@ -7359,19 +7404,20 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 385,
+    "count": 394,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
-      "easterling": 10,
-      "누메노르": 2,
-      "인간": 7,
-      "아르노르": 8,
-      "던랜드": 8,
+      "shire": 9,
+      "이스터링·칸드": 10,
+      "numenor": 2,
+      "men": 7,
+      "arnor": 8,
+      "dunland": 8,
       "isengard": 30,
       "harad": 20,
-      "난쟁이": 36,
+      "dwarf": 36,
       "maiar": 9,
       "elf": 77,
       "mordor": 73,
@@ -7380,7 +7426,7 @@
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,
-    "sourceValidation": "381 unique IDs; static card count and asset blob SHAs verified"
+    "sourceValidation": "394 unique IDs; static card count and asset blob SHAs verified"
   },
   "revisionRequests": {
     "witchking": {
@@ -7516,18 +7562,17 @@
     }
   },
   "lastContinuation": {
-    "batch": "north-edain-numenor-010",
+    "batch": "shire-fellowship-009",
     "newIds": [
-      "numenorean_archer",
-      "dunlending_archer",
-      "hurin_thalion",
-      "tuor",
-      "arathorn",
-      "edain_warrior",
-      "wulf",
-      "arnor_archer",
-      "barahir",
-      "elendur"
+      "hobbit_shirriff",
+      "frodo",
+      "samwise",
+      "pippin",
+      "bilbo",
+      "paladin_took",
+      "hobbit_bounder",
+      "merry",
+      "farmer_maggot"
     ],
     "qualityStandard": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
     "note": "Each image inspected against canonical skeleton and identity reference; approval pending."
