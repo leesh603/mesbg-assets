@@ -1,6 +1,48 @@
-# 전체 재제작 검토 — 439종
+# 전체 재제작 검토 — 446종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 아르베두이(기마) (arvedui_mounted)
+
+![아르베두이(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/arvedui_mounted.png?v=d0dcd755b19a56e6c717bc43067833c0d0a05cd4)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/arvedui_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/arvedui_mounted.png?v=d0dcd755b19a56e6c717bc43067833c0d0a05cd4)
+
+### 아나리온(기마) (anarion_mounted)
+
+![아나리온(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/anarion_mounted.png?v=60e287fd6b0f6d0f561d723435741ef1364cb65f)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/anarion_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/anarion_mounted.png?v=60e287fd6b0f6d0f561d723435741ef1364cb65f)
+
+### 엘렌딜(기마) (elendil_mounted)
+
+![엘렌딜(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/elendil_mounted.png?v=e767139d95dd1de843db3d2abba1aece786f3de9)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/elendil_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/elendil_mounted.png?v=e767139d95dd1de843db3d2abba1aece786f3de9)
+
+### 누메노르 기사 (numenorean_knight)
+
+![누메노르 기사](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/numenorean_knight.png?v=476fa0d84b543ab200fbf1ca94dbe52c47a392ea)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/numenorean_knight.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/numenorean_knight.png?v=476fa0d84b543ab200fbf1ca94dbe52c47a392ea)
+
+### 아조그(흰 와르그) (azog_warg_rider)
+
+![아조그(흰 와르그)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/azog_warg_rider.png?v=0f7938c11560afec44d8f924c21e274657376272)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/azog_warg_rider.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/azog_warg_rider.png?v=0f7938c11560afec44d8f924c21e274657376272)
+
+### 군다바드 와르그 기병 (gundabad_warg_rider)
+
+![군다바드 와르그 기병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gundabad_warg_rider.png?v=be869f0564399b4ba77e3eb0d096433c61b6d68b)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/gundabad_warg_rider.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gundabad_warg_rider.png?v=be869f0564399b4ba77e3eb0d096433c61b6d68b)
+
+### 망자 기병 (dead_rider)
+
+![망자 기병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dead_rider.png?v=5850b0fd614fcf0bed7f58e4387b252e96cc78fe)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/dead_rider.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dead_rider.png?v=5850b0fd614fcf0bed7f58e4387b252e96cc78fe)
 
 ### 아슈라크 (ashrak)
 

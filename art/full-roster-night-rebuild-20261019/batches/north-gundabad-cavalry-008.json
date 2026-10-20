@@ -1,0 +1,265 @@
+{
+  "batch": "north-gundabad-cavalry-008",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "dead_rider",
+      "name": "망자 기병",
+      "faction": "dead",
+      "role": "cavalry",
+      "original": "tokens/dead_rider.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "망자",
+      "groupKey": "dead",
+      "pose": "원본 기마 동작·기울임·무장 유지",
+      "bodyDescription": "기수 표준 뼈대 · 말/와르그 분리 비례 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/dead_rider.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human-mounted.png"
+      ],
+      "prompt": "Rebuild ONE complete transparent pixel-game CAVALRY token. INPUT1 is sole master of character identity, armor, hair, helmet, palette, weapons, exact mount species and distinct combat ACTION/lean. INPUT2 is ORIGINAL neutral mounted bones: borrow ONLY rider skull/shoulder/pelvis/knee/ankle lengths, adult rider FIVE anatomical heads crown-to-sole independent of mount. Ordinary skull, small helmet shell, NEVER enlarge head as chibi helmet bubble. Rider has full seated pelvis ON saddle, thighs down mount's flanks, two logical knees/calves/feet and stirrups, coherent weapon grips and reins. Mount is full adult animal with correct neck, chest, four legs and tail; not undersized pony. Transform BOTH to elevated FRONT camera looking DOWN45–50degrees, crown and shoulder tops obvious; rider head FIRMLY tucked forward/down with eyes mostly hidden under hair/helmet/hood; face only tiny lower fragment. Keep original charge/body lean/sword strike, NO generic upright parade pose. Five heads is anatomical bones before foreshortening, no compressed torso or long 7head hero. Match INPUT2 crisp pixel density, stepped dark outline and short controlled shade ramps. FULL silhouette including lance/sword/banner/tail inside INNER80percent canvas with generous transparent margins; enlarge canvas for wide weapons, NEVER shrink bones to fit gear. Body centered independent of cape and weapons. Absolutely no base/floor/cast-shadow/scenery/text/watermark/extrafigures. Identity 망자 기병 (dead_rider): EXACT original gear and action. Keep original spectral green rider and spectral mount material; no mist/base, full visible legs.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-b58a2cf5-5497-469a-a82e-836ffb1e7467.png",
+      "expectedBlobSHA": "5850b0fd614fcf0bed7f58e4387b252e96cc78fe",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          180,
+          16,
+          1033,
+          1289
+        ]
+      },
+      "blobSHA": "5850b0fd614fcf0bed7f58e4387b252e96cc78fe",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "gundabad_warg_rider",
+      "name": "군다바드 와르그 기병",
+      "faction": "gundabad",
+      "role": "cavalry",
+      "original": "tokens/gundabad_warg_rider.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "군다바드",
+      "groupKey": "gundabad",
+      "pose": "원본 기마 동작·기울임·무장 유지",
+      "bodyDescription": "기수 표준 뼈대 · 말/와르그 분리 비례 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/gundabad_warg_rider.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human-mounted.png"
+      ],
+      "prompt": "Rebuild ONE complete transparent pixel-game CAVALRY token. INPUT1 is sole master of character identity, armor, hair, helmet, palette, weapons, exact mount species and distinct combat ACTION/lean. INPUT2 is ORIGINAL neutral mounted bones: borrow ONLY rider skull/shoulder/pelvis/knee/ankle lengths, adult rider FIVE anatomical heads crown-to-sole independent of mount. Ordinary skull, small helmet shell, NEVER enlarge head as chibi helmet bubble. Rider has full seated pelvis ON saddle, thighs down mount's flanks, two logical knees/calves/feet and stirrups, coherent weapon grips and reins. Mount is full adult animal with correct neck, chest, four legs and tail; not undersized pony. Transform BOTH to elevated FRONT camera looking DOWN45–50degrees, crown and shoulder tops obvious; rider head FIRMLY tucked forward/down with eyes mostly hidden under hair/helmet/hood; face only tiny lower fragment. Keep original charge/body lean/sword strike, NO generic upright parade pose. Five heads is anatomical bones before foreshortening, no compressed torso or long 7head hero. Match INPUT2 crisp pixel density, stepped dark outline and short controlled shade ramps. FULL silhouette including lance/sword/banner/tail inside INNER80percent canvas with generous transparent margins; enlarge canvas for wide weapons, NEVER shrink bones to fit gear. Body centered independent of cape and weapons. Absolutely no base/floor/cast-shadow/scenery/text/watermark/extrafigures. Identity 군다바드 와르그 기병 (gundabad_warg_rider): EXACT original gear and action. CRITICAL: INPUT1 mount is WARG, NOT HORSE; retain full original wolf muzzle/fangs/fur, four powerful wolf legs and original white or grey color. Ignore INPUT2 horse appearance. Rider ORC muscular width, normal proportionate skull, head bowed.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-7504ea16-fbca-434c-93a8-5501139e7f35.png",
+      "expectedBlobSHA": "be869f0564399b4ba77e3eb0d096433c61b6d68b",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          150,
+          49,
+          1022,
+          1273
+        ]
+      },
+      "blobSHA": "be869f0564399b4ba77e3eb0d096433c61b6d68b",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "azog_warg_rider",
+      "name": "아조그(흰 와르그)",
+      "faction": "gundabad",
+      "role": "hero",
+      "original": "tokens/azog_warg_rider.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "군다바드",
+      "groupKey": "gundabad",
+      "pose": "원본 기마 동작·기울임·무장 유지",
+      "bodyDescription": "기수 표준 뼈대 · 말/와르그 분리 비례 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/azog_warg_rider.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human-mounted.png"
+      ],
+      "prompt": "Rebuild ONE complete transparent pixel-game CAVALRY token. INPUT1 is sole master of character identity, armor, hair, helmet, palette, weapons, exact mount species and distinct combat ACTION/lean. INPUT2 is ORIGINAL neutral mounted bones: borrow ONLY rider skull/shoulder/pelvis/knee/ankle lengths, adult rider FIVE anatomical heads crown-to-sole independent of mount. Ordinary skull, small helmet shell, NEVER enlarge head as chibi helmet bubble. Rider has full seated pelvis ON saddle, thighs down mount's flanks, two logical knees/calves/feet and stirrups, coherent weapon grips and reins. Mount is full adult animal with correct neck, chest, four legs and tail; not undersized pony. Transform BOTH to elevated FRONT camera looking DOWN45–50degrees, crown and shoulder tops obvious; rider head FIRMLY tucked forward/down with eyes mostly hidden under hair/helmet/hood; face only tiny lower fragment. Keep original charge/body lean/sword strike, NO generic upright parade pose. Five heads is anatomical bones before foreshortening, no compressed torso or long 7head hero. Match INPUT2 crisp pixel density, stepped dark outline and short controlled shade ramps. FULL silhouette including lance/sword/banner/tail inside INNER80percent canvas with generous transparent margins; enlarge canvas for wide weapons, NEVER shrink bones to fit gear. Body centered independent of cape and weapons. Absolutely no base/floor/cast-shadow/scenery/text/watermark/extrafigures. Identity 아조그(흰 와르그) (azog_warg_rider): EXACT original gear and action. CRITICAL: INPUT1 mount is WARG, NOT HORSE; retain full original wolf muzzle/fangs/fur, four powerful wolf legs and original white or grey color. Ignore INPUT2 horse appearance. Rider ORC muscular width, normal proportionate skull, head bowed.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-76d2911e-73ed-404c-aff6-d0c533fd6d7a.png",
+      "expectedBlobSHA": "0f7938c11560afec44d8f924c21e274657376272",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          201,
+          112,
+          958,
+          1250
+        ]
+      },
+      "blobSHA": "0f7938c11560afec44d8f924c21e274657376272",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "numenorean_knight",
+      "name": "누메노르 기사",
+      "faction": "numenor",
+      "role": "cavalry",
+      "original": "tokens/numenorean_knight.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "누메노르",
+      "groupKey": "numenor",
+      "pose": "원본 기마 동작·기울임·무장 유지",
+      "bodyDescription": "기수 표준 뼈대 · 말/와르그 분리 비례 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/numenorean_knight.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human-mounted.png"
+      ],
+      "prompt": "Rebuild ONE complete transparent pixel-game CAVALRY token. INPUT1 is sole master of character identity, armor, hair, helmet, palette, weapons, exact mount species and distinct combat ACTION/lean. INPUT2 is ORIGINAL neutral mounted bones: borrow ONLY rider skull/shoulder/pelvis/knee/ankle lengths, adult rider FIVE anatomical heads crown-to-sole independent of mount. Ordinary skull, small helmet shell, NEVER enlarge head as chibi helmet bubble. Rider has full seated pelvis ON saddle, thighs down mount's flanks, two logical knees/calves/feet and stirrups, coherent weapon grips and reins. Mount is full adult animal with correct neck, chest, four legs and tail; not undersized pony. Transform BOTH to elevated FRONT camera looking DOWN45–50degrees, crown and shoulder tops obvious; rider head FIRMLY tucked forward/down with eyes mostly hidden under hair/helmet/hood; face only tiny lower fragment. Keep original charge/body lean/sword strike, NO generic upright parade pose. Five heads is anatomical bones before foreshortening, no compressed torso or long 7head hero. Match INPUT2 crisp pixel density, stepped dark outline and short controlled shade ramps. FULL silhouette including lance/sword/banner/tail inside INNER80percent canvas with generous transparent margins; enlarge canvas for wide weapons, NEVER shrink bones to fit gear. Body centered independent of cape and weapons. Absolutely no base/floor/cast-shadow/scenery/text/watermark/extrafigures. Identity 누메노르 기사 (numenorean_knight): EXACT original gear and action.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-9c99c9fd-6568-4ccf-94af-71366e2014f2.png",
+      "expectedBlobSHA": "476fa0d84b543ab200fbf1ca94dbe52c47a392ea",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          97,
+          130,
+          1141,
+          1214
+        ]
+      },
+      "blobSHA": "476fa0d84b543ab200fbf1ca94dbe52c47a392ea",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "elendil_mounted",
+      "name": "엘렌딜(기마)",
+      "faction": "arnor",
+      "role": "hero",
+      "original": "tokens/elendil_mounted.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "아르노르",
+      "groupKey": "arnor",
+      "pose": "원본 기마 동작·기울임·무장 유지",
+      "bodyDescription": "기수 표준 뼈대 · 말/와르그 분리 비례 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/elendil_mounted.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human-mounted.png"
+      ],
+      "prompt": "Rebuild ONE complete transparent pixel-game CAVALRY token. INPUT1 is sole master of character identity, armor, hair, helmet, palette, weapons, exact mount species and distinct combat ACTION/lean. INPUT2 is ORIGINAL neutral mounted bones: borrow ONLY rider skull/shoulder/pelvis/knee/ankle lengths, adult rider FIVE anatomical heads crown-to-sole independent of mount. Ordinary skull, small helmet shell, NEVER enlarge head as chibi helmet bubble. Rider has full seated pelvis ON saddle, thighs down mount's flanks, two logical knees/calves/feet and stirrups, coherent weapon grips and reins. Mount is full adult animal with correct neck, chest, four legs and tail; not undersized pony. Transform BOTH to elevated FRONT camera looking DOWN45–50degrees, crown and shoulder tops obvious; rider head FIRMLY tucked forward/down with eyes mostly hidden under hair/helmet/hood; face only tiny lower fragment. Keep original charge/body lean/sword strike, NO generic upright parade pose. Five heads is anatomical bones before foreshortening, no compressed torso or long 7head hero. Match INPUT2 crisp pixel density, stepped dark outline and short controlled shade ramps. FULL silhouette including lance/sword/banner/tail inside INNER80percent canvas with generous transparent margins; enlarge canvas for wide weapons, NEVER shrink bones to fit gear. Body centered independent of cape and weapons. Absolutely no base/floor/cast-shadow/scenery/text/watermark/extrafigures. Identity 엘렌딜(기마) (elendil_mounted): EXACT original gear and action.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-bd39aea0-9f0f-4186-8d77-34c977b2aa80.png",
+      "expectedBlobSHA": "e767139d95dd1de843db3d2abba1aece786f3de9",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          67,
+          87,
+          1160,
+          1246
+        ]
+      },
+      "blobSHA": "e767139d95dd1de843db3d2abba1aece786f3de9",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "anarion_mounted",
+      "name": "아나리온(기마)",
+      "faction": "numenor",
+      "role": "hero",
+      "original": "tokens/anarion_mounted.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "누메노르",
+      "groupKey": "numenor",
+      "pose": "원본 기마 동작·기울임·무장 유지",
+      "bodyDescription": "기수 표준 뼈대 · 말/와르그 분리 비례 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/anarion_mounted.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human-mounted.png"
+      ],
+      "prompt": "Rebuild ONE complete transparent pixel-game CAVALRY token. INPUT1 is sole master of character identity, armor, hair, helmet, palette, weapons, exact mount species and distinct combat ACTION/lean. INPUT2 is ORIGINAL neutral mounted bones: borrow ONLY rider skull/shoulder/pelvis/knee/ankle lengths, adult rider FIVE anatomical heads crown-to-sole independent of mount. Ordinary skull, small helmet shell, NEVER enlarge head as chibi helmet bubble. Rider has full seated pelvis ON saddle, thighs down mount's flanks, two logical knees/calves/feet and stirrups, coherent weapon grips and reins. Mount is full adult animal with correct neck, chest, four legs and tail; not undersized pony. Transform BOTH to elevated FRONT camera looking DOWN45–50degrees, crown and shoulder tops obvious; rider head FIRMLY tucked forward/down with eyes mostly hidden under hair/helmet/hood; face only tiny lower fragment. Keep original charge/body lean/sword strike, NO generic upright parade pose. Five heads is anatomical bones before foreshortening, no compressed torso or long 7head hero. Match INPUT2 crisp pixel density, stepped dark outline and short controlled shade ramps. FULL silhouette including lance/sword/banner/tail inside INNER80percent canvas with generous transparent margins; enlarge canvas for wide weapons, NEVER shrink bones to fit gear. Body centered independent of cape and weapons. Absolutely no base/floor/cast-shadow/scenery/text/watermark/extrafigures. Identity 아나리온(기마) (anarion_mounted): EXACT original gear and action.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-b344bd84-9c25-4d7b-8277-39d12dd3e03c.png",
+      "expectedBlobSHA": "60e287fd6b0f6d0f561d723435741ef1364cb65f",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          45,
+          106,
+          1122,
+          1245
+        ]
+      },
+      "blobSHA": "60e287fd6b0f6d0f561d723435741ef1364cb65f",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "arvedui_mounted",
+      "name": "아르베두이(기마)",
+      "faction": "arnor",
+      "role": "hero",
+      "original": "tokens/arvedui_mounted.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "아르노르",
+      "groupKey": "arnor",
+      "pose": "원본 기마 동작·기울임·무장 유지",
+      "bodyDescription": "기수 표준 뼈대 · 말/와르그 분리 비례 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/arvedui_mounted.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human-mounted.png"
+      ],
+      "prompt": "Rebuild ONE complete transparent pixel-game CAVALRY token. INPUT1 is sole master of character identity, armor, hair, helmet, palette, weapons, exact mount species and distinct combat ACTION/lean. INPUT2 is ORIGINAL neutral mounted bones: borrow ONLY rider skull/shoulder/pelvis/knee/ankle lengths, adult rider FIVE anatomical heads crown-to-sole independent of mount. Ordinary skull, small helmet shell, NEVER enlarge head as chibi helmet bubble. Rider has full seated pelvis ON saddle, thighs down mount's flanks, two logical knees/calves/feet and stirrups, coherent weapon grips and reins. Mount is full adult animal with correct neck, chest, four legs and tail; not undersized pony. Transform BOTH to elevated FRONT camera looking DOWN45–50degrees, crown and shoulder tops obvious; rider head FIRMLY tucked forward/down with eyes mostly hidden under hair/helmet/hood; face only tiny lower fragment. Keep original charge/body lean/sword strike, NO generic upright parade pose. Five heads is anatomical bones before foreshortening, no compressed torso or long 7head hero. Match INPUT2 crisp pixel density, stepped dark outline and short controlled shade ramps. FULL silhouette including lance/sword/banner/tail inside INNER80percent canvas with generous transparent margins; enlarge canvas for wide weapons, NEVER shrink bones to fit gear. Body centered independent of cape and weapons. Absolutely no base/floor/cast-shadow/scenery/text/watermark/extrafigures. Identity 아르베두이(기마) (arvedui_mounted): EXACT original gear and action.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-a68a6098-27f0-41fb-9cde-40386619e850.png",
+      "expectedBlobSHA": "d0dcd755b19a56e6c717bc43067833c0d0a05cd4",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          151,
+          79,
+          1118,
+          1246
+        ]
+      },
+      "blobSHA": "d0dcd755b19a56e6c717bc43067833c0d0a05cd4",
+      "approval": "pending",
+      "inGameVerified": false
+    }
+  ]
+}

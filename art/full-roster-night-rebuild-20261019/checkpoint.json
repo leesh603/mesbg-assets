@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T04:09:16.357Z",
+  "updatedAt": "2026-10-20T04:11:02.443Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 71,
-    "newlyGeneratedThisSession": 307,
-    "visuallyReviewedThisSession": 312,
+    "pending": 64,
+    "newlyGeneratedThisSession": 314,
+    "visuallyReviewedThisSession": 319,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 307,
-    "persistedReviewAssets": 439,
+    "generatedReviewAssets": 314,
+    "persistedReviewAssets": 446,
     "revisedAfterRejection": 18
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -2677,8 +2677,13 @@
       "faction": "gundabad",
       "role": "hero",
       "original": "tokens/azog_warg_rider.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "gundabad",
+      "path": "art/full-roster-night-rebuild-20261019/units/azog_warg_rider.png",
+      "blobSHA": "0f7938c11560afec44d8f924c21e274657376272",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "azog_foot",
@@ -4775,8 +4780,13 @@
       "faction": "gundabad",
       "role": "cavalry",
       "original": "tokens/gundabad_warg_rider.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "gundabad",
+      "path": "art/full-roster-night-rebuild-20261019/units/gundabad_warg_rider.png",
+      "blobSHA": "be869f0564399b4ba77e3eb0d096433c61b6d68b",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "arathorn",
@@ -5026,8 +5036,13 @@
       "faction": "dead",
       "role": "cavalry",
       "original": "tokens/dead_rider.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dead",
+      "path": "art/full-roster-night-rebuild-20261019/units/dead_rider.png",
+      "blobSHA": "5850b0fd614fcf0bed7f58e4387b252e96cc78fe",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "dervorin",
@@ -5870,8 +5885,13 @@
       "faction": "numenor",
       "role": "cavalry",
       "original": "tokens/numenorean_knight.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "numenor",
+      "path": "art/full-roster-night-rebuild-20261019/units/numenorean_knight.png",
+      "blobSHA": "476fa0d84b543ab200fbf1ca94dbe52c47a392ea",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "arnor_archer",
@@ -6881,8 +6901,13 @@
       "faction": "arnor",
       "role": "hero",
       "original": "tokens/elendil_mounted.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "arnor",
+      "path": "art/full-roster-night-rebuild-20261019/units/elendil_mounted.png",
+      "blobSHA": "e767139d95dd1de843db3d2abba1aece786f3de9",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "isildur_mounted",
@@ -6906,8 +6931,13 @@
       "faction": "numenor",
       "role": "hero",
       "original": "tokens/anarion_mounted.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "numenor",
+      "path": "art/full-roster-night-rebuild-20261019/units/anarion_mounted.png",
+      "blobSHA": "60e287fd6b0f6d0f561d723435741ef1364cb65f",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "cirion_mounted",
@@ -6947,8 +6977,13 @@
       "faction": "arnor",
       "role": "hero",
       "original": "tokens/arvedui_mounted.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "arnor",
+      "path": "art/full-roster-night-rebuild-20261019/units/arvedui_mounted.png",
+      "blobSHA": "d0dcd755b19a56e6c717bc43067833c0d0a05cd4",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "arathorn_mounted",
@@ -7629,23 +7664,23 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 439,
+    "count": 446,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
+      "arnor": 11,
+      "numenor": 6,
+      "군다바드": 6,
+      "망자": 3,
       "돌 굴두르": 3,
-      "군다바드": 4,
       "moria": 14,
       "앙마르": 2,
-      "망자": 2,
       "베오른 일족": 2,
       "dunland": 10,
       "이스터링·칸드": 15,
       "shire": 14,
-      "arnor": 9,
       "브리": 2,
-      "numenor": 4,
       "men": 8,
       "isengard": 30,
       "harad": 20,
@@ -7658,7 +7693,7 @@
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,
-    "sourceValidation": "439 unique IDs; static card count and asset blob SHAs verified"
+    "sourceValidation": "446 unique IDs; static card count and asset blob SHAs verified"
   },
   "revisionRequests": {
     "witchking": {
@@ -7794,16 +7829,15 @@
     }
   },
   "lastContinuation": {
-    "batch": "gundabad-dol-guldur-008",
+    "batch": "north-gundabad-cavalry-008",
     "newIds": [
-      "muzgur",
-      "castellan",
-      "zagdush",
-      "dungeon_keeper",
-      "yazneg",
-      "narzug",
-      "fimbul",
-      "ashrak"
+      "dead_rider",
+      "gundabad_warg_rider",
+      "azog_warg_rider",
+      "numenorean_knight",
+      "elendil_mounted",
+      "anarion_mounted",
+      "arvedui_mounted"
     ],
     "qualityStandard": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
     "note": "Each image inspected against canonical skeleton and identity reference; approval pending."
