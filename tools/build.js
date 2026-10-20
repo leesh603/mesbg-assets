@@ -28,6 +28,11 @@ const terrain = fs.readFileSync(path.join(ROOT,'src','tactical-terrain.js'),'utf
 src=src.replace(/\/\*__TERRAIN_BEGIN__\*\/[\s\S]*?\/\*__TERRAIN_END__\*\//,()=> '/*__TERRAIN_BEGIN__*/\n'+terrain+'\n/*__TERRAIN_END__*/');
 fs.writeFileSync(SRC,src);
 
+// Editable world art profiles are shared by engine and offline output.
+const world=fs.readFileSync(path.join(ROOT,'src','world-art.js'),'utf8');
+src=src.replace(/\/\*__WORLD_ART_BEGIN__\*\/[\s\S]*?\/\*__WORLD_ART_END__\*\//,()=> '/*__WORLD_ART_BEGIN__*/\n'+world+'\n/*__WORLD_ART_END__*/');
+fs.writeFileSync(SRC,src);
+
 // Fixed point costs and the point-budget rules share the online/offline build.
 const points = fs.readFileSync(path.join(ROOT,'src','warband-points.js'),'utf8');
 const pointsBegin = '/*__WARBAND_POINTS_BEGIN__*/', pointsEnd = '/*__WARBAND_POINTS_END__*/';

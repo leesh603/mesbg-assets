@@ -4897,9 +4897,9 @@ Ve.prototype.preload = function () {
     oldPreload.call(this);
     {
         const name = CX.maps[visualMapIdx(q.mapIndex)];
-        this.load.image('terrain-ground-'+(Terrain.THEMES[name]||Terrain.THEMES.pelennor).ground, this.asset('terrain/'+((Terrain.THEMES[name]||Terrain.THEMES.pelennor).ground==='stone'?'gondor':(Terrain.THEMES[name]||Terrain.THEMES.pelennor).ground)+'.webp?v=terrain3'));
-        for(const type of Object.keys(Terrain.TYPES))this.load.image('terrain-'+type,this.asset('terrain/'+type+'.png?v=terrain3'));
-        for(const m of ['shallow','deep','chasm','road'])this.load.image('terrain-material-'+m,this.asset('terrain/'+m+'.webp?v=terrain3'));
+        this.load.image('world-ground-'+name,this.asset('world/ground-'+name+'.webp?v=world1'));
+        for(const type of Object.keys(Terrain.TYPES))this.load.image('terrain-'+type,this.asset('world/'+type+'.png?v=world1'));
+        for(const m of ['shallow','deep','chasm','road'])this.load.image('terrain-material-'+m,this.asset('world/'+m+'.webp?v=world1'));
     }
     for (const name of ['slash', 'thrust', 'smash', 'shoot', 'cast', 'pounce', 'rally', 'blood', 'clash', 'prone', 'terror', 'charge', 'halfmove'])
         this.load.image('fx-' + name, this.asset('effects/fx_' + name + '.png'));
@@ -4928,7 +4928,7 @@ Ve.prototype._wantTex = function (id) {
     if (!this.textures.exists('unit-pending')) { const g0 = this.add.graphics(); g0.generateTexture('unit-pending', 64, 64); g0.destroy(); }
     return 'unit-pending';
 };
-Ve.prototype.drawMap = function () { this.b.battlefield ||= Terrain.build(CX.maps[visualMapIdx(this.b.mapIndex||0)],this.b.wave+1);  this.backdrop = this.add.tileSprite(pt.width / 2, pt.height / 2, pt.width, pt.height, 'terrain-ground-gondor').setTint(0xffffff); this.boundary = this.add.graphics().setDepth(2); this.objectiveLabel = this.add.text(0, 0, '', { fontFamily: 'Pretendard', fontSize: '22px', color: '#e7ddbd', backgroundColor: '#20231de6', padding: { x: 10, y: 6 } }).setOrigin(.5).setDepth(4); };
+Ve.prototype.drawMap = function () { const name=CX.maps[visualMapIdx(this.b.mapIndex||0)];this.b.battlefield ||= Terrain.build(name,this.b.wave+1);this.backdrop=this.add.image(pt.width/2,pt.height/2,'world-ground-'+name).setDisplaySize(pt.width,pt.height);this.boundary=this.add.graphics().setDepth(2);this.objectiveLabel=this.add.text(0,0,'',{fontFamily:'Pretendard',fontSize:'22px',color:'#e7ddbd',backgroundColor:'#20231de6',padding:{x:10,y:6}}).setOrigin(.5).setDepth(4); };
 // Selection prefers the active unit, then the moving side, then the nearest base within reach.
 Ve.prototype.hit = function (b) { const near = this.b.alive().filter(u => ht(b, u) <= u.radius + 10); near.sort((u, v) => ht(b, u) - (u.uid === this.b.selected ? 16 : u.side === this.b.side ? 8 : 0) - (ht(b, v) - (v.uid === this.b.selected ? 16 : v.side === this.b.side ? 8 : 0))); return near[0]; };
 Ve.prototype.create = function () {
@@ -4986,19 +4986,19 @@ Ve.prototype.sync = function () {
     if (!this.backdrop)
         return;
     const name = CX.maps[visualMapIdx(this.b.mapIndex)];
-    const family=(Terrain.THEMES[name]||Terrain.THEMES.pelennor).ground,tint=family==='stone'?0x848f93:family==='forest'?0xd0d3bb:0xffffff;
-    const mapKey = 'terrain-ground-'+family;
-    if (!this.textures.exists(mapKey)) {
-        // 지연 로드: 스테이지 전환 때만 필요한 배경을 받는다 (preload에서 전부 받지 않음).
-        const file = 'terrain/'+((Terrain.THEMES[name]||Terrain.THEMES.pelennor).ground==='stone'?'gondor':(Terrain.THEMES[name]||Terrain.THEMES.pelennor).ground)+'.webp?v=terrain3';
-        if (this._mapLoading !== mapKey) {
-            this._mapLoading = mapKey;
-            this.load.image(mapKey, this.asset(file));
-            this.load.once('complete', () => { this._mapLoading = null; if(this.backdrop&&'terrain-ground-'+(Terrain.THEMES[CX.maps[visualMapIdx(this.b.mapIndex)]]||Terrain.THEMES.pelennor).ground===mapKey)this.backdrop.setTexture(mapKey).setTint(tint).setDisplaySize(pt.width, pt.height); });
-            this.load.start();
+    const mapKey='world-ground-'+name;
+    if(this.textures.exists(mapKey)){this.backdrop.setTexture(mapKey).clearTint().setDisplaySize(pt.width,pt.height);this.textures.get(mapKey).setFilter(Ot.Textures.FilterMode.NEAREST);}
+    else{
+        this._worldPending ||= new Set();
+        if(!this._worldPending.has(mapKey)){
+            this._worldPending.add(mapKey);this.load.image(mapKey,this.asset('world/ground-'+name+'.webp?v=world1'));
+            const ready=()=>{this.load.off('loaderror',failed);this._worldPending.delete(mapKey);this._worldGroundLRU=(this._worldGroundLRU||[this.backdrop.texture.key]).filter(k=>k!==mapKey);this._worldGroundLRU.push(mapKey);
+                const current='world-ground-'+CX.maps[visualMapIdx(this.b.mapIndex)];if(current===mapKey)this.backdrop.setTexture(mapKey).clearTint().setDisplaySize(pt.width,pt.height);
+                while(this._worldGroundLRU.length>3){const old=this._worldGroundLRU.shift();if(old!==current&&old!==this.backdrop.texture.key)this.textures.remove(old);}this.sync();};
+            const failed=file=>{if(file.key!==mapKey)return;this.load.off('filecomplete-image-'+mapKey,ready);this.load.off('loaderror',failed);this._worldPending.delete(mapKey);};
+            this.load.once('filecomplete-image-'+mapKey,ready);this.load.on('loaderror',failed);this.load.start();
         }
-    } else
-        this.backdrop.setTexture(mapKey).setTint(tint).setDisplaySize(pt.width, pt.height);
+    }
     this.boundary.clear();
     // Soft stepped fog margins remain outside the legal base-center boundary.
     for (let i = 0; i < 5; i++) {
@@ -5020,14 +5020,10 @@ Ve.prototype.sync = function () {
             continue;
         const sprite = c.getByName('token');
         applyUnitArtSprite(this, sprite, u);
-        if (!c.getByName('base')) {
-            // Painted base under the figure: a soft contact shadow, then the faction disc slightly
-            // flattened so it reads as lying on the ground; the figure stands on it.
-            const _bm = q.meta.get(u.id), key = 'basefile:' + (_bm ? baseFile(_bm) : 'bases/base_gondor_M.png'), _br = unitBaseRadius(u), d = _br * 2.2;
-            const shadow = this.add.ellipse(0, _br * .16, d * .91, d * .76, 0x000000, .24).setName('base-shadow');
-            const base = this.textures.exists(key) ? this.add.image(0, 0, key).setDisplaySize(d, d).setName('base') : this.add.ellipse(0, 0, d, d * .94, u.side === 'good' ? 0x6f7466 : 0x3a302a, .95).setStrokeStyle(2, u.side === 'good' ? 0xc9c4a8 : 0x6b4a3c).setName('base');
-            c.addAt(shadow, 0); c.addAt(base, 1);
-        }
+        const base=c.getByName('base'),oldShadow=c.getByName('base-shadow');if(base)base.setVisible(false);if(oldShadow)oldShadow.setVisible(false);
+        if(!this.textures.exists('__world-contact')){const cv=document.createElement('canvas');cv.width=48;cv.height=20;const x=cv.getContext('2d');x.fillStyle='rgba(18,21,17,.10)';x.beginPath();x.ellipse(24,10,23,9,0,0,Math.PI*2);x.fill();x.fillStyle='rgba(18,21,17,.16)';x.beginPath();x.ellipse(24,10,16,5,0,0,Math.PI*2);x.fill();x.fillStyle='rgba(12,16,13,.19)';x.beginPath();x.ellipse(24,10,9,2,0,0,Math.PI*2);x.fill();this.textures.addCanvas('__world-contact',cv).setFilter(Ot.Textures.FilterMode.NEAREST);}
+        let contact=c.getByName('world-contact');if(!contact){contact=this.add.image(0,0,'__world-contact').setName('world-contact');c.addAt(contact,0);}const mounted=u.traits.includes('mounted'),flying=u.traits.includes('flying');
+        contact.setPosition(0,sprite.y||0).setDisplaySize(Math.max(28,u.radius*(mounted?1.55:1.12)),Math.max(10,u.radius*(mounted?.40:.30))).setAlpha(flying?.4:1);
         sprite.setAlpha(1).setVisible(this.textures.exists(u.id)); // Spent units use the cached grayscale texture in the clarity adapter.
         c.getByName('label').setVisible(u.uid === this.b.selected || u.traits.includes('hero'));
     }
@@ -11817,12 +11813,83 @@ ut('help').onclick = () => {
     document.addEventListener('focusout',hide);document.addEventListener('pointerdown',hide);
     document.addEventListener('keydown',e=>{if(e.key==='Escape')hide();});window.addEventListener('resize',hide);document.addEventListener('scroll',hide,true);
 })();
+/*__WORLD_ART_BEGIN__*/
+/* World art v1. Shared, deterministic art composition; no gameplay mutations.
+ * Logical art pixel = 2 world units. Can run in the browser or build-time canvas.
+ * Base-centre navigation coordinates stay authoritative in tactical-terrain.js. */
+(function(root){'use strict';
+const VERSION='world-20261020-1',SCALE=2,W=1165,H=728;
+// Material indices: meadow, woodland, limestone, earth, basalt, dungeon, marsh, scree, goldleaf.
+const REGIONS={
+ minas_tirith:{material:0,secondary:2,scheme:'gondor',pattern:'approach',light:0xf5f2e9,landmark:'whitegate',accent:'#aeb3a2'},
+ osgiliath:{material:2,secondary:0,scheme:'gondor',pattern:'ruined-grid',light:0xedeee7,landmark:'dome',accent:'#9d9e8d'},
+ amon_sul:{material:0,secondary:7,scheme:'arnor',pattern:'ancient-ring',light:0xebeee7,landmark:'watchtower',accent:'#959b8a'},
+ helms_deep:{material:7,secondary:0,scheme:'rohan',pattern:'valley',light:0xe9eeeb,landmark:'hornburg',accent:'#96998c'},
+ fangorn:{material:1,secondary:0,scheme:'forest',pattern:'old-forest',light:0xe7eddf,landmark:'oldtree',accent:'#6c7b4e'},
+ edoras:{material:0,secondary:3,scheme:'rohan',pattern:'horse-path',light:0xf7edda,landmark:'goldenhall',accent:'#8c8b53'},
+ moria:{material:5,secondary:7,scheme:'dwarf',pattern:'pillared-hall',light:0xdce5ed,landmark:'dwarfarch',accent:'#797d7b'},
+ isengard:{material:4,secondary:5,scheme:'industry',pattern:'iron-ring',light:0xe6e8e3,landmark:'furnace',accent:'#767969'},
+ black_gate:{material:4,secondary:7,scheme:'mordor',pattern:'gate-road',light:0xe5e5dd,landmark:'irongate',accent:'#8c8170'},
+ gorgoroth:{material:4,secondary:3,scheme:'mordor',pattern:'volcanic',light:0xece0d5,landmark:'slag',accent:'#8a6451'},
+ rivendell:{material:8,secondary:2,scheme:'elf',pattern:'garden',light:0xedf0e7,landmark:'elfpavilion',accent:'#a6ab83'},
+ lothlorien:{material:8,secondary:1,scheme:'elf',pattern:'mallorn',light:0xf0eddb,landmark:'mallorn',accent:'#b1a66c'},
+ pelennor:{material:0,secondary:3,scheme:'gondor',pattern:'farm',light:0xf6f0df,landmark:'farmhouse',accent:'#9d925a'},
+ dead_marshes:{material:6,secondary:1,scheme:'marsh',pattern:'fen',light:0xdce5d9,landmark:'reedbed',accent:'#7f8c6f'},
+ dunharrow:{material:7,secondary:0,scheme:'mountain',pattern:'barrow-road',light:0xe3e9e7,landmark:'standingstones',accent:'#9ba29b'},
+ erebor:{material:7,secondary:5,scheme:'dwarf',pattern:'mountain-road',light:0xe8eae5,landmark:'dwarfarch',accent:'#999484'},
+ mirkwood:{material:1,secondary:6,scheme:'forest',pattern:'dark-forest',light:0xdce7dd,landmark:'webtree',accent:'#768161'},
+ dol_guldur:{material:4,secondary:1,scheme:'mordor',pattern:'broken-court',light:0xdfe8db,landmark:'darkruin',accent:'#6e7c69'},
+ gondolin:{material:2,secondary:8,scheme:'elf',pattern:'silver-court',light:0xf0f3ec,landmark:'elfgate',accent:'#b4b8a7'},
+ angband:{material:4,secondary:5,scheme:'mordor',pattern:'iron-valley',light:0xe9dbcf,landmark:'irongate',accent:'#886654'},
+ minas_court:{material:2,secondary:0,scheme:'gondor',pattern:'white-court',light:0xf3f0e5,landmark:'whitetree',accent:'#a7ae9b'},
+ orthanc:{material:5,secondary:4,scheme:'industry',pattern:'forge-court',light:0xe3e6e6,landmark:'furnace',accent:'#87877a'},
+ barad_dur:{material:4,secondary:5,scheme:'mordor',pattern:'tower-road',light:0xe9dfd6,landmark:'darktower',accent:'#8b7760'},
+ minas_morgul:{material:6,secondary:4,scheme:'mordor',pattern:'withered',light:0xdce9df,landmark:'morgulruin',accent:'#819586'},
+ dale:{material:2,secondary:0,scheme:'dale',pattern:'market-street',light:0xf5ecde,landmark:'dalehouse',accent:'#b19376'},
+ hornburg:{material:7,secondary:2,scheme:'rohan',pattern:'rohan-hall',light:0xeee6d7,landmark:'goldenhall',accent:'#9e926d'},
+ erebor_hall:{material:5,secondary:2,scheme:'dwarf',pattern:'royal-hall',light:0xeae6da,landmark:'dwarfpillar',accent:'#a29565'}
+};
+const LANDMARKS={whitegate:null,dome:'dome',watchtower:'watchtower',hornburg:'hornburg',oldtree:null,goldenhall:'goldenhall',dwarfarch:'dwarfpillar',furnace:'furnace',irongate:'irongate',slag:null,elfpavilion:'mallorn',mallorn:'mallorn',farmhouse:'farmhouse',reedbed:null,standingstones:'standingstones',webtree:null,darkruin:null,elfgate:null,whitetree:null,darktower:'darktower',morgulruin:null,dalehouse:'farmhouse',dwarfpillar:'dwarfpillar'};
+const LANDMARK_NAMES=['whitegate','dome','watchtower','hornburg','goldenhall','dwarfarch','furnace','irongate','elfpavilion','mallorn','farmhouse','reedbed','standingstones','darkruin','darktower','dwarfpillar'];
+const SIZE={oak:[240,290],pine:[205,320],dead:[185,255],rock:[200,115],stone:[270,60],fence:[280,58],palisade:[285,130],ruin:[275,150],whitewall:[350,185],darkwall:[350,190],cliff:[365,250],rim:[330,205],rubble:[155,62],burnt:[170,90]};
+const depth=y=>5+Math.max(0,Math.min(9999,y))/100000;
+const seed=s=>{let h=2166136261;for(const c of s){h^=c.charCodeAt(0);h=Math.imul(h,16777619);}return h>>>0;};
+const random=s=>()=>{s=(Math.imul(s,1664525)+1013904223)>>>0;return s/4294967296;};
+function region(key){if(!REGIONS[key])throw Error('Missing world art profile '+key);return REGIONS[key];}
+function polygon(ctx,points){ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]));ctx.closePath();}
+function material(ctx,img,id){const sw=img.width/3,sh=img.height/3;const canvas=ctx.canvas.ownerDocument?ctx.canvas.ownerDocument.createElement('canvas'):null;return{img,sx:(id%3)*sw,sy:Math.floor(id/3)*sh,sw,sh};}
+function tile(ctx,m,box=[0,0,W,H],size=128){const[x,y,w,h]=box;ctx.save();ctx.beginPath();ctx.rect(x,y,w,h);ctx.clip();for(let yy=Math.floor(y/size)*size;yy<y+h;yy+=size)for(let xx=Math.floor(x/size)*size;xx<x+w;xx+=size){ctx.save();const flipX=(Math.floor(xx/size)&1),flipY=(Math.floor(yy/size)&1);ctx.translate(xx+(flipX?size:0),yy+(flipY?size:0));ctx.scale(flipX?-1:1,flipY?-1:1);ctx.drawImage(m.img,m.sx,m.sy,m.sw,m.sh,0,0,size,size);ctx.restore();}ctx.restore();}
+function patch(ctx,m,pts,size=128){ctx.save();polygon(ctx,pts);ctx.clip();tile(ctx,m,[0,0,W,H],size);ctx.restore();}
+// Fresh composition for every region, using terrain-aware footprints. It is baked
+// to compact WebP once; this does not run in the combat frame loop.
+function paintGround(ctx,key,atlas){const r=region(key),rnd=random(seed(key));ctx.imageSmoothingEnabled=false;const primary=material(ctx,atlas,r.material),secondary=material(ctx,atlas,r.secondary);tile(ctx,primary);
+ // Large irregular secondary patches break any repeating square material edges.
+ for(let i=0;i<24;i++){const x=Math.floor(rnd()*W),y=Math.floor(rnd()*H),rx=25+Math.floor(rnd()*90),ry=15+Math.floor(rnd()*50),pts=[];for(let j=0;j<14;j++){const a=j*Math.PI/7,q=.65+rnd()*.35;pts.push([Math.round(x+Math.cos(a)*rx*q),Math.round(y+Math.sin(a)*ry*q)]);}patch(ctx,secondary,pts);}
+ const slab=(x,y,w,h,shade)=>{ctx.fillStyle=shade||r.accent;ctx.fillRect(x,y,w,h);ctx.fillStyle='#171c1b';ctx.globalAlpha=.22;ctx.fillRect(x,y+h-2,w,2);ctx.fillRect(x+w-1,y,1,h);ctx.globalAlpha=.28;ctx.fillStyle='#e3ddc1';ctx.fillRect(x,y,w-1,1);ctx.globalAlpha=1;};
+ const street=(x,y,w,h)=>patch(ctx,secondary,[[x,y],[x+w,y],[x+w,y+h],[x,y+h]]);
+ if(['approach','gate-road','tower-road','mountain-road','iron-valley'].includes(r.pattern)){street(491,0,184,H);for(let y=0;y<H;y+=18)for(let x=495;x<675;x+=28)if(rnd()>.08)slab(x+(y%36?8:0),y,24,14);}
+ if(['ruined-grid','market-street','broken-court'].includes(r.pattern)){for(let y=38;y<H;y+=190)street(0,y,W,55);for(let x=160;x<W;x+=320)street(x,0,74,H);for(let i=0;i<180;i++){const x=Math.floor(rnd()*W),y=Math.floor(rnd()*H);if(rnd()>.4)slab(x,y,4+Math.floor(rnd()*14),3+Math.floor(rnd()*7),r.accent);}}
+ if(['white-court','silver-court','pillared-hall','royal-hall','rohan-hall','forge-court'].includes(r.pattern)){for(let y=14;y<H;y+=31)for(let x=14;x<W;x+=56){if(rnd()<.94)slab(x+((y/31|0)%2)*15,y,50,25,r.pattern==='forge-court'?'#454c4b':r.pattern.includes('hall')?'#737c7c':'#a4aa9b');}ctx.strokeStyle=r.accent;ctx.lineWidth=3;ctx.strokeRect(66,44,W-132,H-88);ctx.lineWidth=1;ctx.strokeRect(72,49,W-144,H-98);for(const x of[211,954])for(const y of[240,480]){ctx.fillStyle=r.accent;ctx.globalAlpha=.30;ctx.fillRect(x-42,y-26,84,52);ctx.globalAlpha=1;ctx.strokeRect(x-38,y-23,76,46);}}
+ if(['ancient-ring','iron-ring'].includes(r.pattern)){ctx.save();ctx.translate(W/2,H*.44);ctx.scale(1,.62);for(let n=0;n<3;n++){ctx.strokeStyle=n===1?r.accent:'#424c40';ctx.lineWidth=n===1?18:3;ctx.beginPath();ctx.arc(0,0,190+n*14,0,Math.PI*2);ctx.stroke();}ctx.restore();}
+ if(r.pattern==='farm'){for(const [x,y,w,h]of[[90,90,270,160],[790,465,255,160],[740,80,220,125]]){street(x,y,w,h);for(let yy=y+5;yy<y+h;yy+=7){ctx.strokeStyle=(yy%14)?'#676b42':'#8c8c56';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(x+3,yy);ctx.lineTo(x+w-3,yy+2);ctx.stroke();}}}
+ if(['horse-path','barrow-road','valley'].includes(r.pattern)){ctx.strokeStyle=r.accent;ctx.globalAlpha=.28;for(let k=0;k<2;k++){ctx.lineWidth=5;ctx.beginPath();ctx.moveTo(570+k*18,0);ctx.bezierCurveTo(490+k*18,220,670+k*18,430,520+k*18,H);ctx.stroke();}ctx.globalAlpha=1;}
+ if(['old-forest','dark-forest','mallorn','garden','fen','withered'].includes(r.pattern)){const leaves=r.pattern==='mallorn'||r.pattern==='garden';for(let i=0;i<1100;i++){const x=(rnd()*W)|0,y=(rnd()*H)|0;ctx.globalAlpha=.24+rnd()*.24;ctx.fillStyle=leaves?['#c3b875','#9b9b61','#6a794c'][i%3]:['#667449','#889165','#394d3e'][i%3];ctx.fillRect(x,y,2+(rnd()*4|0),1+(rnd()*2|0));}ctx.globalAlpha=1;}
+ if(['volcanic','iron-valley','tower-road'].includes(r.pattern)){for(let i=0;i<35;i++){const x=rnd()*W|0,y=rnd()*H|0;ctx.strokeStyle=i%4?'#323431':'#76523e';ctx.lineWidth=i%4?2:1;ctx.beginPath();ctx.moveTo(x,y);for(let j=0;j<7;j++)ctx.lineTo(x+j*5+(rnd()*10|0),y+j*3+(rnd()*8|0));ctx.stroke();}}
+ // Sparse coherent detail, no high-contrast noise beneath figures.
+ ctx.globalAlpha=.16;for(let i=0;i<450;i++){ctx.fillStyle=i%2?'#e5dfbb':'#131d18';ctx.fillRect(rnd()*W|0,rnd()*H|0,2+rnd()*3|0,1);}ctx.globalAlpha=1;
+ ctx.fillStyle={0:'#727d4f',1:'#525f42',2:'#9a9f91',3:'#8a7960',4:'#494a45',5:'#596363',6:'#59634b',7:'#8a9187',8:'#8b8e59'}[r.material];ctx.globalAlpha=.18;ctx.fillRect(0,0,W,H);ctx.globalAlpha=1;
+ return{key,pattern:r.pattern,material:r.material,width:W,height:H};}
+function overlap(t,u,head=86){if(!t.active||t.surface==='bridge'||!t.type||t.type==='rubble')return false;const dims=SIZE[t.type]||[t.drawW,t.drawH],w=dims[0],h=dims[1];return u.y<t.y+10&&u.y>t.y-h-head*.25&&Math.abs(u.x-t.x)<w*.44+(u.radius||38)*.35;}
+root.MESBGWorldArt={VERSION,SCALE,W,H,REGIONS,SIZE,LANDMARKS,LANDMARK_NAMES,depth,region,paintGround,overlap};if(typeof module!=='undefined'&&module.exports)module.exports=root.MESBGWorldArt;
+})(typeof window!=='undefined'?window:globalThis);
+
+/*__WORLD_ART_END__*/
 // Terrain scene layers are rebuilt only when the authored battlefield changes.
 // Dynamic tokens, device FX and action rings keep their existing rendering.
 function terrainCanvas(scene,key,paint){
- const c=document.createElement('canvas');c.width=pt.width;c.height=pt.height;
- const x=c.getContext('2d');paint(x);if(scene.textures.exists(key))scene.textures.remove(key);
- scene.textures.addCanvas(key,c);return scene.add.image(pt.width/2,pt.height/2,key);
+ const c=document.createElement('canvas');c.width=Math.ceil(pt.width/2);c.height=Math.ceil(pt.height/2);
+ const x=c.getContext('2d');x.imageSmoothingEnabled=false;x.scale(.5,.5);paint(x);if(scene.textures.exists(key))scene.textures.remove(key);
+ scene.textures.addCanvas(key,c).setFilter(Ot.Textures.FilterMode.NEAREST);return scene.add.image(pt.width/2,pt.height/2,key).setDisplaySize(pt.width,pt.height);
 }
 function terrainStroke(x,points,width,style){x.save();x.strokeStyle=style;x.lineWidth=width;x.lineJoin='round';x.lineCap='round';x.beginPath();points.forEach((p,i)=>i?x.lineTo(p[0],p[1]):x.moveTo(p[0],p[1]));x.stroke();x.restore();}
 function renderBattlefield(scene){
@@ -11849,23 +11916,27 @@ function renderBattlefield(scene){
   // A depth transition uses material blending, with a bright readable ford
   // interior and a narrow dark fringe beyond its legal crossing footprint.
   for(const c of field.bridges.filter(c=>c.ford)){
-   const overlay=document.createElement('canvas');overlay.width=pt.width;overlay.height=pt.height;const ox=overlay.getContext('2d');
+   const overlay=document.createElement('canvas');overlay.width=Math.ceil(pt.width/2);overlay.height=Math.ceil(pt.height/2);const ox=overlay.getContext('2d');ox.scale(.5,.5);
    for(const t of waters)terrainStroke(ox,t.points,t.w,pat(ox,'shallow'));
    const g=ox.createLinearGradient(c.x-c.w/2-30,0,c.x+c.w/2+30,0),fringe=30/(c.w+60);
    g.addColorStop(0,'rgba(0,0,0,0)');g.addColorStop(fringe,'rgba(0,0,0,.95)');g.addColorStop(.5,'rgba(0,0,0,1)');g.addColorStop(1-fringe,'rgba(0,0,0,.95)');g.addColorStop(1,'rgba(0,0,0,0)');
-   ox.globalCompositeOperation='destination-in';ox.fillStyle=g;ox.fillRect(0,0,pt.width,pt.height);x.drawImage(overlay,0,0);
+   ox.globalCompositeOperation='destination-in';ox.fillStyle=g;ox.fillRect(0,0,pt.width,pt.height);x.drawImage(overlay,0,0,pt.width,pt.height);
+  }
+  for(const t of b.terrain.filter(t=>t.active&&t.type&&t.surface!=='bridge')){
+   const tree=['oak','pine','dead','burnt'].includes(t.type);x.fillStyle='rgba(14,23,17,.13)';x.beginPath();x.ellipse(t.x+12,t.y+9,t.w*.58,t.h*.43,0,0,Math.PI*2);x.fill();x.fillStyle='rgba(14,20,16,.20)';x.beginPath();x.ellipse(t.x,t.y+4,t.w*.38,t.h*.24,0,0,Math.PI*2);x.fill();
+   if(tree){for(let i=0;i<22;i++){const a=i*2.4,rr=15+(i%7)*8;x.fillStyle=['rgba(78,87,49,.38)','rgba(130,119,67,.32)','rgba(53,68,45,.34)'][i%3];x.fillRect(Math.round(t.x+Math.cos(a)*rr),Math.round(t.y+Math.sin(a)*rr*.5),5,3);}}
   }
   for(const d of field.decals){
    x.save();x.translate(d.x,d.y);x.rotate(d.angle*Math.PI/180);const g=x.createRadialGradient(0,0,12,0,0,d.w/2);g.addColorStop(0,'rgba(25,23,18,'+d.alpha+')');g.addColorStop(.6,'rgba(35,28,22,'+d.alpha*.6+')');g.addColorStop(1,'rgba(35,28,22,0)');x.fillStyle=g;x.scale(1,d.h/d.w);x.beginPath();x.arc(0,0,d.w/2,0,Math.PI*2);x.fill();x.restore();
   }
  }).setDepth(.5);
- scene._terrainObjects=scene.add.container(0,0).setDepth(2);
+ scene._terrainObjects=scene.add.group();
  for(const t of b.terrain.filter(t=>t.active&&t.tactical&&t.type)){
-  const type=t.scorched?'burnt':t.type,texture='terrain-'+type;if(!scene.textures.exists(texture))continue;
-  const isTree=['oak','pine','dead','burnt'].includes(t.type),isBridge=t.surface==='bridge',offset=isTree?t.drawH*.2:isBridge?0:t.shape==='rect'?t.drawH*.18:0;
-  // Footprint is anchored on the ground; tall art grows upward from it.
-  const sprite=scene.add.image(t.x,t.y-offset,texture).setDisplaySize(t.drawW,t.drawH).setAngle(t.angle||0);
-  if(t.scorched)sprite.setTint(0xa3a091);
+  const type=t.type,texture='terrain-'+type;if(!scene.textures.exists(texture))continue;
+  const A=window.MESBGWorldArt,isBridge=t.surface==='bridge',dims=A.SIZE[t.type]||[t.drawW,t.drawH],scale=t.drawW/Terrain.TYPES[t.type].w,w=isBridge?t.w/.68:dims[0]*scale,h=isBridge?t.h+35:dims[1]*scale;
+  const sprite=scene.add.image(t.x,t.y+(isBridge?0:t.h*.45),texture).setOrigin(.5,isBridge?.5:1).setDisplaySize(w,h).setAngle(t.angle||0).setDepth(isBridge?1.2:t.type==='rubble'?1.3:A.depth(t.y));
+  scene.textures.get(texture).setFilter(Ot.Textures.FilterMode.NEAREST);sprite.setData('worldTerrain',t);
+  if(t.scorched)sprite.setTint(0x9c9481);
   scene._terrainObjects.add(sprite);
  }
  // Optional unobtrusive field guide; values are player-facing terrain rules.
@@ -11874,6 +11945,22 @@ function renderBattlefield(scene){
 }
 const tacticalSync=Ve.prototype.sync;
 Ve.prototype.sync=function(){tacticalSync.call(this);renderBattlefield(this);};
+const worldSync=Ve.prototype.sync;
+Ve.prototype.sync=function(){worldSync.apply(this,arguments);worldIntegration(this);};
+function worldIntegration(scene){const b=scene.b,A=window.MESBGWorldArt;if(!b?.battlefield||!A)return;const light=A.region(b.battlefield.key).light;
+ for(const u of b.alive()){const c=scene.tokens.get(u.uid),sp=c?.getByName('token');if(!sp)continue;const old=sp.getData('worldTint');if(sp.tintTopLeft===0xffffff||sp.tintTopLeft===old){sp.setTint(light);sp.setData('worldTint',light);}const base=c.getByName('base');if(base)base.setVisible(false);const sh=c.getByName('base-shadow');if(sh)sh.setVisible(false);}
+ if(!scene.textures.exists('__world-ripple')){const cv=document.createElement('canvas');cv.width=48;cv.height=18;const x=cv.getContext('2d');x.strokeStyle='rgba(170,192,183,.65)';x.lineWidth=1;x.beginPath();x.ellipse(24,9,20,5,0,0,Math.PI*2);x.stroke();x.strokeStyle='rgba(55,88,88,.40)';x.beginPath();x.ellipse(24,9,14,3,0,0,Math.PI*2);x.stroke();scene.textures.addCanvas('__world-ripple',cv).setFilter(Ot.Textures.FilterMode.NEAREST);}
+ for(const u of b.alive()){const c=scene.tokens.get(u.uid);if(!c)continue;let water=c.getByName('world-ripple');const wet=b.terrain.some(t=>t.active&&(t.surface==='shallow'||t.ford)&&Terrain.contains(u,t))&&!u.traits.includes('flying');if(wet&&!water){water=scene.add.image(0,4,'__world-ripple').setName('world-ripple');c.addAt(water,1);}if(water)water.setVisible(wet).setDisplaySize(Math.max(38,u.radius*1.5),Math.max(14,u.radius*.42));}
+
+}
+const worldUpdate=Ve.prototype.update;
+Ve.prototype.update=function(t){worldUpdate.call(this,t);const A=window.MESBGWorldArt,b=this.b;if(!A||!b?.battlefield)return;
+ // Depth follows animated ground coordinates. Tactical UI remains above this band.
+ for(const c of this.tokens.values())if(c.depth>=5&&c.depth<5.1)c.setDepth(A.depth(c.y));
+ if((this._worldOcclusionAt||0)>t)return;this._worldOcclusionAt=t+80;
+ const units=b.alive();for(const sp of this._terrainObjects?.getChildren()||[]){const tr=sp.getData('worldTerrain');if(!tr)continue;const fade=units.some(u=>A.overlap(tr,u,unitHeadLift(u)||86));const alpha=fade?.43:1;if(sp.alpha!==alpha)sp.setAlpha(alpha);}
+};
+window.MESBG.worldArt=window.MESBGWorldArt;
 const tacticalResume=P.resume;
 P.resume=function(){
  if(!tacticalResume.call(this))return false;
@@ -11927,7 +12014,7 @@ window.MESBG.terrain=Terrain;window.MESBG.legal=Et;window.MESBG.plan=ve;window.M
 const terrainGuide=document.createElement('div');terrainGuide.id='terrain-guide';terrainGuide.hidden=true;ut('game').appendChild(terrainGuide);
 const terrainCSS=document.createElement('style');terrainCSS.textContent='#terrain-guide{position:absolute;bottom:8px;left:10px;right:10px;display:flex;flex-wrap:wrap;gap:3px 9px;justify-content:center;pointer-events:none;font:600 10px/1.3 Pretendard,sans-serif;color:#ddd4b6;text-shadow:0 1px 3px #111}#terrain-guide[hidden]{display:none}#terrain-guide span{background:#1b241bcc;padding:3px 5px;border-radius:3px}#terrain-guide span:first-child{color:#f1d698}@media(min-width:800px){#terrain-guide{font-size:12px;bottom:12px}}';document.head.appendChild(terrainCSS);
 
-const clarityGame = new Ot.Game({ type: Ot.AUTO, parent: "game", width: Math.max(1,Math.round(document.querySelector('#game').clientWidth)), height: Math.max(1,Math.round(document.querySelector('#game').clientHeight)), backgroundColor: "#293038", scale: { mode: Ot.Scale.NONE, autoCenter: Ot.Scale.NO_CENTER, autoRound: false }, scene: [Tt], render: { antialias: true, antialiasGL: true, pixelArt: false, roundPixels: false, powerPreference: "low-power" }, fps: {target:60}, audio: {noAudio:true} });
+const clarityGame = new Ot.Game({ type: Ot.AUTO, parent: "game", width: Math.max(1,Math.round(document.querySelector('#game').clientWidth)), height: Math.max(1,Math.round(document.querySelector('#game').clientHeight)), backgroundColor: "#293038", scale: { mode: Ot.Scale.NONE, autoCenter: Ot.Scale.NO_CENTER, autoRound: false }, scene: [Tt], render: { antialias: false, antialiasGL: false, pixelArt: true, roundPixels: true, powerPreference: "low-power" }, fps: {target:60}, audio: {noAudio:true} });
 Yt();
 ut("overview").onclick = () => Tt.overview();
 ut("focus").onclick = () => Tt.focus();
