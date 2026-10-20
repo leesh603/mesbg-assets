@@ -1,0 +1,296 @@
+{
+  "batch": "continuation-monsters-b-20261020",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "spider_queen",
+      "name": "거미 여왕",
+      "faction": "dol_guldur",
+      "role": "monster",
+      "original": "tokens/spider_queen.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "돌 굴두르",
+      "groupKey": "dol_guldur",
+      "bodyDescription": "원본 종족 고유 골격 · 하이앵글 프론트뷰",
+      "pose": "원본 종족 고유 행동·실루엣 유지",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/spider_queen.png"
+      ],
+      "prompt": "Rebuild production PIXEL GAME TOKEN from the single attached ORIGINAL source. Source controls exact identity/species/anatomy/equipment/colors/action. This is a MONSTER/ANIMAL, never add a soldier, rider, human template or extra actor. Match established Gondor/Mordor crisp stepped dark outlines, deliberate solid pixel clusters, short restrained color ramps and game-token detail density; no smooth painterly blur or photorealism. Keep original distinctive body tilt/action while rotating to HIGH-ANGLE FRONT camera DOWN45–50degrees, NOT eye-level frontal portrait, NOT side profile or rear view. Entire exact silhouette including every wing, leg, tail, root, tentacle and weapon tip inside INNER80percent of canvas, generous transparent margins, body independently centered. Transparent background, no base/floor/cast shadow/scenery/text/UI/watermark. Identity: 거미 여왕 (spider_queen). ONE SPIDER with EXACTLY EIGHT coherent legs, four per side, each connected to thorax, plus separate small mouth pedipalps. Original abdomen shape/pattern/color/hair/crown. Elevated front-down45deg shows dorsal abdomen and crown, head in lower-center foreground, abdomen rear/up. Preserve spider's forward attack pose. All8 leg tips complete, no humanoid body, no extra tiny spiders unless original includes them.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-8d426d52-9c04-468f-9006-3e532b2d48bc.png",
+      "expectedBlobSHA": "c698d1ba197a3e8bb17b094a64086bbaf196da14",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bounds": [
+          82,
+          91,
+          1181,
+          1185
+        ]
+      },
+      "blobSHA": "c698d1ba197a3e8bb17b094a64086bbaf196da14",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "beorn_bear",
+      "name": "베오른 (곰)",
+      "faction": "beorning",
+      "role": "hero",
+      "original": "tokens/beorn_bear.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "베오른 일족",
+      "groupKey": "beorning",
+      "bodyDescription": "원본 종족 고유 골격 · 하이앵글 프론트뷰",
+      "pose": "원본 종족 고유 행동·실루엣 유지",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/beorn_bear.png"
+      ],
+      "prompt": "Rebuild production PIXEL GAME TOKEN from the single attached ORIGINAL source. Source controls exact identity/species/anatomy/equipment/colors/action. This is a MONSTER/ANIMAL, never add a soldier, rider, human template or extra actor. Match established Gondor/Mordor crisp stepped dark outlines, deliberate solid pixel clusters, short restrained color ramps and game-token detail density; no smooth painterly blur or photorealism. Keep original distinctive body tilt/action while rotating to HIGH-ANGLE FRONT camera DOWN45–50degrees, NOT eye-level frontal portrait, NOT side profile or rear view. Entire exact silhouette including every wing, leg, tail, root, tentacle and weapon tip inside INNER80percent of canvas, generous transparent margins, body independently centered. Transparent background, no base/floor/cast shadow/scenery/text/UI/watermark. Identity: 베오른 (곰) (beorn_bear). ONE original BROWN BEAR, no human rider. Preserve original rearing/charging attack: two raised front paws, two planted hind paws, powerful natural bear body and brown shaggy fur. Elevated FRONT45deg, natural head lowered beneath broad shoulder tops, crown/nape/back top planes visible, original fierce face downward. No extra limbs or weapons.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-79a7f3e6-0b8a-4422-81d3-86fd9436371a.png",
+      "expectedBlobSHA": "da6f5d74aa9c290698b592e6531ea77b321135d9",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1071,
+          1469
+        ],
+        "bounds": [
+          34,
+          74,
+          1034,
+          1383
+        ]
+      },
+      "blobSHA": "da6f5d74aa9c290698b592e6531ea77b321135d9",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "gwaihir",
+      "name": "그와이히르",
+      "faction": "eagle",
+      "role": "hero",
+      "original": "tokens/gwaihir.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "독수리",
+      "groupKey": "eagle",
+      "bodyDescription": "원본 종족 고유 골격 · 하이앵글 프론트뷰",
+      "pose": "원본 종족 고유 행동·실루엣 유지",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/gwaihir.png"
+      ],
+      "prompt": "Rebuild production PIXEL GAME TOKEN from the single attached ORIGINAL source. Source controls exact identity/species/anatomy/equipment/colors/action. This is a MONSTER/ANIMAL, never add a soldier, rider, human template or extra actor. Match established Gondor/Mordor crisp stepped dark outlines, deliberate solid pixel clusters, short restrained color ramps and game-token detail density; no smooth painterly blur or photorealism. Keep original distinctive body tilt/action while rotating to HIGH-ANGLE FRONT camera DOWN45–50degrees, NOT eye-level frontal portrait, NOT side profile or rear view. Entire exact silhouette including every wing, leg, tail, root, tentacle and weapon tip inside INNER80percent of canvas, generous transparent margins, body independently centered. Transparent background, no base/floor/cast shadow/scenery/text/UI/watermark. Identity: 그와이히르 (gwaihir). ONE eagle ONLY. Elevated FRONT45–50deg, not side profile: beak/head at lower central foreground, tail extends toward TOP/rear, left wing reaches LEFT and right wing RIGHT, both wings have visible TOP feather planes. Two taloned legs/two spread wings, natural neck tucked/bowed, preserve distinctive exact brown/white/gold original feather pattern and landing/attack pose. All wingtip feathers fully inside margin. No rider or humanoid.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-b908b19a-7ea4-4864-9258-237fc775dd66.png",
+      "expectedBlobSHA": "67e7f265440c12e2458f55a036d8405f75542b23",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1142,
+          1377
+        ],
+        "bounds": [
+          20,
+          32,
+          1129,
+          1344
+        ]
+      },
+      "blobSHA": "67e7f265440c12e2458f55a036d8405f75542b23",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "lobelia",
+      "name": "로벨리아",
+      "faction": "shire",
+      "role": "hero",
+      "original": "tokens/lobelia.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "호빗",
+      "groupKey": "shire",
+      "pose": "기존 고유 무장·행동과 숙인 고개 유지",
+      "bodyDescription": "호빗 표준 뼈대 · 하이앵글 프론트뷰",
+      "prompt": "ONE production transparent pixel GAME TOKEN, same exact number of characters as INPUT1; never add the neutral template as another figure. INPUT1 supplies exact identity/clothes/palette/hair/gear, elevated-front viewpoint and distinct original action. INPUT2 ORIGINAL SPECIES skeleton supplies immutable skull/shoulder/pelvis/knee/ankle bone lengths and proportions, crisp pixel density, stepped dark outlines and short color ramps. Dress input2 bones as input1; no changing bones into different species or inflating skull, no long-human legs on hobbits/goblins. Fat/slim/muscle variation by width. Keep all original hair/helmet despite bald neutral skeleton. HIGH-ANGLE FRONT camera DOWN40–45deg, visible crown and both shoulder TOPS; head DEEPLY BOWED further so eyes hidden by hair/hat/hood/brow and face only small lower fragment. Preserve original body lean/action and distinctive weapons; do not substitute generic upright template walk. Full silhouettes and ALL weapon/hat/staff tips inside inner80percent canvas with generous transparent margins. Body centered ignoring gear. No circular base/floor/shadow/scenery/glow/text/UI/watermark. Character: 로벨리아 (lobelia). Elderly hobbit woman gray curls, straw hat with white flower, dark green dress/shawl with white collar, closed white umbrella with curved handle held low, bare hairy feet. Nose under hat, no face-on portrait.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/lobelia.png",
+        "/workspace/scratch/f40d43c7f276/references/hobbit.png"
+      ],
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-9ded6b67-2165-4f97-be73-7d49ffb77a09.png",
+      "expectedBlobSHA": "786400edb9b6d18f2cfebe8358417874c6ceb263",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1122,
+          1402
+        ],
+        "bounds": [
+          186,
+          174,
+          940,
+          1266
+        ]
+      },
+      "blobSHA": "786400edb9b6d18f2cfebe8358417874c6ceb263",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "will_whitfoot",
+      "name": "윌 휫풋",
+      "faction": "shire",
+      "role": "hero",
+      "original": "tokens/will_whitfoot.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "호빗",
+      "groupKey": "shire",
+      "pose": "기존 고유 무장·행동과 숙인 고개 유지",
+      "bodyDescription": "호빗 표준 뼈대 · 하이앵글 프론트뷰",
+      "prompt": "ONE production transparent pixel GAME TOKEN, same exact number of characters as INPUT1; never add the neutral template as another figure. INPUT1 supplies exact identity/clothes/palette/hair/gear, elevated-front viewpoint and distinct original action. INPUT2 ORIGINAL SPECIES skeleton supplies immutable skull/shoulder/pelvis/knee/ankle bone lengths and proportions, crisp pixel density, stepped dark outlines and short color ramps. Dress input2 bones as input1; no changing bones into different species or inflating skull, no long-human legs on hobbits/goblins. Fat/slim/muscle variation by width. Keep all original hair/helmet despite bald neutral skeleton. HIGH-ANGLE FRONT camera DOWN40–45deg, visible crown and both shoulder TOPS; head DEEPLY BOWED further so eyes hidden by hair/hat/hood/brow and face only small lower fragment. Preserve original body lean/action and distinctive weapons; do not substitute generic upright template walk. Full silhouettes and ALL weapon/hat/staff tips inside inner80percent canvas with generous transparent margins. Body centered ignoring gear. No circular base/floor/shadow/scenery/glow/text/UI/watermark. Character: 윌 휫풋 (will_whitfoot). Rotund gray-haired hobbit mayor, dark green coat, brown waistcoat with GOLD CHAIN of office, closed dark umbrella, bare hairy feet. Belly wide, ordinary skull.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/will_whitfoot.png",
+        "/workspace/scratch/f40d43c7f276/references/hobbit.png"
+      ],
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-e5fa7c5c-af48-454d-9fcc-2c6d6fe1fc61.png",
+      "expectedBlobSHA": "a123dc6d627190714eb815e695778d2ecce93d20",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1132,
+          1390
+        ],
+        "bounds": [
+          196,
+          121,
+          986,
+          1247
+        ]
+      },
+      "blobSHA": "a123dc6d627190714eb815e695778d2ecce93d20",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "landroval",
+      "name": "란드로발",
+      "faction": "eagle",
+      "role": "hero",
+      "original": "tokens/landroval.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "독수리",
+      "groupKey": "eagle",
+      "bodyDescription": "원본 종족 고유 골격 · 하이앵글 프론트뷰",
+      "pose": "원본 종족 고유 행동·실루엣 유지",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/landroval.png"
+      ],
+      "prompt": "Rebuild production PIXEL GAME TOKEN from the single attached ORIGINAL source. Source controls exact identity/species/anatomy/equipment/colors/action. This is a MONSTER/ANIMAL, never add a soldier, rider, human template or extra actor. Match established Gondor/Mordor crisp stepped dark outlines, deliberate solid pixel clusters, short restrained color ramps and game-token detail density; no smooth painterly blur or photorealism. Keep original distinctive body tilt/action while rotating to HIGH-ANGLE FRONT camera DOWN45–50degrees, NOT eye-level frontal portrait, NOT side profile or rear view. Entire exact silhouette including every wing, leg, tail, root, tentacle and weapon tip inside INNER80percent of canvas, generous transparent margins, body independently centered. Transparent background, no base/floor/cast shadow/scenery/text/UI/watermark. Identity: 란드로발 (landroval). ONE eagle ONLY. Elevated FRONT45–50deg, not side profile: beak/head at lower central foreground, tail extends toward TOP/rear, left wing reaches LEFT and right wing RIGHT, both wings have visible TOP feather planes. Two taloned legs/two spread wings, natural neck tucked/bowed, preserve distinctive exact brown/white/gold original feather pattern and landing/attack pose. All wingtip feathers fully inside margin. No rider or humanoid.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-a4921103-b0e6-4d66-b1c1-c4a81967c4a5.png",
+      "expectedBlobSHA": "52e78b52109cc46c1bfc2b7a549019461f1df6bc",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1232,
+          1277
+        ],
+        "bounds": [
+          15,
+          87,
+          1219,
+          1224
+        ]
+      },
+      "blobSHA": "52e78b52109cc46c1bfc2b7a549019461f1df6bc",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "meneldor",
+      "name": "메넬도르",
+      "faction": "eagle",
+      "role": "hero",
+      "original": "tokens/meneldor.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "독수리",
+      "groupKey": "eagle",
+      "bodyDescription": "원본 종족 고유 골격 · 하이앵글 프론트뷰",
+      "pose": "원본 종족 고유 행동·실루엣 유지",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/meneldor.png"
+      ],
+      "prompt": "Rebuild production PIXEL GAME TOKEN from the single attached ORIGINAL source. Source controls exact identity/species/anatomy/equipment/colors/action. This is a MONSTER/ANIMAL, never add a soldier, rider, human template or extra actor. Match established Gondor/Mordor crisp stepped dark outlines, deliberate solid pixel clusters, short restrained color ramps and game-token detail density; no smooth painterly blur or photorealism. Keep original distinctive body tilt/action while rotating to HIGH-ANGLE FRONT camera DOWN45–50degrees, NOT eye-level frontal portrait, NOT side profile or rear view. Entire exact silhouette including every wing, leg, tail, root, tentacle and weapon tip inside INNER80percent of canvas, generous transparent margins, body independently centered. Transparent background, no base/floor/cast shadow/scenery/text/UI/watermark. Identity: 메넬도르 (meneldor). ONE eagle ONLY. Elevated FRONT45–50deg, not side profile: beak/head at lower central foreground, tail extends toward TOP/rear, left wing reaches LEFT and right wing RIGHT, both wings have visible TOP feather planes. Two taloned legs/two spread wings, natural neck tucked/bowed, preserve distinctive exact brown/white/gold original feather pattern and landing/attack pose. All wingtip feathers fully inside margin. No rider or humanoid.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-769a5941-e7b6-43d6-b83b-8b951e19de9b.png",
+      "expectedBlobSHA": "9613c0988bf411420113a5d81da7bcfca65f55a8",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1312,
+          1199
+        ],
+        "bounds": [
+          38,
+          27,
+          1296,
+          1149
+        ]
+      },
+      "blobSHA": "9613c0988bf411420113a5d81da7bcfca65f55a8",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "leaflock",
+      "name": "리플락",
+      "faction": "ent",
+      "role": "monster",
+      "original": "tokens/leaflock.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "엔트",
+      "groupKey": "ent",
+      "bodyDescription": "원본 종족 고유 골격 · 하이앵글 프론트뷰",
+      "pose": "원본 종족 고유 행동·실루엣 유지",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/leaflock.png"
+      ],
+      "prompt": "Rebuild production PIXEL GAME TOKEN from the single attached ORIGINAL source. Source controls exact identity/species/anatomy/equipment/colors/action. This is a MONSTER/ANIMAL, never add a soldier, rider, human template or extra actor. Match established Gondor/Mordor crisp stepped dark outlines, deliberate solid pixel clusters, short restrained color ramps and game-token detail density; no smooth painterly blur or photorealism. Keep original distinctive body tilt/action while rotating to HIGH-ANGLE FRONT camera DOWN45–50degrees, NOT eye-level frontal portrait, NOT side profile or rear view. Entire exact silhouette including every wing, leg, tail, root, tentacle and weapon tip inside INNER80percent of canvas, generous transparent margins, body independently centered. Transparent background, no base/floor/cast shadow/scenery/text/UI/watermark. Identity: 리플락 (leaflock). ONE walking TREE being only. Preserve unique original wood bark color/face/canopy/leaves/fruit and root-foot anatomy. Angle DOWN45deg from FRONT shows branch/canopy TOP planes, bowed wooden face under foliage. Preserve original reaching root-hands and full root-feet; distinct tree species, no human armor/skeleton/ordinary boots.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-09dd7cf4-4f50-4dfe-908c-9774285ea29f.png",
+      "expectedBlobSHA": "b685cf777ebacc2f01e23c3a81749c556730e5ae",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1230,
+          1278
+        ],
+        "bounds": [
+          39,
+          36,
+          1199,
+          1246
+        ]
+      },
+      "blobSHA": "b685cf777ebacc2f01e23c3a81749c556730e5ae",
+      "approval": "pending",
+      "inGameVerified": false
+    }
+  ]
+}
