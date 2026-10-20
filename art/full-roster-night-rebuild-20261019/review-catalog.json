@@ -1,14 +1,59 @@
 {
-  "count": 237,
+  "count": 240,
   "groups": {
+    "elf": 48,
     "isengard": 14,
-    "elf": 45,
     "mordor": 73,
     "rohan": 46,
     "gondor": 59
   },
-  "pending": 273,
+  "pending": 270,
   "units": [
+    {
+      "id": "doriath_warrior",
+      "name": "도리아스 전사",
+      "group": "엘프",
+      "role": "infantry",
+      "image": "art/full-roster-night-rebuild-20261019/units/doriath_warrior.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/doriath_warrior.png",
+      "old": "tokens/doriath_warrior.png",
+      "status": "검토 대기",
+      "body": "엘프 5등신 · 하이앵글 프론트뷰",
+      "pose": "양발 평행 · 검 가로 방어",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/doriath_warrior.png?v=e9bef0289c0d9a6ac7edc07caab2454ade1b5b33",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/doriath_warrior.png?v=e9bef0289c0d9a6ac7edc07caab2454ade1b5b33",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/doriath_warrior.png"
+    },
+    {
+      "id": "mablung_sindar",
+      "name": "마블룽",
+      "group": "엘프",
+      "role": "hero",
+      "image": "art/full-roster-night-rebuild-20261019/units/mablung_sindar.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/mablung_sindar.png",
+      "old": "tokens/mablung_sindar.png",
+      "status": "검토 대기",
+      "body": "엘프 5등신 · 하이앵글 프론트뷰",
+      "pose": "검을 낮춘 정찰 자세",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/mablung_sindar.png?v=5c39eb0cdef358cc7f71f33314b87575a5f8d670",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/mablung_sindar.png?v=5c39eb0cdef358cc7f71f33314b87575a5f8d670",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/mablung_sindar.png"
+    },
+    {
+      "id": "thingol",
+      "name": "싱골",
+      "group": "엘프",
+      "role": "hero",
+      "image": "art/full-roster-night-rebuild-20261019/units/thingol.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/thingol.png",
+      "old": "tokens/thingol.png",
+      "status": "검토 대기",
+      "body": "엘프 5등신 · 하이앵글 프론트뷰",
+      "pose": "양발 버팀 · 검끝 아래",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/thingol.png?v=bb2ebb206e9a70a402681ec4fc7447d6748afb26",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/thingol.png?v=bb2ebb206e9a70a402681ec4fc7447d6748afb26",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/thingol.png"
+    },
     {
       "id": "uruk_captain",
       "name": "우룩하이 대장",

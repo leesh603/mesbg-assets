@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T02:37:27.038Z",
+  "updatedAt": "2026-10-20T02:40:05.340Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 273,
-    "newlyGeneratedThisSession": 105,
-    "visuallyReviewedThisSession": 110,
+    "pending": 270,
+    "newlyGeneratedThisSession": 108,
+    "visuallyReviewedThisSession": 113,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 105,
-    "persistedReviewAssets": 237,
+    "generatedReviewAssets": 108,
+    "persistedReviewAssets": 240,
     "revisedAfterRejection": 14
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -49,7 +49,7 @@
     "motionAndSilhouette": "기존의 동세·기승 자세·실루엣·숙인 고개를 우선 보존. 비율 통일을 이유로 획일적인 정면 자세로 바꾸지 않는다. 기존보다 멋/완성도/가독성이 떨어지면 불합격 또는 기존 유지."
   },
   "resume": {
-    "nextAction": "First complete full old/new quality audit at art/full-roster-night-rebuild-20261019/quality-audit-20261020/. Preserve original pose, silhouette and identity; reject regressions. Do not equate saved images with quality acceptance.",
+    "nextAction": "Continue pending roster with original species skeletons; inspect and save small batches to unified gallery.",
     "nextIds": [
       "gandalf",
       "cave_troll",
@@ -4028,8 +4028,13 @@
       "faction": "doriath",
       "role": "hero",
       "original": "tokens/thingol.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/thingol.png",
+      "blobSHA": "bb2ebb206e9a70a402681ec4fc7447d6748afb26",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "mablung_sindar",
@@ -4037,8 +4042,13 @@
       "faction": "doriath",
       "role": "hero",
       "original": "tokens/mablung_sindar.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/mablung_sindar.png",
+      "blobSHA": "5c39eb0cdef358cc7f71f33314b87575a5f8d670",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "melian",
@@ -4064,8 +4074,13 @@
       "faction": "doriath",
       "role": "infantry",
       "original": "tokens/doriath_warrior.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/doriath_warrior.png",
+      "blobSHA": "e9bef0289c0d9a6ac7edc07caab2454ade1b5b33",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "falathrim_archer",
@@ -5582,13 +5597,13 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 237,
+    "count": 240,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
+      "elf": 48,
       "isengard": 14,
-      "elf": 45,
       "mordor": 73,
       "rohan": 46,
       "gondor": 59

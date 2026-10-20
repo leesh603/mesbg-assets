@@ -1,6 +1,24 @@
-# 전체 재제작 검토 — 237종
+# 전체 재제작 검토 — 240종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 도리아스 전사 (doriath_warrior)
+
+![도리아스 전사](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/doriath_warrior.png?v=e9bef0289c0d9a6ac7edc07caab2454ade1b5b33)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/doriath_warrior.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/doriath_warrior.png?v=e9bef0289c0d9a6ac7edc07caab2454ade1b5b33)
+
+### 마블룽 (mablung_sindar)
+
+![마블룽](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/mablung_sindar.png?v=5c39eb0cdef358cc7f71f33314b87575a5f8d670)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/mablung_sindar.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/mablung_sindar.png?v=5c39eb0cdef358cc7f71f33314b87575a5f8d670)
+
+### 싱골 (thingol)
+
+![싱골](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/thingol.png?v=bb2ebb206e9a70a402681ec4fc7447d6748afb26)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/thingol.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/thingol.png?v=bb2ebb206e9a70a402681ec4fc7447d6748afb26)
 
 ### 우룩하이 대장 (uruk_captain)
 
