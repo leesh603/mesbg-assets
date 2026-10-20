@@ -1,19 +1,24 @@
-## 전수 재점검
-
-
-263종을 기존·신규로 직접 비교했습니다. 기존 우세 111종, 재수정·확인 보류 71종, 뚜렷한 열화 미확인 후보 81종입니다. 후보는 품질 통과나 사용자 승인이 아닙니다. 최신 목록에서 추가된 미검수는 15종입니다.
-
-주요 회귀는 기마의 돌진·기울임이 일반 직립 자세로 바뀐 것, 특히 엘프의 숙인 고개가 정면 얼굴 노출로 바뀐 것, 일부 도보의 하체 압축, 고유 무장·로브·효과 실루엣 손실입니다. 디자인/무장 차이는 기존 이미지 매핑 오류 가능성과 구분해 보류했습니다.
-
-사루만·우르크 검방 2종·우르크 장창 PNG는 원격 바이트가 잘려 검증에 실패했습니다. 정상 생성 원본의 원래 blob SHA로 복구했습니다. 새로 그리지 않았습니다.
-
-이 검수는 원화 시각 비교입니다. 정량 뼈대 측정 및 게임 크기 검증을 완료했다고 주장하지 않습니다. 기존 우세·보류 시안은 다음 제작 기준으로 쓰지 않습니다. 기존 원화의 구도·동작·숙인 고개·고유 실루엣을 보존해야 합니다.
-
-main 병합과 게임 에셋 교체는 하지 않았습니다.
-
-# 전체 재제작 검토 — 278종
+# 전체 재제작 검토 — 281종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 아이언 가드 (iron_guard)
+
+![아이언 가드](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/iron_guard.png?v=439b6deeaeea3cdfaee2e9a98d9bc084e53b4a0f)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/iron_guard.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/iron_guard.png?v=439b6deeaeea3cdfaee2e9a98d9bc084e53b4a0f)
+
+### 카자드 근위병 (khazad_guard)
+
+![카자드 근위병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/khazad_guard.png?v=c7ff4679410fabb16625cd06b95fe408dbb5fc6f)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/khazad_guard.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/khazad_guard.png?v=c7ff4679410fabb16625cd06b95fe408dbb5fc6f)
+
+### 드워프 레인저 (dwarf_ranger)
+
+![드워프 레인저](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dwarf_ranger.png?v=1af6470eec573936896ef21681d504359fffab69)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/dwarf_ranger.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dwarf_ranger.png?v=1af6470eec573936896ef21681d504359fffab69)
 
 ### 머크우드 레인저 (mirkwood_ranger)
 

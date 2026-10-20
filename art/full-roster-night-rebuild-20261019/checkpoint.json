@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T03:03:39.093Z",
+  "updatedAt": "2026-10-20T03:05:28.095Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 232,
-    "newlyGeneratedThisSession": 146,
-    "visuallyReviewedThisSession": 151,
+    "pending": 229,
+    "newlyGeneratedThisSession": 149,
+    "visuallyReviewedThisSession": 154,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 146,
-    "persistedReviewAssets": 278,
+    "generatedReviewAssets": 149,
+    "persistedReviewAssets": 281,
     "revisedAfterRejection": 14
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -49,7 +49,7 @@
     "motionAndSilhouette": "기존 구도·동작·기승 자세·숙인 고개·고유 실루엣 보존. 비율을 이유로 직립 정면 자세로 획일화 금지. 기존보다 열화 시 채택하지 않는다."
   },
   "resume": {
-    "nextAction": "Process quality-audit-20261020/results.json first. Preserve original poses/silhouettes/lowered gaze. Reject preserve_original candidates and verify needs_revision mappings/anatomy before any acceptance. Later additions are unreviewed until compared. New Glorfindel/elf-knight alternatives remain unapproved in corrections/elf-rebuild-20261020/.",
+    "nextAction": "Continue pending roster with original species skeletons; inspect and save small batches to unified gallery.",
     "nextIds": [
       "gandalf",
       "cave_troll",
@@ -978,8 +978,13 @@
       "faction": "dwarf",
       "role": "infantry",
       "original": "tokens/dwarf_ranger.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dwarf",
+      "path": "art/full-roster-night-rebuild-20261019/units/dwarf_ranger.png",
+      "blobSHA": "1af6470eec573936896ef21681d504359fffab69",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "khazad_guard",
@@ -987,8 +992,13 @@
       "faction": "dwarf",
       "role": "infantry",
       "original": "tokens/khazad_guard.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dwarf",
+      "path": "art/full-roster-night-rebuild-20261019/units/khazad_guard.png",
+      "blobSHA": "c7ff4679410fabb16625cd06b95fe408dbb5fc6f",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "iron_guard",
@@ -996,8 +1006,13 @@
       "faction": "dwarf",
       "role": "infantry",
       "original": "tokens/iron_guard.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dwarf",
+      "path": "art/full-roster-night-rebuild-20261019/units/iron_guard.png",
+      "blobSHA": "439b6deeaeea3cdfaee2e9a98d9bc084e53b4a0f",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "dwarf_banner",
@@ -6768,13 +6783,13 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 278,
+    "count": 281,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
+      "난쟁이": 7,
       "elf": 77,
-      "난쟁이": 4,
       "isengard": 19,
       "mordor": 73,
       "rohan": 46,
@@ -6782,7 +6797,7 @@
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,
-    "sourceValidation": "267 unique IDs; static card count and asset blob SHAs verified"
+    "sourceValidation": "281 unique IDs; static card count and asset blob SHAs verified"
   },
   "revisionRequests": {
     "witchking": {
@@ -6890,12 +6905,11 @@
     }
   },
   "lastContinuation": {
-    "batch": "dwarf-001-four-20261020",
+    "batch": "dwarf-001-rest-20261020",
     "newIds": [
-      "gimli",
-      "dwarf_guardian",
-      "dwarf_axeshield",
-      "dwarf_2haxe"
+      "dwarf_ranger",
+      "khazad_guard",
+      "iron_guard"
     ],
     "qualityStandard": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
     "note": "Each image inspected against canonical skeleton and identity reference; approval pending."

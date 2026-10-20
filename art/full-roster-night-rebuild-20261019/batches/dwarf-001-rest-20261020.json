@@ -1,0 +1,57 @@
+{
+  "batch": "dwarf-001-rest-20261020",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "dwarf_ranger",
+      "pose": "석궁을 낮춘 정찰",
+      "detail": "Green hood/cape covers eyes, orange beard braided, chainmail and olive short tunic, brown belt and boots, small throwing axes at belt. Original compact wood-and-steel crossbow held BOTH HANDS low across waist, intact limbs/string/rail, no stray colored pixels. One boot sideways in quiet crouch.",
+      "group": "난쟁이",
+      "groupKey": "dwarf",
+      "bodyDescription": "난쟁이 표준 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "prompt": "ONE isolated full-body production PIXEL game token, transparent RGBA. Dress IMAGE1 ORIGINAL DWARF skeleton in IMAGE2 exact character identity/costume/weapons, ignore old proportions. Preserve dwarf skull/shoulder/pelvis/knee/ankle landmarks and short broad dwarf bone lengths EXACTLY image1. Beard/hair/helm sits outside anatomical skull; NEVER count beard/helmet as head. No human long legs, no inflated skull or chibi. Body width may vary. HIGH-ANGLE FRONT camera DOWN35deg with pronounced visible crown and both shoulder TOP planes. Head DEEPLY BOWED, eyes hidden under helmet/hood/hair/brow, face only a small lower fragment. Pixel density, stepped dark outlines and short color ramps exactly image1, no smooth painting. Body centered independent of weapon/banner. Full silhouette and all weapon tips inside generous transparent margin. No base/floor/shadow/scenery/glow/text. Green hood/cape covers eyes, orange beard braided, chainmail and olive short tunic, brown belt and boots, small throwing axes at belt. Original compact wood-and-steel crossbow held BOTH HANDS low across waist, intact limbs/string/rail, no stray colored pixels. One boot sideways in quiet crouch.",
+      "refs": [
+        "/workspace/scratch/f40d43c7f276/references/dwarf.png",
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/dwarf_ranger.png"
+      ],
+      "blobSHA": "1af6470eec573936896ef21681d504359fffab69",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-40d2d509-38e2-4d61-bf89-b33fa4106baa.png"
+    },
+    {
+      "id": "khazad_guard",
+      "pose": "청색 방패와 도끼 경계",
+      "detail": "Full-face fitted silver/gold helmet hides face/beard, heavy silver mail/plate with gold geometric ornament, royal blue short tunic/cape, blue pointed shield gold rim WHITE EIGHT-POINT STAR, heavy steel axe with gold geometric markings. Shield braced forward, axe lowered, feet parallel solid.",
+      "group": "난쟁이",
+      "groupKey": "dwarf",
+      "bodyDescription": "난쟁이 표준 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "prompt": "ONE isolated full-body production PIXEL game token, transparent RGBA. Dress IMAGE1 ORIGINAL DWARF skeleton in IMAGE2 exact character identity/costume/weapons, ignore old proportions. Preserve dwarf skull/shoulder/pelvis/knee/ankle landmarks and short broad dwarf bone lengths EXACTLY image1. Beard/hair/helm sits outside anatomical skull; NEVER count beard/helmet as head. No human long legs, no inflated skull or chibi. Body width may vary. HIGH-ANGLE FRONT camera DOWN35deg with pronounced visible crown and both shoulder TOP planes. Head DEEPLY BOWED, eyes hidden under helmet/hood/hair/brow, face only a small lower fragment. Pixel density, stepped dark outlines and short color ramps exactly image1, no smooth painting. Body centered independent of weapon/banner. Full silhouette and all weapon tips inside generous transparent margin. No base/floor/shadow/scenery/glow/text. Full-face fitted silver/gold helmet hides face/beard, heavy silver mail/plate with gold geometric ornament, royal blue short tunic/cape, blue pointed shield gold rim WHITE EIGHT-POINT STAR, heavy steel axe with gold geometric markings. Shield braced forward, axe lowered, feet parallel solid.",
+      "refs": [
+        "/workspace/scratch/f40d43c7f276/references/dwarf.png",
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/khazad_guard.png"
+      ],
+      "blobSHA": "c7ff4679410fabb16625cd06b95fe408dbb5fc6f",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-db9f7c67-b4d7-42e0-a375-0e4ea4d1c780.png"
+    },
+    {
+      "id": "iron_guard",
+      "pose": "전투망치를 비스듬히 든 자세",
+      "detail": "Long orange beard with braids/gold bands, fitted full nasal silver/gold helmet, spiked left shoulder plate, silver plate/chainmail, brown/gold belt/boots. Original short-handled rectangular iron warhammer held BOTH hands diagonal before torso, handle continuous, head complete. Both feet wide, not marching.",
+      "group": "난쟁이",
+      "groupKey": "dwarf",
+      "bodyDescription": "난쟁이 표준 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "prompt": "ONE isolated full-body production PIXEL game token, transparent RGBA. Dress IMAGE1 ORIGINAL DWARF skeleton in IMAGE2 exact character identity/costume/weapons, ignore old proportions. Preserve dwarf skull/shoulder/pelvis/knee/ankle landmarks and short broad dwarf bone lengths EXACTLY image1. Beard/hair/helm sits outside anatomical skull; NEVER count beard/helmet as head. No human long legs, no inflated skull or chibi. Body width may vary. HIGH-ANGLE FRONT camera DOWN35deg with pronounced visible crown and both shoulder TOP planes. Head DEEPLY BOWED, eyes hidden under helmet/hood/hair/brow, face only a small lower fragment. Pixel density, stepped dark outlines and short color ramps exactly image1, no smooth painting. Body centered independent of weapon/banner. Full silhouette and all weapon tips inside generous transparent margin. No base/floor/shadow/scenery/glow/text. Long orange beard with braids/gold bands, fitted full nasal silver/gold helmet, spiked left shoulder plate, silver plate/chainmail, brown/gold belt/boots. Original short-handled rectangular iron warhammer held BOTH hands diagonal before torso, handle continuous, head complete. Both feet wide, not marching.",
+      "refs": [
+        "/workspace/scratch/f40d43c7f276/references/dwarf.png",
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/iron_guard.png"
+      ],
+      "blobSHA": "439b6deeaeea3cdfaee2e9a98d9bc084e53b4a0f",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-a0134093-f4a4-4708-9b81-3fa4a05aa1cc.png"
+    }
+  ]
+}

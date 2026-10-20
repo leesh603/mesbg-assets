@@ -1,15 +1,60 @@
 {
-  "count": 278,
+  "count": 281,
   "groups": {
+    "난쟁이": 7,
     "elf": 77,
-    "난쟁이": 4,
     "isengard": 19,
     "mordor": 73,
     "rohan": 46,
     "gondor": 59
   },
-  "pending": 232,
+  "pending": 229,
   "units": [
+    {
+      "id": "iron_guard",
+      "name": "아이언 가드",
+      "group": "난쟁이",
+      "role": "infantry",
+      "image": "art/full-roster-night-rebuild-20261019/units/iron_guard.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/iron_guard.png",
+      "old": "tokens/iron_guard.png",
+      "status": "검토 대기",
+      "body": "난쟁이 표준 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "pose": "전투망치를 비스듬히 든 자세",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/iron_guard.png?v=439b6deeaeea3cdfaee2e9a98d9bc084e53b4a0f",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/iron_guard.png?v=439b6deeaeea3cdfaee2e9a98d9bc084e53b4a0f",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/iron_guard.png"
+    },
+    {
+      "id": "khazad_guard",
+      "name": "카자드 근위병",
+      "group": "난쟁이",
+      "role": "infantry",
+      "image": "art/full-roster-night-rebuild-20261019/units/khazad_guard.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/khazad_guard.png",
+      "old": "tokens/khazad_guard.png",
+      "status": "검토 대기",
+      "body": "난쟁이 표준 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "pose": "청색 방패와 도끼 경계",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/khazad_guard.png?v=c7ff4679410fabb16625cd06b95fe408dbb5fc6f",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/khazad_guard.png?v=c7ff4679410fabb16625cd06b95fe408dbb5fc6f",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/khazad_guard.png"
+    },
+    {
+      "id": "dwarf_ranger",
+      "name": "드워프 레인저",
+      "group": "난쟁이",
+      "role": "infantry",
+      "image": "art/full-roster-night-rebuild-20261019/units/dwarf_ranger.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/dwarf_ranger.png",
+      "old": "tokens/dwarf_ranger.png",
+      "status": "검토 대기",
+      "body": "난쟁이 표준 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "pose": "석궁을 낮춘 정찰",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dwarf_ranger.png?v=1af6470eec573936896ef21681d504359fffab69",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dwarf_ranger.png?v=1af6470eec573936896ef21681d504359fffab69",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/dwarf_ranger.png"
+    },
     {
       "id": "mirkwood_ranger",
       "name": "머크우드 레인저",
