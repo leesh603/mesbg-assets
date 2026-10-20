@@ -1,7 +1,7 @@
 {
-  "count": 293,
+  "count": 294,
   "groups": {
-    "isengard": 28,
+    "isengard": 29,
     "마이아": 3,
     "난쟁이": 7,
     "elf": 77,
@@ -9,8 +9,23 @@
     "rohan": 46,
     "gondor": 59
   },
-  "pending": 217,
+  "pending": 216,
   "units": [
+    {
+      "id": "uruk_scout_archer",
+      "name": "우르크 스카웃 궁수",
+      "group": "아이센가드",
+      "role": "infantry",
+      "image": "art/full-roster-night-rebuild-20261019/units/uruk_scout_archer.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/uruk_scout_archer.png",
+      "old": "tokens/uruk_scout_archer.png",
+      "status": "검토 대기",
+      "body": "우르크 5등신 · 하이앵글 프론트뷰",
+      "pose": "활을 등에 멘 정찰",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/uruk_scout_archer.png?v=0aec73263007afe0cb975729161b241ebbf6a52a",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/uruk_scout_archer.png?v=0aec73263007afe0cb975729161b241ebbf6a52a",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/uruk_scout_archer.png"
+    },
     {
       "id": "isengard_troll",
       "name": "이센가드 트롤",

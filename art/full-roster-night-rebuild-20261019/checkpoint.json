@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T03:06:52.302Z",
+  "updatedAt": "2026-10-20T03:07:00.218Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 217,
-    "newlyGeneratedThisSession": 161,
-    "visuallyReviewedThisSession": 166,
+    "pending": 216,
+    "newlyGeneratedThisSession": 162,
+    "visuallyReviewedThisSession": 167,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 161,
-    "persistedReviewAssets": 293,
+    "generatedReviewAssets": 162,
+    "persistedReviewAssets": 294,
     "revisedAfterRejection": 14
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -1690,8 +1690,13 @@
       "faction": "isengard",
       "role": "infantry",
       "original": "tokens/uruk_scout_archer.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "isengard",
+      "path": "art/full-roster-night-rebuild-20261019/units/uruk_scout_archer.png",
+      "blobSHA": "0aec73263007afe0cb975729161b241ebbf6a52a",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "crebain_swarm",
@@ -6843,12 +6848,12 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 293,
+    "count": 294,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
-      "isengard": 28,
+      "isengard": 29,
       "마이아": 3,
       "난쟁이": 7,
       "elf": 77,
@@ -6858,7 +6863,7 @@
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,
-    "sourceValidation": "293 unique IDs; static card count and asset blob SHAs verified"
+    "sourceValidation": "294 unique IDs; static card count and asset blob SHAs verified"
   },
   "revisionRequests": {
     "witchking": {
@@ -6966,17 +6971,9 @@
     }
   },
   "lastContinuation": {
-    "batch": "isengard-004-nine-20261020",
+    "batch": "archers-stowed-bow-20261020",
     "newIds": [
-      "warg",
-      "warg_alpha",
-      "wild_warg",
-      "wild_warg_alpha",
-      "sharku",
-      "warg_rider_spear",
-      "warg_rider_bow",
-      "warg_chieftain",
-      "isengard_troll"
+      "uruk_scout_archer"
     ],
     "qualityStandard": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
     "note": "Each image inspected against canonical skeleton and identity reference; approval pending."

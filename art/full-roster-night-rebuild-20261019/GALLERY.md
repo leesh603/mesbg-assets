@@ -1,6 +1,12 @@
-# 전체 재제작 검토 — 293종
+# 전체 재제작 검토 — 294종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 우르크 스카웃 궁수 (uruk_scout_archer)
+
+![우르크 스카웃 궁수](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/uruk_scout_archer.png?v=0aec73263007afe0cb975729161b241ebbf6a52a)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/uruk_scout_archer.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/uruk_scout_archer.png?v=0aec73263007afe0cb975729161b241ebbf6a52a)
 
 ### 이센가드 트롤 (isengard_troll)
 

@@ -1,0 +1,22 @@
+{
+  "batch": "archers-stowed-bow-20261020",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "uruk_scout_archer",
+      "group": "아이센가드",
+      "groupKey": "isengard",
+      "pose": "활을 등에 멘 정찰",
+      "bodyDescription": "우르크 5등신 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/bb0324dc7a4d/references/uruk.png",
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/uruk_scout_archer.png"
+      ],
+      "prompt": "Dress IMAGE1 immutable five-head uruk skeleton as IMAGE2 green scout, dark iron helmet under brown hood, leather armour/wraps and white-arrow quiver. FIX new composition: wooden longbow is STOWED diagonally on BACK, both bowtips peek past cape shoulders, string entirely behind torso. Both hands free: one hand touches belt, other holds ONE separate arrow low pointing down. No visible bowstring anywhere, no red pixels. Keep skeleton five anatomical heads and exact limb lengths. Elevated-front camera looking DOWN35deg with visible helmet/shoulder tops. Head deeply bowed, eyes hidden. Crisp pixel clusters and stepped dark outlines match image1. Transparent background, full silhouette and margins, no base/shadow/text.",
+      "blobSHA": "0aec73263007afe0cb975729161b241ebbf6a52a",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-db647087-84ca-4068-8d55-79e2399b81a2.png"
+    }
+  ]
+}
