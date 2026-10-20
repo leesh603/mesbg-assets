@@ -1,6 +1,30 @@
-# 전체 재제작 검토 — 458종
+# 전체 재제작 검토 — 462종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 아르노르 기사 (arnor_knight)
+
+![아르노르 기사](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/arnor_knight.png?v=59ab6c8583e03ca1352b0363e7d7050b9deabce5)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/arnor_knight.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/arnor_knight.png?v=59ab6c8583e03ca1352b0363e7d7050b9deabce5)
+
+### 후린 탈리온(기마) (hurin_thalion_mounted)
+
+![후린 탈리온(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/hurin_thalion_mounted.png?v=62c75fe57bfc1e4462d813f9a4de0e08852e539e)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/hurin_thalion_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/hurin_thalion_mounted.png?v=62c75fe57bfc1e4462d813f9a4de0e08852e539e)
+
+### 투오르(기마) (tuor_mounted)
+
+![투오르(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/tuor_mounted.png?v=9bab88debc76a211a9d0f844ba8ba64b663d62e5)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/tuor_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/tuor_mounted.png?v=9bab88debc76a211a9d0f844ba8ba64b663d62e5)
+
+### 투린(기마) (turin_mounted)
+
+![투린(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/turin_mounted.png?v=d53107079c2a9b8f1ef531afb892222975545d53)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/turin_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/turin_mounted.png?v=d53107079c2a9b8f1ef531afb892222975545d53)
 
 ### 아라손(기마) (arathorn_mounted)
 

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T04:15:47.458Z",
+  "updatedAt": "2026-10-20T04:22:28.946Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 52,
-    "newlyGeneratedThisSession": 326,
-    "visuallyReviewedThisSession": 331,
+    "pending": 48,
+    "newlyGeneratedThisSession": 330,
+    "visuallyReviewedThisSession": 335,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 326,
-    "persistedReviewAssets": 458,
+    "generatedReviewAssets": 330,
+    "persistedReviewAssets": 462,
     "revisedAfterRejection": 18
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -7239,8 +7239,13 @@
       "faction": "men",
       "role": "hero",
       "original": "tokens/turin_mounted.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "men",
+      "path": "art/full-roster-night-rebuild-20261019/units/turin_mounted.png",
+      "blobSHA": "d53107079c2a9b8f1ef531afb892222975545d53",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "tuor_mounted",
@@ -7248,8 +7253,13 @@
       "faction": "men",
       "role": "hero",
       "original": "tokens/tuor_mounted.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "men",
+      "path": "art/full-roster-night-rebuild-20261019/units/tuor_mounted.png",
+      "blobSHA": "9bab88debc76a211a9d0f844ba8ba64b663d62e5",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "beleg_mounted",
@@ -7274,8 +7284,13 @@
       "faction": "men",
       "role": "hero",
       "original": "tokens/hurin_thalion_mounted.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "men",
+      "path": "art/full-roster-night-rebuild-20261019/units/hurin_thalion_mounted.png",
+      "blobSHA": "62c75fe57bfc1e4462d813f9a4de0e08852e539e",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "maeglin_mounted",
@@ -7660,8 +7675,13 @@
       "faction": "arnor",
       "role": "cavalry",
       "original": "tokens/arnor_knight.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "arnor",
+      "path": "art/full-roster-night-rebuild-20261019/units/arnor_knight.png",
+      "blobSHA": "59ab6c8583e03ca1352b0363e7d7050b9deabce5",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "arnor_ranger",
@@ -7724,12 +7744,13 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 458,
+    "count": 462,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
-      "arnor": 12,
+      "arnor": 13,
+      "men": 11,
       "앙그반드": 4,
       "앙마르": 3,
       "돌 굴두르": 4,
@@ -7744,7 +7765,6 @@
       "easterling": 15,
       "호빗": 14,
       "브리": 2,
-      "men": 8,
       "isengard": 30,
       "harad": 20,
       "난쟁이": 36,
