@@ -1,12 +1,42 @@
 {
-  "count": 162,
+  "count": 164,
   "groups": {
     "gondor": 59,
     "mordor": 73,
-    "rohan": 30
+    "rohan": 32
   },
-  "pending": 348,
+  "pending": 346,
   "units": [
+    {
+      "id": "rohan_yeoman",
+      "name": "로한 여맨",
+      "group": "로한",
+      "role": "infantry",
+      "image": "art/full-roster-night-rebuild-20261019/units/rohan_yeoman.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/rohan_yeoman.png",
+      "old": "tokens/rohan_yeoman.png",
+      "status": "검토 대기",
+      "body": "인간 5등신 · 하이앵글 프론트뷰",
+      "pose": "대각 창 방어 · 방패",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/rohan_yeoman.png?v=14b53f093d818145985944544247efe1300e2bcf",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/rohan_yeoman.png?v=14b53f093d818145985944544247efe1300e2bcf",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/rohan_yeoman.png"
+    },
+    {
+      "id": "eomund",
+      "name": "에오문드",
+      "group": "로한",
+      "role": "hero",
+      "image": "art/full-roster-night-rebuild-20261019/units/eomund.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/eomund.png",
+      "old": "tokens/eomund.png",
+      "status": "검토 대기",
+      "body": "인간 기수 5등신 · 하이앵글 프론트뷰",
+      "pose": "수직 창 · 회색마",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/eomund.png?v=b4db7272214504731732fddfd942c831b1ef3898",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/eomund.png?v=b4db7272214504731732fddfd942c831b1ef3898",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/eomund.png"
+    },
     {
       "id": "rohan_royal_guard_mounted",
       "name": "로한 근위기병",

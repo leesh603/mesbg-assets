@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T00:34:51.613Z",
+  "updatedAt": "2026-10-20T00:40:48.076Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 348,
-    "newlyGeneratedThisSession": 30,
-    "visuallyReviewedThisSession": 30,
+    "pending": 346,
+    "newlyGeneratedThisSession": 32,
+    "visuallyReviewedThisSession": 32,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 30,
-    "persistedReviewAssets": 162,
+    "generatedReviewAssets": 32,
+    "persistedReviewAssets": 164,
     "revisedAfterRejection": 10
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -35,23 +35,24 @@
     }
   ],
   "requirements": {
-    "camera": "하이앵글 프론트뷰",
-    "humanProportion": "5등신",
+    "camera": "하이앵글 프론트뷰 고정",
+    "humanProportion": "인간형 정확히 5등신 — 4등신·6등신 이상 불합격",
     "style": "신규 곤도르·모르도르 픽셀 밀도·색감·명암·윤곽선",
     "batchSize": "5–10",
     "center": "몸체; 무기·장식 제외",
     "deployment": "승인 전 main 병합·배포 금지",
     "proportionReference": "art/rebuild-skeletons/bases/human.png and human-mounted.png are immutable anatomy references; do not derive proportions from newly generated dressed characters.",
-    "proportionGate": "Compare skull-to-chin, shoulder-to-pelvis, femur and shin lengths against original skeleton; do not use plume, beard, hair volume, weapon or whole-horse height as head/body measurements. Slimness changes widths, not bone lengths. Human target 5-head body."
+    "proportionGate": "Judge generated output, not prompt text: compare anatomical skull-crown to chin, shoulder, pelvis, knee, ankle and sole positions with immutable original skeleton. Exclude hair/helmet/crest/beard/weapon. Human exactly FIVE heads; reject four or six-plus. Riders judged as human anatomy separately from horse. Preserve pixel style and elevated front camera.",
+    "qualityContract": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md"
   },
   "resume": {
-    "nextAction": "Continue nextIds, then next pending faction. Save small batches and refresh every unified gallery artifact together.",
+    "nextAction": "Read current branch head and checkpoint before generation to avoid duplicate work. Read ANATOMY_STANDARD.md. Continue nextIds using original anatomy references; inspect actual proportions, pixel style and elevated front camera before recording output. Save gallery, catalog and checkpoint together with expected-SHA lease.",
     "nextIds": [
-      "rohan_yeoman",
-      "eomund",
       "guthlaf",
       "war_hound",
-      "deorwine_mounted"
+      "deorwine_mounted",
+      "grimbold_mounted",
+      "harding_mounted"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
@@ -3932,8 +3933,15 @@
       "faction": "rohan",
       "role": "infantry",
       "original": "tokens/rohan_yeoman.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "path": "art/full-roster-night-rebuild-20261019/units/rohan_yeoman.png",
+      "source": "rohan",
+      "blobSHA": "14b53f093d818145985944544247efe1300e2bcf",
+      "approval": "pending",
+      "inGameVerified": false,
+      "proportionReference": "art/rebuild-skeletons/bases/human.png",
+      "reviewStandard": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md"
     },
     {
       "id": "serpent_guard",
@@ -4385,8 +4393,15 @@
       "faction": "rohan",
       "role": "hero",
       "original": "tokens/eomund.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "path": "art/full-roster-night-rebuild-20261019/units/eomund.png",
+      "source": "rohan",
+      "blobSHA": "b4db7272214504731732fddfd942c831b1ef3898",
+      "approval": "pending",
+      "inGameVerified": false,
+      "proportionReference": "art/rebuild-skeletons/bases/human-mounted.png",
+      "reviewStandard": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md"
     },
     {
       "id": "guthlaf",
@@ -5238,5 +5253,16 @@
       "referenceFoot": "art/rebuild-skeletons/bases/human.png",
       "referenceMounted": "art/rebuild-skeletons/bases/human-mounted.png"
     }
+  },
+  "lastContinuation": {
+    "baseHead": "8bde8707ffcb5962a7a8af6ca44381291041b340",
+    "newIds": [
+      "rohan_yeoman",
+      "eomund"
+    ],
+    "newGenerations": 2,
+    "discardedEarlierVariants": 5,
+    "qualityStandard": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
+    "note": "Preserved previously saved canonical assets and all newer proportion revisions. Earlier variants from reconnect were not promoted."
   }
 }

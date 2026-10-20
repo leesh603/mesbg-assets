@@ -1,0 +1,30 @@
+{
+  "batch": "rohan-007-reconnect",
+  "tool": "image_gen",
+  "baseHead": "8bde8707ffcb5962a7a8af6ca44381291041b340",
+  "qualityStandard": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
+  "units": [
+    {
+      "id": "rohan_yeoman",
+      "prompt": "Use case: precise-object-edit. EDIT IMAGE1, the Rohan yeoman token; IMAGE2 is the immutable correct five-head adult anatomy/camera master. Correct ONLY the body/head proportion and camera alignment; preserve yeoman identity, helmet design, olive/brown equipment colors, spear/shield arrangement and crisp pixel clusters. STRICT exactly FIVE anatomical heads in standing body, neither four-head chibi nor six-head tall. On output canvas 1199x1312, use same actual anatomical landmarks as IMAGE2: hypothetical bare skull crown y110, chin y330 =220px head; crown to nearer boot sole y1210 =1100px = FIVE times head. Helmet metal may extend above skull but does NOT count toward head length. Keep anatomical crown, chin, shoulder, belt/pelvis, knees and near sole at these IMAGE2 positions; use IMAGE2 bone lengths. Make the oversized face/skull in IMAGE1 correctly 220px crown-to-chin; neither oversized nor tiny. Keep shoulders/pelvis in master positions and master upperarm/forearm/thigh/shin lengths, do not stretch legs. Elevated HIGH-ANGLE FRONT view looking down25-30degrees, visible top of helmet, shoulder planes and boot tops; same as IMAGE2. Ordinary adult soldier silver conical noseguard helmet, olive wool cloak, leather/mail, diagonal wood spear, olive round white-horse shield. Entire spear/feet/cloak in bounds with clear transparent margin. Preserve original dark stepped outline, crisp true pixel-art shading, no smooth illustration. ONE sprite, transparent RGBA. No base, floor, shadow, text, effects, diagram marks, guides or extra figures.",
+      "referenceMaster": "art/rebuild-skeletons/bases/human.png",
+      "designReference": "tokens/rohan_yeoman.png",
+      "path": "art/full-roster-night-rebuild-20261019/units/rohan_yeoman.png",
+      "blobSHA": "14b53f093d818145985944544247efe1300e2bcf",
+      "approval": "pending",
+      "inGameVerified": false,
+      "visualReviewThisSession": true
+    },
+    {
+      "id": "eomund",
+      "prompt": "Use case: precise-object-edit. EDIT IMAGE1 Eomund cavalry token; IMAGE2 is immutable correct adult rider anatomy/camera master. Keep identity, silver-gold helmet, green cape/mail, upright spear, golden horse-head shield and grey horse. Correct rider anatomical proportions only to EXACT FIVE-head adult anatomy, neither4 nor6heads. Judge head by actual bare skull crown-to-chin, excluding helmet, not horse height; rider has the head/neck/shoulder/chest/pelvis and limb bone ratios of IMAGE2 EXACTLY. Match IMAGE2 rider actual skull-to-chin length relative to shoulder width and shoulder-to-pelvis length, keep its compact thighs/shins and correct stirrups. The human if standing is exactly FIVE of its own skull-to-chin lengths tall. Do NOT shrink rider head to a tiny adult or enlarge it into chibi. Rider five-head proportions differ from whole horse-and-rider silhouette. Match IMAGE2 elevated HIGH-ANGLE FRONT camera25-30degrees looking downward, helmet top/shoulder tops/horse back visible, body faces forward. Preserve grey horse anatomy/leg lengths,4 separate correct legs, connected reins, saddle and stirrups. Pixel cluster density, stepped dark outlines and earthy palette unchanged, no smooth painting. ONE horse/rider transparent RGBA. Fit spear tip, hooves and cloak entirely inside7% clear margin, no base/floor/shadow/text/effects/diagram/extra figures.",
+      "referenceMaster": "art/rebuild-skeletons/bases/human-mounted.png",
+      "designReference": "tokens/eomund.png",
+      "path": "art/full-roster-night-rebuild-20261019/units/eomund.png",
+      "blobSHA": "b4db7272214504731732fddfd942c831b1ef3898",
+      "approval": "pending",
+      "inGameVerified": false,
+      "visualReviewThisSession": true
+    }
+  ]
+}

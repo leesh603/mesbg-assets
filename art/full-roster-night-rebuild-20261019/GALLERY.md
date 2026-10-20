@@ -1,6 +1,18 @@
-# 전체 재제작 검토 — 162종
+# 전체 재제작 검토 — 164종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 로한 여맨 (rohan_yeoman)
+
+![로한 여맨](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/rohan_yeoman.png?v=14b53f093d818145985944544247efe1300e2bcf)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/rohan_yeoman.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/rohan_yeoman.png?v=14b53f093d818145985944544247efe1300e2bcf)
+
+### 에오문드 (eomund)
+
+![에오문드](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/eomund.png?v=b4db7272214504731732fddfd942c831b1ef3898)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/eomund.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/eomund.png?v=b4db7272214504731732fddfd942c831b1ef3898)
 
 ### 로한 근위기병 (rohan_royal_guard_mounted)
 
