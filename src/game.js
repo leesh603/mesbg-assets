@@ -12579,13 +12579,13 @@ function heroCutinCanvas(img,u){
     if(bust){const g=x.createLinearGradient(0,c.height*.78,0,c.height);g.addColorStop(0,'rgba(0,0,0,1)');g.addColorStop(1,'rgba(0,0,0,0)');x.globalCompositeOperation='destination-in';x.fillStyle=g;x.fillRect(0,0,c.width,c.height);}
     return c;
 }
-async function heroCutin(scene,u,action){
+async function heroCutin(scene,u,action,cost='Might −1'){
     if(!u||qt>=4||document.getElementById('dragon-cine'))return;
     const now=performance.now();if(now-HERO_CUTIN.last<900)return;HERO_CUTIN.last=now;
     heroCutinStyle();document.getElementById('hero-cutin')?.remove();
     const cv=heroCutinCanvas(await heroCutinSource(scene,u),u);if(!cv)return;
     const el=document.createElement('div');el.id='hero-cutin';if(u.side!=='good')el.classList.add('evil');
-    el.innerHTML='<div class="hc-band"></div><div class="hc-fig"></div><div class="hc-txt"><div class="hc-name" style="font-size:clamp(14px,3.8vw,18px)!important;line-height:1.3!important">'+esc(u.name)+'</div><div class="hc-act" style="font-size:clamp(26px,8vw,42px)!important;line-height:1.12!important;font-weight:700!important">'+esc(action||'영웅 행동')+'</div><span class="hc-cost" style="font-size:12px!important">Might −1</span></div><div class="hc-flash"></div>';
+    el.innerHTML='<div class="hc-band"></div><div class="hc-fig"></div><div class="hc-txt"><div class="hc-name" style="font-size:clamp(14px,3.8vw,18px)!important;line-height:1.3!important">'+esc(u.name)+'</div><div class="hc-act" style="font-size:clamp(26px,8vw,42px)!important;line-height:1.12!important;font-weight:700!important">'+esc(action||'영웅 행동')+'</div>'+(cost?'<span class="hc-cost" style="font-size:12px!important">'+esc(cost)+'</span>':'')+'</div><div class="hc-flash"></div>';
     {const H=Math.min(300,innerHeight*.33),Wm=innerWidth*.54;let h=H,w=cv.width*H/cv.height;if(w>Wm){w=Wm;h=cv.height*Wm/cv.width;}cv.style.width=Math.round(w)+'px';cv.style.height=Math.round(h)+'px';}el.querySelector('.hc-fig').appendChild(cv);document.body.appendChild(el);
     const fast=qt>=2,hold=UX.reduced?700:fast?380:720;
     await hcWait(20);el.classList.add('on');setTimeout(()=>el.classList.add('flash'),150);setTimeout(()=>el.classList.remove('flash'),270);
@@ -12593,3 +12593,190 @@ async function heroCutin(scene,u,action){
 }
 {const _hp=Ve.prototype.play;Ve.prototype.play=function(event){try{if(event&&event.type==='Heroic'&&event.uid&&this.b){const u=this.b.unit(event.uid),m=String(event.message||'').split(/·|—/).pop().replace(/\(AI\)/,'').trim();heroCutin(this,u,m);}}catch(e){console.error('[cutin]',e);}return _hp.apply(this,arguments);};}
 if(window.MESBG)MESBG.heroCutin=(uid,act)=>heroCutin(Tt,q.unit(uid),act);
+
+/* ==== Nemesis captains (reference: Shadow of Mordor nemesis, XCOM 2 Chosen) ====
+   An enemy hero struck down may escape instead of dying. It returns in a later stage with a title,
+   a grudge against whoever beat it and a small bonus per escape (max 3). Killing a returned
+   nemesis for good pays gold. Uses the battle RNG so seeded runs stay reproducible. */
+const NEMESIS_TITLES=['흉터 입은','복수에 불타는','불사의'];
+function nemesisEligible(b,u){return u&&u.side==='evil'&&(u.traits||[]).includes('hero')&&!(u.traits||[]).includes('boss')&&!u.lair&&!u.static&&!u._arriving&&b.current?.boss!==u.id&&(b.wave||0)<40;}
+{const _sv=P._saveState;P._saveState=function(){const s=_sv.apply(this,arguments);s.nemeses=this.nemeses||[];return s;};}
+{const _st=P.start;P.start=function(){this.nemeses=[];return _st.apply(this,arguments);};}
+{const _ac=P.applyCombat;P.applyCombat=function(r){
+    const before=new Map((r?.strikeResults||[]).filter(s=>s.killed).map(s=>[s.target,s.attacker]));
+    const out=_ac.apply(this,arguments);
+    try{for(const [tid,aid] of before){const u=this.unit(tid);if(!u||u.alive)continue;const k=this.unit(aid);
+        const list=this.nemeses||(this.nemeses=[]);
+        if(u.nemesisKey){const n=list.find(x=>x.key===u.nemesisKey);
+            if(n&&n.level<3&&this.rng()<.25){n.level++;n.wave=this.wave;n.out=false;n.foe=k?.name||n.foe;u.fled=true;this.emit('Event','⚔ 숙적 '+esc(u.name)+' — 또 살아서 도주했습니다',{uid:u.uid});}
+            else{this.nemeses=list.filter(x=>x.key!==u.nemesisKey);const g=25*(n?.level||1);this.gold+=g;this.emit('Event','🏆 숙적 처치 — '+esc(u.name)+' · 금화 +'+g,{uid:u.uid});}
+            continue;}
+        if(!nemesisEligible(this,u)||list.length>=6||this.rng()>=.35)continue;
+        u.fled=true;list.push({key:u.uid+'-'+this.wave,id:u.id,base:u.name,level:1,foe:k?.name||'',wave:this.wave,out:false});
+        this.emit('Event','⚔ '+esc(u.name)+' — 피투성이로 도주했습니다. 숙적이 되어 돌아올 것입니다',{uid:u.uid});
+    }}catch(e){console.error('[nemesis]',e);}
+    return out;};}
+function nemesisName(n){return NEMESIS_TITLES[Math.min(2,n.level-1)]+' '+n.base;}
+{const _sw=P.startWave;P.startWave=function(){const r=_sw.apply(this,arguments);try{
+    const list=(this.nemeses||[]).filter(n=>!n.out&&this.wave>=n.wave+2&&this.meta.has(n.id));
+    if(list.length&&!this.current?.boss&&this.rng()<.45){
+        const n=list[Math.floor(this.rng()*list.length)],before=new Set(this.units.map(x=>x.uid));this.spawnEnemies([n.id]);
+        const u=this.units.find(x=>!before.has(x.uid)&&x.alive&&x.id===n.id);
+        if(u){n.out=true;u.nemesisKey=n.key;u.name=nemesisName(n);u.legendary=true;
+            u.baseStats.fight+=Math.min(2,n.level);u.baseStats.courage+=1;if(n.level>=2)u.baseStats.wounds+=1;if(n.level>=3)u.baseStats.attacks+=1;
+            this.refreshUnit(u);u.currentWounds=u.stats.wounds;
+            this.emit('Event','⚔ 숙적 귀환 — '+esc(u.name)+(n.foe?' · '+esc(n.foe)+'에게 진 원한':''),{uid:u.uid});
+            this.emit('NemesisReturn',undefined,{uid:u.uid});}
+    }}catch(e){console.error('[nemesis]',e);}return r;};}
+// Leaving a stage without finishing a returned nemesis puts it back in the pool.
+{const _fw=P.finishWave;P.finishWave=function(){for(const n of this.nemeses||[])if(n.out&&this.units.some(u=>u.alive&&u.nemesisKey===n.key))n.out=false;return _fw.apply(this,arguments);};}
+{const _np=Ve.prototype.play;Ve.prototype.play=function(event){try{if(event&&event.type==='NemesisReturn'&&this.b){const u=this.b.unit(event.uid);if(u)setTimeout(()=>{HERO_CUTIN.last=0;heroCutin(this,u,'숙적 귀환','');},400);}}catch(e){}return _np.apply(this,arguments);};}
+
+/* ==== Per-unit tactics for auto play (reference: Unicorn Overlord tactics) ====
+   A soldier's tactic only changes where the AI moves it (auto play / one-phase auto). Rules are unchanged. */
+const UNIT_TACTICS={free:{n:'자유',d:'기본 판단대로 움직입니다'},hold:{n:'사수',d:'적이 3″ 안에 들어오기 전에는 자리를 지킵니다'},guard:{n:'호위',d:'가장 가까운 아군 영웅 곁을 지킵니다'},weak:{n:'약한 적',d:'남은 상처가 가장 적은 적부터 노립니다'}};
+{const _be=be;be=function(b,u){
+    const t=u&&u.side==='good'&&u.tactic;if(!t||t==='free'||u.static||b.engaged(u)||b.remaining(u)<12)return _be(b,u);
+    try{const foes=b.alive('evil'),all=b.alive(),gap=v=>ht(u,v)-u.radius-v.radius;
+        if(t==='hold'){return foes.some(v=>gap(v)<=135)?_be(b,u):null;}
+        if(t==='guard'){const hero=b.alive('good').filter(v=>v!==u&&(v.traits||[]).includes('hero')).sort((a,c)=>ht(u,a)-ht(u,c))[0];if(!hero)return _be(b,u);
+            const threat=foes.some(v=>ht(v,hero)-v.radius-hero.radius<=180);if(threat)return _be(b,u);
+            const d=ht(u,hero),keep=u.radius+hero.radius+24;if(d<=keep+30)return null;
+            const k=Math.min(b.remaining(u),d-keep)/d,to={x:u.x+(hero.x-u.x)*k,y:u.y+(hero.y-u.y)*k};
+            const legal=ve(u,to,all,b.terrain,b.remaining(u),{snap:false});return legal&&legal.distance>=12?legal.to:_be(b,u);}
+        if(t==='weak'){if(u.stats.shootRange)return _be(b,u);
+            const order=foes.slice().sort((a,c)=>(a.currentWounds-c.currentWounds)||(a.stats.defence-c.stats.defence)||(ht(u,a)-ht(u,c))).slice(0,4);
+            for(const v of order){const legal=ve(u,ue(u,v),all,b.terrain,b.remaining(u),{snap:false});if(legal&&ht(legal.to,v)<=u.radius+v.radius+4)return legal.to;}
+            return _be(b,u);}
+    }catch(e){console.error('[tactic]',e);}
+    return _be(b,u);};}
+{const _us=uiUnitStats;uiUnitStats=function(u){const h=_us.apply(this,arguments);try{if(!u||u.side!=='good'||u.temporary)return h;const cur=u.tactic||'free';
+    return h+'<section class="ui-profile-section tactic-row"><h3>작전 (자동 진행 때)</h3><div class="tactic-btns">'+Object.entries(UNIT_TACTICS).map(([k,v])=>'<button type="button" class="tactic-btn'+(k===cur?' on':'')+'" data-tactic="'+k+'" data-uid="'+u.uid+'" aria-pressed="'+(k===cur)+'">'+v.n+'</button>').join('')+'</div><p class="tactic-desc">'+UNIT_TACTICS[cur].d+'</p></section>';}catch(e){return h;}};}
+document.addEventListener('click',e=>{const bt=e.target.closest&&e.target.closest('.tactic-btn[data-tactic]');if(!bt)return;e.preventDefault();e.stopPropagation();const u=q.unit(bt.dataset.uid);if(!u)return;
+    u.tactic=bt.dataset.tactic;const sec=bt.closest('.tactic-row');sec.querySelectorAll('.tactic-btn').forEach(b=>{const on=b===bt;b.classList.toggle('on',on);b.setAttribute('aria-pressed',String(on));});
+    const d=sec.querySelector('.tactic-desc');if(d)d.textContent=UNIT_TACTICS[u.tactic].d;try{q.save();}catch(_){}},true);
+{const st=document.createElement('style');st.textContent='.tactic-btns{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}.tactic-btn{min-height:36px!important;padding:4px 2px!important;font-size:13px!important;white-space:nowrap!important;word-break:keep-all}.tactic-btn.on{outline:2px solid #e8c66a;outline-offset:-2px;color:#fff3c8!important}.tactic-desc{margin:6px 0 0;font-size:12px;line-height:1.5;color:#c8bd9e}';document.head.appendChild(st);}
+
+/* ==== Dice tray (reference: Blood Bowl 3) ====
+   Every fight, shot and priority roll of the current battle is kept with all its dice: the deciding die is
+   framed, Might-modified and rerolled results are marked, and each strike shows the roll against what it needed. */
+const DICE_TRAY=[];const DICE_TRAY_MAX=12;
+const trayFace=(side,v)=>{try{const f=side==='good'?'minastirith':'mordor',set=Fe.dice.find(o=>o.faction===f);return Ut(set.faces[Math.max(1,Math.min(6,v|0))]);}catch(e){return '';}};
+function trayName(id){const u=q.unit(id);return u?shortName(u):'?';}
+function trayLead(ids,side){return ids.map(id=>q.unit(id)).filter(u=>u&&u.side===side).sort((a,b)=>((b.traits||[]).includes('hero')-(a.traits||[]).includes('hero')))[0];}
+{const _de=$e;$e=async function(e){try{
+    const S=e&&e.result;let rec=null;
+    if(e&&e.type==='PriorityRolled')rec={kind:'prio',round:q.round,title:'우선권',good:[e.good],evil:[e.evil],res:(q.priority==='good'?'곤도르':'모르도르')+' 선공'};
+    else if(S&&S.kind==='shot'){const t=S.strikeResults?.[0]||{},a=q.unit(t.attacker);rec={kind:'shot',round:q.round,title:trayName(t.attacker)+' → '+trayName(t.target),side:a?.side||'good',dice:S.diceResults?.[a?.side||'good']||[],strikes:(S.strikeResults||[]).map(s=>({hit:s.hit,hitNeeded:s.hitNeeded,roll:s.roll,needed:s.needed,wound:s.wound,killed:s.killed}))};}
+    else if(S&&S.diceResults){const ids=S.participants||[],g=trayLead(ids,'good'),b=trayLead(ids,'evil');
+        rec={kind:'fight',round:q.round,title:(g?shortName(g):'곤도르')+' vs '+(b?shortName(b):'모르도르'),good:S.diceResults.good||[],evil:S.diceResults.evil||[],win:S.winnerSide,fv:S.fightValues||{},
+            strikes:(S.strikeResults||[]).map(s=>({a:trayName(s.attacker),t:trayName(s.target),roll:s.roll,needed:s.needed,wound:s.wound,killed:s.killed,support:s.support}))};}
+    if(rec){DICE_TRAY.unshift(rec);DICE_TRAY.length=Math.min(DICE_TRAY.length,DICE_TRAY_MAX);}
+}catch(err){console.error('[tray]',err);}return _de.apply(this,arguments);};}
+{const _swt=P.startWave;P.startWave=function(){DICE_TRAY.length=0;return _swt.apply(this,arguments);};}
+function trayDice(side,arr,mark){const best=arr.length?Math.max(...arr):0;let used=false;return arr.map(v=>{const top=mark&&v===best&&!used;if(top)used=true;return '<span class="tray-die'+(top?' top':'')+'"><img src="'+trayFace(side,v)+'" alt="'+v+'"></span>';}).join('');}
+function trayHTML(){
+    if(!DICE_TRAY.length)return '<p class="tray-empty">이번 전투에서 아직 굴린 주사위가 없습니다.</p>';
+    return DICE_TRAY.map(r=>{
+        let body='';
+        if(r.kind==='prio')body='<div class="tray-line"><span class="tray-side good">곤도르</span>'+trayDice('good',r.good,true)+'<span class="tray-side evil">모르도르</span>'+trayDice('evil',r.evil,true)+'</div>';
+        if(r.kind==='fight'){const tie=Math.max(...(r.good.length?r.good:[0]))===Math.max(...(r.evil.length?r.evil:[0]));
+            body='<div class="tray-line'+(r.win==='good'?' won':'')+'"><span class="tray-side good">곤도르</span>'+trayDice('good',r.good,true)+'</div><div class="tray-line'+(r.win==='evil'?' won':'')+'"><span class="tray-side evil">모르도르</span>'+trayDice('evil',r.evil,true)+'</div>'
+                +(tie?'<p class="tray-note">동점 — 결투값 '+(r.fv.good??'?')+' 대 '+(r.fv.evil??'?')+'로 판정</p>':'');}
+        if(r.kind==='shot')body='<div class="tray-line"><span class="tray-side '+r.side+'">사격</span>'+trayDice(r.side,r.dice,false)+'</div>';
+        const st=(r.strikes||[]).filter(s=>s.roll!=null||s.hit!=null).slice(0,8).map(s=>{
+            if(r.kind==='shot')return '<li>명중 '+(s.hit??'-')+' / '+s.hitNeeded+'+'+(s.roll!=null?' · 상처 '+s.roll+' / '+s.needed+'+':'')+' <b class="'+(s.killed?'k':s.wound?'w':'m')+'">'+(s.hit<s.hitNeeded?'빗나감':s.killed?'격파':s.wound?'상처':'막음')+'</b></li>';
+            return '<li>'+esc(s.a)+(s.support?'(지원)':'')+' → '+esc(s.t)+' · '+s.roll+' / '+s.needed+'+ <b class="'+(s.killed?'k':s.wound?'w':'m')+'">'+(s.killed?'격파':s.wound?'상처':'막음')+'</b></li>';}).join('');
+        const res=r.kind==='fight'?(r.win==='good'?'곤도르 승리':'모르도르 승리'):r.res||'';
+        return '<article class="tray-item"><header><span class="tray-round">'+(r.round||1)+'R</span><b>'+esc(r.title)+'</b>'+(res?'<em>'+esc(res)+'</em>':'')+'</header>'+body+(st?'<ul class="tray-strikes">'+st+'</ul>':'')+'</article>';}).join('');
+}
+function openDiceTray(){const d=uiInfoDialog('dice-tray','주사위 기록','이번 전투 · 최근 '+DICE_TRAY.length+'번','<img src="icons/ui_cards.png" alt="">','<div class="tray-list">'+trayHTML()+'</div><p class="tray-help">테두리 = 판정에 쓰인 가장 높은 눈 · 상처 굴림은 "굴린 눈 / 필요한 눈"</p>','<button type="button" class="primary" id="dice-tray-close">닫기</button>');d.querySelector('#dice-tray-close').onclick=()=>d.close();}
+function installDiceTray(){if(document.getElementById('dice-tray-btn'))return;const menu=document.querySelector('#app .top-actions')||document.querySelector('.top-actions');if(!menu)return;
+    const bt=document.createElement('button');bt.id='dice-tray-btn';bt.type='button';bt.className='iconbtn';bt.innerHTML='<img src="icons/ui_cards.png" alt="" style="width:14px;height:14px;image-rendering:pixelated;vertical-align:-2px;margin-right:4px">주사위 기록';
+    bt.onclick=()=>{menu.classList.remove('open');openDiceTray();};const log=document.getElementById('battle-log-toggle');log&&log.parentNode===menu?log.after(bt):menu.appendChild(bt);
+    const sync=()=>{if(log){const o=getComputedStyle(log).order;if(o)bt.style.order=o;}};sync();setTimeout(sync,1200);}
+installDiceTray();setTimeout(installDiceTray,1500);
+{const st=document.createElement('style');st.textContent='#dice-tray .tray-list{display:grid;gap:8px;max-height:58vh;overflow-y:auto}#dice-tray .tray-item{padding:8px;border:1px solid #6f6446;background:#14100acc}#dice-tray .tray-item header{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;font-size:13px;line-height:1.4}#dice-tray .tray-item header em{margin-left:auto;font-style:normal;color:#e8c66a;white-space:nowrap}#dice-tray .tray-round{color:#a99c7a;font-size:12px}#dice-tray .tray-line{display:flex;align-items:center;flex-wrap:wrap;gap:4px;margin-top:6px;padding:2px 4px}#dice-tray .tray-line.won{background:#e8c66a22}#dice-tray .tray-side{font-size:12px;min-width:52px;white-space:nowrap}#dice-tray .tray-side.good{color:#9cc4ff}#dice-tray .tray-side.evil{color:#ff9c8c}#dice-tray .tray-die{display:inline-grid;place-items:center;width:28px;height:28px;border:2px solid transparent}#dice-tray .tray-die.top{border-color:#e8c66a;box-shadow:0 0 6px #e8c66a99}#dice-tray .tray-die img{width:24px;height:24px;image-rendering:pixelated}#dice-tray .tray-strikes{margin:6px 0 0;padding-left:16px;font-size:12px;line-height:1.6;color:#d9cfb4}#dice-tray .tray-strikes b{margin-left:4px}#dice-tray .tray-strikes b.k{color:#ff8c7a}#dice-tray .tray-strikes b.w{color:#ffd27a}#dice-tray .tray-strikes b.m{color:#9aa39a}#dice-tray .tray-note,#dice-tray .tray-help,#dice-tray .tray-empty{margin:6px 0 0;font-size:12px;line-height:1.5;color:#b8ad90}';document.head.appendChild(st);}
+if(window.MESBG){MESBG.diceTray=DICE_TRAY;MESBG.openDiceTray=openDiceTray;}
+
+/* ==== Enemy activation order (reference: Into the Breach attack order) ====
+   While it is the player's turn, the enemies still to act this phase are listed in the order the AI will
+   take them (infantry, monsters, heroes, cavalry, support, archers - same as the AI driver), with a
+   number on each token. Shares the "적 의도" toggle. Display only. */
+const ENEMY_ORDER_ROLES={infantry:0,monster:1,hero:2,cavalry:3,support:4,archer:5};
+function enemyOrder(b){if(!b||b.side!=='good'||!['move','shoot'].includes(b.phase))return [];let list=[];try{list=b.eligible('evil');}catch(e){return [];}
+    list=list.filter(u=>!u.static&&!u.lair&&!u._arriving&&u.x>=0);
+    return list.map((u,i)=>({u,i,r:ENEMY_ORDER_ROLES[window.LWBTactics.role(u,id=>b.meta.get(id))]??9})).sort((a,c)=>a.r-c.r||a.i-c.i).map(o=>o.u);}
+const ORDER_UI={sig:'',labels:[],t:0};
+function drawEnemyOrder(scene){
+    const b=scene.b,show=INTENT_UI.on&&!AUTO&&!At&&b;const list=show?enemyOrder(b):[];
+    const sig=list.map(u=>u.uid+(u.x>>3)+','+(u.y>>3)).join(';')+'|'+b?.phase;
+    if(sig!==ORDER_UI.sig){ORDER_UI.sig=sig;
+        list.forEach((u,i)=>{let l=ORDER_UI.labels[i];if(!l||!l.scene){l=scene.add.text(0,0,'',{fontFamily:'Galmuri11, sans-serif',fontSize:'14px',color:'#fff',backgroundColor:'#5a1a10',padding:{x:4,y:1}}).setOrigin(.5).setDepth(19.5);ORDER_UI.labels[i]=l;}
+            l.setText(String(i+1)).setPosition(u.x-u.radius*.72,u.y-u.radius*.72).setVisible(true);});
+        for(let i=list.length;i<ORDER_UI.labels.length;i++)ORDER_UI.labels[i]?.setVisible(false);
+        const bar=enemyOrderBar();if(bar){if(!list.length){bar.classList.add('hidden');bar.innerHTML='';}else{bar.classList.remove('hidden');
+            const shown=list.slice(0,7);bar.innerHTML='<span class="eo-title">적 행동 순서</span>'+shown.map((u,i)=>{const m=b.meta.get(u.id)||{};return '<span class="eo-u" title="'+esc(u.name)+'"><b>'+(i+1)+'</b><img src="'+(typeof Th==='function'?Th(m.file):Ut(m.file))+'" alt="'+esc(u.name)+'"></span>';}).join('')+(list.length>7?'<span class="eo-more">+'+(list.length-7)+'</span>':'');}}}
+}
+function enemyOrderBar(){let bar=document.getElementById('enemy-order');if(bar)return bar;const info=document.querySelector('#app .field')||document.querySelector('.field');if(!info)return null;
+    bar=document.createElement('div');bar.id='enemy-order';bar.className='hidden';bar.setAttribute('aria-label','적 행동 순서');info.appendChild(bar);
+    const st=document.createElement('style');st.textContent='#enemy-order{position:absolute;left:8px;bottom:30px;z-index:9;display:flex;align-items:center;gap:3px;flex-wrap:nowrap;max-width:calc(100% - 16px);overflow:hidden;padding:3px 5px;background:#1a0e0acc;border:1px solid #7a3a2a;width:max-content;pointer-events:none}#enemy-order.hidden{display:none!important}#enemy-order .eo-title{font-size:11px;color:#f0c0a8;white-space:nowrap;margin-right:2px}#enemy-order .eo-u{position:relative;width:30px;height:30px;margin-left:6px;display:inline-block;background:#00000055}#enemy-order .eo-u img{width:30px;height:30px;object-fit:contain;image-rendering:pixelated}#enemy-order .eo-u b{position:absolute;left:-7px;top:-2px;font-size:11px;line-height:13px;min-width:13px;text-align:center;color:#fff;background:#7a1d12}#enemy-order .eo-more{font-size:11px;color:#f0c0a8}';document.head.appendChild(st);return bar;}
+{const _eu=Ve.prototype.update;Ve.prototype.update=function(t){_eu.call(this,t);if(!this.b||!this.add)return;if(t-ORDER_UI.t<220)return;ORDER_UI.t=t;try{drawEnemyOrder(this);}catch(e){console.error('[order]',e);}};}
+
+/* ==== Afflictions and virtues (reference: Darkest Dungeon) ====
+   How a soldier came through a stage can leave a mark: a virtue stays until replaced, an affliction fades
+   after three stages. One mark per soldier, small effects, picked with the battle RNG. */
+const TROOP_MARKS={
+ steadfast:{good:true, name:'불굴',     icon:'cmd_hold',  d:{courage:1},          text:'용기 +1 — 밀리면서도 전열을 지켰다'},
+ fierce:   {good:true, name:'맹렬',     icon:'ui_swords', d:{fight:1},            text:'결투 +1 — 한 전투에서 세 명 이상 쓰러뜨렸다'},
+ dread:    {good:false,name:'전쟁 공포',icon:'ui_warning',d:{courage:-1},         text:'용기 −1 — 동료들이 쓰러지는 것을 보았다 (3공세 뒤 회복)'},
+ weary:    {good:false,name:'탈진',     icon:'ui_move',   d:{move:-45},           text:'이동 −1″ — 거듭된 패배로 지쳤다 (3공세 뒤 회복)'}
+};
+{const _ac=P.applyCombat;P.applyCombat=function(r){try{if(r&&r.kind!=='shot'&&r.winnerSide)for(const id of r.participants||[]){const u=this.unit(id);if(!u||u.side!=='good')continue;if(r.winnerSide==='good')u._stageWon=(u._stageWon||0)+1;else u._stageLost=(u._stageLost||0)+1;}}catch(e){}return _ac.apply(this,arguments);};}
+{const _ru=P.refreshUnit;P.refreshUnit=function(u){const r=_ru.apply(this,arguments);try{const m=u&&u.mark&&!u.temporary&&TROOP_MARKS[u.mark];
+    if(m&&u.stats)for(const [k,v] of Object.entries(m.d)){if(k==='move')u.stats.move=Math.max(90,u.stats.move+v);else u.stats[k]=Math.max(1,(u.stats[k]||0)+v);}}catch(e){}return r;};}
+{const _fw=P.finishWave;P.finishWave=function(){const notes=[];try{
+    const deaths=this.stageDeaths||0;
+    for(const u of this.permanent()){if(!quirkEligible(u)){u._stageWon=u._stageLost=0;continue;}
+        const kills=u._stageKills||0,lost=u._stageLost||0;let next=null;
+        if(kills>=3&&this.rng()<.5)next='fierce';
+        else if(lost>=2&&u.alive&&this.rng()<.45)next=deaths>=3?'dread':'steadfast';
+        else if(lost>=3&&this.rng()<.4)next='weary';
+        if(u.mark&&!TROOP_MARKS[u.mark].good&&!next){u.markLeft=(u.markLeft??3)-1;if(u.markLeft<=0){notes.push(esc(u.name)+' '+TROOP_MARKS[u.mark].name+' 회복');u.mark=null;}}
+        if(next&&next!==u.mark&&!(TROOP_MARKS[next].good===false&&u.mark&&TROOP_MARKS[u.mark].good&&this.rng()<.5)){u.mark=next;u.markLeft=TROOP_MARKS[next].good?null:3;notes.push(esc(u.name)+' '+TROOP_MARKS[next].name);}
+        this.refreshUnit(u);u._stageWon=u._stageLost=0;}
+}catch(e){console.error('[marks]',e);}
+    const r=_fw.apply(this,arguments);if(notes.length)this.emit('Event','전장의 흔적 — '+notes.slice(0,4).join(' · ')+(notes.length>4?' 외 '+(notes.length-4)+'명':''));return r;};}
+// Second badge (top-left) on unit cards and a line in the soldier sheet.
+{const _dq=decorateQuirks;decorateQuirks=function(){_dq();document.querySelectorAll('[data-unit],[data-uid]').forEach(el=>{const uid=el.dataset.unit||el.dataset.uid,u=uid&&q.unit(uid);
+    const has=el.querySelector(':scope > .mark-ico'),m=u&&!u.temporary&&TROOP_MARKS[u.mark];if(!m){if(has)has.remove();return;}if(has&&has.dataset.m===u.mark)return;if(has)has.remove();
+    el.insertAdjacentHTML('beforeend','<i class="mark-ico '+(m.good?'virtue':'affliction')+'" data-m="'+u.mark+'" title="'+m.name+' — '+m.text+'" style="background:#1a120a url(icons/'+m.icon+'.png) center/10px 10px no-repeat!important;width:14px!important;height:14px!important"></i>');if(getComputedStyle(el).position==='static')el.style.position='relative';});};}
+{const _us=uiUnitStats;uiUnitStats=function(u){const h=_us.apply(this,arguments);try{const m=u&&!u.temporary&&TROOP_MARKS[u.mark];if(!m)return h;
+    return '<section class="ui-profile-section mark-row"><h3>'+(m.good?'미덕':'고난')+'</h3><p><i class="quirk-big" style="background:url(icons/'+m.icon+'.png) center/16px 16px no-repeat!important;width:16px!important;height:16px!important"></i><b>'+m.name+'</b><span>'+m.text+(m.good?'':' · 남은 공세 '+(u.markLeft??3))+'</span></p></section>'+h;}catch(e){return h;}};}
+{const st=document.createElement('style');st.textContent='html body #app#app#app#app .mark-ico,.mark-ico{position:absolute!important;left:2px!important;top:2px!important;right:auto!important;bottom:auto!important;z-index:3;margin:0!important;padding:0!important;display:block!important;box-sizing:border-box;pointer-events:none;image-rendering:pixelated;border:1px solid #c9a24e!important}.mark-ico.affliction{border-color:#d0604a!important}.mark-row p{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin:0;font-size:13px;line-height:1.5}.mark-row span{color:#d8ccb0}';document.head.appendChild(st);}
+
+/* ==== Companion bonds (reference: Fire Emblem supports) ====
+   Lore companions fighting within 6" of each other at the start of a round both gain a small bonus
+   for that round. The first time a bond triggers in a battle it is announced. */
+const HERO_BONDS=[
+ ['legolas','gimli','숲과 동굴의 우정',{fight:1}],['frodo','samwise','주인과 정원사',{courage:2}],['merry','pippin','툭과 브랜디벅',{fight:1}],
+ ['aragorn','boromir','곤도르의 두 칼',{fight:1}],['boromir','faramir','데네소르의 아들들',{fight:1}],['aragorn','arwen','저녁별과 왕',{courage:2}],
+ ['elrond','arwen','깊은골의 부녀',{courage:2}],['theoden','eomer','왕과 조카',{fight:1}],['eomer','eowyn','로한의 남매',{fight:1}],
+ ['elladan','elrohir','엘론드의 쌍둥이',{fight:1}],['galadriel','celeborn','로리엔의 군주',{courage:2}],['beren','luthien','베렌과 루시엔',{fight:1}],
+ ['fili','kili','소린의 조카들',{fight:1}],['balin','dwalin','푼딘의 아들들',{fight:1}],['gloin','gimli','글로인 부자',{fight:1}],
+ ['thorin','balin','왕과 충신',{fight:1}],['thranduil','legolas','어둠숲 부자',{fight:1}],['gandalf','frodo','회색 순례자',{courage:2}],
+ ['huor','hurin','하도르 가의 형제',{fight:1}],['turin','beleg','투린과 벨레그',{fight:1}],['elendil','isildur','엘렌딜 부자',{fight:1}],['isildur','anarion','두 왕자',{fight:1}]
+];
+const BOND_RANGE=270; // 6"
+function bondIdentity(u){const d=typeof UnitCatalog!=='undefined'&&UnitCatalog[u.id];return ((d&&d.uniqueKey)||u.id).replace(/_(mounted|foot|white|citadel)$/,'');}
+{const _br=P.beginRound;P.beginRound=function(){const r=_br.apply(this,arguments);try{
+    const good=this.alive('good').filter(u=>u.x>=0),by={};for(const u of good){const k=bondIdentity(u);(by[k]||(by[k]=[])).push(u);}
+    this._bondSeen=this._bondSeen||{};
+    for(const [a,b,name,bonus] of HERO_BONDS){const A=by[a],B=by[b];if(!A||!B)continue;
+        let pair=null;for(const x of A)for(const y of B)if(x!==y&&ht(x,y)<=BOND_RANGE&&(!pair||ht(x,y)<ht(pair[0],pair[1])))pair=[x,y];
+        if(!pair)continue;
+        for(const u of pair){for(const [k,v] of Object.entries(bonus))u.roundBuff[k]=(u.roundBuff[k]||0)+v;u._bond=name;this.refreshUnit(u);}
+        const key=a+'+'+b;if(!this._bondSeen[key]){this._bondSeen[key]=true;this.emit('Event','🤝 '+name+' — '+esc(pair[0].name)+' · '+esc(pair[1].name)+' ('+Object.entries(bonus).map(([k,v])=>({fight:'결투',courage:'용기'})[k]+' +'+v).join(', ')+', 6″ 안에서 매 라운드)');}
+    }}catch(e){console.error('[bond]',e);}return r;};}
+{const _swb=P.startWave;P.startWave=function(){this._bondSeen={};return _swb.apply(this,arguments);};}
+if(window.MESBG){MESBG.bonds=HERO_BONDS;MESBG.aiMove=uid=>be(q,q.unit(uid));}
