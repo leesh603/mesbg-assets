@@ -1,6 +1,72 @@
-# 전체 재제작 검토 — 446종
+# 전체 재제작 검토 — 457종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 고스모그(발록 군주) (gothmog_balrog)
+
+![고스모그(발록 군주)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gothmog_balrog.png?v=242f57dec32c54b82def3193164c1854accdf481)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/gothmog_balrog.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/gothmog_balrog.png?v=242f57dec32c54b82def3193164c1854accdf481)
+
+### 카르하로스 (carcharoth)
+
+![카르하로스](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/carcharoth.png?v=bc9b70cf2f28f67ecba27c452bf7b27c550c2884)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/carcharoth.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/carcharoth.png?v=bc9b70cf2f28f67ecba27c452bf7b27c550c2884)
+
+### 글라우룽 (glaurung)
+
+![글라우룽](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/glaurung.png?v=160abfface775ad1fb2fe1a198ff2597ea528d1c)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/glaurung.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/glaurung.png?v=160abfface775ad1fb2fe1a198ff2597ea528d1c)
+
+### 언덕 트롤 (hill_troll)
+
+![언덕 트롤](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/hill_troll.png?v=24a2356d8639bef72098294ed91d7db9308a57bb)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/hill_troll.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/hill_troll.png?v=24a2356d8639bef72098294ed91d7db9308a57bb)
+
+### 머크우드 거미 (mirkwood_spider)
+
+![머크우드 거미](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/mirkwood_spider.png?v=5ac99ea834d643eba28fbe8a73638be3c8f43ac5)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/mirkwood_spider.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/mirkwood_spider.png?v=5ac99ea834d643eba28fbe8a73638be3c8f43ac5)
+
+### 물 속의 감시자 (watcher_in_the_water)
+
+![물 속의 감시자](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/watcher_in_the_water.png?v=9284d3f27343a85ddb9cf7904c1adf1521d5d10f)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/watcher_in_the_water.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/watcher_in_the_water.png?v=9284d3f27343a85ddb9cf7904c1adf1521d5d10f)
+
+### 웅골리안트 (ungoliant)
+
+![웅골리안트](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/ungoliant.png?v=6586a2a51b47decba0c6feae0703e68b539a1fb4)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/ungoliant.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/ungoliant.png?v=6586a2a51b47decba0c6feae0703e68b539a1fb4)
+
+### 스마우그 (smaug)
+
+![스마우그](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/smaug.png?v=2b2caf67878cfb012e32187dceae9bb7b8019346)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/smaug.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/smaug.png?v=2b2caf67878cfb012e32187dceae9bb7b8019346)
+
+### 엔트 (ent)
+
+![엔트](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/ent.png?v=6f7d8937c0aa65422da48991ee5b2b3557adc2d7)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/ent.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/ent.png?v=6f7d8937c0aa65422da48991ee5b2b3557adc2d7)
+
+### 발록 (balrog)
+
+![발록](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/balrog.png?v=c960ac61a2e53aedfb4cdacad5141d775bfe564f)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/balrog.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/balrog.png?v=c960ac61a2e53aedfb4cdacad5141d775bfe564f)
+
+### 동굴 트롤 (cave_troll)
+
+![동굴 트롤](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/cave_troll.png?v=158015be6a55d619910e36ed89d1c1b1bf026be5)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/cave_troll.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/cave_troll.png?v=158015be6a55d619910e36ed89d1c1b1bf026be5)
 
 ### 아르베두이(기마) (arvedui_mounted)
 

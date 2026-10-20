@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T04:11:02.443Z",
+  "updatedAt": "2026-10-20T04:13:51.086Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 64,
-    "newlyGeneratedThisSession": 314,
-    "visuallyReviewedThisSession": 319,
+    "pending": 53,
+    "newlyGeneratedThisSession": 325,
+    "visuallyReviewedThisSession": 330,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 314,
-    "persistedReviewAssets": 446,
+    "generatedReviewAssets": 325,
+    "persistedReviewAssets": 457,
     "revisedAfterRejection": 18
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -51,11 +51,11 @@
   "resume": {
     "nextAction": "Continue pending roster with original species skeletons; inspect and save small batches to unified gallery.",
     "nextIds": [
-      "cave_troll",
-      "balrog",
       "great_eagle",
-      "ent",
-      "melkor"
+      "melkor",
+      "draugluin",
+      "thuringwethil",
+      "boldog"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
@@ -150,8 +150,13 @@
       "faction": "moria",
       "role": "monster",
       "original": "tokens/cave_troll.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "moria",
+      "path": "art/full-roster-night-rebuild-20261019/units/cave_troll.png",
+      "blobSHA": "158015be6a55d619910e36ed89d1c1b1bf026be5",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "glorfindel_foot",
@@ -603,8 +608,13 @@
       "faction": "moria",
       "role": "monster",
       "original": "tokens/balrog.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "moria",
+      "path": "art/full-roster-night-rebuild-20261019/units/balrog.png",
+      "blobSHA": "c960ac61a2e53aedfb4cdacad5141d775bfe564f",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "mountain_troll",
@@ -1877,8 +1887,13 @@
       "faction": "ent",
       "role": "monster",
       "original": "tokens/ent.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "ent",
+      "path": "art/full-roster-night-rebuild-20261019/units/ent.png",
+      "blobSHA": "6f7d8937c0aa65422da48991ee5b2b3557adc2d7",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "beorning",
@@ -2223,8 +2238,13 @@
       "faction": "erebor",
       "role": "monster",
       "original": "tokens/smaug.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "erebor",
+      "path": "art/full-roster-night-rebuild-20261019/units/smaug.png",
+      "blobSHA": "2b2caf67878cfb012e32187dceae9bb7b8019346",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "ungoliant",
@@ -2232,8 +2252,13 @@
       "faction": "angband",
       "role": "monster",
       "original": "tokens/ungoliant.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "angband",
+      "path": "art/full-roster-night-rebuild-20261019/units/ungoliant.png",
+      "blobSHA": "6586a2a51b47decba0c6feae0703e68b539a1fb4",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "bolg",
@@ -2378,8 +2403,13 @@
       "faction": "moria",
       "role": "monster",
       "original": "tokens/watcher_in_the_water.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "moria",
+      "path": "art/full-roster-night-rebuild-20261019/units/watcher_in_the_water.png",
+      "blobSHA": "9284d3f27343a85ddb9cf7904c1adf1521d5d10f",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "mirkwood_spider",
@@ -2387,8 +2417,13 @@
       "faction": "dol_guldur",
       "role": "monster",
       "original": "tokens/mirkwood_spider.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dol_guldur",
+      "path": "art/full-roster-night-rebuild-20261019/units/mirkwood_spider.png",
+      "blobSHA": "5ac99ea834d643eba28fbe8a73638be3c8f43ac5",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "harad_chieftain",
@@ -2427,8 +2462,13 @@
       "faction": "angmar",
       "role": "monster",
       "original": "tokens/hill_troll.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "angmar",
+      "path": "art/full-roster-night-rebuild-20261019/units/hill_troll.png",
+      "blobSHA": "24a2356d8639bef72098294ed91d7db9308a57bb",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "feanor",
@@ -2532,8 +2572,13 @@
       "faction": "angband",
       "role": "monster",
       "original": "tokens/glaurung.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "angband",
+      "path": "art/full-roster-night-rebuild-20261019/units/glaurung.png",
+      "blobSHA": "160abfface775ad1fb2fe1a198ff2597ea528d1c",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "carcharoth",
@@ -2541,8 +2586,13 @@
       "faction": "angband",
       "role": "hero",
       "original": "tokens/carcharoth.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "angband",
+      "path": "art/full-roster-night-rebuild-20261019/units/carcharoth.png",
+      "blobSHA": "bc9b70cf2f28f67ecba27c452bf7b27c550c2884",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "gothmog_balrog",
@@ -2550,8 +2600,13 @@
       "faction": "angband",
       "role": "monster",
       "original": "tokens/gothmog_balrog.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "angband",
+      "path": "art/full-roster-night-rebuild-20261019/units/gothmog_balrog.png",
+      "blobSHA": "242f57dec32c54b82def3193164c1854accdf481",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "draugluin",
@@ -7664,18 +7719,21 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 446,
+    "count": 457,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
+      "앙그반드": 4,
+      "앙마르": 3,
+      "돌 굴두르": 4,
+      "moria": 17,
+      "에레보르": 1,
+      "엔트": 1,
       "arnor": 11,
       "numenor": 6,
       "군다바드": 6,
       "망자": 3,
-      "돌 굴두르": 3,
-      "moria": 14,
-      "앙마르": 2,
       "베오른 일족": 2,
       "dunland": 10,
       "이스터링·칸드": 15,
@@ -7693,7 +7751,7 @@
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,
-    "sourceValidation": "446 unique IDs; static card count and asset blob SHAs verified"
+    "sourceValidation": "457 unique IDs; static card count and asset blob SHAs verified"
   },
   "revisionRequests": {
     "witchking": {
@@ -7829,15 +7887,19 @@
     }
   },
   "lastContinuation": {
-    "batch": "north-gundabad-cavalry-008",
+    "batch": "monsters-ancient-011",
     "newIds": [
-      "dead_rider",
-      "gundabad_warg_rider",
-      "azog_warg_rider",
-      "numenorean_knight",
-      "elendil_mounted",
-      "anarion_mounted",
-      "arvedui_mounted"
+      "cave_troll",
+      "balrog",
+      "ent",
+      "smaug",
+      "ungoliant",
+      "watcher_in_the_water",
+      "mirkwood_spider",
+      "hill_troll",
+      "glaurung",
+      "carcharoth",
+      "gothmog_balrog"
     ],
     "qualityStandard": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
     "note": "Each image inspected against canonical skeleton and identity reference; approval pending."

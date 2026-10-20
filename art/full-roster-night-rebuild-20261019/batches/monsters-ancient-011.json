@@ -1,0 +1,402 @@
+{
+  "batch": "monsters-ancient-011",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "cave_troll",
+      "name": "동굴 트롤",
+      "faction": "moria",
+      "role": "monster",
+      "original": "tokens/cave_troll.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "모리아",
+      "groupKey": "moria",
+      "bodyDescription": "원본 종족 고유 골격 · 하이앵글 프론트뷰",
+      "pose": "원본 종족 고유 행동·실루엣 유지",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/cave_troll.png"
+      ],
+      "prompt": "Rebuild production PIXEL GAME TOKEN from the single attached ORIGINAL source. Source controls exact identity/species/anatomy/equipment/colors/action. This is a MONSTER/ANIMAL, never add a soldier, rider, human template or extra actor. Match established Gondor/Mordor crisp stepped dark outlines, deliberate solid pixel clusters, short restrained color ramps and game-token detail density; no smooth painterly blur or photorealism. Keep original distinctive body tilt/action while rotating to HIGH-ANGLE FRONT camera DOWN45–50degrees, NOT eye-level frontal portrait, NOT side profile or rear view. Entire exact silhouette including every wing, leg, tail, root, tentacle and weapon tip inside INNER80percent of canvas, generous transparent margins, body independently centered. Transparent background, no base/floor/cast shadow/scenery/text/UI/watermark. Identity: 동굴 트롤 (cave_troll). ONE original ROCK/TROLL/GIANT with original species anatomy, broad hunch and heavy forward lean, natural small bowed skull between enormous shoulder tops. Keep original arm/leg lengths, stone plates/fur/moss/materials and exact original club/axe/weapon. Two arms, two legs, coherent hands/grip; do NOT turn into human5head figure. DOWN45deg from FRONT; top of head and shoulders obvious, face mostly tucked below brow.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-6c995e63-ba5e-494a-9fb1-536edc3d85b7.png",
+      "expectedBlobSHA": "158015be6a55d619910e36ed89d1c1b1bf026be5",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1089,
+          1445
+        ],
+        "bounds": [
+          25,
+          68,
+          1075,
+          1361
+        ]
+      },
+      "blobSHA": "158015be6a55d619910e36ed89d1c1b1bf026be5",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "balrog",
+      "name": "발록",
+      "faction": "moria",
+      "role": "monster",
+      "original": "tokens/balrog.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "모리아",
+      "groupKey": "moria",
+      "bodyDescription": "원본 종족 고유 골격 · 하이앵글 프론트뷰",
+      "pose": "원본 종족 고유 행동·실루엣 유지",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/balrog.png"
+      ],
+      "prompt": "Rebuild production PIXEL GAME TOKEN from the single attached ORIGINAL source. Source controls exact identity/species/anatomy/equipment/colors/action. This is a MONSTER/ANIMAL, never add a soldier, rider, human template or extra actor. Match established Gondor/Mordor crisp stepped dark outlines, deliberate solid pixel clusters, short restrained color ramps and game-token detail density; no smooth painterly blur or photorealism. Keep original distinctive body tilt/action while rotating to HIGH-ANGLE FRONT camera DOWN45–50degrees, NOT eye-level frontal portrait, NOT side profile or rear view. Entire exact silhouette including every wing, leg, tail, root, tentacle and weapon tip inside INNER80percent of canvas, generous transparent margins, body independently centered. Transparent background, no base/floor/cast shadow/scenery/text/UI/watermark. Identity: 발록 (balrog). ONE exact original winged DEMON with original horns, wings, claws, armor/skin and EXACT weapons. Elevated FRONT45deg with crown/shoulder/wings TOP planes visible, bowed head/hidden eyes. Original crouch/forward aggressive lean. Full wings and weapon tips fit inside margins. Balrog flame is tightly contained original material detail, no floor/fire cloud/backdrop.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-ae1779dc-c247-4ae2-8bbf-ccf8d9a4702c.png",
+      "expectedBlobSHA": "c960ac61a2e53aedfb4cdacad5141d775bfe564f",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bounds": [
+          167,
+          38,
+          1089,
+          1229
+        ]
+      },
+      "blobSHA": "c960ac61a2e53aedfb4cdacad5141d775bfe564f",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "ent",
+      "name": "엔트",
+      "faction": "ent",
+      "role": "monster",
+      "original": "tokens/ent.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "엔트",
+      "groupKey": "ent",
+      "bodyDescription": "원본 종족 고유 골격 · 하이앵글 프론트뷰",
+      "pose": "원본 종족 고유 행동·실루엣 유지",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/ent.png"
+      ],
+      "prompt": "Rebuild production PIXEL GAME TOKEN from the single attached ORIGINAL source. Source controls exact identity/species/anatomy/equipment/colors/action. This is a MONSTER/ANIMAL, never add a soldier, rider, human template or extra actor. Match established Gondor/Mordor crisp stepped dark outlines, deliberate solid pixel clusters, short restrained color ramps and game-token detail density; no smooth painterly blur or photorealism. Keep original distinctive body tilt/action while rotating to HIGH-ANGLE FRONT camera DOWN45–50degrees, NOT eye-level frontal portrait, NOT side profile or rear view. Entire exact silhouette including every wing, leg, tail, root, tentacle and weapon tip inside INNER80percent of canvas, generous transparent margins, body independently centered. Transparent background, no base/floor/cast shadow/scenery/text/UI/watermark. Identity: 엔트 (ent). ONE walking TREE being only. Preserve unique original wood bark color/face/canopy/leaves/fruit and root-foot anatomy. Angle DOWN45deg from FRONT shows branch/canopy TOP planes, bowed wooden face under foliage. Preserve original reaching root-hands and full root-feet; distinct tree species, no human armor/skeleton/ordinary boots.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-67867fb9-1d47-4c14-b32b-173554d6d144.png",
+      "expectedBlobSHA": "6f7d8937c0aa65422da48991ee5b2b3557adc2d7",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bounds": [
+          163,
+          119,
+          1147,
+          1162
+        ]
+      },
+      "blobSHA": "6f7d8937c0aa65422da48991ee5b2b3557adc2d7",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "smaug",
+      "name": "스마우그",
+      "faction": "erebor",
+      "role": "monster",
+      "original": "tokens/smaug.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "에레보르",
+      "groupKey": "erebor",
+      "bodyDescription": "원본 종족 고유 골격 · 하이앵글 프론트뷰",
+      "pose": "원본 종족 고유 행동·실루엣 유지",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/smaug.png"
+      ],
+      "prompt": "Rebuild production PIXEL GAME TOKEN from the single attached ORIGINAL source. Source controls exact identity/species/anatomy/equipment/colors/action. This is a MONSTER/ANIMAL, never add a soldier, rider, human template or extra actor. Match established Gondor/Mordor crisp stepped dark outlines, deliberate solid pixel clusters, short restrained color ramps and game-token detail density; no smooth painterly blur or photorealism. Keep original distinctive body tilt/action while rotating to HIGH-ANGLE FRONT camera DOWN45–50degrees, NOT eye-level frontal portrait, NOT side profile or rear view. Entire exact silhouette including every wing, leg, tail, root, tentacle and weapon tip inside INNER80percent of canvas, generous transparent margins, body independently centered. Transparent background, no base/floor/cast shadow/scenery/text/UI/watermark. Identity: 스마우그 (smaug). ONE exact original DRAGON species, original number of wings/legs, scale color, horns, spines and complete long tail. HIGH-angle FRONT45deg so head points toward LOWER CENTER and spine/body/tail recede toward TOP, visible crown and back/wing top planes; NOT side profile. Preserve original coiled/striking silhouette but rotate to front. NO invented wings on wingless dragons (Glaurung/CaveDrake/Scatha), no missing wings on Smaug/Ancalagon. All appendages inside wide canvas.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-bd6a98a6-01ac-459b-948e-a257910bf056.png",
+      "expectedBlobSHA": "2b2caf67878cfb012e32187dceae9bb7b8019346",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bounds": [
+          70,
+          82,
+          1232,
+          1175
+        ]
+      },
+      "blobSHA": "2b2caf67878cfb012e32187dceae9bb7b8019346",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "ungoliant",
+      "name": "웅골리안트",
+      "faction": "angband",
+      "role": "monster",
+      "original": "tokens/ungoliant.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "앙그반드",
+      "groupKey": "angband",
+      "bodyDescription": "원본 종족 고유 골격 · 하이앵글 프론트뷰",
+      "pose": "원본 종족 고유 행동·실루엣 유지",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/ungoliant.png"
+      ],
+      "prompt": "Rebuild production PIXEL GAME TOKEN from the single attached ORIGINAL source. Source controls exact identity/species/anatomy/equipment/colors/action. This is a MONSTER/ANIMAL, never add a soldier, rider, human template or extra actor. Match established Gondor/Mordor crisp stepped dark outlines, deliberate solid pixel clusters, short restrained color ramps and game-token detail density; no smooth painterly blur or photorealism. Keep original distinctive body tilt/action while rotating to HIGH-ANGLE FRONT camera DOWN45–50degrees, NOT eye-level frontal portrait, NOT side profile or rear view. Entire exact silhouette including every wing, leg, tail, root, tentacle and weapon tip inside INNER80percent of canvas, generous transparent margins, body independently centered. Transparent background, no base/floor/cast shadow/scenery/text/UI/watermark. Identity: 웅골리안트 (ungoliant). ONE SPIDER with EXACTLY EIGHT coherent legs, four per side, each connected to thorax, plus separate small mouth pedipalps. Original abdomen shape/pattern/color/hair/crown. Elevated front-down45deg shows dorsal abdomen and crown, head in lower-center foreground, abdomen rear/up. Preserve spider's forward attack pose. All8 leg tips complete, no humanoid body, no extra tiny spiders unless original includes them.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-7b1c83bd-6985-4a19-80d0-52ac19fab300.png",
+      "expectedBlobSHA": "6586a2a51b47decba0c6feae0703e68b539a1fb4",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1234,
+          1275
+        ],
+        "bounds": [
+          48,
+          86,
+          1189,
+          1211
+        ]
+      },
+      "blobSHA": "6586a2a51b47decba0c6feae0703e68b539a1fb4",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "watcher_in_the_water",
+      "name": "물 속의 감시자",
+      "faction": "moria",
+      "role": "monster",
+      "original": "tokens/watcher_in_the_water.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "모리아",
+      "groupKey": "moria",
+      "bodyDescription": "원본 종족 고유 골격 · 하이앵글 프론트뷰",
+      "pose": "원본 종족 고유 행동·실루엣 유지",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/watcher_in_the_water.png"
+      ],
+      "prompt": "Rebuild production PIXEL GAME TOKEN from the single attached ORIGINAL source. Source controls exact identity/species/anatomy/equipment/colors/action. This is a MONSTER/ANIMAL, never add a soldier, rider, human template or extra actor. Match established Gondor/Mordor crisp stepped dark outlines, deliberate solid pixel clusters, short restrained color ramps and game-token detail density; no smooth painterly blur or photorealism. Keep original distinctive body tilt/action while rotating to HIGH-ANGLE FRONT camera DOWN45–50degrees, NOT eye-level frontal portrait, NOT side profile or rear view. Entire exact silhouette including every wing, leg, tail, root, tentacle and weapon tip inside INNER80percent of canvas, generous transparent margins, body independently centered. Transparent background, no base/floor/cast shadow/scenery/text/UI/watermark. Identity: 물 속의 감시자 (watcher_in_the_water). ONE original aquatic tentacle monster, exact original green mantle, head/mouth/eye arrangement, suction cups and intertwined tentacle silhouette. Elevated FRONT/down50degree shows crown and dorsal upper planes, central head LOWER foreground. Preserve original tentacle count and coherent origins/connected lengths, no severed or duplicated tentacles. No actual water, splash, puddle or floor.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-27bc0891-ac2e-4d36-a322-098e960e5265.png",
+      "expectedBlobSHA": "9284d3f27343a85ddb9cf7904c1adf1521d5d10f",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1329,
+          1183
+        ],
+        "bounds": [
+          74,
+          42,
+          1277,
+          1150
+        ]
+      },
+      "blobSHA": "9284d3f27343a85ddb9cf7904c1adf1521d5d10f",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "mirkwood_spider",
+      "name": "머크우드 거미",
+      "faction": "dol_guldur",
+      "role": "monster",
+      "original": "tokens/mirkwood_spider.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "돌 굴두르",
+      "groupKey": "dol_guldur",
+      "bodyDescription": "원본 종족 고유 골격 · 하이앵글 프론트뷰",
+      "pose": "원본 종족 고유 행동·실루엣 유지",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/mirkwood_spider.png"
+      ],
+      "prompt": "Rebuild production PIXEL GAME TOKEN from the single attached ORIGINAL source. Source controls exact identity/species/anatomy/equipment/colors/action. This is a MONSTER/ANIMAL, never add a soldier, rider, human template or extra actor. Match established Gondor/Mordor crisp stepped dark outlines, deliberate solid pixel clusters, short restrained color ramps and game-token detail density; no smooth painterly blur or photorealism. Keep original distinctive body tilt/action while rotating to HIGH-ANGLE FRONT camera DOWN45–50degrees, NOT eye-level frontal portrait, NOT side profile or rear view. Entire exact silhouette including every wing, leg, tail, root, tentacle and weapon tip inside INNER80percent of canvas, generous transparent margins, body independently centered. Transparent background, no base/floor/cast shadow/scenery/text/UI/watermark. Identity: 머크우드 거미 (mirkwood_spider). ONE SPIDER with EXACTLY EIGHT coherent legs, four per side, each connected to thorax, plus separate small mouth pedipalps. Original abdomen shape/pattern/color/hair/crown. Elevated front-down45deg shows dorsal abdomen and crown, head in lower-center foreground, abdomen rear/up. Preserve spider's forward attack pose. All8 leg tips complete, no humanoid body, no extra tiny spiders unless original includes them.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-06b9f080-8e04-4dd2-9286-c8b2c09a065d.png",
+      "expectedBlobSHA": "5ac99ea834d643eba28fbe8a73638be3c8f43ac5",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bounds": [
+          46,
+          78,
+          1209,
+          1166
+        ]
+      },
+      "blobSHA": "5ac99ea834d643eba28fbe8a73638be3c8f43ac5",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "hill_troll",
+      "name": "언덕 트롤",
+      "faction": "angmar",
+      "role": "monster",
+      "original": "tokens/hill_troll.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "앙마르",
+      "groupKey": "angmar",
+      "bodyDescription": "원본 종족 고유 골격 · 하이앵글 프론트뷰",
+      "pose": "원본 종족 고유 행동·실루엣 유지",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/hill_troll.png"
+      ],
+      "prompt": "Rebuild production PIXEL GAME TOKEN from the single attached ORIGINAL source. Source controls exact identity/species/anatomy/equipment/colors/action. This is a MONSTER/ANIMAL, never add a soldier, rider, human template or extra actor. Match established Gondor/Mordor crisp stepped dark outlines, deliberate solid pixel clusters, short restrained color ramps and game-token detail density; no smooth painterly blur or photorealism. Keep original distinctive body tilt/action while rotating to HIGH-ANGLE FRONT camera DOWN45–50degrees, NOT eye-level frontal portrait, NOT side profile or rear view. Entire exact silhouette including every wing, leg, tail, root, tentacle and weapon tip inside INNER80percent of canvas, generous transparent margins, body independently centered. Transparent background, no base/floor/cast shadow/scenery/text/UI/watermark. Identity: 언덕 트롤 (hill_troll). ONE original ROCK/TROLL/GIANT with original species anatomy, broad hunch and heavy forward lean, natural small bowed skull between enormous shoulder tops. Keep original arm/leg lengths, stone plates/fur/moss/materials and exact original club/axe/weapon. Two arms, two legs, coherent hands/grip; do NOT turn into human5head figure. DOWN45deg from FRONT; top of head and shoulders obvious, face mostly tucked below brow.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-57aec0fb-2388-4d35-bec7-258953b1df28.png",
+      "expectedBlobSHA": "24a2356d8639bef72098294ed91d7db9308a57bb",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1218,
+          1292
+        ],
+        "bounds": [
+          53,
+          60,
+          1197,
+          1236
+        ]
+      },
+      "blobSHA": "24a2356d8639bef72098294ed91d7db9308a57bb",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "glaurung",
+      "name": "글라우룽",
+      "faction": "angband",
+      "role": "monster",
+      "original": "tokens/glaurung.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "앙그반드",
+      "groupKey": "angband",
+      "bodyDescription": "원본 종족 고유 골격 · 하이앵글 프론트뷰",
+      "pose": "원본 종족 고유 행동·실루엣 유지",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/glaurung.png"
+      ],
+      "prompt": "Rebuild production PIXEL GAME TOKEN from the single attached ORIGINAL source. Source controls exact identity/species/anatomy/equipment/colors/action. This is a MONSTER/ANIMAL, never add a soldier, rider, human template or extra actor. Match established Gondor/Mordor crisp stepped dark outlines, deliberate solid pixel clusters, short restrained color ramps and game-token detail density; no smooth painterly blur or photorealism. Keep original distinctive body tilt/action while rotating to HIGH-ANGLE FRONT camera DOWN45–50degrees, NOT eye-level frontal portrait, NOT side profile or rear view. Entire exact silhouette including every wing, leg, tail, root, tentacle and weapon tip inside INNER80percent of canvas, generous transparent margins, body independently centered. Transparent background, no base/floor/cast shadow/scenery/text/UI/watermark. Identity: 글라우룽 (glaurung). ONE exact original DRAGON species, original number of wings/legs, scale color, horns, spines and complete long tail. HIGH-angle FRONT45deg so head points toward LOWER CENTER and spine/body/tail recede toward TOP, visible crown and back/wing top planes; NOT side profile. Preserve original coiled/striking silhouette but rotate to front. NO invented wings on wingless dragons (Glaurung/CaveDrake/Scatha), no missing wings on Smaug/Ancalagon. All appendages inside wide canvas.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-7119ee8c-9c0e-4320-a23e-817549d92b27.png",
+      "expectedBlobSHA": "160abfface775ad1fb2fe1a198ff2597ea528d1c",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bounds": [
+          69,
+          49,
+          1233,
+          1196
+        ]
+      },
+      "blobSHA": "160abfface775ad1fb2fe1a198ff2597ea528d1c",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "carcharoth",
+      "name": "카르하로스",
+      "faction": "angband",
+      "role": "hero",
+      "original": "tokens/carcharoth.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "앙그반드",
+      "groupKey": "angband",
+      "bodyDescription": "원본 종족 고유 골격 · 하이앵글 프론트뷰",
+      "pose": "원본 종족 고유 행동·실루엣 유지",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/carcharoth.png"
+      ],
+      "prompt": "Rebuild production PIXEL GAME TOKEN from the single attached ORIGINAL source. Source controls exact identity/species/anatomy/equipment/colors/action. This is a MONSTER/ANIMAL, never add a soldier, rider, human template or extra actor. Match established Gondor/Mordor crisp stepped dark outlines, deliberate solid pixel clusters, short restrained color ramps and game-token detail density; no smooth painterly blur or photorealism. Keep original distinctive body tilt/action while rotating to HIGH-ANGLE FRONT camera DOWN45–50degrees, NOT eye-level frontal portrait, NOT side profile or rear view. Entire exact silhouette including every wing, leg, tail, root, tentacle and weapon tip inside INNER80percent of canvas, generous transparent margins, body independently centered. Transparent background, no base/floor/cast shadow/scenery/text/UI/watermark. Identity: 카르하로스 (carcharoth). ONE original enormous WOLF beast, FOUR legs, natural wolf skull and original mane/fur/tail. Elevated FRONT45deg shows crown/back/shoulder tops, head lowered toward lower-center foreground, body recedes upward. Preserve ferocious original action and red/black mane where present. Full paws/tail inside canvas, no rider or human.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-1a4a8203-c6ae-47e1-9f78-0f4470c02382.png",
+      "expectedBlobSHA": "bc9b70cf2f28f67ecba27c452bf7b27c550c2884",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1236,
+          1273
+        ],
+        "bounds": [
+          122,
+          75,
+          1190,
+          1206
+        ]
+      },
+      "blobSHA": "bc9b70cf2f28f67ecba27c452bf7b27c550c2884",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "gothmog_balrog",
+      "name": "고스모그(발록 군주)",
+      "faction": "angband",
+      "role": "monster",
+      "original": "tokens/gothmog_balrog.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "앙그반드",
+      "groupKey": "angband",
+      "bodyDescription": "원본 종족 고유 골격 · 하이앵글 프론트뷰",
+      "pose": "원본 종족 고유 행동·실루엣 유지",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/gothmog_balrog.png"
+      ],
+      "prompt": "Rebuild production PIXEL GAME TOKEN from the single attached ORIGINAL source. Source controls exact identity/species/anatomy/equipment/colors/action. This is a MONSTER/ANIMAL, never add a soldier, rider, human template or extra actor. Match established Gondor/Mordor crisp stepped dark outlines, deliberate solid pixel clusters, short restrained color ramps and game-token detail density; no smooth painterly blur or photorealism. Keep original distinctive body tilt/action while rotating to HIGH-ANGLE FRONT camera DOWN45–50degrees, NOT eye-level frontal portrait, NOT side profile or rear view. Entire exact silhouette including every wing, leg, tail, root, tentacle and weapon tip inside INNER80percent of canvas, generous transparent margins, body independently centered. Transparent background, no base/floor/cast shadow/scenery/text/UI/watermark. Identity: 고스모그(발록 군주) (gothmog_balrog). ONE exact original winged DEMON with original horns, wings, claws, armor/skin and EXACT weapons. Elevated FRONT45deg with crown/shoulder/wings TOP planes visible, bowed head/hidden eyes. Original crouch/forward aggressive lean. Full wings and weapon tips fit inside margins. Balrog flame is tightly contained original material detail, no floor/fire cloud/backdrop.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-a4015355-63d9-400d-8a1b-8c0377b04511.png",
+      "expectedBlobSHA": "242f57dec32c54b82def3193164c1854accdf481",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bounds": [
+          186,
+          47,
+          1096,
+          1200
+        ]
+      },
+      "blobSHA": "242f57dec32c54b82def3193164c1854accdf481",
+      "approval": "pending",
+      "inGameVerified": false
+    }
+  ]
+}
