@@ -1,6 +1,24 @@
-# 전체 재제작 검토 — 164종
+# 전체 재제작 검토 — 167종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 데오르바인(기마) (deorwine_mounted)
+
+![데오르바인(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/deorwine_mounted.png?v=6afcc9b113c860e77c67df4c586d28f965e5b7e6)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/deorwine_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/deorwine_mounted.png?v=6afcc9b113c860e77c67df4c586d28f965e5b7e6)
+
+### 전투견 (war_hound)
+
+![전투견](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/war_hound.png?v=1e34e28e4bb6b9012c5b55d62a1ee445f5cf2549)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/war_hound.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/war_hound.png?v=1e34e28e4bb6b9012c5b55d62a1ee445f5cf2549)
+
+### 구슬라프 (guthlaf)
+
+![구슬라프](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/guthlaf.png?v=e66aed0ca2931feedff2af886028dbb23519c036)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/guthlaf.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/guthlaf.png?v=e66aed0ca2931feedff2af886028dbb23519c036)
 
 ### 로한 여맨 (rohan_yeoman)
 

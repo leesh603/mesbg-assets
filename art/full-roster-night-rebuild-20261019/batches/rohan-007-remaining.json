@@ -1,0 +1,37 @@
+{
+  "batch": "rohan-007-remaining",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "guthlaf",
+      "pose": "왕실 군기를 받친 기수 도보형",
+      "detail": "GUTHLAF FOOT STANDARD BEARER: gold centerband steel nasal helm, green mantle, mail and gold-edged green tunic, brown boots. Right hand viewerLEFT holds long gold-tipped green bannerpole vertical, rectangular dark-green gold-border flag WHITE HORSE extends above viewerRIGHT shoulder. Other hand rests on SHORT spear angled down beside viewerRIGHT boot as old character, both poles/hands separate. Keep body compact even though banner tall; uniformly reduce WHOLE scene to fit flag, do not stretch man to fill canvas.",
+      "prompt": "EDIT IMAGE1 exact neutral body template into IMAGE2 character. Image1 alone defines compact FIVE-HEAD adult anatomy and elevated HIGH-ANGLE FRONT down25–30deg camera, pixel density and dark stepped outline. Preserve skull-to-chin/head-to-torso size, short torso/forearms/femurs/shins; do not beautify into tall small-head long-limbed hero. Width differences only, bone lengths unchanged. Image2 gives clothing, weapons and identity only. Pose may rotate joints but keep segment lengths. Top of head and shoulders visible, not eye-level flat frontal/side. Limited earthy pixel colours, no smooth painting/3D. One whole character within inner80% transparent RGBA canvas; generous empty margins around all equipment/hooves, no clipping or cast shadow/base/floor/glow/text/UI/extra figures. GUTHLAF FOOT STANDARD BEARER: gold centerband steel nasal helm, green mantle, mail and gold-edged green tunic, brown boots. Right hand viewerLEFT holds long gold-tipped green bannerpole vertical, rectangular dark-green gold-border flag WHITE HORSE extends above viewerRIGHT shoulder. Other hand rests on SHORT spear angled down beside viewerRIGHT boot as old character, both poles/hands separate. Keep body compact even though banner tall; uniformly reduce WHOLE scene to fit flag, do not stretch man to fill canvas.",
+      "blobSHA": "e66aed0ca2931feedff2af886028dbb23519c036",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-fc3de714-8a2a-4496-9c45-6af01e3e8b04.png"
+    },
+    {
+      "id": "war_hound",
+      "beast": true,
+      "pose": "몸을 낮춘 사족 전투견",
+      "prompt": "ONE complete quadruped WAR HOUND tactical PIXEL game sprite. Image1 ONLY defines crisp stepped pixel clusters/outline and restrained earthy palette; image2 defines actual four-legged DOG anatomy and identity. No human anatomy, no five-head rule for this animal. Powerful brown mastiff, darker back and muzzle, black nose, small folded ears, thick black leather collar with pale iron studs/spikes, tail raised in a short curve. High-angle FRONT down35deg, see head crown/shoulder/back, head faces slightly viewerLEFT, low stalking ready stance with4 anatomically independent legs and paws, two forepaws separated, no extra limb. Same established game sprite pixel density/shading, no smooth painting or photo. Body/mass centered excluding tail, full paws/claws/tail fit INNER80% canvas with ample clear margin. True transparent RGBA background, no floor/base/shadow/glow/text/UI/other animal.",
+      "blobSHA": "1e34e28e4bb6b9012c5b55d62a1ee445f5cf2549",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-3c154aad-7d26-49c7-9c8d-03e1c2e2317b.png"
+    },
+    {
+      "id": "deorwine_mounted",
+      "mounted": true,
+      "pose": "붉은 망토 근위대장 기마",
+      "detail": "DEORWINE MOUNTED: gold helmet with small pale SIDE WINGS, gold armour with green horse-emblem breastcloth, dark beard, RUSSET RED cape, green round white-horse shield viewerRIGHT, straight sword low viewerLEFT. Bay/dark-brown horse with black mane, green/gold white-horse trappings. Exact template rider skull-to-seat and thigh/shin proportions; broad torso by width only. Slight outward sword guard, planted/collected horse step with4 independent legs, connected reins/saddle/stirrups.",
+      "prompt": "EDIT IMAGE1 exact neutral body template into IMAGE2 character. Image1 alone defines compact FIVE-HEAD adult anatomy and elevated HIGH-ANGLE FRONT down25–30deg camera, pixel density and dark stepped outline. Preserve skull-to-chin/head-to-torso size, short torso/forearms/femurs/shins; do not beautify into tall small-head long-limbed hero. Width differences only, bone lengths unchanged. Image2 gives clothing, weapons and identity only. Pose may rotate joints but keep segment lengths. Top of head and shoulders visible, not eye-level flat frontal/side. Limited earthy pixel colours, no smooth painting/3D. One whole character within inner80% transparent RGBA canvas; generous empty margins around all equipment/hooves, no clipping or cast shadow/base/floor/glow/text/UI/extra figures. DEORWINE MOUNTED: gold helmet with small pale SIDE WINGS, gold armour with green horse-emblem breastcloth, dark beard, RUSSET RED cape, green round white-horse shield viewerRIGHT, straight sword low viewerLEFT. Bay/dark-brown horse with black mane, green/gold white-horse trappings. Exact template rider skull-to-seat and thigh/shin proportions; broad torso by width only. Slight outward sword guard, planted/collected horse step with4 independent legs, connected reins/saddle/stirrups.",
+      "blobSHA": "6afcc9b113c860e77c67df4c586d28f965e5b7e6",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-305ec628-2d8a-496d-80f6-6a1f311b65c9.png"
+    }
+  ]
+}

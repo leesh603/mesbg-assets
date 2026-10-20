@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T00:40:48.076Z",
+  "updatedAt": "2026-10-20T00:43:00.815Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 346,
-    "newlyGeneratedThisSession": 32,
-    "visuallyReviewedThisSession": 32,
+    "pending": 343,
+    "newlyGeneratedThisSession": 35,
+    "visuallyReviewedThisSession": 35,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 32,
-    "persistedReviewAssets": 164,
+    "generatedReviewAssets": 35,
+    "persistedReviewAssets": 167,
     "revisedAfterRejection": 10
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -46,13 +46,13 @@
     "qualityContract": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md"
   },
   "resume": {
-    "nextAction": "Read current branch head and checkpoint before generation to avoid duplicate work. Read ANATOMY_STANDARD.md. Continue nextIds using original anatomy references; inspect actual proportions, pixel style and elevated front camera before recording output. Save gallery, catalog and checkpoint together with expected-SHA lease.",
+    "nextAction": "Continue nextIds, then next pending faction. Save small batches and refresh every unified gallery artifact together.",
     "nextIds": [
-      "guthlaf",
-      "war_hound",
-      "deorwine_mounted",
       "grimbold_mounted",
-      "harding_mounted"
+      "harding_mounted",
+      "dunhere_mounted",
+      "guthlaf_mounted",
+      "gamling_mounted"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
@@ -4409,8 +4409,13 @@
       "faction": "rohan",
       "role": "hero",
       "original": "tokens/guthlaf.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "rohan",
+      "path": "art/full-roster-night-rebuild-20261019/units/guthlaf.png",
+      "blobSHA": "e66aed0ca2931feedff2af886028dbb23519c036",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "ingold",
@@ -4488,8 +4493,13 @@
       "faction": "rohan",
       "role": "beast",
       "original": "tokens/war_hound.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "rohan",
+      "path": "art/full-roster-night-rebuild-20261019/units/war_hound.png",
+      "blobSHA": "1e34e28e4bb6b9012c5b55d62a1ee445f5cf2549",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "galadhrim_knight",
@@ -4584,8 +4594,13 @@
       "faction": "rohan",
       "role": "hero",
       "original": "tokens/deorwine_mounted.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "rohan",
+      "path": "art/full-roster-night-rebuild-20261019/units/deorwine_mounted.png",
+      "blobSHA": "6afcc9b113c860e77c67df4c586d28f965e5b7e6",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "grimbold_mounted",
@@ -5199,14 +5214,14 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 162,
+    "count": 167,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
       "gondor": 59,
       "mordor": 73,
-      "rohan": 30
+      "rohan": 33
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,
