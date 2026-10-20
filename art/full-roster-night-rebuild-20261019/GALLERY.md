@@ -1,6 +1,30 @@
-# 전체 재제작 검토 — 329종
+# 전체 재제작 검토 — 333종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 마후드 약탈자 (mahud_raider)
+
+![마후드 약탈자](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/mahud_raider.png?v=24cbfe2241bb2dd207acc1680b423c0d9ff89e54)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/mahud_raider.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/mahud_raider.png?v=24cbfe2241bb2dd207acc1680b423c0d9ff89e54)
+
+### 먼 하라드 족장 (far_harad_chieftain)
+
+![먼 하라드 족장](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/far_harad_chieftain.png?v=f3c1970b6f1146335381042ac39ed425436da65d)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/far_harad_chieftain.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/far_harad_chieftain.png?v=f3c1970b6f1146335381042ac39ed425436da65d)
+
+### 마후드 취관병 (mahud_blowpipe)
+
+![마후드 취관병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/mahud_blowpipe.png?v=413a86819b03b3fabc9f28a46d79dba42db357b5)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/mahud_blowpipe.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/mahud_blowpipe.png?v=413a86819b03b3fabc9f28a46d79dba42db357b5)
+
+### 뱀 근위대 (serpent_guard)
+
+![뱀 근위대](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/serpent_guard.png?v=36aa52f88efab6a913dba2c08d35ebcf21ec554b)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/serpent_guard.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/serpent_guard.png?v=36aa52f88efab6a913dba2c08d35ebcf21ec554b)
 
 ### 아브라칸 근위대 (abrakhan_guard)
 

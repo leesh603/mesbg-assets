@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T03:27:33.757Z",
+  "updatedAt": "2026-10-20T03:30:16.412Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 181,
-    "newlyGeneratedThisSession": 197,
-    "visuallyReviewedThisSession": 202,
+    "pending": 177,
+    "newlyGeneratedThisSession": 201,
+    "visuallyReviewedThisSession": 206,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 197,
-    "persistedReviewAssets": 329,
+    "generatedReviewAssets": 201,
+    "persistedReviewAssets": 333,
     "revisedAfterRejection": 14
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -5338,8 +5338,13 @@
       "faction": "harad",
       "role": "infantry",
       "original": "tokens/serpent_guard.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "harad",
+      "path": "art/full-roster-night-rebuild-20261019/units/serpent_guard.png",
+      "blobSHA": "36aa52f88efab6a913dba2c08d35ebcf21ec554b",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "corsair_crossbowman",
@@ -5356,8 +5361,13 @@
       "faction": "harad",
       "role": "infantry",
       "original": "tokens/mahud_blowpipe.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "harad",
+      "path": "art/full-roster-night-rebuild-20261019/units/mahud_blowpipe.png",
+      "blobSHA": "413a86819b03b3fabc9f28a46d79dba42db357b5",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "khandish_warrior",
@@ -5383,8 +5393,13 @@
       "faction": "harad",
       "role": "hero",
       "original": "tokens/far_harad_chieftain.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "harad",
+      "path": "art/full-roster-night-rebuild-20261019/units/far_harad_chieftain.png",
+      "blobSHA": "f3c1970b6f1146335381042ac39ed425436da65d",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "numenorean_knight",
@@ -6071,8 +6086,13 @@
       "faction": "harad",
       "role": "infantry",
       "original": "tokens/mahud_raider.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "harad",
+      "path": "art/full-roster-night-rebuild-20261019/units/mahud_raider.png",
+      "blobSHA": "24cbfe2241bb2dd207acc1680b423c0d9ff89e54",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "camel_rider",
@@ -7071,12 +7091,12 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 329,
+    "count": 333,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
-      "harad": 11,
+      "harad": 15,
       "난쟁이": 25,
       "maiar": 9,
       "isengard": 29,
