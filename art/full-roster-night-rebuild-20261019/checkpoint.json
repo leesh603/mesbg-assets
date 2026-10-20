@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T01:50:29.550983+00:00",
+  "updatedAt": "2026-10-20T02:04:53.192Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 302,
-    "newlyGeneratedThisSession": 76,
-    "visuallyReviewedThisSession": 81,
+    "pending": 293,
+    "newlyGeneratedThisSession": 85,
+    "visuallyReviewedThisSession": 90,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 76,
-    "persistedReviewAssets": 208,
+    "generatedReviewAssets": 85,
+    "persistedReviewAssets": 217,
     "revisedAfterRejection": 14
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -52,12 +52,7 @@
       "cave_troll",
       "orc_shaman",
       "haradrim_spearman",
-      "gimli",
-      "frodo",
-      "dwarf_guardian",
-      "balrog",
-      "barrow_wight",
-      "moria_goblin"
+      "gimli"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
@@ -2280,8 +2275,13 @@
       "faction": "rivendell",
       "role": "hero",
       "original": "tokens/arwen.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/arwen.png",
+      "blobSHA": "26f16820f6f9e447eb381ff5ae6d277bb7c6b830",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "lindir",
@@ -2289,8 +2289,13 @@
       "faction": "rivendell",
       "role": "hero",
       "original": "tokens/lindir.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/lindir.png",
+      "blobSHA": "2d80fafaf8e94a4f05e4cb3c48e41f01ed49f976",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "erestor",
@@ -2298,8 +2303,13 @@
       "faction": "rivendell",
       "role": "hero",
       "original": "tokens/erestor.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/erestor.png",
+      "blobSHA": "f76e08815eacc1c17d13d34500141ecfd1513d92",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "elf_seer",
@@ -2307,8 +2317,13 @@
       "faction": "lothlorien",
       "role": "support",
       "original": "tokens/elf_seer.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/elf_seer.png",
+      "blobSHA": "ef9111f58ea217c89c1e2fb140236495bae20994",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "rumil",
@@ -2316,8 +2331,13 @@
       "faction": "lothlorien",
       "role": "hero",
       "original": "tokens/rumil.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/rumil.png",
+      "blobSHA": "c170a08f1c2300f0379d9d85ee69b99830a88a50",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "orophin",
@@ -2325,8 +2345,13 @@
       "faction": "lothlorien",
       "role": "hero",
       "original": "tokens/orophin.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/orophin.png",
+      "blobSHA": "547ba69b41e0b1fba762bb8698d631d915a4c3ad",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "mirkwood_sentinel",
@@ -2334,8 +2359,13 @@
       "faction": "mirkwood",
       "role": "infantry",
       "original": "tokens/mirkwood_sentinel.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/mirkwood_sentinel.png",
+      "blobSHA": "0623375b60036a980d6d4c92c4865c18bb1fbe88",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "noldor_warrior",
@@ -2343,8 +2373,13 @@
       "faction": "elf",
       "role": "infantry",
       "original": "tokens/noldor_warrior.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/noldor_warrior.png",
+      "blobSHA": "d87ad099f7458c39ad381bf39973d582b22d046c",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "silvan_archer",
@@ -2352,8 +2387,13 @@
       "faction": "mirkwood",
       "role": "infantry",
       "original": "tokens/silvan_archer.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/silvan_archer.png",
+      "blobSHA": "a689393e806272ed64967ad333cf9e1a9fd409b9",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "elven_lancer",
@@ -5432,14 +5472,14 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 208,
+    "count": 217,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
-      "isengard": 5,
+      "elf": 34,
+      "아이센가드": 5,
       "mordor": 73,
-      "elf": 25,
       "rohan": 46,
       "gondor": 59
     },
@@ -5497,6 +5537,13 @@
       "state": "corrected-review-candidate",
       "approval": "pending",
       "corrected": true
+    },
+    "elvenLancer": {
+      "ids": [
+        "elven_lancer"
+      ],
+      "state": "repairing",
+      "reason": "Generated lance shaft is kinked; replace with one straight continuous shaft."
     }
   },
   "lastContinuation": {
