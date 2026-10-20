@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T03:54:05.899Z",
+  "updatedAt": "2026-10-20T03:55:06.152Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 139,
-    "newlyGeneratedThisSession": 239,
-    "visuallyReviewedThisSession": 244,
+    "pending": 129,
+    "newlyGeneratedThisSession": 249,
+    "visuallyReviewedThisSession": 254,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 239,
-    "persistedReviewAssets": 371,
+    "generatedReviewAssets": 249,
+    "persistedReviewAssets": 381,
     "revisedAfterRejection": 18
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -4520,8 +4520,13 @@
       "faction": "dunland",
       "role": "infantry",
       "original": "tokens/dunlending_archer.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dunland",
+      "path": "art/full-roster-night-rebuild-20261019/units/dunlending_archer.png",
+      "blobSHA": "66b7ab36fd88b3a2d072ecbf8dd5417c6ac23870",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "ruffian",
@@ -4614,8 +4619,13 @@
       "faction": "arnor",
       "role": "hero",
       "original": "tokens/arathorn.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "arnor",
+      "path": "art/full-roster-night-rebuild-20261019/units/arathorn.png",
+      "blobSHA": "79eb04c363b95c66582f42a2142b06cdc1b7bb00",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "angbor",
@@ -4862,8 +4872,13 @@
       "faction": "numenor",
       "role": "infantry",
       "original": "tokens/numenorean_archer.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "numenor",
+      "path": "art/full-roster-night-rebuild-20261019/units/numenorean_archer.png",
+      "blobSHA": "4d1f0493703f39adc37f5ccaf3b5f984cdeac878",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "sons_of_eorl",
@@ -5131,8 +5146,13 @@
       "faction": "men",
       "role": "hero",
       "original": "tokens/tuor.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "men",
+      "path": "art/full-roster-night-rebuild-20261019/units/tuor.png",
+      "blobSHA": "341e5158be3fc74c0b9907a16d4d17d8faa63f81",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "hurin_thalion",
@@ -5140,8 +5160,13 @@
       "faction": "men",
       "role": "hero",
       "original": "tokens/hurin_thalion.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "men",
+      "path": "art/full-roster-night-rebuild-20261019/units/hurin_thalion.png",
+      "blobSHA": "70308ae0bfec3ce08d4d1a846463ed431e558982",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "maedhros",
@@ -5296,8 +5321,13 @@
       "faction": "men",
       "role": "infantry",
       "original": "tokens/edain_warrior.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "men",
+      "path": "art/full-roster-night-rebuild-20261019/units/edain_warrior.png",
+      "blobSHA": "ebc1b9643dfc358b30c8fc5583d10c5826211392",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "gondolin_guard",
@@ -5454,8 +5484,13 @@
       "faction": "dunland",
       "role": "hero",
       "original": "tokens/wulf.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dunland",
+      "path": "art/full-roster-night-rebuild-20261019/units/wulf.png",
+      "blobSHA": "1f552a4357f8a1769f9c6d0dd62fcf5030445f0f",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "hera",
@@ -5594,8 +5629,13 @@
       "faction": "arnor",
       "role": "infantry",
       "original": "tokens/arnor_archer.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "arnor",
+      "path": "art/full-roster-night-rebuild-20261019/units/arnor_archer.png",
+      "blobSHA": "03f6408e51656f14deb89e5096862462bbf8a42e",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "duilin",
@@ -5974,8 +6014,13 @@
       "faction": "men",
       "role": "hero",
       "original": "tokens/barahir.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "men",
+      "path": "art/full-roster-night-rebuild-20261019/units/barahir.png",
+      "blobSHA": "0f753bb10a0d43f7ddd61ab16e1944813a2bca84",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "elendur",
@@ -5983,8 +6028,13 @@
       "faction": "numenor",
       "role": "hero",
       "original": "tokens/elendur.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "numenor",
+      "path": "art/full-roster-night-rebuild-20261019/units/elendur.png",
+      "blobSHA": "df8e902a8a5fabe3dbb7b3499ce7014b0e7daaa8",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "arpharazon",
@@ -7289,14 +7339,15 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 371,
+    "count": 381,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
-      "dunland": 6,
-      "arnor": 6,
-      "men": 3,
+      "numenor": 2,
+      "men": 7,
+      "arnor": 8,
+      "dunland": 8,
       "이스터링·칸드": 6,
       "isengard": 30,
       "harad": 20,
@@ -7309,7 +7360,7 @@
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,
-    "sourceValidation": "371 unique IDs; static card count and asset blob SHAs verified"
+    "sourceValidation": "381 unique IDs; static card count and asset blob SHAs verified"
   },
   "revisionRequests": {
     "witchking": {
@@ -7445,17 +7496,18 @@
     }
   },
   "lastContinuation": {
-    "batch": "north-heroes-009",
+    "batch": "north-edain-numenor-010",
     "newIds": [
-      "halbarad",
-      "ghan_buri_ghan",
-      "arvedui",
-      "malbeth",
-      "arnor_warrior",
-      "thrydan",
-      "gorulf",
-      "dunlending_berserker",
-      "dunlending_shaman"
+      "numenorean_archer",
+      "dunlending_archer",
+      "hurin_thalion",
+      "tuor",
+      "arathorn",
+      "edain_warrior",
+      "wulf",
+      "arnor_archer",
+      "barahir",
+      "elendur"
     ],
     "qualityStandard": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
     "note": "Each image inspected against canonical skeleton and identity reference; approval pending."

@@ -1,6 +1,66 @@
-# 전체 재제작 검토 — 371종
+# 전체 재제작 검토 — 381종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 엘렌두르 (elendur)
+
+![엘렌두르](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/elendur.png?v=df8e902a8a5fabe3dbb7b3499ce7014b0e7daaa8)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/elendur.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/elendur.png?v=df8e902a8a5fabe3dbb7b3499ce7014b0e7daaa8)
+
+### 바라히르 (barahir)
+
+![바라히르](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/barahir.png?v=0f753bb10a0d43f7ddd61ab16e1944813a2bca84)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/barahir.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/barahir.png?v=0f753bb10a0d43f7ddd61ab16e1944813a2bca84)
+
+### 아르노르 궁수 (arnor_archer)
+
+![아르노르 궁수](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/arnor_archer.png?v=03f6408e51656f14deb89e5096862462bbf8a42e)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/arnor_archer.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/arnor_archer.png?v=03f6408e51656f14deb89e5096862462bbf8a42e)
+
+### 울프 (wulf)
+
+![울프](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/wulf.png?v=1f552a4357f8a1769f9c6d0dd62fcf5030445f0f)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/wulf.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/wulf.png?v=1f552a4357f8a1769f9c6d0dd62fcf5030445f0f)
+
+### 에다인 전사 (edain_warrior)
+
+![에다인 전사](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/edain_warrior.png?v=ebc1b9643dfc358b30c8fc5583d10c5826211392)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/edain_warrior.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/edain_warrior.png?v=ebc1b9643dfc358b30c8fc5583d10c5826211392)
+
+### 아라손 (arathorn)
+
+![아라손](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/arathorn.png?v=79eb04c363b95c66582f42a2142b06cdc1b7bb00)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/arathorn.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/arathorn.png?v=79eb04c363b95c66582f42a2142b06cdc1b7bb00)
+
+### 투오르 (tuor)
+
+![투오르](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/tuor.png?v=341e5158be3fc74c0b9907a16d4d17d8faa63f81)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/tuor.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/tuor.png?v=341e5158be3fc74c0b9907a16d4d17d8faa63f81)
+
+### 후린 탈리온 (hurin_thalion)
+
+![후린 탈리온](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/hurin_thalion.png?v=70308ae0bfec3ce08d4d1a846463ed431e558982)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/hurin_thalion.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/hurin_thalion.png?v=70308ae0bfec3ce08d4d1a846463ed431e558982)
+
+### 던랜드 궁수 (dunlending_archer)
+
+![던랜드 궁수](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dunlending_archer.png?v=66b7ab36fd88b3a2d072ecbf8dd5417c6ac23870)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/dunlending_archer.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dunlending_archer.png?v=66b7ab36fd88b3a2d072ecbf8dd5417c6ac23870)
+
+### 누메노르 궁병 (numenorean_archer)
+
+![누메노르 궁병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/numenorean_archer.png?v=4d1f0493703f39adc37f5ccaf3b5f984cdeac878)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/numenorean_archer.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/numenorean_archer.png?v=4d1f0493703f39adc37f5ccaf3b5f984cdeac878)
 
 ### 던랜드 주술사 (dunlending_shaman)
 
