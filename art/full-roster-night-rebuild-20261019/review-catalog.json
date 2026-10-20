@@ -6504,21 +6504,21 @@
       "name": "글로르핀델(기마)",
       "group": "엘프",
       "role": "hero",
-      "image": "art/full-roster-night-rebuild-20261019/units/glorfindel_mounted.png",
-      "thumb": "art/full-roster-night-rebuild-20261019/units/glorfindel_mounted.png",
+      "image": "art/full-roster-night-rebuild-20261019/corrections/glorfindel-armor-match-20261020/glorfindel_mounted.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/corrections/glorfindel-armor-match-20261020/glorfindel_mounted.png",
       "old": "tokens/glorfindel_mounted.png",
-      "status": "기마 전신 재제작 · 검토 대기",
+      "status": "갑옷 일치 재수정 검토본",
       "body": "기수 전신 비례 재구성 · 하이앵글 프론트뷰 · 숙인 고개",
       "pose": "백마의 곡검 반격 기마",
-      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/glorfindel_mounted.png?v=6319e1059332c61c61987cc9455ac536354431c7",
-      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/glorfindel_mounted.png?v=6319e1059332c61c61987cc9455ac536354431c7",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/glorfindel-armor-match-20261020/glorfindel_mounted.png?v=0329273dc0147ef5e4d5596fccceb95a6ec265c4",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/glorfindel-armor-match-20261020/glorfindel_mounted.png?v=0329273dc0147ef5e4d5596fccceb95a6ec265c4",
       "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/glorfindel_mounted.png",
-      "revision": "cavalry-camera-20261020",
+      "revision": "glorfindel-armor-match-20261020",
       "priorReviewURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/cavalry-20261020/before/glorfindel_mounted.png?v=36f85d6e55303a88626b3cdf5910c27badc700c0",
       "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "rebuild_review",
-      "qualityReason": "잘못된 공통 기마 뼈대 사용 중단. 기존 동세를 참고해 기수·탑승체 전신을 개별 재제작함. 사용자 확인 대기.",
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "도보와 같은 금색 층상 견갑·청색 흉갑과 금색 중앙 문양·금색 장갑·흰 망토로 장비를 맞춤. 기마의 곡검 돌격 자세와 머리 크기를 유지한 수정 검토본. 본게임 검증·최종 승인 전.",
       "preferredSource": "remake_candidate",
       "proportionRebuild": {
         "date": "2026-10-20",
@@ -6528,8 +6528,23 @@
         "anatomicalMeasurement": "not_claimed",
         "userApproval": "pending"
       },
-      "qualityStatus": "pending",
-      "qualityNote": "잘못된 공통 기마 뼈대 사용 중단. 기존 동세를 참고해 기수·탑승체 전신을 개별 재제작함. 사용자 확인 대기."
+      "qualityStatus": "revised",
+      "qualityNote": "도보와 같은 금색 층상 견갑·청색 흉갑과 금색 중앙 문양·금색 장갑·흰 망토로 장비를 맞춤. 기마의 곡검 돌격 자세와 머리 크기를 유지한 수정 검토본. 본게임 검증·최종 승인 전.",
+      "equipmentIdentity": {
+        "referenceId": "glorfindel_foot",
+        "referencePath": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/glorfindel_foot.png",
+        "referenceBlobSHA": "6ff930a974f4adc4ec5d6c4d3556b9ea4932cfc7",
+        "checkedAt": "2026-10-20T11:27:55.722Z",
+        "review": "visual_side_by_side",
+        "previous": {
+          "path": "art/full-roster-night-rebuild-20261019/units/glorfindel_mounted.png",
+          "blobSHA": "6319e1059332c61c61987cc9455ac536354431c7",
+          "qualityDecision": "rebuild_review",
+          "qualityReason": "잘못된 공통 기마 뼈대 사용 중단. 기존 동세를 참고해 기수·탑승체 전신을 개별 재제작함. 사용자 확인 대기."
+        },
+        "request": "기마와 도보의 갑옷 디자인을 동일하게 유지",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "glorfindel_foot",

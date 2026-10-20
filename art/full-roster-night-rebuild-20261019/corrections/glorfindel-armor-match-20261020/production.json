@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-20T11:27:55.722Z",
+  "request": "글로르핀델 기마와 도보의 갑옷 디자인 일치",
+  "engine": "built-in image_gen",
+  "prompt": "Use case: precise-object-edit.\nAsset type: transparent pixel-art tactical game unit, Glorfindel mounted armor consistency correction.\nInput image 1 is the MOUNTED EDIT TARGET. Input image 2 is the ON-FOOT ARMOR IDENTITY REFERENCE, not a body or pose template.\nPrimary request: edit image 1 so the RIDER wears exactly the same armor and equipment design as the on-foot character in image 2. They are the SAME character in the SAME suit of armor.\nChange only the rider's clothing and armor surfaces. Preserve image 1's exact canvas, elevated-front camera, lowered head, head size, coherent anatomy, forward leaning sword-swing pose, arm positions, grip, hand locations, reins, mounted relationship and saddle. Preserve the entire horse, horse tack and barding pixel-for-pixel as much as possible. Do not make the head smaller or larger.\nMatch image 2's specific suit:\n- BOTH shoulders have solid GOLD overlapping three-lame shoulder plates, simple smooth gold upper cap and gold lames below, with no blue shoulder inset and no bird, sun, branch or floral emblems.\n- Deep navy BLUE bib-shaped chest plate with a GOLD outline and exactly the same single simple GOLD four-petal geometric emblem in the center. White cape collar and small round GOLD clasp.\n- Below the blue bib, the abdomen has the same overlapping GOLD scale/chevron plates.\n- Dark BLUE fabric upper sleeves, NO chain mail or exposed silver mesh on arms or thighs.\n- GOLD pointed leaf/diamond forearm bracers and GOLD armored gloves on BOTH hands, no brown leather gloves.\n- Same tan double belt with small ROUND gold medallion, same dark-blue lower tunic and gold overlapping tassets, gold knee plates and gold boots from image 2.\n- Rider cape: WHITE/ivory exterior and gray-blue shaded interior as in image 2, no ornate gold hem. Keep its flowing silhouette.\nPreserve golden hair, pointed ears and lowered gaze, existing curved silver sword with gold hilt and blue gemstone, horse pose and all horse ornaments. Do not change which hand holds which object. Do not add a shield, weapon, emblem or armor ornament.\nStyle: retain current crisp high density pixel-art clusters, stepped outlines, constrained blue/ivory/gold palette, same light direction and same line weight. Transparent background with real alpha, no ground shadow, no platform, no text. Leave transparent margins around sword tip, cloak and hooves. This is a targeted armor identity correction, not a new composition.",
+  "reference": {
+    "id": "glorfindel_foot",
+    "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/glorfindel_foot.png",
+    "sha": "6ff930a974f4adc4ec5d6c4d3556b9ea4932cfc7"
+  },
+  "targetBefore": {
+    "path": "art/full-roster-night-rebuild-20261019/corrections/glorfindel-armor-match-20261020/before/glorfindel_mounted.png",
+    "sha": "6319e1059332c61c61987cc9455ac536354431c7"
+  },
+  "result": {
+    "path": "art/full-roster-night-rebuild-20261019/corrections/glorfindel-armor-match-20261020/glorfindel_mounted.png",
+    "sha": "0329273dc0147ef5e4d5596fccceb95a6ec265c4",
+    "width": 1199,
+    "height": 1312,
+    "bytes": 1379508,
+    "mode": "RGBA",
+    "alphaRange": [
+      0,
+      255
+    ],
+    "visibleAlphaThreshold128Bounds": [
+      25,
+      30,
+      1190,
+      1299
+    ]
+  },
+  "visualReview": {
+    "sameArmor": [
+      "gold layered pauldrons",
+      "navy bib and gold geometric chest emblem",
+      "gold abdominal plates",
+      "blue sleeves without chain mail",
+      "gold bracers and gloves",
+      "white cape"
+    ],
+    "preserved": [
+      "mounted sword swing",
+      "head size and lowered gaze",
+      "horse pose and barding"
+    ],
+    "limitation": "Appearance compared visually; no exact skeletal measurement or in-game size claim."
+  },
+  "userApproved": false,
+  "inGameVerified": false
+}

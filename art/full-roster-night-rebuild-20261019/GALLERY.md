@@ -2010,9 +2010,9 @@
 
 ### 글로르핀델(기마) (glorfindel_mounted)
 
-![글로르핀델(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/glorfindel_mounted.png?v=6319e1059332c61c61987cc9455ac536354431c7)
+![글로르핀델(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/glorfindel-armor-match-20261020/glorfindel_mounted.png?v=0329273dc0147ef5e4d5596fccceb95a6ec265c4)
 
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/glorfindel_mounted.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/glorfindel_mounted.png?v=6319e1059332c61c61987cc9455ac536354431c7)
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/glorfindel_mounted.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/glorfindel-armor-match-20261020/glorfindel_mounted.png?v=0329273dc0147ef5e4d5596fccceb95a6ec265c4)
 
 ### 글로르핀델(도보) (glorfindel_foot)
 

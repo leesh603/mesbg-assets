@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T10:41:05.871Z",
+  "updatedAt": "2026-10-20T11:27:55.722Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -50,7 +50,8 @@
     "qualityContract": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
     "headPose": "전체적으로 기존처럼 고개를 살짝 숙여 턱과 시선은 앞쪽 아래; 정수리 노출. 턱 들기·정면 응시 금지.",
     "cameraGate": "Actual elevated-front reprojection of whole rider and horse; crown, shoulder tops, horse withers and saddle top visible. Do not substitute chin tuck or head-size-only edits for camera elevation.",
-    "motionAndSilhouette": "기존 구도·동작·기승 자세·숙인 고개·고유 실루엣 보존. 비율을 이유로 직립 정면 자세로 획일화 금지. 기존보다 열화 시 채택하지 않는다."
+    "motionAndSilhouette": "기존 구도·동작·기승 자세·숙인 고개·고유 실루엣 보존. 비율을 이유로 직립 정면 자세로 획일화 금지. 기존보다 열화 시 채택하지 않는다.",
+    "pairedEquipmentIdentity": "글로르핀델 도보·기마는 같은 갑옷 디자인·색·문양·장갑·망토를 유지한다. 기마 수정 시 도보 장비 원화를 함께 대조한다."
   },
   "resume": {
     "nextAction": "Continue every outstanding original 194 rejected/held ID; inspect outputs and persist small batches. No user confirmation needed to continue corrections. Main integration remains separate.",
@@ -260,16 +261,16 @@
       "faction": "rivendell",
       "role": "hero",
       "original": "tokens/glorfindel_mounted.png",
-      "status": "mounted_proportion_rebuilt_review",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "elf",
-      "path": "art/full-roster-night-rebuild-20261019/units/glorfindel_mounted.png",
-      "blobSHA": "6319e1059332c61c61987cc9455ac536354431c7",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/glorfindel-armor-match-20261020/glorfindel_mounted.png",
+      "blobSHA": "0329273dc0147ef5e4d5596fccceb95a6ec265c4",
       "approval": "pending",
       "inGameVerified": false,
-      "revision": "cavalry-camera-20261020",
-      "qualityDecision": "rebuild_review",
-      "qualityReason": "잘못된 공통 기마 뼈대 사용 중단. 기존 동세를 참고해 기수·탑승체 전신을 개별 재제작함. 사용자 확인 대기.",
+      "revision": "glorfindel-armor-match-20261020",
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "도보와 같은 금색 층상 견갑·청색 흉갑과 금색 중앙 문양·금색 장갑·흰 망토로 장비를 맞춤. 기마의 곡검 돌격 자세와 머리 크기를 유지한 수정 검토본. 본게임 검증·최종 승인 전.",
       "preferredSource": "remake_candidate",
       "proportionRebuild": {
         "date": "2026-10-20",
@@ -277,6 +278,21 @@
         "sha": "6319e1059332c61c61987cc9455ac536354431c7",
         "review": "visual_side_by_side",
         "anatomicalMeasurement": "not_claimed",
+        "userApproval": "pending"
+      },
+      "equipmentIdentity": {
+        "referenceId": "glorfindel_foot",
+        "referencePath": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/glorfindel_foot.png",
+        "referenceBlobSHA": "6ff930a974f4adc4ec5d6c4d3556b9ea4932cfc7",
+        "checkedAt": "2026-10-20T11:27:55.722Z",
+        "review": "visual_side_by_side",
+        "previous": {
+          "path": "art/full-roster-night-rebuild-20261019/units/glorfindel_mounted.png",
+          "blobSHA": "6319e1059332c61c61987cc9455ac536354431c7",
+          "qualityDecision": "rebuild_review",
+          "qualityReason": "잘못된 공통 기마 뼈대 사용 중단. 기존 동세를 참고해 기수·탑승체 전신을 개별 재제작함. 사용자 확인 대기."
+        },
+        "request": "기마와 도보의 갑옷 디자인을 동일하게 유지",
         "userApproval": "pending"
       }
     },
@@ -10234,21 +10250,14 @@
     "note": "Each image inspected against canonical skeleton and identity reference; approval pending."
   },
   "lastCorrection": {
-    "at": "2026-10-20T10:41:05.871Z",
-    "batch": "finish-74-02-20261020",
+    "at": "2026-10-20T11:27:55.722Z",
+    "batch": "glorfindel-armor-match-20261020",
     "ids": [
-      "shadow_lord",
-      "denethor",
-      "tainted",
-      "wild_warg",
-      "knight_of_umbar",
-      "undying",
-      "hurin",
-      "wild_warg_alpha"
+      "glorfindel_mounted"
     ],
     "newCharacterCount": 0,
     "qualityAcceptedCount": 0,
-    "purpose": "Correct audit regressions; final approval pending"
+    "purpose": "Correct mounted/foot armor mismatch; preserve 194-item progress and remaining 58."
   },
   "qualityHold": {
     "enabled": true,
