@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T02:08:50.955Z",
+  "updatedAt": "2026-10-20T02:20:00.187Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -43,7 +43,9 @@
     "deployment": "승인 전 main 병합·배포 금지",
     "proportionReference": "art/rebuild-skeletons/bases/human.png and human-mounted.png are immutable anatomy references; do not derive proportions from newly generated dressed characters.",
     "proportionGate": "Judge generated output, not prompt text: compare anatomical skull-crown to chin, shoulder, pelvis, knee, ankle and sole positions with immutable original skeleton. Exclude hair/helmet/crest/beard/weapon. Human exactly FIVE heads; reject four or six-plus. Riders judged as human anatomy separately from horse. Preserve pixel style and elevated front camera.",
-    "qualityContract": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md"
+    "qualityContract": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
+    "headPose": "전체적으로 기존처럼 고개를 살짝 숙여 턱과 시선은 앞쪽 아래; 정수리 노출. 턱 들기·정면 응시 금지.",
+    "cameraGate": "Actual elevated-front reprojection of whole rider and horse; crown, shoulder tops, horse withers and saddle top visible. Do not substitute chin tuck or head-size-only edits for camera elevation."
   },
   "resume": {
     "nextAction": "Continue nextIds, then next pending faction. Save small batches and refresh every unified gallery artifact together.",
@@ -151,9 +153,10 @@
       "visualReviewThisSession": true,
       "source": "elf",
       "path": "art/full-roster-night-rebuild-20261019/units/glorfindel_mounted.png",
-      "blobSHA": "36f85d6e55303a88626b3cdf5910c27badc700c0",
+      "blobSHA": "d9a8cce7680e15de906762aff9153a06ecc09e25",
       "approval": "pending",
-      "inGameVerified": false
+      "inGameVerified": false,
+      "revision": "cavalry-camera-20261020"
     },
     {
       "id": "witchking_fellbeast",
@@ -875,9 +878,10 @@
       "visualReviewThisSession": true,
       "source": "elf",
       "path": "art/full-roster-night-rebuild-20261019/units/elf_knight.png",
-      "blobSHA": "0fd1e484fd4b20db2b28db7946ff560e5a7a1ead",
+      "blobSHA": "98c2167e3b9da8ceec8033a3237a6242f309dfbc",
       "approval": "pending",
-      "inGameVerified": false
+      "inGameVerified": false,
+      "revision": "cavalry-camera-20261020"
     },
     {
       "id": "uruk_swordshield2",
@@ -2527,8 +2531,10 @@
       "visualReviewThisSession": true,
       "source": "image_gen",
       "path": "art/full-roster-night-rebuild-20261019/units/eowyn_mounted.png",
-      "blobSHA": "850fcca289c35793f6f40a0d926f32cb53717ab8",
-      "inGameVerified": false
+      "blobSHA": "7385a07ef9360107389d77680f3dad3ef0454bf1",
+      "inGameVerified": false,
+      "revision": "cavalry-camera-20261020",
+      "approval": "pending"
     },
     {
       "id": "forlong",
@@ -3614,9 +3620,10 @@
       "visualReviewThisSession": true,
       "source": "rohan",
       "path": "art/full-roster-night-rebuild-20261019/units/eorl_the_young.png",
-      "blobSHA": "20eca0ebfe3da67fd8b0e8907fb2e70543c71ecf",
+      "blobSHA": "784ee1ff895b521c0b49c49e37cace086b2f0760",
       "approval": "pending",
-      "inGameVerified": false
+      "inGameVerified": false,
+      "revision": "cavalry-camera-20261020"
     },
     {
       "id": "helm_hammerhand",
@@ -4904,9 +4911,10 @@
       "visualReviewThisSession": true,
       "source": "rohan",
       "path": "art/full-roster-night-rebuild-20261019/units/eorl_the_young_mounted.png",
-      "blobSHA": "acbd58d17c2602011dba5eb6953aa13f1cc1776c",
+      "blobSHA": "754f11f503d778675ae3eb2b7511a86d085397eb",
       "approval": "pending",
-      "inGameVerified": false
+      "inGameVerified": false,
+      "revision": "cavalry-camera-20261020"
     },
     {
       "id": "frealaf_mounted",
@@ -4941,9 +4949,10 @@
       "visualReviewThisSession": true,
       "source": "rohan",
       "path": "art/full-roster-night-rebuild-20261019/units/hera_mounted.png",
-      "blobSHA": "509cd0309422a48a6583260dfce872251ae0efa3",
+      "blobSHA": "b1a6982cae2284b8e320db6d1844c273429d480f",
       "approval": "pending",
-      "inGameVerified": false
+      "inGameVerified": false,
+      "revision": "cavalry-camera-20261020"
     },
     {
       "id": "elendil_mounted",
@@ -5550,6 +5559,21 @@
       "state": "corrected-review-candidate",
       "reason": "Generated lance shaft is kinked; replace with one straight continuous shaft.",
       "corrected": true
+    },
+    "cavalryProportionAndCamera": {
+      "requestedAt": "2026-10-20T02:06:38+00:00",
+      "status": "six_revised_assets_ready_for_user_review",
+      "ids": [
+        "glorfindel_mounted",
+        "eorl_the_young_mounted",
+        "eorl_the_young",
+        "hera_mounted",
+        "elf_knight",
+        "eowyn_mounted"
+      ],
+      "approval": "pending",
+      "inGameVerified": false,
+      "report": "art/full-roster-night-rebuild-20261019/corrections/cavalry-camera-20261020.json"
     }
   },
   "lastContinuation": {
@@ -5563,5 +5587,18 @@
     ],
     "qualityStandard": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
     "note": "Original canonical body templates used. Recovered images visually compared to references. Review candidates, approval pending."
+  },
+  "lastCorrection": {
+    "at": "2026-10-20T02:20:00.187Z",
+    "ids": [
+      "glorfindel_mounted",
+      "eorl_the_young_mounted",
+      "eorl_the_young",
+      "hera_mounted",
+      "elf_knight",
+      "eowyn_mounted"
+    ],
+    "purpose": "기마 대두/4등신, 정면 카메라 교정 및 숙인 고개 유지",
+    "newCharacterCount": 0
   }
 }

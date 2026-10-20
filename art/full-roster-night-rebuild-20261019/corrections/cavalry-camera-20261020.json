@@ -1,29 +1,98 @@
 {
   "requestedAt": "2026-10-20T02:06:38+00:00",
-  "status": "regenerating",
+  "updatedAt": "2026-10-20T02:20:00.187Z",
+  "status": "six_revised_assets_ready_for_user_review",
+  "priorityIds": [
+    "glorfindel_mounted",
+    "eorl_the_young_mounted",
+    "eorl_the_young",
+    "hera_mounted",
+    "elf_knight",
+    "eowyn_mounted"
+  ],
+  "corrected": [
+    {
+      "id": "glorfindel_mounted",
+      "name": "글로르핀델(기마)",
+      "path": "art/full-roster-night-rebuild-20261019/units/glorfindel_mounted.png",
+      "blobSHA": "d9a8cce7680e15de906762aff9153a06ecc09e25",
+      "priorBlobSHA": "36f85d6e55303a88626b3cdf5910c27badc700c0",
+      "beforePath": "art/full-roster-night-rebuild-20261019/corrections/cavalry-20261020/before/glorfindel_mounted.png",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "eorl_the_young_mounted",
+      "name": "에오를(기마)",
+      "path": "art/full-roster-night-rebuild-20261019/units/eorl_the_young_mounted.png",
+      "blobSHA": "754f11f503d778675ae3eb2b7511a86d085397eb",
+      "priorBlobSHA": "acbd58d17c2602011dba5eb6953aa13f1cc1776c",
+      "beforePath": "art/full-roster-night-rebuild-20261019/corrections/cavalry-20261020/before/eorl_the_young_mounted.png",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "eorl_the_young",
+      "name": "에오를",
+      "path": "art/full-roster-night-rebuild-20261019/units/eorl_the_young.png",
+      "blobSHA": "784ee1ff895b521c0b49c49e37cace086b2f0760",
+      "priorBlobSHA": "20eca0ebfe3da67fd8b0e8907fb2e70543c71ecf",
+      "beforePath": "art/full-roster-night-rebuild-20261019/corrections/cavalry-20261020/before/eorl_the_young.png",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "hera_mounted",
+      "name": "헤라(기마)",
+      "path": "art/full-roster-night-rebuild-20261019/units/hera_mounted.png",
+      "blobSHA": "b1a6982cae2284b8e320db6d1844c273429d480f",
+      "priorBlobSHA": "509cd0309422a48a6583260dfce872251ae0efa3",
+      "beforePath": "art/full-roster-night-rebuild-20261019/corrections/cavalry-20261020/before/hera_mounted.png",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "elf_knight",
+      "name": "엘프 기마기사",
+      "path": "art/full-roster-night-rebuild-20261019/units/elf_knight.png",
+      "blobSHA": "98c2167e3b9da8ceec8033a3237a6242f309dfbc",
+      "priorBlobSHA": "0fd1e484fd4b20db2b28db7946ff560e5a7a1ead",
+      "beforePath": "art/full-roster-night-rebuild-20261019/corrections/cavalry-20261020/before/elf_knight.png",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "eowyn_mounted",
+      "name": "에오윈(기마)",
+      "path": "art/full-roster-night-rebuild-20261019/units/eowyn_mounted.png",
+      "blobSHA": "7385a07ef9360107389d77680f3dad3ef0454bf1",
+      "priorBlobSHA": "850fcca289c35793f6f40a0d926f32cb53717ab8",
+      "beforePath": "art/full-roster-night-rebuild-20261019/corrections/cavalry-20261020/before/eowyn_mounted.png",
+      "approval": "pending",
+      "inGameVerified": false
+    }
+  ],
   "userRequirements": {
-    "humanRider": "엄격한 5등신. 기수 대두·4등신 및 6등신 이상 불합격.",
-    "headPose": "전체적으로 기존처럼 고개를 살짝 숙이고 시선은 앞쪽 아래.",
-    "camera": "실제 하이앵글 프론트뷰. 정수리·양 어깨·손등·말 목과 기갑·안장 윗면이 보이는 높은 카메라. 정면뷰에서 머리만 줄이거나 숙이는 수정 불합격.",
-    "style": "기제작 곤도르·모르도르 픽셀 그림체 유지."
+    "camera": "하이앵글 프론트뷰; 정수리·어깨 윗면·말 기갑·안장 윗면 노출",
+    "headPose": "전체적으로 기존처럼 살짝 숙인 고개와 아래 시선",
+    "proportion": "기수 자체 5등신 기준; 말은 등신 산정 제외",
+    "style": "기제작 곤도르·모르도르 픽셀 화풍"
   },
-  "priorityIds": ["glorfindel_mounted", "eorl_the_young_mounted", "eorl_the_young", "hera_mounted", "elf_knight", "eowyn_mounted"],
   "rejectedAttempt": {
     "name": "20261020-head-size-only-v1",
-    "reason": "사용자 시점 불합격: 머리 비중만 줄이고 원본의 낮은 정면 카메라를 보존함.",
+    "reason": "낮은 정면 시점 보존으로 사용자 불합격",
     "adopted": false
   },
-  "cameraReferencePaths": [
+  "cameraReferences": [
     "art/rebuild-skeletons/references/theoden-user-style.png",
     "art/gondor-rebuild-20261019/units/warrior_minas_tirith.png"
   ],
+  "workflow": "Reproject camera, then correct head size without changing elevated projection. Built-in image_gen one call per asset.",
+  "generationPrompt": "Identity-only target; match accepted elevated front view. About 50 degrees down from horizontal, conspicuous crown, shoulder tops, horse withers and saddle top; short foreshortened face/chest, chin tucked and eyes down. Rider alone five-head adult anatomy; reduce oversized skull/face/headgear/hair mass relative to unchanged body, preserving new camera. Match accepted pixel cluster density, palette and shading. Preserve unique equipment, proper saddle seat, knees, hands, reins and stirrups. Transparent alpha, no text/base/shadow.",
   "audit": {
     "mountedCandidatesInspected": 54,
-    "note": "Includes three dismounted text matches and two flying mounts; this is a visual triage, not a final 5-head or camera approval.",
-    "passed": false
+    "note": "Visual triage includes dismounted text matches and flying mounts; not approval of entire cavalry roster."
   },
-  "generationMode": "built-in image_gen, one call per asset",
-  "nextAction": "Reproject first Glorfindel/Eorl from clearly higher front camera; verify actual image, then apply validated camera to the remaining priority IDs.",
   "approval": "pending",
   "inGameVerified": false,
   "mainMerged": false
