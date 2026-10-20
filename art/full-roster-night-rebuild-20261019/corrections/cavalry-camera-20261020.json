@@ -1,7 +1,7 @@
 {
   "requestedAt": "2026-10-20T02:06:38+00:00",
   "updatedAt": "2026-10-20T02:20:00.187Z",
-  "status": "six_revised_assets_ready_for_user_review",
+  "status": "superseded_by_full_quality_audit",
   "priorityIds": [
     "glorfindel_mounted",
     "eorl_the_young_mounted",
@@ -18,8 +18,9 @@
       "blobSHA": "d9a8cce7680e15de906762aff9153a06ecc09e25",
       "priorBlobSHA": "36f85d6e55303a88626b3cdf5910c27badc700c0",
       "beforePath": "art/full-roster-night-rebuild-20261019/corrections/cavalry-20261020/before/glorfindel_mounted.png",
-      "approval": "pending",
-      "inGameVerified": false
+      "approval": "rejected",
+      "inGameVerified": false,
+      "auditDecision": "preserve_original"
     },
     {
       "id": "eorl_the_young_mounted",
@@ -28,8 +29,9 @@
       "blobSHA": "754f11f503d778675ae3eb2b7511a86d085397eb",
       "priorBlobSHA": "acbd58d17c2602011dba5eb6953aa13f1cc1776c",
       "beforePath": "art/full-roster-night-rebuild-20261019/corrections/cavalry-20261020/before/eorl_the_young_mounted.png",
-      "approval": "pending",
-      "inGameVerified": false
+      "approval": "rejected",
+      "inGameVerified": false,
+      "auditDecision": "preserve_original"
     },
     {
       "id": "eorl_the_young",
@@ -38,8 +40,9 @@
       "blobSHA": "784ee1ff895b521c0b49c49e37cace086b2f0760",
       "priorBlobSHA": "20eca0ebfe3da67fd8b0e8907fb2e70543c71ecf",
       "beforePath": "art/full-roster-night-rebuild-20261019/corrections/cavalry-20261020/before/eorl_the_young.png",
-      "approval": "pending",
-      "inGameVerified": false
+      "approval": "hold",
+      "inGameVerified": false,
+      "auditDecision": "needs_revision"
     },
     {
       "id": "hera_mounted",
@@ -48,8 +51,9 @@
       "blobSHA": "b1a6982cae2284b8e320db6d1844c273429d480f",
       "priorBlobSHA": "509cd0309422a48a6583260dfce872251ae0efa3",
       "beforePath": "art/full-roster-night-rebuild-20261019/corrections/cavalry-20261020/before/hera_mounted.png",
-      "approval": "pending",
-      "inGameVerified": false
+      "approval": "rejected",
+      "inGameVerified": false,
+      "auditDecision": "preserve_original"
     },
     {
       "id": "elf_knight",
@@ -58,8 +62,9 @@
       "blobSHA": "98c2167e3b9da8ceec8033a3237a6242f309dfbc",
       "priorBlobSHA": "0fd1e484fd4b20db2b28db7946ff560e5a7a1ead",
       "beforePath": "art/full-roster-night-rebuild-20261019/corrections/cavalry-20261020/before/elf_knight.png",
-      "approval": "pending",
-      "inGameVerified": false
+      "approval": "rejected",
+      "inGameVerified": false,
+      "auditDecision": "preserve_original"
     },
     {
       "id": "eowyn_mounted",
@@ -69,7 +74,8 @@
       "priorBlobSHA": "850fcca289c35793f6f40a0d926f32cb53717ab8",
       "beforePath": "art/full-roster-night-rebuild-20261019/corrections/cavalry-20261020/before/eowyn_mounted.png",
       "approval": "pending",
-      "inGameVerified": false
+      "inGameVerified": false,
+      "auditDecision": "candidate_review"
     }
   ],
   "userRequirements": {
@@ -95,5 +101,7 @@
   },
   "approval": "pending",
   "inGameVerified": false,
-  "mainMerged": false
+  "mainMerged": false,
+  "qualityAcceptedCount": 0,
+  "auditReport": "art/full-roster-night-rebuild-20261019/quality-audit-20261020/results.json"
 }

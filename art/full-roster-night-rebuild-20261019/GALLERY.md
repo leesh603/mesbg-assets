@@ -1,3 +1,16 @@
+## 전수 재점검
+
+
+263종을 기존·신규로 직접 비교했습니다. 기존 우세 111종, 재수정·확인 보류 71종, 뚜렷한 열화 미확인 후보 81종입니다. 후보는 품질 통과나 사용자 승인이 아닙니다. 최신 목록에서 추가된 미검수는 15종입니다.
+
+주요 회귀는 기마의 돌진·기울임이 일반 직립 자세로 바뀐 것, 특히 엘프의 숙인 고개가 정면 얼굴 노출로 바뀐 것, 일부 도보의 하체 압축, 고유 무장·로브·효과 실루엣 손실입니다. 디자인/무장 차이는 기존 이미지 매핑 오류 가능성과 구분해 보류했습니다.
+
+사루만·우르크 검방 2종·우르크 장창 PNG는 원격 바이트가 잘려 검증에 실패했습니다. 정상 생성 원본의 원래 blob SHA로 복구했습니다. 새로 그리지 않았습니다.
+
+이 검수는 원화 시각 비교입니다. 정량 뼈대 측정 및 게임 크기 검증을 완료했다고 주장하지 않습니다. 기존 우세·보류 시안은 다음 제작 기준으로 쓰지 않습니다. 기존 원화의 구도·동작·숙인 고개·고유 실루엣을 보존해야 합니다.
+
+main 병합과 게임 에셋 교체는 하지 않았습니다.
+
 # 전체 재제작 검토 — 278종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
@@ -424,15 +437,15 @@
 
 ### 사루만 (saruman)
 
-![사루만](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/saruman.png?v=7436185abc00d28a09c976a10f99919ae1c789d6)
+![사루만](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/saruman.png?v=7436185abc00d28a09c976a10f99919ae1c789d6&qa=fullpng20261020)
 
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/saruman.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/saruman.png?v=7436185abc00d28a09c976a10f99919ae1c789d6)
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/saruman.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/saruman.png?v=7436185abc00d28a09c976a10f99919ae1c789d6&qa=fullpng20261020)
 
 ### 우르크하이 검방 (uruk_swordshield)
 
-![우르크하이 검방](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/uruk_swordshield.png?v=3674aa0a6a428bbbf2cedc8b4d027e9fbe52623d)
+![우르크하이 검방](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/uruk_swordshield.png?v=3674aa0a6a428bbbf2cedc8b4d027e9fbe52623d&qa=fullpng20261020)
 
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/uruk_swordshield.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/uruk_swordshield.png?v=3674aa0a6a428bbbf2cedc8b4d027e9fbe52623d)
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/uruk_swordshield.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/uruk_swordshield.png?v=3674aa0a6a428bbbf2cedc8b4d027e9fbe52623d&qa=fullpng20261020)
 
 ### 우르크 광전사 (uruk_berserker)
 
@@ -442,15 +455,15 @@
 
 ### 우르크하이 검방 (uruk_swordshield2)
 
-![우르크하이 검방](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/uruk_swordshield2.png?v=fb1832a8b609e56a03b0dfed34b15f8af84a6f38)
+![우르크하이 검방](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/uruk_swordshield2.png?v=fb1832a8b609e56a03b0dfed34b15f8af84a6f38&qa=fullpng20261020)
 
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/uruk_swordshield2.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/uruk_swordshield2.png?v=fb1832a8b609e56a03b0dfed34b15f8af84a6f38)
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/uruk_swordshield2.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/uruk_swordshield2.png?v=fb1832a8b609e56a03b0dfed34b15f8af84a6f38&qa=fullpng20261020)
 
 ### 우르크하이 파이크 (uruk_pike)
 
-![우르크하이 파이크](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/uruk_pike.png?v=46029495213cfac4fc7cadf36f846388e3be8afd)
+![우르크하이 파이크](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/uruk_pike.png?v=46029495213cfac4fc7cadf36f846388e3be8afd&qa=fullpng20261020)
 
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/uruk_pike.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/uruk_pike.png?v=46029495213cfac4fc7cadf36f846388e3be8afd)
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/uruk_pike.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/uruk_pike.png?v=46029495213cfac4fc7cadf36f846388e3be8afd&qa=fullpng20261020)
 
 ### 마술사왕(펠비스트) (witchking_fellbeast)
 
