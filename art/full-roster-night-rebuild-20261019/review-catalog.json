@@ -1,14 +1,29 @@
 {
-  "count": 241,
+  "count": 242,
   "groups": {
-    "elf": 49,
+    "elf": 50,
     "isengard": 14,
     "mordor": 73,
     "rohan": 46,
     "gondor": 59
   },
-  "pending": 269,
+  "pending": 268,
   "units": [
+    {
+      "id": "nargothrond_ranger",
+      "name": "나르고스론드 레인저",
+      "group": "엘프",
+      "role": "infantry",
+      "image": "art/full-roster-night-rebuild-20261019/units/nargothrond_ranger.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/nargothrond_ranger.png",
+      "old": "tokens/nargothrond_ranger.png",
+      "status": "검토 대기",
+      "body": "엘프 5등신 · 하이앵글 프론트뷰",
+      "pose": "초록 후드 · 낮은 활",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/nargothrond_ranger.png?v=95e8923584521083aef9682b8fd8f6626b1f7472",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/nargothrond_ranger.png?v=95e8923584521083aef9682b8fd8f6626b1f7472",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/nargothrond_ranger.png"
+    },
     {
       "id": "falathrim_archer",
       "name": "팔라스림 궁수",

@@ -1,0 +1,26 @@
+{
+  "batch": "elf-016-ranger-fixed",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "nargothrond_ranger",
+      "pose": "초록 후드 · 낮은 활",
+      "detail": "NARGOTHROND RANGER pointed deepgreen hood shading upper face, pointed ears visible, green cloak with silver leaf clasp, olivegreen short tunic with gold subtle branches, brown leather crossed belt and bracers, brown boots. Plain brown long BOW in viewerLEFT hand, held upright on outer side, complete limbs and single straight string. Other hand reaches near belt, NOT near string. Whitefeather arrowquiver high on back. BOTH FEET set wide with slight crouch, body straight front. No extra sword, no helmet, no beard.",
+      "prompt": "EDIT IMAGE2 only to repair BOW GEOMETRY, keep whole character anatomy, camera, face, hair/hood, clothes, hands, feet and pixel style unchanged. Image1 original neutral skeleton remains anatomy master. Replace the bow in the existing gripping hand with ONE SIMPLE D-SHAPED LONG BOW: continuous brown curved wood upper and lower limbs connected by central wrapped grip, ONE clean thin STRAIGHT uninterrupted tan string connecting the EXACT UPPER TIP to the EXACT LOWER TIP as the single chord. Both bowtips and entire string clearly visible, no floating parallel rods, no segmented/beaded string or loose string ends, no diagonal nocked arrow. Keep bow beside body in the same hand. Free hand remains empty at belt; NO arrow shaft held against bow. Keep source identity and exact current fivehead bones. Transparent RGBA, no backdrop/floor/shadow/glow/text, no crop.",
+      "group": "엘프",
+      "groupKey": "elf",
+      "repairPrompt": "EDIT IMAGE2 only to repair BOW GEOMETRY, keep whole character anatomy, camera, face, hair/hood, clothes, hands, feet and pixel style unchanged. Image1 original neutral skeleton remains anatomy master. Replace the bow in the existing gripping hand with ONE SIMPLE D-SHAPED LONG BOW: continuous brown curved wood upper and lower limbs connected by central wrapped grip, ONE clean thin STRAIGHT uninterrupted tan string connecting the EXACT UPPER TIP to the EXACT LOWER TIP as the single chord. Both bowtips and entire string clearly visible, no floating parallel rods, no segmented/beaded string or loose string ends, no diagonal nocked arrow. Keep bow beside body in the same hand. Free hand remains empty at belt; NO arrow shaft held against bow. Keep source identity and exact current fivehead bones. Transparent RGBA, no backdrop/floor/shadow/glow/text, no crop.",
+      "repairPath": "/workspace/scratch/b57ccc107719/generated_images/exec-546c51af-01fb-4839-99ad-42d1728a14ac.png",
+      "originalPrompt": "Dress IMAGE1 neutral elf skeleton as IMAGE2 character identity. IMAGE1 alone controls skull, body and limb bone lengths and camera. Actual adult FIVE anatomical heads crown-to-sole, exclude hair/helmet protrusions. NOT four-head big-head chibi, NOT six-head elongated hero. Keep ordinary adult skull from image1 and exact same torso/leg length relationships. Bone LANDMARKS at neutral standing pose on this portrait canvas: anatomical crown y8%, chin y25%, shoulder tops y27%, pelvic joints y55%, knees y70%, ankles y85%, soles y92%. These show scale, NOT mandatory identical joint angles; bend/rotate for required stance while preserving bones. Costume/helmet closely fitted, do not inflate head inside helmet. Weapons rotate into sides, do not shrink torso to fit weapons. Elevated FRONT camera looking down30degrees, clear TOP planes of skull and both shoulders, chest/face foreshortened, chin/gaze down, NOT eyelevel with only bowed head. Exact image1 pixel density and stepped clusters, black outlines, restrained ramps. Whole body centered independently of cape/weapon, all tips visible and clear margin, transparent RGBA, no floor/base/shadow/aura/text. IMAGE2 only weapon/clothing/hair/color identity, never its skeleton. IMPORTANT: neutral image1 is BALD to expose skull; replace scalp with image2 HAIR or HELMET. Characters described with hair must NEVER be bald. Keep hair fitted around same adult skull. NARGOTHROND RANGER pointed deepgreen hood shading upper face, pointed ears visible, green cloak with silver leaf clasp, olivegreen short tunic with gold subtle branches, brown leather crossed belt and bracers, brown boots. Plain brown long BOW in viewerLEFT hand, held upright on outer side, complete limbs and single straight string. Other hand reaches near belt, NOT near string. Whitefeather arrowquiver high on back. BOTH FEET set wide with slight crouch, body straight front. No extra sword, no helmet, no beard.",
+      "visualReview": {
+        "anatomy": "original neutral elf skeleton; unchanged in bow edit",
+        "bow": "continuous upper/lower limbs and straight tip-to-tip string checked",
+        "approval": "pending"
+      },
+      "blobSHA": "95e8923584521083aef9682b8fd8f6626b1f7472",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-2e2ca5d3-dfd1-4af9-ad40-27b4f4c4e2c3.png"
+    }
+  ]
+}

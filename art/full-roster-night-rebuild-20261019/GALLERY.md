@@ -1,6 +1,12 @@
-# 전체 재제작 검토 — 241종
+# 전체 재제작 검토 — 242종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 나르고스론드 레인저 (nargothrond_ranger)
+
+![나르고스론드 레인저](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/nargothrond_ranger.png?v=95e8923584521083aef9682b8fd8f6626b1f7472)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/nargothrond_ranger.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/nargothrond_ranger.png?v=95e8923584521083aef9682b8fd8f6626b1f7472)
 
 ### 팔라스림 궁수 (falathrim_archer)
 

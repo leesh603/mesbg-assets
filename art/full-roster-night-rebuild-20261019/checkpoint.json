@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T02:42:00.092Z",
+  "updatedAt": "2026-10-20T02:44:17.263Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 269,
-    "newlyGeneratedThisSession": 109,
-    "visuallyReviewedThisSession": 114,
+    "pending": 268,
+    "newlyGeneratedThisSession": 110,
+    "visuallyReviewedThisSession": 115,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 109,
-    "persistedReviewAssets": 241,
+    "generatedReviewAssets": 110,
+    "persistedReviewAssets": 242,
     "revisedAfterRejection": 14
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -4102,8 +4102,13 @@
       "faction": "elf",
       "role": "infantry",
       "original": "tokens/nargothrond_ranger.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/nargothrond_ranger.png",
+      "blobSHA": "95e8923584521083aef9682b8fd8f6626b1f7472",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "edain_warrior",
@@ -5602,12 +5607,12 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 241,
+    "count": 242,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
-      "elf": 49,
+      "elf": 50,
       "isengard": 14,
       "mordor": 73,
       "rohan": 46,
@@ -5700,6 +5705,15 @@
       "state": "corrected-review-candidates",
       "approval": "pending",
       "excludedVariants": "Initial compressed variants and bald Fingon correction are not published."
+    },
+    "elfBowAdditional": {
+      "ids": [
+        "falathrim_archer",
+        "nargothrond_ranger"
+      ],
+      "state": "corrected-review-candidates",
+      "reason": "Repair disconnected/segmented bow string and check separate un-nocked arrow.",
+      "approval": "pending"
     }
   },
   "lastContinuation": {
