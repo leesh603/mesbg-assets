@@ -1,0 +1,1754 @@
+{
+  "request": "all-194-20261020",
+  "updatedAt": "2026-10-20T05:40:52.433Z",
+  "correctedCandidates": 56,
+  "remaining": 138,
+  "scope": [
+    {
+      "id": "imrahil_mounted",
+      "name": "임라힐(기마)",
+      "originalApproval": "rejected",
+      "originalReason": "기존 랜스 돌격이 검을 든 일반 기승으로 바뀌며 무장·동세가 함께 달라짐.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/imrahil_mounted.png",
+      "blobSHA": "8d82d23d82f60d458fa7febdd0b22b8dd88e7a10"
+    },
+    {
+      "id": "aragorn_mounted",
+      "name": "아라곤(기마)",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 숙인 고개와 세운 검 가드가 얼굴·가슴을 드러낸 일반 기승 자세로 바뀜.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/aragorn_mounted.png",
+      "blobSHA": "c994d4d6c64da051069bd0695b9bc9412e2959d1"
+    },
+    {
+      "id": "faramir_mounted",
+      "name": "파라미르(기마)",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 낮춘 고개·슬림한 실루엣보다 머리와 가슴 노출이 커지고 일반 기승 자세로 바뀜.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/faramir_mounted.png",
+      "blobSHA": "a7acf1cb6ac7c2a56b15ad425f6cb36815ac39b6"
+    },
+    {
+      "id": "deorwine_mounted",
+      "name": "데오르바인(기마)",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 몸 기울임·말 돌진 동작이 직립한 일반 기승으로 약화됨.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/deorwine_mounted.png",
+      "blobSHA": "5b13d75b76f1e674be202eb7327aaea70eed0323"
+    },
+    {
+      "id": "grimbold_mounted",
+      "name": "그림볼드(기마)",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 낮춘 머리와 기승 실루엣이 일반적인 직립 기승으로 바뀜.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/grimbold_mounted.png",
+      "blobSHA": "1b5266b0199c7da0ad8d2b02aa3ed654ca8ff979"
+    },
+    {
+      "id": "dunhere_mounted",
+      "name": "둔헤레(기마)",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 낮춘 기수와 말 관계보다 얼굴·상체 노출이 커지고 동작이 정적임.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/dunhere_mounted.png",
+      "blobSHA": "835373efd866428ae9d932c0577883a9e8116800"
+    },
+    {
+      "id": "guthlaf_mounted",
+      "name": "구슬라프(기마)",
+      "originalApproval": "rejected",
+      "originalReason": "기존 군기와 말이 대각선으로 달리는 돌진 동세가 정적 기승으로 약화됨.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/guthlaf_mounted.png",
+      "blobSHA": "4ce3fe57be396bd376bc82d5d96211b23d93a9f2"
+    },
+    {
+      "id": "gamling_mounted",
+      "name": "감링(기마)",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 말·기수·군기가 연결된 돌진 동세와 고유 투구 외형이 일반 기승으로 바뀜.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/gamling_mounted.png",
+      "blobSHA": "edd31102562dc06b7c308e309304e1bf501668e9"
+    },
+    {
+      "id": "aragorn",
+      "name": "아라곤",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 세운 검과 전진 가드 자세가 넓은 다리의 일반 전투 자세로 바뀜. 원래 실루엣 우선.",
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/aragorn.png",
+      "blobSHA": "7917a64356b1d0c299cb16c609771f791e42521b"
+    },
+    {
+      "id": "gandalf",
+      "name": "간달프",
+      "originalApproval": "hold",
+      "originalReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/gandalf.png",
+      "blobSHA": "c94d076042a98b20c3d783a8a810ad35b8aaf337"
+    },
+    {
+      "id": "orc_sword",
+      "name": "모르도르 오크(검)",
+      "originalApproval": "hold",
+      "originalReason": "열린 투구·얼굴 시점과 머리/하체 비중을 재검수해야 함.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/orc_sword.png",
+      "blobSHA": "0659630e41dad2d11c22747cb5504e28d8ef8b71"
+    },
+    {
+      "id": "glorfindel_foot",
+      "name": "글로르핀델(도보)",
+      "originalApproval": "rejected",
+      "originalReason": "기존 숙인 머리·곡검·무게감보다 정면 얼굴 노출이 강해짐.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/glorfindel_foot.png",
+      "blobSHA": "38dee985e0322b064c2060c69322c9cd29e5d262"
+    },
+    {
+      "id": "nazgul_sword",
+      "name": "나즈굴(검)",
+      "originalApproval": "hold",
+      "originalReason": "기존 로브 실루엣이 반복된 깃털형 찢어진 망토·짧은 보행형으로 변경됨. 고유 형태 재검수.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/nazgul_sword.png",
+      "blobSHA": "6f4eafda52d9e18af6ea350da7a9dfb221ca2094"
+    },
+    {
+      "id": "orc_captain",
+      "name": "오크 대장",
+      "originalApproval": "rejected",
+      "originalReason": "기존 군기와 가려진 투구 얼굴이 사라져 검을 든 일반 오크와 역할 실루엣이 겹침.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/orc_captain.png",
+      "blobSHA": "337e29c3901bf18f2ea99374d97854da97e241be"
+    },
+    {
+      "id": "orc_spearman",
+      "name": "오크 창병",
+      "originalApproval": "hold",
+      "originalReason": "기존 방패가 사라지고 창 자세·장비 구성이 변경됨. 병종 무장 매핑·인체 비율 확인 필요.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/orc_spearman.png",
+      "blobSHA": "b9be5983312beb8d1a3e8be58c92593dc19c8e22"
+    },
+    {
+      "id": "orc_archer",
+      "name": "오크 궁수",
+      "originalApproval": "hold",
+      "originalReason": "조준 동작은 생겼으나 얼굴 정면 노출과 압축된 하체 비중을 재검수해야 함.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/orc_archer.png",
+      "blobSHA": "ed1cf732b292483d4fd244637a2a10136f53c617"
+    },
+    {
+      "id": "uruk_swordshield",
+      "name": "우르크하이 검방",
+      "originalApproval": "hold",
+      "originalReason": "정상 원본으로 복구 후 비교. 열린 투구의 얼굴 시점·목·갑주 파지와 인체 비율 확인 필요.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/uruk_swordshield.png",
+      "blobSHA": "3674aa0a6a428bbbf2cedc8b4d027e9fbe52623d"
+    },
+    {
+      "id": "morannon_orc",
+      "name": "모라논 오크",
+      "originalApproval": "hold",
+      "originalReason": "맨얼굴·투구 디자인 변경과 얼굴 시점·목·하체 비중 확인 필요.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/morannon_orc.png",
+      "blobSHA": "cc3060def4c3c346b81ab322db20369d137f7a4a"
+    },
+    {
+      "id": "warg_rider",
+      "name": "와르그 기병",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 낮춘 기수·탑승체·공격 방향 관계가 달라지고 와르그 머리 비중이 커짐.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/warg_rider.png",
+      "blobSHA": "4304177b26329486739e024768ce8512e0faa0e7"
+    },
+    {
+      "id": "legolas",
+      "name": "레골라스",
+      "originalApproval": "rejected",
+      "originalReason": "기존 숙인 고개와 활의 흐름보다 정면 얼굴 노출이 강해짐.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/legolas.png",
+      "blobSHA": "5eebf6f0d1eeb3404353342c62098ce7c27fe85d"
+    },
+    {
+      "id": "gimli",
+      "name": "김리",
+      "originalApproval": "hold",
+      "originalReason": "도끼 파지 자세는 생겼으나 난쟁이 고유 머리/몸 비중·체격을 확정 골격과 대조해야 함.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/gimli.png",
+      "blobSHA": "161173ce51d24573fcdc09123e28ab72522870aa"
+    },
+    {
+      "id": "boromir",
+      "name": "보로미르",
+      "originalApproval": "hold",
+      "originalReason": "넓어진 상체와 짧아진 하체의 균형을 재검수. 기존 지휘관 실루엣과 비교 필요.",
+      "state": "pending_correction",
+      "path": "art/gondor-rebuild-20261019/units/boromir.png",
+      "blobSHA": "e3d1e592a1972165698fa5232d2fbe31de4cc601"
+    },
+    {
+      "id": "elrond",
+      "name": "엘론드",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 숙인 머리·고유 무게감보다 정면 얼굴·직립 인상이 강해짐.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/elrond.png",
+      "blobSHA": "cd495f73702e581dd835d53781e2ee520a7d3993"
+    },
+    {
+      "id": "dwarf_guardian",
+      "name": "드워프 가디언",
+      "originalApproval": "hold",
+      "originalReason": "기존의 짧고 묵직한 난쟁이 실루엣이 길어진 인상. 종족 표준·갑주 중량감 대조 필요.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/dwarf_guardian.png",
+      "blobSHA": "4938584258987425a14feeb23f394be437b99bd1"
+    },
+    {
+      "id": "rohan_royal_guard",
+      "name": "로한 근위병",
+      "originalApproval": "hold",
+      "originalReason": "투구·상체 대비 다리 길이, 추가된 금색 비중과 기존 색 균형 재확인.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/rohan_royal_guard.png",
+      "blobSHA": "1b3d9c7f721ce02689438afa3e24ac8d5e729784"
+    },
+    {
+      "id": "rohan_rider",
+      "name": "로한 기병",
+      "originalApproval": "hold",
+      "originalReason": "새 동작은 있으나 원본과 전방 하이앵글 정합성·기수 시점 비교 필요.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/rohan_rider.png",
+      "blobSHA": "5a5685d4a499b01b41dca385d3ab7de36c09f047"
+    },
+    {
+      "id": "mountain_troll",
+      "name": "산악 트롤",
+      "originalApproval": "hold",
+      "originalReason": "암석질·얼굴·무장 등 본체 디자인이 크게 변경됨. 지정 디자인과 괴수 표준 확인 필요.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/mountain_troll.png",
+      "blobSHA": "80dbf3090600bb762767fe43bf4f8101cc0a14a3"
+    },
+    {
+      "id": "shelob",
+      "name": "셀로브",
+      "originalApproval": "hold",
+      "originalReason": "검은 갑각 중심의 기존 형태가 황갈색 털 질감으로 크게 변경됨. 지정 디자인·질감 일치 확인 필요.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/shelob.png",
+      "blobSHA": "b2c88bbe3064b05258bac11d137a39f58fc9f98e"
+    },
+    {
+      "id": "sauron",
+      "name": "사우론",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 길고 위압적인 큰 인간형 실루엣이 짧고 일반적인 보행형으로 약화됨.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/sauron.png",
+      "blobSHA": "ace3a9241c13355a4889bb53c3f21ef92bf3dd56"
+    },
+    {
+      "id": "nazgul_sword_2",
+      "name": "나즈굴(검·B)",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 길고 유령 같은 로브 실루엣이 짧은 보행·반복 망토형으로 바뀜.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/nazgul_sword_2.png",
+      "blobSHA": "ad7252f81670ca4f962d7d774e63cb8cbc449305"
+    },
+    {
+      "id": "nazgul_mounted",
+      "name": "나즈굴(기마)",
+      "originalApproval": "hold",
+      "originalReason": "기수·말의 크기 관계와 후드 비중·카메라 고도를 재확인해야 함.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/nazgul_mounted.png",
+      "blobSHA": "e13e9ed7b16869042f91c08d55bc658cbf4f13b9"
+    },
+    {
+      "id": "morgul_knight",
+      "name": "모르굴 기사",
+      "originalApproval": "hold",
+      "originalReason": "기존 비교 이미지는 도보형처럼 보이고 신규는 기마형임. 동일 형태 비교가 가능한지 에셋 매핑 확인 필요.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/morgul_knight.png",
+      "blobSHA": "f6df1c7f00e595adddd79ad33dd6564146d4140c"
+    },
+    {
+      "id": "dwimmerlaik",
+      "name": "드위머레이크(갑옷 나즈굴)",
+      "originalApproval": "hold",
+      "originalReason": "원본 대비 넓고 압축된 인체 비중 및 양손 검 자세 재검수.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/dwimmerlaik.png",
+      "blobSHA": "65bdc6414e0eae4c95a918cb0d421ceb1b49909f"
+    },
+    {
+      "id": "mt_swordshield",
+      "name": "미나스 티리스 검방",
+      "originalApproval": "hold",
+      "originalReason": "기존 대비 투구·상체에 비해 다리 길이가 압축되어 보임.",
+      "state": "pending_correction",
+      "path": "art/gondor-rebuild-20261019/units/mt_swordshield.png",
+      "blobSHA": "6c46963a6c1fbdb7d4a1de10d8285aefd86ffc76"
+    },
+    {
+      "id": "mt_captain",
+      "name": "미나스 티리스 장교",
+      "originalApproval": "hold",
+      "originalReason": "넓은 발 간격과 압축된 하체의 비율을 재확인해야 함.",
+      "state": "pending_correction",
+      "path": "art/gondor-rebuild-20261019/units/mt_captain.png",
+      "blobSHA": "483760ed6f70ad40b928384e6ba5ca87b9a45dd1"
+    },
+    {
+      "id": "mt_fountain_guard",
+      "name": "샘물수위병",
+      "originalApproval": "hold",
+      "originalReason": "상체·투구 대비 골반·다리 길이 재검수 필요.",
+      "state": "pending_correction",
+      "path": "art/gondor-rebuild-20261019/units/mt_fountain_guard.png",
+      "blobSHA": "511d51cad96cb8628595480243d9190db454ccf0"
+    },
+    {
+      "id": "orc_swordshield",
+      "name": "오크(검방)",
+      "originalApproval": "hold",
+      "originalReason": "얼굴 시점과 골반·무릎·다리 관계를 상세 재검수해야 함.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/orc_swordshield.png",
+      "blobSHA": "680bf0ec182c696abdfe099d5aca18a40ee0cef0"
+    },
+    {
+      "id": "orc_spear2",
+      "name": "오크(창)",
+      "originalApproval": "hold",
+      "originalReason": "창·작은 방패는 유지됐으나 머리·얼굴 시점과 신체 비중 재검수 필요.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/orc_spear2.png",
+      "blobSHA": "440a61ed4809e0fae7e55f7241e2ee35fd478037"
+    },
+    {
+      "id": "orc_bow",
+      "name": "오크(활)",
+      "originalApproval": "hold",
+      "originalReason": "화살을 꺼내는 동작은 구체화됐으나 머리·몸 비중과 얼굴 시점 재검수 필요.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/orc_bow.png",
+      "blobSHA": "4d8fea75bf139bad66f9dbf34411ec75320b2489"
+    },
+    {
+      "id": "orc_drummer",
+      "name": "오크 전쟁북",
+      "originalApproval": "hold",
+      "originalReason": "투구 제거·얼굴 노출·팔과 북채 비중이 크게 변경됨. 시점·해부학 재검수.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/orc_drummer.png",
+      "blobSHA": "d8579924edbc3b420bbad8573686c912c7b1d180"
+    },
+    {
+      "id": "dwarf_axeshield",
+      "name": "드워프 도끼방",
+      "originalApproval": "hold",
+      "originalReason": "머리·상체·다리 비중 변경. 확정된 난쟁이 종족 골격과 크기 기준 대조 필요.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/dwarf_axeshield.png",
+      "blobSHA": "9c2e0e2ab8fe157ebe6db3338b748c7fe3127fc7"
+    },
+    {
+      "id": "dwarf_2haxe",
+      "name": "드워프 양손도끼",
+      "originalApproval": "hold",
+      "originalReason": "기존보다 팔다리·허리 비중이 길어진 인상. 인간형 5등신을 그대로 적용하지 말고 확정된 난쟁이 골격과 비교 필요.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/dwarf_2haxe.png",
+      "blobSHA": "efd39f2d783bc1bbf62994a723b9163d881bdc36"
+    },
+    {
+      "id": "dwarf_ranger",
+      "name": "드워프 레인저",
+      "originalApproval": "hold",
+      "originalReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/dwarf_ranger.png",
+      "blobSHA": "1af6470eec573936896ef21681d504359fffab69"
+    },
+    {
+      "id": "khazad_guard",
+      "name": "카자드 근위병",
+      "originalApproval": "hold",
+      "originalReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/khazad_guard.png",
+      "blobSHA": "c7ff4679410fabb16625cd06b95fe408dbb5fc6f"
+    },
+    {
+      "id": "iron_guard",
+      "name": "아이언 가드",
+      "originalApproval": "hold",
+      "originalReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/iron_guard.png",
+      "blobSHA": "439b6deeaeea3cdfaee2e9a98d9bc084e53b4a0f"
+    },
+    {
+      "id": "galadhrim_warrior",
+      "name": "갈라드림 전사",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 얼굴이 가려진 전방 하이앵글 인상이 얼굴 노출·직립형으로 바뀜.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/galadhrim_warrior.png",
+      "blobSHA": "5a4baf9025c1e1be3cd1e5dd24882e7f4bcbe56f"
+    },
+    {
+      "id": "uruk_swordshield2",
+      "name": "우르크하이 검방",
+      "originalApproval": "hold",
+      "originalReason": "정상 원본으로 복구 후 비교. 얼굴 시점과 신체 비중·방패/칼 파지 재확인 필요.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/uruk_swordshield2.png",
+      "blobSHA": "fb1832a8b609e56a03b0dfed34b15f8af84a6f38"
+    },
+    {
+      "id": "dol_amroth_knight",
+      "name": "돌 암로스 백조기사",
+      "originalApproval": "rejected",
+      "originalReason": "기존 돌진 기승 자세와 몸 기울임이 직립한 일반 기승 자세로 약해짐.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/dol_amroth_knight.png",
+      "blobSHA": "41191806e84c9252b35ab30ba99445d500773736"
+    },
+    {
+      "id": "gondor_knight",
+      "name": "곤도르 기병",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 기울어진 돌진 자세보다 기수가 세워져 공격 동세가 약해짐.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/gondor_knight.png",
+      "blobSHA": "544da97fb261646998d9fff989cbedc22802a9ef"
+    },
+    {
+      "id": "rohan_outrider",
+      "name": "로한 기마궁수",
+      "originalApproval": "rejected",
+      "originalReason": "기존 말·기수가 함께 기울어진 이동 동세가 직립한 일반 기승으로 약화됨.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/rohan_outrider.png",
+      "blobSHA": "3364e405e7bd9e4cebe3fe2fdf935e063353a603"
+    },
+    {
+      "id": "rohan_banner",
+      "name": "로한 기수",
+      "originalApproval": "hold",
+      "originalReason": "기존의 숙인 고개보다 시점·몸이 세워진 인상. 카메라와 기수 아닌 인체 비율 재확인.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/rohan_banner.png",
+      "blobSHA": "b936668b701fd053cfee9bd6d5f795d7337aae89"
+    },
+    {
+      "id": "black_numenorean",
+      "name": "검은 누메노르인(도보)",
+      "originalApproval": "hold",
+      "originalReason": "기존보다 넓고 짧아 보이는 체형 및 변경된 방패 문양·색 확인 필요.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/black_numenorean.png",
+      "blobSHA": "870d718bce6a9c6c5c47acf87b52d8678109c79d"
+    },
+    {
+      "id": "black_numenorean_mounted",
+      "name": "검은 누메노르인(기마)",
+      "originalApproval": "rejected",
+      "originalReason": "기존 랜스와 문양·색·돌진 실루엣이 검과 다른 갑주·일반 기승으로 크게 변경됨.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/black_numenorean_mounted.png",
+      "blobSHA": "aa5df34925246e9bd6849b758b6a3adf4da9c732"
+    },
+    {
+      "id": "orc_tracker",
+      "name": "오크 추적자",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 고개를 깊이 숙인 추적자 인상보다 정면 얼굴과 일반 오크 인상이 강해짐.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/orc_tracker.png",
+      "blobSHA": "a022c8e468f3390612e0a93dcebdacd323c18079"
+    },
+    {
+      "id": "warg",
+      "name": "야생 와르그",
+      "originalApproval": "hold",
+      "originalReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/warg.png",
+      "blobSHA": "5145c6a61c10dadc50ba91512c21f1f5f91c50b0"
+    },
+    {
+      "id": "uruk_scout_archer",
+      "name": "우르크 스카웃 궁수",
+      "originalApproval": "hold",
+      "originalReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/uruk_scout_archer.png",
+      "blobSHA": "0aec73263007afe0cb975729161b241ebbf6a52a"
+    },
+    {
+      "id": "theoden",
+      "name": "세오덴(기마)",
+      "originalApproval": "rejected",
+      "originalReason": "기존 검·몸 기울임·말의 돌진 동작이 보다 정적인 기승으로 바뀜.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/theoden.png",
+      "blobSHA": "ede13e5af7fa8e27bd677b4cde4d3b3a73dccba6"
+    },
+    {
+      "id": "haldir",
+      "name": "할디르",
+      "originalApproval": "hold",
+      "originalReason": "얼굴·투구·머리카락 형태와 고개 각도가 크게 변경됨. 지정 디자인/기존 에셋 매핑 확인 필요.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/haldir.png",
+      "blobSHA": "d30e60a9a76f382701d139d328a91d3abd8caef5"
+    },
+    {
+      "id": "galadriel",
+      "name": "갈라드리엘",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 숙인 고개·드레스 흐름보다 정면 응시 인상이 강해짐.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/galadriel.png",
+      "blobSHA": "6350df9416f54e1e43a141ead3039d8a79e146ee"
+    },
+    {
+      "id": "mouth_of_sauron",
+      "name": "사우론의 입(기마)",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 검 공격·몸 기울임이 직립한 일반 기승 자세로 약화됨.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/mouth_of_sauron.png",
+      "blobSHA": "06c8d6492f63c0144a157c202f5336dda0bd864b"
+    },
+    {
+      "id": "gothmog",
+      "name": "고스모그",
+      "originalApproval": "hold",
+      "originalReason": "기존 투구·철퇴 외형이 맨얼굴·다른 무장으로 변경됨. 지정 디자인/기존 에셋 매핑 확인 필요.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/gothmog.png",
+      "blobSHA": "d4dbb247311b17142b32a78a6af9934ce911b318"
+    },
+    {
+      "id": "sharku",
+      "name": "샤르쿠(와르그)",
+      "originalApproval": "hold",
+      "originalReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/sharku.png",
+      "blobSHA": "10de54ea5252b61f2492ab495d516b9e5899f21a"
+    },
+    {
+      "id": "khamul",
+      "name": "카물",
+      "originalApproval": "hold",
+      "originalReason": "기존 대비 금색·투구·상체 비중이 커지고 하체가 압축되어 보임.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/khamul.png",
+      "blobSHA": "5425694928e6aefc3d209b55e99dc3a9ffbcd3f3"
+    },
+    {
+      "id": "fingolfin",
+      "name": "핑골핀",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 숙인 머리·무게감이 정면 얼굴·직립 자세로 약화됨.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/fingolfin.png",
+      "blobSHA": "3d4d15c95c9911c09ba31d6f61c36d5f49755111"
+    },
+    {
+      "id": "radagast",
+      "name": "라다가스트",
+      "originalApproval": "hold",
+      "originalReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/radagast.png",
+      "blobSHA": "527a1ca3e43b7cb083342a6133ba23fcae983e42"
+    },
+    {
+      "id": "thranduil",
+      "name": "트란두일",
+      "originalApproval": "rejected",
+      "originalReason": "기존 왕관 윗면·숙인 머리가 정면 얼굴 노출 중심으로 바뀜.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/thranduil.png",
+      "blobSHA": "9ce040192fd0d229fae58646bbaa371206168be9"
+    },
+    {
+      "id": "celeborn",
+      "name": "켈레보른",
+      "originalApproval": "hold",
+      "originalReason": "인체 비중은 정리됐으나 얼굴·고개 각도가 원본보다 정면화됨. 카메라/고개 재검수.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/celeborn.png",
+      "blobSHA": "fc7e5924b47967da71f38a5dc4a18d0173659b41"
+    },
+    {
+      "id": "olog_hai",
+      "name": "올로그하이",
+      "originalApproval": "hold",
+      "originalReason": "갑주·얼굴·양손 무장 구성이 크게 변경됨. 괴수 표준·무장 설계 확인 필요.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/olog_hai.png",
+      "blobSHA": "161fdddba8a1d91f8f2241528174fd318cf18ad1"
+    },
+    {
+      "id": "feanor",
+      "name": "페아노르",
+      "originalApproval": "rejected",
+      "originalReason": "기존 투구·낮춘 머리·위압적 불검 실루엣이 드러난 얼굴과 일반 영웅 자세로 바뀜.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/feanor.png",
+      "blobSHA": "a265f0cc7ae508f5ae90832161683819acbee5b4"
+    },
+    {
+      "id": "luthien",
+      "name": "루시엔",
+      "originalApproval": "rejected",
+      "originalReason": "기존 숙인 머리·가려진 시선보다 정면 얼굴 노출·응시가 강해짐.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/luthien.png",
+      "blobSHA": "7579481efaca2efca849d2e11e80537635d0db8e"
+    },
+    {
+      "id": "beleg",
+      "name": "벨레그",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 숙인 얼굴·백발 인상이 정면 얼굴을 드러낸 일반 궁병형으로 바뀜.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/beleg.png",
+      "blobSHA": "1a574e6c977b93a084f1ddcf770a290f3b74303b"
+    },
+    {
+      "id": "huan",
+      "name": "훈",
+      "originalApproval": "hold",
+      "originalReason": "기존 전방 포식자 동세 대비 측면 얼굴과 둥근 머리 인상이 강함. 동물 골격·시점 확인 필요.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/huan.png",
+      "blobSHA": "acd63541a0cad576658b42564fa475c1b522c621"
+    },
+    {
+      "id": "tauriel",
+      "name": "타우리엘",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 숙인 머리와 쌍검·몸 흐름이 정면 얼굴·일반 보행형으로 약화됨.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/tauriel.png",
+      "blobSHA": "767d2f1e388ecb8acd77857ecf4985bd21f6781f"
+    },
+    {
+      "id": "beregond",
+      "name": "베레곤드",
+      "originalApproval": "hold",
+      "originalReason": "원본 대비 하체가 압축되고 넓어진 인상. 골반·무릎·발목 간격 재확인.",
+      "state": "pending_correction",
+      "path": "art/gondor-rebuild-20261019/units/beregond.png",
+      "blobSHA": "f0a62be314d4699d5db25d0ad371d2b6a404c71d"
+    },
+    {
+      "id": "elladan",
+      "name": "엘라단",
+      "originalApproval": "rejected",
+      "originalReason": "기존 고개를 깊이 숙인 실루엣이 정면 얼굴과 일반 검 준비 자세로 바뀜.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/elladan.png",
+      "blobSHA": "78d12a5db95c8dcb3b7d063c81c63414d42cbae7"
+    },
+    {
+      "id": "elrohir",
+      "name": "엘로히르",
+      "originalApproval": "rejected",
+      "originalReason": "기존 숙인 머리·활의 관계보다 정면 얼굴 노출이 강해짐.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/elrohir.png",
+      "blobSHA": "f33f21dec10f59ebb0b581fb89593c196fac90ac"
+    },
+    {
+      "id": "shagrat",
+      "name": "샤그랏",
+      "originalApproval": "hold",
+      "originalReason": "투구 제거와 얼굴·무장 형태 변경. 지정 디자인/기존 에셋 매핑 및 얼굴 시점 확인 필요.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/shagrat.png",
+      "blobSHA": "d989036c7b8e704c04d21725d837c3d4080895de"
+    },
+    {
+      "id": "gorbag",
+      "name": "고르바그",
+      "originalApproval": "hold",
+      "originalReason": "얼굴 정면 노출·머리 비중·하체 압축을 재검수해야 함.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/gorbag.png",
+      "blobSHA": "19b612b1f4989ee44fb5436854c92b9052d931b1"
+    },
+    {
+      "id": "warg_alpha",
+      "name": "와르그 우두머리",
+      "originalApproval": "hold",
+      "originalReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/warg_alpha.png",
+      "blobSHA": "8a7dc7232765e10a27584eecfaffb138a731dac3"
+    },
+    {
+      "id": "gil_galad",
+      "name": "길갈라드",
+      "originalApproval": "rejected",
+      "originalReason": "기존 낮춘 머리·위압적인 갑주 실루엣이 정면 얼굴 노출·일반 전사형으로 바뀜.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/gil_galad.png",
+      "blobSHA": "6214c931959dfc0d3f12da1d4145bf1f37f95508"
+    },
+    {
+      "id": "cirdan",
+      "name": "키르단",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 숙인 고개·눈을 가린 제스처보다 얼굴 정면 노출이 커짐.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/cirdan.png",
+      "blobSHA": "c08ca86d8fe1dde830ae73a01864f9e496653f79"
+    },
+    {
+      "id": "arwen",
+      "name": "아르웬",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 숙인 고개·시선보다 정면 얼굴 노출이 강해짐.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/arwen.png",
+      "blobSHA": "26f16820f6f9e447eb381ff5ae6d277bb7c6b830"
+    },
+    {
+      "id": "lindir",
+      "name": "린디르",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 그늘진 얼굴·숙인 머리가 얼굴을 드러낸 정면 전사형으로 바뀜.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/lindir.png",
+      "blobSHA": "2d80fafaf8e94a4f05e4cb3c48e41f01ed49f976"
+    },
+    {
+      "id": "erestor",
+      "name": "에레스토르",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 낮춘 머리와 그늘진 얼굴이 정면 얼굴 노출 중심으로 바뀜.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/erestor.png",
+      "blobSHA": "f76e08815eacc1c17d13d34500141ecfd1513d92"
+    },
+    {
+      "id": "elf_seer",
+      "name": "엘프 선견자",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 숙인 머리·은밀한 시선이 정면 얼굴을 드러낸 모습으로 바뀜.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/elf_seer.png",
+      "blobSHA": "ef9111f58ea217c89c1e2fb140236495bae20994"
+    },
+    {
+      "id": "orophin",
+      "name": "오로핀",
+      "originalApproval": "rejected",
+      "originalReason": "기존 몸을 낮춘 공격과 숙인 머리보다 정면 얼굴 노출이 강해짐.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/orophin.png",
+      "blobSHA": "547ba69b41e0b1fba762bb8698d631d915a4c3ad"
+    },
+    {
+      "id": "mirkwood_sentinel",
+      "name": "머크우드 보초",
+      "originalApproval": "rejected",
+      "originalReason": "기존 얼굴이 가려진 투구·후드 실루엣이 얼굴 노출 중심으로 변경됨.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/mirkwood_sentinel.png",
+      "blobSHA": "0623375b60036a980d6d4c92c4865c18bb1fbe88"
+    },
+    {
+      "id": "silvan_archer",
+      "name": "실반 궁수",
+      "originalApproval": "rejected",
+      "originalReason": "기존 후드 아래 숙인 머리·시선보다 정면 얼굴 노출이 강해짐.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/silvan_archer.png",
+      "blobSHA": "a689393e806272ed64967ad333cf9e1a9fd409b9"
+    },
+    {
+      "id": "elven_lancer",
+      "name": "엘프 기창기병",
+      "originalApproval": "rejected",
+      "originalReason": "기존 랜스·몸 기울임·말의 돌격 방향이 연결된 동세가 직립 기승으로 약화됨.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/elven_lancer.png",
+      "blobSHA": "11d647312784860419c8bca3eb29c662a0985fb3"
+    },
+    {
+      "id": "gandalf_mounted",
+      "name": "간달프(섀도우팩스)",
+      "originalApproval": "hold",
+      "originalReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/gandalf_mounted.png",
+      "blobSHA": "6cc40aea54903f61064534e6152ddf0fdca74eb2"
+    },
+    {
+      "id": "forlong",
+      "name": "포를롱",
+      "originalApproval": "hold",
+      "originalReason": "건장함·비대함 변주와 별개로 상체 대비 다리 길이 및 5등신 기준 재확인.",
+      "state": "pending_correction",
+      "path": "art/gondor-rebuild-20261019/units/forlong.png",
+      "blobSHA": "40f9a3b2b1b67fbee9ad2ef57c93e1c2d8d08546"
+    },
+    {
+      "id": "erkenbrand",
+      "name": "에르켄브란트",
+      "originalApproval": "hold",
+      "originalReason": "동작 변주는 있으나 짧아 보이는 하체와 넓은 자세의 비율을 재확인해야 함.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/erkenbrand.png",
+      "blobSHA": "d2aa1053486517bc8b6ef9c9104934f195b052e6"
+    },
+    {
+      "id": "werewolf",
+      "name": "웨어울프",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 긴 팔다리·낮은 머리·포식자 동세보다 둥글고 큰 머리·털 덩어리 인상이 강해짐.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/werewolf.png",
+      "blobSHA": "eb007548b324150d016a064b6d90e06d71ee617c"
+    },
+    {
+      "id": "dark_marshal",
+      "name": "어둠의 장군",
+      "originalApproval": "rejected",
+      "originalReason": "기존 해골 얼굴과 교차 검 실루엣이 빈 후드·다른 무장 자세로 바뀜. 정체성 확인 전 보류.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/dark_marshal.png",
+      "blobSHA": "a547e91b388eed8f7097e166aaf259af3ddea2c6"
+    },
+    {
+      "id": "shadow_lord",
+      "name": "그림자 군주",
+      "originalApproval": "rejected",
+      "originalReason": "기존 그림자 잔기·긴 실루엣이 반복된 찢어진 망토형으로 바뀌어 개성이 약해짐.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/shadow_lord.png",
+      "blobSHA": "493f7c559f85ee2975d9475bf5dd1136ccec34d9"
+    },
+    {
+      "id": "tainted",
+      "name": "타락한 자",
+      "originalApproval": "rejected",
+      "originalReason": "기존 황색 단검·망토의 독특한 질감이 약해지고 다른 나즈굴과 유사한 망토형이 됨.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/tainted.png",
+      "blobSHA": "94f45d8089dd5ebbddd0962a10b7c50fd55eb8ae"
+    },
+    {
+      "id": "undying",
+      "name": "죽지 않는 자",
+      "originalApproval": "rejected",
+      "originalReason": "기존 지팡이·긴 로브의 주술사 실루엣이 짧은 갑주·반복 망토형으로 바뀜.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/undying.png",
+      "blobSHA": "0a5de8f0867fa678a9509063c996b18166b6be45"
+    },
+    {
+      "id": "knight_of_umbar",
+      "name": "움바르의 기사",
+      "originalApproval": "hold",
+      "originalReason": "기존 큰 인간형 대비 하체 압축과 투구·상체 비중 재검수 필요.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/knight_of_umbar.png",
+      "blobSHA": "9a9ba6188bb3fe2c24f5b0ed3bf1ae079e0be6d7"
+    },
+    {
+      "id": "isildur",
+      "name": "이실두르",
+      "originalApproval": "hold",
+      "originalReason": "추가된 문양이 과밀하고 하체가 압축되어 보임. 실루엣·비율 재검수.",
+      "state": "pending_correction",
+      "path": "art/gondor-rebuild-20261019/units/isildur.png",
+      "blobSHA": "2eff63d495184b1b528ff1f0e15c3944b59bfffe"
+    },
+    {
+      "id": "denethor",
+      "name": "데네소르",
+      "originalApproval": "rejected",
+      "originalReason": "로브의 길고 무게감 있는 기존 실루엣이 짧고 넓게 압축됨.",
+      "state": "pending_correction",
+      "path": "art/gondor-rebuild-20261019/units/denethor.png",
+      "blobSHA": "10c483f06bf4f10700f8572b028dc4cd74ad4487"
+    },
+    {
+      "id": "elfhelm_mounted",
+      "name": "엘프헬름(기마)",
+      "originalApproval": "hold",
+      "originalReason": "기승 동작은 생겼으나 원본보다 측면 방향이 강해짐. 전방 하이앵글 정합성 확인 필요.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/elfhelm_mounted.png",
+      "blobSHA": "aa655c835ce6eca2e6622597e3793f919d385976"
+    },
+    {
+      "id": "warg_rider_spear",
+      "name": "와르그 기병(창)",
+      "originalApproval": "hold",
+      "originalReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/warg_rider_spear.png",
+      "blobSHA": "828f86d9cc1e881e26d61248c9b0f63a05501816"
+    },
+    {
+      "id": "warg_rider_bow",
+      "name": "와르그 기병(활)",
+      "originalApproval": "hold",
+      "originalReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/warg_rider_bow.png",
+      "blobSHA": "72a73938527182d34e669621c80f2ef0da10a4d4"
+    },
+    {
+      "id": "warg_chieftain",
+      "name": "와르그 우두머리 기병",
+      "originalApproval": "hold",
+      "originalReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/warg_chieftain.png",
+      "blobSHA": "6e5c6934702a44b9bc7be77a842eef52886a034e"
+    },
+    {
+      "id": "wild_warg",
+      "name": "야생 와르그",
+      "originalApproval": "hold",
+      "originalReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/wild_warg.png",
+      "blobSHA": "76466fd96169047d101f18560c8e64d23445e5dd"
+    },
+    {
+      "id": "wild_warg_alpha",
+      "name": "와르그 우두머리",
+      "originalApproval": "hold",
+      "originalReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/wild_warg_alpha.png",
+      "blobSHA": "1a99e93f6d4eb7380a002a127a2010c0ab9e76c2"
+    },
+    {
+      "id": "nazgul_fellbeast",
+      "name": "나즈굴(펠비스트)",
+      "originalApproval": "hold",
+      "originalReason": "비행체 방향·전방 하이앵글 및 탑승자와 본체 관계를 별도 상세 확인해야 함.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/nazgul_fellbeast.png",
+      "blobSHA": "6630bf774c8b97c5d40c13ac57d805251d2c5da5"
+    },
+    {
+      "id": "aragorn_blackgate",
+      "name": "아라곤(검은문)",
+      "originalApproval": "hold",
+      "originalReason": "기존 전진 동세보다 하체가 짧고 넓게 벌어져 보임. 인체 비율과 팔 자세 재확인.",
+      "state": "pending_correction",
+      "path": "art/gondor-rebuild-20261019/units/aragorn_blackgate.png",
+      "blobSHA": "98b3843e09ee8d2066bdbc5c2752ee3fa86dcca9"
+    },
+    {
+      "id": "hurin",
+      "name": "후린",
+      "originalApproval": "rejected",
+      "originalReason": "흰 머리·수염·로브 외형이 투구·중갑으로 크게 바뀜. 캐릭터 정체성 확인 전 교체 보류.",
+      "state": "pending_correction",
+      "path": "art/gondor-rebuild-20261019/units/hurin.png",
+      "blobSHA": "72ac5a5ed4abb67af988c5abae06506759059d29"
+    },
+    {
+      "id": "cirion",
+      "name": "키리온",
+      "originalApproval": "rejected",
+      "originalReason": "흰 머리·수염·로브 외형이 투구·중갑으로 크게 바뀜. 캐릭터 정체성 확인 전 교체 보류.",
+      "state": "pending_correction",
+      "path": "art/gondor-rebuild-20261019/units/cirion.png",
+      "blobSHA": "11dcd698abc8b9fe4bd1ad2b5437f64eb1a19bae"
+    },
+    {
+      "id": "rohan_royal_guard_mounted",
+      "name": "로한 근위기병",
+      "originalApproval": "hold",
+      "originalReason": "기수 인체·투구의 시각 비중 및 기존 기승 자세와의 관계 재검수.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/rohan_royal_guard_mounted.png",
+      "blobSHA": "fe9ac54f29be53871747537c9b61ed34e21476ce"
+    },
+    {
+      "id": "numenorean_captain",
+      "name": "누메노르 대장",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 절제된 갑주 실루엣이 금색 문양 과밀·짧고 넓은 자세로 바뀜.",
+      "state": "pending_correction",
+      "path": "art/gondor-rebuild-20261019/units/numenorean_captain.png",
+      "blobSHA": "813c289e6ba0603554e05fd3f57b9fbdbd76ba96"
+    },
+    {
+      "id": "numenorean_warrior",
+      "name": "누메노르 전사",
+      "originalApproval": "hold",
+      "originalReason": "하체 압축 및 갑주 문양 밀도 증가. 성인형 비율·시인성 재검수.",
+      "state": "pending_correction",
+      "path": "art/gondor-rebuild-20261019/units/numenorean_warrior.png",
+      "blobSHA": "1b878bb2dcec23b728280ba56d734b2ae73c24cd"
+    },
+    {
+      "id": "numenorean_spearman",
+      "name": "누메노르 창병",
+      "originalApproval": "hold",
+      "originalReason": "원본 대비 하체가 짧고 자세가 넓어짐. 투구·신체 비율 재검수.",
+      "state": "pending_correction",
+      "path": "art/gondor-rebuild-20261019/units/numenorean_spearman.png",
+      "blobSHA": "0ea14e97f6960b034a6fcbdc912c3710196ffda9"
+    },
+    {
+      "id": "forsaken",
+      "name": "버려진 자(나즈굴)",
+      "originalApproval": "rejected",
+      "originalReason": "기존 유령 같은 긴 실루엣이 다리와 갑주가 드러난 전사형으로 크게 바뀜. 정체성 확인 필요.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/forsaken.png",
+      "blobSHA": "bf0c6178947e3f29885d9951110d3a7771efc403"
+    },
+    {
+      "id": "kardush",
+      "name": "카두쉬 화염술사",
+      "originalApproval": "hold",
+      "originalReason": "후드형 주술사가 맨얼굴의 비대한 주술사로 변경됨. 지정 디자인/기존 에셋 매핑 확인 필요.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/kardush.png",
+      "blobSHA": "8bd712ebc6657412e2c26f9e1f9d38f823c0d7c0"
+    },
+    {
+      "id": "morgul_stalker",
+      "name": "모르굴 추적자",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 얼굴이 가려진 은밀한 실루엣이 얼굴을 드러낸 일반 전사형으로 바뀜.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/morgul_stalker.png",
+      "blobSHA": "58321afb9ccc814917dfa04a443e4291e71bd176"
+    },
+    {
+      "id": "angbor",
+      "name": "앵보르 무서운 자",
+      "originalApproval": "hold",
+      "originalReason": "상체·팔 대비 다리가 짧아 보임. 기수 아닌 인간형 5등신 비율 재확인.",
+      "state": "pending_correction",
+      "path": "art/gondor-rebuild-20261019/units/angbor.png",
+      "blobSHA": "2530368e43732f7f376b1f2c8bcf67f884534fdb"
+    },
+    {
+      "id": "haleth",
+      "name": "할레스",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 숙인 머리·그늘진 얼굴이 정면 노출 중심으로 바뀜. 연령 인상·실루엣도 재확인 필요.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/haleth.png",
+      "blobSHA": "0f30924d014427f4163864a68049cc6101f4f66f"
+    },
+    {
+      "id": "gildor",
+      "name": "길도르",
+      "originalApproval": "rejected",
+      "originalReason": "기존 후드·낮춘 머리의 실루엣이 후드를 벗은 정면 얼굴형으로 변경됨.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/gildor.png",
+      "blobSHA": "c011ec40440b705c545bd6eec1847ffd8b25954c"
+    },
+    {
+      "id": "grishnakh",
+      "name": "그리쉬나크",
+      "originalApproval": "hold",
+      "originalReason": "투구·얼굴·갑주 형상이 크게 변경됨. 캐릭터별 지정 디자인 또는 기존 에셋 매핑 확인 필요.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/grishnakh.png",
+      "blobSHA": "b29b5a1a92d782e8efdf6e41eab7935309c6b684"
+    },
+    {
+      "id": "dol_amroth_man_at_arms",
+      "name": "돌 암로스 병사",
+      "originalApproval": "hold",
+      "originalReason": "창을 비스듬히 받친 기존 동작이 수직 창의 직립 자세로 바뀜. 동세 복원 필요.",
+      "state": "pending_correction",
+      "path": "art/gondor-rebuild-20261019/units/dol_amroth_man_at_arms.png",
+      "blobSHA": "932d6a27a76da80919237977f0589b617eaa69cc"
+    },
+    {
+      "id": "sons_of_eorl",
+      "name": "에오를의 아들들",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 낮춘 기수와 말의 돌진 실루엣이 일반 직립 기승으로 약화됨.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/sons_of_eorl.png",
+      "blobSHA": "ca505ec1578fad55025a667fd07e7706d80b5f86"
+    },
+    {
+      "id": "palace_guard",
+      "name": "궁정 근위병",
+      "originalApproval": "hold",
+      "originalReason": "투구·갑주·문양의 진영/캐릭터 정합성과 얼굴 시점 재검수 필요.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/palace_guard.png",
+      "blobSHA": "a2bfd5579c11ce8a2d8f2c6e3967ff47a7694893"
+    },
+    {
+      "id": "guritz",
+      "name": "구리츠",
+      "originalApproval": "hold",
+      "originalReason": "투구·얼굴·무장·해골 장식이 크게 변경됨. 지정 디자인/기존 에셋 매핑 확인 필요.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/guritz.png",
+      "blobSHA": "b320712767f5170cd82ad9d68825debafb37f056"
+    },
+    {
+      "id": "great_beast_gorgoroth",
+      "name": "고르고로스 거수",
+      "originalApproval": "hold",
+      "originalReason": "승무원·탑승 구조가 추가되며 본체 형상이 크게 변경됨. 본체 시점·구조·상대 크기 별도 검수 필요.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/great_beast_gorgoroth.png",
+      "blobSHA": "4bdadc340e13b1b9bf0911fc008c7a4764ca9e38"
+    },
+    {
+      "id": "turgon",
+      "name": "투르곤",
+      "originalApproval": "rejected",
+      "originalReason": "기존 몸을 낮춘 검 공격·밝은 갑주 실루엣이 일반 양손 검 가드 자세로 바뀜.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/turgon.png",
+      "blobSHA": "6360c0257a4bc631af9cc0683b9f2081d7632e3c"
+    },
+    {
+      "id": "fingon",
+      "name": "핑곤",
+      "originalApproval": "rejected",
+      "originalReason": "기존 몸을 낮춘 검 공격 실루엣이 정면 얼굴·검 가드 자세로 바뀜.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/fingon.png",
+      "blobSHA": "d3a0c4e00277a1e5956d64fd880d8396f5078880"
+    },
+    {
+      "id": "finrod_felagund",
+      "name": "핀로드 펠라군드",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 깊이 숙인 머리·왕관·손 제스처보다 정면 얼굴 노출이 강해짐.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/finrod_felagund.png",
+      "blobSHA": "17dc2eccf165b6e963985a123f516cf9ebd92055"
+    },
+    {
+      "id": "maedhros",
+      "name": "마이드로스",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 숙인 머리·검 공격 흐름보다 정면 얼굴 노출이 강함. 손/무기 파지의 캐릭터 정합성도 확인 필요.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/maedhros.png",
+      "blobSHA": "f918410614e7bd1ca856189c9d8c7dad62998332"
+    },
+    {
+      "id": "celegorm",
+      "name": "켈레고름",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 고개를 깊이 숙인 동작이 정면 얼굴 노출·직립형으로 바뀜.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/celegorm.png",
+      "blobSHA": "2108cdaf33818c2bc38940ff4ee456be61bb88df"
+    },
+    {
+      "id": "thingol",
+      "name": "싱골",
+      "originalApproval": "rejected",
+      "originalReason": "기존 숙인 머리·왕의 무게감보다 정면 얼굴·직립형 인상이 강해짐.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/thingol.png",
+      "blobSHA": "bb2ebb206e9a70a402681ec4fc7447d6748afb26"
+    },
+    {
+      "id": "mablung_sindar",
+      "name": "마블룽",
+      "originalApproval": "rejected",
+      "originalReason": "기존 고개를 깊이 숙인 보행 실루엣보다 정면 얼굴·일반 직립 인상이 강해짐.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/mablung_sindar.png",
+      "blobSHA": "5c39eb0cdef358cc7f71f33314b87575a5f8d670"
+    },
+    {
+      "id": "doriath_warrior",
+      "name": "도리아스 전사",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 낮춘 머리·은밀한 시선보다 정면 얼굴 노출이 강해짐.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/doriath_warrior.png",
+      "blobSHA": "e9bef0289c0d9a6ac7edc07caab2454ade1b5b33"
+    },
+    {
+      "id": "falathrim_archer",
+      "name": "팔라스림 궁수",
+      "originalApproval": "hold",
+      "originalReason": "활 사용 동작은 구체화됐으나 기존보다 얼굴이 정면으로 드러남. 고개·카메라 재검수.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/falathrim_archer.png",
+      "blobSHA": "648ea430ba19d3b16966e6cc2c83c533c817fef8"
+    },
+    {
+      "id": "nargothrond_ranger",
+      "name": "나르고스론드 레인저",
+      "originalApproval": "rejected",
+      "originalReason": "기존 후드 아래 가려진 얼굴·낮은 보행 실루엣보다 정면 얼굴 노출이 강해짐.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/nargothrond_ranger.png",
+      "blobSHA": "95e8923584521083aef9682b8fd8f6626b1f7472"
+    },
+    {
+      "id": "gondolin_guard",
+      "name": "곤돌린 근위병",
+      "originalApproval": "hold",
+      "originalReason": "투구·상체 대비 하체 비중 및 갑주 문양/진영 매핑을 재확인해야 함.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/gondolin_guard.png",
+      "blobSHA": "62405088d49e29dad6f71510364c1cfb6082ead3"
+    },
+    {
+      "id": "mirkwood_captain",
+      "name": "머크우드 대장",
+      "originalApproval": "rejected",
+      "originalReason": "기존 몸을 낮춘 검 공격 동세가 정면 얼굴·일반 검 가드 자세로 바뀜.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/mirkwood_captain.png",
+      "blobSHA": "10a0f71b1938a63f083ad87d19edc1b182a1729a"
+    },
+    {
+      "id": "mordor_uruk",
+      "name": "모르도르 우르크",
+      "originalApproval": "hold",
+      "originalReason": "투구 제거 및 얼굴·몸 비율 변경. 지정 디자인과 하이앵글 확인 필요.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/mordor_uruk.png",
+      "blobSHA": "726cd6bcd777de20ef6736847b5259f4c5a0c6fe"
+    },
+    {
+      "id": "morgul_orc",
+      "name": "모르굴 오크",
+      "originalApproval": "hold",
+      "originalReason": "후드에서 드러난 얼굴의 정면 노출·머리 비중과 하이앵글 정합성 재확인.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/morgul_orc.png",
+      "blobSHA": "e587b9c4847f2f4486f59396540305f55b17e569"
+    },
+    {
+      "id": "morgul_rat",
+      "name": "모르굴 추적병",
+      "originalApproval": "hold",
+      "originalReason": "기존 가려진 얼굴이 크게 드러나고 머리·하체 비중이 달라짐. 종족 표준·시점 재검수.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/morgul_rat.png",
+      "blobSHA": "8ad4e3ec68cc894e69184af6793016c27164f21c"
+    },
+    {
+      "id": "ufthak",
+      "name": "우프탁",
+      "originalApproval": "hold",
+      "originalReason": "투구·얼굴·갑주·무장 형태가 크게 변경됨. 지정 디자인/기존 에셋 매핑 확인 필요.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/ufthak.png",
+      "blobSHA": "6acd8bde62cb4fc9d2881dd735040a51a1977591"
+    },
+    {
+      "id": "orc_sergeant",
+      "name": "오크 하사",
+      "originalApproval": "rejected",
+      "originalReason": "기존 채찍이 사라져 일반 검 오크와 구별되는 실루엣이 약화됨. 무장 매핑 확인 필요.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/orc_sergeant.png",
+      "blobSHA": "cab6f28fe555164968227947ef6907ac248b3b47"
+    },
+    {
+      "id": "isengard_troll",
+      "name": "이센가드 트롤",
+      "originalApproval": "hold",
+      "originalReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/isengard_troll.png",
+      "blobSHA": "dbfd9a9dfeffd83e53647313df36ec1527c09209"
+    },
+    {
+      "id": "frealaf",
+      "name": "프레알라프",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 숙인 머리·그늘진 얼굴이 정면 얼굴과 가슴 노출 중심으로 바뀜.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/frealaf.png",
+      "blobSHA": "f091126123392de8d6a16a0d25b58ffb85ede584"
+    },
+    {
+      "id": "rohan_yeoman",
+      "name": "로한 여맨",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 숙인 머리·방어 실루엣이 정면 얼굴 노출과 일반 직립 자세로 바뀜.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/rohan_yeoman.png",
+      "blobSHA": "14b53f093d818145985944544247efe1300e2bcf"
+    },
+    {
+      "id": "derufin",
+      "name": "데루핀",
+      "originalApproval": "hold",
+      "originalReason": "단검 동작은 생겼으나 하체와 상체 비율 재검수 필요.",
+      "state": "pending_correction",
+      "path": "art/gondor-rebuild-20261019/units/derufin.png",
+      "blobSHA": "8641c431da05d706121057d715371c8e7d4ecd86"
+    },
+    {
+      "id": "pippin_citadel",
+      "name": "성채 근위병 피핀",
+      "originalApproval": "hold",
+      "originalReason": "호빗의 종족 비율 확인 필요. 작은 인간형처럼 길어진 인체와 머리 비중 재검수.",
+      "state": "pending_correction",
+      "path": "art/gondor-rebuild-20261019/units/pippin_citadel.png",
+      "blobSHA": "779b9fa66977349f5e2f918ecf2b1d60740c5afb"
+    },
+    {
+      "id": "annatar",
+      "name": "안나타르",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 숙인 고개가 정면 얼굴 응시로 바뀜. 사용자 고개·시점 기준 위반.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/annatar.png",
+      "blobSHA": "7260889eb9c207033d4844cc6e7ff0f669932c44"
+    },
+    {
+      "id": "sauron_wolf",
+      "name": "사우론 (늑대)",
+      "originalApproval": "hold",
+      "originalReason": "기존의 거대한 불꽃 갈기와 위압적 실루엣이 축소됨. 화염 정체성·괴수 표준 재확인.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/sauron_wolf.png",
+      "blobSHA": "2c914dcc141e18b0ce3fce46e8b13178a3904563"
+    },
+    {
+      "id": "maglor",
+      "name": "마글로르",
+      "originalApproval": "rejected",
+      "originalReason": "기존 왕관 아래 숙인 머리·은밀한 시선이 정면 얼굴 노출 중심으로 바뀜.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/maglor.png",
+      "blobSHA": "a57fc9136b77def9384f8eac0a94448a2901bde7"
+    },
+    {
+      "id": "gwindor",
+      "name": "그윈도르",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 숙인 머리·검/등불 흐름보다 정면 얼굴 노출이 강해짐.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/gwindor.png",
+      "blobSHA": "88827b97ccc6ff098efd47f76c91ef5ad2ad7c80"
+    },
+    {
+      "id": "celebrimbor",
+      "name": "켈레브림보르",
+      "originalApproval": "rejected",
+      "originalReason": "기존 숙인 머리·마법 제작 제스처와 빛나는 물건의 개성이 정면 얼굴·일반 직립형으로 약화됨.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/celebrimbor.png",
+      "blobSHA": "511fb89e2c3861c8b4116aa62c9eedbfca7098d7"
+    },
+    {
+      "id": "daeron",
+      "name": "다에론",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 숙인 머리·그늘진 얼굴과 긴 로브가 정면 얼굴·짧은 로브형으로 바뀜.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/daeron.png",
+      "blobSHA": "24e57fbce752e8ba25328e7ce91fcf2b1edabcd6"
+    },
+    {
+      "id": "earnur",
+      "name": "에아르누르",
+      "originalApproval": "hold",
+      "originalReason": "짧고 넓어진 자세의 골반·다리 비율 재검수 필요.",
+      "state": "pending_correction",
+      "path": "art/gondor-rebuild-20261019/units/earnur.png",
+      "blobSHA": "925baaefe7732ce13f8bab42858beb296f449a9a"
+    },
+    {
+      "id": "earendil",
+      "name": "에아렌딜",
+      "originalApproval": "rejected",
+      "originalReason": "기존 숙인 머리·흐르는 머리/망토보다 정면 얼굴 응시가 강해짐.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/earendil.png",
+      "blobSHA": "2ec999e29929117c96accebabcb669db544e7587"
+    },
+    {
+      "id": "maeglin",
+      "name": "매글린",
+      "originalApproval": "rejected",
+      "originalReason": "기존 숙인 머리·그늘진 얼굴이 정면 얼굴 노출 중심으로 바뀜.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/maeglin.png",
+      "blobSHA": "f8b2f8a4081f0e931dcb3e8a3186fdd0e8e64094"
+    },
+    {
+      "id": "eol",
+      "name": "에올",
+      "originalApproval": "rejected",
+      "originalReason": "기존 고개를 깊이 숙인 어두운 실루엣이 정면 얼굴·일반 보행형으로 바뀜.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/eol.png",
+      "blobSHA": "ac37b1fc1942aa358e88691846e7e2d6a21f7ca6"
+    },
+    {
+      "id": "galdor",
+      "name": "갈도르",
+      "originalApproval": "rejected",
+      "originalReason": "기존 숙인 머리·가려진 얼굴·긴 로브가 정면 얼굴·짧은 로브형으로 바뀜. 외형 정합성도 확인 필요.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/galdor.png",
+      "blobSHA": "cb0422c65beb86f90e66680c9e1b99238bedce52"
+    },
+    {
+      "id": "eomund",
+      "name": "에오문드",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 숙인 기수·말 관계가 얼굴을 드러내고 몸을 세운 일반 기승으로 바뀜.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/eomund.png",
+      "blobSHA": "654073ab4ccabe2f84237d63a1c91537de991569"
+    },
+    {
+      "id": "ingold",
+      "name": "잉골드",
+      "originalApproval": "hold",
+      "originalReason": "넓어진 자세에서 다리가 압축되어 보임. 인간형 5등신 인체 재검수.",
+      "state": "pending_correction",
+      "path": "art/gondor-rebuild-20261019/units/ingold.png",
+      "blobSHA": "d29c7fe4ba40380913e2bf242bd0822cc8f986e4"
+    },
+    {
+      "id": "war_hound",
+      "name": "전투견",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 위에서 본 몸통·근육·긴장감보다 정면 얼굴과 만화적 머리 인상이 강해짐.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/war_hound.png",
+      "blobSHA": "1e34e28e4bb6b9012c5b55d62a1ee445f5cf2549"
+    },
+    {
+      "id": "troll_shaman",
+      "name": "트롤 주술사",
+      "originalApproval": "hold",
+      "originalReason": "푸른 룬·주술사 디자인이 붉은 룬·해골 장식으로 변경됨. 고유 디자인 확인 필요.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/troll_shaman.png",
+      "blobSHA": "fc6652a3fc17ab7c13b7778bbb0922df38133738"
+    },
+    {
+      "id": "erkenbrand_mounted",
+      "name": "에르켄브란드(기마)",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 몸을 낮춘 돌격 실루엣보다 직립·일반 기승 인상이 강해짐.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/erkenbrand_mounted.png",
+      "blobSHA": "68c2f97b8913ceabe29ba6e21489164126dc8b6a"
+    },
+    {
+      "id": "frealaf_mounted",
+      "name": "프레알라프(기마)",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 낮춘 기수·빠른 기승 실루엣이 일반 직립 기승으로 약화됨.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/frealaf_mounted.png",
+      "blobSHA": "3c810b5f47d3ce78406afedb32d77577515d9e5d"
+    },
+    {
+      "id": "isildur_mounted",
+      "name": "이실두르(기마)",
+      "originalApproval": "rejected",
+      "originalReason": "기존 검 공격·몸 기울임이 직립한 일반 기승 자세로 약화됨.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/isildur_mounted.png",
+      "blobSHA": "cb8cbc8734f4adc9997d53ebfd343ba6853f2cb9"
+    },
+    {
+      "id": "cirion_mounted",
+      "name": "키리온(기마)",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 흰 머리와 역동적 기승 자세가 가려진 투구·일반 기승 자세로 바뀜.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/cirion_mounted.png",
+      "blobSHA": "e839d42e1ec2a0f7b1609319544bd87c3f7e18cc"
+    },
+    {
+      "id": "earnur_mounted",
+      "name": "에아르누르(기마)",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 몸을 기울인 공격 동작이 직립한 일반 기승 자세로 약화됨.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/earnur_mounted.png",
+      "blobSHA": "7353431f1375afa5f102a57f69d4afb16ec8021f"
+    },
+    {
+      "id": "khamul_mounted",
+      "name": "카물(기마)",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 몸을 낮춘 철퇴 공격이 직립한 일반 기승으로 약화됨.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/khamul_mounted.png",
+      "blobSHA": "f713cf22fe9fcce3b69eb6f1f837112f214f1c31"
+    },
+    {
+      "id": "dark_marshal_mounted",
+      "name": "다크 마샬(기마)",
+      "originalApproval": "rejected",
+      "originalReason": "기존 해골 얼굴·공격 자세가 빈 후드·일반 기승으로 바뀜. 캐릭터 재현 재검수.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/dark_marshal_mounted.png",
+      "blobSHA": "41c3890c3f9305c018002da0caacffe23ff65030"
+    },
+    {
+      "id": "shadow_lord_mounted",
+      "name": "섀도 로드(기마)",
+      "originalApproval": "rejected",
+      "originalReason": "기존 검 공격·기울어진 몸이 일반 기승 자세로 바뀌고 그림자 정체성이 약화됨.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/shadow_lord_mounted.png",
+      "blobSHA": "8e46128025d49d80e096dac7b640ad259439ff6c"
+    },
+    {
+      "id": "forsaken_mounted",
+      "name": "포세이큰(기마)",
+      "originalApproval": "rejected",
+      "originalReason": "기존 검을 내민 기수 동작이 일반 기승으로 약화되며 망토 형상도 크게 변경됨.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/forsaken_mounted.png",
+      "blobSHA": "887bcd2647088d0ba388e70d193d5705a274f47e"
+    },
+    {
+      "id": "tainted_mounted",
+      "name": "테인티드(기마)",
+      "originalApproval": "rejected",
+      "originalReason": "기존 기승 동세와 고유 녹색 망토 실루엣이 일반 기승·반복 망토형으로 바뀜.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/tainted_mounted.png",
+      "blobSHA": "217569b2b394dc3e3b90111d75255e554b7483c5"
+    },
+    {
+      "id": "undying_mounted",
+      "name": "언다잉(기마)",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 긴 로브·주술사 인상이 일반 중갑 나즈굴형으로 바뀜.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/undying_mounted.png",
+      "blobSHA": "5c4068e76bc4fe2eef997bae0b3e85667fc0b300"
+    },
+    {
+      "id": "betrayer_mounted",
+      "name": "배신자(기마)",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 몸 기울임·철퇴 공격이 직립한 일반 기승 자세로 약화됨.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/betrayer_mounted.png",
+      "blobSHA": "2563a0423f943e1a4ed55a2598e1026444c8ae05"
+    },
+    {
+      "id": "guritz_mounted",
+      "name": "구리츠(와르그)",
+      "originalApproval": "hold",
+      "originalReason": "무장과 기수 외형이 크게 변경됨. 지정 디자인·탑승체·실루엣 확인 전 채택 보류.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/guritz_mounted.png",
+      "blobSHA": "366cf05b1dcb2daaf29fc92db37ffd51ff8adc47"
+    },
+    {
+      "id": "feanor_mounted",
+      "name": "페아노르(기마)",
+      "originalApproval": "rejected",
+      "originalReason": "기존 투구·숙인 머리·휘두르는 검과 말의 돌진 동세가 정면 얼굴·일반 기승으로 약화됨.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/feanor_mounted.png",
+      "blobSHA": "35c37a0bbb33051a7a940089812d72a9395c1ead"
+    },
+    {
+      "id": "beleg_mounted",
+      "name": "벨레그(기마)",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 기승 조준·기수와 말의 돌진 동작이 활을 세워 든 일반 기승으로 바뀜.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/beleg_mounted.png",
+      "blobSHA": "beefdc7e1e16ef7f1b0adbb62c32d15053262ea7"
+    },
+    {
+      "id": "maeglin_mounted",
+      "name": "매글린(기마)",
+      "originalApproval": "rejected",
+      "originalReason": "기존 몸을 낮춘 검 공격과 말 돌진이 정면 얼굴·일반 직립 기승으로 약화됨.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/maeglin_mounted.png",
+      "blobSHA": "e6fc619bc9e3b075ba02855f5f8ed5d3997c65a4"
+    },
+    {
+      "id": "fingon_mounted",
+      "name": "핑곤(기마)",
+      "originalApproval": "rejected",
+      "originalReason": "기존 몸을 깊게 기울인 검 공격·기승 동작이 얼굴을 드러낸 직립 기승으로 약화됨.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/fingon_mounted.png",
+      "blobSHA": "66b9094cfc8c37db1310663171d3d15bf4b575bb"
+    },
+    {
+      "id": "ecthelion_mounted",
+      "name": "엑텔리온(기마)",
+      "originalApproval": "rejected",
+      "originalReason": "기존 몸을 낮춘 검 공격·기승 실루엣이 직립한 일반 기승으로 바뀜.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/ecthelion_mounted.png",
+      "blobSHA": "9de7b1ed8649c70f5bb8003febdff3a04895c4a4"
+    },
+    {
+      "id": "finrod_felagund_mounted",
+      "name": "핀로드(기마)",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 낮춘 머리·검 공격과 말 돌진 동세가 정면 얼굴·직립 기승으로 약화됨.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/finrod_felagund_mounted.png",
+      "blobSHA": "65cc0859821707c749e03876783e295bd4a92571"
+    },
+    {
+      "id": "dol_amroth_knight_foot",
+      "name": "돌 암로스 백조기사 도보",
+      "originalApproval": "hold",
+      "originalReason": "투구·상체에 비해 다리가 짧아 보임. 5등신 인체 기준 확인 필요.",
+      "state": "pending_correction",
+      "path": "art/gondor-rebuild-20261019/units/dol_amroth_knight_foot.png",
+      "blobSHA": "5e76fe4750c9f4f3751cfa16c7b12cfda146bc82"
+    },
+    {
+      "id": "rohan_redshield",
+      "name": "웨스트폴드 적색방패 기병",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 전진 돌격과 창 방향이 새 일반 기승 실루엣보다 강함.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/rohan_redshield.png",
+      "blobSHA": "2884950bcf0655433fc43ec21557eaf0c285f809"
+    },
+    {
+      "id": "galadhrim_bow",
+      "name": "갈라드림 궁수",
+      "originalApproval": "rejected",
+      "originalReason": "기존 투구 아래 숙인 고개보다 정면 얼굴 노출과 일반 직립 인상이 강해짐.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/galadhrim_bow.png",
+      "blobSHA": "7024e6dd9b51ec2c451448df82bacee85e9ffca5"
+    },
+    {
+      "id": "galadhrim_elite_bow",
+      "name": "갈라드림 정예 궁병",
+      "originalApproval": "rejected",
+      "originalReason": "기존 활 파지·숙인 머리의 흐름이 정면 얼굴·활을 세운 직립형으로 바뀜.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/galadhrim_elite_bow.png",
+      "blobSHA": "b0074fe9c9bf1c49f39b6f4633fabdd3acd321fc"
+    },
+    {
+      "id": "mirkwood_ranger",
+      "name": "머크우드 레인저",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 후드·숙인 고개·그늘진 시선이 후드를 벗고 얼굴을 드러낸 일반 궁병형으로 바뀜.",
+      "state": "pending_correction",
+      "path": "art/full-roster-night-rebuild-20261019/units/mirkwood_ranger.png",
+      "blobSHA": "e2371c479a2a5dde8ce26e8190dab977a3d447ec"
+    },
+    {
+      "id": "morannon_swordshield",
+      "name": "모라논 오크 검방",
+      "originalApproval": "hold",
+      "originalReason": "다리·골반 정합성과 얼굴 시점 재확인. 이전 꼬인 다리 지적 관련 우선 상세 검수 대상.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/morannon_swordshield.png",
+      "blobSHA": "2758decfb92b77f7d8d754e323d0d4bde72ff37e"
+    },
+    {
+      "id": "orc_elite_tracker",
+      "name": "오크 정예 추적궁병",
+      "originalApproval": "rejected",
+      "originalReason": "기존의 맨발·야성적인 추적자 인상이 후드·부츠의 일반 오크형으로 바뀜.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/orc_elite_tracker.png",
+      "blobSHA": "82a0961e99daf9d7c3afb1dffc0c5c8c1f7778b5"
+    },
+    {
+      "id": "witchking_foot",
+      "name": "마술사왕(두건)",
+      "originalApproval": "rejected",
+      "originalReason": "기존 긴 로브·단순한 유령 실루엣이 반복된 찢어진 망토형으로 변경됨.",
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/witchking_foot.png",
+      "blobSHA": "1bc41afa5f4f8a95481adf0da7fa97dbe3eb8079"
+    },
+    {
+      "id": "witchking_fellbeast",
+      "name": "마술사왕(펠비스트)",
+      "originalApproval": "hold",
+      "originalReason": "사용자 지정 GW 투구·어깨 갑옷·불검과 대조 필요. 비행체 방향·탑승자 구조도 상세 검수.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/witchking_fellbeast.png",
+      "blobSHA": "45c27b148686f3d53744eed02452f0b91940cd47"
+    },
+    {
+      "id": "witchking_mounted",
+      "name": "마술사왕(기마)",
+      "originalApproval": "hold",
+      "originalReason": "GW 지정 투구·어깨 갑옷과 기존 기승 공격 동세를 함께 만족하는지 상세 검수 필요.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/witchking_mounted.png",
+      "blobSHA": "61799e748fc81cf630ffdf6ebcfa33f2a0423639"
+    },
+    {
+      "id": "witchking_foot_mace",
+      "name": "마술사왕(투구)",
+      "originalApproval": "hold",
+      "originalReason": "기존 비교 원화는 철퇴가 보이지 않아 형태/무장 매핑 확인 필요. 신규는 GW 지정 디자인 대조 필요.",
+      "state": "pending_correction",
+      "path": "art/mordor-rebuild-20261019/units/witchking_foot_mace.png",
+      "blobSHA": "aa0fb8b5d63883f9382e8045b81868923b1f9411"
+    },
+    {
+      "id": "witchking_mounted_sheet",
+      "name": "마술사왕 기마",
+      "originalApproval": "hold",
+      "originalReason": "GW 지정 투구·어깨 갑옷 및 기승 동작·무장 구성 대조 필요.",
+      "state": "previous_mounted_revision_saved",
+      "path": "art/full-roster-night-rebuild-20261019/units/witchking_mounted_sheet.png",
+      "blobSHA": "d01b858dd05d511acd82ceca6edd44e71df12b5a"
+    }
+  ]
+}

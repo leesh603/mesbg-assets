@@ -1,0 +1,27 @@
+{
+  "label": "restore-guard-wizard-hood-20261020",
+  "checkedAt": "2026-10-20T05:40:52.433Z",
+  "records": [
+    {
+      "id": "aragorn",
+      "path": "/workspace/scratch/f40d43c7f276/generated_images/exec-71c1cb32-22e6-4889-98dd-e16ce0a80bf0.png",
+      "expected": "7917a64356b1d0c299cb16c609771f791e42521b",
+      "notes": "기존의 세운 검·양손 파지와 전진 가드를 복원. 숙인 고개와 어깨 윗면이 보이는 시점을 기존 원화와 비교함.",
+      "sha": "7917a64356b1d0c299cb16c609771f791e42521b"
+    },
+    {
+      "id": "gandalf",
+      "path": "/workspace/scratch/f40d43c7f276/generated_images/exec-c2534612-f687-4098-bfb3-e58abe53ea06.png",
+      "expected": "c94d076042a98b20c3d783a8a810ad35b8aaf337",
+      "notes": "기존 모자 아래 가려진 얼굴·회색 로브·왼쪽 아래 검·오른쪽 지팡이의 배치와 전진 동작을 보존한 수정본 비교 완료.",
+      "sha": "c94d076042a98b20c3d783a8a810ad35b8aaf337"
+    },
+    {
+      "id": "witchking_foot",
+      "path": "/workspace/scratch/f40d43c7f276/generated_images/exec-a1a3b4ca-04ce-4303-8770-624e6789c95b.png",
+      "expected": "1bc41afa5f4f8a95481adf0da7fa97dbe3eb8079",
+      "notes": "두건형에 섞인 금속 어깨 갑주를 제거하고 빈 후드·긴 검은 로브·검·장갑으로 구분. 숙인 두건과 전진 실루엣을 원본과 비교함.",
+      "sha": "1bc41afa5f4f8a95481adf0da7fa97dbe3eb8079"
+    }
+  ]
+}

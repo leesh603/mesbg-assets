@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T05:20:54.528Z",
+  "updatedAt": "2026-10-20T05:40:52.433Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
-  "state": "candidate_coverage_complete_quality_rework_remaining",
+  "state": "quality_repair_in_progress",
   "blocker": null,
   "counts": {
     "characters": 510,
@@ -16,9 +16,9 @@
     "generatedReviewAssets": 378,
     "persistedReviewAssets": 510,
     "revisedAfterRejection": 20,
-    "qualityRejected": 105,
-    "qualityHeld": 89,
-    "awaitingApproval": 316
+    "qualityRejected": 66,
+    "qualityHeld": 72,
+    "awaitingApproval": 372
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
   "sources": [
@@ -52,8 +52,17 @@
     "motionAndSilhouette": "기존 구도·동작·기승 자세·숙인 고개·고유 실루엣 보존. 비율을 이유로 직립 정면 자세로 획일화 금지. 기존보다 열화 시 채택하지 않는다."
   },
   "resume": {
-    "nextAction": "Mounted proportion rebuild: 84/84 forms reconstructed and visually compared; user art review pending. Continue separately outstanding non-mounted quality work before any user-authorized integration. No main merge or deployment.",
-    "nextIds": [],
+    "nextAction": "Continue every outstanding original 194 rejected/held ID; inspect outputs and persist small batches. No user confirmation needed to continue corrections. Main integration remains separate.",
+    "nextIds": [
+      "orc_sword",
+      "glorfindel_foot",
+      "witchking_foot_mace",
+      "nazgul_sword",
+      "orc_captain",
+      "orc_spearman",
+      "orc_archer",
+      "uruk_swordshield"
+    ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
   },
@@ -65,14 +74,29 @@
       "role": "hero",
       "original": "tokens/aragorn.png",
       "source": "gondor",
-      "path": "art/gondor-rebuild-20261019/units/aragorn.png",
-      "blobSHA": "80ea9cb4e8637ea10c9daef6e7a5857329750d1f",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존의 세운 검과 전진 가드 자세가 넓은 다리의 일반 전투 자세로 바뀜. 원래 실루엣 우선.",
-      "approval": "rejected",
-      "preferredSource": "old"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/aragorn.png",
+      "blobSHA": "7917a64356b1d0c299cb16c609771f791e42521b",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "기존의 세운 검·양손 파지와 전진 가드를 복원. 숙인 고개와 어깨 윗면이 보이는 시점을 기존 원화와 비교함.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "restore-guard-wizard-hood-20261020",
+        "previous": {
+          "approval": "rejected",
+          "path": "art/gondor-rebuild-20261019/units/aragorn.png",
+          "blobSHA": "80ea9cb4e8637ea10c9daef6e7a5857329750d1f",
+          "reason": "기존의 세운 검과 전진 가드 자세가 넓은 다리의 일반 전투 자세로 바뀜. 원래 실루엣 우선."
+        },
+        "observations": "기존의 세운 검·양손 파지와 전진 가드를 복원. 숙인 고개와 어깨 윗면이 보이는 시점을 기존 원화와 비교함.",
+        "checkedAt": "2026-10-20T05:40:52.433Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "gandalf",
@@ -80,16 +104,30 @@
       "faction": "maiar",
       "role": "hero",
       "original": "tokens/gandalf.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "maiar",
-      "path": "art/full-roster-night-rebuild-20261019/units/gandalf.png",
-      "blobSHA": "df0c9413131ba16b1b39f50c65879f16140a5493",
-      "approval": "hold",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/gandalf.png",
+      "blobSHA": "c94d076042a98b20c3d783a8a810ad35b8aaf337",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "unreviewed",
-      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
-      "preferredSource": "undecided"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "기존 모자 아래 가려진 얼굴·회색 로브·왼쪽 아래 검·오른쪽 지팡이의 배치와 전진 동작을 보존한 수정본 비교 완료.",
+      "preferredSource": "remake_candidate",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "restore-guard-wizard-hood-20261020",
+        "previous": {
+          "approval": "hold",
+          "path": "art/full-roster-night-rebuild-20261019/units/gandalf.png",
+          "blobSHA": "df0c9413131ba16b1b39f50c65879f16140a5493",
+          "reason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류."
+        },
+        "observations": "기존 모자 아래 가려진 얼굴·회색 로브·왼쪽 아래 검·오른쪽 지팡이의 배치와 전진 동작을 보존한 수정본 비교 완료.",
+        "checkedAt": "2026-10-20T05:40:52.433Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "warrior_minas_tirith",
@@ -114,16 +152,30 @@
       "role": "hero",
       "original": "tokens/witchking_foot.png",
       "source": "mordor",
-      "path": "art/mordor-rebuild-20261019/units/witchking_foot.png",
-      "blobSHA": "a4c1348d1fffaa8ca0faf4b747f2c0fcb3a887e7",
-      "status": "generated_review_asset",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/witchking_foot.png",
+      "blobSHA": "1bc41afa5f4f8a95481adf0da7fa97dbe3eb8079",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "revision": "witchking-design-v2",
-      "approval": "rejected",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존 긴 로브·단순한 유령 실루엣이 반복된 찢어진 망토형으로 변경됨.",
-      "preferredSource": "old"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "두건형에 섞인 금속 어깨 갑주를 제거하고 빈 후드·긴 검은 로브·검·장갑으로 구분. 숙인 두건과 전진 실루엣을 원본과 비교함.",
+      "preferredSource": "remake_candidate",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "restore-guard-wizard-hood-20261020",
+        "previous": {
+          "approval": "rejected",
+          "path": "art/mordor-rebuild-20261019/units/witchking_foot.png",
+          "blobSHA": "a4c1348d1fffaa8ca0faf4b747f2c0fcb3a887e7",
+          "reason": "기존 긴 로브·단순한 유령 실루엣이 반복된 찢어진 망토형으로 변경됨."
+        },
+        "observations": "두건형에 섞인 금속 어깨 갑주를 제거하고 빈 후드·긴 검은 로브·검·장갑으로 구분. 숙인 두건과 전진 실루엣을 원본과 비교함.",
+        "checkedAt": "2026-10-20T05:40:52.433Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "orc_sword",
@@ -8945,5 +8997,13 @@
     "signature": "esgaroth_archer:faea0ee3a84938723b65966a561964bcb748711c;watcher_karna:b79bbb1bc2544e22bbff4f90f5bebe8944b0a89c",
     "approval": "pending",
     "inGameVerified": false
+  },
+  "qualityRepairRequest": {
+    "id": "all-194-20261020",
+    "scopeCount": 194,
+    "correctedCandidates": 56,
+    "remaining": 138,
+    "userApproved": 0,
+    "previousMountedCorrectionsIncluded": true
   }
 }
