@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T02:48:30.679Z",
+  "updatedAt": "2026-10-20T02:48:54.357Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 257,
-    "newlyGeneratedThisSession": 121,
-    "visuallyReviewedThisSession": 126,
+    "pending": 252,
+    "newlyGeneratedThisSession": 126,
+    "visuallyReviewedThisSession": 131,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 121,
-    "persistedReviewAssets": 253,
+    "generatedReviewAssets": 126,
+    "persistedReviewAssets": 258,
     "revisedAfterRejection": 14
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -960,8 +960,13 @@
       "faction": "isengard",
       "role": "support",
       "original": "tokens/uruk_banner.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "isengard",
+      "path": "art/full-roster-night-rebuild-20261019/units/uruk_banner.png",
+      "blobSHA": "b9c7faa54e6abd4b08818931399b0dd6982524ae",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "haradrim_spear",
@@ -1534,8 +1539,13 @@
       "faction": "isengard",
       "role": "hero",
       "original": "tokens/grima.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "isengard",
+      "path": "art/full-roster-night-rebuild-20261019/units/grima.png",
+      "blobSHA": "8266426a29c1ec863a10a620ed0fe9a35cfc0b75",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "khamul",
@@ -3476,8 +3486,13 @@
       "faction": "isengard",
       "role": "infantry",
       "original": "tokens/ruffian.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "isengard",
+      "path": "art/full-roster-night-rebuild-20261019/units/ruffian.png",
+      "blobSHA": "eecbbb74747af4780465031d1b08af42527fb8de",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "paladin_took",
@@ -3632,8 +3647,13 @@
       "faction": "isengard",
       "role": "hero",
       "original": "tokens/snaga.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "isengard",
+      "path": "art/full-roster-night-rebuild-20261019/units/snaga.png",
+      "blobSHA": "ab49266a7e407b4b7d2fcc34cc87ed35dab6f071",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "zagdush",
@@ -3824,8 +3844,13 @@
       "faction": "isengard",
       "role": "hero",
       "original": "tokens/targsh.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "isengard",
+      "path": "art/full-roster-night-rebuild-20261019/units/targsh.png",
+      "blobSHA": "a364f47f9540e9f85099d22529b18aad03a2d78d",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "durburz",
@@ -5662,20 +5687,20 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 253,
+    "count": 258,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
+      "isengard": 19,
       "elf": 61,
-      "isengard": 14,
       "mordor": 73,
       "rohan": 46,
       "gondor": 59
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,
-    "sourceValidation": "241 unique IDs; static card count and asset blob SHAs verified"
+    "sourceValidation": "258 unique IDs; static card count and asset blob SHAs verified"
   },
   "revisionRequests": {
     "witchking": {
@@ -5772,9 +5797,13 @@
     }
   },
   "lastContinuation": {
-    "batch": "elf-016-additional-20261020",
+    "batch": "isengard-003-five-20261020",
     "newIds": [
-      "falathrim_archer"
+      "uruk_banner",
+      "grima",
+      "ruffian",
+      "snaga",
+      "targsh"
     ],
     "qualityStandard": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
     "note": "Each image inspected against canonical skeleton and identity reference; approval pending."

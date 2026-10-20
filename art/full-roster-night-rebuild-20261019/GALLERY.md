@@ -1,6 +1,36 @@
-# 전체 재제작 검토 — 253종
+# 전체 재제작 검토 — 258종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 타르그쉬 (targsh)
+
+![타르그쉬](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/targsh.png?v=a364f47f9540e9f85099d22529b18aad03a2d78d)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/targsh.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/targsh.png?v=a364f47f9540e9f85099d22529b18aad03a2d78d)
+
+### 스나가 (snaga)
+
+![스나가](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/snaga.png?v=ab49266a7e407b4b7d2fcc34cc87ed35dab6f071)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/snaga.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/snaga.png?v=ab49266a7e407b4b7d2fcc34cc87ed35dab6f071)
+
+### 샤키의 불한당 (ruffian)
+
+![샤키의 불한당](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/ruffian.png?v=eecbbb74747af4780465031d1b08af42527fb8de)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/ruffian.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/ruffian.png?v=eecbbb74747af4780465031d1b08af42527fb8de)
+
+### 그리마 웜텅 (grima)
+
+![그리마 웜텅](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/grima.png?v=8266426a29c1ec863a10a620ed0fe9a35cfc0b75)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/grima.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/grima.png?v=8266426a29c1ec863a10a620ed0fe9a35cfc0b75)
+
+### 우르크하이 기수 (uruk_banner)
+
+![우르크하이 기수](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/uruk_banner.png?v=b9c7faa54e6abd4b08818931399b0dd6982524ae)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/uruk_banner.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/uruk_banner.png?v=b9c7faa54e6abd4b08818931399b0dd6982524ae)
 
 ### 갈도르 (galdor)
 
