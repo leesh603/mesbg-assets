@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T03:30:16.412Z",
+  "updatedAt": "2026-10-20T03:30:34.252Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 177,
-    "newlyGeneratedThisSession": 201,
-    "visuallyReviewedThisSession": 206,
+    "pending": 172,
+    "newlyGeneratedThisSession": 206,
+    "visuallyReviewedThisSession": 211,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 201,
-    "persistedReviewAssets": 333,
+    "generatedReviewAssets": 206,
+    "persistedReviewAssets": 338,
     "revisedAfterRejection": 14
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -2715,8 +2715,13 @@
       "faction": "dwarf",
       "role": "hero",
       "original": "tokens/balin.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dwarf",
+      "path": "art/full-roster-night-rebuild-20261019/units/balin.png",
+      "blobSHA": "d98ff7b21e046b316db2734d6928337649cfe65a",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "dwalin",
@@ -2780,8 +2785,13 @@
       "faction": "dwarf",
       "role": "hero",
       "original": "tokens/ori.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dwarf",
+      "path": "art/full-roster-night-rebuild-20261019/units/ori.png",
+      "blobSHA": "e8060e6c29bd11bada61fec5644ec162730f1972",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "dori",
@@ -2803,8 +2813,13 @@
       "faction": "dwarf",
       "role": "hero",
       "original": "tokens/bifur.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dwarf",
+      "path": "art/full-roster-night-rebuild-20261019/units/bifur.png",
+      "blobSHA": "4d3c8a31c7941ac2fd8d85a09ff3513d9820c812",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "bofur",
@@ -2812,8 +2827,13 @@
       "faction": "dwarf",
       "role": "hero",
       "original": "tokens/bofur.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dwarf",
+      "path": "art/full-roster-night-rebuild-20261019/units/bofur.png",
+      "blobSHA": "9507b300aa3c7beb725cb83025804aeb19774da6",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "bombur",
@@ -2821,8 +2841,13 @@
       "faction": "dwarf",
       "role": "hero",
       "original": "tokens/bombur.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dwarf",
+      "path": "art/full-roster-night-rebuild-20261019/units/bombur.png",
+      "blobSHA": "6f3677ce9cc09b1692023e7e5b851a278eafb661",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "goat_rider",
@@ -7091,13 +7116,13 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 333,
+    "count": 338,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
+      "dwarf": 30,
       "harad": 15,
-      "난쟁이": 25,
       "maiar": 9,
       "isengard": 29,
       "elf": 77,
@@ -7107,7 +7132,7 @@
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,
-    "sourceValidation": "323 unique IDs; static card count and asset blob SHAs verified"
+    "sourceValidation": "338 unique IDs; static card count and asset blob SHAs verified"
   },
   "revisionRequests": {
     "witchking": {
@@ -7215,17 +7240,13 @@
     }
   },
   "lastContinuation": {
-    "batch": "dwarf-003-nine-20261020",
+    "batch": "dwarf-002-final-five-20261020",
     "newIds": [
-      "durin_vi",
-      "mim",
-      "vault_warden",
-      "dwarf_shieldbearers",
-      "iron_hills_captain",
-      "azaghal",
-      "nain",
-      "thrain",
-      "thror"
+      "balin",
+      "ori",
+      "bifur",
+      "bofur",
+      "bombur"
     ],
     "qualityStandard": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
     "note": "Each image inspected against canonical skeleton and identity reference; approval pending."

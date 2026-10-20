@@ -1,0 +1,91 @@
+{
+  "batch": "dwarf-002-final-five-20261020",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "balin",
+      "pose": "철퇴와 뿔나팔 경계",
+      "detail": "White swept hair and very long forked braided white beard, RED cloak gold round clasps, chainmail with brown leather bracers/boots; short iron spiked mace low, brown horn at hip. Both feet parallel, body turned10degrees.",
+      "group": "난쟁이",
+      "groupKey": "dwarf",
+      "bodyDescription": "난쟁이 표준 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "prompt": "ONE transparent full-body production pixel-art game token. IMAGE1 immutable DWARF skeleton controls skull size, stocky short limb bone lengths, shoulders/pelvis/knees/ankles, pixel density, stepped dark outlines, restrained color ramps. IMAGE2 controls ONLY exact character identity/hair/beard/hat/clothing/weapons/palette; redraw it onto same skeleton. Beard and tall hat never define head unit. No human long legs or inflated skull. Muscular/slim/fat vary WIDTH only. HIGH ANGLE FRONT camera DOWN35deg, clear crown and shoulder TOPS, foreshortened chest/face. Head deeply BOWED; hair/helmet/hood/brow hides eyes and most face. Both feet grounded with requested stance, not mandatory walking. Whole silhouette and weapons fully visible, torso centered, broad transparent margins. No base/shadow/floor/text/glow/scenery. White swept hair and very long forked braided white beard, RED cloak gold round clasps, chainmail with brown leather bracers/boots; short iron spiked mace low, brown horn at hip. Both feet parallel, body turned10degrees.",
+      "refs": [
+        "/workspace/scratch/f40d43c7f276/references/dwarf.png",
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/balin.png"
+      ],
+      "blobSHA": "d98ff7b21e046b316db2734d6928337649cfe65a",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-b99adb6c-7daa-4e5e-9dc9-f0a42151a179.png"
+    },
+    {
+      "id": "ori",
+      "pose": "책과 깃펜을 든 기록",
+      "detail": "Brown parted hair and short beard, gray-purple draped cloak/robe gold clasps, brown boots. Brown hardbound book with gold star cross on cover held close chest, white feather quill in other hand. Feet parallel, gentle slight lean. No extra weapons in hand.",
+      "group": "난쟁이",
+      "groupKey": "dwarf",
+      "bodyDescription": "난쟁이 표준 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "prompt": "ONE transparent full-body production pixel-art game token. IMAGE1 immutable DWARF skeleton controls skull size, stocky short limb bone lengths, shoulders/pelvis/knees/ankles, pixel density, stepped dark outlines, restrained color ramps. IMAGE2 controls ONLY exact character identity/hair/beard/hat/clothing/weapons/palette; redraw it onto same skeleton. Beard and tall hat never define head unit. No human long legs or inflated skull. Muscular/slim/fat vary WIDTH only. HIGH ANGLE FRONT camera DOWN35deg, clear crown and shoulder TOPS, foreshortened chest/face. Head deeply BOWED; hair/helmet/hood/brow hides eyes and most face. Both feet grounded with requested stance, not mandatory walking. Whole silhouette and weapons fully visible, torso centered, broad transparent margins. No base/shadow/floor/text/glow/scenery. Brown parted hair and short beard, gray-purple draped cloak/robe gold clasps, brown boots. Brown hardbound book with gold star cross on cover held close chest, white feather quill in other hand. Feet parallel, gentle slight lean. No extra weapons in hand.",
+      "refs": [
+        "/workspace/scratch/f40d43c7f276/references/dwarf.png",
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/ori.png"
+      ],
+      "blobSHA": "e8060e6c29bd11bada61fec5644ec162730f1972",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-9850d011-bc8c-48eb-bff1-1577106dd300.png"
+    },
+    {
+      "id": "bifur",
+      "pose": "단창을 든 거친 방어",
+      "detail": "Shaggy brown hair, long gray-brown beard and white fur collar, brown leather armour/boots. Original small axe blade embedded in upper forehead, no blood splash. Wide iron spear/short stabbing blade low in one hand, other fist raised near ribs, slight diagonal torso but front viewpoint.",
+      "group": "난쟁이",
+      "groupKey": "dwarf",
+      "bodyDescription": "난쟁이 표준 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "prompt": "ONE transparent full-body production pixel-art game token. IMAGE1 immutable DWARF skeleton controls skull size, stocky short limb bone lengths, shoulders/pelvis/knees/ankles, pixel density, stepped dark outlines, restrained color ramps. IMAGE2 controls ONLY exact character identity/hair/beard/hat/clothing/weapons/palette; redraw it onto same skeleton. Beard and tall hat never define head unit. No human long legs or inflated skull. Muscular/slim/fat vary WIDTH only. HIGH ANGLE FRONT camera DOWN35deg, clear crown and shoulder TOPS, foreshortened chest/face. Head deeply BOWED; hair/helmet/hood/brow hides eyes and most face. Both feet grounded with requested stance, not mandatory walking. Whole silhouette and weapons fully visible, torso centered, broad transparent margins. No base/shadow/floor/text/glow/scenery. Shaggy brown hair, long gray-brown beard and white fur collar, brown leather armour/boots. Original small axe blade embedded in upper forehead, no blood splash. Wide iron spear/short stabbing blade low in one hand, other fist raised near ribs, slight diagonal torso but front viewpoint.",
+      "refs": [
+        "/workspace/scratch/f40d43c7f276/references/dwarf.png",
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/bifur.png"
+      ],
+      "blobSHA": "4d3c8a31c7941ac2fd8d85a09ff3513d9820c812",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-78d43eb0-3b2e-470b-bee0-daaae0c1ade1.png"
+    },
+    {
+      "id": "bofur",
+      "pose": "곡괭이를 어깨에 얹은 자세",
+      "detail": "Tall floppy brown fur-rimmed hat, orange mustache and twin orange braids, brown cape/clothing/boots, long-handled PICKAXE rests diagonally over shoulder with full steel head visible. Free hand at belt, feet planted, belly slightly relaxed.",
+      "group": "난쟁이",
+      "groupKey": "dwarf",
+      "bodyDescription": "난쟁이 표준 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "prompt": "ONE transparent full-body production pixel-art game token. IMAGE1 immutable DWARF skeleton controls skull size, stocky short limb bone lengths, shoulders/pelvis/knees/ankles, pixel density, stepped dark outlines, restrained color ramps. IMAGE2 controls ONLY exact character identity/hair/beard/hat/clothing/weapons/palette; redraw it onto same skeleton. Beard and tall hat never define head unit. No human long legs or inflated skull. Muscular/slim/fat vary WIDTH only. HIGH ANGLE FRONT camera DOWN35deg, clear crown and shoulder TOPS, foreshortened chest/face. Head deeply BOWED; hair/helmet/hood/brow hides eyes and most face. Both feet grounded with requested stance, not mandatory walking. Whole silhouette and weapons fully visible, torso centered, broad transparent margins. No base/shadow/floor/text/glow/scenery. Tall floppy brown fur-rimmed hat, orange mustache and twin orange braids, brown cape/clothing/boots, long-handled PICKAXE rests diagonally over shoulder with full steel head visible. Free hand at belt, feet planted, belly slightly relaxed.",
+      "refs": [
+        "/workspace/scratch/f40d43c7f276/references/dwarf.png",
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/bofur.png"
+      ],
+      "blobSHA": "9507b300aa3c7beb725cb83025804aeb19774da6",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-e08ef8bc-6a0d-4f22-909e-0eadfaf57f1b.png"
+    },
+    {
+      "id": "bombur",
+      "pose": "곤봉을 든 둥근 체형",
+      "detail": "Very ROTUND dwarf, wide belly and broad hips expressed by WIDTH ONLY, same skull and dwarf leg length as template. Green hooded gold-embroidered coat, thick orange beard braided with square gold ornaments, brown belt/boots, rolled brown backpack. Short spiked wood club low beside hip; other fist on belly, broad stable feet.",
+      "group": "난쟁이",
+      "groupKey": "dwarf",
+      "bodyDescription": "난쟁이 표준 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "prompt": "ONE transparent full-body production pixel-art game token. IMAGE1 immutable DWARF skeleton controls skull size, stocky short limb bone lengths, shoulders/pelvis/knees/ankles, pixel density, stepped dark outlines, restrained color ramps. IMAGE2 controls ONLY exact character identity/hair/beard/hat/clothing/weapons/palette; redraw it onto same skeleton. Beard and tall hat never define head unit. No human long legs or inflated skull. Muscular/slim/fat vary WIDTH only. HIGH ANGLE FRONT camera DOWN35deg, clear crown and shoulder TOPS, foreshortened chest/face. Head deeply BOWED; hair/helmet/hood/brow hides eyes and most face. Both feet grounded with requested stance, not mandatory walking. Whole silhouette and weapons fully visible, torso centered, broad transparent margins. No base/shadow/floor/text/glow/scenery. Very ROTUND dwarf, wide belly and broad hips expressed by WIDTH ONLY, same skull and dwarf leg length as template. Green hooded gold-embroidered coat, thick orange beard braided with square gold ornaments, brown belt/boots, rolled brown backpack. Short spiked wood club low beside hip; other fist on belly, broad stable feet.",
+      "refs": [
+        "/workspace/scratch/f40d43c7f276/references/dwarf.png",
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/bombur.png"
+      ],
+      "blobSHA": "6f3677ce9cc09b1692023e7e5b851a278eafb661",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-2208d53d-8b41-4da4-97e7-acba3bbcced4.png"
+    }
+  ]
+}

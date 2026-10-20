@@ -1,6 +1,36 @@
-# 전체 재제작 검토 — 333종
+# 전체 재제작 검토 — 338종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 봄부르 (bombur)
+
+![봄부르](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/bombur.png?v=6f3677ce9cc09b1692023e7e5b851a278eafb661)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/bombur.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/bombur.png?v=6f3677ce9cc09b1692023e7e5b851a278eafb661)
+
+### 보푸르 (bofur)
+
+![보푸르](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/bofur.png?v=9507b300aa3c7beb725cb83025804aeb19774da6)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/bofur.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/bofur.png?v=9507b300aa3c7beb725cb83025804aeb19774da6)
+
+### 비푸르 (bifur)
+
+![비푸르](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/bifur.png?v=4d3c8a31c7941ac2fd8d85a09ff3513d9820c812)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/bifur.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/bifur.png?v=4d3c8a31c7941ac2fd8d85a09ff3513d9820c812)
+
+### 오리 (ori)
+
+![오리](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/ori.png?v=e8060e6c29bd11bada61fec5644ec162730f1972)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/ori.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/ori.png?v=e8060e6c29bd11bada61fec5644ec162730f1972)
+
+### 발린 (balin)
+
+![발린](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/balin.png?v=d98ff7b21e046b316db2734d6928337649cfe65a)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/balin.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/balin.png?v=d98ff7b21e046b316db2734d6928337649cfe65a)
 
 ### 마후드 약탈자 (mahud_raider)
 
