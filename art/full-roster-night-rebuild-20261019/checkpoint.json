@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T07:49:39.722Z",
+  "updatedAt": "2026-10-20T07:52:36.578Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -16,10 +16,10 @@
     "generatedReviewAssets": 378,
     "persistedReviewAssets": 510,
     "revisedAfterRejection": 20,
-    "qualityRejected": 59,
-    "qualityHeld": 47,
-    "awaitingApproval": 404,
-    "correctionCandidatesGenerated": 5
+    "qualityRejected": 58,
+    "qualityHeld": 42,
+    "awaitingApproval": 410,
+    "correctionCandidatesGenerated": 11
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
   "sources": [
@@ -55,14 +55,14 @@
   "resume": {
     "nextAction": "Continue every outstanding original 194 rejected/held ID; inspect outputs and persist small batches. No user confirmation needed to continue corrections. Main integration remains separate.",
     "nextIds": [
-      "orc_bow",
-      "dwarf_ranger",
-      "khazad_guard",
-      "iron_guard",
       "galadhrim_warrior",
       "rohan_banner",
       "black_numenorean",
-      "orc_tracker"
+      "warg",
+      "uruk_scout_archer",
+      "khamul",
+      "fingolfin",
+      "radagast"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
@@ -339,15 +339,32 @@
       "role": "hero",
       "original": "tokens/witchking_foot_mace.png",
       "source": "mordor",
-      "path": "art/mordor-rebuild-20261019/units/witchking_foot_mace.png",
-      "blobSHA": "aa0fb8b5d63883f9382e8045b81868923b1f9411",
-      "status": "restored_review_asset",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/witchking_foot_mace.png",
+      "blobSHA": "fe3b102cb58066dc9821d193052e69dfbb0f624e",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
-      "revision": "gw-high-angle-v4",
-      "qualityDecision": "needs_revision",
-      "qualityReason": "기존 비교 원화는 철퇴가 보이지 않아 형태/무장 매핑 확인 필요. 신규는 GW 지정 디자인 대조 필요.",
-      "approval": "hold",
-      "preferredSource": "undecided"
+      "revision": "dwarf-wraith-tracker-20261020-0753",
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "GW 모형의 가는 중앙 첨탑·검은 얼굴 공백·긴 아래 뺨가리개와 작은 층상 견갑을 대조. 검·사슬 철퇴를 갖추고 원래 흐르는 로브·전진 동작을 복원함. 추가 편집으로 검끝·철퇴·옷자락에 투명 여백 확보. 실제 정수리·어깨 윗면을 비교했으며 정량 등신 측정과 최종 승인은 별도.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "dwarf-wraith-tracker-20261020-0753",
+        "previous": {
+          "path": "art/mordor-rebuild-20261019/units/witchking_foot_mace.png",
+          "blobSHA": "aa0fb8b5d63883f9382e8045b81868923b1f9411",
+          "approval": "hold",
+          "reason": "기존 비교 원화는 철퇴가 보이지 않아 형태/무장 매핑 확인 필요. 신규는 GW 지정 디자인 대조 필요."
+        },
+        "checkedAt": "2026-10-20T07:52:36.578Z",
+        "visualCheck": "original_previous_candidate_and_neutral_reference_compared",
+        "observations": "GW 모형의 가는 중앙 첨탑·검은 얼굴 공백·긴 아래 뺨가리개와 작은 층상 견갑을 대조. 검·사슬 철퇴를 갖추고 원래 흐르는 로브·전진 동작을 복원함. 추가 편집으로 검끝·철퇴·옷자락에 투명 여백 확보. 실제 정수리·어깨 윗면을 비교했으며 정량 등신 측정과 최종 승인은 별도.",
+        "state": "corrected_candidate_compared",
+        "userApproval": "pending",
+        "anatomicalMeasurement": "not_claimed"
+      }
     },
     {
       "id": "nazgul_sword",
@@ -1428,25 +1445,25 @@
       "blobSHA": "0d28da4ce465b3dee26bd4841582ba6d32e81fe7",
       "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
-      "qualityDecision": "needs_revision",
-      "qualityReason": "원본의 낮게 든 활·양손 동작과 후드 아래 숙인 얼굴은 복원됐으나 시위의 양 끝 연결 결함 확인. 추가 수정 중이며 해결 수에 포함하지 않음.",
-      "approval": "hold",
-      "preferredSource": "undecided",
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "원본의 낮은 활과 양손·후드 아래 숨은 눈 복원 후 추가 편집. 두 활 끝의 시위 고정점과 손 뒤를 통과하는 연속 시위를 시각 재확인. 원본·과거 시안·수정본을 비교함.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
       "inGameVerified": false,
-      "revision": "mordor-gear-anatomy-20261020-0750",
+      "revision": "dwarf-wraith-tracker-20261020-0753",
       "qualityRepair": {
         "request": "all-194-20261020",
-        "revision": "mordor-gear-anatomy-20261020-0750",
+        "revision": "dwarf-wraith-tracker-20261020-0753",
         "previous": {
-          "path": "art/mordor-rebuild-20261019/units/orc_bow.png",
-          "blobSHA": "4d8fea75bf139bad66f9dbf34411ec75320b2489",
+          "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/orc_bow.png",
+          "blobSHA": "0d28da4ce465b3dee26bd4841582ba6d32e81fe7",
           "approval": "hold",
-          "reason": "화살을 꺼내는 동작은 구체화됐으나 머리·몸 비중과 얼굴 시점 재검수 필요."
+          "reason": "원본의 낮게 든 활·양손 동작과 후드 아래 숙인 얼굴은 복원됐으나 시위의 양 끝 연결 결함 확인. 추가 수정 중이며 해결 수에 포함하지 않음."
         },
-        "checkedAt": "2026-10-20T07:49:39.722Z",
+        "checkedAt": "2026-10-20T07:52:36.578Z",
         "visualCheck": "original_previous_candidate_and_neutral_reference_compared",
-        "observations": "원본의 낮게 든 활·양손 동작과 후드 아래 숙인 얼굴은 복원됐으나 시위의 양 끝 연결 결함 확인. 추가 수정 중이며 해결 수에 포함하지 않음.",
-        "state": "revision_still_held",
+        "observations": "원본의 낮은 활과 양손·후드 아래 숨은 눈 복원 후 추가 편집. 두 활 끝의 시위 고정점과 손 뒤를 통과하는 연속 시위를 시각 재확인. 원본·과거 시안·수정본을 비교함.",
+        "state": "corrected_candidate_compared",
         "userApproval": "pending",
         "anatomicalMeasurement": "not_claimed"
       }
@@ -1553,16 +1570,33 @@
       "faction": "dwarf",
       "role": "infantry",
       "original": "tokens/dwarf_ranger.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "dwarf",
-      "path": "art/full-roster-night-rebuild-20261019/units/dwarf_ranger.png",
-      "blobSHA": "1af6470eec573936896ef21681d504359fffab69",
-      "approval": "hold",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/dwarf_ranger.png",
+      "blobSHA": "6169bfb09e039600c5fc6dd3b636b7996e702f0a",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "unreviewed",
-      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
-      "preferredSource": "undecided"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "원본의 아래로 든 한손 석궁·그늘진 녹색 후드·주황 수염과 단검을 복원. 과거 시안의 양손 수평 석궁 자세를 되돌리고, 난쟁이 표준과 어깨·골반·앞뒤 다리 연결을 비교함.",
+      "preferredSource": "remake_candidate",
+      "revision": "dwarf-wraith-tracker-20261020-0753",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "dwarf-wraith-tracker-20261020-0753",
+        "previous": {
+          "path": "art/full-roster-night-rebuild-20261019/units/dwarf_ranger.png",
+          "blobSHA": "1af6470eec573936896ef21681d504359fffab69",
+          "approval": "hold",
+          "reason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류."
+        },
+        "checkedAt": "2026-10-20T07:52:36.578Z",
+        "visualCheck": "original_previous_candidate_and_neutral_reference_compared",
+        "observations": "원본의 아래로 든 한손 석궁·그늘진 녹색 후드·주황 수염과 단검을 복원. 과거 시안의 양손 수평 석궁 자세를 되돌리고, 난쟁이 표준과 어깨·골반·앞뒤 다리 연결을 비교함.",
+        "state": "corrected_candidate_compared",
+        "userApproval": "pending",
+        "anatomicalMeasurement": "not_claimed"
+      }
     },
     {
       "id": "khazad_guard",
@@ -1570,16 +1604,33 @@
       "faction": "dwarf",
       "role": "infantry",
       "original": "tokens/khazad_guard.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "dwarf",
-      "path": "art/full-roster-night-rebuild-20261019/units/khazad_guard.png",
-      "blobSHA": "c7ff4679410fabb16625cd06b95fe408dbb5fc6f",
-      "approval": "hold",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/khazad_guard.png",
+      "blobSHA": "06253eaaa92609c6a2be93698b78b69256bd3c28",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "unreviewed",
-      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
-      "preferredSource": "undecided"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "닫힌 투구·청금 갑주·흰 별 방패와 아래로 든 도끼 유지. 원본 및 난쟁이 표준과 정수리·견갑 윗면, 앞뒤 분리된 무릎·부츠를 비교함.",
+      "preferredSource": "remake_candidate",
+      "revision": "dwarf-wraith-tracker-20261020-0753",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "dwarf-wraith-tracker-20261020-0753",
+        "previous": {
+          "path": "art/full-roster-night-rebuild-20261019/units/khazad_guard.png",
+          "blobSHA": "c7ff4679410fabb16625cd06b95fe408dbb5fc6f",
+          "approval": "hold",
+          "reason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류."
+        },
+        "checkedAt": "2026-10-20T07:52:36.578Z",
+        "visualCheck": "original_previous_candidate_and_neutral_reference_compared",
+        "observations": "닫힌 투구·청금 갑주·흰 별 방패와 아래로 든 도끼 유지. 원본 및 난쟁이 표준과 정수리·견갑 윗면, 앞뒤 분리된 무릎·부츠를 비교함.",
+        "state": "corrected_candidate_compared",
+        "userApproval": "pending",
+        "anatomicalMeasurement": "not_claimed"
+      }
     },
     {
       "id": "iron_guard",
@@ -1587,16 +1638,33 @@
       "faction": "dwarf",
       "role": "infantry",
       "original": "tokens/iron_guard.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "dwarf",
-      "path": "art/full-roster-night-rebuild-20261019/units/iron_guard.png",
-      "blobSHA": "439b6deeaeea3cdfaee2e9a98d9bc084e53b4a0f",
-      "approval": "hold",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/iron_guard.png",
+      "blobSHA": "36980fc51df168a99057fa7c9ec6a94d34bcc993",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "unreviewed",
-      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
-      "preferredSource": "undecided"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "눈을 가린 투구·주황 수염·비대칭 가시 견갑·양손 사선 망치와 예비 도끼를 보존. 손잡이에 연결된 두 손과 난쟁이 몸통·무릎·발목을 원본·중립 기준과 비교함.",
+      "preferredSource": "remake_candidate",
+      "revision": "dwarf-wraith-tracker-20261020-0753",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "dwarf-wraith-tracker-20261020-0753",
+        "previous": {
+          "path": "art/full-roster-night-rebuild-20261019/units/iron_guard.png",
+          "blobSHA": "439b6deeaeea3cdfaee2e9a98d9bc084e53b4a0f",
+          "approval": "hold",
+          "reason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류."
+        },
+        "checkedAt": "2026-10-20T07:52:36.578Z",
+        "visualCheck": "original_previous_candidate_and_neutral_reference_compared",
+        "observations": "눈을 가린 투구·주황 수염·비대칭 가시 견갑·양손 사선 망치와 예비 도끼를 보존. 손잡이에 연결된 두 손과 난쟁이 몸통·무릎·발목을 원본·중립 기준과 비교함.",
+        "state": "corrected_candidate_compared",
+        "userApproval": "pending",
+        "anatomicalMeasurement": "not_claimed"
+      }
     },
     {
       "id": "dwarf_banner",
@@ -2213,14 +2281,32 @@
       "role": "infantry",
       "original": "tokens/orc_tracker.png",
       "source": "mordor",
-      "path": "art/mordor-rebuild-20261019/units/orc_tracker.png",
-      "blobSHA": "a022c8e468f3390612e0a93dcebdacd323c18079",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존의 고개를 깊이 숙인 추적자 인상보다 정면 얼굴과 일반 오크 인상이 강해짐.",
-      "approval": "rejected",
-      "preferredSource": "old"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/orc_tracker.png",
+      "blobSHA": "4656d53f43bdb3033a3ce0faa49b43fd7e7032ec",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "원본의 낮은 추적 동작·숙인 민머리·가려진 눈·내린 활·맨발을 복원. 정면 얼굴 노출을 줄이고 등짐과 전체 몸 기울임, 오크 표준 팔다리와 연결된 시위를 비교함.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "revision": "dwarf-wraith-tracker-20261020-0753",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "dwarf-wraith-tracker-20261020-0753",
+        "previous": {
+          "path": "art/mordor-rebuild-20261019/units/orc_tracker.png",
+          "blobSHA": "a022c8e468f3390612e0a93dcebdacd323c18079",
+          "approval": "rejected",
+          "reason": "기존의 고개를 깊이 숙인 추적자 인상보다 정면 얼굴과 일반 오크 인상이 강해짐."
+        },
+        "checkedAt": "2026-10-20T07:52:36.578Z",
+        "visualCheck": "original_previous_candidate_and_neutral_reference_compared",
+        "observations": "원본의 낮은 추적 동작·숙인 민머리·가려진 눈·내린 활·맨발을 복원. 정면 얼굴 노출을 줄이고 등짐과 전체 몸 기울임, 오크 표준 팔다리와 연결된 시위를 비교함.",
+        "state": "corrected_candidate_compared",
+        "userApproval": "pending",
+        "anatomicalMeasurement": "not_claimed"
+      }
     },
     {
       "id": "war_troll",
@@ -9420,14 +9506,15 @@
     "note": "Each image inspected against canonical skeleton and identity reference; approval pending."
   },
   "lastCorrection": {
-    "at": "2026-10-20T07:49:39.722Z",
-    "batch": "mordor-gear-anatomy-20261020-0750",
+    "at": "2026-10-20T07:52:36.578Z",
+    "batch": "dwarf-wraith-tracker-20261020-0753",
     "ids": [
-      "sauron",
-      "orc_swordshield",
-      "orc_spear2",
-      "orc_bow",
-      "orc_drummer"
+      "witchking_foot_mace",
+      "dwarf_ranger",
+      "khazad_guard",
+      "iron_guard",
+      "orc_tracker",
+      "orc_bow"
     ],
     "newCharacterCount": 0,
     "qualityAcceptedCount": 0,
@@ -9503,8 +9590,8 @@
   "qualityRepairRequest": {
     "id": "all-194-20261020",
     "scopeCount": 194,
-    "correctedCandidates": 88,
-    "remaining": 106,
+    "correctedCandidates": 94,
+    "remaining": 100,
     "userApproved": 0,
     "previousMountedCorrectionsIncluded": true
   }

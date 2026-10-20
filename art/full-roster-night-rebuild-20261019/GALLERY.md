@@ -2,7 +2,7 @@
 
 [전체 비교 갤러리](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html) · [이름·분류 확인사항](SOURCE_REVIEW_ISSUES.md)
 
-불합격·보류 194종: 88종 수정 검토본 / 106종 수정 필요 · 전체 품질 최종 통과 0종 · 사용자 승인 전
+불합격·보류 194종: 94종 수정 검토본 / 100종 수정 필요 · 전체 품질 최종 통과 0종 · 사용자 승인 전
 
 ### 움바 선장 (corsair_captain)
 
@@ -1404,21 +1404,21 @@
 
 ### 아이언 가드 (iron_guard)
 
-![아이언 가드](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/iron_guard.png?v=439b6deeaeea3cdfaee2e9a98d9bc084e53b4a0f)
+![아이언 가드](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/iron_guard.png?v=36980fc51df168a99057fa7c9ec6a94d34bcc993)
 
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/iron_guard.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/iron_guard.png?v=439b6deeaeea3cdfaee2e9a98d9bc084e53b4a0f)
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/iron_guard.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/iron_guard.png?v=36980fc51df168a99057fa7c9ec6a94d34bcc993)
 
 ### 카자드 근위병 (khazad_guard)
 
-![카자드 근위병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/khazad_guard.png?v=c7ff4679410fabb16625cd06b95fe408dbb5fc6f)
+![카자드 근위병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/khazad_guard.png?v=06253eaaa92609c6a2be93698b78b69256bd3c28)
 
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/khazad_guard.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/khazad_guard.png?v=c7ff4679410fabb16625cd06b95fe408dbb5fc6f)
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/khazad_guard.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/khazad_guard.png?v=06253eaaa92609c6a2be93698b78b69256bd3c28)
 
 ### 드워프 레인저 (dwarf_ranger)
 
-![드워프 레인저](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dwarf_ranger.png?v=1af6470eec573936896ef21681d504359fffab69)
+![드워프 레인저](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/dwarf_ranger.png?v=6169bfb09e039600c5fc6dd3b636b7996e702f0a)
 
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/dwarf_ranger.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dwarf_ranger.png?v=1af6470eec573936896ef21681d504359fffab69)
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/dwarf_ranger.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/dwarf_ranger.png?v=6169bfb09e039600c5fc6dd3b636b7996e702f0a)
 
 ### 머크우드 레인저 (mirkwood_ranger)
 
@@ -2760,9 +2760,9 @@
 
 ### 오크 추적자 (orc_tracker)
 
-![오크 추적자](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/orc_tracker.png)
+![오크 추적자](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/orc_tracker.png?v=4656d53f43bdb3033a3ce0faa49b43fd7e7032ec)
 
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/references/old/orc_tracker.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/orc_tracker.png)
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/references/old/orc_tracker.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/orc_tracker.png?v=4656d53f43bdb3033a3ce0faa49b43fd7e7032ec)
 
 ### 전쟁 트롤 (war_troll)
 
@@ -2928,9 +2928,9 @@
 
 ### 마술사왕(투구) (witchking_foot_mace)
 
-![마술사왕(투구)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_foot_mace.png?v=aa0fb8b5d63883f9382e8045b81868923b1f9411)
+![마술사왕(투구)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/witchking_foot_mace.png?v=fe3b102cb58066dc9821d193052e69dfbb0f624e)
 
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/references/old/witchking_foot_mace.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/witchking_foot_mace.png?v=aa0fb8b5d63883f9382e8045b81868923b1f9411)
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/references/old/witchking_foot_mace.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/witchking_foot_mace.png?v=fe3b102cb58066dc9821d193052e69dfbb0f624e)
 
 ### 나즈굴(검) (nazgul_sword)
 
