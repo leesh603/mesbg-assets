@@ -1,8 +1,8 @@
 {
   "request": "all-194-20261020",
-  "updatedAt": "2026-10-20T10:31:02.105Z",
-  "correctedCandidates": 128,
-  "remaining": 66,
+  "updatedAt": "2026-10-20T10:41:05.871Z",
+  "correctedCandidates": 136,
+  "remaining": 58,
   "scope": [
     {
       "id": "imrahil_mounted",
@@ -941,36 +941,44 @@
       "name": "그림자 군주",
       "originalApproval": "rejected",
       "originalReason": "기존 그림자 잔기·긴 실루엣이 반복된 찢어진 망토형으로 바뀌어 개성이 약해짐.",
-      "state": "pending_correction",
-      "path": "art/mordor-rebuild-20261019/units/shadow_lord.png",
-      "blobSHA": "493f7c559f85ee2975d9475bf5dd1136ccec34d9"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/shadow_lord.png",
+      "blobSHA": "49062033943c0b29f1ec53f2df4fbaa6456177f9",
+      "latestReason": "보랏빛 그림자 잔기·빈 두건·길게 흐르는 로브·내려든 검과 들어 올린 손을 보존. 일반 나즈굴 망토로 바뀐 회귀를 되돌리고 정수리·어깨 윗면, 검·손 연결을 원본과 비교함.",
+      "checkedAt": "2026-10-20T10:41:05.871Z"
     },
     {
       "id": "tainted",
       "name": "타락한 자",
       "originalApproval": "rejected",
       "originalReason": "기존 황색 단검·망토의 독특한 질감이 약해지고 다른 나즈굴과 유사한 망토형이 됨.",
-      "state": "pending_correction",
-      "path": "art/mordor-rebuild-20261019/units/tainted.png",
-      "blobSHA": "94f45d8089dd5ebbddd0962a10b7c50fd55eb8ae"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/tainted.png",
+      "blobSHA": "dbfcaa1380aa2fdd36b674873694aed0ad25d737",
+      "latestReason": "원래의 녹색 누더기 망토·빈 얼굴·분리된 첨탑 투구·황록색 독 단검을 유지. 앞으로 뻗은 팔과 전진 다리, 숙인 머리와 어깨 윗면을 원본과 비교함.",
+      "checkedAt": "2026-10-20T10:41:05.871Z"
     },
     {
       "id": "undying",
       "name": "죽지 않는 자",
       "originalApproval": "rejected",
       "originalReason": "기존 지팡이·긴 로브의 주술사 실루엣이 짧은 갑주·반복 망토형으로 바뀜.",
-      "state": "pending_correction",
-      "path": "art/mordor-rebuild-20261019/units/undying.png",
-      "blobSHA": "0a5de8f0867fa678a9509063c996b18166b6be45"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/undying.png",
+      "blobSHA": "cf63c2c74d40614bce2528137efd3503216c8ad7",
+      "latestReason": "보라색 보석 지팡이·긴 로브·펼친 왼손과 빈 얼굴을 보존. 짧은 갑주형 회귀를 되돌리고 기존 주술사 실루엣, 지팡이와 손 연결을 비교함.",
+      "checkedAt": "2026-10-20T10:41:05.871Z"
     },
     {
       "id": "knight_of_umbar",
       "name": "움바르의 기사",
       "originalApproval": "hold",
       "originalReason": "기존 큰 인간형 대비 하체 압축과 투구·상체 비중 재검수 필요.",
-      "state": "pending_correction",
-      "path": "art/mordor-rebuild-20261019/units/knight_of_umbar.png",
-      "blobSHA": "9a9ba6188bb3fe2c24f5b0ed3bf1ae079e0be6d7"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/knight_of_umbar.png",
+      "blobSHA": "042a383f1f28bb08b12bc841d66f5672e0eb2be2",
+      "latestReason": "검은 투구·금빛 줄무늬·장창·나무 문양 방패를 보존. 하체를 압축한 일반 전사형을 피하고 큰 인간형의 전진 실루엣과 숙인 투구·어깨 윗면을 비교함.",
+      "checkedAt": "2026-10-20T10:41:05.871Z"
     },
     {
       "id": "isildur",
@@ -986,9 +994,11 @@
       "name": "데네소르",
       "originalApproval": "rejected",
       "originalReason": "로브의 길고 무게감 있는 기존 실루엣이 짧고 넓게 압축됨.",
-      "state": "pending_correction",
-      "path": "art/gondor-rebuild-20261019/units/denethor.png",
-      "blobSHA": "10c483f06bf4f10700f8572b028dc4cd74ad4487"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/denethor.png",
+      "blobSHA": "354800ad90cb0ad71bb2217087a6aca3f0e71c08",
+      "latestReason": "흰 머리·수염·검은 모피 망토·나무 문양과 긴 지팡이를 보존. 로브를 길게 흐르는 실루엣으로 복원하고 숙인 머리와 손·지팡이·발 연결을 비교함.",
+      "checkedAt": "2026-10-20T10:41:05.871Z"
     },
     {
       "id": "elfhelm_mounted",
@@ -1031,18 +1041,22 @@
       "name": "야생 와르그",
       "originalApproval": "hold",
       "originalReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
-      "state": "pending_correction",
-      "path": "art/full-roster-night-rebuild-20261019/units/wild_warg.png",
-      "blobSHA": "76466fd96169047d101f18560c8e64d23445e5dd"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/wild_warg.png",
+      "blobSHA": "295c0bf80955e2e68e41a01ec16d8eff973487ab",
+      "latestReason": "원본의 긴 주둥이·낮은 머리·네 다리와 휘어진 꼬리, 갈색 갈기를 보존해 전신 재제작. 인간형 표준을 적용하지 않고 등·어깨·골반의 위쪽 면과 발 연결을 비교함.",
+      "checkedAt": "2026-10-20T10:41:05.871Z"
     },
     {
       "id": "wild_warg_alpha",
       "name": "와르그 우두머리",
       "originalApproval": "hold",
       "originalReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
-      "state": "pending_correction",
-      "path": "art/full-roster-night-rebuild-20261019/units/wild_warg_alpha.png",
-      "blobSHA": "1a99e93f6d4eb7380a002a127a2010c0ab9e76c2"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/wild_warg_alpha.png",
+      "blobSHA": "1721e432267b348fe328889c58b1ff1d53c143da",
+      "latestReason": "흰 등줄기와 꼬리 끝·갈색 갈기·붉은 흉터와 낮은 주둥이의 기존 우두머리 디자인을 보존. 네 다리·긴 몸통과 위에서 보는 등·어깨 연결을 비교함.",
+      "checkedAt": "2026-10-20T10:41:05.871Z"
     },
     {
       "id": "nazgul_fellbeast",
@@ -1067,9 +1081,11 @@
       "name": "후린",
       "originalApproval": "rejected",
       "originalReason": "흰 머리·수염·로브 외형이 투구·중갑으로 크게 바뀜. 캐릭터 정체성 확인 전 교체 보류.",
-      "state": "pending_correction",
-      "path": "art/gondor-rebuild-20261019/units/hurin.png",
-      "blobSHA": "72ac5a5ed4abb67af988c5abae06506759059d29"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/hurin.png",
+      "blobSHA": "82db1a7ee65b67d45a16d56b778f91bec41ae76a",
+      "latestReason": "원본에서 확인되는 흰 머리·긴 수염·검은 로브·지팡이를 유지. 임의 투구·중갑을 추가하지 않고 숙인 머리와 어깨 윗면, 나무 문양과 긴 의복을 원본과 비교함.",
+      "checkedAt": "2026-10-20T10:41:05.871Z"
     },
     {
       "id": "cirion",

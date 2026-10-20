@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T10:31:02.105Z",
+  "updatedAt": "2026-10-20T10:41:05.871Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -16,10 +16,10 @@
     "generatedReviewAssets": 378,
     "persistedReviewAssets": 510,
     "revisedAfterRejection": 20,
-    "qualityRejected": 39,
-    "qualityHeld": 27,
-    "awaitingApproval": 444,
-    "correctionCandidatesGenerated": 49
+    "qualityRejected": 34,
+    "qualityHeld": 24,
+    "awaitingApproval": 452,
+    "correctionCandidatesGenerated": 57
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
   "sources": [
@@ -56,13 +56,13 @@
     "nextAction": "Continue every outstanding original 194 rejected/held ID; inspect outputs and persist small batches. No user confirmation needed to continue corrections. Main integration remains separate.",
     "nextIds": [
       "dark_marshal",
-      "shadow_lord",
-      "tainted",
-      "undying",
-      "knight_of_umbar",
       "isildur",
-      "denethor",
-      "wild_warg"
+      "aragorn_blackgate",
+      "cirion",
+      "numenorean_captain",
+      "numenorean_warrior",
+      "numenorean_spearman",
+      "forsaken"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
@@ -5201,14 +5201,32 @@
       "role": "hero",
       "original": "tokens/shadow_lord.png",
       "source": "mordor",
-      "path": "art/mordor-rebuild-20261019/units/shadow_lord.png",
-      "blobSHA": "493f7c559f85ee2975d9475bf5dd1136ccec34d9",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존 그림자 잔기·긴 실루엣이 반복된 찢어진 망토형으로 바뀌어 개성이 약해짐.",
-      "approval": "rejected",
-      "preferredSource": "old"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/shadow_lord.png",
+      "blobSHA": "49062033943c0b29f1ec53f2df4fbaa6456177f9",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "보랏빛 그림자 잔기·빈 두건·길게 흐르는 로브·내려든 검과 들어 올린 손을 보존. 일반 나즈굴 망토로 바뀐 회귀를 되돌리고 정수리·어깨 윗면, 검·손 연결을 원본과 비교함.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "revision": "finish-74-02-20261020",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-74-02-20261020",
+        "previous": {
+          "path": "art/mordor-rebuild-20261019/units/shadow_lord.png",
+          "blobSHA": "493f7c559f85ee2975d9475bf5dd1136ccec34d9",
+          "approval": "rejected",
+          "reason": "기존 그림자 잔기·긴 실루엣이 반복된 찢어진 망토형으로 바뀌어 개성이 약해짐."
+        },
+        "checkedAt": "2026-10-20T10:41:05.871Z",
+        "visualCheck": "original_and_candidate_and_reference_compared",
+        "observations": "보랏빛 그림자 잔기·빈 두건·길게 흐르는 로브·내려든 검과 들어 올린 손을 보존. 일반 나즈굴 망토로 바뀐 회귀를 되돌리고 정수리·어깨 윗면, 검·손 연결을 원본과 비교함.",
+        "state": "corrected_candidate_compared",
+        "userApproval": "pending",
+        "anatomicalMeasurement": "not_claimed"
+      }
     },
     {
       "id": "betrayer",
@@ -5233,14 +5251,32 @@
       "role": "hero",
       "original": "tokens/tainted.png",
       "source": "mordor",
-      "path": "art/mordor-rebuild-20261019/units/tainted.png",
-      "blobSHA": "94f45d8089dd5ebbddd0962a10b7c50fd55eb8ae",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존 황색 단검·망토의 독특한 질감이 약해지고 다른 나즈굴과 유사한 망토형이 됨.",
-      "approval": "rejected",
-      "preferredSource": "old"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/tainted.png",
+      "blobSHA": "dbfcaa1380aa2fdd36b674873694aed0ad25d737",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "원래의 녹색 누더기 망토·빈 얼굴·분리된 첨탑 투구·황록색 독 단검을 유지. 앞으로 뻗은 팔과 전진 다리, 숙인 머리와 어깨 윗면을 원본과 비교함.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "revision": "finish-74-02-20261020",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-74-02-20261020",
+        "previous": {
+          "path": "art/mordor-rebuild-20261019/units/tainted.png",
+          "blobSHA": "94f45d8089dd5ebbddd0962a10b7c50fd55eb8ae",
+          "approval": "rejected",
+          "reason": "기존 황색 단검·망토의 독특한 질감이 약해지고 다른 나즈굴과 유사한 망토형이 됨."
+        },
+        "checkedAt": "2026-10-20T10:41:05.871Z",
+        "visualCheck": "original_and_candidate_and_reference_compared",
+        "observations": "원래의 녹색 누더기 망토·빈 얼굴·분리된 첨탑 투구·황록색 독 단검을 유지. 앞으로 뻗은 팔과 전진 다리, 숙인 머리와 어깨 윗면을 원본과 비교함.",
+        "state": "corrected_candidate_compared",
+        "userApproval": "pending",
+        "anatomicalMeasurement": "not_claimed"
+      }
     },
     {
       "id": "undying",
@@ -5249,14 +5285,32 @@
       "role": "hero",
       "original": "tokens/undying.png",
       "source": "mordor",
-      "path": "art/mordor-rebuild-20261019/units/undying.png",
-      "blobSHA": "0a5de8f0867fa678a9509063c996b18166b6be45",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존 지팡이·긴 로브의 주술사 실루엣이 짧은 갑주·반복 망토형으로 바뀜.",
-      "approval": "rejected",
-      "preferredSource": "old"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/undying.png",
+      "blobSHA": "cf63c2c74d40614bce2528137efd3503216c8ad7",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "보라색 보석 지팡이·긴 로브·펼친 왼손과 빈 얼굴을 보존. 짧은 갑주형 회귀를 되돌리고 기존 주술사 실루엣, 지팡이와 손 연결을 비교함.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "revision": "finish-74-02-20261020",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-74-02-20261020",
+        "previous": {
+          "path": "art/mordor-rebuild-20261019/units/undying.png",
+          "blobSHA": "0a5de8f0867fa678a9509063c996b18166b6be45",
+          "approval": "rejected",
+          "reason": "기존 지팡이·긴 로브의 주술사 실루엣이 짧은 갑주·반복 망토형으로 바뀜."
+        },
+        "checkedAt": "2026-10-20T10:41:05.871Z",
+        "visualCheck": "original_and_candidate_and_reference_compared",
+        "observations": "보라색 보석 지팡이·긴 로브·펼친 왼손과 빈 얼굴을 보존. 짧은 갑주형 회귀를 되돌리고 기존 주술사 실루엣, 지팡이와 손 연결을 비교함.",
+        "state": "corrected_candidate_compared",
+        "userApproval": "pending",
+        "anatomicalMeasurement": "not_claimed"
+      }
     },
     {
       "id": "knight_of_umbar",
@@ -5265,14 +5319,32 @@
       "role": "hero",
       "original": "tokens/knight_of_umbar.png",
       "source": "mordor",
-      "path": "art/mordor-rebuild-20261019/units/knight_of_umbar.png",
-      "blobSHA": "9a9ba6188bb3fe2c24f5b0ed3bf1ae079e0be6d7",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "needs_revision",
-      "qualityReason": "기존 큰 인간형 대비 하체 압축과 투구·상체 비중 재검수 필요.",
-      "approval": "hold",
-      "preferredSource": "undecided"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/knight_of_umbar.png",
+      "blobSHA": "042a383f1f28bb08b12bc841d66f5672e0eb2be2",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "검은 투구·금빛 줄무늬·장창·나무 문양 방패를 보존. 하체를 압축한 일반 전사형을 피하고 큰 인간형의 전진 실루엣과 숙인 투구·어깨 윗면을 비교함.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "revision": "finish-74-02-20261020",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-74-02-20261020",
+        "previous": {
+          "path": "art/mordor-rebuild-20261019/units/knight_of_umbar.png",
+          "blobSHA": "9a9ba6188bb3fe2c24f5b0ed3bf1ae079e0be6d7",
+          "approval": "hold",
+          "reason": "기존 큰 인간형 대비 하체 압축과 투구·상체 비중 재검수 필요."
+        },
+        "checkedAt": "2026-10-20T10:41:05.871Z",
+        "visualCheck": "original_and_candidate_and_reference_compared",
+        "observations": "검은 투구·금빛 줄무늬·장창·나무 문양 방패를 보존. 하체를 압축한 일반 전사형을 피하고 큰 인간형의 전진 실루엣과 숙인 투구·어깨 윗면을 비교함.",
+        "state": "corrected_candidate_compared",
+        "userApproval": "pending",
+        "anatomicalMeasurement": "not_claimed"
+      }
     },
     {
       "id": "isildur",
@@ -5311,14 +5383,32 @@
       "role": "hero",
       "original": "tokens/denethor.png",
       "source": "gondor",
-      "path": "art/gondor-rebuild-20261019/units/denethor.png",
-      "blobSHA": "10c483f06bf4f10700f8572b028dc4cd74ad4487",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "로브의 길고 무게감 있는 기존 실루엣이 짧고 넓게 압축됨.",
-      "approval": "rejected",
-      "preferredSource": "old"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/denethor.png",
+      "blobSHA": "354800ad90cb0ad71bb2217087a6aca3f0e71c08",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "흰 머리·수염·검은 모피 망토·나무 문양과 긴 지팡이를 보존. 로브를 길게 흐르는 실루엣으로 복원하고 숙인 머리와 손·지팡이·발 연결을 비교함.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "revision": "finish-74-02-20261020",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-74-02-20261020",
+        "previous": {
+          "path": "art/gondor-rebuild-20261019/units/denethor.png",
+          "blobSHA": "10c483f06bf4f10700f8572b028dc4cd74ad4487",
+          "approval": "rejected",
+          "reason": "로브의 길고 무게감 있는 기존 실루엣이 짧고 넓게 압축됨."
+        },
+        "checkedAt": "2026-10-20T10:41:05.871Z",
+        "visualCheck": "original_and_candidate_and_reference_compared",
+        "observations": "흰 머리·수염·검은 모피 망토·나무 문양과 긴 지팡이를 보존. 로브를 길게 흐르는 실루엣으로 복원하고 숙인 머리와 손·지팡이·발 연결을 비교함.",
+        "state": "corrected_candidate_compared",
+        "userApproval": "pending",
+        "anatomicalMeasurement": "not_claimed"
+      }
     },
     {
       "id": "huorn",
@@ -5614,16 +5704,33 @@
       "faction": "isengard",
       "role": "monster",
       "original": "tokens/wild_warg.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "isengard",
-      "path": "art/full-roster-night-rebuild-20261019/units/wild_warg.png",
-      "blobSHA": "76466fd96169047d101f18560c8e64d23445e5dd",
-      "approval": "hold",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/wild_warg.png",
+      "blobSHA": "295c0bf80955e2e68e41a01ec16d8eff973487ab",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "unreviewed",
-      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
-      "preferredSource": "undecided"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "원본의 긴 주둥이·낮은 머리·네 다리와 휘어진 꼬리, 갈색 갈기를 보존해 전신 재제작. 인간형 표준을 적용하지 않고 등·어깨·골반의 위쪽 면과 발 연결을 비교함.",
+      "preferredSource": "remake_candidate",
+      "revision": "finish-74-02-20261020",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-74-02-20261020",
+        "previous": {
+          "path": "art/full-roster-night-rebuild-20261019/units/wild_warg.png",
+          "blobSHA": "76466fd96169047d101f18560c8e64d23445e5dd",
+          "approval": "hold",
+          "reason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류."
+        },
+        "checkedAt": "2026-10-20T10:41:05.871Z",
+        "visualCheck": "original_and_candidate_and_reference_compared",
+        "observations": "원본의 긴 주둥이·낮은 머리·네 다리와 휘어진 꼬리, 갈색 갈기를 보존해 전신 재제작. 인간형 표준을 적용하지 않고 등·어깨·골반의 위쪽 면과 발 연결을 비교함.",
+        "state": "corrected_candidate_compared",
+        "userApproval": "pending",
+        "anatomicalMeasurement": "not_claimed"
+      }
     },
     {
       "id": "wild_warg_alpha",
@@ -5631,16 +5738,33 @@
       "faction": "isengard",
       "role": "monster",
       "original": "tokens/wild_warg_alpha.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "isengard",
-      "path": "art/full-roster-night-rebuild-20261019/units/wild_warg_alpha.png",
-      "blobSHA": "1a99e93f6d4eb7380a002a127a2010c0ab9e76c2",
-      "approval": "hold",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/wild_warg_alpha.png",
+      "blobSHA": "1721e432267b348fe328889c58b1ff1d53c143da",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "unreviewed",
-      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
-      "preferredSource": "undecided"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "흰 등줄기와 꼬리 끝·갈색 갈기·붉은 흉터와 낮은 주둥이의 기존 우두머리 디자인을 보존. 네 다리·긴 몸통과 위에서 보는 등·어깨 연결을 비교함.",
+      "preferredSource": "remake_candidate",
+      "revision": "finish-74-02-20261020",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-74-02-20261020",
+        "previous": {
+          "path": "art/full-roster-night-rebuild-20261019/units/wild_warg_alpha.png",
+          "blobSHA": "1a99e93f6d4eb7380a002a127a2010c0ab9e76c2",
+          "approval": "hold",
+          "reason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류."
+        },
+        "checkedAt": "2026-10-20T10:41:05.871Z",
+        "visualCheck": "original_and_candidate_and_reference_compared",
+        "observations": "흰 등줄기와 꼬리 끝·갈색 갈기·붉은 흉터와 낮은 주둥이의 기존 우두머리 디자인을 보존. 네 다리·긴 몸통과 위에서 보는 등·어깨 연결을 비교함.",
+        "state": "corrected_candidate_compared",
+        "userApproval": "pending",
+        "anatomicalMeasurement": "not_claimed"
+      }
     },
     {
       "id": "ancalagon",
@@ -5819,14 +5943,32 @@
       "role": "hero",
       "original": "tokens/hurin.png",
       "source": "gondor",
-      "path": "art/gondor-rebuild-20261019/units/hurin.png",
-      "blobSHA": "72ac5a5ed4abb67af988c5abae06506759059d29",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "흰 머리·수염·로브 외형이 투구·중갑으로 크게 바뀜. 캐릭터 정체성 확인 전 교체 보류.",
-      "approval": "rejected",
-      "preferredSource": "old"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/hurin.png",
+      "blobSHA": "82db1a7ee65b67d45a16d56b778f91bec41ae76a",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "원본에서 확인되는 흰 머리·긴 수염·검은 로브·지팡이를 유지. 임의 투구·중갑을 추가하지 않고 숙인 머리와 어깨 윗면, 나무 문양과 긴 의복을 원본과 비교함.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "revision": "finish-74-02-20261020",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-74-02-20261020",
+        "previous": {
+          "path": "art/gondor-rebuild-20261019/units/hurin.png",
+          "blobSHA": "72ac5a5ed4abb67af988c5abae06506759059d29",
+          "approval": "rejected",
+          "reason": "흰 머리·수염·로브 외형이 투구·중갑으로 크게 바뀜. 캐릭터 정체성 확인 전 교체 보류."
+        },
+        "checkedAt": "2026-10-20T10:41:05.871Z",
+        "visualCheck": "original_and_candidate_and_reference_compared",
+        "observations": "원본에서 확인되는 흰 머리·긴 수염·검은 로브·지팡이를 유지. 임의 투구·중갑을 추가하지 않고 숙인 머리와 어깨 윗면, 나무 문양과 긴 의복을 원본과 비교함.",
+        "state": "corrected_candidate_compared",
+        "userApproval": "pending",
+        "anatomicalMeasurement": "not_claimed"
+      }
     },
     {
       "id": "cirion",
@@ -10092,17 +10234,17 @@
     "note": "Each image inspected against canonical skeleton and identity reference; approval pending."
   },
   "lastCorrection": {
-    "at": "2026-10-20T10:31:02.105Z",
-    "batch": "finish-74-01-20261020",
+    "at": "2026-10-20T10:41:05.871Z",
+    "batch": "finish-74-02-20261020",
     "ids": [
-      "elrohir",
-      "erestor",
-      "orophin",
-      "mirkwood_sentinel",
-      "silvan_archer",
-      "forlong",
-      "erkenbrand",
-      "werewolf"
+      "shadow_lord",
+      "denethor",
+      "tainted",
+      "wild_warg",
+      "knight_of_umbar",
+      "undying",
+      "hurin",
+      "wild_warg_alpha"
     ],
     "newCharacterCount": 0,
     "qualityAcceptedCount": 0,
@@ -10178,8 +10320,8 @@
   "qualityRepairRequest": {
     "id": "all-194-20261020",
     "scopeCount": 194,
-    "correctedCandidates": 128,
-    "remaining": 66,
+    "correctedCandidates": 136,
+    "remaining": 58,
     "userApproved": 0,
     "previousMountedCorrectionsIncluded": true
   }
