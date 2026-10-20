@@ -1,8 +1,8 @@
 {
   "request": "all-194-20261020",
-  "updatedAt": "2026-10-20T05:47:50.010Z",
-  "correctedCandidates": 64,
-  "remaining": 130,
+  "updatedAt": "2026-10-20T05:49:16.594Z",
+  "correctedCandidates": 68,
+  "remaining": 126,
   "scope": [
     {
       "id": "imrahil_mounted",
@@ -117,9 +117,9 @@
       "name": "나즈굴(검)",
       "originalApproval": "hold",
       "originalReason": "기존 로브 실루엣이 반복된 깃털형 찢어진 망토·짧은 보행형으로 변경됨. 고유 형태 재검수.",
-      "state": "pending_correction",
-      "path": "art/mordor-rebuild-20261019/units/nazgul_sword.png",
-      "blobSHA": "6f4eafda52d9e18af6ea350da7a9dfb221ca2094"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/nazgul_sword.png",
+      "blobSHA": "e7c47d4af1ce25eb429a00dea901fa59c19a52bd"
     },
     {
       "id": "orc_captain",
@@ -180,9 +180,9 @@
       "name": "레골라스",
       "originalApproval": "rejected",
       "originalReason": "기존 숙인 고개와 활의 흐름보다 정면 얼굴 노출이 강해짐.",
-      "state": "pending_correction",
-      "path": "art/full-roster-night-rebuild-20261019/units/legolas.png",
-      "blobSHA": "5eebf6f0d1eeb3404353342c62098ce7c27fe85d"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/legolas.png",
+      "blobSHA": "a96cf49b635b8890dfad29ec78b067c492c57c55"
     },
     {
       "id": "gimli",
@@ -198,9 +198,9 @@
       "name": "보로미르",
       "originalApproval": "hold",
       "originalReason": "넓어진 상체와 짧아진 하체의 균형을 재검수. 기존 지휘관 실루엣과 비교 필요.",
-      "state": "pending_correction",
-      "path": "art/gondor-rebuild-20261019/units/boromir.png",
-      "blobSHA": "e3d1e592a1972165698fa5232d2fbe31de4cc601"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/boromir.png",
+      "blobSHA": "f471d245a691160182a9ad67920323b4b579d6e5"
     },
     {
       "id": "elrond",
@@ -225,9 +225,9 @@
       "name": "로한 근위병",
       "originalApproval": "hold",
       "originalReason": "투구·상체 대비 다리 길이, 추가된 금색 비중과 기존 색 균형 재확인.",
-      "state": "pending_correction",
-      "path": "art/full-roster-night-rebuild-20261019/units/rohan_royal_guard.png",
-      "blobSHA": "1b3d9c7f721ce02689438afa3e24ac8d5e729784"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/rohan_royal_guard.png",
+      "blobSHA": "f1a81bc12f68ad62d18ed39a7006eb6c702c22b5"
     },
     {
       "id": "rohan_rider",

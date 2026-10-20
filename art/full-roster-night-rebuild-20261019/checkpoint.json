@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T05:47:50.010Z",
+  "updatedAt": "2026-10-20T05:49:16.594Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -16,9 +16,9 @@
     "generatedReviewAssets": 378,
     "persistedReviewAssets": 510,
     "revisedAfterRejection": 20,
-    "qualityRejected": 64,
-    "qualityHeld": 66,
-    "awaitingApproval": 380
+    "qualityRejected": 63,
+    "qualityHeld": 63,
+    "awaitingApproval": 384
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
   "sources": [
@@ -55,13 +55,13 @@
     "nextAction": "Continue every outstanding original 194 rejected/held ID; inspect outputs and persist small batches. No user confirmation needed to continue corrections. Main integration remains separate.",
     "nextIds": [
       "witchking_foot_mace",
-      "nazgul_sword",
-      "legolas",
       "gimli",
-      "boromir",
       "elrond",
       "dwarf_guardian",
-      "rohan_royal_guard"
+      "mountain_troll",
+      "shelob",
+      "sauron",
+      "nazgul_sword_2"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
@@ -355,14 +355,29 @@
       "role": "hero",
       "original": "tokens/nazgul_sword.png",
       "source": "mordor",
-      "path": "art/mordor-rebuild-20261019/units/nazgul_sword.png",
-      "blobSHA": "6f4eafda52d9e18af6ea350da7a9dfb221ca2094",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "needs_revision",
-      "qualityReason": "기존 로브 실루엣이 반복된 깃털형 찢어진 망토·짧은 보행형으로 변경됨. 고유 형태 재검수.",
-      "approval": "hold",
-      "preferredSource": "undecided"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/nazgul_sword.png",
+      "blobSHA": "e7c47d4af1ce25eb429a00dea901fa59c19a52bd",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "기존 긴 검·금속 장갑·빈 후드와 늘어진 검은 로브를 복원. 정수리·어깨 윗면과 전진하는 긴 실루엣을 비교해 짧은 일반 보행형과 구분함.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "elf-gondor-rohan-silhouettes-20261020",
+        "previous": {
+          "approval": "hold",
+          "path": "art/mordor-rebuild-20261019/units/nazgul_sword.png",
+          "blobSHA": "6f4eafda52d9e18af6ea350da7a9dfb221ca2094",
+          "reason": "기존 로브 실루엣이 반복된 깃털형 찢어진 망토·짧은 보행형으로 변경됨. 고유 형태 재검수."
+        },
+        "observations": "기존 긴 검·금속 장갑·빈 후드와 늘어진 검은 로브를 복원. 정수리·어깨 윗면과 전진하는 긴 실루엣을 비교해 짧은 일반 보행형과 구분함.",
+        "checkedAt": "2026-10-20T05:49:16.594Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "saruman",
@@ -594,16 +609,30 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/legolas.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "elf",
-      "path": "art/full-roster-night-rebuild-20261019/units/legolas.png",
-      "blobSHA": "5eebf6f0d1eeb3404353342c62098ce7c27fe85d",
-      "approval": "rejected",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/legolas.png",
+      "blobSHA": "a96cf49b635b8890dfad29ec78b067c492c57c55",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존 숙인 고개와 활의 흐름보다 정면 얼굴 노출이 강해짐.",
-      "preferredSource": "old"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "기존 금발·초록 망토·활·화살통과 몸을 낮춘 흐름을 보존. 머리를 숙여 눈을 머리카락에 가리고 어깨 윗면의 시점을 복원해 비교함.",
+      "preferredSource": "remake_candidate",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "elf-gondor-rohan-silhouettes-20261020",
+        "previous": {
+          "approval": "rejected",
+          "path": "art/full-roster-night-rebuild-20261019/units/legolas.png",
+          "blobSHA": "5eebf6f0d1eeb3404353342c62098ce7c27fe85d",
+          "reason": "기존 숙인 고개와 활의 흐름보다 정면 얼굴 노출이 강해짐."
+        },
+        "observations": "기존 금발·초록 망토·활·화살통과 몸을 낮춘 흐름을 보존. 머리를 숙여 눈을 머리카락에 가리고 어깨 윗면의 시점을 복원해 비교함.",
+        "checkedAt": "2026-10-20T05:49:16.594Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "gimli",
@@ -629,14 +658,29 @@
       "role": "hero",
       "original": "tokens/boromir.png",
       "source": "gondor",
-      "path": "art/gondor-rebuild-20261019/units/boromir.png",
-      "blobSHA": "e3d1e592a1972165698fa5232d2fbe31de4cc601",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "needs_revision",
-      "qualityReason": "넓어진 상체와 짧아진 하체의 균형을 재검수. 기존 지휘관 실루엣과 비교 필요.",
-      "approval": "hold",
-      "preferredSource": "undecided"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/boromir.png",
+      "blobSHA": "f471d245a691160182a9ad67920323b4b579d6e5",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "기존 푸른 망토·흰 나무 방패·검·허리의 뿔나팔을 보존. 숙인 머리와 팔·골반·분리된 앞뒤 다리의 균형을 인간형 기준과 비교함.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "elf-gondor-rohan-silhouettes-20261020",
+        "previous": {
+          "approval": "hold",
+          "path": "art/gondor-rebuild-20261019/units/boromir.png",
+          "blobSHA": "e3d1e592a1972165698fa5232d2fbe31de4cc601",
+          "reason": "넓어진 상체와 짧아진 하체의 균형을 재검수. 기존 지휘관 실루엣과 비교 필요."
+        },
+        "observations": "기존 푸른 망토·흰 나무 방패·검·허리의 뿔나팔을 보존. 숙인 머리와 팔·골반·분리된 앞뒤 다리의 균형을 인간형 기준과 비교함.",
+        "checkedAt": "2026-10-20T05:49:16.594Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "eowyn",
@@ -742,16 +786,30 @@
       "faction": "rohan",
       "role": "infantry",
       "original": "tokens/rohan_royal_guard.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "image_gen",
-      "path": "art/full-roster-night-rebuild-20261019/units/rohan_royal_guard.png",
-      "blobSHA": "1b3d9c7f721ce02689438afa3e24ac8d5e729784",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/rohan_royal_guard.png",
+      "blobSHA": "f1a81bc12f68ad62d18ed39a7006eb6c702c22b5",
       "inGameVerified": false,
-      "qualityDecision": "needs_revision",
-      "qualityReason": "투구·상체 대비 다리 길이, 추가된 금색 비중과 기존 색 균형 재확인.",
-      "approval": "hold",
-      "preferredSource": "undecided"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "기존 녹색·은색 갑주 중심 색 균형과 말 문양 방패·흰 깃·검 가드를 유지. 얼굴을 투구 그늘에 두고 골반·무릎·발의 비율을 비교함.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "elf-gondor-rohan-silhouettes-20261020",
+        "previous": {
+          "approval": "hold",
+          "path": "art/full-roster-night-rebuild-20261019/units/rohan_royal_guard.png",
+          "blobSHA": "1b3d9c7f721ce02689438afa3e24ac8d5e729784",
+          "reason": "투구·상체 대비 다리 길이, 추가된 금색 비중과 기존 색 균형 재확인."
+        },
+        "observations": "기존 녹색·은색 갑주 중심 색 균형과 말 문양 방패·흰 깃·검 가드를 유지. 얼굴을 투구 그늘에 두고 골반·무릎·발의 비율을 비교함.",
+        "checkedAt": "2026-10-20T05:49:16.594Z",
+        "visualCheck": "original_and_candidate_compared",
+        "userApproval": "pending"
+      }
     },
     {
       "id": "ithilien_ranger",
@@ -9119,8 +9177,8 @@
   "qualityRepairRequest": {
     "id": "all-194-20261020",
     "scopeCount": 194,
-    "correctedCandidates": 64,
-    "remaining": 130,
+    "correctedCandidates": 68,
+    "remaining": 126,
     "userApproved": 0,
     "previousMountedCorrectionsIncluded": true
   }

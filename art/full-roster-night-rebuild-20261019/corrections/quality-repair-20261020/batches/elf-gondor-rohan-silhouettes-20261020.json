@@ -1,0 +1,106 @@
+{
+  "label": "elf-gondor-rohan-silhouettes-20261020",
+  "checkedAt": "2026-10-20T05:49:16.594Z",
+  "records": [
+    {
+      "id": "nazgul_sword",
+      "path": "/workspace/scratch/888606d1c5a1/generated_images/exec-daef4e5d-e4a1-4f9b-a755-6496824a978c.png",
+      "sha": "e7c47d4af1ce25eb429a00dea901fa59c19a52bd",
+      "prompt": "Use case: style-transfer. Repair production PIXEL GAME TOKEN for 나즈굴(검) (nazgul_sword). Image 1 is the ORIGINAL identity, equipment, pose, action and silhouette. Image 2 controls crisp pixel clusters, short color ramps, stepped dark outline, elevated front camera and lowered head only; DO NOT copy its costume/weapon. Image 3 if supplied is species ANATOMY proportions only, never transfer its pose or gray clothes. Start from original action and EXACT weapon/shield/banner/staff/bow placement and relative size; preserve original body lean and hand grips, no generic pose substitution, no missing or invented gear. Repair stated defect: 기존 로브 실루엣이 반복된 깃털형 찢어진 망토·짧은 보행형으로 변경됨. 고유 형태 재검수.. HUMAN/ELF: exactly FIVE anatomical head lengths, crown-to-chin excluding hair/helmet crest. Head natural, proportionate shoulder width, neck, arms, hands, pelvis and leg bones. Never four-head chibi or six-plus-head fashion anatomy. Camera high-angle FRONT looking DOWN45degrees over the WHOLE body, crown and shoulder tops visible; still front-facing, not top-down, side or rear. Chin and gaze point gently downward like original; face mostly hidden under hair/hood/helmet, no looking at viewer. Preserve original unique silhouette, material colors and heraldry. Crisp deliberate PIXEL artwork, not smooth painting/3D. Entire character/mount/all appendages and equipment inside INNER80percent of transparent canvas, broad empty margins, body centered excluding weapons. No floor, base, scenery, cast shadow, haze, glow, text or UI. Output ONLY this one original subject.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/nazgul_sword.png",
+        "/workspace/scratch/ad23164b1c38/refs/theoden-user-style.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human.png"
+      ],
+      "technicalCheck": {
+        "dimensions": [
+          1199,
+          1312
+        ],
+        "alpha": true,
+        "alphaBBox": [
+          0,
+          79,
+          1161,
+          1312
+        ]
+      },
+      "notes": "기존 긴 검·금속 장갑·빈 후드와 늘어진 검은 로브를 복원. 정수리·어깨 윗면과 전진하는 긴 실루엣을 비교해 짧은 일반 보행형과 구분함."
+    },
+    {
+      "id": "boromir",
+      "path": "/workspace/scratch/888606d1c5a1/generated_images/exec-723a9389-5c32-4751-9505-ed2d81ce3397.png",
+      "sha": "f471d245a691160182a9ad67920323b4b579d6e5",
+      "prompt": "Use case: style-transfer. Repair production PIXEL GAME TOKEN for 보로미르 (boromir). Image 1 is the ORIGINAL identity, equipment, pose, action and silhouette. Image 2 controls crisp pixel clusters, short color ramps, stepped dark outline, elevated front camera and lowered head only; DO NOT copy its costume/weapon. Image 3 if supplied is species ANATOMY proportions only, never transfer its pose or gray clothes. Start from original action and EXACT weapon/shield/banner/staff/bow placement and relative size; preserve original body lean and hand grips, no generic pose substitution, no missing or invented gear. Repair stated defect: 넓어진 상체와 짧아진 하체의 균형을 재검수. 기존 지휘관 실루엣과 비교 필요.. HUMAN/ELF: exactly FIVE anatomical head lengths, crown-to-chin excluding hair/helmet crest. Head natural, proportionate shoulder width, neck, arms, hands, pelvis and leg bones. Never four-head chibi or six-plus-head fashion anatomy. Camera high-angle FRONT looking DOWN45degrees over the WHOLE body, crown and shoulder tops visible; still front-facing, not top-down, side or rear. Chin and gaze point gently downward like original; face mostly hidden under hair/hood/helmet, no looking at viewer. Preserve original unique silhouette, material colors and heraldry. Crisp deliberate PIXEL artwork, not smooth painting/3D. Entire character/mount/all appendages and equipment inside INNER80percent of transparent canvas, broad empty margins, body centered excluding weapons. No floor, base, scenery, cast shadow, haze, glow, text or UI. Output ONLY this one original subject.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/boromir.png",
+        "/workspace/scratch/ad23164b1c38/refs/theoden-user-style.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human.png"
+      ],
+      "technicalCheck": {
+        "dimensions": [
+          1199,
+          1312
+        ],
+        "alpha": true,
+        "alphaBBox": [
+          0,
+          39,
+          1134,
+          1312
+        ]
+      },
+      "notes": "기존 푸른 망토·흰 나무 방패·검·허리의 뿔나팔을 보존. 숙인 머리와 팔·골반·분리된 앞뒤 다리의 균형을 인간형 기준과 비교함."
+    },
+    {
+      "id": "legolas",
+      "path": "/workspace/scratch/888606d1c5a1/generated_images/exec-192a7c7e-054a-4713-b4cb-1dc7cd1671bb.png",
+      "sha": "a96cf49b635b8890dfad29ec78b067c492c57c55",
+      "prompt": "Use case: style-transfer. Repair production PIXEL GAME TOKEN for 레골라스 (legolas). Image 1 is the ORIGINAL identity, equipment, pose, action and silhouette. Image 2 controls crisp pixel clusters, short color ramps, stepped dark outline, elevated front camera and lowered head only; DO NOT copy its costume/weapon. Image 3 if supplied is species ANATOMY proportions only, never transfer its pose or gray clothes. Start from original action and EXACT weapon/shield/banner/staff/bow placement and relative size; preserve original body lean and hand grips, no generic pose substitution, no missing or invented gear. Repair stated defect: 기존 숙인 고개와 활의 흐름보다 정면 얼굴 노출이 강해짐.. HUMAN/ELF: exactly FIVE anatomical head lengths, crown-to-chin excluding hair/helmet crest. Head natural, proportionate shoulder width, neck, arms, hands, pelvis and leg bones. Never four-head chibi or six-plus-head fashion anatomy. Camera high-angle FRONT looking DOWN45degrees over the WHOLE body, crown and shoulder tops visible; still front-facing, not top-down, side or rear. Chin and gaze point gently downward like original; face mostly hidden under hair/hood/helmet, no looking at viewer. Preserve original unique silhouette, material colors and heraldry. Crisp deliberate PIXEL artwork, not smooth painting/3D. Entire character/mount/all appendages and equipment inside INNER80percent of transparent canvas, broad empty margins, body centered excluding weapons. No floor, base, scenery, cast shadow, haze, glow, text or UI. Output ONLY this one original subject.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/legolas.png",
+        "/workspace/scratch/ad23164b1c38/refs/theoden-user-style.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/elf.png"
+      ],
+      "technicalCheck": {
+        "dimensions": [
+          1199,
+          1312
+        ],
+        "alpha": true,
+        "alphaBBox": [
+          33,
+          31,
+          1142,
+          1312
+        ]
+      },
+      "notes": "기존 금발·초록 망토·활·화살통과 몸을 낮춘 흐름을 보존. 머리를 숙여 눈을 머리카락에 가리고 어깨 윗면의 시점을 복원해 비교함."
+    },
+    {
+      "id": "rohan_royal_guard",
+      "path": "/workspace/scratch/888606d1c5a1/generated_images/exec-a5b60451-2818-4617-98b4-9e7268f9532f.png",
+      "sha": "f1a81bc12f68ad62d18ed39a7006eb6c702c22b5",
+      "prompt": "Use case: style-transfer. Repair production PIXEL GAME TOKEN for 로한 근위병 (rohan_royal_guard). Image 1 is the ORIGINAL identity, equipment, pose, action and silhouette. Image 2 controls crisp pixel clusters, short color ramps, stepped dark outline, elevated front camera and lowered head only; DO NOT copy its costume/weapon. Image 3 if supplied is species ANATOMY proportions only, never transfer its pose or gray clothes. Start from original action and EXACT weapon/shield/banner/staff/bow placement and relative size; preserve original body lean and hand grips, no generic pose substitution, no missing or invented gear. Repair stated defect: 투구·상체 대비 다리 길이, 추가된 금색 비중과 기존 색 균형 재확인.. HUMAN/ELF: exactly FIVE anatomical head lengths, crown-to-chin excluding hair/helmet crest. Head natural, proportionate shoulder width, neck, arms, hands, pelvis and leg bones. Never four-head chibi or six-plus-head fashion anatomy. Camera high-angle FRONT looking DOWN45degrees over the WHOLE body, crown and shoulder tops visible; still front-facing, not top-down, side or rear. Chin and gaze point gently downward like original; face mostly hidden under hair/hood/helmet, no looking at viewer. Preserve original unique silhouette, material colors and heraldry. Crisp deliberate PIXEL artwork, not smooth painting/3D. Entire character/mount/all appendages and equipment inside INNER80percent of transparent canvas, broad empty margins, body centered excluding weapons. No floor, base, scenery, cast shadow, haze, glow, text or UI. Output ONLY this one original subject.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/rohan_royal_guard.png",
+        "/workspace/scratch/ad23164b1c38/refs/theoden-user-style.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human.png"
+      ],
+      "technicalCheck": {
+        "dimensions": [
+          1142,
+          1378
+        ],
+        "alpha": true,
+        "alphaBBox": [
+          0,
+          0,
+          1118,
+          1378
+        ]
+      },
+      "notes": "기존 녹색·은색 갑주 중심 색 균형과 말 문양 방패·흰 깃·검 가드를 유지. 얼굴을 투구 그늘에 두고 골반·무릎·발의 비율을 비교함."
+    }
+  ]
+}
