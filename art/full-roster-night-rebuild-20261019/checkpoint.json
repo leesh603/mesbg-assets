@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T03:34:39.889Z",
+  "updatedAt": "2026-10-20T03:35:02.775Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 166,
-    "newlyGeneratedThisSession": 212,
-    "visuallyReviewedThisSession": 217,
+    "pending": 164,
+    "newlyGeneratedThisSession": 214,
+    "visuallyReviewedThisSession": 219,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 212,
-    "persistedReviewAssets": 344,
+    "generatedReviewAssets": 214,
+    "persistedReviewAssets": 346,
     "revisedAfterRejection": 18
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -4200,8 +4200,13 @@
       "faction": "harad",
       "role": "cavalry",
       "original": "tokens/haradrim_raider.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "harad",
+      "path": "art/full-roster-night-rebuild-20261019/units/haradrim_raider.png",
+      "blobSHA": "3ef0169b370307752a454fd7fef94b1e3ae3c462",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "mahud_camel_raider",
@@ -4209,8 +4214,13 @@
       "faction": "harad",
       "role": "cavalry",
       "original": "tokens/mahud_camel_raider.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "harad",
+      "path": "art/full-roster-night-rebuild-20261019/units/mahud_camel_raider.png",
+      "blobSHA": "5bb086d868603521b50c4e8632af7edc11cf0df6",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "amdur",
@@ -7154,14 +7164,14 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 344,
+    "count": 346,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
+      "harad": 17,
       "isengard": 29,
-      "dwarf": 36,
-      "harad": 15,
+      "난쟁이": 36,
       "maiar": 9,
       "elf": 77,
       "mordor": 73,

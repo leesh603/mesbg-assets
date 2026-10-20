@@ -1,0 +1,46 @@
+{
+  "batch": "harad-026-mounted-two",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "haradrim_raider",
+      "mounted": true,
+      "pose": "말 기마 · 낮게 든 굽은 검",
+      "detail": "HARADRIM RAIDER on HORSE, not camel. Red wrapped turban/face scarf with GOLD forehead crest/band, bronze armor and red short tunic/cloak GOLD hems, brown boots. Chestnut/tan BROWN HORSE with LIGHT TAN mane/tail and RED/GOLD bridle/barding and saddlecloth with gold fringe/tassels. One hand viewerLEFT curved SILVER SABRE gold hilt low at hip, blade diagonally outward to upperleft side at y23%, other hand reins at belt, exactly2hands. Horse head nearfrontal and forefeet modest staggered step. Rider compact5head bones, normal horse longhead/topneck, no shield/bow.",
+      "prompt": "Dress IMAGE1 original NEUTRAL HUMAN skeleton as IMAGE2 character. IMAGE1 alone controls normal adult skull, torso/limb bone lengths and elevated front camera. EXACTLY FIVE anatomical heads crown-to-sole, one head crown-to-CHIN excluding HAIR, BEARD, HAT or crown. No4head bighead chibi, no6+head tall hero. Copy exact bone segment relationships, use old age/slenderness through face, width and posture only. Full robes cover same compact fivehead bones, never lengthen body or hide feet. If hat/staff needs space, zoom out whole figure and expand clear canvas padding; do NOT shrink body relative to head to fit hat. Image2 identity/equipment/palette only, ignore its proportions. New joint poses required while preserving bone LENGTHS. Elevated FRONT camera looking DOWN30deg, clear TOP planes of head/hat and both shoulders, foreshortened chest/face, chin/gaze angled down separately. Not eyelevel with only bowed head. Crisp discrete pixel clusters, stepped dark outlines, limited color ramps matching image1/new Gondor/Mordor, no smooth painting/3D. Entire figure/weapons inside transparent RGBA clear margin, torso centered independently of equipment. No floor/base/shadow/aura/glow/text. Replace neutral bald scalp with required HAIR/BEARD/HAT exactly as source.  MOUNTED unit: Image1 human-mounted neutral controls ONLY rider normal skull/torso/femur/shin BONE LENGTHS and elevated camera. FIVE anatomical heads if rider stands; inspect rider independently from animal total height. Ignore footstanding framing. Animal anatomy/color/species come from image2; no5head rule for animal, no uniform shrinking of mount/rider to fix ratios. Show TOP planes of rider skull, shoulders, saddle and animal neck/withers/head through genuinely elevated front camera, not only bowed head. Exactly2hands on specified objects. HARADRIM RAIDER on HORSE, not camel. Red wrapped turban/face scarf with GOLD forehead crest/band, bronze armor and red short tunic/cloak GOLD hems, brown boots. Chestnut/tan BROWN HORSE with LIGHT TAN mane/tail and RED/GOLD bridle/barding and saddlecloth with gold fringe/tassels. One hand viewerLEFT curved SILVER SABRE gold hilt low at hip, blade diagonally outward to upperleft side at y23%, other hand reins at belt, exactly2hands. Horse head nearfrontal and forefeet modest staggered step. Rider compact5head bones, normal horse longhead/topneck, no shield/bow.",
+      "group": "하라드",
+      "groupKey": "harad",
+      "bodyDescription": "인간 기수 5등신·말 · 하이앵글 프론트뷰",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/human-mounted.png (rider only); original token mount anatomy",
+        "equipment": "Horse/camel identity, two hands and complete weapon shafts checked",
+        "camera": "Elevated front with rider shoulder and saddle/neck upper planes checked",
+        "approval": "pending"
+      },
+      "blobSHA": "3ef0169b370307752a454fd7fef94b1e3ae3c462",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-c603c5cd-6aa7-45df-822b-89c2718467cf.png"
+    },
+    {
+      "id": "mahud_camel_raider",
+      "mounted": true,
+      "pose": "붉은 기수 · 낙타 · 낮은 창",
+      "detail": "MAHUD CAMEL RAIDER on TAN SHAGGY CAMEL, NOT HORSE. Source rider redturban with black beard/face shadow, yellow neckscarf, RED cloak/tunic GOLD borders and bronze bracers/plate, BEIGE trousers and brown boots. Camel has tan woolly neck/chin fur, long camel muzzle, camel ears, broad TWO-TOED feet, red/gold saddleblanket/frontcloth and simple goldboss/brown bridle. One hand viewerLEFT holds ONE straight BROWN SPEAR shaft with RED wraps/GOLD bands, SILVER leaf spearhead pointing DOWN/outward beside camel shoulder, allshaft/headtip/butt visible and collinear; other hand reins near belt, exactly2hands. Human-mounted image1 controls RIDER BONES ONLY; replace its horse with source CAMEL anatomy, preserve fullsize camel and natural long neck without lengthening rider. Frontcamera elevated and both shoulder/saddle/neck upper planes visible.",
+      "prompt": "Dress IMAGE1 original NEUTRAL HUMAN skeleton as IMAGE2 character. IMAGE1 alone controls normal adult skull, torso/limb bone lengths and elevated front camera. EXACTLY FIVE anatomical heads crown-to-sole, one head crown-to-CHIN excluding HAIR, BEARD, HAT or crown. No4head bighead chibi, no6+head tall hero. Copy exact bone segment relationships, use old age/slenderness through face, width and posture only. Full robes cover same compact fivehead bones, never lengthen body or hide feet. If hat/staff needs space, zoom out whole figure and expand clear canvas padding; do NOT shrink body relative to head to fit hat. Image2 identity/equipment/palette only, ignore its proportions. New joint poses required while preserving bone LENGTHS. Elevated FRONT camera looking DOWN30deg, clear TOP planes of head/hat and both shoulders, foreshortened chest/face, chin/gaze angled down separately. Not eyelevel with only bowed head. Crisp discrete pixel clusters, stepped dark outlines, limited color ramps matching image1/new Gondor/Mordor, no smooth painting/3D. Entire figure/weapons inside transparent RGBA clear margin, torso centered independently of equipment. No floor/base/shadow/aura/glow/text. Replace neutral bald scalp with required HAIR/BEARD/HAT exactly as source.  MOUNTED unit: Image1 human-mounted neutral controls ONLY rider normal skull/torso/femur/shin BONE LENGTHS and elevated camera. FIVE anatomical heads if rider stands; inspect rider independently from animal total height. Ignore footstanding framing. Animal anatomy/color/species come from image2; no5head rule for animal, no uniform shrinking of mount/rider to fix ratios. Show TOP planes of rider skull, shoulders, saddle and animal neck/withers/head through genuinely elevated front camera, not only bowed head. Exactly2hands on specified objects. MAHUD CAMEL RAIDER on TAN SHAGGY CAMEL, NOT HORSE. Source rider redturban with black beard/face shadow, yellow neckscarf, RED cloak/tunic GOLD borders and bronze bracers/plate, BEIGE trousers and brown boots. Camel has tan woolly neck/chin fur, long camel muzzle, camel ears, broad TWO-TOED feet, red/gold saddleblanket/frontcloth and simple goldboss/brown bridle. One hand viewerLEFT holds ONE straight BROWN SPEAR shaft with RED wraps/GOLD bands, SILVER leaf spearhead pointing DOWN/outward beside camel shoulder, allshaft/headtip/butt visible and collinear; other hand reins near belt, exactly2hands. Human-mounted image1 controls RIDER BONES ONLY; replace its horse with source CAMEL anatomy, preserve fullsize camel and natural long neck without lengthening rider. Frontcamera elevated and both shoulder/saddle/neck upper planes visible.",
+      "group": "하라드",
+      "groupKey": "harad",
+      "bodyDescription": "인간 기수 5등신·낙타 · 하이앵글 프론트뷰",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/human-mounted.png (rider only); original token mount anatomy",
+        "equipment": "Horse/camel identity, two hands and complete weapon shafts checked",
+        "camera": "Elevated front with rider shoulder and saddle/neck upper planes checked",
+        "approval": "pending"
+      },
+      "blobSHA": "5bb086d868603521b50c4e8632af7edc11cf0df6",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-9e6d9445-94d0-4115-b453-8276134d8695.png"
+    }
+  ]
+}

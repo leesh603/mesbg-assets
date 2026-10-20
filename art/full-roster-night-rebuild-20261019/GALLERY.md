@@ -1,6 +1,18 @@
-# 전체 재제작 검토 — 344종
+# 전체 재제작 검토 — 346종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 마후드 낙타기병 (mahud_camel_raider)
+
+![마후드 낙타기병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/mahud_camel_raider.png?v=5bb086d868603521b50c4e8632af7edc11cf0df6)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/mahud_camel_raider.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/mahud_camel_raider.png?v=5bb086d868603521b50c4e8632af7edc11cf0df6)
+
+### 하라드림 습격기병 (haradrim_raider)
+
+![하라드림 습격기병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/haradrim_raider.png?v=3ef0169b370307752a454fd7fef94b1e3ae3c462)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/haradrim_raider.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/haradrim_raider.png?v=3ef0169b370307752a454fd7fef94b1e3ae3c462)
 
 ### 우르크 폭파반 (uruk_sapper)
 

@@ -1,17 +1,47 @@
 {
-  "count": 344,
+  "count": 346,
   "groups": {
+    "harad": 17,
     "isengard": 29,
-    "dwarf": 36,
-    "harad": 15,
+    "난쟁이": 36,
     "maiar": 9,
     "elf": 77,
     "mordor": 73,
     "rohan": 46,
     "gondor": 59
   },
-  "pending": 166,
+  "pending": 164,
   "units": [
+    {
+      "id": "mahud_camel_raider",
+      "name": "마후드 낙타기병",
+      "group": "하라드",
+      "role": "cavalry",
+      "image": "art/full-roster-night-rebuild-20261019/units/mahud_camel_raider.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/mahud_camel_raider.png",
+      "old": "tokens/mahud_camel_raider.png",
+      "status": "검토 대기",
+      "body": "인간 기수 5등신·낙타 · 하이앵글 프론트뷰",
+      "pose": "붉은 기수 · 낙타 · 낮은 창",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/mahud_camel_raider.png?v=5bb086d868603521b50c4e8632af7edc11cf0df6",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/mahud_camel_raider.png?v=5bb086d868603521b50c4e8632af7edc11cf0df6",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/mahud_camel_raider.png"
+    },
+    {
+      "id": "haradrim_raider",
+      "name": "하라드림 습격기병",
+      "group": "하라드",
+      "role": "cavalry",
+      "image": "art/full-roster-night-rebuild-20261019/units/haradrim_raider.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/haradrim_raider.png",
+      "old": "tokens/haradrim_raider.png",
+      "status": "검토 대기",
+      "body": "인간 기수 5등신·말 · 하이앵글 프론트뷰",
+      "pose": "말 기마 · 낮게 든 굽은 검",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/haradrim_raider.png?v=3ef0169b370307752a454fd7fef94b1e3ae3c462",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/haradrim_raider.png?v=3ef0169b370307752a454fd7fef94b1e3ae3c462",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/haradrim_raider.png"
+    },
     {
       "id": "uruk_sapper",
       "name": "우르크 폭파반",
