@@ -1,0 +1,43 @@
+{
+  "batch": "continuation-bard-review-20261020",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "bard",
+      "name": "바드",
+      "faction": "men",
+      "role": "hero",
+      "original": "tokens/bard.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "인간",
+      "groupKey": "men",
+      "bodyDescription": "인간형 5등신 · 원본 동작 · 숙인 고개 · 하이앵글 프론트뷰",
+      "pose": "기존 무장·기울임을 유지한 전투 자세",
+      "prompt": "Rebuild ONE complete production transparent PIXEL game token. INPUT1 original character controls EXACT costume/hair/helmet/beard/palette/weapons, elevated FRONT camera, deeply BOWED hidden face and distinct action silhouette; preserve those identity details. INPUT2 neutral HUMAN skeleton controls EXACT FIVE anatomical crown-to-chin heads for crown-to-sole body, ordinary adult skull and shoulder/pelvis/knee/ankle bone lengths, crisp pixel density/stepped dark outlines/short restrained shade ramps. Redress and rotate original neutral bones into INPUT1 action, NEVER lengthen to6–8heads, shrink to4heads or inflate helmet/skull. Slim/muscular/fat changes WIDTH only. Elevated front camera down40–45degrees with crown and both shoulder TOPS obvious, torso/face foreshortened. Head firmly tucked down, eyes covered by hair/helmet/hood/brow; NO frontal facial portrait/eye contact. Retain original body's forward lean or combat action. Original bard is CROUCHED forward, knees bent and feet braced, not walking. Keep his compact forward lean, two independent visible lower legs. Complete exact original weapons with logical handgrips; no weapons borrowed from INPUT2. Full silhouette and ALL weapon/banner/antler tips inside INNER80percent canvas. Body center ignores equipment. Transparent background, no base/floor/shadow/scenery/text/watermark/extra figures. Character identity: 바드 (bard). Exactly use INPUT1 design. Keep original rugged brown-haired bearded archer, fur cloak, brown gear, great brown longbow and white arrows. Bow full clean curved stave with ONE clean taut bold tan string; no colored fringes. CRITICAL bow structure: original is a WIDE horizontal carrying/ready bow at waist, a SINGLE continuous wooden shallow-U recurved stave, center grip held firmly by one hand, one taut tan straight string connects both end nocks BEHIND the stave. No arrow loaded, other hand ready near hip. Bow must never wrap around/merge into body. Show complete body and both feet, no compressed torso. Crown hair dominates face, eyes entirely hidden by bowed brow. Use generous 15% margins on ALL sides, weapon no larger than original relative to body.",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/bard.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human.png"
+      ],
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-9072acb1-2a38-41a8-9b25-2bf164267345.png",
+      "expectedBlobSHA": "6874dc9323caec0db97023e98c5c1606328a284d",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          98,
+          122,
+          1125,
+          1172
+        ]
+      },
+      "blobSHA": "6874dc9323caec0db97023e98c5c1606328a284d",
+      "approval": "pending",
+      "inGameVerified": false
+    }
+  ]
+}

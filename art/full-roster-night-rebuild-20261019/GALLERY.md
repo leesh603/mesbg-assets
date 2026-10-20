@@ -1,6 +1,12 @@
-# 전체 재제작 검토 — 500종
+# 전체 재제작 검토 — 501종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 바드 (bard)
+
+![바드](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/bard.png?v=6874dc9323caec0db97023e98c5c1606328a284d)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/bard.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/bard.png?v=6874dc9323caec0db97023e98c5c1606328a284d)
 
 ### 데일 기리온 근위병 (dale_guard)
 

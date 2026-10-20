@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T04:28:05.034Z",
+  "updatedAt": "2026-10-20T04:28:52.343Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 10,
-    "newlyGeneratedThisSession": 368,
-    "visuallyReviewedThisSession": 373,
+    "pending": 9,
+    "newlyGeneratedThisSession": 369,
+    "visuallyReviewedThisSession": 374,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 368,
-    "persistedReviewAssets": 500,
+    "generatedReviewAssets": 369,
+    "persistedReviewAssets": 501,
     "revisedAfterRejection": 18
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -51,11 +51,11 @@
   "resume": {
     "nextAction": "Continue pending roster with original species skeletons; inspect and save small batches to unified gallery.",
     "nextIds": [
-      "bard",
       "azog",
       "corsair_umbra",
       "ancalagon",
-      "watcher_karna"
+      "watcher_karna",
+      "dalamyr"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
@@ -2713,8 +2713,13 @@
       "faction": "men",
       "role": "hero",
       "original": "tokens/bard.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "men",
+      "path": "art/full-roster-night-rebuild-20261019/units/bard.png",
+      "blobSHA": "6874dc9323caec0db97023e98c5c1606328a284d",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "dain",
@@ -8054,11 +8059,12 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 500,
+    "count": 501,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
+      "men": 12,
       "데일": 3,
       "군다바드": 11,
       "독수리": 5,
@@ -8073,7 +8079,6 @@
       "팡고른": 1,
       "moria": 19,
       "arnor": 14,
-      "men": 11,
       "에레보르": 1,
       "numenor": 6,
       "dunland": 10,
@@ -8090,7 +8095,7 @@
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,
-    "sourceValidation": "500 unique IDs; static card count and asset blob SHAs verified"
+    "sourceValidation": "501 unique IDs; static card count and asset blob SHAs verified"
   },
   "revisionRequests": {
     "witchking": {
@@ -8226,16 +8231,9 @@
     }
   },
   "lastContinuation": {
-    "batch": "continuation-roster-c-20261020",
+    "batch": "continuation-bard-review-20261020",
     "newIds": [
-      "beechbone",
-      "morgoth",
-      "scatha",
-      "dale_warrior",
-      "esgaroth_archer",
-      "thorondor",
-      "bolg_mounted",
-      "dale_guard"
+      "bard"
     ],
     "qualityStandard": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
     "note": "Each image inspected against canonical skeleton and identity reference; approval pending."

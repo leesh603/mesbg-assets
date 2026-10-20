@@ -1,6 +1,7 @@
 {
-  "count": 500,
+  "count": 501,
   "groups": {
+    "men": 12,
     "데일": 3,
     "군다바드": 11,
     "독수리": 5,
@@ -15,7 +16,6 @@
     "팡고른": 1,
     "moria": 19,
     "arnor": 14,
-    "men": 11,
     "에레보르": 1,
     "numenor": 6,
     "dunland": 10,
@@ -30,8 +30,23 @@
     "rohan": 46,
     "gondor": 59
   },
-  "pending": 10,
+  "pending": 9,
   "units": [
+    {
+      "id": "bard",
+      "name": "바드",
+      "group": "인간",
+      "role": "hero",
+      "image": "art/full-roster-night-rebuild-20261019/units/bard.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/bard.png",
+      "old": "tokens/bard.png",
+      "status": "검토 대기",
+      "body": "인간형 5등신 · 원본 동작 · 숙인 고개 · 하이앵글 프론트뷰",
+      "pose": "기존 무장·기울임을 유지한 전투 자세",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/bard.png?v=6874dc9323caec0db97023e98c5c1606328a284d",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/bard.png?v=6874dc9323caec0db97023e98c5c1606328a284d",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/bard.png"
+    },
     {
       "id": "dale_guard",
       "name": "데일 기리온 근위병",
