@@ -1,6 +1,12 @@
-# 전체 재제작 검토 — 217종
+# 전체 재제작 검토 — 218종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 엘프 기창기병 (elven_lancer)
+
+![엘프 기창기병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/elven_lancer.png?v=174f9e8d4c4123a3136cb60e5027f8d205f70784)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/elven_lancer.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/elven_lancer.png?v=174f9e8d4c4123a3136cb60e5027f8d205f70784)
 
 ### 실반 궁수 (silvan_archer)
 

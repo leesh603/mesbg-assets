@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T02:04:53.192Z",
+  "updatedAt": "2026-10-20T02:08:50.955Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 293,
-    "newlyGeneratedThisSession": 85,
-    "visuallyReviewedThisSession": 90,
+    "pending": 292,
+    "newlyGeneratedThisSession": 86,
+    "visuallyReviewedThisSession": 91,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 85,
-    "persistedReviewAssets": 217,
+    "generatedReviewAssets": 86,
+    "persistedReviewAssets": 218,
     "revisedAfterRejection": 14
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -2401,8 +2401,13 @@
       "faction": "rivendell",
       "role": "cavalry",
       "original": "tokens/elven_lancer.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "elf",
+      "path": "art/full-roster-night-rebuild-20261019/units/elven_lancer.png",
+      "blobSHA": "174f9e8d4c4123a3136cb60e5027f8d205f70784",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "imrahil_mounted",
@@ -5472,12 +5477,12 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 217,
+    "count": 218,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
-      "elf": 34,
+      "elf": 35,
       "아이센가드": 5,
       "mordor": 73,
       "rohan": 46,
@@ -5542,8 +5547,9 @@
       "ids": [
         "elven_lancer"
       ],
-      "state": "repairing",
-      "reason": "Generated lance shaft is kinked; replace with one straight continuous shaft."
+      "state": "corrected-review-candidate",
+      "reason": "Generated lance shaft is kinked; replace with one straight continuous shaft.",
+      "corrected": true
     }
   },
   "lastContinuation": {

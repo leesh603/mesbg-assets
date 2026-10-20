@@ -1,0 +1,20 @@
+{
+  "batch": "elf-014-lancer-fix",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "elven_lancer",
+      "pose": "한 손 기창·한 손 고삐",
+      "detail": "MOUNTED ELVEN LANCER: GOLD leaf helmet/gold armour over navy tunic, BLUE cape gold border, no shield. Holds LONG silver-tipped gold/wood LANCE with BOTH hands low diagonal across horse chest toward viewerLEFT; correct grips/coherent shaft. WHITE horse ivory mane with navy/gold leaf caparison. Image1 mounted human skeleton alone defines exact adult5head rider proportions, short skull-to-seat/legs, pointed elf ears; no tiny rider or long torso. Horse collected front step, head slight left, all4 legs/hooves/saddle/stirrups and entire lance contained.",
+      "mounted": true,
+      "group": "엘프",
+      "groupKey": "elf",
+      "prompt": "ONE complete ELVEN LANCER mounted on WHITE horse. IMAGE1 is immutable compact FIVE-HEAD adult rider skeleton/head-to-seat/short arm and leg lengths, horse anatomy and fixed HIGH-ANGLE FRONT down25–30deg camera. IMAGE2 supplies exact gold elven leaf helmet/armour, navy tunic and BLUE cape gold border, white horse ivory mane/navy-gold leaf caparison. Preserve same pixel density/crisp stepped outline and colour ramps as image1; no smooth painting. IMPORTANT SIMPLE POSE: exactly TWO ARMS and TWO HANDS total. Right hand on viewer LEFT holds ONE long absolutely STRAIGHT silver/wood LANCE with silver leafhead and gold collars, outside viewerLEFT of horse. Spear points diagonally DOWN-LEFT away from horse; pole extends on the SAME straight line past grip to one short butt above-left shoulder. ONE continuous collinear pole, no bends, no extra rod or X. Left hand on viewerRIGHT holds ONLY BROWN LEATHER REINS near rider waist, fingers gripping reins, no weapon in this hand. Do NOT make two-handed lance grip. Do NOT add middle hand, extra forearm, detached hand, double glove or disconnected fragments. Natural bent elbows and connected shoulders/forearms, correct five-head skull/torso/limb proportions, no tiny rider. Horse calm collected step, 4 coherent separate legs, normal saddle/stirrups, complete hooves/tail. One sprite only, no shield/sword. Entire lance tip/butt/helmet/horse fits inner80% transparent RGBA canvas with generous margin. No base/floor/cast shadow/glow/haze/text/UI/additional figures.",
+      "priorCorrectionsRejected": "Two-handed lance edits produced kinked pole, then duplicated hand. Both excluded.",
+      "blobSHA": "174f9e8d4c4123a3136cb60e5027f8d205f70784",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-c8325b4e-ef10-4247-9a63-57404aa70263.png"
+    }
+  ]
+}
