@@ -2,7 +2,7 @@
 
 [전체 비교 갤러리](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html) · [이름·분류 확인사항](SOURCE_REVIEW_ISSUES.md)
 
-불합격·보류 194종: 120종 수정 검토본 / 74종 수정 필요 · 전체 품질 최종 통과 0종 · 사용자 승인 전
+불합격·보류 194종: 128종 수정 검토본 / 66종 수정 필요 · 전체 품질 최종 통과 0종 · 사용자 승인 전
 
 ### 움바 선장 (corsair_captain)
 
@@ -1764,9 +1764,9 @@
 
 ### 실반 궁수 (silvan_archer)
 
-![실반 궁수](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/silvan_archer.png?v=a689393e806272ed64967ad333cf9e1a9fd409b9)
+![실반 궁수](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/silvan_archer.png?v=32d4534c138861d6d2a85f3d3e2314ee613f6027)
 
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/silvan_archer.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/silvan_archer.png?v=a689393e806272ed64967ad333cf9e1a9fd409b9)
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/silvan_archer.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/silvan_archer.png?v=32d4534c138861d6d2a85f3d3e2314ee613f6027)
 
 ### 놀도르 정예병 (noldor_warrior)
 
@@ -1776,15 +1776,15 @@
 
 ### 머크우드 보초 (mirkwood_sentinel)
 
-![머크우드 보초](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/mirkwood_sentinel.png?v=0623375b60036a980d6d4c92c4865c18bb1fbe88)
+![머크우드 보초](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/mirkwood_sentinel.png?v=5210188e862302ab964ba436251435db0e19a609)
 
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/mirkwood_sentinel.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/mirkwood_sentinel.png?v=0623375b60036a980d6d4c92c4865c18bb1fbe88)
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/mirkwood_sentinel.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/mirkwood_sentinel.png?v=5210188e862302ab964ba436251435db0e19a609)
 
 ### 오로핀 (orophin)
 
-![오로핀](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/orophin.png?v=547ba69b41e0b1fba762bb8698d631d915a4c3ad)
+![오로핀](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/orophin.png?v=990cb1739c7a64f1eacd912168c31cc235acb056)
 
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/orophin.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/orophin.png?v=547ba69b41e0b1fba762bb8698d631d915a4c3ad)
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/orophin.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/orophin.png?v=990cb1739c7a64f1eacd912168c31cc235acb056)
 
 ### 루밀 (rumil)
 
@@ -1800,9 +1800,9 @@
 
 ### 에레스토르 (erestor)
 
-![에레스토르](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/erestor.png?v=c4ed797ea5b6c29f565f5ea6dc5e4a1c569ee913)
+![에레스토르](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/erestor.png?v=263d33228205b36baa2ca1e86106624b5f1cf694)
 
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/erestor.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/erestor.png?v=c4ed797ea5b6c29f565f5ea6dc5e4a1c569ee913)
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/erestor.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/erestor.png?v=263d33228205b36baa2ca1e86106624b5f1cf694)
 
 ### 린디르 (lindir)
 
@@ -1884,9 +1884,9 @@
 
 ### 엘로히르 (elrohir)
 
-![엘로히르](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/elrohir.png?v=efa0cd62a60b69ed122be842165e94cbde6df8fc)
+![엘로히르](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/elrohir.png?v=6152fdbb7f89d4bf3e4663b9fb665252bf499141)
 
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/elrohir.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/elrohir.png?v=efa0cd62a60b69ed122be842165e94cbde6df8fc)
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/elrohir.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/elrohir.png?v=6152fdbb7f89d4bf3e4663b9fb665252bf499141)
 
 ### 엘라단 (elladan)
 
@@ -2250,9 +2250,9 @@
 
 ### 에르켄브란트 (erkenbrand)
 
-![에르켄브란트](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/erkenbrand.png)
+![에르켄브란트](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/erkenbrand.png?v=97c55b7e930aa00c810c7f9a5f22a363fa6ea20b)
 
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/erkenbrand.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/erkenbrand.png)
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/erkenbrand.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/erkenbrand.png?v=97c55b7e930aa00c810c7f9a5f22a363fa6ea20b)
 
 ### 세오덴(도보) (theoden_foot)
 
@@ -2436,9 +2436,9 @@
 
 ### 포를롱 (forlong)
 
-![포를롱](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/gondor-rebuild-20261019/units/forlong.png)
+![포를롱](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/forlong.png?v=a03ff6495ee450e26204dab1a58024c489c0ece2)
 
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/gondor-rebuild-20261019/references/forlong.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/gondor-rebuild-20261019/units/forlong.png)
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/gondor-rebuild-20261019/references/forlong.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/forlong.png?v=a03ff6495ee450e26204dab1a58024c489c0ece2)
 
 ### 담로드 (damrod)
 
@@ -2814,9 +2814,9 @@
 
 ### 웨어울프 (werewolf)
 
-![웨어울프](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/werewolf.png)
+![웨어울프](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/werewolf.png?v=0915cddeb71475d4cbfa7765b981b6524b039dd8)
 
-[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/references/old/werewolf.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/units/werewolf.png)
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/mordor-rebuild-20261019/references/old/werewolf.png) · [수정 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/werewolf.png?v=0915cddeb71475d4cbfa7765b981b6524b039dd8)
 
 ### 카두쉬 화염술사 (kardush)
 

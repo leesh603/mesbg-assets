@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T09:17:38.052Z",
+  "updatedAt": "2026-10-20T10:31:02.105Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -16,10 +16,10 @@
     "generatedReviewAssets": 378,
     "persistedReviewAssets": 510,
     "revisedAfterRejection": 20,
-    "qualityRejected": 43,
-    "qualityHeld": 31,
-    "awaitingApproval": 436,
-    "correctionCandidatesGenerated": 41
+    "qualityRejected": 39,
+    "qualityHeld": 27,
+    "awaitingApproval": 444,
+    "correctionCandidatesGenerated": 49
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
   "sources": [
@@ -55,14 +55,14 @@
   "resume": {
     "nextAction": "Continue every outstanding original 194 rejected/held ID; inspect outputs and persist small batches. No user confirmation needed to continue corrections. Main integration remains separate.",
     "nextIds": [
-      "elrohir",
-      "erestor",
-      "orophin",
-      "mirkwood_sentinel",
-      "silvan_archer",
-      "forlong",
-      "erkenbrand",
-      "werewolf"
+      "dark_marshal",
+      "shadow_lord",
+      "tainted",
+      "undying",
+      "knight_of_umbar",
+      "isildur",
+      "denethor",
+      "wild_warg"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
@@ -3970,26 +3970,26 @@
       "visualReviewThisSession": true,
       "source": "elf",
       "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/elrohir.png",
-      "blobSHA": "efa0cd62a60b69ed122be842165e94cbde6df8fc",
-      "approval": "hold",
+      "blobSHA": "6152fdbb7f89d4bf3e4663b9fb665252bf499141",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "needs_revision",
-      "qualityReason": "활·화살통·별 문양과 숙인 고개를 보존해 다시 생성했으나 머리·몸통 대비 다리 길이의 5등신 기준을 엄격히 통과했다고 보기 어려움. 추가 비율 교정 필요.",
-      "preferredSource": "undecided",
-      "revision": "resume-next-05-20261020",
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "첫 수정본의 짧은 하체를 확인해 전신 비율을 한 번 더 교정. 원본의 별 문양·금청 갑주·활·화살통·숙인 고개와 전진 동세를 대조함. 길어진 다리와 골반·무릎·발 연결 확인; 정량 등신 계측과 사용자 최종 승인은 별도.",
+      "preferredSource": "remake_candidate",
+      "revision": "finish-74-01-20261020",
       "qualityRepair": {
         "request": "all-194-20261020",
-        "revision": "resume-next-05-20261020",
+        "revision": "finish-74-01-20261020",
         "previous": {
           "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/elrohir.png",
-          "blobSHA": "66c45dbc04e2162dc32f2a77760a8d1861bcd6fc",
+          "blobSHA": "efa0cd62a60b69ed122be842165e94cbde6df8fc",
           "approval": "hold",
-          "reason": "활·화살통과 숙인 머리는 보존했으나 머리 대비 몸길이가 여전히 짧아 보임. 인간형 5등신 기준으로 머리·몸통·다리 비율을 다시 교정해야 함."
+          "reason": "활·화살통·별 문양과 숙인 고개를 보존해 다시 생성했으나 머리·몸통 대비 다리 길이의 5등신 기준을 엄격히 통과했다고 보기 어려움. 추가 비율 교정 필요."
         },
-        "checkedAt": "2026-10-20T09:17:38.052Z",
+        "checkedAt": "2026-10-20T10:31:02.105Z",
         "visualCheck": "original_previous_candidate_and_neutral_reference_compared",
-        "observations": "활·화살통·별 문양과 숙인 고개를 보존해 다시 생성했으나 머리·몸통 대비 다리 길이의 5등신 기준을 엄격히 통과했다고 보기 어려움. 추가 비율 교정 필요.",
-        "state": "revision_still_held",
+        "observations": "첫 수정본의 짧은 하체를 확인해 전신 비율을 한 번 더 교정. 원본의 별 문양·금청 갑주·활·화살통·숙인 고개와 전진 동세를 대조함. 길어진 다리와 골반·무릎·발 연결 확인; 정량 등신 계측과 사용자 최종 승인은 별도.",
+        "state": "corrected_candidate_compared",
         "userApproval": "pending",
         "anatomicalMeasurement": "not_claimed"
       }
@@ -4502,26 +4502,26 @@
       "visualReviewThisSession": true,
       "source": "elf",
       "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/erestor.png",
-      "blobSHA": "c4ed797ea5b6c29f565f5ea6dc5e4a1c569ee913",
-      "approval": "hold",
+      "blobSHA": "263d33228205b36baa2ca1e86106624b5f1cf694",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "needs_revision",
-      "qualityReason": "금빛 갑옷·청색 망토·쌍단검과 낮춘 얼굴을 보존해 다시 생성. 체형이 이전보다 길어졌으나 5등신·하이앵글의 최종 일치 확인이 부족해 보류 유지.",
-      "preferredSource": "undecided",
-      "revision": "resume-next-05-20261020",
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "첫 수정본의 머리·상체 대비 짧은 하체를 재수정. 쌍단검·금빛 갑주·청색 망토를 보존하고 전신 비율, 숙인 고개, 어깨 윗면을 원본과 대조함. 정량 등신 계측·최종 승인은 별도.",
+      "preferredSource": "remake_candidate",
+      "revision": "finish-74-01-20261020",
       "qualityRepair": {
         "request": "all-194-20261020",
-        "revision": "resume-next-05-20261020",
+        "revision": "finish-74-01-20261020",
         "previous": {
           "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/erestor.png",
-          "blobSHA": "ada51e203a83406aa8b88fd0367600e91a7d2317",
+          "blobSHA": "c4ed797ea5b6c29f565f5ea6dc5e4a1c569ee913",
           "approval": "hold",
-          "reason": "쌍단검과 기존 금빛 갑옷은 보존했으나 짧고 넓은 체형이 남아 있음. 인간형 5등신 기준 머리·어깨·허리·다리 비율 추가 교정 필요."
+          "reason": "금빛 갑옷·청색 망토·쌍단검과 낮춘 얼굴을 보존해 다시 생성. 체형이 이전보다 길어졌으나 5등신·하이앵글의 최종 일치 확인이 부족해 보류 유지."
         },
-        "checkedAt": "2026-10-20T09:17:38.052Z",
+        "checkedAt": "2026-10-20T10:31:02.105Z",
         "visualCheck": "original_previous_candidate_and_neutral_reference_compared",
-        "observations": "금빛 갑옷·청색 망토·쌍단검과 낮춘 얼굴을 보존해 다시 생성. 체형이 이전보다 길어졌으나 5등신·하이앵글의 최종 일치 확인이 부족해 보류 유지.",
-        "state": "revision_still_held",
+        "observations": "첫 수정본의 머리·상체 대비 짧은 하체를 재수정. 쌍단검·금빛 갑주·청색 망토를 보존하고 전신 비율, 숙인 고개, 어깨 윗면을 원본과 대조함. 정량 등신 계측·최종 승인은 별도.",
+        "state": "corrected_candidate_compared",
         "userApproval": "pending",
         "anatomicalMeasurement": "not_claimed"
       }
@@ -4583,16 +4583,33 @@
       "faction": "lothlorien",
       "role": "hero",
       "original": "tokens/orophin.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "elf",
-      "path": "art/full-roster-night-rebuild-20261019/units/orophin.png",
-      "blobSHA": "547ba69b41e0b1fba762bb8698d631d915a4c3ad",
-      "approval": "rejected",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/orophin.png",
+      "blobSHA": "990cb1739c7a64f1eacd912168c31cc235acb056",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존 몸을 낮춘 공격과 숙인 머리보다 정면 얼굴 노출이 강해짐.",
-      "preferredSource": "old"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "기존의 높이 든 곡검과 낮게 뻗은 다른 검, 몸을 기울인 공격 동세·금발·청금 갑주를 유지. 머리와 다리를 함께 재구성하고 정수리·어깨 윗면, 양손 무기 연결을 비교함.",
+      "preferredSource": "remake_candidate",
+      "revision": "finish-74-01-20261020",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-74-01-20261020",
+        "previous": {
+          "path": "art/full-roster-night-rebuild-20261019/units/orophin.png",
+          "blobSHA": "547ba69b41e0b1fba762bb8698d631d915a4c3ad",
+          "approval": "rejected",
+          "reason": "기존 몸을 낮춘 공격과 숙인 머리보다 정면 얼굴 노출이 강해짐."
+        },
+        "checkedAt": "2026-10-20T10:31:02.105Z",
+        "visualCheck": "original_previous_candidate_and_neutral_reference_compared",
+        "observations": "기존의 높이 든 곡검과 낮게 뻗은 다른 검, 몸을 기울인 공격 동세·금발·청금 갑주를 유지. 머리와 다리를 함께 재구성하고 정수리·어깨 윗면, 양손 무기 연결을 비교함.",
+        "state": "corrected_candidate_compared",
+        "userApproval": "pending",
+        "anatomicalMeasurement": "not_claimed"
+      }
     },
     {
       "id": "mirkwood_sentinel",
@@ -4600,16 +4617,33 @@
       "faction": "mirkwood",
       "role": "infantry",
       "original": "tokens/mirkwood_sentinel.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "elf",
-      "path": "art/full-roster-night-rebuild-20261019/units/mirkwood_sentinel.png",
-      "blobSHA": "0623375b60036a980d6d4c92c4865c18bb1fbe88",
-      "approval": "rejected",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/mirkwood_sentinel.png",
+      "blobSHA": "5210188e862302ab964ba436251435db0e19a609",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존 얼굴이 가려진 투구·후드 실루엣이 얼굴 노출 중심으로 변경됨.",
-      "preferredSource": "old"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "얼굴을 가리는 잎 모양 투구·녹색 망토·등의 활과 화살통·아래로 든 곡검을 보존. 전진 다리와 몸통의 비례를 다시 교정하고 숙인 머리·하이앵글을 비교함.",
+      "preferredSource": "remake_candidate",
+      "revision": "finish-74-01-20261020",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-74-01-20261020",
+        "previous": {
+          "path": "art/full-roster-night-rebuild-20261019/units/mirkwood_sentinel.png",
+          "blobSHA": "0623375b60036a980d6d4c92c4865c18bb1fbe88",
+          "approval": "rejected",
+          "reason": "기존 얼굴이 가려진 투구·후드 실루엣이 얼굴 노출 중심으로 변경됨."
+        },
+        "checkedAt": "2026-10-20T10:31:02.105Z",
+        "visualCheck": "original_previous_candidate_and_neutral_reference_compared",
+        "observations": "얼굴을 가리는 잎 모양 투구·녹색 망토·등의 활과 화살통·아래로 든 곡검을 보존. 전진 다리와 몸통의 비례를 다시 교정하고 숙인 머리·하이앵글을 비교함.",
+        "state": "corrected_candidate_compared",
+        "userApproval": "pending",
+        "anatomicalMeasurement": "not_claimed"
+      }
     },
     {
       "id": "noldor_warrior",
@@ -4634,16 +4668,33 @@
       "faction": "mirkwood",
       "role": "infantry",
       "original": "tokens/silvan_archer.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "elf",
-      "path": "art/full-roster-night-rebuild-20261019/units/silvan_archer.png",
-      "blobSHA": "a689393e806272ed64967ad333cf9e1a9fd409b9",
-      "approval": "rejected",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/silvan_archer.png",
+      "blobSHA": "32d4534c138861d6d2a85f3d3e2314ee613f6027",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존 후드 아래 숙인 머리·시선보다 정면 얼굴 노출이 강해짐.",
-      "preferredSource": "old"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "녹색 후드 아래 그늘진 얼굴, 금발, 활을 비스듬히 받친 손동작과 화살통을 보존. 머리 숙임·어깨 윗면·활대와 시위·두 손의 연결 및 전진 다리 구조를 비교함.",
+      "preferredSource": "remake_candidate",
+      "revision": "finish-74-01-20261020",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-74-01-20261020",
+        "previous": {
+          "path": "art/full-roster-night-rebuild-20261019/units/silvan_archer.png",
+          "blobSHA": "a689393e806272ed64967ad333cf9e1a9fd409b9",
+          "approval": "rejected",
+          "reason": "기존 후드 아래 숙인 머리·시선보다 정면 얼굴 노출이 강해짐."
+        },
+        "checkedAt": "2026-10-20T10:31:02.105Z",
+        "visualCheck": "original_previous_candidate_and_neutral_reference_compared",
+        "observations": "녹색 후드 아래 그늘진 얼굴, 금발, 활을 비스듬히 받친 손동작과 화살통을 보존. 머리 숙임·어깨 윗면·활대와 시위·두 손의 연결 및 전진 다리 구조를 비교함.",
+        "state": "corrected_candidate_compared",
+        "userApproval": "pending",
+        "anatomicalMeasurement": "not_claimed"
+      }
     },
     {
       "id": "elven_lancer",
@@ -4901,14 +4952,32 @@
       "role": "hero",
       "original": "tokens/forlong.png",
       "source": "gondor",
-      "path": "art/gondor-rebuild-20261019/units/forlong.png",
-      "blobSHA": "40f9a3b2b1b67fbee9ad2ef57c93e1c2d8d08546",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "needs_revision",
-      "qualityReason": "건장함·비대함 변주와 별개로 상체 대비 다리 길이 및 5등신 기준 재확인.",
-      "approval": "hold",
-      "preferredSource": "undecided"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/forlong.png",
+      "blobSHA": "a03ff6495ee450e26204dab1a58024c489c0ece2",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "비대한 체형은 유지하고 골반·무릎·발 연결을 재구성. 흰 머리·수염·나무 문양·등의 방패·양손 도끼와 기존 전진 자세를 보존하여 원본과 비교함.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "revision": "finish-74-01-20261020",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-74-01-20261020",
+        "previous": {
+          "path": "art/gondor-rebuild-20261019/units/forlong.png",
+          "blobSHA": "40f9a3b2b1b67fbee9ad2ef57c93e1c2d8d08546",
+          "approval": "hold",
+          "reason": "건장함·비대함 변주와 별개로 상체 대비 다리 길이 및 5등신 기준 재확인."
+        },
+        "checkedAt": "2026-10-20T10:31:02.105Z",
+        "visualCheck": "original_previous_candidate_and_neutral_reference_compared",
+        "observations": "비대한 체형은 유지하고 골반·무릎·발 연결을 재구성. 흰 머리·수염·나무 문양·등의 방패·양손 도끼와 기존 전진 자세를 보존하여 원본과 비교함.",
+        "state": "corrected_candidate_compared",
+        "userApproval": "pending",
+        "anatomicalMeasurement": "not_claimed"
+      }
     },
     {
       "id": "erkenbrand",
@@ -4916,16 +4985,33 @@
       "faction": "rohan",
       "role": "hero",
       "original": "tokens/erkenbrand.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "image_gen",
-      "path": "art/full-roster-night-rebuild-20261019/units/erkenbrand.png",
-      "blobSHA": "d2aa1053486517bc8b6ef9c9104934f195b052e6",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/erkenbrand.png",
+      "blobSHA": "97c55b7e930aa00c810c7f9a5f22a363fa6ea20b",
       "inGameVerified": false,
-      "qualityDecision": "needs_revision",
-      "qualityReason": "동작 변주는 있으나 짧아 보이는 하체와 넓은 자세의 비율을 재확인해야 함.",
-      "approval": "hold",
-      "preferredSource": "undecided"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "초록 투구·붉은 깃·흰 모피·백마 문양과 검방 구도를 보존. 정수리와 어깨 윗면이 보이는 전신 시점, 분리된 두 다리와 숙인 투구를 원본과 비교함.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "revision": "finish-74-01-20261020",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-74-01-20261020",
+        "previous": {
+          "path": "art/full-roster-night-rebuild-20261019/units/erkenbrand.png",
+          "blobSHA": "d2aa1053486517bc8b6ef9c9104934f195b052e6",
+          "approval": "hold",
+          "reason": "동작 변주는 있으나 짧아 보이는 하체와 넓은 자세의 비율을 재확인해야 함."
+        },
+        "checkedAt": "2026-10-20T10:31:02.105Z",
+        "visualCheck": "original_previous_candidate_and_neutral_reference_compared",
+        "observations": "초록 투구·붉은 깃·흰 모피·백마 문양과 검방 구도를 보존. 정수리와 어깨 윗면이 보이는 전신 시점, 분리된 두 다리와 숙인 투구를 원본과 비교함.",
+        "state": "corrected_candidate_compared",
+        "userApproval": "pending",
+        "anatomicalMeasurement": "not_claimed"
+      }
     },
     {
       "id": "damrod",
@@ -5051,14 +5137,32 @@
       "role": "beast",
       "original": "tokens/werewolf.png",
       "source": "mordor",
-      "path": "art/mordor-rebuild-20261019/units/werewolf.png",
-      "blobSHA": "eb007548b324150d016a064b6d90e06d71ee617c",
-      "status": "restored_review_asset",
-      "visualReviewThisSession": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존의 긴 팔다리·낮은 머리·포식자 동세보다 둥글고 큰 머리·털 덩어리 인상이 강해짐.",
-      "approval": "rejected",
-      "preferredSource": "old"
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/werewolf.png",
+      "blobSHA": "0915cddeb71475d4cbfa7765b981b6524b039dd8",
+      "status": "quality_corrected_review_asset",
+      "visualReviewThisSession": true,
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "인간형 뼈대를 적용하지 않고 긴 팔·굴곡진 뒷다리·긴 주둥이·낮은 머리와 높이 든 꼬리의 기존 포식자 실루엣을 보존. 네 팔다리와 발톱·골반 연결을 비교함.",
+      "approval": "pending",
+      "preferredSource": "remake_candidate",
+      "inGameVerified": false,
+      "revision": "finish-74-01-20261020",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "finish-74-01-20261020",
+        "previous": {
+          "path": "art/mordor-rebuild-20261019/units/werewolf.png",
+          "blobSHA": "eb007548b324150d016a064b6d90e06d71ee617c",
+          "approval": "rejected",
+          "reason": "기존의 긴 팔다리·낮은 머리·포식자 동세보다 둥글고 큰 머리·털 덩어리 인상이 강해짐."
+        },
+        "checkedAt": "2026-10-20T10:31:02.105Z",
+        "visualCheck": "original_previous_candidate_and_neutral_reference_compared",
+        "observations": "인간형 뼈대를 적용하지 않고 긴 팔·굴곡진 뒷다리·긴 주둥이·낮은 머리와 높이 든 꼬리의 기존 포식자 실루엣을 보존. 네 팔다리와 발톱·골반 연결을 비교함.",
+        "state": "corrected_candidate_compared",
+        "userApproval": "pending",
+        "anatomicalMeasurement": "not_claimed"
+      }
     },
     {
       "id": "gulavhar",
@@ -9988,14 +10092,17 @@
     "note": "Each image inspected against canonical skeleton and identity reference; approval pending."
   },
   "lastCorrection": {
-    "at": "2026-10-20T09:17:38.052Z",
-    "batch": "resume-next-05-20261020",
+    "at": "2026-10-20T10:31:02.105Z",
+    "batch": "finish-74-01-20261020",
     "ids": [
-      "elladan",
-      "shagrat",
-      "gorbag",
       "elrohir",
-      "erestor"
+      "erestor",
+      "orophin",
+      "mirkwood_sentinel",
+      "silvan_archer",
+      "forlong",
+      "erkenbrand",
+      "werewolf"
     ],
     "newCharacterCount": 0,
     "qualityAcceptedCount": 0,
@@ -10071,8 +10178,8 @@
   "qualityRepairRequest": {
     "id": "all-194-20261020",
     "scopeCount": 194,
-    "correctedCandidates": 120,
-    "remaining": 74,
+    "correctedCandidates": 128,
+    "remaining": 66,
     "userApproved": 0,
     "previousMountedCorrectionsIncluded": true
   }

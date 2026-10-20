@@ -1,0 +1,186 @@
+{
+  "batch": "finish-74-01-20261020",
+  "tool": "image_gen",
+  "at": "2026-10-20T10:31:02.105Z",
+  "sourceHead": "db89f4b5f73fe4475d72031883fb8d5157fcb130",
+  "generatedCharacters": 8,
+  "newRosterIds": 0,
+  "qualityAcceptedCount": 0,
+  "records": [
+    {
+      "id": "elrohir",
+      "prompt": "Use case: precise-object-edit. Image1 is the EDIT TARGET, image2 original identity/action reference, image3 pixel style/camera only. 엘로히르 (elrohir). Correct the ENTIRE anatomy of image1: current head, shoulders and hands are too big and torso-to-leg length too squat. Make an exact FIVE-HEAD projected human/elf body. Measurable visible crown-to-sole body height should be five times bare skull crown-to-chin length, skull excludes hair/helmet. Head occupies twenty percent of visible crown-to-sole body height. Do not make six-head tall anatomy. Reconstruct head/neck/shoulder/upper+lower arm/hands/pelvis/thigh/knee/shin/boots together, more developed thighs and shins, human hands and natural shoulder width. Not just head resizing. Keep same high-angle FRONT view looking down on whole anatomy: crown and shoulder top planes visible, chin/eyes lowered away from viewer. Preserve exact costume, colors, full equipment, grip, body lean and gesture of original. Keep complete fully visible character and all weapons centered in inner80% with10% transparent margins. Crisp PIXEL clusters and stepped outlines like image3, no smooth illustration, background genuinely alpha transparent. No base, floor, shadow, labels. PRIORITY: five-head coherent adult anatomy; do not preserve squat proportions of image1 or source.",
+      "refs": [
+        "/workspace/scratch/9e8ac8130851/generated_images/exec-77663211-e5dc-49ed-b972-442c1ea81238.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/tokens/elrohir.png",
+        "/workspace/scratch/f40d43c7f276/run-refs/style.png"
+      ],
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/elrohir.png",
+      "blobSHA": "6152fdbb7f89d4bf3e4663b9fb665252bf499141",
+      "previous": {
+        "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/elrohir.png",
+        "blobSHA": "efa0cd62a60b69ed122be842165e94cbde6df8fc",
+        "approval": "hold",
+        "reason": "활·화살통·별 문양과 숙인 고개를 보존해 다시 생성했으나 머리·몸통 대비 다리 길이의 5등신 기준을 엄격히 통과했다고 보기 어려움. 추가 비율 교정 필요."
+      },
+      "auditSourceBlobCompared": "efa0cd62a60b69ed122be842165e94cbde6df8fc",
+      "observations": "첫 수정본의 짧은 하체를 확인해 전신 비율을 한 번 더 교정. 원본의 별 문양·금청 갑주·활·화살통·숙인 고개와 전진 동세를 대조함. 길어진 다리와 골반·무릎·발 연결 확인; 정량 등신 계측과 사용자 최종 승인은 별도.",
+      "decision": "revised_awaiting_review",
+      "userApproval": "pending",
+      "anatomicalMeasurement": "not_claimed"
+    },
+    {
+      "id": "erestor",
+      "prompt": "Use case: precise-object-edit. Image1 is the EDIT TARGET, image2 original identity/action reference, image3 pixel style/camera only. 에레스토르 (erestor). Correct the ENTIRE anatomy of image1: current head, shoulders and hands are too big and torso-to-leg length too squat. Make an exact FIVE-HEAD projected human/elf body. Measurable visible crown-to-sole body height should be five times bare skull crown-to-chin length, skull excludes hair/helmet. Head occupies twenty percent of visible crown-to-sole body height. Do not make six-head tall anatomy. Reconstruct head/neck/shoulder/upper+lower arm/hands/pelvis/thigh/knee/shin/boots together, more developed thighs and shins, human hands and natural shoulder width. Not just head resizing. Keep same high-angle FRONT view looking down on whole anatomy: crown and shoulder top planes visible, chin/eyes lowered away from viewer. Preserve exact costume, colors, full equipment, grip, body lean and gesture of original. Keep complete fully visible character and all weapons centered in inner80% with10% transparent margins. Crisp PIXEL clusters and stepped outlines like image3, no smooth illustration, background genuinely alpha transparent. No base, floor, shadow, labels. PRIORITY: five-head coherent adult anatomy; do not preserve squat proportions of image1 or source.",
+      "refs": [
+        "/workspace/scratch/9e8ac8130851/generated_images/exec-740b0c48-44c3-4ef5-8cfc-0cf294e4af50.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/tokens/erestor.png",
+        "/workspace/scratch/f40d43c7f276/run-refs/style.png"
+      ],
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/erestor.png",
+      "blobSHA": "263d33228205b36baa2ca1e86106624b5f1cf694",
+      "previous": {
+        "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/erestor.png",
+        "blobSHA": "c4ed797ea5b6c29f565f5ea6dc5e4a1c569ee913",
+        "approval": "hold",
+        "reason": "금빛 갑옷·청색 망토·쌍단검과 낮춘 얼굴을 보존해 다시 생성. 체형이 이전보다 길어졌으나 5등신·하이앵글의 최종 일치 확인이 부족해 보류 유지."
+      },
+      "auditSourceBlobCompared": "c4ed797ea5b6c29f565f5ea6dc5e4a1c569ee913",
+      "observations": "첫 수정본의 머리·상체 대비 짧은 하체를 재수정. 쌍단검·금빛 갑주·청색 망토를 보존하고 전신 비율, 숙인 고개, 어깨 윗면을 원본과 대조함. 정량 등신 계측·최종 승인은 별도.",
+      "decision": "revised_awaiting_review",
+      "userApproval": "pending",
+      "anatomicalMeasurement": "not_claimed"
+    },
+    {
+      "id": "orophin",
+      "prompt": "Use case: precise-object-edit. Image1 is the EDIT TARGET, image2 original identity/action reference, image3 pixel style/camera only. 오로핀 (orophin). Correct the ENTIRE anatomy of image1: current head, shoulders and hands are too big and torso-to-leg length too squat. Make an exact FIVE-HEAD projected human/elf body. Measurable visible crown-to-sole body height should be five times bare skull crown-to-chin length, skull excludes hair/helmet. Head occupies twenty percent of visible crown-to-sole body height. Do not make six-head tall anatomy. Reconstruct head/neck/shoulder/upper+lower arm/hands/pelvis/thigh/knee/shin/boots together, more developed thighs and shins, human hands and natural shoulder width. Not just head resizing. Keep same high-angle FRONT view looking down on whole anatomy: crown and shoulder top planes visible, chin/eyes lowered away from viewer. Preserve exact costume, colors, full equipment, grip, body lean and gesture of original. Keep complete fully visible character and all weapons centered in inner80% with10% transparent margins. Crisp PIXEL clusters and stepped outlines like image3, no smooth illustration, background genuinely alpha transparent. No base, floor, shadow, labels. PRIORITY: five-head coherent adult anatomy; do not preserve squat proportions of image1 or source.",
+      "refs": [
+        "/workspace/scratch/9e8ac8130851/generated_images/exec-1328b2e5-1cdf-489f-9ecb-f36400217a89.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/tokens/orophin.png",
+        "/workspace/scratch/f40d43c7f276/run-refs/style.png"
+      ],
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/orophin.png",
+      "blobSHA": "990cb1739c7a64f1eacd912168c31cc235acb056",
+      "previous": {
+        "path": "art/full-roster-night-rebuild-20261019/units/orophin.png",
+        "blobSHA": "547ba69b41e0b1fba762bb8698d631d915a4c3ad",
+        "approval": "rejected",
+        "reason": "기존 몸을 낮춘 공격과 숙인 머리보다 정면 얼굴 노출이 강해짐."
+      },
+      "auditSourceBlobCompared": "547ba69b41e0b1fba762bb8698d631d915a4c3ad",
+      "observations": "기존의 높이 든 곡검과 낮게 뻗은 다른 검, 몸을 기울인 공격 동세·금발·청금 갑주를 유지. 머리와 다리를 함께 재구성하고 정수리·어깨 윗면, 양손 무기 연결을 비교함.",
+      "decision": "revised_awaiting_review",
+      "userApproval": "pending",
+      "anatomicalMeasurement": "not_claimed"
+    },
+    {
+      "id": "mirkwood_sentinel",
+      "prompt": "Use case: precise-object-edit. Image1 is the EDIT TARGET, image2 original identity/action reference, image3 pixel style/camera only. 머크우드 보초 (mirkwood_sentinel). Correct the ENTIRE anatomy of image1: current head, shoulders and hands are too big and torso-to-leg length too squat. Make an exact FIVE-HEAD projected human/elf body. Measurable visible crown-to-sole body height should be five times bare skull crown-to-chin length, skull excludes hair/helmet. Head occupies twenty percent of visible crown-to-sole body height. Do not make six-head tall anatomy. Reconstruct head/neck/shoulder/upper+lower arm/hands/pelvis/thigh/knee/shin/boots together, more developed thighs and shins, human hands and natural shoulder width. Not just head resizing. Keep same high-angle FRONT view looking down on whole anatomy: crown and shoulder top planes visible, chin/eyes lowered away from viewer. Preserve exact costume, colors, full equipment, grip, body lean and gesture of original. Keep complete fully visible character and all weapons centered in inner80% with10% transparent margins. Crisp PIXEL clusters and stepped outlines like image3, no smooth illustration, background genuinely alpha transparent. No base, floor, shadow, labels. PRIORITY: five-head coherent adult anatomy; do not preserve squat proportions of image1 or source.",
+      "refs": [
+        "/workspace/scratch/9e8ac8130851/generated_images/exec-f07ec58e-5e4a-44d6-b022-527b4dca6c8c.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/tokens/mirkwood_sentinel.png",
+        "/workspace/scratch/f40d43c7f276/run-refs/style.png"
+      ],
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/mirkwood_sentinel.png",
+      "blobSHA": "5210188e862302ab964ba436251435db0e19a609",
+      "previous": {
+        "path": "art/full-roster-night-rebuild-20261019/units/mirkwood_sentinel.png",
+        "blobSHA": "0623375b60036a980d6d4c92c4865c18bb1fbe88",
+        "approval": "rejected",
+        "reason": "기존 얼굴이 가려진 투구·후드 실루엣이 얼굴 노출 중심으로 변경됨."
+      },
+      "auditSourceBlobCompared": "0623375b60036a980d6d4c92c4865c18bb1fbe88",
+      "observations": "얼굴을 가리는 잎 모양 투구·녹색 망토·등의 활과 화살통·아래로 든 곡검을 보존. 전진 다리와 몸통의 비례를 다시 교정하고 숙인 머리·하이앵글을 비교함.",
+      "decision": "revised_awaiting_review",
+      "userApproval": "pending",
+      "anatomicalMeasurement": "not_claimed"
+    },
+    {
+      "id": "silvan_archer",
+      "prompt": "Use case: style-transfer. Repair production PIXEL GAME TOKEN for 실반 궁수 (silvan_archer). Image 1 is the ORIGINAL identity, equipment, pose, action and silhouette. Image 2 controls crisp pixel clusters, short color ramps, stepped dark outline, elevated front camera and lowered head only; DO NOT copy its costume/weapon. Image 3 if supplied is species ANATOMY proportions only, never transfer its pose or gray clothes. Start from original action and EXACT weapon/shield/banner/staff/bow placement and relative size; preserve original body lean and hand grips, no generic pose substitution, no missing or invented gear. Repair stated defect: 기존 후드 아래 숙인 머리·시선보다 정면 얼굴 노출이 강해짐.. HUMAN/ELF: exactly FIVE anatomical head lengths, crown-to-chin excluding hair/helmet crest. Head natural, proportionate shoulder width, neck, arms, hands, pelvis and leg bones. Never four-head chibi or six-plus-head fashion anatomy. Camera high-angle FRONT looking DOWN45degrees over the WHOLE body, crown and shoulder tops visible; still front-facing, not top-down, side or rear. Chin and gaze point gently downward like original; face mostly hidden under hair/hood/helmet, no looking at viewer. Preserve original unique silhouette, material colors and heraldry. Crisp deliberate PIXEL artwork, not smooth painting/3D. Entire character/mount/all appendages and equipment inside INNER80percent of transparent canvas, broad empty margins, body centered excluding weapons. No floor, base, scenery, cast shadow, haze, glow, text or UI. Output ONLY this one original subject.\nADDITIONAL STRICT REPAIR: Preserve Image1's exact original head lowering, whole-body lean, weapon identities, held-object sizes and grip sequence. Do not turn clothing into a different character. Camera elevation applies to ENTIRE anatomy (head, shoulders, chest, pelvis, feet) not merely chin. TWO anatomically attached arms/hands/legs where species requires. Bow/crossbow must have one continuous stave, continuous correctly tied string and logical hand placement; spear/staff straight continuous shaft. Retain original face coverage and equipment; do not strip helmet/hood. Match actual species skeleton, never use dressed sprite as body template. All major visible pixels and all tips fully inside canvas with AT LEAST 10% clear margin; no cropping or stray motifs. Repair one character only, no contact sheet or duplicate views.\nFINAL ANATOMY GATE: adult human/elf intrinsic anatomy is EXACTLY five head lengths. Reconstruct head, neck, arms, shoulder width, pelvis and legs coherently; never correct by shrinking head alone. Camera projects WHOLE BODY from above-front. Bowed head AND visible shoulder tops AND visible top planes of feet/hip/props; no eye-level front. Readable sparse pixel clusters like style reference; preserve source action and identity, no glossy rendering. Five-head measurement is skeletal upright anatomy before projection, never lengthen adult to six heads or squat four-head. Species exceptions follow reference anatomy. Avoid exaggerated hands/head/shoulder pads.\n",
+      "refs": [
+        "/workspace/scratch/b57ccc107719/mesbg-assets/tokens/silvan_archer.png",
+        "/workspace/scratch/f40d43c7f276/run-refs/style.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/elf.png"
+      ],
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/silvan_archer.png",
+      "blobSHA": "32d4534c138861d6d2a85f3d3e2314ee613f6027",
+      "previous": {
+        "path": "art/full-roster-night-rebuild-20261019/units/silvan_archer.png",
+        "blobSHA": "a689393e806272ed64967ad333cf9e1a9fd409b9",
+        "approval": "rejected",
+        "reason": "기존 후드 아래 숙인 머리·시선보다 정면 얼굴 노출이 강해짐."
+      },
+      "auditSourceBlobCompared": "a689393e806272ed64967ad333cf9e1a9fd409b9",
+      "observations": "녹색 후드 아래 그늘진 얼굴, 금발, 활을 비스듬히 받친 손동작과 화살통을 보존. 머리 숙임·어깨 윗면·활대와 시위·두 손의 연결 및 전진 다리 구조를 비교함.",
+      "decision": "revised_awaiting_review",
+      "userApproval": "pending",
+      "anatomicalMeasurement": "not_claimed"
+    },
+    {
+      "id": "forlong",
+      "prompt": "Use case: style-transfer. Repair production PIXEL GAME TOKEN for 포를롱 (forlong). Image 1 is the ORIGINAL identity, equipment, pose, action and silhouette. Image 2 controls crisp pixel clusters, short color ramps, stepped dark outline, elevated front camera and lowered head only; DO NOT copy its costume/weapon. Image 3 if supplied is species ANATOMY proportions only, never transfer its pose or gray clothes. Start from original action and EXACT weapon/shield/banner/staff/bow placement and relative size; preserve original body lean and hand grips, no generic pose substitution, no missing or invented gear. Repair stated defect: 건장함·비대함 변주와 별개로 상체 대비 다리 길이 및 5등신 기준 재확인.. HUMAN/ELF: exactly FIVE anatomical head lengths, crown-to-chin excluding hair/helmet crest. Head natural, proportionate shoulder width, neck, arms, hands, pelvis and leg bones. Never four-head chibi or six-plus-head fashion anatomy. Camera high-angle FRONT looking DOWN45degrees over the WHOLE body, crown and shoulder tops visible; still front-facing, not top-down, side or rear. Chin and gaze point gently downward like original; face mostly hidden under hair/hood/helmet, no looking at viewer. Preserve original unique silhouette, material colors and heraldry. Crisp deliberate PIXEL artwork, not smooth painting/3D. Entire character/mount/all appendages and equipment inside INNER80percent of transparent canvas, broad empty margins, body centered excluding weapons. No floor, base, scenery, cast shadow, haze, glow, text or UI. Output ONLY this one original subject.\nADDITIONAL STRICT REPAIR: Preserve Image1's exact original head lowering, whole-body lean, weapon identities, held-object sizes and grip sequence. Do not turn clothing into a different character. Camera elevation applies to ENTIRE anatomy (head, shoulders, chest, pelvis, feet) not merely chin. TWO anatomically attached arms/hands/legs where species requires. Bow/crossbow must have one continuous stave, continuous correctly tied string and logical hand placement; spear/staff straight continuous shaft. Retain original face coverage and equipment; do not strip helmet/hood. Match actual species skeleton, never use dressed sprite as body template. All major visible pixels and all tips fully inside canvas with AT LEAST 10% clear margin; no cropping or stray motifs. Repair one character only, no contact sheet or duplicate views.\nFINAL ANATOMY GATE: adult human/elf intrinsic anatomy is EXACTLY five head lengths. Reconstruct head, neck, arms, shoulder width, pelvis and legs coherently; never correct by shrinking head alone. Camera projects WHOLE BODY from above-front. Bowed head AND visible shoulder tops AND visible top planes of feet/hip/props; no eye-level front. Readable sparse pixel clusters like style reference; preserve source action and identity, no glossy rendering. Five-head measurement is skeletal upright anatomy before projection, never lengthen adult to six heads or squat four-head. Species exceptions follow reference anatomy. Avoid exaggerated hands/head/shoulder pads.\n",
+      "refs": [
+        "/workspace/scratch/f40d43c7f276/continue-refs/forlong.png",
+        "/workspace/scratch/f40d43c7f276/run-refs/style.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human.png"
+      ],
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/forlong.png",
+      "blobSHA": "a03ff6495ee450e26204dab1a58024c489c0ece2",
+      "previous": {
+        "path": "art/gondor-rebuild-20261019/units/forlong.png",
+        "blobSHA": "40f9a3b2b1b67fbee9ad2ef57c93e1c2d8d08546",
+        "approval": "hold",
+        "reason": "건장함·비대함 변주와 별개로 상체 대비 다리 길이 및 5등신 기준 재확인."
+      },
+      "auditSourceBlobCompared": "40f9a3b2b1b67fbee9ad2ef57c93e1c2d8d08546",
+      "observations": "비대한 체형은 유지하고 골반·무릎·발 연결을 재구성. 흰 머리·수염·나무 문양·등의 방패·양손 도끼와 기존 전진 자세를 보존하여 원본과 비교함.",
+      "decision": "revised_awaiting_review",
+      "userApproval": "pending",
+      "anatomicalMeasurement": "not_claimed"
+    },
+    {
+      "id": "erkenbrand",
+      "prompt": "Use case: style-transfer. Repair production PIXEL GAME TOKEN for 에르켄브란트 (erkenbrand). Image 1 is the ORIGINAL identity, equipment, pose, action and silhouette. Image 2 controls crisp pixel clusters, short color ramps, stepped dark outline, elevated front camera and lowered head only; DO NOT copy its costume/weapon. Image 3 if supplied is species ANATOMY proportions only, never transfer its pose or gray clothes. Start from original action and EXACT weapon/shield/banner/staff/bow placement and relative size; preserve original body lean and hand grips, no generic pose substitution, no missing or invented gear. Repair stated defect: 동작 변주는 있으나 짧아 보이는 하체와 넓은 자세의 비율을 재확인해야 함.. HUMAN/ELF: exactly FIVE anatomical head lengths, crown-to-chin excluding hair/helmet crest. Head natural, proportionate shoulder width, neck, arms, hands, pelvis and leg bones. Never four-head chibi or six-plus-head fashion anatomy. Camera high-angle FRONT looking DOWN45degrees over the WHOLE body, crown and shoulder tops visible; still front-facing, not top-down, side or rear. Chin and gaze point gently downward like original; face mostly hidden under hair/hood/helmet, no looking at viewer. Preserve original unique silhouette, material colors and heraldry. Crisp deliberate PIXEL artwork, not smooth painting/3D. Entire character/mount/all appendages and equipment inside INNER80percent of transparent canvas, broad empty margins, body centered excluding weapons. No floor, base, scenery, cast shadow, haze, glow, text or UI. Output ONLY this one original subject.\nADDITIONAL STRICT REPAIR: Preserve Image1's exact original head lowering, whole-body lean, weapon identities, held-object sizes and grip sequence. Do not turn clothing into a different character. Camera elevation applies to ENTIRE anatomy (head, shoulders, chest, pelvis, feet) not merely chin. TWO anatomically attached arms/hands/legs where species requires. Bow/crossbow must have one continuous stave, continuous correctly tied string and logical hand placement; spear/staff straight continuous shaft. Retain original face coverage and equipment; do not strip helmet/hood. Match actual species skeleton, never use dressed sprite as body template. All major visible pixels and all tips fully inside canvas with AT LEAST 10% clear margin; no cropping or stray motifs. Repair one character only, no contact sheet or duplicate views.\nFINAL ANATOMY GATE: adult human/elf intrinsic anatomy is EXACTLY five head lengths. Reconstruct head, neck, arms, shoulder width, pelvis and legs coherently; never correct by shrinking head alone. Camera projects WHOLE BODY from above-front. Bowed head AND visible shoulder tops AND visible top planes of feet/hip/props; no eye-level front. Readable sparse pixel clusters like style reference; preserve source action and identity, no glossy rendering. Five-head measurement is skeletal upright anatomy before projection, never lengthen adult to six heads or squat four-head. Species exceptions follow reference anatomy. Avoid exaggerated hands/head/shoulder pads.\n",
+      "refs": [
+        "/workspace/scratch/f40d43c7f276/continue-refs/erkenbrand.png",
+        "/workspace/scratch/f40d43c7f276/run-refs/style.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human.png"
+      ],
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/erkenbrand.png",
+      "blobSHA": "97c55b7e930aa00c810c7f9a5f22a363fa6ea20b",
+      "previous": {
+        "path": "art/full-roster-night-rebuild-20261019/units/erkenbrand.png",
+        "blobSHA": "d2aa1053486517bc8b6ef9c9104934f195b052e6",
+        "approval": "hold",
+        "reason": "동작 변주는 있으나 짧아 보이는 하체와 넓은 자세의 비율을 재확인해야 함."
+      },
+      "auditSourceBlobCompared": "d2aa1053486517bc8b6ef9c9104934f195b052e6",
+      "observations": "초록 투구·붉은 깃·흰 모피·백마 문양과 검방 구도를 보존. 정수리와 어깨 윗면이 보이는 전신 시점, 분리된 두 다리와 숙인 투구를 원본과 비교함.",
+      "decision": "revised_awaiting_review",
+      "userApproval": "pending",
+      "anatomicalMeasurement": "not_claimed"
+    },
+    {
+      "id": "werewolf",
+      "prompt": "Use case: style-transfer. Repair production PIXEL GAME TOKEN for 웨어울프 (werewolf). Image 1 is the ORIGINAL identity, equipment, pose, action and silhouette. Image 2 controls crisp pixel clusters, short color ramps, stepped dark outline, elevated front camera and lowered head only; DO NOT copy its costume/weapon. Image 3 if supplied is species ANATOMY proportions only, never transfer its pose or gray clothes. Start from original action and EXACT weapon/shield/banner/staff/bow placement and relative size; preserve original body lean and hand grips, no generic pose substitution, no missing or invented gear. Repair stated defect: 기존의 긴 팔다리·낮은 머리·포식자 동세보다 둥글고 큰 머리·털 덩어리 인상이 강해짐.. Original species anatomy ONLY, retain original number and structure of limbs, no human template. Camera high-angle FRONT looking DOWN45degrees over the WHOLE body, crown and shoulder tops visible; still front-facing, not top-down, side or rear. Chin and gaze point gently downward like original; face mostly hidden under hair/hood/helmet, no looking at viewer. Preserve original unique silhouette, material colors and heraldry. Crisp deliberate PIXEL artwork, not smooth painting/3D. Entire character/mount/all appendages and equipment inside INNER80percent of transparent canvas, broad empty margins, body centered excluding weapons. No floor, base, scenery, cast shadow, haze, glow, text or UI. Output ONLY this one original subject.\nADDITIONAL STRICT REPAIR: Preserve Image1's exact original head lowering, whole-body lean, weapon identities, held-object sizes and grip sequence. Do not turn clothing into a different character. Camera elevation applies to ENTIRE anatomy (head, shoulders, chest, pelvis, feet) not merely chin. TWO anatomically attached arms/hands/legs where species requires. Bow/crossbow must have one continuous stave, continuous correctly tied string and logical hand placement; spear/staff straight continuous shaft. Retain original face coverage and equipment; do not strip helmet/hood. Match actual species skeleton, never use dressed sprite as body template. All major visible pixels and all tips fully inside canvas with AT LEAST 10% clear margin; no cropping or stray motifs. Repair one character only, no contact sheet or duplicate views.\nFINAL ANATOMY GATE: adult human/elf intrinsic anatomy is EXACTLY five head lengths. Reconstruct head, neck, arms, shoulder width, pelvis and legs coherently; never correct by shrinking head alone. Camera projects WHOLE BODY from above-front. Bowed head AND visible shoulder tops AND visible top planes of feet/hip/props; no eye-level front. Readable sparse pixel clusters like style reference; preserve source action and identity, no glossy rendering. Five-head measurement is skeletal upright anatomy before projection, never lengthen adult to six heads or squat four-head. Species exceptions follow reference anatomy. Avoid exaggerated hands/head/shoulder pads.\n",
+      "refs": [
+        "/workspace/scratch/f40d43c7f276/continue-refs/werewolf.png",
+        "/workspace/scratch/f40d43c7f276/run-refs/style.png"
+      ],
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/werewolf.png",
+      "blobSHA": "0915cddeb71475d4cbfa7765b981b6524b039dd8",
+      "previous": {
+        "path": "art/mordor-rebuild-20261019/units/werewolf.png",
+        "blobSHA": "eb007548b324150d016a064b6d90e06d71ee617c",
+        "approval": "rejected",
+        "reason": "기존의 긴 팔다리·낮은 머리·포식자 동세보다 둥글고 큰 머리·털 덩어리 인상이 강해짐."
+      },
+      "auditSourceBlobCompared": "eb007548b324150d016a064b6d90e06d71ee617c",
+      "observations": "인간형 뼈대를 적용하지 않고 긴 팔·굴곡진 뒷다리·긴 주둥이·낮은 머리와 높이 든 꼬리의 기존 포식자 실루엣을 보존. 네 팔다리와 발톱·골반 연결을 비교함.",
+      "decision": "revised_awaiting_review",
+      "userApproval": "pending",
+      "anatomicalMeasurement": "not_claimed"
+    }
+  ]
+}

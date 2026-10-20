@@ -16,9 +16,9 @@
 
 ## 최근 재수정 진행
 
-불합격·보류 194종: 120종 수정 검토본 / 74종 수정 필요 · 전체 품질 최종 통과 0종 · 사용자 승인 전
+불합격·보류 194종: 128종 수정 검토본 / 66종 수정 필요 · 전체 품질 최종 통과 0종 · 사용자 승인 전
 
-최근 저장: 2026-10-20T09:17:38.052Z · resume-next-05-20261020 · 5종 수정 후보. 본게임 적용·최종 품질 통과와 구분합니다.
+최근 저장: 2026-10-20T10:31:02.105Z · finish-74-01-20261020 · 8종 수정 후보. 본게임 적용·최종 품질 통과와 구분합니다.
 
-다음 수정: elrohir, erestor, orophin, mirkwood_sentinel, silvan_archer, forlong, erkenbrand, werewolf.
+다음 수정: dark_marshal, shadow_lord, tainted, undying, knight_of_umbar, isildur, denethor, wild_warg.
 
