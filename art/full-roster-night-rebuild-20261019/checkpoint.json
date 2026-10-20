@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T04:27:21.191Z",
+  "updatedAt": "2026-10-20T04:28:05.034Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 18,
-    "newlyGeneratedThisSession": 360,
-    "visuallyReviewedThisSession": 365,
+    "pending": 10,
+    "newlyGeneratedThisSession": 368,
+    "visuallyReviewedThisSession": 373,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 360,
-    "persistedReviewAssets": 492,
+    "generatedReviewAssets": 368,
+    "persistedReviewAssets": 500,
     "revisedAfterRejection": 18
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -6393,8 +6393,13 @@
       "faction": "ent",
       "role": "monster",
       "original": "tokens/beechbone.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "ent",
+      "path": "art/full-roster-night-rebuild-20261019/units/beechbone.png",
+      "blobSHA": "be8db95e342ec7652872883fc6cb7004c2d8842d",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "azaghal",
@@ -6755,8 +6760,13 @@
       "faction": "angband",
       "role": "hero",
       "original": "tokens/morgoth.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "angband",
+      "path": "art/full-roster-night-rebuild-20261019/units/morgoth.png",
+      "blobSHA": "8abec422dd5062a710f8f2b28927fe5631976e6b",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "witchking_mounted_sheet",
@@ -6819,8 +6829,13 @@
       "faction": "dragon",
       "role": "monster",
       "original": "tokens/scatha.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dragon",
+      "path": "art/full-roster-night-rebuild-20261019/units/scatha.png",
+      "blobSHA": "800ce3ee38b90e1f0d4ff276f2d2db3b09cfca13",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "war_hound",
@@ -6898,8 +6913,13 @@
       "faction": "dale",
       "role": "infantry",
       "original": "tokens/dale_warrior.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dale",
+      "path": "art/full-roster-night-rebuild-20261019/units/dale_warrior.png",
+      "blobSHA": "6beb544cd19558bd881018bb199ba8a125b4e067",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "esgaroth_archer",
@@ -6907,8 +6927,13 @@
       "faction": "dale",
       "role": "infantry",
       "original": "tokens/esgaroth_archer.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dale",
+      "path": "art/full-roster-night-rebuild-20261019/units/esgaroth_archer.png",
+      "blobSHA": "c363ccb7c03eec7d295422619a1c96548540733e",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "thorondor",
@@ -6916,8 +6941,13 @@
       "faction": "eagle",
       "role": "hero",
       "original": "tokens/thorondor.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "eagle",
+      "path": "art/full-roster-night-rebuild-20261019/units/thorondor.png",
+      "blobSHA": "ad2ef4de955166bb602e94fc896d96a6275cc1f2",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "rhosgobel_rabbit",
@@ -7419,8 +7449,13 @@
       "faction": "gundabad",
       "role": "hero",
       "original": "tokens/bolg_mounted.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "gundabad",
+      "path": "art/full-roster-night-rebuild-20261019/units/bolg_mounted.png",
+      "blobSHA": "793cc8fdd031badac577da62e575600ff4ea8295",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "guritz_mounted",
@@ -8005,8 +8040,13 @@
       "faction": "dale",
       "role": "infantry",
       "original": "tokens/dale_guard.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "dale",
+      "path": "art/full-roster-night-rebuild-20261019/units/dale_guard.png",
+      "blobSHA": "85d6f9e580f2448c061d6bff9a21ded5d9c6abde",
+      "approval": "pending",
+      "inGameVerified": false
     }
   ],
   "limitations": [
@@ -8014,22 +8054,24 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 492,
+    "count": 500,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
-      "엔트": 3,
-      "독수리": 4,
+      "데일": 3,
+      "군다바드": 11,
+      "독수리": 5,
+      "용": 1,
+      "앙그반드": 9,
+      "엔트": 4,
       "shire": 16,
       "베오른 일족": 4,
       "돌 굴두르": 7,
-      "군다바드": 10,
       "망자": 4,
       "앙마르": 7,
       "팡고른": 1,
       "moria": 19,
-      "앙그반드": 8,
       "arnor": 14,
       "men": 11,
       "에레보르": 1,
@@ -8048,7 +8090,7 @@
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,
-    "sourceValidation": "492 unique IDs; static card count and asset blob SHAs verified"
+    "sourceValidation": "500 unique IDs; static card count and asset blob SHAs verified"
   },
   "revisionRequests": {
     "witchking": {
@@ -8184,16 +8226,16 @@
     }
   },
   "lastContinuation": {
-    "batch": "continuation-monsters-b-20261020",
+    "batch": "continuation-roster-c-20261020",
     "newIds": [
-      "spider_queen",
-      "beorn_bear",
-      "gwaihir",
-      "lobelia",
-      "will_whitfoot",
-      "landroval",
-      "meneldor",
-      "leaflock"
+      "beechbone",
+      "morgoth",
+      "scatha",
+      "dale_warrior",
+      "esgaroth_archer",
+      "thorondor",
+      "bolg_mounted",
+      "dale_guard"
     ],
     "qualityStandard": "art/full-roster-night-rebuild-20261019/ANATOMY_STANDARD.md",
     "note": "Each image inspected against canonical skeleton and identity reference; approval pending."

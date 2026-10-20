@@ -1,6 +1,54 @@
-# 전체 재제작 검토 — 492종
+# 전체 재제작 검토 — 500종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 데일 기리온 근위병 (dale_guard)
+
+![데일 기리온 근위병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dale_guard.png?v=85d6f9e580f2448c061d6bff9a21ded5d9c6abde)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/dale_guard.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dale_guard.png?v=85d6f9e580f2448c061d6bff9a21ded5d9c6abde)
+
+### 볼그(와르그) (bolg_mounted)
+
+![볼그(와르그)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/bolg_mounted.png?v=793cc8fdd031badac577da62e575600ff4ea8295)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/bolg_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/bolg_mounted.png?v=793cc8fdd031badac577da62e575600ff4ea8295)
+
+### 소론도르 (thorondor)
+
+![소론도르](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/thorondor.png?v=ad2ef4de955166bb602e94fc896d96a6275cc1f2)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/thorondor.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/thorondor.png?v=ad2ef4de955166bb602e94fc896d96a6275cc1f2)
+
+### 에스가로스 궁수 (esgaroth_archer)
+
+![에스가로스 궁수](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/esgaroth_archer.png?v=c363ccb7c03eec7d295422619a1c96548540733e)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/esgaroth_archer.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/esgaroth_archer.png?v=c363ccb7c03eec7d295422619a1c96548540733e)
+
+### 데일 전사 (dale_warrior)
+
+![데일 전사](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dale_warrior.png?v=6beb544cd19558bd881018bb199ba8a125b4e067)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/dale_warrior.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dale_warrior.png?v=6beb544cd19558bd881018bb199ba8a125b4e067)
+
+### 스카사 (scatha)
+
+![스카사](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/scatha.png?v=800ce3ee38b90e1f0d4ff276f2d2db3b09cfca13)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/scatha.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/scatha.png?v=800ce3ee38b90e1f0d4ff276f2d2db3b09cfca13)
+
+### 모르고스 (morgoth)
+
+![모르고스](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/morgoth.png?v=8abec422dd5062a710f8f2b28927fe5631976e6b)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/morgoth.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/morgoth.png?v=8abec422dd5062a710f8f2b28927fe5631976e6b)
+
+### 비치본 (beechbone)
+
+![비치본](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/beechbone.png?v=be8db95e342ec7652872883fc6cb7004c2d8842d)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/beechbone.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/beechbone.png?v=be8db95e342ec7652872883fc6cb7004c2d8842d)
 
 ### 리플락 (leaflock)
 

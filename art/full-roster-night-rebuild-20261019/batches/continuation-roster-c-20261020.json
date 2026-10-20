@@ -1,0 +1,299 @@
+{
+  "batch": "continuation-roster-c-20261020",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "beechbone",
+      "name": "비치본",
+      "faction": "ent",
+      "role": "monster",
+      "original": "tokens/beechbone.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "엔트",
+      "groupKey": "ent",
+      "bodyDescription": "원본 종족 고유 골격 · 하이앵글 프론트뷰",
+      "pose": "원본 종족 고유 행동·실루엣 유지",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/beechbone.png"
+      ],
+      "prompt": "Rebuild production PIXEL GAME TOKEN from the single attached ORIGINAL source. Source controls exact identity/species/anatomy/equipment/colors/action. This is a MONSTER/ANIMAL, never add a soldier, rider, human template or extra actor. Match established Gondor/Mordor crisp stepped dark outlines, deliberate solid pixel clusters, short restrained color ramps and game-token detail density; no smooth painterly blur or photorealism. Keep original distinctive body tilt/action while rotating to HIGH-ANGLE FRONT camera DOWN45–50degrees, NOT eye-level frontal portrait, NOT side profile or rear view. Entire exact silhouette including every wing, leg, tail, root, tentacle and weapon tip inside INNER80percent of canvas, generous transparent margins, body independently centered. Transparent background, no base/floor/cast shadow/scenery/text/UI/watermark. Identity: 비치본 (beechbone). ONE walking TREE being only. Preserve unique original wood bark color/face/canopy/leaves/fruit and root-foot anatomy. Angle DOWN45deg from FRONT shows branch/canopy TOP planes, bowed wooden face under foliage. Preserve original reaching root-hands and full root-feet; distinct tree species, no human armor/skeleton/ordinary boots.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-c80c7406-fddc-4cc7-a715-6d23c6394e1f.png",
+      "expectedBlobSHA": "be8db95e342ec7652872883fc6cb7004c2d8842d",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1079,
+          1457
+        ],
+        "bounds": [
+          19,
+          50,
+          1066,
+          1411
+        ]
+      },
+      "blobSHA": "be8db95e342ec7652872883fc6cb7004c2d8842d",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "morgoth",
+      "name": "모르고스",
+      "faction": "angband",
+      "role": "hero",
+      "original": "tokens/morgoth.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "앙그반드",
+      "groupKey": "angband",
+      "pose": "원본 고유 무장·기울임·동작 유지",
+      "bodyDescription": "인간형 5등신 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/morgoth.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/large-human.png"
+      ],
+      "prompt": "Rebuild ONE complete production transparent PIXEL game token. INPUT1 original character controls EXACT costume/hair/helmet/beard/palette/weapons, elevated FRONT camera, deeply BOWED hidden face and distinct action silhouette; preserve those identity details. INPUT2 neutral HUMAN skeleton controls EXACT FIVE anatomical crown-to-chin heads for crown-to-sole body, ordinary adult skull and shoulder/pelvis/knee/ankle bone lengths, crisp pixel density/stepped dark outlines/short restrained shade ramps. Redress and rotate original neutral bones into INPUT1 action, NEVER lengthen to6–8heads, shrink to4heads or inflate helmet/skull. Slim/muscular/fat changes WIDTH only. Elevated front camera down40–45degrees with crown and both shoulder TOPS obvious, torso/face foreshortened. Head firmly tucked down, eyes covered by hair/helmet/hood/brow; NO frontal facial portrait/eye contact. Retain original body's forward lean or combat action. Do not default to template's walking pose: grounded/braced feet or original lunging as equipment/action warrants, varied lead foot, uncrossed coherent limbs. Complete exact original weapons with logical handgrips; no weapons borrowed from INPUT2. Full silhouette and ALL weapon/banner/antler tips inside INNER80percent canvas. Body center ignores equipment. Transparent background, no base/floor/shadow/scenery/text/watermark/extra figures. Character identity: 모르고스 (morgoth). EXACT original loadout/palette/materials/action from INPUT1. Five anatomical heads crown-to-sole, helmet/crown not skull.  CRITICAL CORRECTION: CAMERA DOWN55DEGREES from FRONT, exactly original neutral skeleton high-front game camera. Helmet faceplate points DOWN, not at camera. Show wide TOP dome of bowed head behind crown points and broad TOP surfaces of both shoulder plates. Chin into chest, crown tilted forward. No portrait of full upright crown/faceplate. Original5head bones, exact original spiked shield,3white jewels crown,mace,redblackcape. Keep full mace/shield/cape inside15percent clear border.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-5a47e63f-1157-49a0-ae3a-5c4813b0c765.png",
+      "expectedBlobSHA": "8abec422dd5062a710f8f2b28927fe5631976e6b",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          47,
+          115,
+          1170,
+          1195
+        ]
+      },
+      "blobSHA": "8abec422dd5062a710f8f2b28927fe5631976e6b",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "scatha",
+      "name": "스카사",
+      "faction": "dragon",
+      "role": "monster",
+      "original": "tokens/scatha.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "용",
+      "groupKey": "dragon",
+      "bodyDescription": "원본 종족 고유 골격 · 하이앵글 프론트뷰",
+      "pose": "원본 종족 고유 행동·실루엣 유지",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/scatha.png"
+      ],
+      "prompt": "Rebuild production PIXEL GAME TOKEN from the single attached ORIGINAL source. Source controls exact identity/species/anatomy/equipment/colors/action. This is a MONSTER/ANIMAL, never add a soldier, rider, human template or extra actor. Match established Gondor/Mordor crisp stepped dark outlines, deliberate solid pixel clusters, short restrained color ramps and game-token detail density; no smooth painterly blur or photorealism. Keep original distinctive body tilt/action while rotating to HIGH-ANGLE FRONT camera DOWN45–50degrees, NOT eye-level frontal portrait, NOT side profile or rear view. Entire exact silhouette including every wing, leg, tail, root, tentacle and weapon tip inside INNER80percent of canvas, generous transparent margins, body independently centered. Transparent background, no base/floor/cast shadow/scenery/text/UI/watermark. Identity: 스카사 (scatha). ONE exact original DRAGON species, original number of wings/legs, scale color, horns, spines and complete long tail. HIGH-angle FRONT45deg so head points toward LOWER CENTER and spine/body/tail recede toward TOP, visible crown and back/wing top planes; NOT side profile. Preserve original coiled/striking silhouette but rotate to front. NO invented wings on wingless dragons (Glaurung/CaveDrake/Scatha), no missing wings on Smaug/Ancalagon. All appendages inside wide canvas.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-b87afb70-4ccc-41cb-a7df-8b1011fdec0c.png",
+      "expectedBlobSHA": "800ce3ee38b90e1f0d4ff276f2d2db3b09cfca13",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bounds": [
+          70,
+          49,
+          1205,
+          1148
+        ]
+      },
+      "blobSHA": "800ce3ee38b90e1f0d4ff276f2d2db3b09cfca13",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "dale_warrior",
+      "name": "데일 전사",
+      "faction": "dale",
+      "role": "infantry",
+      "original": "tokens/dale_warrior.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "데일",
+      "groupKey": "dale",
+      "pose": "원본 고유 무장·기울임·동작 유지",
+      "bodyDescription": "인간형 5등신 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/dale_warrior.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human.png"
+      ],
+      "prompt": "Rebuild ONE complete production transparent PIXEL game token. INPUT1 original character controls EXACT costume/hair/helmet/beard/palette/weapons, elevated FRONT camera, deeply BOWED hidden face and distinct action silhouette; preserve those identity details. INPUT2 neutral HUMAN skeleton controls EXACT FIVE anatomical crown-to-chin heads for crown-to-sole body, ordinary adult skull and shoulder/pelvis/knee/ankle bone lengths, crisp pixel density/stepped dark outlines/short restrained shade ramps. Redress and rotate original neutral bones into INPUT1 action, NEVER lengthen to6–8heads, shrink to4heads or inflate helmet/skull. Slim/muscular/fat changes WIDTH only. Elevated front camera down40–45degrees with crown and both shoulder TOPS obvious, torso/face foreshortened. Head firmly tucked down, eyes covered by hair/helmet/hood/brow; NO frontal facial portrait/eye contact. Retain original body's forward lean or combat action. Do not default to template's walking pose: grounded/braced feet or original lunging as equipment/action warrants, varied lead foot, uncrossed coherent limbs. Complete exact original weapons with logical handgrips; no weapons borrowed from INPUT2. Full silhouette and ALL weapon/banner/antler tips inside INNER80percent canvas. Body center ignores equipment. Transparent background, no base/floor/shadow/scenery/text/watermark/extra figures. Character identity: 데일 전사 (dale_warrior). EXACT original loadout/palette/materials/action from INPUT1. Five anatomical heads crown-to-sole, helmet/crown not skull. ",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-e69905ae-e9bd-493c-9f38-f2c560cdfd75.png",
+      "expectedBlobSHA": "6beb544cd19558bd881018bb199ba8a125b4e067",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          191,
+          109,
+          1022,
+          1198
+        ]
+      },
+      "blobSHA": "6beb544cd19558bd881018bb199ba8a125b4e067",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "esgaroth_archer",
+      "name": "에스가로스 궁수",
+      "faction": "dale",
+      "role": "infantry",
+      "original": "tokens/esgaroth_archer.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "데일",
+      "groupKey": "dale",
+      "pose": "원본 고유 무장·기울임·동작 유지",
+      "bodyDescription": "인간형 5등신 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/esgaroth_archer.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human.png"
+      ],
+      "prompt": "Rebuild ONE complete production transparent PIXEL game token. INPUT1 original character controls EXACT costume/hair/helmet/beard/palette/weapons, elevated FRONT camera, deeply BOWED hidden face and distinct action silhouette; preserve those identity details. INPUT2 neutral HUMAN skeleton controls EXACT FIVE anatomical crown-to-chin heads for crown-to-sole body, ordinary adult skull and shoulder/pelvis/knee/ankle bone lengths, crisp pixel density/stepped dark outlines/short restrained shade ramps. Redress and rotate original neutral bones into INPUT1 action, NEVER lengthen to6–8heads, shrink to4heads or inflate helmet/skull. Slim/muscular/fat changes WIDTH only. Elevated front camera down40–45degrees with crown and both shoulder TOPS obvious, torso/face foreshortened. Head firmly tucked down, eyes covered by hair/helmet/hood/brow; NO frontal facial portrait/eye contact. Retain original body's forward lean or combat action. Do not default to template's walking pose: grounded/braced feet or original lunging as equipment/action warrants, varied lead foot, uncrossed coherent limbs. Complete exact original weapons with logical handgrips; no weapons borrowed from INPUT2. Full silhouette and ALL weapon/banner/antler tips inside INNER80percent canvas. Body center ignores equipment. Transparent background, no base/floor/shadow/scenery/text/watermark/extra figures. Character identity: 에스가로스 궁수 (esgaroth_archer). EXACT original loadout/palette/materials/action from INPUT1. Five anatomical heads crown-to-sole, helmet/crown not skull. ",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-b521937e-e2ab-4444-93b5-0f041e6cd58d.png",
+      "expectedBlobSHA": "c363ccb7c03eec7d295422619a1c96548540733e",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          228,
+          65,
+          1018,
+          1179
+        ]
+      },
+      "blobSHA": "c363ccb7c03eec7d295422619a1c96548540733e",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "thorondor",
+      "name": "소론도르",
+      "faction": "eagle",
+      "role": "hero",
+      "original": "tokens/thorondor.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "독수리",
+      "groupKey": "eagle",
+      "bodyDescription": "원본 종족 고유 골격 · 하이앵글 프론트뷰",
+      "pose": "원본 종족 고유 행동·실루엣 유지",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/thorondor.png"
+      ],
+      "prompt": "Rebuild production PIXEL GAME TOKEN from the single attached ORIGINAL source. Source controls exact identity/species/anatomy/equipment/colors/action. This is a MONSTER/ANIMAL, never add a soldier, rider, human template or extra actor. Match established Gondor/Mordor crisp stepped dark outlines, deliberate solid pixel clusters, short restrained color ramps and game-token detail density; no smooth painterly blur or photorealism. Keep original distinctive body tilt/action while rotating to HIGH-ANGLE FRONT camera DOWN45–50degrees, NOT eye-level frontal portrait, NOT side profile or rear view. Entire exact silhouette including every wing, leg, tail, root, tentacle and weapon tip inside INNER80percent of canvas, generous transparent margins, body independently centered. Transparent background, no base/floor/cast shadow/scenery/text/UI/watermark. Identity: 소론도르 (thorondor). ONE eagle ONLY. Elevated FRONT45–50deg, not side profile: beak/head at lower central foreground, tail extends toward TOP/rear, left wing reaches LEFT and right wing RIGHT, both wings have visible TOP feather planes. Two taloned legs/two spread wings, natural neck tucked/bowed, preserve distinctive exact brown/white/gold original feather pattern and landing/attack pose. All wingtip feathers fully inside margin. No rider or humanoid.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-5886770f-baeb-4500-a133-dc27fc57a9b5.png",
+      "expectedBlobSHA": "ad2ef4de955166bb602e94fc896d96a6275cc1f2",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bounds": [
+          33,
+          99,
+          1233,
+          1210
+        ]
+      },
+      "blobSHA": "ad2ef4de955166bb602e94fc896d96a6275cc1f2",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "bolg_mounted",
+      "name": "볼그(와르그)",
+      "faction": "gundabad",
+      "role": "hero",
+      "original": "tokens/bolg_mounted.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "군다바드",
+      "groupKey": "gundabad",
+      "pose": "원본 기마 동작·기울임·무장 유지",
+      "bodyDescription": "기수 표준 뼈대 · 말/와르그 분리 비례 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/bolg_mounted.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human-mounted.png"
+      ],
+      "prompt": "Rebuild ONE complete transparent pixel-game CAVALRY token. INPUT1 is sole master of character identity, armor, hair, helmet, palette, weapons, exact mount species and distinct combat ACTION/lean. INPUT2 is ORIGINAL neutral mounted bones: borrow ONLY rider skull/shoulder/pelvis/knee/ankle lengths, adult rider FIVE anatomical heads crown-to-sole independent of mount. Ordinary skull, small helmet shell, NEVER enlarge head as chibi helmet bubble. Rider has full seated pelvis ON saddle, thighs down mount's flanks, two logical knees/calves/feet and stirrups, coherent weapon grips and reins. Mount is full adult animal with correct neck, chest, four legs and tail; not undersized pony. Transform BOTH to elevated FRONT camera looking DOWN45–50degrees, crown and shoulder tops obvious; rider head FIRMLY tucked forward/down with eyes mostly hidden under hair/helmet/hood; face only tiny lower fragment. Keep original charge/body lean/sword strike, NO generic upright parade pose. Five heads is anatomical bones before foreshortening, no compressed torso or long 7head hero. Match INPUT2 crisp pixel density, stepped dark outline and short controlled shade ramps. FULL silhouette including lance/sword/banner/tail inside INNER80percent canvas with generous transparent margins; enlarge canvas for wide weapons, NEVER shrink bones to fit gear. Body centered independent of cape and weapons. Absolutely no base/floor/cast-shadow/scenery/text/watermark/extrafigures. Identity 볼그(와르그) (bolg_mounted): EXACT original gear and action. CRITICAL: INPUT1 mount is WARG, NOT HORSE; retain full original wolf muzzle/fangs/fur, four powerful wolf legs and original white or grey color. Ignore INPUT2 horse appearance. Rider ORC muscular width, normal proportionate skull, head bowed.",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-1d4f0fc2-d788-4442-8809-029f90339179.png",
+      "expectedBlobSHA": "793cc8fdd031badac577da62e575600ff4ea8295",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          75,
+          98,
+          1149,
+          1260
+        ]
+      },
+      "blobSHA": "793cc8fdd031badac577da62e575600ff4ea8295",
+      "approval": "pending",
+      "inGameVerified": false
+    },
+    {
+      "id": "dale_guard",
+      "name": "데일 기리온 근위병",
+      "faction": "dale",
+      "role": "infantry",
+      "original": "tokens/dale_guard.png",
+      "status": "awaiting_visual_review",
+      "visualReviewThisSession": false,
+      "group": "데일",
+      "groupKey": "dale",
+      "pose": "원본 고유 무장·기울임·동작 유지",
+      "bodyDescription": "인간형 5등신 뼈대 · 숙인 고개 · 하이앵글 프론트뷰",
+      "refs": [
+        "/workspace/scratch/9c4c6c2a224c/mesbg/assets/mesbg/tokens/dale_guard.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/human.png"
+      ],
+      "prompt": "Rebuild ONE complete production transparent PIXEL game token. INPUT1 original character controls EXACT costume/hair/helmet/beard/palette/weapons, elevated FRONT camera, deeply BOWED hidden face and distinct action silhouette; preserve those identity details. INPUT2 neutral HUMAN skeleton controls EXACT FIVE anatomical crown-to-chin heads for crown-to-sole body, ordinary adult skull and shoulder/pelvis/knee/ankle bone lengths, crisp pixel density/stepped dark outlines/short restrained shade ramps. Redress and rotate original neutral bones into INPUT1 action, NEVER lengthen to6–8heads, shrink to4heads or inflate helmet/skull. Slim/muscular/fat changes WIDTH only. Elevated front camera down40–45degrees with crown and both shoulder TOPS obvious, torso/face foreshortened. Head firmly tucked down, eyes covered by hair/helmet/hood/brow; NO frontal facial portrait/eye contact. Retain original body's forward lean or combat action. Do not default to template's walking pose: grounded/braced feet or original lunging as equipment/action warrants, varied lead foot, uncrossed coherent limbs. Complete exact original weapons with logical handgrips; no weapons borrowed from INPUT2. Full silhouette and ALL weapon/banner/antler tips inside INNER80percent canvas. Body center ignores equipment. Transparent background, no base/floor/shadow/scenery/text/watermark/extra figures. Character identity: 데일 기리온 근위병 (dale_guard). EXACT original loadout/palette/materials/action from INPUT1. Five anatomical heads crown-to-sole, helmet/crown not skull. ",
+      "generatedPath": "/workspace/scratch/f40d43c7f276/generated_images/exec-d9daef45-526b-4665-b621-581454f8c968.png",
+      "expectedBlobSHA": "85d6f9e580f2448c061d6bff9a21ded5d9c6abde",
+      "technicalCheck": {
+        "pngValid": true,
+        "alpha": true,
+        "size": [
+          1199,
+          1312
+        ],
+        "bounds": [
+          119,
+          103,
+          1102,
+          1206
+        ]
+      },
+      "blobSHA": "85d6f9e580f2448c061d6bff9a21ded5d9c6abde",
+      "approval": "pending",
+      "inGameVerified": false
+    }
+  ]
+}
