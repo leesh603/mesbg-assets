@@ -1,24 +1,25 @@
 {
   "schemaVersion": 1,
-  "state": "visual_review_complete",
-  "reviewedCount": 263,
-  "catalogCount": 278,
-  "unreviewedCount": 15,
+  "state": "additional_assets_on_hold",
+  "reviewedCount": 278,
+  "catalogCount": 294,
+  "unreviewedCount": 16,
   "counts": {
     "candidate_review": 81,
-    "needs_revision": 71,
-    "preserve_original": 111
+    "needs_revision": 75,
+    "preserve_original": 122
   },
   "qualityAcceptedCount": 0,
   "repairedPNGs": 4,
   "sourceSnapshots": [
+    "1d7c9d6f6063a4eef462dc4e4554ac86a7b3c234",
     "28a08783ed1df5d6374085c0ee5d3341455b397b",
     "119efef22546c31f2810a9e64538274f420d91b7",
     "697fdd87c50e7021958f12bee83d928d337b2d67"
   ],
   "results": "results.json",
   "approval": "pending",
-  "updatedAt": "2026-10-20T03:03:39.093Z",
+  "updatedAt": "2026-10-20T03:07:10.947Z",
   "limitations": [
     "Visual old/new comparison, not exact skeletal measurement or in-game scale verification.",
     "Design/weapon identity differences may be source mapping errors; verify before blindly restoring.",

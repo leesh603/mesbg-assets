@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T03:07:00.218Z",
+  "updatedAt": "2026-10-20T03:07:10.947Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -49,7 +49,7 @@
     "motionAndSilhouette": "기존 구도·동작·기승 자세·숙인 고개·고유 실루엣 보존. 비율을 이유로 직립 정면 자세로 획일화 금지. 기존보다 열화 시 채택하지 않는다."
   },
   "resume": {
-    "nextAction": "Continue pending roster with original species skeletons; inspect and save small batches to unified gallery.",
+    "nextAction": "Process quality-audit-20261020/results.json first. Preserve original poses/silhouettes/lowered gaze. Reject preserve_original candidates and verify needs_revision mappings/anatomy before any acceptance. Later additions are unreviewed until compared. New Glorfindel/elf-knight alternatives remain unapproved in corrections/elf-rebuild-20261020/.",
     "nextIds": [
       "cave_troll",
       "orc_shaman",
@@ -88,8 +88,11 @@
       "source": "maiar",
       "path": "art/full-roster-night-rebuild-20261019/units/gandalf.png",
       "blobSHA": "df0c9413131ba16b1b39f50c65879f16140a5493",
-      "approval": "pending",
-      "inGameVerified": false
+      "approval": "hold",
+      "inGameVerified": false,
+      "qualityDecision": "unreviewed",
+      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "preferredSource": "undecided"
     },
     {
       "id": "warrior_minas_tirith",
@@ -416,8 +419,8 @@
       "blobSHA": "161173ce51d24573fcdc09123e28ab72522870aa",
       "approval": "hold",
       "inGameVerified": false,
-      "qualityDecision": "unreviewed",
-      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "qualityDecision": "needs_revision",
+      "qualityReason": "도끼 파지 자세는 생겼으나 난쟁이 고유 머리/몸 비중·체격을 확정 골격과 대조해야 함.",
       "preferredSource": "undecided"
     },
     {
@@ -525,8 +528,8 @@
       "blobSHA": "4938584258987425a14feeb23f394be437b99bd1",
       "approval": "hold",
       "inGameVerified": false,
-      "qualityDecision": "unreviewed",
-      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "qualityDecision": "needs_revision",
+      "qualityReason": "기존의 짧고 묵직한 난쟁이 실루엣이 길어진 인상. 종족 표준·갑주 중량감 대조 필요.",
       "preferredSource": "undecided"
     },
     {
@@ -956,8 +959,8 @@
       "blobSHA": "9c2e0e2ab8fe157ebe6db3338b748c7fe3127fc7",
       "approval": "hold",
       "inGameVerified": false,
-      "qualityDecision": "unreviewed",
-      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "qualityDecision": "needs_revision",
+      "qualityReason": "머리·상체·다리 비중 변경. 확정된 난쟁이 종족 골격과 크기 기준 대조 필요.",
       "preferredSource": "undecided"
     },
     {
@@ -973,8 +976,8 @@
       "blobSHA": "efd39f2d783bc1bbf62994a723b9163d881bdc36",
       "approval": "hold",
       "inGameVerified": false,
-      "qualityDecision": "unreviewed",
-      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "qualityDecision": "needs_revision",
+      "qualityReason": "기존보다 팔다리·허리 비중이 길어진 인상. 인간형 5등신을 그대로 적용하지 말고 확정된 난쟁이 골격과 비교 필요.",
       "preferredSource": "undecided"
     },
     {
@@ -988,8 +991,11 @@
       "source": "dwarf",
       "path": "art/full-roster-night-rebuild-20261019/units/dwarf_ranger.png",
       "blobSHA": "1af6470eec573936896ef21681d504359fffab69",
-      "approval": "pending",
-      "inGameVerified": false
+      "approval": "hold",
+      "inGameVerified": false,
+      "qualityDecision": "unreviewed",
+      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "preferredSource": "undecided"
     },
     {
       "id": "khazad_guard",
@@ -1002,8 +1008,11 @@
       "source": "dwarf",
       "path": "art/full-roster-night-rebuild-20261019/units/khazad_guard.png",
       "blobSHA": "c7ff4679410fabb16625cd06b95fe408dbb5fc6f",
-      "approval": "pending",
-      "inGameVerified": false
+      "approval": "hold",
+      "inGameVerified": false,
+      "qualityDecision": "unreviewed",
+      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "preferredSource": "undecided"
     },
     {
       "id": "iron_guard",
@@ -1016,8 +1025,11 @@
       "source": "dwarf",
       "path": "art/full-roster-night-rebuild-20261019/units/iron_guard.png",
       "blobSHA": "439b6deeaeea3cdfaee2e9a98d9bc084e53b4a0f",
-      "approval": "pending",
-      "inGameVerified": false
+      "approval": "hold",
+      "inGameVerified": false,
+      "qualityDecision": "unreviewed",
+      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "preferredSource": "undecided"
     },
     {
       "id": "dwarf_banner",
@@ -1664,8 +1676,11 @@
       "source": "isengard",
       "path": "art/full-roster-night-rebuild-20261019/units/warg.png",
       "blobSHA": "5145c6a61c10dadc50ba91512c21f1f5f91c50b0",
-      "approval": "pending",
-      "inGameVerified": false
+      "approval": "hold",
+      "inGameVerified": false,
+      "qualityDecision": "unreviewed",
+      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "preferredSource": "undecided"
     },
     {
       "id": "uruk_sapper",
@@ -1695,8 +1710,11 @@
       "source": "isengard",
       "path": "art/full-roster-night-rebuild-20261019/units/uruk_scout_archer.png",
       "blobSHA": "0aec73263007afe0cb975729161b241ebbf6a52a",
-      "approval": "pending",
-      "inGameVerified": false
+      "approval": "hold",
+      "inGameVerified": false,
+      "qualityDecision": "unreviewed",
+      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "preferredSource": "undecided"
     },
     {
       "id": "crebain_swarm",
@@ -1914,8 +1932,11 @@
       "source": "isengard",
       "path": "art/full-roster-night-rebuild-20261019/units/sharku.png",
       "blobSHA": "82dd745d741f7509c8aa85b6429a32323bd3e5ec",
-      "approval": "pending",
-      "inGameVerified": false
+      "approval": "hold",
+      "inGameVerified": false,
+      "qualityDecision": "unreviewed",
+      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "preferredSource": "undecided"
     },
     {
       "id": "grima",
@@ -2084,8 +2105,11 @@
       "source": "maiar",
       "path": "art/full-roster-night-rebuild-20261019/units/radagast.png",
       "blobSHA": "527a1ca3e43b7cb083342a6133ba23fcae983e42",
-      "approval": "pending",
-      "inGameVerified": false
+      "approval": "hold",
+      "inGameVerified": false,
+      "qualityDecision": "unreviewed",
+      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "preferredSource": "undecided"
     },
     {
       "id": "thranduil",
@@ -2629,8 +2653,11 @@
       "source": "isengard",
       "path": "art/full-roster-night-rebuild-20261019/units/warg_alpha.png",
       "blobSHA": "8a7dc7232765e10a27584eecfaffb138a731dac3",
-      "approval": "pending",
-      "inGameVerified": false
+      "approval": "hold",
+      "inGameVerified": false,
+      "qualityDecision": "unreviewed",
+      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "preferredSource": "undecided"
     },
     {
       "id": "balin",
@@ -2971,8 +2998,11 @@
       "source": "maiar",
       "path": "art/full-roster-night-rebuild-20261019/units/gandalf_mounted.png",
       "blobSHA": "46a2c7ee1662f5088b162c51ffae36efb591e069",
-      "approval": "pending",
-      "inGameVerified": false
+      "approval": "hold",
+      "inGameVerified": false,
+      "qualityDecision": "unreviewed",
+      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "preferredSource": "undecided"
     },
     {
       "id": "thranduil_mounted",
@@ -3553,8 +3583,11 @@
       "source": "isengard",
       "path": "art/full-roster-night-rebuild-20261019/units/warg_rider_spear.png",
       "blobSHA": "e3ee80077a3aac1d3aed6fd86b02266f4e94a89b",
-      "approval": "pending",
-      "inGameVerified": false
+      "approval": "hold",
+      "inGameVerified": false,
+      "qualityDecision": "unreviewed",
+      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "preferredSource": "undecided"
     },
     {
       "id": "warg_rider_bow",
@@ -3567,8 +3600,11 @@
       "source": "isengard",
       "path": "art/full-roster-night-rebuild-20261019/units/warg_rider_bow.png",
       "blobSHA": "a27779c2a25c6da4e7bdb134719f45d07125f7b0",
-      "approval": "pending",
-      "inGameVerified": false
+      "approval": "hold",
+      "inGameVerified": false,
+      "qualityDecision": "unreviewed",
+      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "preferredSource": "undecided"
     },
     {
       "id": "warg_chieftain",
@@ -3581,8 +3617,11 @@
       "source": "isengard",
       "path": "art/full-roster-night-rebuild-20261019/units/warg_chieftain.png",
       "blobSHA": "a4bdb942c3c19b97c86f1c9163e357f7e0a05ee8",
-      "approval": "pending",
-      "inGameVerified": false
+      "approval": "hold",
+      "inGameVerified": false,
+      "qualityDecision": "unreviewed",
+      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "preferredSource": "undecided"
     },
     {
       "id": "wild_warg",
@@ -3595,8 +3634,11 @@
       "source": "isengard",
       "path": "art/full-roster-night-rebuild-20261019/units/wild_warg.png",
       "blobSHA": "76466fd96169047d101f18560c8e64d23445e5dd",
-      "approval": "pending",
-      "inGameVerified": false
+      "approval": "hold",
+      "inGameVerified": false,
+      "qualityDecision": "unreviewed",
+      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "preferredSource": "undecided"
     },
     {
       "id": "wild_warg_alpha",
@@ -3609,8 +3651,11 @@
       "source": "isengard",
       "path": "art/full-roster-night-rebuild-20261019/units/wild_warg_alpha.png",
       "blobSHA": "1a99e93f6d4eb7380a002a127a2010c0ab9e76c2",
-      "approval": "pending",
-      "inGameVerified": false
+      "approval": "hold",
+      "inGameVerified": false,
+      "qualityDecision": "unreviewed",
+      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "preferredSource": "undecided"
     },
     {
       "id": "ancalagon",
@@ -5080,8 +5125,11 @@
       "source": "isengard",
       "path": "art/full-roster-night-rebuild-20261019/units/isengard_troll.png",
       "blobSHA": "dbfd9a9dfeffd83e53647313df36ec1527c09209",
-      "approval": "pending",
-      "inGameVerified": false
+      "approval": "hold",
+      "inGameVerified": false,
+      "qualityDecision": "unreviewed",
+      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
+      "preferredSource": "undecided"
     },
     {
       "id": "dunlending_horseman",
@@ -6466,11 +6514,11 @@
       "source": "elf",
       "path": "art/full-roster-night-rebuild-20261019/units/ecthelion_mounted.png",
       "blobSHA": "8188319cfd469c28778197ec7e5d459624cf159d",
-      "approval": "hold",
+      "approval": "rejected",
       "inGameVerified": false,
-      "qualityDecision": "unreviewed",
-      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
-      "preferredSource": "undecided"
+      "qualityDecision": "preserve_original",
+      "qualityReason": "기존 몸을 낮춘 검 공격·기승 실루엣이 직립한 일반 기승으로 바뀜.",
+      "preferredSource": "old"
     },
     {
       "id": "finrod_felagund_mounted",
@@ -6483,11 +6531,11 @@
       "source": "elf",
       "path": "art/full-roster-night-rebuild-20261019/units/finrod_felagund_mounted.png",
       "blobSHA": "e7178249483045946897451f6dd999d0bdbf3348",
-      "approval": "hold",
+      "approval": "rejected",
       "inGameVerified": false,
-      "qualityDecision": "unreviewed",
-      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
-      "preferredSource": "undecided"
+      "qualityDecision": "preserve_original",
+      "qualityReason": "기존의 낮춘 머리·검 공격과 말 돌진 동세가 정면 얼굴·직립 기승으로 약화됨.",
+      "preferredSource": "old"
     },
     {
       "id": "maedhros_mounted",
@@ -6500,11 +6548,11 @@
       "source": "elf",
       "path": "art/full-roster-night-rebuild-20261019/units/maedhros_mounted.png",
       "blobSHA": "c92c94107ab6f2994f4741d9b70ce22337e282d7",
-      "approval": "hold",
+      "approval": "rejected",
       "inGameVerified": false,
-      "qualityDecision": "unreviewed",
-      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
-      "preferredSource": "undecided"
+      "qualityDecision": "preserve_original",
+      "qualityReason": "기존의 몸 기울임·검 공격·말 돌진 실루엣이 얼굴을 드러낸 일반 기승으로 바뀜.",
+      "preferredSource": "old"
     },
     {
       "id": "celegorm_mounted",
@@ -6517,11 +6565,11 @@
       "source": "elf",
       "path": "art/full-roster-night-rebuild-20261019/units/celegorm_mounted.png",
       "blobSHA": "1dd380aee480fd5ea00871743dcee6e8ddeab762",
-      "approval": "hold",
+      "approval": "rejected",
       "inGameVerified": false,
-      "qualityDecision": "unreviewed",
-      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
-      "preferredSource": "undecided"
+      "qualityDecision": "preserve_original",
+      "qualityReason": "기존의 고개를 깊이 숙인 기수·말 관계가 얼굴을 드러낸 직립 기승으로 바뀜.",
+      "preferredSource": "old"
     },
     {
       "id": "turgon_mounted",
@@ -6534,11 +6582,11 @@
       "source": "elf",
       "path": "art/full-roster-night-rebuild-20261019/units/turgon_mounted.png",
       "blobSHA": "7279b1f0eaf3026ef1b98742a0032d02b8a45981",
-      "approval": "hold",
+      "approval": "rejected",
       "inGameVerified": false,
-      "qualityDecision": "unreviewed",
-      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
-      "preferredSource": "undecided"
+      "qualityDecision": "preserve_original",
+      "qualityReason": "기존의 팔·검·몸 기울임·말 돌격이 연결된 동세가 직립한 일반 기승으로 약화됨.",
+      "preferredSource": "old"
     },
     {
       "id": "cirdan_mounted",
@@ -6551,11 +6599,11 @@
       "source": "elf",
       "path": "art/full-roster-night-rebuild-20261019/units/cirdan_mounted.png",
       "blobSHA": "fbe9147314d17da7e591872884034544758ac8b8",
-      "approval": "hold",
+      "approval": "rejected",
       "inGameVerified": false,
-      "qualityDecision": "unreviewed",
-      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
-      "preferredSource": "undecided"
+      "qualityDecision": "preserve_original",
+      "qualityReason": "기존 검 공격·몸 기울임·말 돌진 동세가 정면 얼굴·일반 직립 기승으로 약화됨.",
+      "preferredSource": "old"
     },
     {
       "id": "gil_galad_mounted",
@@ -6568,11 +6616,11 @@
       "source": "elf",
       "path": "art/full-roster-night-rebuild-20261019/units/gil_galad_mounted.png",
       "blobSHA": "b75b8cdfd1def0e5e88250e5b8128da814e28bba",
-      "approval": "hold",
+      "approval": "rejected",
       "inGameVerified": false,
-      "qualityDecision": "unreviewed",
-      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
-      "preferredSource": "undecided"
+      "qualityDecision": "preserve_original",
+      "qualityReason": "기존 몸을 낮춘 무기 공격·말 돌진 동세가 직립한 일반 기승으로 약화됨.",
+      "preferredSource": "old"
     },
     {
       "id": "thingol_mounted",
@@ -6585,11 +6633,11 @@
       "source": "elf",
       "path": "art/full-roster-night-rebuild-20261019/units/thingol_mounted.png",
       "blobSHA": "bd37b067345408102ef2777746647e6826af8f61",
-      "approval": "hold",
+      "approval": "rejected",
       "inGameVerified": false,
-      "qualityDecision": "unreviewed",
-      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
-      "preferredSource": "undecided"
+      "qualityDecision": "preserve_original",
+      "qualityReason": "기존 검 공격·몸 기울임과 말의 움직임보다 정면 얼굴·직립 기승 인상이 강해짐.",
+      "preferredSource": "old"
     },
     {
       "id": "citadel_guard_bow",
@@ -6743,11 +6791,11 @@
       "source": "elf",
       "path": "art/full-roster-night-rebuild-20261019/units/galadhrim_bow.png",
       "blobSHA": "7024e6dd9b51ec2c451448df82bacee85e9ffca5",
-      "approval": "hold",
+      "approval": "rejected",
       "inGameVerified": false,
-      "qualityDecision": "unreviewed",
-      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
-      "preferredSource": "undecided"
+      "qualityDecision": "preserve_original",
+      "qualityReason": "기존 투구 아래 숙인 고개보다 정면 얼굴 노출과 일반 직립 인상이 강해짐.",
+      "preferredSource": "old"
     },
     {
       "id": "galadhrim_elite_bow",
@@ -6760,11 +6808,11 @@
       "source": "elf",
       "path": "art/full-roster-night-rebuild-20261019/units/galadhrim_elite_bow.png",
       "blobSHA": "b0074fe9c9bf1c49f39b6f4633fabdd3acd321fc",
-      "approval": "hold",
+      "approval": "rejected",
       "inGameVerified": false,
-      "qualityDecision": "unreviewed",
-      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
-      "preferredSource": "undecided"
+      "qualityDecision": "preserve_original",
+      "qualityReason": "기존 활 파지·숙인 머리의 흐름이 정면 얼굴·활을 세운 직립형으로 바뀜.",
+      "preferredSource": "old"
     },
     {
       "id": "mirkwood_ranger",
@@ -6777,11 +6825,11 @@
       "source": "elf",
       "path": "art/full-roster-night-rebuild-20261019/units/mirkwood_ranger.png",
       "blobSHA": "e2371c479a2a5dde8ce26e8190dab977a3d447ec",
-      "approval": "hold",
+      "approval": "rejected",
       "inGameVerified": false,
-      "qualityDecision": "unreviewed",
-      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
-      "preferredSource": "undecided"
+      "qualityDecision": "preserve_original",
+      "qualityReason": "기존의 후드·숙인 고개·그늘진 시선이 후드를 벗고 얼굴을 드러낸 일반 궁병형으로 바뀜.",
+      "preferredSource": "old"
     },
     {
       "id": "arnor_knight",
@@ -6960,11 +7008,11 @@
     },
     "fullQualityAudit": {
       "state": "review_complete",
-      "reviewed": 263,
+      "reviewed": 278,
       "counts": {
         "candidate_review": 81,
-        "needs_revision": 71,
-        "preserve_original": 111
+        "needs_revision": 75,
+        "preserve_original": 122
       },
       "qualityAcceptedCount": 0,
       "report": "art/full-roster-night-rebuild-20261019/quality-audit-20261020/results.json"
@@ -6995,13 +7043,13 @@
     "enabled": true,
     "reason": "전수 비교에서 다수의 포즈·시점·실루엣 회귀 확인. 기존 우세/보류본 채택 금지.",
     "auditPath": "art/full-roster-night-rebuild-20261019/quality-audit-20261020/checkpoint.json",
-    "reviewedCount": 263,
-    "latestCatalogCount": 278,
-    "unreviewedCount": 15,
+    "reviewedCount": 278,
+    "latestCatalogCount": 294,
+    "unreviewedCount": 16,
     "counts": {
       "candidate_review": 81,
-      "needs_revision": 71,
-      "preserve_original": 111
+      "needs_revision": 75,
+      "preserve_original": 122
     },
     "qualityAcceptedCount": 0
   }
