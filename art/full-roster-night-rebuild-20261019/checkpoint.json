@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T03:38:35.391Z",
+  "updatedAt": "2026-10-20T03:39:59.961Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 162,
-    "newlyGeneratedThisSession": 216,
-    "visuallyReviewedThisSession": 221,
+    "pending": 161,
+    "newlyGeneratedThisSession": 217,
+    "visuallyReviewedThisSession": 222,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 216,
-    "persistedReviewAssets": 348,
+    "generatedReviewAssets": 217,
+    "persistedReviewAssets": 349,
     "revisedAfterRejection": 18
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -6168,8 +6168,13 @@
       "faction": "harad",
       "role": "cavalry",
       "original": "tokens/camel_rider.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "harad",
+      "path": "art/full-roster-night-rebuild-20261019/units/camel_rider.png",
+      "blobSHA": "84293e5672b908081c11b06b0502cdf61ec8e5a4",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "dale_warrior",
@@ -7174,12 +7179,12 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 348,
+    "count": 349,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
-      "harad": 19,
+      "harad": 20,
       "isengard": 29,
       "난쟁이": 36,
       "maiar": 9,
@@ -7305,6 +7310,14 @@
       ],
       "state": "revised_awaiting_recheck",
       "report": "art/full-roster-night-rebuild-20261019/quality-audit-20261020/results.json",
+      "approval": "pending"
+    },
+    "camelRiderMount": {
+      "ids": [
+        "camel_rider"
+      ],
+      "state": "corrected-review-candidate",
+      "reason": "Initial generation copied horse from rider skeleton; corrected to source camel anatomy.",
       "approval": "pending"
     }
   },

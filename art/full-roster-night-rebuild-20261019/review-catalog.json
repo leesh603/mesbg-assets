@@ -1,7 +1,7 @@
 {
-  "count": 348,
+  "count": 349,
   "groups": {
-    "harad": 19,
+    "harad": 20,
     "isengard": 29,
     "난쟁이": 36,
     "maiar": 9,
@@ -10,8 +10,23 @@
     "rohan": 46,
     "gondor": 59
   },
-  "pending": 162,
+  "pending": 161,
   "units": [
+    {
+      "id": "camel_rider",
+      "name": "낙타 기병",
+      "group": "하라드",
+      "role": "cavalry",
+      "image": "art/full-roster-night-rebuild-20261019/units/camel_rider.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/camel_rider.png",
+      "old": "tokens/camel_rider.png",
+      "status": "검토 대기",
+      "body": "인간 기수 5등신·낙타 · 하이앵글 프론트뷰",
+      "pose": "갈색 기수 · 낙타 · 직립 창",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/camel_rider.png?v=84293e5672b908081c11b06b0502cdf61ec8e5a4",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/camel_rider.png?v=84293e5672b908081c11b06b0502cdf61ec8e5a4",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/camel_rider.png"
+    },
     {
       "id": "half_troll",
       "name": "하프 트롤",

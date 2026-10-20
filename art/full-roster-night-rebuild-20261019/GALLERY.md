@@ -1,6 +1,12 @@
-# 전체 재제작 검토 — 348종
+# 전체 재제작 검토 — 349종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 낙타 기병 (camel_rider)
+
+![낙타 기병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/camel_rider.png?v=84293e5672b908081c11b06b0502cdf61ec8e5a4)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/camel_rider.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/camel_rider.png?v=84293e5672b908081c11b06b0502cdf61ec8e5a4)
 
 ### 하프 트롤 (half_troll)
 
