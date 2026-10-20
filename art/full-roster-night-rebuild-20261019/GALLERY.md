@@ -1,6 +1,12 @@
-# 전체 재제작 검토 — 457종
+# 전체 재제작 검토 — 458종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 아라손(기마) (arathorn_mounted)
+
+![아라손(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/arathorn_mounted.png?v=8a49d08cb54818f7b8e218754a5124e534fdd6ae)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/arathorn_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/arathorn_mounted.png?v=8a49d08cb54818f7b8e218754a5124e534fdd6ae)
 
 ### 고스모그(발록 군주) (gothmog_balrog)
 

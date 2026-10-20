@@ -1,0 +1,26 @@
+{
+  "batch": "human-032-three",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "arathorn_mounted",
+      "mounted": true,
+      "pose": "초록 후드·갈색 말 · 검",
+      "detail": "ARATHORN MOUNTED GREEN hood shading face with only source subtle dark facialstubble, no addedlongbeard, green cloak/tunic GOLD narrow edge, silver CHAINMAIL shortshirt, brownleather bracers/gloves/boots. Whitefeather arrowquiver on back, no bow in hands. BROWN HORSE darkBROWN mane/tail, GREEN/GOLD saddlecloth/frontcloth and simplegold/brown bridle. One hand viewerLEFT straight SILVER SWORD brown/goldhilt held low/outward at waist, other reins nearbelt, exactly2hands. No helmet/shield/blackplate added. Sameadult5head rider, greenhood notgiant skull, horse head nearfront slightleft, fullhooves/tail fit.",
+      "prompt": "Dress IMAGE1 original NEUTRAL HUMAN skeleton as IMAGE2 character. IMAGE1 alone controls normal adult skull, torso/limb bone lengths and elevated front camera. EXACTLY FIVE anatomical heads crown-to-sole, one head crown-to-CHIN excluding HAIR, BEARD, HAT or crown. No4head bighead chibi, no6+head tall hero. Copy exact bone segment relationships, use old age/slenderness through face, width and posture only. Full robes cover same compact fivehead bones, never lengthen body or hide feet. If hat/staff needs space, zoom out whole figure and expand clear canvas padding; do NOT shrink body relative to head to fit hat. Image2 identity/equipment/palette only, ignore its proportions. New joint poses required while preserving bone LENGTHS. Elevated FRONT camera looking DOWN30deg, clear TOP planes of head/hat and both shoulders, foreshortened chest/face, chin/gaze angled down separately. Not eyelevel with only bowed head. Crisp discrete pixel clusters, stepped dark outlines, limited color ramps matching image1/new Gondor/Mordor, no smooth painting/3D. Entire figure/weapons inside transparent RGBA clear margin, torso centered independently of equipment. No floor/base/shadow/aura/glow/text. Replace neutral bald scalp with required HAIR/BEARD/HAT exactly as source.  MOUNTED unit: Image1 human-mounted neutral controls ONLY rider normal skull/torso/femur/shin BONE LENGTHS and elevated camera. FIVE anatomical heads if rider stands; inspect rider independently from animal total height. Ignore footstanding framing. Animal anatomy/color/species come from image2; no5head rule for animal, no uniform shrinking of mount/rider to fix ratios. Show TOP planes of rider skull, shoulders, saddle and animal neck/withers/head through genuinely elevated front camera, not only bowed head. Exactly2hands on specified objects. ARATHORN MOUNTED GREEN hood shading face with only source subtle dark facialstubble, no addedlongbeard, green cloak/tunic GOLD narrow edge, silver CHAINMAIL shortshirt, brownleather bracers/gloves/boots. Whitefeather arrowquiver on back, no bow in hands. BROWN HORSE darkBROWN mane/tail, GREEN/GOLD saddlecloth/frontcloth and simplegold/brown bridle. One hand viewerLEFT straight SILVER SWORD brown/goldhilt held low/outward at waist, other reins nearbelt, exactly2hands. No helmet/shield/blackplate added. Sameadult5head rider, greenhood notgiant skull, horse head nearfront slightleft, fullhooves/tail fit.",
+      "group": "아르노르",
+      "groupKey": "arnor",
+      "bodyDescription": "인간 기수 5등신 · 하이앵글 프론트뷰",
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-56f9a502-ac60-47c6-a053-a77cd9872c57.png",
+      "visualReview": {
+        "anatomyReference": "art/rebuild-skeletons/bases/human-mounted.png",
+        "equipment": "Original palettes, two hands, sword/shield/reins and rider bones compared",
+        "camera": "Elevated front with crown/shoulder/saddle/neck topplanes",
+        "approval": "pending"
+      },
+      "blobSHA": "8a49d08cb54818f7b8e218754a5124e534fdd6ae",
+      "approval": "pending",
+      "inGameVerified": false
+    }
+  ]
+}
