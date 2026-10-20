@@ -1,8 +1,8 @@
 {
   "request": "all-194-20261020",
-  "updatedAt": "2026-10-20T05:52:58.612Z",
-  "correctedCandidates": 78,
-  "remaining": 116,
+  "updatedAt": "2026-10-20T05:55:02.092Z",
+  "correctedCandidates": 84,
+  "remaining": 110,
   "scope": [
     {
       "id": "imrahil_mounted",
@@ -324,9 +324,9 @@
       "name": "샘물수위병",
       "originalApproval": "hold",
       "originalReason": "상체·투구 대비 골반·다리 길이 재검수 필요.",
-      "state": "pending_correction",
-      "path": "art/gondor-rebuild-20261019/units/mt_fountain_guard.png",
-      "blobSHA": "511d51cad96cb8628595480243d9190db454ccf0"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/mt_fountain_guard.png",
+      "blobSHA": "2136b10919c07a47863eded74593218c4ec0cafc"
     },
     {
       "id": "orc_swordshield",
@@ -369,18 +369,18 @@
       "name": "드워프 도끼방",
       "originalApproval": "hold",
       "originalReason": "머리·상체·다리 비중 변경. 확정된 난쟁이 종족 골격과 크기 기준 대조 필요.",
-      "state": "pending_correction",
-      "path": "art/full-roster-night-rebuild-20261019/units/dwarf_axeshield.png",
-      "blobSHA": "9c2e0e2ab8fe157ebe6db3338b748c7fe3127fc7"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/dwarf_axeshield.png",
+      "blobSHA": "bb48eb6319c317509cdb8eb58ae863322fbfee06"
     },
     {
       "id": "dwarf_2haxe",
       "name": "드워프 양손도끼",
       "originalApproval": "hold",
       "originalReason": "기존보다 팔다리·허리 비중이 길어진 인상. 인간형 5등신을 그대로 적용하지 말고 확정된 난쟁이 골격과 비교 필요.",
-      "state": "pending_correction",
-      "path": "art/full-roster-night-rebuild-20261019/units/dwarf_2haxe.png",
-      "blobSHA": "efd39f2d783bc1bbf62994a723b9163d881bdc36"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/dwarf_2haxe.png",
+      "blobSHA": "0053beabbc15cb7120e875589783eb18ee03d36e"
     },
     {
       "id": "dwarf_ranger",
@@ -423,9 +423,9 @@
       "name": "우르크하이 검방",
       "originalApproval": "hold",
       "originalReason": "정상 원본으로 복구 후 비교. 얼굴 시점과 신체 비중·방패/칼 파지 재확인 필요.",
-      "state": "pending_correction",
-      "path": "art/full-roster-night-rebuild-20261019/units/uruk_swordshield2.png",
-      "blobSHA": "fb1832a8b609e56a03b0dfed34b15f8af84a6f38"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/uruk_swordshield2.png",
+      "blobSHA": "a103d0288ee4dd5a7cc7a60ab7072fe92e58e93d"
     },
     {
       "id": "dol_amroth_knight",
@@ -522,9 +522,9 @@
       "name": "할디르",
       "originalApproval": "hold",
       "originalReason": "얼굴·투구·머리카락 형태와 고개 각도가 크게 변경됨. 지정 디자인/기존 에셋 매핑 확인 필요.",
-      "state": "pending_correction",
-      "path": "art/full-roster-night-rebuild-20261019/units/haldir.png",
-      "blobSHA": "d30e60a9a76f382701d139d328a91d3abd8caef5"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/haldir.png",
+      "blobSHA": "a4db3ba8059bb3ea743c9c0208476edd876319fa"
     },
     {
       "id": "galadriel",
@@ -549,9 +549,9 @@
       "name": "고스모그",
       "originalApproval": "hold",
       "originalReason": "기존 투구·철퇴 외형이 맨얼굴·다른 무장으로 변경됨. 지정 디자인/기존 에셋 매핑 확인 필요.",
-      "state": "pending_correction",
-      "path": "art/mordor-rebuild-20261019/units/gothmog.png",
-      "blobSHA": "d4dbb247311b17142b32a78a6af9934ce911b318"
+      "state": "corrected_candidate_compared",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/gothmog.png",
+      "blobSHA": "37d14073ab59f6cd46b0d62a7bd72773dbbce837"
     },
     {
       "id": "sharku",
