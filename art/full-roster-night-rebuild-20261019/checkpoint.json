@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T09:09:24.482Z",
+  "updatedAt": "2026-10-20T09:09:42.436Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -16,10 +16,10 @@
     "generatedReviewAssets": 378,
     "persistedReviewAssets": 510,
     "revisedAfterRejection": 20,
-    "qualityRejected": 50,
+    "qualityRejected": 44,
     "qualityHeld": 33,
-    "awaitingApproval": 427,
-    "correctionCandidatesGenerated": 29
+    "awaitingApproval": 433,
+    "correctionCandidatesGenerated": 36
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
   "sources": [
@@ -59,10 +59,10 @@
       "elrohir",
       "shagrat",
       "gorbag",
-      "warg_alpha",
-      "gil_galad",
-      "cirdan",
-      "arwen"
+      "erestor",
+      "orophin",
+      "mirkwood_sentinel",
+      "silvan_archer"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
@@ -4096,16 +4096,33 @@
       "faction": "isengard",
       "role": "beast",
       "original": "tokens/warg_alpha.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "isengard",
-      "path": "art/full-roster-night-rebuild-20261019/units/warg_alpha.png",
-      "blobSHA": "8a7dc7232765e10a27584eecfaffb138a731dac3",
-      "approval": "hold",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/warg_alpha.png",
+      "blobSHA": "466eee6a9991c8631ee8731f1048bfeb49b5ccdb",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "unreviewed",
-      "qualityReason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.",
-      "preferredSource": "undecided"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "기존 목걸이, 회색 갈기, 낮춘 머리와 네 발을 보존. 입·발·꼬리 실루엣 분리 확인. 최종 승인 대기.",
+      "preferredSource": "remake_candidate",
+      "revision": "resume-recover-02-20261020",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "resume-recover-02-20261020",
+        "previous": {
+          "path": "art/full-roster-night-rebuild-20261019/units/warg_alpha.png",
+          "blobSHA": "8a7dc7232765e10a27584eecfaffb138a731dac3",
+          "approval": "hold",
+          "reason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류."
+        },
+        "checkedAt": "2026-10-20T09:09:42.436Z",
+        "visualCheck": "original_previous_candidate_and_neutral_reference_compared",
+        "observations": "기존 목걸이, 회색 갈기, 낮춘 머리와 네 발을 보존. 입·발·꼬리 실루엣 분리 확인. 최종 승인 대기.",
+        "state": "corrected_candidate_compared",
+        "userApproval": "pending",
+        "anatomicalMeasurement": "not_claimed"
+      }
     },
     {
       "id": "balin",
@@ -4292,16 +4309,33 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/gil_galad.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "elf",
-      "path": "art/full-roster-night-rebuild-20261019/units/gil_galad.png",
-      "blobSHA": "6214c931959dfc0d3f12da1d4145bf1f37f95508",
-      "approval": "rejected",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/gil_galad.png",
+      "blobSHA": "49f4753fcd67e4f7ee80d0b6cfff86d5aaf494b1",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존 낮춘 머리·위압적인 갑주 실루엣이 정면 얼굴 노출·일반 전사형으로 바뀜.",
-      "preferredSource": "old"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "기존 별 문양, 흰 머리, 금빛 갑옷과 양손 창의 방향을 유지. 머리 숙임·손잡이 연결 확인. 최종 승인 대기.",
+      "preferredSource": "remake_candidate",
+      "revision": "resume-recover-02-20261020",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "resume-recover-02-20261020",
+        "previous": {
+          "path": "art/full-roster-night-rebuild-20261019/units/gil_galad.png",
+          "blobSHA": "6214c931959dfc0d3f12da1d4145bf1f37f95508",
+          "approval": "rejected",
+          "reason": "기존 낮춘 머리·위압적인 갑주 실루엣이 정면 얼굴 노출·일반 전사형으로 바뀜."
+        },
+        "checkedAt": "2026-10-20T09:09:42.436Z",
+        "visualCheck": "original_previous_candidate_and_neutral_reference_compared",
+        "observations": "기존 별 문양, 흰 머리, 금빛 갑옷과 양손 창의 방향을 유지. 머리 숙임·손잡이 연결 확인. 최종 승인 대기.",
+        "state": "corrected_candidate_compared",
+        "userApproval": "pending",
+        "anatomicalMeasurement": "not_claimed"
+      }
     },
     {
       "id": "cirdan",
@@ -4309,16 +4343,33 @@
       "faction": "elf",
       "role": "hero",
       "original": "tokens/cirdan.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "elf",
-      "path": "art/full-roster-night-rebuild-20261019/units/cirdan.png",
-      "blobSHA": "c08ca86d8fe1dde830ae73a01864f9e496653f79",
-      "approval": "rejected",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/cirdan.png",
+      "blobSHA": "2382d60ced83b3a2ed8d49e4e5d005710961d4df",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존의 숙인 고개·눈을 가린 제스처보다 얼굴 정면 노출이 커짐.",
-      "preferredSource": "old"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "기존 닻·별 자수, 긴 흰 수염과 얼굴을 가린 팔 동작을 복원. 지팡이로 임의 변경하지 않음. 최종 승인 대기.",
+      "preferredSource": "remake_candidate",
+      "revision": "resume-recover-02-20261020",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "resume-recover-02-20261020",
+        "previous": {
+          "path": "art/full-roster-night-rebuild-20261019/units/cirdan.png",
+          "blobSHA": "c08ca86d8fe1dde830ae73a01864f9e496653f79",
+          "approval": "rejected",
+          "reason": "기존의 숙인 고개·눈을 가린 제스처보다 얼굴 정면 노출이 커짐."
+        },
+        "checkedAt": "2026-10-20T09:09:42.436Z",
+        "visualCheck": "original_previous_candidate_and_neutral_reference_compared",
+        "observations": "기존 닻·별 자수, 긴 흰 수염과 얼굴을 가린 팔 동작을 복원. 지팡이로 임의 변경하지 않음. 최종 승인 대기.",
+        "state": "corrected_candidate_compared",
+        "userApproval": "pending",
+        "anatomicalMeasurement": "not_claimed"
+      }
     },
     {
       "id": "arwen",
@@ -4326,16 +4377,33 @@
       "faction": "rivendell",
       "role": "hero",
       "original": "tokens/arwen.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "elf",
-      "path": "art/full-roster-night-rebuild-20261019/units/arwen.png",
-      "blobSHA": "26f16820f6f9e447eb381ff5ae6d277bb7c6b830",
-      "approval": "rejected",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/arwen.png",
+      "blobSHA": "1a1c18b912f54ce1d3ea1dc8b3a7ae5997fe6333",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존의 숙인 고개·시선보다 정면 얼굴 노출이 강해짐.",
-      "preferredSource": "old"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "기존 흰 드레스, 은빛 머리장식과 내려 든 검을 유지. 숙인 머리와 그늘진 눈, 전진 동작 확인. 최종 승인 대기.",
+      "preferredSource": "remake_candidate",
+      "revision": "resume-recover-02-20261020",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "resume-recover-02-20261020",
+        "previous": {
+          "path": "art/full-roster-night-rebuild-20261019/units/arwen.png",
+          "blobSHA": "26f16820f6f9e447eb381ff5ae6d277bb7c6b830",
+          "approval": "rejected",
+          "reason": "기존의 숙인 고개·시선보다 정면 얼굴 노출이 강해짐."
+        },
+        "checkedAt": "2026-10-20T09:09:42.436Z",
+        "visualCheck": "original_previous_candidate_and_neutral_reference_compared",
+        "observations": "기존 흰 드레스, 은빛 머리장식과 내려 든 검을 유지. 숙인 머리와 그늘진 눈, 전진 동작 확인. 최종 승인 대기.",
+        "state": "corrected_candidate_compared",
+        "userApproval": "pending",
+        "anatomicalMeasurement": "not_claimed"
+      }
     },
     {
       "id": "lindir",
@@ -4343,16 +4411,33 @@
       "faction": "rivendell",
       "role": "hero",
       "original": "tokens/lindir.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "elf",
-      "path": "art/full-roster-night-rebuild-20261019/units/lindir.png",
-      "blobSHA": "2d80fafaf8e94a4f05e4cb3c48e41f01ed49f976",
-      "approval": "rejected",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/lindir.png",
+      "blobSHA": "0a0d5e1393cfadcdfaf45912fe4d19a7ca9c3903",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존의 그늘진 얼굴·숙인 머리가 얼굴을 드러낸 정면 전사형으로 바뀜.",
-      "preferredSource": "old"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "기존 검은 머리, 흰색·남색 의복, 내려 든 검과 별 자수를 유지. 낮춘 시선과 전진 동작 확인. 최종 승인 대기.",
+      "preferredSource": "remake_candidate",
+      "revision": "resume-recover-02-20261020",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "resume-recover-02-20261020",
+        "previous": {
+          "path": "art/full-roster-night-rebuild-20261019/units/lindir.png",
+          "blobSHA": "2d80fafaf8e94a4f05e4cb3c48e41f01ed49f976",
+          "approval": "rejected",
+          "reason": "기존의 그늘진 얼굴·숙인 머리가 얼굴을 드러낸 정면 전사형으로 바뀜."
+        },
+        "checkedAt": "2026-10-20T09:09:42.436Z",
+        "visualCheck": "original_previous_candidate_and_neutral_reference_compared",
+        "observations": "기존 검은 머리, 흰색·남색 의복, 내려 든 검과 별 자수를 유지. 낮춘 시선과 전진 동작 확인. 최종 승인 대기.",
+        "state": "corrected_candidate_compared",
+        "userApproval": "pending",
+        "anatomicalMeasurement": "not_claimed"
+      }
     },
     {
       "id": "erestor",
@@ -4360,16 +4445,33 @@
       "faction": "rivendell",
       "role": "hero",
       "original": "tokens/erestor.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "elf",
-      "path": "art/full-roster-night-rebuild-20261019/units/erestor.png",
-      "blobSHA": "f76e08815eacc1c17d13d34500141ecfd1513d92",
-      "approval": "rejected",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/erestor.png",
+      "blobSHA": "ada51e203a83406aa8b88fd0367600e91a7d2317",
+      "approval": "hold",
       "inGameVerified": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존의 낮춘 머리와 그늘진 얼굴이 정면 얼굴 노출 중심으로 바뀜.",
-      "preferredSource": "old"
+      "qualityDecision": "needs_revision",
+      "qualityReason": "쌍단검과 기존 금빛 갑옷은 보존했으나 짧고 넓은 체형이 남아 있음. 인간형 5등신 기준 머리·어깨·허리·다리 비율 추가 교정 필요.",
+      "preferredSource": "undecided",
+      "revision": "resume-recover-02-20261020",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "resume-recover-02-20261020",
+        "previous": {
+          "path": "art/full-roster-night-rebuild-20261019/units/erestor.png",
+          "blobSHA": "f76e08815eacc1c17d13d34500141ecfd1513d92",
+          "approval": "rejected",
+          "reason": "기존의 낮춘 머리와 그늘진 얼굴이 정면 얼굴 노출 중심으로 바뀜."
+        },
+        "checkedAt": "2026-10-20T09:09:42.436Z",
+        "visualCheck": "original_previous_candidate_and_neutral_reference_compared",
+        "observations": "쌍단검과 기존 금빛 갑옷은 보존했으나 짧고 넓은 체형이 남아 있음. 인간형 5등신 기준 머리·어깨·허리·다리 비율 추가 교정 필요.",
+        "state": "revision_still_held",
+        "userApproval": "pending",
+        "anatomicalMeasurement": "not_claimed"
+      }
     },
     {
       "id": "elf_seer",
@@ -4377,16 +4479,33 @@
       "faction": "lothlorien",
       "role": "support",
       "original": "tokens/elf_seer.png",
-      "status": "generated_review_asset",
+      "status": "quality_corrected_review_asset",
       "visualReviewThisSession": true,
       "source": "elf",
-      "path": "art/full-roster-night-rebuild-20261019/units/elf_seer.png",
-      "blobSHA": "ef9111f58ea217c89c1e2fb140236495bae20994",
-      "approval": "rejected",
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/elf_seer.png",
+      "blobSHA": "3bd94b114819cff9addf4efc6670b5e5ba9b4d0f",
+      "approval": "pending",
       "inGameVerified": false,
-      "qualityDecision": "preserve_original",
-      "qualityReason": "기존의 숙인 머리·은밀한 시선이 정면 얼굴을 드러낸 모습으로 바뀜.",
-      "preferredSource": "old"
+      "qualityDecision": "revised_awaiting_review",
+      "qualityReason": "기존 푸른 구슬 지팡이, 흰 머리와 수염, 손을 든 동작을 보존. 숙인 머리 및 지팡이 연속성 확인. 최종 승인 대기.",
+      "preferredSource": "remake_candidate",
+      "revision": "resume-recover-02-20261020",
+      "qualityRepair": {
+        "request": "all-194-20261020",
+        "revision": "resume-recover-02-20261020",
+        "previous": {
+          "path": "art/full-roster-night-rebuild-20261019/units/elf_seer.png",
+          "blobSHA": "ef9111f58ea217c89c1e2fb140236495bae20994",
+          "approval": "rejected",
+          "reason": "기존의 숙인 머리·은밀한 시선이 정면 얼굴을 드러낸 모습으로 바뀜."
+        },
+        "checkedAt": "2026-10-20T09:09:42.436Z",
+        "visualCheck": "original_previous_candidate_and_neutral_reference_compared",
+        "observations": "기존 푸른 구슬 지팡이, 흰 머리와 수염, 손을 든 동작을 보존. 숙인 머리 및 지팡이 연속성 확인. 최종 승인 대기.",
+        "state": "corrected_candidate_compared",
+        "userApproval": "pending",
+        "anatomicalMeasurement": "not_claimed"
+      }
     },
     {
       "id": "rumil",
@@ -9816,17 +9935,16 @@
     "note": "Each image inspected against canonical skeleton and identity reference; approval pending."
   },
   "lastCorrection": {
-    "at": "2026-10-20T09:09:24.482Z",
-    "batch": "resume-recover-01-20261020",
+    "at": "2026-10-20T09:09:42.436Z",
+    "batch": "resume-recover-02-20261020",
     "ids": [
-      "olog_hai",
-      "feanor",
-      "luthien",
-      "beleg",
-      "huan",
-      "tauriel",
-      "beregond",
-      "elrohir"
+      "warg_alpha",
+      "gil_galad",
+      "cirdan",
+      "arwen",
+      "lindir",
+      "erestor",
+      "elf_seer"
     ],
     "newCharacterCount": 0,
     "qualityAcceptedCount": 0,
@@ -9902,8 +10020,8 @@
   "qualityRepairRequest": {
     "id": "all-194-20261020",
     "scopeCount": 194,
-    "correctedCandidates": 111,
-    "remaining": 83,
+    "correctedCandidates": 117,
+    "remaining": 77,
     "userApproved": 0,
     "previousMountedCorrectionsIncluded": true
   }

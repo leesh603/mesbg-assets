@@ -16,9 +16,9 @@
 
 ## 최근 재수정 진행
 
-불합격·보류 194종: 111종 수정 검토본 / 83종 수정 필요 · 전체 품질 최종 통과 0종 · 사용자 승인 전
+불합격·보류 194종: 117종 수정 검토본 / 77종 수정 필요 · 전체 품질 최종 통과 0종 · 사용자 승인 전
 
-최근 저장: 2026-10-20T09:09:24.482Z · resume-recover-01-20261020 · 8종 수정 후보. 본게임 적용·최종 품질 통과와 구분합니다.
+최근 저장: 2026-10-20T09:09:42.436Z · resume-recover-02-20261020 · 7종 수정 후보. 본게임 적용·최종 품질 통과와 구분합니다.
 
-다음 수정: elladan, elrohir, shagrat, gorbag, warg_alpha, gil_galad, cirdan, arwen.
+다음 수정: elladan, elrohir, shagrat, gorbag, erestor, orophin, mirkwood_sentinel, silvan_archer.
 

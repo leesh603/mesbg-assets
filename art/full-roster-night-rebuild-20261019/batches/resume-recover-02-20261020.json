@@ -1,0 +1,213 @@
+{
+  "batch": "resume-recover-02-20261020",
+  "tool": "image_gen",
+  "at": "2026-10-20T09:09:42.436Z",
+  "sourceHead": "93724080a3c8e0ff1b14c488cc0f2e5d80f6ba52",
+  "generatedCharacters": 7,
+  "newRosterIds": 0,
+  "qualityAcceptedCount": 0,
+  "records": [
+    {
+      "id": "warg_alpha",
+      "prompt": "Use case: style-transfer. Repair production PIXEL GAME TOKEN for 와르그 우두머리 (warg_alpha). Image 1 is the ORIGINAL identity, equipment, pose, action and silhouette. Image 2 controls crisp pixel clusters, short color ramps, stepped dark outline, elevated front camera and lowered head only; DO NOT copy its costume/weapon. Image 3 if supplied is species ANATOMY proportions only, never transfer its pose or gray clothes. Start from original action and EXACT weapon/shield/banner/staff/bow placement and relative size; preserve original body lean and hand grips, no generic pose substitution, no missing or invented gear. Repair stated defect: 검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류.. Original species anatomy ONLY, retain original number and structure of limbs, no human template. Camera high-angle FRONT looking DOWN45degrees over the WHOLE body, crown and shoulder tops visible; still front-facing, not top-down, side or rear. Chin and gaze point gently downward like original; face mostly hidden under hair/hood/helmet, no looking at viewer. Preserve original unique silhouette, material colors and heraldry. Crisp deliberate PIXEL artwork, not smooth painting/3D. Entire character/mount/all appendages and equipment inside INNER80percent of transparent canvas, broad empty margins, body centered excluding weapons. No floor, base, scenery, cast shadow, haze, glow, text or UI. Output ONLY this one original subject.\nADDITIONAL STRICT REPAIR: Preserve Image1's exact original head lowering, whole-body lean, weapon identities, held-object sizes and grip sequence. Do not turn clothing into a different character. Camera elevation applies to ENTIRE anatomy (head, shoulders, chest, pelvis, feet) not merely chin. TWO anatomically attached arms/hands/legs where species requires. Bow/crossbow must have one continuous stave, continuous correctly tied string and logical hand placement; spear/staff straight continuous shaft. Retain original face coverage and equipment; do not strip helmet/hood. Match actual species skeleton, never use dressed sprite as body template. All major visible pixels and all tips fully inside canvas with AT LEAST 10% clear margin; no cropping or stray motifs. Repair one character only, no contact sheet or duplicate views.\nIDENTITY LOCK: Dark gray FOUR-LEGGED wolf in forward low prowl, spiked red collar, scars, raised curled tail, long narrow muzzle.",
+      "refs": [
+        "/workspace/scratch/f40d43c7f276/continue-refs/warg_alpha.png",
+        "/workspace/scratch/f40d43c7f276/run-refs/style.png"
+      ],
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/warg_alpha.png",
+      "blobSHA": "466eee6a9991c8631ee8731f1048bfeb49b5ccdb",
+      "previous": {
+        "path": "art/full-roster-night-rebuild-20261019/units/warg_alpha.png",
+        "blobSHA": "8a7dc7232765e10a27584eecfaffb138a731dac3",
+        "approval": "hold",
+        "reason": "검수 목록 고정 이후 추가됨. 별도 비교 전 채택 보류."
+      },
+      "auditSourceBlobCompared": "8a7dc7232765e10a27584eecfaffb138a731dac3",
+      "auditComparison": {
+        "id": "warg_alpha",
+        "sourceSHA": "b4a306d6f4890f3c0242905b559eaddeebd4a99e",
+        "auditBlob": "8a7dc7232765e10a27584eecfaffb138a731dac3",
+        "currentBlob": "8a7dc7232765e10a27584eecfaffb138a731dac3",
+        "changedSinceAudit": false
+      },
+      "observations": "기존 목걸이, 회색 갈기, 낮춘 머리와 네 발을 보존. 입·발·꼬리 실루엣 분리 확인. 최종 승인 대기.",
+      "decision": "revised_awaiting_review",
+      "userApproval": "pending",
+      "anatomicalMeasurement": "not_claimed"
+    },
+    {
+      "id": "gil_galad",
+      "prompt": "Use case: style-transfer. Repair production PIXEL GAME TOKEN for 길갈라드 (gil_galad). Image 1 is the ORIGINAL identity, equipment, pose, action and silhouette. Image 2 controls crisp pixel clusters, short color ramps, stepped dark outline, elevated front camera and lowered head only; DO NOT copy its costume/weapon. Image 3 if supplied is species ANATOMY proportions only, never transfer its pose or gray clothes. Start from original action and EXACT weapon/shield/banner/staff/bow placement and relative size; preserve original body lean and hand grips, no generic pose substitution, no missing or invented gear. Repair stated defect: 기존 낮춘 머리·위압적인 갑주 실루엣이 정면 얼굴 노출·일반 전사형으로 바뀜.. HUMAN/ELF: exactly FIVE anatomical head lengths, crown-to-chin excluding hair/helmet crest. Head natural, proportionate shoulder width, neck, arms, hands, pelvis and leg bones. Never four-head chibi or six-plus-head fashion anatomy. Camera high-angle FRONT looking DOWN45degrees over the WHOLE body, crown and shoulder tops visible; still front-facing, not top-down, side or rear. Chin and gaze point gently downward like original; face mostly hidden under hair/hood/helmet, no looking at viewer. Preserve original unique silhouette, material colors and heraldry. Crisp deliberate PIXEL artwork, not smooth painting/3D. Entire character/mount/all appendages and equipment inside INNER80percent of transparent canvas, broad empty margins, body centered excluding weapons. No floor, base, scenery, cast shadow, haze, glow, text or UI. Output ONLY this one original subject.\nADDITIONAL STRICT REPAIR: Preserve Image1's exact original head lowering, whole-body lean, weapon identities, held-object sizes and grip sequence. Do not turn clothing into a different character. Camera elevation applies to ENTIRE anatomy (head, shoulders, chest, pelvis, feet) not merely chin. TWO anatomically attached arms/hands/legs where species requires. Bow/crossbow must have one continuous stave, continuous correctly tied string and logical hand placement; spear/staff straight continuous shaft. Retain original face coverage and equipment; do not strip helmet/hood. Match actual species skeleton, never use dressed sprite as body template. All major visible pixels and all tips fully inside canvas with AT LEAST 10% clear margin; no cropping or stray motifs. Repair one character only, no contact sheet or duplicate views.\nIDENTITY LOCK: White long hair and gold circlet obscure eyes, white/gold armor and cape, BOTH hands on long diagonal spear with silver head at LOWER RIGHT, heavy low stance.",
+      "refs": [
+        "/workspace/scratch/b57ccc107719/mesbg-assets/tokens/gil_galad.png",
+        "/workspace/scratch/f40d43c7f276/run-refs/style.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/elf.png"
+      ],
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/gil_galad.png",
+      "blobSHA": "49f4753fcd67e4f7ee80d0b6cfff86d5aaf494b1",
+      "previous": {
+        "path": "art/full-roster-night-rebuild-20261019/units/gil_galad.png",
+        "blobSHA": "6214c931959dfc0d3f12da1d4145bf1f37f95508",
+        "approval": "rejected",
+        "reason": "기존 낮춘 머리·위압적인 갑주 실루엣이 정면 얼굴 노출·일반 전사형으로 바뀜."
+      },
+      "auditSourceBlobCompared": "6214c931959dfc0d3f12da1d4145bf1f37f95508",
+      "auditComparison": {
+        "id": "gil_galad",
+        "sourceSHA": "697fdd87c50e7021958f12bee83d928d337b2d67",
+        "auditBlob": "6214c931959dfc0d3f12da1d4145bf1f37f95508",
+        "currentBlob": "6214c931959dfc0d3f12da1d4145bf1f37f95508",
+        "changedSinceAudit": false
+      },
+      "observations": "기존 별 문양, 흰 머리, 금빛 갑옷과 양손 창의 방향을 유지. 머리 숙임·손잡이 연결 확인. 최종 승인 대기.",
+      "decision": "revised_awaiting_review",
+      "userApproval": "pending",
+      "anatomicalMeasurement": "not_claimed"
+    },
+    {
+      "id": "cirdan",
+      "prompt": "Use case: style-transfer. Repair production PIXEL GAME TOKEN for 키르단 (cirdan). Image 1 is the ORIGINAL identity, equipment, pose, action and silhouette. Image 2 controls crisp pixel clusters, short color ramps, stepped dark outline, elevated front camera and lowered head only; DO NOT copy its costume/weapon. Image 3 if supplied is species ANATOMY proportions only, never transfer its pose or gray clothes. Start from original action and EXACT weapon/shield/banner/staff/bow placement and relative size; preserve original body lean and hand grips, no generic pose substitution, no missing or invented gear. Repair stated defect: 기존의 숙인 고개·눈을 가린 제스처보다 얼굴 정면 노출이 커짐.. HUMAN/ELF: exactly FIVE anatomical head lengths, crown-to-chin excluding hair/helmet crest. Head natural, proportionate shoulder width, neck, arms, hands, pelvis and leg bones. Never four-head chibi or six-plus-head fashion anatomy. Camera high-angle FRONT looking DOWN45degrees over the WHOLE body, crown and shoulder tops visible; still front-facing, not top-down, side or rear. Chin and gaze point gently downward like original; face mostly hidden under hair/hood/helmet, no looking at viewer. Preserve original unique silhouette, material colors and heraldry. Crisp deliberate PIXEL artwork, not smooth painting/3D. Entire character/mount/all appendages and equipment inside INNER80percent of transparent canvas, broad empty margins, body centered excluding weapons. No floor, base, scenery, cast shadow, haze, glow, text or UI. Output ONLY this one original subject.\nADDITIONAL STRICT REPAIR: Preserve Image1's exact original head lowering, whole-body lean, weapon identities, held-object sizes and grip sequence. Do not turn clothing into a different character. Camera elevation applies to ENTIRE anatomy (head, shoulders, chest, pelvis, feet) not merely chin. TWO anatomically attached arms/hands/legs where species requires. Bow/crossbow must have one continuous stave, continuous correctly tied string and logical hand placement; spear/staff straight continuous shaft. Retain original face coverage and equipment; do not strip helmet/hood. Match actual species skeleton, never use dressed sprite as body template. All major visible pixels and all tips fully inside canvas with AT LEAST 10% clear margin; no cropping or stray motifs. Repair one character only, no contact sheet or duplicate views.\nIDENTITY LOCK: Long white hair and beard, navy robe with white anchor and star embroidery, hand raised across eyes shielding them, not exposed smiling face.",
+      "refs": [
+        "/workspace/scratch/b57ccc107719/mesbg-assets/tokens/cirdan.png",
+        "/workspace/scratch/f40d43c7f276/run-refs/style.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/elf.png"
+      ],
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/cirdan.png",
+      "blobSHA": "2382d60ced83b3a2ed8d49e4e5d005710961d4df",
+      "previous": {
+        "path": "art/full-roster-night-rebuild-20261019/units/cirdan.png",
+        "blobSHA": "c08ca86d8fe1dde830ae73a01864f9e496653f79",
+        "approval": "rejected",
+        "reason": "기존의 숙인 고개·눈을 가린 제스처보다 얼굴 정면 노출이 커짐."
+      },
+      "auditSourceBlobCompared": "c08ca86d8fe1dde830ae73a01864f9e496653f79",
+      "auditComparison": {
+        "id": "cirdan",
+        "sourceSHA": "697fdd87c50e7021958f12bee83d928d337b2d67",
+        "auditBlob": "c08ca86d8fe1dde830ae73a01864f9e496653f79",
+        "currentBlob": "c08ca86d8fe1dde830ae73a01864f9e496653f79",
+        "changedSinceAudit": false
+      },
+      "observations": "기존 닻·별 자수, 긴 흰 수염과 얼굴을 가린 팔 동작을 복원. 지팡이로 임의 변경하지 않음. 최종 승인 대기.",
+      "decision": "revised_awaiting_review",
+      "userApproval": "pending",
+      "anatomicalMeasurement": "not_claimed"
+    },
+    {
+      "id": "arwen",
+      "prompt": "Use case: style-transfer. Repair production PIXEL GAME TOKEN for 아르웬 (arwen). Image 1 is the ORIGINAL identity, equipment, pose, action and silhouette. Image 2 controls crisp pixel clusters, short color ramps, stepped dark outline, elevated front camera and lowered head only; DO NOT copy its costume/weapon. Image 3 if supplied is species ANATOMY proportions only, never transfer its pose or gray clothes. Start from original action and EXACT weapon/shield/banner/staff/bow placement and relative size; preserve original body lean and hand grips, no generic pose substitution, no missing or invented gear. Repair stated defect: 기존의 숙인 고개·시선보다 정면 얼굴 노출이 강해짐.. HUMAN/ELF: exactly FIVE anatomical head lengths, crown-to-chin excluding hair/helmet crest. Head natural, proportionate shoulder width, neck, arms, hands, pelvis and leg bones. Never four-head chibi or six-plus-head fashion anatomy. Camera high-angle FRONT looking DOWN45degrees over the WHOLE body, crown and shoulder tops visible; still front-facing, not top-down, side or rear. Chin and gaze point gently downward like original; face mostly hidden under hair/hood/helmet, no looking at viewer. Preserve original unique silhouette, material colors and heraldry. Crisp deliberate PIXEL artwork, not smooth painting/3D. Entire character/mount/all appendages and equipment inside INNER80percent of transparent canvas, broad empty margins, body centered excluding weapons. No floor, base, scenery, cast shadow, haze, glow, text or UI. Output ONLY this one original subject.\nADDITIONAL STRICT REPAIR: Preserve Image1's exact original head lowering, whole-body lean, weapon identities, held-object sizes and grip sequence. Do not turn clothing into a different character. Camera elevation applies to ENTIRE anatomy (head, shoulders, chest, pelvis, feet) not merely chin. TWO anatomically attached arms/hands/legs where species requires. Bow/crossbow must have one continuous stave, continuous correctly tied string and logical hand placement; spear/staff straight continuous shaft. Retain original face coverage and equipment; do not strip helmet/hood. Match actual species skeleton, never use dressed sprite as body template. All major visible pixels and all tips fully inside canvas with AT LEAST 10% clear margin; no cropping or stray motifs. Repair one character only, no contact sheet or duplicate views.\nIDENTITY LOCK: Brown long hair, silver circlet and white flowing dress, sword lowered image-left, eyes shaded under deeply bowed head.",
+      "refs": [
+        "/workspace/scratch/b57ccc107719/mesbg-assets/tokens/arwen.png",
+        "/workspace/scratch/f40d43c7f276/run-refs/style.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/elf.png"
+      ],
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/arwen.png",
+      "blobSHA": "1a1c18b912f54ce1d3ea1dc8b3a7ae5997fe6333",
+      "previous": {
+        "path": "art/full-roster-night-rebuild-20261019/units/arwen.png",
+        "blobSHA": "26f16820f6f9e447eb381ff5ae6d277bb7c6b830",
+        "approval": "rejected",
+        "reason": "기존의 숙인 고개·시선보다 정면 얼굴 노출이 강해짐."
+      },
+      "auditSourceBlobCompared": "26f16820f6f9e447eb381ff5ae6d277bb7c6b830",
+      "auditComparison": {
+        "id": "arwen",
+        "sourceSHA": "697fdd87c50e7021958f12bee83d928d337b2d67",
+        "auditBlob": "26f16820f6f9e447eb381ff5ae6d277bb7c6b830",
+        "currentBlob": "26f16820f6f9e447eb381ff5ae6d277bb7c6b830",
+        "changedSinceAudit": false
+      },
+      "observations": "기존 흰 드레스, 은빛 머리장식과 내려 든 검을 유지. 숙인 머리와 그늘진 눈, 전진 동작 확인. 최종 승인 대기.",
+      "decision": "revised_awaiting_review",
+      "userApproval": "pending",
+      "anatomicalMeasurement": "not_claimed"
+    },
+    {
+      "id": "lindir",
+      "prompt": "Use case: style-transfer. Repair production PIXEL GAME TOKEN for 린디르 (lindir). Image 1 is the ORIGINAL identity, equipment, pose, action and silhouette. Image 2 controls crisp pixel clusters, short color ramps, stepped dark outline, elevated front camera and lowered head only; DO NOT copy its costume/weapon. Image 3 if supplied is species ANATOMY proportions only, never transfer its pose or gray clothes. Start from original action and EXACT weapon/shield/banner/staff/bow placement and relative size; preserve original body lean and hand grips, no generic pose substitution, no missing or invented gear. Repair stated defect: 기존의 그늘진 얼굴·숙인 머리가 얼굴을 드러낸 정면 전사형으로 바뀜.. HUMAN/ELF: exactly FIVE anatomical head lengths, crown-to-chin excluding hair/helmet crest. Head natural, proportionate shoulder width, neck, arms, hands, pelvis and leg bones. Never four-head chibi or six-plus-head fashion anatomy. Camera high-angle FRONT looking DOWN45degrees over the WHOLE body, crown and shoulder tops visible; still front-facing, not top-down, side or rear. Chin and gaze point gently downward like original; face mostly hidden under hair/hood/helmet, no looking at viewer. Preserve original unique silhouette, material colors and heraldry. Crisp deliberate PIXEL artwork, not smooth painting/3D. Entire character/mount/all appendages and equipment inside INNER80percent of transparent canvas, broad empty margins, body centered excluding weapons. No floor, base, scenery, cast shadow, haze, glow, text or UI. Output ONLY this one original subject.\nADDITIONAL STRICT REPAIR: Preserve Image1's exact original head lowering, whole-body lean, weapon identities, held-object sizes and grip sequence. Do not turn clothing into a different character. Camera elevation applies to ENTIRE anatomy (head, shoulders, chest, pelvis, feet) not merely chin. TWO anatomically attached arms/hands/legs where species requires. Bow/crossbow must have one continuous stave, continuous correctly tied string and logical hand placement; spear/staff straight continuous shaft. Retain original face coverage and equipment; do not strip helmet/hood. Match actual species skeleton, never use dressed sprite as body template. All major visible pixels and all tips fully inside canvas with AT LEAST 10% clear margin; no cropping or stray motifs. Repair one character only, no contact sheet or duplicate views.\nIDENTITY LOCK: Black long hair covering face, navy-and-white long tabard with star embroidery, slim sword down image-left.",
+      "refs": [
+        "/workspace/scratch/b57ccc107719/mesbg-assets/tokens/lindir.png",
+        "/workspace/scratch/f40d43c7f276/run-refs/style.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/elf.png"
+      ],
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/lindir.png",
+      "blobSHA": "0a0d5e1393cfadcdfaf45912fe4d19a7ca9c3903",
+      "previous": {
+        "path": "art/full-roster-night-rebuild-20261019/units/lindir.png",
+        "blobSHA": "2d80fafaf8e94a4f05e4cb3c48e41f01ed49f976",
+        "approval": "rejected",
+        "reason": "기존의 그늘진 얼굴·숙인 머리가 얼굴을 드러낸 정면 전사형으로 바뀜."
+      },
+      "auditSourceBlobCompared": "2d80fafaf8e94a4f05e4cb3c48e41f01ed49f976",
+      "auditComparison": {
+        "id": "lindir",
+        "sourceSHA": "697fdd87c50e7021958f12bee83d928d337b2d67",
+        "auditBlob": "2d80fafaf8e94a4f05e4cb3c48e41f01ed49f976",
+        "currentBlob": "2d80fafaf8e94a4f05e4cb3c48e41f01ed49f976",
+        "changedSinceAudit": false
+      },
+      "observations": "기존 검은 머리, 흰색·남색 의복, 내려 든 검과 별 자수를 유지. 낮춘 시선과 전진 동작 확인. 최종 승인 대기.",
+      "decision": "revised_awaiting_review",
+      "userApproval": "pending",
+      "anatomicalMeasurement": "not_claimed"
+    },
+    {
+      "id": "erestor",
+      "prompt": "Use case: style-transfer. Repair production PIXEL GAME TOKEN for 에레스토르 (erestor). Image 1 is the ORIGINAL identity, equipment, pose, action and silhouette. Image 2 controls crisp pixel clusters, short color ramps, stepped dark outline, elevated front camera and lowered head only; DO NOT copy its costume/weapon. Image 3 if supplied is species ANATOMY proportions only, never transfer its pose or gray clothes. Start from original action and EXACT weapon/shield/banner/staff/bow placement and relative size; preserve original body lean and hand grips, no generic pose substitution, no missing or invented gear. Repair stated defect: 기존의 낮춘 머리와 그늘진 얼굴이 정면 얼굴 노출 중심으로 바뀜.. HUMAN/ELF: exactly FIVE anatomical head lengths, crown-to-chin excluding hair/helmet crest. Head natural, proportionate shoulder width, neck, arms, hands, pelvis and leg bones. Never four-head chibi or six-plus-head fashion anatomy. Camera high-angle FRONT looking DOWN45degrees over the WHOLE body, crown and shoulder tops visible; still front-facing, not top-down, side or rear. Chin and gaze point gently downward like original; face mostly hidden under hair/hood/helmet, no looking at viewer. Preserve original unique silhouette, material colors and heraldry. Crisp deliberate PIXEL artwork, not smooth painting/3D. Entire character/mount/all appendages and equipment inside INNER80percent of transparent canvas, broad empty margins, body centered excluding weapons. No floor, base, scenery, cast shadow, haze, glow, text or UI. Output ONLY this one original subject.\nADDITIONAL STRICT REPAIR: Preserve Image1's exact original head lowering, whole-body lean, weapon identities, held-object sizes and grip sequence. Do not turn clothing into a different character. Camera elevation applies to ENTIRE anatomy (head, shoulders, chest, pelvis, feet) not merely chin. TWO anatomically attached arms/hands/legs where species requires. Bow/crossbow must have one continuous stave, continuous correctly tied string and logical hand placement; spear/staff straight continuous shaft. Retain original face coverage and equipment; do not strip helmet/hood. Match actual species skeleton, never use dressed sprite as body template. All major visible pixels and all tips fully inside canvas with AT LEAST 10% clear margin; no cropping or stray motifs. Repair one character only, no contact sheet or duplicate views.\nIDENTITY LOCK: Black hair covers lowered eyes, gold layered armor, pale blue cape, TWO small downward blades in two hands, not a staff.",
+      "refs": [
+        "/workspace/scratch/b57ccc107719/mesbg-assets/tokens/erestor.png",
+        "/workspace/scratch/f40d43c7f276/run-refs/style.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/elf.png"
+      ],
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/erestor.png",
+      "blobSHA": "ada51e203a83406aa8b88fd0367600e91a7d2317",
+      "previous": {
+        "path": "art/full-roster-night-rebuild-20261019/units/erestor.png",
+        "blobSHA": "f76e08815eacc1c17d13d34500141ecfd1513d92",
+        "approval": "rejected",
+        "reason": "기존의 낮춘 머리와 그늘진 얼굴이 정면 얼굴 노출 중심으로 바뀜."
+      },
+      "auditSourceBlobCompared": "f76e08815eacc1c17d13d34500141ecfd1513d92",
+      "auditComparison": {
+        "id": "erestor",
+        "sourceSHA": "697fdd87c50e7021958f12bee83d928d337b2d67",
+        "auditBlob": "f76e08815eacc1c17d13d34500141ecfd1513d92",
+        "currentBlob": "f76e08815eacc1c17d13d34500141ecfd1513d92",
+        "changedSinceAudit": false
+      },
+      "observations": "쌍단검과 기존 금빛 갑옷은 보존했으나 짧고 넓은 체형이 남아 있음. 인간형 5등신 기준 머리·어깨·허리·다리 비율 추가 교정 필요.",
+      "decision": "needs_revision",
+      "userApproval": "pending",
+      "anatomicalMeasurement": "not_claimed"
+    },
+    {
+      "id": "elf_seer",
+      "prompt": "Use case: style-transfer. Repair production PIXEL GAME TOKEN for 엘프 선견자 (elf_seer). Image 1 is the ORIGINAL identity, equipment, pose, action and silhouette. Image 2 controls crisp pixel clusters, short color ramps, stepped dark outline, elevated front camera and lowered head only; DO NOT copy its costume/weapon. Image 3 if supplied is species ANATOMY proportions only, never transfer its pose or gray clothes. Start from original action and EXACT weapon/shield/banner/staff/bow placement and relative size; preserve original body lean and hand grips, no generic pose substitution, no missing or invented gear. Repair stated defect: 기존의 숙인 머리·은밀한 시선이 정면 얼굴을 드러낸 모습으로 바뀜.. HUMAN/ELF: exactly FIVE anatomical head lengths, crown-to-chin excluding hair/helmet crest. Head natural, proportionate shoulder width, neck, arms, hands, pelvis and leg bones. Never four-head chibi or six-plus-head fashion anatomy. Camera high-angle FRONT looking DOWN45degrees over the WHOLE body, crown and shoulder tops visible; still front-facing, not top-down, side or rear. Chin and gaze point gently downward like original; face mostly hidden under hair/hood/helmet, no looking at viewer. Preserve original unique silhouette, material colors and heraldry. Crisp deliberate PIXEL artwork, not smooth painting/3D. Entire character/mount/all appendages and equipment inside INNER80percent of transparent canvas, broad empty margins, body centered excluding weapons. No floor, base, scenery, cast shadow, haze, glow, text or UI. Output ONLY this one original subject.\nADDITIONAL STRICT REPAIR: Preserve Image1's exact original head lowering, whole-body lean, weapon identities, held-object sizes and grip sequence. Do not turn clothing into a different character. Camera elevation applies to ENTIRE anatomy (head, shoulders, chest, pelvis, feet) not merely chin. TWO anatomically attached arms/hands/legs where species requires. Bow/crossbow must have one continuous stave, continuous correctly tied string and logical hand placement; spear/staff straight continuous shaft. Retain original face coverage and equipment; do not strip helmet/hood. Match actual species skeleton, never use dressed sprite as body template. All major visible pixels and all tips fully inside canvas with AT LEAST 10% clear margin; no cropping or stray motifs. Repair one character only, no contact sheet or duplicate views.\nIDENTITY LOCK: Long white hair hides face, white/gold long robes, blue orb staff image-right and open spell hand image-left.",
+      "refs": [
+        "/workspace/scratch/b57ccc107719/mesbg-assets/tokens/elf_seer.png",
+        "/workspace/scratch/f40d43c7f276/run-refs/style.png",
+        "/workspace/scratch/b57ccc107719/mesbg-assets/art/rebuild-skeletons/bases/elf.png"
+      ],
+      "path": "art/full-roster-night-rebuild-20261019/corrections/quality-repair-20261020/units/elf_seer.png",
+      "blobSHA": "3bd94b114819cff9addf4efc6670b5e5ba9b4d0f",
+      "previous": {
+        "path": "art/full-roster-night-rebuild-20261019/units/elf_seer.png",
+        "blobSHA": "ef9111f58ea217c89c1e2fb140236495bae20994",
+        "approval": "rejected",
+        "reason": "기존의 숙인 머리·은밀한 시선이 정면 얼굴을 드러낸 모습으로 바뀜."
+      },
+      "auditSourceBlobCompared": "ef9111f58ea217c89c1e2fb140236495bae20994",
+      "auditComparison": {
+        "id": "elf_seer",
+        "sourceSHA": "697fdd87c50e7021958f12bee83d928d337b2d67",
+        "auditBlob": "ef9111f58ea217c89c1e2fb140236495bae20994",
+        "currentBlob": "ef9111f58ea217c89c1e2fb140236495bae20994",
+        "changedSinceAudit": false
+      },
+      "observations": "기존 푸른 구슬 지팡이, 흰 머리와 수염, 손을 든 동작을 보존. 숙인 머리 및 지팡이 연속성 확인. 최종 승인 대기.",
+      "decision": "revised_awaiting_review",
+      "userApproval": "pending",
+      "anatomicalMeasurement": "not_claimed"
+    }
+  ]
+}
