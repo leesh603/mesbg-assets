@@ -1,0 +1,563 @@
+{
+  "base": "a3e8a6983a9f5d701df0669d92de41941d5cffe5",
+  "mode": "after",
+  "views": [
+    {
+      "map": "osgiliath",
+      "stage": 1,
+      "selectionMs": 422.29999999701977,
+      "ground": "world-ground-osgiliath",
+      "surfacePixels": 848120,
+      "groundTextures": 2,
+      "units": [
+        {
+          "id": "aragorn",
+          "x": 1020,
+          "y": 560,
+          "visible": true
+        },
+        {
+          "id": "warrior_minas_tirith",
+          "x": 1130,
+          "y": 590,
+          "visible": true
+        },
+        {
+          "id": "rohan_rider",
+          "x": 1260,
+          "y": 590,
+          "visible": true
+        },
+        {
+          "id": "orc_sword",
+          "x": 940,
+          "y": 1060,
+          "visible": true
+        }
+      ],
+      "terrain": 10,
+      "worldArt": true,
+      "landmarks": [
+        {
+          "texture": "landmark-dome",
+          "width": 303.40000000000003,
+          "height": 295.49895833333335
+        }
+      ],
+      "overflow": false,
+      "canvas": {
+        "width": 390,
+        "height": 576
+      },
+      "field": "osgiliath",
+      "cameraZoom": 0.16738197424892703,
+      "view": {
+        "x": 0,
+        "y": -992,
+        "width": 2330,
+        "height": 3441
+      }
+    },
+    {
+      "map": "osgiliath",
+      "stage": 5,
+      "selectionMs": 124,
+      "ground": "world-ground-osgiliath",
+      "surfacePixels": 848120,
+      "groundTextures": 2,
+      "units": [
+        {
+          "id": "aragorn",
+          "x": 1020,
+          "y": 560,
+          "visible": true
+        },
+        {
+          "id": "warrior_minas_tirith",
+          "x": 1130,
+          "y": 590,
+          "visible": true
+        },
+        {
+          "id": "rohan_rider",
+          "x": 1260,
+          "y": 590,
+          "visible": true
+        },
+        {
+          "id": "orc_sword",
+          "x": 940,
+          "y": 1060,
+          "visible": true
+        }
+      ],
+      "terrain": 14,
+      "worldArt": true,
+      "landmarks": [
+        {
+          "texture": "landmark-dome",
+          "width": 303.40000000000003,
+          "height": 295.49895833333335
+        }
+      ],
+      "overflow": false,
+      "canvas": {
+        "width": 390,
+        "height": 576
+      },
+      "field": "osgiliath",
+      "cameraZoom": 0.16738197424892703,
+      "view": {
+        "x": 0,
+        "y": -992,
+        "width": 2330,
+        "height": 3441
+      }
+    },
+    {
+      "map": "fangorn",
+      "stage": 1,
+      "selectionMs": 354.59999999403954,
+      "ground": "world-ground-fangorn",
+      "surfacePixels": 848120,
+      "groundTextures": 3,
+      "units": [
+        {
+          "id": "aragorn",
+          "x": 1020,
+          "y": 560,
+          "visible": true
+        },
+        {
+          "id": "warrior_minas_tirith",
+          "x": 1130,
+          "y": 590,
+          "visible": true
+        },
+        {
+          "id": "rohan_rider",
+          "x": 1260,
+          "y": 590,
+          "visible": true
+        },
+        {
+          "id": "orc_sword",
+          "x": 940,
+          "y": 1060,
+          "visible": true
+        }
+      ],
+      "terrain": 14,
+      "worldArt": true,
+      "landmarks": [],
+      "overflow": false,
+      "canvas": {
+        "width": 390,
+        "height": 576
+      },
+      "field": "fangorn",
+      "cameraZoom": 0.16738197424892703,
+      "view": {
+        "x": 0,
+        "y": -992,
+        "width": 2330,
+        "height": 3441
+      }
+    },
+    {
+      "map": "fangorn",
+      "stage": 5,
+      "selectionMs": 107.90000000596046,
+      "ground": "world-ground-fangorn",
+      "surfacePixels": 848120,
+      "groundTextures": 3,
+      "units": [
+        {
+          "id": "aragorn",
+          "x": 1020,
+          "y": 560,
+          "visible": true
+        },
+        {
+          "id": "warrior_minas_tirith",
+          "x": 1130,
+          "y": 590,
+          "visible": true
+        },
+        {
+          "id": "rohan_rider",
+          "x": 1260,
+          "y": 590,
+          "visible": true
+        },
+        {
+          "id": "orc_sword",
+          "x": 940,
+          "y": 1060,
+          "visible": true
+        }
+      ],
+      "terrain": 18,
+      "worldArt": true,
+      "landmarks": [],
+      "overflow": false,
+      "canvas": {
+        "width": 390,
+        "height": 576
+      },
+      "field": "fangorn",
+      "cameraZoom": 0.16738197424892703,
+      "view": {
+        "x": 0,
+        "y": -992,
+        "width": 2330,
+        "height": 3441
+      }
+    },
+    {
+      "map": "moria",
+      "stage": 1,
+      "selectionMs": 90.79999999701977,
+      "ground": "world-ground-moria",
+      "surfacePixels": 848120,
+      "groundTextures": 3,
+      "units": [
+        {
+          "id": "aragorn",
+          "x": 1020,
+          "y": 560,
+          "visible": true
+        },
+        {
+          "id": "warrior_minas_tirith",
+          "x": 1130,
+          "y": 590,
+          "visible": true
+        },
+        {
+          "id": "rohan_rider",
+          "x": 1260,
+          "y": 590,
+          "visible": true
+        },
+        {
+          "id": "orc_sword",
+          "x": 1190,
+          "y": 1060,
+          "visible": true
+        }
+      ],
+      "terrain": 12,
+      "worldArt": true,
+      "landmarks": [
+        {
+          "texture": "landmark-dwarfarch",
+          "width": 211.00000000000003,
+          "height": 179.13020833333337
+        }
+      ],
+      "overflow": false,
+      "canvas": {
+        "width": 390,
+        "height": 576
+      },
+      "field": "moria",
+      "cameraZoom": 0.16738197424892703,
+      "view": {
+        "x": 0,
+        "y": -992,
+        "width": 2330,
+        "height": 3441
+      }
+    },
+    {
+      "map": "moria",
+      "stage": 5,
+      "selectionMs": 74.90000000596046,
+      "ground": "world-ground-moria",
+      "surfacePixels": 848120,
+      "groundTextures": 3,
+      "units": [
+        {
+          "id": "aragorn",
+          "x": 1020,
+          "y": 560,
+          "visible": true
+        },
+        {
+          "id": "warrior_minas_tirith",
+          "x": 1130,
+          "y": 590,
+          "visible": true
+        },
+        {
+          "id": "rohan_rider",
+          "x": 1260,
+          "y": 590,
+          "visible": true
+        },
+        {
+          "id": "orc_sword",
+          "x": 1190,
+          "y": 1060,
+          "visible": true
+        }
+      ],
+      "terrain": 16,
+      "worldArt": true,
+      "landmarks": [
+        {
+          "texture": "landmark-dwarfarch",
+          "width": 211.00000000000003,
+          "height": 179.13020833333337
+        }
+      ],
+      "overflow": false,
+      "canvas": {
+        "width": 390,
+        "height": 576
+      },
+      "field": "moria",
+      "cameraZoom": 0.16738197424892703,
+      "view": {
+        "x": 0,
+        "y": -992,
+        "width": 2330,
+        "height": 3441
+      }
+    },
+    {
+      "map": "minas_morgul",
+      "stage": 1,
+      "selectionMs": 148.89999999850988,
+      "ground": "world-ground-minas_morgul",
+      "surfacePixels": 848120,
+      "groundTextures": 3,
+      "units": [
+        {
+          "id": "aragorn",
+          "x": 1020,
+          "y": 560,
+          "visible": true
+        },
+        {
+          "id": "warrior_minas_tirith",
+          "x": 1130,
+          "y": 590,
+          "visible": true
+        },
+        {
+          "id": "rohan_rider",
+          "x": 1360,
+          "y": 590,
+          "visible": true
+        },
+        {
+          "id": "orc_sword",
+          "x": 1190,
+          "y": 1060,
+          "visible": true
+        }
+      ],
+      "terrain": 10,
+      "worldArt": true,
+      "landmarks": [
+        {
+          "texture": "landmark-darkruin",
+          "width": 387.0000000000001,
+          "height": 322.50000000000006
+        }
+      ],
+      "overflow": false,
+      "canvas": {
+        "width": 390,
+        "height": 576
+      },
+      "field": "minas_morgul",
+      "cameraZoom": 0.16738197424892703,
+      "view": {
+        "x": 0,
+        "y": -992,
+        "width": 2330,
+        "height": 3441
+      }
+    },
+    {
+      "map": "minas_morgul",
+      "stage": 5,
+      "selectionMs": 65.80000000447035,
+      "ground": "world-ground-minas_morgul",
+      "surfacePixels": 848120,
+      "groundTextures": 3,
+      "units": [
+        {
+          "id": "aragorn",
+          "x": 1020,
+          "y": 560,
+          "visible": true
+        },
+        {
+          "id": "warrior_minas_tirith",
+          "x": 1130,
+          "y": 590,
+          "visible": true
+        },
+        {
+          "id": "rohan_rider",
+          "x": 1360,
+          "y": 590,
+          "visible": true
+        },
+        {
+          "id": "orc_sword",
+          "x": 1190,
+          "y": 1060,
+          "visible": true
+        }
+      ],
+      "terrain": 14,
+      "worldArt": true,
+      "landmarks": [
+        {
+          "texture": "landmark-darkruin",
+          "width": 387.0000000000001,
+          "height": 322.50000000000006
+        }
+      ],
+      "overflow": false,
+      "canvas": {
+        "width": 390,
+        "height": 576
+      },
+      "field": "minas_morgul",
+      "cameraZoom": 0.16738197424892703,
+      "view": {
+        "x": 0,
+        "y": -992,
+        "width": 2330,
+        "height": 3441
+      }
+    },
+    {
+      "map": "edoras",
+      "stage": 1,
+      "selectionMs": 81.29999999701977,
+      "ground": "world-ground-edoras",
+      "surfacePixels": 848120,
+      "groundTextures": 3,
+      "units": [
+        {
+          "id": "aragorn",
+          "x": 1020,
+          "y": 560,
+          "visible": true
+        },
+        {
+          "id": "warrior_minas_tirith",
+          "x": 1130,
+          "y": 590,
+          "visible": true
+        },
+        {
+          "id": "rohan_rider",
+          "x": 1260,
+          "y": 590,
+          "visible": true
+        },
+        {
+          "id": "orc_sword",
+          "x": 1190,
+          "y": 1060,
+          "visible": true
+        }
+      ],
+      "terrain": 14,
+      "worldArt": true,
+      "landmarks": [
+        {
+          "texture": "landmark-goldenhall",
+          "width": 315.5,
+          "height": 290.8515625
+        }
+      ],
+      "overflow": false,
+      "canvas": {
+        "width": 390,
+        "height": 576
+      },
+      "field": "edoras",
+      "cameraZoom": 0.16738197424892703,
+      "view": {
+        "x": 0,
+        "y": -992,
+        "width": 2330,
+        "height": 3441
+      }
+    },
+    {
+      "map": "edoras",
+      "stage": 5,
+      "selectionMs": 90.69999999552965,
+      "ground": "world-ground-edoras",
+      "surfacePixels": 848120,
+      "groundTextures": 3,
+      "units": [
+        {
+          "id": "aragorn",
+          "x": 1020,
+          "y": 560,
+          "visible": true
+        },
+        {
+          "id": "warrior_minas_tirith",
+          "x": 1130,
+          "y": 590,
+          "visible": true
+        },
+        {
+          "id": "rohan_rider",
+          "x": 1260,
+          "y": 590,
+          "visible": true
+        },
+        {
+          "id": "orc_sword",
+          "x": 1190,
+          "y": 1060,
+          "visible": true
+        }
+      ],
+      "terrain": 18,
+      "worldArt": true,
+      "landmarks": [
+        {
+          "texture": "landmark-goldenhall",
+          "width": 315.5,
+          "height": 290.8515625
+        }
+      ],
+      "overflow": false,
+      "canvas": {
+        "width": 390,
+        "height": 576
+      },
+      "field": "edoras",
+      "cameraZoom": 0.16738197424892703,
+      "view": {
+        "x": 0,
+        "y": -992,
+        "width": 2330,
+        "height": 3441
+      }
+    }
+  ],
+  "errors": [],
+  "failed": [],
+  "performance": {
+    "scenario": "same 4-unit full-field fixture, software Chromium",
+    "frames": 90,
+    "medianMs": 16.69999999552965,
+    "p95Ms": 17.100000001490116,
+    "heap": 27600000
+  }
+}

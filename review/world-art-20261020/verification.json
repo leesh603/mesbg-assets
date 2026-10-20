@@ -1,0 +1,1000 @@
+{
+  "commit": "711f8de78c1216c946aeb937a4e5d9caabba77c9",
+  "maps": 27,
+  "states": 135,
+  "reports": {
+    "before-browser.json": {
+      "views": 135,
+      "errors": [],
+      "failed": [],
+      "performance": {
+        "scenario": "same 4-unit full-field fixture, software Chromium",
+        "frames": 90,
+        "medianMs": 36.5,
+        "p95Ms": 73.29999999701977,
+        "heap": 81400000
+      }
+    },
+    "after-browser.json": {
+      "views": 135,
+      "errors": [],
+      "failed": [],
+      "performance": {
+        "scenario": "same 4-unit full-field fixture, software Chromium",
+        "frames": 90,
+        "medianMs": 18,
+        "p95Ms": 26,
+        "heap": 33100000
+      }
+    },
+    "mobile-after-browser.json": {
+      "views": 10,
+      "errors": [],
+      "failed": [],
+      "performance": {
+        "scenario": "same 4-unit full-field fixture, software Chromium",
+        "frames": 90,
+        "medianMs": 16.69999999552965,
+        "p95Ms": 17.100000001490116,
+        "heap": 27600000
+      }
+    }
+  },
+  "checks": {
+    "stateCount": 135,
+    "missingResources": 0,
+    "runtimeErrors": 0,
+    "boundedGroundCache": true,
+    "desktopFullField": true,
+    "terrainRegression": "12 checks passing; rerun log stored separately"
+  },
+  "scope": "same seeded four-unit full-field fixture; 10 representative emulated mobile views",
+  "visualReview": "27 regional final-state contact sheets inspected; all 135 captured states browsable; final user acceptance is separate",
+  "statesVerified": [
+    {
+      "map": "minas_tirith",
+      "stage": 1,
+      "status": "technical_pass",
+      "ground": "world-ground-minas_tirith",
+      "groundTextures": 1
+    },
+    {
+      "map": "minas_tirith",
+      "stage": 2,
+      "status": "technical_pass",
+      "ground": "world-ground-minas_tirith",
+      "groundTextures": 1
+    },
+    {
+      "map": "minas_tirith",
+      "stage": 3,
+      "status": "technical_pass",
+      "ground": "world-ground-minas_tirith",
+      "groundTextures": 1
+    },
+    {
+      "map": "minas_tirith",
+      "stage": 4,
+      "status": "technical_pass",
+      "ground": "world-ground-minas_tirith",
+      "groundTextures": 1
+    },
+    {
+      "map": "minas_tirith",
+      "stage": 5,
+      "status": "technical_pass",
+      "ground": "world-ground-minas_tirith",
+      "groundTextures": 1
+    },
+    {
+      "map": "osgiliath",
+      "stage": 1,
+      "status": "technical_pass",
+      "ground": "world-ground-osgiliath",
+      "groundTextures": 2
+    },
+    {
+      "map": "osgiliath",
+      "stage": 2,
+      "status": "technical_pass",
+      "ground": "world-ground-osgiliath",
+      "groundTextures": 2
+    },
+    {
+      "map": "osgiliath",
+      "stage": 3,
+      "status": "technical_pass",
+      "ground": "world-ground-osgiliath",
+      "groundTextures": 2
+    },
+    {
+      "map": "osgiliath",
+      "stage": 4,
+      "status": "technical_pass",
+      "ground": "world-ground-osgiliath",
+      "groundTextures": 2
+    },
+    {
+      "map": "osgiliath",
+      "stage": 5,
+      "status": "technical_pass",
+      "ground": "world-ground-osgiliath",
+      "groundTextures": 2
+    },
+    {
+      "map": "amon_sul",
+      "stage": 1,
+      "status": "technical_pass",
+      "ground": "world-ground-amon_sul",
+      "groundTextures": 3
+    },
+    {
+      "map": "amon_sul",
+      "stage": 2,
+      "status": "technical_pass",
+      "ground": "world-ground-amon_sul",
+      "groundTextures": 3
+    },
+    {
+      "map": "amon_sul",
+      "stage": 3,
+      "status": "technical_pass",
+      "ground": "world-ground-amon_sul",
+      "groundTextures": 3
+    },
+    {
+      "map": "amon_sul",
+      "stage": 4,
+      "status": "technical_pass",
+      "ground": "world-ground-amon_sul",
+      "groundTextures": 3
+    },
+    {
+      "map": "amon_sul",
+      "stage": 5,
+      "status": "technical_pass",
+      "ground": "world-ground-amon_sul",
+      "groundTextures": 3
+    },
+    {
+      "map": "helms_deep",
+      "stage": 1,
+      "status": "technical_pass",
+      "ground": "world-ground-helms_deep",
+      "groundTextures": 3
+    },
+    {
+      "map": "helms_deep",
+      "stage": 2,
+      "status": "technical_pass",
+      "ground": "world-ground-helms_deep",
+      "groundTextures": 3
+    },
+    {
+      "map": "helms_deep",
+      "stage": 3,
+      "status": "technical_pass",
+      "ground": "world-ground-helms_deep",
+      "groundTextures": 3
+    },
+    {
+      "map": "helms_deep",
+      "stage": 4,
+      "status": "technical_pass",
+      "ground": "world-ground-helms_deep",
+      "groundTextures": 3
+    },
+    {
+      "map": "helms_deep",
+      "stage": 5,
+      "status": "technical_pass",
+      "ground": "world-ground-helms_deep",
+      "groundTextures": 3
+    },
+    {
+      "map": "fangorn",
+      "stage": 1,
+      "status": "technical_pass",
+      "ground": "world-ground-fangorn",
+      "groundTextures": 3
+    },
+    {
+      "map": "fangorn",
+      "stage": 2,
+      "status": "technical_pass",
+      "ground": "world-ground-fangorn",
+      "groundTextures": 3
+    },
+    {
+      "map": "fangorn",
+      "stage": 3,
+      "status": "technical_pass",
+      "ground": "world-ground-fangorn",
+      "groundTextures": 3
+    },
+    {
+      "map": "fangorn",
+      "stage": 4,
+      "status": "technical_pass",
+      "ground": "world-ground-fangorn",
+      "groundTextures": 3
+    },
+    {
+      "map": "fangorn",
+      "stage": 5,
+      "status": "technical_pass",
+      "ground": "world-ground-fangorn",
+      "groundTextures": 3
+    },
+    {
+      "map": "edoras",
+      "stage": 1,
+      "status": "technical_pass",
+      "ground": "world-ground-edoras",
+      "groundTextures": 3
+    },
+    {
+      "map": "edoras",
+      "stage": 2,
+      "status": "technical_pass",
+      "ground": "world-ground-edoras",
+      "groundTextures": 3
+    },
+    {
+      "map": "edoras",
+      "stage": 3,
+      "status": "technical_pass",
+      "ground": "world-ground-edoras",
+      "groundTextures": 3
+    },
+    {
+      "map": "edoras",
+      "stage": 4,
+      "status": "technical_pass",
+      "ground": "world-ground-edoras",
+      "groundTextures": 3
+    },
+    {
+      "map": "edoras",
+      "stage": 5,
+      "status": "technical_pass",
+      "ground": "world-ground-edoras",
+      "groundTextures": 3
+    },
+    {
+      "map": "moria",
+      "stage": 1,
+      "status": "technical_pass",
+      "ground": "world-ground-moria",
+      "groundTextures": 3
+    },
+    {
+      "map": "moria",
+      "stage": 2,
+      "status": "technical_pass",
+      "ground": "world-ground-moria",
+      "groundTextures": 3
+    },
+    {
+      "map": "moria",
+      "stage": 3,
+      "status": "technical_pass",
+      "ground": "world-ground-moria",
+      "groundTextures": 3
+    },
+    {
+      "map": "moria",
+      "stage": 4,
+      "status": "technical_pass",
+      "ground": "world-ground-moria",
+      "groundTextures": 3
+    },
+    {
+      "map": "moria",
+      "stage": 5,
+      "status": "technical_pass",
+      "ground": "world-ground-moria",
+      "groundTextures": 3
+    },
+    {
+      "map": "isengard",
+      "stage": 1,
+      "status": "technical_pass",
+      "ground": "world-ground-isengard",
+      "groundTextures": 3
+    },
+    {
+      "map": "isengard",
+      "stage": 2,
+      "status": "technical_pass",
+      "ground": "world-ground-isengard",
+      "groundTextures": 3
+    },
+    {
+      "map": "isengard",
+      "stage": 3,
+      "status": "technical_pass",
+      "ground": "world-ground-isengard",
+      "groundTextures": 3
+    },
+    {
+      "map": "isengard",
+      "stage": 4,
+      "status": "technical_pass",
+      "ground": "world-ground-isengard",
+      "groundTextures": 3
+    },
+    {
+      "map": "isengard",
+      "stage": 5,
+      "status": "technical_pass",
+      "ground": "world-ground-isengard",
+      "groundTextures": 3
+    },
+    {
+      "map": "black_gate",
+      "stage": 1,
+      "status": "technical_pass",
+      "ground": "world-ground-black_gate",
+      "groundTextures": 3
+    },
+    {
+      "map": "black_gate",
+      "stage": 2,
+      "status": "technical_pass",
+      "ground": "world-ground-black_gate",
+      "groundTextures": 3
+    },
+    {
+      "map": "black_gate",
+      "stage": 3,
+      "status": "technical_pass",
+      "ground": "world-ground-black_gate",
+      "groundTextures": 3
+    },
+    {
+      "map": "black_gate",
+      "stage": 4,
+      "status": "technical_pass",
+      "ground": "world-ground-black_gate",
+      "groundTextures": 3
+    },
+    {
+      "map": "black_gate",
+      "stage": 5,
+      "status": "technical_pass",
+      "ground": "world-ground-black_gate",
+      "groundTextures": 3
+    },
+    {
+      "map": "gorgoroth",
+      "stage": 1,
+      "status": "technical_pass",
+      "ground": "world-ground-gorgoroth",
+      "groundTextures": 3
+    },
+    {
+      "map": "gorgoroth",
+      "stage": 2,
+      "status": "technical_pass",
+      "ground": "world-ground-gorgoroth",
+      "groundTextures": 3
+    },
+    {
+      "map": "gorgoroth",
+      "stage": 3,
+      "status": "technical_pass",
+      "ground": "world-ground-gorgoroth",
+      "groundTextures": 3
+    },
+    {
+      "map": "gorgoroth",
+      "stage": 4,
+      "status": "technical_pass",
+      "ground": "world-ground-gorgoroth",
+      "groundTextures": 3
+    },
+    {
+      "map": "gorgoroth",
+      "stage": 5,
+      "status": "technical_pass",
+      "ground": "world-ground-gorgoroth",
+      "groundTextures": 3
+    },
+    {
+      "map": "rivendell",
+      "stage": 1,
+      "status": "technical_pass",
+      "ground": "world-ground-rivendell",
+      "groundTextures": 3
+    },
+    {
+      "map": "rivendell",
+      "stage": 2,
+      "status": "technical_pass",
+      "ground": "world-ground-rivendell",
+      "groundTextures": 3
+    },
+    {
+      "map": "rivendell",
+      "stage": 3,
+      "status": "technical_pass",
+      "ground": "world-ground-rivendell",
+      "groundTextures": 3
+    },
+    {
+      "map": "rivendell",
+      "stage": 4,
+      "status": "technical_pass",
+      "ground": "world-ground-rivendell",
+      "groundTextures": 3
+    },
+    {
+      "map": "rivendell",
+      "stage": 5,
+      "status": "technical_pass",
+      "ground": "world-ground-rivendell",
+      "groundTextures": 3
+    },
+    {
+      "map": "lothlorien",
+      "stage": 1,
+      "status": "technical_pass",
+      "ground": "world-ground-lothlorien",
+      "groundTextures": 3
+    },
+    {
+      "map": "lothlorien",
+      "stage": 2,
+      "status": "technical_pass",
+      "ground": "world-ground-lothlorien",
+      "groundTextures": 3
+    },
+    {
+      "map": "lothlorien",
+      "stage": 3,
+      "status": "technical_pass",
+      "ground": "world-ground-lothlorien",
+      "groundTextures": 3
+    },
+    {
+      "map": "lothlorien",
+      "stage": 4,
+      "status": "technical_pass",
+      "ground": "world-ground-lothlorien",
+      "groundTextures": 3
+    },
+    {
+      "map": "lothlorien",
+      "stage": 5,
+      "status": "technical_pass",
+      "ground": "world-ground-lothlorien",
+      "groundTextures": 3
+    },
+    {
+      "map": "pelennor",
+      "stage": 1,
+      "status": "technical_pass",
+      "ground": "world-ground-pelennor",
+      "groundTextures": 3
+    },
+    {
+      "map": "pelennor",
+      "stage": 2,
+      "status": "technical_pass",
+      "ground": "world-ground-pelennor",
+      "groundTextures": 3
+    },
+    {
+      "map": "pelennor",
+      "stage": 3,
+      "status": "technical_pass",
+      "ground": "world-ground-pelennor",
+      "groundTextures": 3
+    },
+    {
+      "map": "pelennor",
+      "stage": 4,
+      "status": "technical_pass",
+      "ground": "world-ground-pelennor",
+      "groundTextures": 3
+    },
+    {
+      "map": "pelennor",
+      "stage": 5,
+      "status": "technical_pass",
+      "ground": "world-ground-pelennor",
+      "groundTextures": 3
+    },
+    {
+      "map": "dead_marshes",
+      "stage": 1,
+      "status": "technical_pass",
+      "ground": "world-ground-dead_marshes",
+      "groundTextures": 3
+    },
+    {
+      "map": "dead_marshes",
+      "stage": 2,
+      "status": "technical_pass",
+      "ground": "world-ground-dead_marshes",
+      "groundTextures": 3
+    },
+    {
+      "map": "dead_marshes",
+      "stage": 3,
+      "status": "technical_pass",
+      "ground": "world-ground-dead_marshes",
+      "groundTextures": 3
+    },
+    {
+      "map": "dead_marshes",
+      "stage": 4,
+      "status": "technical_pass",
+      "ground": "world-ground-dead_marshes",
+      "groundTextures": 3
+    },
+    {
+      "map": "dead_marshes",
+      "stage": 5,
+      "status": "technical_pass",
+      "ground": "world-ground-dead_marshes",
+      "groundTextures": 3
+    },
+    {
+      "map": "dunharrow",
+      "stage": 1,
+      "status": "technical_pass",
+      "ground": "world-ground-dunharrow",
+      "groundTextures": 3
+    },
+    {
+      "map": "dunharrow",
+      "stage": 2,
+      "status": "technical_pass",
+      "ground": "world-ground-dunharrow",
+      "groundTextures": 3
+    },
+    {
+      "map": "dunharrow",
+      "stage": 3,
+      "status": "technical_pass",
+      "ground": "world-ground-dunharrow",
+      "groundTextures": 3
+    },
+    {
+      "map": "dunharrow",
+      "stage": 4,
+      "status": "technical_pass",
+      "ground": "world-ground-dunharrow",
+      "groundTextures": 3
+    },
+    {
+      "map": "dunharrow",
+      "stage": 5,
+      "status": "technical_pass",
+      "ground": "world-ground-dunharrow",
+      "groundTextures": 3
+    },
+    {
+      "map": "erebor",
+      "stage": 1,
+      "status": "technical_pass",
+      "ground": "world-ground-erebor",
+      "groundTextures": 3
+    },
+    {
+      "map": "erebor",
+      "stage": 2,
+      "status": "technical_pass",
+      "ground": "world-ground-erebor",
+      "groundTextures": 3
+    },
+    {
+      "map": "erebor",
+      "stage": 3,
+      "status": "technical_pass",
+      "ground": "world-ground-erebor",
+      "groundTextures": 3
+    },
+    {
+      "map": "erebor",
+      "stage": 4,
+      "status": "technical_pass",
+      "ground": "world-ground-erebor",
+      "groundTextures": 3
+    },
+    {
+      "map": "erebor",
+      "stage": 5,
+      "status": "technical_pass",
+      "ground": "world-ground-erebor",
+      "groundTextures": 3
+    },
+    {
+      "map": "mirkwood",
+      "stage": 1,
+      "status": "technical_pass",
+      "ground": "world-ground-mirkwood",
+      "groundTextures": 3
+    },
+    {
+      "map": "mirkwood",
+      "stage": 2,
+      "status": "technical_pass",
+      "ground": "world-ground-mirkwood",
+      "groundTextures": 3
+    },
+    {
+      "map": "mirkwood",
+      "stage": 3,
+      "status": "technical_pass",
+      "ground": "world-ground-mirkwood",
+      "groundTextures": 3
+    },
+    {
+      "map": "mirkwood",
+      "stage": 4,
+      "status": "technical_pass",
+      "ground": "world-ground-mirkwood",
+      "groundTextures": 3
+    },
+    {
+      "map": "mirkwood",
+      "stage": 5,
+      "status": "technical_pass",
+      "ground": "world-ground-mirkwood",
+      "groundTextures": 3
+    },
+    {
+      "map": "dol_guldur",
+      "stage": 1,
+      "status": "technical_pass",
+      "ground": "world-ground-dol_guldur",
+      "groundTextures": 3
+    },
+    {
+      "map": "dol_guldur",
+      "stage": 2,
+      "status": "technical_pass",
+      "ground": "world-ground-dol_guldur",
+      "groundTextures": 3
+    },
+    {
+      "map": "dol_guldur",
+      "stage": 3,
+      "status": "technical_pass",
+      "ground": "world-ground-dol_guldur",
+      "groundTextures": 3
+    },
+    {
+      "map": "dol_guldur",
+      "stage": 4,
+      "status": "technical_pass",
+      "ground": "world-ground-dol_guldur",
+      "groundTextures": 3
+    },
+    {
+      "map": "dol_guldur",
+      "stage": 5,
+      "status": "technical_pass",
+      "ground": "world-ground-dol_guldur",
+      "groundTextures": 3
+    },
+    {
+      "map": "gondolin",
+      "stage": 1,
+      "status": "technical_pass",
+      "ground": "world-ground-gondolin",
+      "groundTextures": 3
+    },
+    {
+      "map": "gondolin",
+      "stage": 2,
+      "status": "technical_pass",
+      "ground": "world-ground-gondolin",
+      "groundTextures": 3
+    },
+    {
+      "map": "gondolin",
+      "stage": 3,
+      "status": "technical_pass",
+      "ground": "world-ground-gondolin",
+      "groundTextures": 3
+    },
+    {
+      "map": "gondolin",
+      "stage": 4,
+      "status": "technical_pass",
+      "ground": "world-ground-gondolin",
+      "groundTextures": 3
+    },
+    {
+      "map": "gondolin",
+      "stage": 5,
+      "status": "technical_pass",
+      "ground": "world-ground-gondolin",
+      "groundTextures": 3
+    },
+    {
+      "map": "angband",
+      "stage": 1,
+      "status": "technical_pass",
+      "ground": "world-ground-angband",
+      "groundTextures": 3
+    },
+    {
+      "map": "angband",
+      "stage": 2,
+      "status": "technical_pass",
+      "ground": "world-ground-angband",
+      "groundTextures": 3
+    },
+    {
+      "map": "angband",
+      "stage": 3,
+      "status": "technical_pass",
+      "ground": "world-ground-angband",
+      "groundTextures": 3
+    },
+    {
+      "map": "angband",
+      "stage": 4,
+      "status": "technical_pass",
+      "ground": "world-ground-angband",
+      "groundTextures": 3
+    },
+    {
+      "map": "angband",
+      "stage": 5,
+      "status": "technical_pass",
+      "ground": "world-ground-angband",
+      "groundTextures": 3
+    },
+    {
+      "map": "minas_court",
+      "stage": 1,
+      "status": "technical_pass",
+      "ground": "world-ground-minas_court",
+      "groundTextures": 3
+    },
+    {
+      "map": "minas_court",
+      "stage": 2,
+      "status": "technical_pass",
+      "ground": "world-ground-minas_court",
+      "groundTextures": 3
+    },
+    {
+      "map": "minas_court",
+      "stage": 3,
+      "status": "technical_pass",
+      "ground": "world-ground-minas_court",
+      "groundTextures": 3
+    },
+    {
+      "map": "minas_court",
+      "stage": 4,
+      "status": "technical_pass",
+      "ground": "world-ground-minas_court",
+      "groundTextures": 3
+    },
+    {
+      "map": "minas_court",
+      "stage": 5,
+      "status": "technical_pass",
+      "ground": "world-ground-minas_court",
+      "groundTextures": 3
+    },
+    {
+      "map": "orthanc",
+      "stage": 1,
+      "status": "technical_pass",
+      "ground": "world-ground-orthanc",
+      "groundTextures": 3
+    },
+    {
+      "map": "orthanc",
+      "stage": 2,
+      "status": "technical_pass",
+      "ground": "world-ground-orthanc",
+      "groundTextures": 3
+    },
+    {
+      "map": "orthanc",
+      "stage": 3,
+      "status": "technical_pass",
+      "ground": "world-ground-orthanc",
+      "groundTextures": 3
+    },
+    {
+      "map": "orthanc",
+      "stage": 4,
+      "status": "technical_pass",
+      "ground": "world-ground-orthanc",
+      "groundTextures": 3
+    },
+    {
+      "map": "orthanc",
+      "stage": 5,
+      "status": "technical_pass",
+      "ground": "world-ground-orthanc",
+      "groundTextures": 3
+    },
+    {
+      "map": "barad_dur",
+      "stage": 1,
+      "status": "technical_pass",
+      "ground": "world-ground-barad_dur",
+      "groundTextures": 3
+    },
+    {
+      "map": "barad_dur",
+      "stage": 2,
+      "status": "technical_pass",
+      "ground": "world-ground-barad_dur",
+      "groundTextures": 3
+    },
+    {
+      "map": "barad_dur",
+      "stage": 3,
+      "status": "technical_pass",
+      "ground": "world-ground-barad_dur",
+      "groundTextures": 3
+    },
+    {
+      "map": "barad_dur",
+      "stage": 4,
+      "status": "technical_pass",
+      "ground": "world-ground-barad_dur",
+      "groundTextures": 3
+    },
+    {
+      "map": "barad_dur",
+      "stage": 5,
+      "status": "technical_pass",
+      "ground": "world-ground-barad_dur",
+      "groundTextures": 3
+    },
+    {
+      "map": "minas_morgul",
+      "stage": 1,
+      "status": "technical_pass",
+      "ground": "world-ground-minas_morgul",
+      "groundTextures": 3
+    },
+    {
+      "map": "minas_morgul",
+      "stage": 2,
+      "status": "technical_pass",
+      "ground": "world-ground-minas_morgul",
+      "groundTextures": 3
+    },
+    {
+      "map": "minas_morgul",
+      "stage": 3,
+      "status": "technical_pass",
+      "ground": "world-ground-minas_morgul",
+      "groundTextures": 3
+    },
+    {
+      "map": "minas_morgul",
+      "stage": 4,
+      "status": "technical_pass",
+      "ground": "world-ground-minas_morgul",
+      "groundTextures": 3
+    },
+    {
+      "map": "minas_morgul",
+      "stage": 5,
+      "status": "technical_pass",
+      "ground": "world-ground-minas_morgul",
+      "groundTextures": 3
+    },
+    {
+      "map": "dale",
+      "stage": 1,
+      "status": "technical_pass",
+      "ground": "world-ground-dale",
+      "groundTextures": 3
+    },
+    {
+      "map": "dale",
+      "stage": 2,
+      "status": "technical_pass",
+      "ground": "world-ground-dale",
+      "groundTextures": 3
+    },
+    {
+      "map": "dale",
+      "stage": 3,
+      "status": "technical_pass",
+      "ground": "world-ground-dale",
+      "groundTextures": 3
+    },
+    {
+      "map": "dale",
+      "stage": 4,
+      "status": "technical_pass",
+      "ground": "world-ground-dale",
+      "groundTextures": 3
+    },
+    {
+      "map": "dale",
+      "stage": 5,
+      "status": "technical_pass",
+      "ground": "world-ground-dale",
+      "groundTextures": 3
+    },
+    {
+      "map": "hornburg",
+      "stage": 1,
+      "status": "technical_pass",
+      "ground": "world-ground-hornburg",
+      "groundTextures": 3
+    },
+    {
+      "map": "hornburg",
+      "stage": 2,
+      "status": "technical_pass",
+      "ground": "world-ground-hornburg",
+      "groundTextures": 3
+    },
+    {
+      "map": "hornburg",
+      "stage": 3,
+      "status": "technical_pass",
+      "ground": "world-ground-hornburg",
+      "groundTextures": 3
+    },
+    {
+      "map": "hornburg",
+      "stage": 4,
+      "status": "technical_pass",
+      "ground": "world-ground-hornburg",
+      "groundTextures": 3
+    },
+    {
+      "map": "hornburg",
+      "stage": 5,
+      "status": "technical_pass",
+      "ground": "world-ground-hornburg",
+      "groundTextures": 3
+    },
+    {
+      "map": "erebor_hall",
+      "stage": 1,
+      "status": "technical_pass",
+      "ground": "world-ground-erebor_hall",
+      "groundTextures": 3
+    },
+    {
+      "map": "erebor_hall",
+      "stage": 2,
+      "status": "technical_pass",
+      "ground": "world-ground-erebor_hall",
+      "groundTextures": 3
+    },
+    {
+      "map": "erebor_hall",
+      "stage": 3,
+      "status": "technical_pass",
+      "ground": "world-ground-erebor_hall",
+      "groundTextures": 3
+    },
+    {
+      "map": "erebor_hall",
+      "stage": 4,
+      "status": "technical_pass",
+      "ground": "world-ground-erebor_hall",
+      "groundTextures": 3
+    },
+    {
+      "map": "erebor_hall",
+      "stage": 5,
+      "status": "technical_pass",
+      "ground": "world-ground-erebor_hall",
+      "groundTextures": 3
+    }
+  ]
+}

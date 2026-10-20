@@ -1,0 +1,1823 @@
+{
+  "sourceCommit": "711f8de78c1216c946aeb937a4e5d9caabba77c9",
+  "cell": {
+    "width": 583,
+    "height": 364
+  },
+  "columns": [
+    "before",
+    "after"
+  ],
+  "maps": [
+    {
+      "key": "minas_tirith",
+      "name": "미나스 티리스",
+      "title": "람마스 에코르 성문길",
+      "story": "성문 앞 석벽과 농지, 좌우 돌담 우회로",
+      "phases": [
+        "접근",
+        "교전",
+        "격전",
+        "포위",
+        "결전"
+      ],
+      "image": "images/minas_tirith.webp",
+      "bytes": 894504,
+      "frames": [
+        {
+          "stage": 1,
+          "version": "before",
+          "sourceSha256": "ee60f51da8ddb342901abb47779c7ee53bf40e1242e08934263d12ac9d33fbf2"
+        },
+        {
+          "stage": 1,
+          "version": "after",
+          "sourceSha256": "a738bf1b0546edb2ce14d50106c7eee42d5d23ef895e1429d35da37f97ba9d77"
+        },
+        {
+          "stage": 2,
+          "version": "before",
+          "sourceSha256": "b681ec9200a0c33ca257d5fae7aa26caea046c4f212b0a39538f5d0a5eac0f30"
+        },
+        {
+          "stage": 2,
+          "version": "after",
+          "sourceSha256": "38a67ce28112da4d3268b1557b8f92f05fb9f29f2632d2860a4720bfe418f4d9"
+        },
+        {
+          "stage": 3,
+          "version": "before",
+          "sourceSha256": "0dc040b27e35fb97ca184f80aec95ca18f158e5703f0f9fd9098dc4b0073c68b"
+        },
+        {
+          "stage": 3,
+          "version": "after",
+          "sourceSha256": "e653a13c39af1995ce8bea315aec0ecbe1850282aa0acd41ae5c57e40ec76f17"
+        },
+        {
+          "stage": 4,
+          "version": "before",
+          "sourceSha256": "a6166e30771f7be3a0ca043bdbc4c7afb5b1a883ca27c2c7466be048d5a0aa8f"
+        },
+        {
+          "stage": 4,
+          "version": "after",
+          "sourceSha256": "2963a77e59f76b81cb038640a7c091b4de579279b286fccf95b542ce69213853"
+        },
+        {
+          "stage": 5,
+          "version": "before",
+          "sourceSha256": "36b8e1fc5761301f6847b7ad19c7a9d91d24c669ae93760932fae5c593376bfe"
+        },
+        {
+          "stage": 5,
+          "version": "after",
+          "sourceSha256": "ebcf936126a145bf173bb0954ae97bb5d7a24329ca7925267d1903f0eeab6da9"
+        }
+      ]
+    },
+    {
+      "key": "osgiliath",
+      "name": "오스길리아스",
+      "title": "안두인 도하전",
+      "story": "깊은 안두인과 두 석교, 폐허 사이 측면길",
+      "phases": [
+        "접근",
+        "교전",
+        "격전",
+        "포위",
+        "결전"
+      ],
+      "image": "images/osgiliath.webp",
+      "bytes": 853348,
+      "frames": [
+        {
+          "stage": 1,
+          "version": "before",
+          "sourceSha256": "fb9856fcbbbb25a886b1d08069ef7787a32e164daf4cc650852ca35d5724191d"
+        },
+        {
+          "stage": 1,
+          "version": "after",
+          "sourceSha256": "5db519c7cd4bdfb298260a73443b32f0243cc72e8f931a0c2b728545a35bc8d8"
+        },
+        {
+          "stage": 2,
+          "version": "before",
+          "sourceSha256": "d77381250e61fd13ece9bed4ada5bcffa67d181b6997718d184d955881289fbc"
+        },
+        {
+          "stage": 2,
+          "version": "after",
+          "sourceSha256": "ae07012687ccba39da3d44f3b51b1f6667298582fdd53c06d842b2ec56246152"
+        },
+        {
+          "stage": 3,
+          "version": "before",
+          "sourceSha256": "0fc32e7509a9198bb0fd7009dbb0dce4be7f7fd01c13a813a94f5b8e35e8add8"
+        },
+        {
+          "stage": 3,
+          "version": "after",
+          "sourceSha256": "cac70d226677620d2fc710889f568470528cc73bd8ac48dbd998e1e8e478cc3a"
+        },
+        {
+          "stage": 4,
+          "version": "before",
+          "sourceSha256": "b0867f4d7247bb49767235900341753f58cb50f35832370b8463defcd1d7219a"
+        },
+        {
+          "stage": 4,
+          "version": "after",
+          "sourceSha256": "66a7e046548175619c3a2fd26145c89f023283cb7f536fe944f7d517639736bc"
+        },
+        {
+          "stage": 5,
+          "version": "before",
+          "sourceSha256": "7bd230e460a7120ff3520991be6790867ab8f417a549349f28a00f2bdbb32ce5"
+        },
+        {
+          "stage": 5,
+          "version": "after",
+          "sourceSha256": "d3f2a20ced203c0669dfe181db4b980d74c91fd5acf5cb3f725ba446cc2cf0c5"
+        }
+      ]
+    },
+    {
+      "key": "amon_sul",
+      "name": "아몬 술",
+      "title": "웨더톱의 옛 성터",
+      "story": "무너진 아르노르 석벽과 정상으로 오르는 틈길",
+      "phases": [
+        "접근",
+        "교전",
+        "격전",
+        "포위",
+        "결전"
+      ],
+      "image": "images/amon_sul.webp",
+      "bytes": 910780,
+      "frames": [
+        {
+          "stage": 1,
+          "version": "before",
+          "sourceSha256": "d398dde7586cf4f104f3b8e5331ab4d06c2802e204a5514b2df724723ddaaeba"
+        },
+        {
+          "stage": 1,
+          "version": "after",
+          "sourceSha256": "3cca3a37019ad36c3fcb53dc315ef71c07ae9d53f037f7d91b198b368e96b6d0"
+        },
+        {
+          "stage": 2,
+          "version": "before",
+          "sourceSha256": "9e5d49033485162a32985b3586ff37af1a4a0a47adcdcc84b51609a737fa1e93"
+        },
+        {
+          "stage": 2,
+          "version": "after",
+          "sourceSha256": "feb578de4160da89bc0c84e0be53189cfea6c5179f1cf534ae232f4e3c449664"
+        },
+        {
+          "stage": 3,
+          "version": "before",
+          "sourceSha256": "4a6ba310f4cb8fc966d212274ce5885104b553d0ec2090a7020517bd068a85d1"
+        },
+        {
+          "stage": 3,
+          "version": "after",
+          "sourceSha256": "197f16ca46f97b69be518005033b477adaff15f94cbe30a04063335ac4e978ac"
+        },
+        {
+          "stage": 4,
+          "version": "before",
+          "sourceSha256": "84a95472ba5e07f773b27fd71b732c3a2e67d09ba647281b7c7b7724e38692e8"
+        },
+        {
+          "stage": 4,
+          "version": "after",
+          "sourceSha256": "15dfaad042a4a55a4823d01c7fff9165fbff1b481708b7cde424c320622c0ad8"
+        },
+        {
+          "stage": 5,
+          "version": "before",
+          "sourceSha256": "5fd3d329b4e57e2d75895a55fc2a152167113866f7c12f49b115bb2d8416029e"
+        },
+        {
+          "stage": 5,
+          "version": "after",
+          "sourceSha256": "9eabefb90640e20610a384fa25a720751d891d03956d91e60b6230bae63e63d4"
+        }
+      ]
+    },
+    {
+      "key": "helms_deep",
+      "name": "헬름 협곡",
+      "title": "디핑 계류 방어선",
+      "story": "협곡 절벽, 디핑 개울과 돌담 뒤 방어선",
+      "phases": [
+        "접근",
+        "교전",
+        "격전",
+        "포위",
+        "결전"
+      ],
+      "image": "images/helms_deep.webp",
+      "bytes": 932536,
+      "frames": [
+        {
+          "stage": 1,
+          "version": "before",
+          "sourceSha256": "7c669065caf2e20ec606c93f7f23cf48f199e32d48f7ec126d40a6f9e8535eb2"
+        },
+        {
+          "stage": 1,
+          "version": "after",
+          "sourceSha256": "804da0a072b65c4ba07641e7bd072a16a55e322cf6a930dd1a4b3331a3483999"
+        },
+        {
+          "stage": 2,
+          "version": "before",
+          "sourceSha256": "defc0fb54101a817b00051de55ffc251d00837f597e07a31314c4ed9667517b6"
+        },
+        {
+          "stage": 2,
+          "version": "after",
+          "sourceSha256": "af3951be28955ba37d11cdd7754ed8bbe8d8754b138091b9e7fc4d6470947e68"
+        },
+        {
+          "stage": 3,
+          "version": "before",
+          "sourceSha256": "6070868256c6df9eff49e4d620d09089f63fad4fdde5250b51a39b078a3c2b02"
+        },
+        {
+          "stage": 3,
+          "version": "after",
+          "sourceSha256": "8475d81625282c40c20e65d665d090e12ff7510d69a45a33bb0a7cf968cd25f8"
+        },
+        {
+          "stage": 4,
+          "version": "before",
+          "sourceSha256": "a4baea835b721e78fb34728163dcfcc1cf8312644a6fbcfae966d576958dbe53"
+        },
+        {
+          "stage": 4,
+          "version": "after",
+          "sourceSha256": "f5847153ce1a94b597651e3c21c084be6582708a30d426d9749b66075852b30a"
+        },
+        {
+          "stage": 5,
+          "version": "before",
+          "sourceSha256": "bcb10b54ef6542aa3bc82a927f8af84b3c2372fc0e592761d40d9daa61831215"
+        },
+        {
+          "stage": 5,
+          "version": "after",
+          "sourceSha256": "030fd9c99771bb69c5e65fec167691fefda886341c8b53bc6ce02ef1974b16ca"
+        }
+      ]
+    },
+    {
+      "key": "fangorn",
+      "name": "팡고른",
+      "title": "엔트워시 숲길",
+      "story": "고목 군락이 동선을 나누고 여울과 목교가 연결",
+      "phases": [
+        "접근",
+        "교전",
+        "격전",
+        "포위",
+        "결전"
+      ],
+      "image": "images/fangorn.webp",
+      "bytes": 883928,
+      "frames": [
+        {
+          "stage": 1,
+          "version": "before",
+          "sourceSha256": "154561a9e7b308fdb14444e2a59fd2a2336236801df6d1100499fca81db3224b"
+        },
+        {
+          "stage": 1,
+          "version": "after",
+          "sourceSha256": "41dc4a39ee0e3db3f30222a4c6aaf6ed54f47192aa351163a80c2b2eea93e6bd"
+        },
+        {
+          "stage": 2,
+          "version": "before",
+          "sourceSha256": "199b10dbb9281a73d87df955c17b0994a181b54d95f423b1e9cbc11158c6740e"
+        },
+        {
+          "stage": 2,
+          "version": "after",
+          "sourceSha256": "771b6b1a7768fcb084922514a4fe7870b7c014cda5a3e7457024130f049bfee2"
+        },
+        {
+          "stage": 3,
+          "version": "before",
+          "sourceSha256": "b54887875894efffd3c31ebd9bf483fcfa085f1809e8091e60978a697586abf8"
+        },
+        {
+          "stage": 3,
+          "version": "after",
+          "sourceSha256": "e910936c28d5130eec9a1db3a1e515b78c3d7db7e616c01324016868da4b45a1"
+        },
+        {
+          "stage": 4,
+          "version": "before",
+          "sourceSha256": "15455191f2b23da6e1e9ed1c01718812b96e6242015505e3011e8eb3cfee9cbb"
+        },
+        {
+          "stage": 4,
+          "version": "after",
+          "sourceSha256": "0850d34dec66c9e527ea8cbc0486273f4880025a56f606857be326158da6129a"
+        },
+        {
+          "stage": 5,
+          "version": "before",
+          "sourceSha256": "3e103dabff37118b318e2fddcd81965f9a7c098c199538f86a01c7938932f7a6"
+        },
+        {
+          "stage": 5,
+          "version": "after",
+          "sourceSha256": "e86143c458d0e16b64ccfa55d2cd84f5736b78adb513d608c7a3157a50704768"
+        }
+      ]
+    },
+    {
+      "key": "edoras",
+      "name": "에도라스",
+      "title": "스노우번 목책길",
+      "story": "로한 초지와 개울, 목책 문과 농가 울타리",
+      "phases": [
+        "접근",
+        "교전",
+        "격전",
+        "포위",
+        "결전"
+      ],
+      "image": "images/edoras.webp",
+      "bytes": 880606,
+      "frames": [
+        {
+          "stage": 1,
+          "version": "before",
+          "sourceSha256": "58e1f5fd8546276722ec4820e74ec92bb783153a428b5d5ee681fa876565bd28"
+        },
+        {
+          "stage": 1,
+          "version": "after",
+          "sourceSha256": "93910a9611541f4f212dc827c8e71eca71d098412b3824cff3b90905da9317d5"
+        },
+        {
+          "stage": 2,
+          "version": "before",
+          "sourceSha256": "3c7085f7a8a1603aad007299834536f55c7356e5298f60381707f345b5104b9c"
+        },
+        {
+          "stage": 2,
+          "version": "after",
+          "sourceSha256": "fe187291edb045e5cc87a0422562540f255b803427d516bd267f1a8352a4db67"
+        },
+        {
+          "stage": 3,
+          "version": "before",
+          "sourceSha256": "5d92aacabf013f21f8eed9ac33330957bd5f23252f26162fe84cef49b42de6a6"
+        },
+        {
+          "stage": 3,
+          "version": "after",
+          "sourceSha256": "143698ee90cb5b96a9f194fda7c8c7b01081349cd452e744bbeb7aa7e75034f0"
+        },
+        {
+          "stage": 4,
+          "version": "before",
+          "sourceSha256": "2e024a03cbbb46ee78dcc0064fe69edda94ca48eed798f15034d4717d21bc177"
+        },
+        {
+          "stage": 4,
+          "version": "after",
+          "sourceSha256": "c3666a8215551cf1a609e9d51e05ae8998570a5f8c61222b550d885b68f95438"
+        },
+        {
+          "stage": 5,
+          "version": "before",
+          "sourceSha256": "6bf17c5ff119650dcc5985be5b2c0f24cc6d2a09e19bbe440d81e2c06bcea58a"
+        },
+        {
+          "stage": 5,
+          "version": "after",
+          "sourceSha256": "094a86dff8d68c15ab4cca705a91e0cd6376b765db1fa486f3f552e3868cfdf4"
+        }
+      ]
+    },
+    {
+      "key": "moria",
+      "name": "모리아",
+      "title": "카자드둠의 다리",
+      "story": "깊은 균열 위 석교와 바위 사이 좁은 우회길",
+      "phases": [
+        "접근",
+        "교전",
+        "격전",
+        "포위",
+        "결전"
+      ],
+      "image": "images/moria.webp",
+      "bytes": 675028,
+      "frames": [
+        {
+          "stage": 1,
+          "version": "before",
+          "sourceSha256": "756f34035ad37668feb267139ca250693512924550dddc1a1761fab2e354f59d"
+        },
+        {
+          "stage": 1,
+          "version": "after",
+          "sourceSha256": "48385d24df5b695c8e168bd468d2a9a9a3321db41f4ef94fb406e621d3a0be10"
+        },
+        {
+          "stage": 2,
+          "version": "before",
+          "sourceSha256": "cef41344006bf153835a968cd69943231290dacc87f68dd1e7c4a355f473207d"
+        },
+        {
+          "stage": 2,
+          "version": "after",
+          "sourceSha256": "bf0893bb45c995c7b96c7d73b588ca894971f0b400719fbd21d8b43397ae54c6"
+        },
+        {
+          "stage": 3,
+          "version": "before",
+          "sourceSha256": "b553dd84204368dcdf872efb62085b1842b1503f9aab9a954cc96d010c30192d"
+        },
+        {
+          "stage": 3,
+          "version": "after",
+          "sourceSha256": "e62a83101f61c8c1449d41050437d0242de2c967e1d32aab202b4c35db077910"
+        },
+        {
+          "stage": 4,
+          "version": "before",
+          "sourceSha256": "3cef8f9152eeae914226ad253f9e895dcff0468b2227d27b5f8c225741031080"
+        },
+        {
+          "stage": 4,
+          "version": "after",
+          "sourceSha256": "729b481c2827319e93454c84755830b64a464175616aae5416a2aa40e42a85ac"
+        },
+        {
+          "stage": 5,
+          "version": "before",
+          "sourceSha256": "1362172361bcae29464bf357b3be53e9659c7cf13142ee7806cfeff5f4877736"
+        },
+        {
+          "stage": 5,
+          "version": "after",
+          "sourceSha256": "68e601dc7b9d397f2e1210d09c0347bb144da3ca4e1cddc015350ec13ed2c3ea"
+        }
+      ]
+    },
+    {
+      "key": "isengard",
+      "name": "아이센가드",
+      "title": "오르상크 외곽 공성로",
+      "story": "검은 원형 방벽의 문과 벌목 잔해",
+      "phases": [
+        "접근",
+        "교전",
+        "격전",
+        "포위",
+        "결전"
+      ],
+      "image": "images/isengard.webp",
+      "bytes": 776798,
+      "frames": [
+        {
+          "stage": 1,
+          "version": "before",
+          "sourceSha256": "295382cf50a80b1b35fd3facbbbdb87c4a9725c4bf9c047b176457beb40314bb"
+        },
+        {
+          "stage": 1,
+          "version": "after",
+          "sourceSha256": "d3fb0bee9bf27bcdcf6757434a011d3d39552d7413e360a5e367a2854571699e"
+        },
+        {
+          "stage": 2,
+          "version": "before",
+          "sourceSha256": "129cf21e35bf5fc30cd2a9e9919876b31d9b6de758c1f88ad3d82deb96135e35"
+        },
+        {
+          "stage": 2,
+          "version": "after",
+          "sourceSha256": "dfc1874912704c2c03174b406d7c5bc674b8b63702b7724dd938597412d8bb8f"
+        },
+        {
+          "stage": 3,
+          "version": "before",
+          "sourceSha256": "5d945c99b21a9ac594d5d9c6bc8f5a6d60ffbf7ea234ea19fe5c5d755858cdfc"
+        },
+        {
+          "stage": 3,
+          "version": "after",
+          "sourceSha256": "fc63a7c6729910ed77e81a2ae4e56e3271313347c2f37423739473ca02636d31"
+        },
+        {
+          "stage": 4,
+          "version": "before",
+          "sourceSha256": "468740d2dae58b81e4301159302325ad7dcbae3b624b2cc798096315a18c1263"
+        },
+        {
+          "stage": 4,
+          "version": "after",
+          "sourceSha256": "eca21568f45d735b88c8ddd6aa9d24d96ae3f1a8f2ea06755debb087b337bbfa"
+        },
+        {
+          "stage": 5,
+          "version": "before",
+          "sourceSha256": "0e0f6b1a8667d25650a413152a58020aac5be7161e18acef435b9b83736a5cdf"
+        },
+        {
+          "stage": 5,
+          "version": "after",
+          "sourceSha256": "60cfda4b9aa74f2006f89a78a15d956dd12406fc1fab71c606feaef8d2c33476"
+        }
+      ]
+    },
+    {
+      "key": "black_gate",
+      "name": "검은 문",
+      "title": "모란논의 길목",
+      "story": "검은 성벽의 중앙문과 바위 측면 통로",
+      "phases": [
+        "접근",
+        "교전",
+        "격전",
+        "포위",
+        "결전"
+      ],
+      "image": "images/black_gate.webp",
+      "bytes": 819696,
+      "frames": [
+        {
+          "stage": 1,
+          "version": "before",
+          "sourceSha256": "482d8ca6708b945f29dd25fd9245857e9b4a87319ac5bb80710bb5fa4321d3ed"
+        },
+        {
+          "stage": 1,
+          "version": "after",
+          "sourceSha256": "1e4af1de43966ac29fae76b733b8d6eaefe9812323810fc0262fc3140d7b889a"
+        },
+        {
+          "stage": 2,
+          "version": "before",
+          "sourceSha256": "b441dea05c9c786f3af4bbf6d324f537bf8f84bbc19298b05b63a918498a835a"
+        },
+        {
+          "stage": 2,
+          "version": "after",
+          "sourceSha256": "da57e0be364a710c0b9cf9a6920e7f16a593f7a65e358bedc9e01dd9e4341f10"
+        },
+        {
+          "stage": 3,
+          "version": "before",
+          "sourceSha256": "65e320bf9b3702e097c94976a71e8525c313e6825a2c68dcca7b5ac1b64af1ab"
+        },
+        {
+          "stage": 3,
+          "version": "after",
+          "sourceSha256": "48309eabca93bc7e70812bd1484de524e6527637bdf45e1ffa79d863e5497208"
+        },
+        {
+          "stage": 4,
+          "version": "before",
+          "sourceSha256": "3c18e26f903aa175d989553e9bff8b5a566a62b8802a73bff131ca0adac39b29"
+        },
+        {
+          "stage": 4,
+          "version": "after",
+          "sourceSha256": "62ed62af18b20baa9f62b2386032f8c5d06dfc3962da673d73ea8ebeb00e1be5"
+        },
+        {
+          "stage": 5,
+          "version": "before",
+          "sourceSha256": "3b6fa8576e39cc20790e88c4dec2812c448e877e3d3dad7c4537bd7ca6421e8d"
+        },
+        {
+          "stage": 5,
+          "version": "after",
+          "sourceSha256": "828eb9fe154d92d148a18b57e32af71f591d5b270f30964e92a0111a3fb9073d"
+        }
+      ]
+    },
+    {
+      "key": "gorgoroth",
+      "name": "고르고로스",
+      "title": "재의 평원",
+      "story": "검은 암반이 전열을 나누는 세 갈래 길",
+      "phases": [
+        "접근",
+        "교전",
+        "격전",
+        "포위",
+        "결전"
+      ],
+      "image": "images/gorgoroth.webp",
+      "bytes": 793368,
+      "frames": [
+        {
+          "stage": 1,
+          "version": "before",
+          "sourceSha256": "789ada1768f39207e88b14d0f549a742ead5d56842942634bd1c3309b7c5f420"
+        },
+        {
+          "stage": 1,
+          "version": "after",
+          "sourceSha256": "347484fe52c739b1d85a523dfe508c554dd8a17797aebf456a4cd628d1ec561d"
+        },
+        {
+          "stage": 2,
+          "version": "before",
+          "sourceSha256": "2fe7687c66bfe296c06abd51ccf7208c870159ed517138b374942a2003ce1135"
+        },
+        {
+          "stage": 2,
+          "version": "after",
+          "sourceSha256": "3748542a3f07230585e7d19f51482b25ab38ae0881fc37967c544cfaa755c971"
+        },
+        {
+          "stage": 3,
+          "version": "before",
+          "sourceSha256": "9c0e0d8a9e24fa46245b6bf7cc46636962270c43c23f9ac50870172465a1cb5b"
+        },
+        {
+          "stage": 3,
+          "version": "after",
+          "sourceSha256": "fd7c7cb793e49c91e5c7fbc58799fc80a405758828929ee9ffe71173b7e1e1ac"
+        },
+        {
+          "stage": 4,
+          "version": "before",
+          "sourceSha256": "a757c8de5c0c617efa78cf5a26448904d640abb937f5f4344b04f28731286359"
+        },
+        {
+          "stage": 4,
+          "version": "after",
+          "sourceSha256": "6ef2be050873c6ee79e548f388e99aa534535d34b5c0cc130e97717619734aff"
+        },
+        {
+          "stage": 5,
+          "version": "before",
+          "sourceSha256": "1f001f068e74ab733ca1b83a61305416d6c3191bba3e9f37e76aa349edf9be19"
+        },
+        {
+          "stage": 5,
+          "version": "after",
+          "sourceSha256": "f0407fc1d4274bfea8a047cd19bde20f6b29c1328a45b98c969f423714ea3e13"
+        }
+      ]
+    },
+    {
+      "key": "rivendell",
+      "name": "리븐델",
+      "title": "브루이넨 계곡",
+      "story": "깊은 계곡 강, 두 석교와 바위 사이 접근로",
+      "phases": [
+        "접근",
+        "교전",
+        "격전",
+        "포위",
+        "결전"
+      ],
+      "image": "images/rivendell.webp",
+      "bytes": 922932,
+      "frames": [
+        {
+          "stage": 1,
+          "version": "before",
+          "sourceSha256": "30c85ced08e2f9fbdcdff0c627ffd32a786550806fd39cb8dd6defcbd38bab99"
+        },
+        {
+          "stage": 1,
+          "version": "after",
+          "sourceSha256": "cee9fc4a05b7ed51699e99338237bc4d6af2ceb64802c49ae8a88d66fc0640ab"
+        },
+        {
+          "stage": 2,
+          "version": "before",
+          "sourceSha256": "e08785c723259accec81158da63d1e909a3a7e624cbe13e6e831ec77386b5c31"
+        },
+        {
+          "stage": 2,
+          "version": "after",
+          "sourceSha256": "a8fe5e9cca17c942592f001b875375ea6d94ec89332b09fa89a97fdd42e211bd"
+        },
+        {
+          "stage": 3,
+          "version": "before",
+          "sourceSha256": "7e979b3f6a2b653be4187414a23f646f36bb1013c7fac2791a8e5d4cc7383a01"
+        },
+        {
+          "stage": 3,
+          "version": "after",
+          "sourceSha256": "a9b04fd27f2b82700e40a0e958a15bb54156aed8b8c56d39d6c320393002296f"
+        },
+        {
+          "stage": 4,
+          "version": "before",
+          "sourceSha256": "90303dbfce5a12f378f05d38d5aa9e174f315b6fcd95421874e1d7439fa99b68"
+        },
+        {
+          "stage": 4,
+          "version": "after",
+          "sourceSha256": "e64f248427c07c252a7a29e78ffb814f1fd913b44940c4da451b9d1823edccc1"
+        },
+        {
+          "stage": 5,
+          "version": "before",
+          "sourceSha256": "4c4cb6705d094205a74c7b38572c2ce2711ac0f2166610c2eba3bccdeab79939"
+        },
+        {
+          "stage": 5,
+          "version": "after",
+          "sourceSha256": "4b9a35933c537666b8e7a734c0cc9a4b377d88cf2e5b06f38d248e7d2a0e0f41"
+        }
+      ]
+    },
+    {
+      "key": "lothlorien",
+      "name": "로스로리엔",
+      "title": "실버로드 강숲",
+      "story": "말로른 숲의 통로와 여울을 통한 측면 도하",
+      "phases": [
+        "접근",
+        "교전",
+        "격전",
+        "포위",
+        "결전"
+      ],
+      "image": "images/lothlorien.webp",
+      "bytes": 931098,
+      "frames": [
+        {
+          "stage": 1,
+          "version": "before",
+          "sourceSha256": "763fea4f5ced477087a38ba29e04ad99473ebc4dee7693b1dae47eb857e05e75"
+        },
+        {
+          "stage": 1,
+          "version": "after",
+          "sourceSha256": "1436ccda8fa5a68100b45d50c53c47e07c0bc293a81ba52f7ea53a77101a70a5"
+        },
+        {
+          "stage": 2,
+          "version": "before",
+          "sourceSha256": "8dc16b1bcba7860f15c1298e9c5aa03188f381415a8d904c050986d60fd55842"
+        },
+        {
+          "stage": 2,
+          "version": "after",
+          "sourceSha256": "787d9895393464d8a68487ada73ba13a933c5fdd2f258aa253f51261dd309e2e"
+        },
+        {
+          "stage": 3,
+          "version": "before",
+          "sourceSha256": "c475809416c196af6e5eaa5bcd19c755cb696dafcda57ae9baaeb3132c519551"
+        },
+        {
+          "stage": 3,
+          "version": "after",
+          "sourceSha256": "a3562209c7b42e41a1c83db3e0d5437d88ea283bf56db679a16f66a848318990"
+        },
+        {
+          "stage": 4,
+          "version": "before",
+          "sourceSha256": "ffb8f8941ddf28c938543443f6c00795cda35609851aee8d4fd7952947963aef"
+        },
+        {
+          "stage": 4,
+          "version": "after",
+          "sourceSha256": "d325ccf71606f0ee805499e3fcecde4522692857f72e0ce6c823fae2d016b686"
+        },
+        {
+          "stage": 5,
+          "version": "before",
+          "sourceSha256": "9e49f58535659f76b57b3dd0667943f48a389f655106a29ba801cdd16bc5f1e3"
+        },
+        {
+          "stage": 5,
+          "version": "after",
+          "sourceSha256": "c89ee9cd51566ad3f4530cb26cce86eca2001bfdec0844a67ebca40e1485b3d2"
+        }
+      ]
+    },
+    {
+      "key": "pelennor",
+      "name": "펠렌노르",
+      "title": "펠렌노르 농지",
+      "story": "낮은 농지 경계와 열린 기병 통로",
+      "phases": [
+        "접근",
+        "교전",
+        "격전",
+        "포위",
+        "결전"
+      ],
+      "image": "images/pelennor.webp",
+      "bytes": 891818,
+      "frames": [
+        {
+          "stage": 1,
+          "version": "before",
+          "sourceSha256": "47dcbb286101db5d01c572116b797e8c478c7fc2158abccbda929b1f78cdaab4"
+        },
+        {
+          "stage": 1,
+          "version": "after",
+          "sourceSha256": "1862a7584d10a9b843fa33b3f4792652813da41afdcb9680266c22e5fc34cf53"
+        },
+        {
+          "stage": 2,
+          "version": "before",
+          "sourceSha256": "f6b9f97dbc14ff9686ea067e914dc20dd76516d35530ecd821e9fade23ea9864"
+        },
+        {
+          "stage": 2,
+          "version": "after",
+          "sourceSha256": "db0bb4f2074aea7722f7be0d51a93c103da87645dba64eb950cfc046b2e5797d"
+        },
+        {
+          "stage": 3,
+          "version": "before",
+          "sourceSha256": "e1624dbc8fb9eb9810374bd92a3defc83d9b22a802c1dceb007461814606c970"
+        },
+        {
+          "stage": 3,
+          "version": "after",
+          "sourceSha256": "c2f161f90f4c227ea1ffdd7c5a47d6bd576376415590a39b0ce94f655d8e3347"
+        },
+        {
+          "stage": 4,
+          "version": "before",
+          "sourceSha256": "8008b361d18977e2eb9d167748da03b0012fef76a7a616b852e393eb76825fe6"
+        },
+        {
+          "stage": 4,
+          "version": "after",
+          "sourceSha256": "346b8b682254f5df00a4469235d176b655d17378b6459a8eeaf7f973d48e7871"
+        },
+        {
+          "stage": 5,
+          "version": "before",
+          "sourceSha256": "e9ccf96bd70e0247fc26898c023f0105ef038dcefe3ed2a325728fc62f6f85a7"
+        },
+        {
+          "stage": 5,
+          "version": "after",
+          "sourceSha256": "e612b163b1bfaabb6814293379f08968270c381fecd27ca19227e01d3a1ecc9d"
+        }
+      ]
+    },
+    {
+      "key": "dead_marshes",
+      "name": "죽은 늪",
+      "title": "늪의 마른 둑길",
+      "story": "깊은 물웅덩이를 피해 얕은 여울과 마른 둑으로 이동",
+      "phases": [
+        "접근",
+        "교전",
+        "격전",
+        "포위",
+        "결전"
+      ],
+      "image": "images/dead_marshes.webp",
+      "bytes": 832590,
+      "frames": [
+        {
+          "stage": 1,
+          "version": "before",
+          "sourceSha256": "db14d7f365b4378395b0296c3baa964d8736e484a08791e349fcaf89038bda3b"
+        },
+        {
+          "stage": 1,
+          "version": "after",
+          "sourceSha256": "8513e353396ae37de902912f3caf98fc408970ceef4b5cc2279ef2c209417750"
+        },
+        {
+          "stage": 2,
+          "version": "before",
+          "sourceSha256": "de27db51f427fd862baa60f4ff9049eec3a585f0fd3ed5113122bdb8fc986e18"
+        },
+        {
+          "stage": 2,
+          "version": "after",
+          "sourceSha256": "f973a62a257ce51aa8af5c4ce615b94a064bb97d0d82499880dd6d9ed0d7bb1a"
+        },
+        {
+          "stage": 3,
+          "version": "before",
+          "sourceSha256": "d91054e2908a06d66a6d49bf476ed12326b9385b2caa1b165dbbbabb74b15366"
+        },
+        {
+          "stage": 3,
+          "version": "after",
+          "sourceSha256": "f080d0b74f2338ada991ac6391d3eca3743c95c904f16709a052e5051facdef2"
+        },
+        {
+          "stage": 4,
+          "version": "before",
+          "sourceSha256": "a412c22685b2bc6b0dbf6447863932f92acc73f01afb78408259f5407f3cd1ed"
+        },
+        {
+          "stage": 4,
+          "version": "after",
+          "sourceSha256": "0913913e9d63ce0916af5173a0234402667d233b137f109eb7da261ba0e8fdd2"
+        },
+        {
+          "stage": 5,
+          "version": "before",
+          "sourceSha256": "4cddc10dc2c1fae24f461afa1749673da57579e83adc986eaf072aee07db10b7"
+        },
+        {
+          "stage": 5,
+          "version": "after",
+          "sourceSha256": "e56bf7e01fb6db72ace1fffe5877b1b1fae2cf46c6313e597c52b0d7a79fd8d0"
+        }
+      ]
+    },
+    {
+      "key": "dunharrow",
+      "name": "던하로우",
+      "title": "망자의 길 입구",
+      "story": "백색산맥의 절벽 사이 좁은 산길",
+      "phases": [
+        "접근",
+        "교전",
+        "격전",
+        "포위",
+        "결전"
+      ],
+      "image": "images/dunharrow.webp",
+      "bytes": 873318,
+      "frames": [
+        {
+          "stage": 1,
+          "version": "before",
+          "sourceSha256": "c71c9ca27b3badf31e7c60c1175be57a5871cb44618dfae93c5ade503fc9f67b"
+        },
+        {
+          "stage": 1,
+          "version": "after",
+          "sourceSha256": "385612a9f7a346ded435a19db7d4608e28f8353a1b19dd6c8375554c4b8db8fe"
+        },
+        {
+          "stage": 2,
+          "version": "before",
+          "sourceSha256": "0536b3551a449d2431403bf7510cb83310b08971cf03e7efdc7bfc701096f9af"
+        },
+        {
+          "stage": 2,
+          "version": "after",
+          "sourceSha256": "8ce31f4410a140cacec9c266b37c78354de9b9576958d8b83287db7c1932e804"
+        },
+        {
+          "stage": 3,
+          "version": "before",
+          "sourceSha256": "d07ffbcbaec587e508b40002cb898035f48805aed4995a1be58d25c6397c9753"
+        },
+        {
+          "stage": 3,
+          "version": "after",
+          "sourceSha256": "ab3a609b0719d70de618815c85b2eba3866d83733b1bc897d4ae6be7b026c284"
+        },
+        {
+          "stage": 4,
+          "version": "before",
+          "sourceSha256": "69ad22ecabc4b5f383e46f2d4b9d834e1eeb0e362f1527c376bc8d768b71f3cf"
+        },
+        {
+          "stage": 4,
+          "version": "after",
+          "sourceSha256": "5a0ed010069d7698b0c4cba055cf8914deaa308fed761dac2fcf76cc214a4c8d"
+        },
+        {
+          "stage": 5,
+          "version": "before",
+          "sourceSha256": "40102b46342d9b81ee5daa1f7d96eabcb8215caad3c88e32290d28ff0368223b"
+        },
+        {
+          "stage": 5,
+          "version": "after",
+          "sourceSha256": "c83b0e8f48702675c437d611b0b809815dc19e25688ac65b17fc5791a8370122"
+        }
+      ]
+    },
+    {
+      "key": "erebor",
+      "name": "에레보르",
+      "title": "러닝 강의 산문",
+      "story": "산문 앞 강과 두 석교, 바위 사이 측면 접근",
+      "phases": [
+        "접근",
+        "교전",
+        "격전",
+        "포위",
+        "결전"
+      ],
+      "image": "images/erebor.webp",
+      "bytes": 814858,
+      "frames": [
+        {
+          "stage": 1,
+          "version": "before",
+          "sourceSha256": "a6a7e18564cf471ee52e762f5ff2ed6d99708cd28b321b250c5909c8a77012d0"
+        },
+        {
+          "stage": 1,
+          "version": "after",
+          "sourceSha256": "35523670a3d788c240e71fcffe9bcd042515679c95a5607089be44b9f1eb408c"
+        },
+        {
+          "stage": 2,
+          "version": "before",
+          "sourceSha256": "269b8348b82378dbcee7d0e45db04bfb060b3c3777984809abed5361fbd31f45"
+        },
+        {
+          "stage": 2,
+          "version": "after",
+          "sourceSha256": "c49e8779806addd95f38fa1d5b170401955f354a4b79151520dd8bac6023e5fb"
+        },
+        {
+          "stage": 3,
+          "version": "before",
+          "sourceSha256": "d68d4779f2fe43d6a6035a25e5faee74e0076422874b19bc759adfa86fbdd24b"
+        },
+        {
+          "stage": 3,
+          "version": "after",
+          "sourceSha256": "7ccb83d3c0694a0e313dd1eff70e836a40e45d4bd645798e59ce2eec3cdfaf04"
+        },
+        {
+          "stage": 4,
+          "version": "before",
+          "sourceSha256": "b05ad16499191ed9553380bf5fac5238312b9165a74c578446ad6b426e84e587"
+        },
+        {
+          "stage": 4,
+          "version": "after",
+          "sourceSha256": "116b58f625956a29c7b48aa46d96a68b6cd394cf3eac165dbc1fad58d78eb811"
+        },
+        {
+          "stage": 5,
+          "version": "before",
+          "sourceSha256": "1f7e7ba1d1b340e6769cd320e878a9bef5b51720e9d13a02eda85f9b20c2f3b0"
+        },
+        {
+          "stage": 5,
+          "version": "after",
+          "sourceSha256": "82decdec521ea4ab94a1f83de5f99ed43712df81f1f852eaf741a56ba2bbceea"
+        }
+      ]
+    },
+    {
+      "key": "mirkwood",
+      "name": "머크우드",
+      "title": "어둠숲 사냥길",
+      "story": "밀집한 수목이 막는 중심부와 좌우 좁은 숲길",
+      "phases": [
+        "접근",
+        "교전",
+        "격전",
+        "포위",
+        "결전"
+      ],
+      "image": "images/mirkwood.webp",
+      "bytes": 887784,
+      "frames": [
+        {
+          "stage": 1,
+          "version": "before",
+          "sourceSha256": "1de0e44593639646f8d289edbe2c1af61f8d473e2c84c29ea54fd3d2625516ab"
+        },
+        {
+          "stage": 1,
+          "version": "after",
+          "sourceSha256": "8d7132c718aefc41c7acd8c0588d5519bab646f71e9fa1b08cb19526d416c53c"
+        },
+        {
+          "stage": 2,
+          "version": "before",
+          "sourceSha256": "a0864513d7d5d376a1fc0f7c1a153aa7f5dac8411f7ef35dde9a9148ae962ed2"
+        },
+        {
+          "stage": 2,
+          "version": "after",
+          "sourceSha256": "950781330cedc61a583298291b95fb165bb9899cf50495baca7e98c2bfce64f0"
+        },
+        {
+          "stage": 3,
+          "version": "before",
+          "sourceSha256": "f1ee9f87e3a877be7940e3da3e81a0132e6fc63b14ee6e4e71d4bb1c1a8ecef3"
+        },
+        {
+          "stage": 3,
+          "version": "after",
+          "sourceSha256": "8c7c30b246cf3e61faeadb4e4f7605171095204089125cf3717692158b86ae59"
+        },
+        {
+          "stage": 4,
+          "version": "before",
+          "sourceSha256": "48a425f3a11398839767a1034e9bd6e4377b1fb184feaa77897174569ca564d1"
+        },
+        {
+          "stage": 4,
+          "version": "after",
+          "sourceSha256": "e2dc5a83de47c5be51882f532dad225ea130f0956b480febe2e06deb28b35990"
+        },
+        {
+          "stage": 5,
+          "version": "before",
+          "sourceSha256": "a34eda5120374c0d82ab262852db88cfce88cb17e6f963464470674b4b56ea6a"
+        },
+        {
+          "stage": 5,
+          "version": "after",
+          "sourceSha256": "5bb6f5989ec3233031b09eaac9c8451d6b2e582053ead27095ba409727f59eb0"
+        }
+      ]
+    },
+    {
+      "key": "dol_guldur",
+      "name": "돌 굴두르",
+      "title": "남부 어둠숲 폐허",
+      "story": "버려진 검은 벽과 고목 사이의 세 갈래 길",
+      "phases": [
+        "접근",
+        "교전",
+        "격전",
+        "포위",
+        "결전"
+      ],
+      "image": "images/dol_guldur.webp",
+      "bytes": 813456,
+      "frames": [
+        {
+          "stage": 1,
+          "version": "before",
+          "sourceSha256": "8861b2fc425442e34b90b608ef23abf570959458a1dd0e7dabd1ac32de2c7125"
+        },
+        {
+          "stage": 1,
+          "version": "after",
+          "sourceSha256": "5eedc420c356ca4e01ae48c6a29f81ececf7ebd7f005c04a3f552fe7438eeb15"
+        },
+        {
+          "stage": 2,
+          "version": "before",
+          "sourceSha256": "7b90eeb45e06b103b60158d6a6331e22867d5f40f9b11a9e965984464c15aef6"
+        },
+        {
+          "stage": 2,
+          "version": "after",
+          "sourceSha256": "1e6ebd2f6470e6bb25bee5c417b38ade03d1c14d2a5fb4c1b2650f16daadd9e4"
+        },
+        {
+          "stage": 3,
+          "version": "before",
+          "sourceSha256": "162f8489719317797c785330e3b5bf9c16cb1b9a8f95821f706c3d87d9259e87"
+        },
+        {
+          "stage": 3,
+          "version": "after",
+          "sourceSha256": "97192a69ebe1380206e2f2d15873f1f70752c86db09e72c43678cee8e7778924"
+        },
+        {
+          "stage": 4,
+          "version": "before",
+          "sourceSha256": "3f9be584dc51f110b0b3389f1342e75aff6425f36a77b1e3bc6d52925f9c9c59"
+        },
+        {
+          "stage": 4,
+          "version": "after",
+          "sourceSha256": "d0017f0a7f656fe6c29a451fa27aacbaa1d6286a26c82e2b7b6787e23ba2a294"
+        },
+        {
+          "stage": 5,
+          "version": "before",
+          "sourceSha256": "7b182a50b3a5b43679184ec3e0b3e7a3a698ac0bb5f707b1120e58472450830b"
+        },
+        {
+          "stage": 5,
+          "version": "after",
+          "sourceSha256": "9e75b47fd5fd2a23be034bdcc03be90567a6ea5718edb2f5a6862989194711d9"
+        }
+      ]
+    },
+    {
+      "key": "gondolin",
+      "name": "곤돌린",
+      "title": "숨겨진 도시의 문",
+      "story": "흰 성벽과 산벽 사이 중앙문과 외곽길",
+      "phases": [
+        "접근",
+        "교전",
+        "격전",
+        "포위",
+        "결전"
+      ],
+      "image": "images/gondolin.webp",
+      "bytes": 882438,
+      "frames": [
+        {
+          "stage": 1,
+          "version": "before",
+          "sourceSha256": "beb285ccaf41504dc73fc8feef5fedba5e620baac5cdd6b0902c5f039a09cfbe"
+        },
+        {
+          "stage": 1,
+          "version": "after",
+          "sourceSha256": "36ee19f1107a3a60b0c2b0fe547b37d2ce26a51ce03e75c3c4ceda521bd417fa"
+        },
+        {
+          "stage": 2,
+          "version": "before",
+          "sourceSha256": "31e991f0a129a43cf7a076d200dfee532ba243966b61074a7f6cc81255ea9fea"
+        },
+        {
+          "stage": 2,
+          "version": "after",
+          "sourceSha256": "b6074a12991919df2ba34434a6bf35c9832070e8079a99d9a9210d1ba4ddb6ed"
+        },
+        {
+          "stage": 3,
+          "version": "before",
+          "sourceSha256": "1d57e3106ce08f0a218328702d4759c33be7e118a1fb1095783b03fb3433e6b3"
+        },
+        {
+          "stage": 3,
+          "version": "after",
+          "sourceSha256": "3c23fcdd6bdda1f35031cecfc53f2ac77e9772295bbb9659e06803c12149d273"
+        },
+        {
+          "stage": 4,
+          "version": "before",
+          "sourceSha256": "4ee252c4501729deee9eb7e36bff8e8afd18d4f6b97933083d2ff7b35a5d7369"
+        },
+        {
+          "stage": 4,
+          "version": "after",
+          "sourceSha256": "84dd4476c108b060cfc5339f9751122d6470cfa1eeef76487fc4c7e611dbd2d5"
+        },
+        {
+          "stage": 5,
+          "version": "before",
+          "sourceSha256": "a834860d0d213bc473f13eee7f0b20c0c14660b1934700548e2e4cf3b5516a3d"
+        },
+        {
+          "stage": 5,
+          "version": "after",
+          "sourceSha256": "748dfd99914ceb17329aecf83f56d2497483fae722332209d9a91003e6cedd5a"
+        }
+      ]
+    },
+    {
+      "key": "angband",
+      "name": "앙그반드",
+      "title": "탕고로드림 철벽길",
+      "story": "재의 협곡과 철벽 문 사이의 좁은 진군로",
+      "phases": [
+        "접근",
+        "교전",
+        "격전",
+        "포위",
+        "결전"
+      ],
+      "image": "images/angband.webp",
+      "bytes": 796720,
+      "frames": [
+        {
+          "stage": 1,
+          "version": "before",
+          "sourceSha256": "3f1ffc8c9af1622c2740f5d522d160fa2f08dfb84700fa19a879b2134b72dae7"
+        },
+        {
+          "stage": 1,
+          "version": "after",
+          "sourceSha256": "22e460bc7da8b8028059c9471f37c4f0e0600cb7d996d0ef039e10384511b217"
+        },
+        {
+          "stage": 2,
+          "version": "before",
+          "sourceSha256": "7f92e014ebc54c0fcd4279dd687a71ac613baf1482c48b06f0765f8452562938"
+        },
+        {
+          "stage": 2,
+          "version": "after",
+          "sourceSha256": "d54f46b6549da7e2fde87562ffed77337f62ba527e1cb274fa8b9ff3b7a06c2c"
+        },
+        {
+          "stage": 3,
+          "version": "before",
+          "sourceSha256": "9971013174c6df90df38c29bf7abf1587c57a8038e9749db092ec4160a089a26"
+        },
+        {
+          "stage": 3,
+          "version": "after",
+          "sourceSha256": "00a9c49c259ffcfdbbb8d9649327ab8e3a0dd17a9f7944ad43fcbdcaa51ce229"
+        },
+        {
+          "stage": 4,
+          "version": "before",
+          "sourceSha256": "df2274ffbd9fbb306c9fb2f1b3007ee1c419065609eeeec100032d2f8362649b"
+        },
+        {
+          "stage": 4,
+          "version": "after",
+          "sourceSha256": "e6b9362f6f1340deabf06969cff8cc7700b767013d5147ac421d86065a2f9594"
+        },
+        {
+          "stage": 5,
+          "version": "before",
+          "sourceSha256": "335ee862c46752541f937c703bd6f4a9957a57ea8b4aad91804f40c8fe9f3a7d"
+        },
+        {
+          "stage": 5,
+          "version": "after",
+          "sourceSha256": "4cb68dfe4e18236c9f3ea37e9796ca6155a4a30d25f2076e7dd8745e9add3320"
+        }
+      ]
+    },
+    {
+      "key": "minas_court",
+      "name": "미나스 티리스 성 안",
+      "title": "백색 도시의 안뜰",
+      "story": "석조 회랑과 분리된 안뜰 통로",
+      "phases": [
+        "접근",
+        "교전",
+        "격전",
+        "포위",
+        "결전"
+      ],
+      "image": "images/minas_court.webp",
+      "bytes": 863494,
+      "frames": [
+        {
+          "stage": 1,
+          "version": "before",
+          "sourceSha256": "b34a80bdbded9d1ecf8d74bef0cc5b3047489f50951a52957318abd262031735"
+        },
+        {
+          "stage": 1,
+          "version": "after",
+          "sourceSha256": "2ebc2703f35f9b7132be1df0369c0da93479acc9c4d5524d89e18e821e1a9eff"
+        },
+        {
+          "stage": 2,
+          "version": "before",
+          "sourceSha256": "930fb8aef83d274040d48781c0c3c1e17db474f7ada0846ba272cafaf71d6034"
+        },
+        {
+          "stage": 2,
+          "version": "after",
+          "sourceSha256": "2fb68c2817deb793b0cc9fd12fff36f4126df29d34b59f52abf188fa7c08c5c1"
+        },
+        {
+          "stage": 3,
+          "version": "before",
+          "sourceSha256": "95a6547bc282df340b71ec5796857c0be3086d35296dd0075ae76af6e55e3859"
+        },
+        {
+          "stage": 3,
+          "version": "after",
+          "sourceSha256": "627779fecbd4d4dbe3f0e344c8bb2cf8ea379dfb775b2353b178bde86f6e62b8"
+        },
+        {
+          "stage": 4,
+          "version": "before",
+          "sourceSha256": "1a10aa80e72dc45791e2c5baf7aa51421829d4f92198b2bc7a9bbe4cfc376de4"
+        },
+        {
+          "stage": 4,
+          "version": "after",
+          "sourceSha256": "8ae9f57de5bf92354ce15a4fa10a18be267d055ebbe8b77fbb4908aca62fbc65"
+        },
+        {
+          "stage": 5,
+          "version": "before",
+          "sourceSha256": "c37f40cb7aeadaed5c88273f0d8b6c509fe913d5511b7cb3369bc3bfc4b15d25"
+        },
+        {
+          "stage": 5,
+          "version": "after",
+          "sourceSha256": "4d53f0254f654cb85e8fe899ff66a1d011125b6481565b0b94a56f5116e14b9f"
+        }
+      ]
+    },
+    {
+      "key": "orthanc",
+      "name": "오르상크 내부",
+      "title": "오르상크 기단",
+      "story": "검은 석조 기단과 공성로 사이 회랑",
+      "phases": [
+        "접근",
+        "교전",
+        "격전",
+        "포위",
+        "결전"
+      ],
+      "image": "images/orthanc.webp",
+      "bytes": 687980,
+      "frames": [
+        {
+          "stage": 1,
+          "version": "before",
+          "sourceSha256": "fcea18c08d7cbf384d2cbb4433ce3111e8bf34e9d773c3f21e6e7510bb1db621"
+        },
+        {
+          "stage": 1,
+          "version": "after",
+          "sourceSha256": "92b60de064db6b54c41b0408d7e6965d04226d3410d774104c844eb2de13bfc4"
+        },
+        {
+          "stage": 2,
+          "version": "before",
+          "sourceSha256": "df8af50c88e03511c22e0763dab4bc7f22aca276d6d1b265276b59ab0a290da5"
+        },
+        {
+          "stage": 2,
+          "version": "after",
+          "sourceSha256": "6841995fed53ed903ea4c31710bfbf31077db7e413f1c6b2627f9d8ae122104f"
+        },
+        {
+          "stage": 3,
+          "version": "before",
+          "sourceSha256": "13e1fa3c39e6b440462c4d324164f84b8ab4dd8aea2ccb3129f0383d0def2c68"
+        },
+        {
+          "stage": 3,
+          "version": "after",
+          "sourceSha256": "e4b81b13a6d0b8465d3d7de7b259c2ec7ac9641827e152ac0852e944f4f12310"
+        },
+        {
+          "stage": 4,
+          "version": "before",
+          "sourceSha256": "16dadb85ee15913ad5f1e991a99fc2a99f068cfb9acbfba996e0edb7930e2274"
+        },
+        {
+          "stage": 4,
+          "version": "after",
+          "sourceSha256": "a29b74471bc129d6c3b9537a49e2394261145b4b433c1e37c1a650eca4cf0895"
+        },
+        {
+          "stage": 5,
+          "version": "before",
+          "sourceSha256": "e29c2ee8f206bae878d1bb08a22e4624d558127288b8a37efacc78a6f3d591f8"
+        },
+        {
+          "stage": 5,
+          "version": "after",
+          "sourceSha256": "35d0fc96326acd0fc327489be72a8031722d41cdb2d19c24a22a4b1550cf3b9b"
+        }
+      ]
+    },
+    {
+      "key": "barad_dur",
+      "name": "바랏두르 평야",
+      "title": "흑탑의 그림자",
+      "story": "검은 암반과 무너진 방벽이 갈라놓은 전선",
+      "phases": [
+        "접근",
+        "교전",
+        "격전",
+        "포위",
+        "결전"
+      ],
+      "image": "images/barad_dur.webp",
+      "bytes": 751954,
+      "frames": [
+        {
+          "stage": 1,
+          "version": "before",
+          "sourceSha256": "285f8d27e56c6e305740670f909d9aeaecc1746a7c8563ca342dcde16b56c9ed"
+        },
+        {
+          "stage": 1,
+          "version": "after",
+          "sourceSha256": "418eaeede411b0226b6c2c83f209a56b00242efe6021b2b8a91ae5c257644887"
+        },
+        {
+          "stage": 2,
+          "version": "before",
+          "sourceSha256": "ee0449ff0fafce8cd83276d2fdb83498d48a97302befd6f27c4f08ed981375ba"
+        },
+        {
+          "stage": 2,
+          "version": "after",
+          "sourceSha256": "61545ec5c7e28f1a9071b617c74c7724dd0cf788f712576529029f5aa700c990"
+        },
+        {
+          "stage": 3,
+          "version": "before",
+          "sourceSha256": "96f5e4ee8b8539b7e8297f7d3865fdd2323d88ef79ad5f6606e11ea97b590ff3"
+        },
+        {
+          "stage": 3,
+          "version": "after",
+          "sourceSha256": "48caddc0edd2f90272c1e81e3d5263feb9f5d7960ec87da9d497a0f7de6c6667"
+        },
+        {
+          "stage": 4,
+          "version": "before",
+          "sourceSha256": "45b9253ac9437b5af3269a827c212276a665e191ece0a8a9f42a0aaa225ab7ff"
+        },
+        {
+          "stage": 4,
+          "version": "after",
+          "sourceSha256": "cc8bcead5b584e053da0764ab67d411c12726f4f22b5c7bcebdfc21b26e41c73"
+        },
+        {
+          "stage": 5,
+          "version": "before",
+          "sourceSha256": "9e7f676b8049b53b634594e5cdc28102f5cc0d6a00c66c2f300f773a0ecd79be"
+        },
+        {
+          "stage": 5,
+          "version": "after",
+          "sourceSha256": "e2738289671e29eef29f8e4bbfdde010cc64f5861fd064eddca768d10989f116"
+        }
+      ]
+    },
+    {
+      "key": "minas_morgul",
+      "name": "미나스 모르굴 계곡",
+      "title": "모르굴 계곡의 다리",
+      "story": "모르굴두인 깊은 수로와 검은 성벽의 문",
+      "phases": [
+        "접근",
+        "교전",
+        "격전",
+        "포위",
+        "결전"
+      ],
+      "image": "images/minas_morgul.webp",
+      "bytes": 783716,
+      "frames": [
+        {
+          "stage": 1,
+          "version": "before",
+          "sourceSha256": "abc8bcf1893dd744920416355aba42ffe9a1efe254f038baa93c38f4973a137d"
+        },
+        {
+          "stage": 1,
+          "version": "after",
+          "sourceSha256": "28476e9c63e2d6179c5f703bfa14f82b63e2d041bd4f2ab38c3ecfbd6a7b0772"
+        },
+        {
+          "stage": 2,
+          "version": "before",
+          "sourceSha256": "43e749def0bb8e65db27cadbbd54c1d72451a6615a95e7288a60a83e60b89e0f"
+        },
+        {
+          "stage": 2,
+          "version": "after",
+          "sourceSha256": "9f257468337b0a38307e4695e4d71e6ef334c8d2a414b89b301ce0ccea6715fd"
+        },
+        {
+          "stage": 3,
+          "version": "before",
+          "sourceSha256": "0b1fcbd66c62b58b107608f0697bcb9e88399b8559833411d1b35242af73735a"
+        },
+        {
+          "stage": 3,
+          "version": "after",
+          "sourceSha256": "2662df939dbb0812fd2f4ec161b48970509ced513c81b774677fbf407f90eea2"
+        },
+        {
+          "stage": 4,
+          "version": "before",
+          "sourceSha256": "f00c7634f9f8978c2dd184711b0b1786866996872eb50da294671926a8c398bb"
+        },
+        {
+          "stage": 4,
+          "version": "after",
+          "sourceSha256": "b8a954b3bf3df7527063e1ffb9ae02d75dd2cf78e00e00ba192266aa01cae3bf"
+        },
+        {
+          "stage": 5,
+          "version": "before",
+          "sourceSha256": "dce1da2634ec2db820a5562bada7289bfaccc110a0fcad700a1f110f296a1687"
+        },
+        {
+          "stage": 5,
+          "version": "after",
+          "sourceSha256": "f65899dff4cb741c639469e0dc47acf38bed879498b9cb0788acf6d8192cc305"
+        }
+      ]
+    },
+    {
+      "key": "dale",
+      "name": "데일 강변",
+      "title": "데일의 러닝 강변",
+      "story": "석조 골목과 강을 건너는 두 석교",
+      "phases": [
+        "접근",
+        "교전",
+        "격전",
+        "포위",
+        "결전"
+      ],
+      "image": "images/dale.webp",
+      "bytes": 856014,
+      "frames": [
+        {
+          "stage": 1,
+          "version": "before",
+          "sourceSha256": "9a535ceea6fcf43c6eaf74d8cdc8e953b81885b3166fb1b12e594192ab201807"
+        },
+        {
+          "stage": 1,
+          "version": "after",
+          "sourceSha256": "87fd4bdbcf8e2ac07e8bbdc669656b57d278504278540e7b1e852e41e7815b87"
+        },
+        {
+          "stage": 2,
+          "version": "before",
+          "sourceSha256": "57a435b3b3284abcf93fe85b2cd9836e46331b16dbc3110a1b6374443d90602a"
+        },
+        {
+          "stage": 2,
+          "version": "after",
+          "sourceSha256": "31f808ce9ba217447504e865c013cbbdd1724f0f88240045512b1aa0a94afcb8"
+        },
+        {
+          "stage": 3,
+          "version": "before",
+          "sourceSha256": "93d8ba1dd257b30fab5e2e348bd960d1b28280b41c75d27ddd4960688f3451b7"
+        },
+        {
+          "stage": 3,
+          "version": "after",
+          "sourceSha256": "68b57f1ff60e6de6527ad4ecafad2fec0e3a359439387a46ab03c0504a60a301"
+        },
+        {
+          "stage": 4,
+          "version": "before",
+          "sourceSha256": "a297b0a016b2b3a7905031e58a32c7d7568f38c1bef40c50368b0567dc941309"
+        },
+        {
+          "stage": 4,
+          "version": "after",
+          "sourceSha256": "aba867ba67b228bb5ceba1316e0b55486f2647cb60e5e08510b015a7d7663ae2"
+        },
+        {
+          "stage": 5,
+          "version": "before",
+          "sourceSha256": "ed8e9ed934e12888d99845fe67dc18c9df092cbe606f7518b3897bb388a2e4f8"
+        },
+        {
+          "stage": 5,
+          "version": "after",
+          "sourceSha256": "26b61ea6a4aa57b67ce51fbc1a7386c85363872525ca06f3e40f0450fbb5e0e1"
+        }
+      ]
+    },
+    {
+      "key": "hornburg",
+      "name": "혼부르크 대전당",
+      "title": "혼부르크 대전당",
+      "story": "로한 석조 회랑과 방책 사이 전열",
+      "phases": [
+        "접근",
+        "교전",
+        "격전",
+        "포위",
+        "결전"
+      ],
+      "image": "images/hornburg.webp",
+      "bytes": 839060,
+      "frames": [
+        {
+          "stage": 1,
+          "version": "before",
+          "sourceSha256": "69eb78c092819021e419873e62ca192f71fb58c42a02e0f79085f68c4b2b33c0"
+        },
+        {
+          "stage": 1,
+          "version": "after",
+          "sourceSha256": "3a2a608cd1e414ba04141967ec57a28fde4dc023416f359173ac8f2f0fa42d77"
+        },
+        {
+          "stage": 2,
+          "version": "before",
+          "sourceSha256": "807d003704816c82475b92f884ce42871e4fa7d54af6be7447c154b4bb1067e7"
+        },
+        {
+          "stage": 2,
+          "version": "after",
+          "sourceSha256": "3d9eead1313ad0b243f05add3f56db2127ae74416384f9479c565a7330b2dfc4"
+        },
+        {
+          "stage": 3,
+          "version": "before",
+          "sourceSha256": "342b6ece9eaedd09055a5592d5eb853d362565834de37b8d7588fad1c6047c78"
+        },
+        {
+          "stage": 3,
+          "version": "after",
+          "sourceSha256": "6ff97562c81b06bcb68dd50d107e83a69dc43f4ba2ff5babb4aa2a6e6557162c"
+        },
+        {
+          "stage": 4,
+          "version": "before",
+          "sourceSha256": "e9213a57f8ed6c0a2135014d160b519562f983df2056b9d54292e6e0d0f893f2"
+        },
+        {
+          "stage": 4,
+          "version": "after",
+          "sourceSha256": "bafea68f30912fab51c67d25e7825bfa34fd4f7de07f93484ef219926fca61e6"
+        },
+        {
+          "stage": 5,
+          "version": "before",
+          "sourceSha256": "94aacac8e225e7480d5a173196a4ec35f8230f85c4cee402157823a93a24c4f1"
+        },
+        {
+          "stage": 5,
+          "version": "after",
+          "sourceSha256": "9e08cfb0f2950c98aefcb3423eeb201fd1f6f8faacd5dfdf562da34c53ddec41"
+        }
+      ]
+    },
+    {
+      "key": "erebor_hall",
+      "name": "에레보르 대전당",
+      "title": "두린의 돌기둥 전당",
+      "story": "드워프 석주와 방벽 사이의 넓고 좁은 회랑",
+      "phases": [
+        "접근",
+        "교전",
+        "격전",
+        "포위",
+        "결전"
+      ],
+      "image": "images/erebor_hall.webp",
+      "bytes": 677160,
+      "frames": [
+        {
+          "stage": 1,
+          "version": "before",
+          "sourceSha256": "cfcff8e6ece7f3acf9c6e50c6c7afdb5636caa9a192fe46bf2ecd386be4b5744"
+        },
+        {
+          "stage": 1,
+          "version": "after",
+          "sourceSha256": "d462b770655cf8d78918b5f19ce2f371e820f8b71bf3d300b9c3d7a1c9e902c4"
+        },
+        {
+          "stage": 2,
+          "version": "before",
+          "sourceSha256": "8ac6ae10c19f8616fe3b3a6bfeb2d20c6e9ab928461abf2bc15543ec0acdd018"
+        },
+        {
+          "stage": 2,
+          "version": "after",
+          "sourceSha256": "2f5ab140ca32b366a552c14e80fc3450cde168d931db9e5b6f84d089bf7c3143"
+        },
+        {
+          "stage": 3,
+          "version": "before",
+          "sourceSha256": "a34310abd9efbb92eb11bae511e90352ece0736fa6a9e0ceb7de958217f02faa"
+        },
+        {
+          "stage": 3,
+          "version": "after",
+          "sourceSha256": "22be26421abc508b80eeffc03523385a77c06e872d2d6a12b47e4c048f3814bc"
+        },
+        {
+          "stage": 4,
+          "version": "before",
+          "sourceSha256": "06b2abcf7e50e1e47cff6ec7979bee5260bc3fdab747792055610fcb89bd72f3"
+        },
+        {
+          "stage": 4,
+          "version": "after",
+          "sourceSha256": "87b753e7b6b1ddf15838675e95820bedcfa5c0cde1ba5ebbd3ae076eebb2b638"
+        },
+        {
+          "stage": 5,
+          "version": "before",
+          "sourceSha256": "b8c98da69b8d8189011fcaa5b3a516562332a3dd0a94a9ada3be3aaf6f443133"
+        },
+        {
+          "stage": 5,
+          "version": "after",
+          "sourceSha256": "c83a1efa64fd7e788ed1443112d0fd8c673e97ecb99a1a50b2fc401d1dc4e19d"
+        }
+      ]
+    }
+  ],
+  "format": "Actual 1165×728 engine screenshots resized to 583×364 previews; WebP quality 82; no repainting"
+}
