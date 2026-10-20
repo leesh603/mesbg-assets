@@ -1,6 +1,36 @@
-# 전체 재제작 검토 — 417종
+# 전체 재제작 검토 — 422종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 이스터링 기마궁수 (easterling_mounted_archer)
+
+![이스터링 기마궁수](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/easterling_mounted_archer.png?v=c0416841e182e0dc39831ee4f10e2a5449e63f54)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/easterling_mounted_archer.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/easterling_mounted_archer.png?v=c0416841e182e0dc39831ee4f10e2a5449e63f54)
+
+### 칸드 전사 (khandish_warrior)
+
+![칸드 전사](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/khandish_warrior.png?v=23741b85605347928b4888ae5a82021f8666b1f6)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/khandish_warrior.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/khandish_warrior.png?v=23741b85605347928b4888ae5a82021f8666b1f6)
+
+### 칸드 족장 (khandish_chieftain)
+
+![칸드 족장](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/khandish_chieftain.png?v=af5fa41e294daa7973ddbee4f25fa2edc26fd573)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/khandish_chieftain.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/khandish_chieftain.png?v=af5fa41e294daa7973ddbee4f25fa2edc26fd573)
+
+### 바리악 전사 (variag_warrior)
+
+![바리악 전사](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/variag_warrior.png?v=41929dc696bb12ad8113957f3ab1c900fd299be7)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/variag_warrior.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/variag_warrior.png?v=41929dc696bb12ad8113957f3ab1c900fd299be7)
+
+### 드래곤 기사 (dragon_knight)
+
+![드래곤 기사](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dragon_knight.png?v=cf39d4f69c68b8f50c0b6b5713aa6dcaaedbc53b)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/dragon_knight.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/dragon_knight.png?v=cf39d4f69c68b8f50c0b6b5713aa6dcaaedbc53b)
 
 ### 골핌불 (golfimbul)
 

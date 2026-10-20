@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T04:04:22.780Z",
+  "updatedAt": "2026-10-20T04:04:34.749Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 93,
-    "newlyGeneratedThisSession": 285,
-    "visuallyReviewedThisSession": 290,
+    "pending": 88,
+    "newlyGeneratedThisSession": 290,
+    "visuallyReviewedThisSession": 295,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 285,
-    "persistedReviewAssets": 417,
+    "generatedReviewAssets": 290,
+    "persistedReviewAssets": 422,
     "revisedAfterRejection": 18
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -4412,8 +4412,13 @@
       "faction": "easterling",
       "role": "cavalry",
       "original": "tokens/dragon_knight.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "easterling",
+      "path": "art/full-roster-night-rebuild-20261019/units/dragon_knight.png",
+      "blobSHA": "cf39d4f69c68b8f50c0b6b5713aa6dcaaedbc53b",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "easterling_priest",
@@ -4449,8 +4454,13 @@
       "faction": "easterling",
       "role": "infantry",
       "original": "tokens/variag_warrior.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "easterling",
+      "path": "art/full-roster-night-rebuild-20261019/units/variag_warrior.png",
+      "blobSHA": "41929dc696bb12ad8113957f3ab1c900fd299be7",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "khandish_horseman",
@@ -5182,8 +5192,13 @@
       "faction": "easterling",
       "role": "hero",
       "original": "tokens/khandish_chieftain.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "easterling",
+      "path": "art/full-roster-night-rebuild-20261019/units/khandish_chieftain.png",
+      "blobSHA": "af5fa41e294daa7973ddbee4f25fa2edc26fd573",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "abrakhan_guard",
@@ -5733,8 +5748,13 @@
       "faction": "easterling",
       "role": "infantry",
       "original": "tokens/khandish_warrior.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "easterling",
+      "path": "art/full-roster-night-rebuild-20261019/units/khandish_warrior.png",
+      "blobSHA": "23741b85605347928b4888ae5a82021f8666b1f6",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "easterling_mounted_archer",
@@ -5742,8 +5762,13 @@
       "faction": "easterling",
       "role": "cavalry",
       "original": "tokens/easterling_mounted_archer.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "easterling",
+      "path": "art/full-roster-night-rebuild-20261019/units/easterling_mounted_archer.png",
+      "blobSHA": "c0416841e182e0dc39831ee4f10e2a5449e63f54",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "far_harad_chieftain",
@@ -7519,22 +7544,22 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 417,
+    "count": 422,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
-      "moria": 12,
-      "shire": 14,
-      "arnor": 9,
+      "easterling": 15,
+      "모리아": 12,
+      "호빗": 14,
+      "아르노르": 9,
       "브리": 2,
-      "numenor": 4,
-      "men": 8,
-      "이스터링·칸드": 10,
+      "누메노르": 4,
+      "인간": 8,
       "dunland": 8,
       "isengard": 30,
       "harad": 20,
-      "dwarf": 36,
+      "난쟁이": 36,
       "maiar": 9,
       "elf": 77,
       "mordor": 73,
