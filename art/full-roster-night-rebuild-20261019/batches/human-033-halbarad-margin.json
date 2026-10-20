@@ -1,0 +1,20 @@
+{
+  "batch": "human-033-halbarad-margin",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "halbarad_mounted",
+      "mounted": true,
+      "pose": "회색 수목 깃발·검 · 갈색 말",
+      "detail": "HALBARAD MOUNTED darkGRAY/olive HOOD/CAPE shading shortBROWN beard/moustache, silverchainmail and brown leatherbracers/gloves/boots, silver diamond cloakclasp. DARK BROWN HORSE darkbrownmane/tail, GRAY cloth/barding WHITE TREE motif and palegrayborder, simple brown/gold bridle. Exactly TWO hands: viewerLEFT holds tall BROWN BANNER pole with GOLD rings, SILVER leaf finial and horizontal crossbar GOLD endcaps; hanging GRAY banner PALE WHITE border and WHITE TREE surrounded WHITE STARS, scalloped pointedbottom, whole banner/pole fit clear margin. ViewerRIGHT holds straight SILVER SWORD low pointdown beside horse. Both hands occupied, loose reins drape at saddle with NO third hand. Source mutedgraypalette, no brightbluecape. Rider fiveheadbones independent of banner; uniform zoomout whole silhouette to fit banner, no body/head reproportion.",
+      "prompt": "Edit the mounted banner bearer sprite in reference2, reference1 is the ORIGINAL neutral mounted human skeleton and remains the anatomy authority. Keep all existing character/horse anatomy, body lengths and widths, five-head rider bones, high-anglefront camera, pose, gray/olive hood, beard, chainmail, gray white-tree banner, sword, brown horse and gray white-tree caparison exactly. This is a composition/padding correction only: the silver finial currently touches/crosses the TOP edge. Repaint/zoom out the WHOLE assembly UNIFORMLY by approximately10percent around center so EVERY part of the tall finial, crossbar, banner, sword, horsehooves and tail fits inside a minimum5% clear transparentmargin on ALL four sides. Complete the finial point cleanly. Never shrink just head or lengthen rider legs; rider proportions are locked to reference1. Preserve exactly two hands and existing equipment, crisp stepped pixel art and darkoutlines. Transparentbackground only, no groundshadow/base/text/scenery.",
+      "group": "아르노르",
+      "groupKey": "arnor",
+      "bodyDescription": "인간 기수 5등신 · 하이앵글 프론트뷰",
+      "blobSHA": "9ad2e327176dfa39718410010e88b70d1e3b14e9",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-2d00c696-8ad0-44e6-83be-d4fc92f90546.png"
+    }
+  ]
+}

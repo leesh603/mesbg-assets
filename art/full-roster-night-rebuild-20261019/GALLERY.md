@@ -1,6 +1,12 @@
-# 전체 재제작 검토 — 462종
+# 전체 재제작 검토 — 463종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 할바라드(기마) (halbarad_mounted)
+
+![할바라드(기마)](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/halbarad_mounted.png?v=9ad2e327176dfa39718410010e88b70d1e3b14e9)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/halbarad_mounted.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/halbarad_mounted.png?v=9ad2e327176dfa39718410010e88b70d1e3b14e9)
 
 ### 아르노르 기사 (arnor_knight)
 

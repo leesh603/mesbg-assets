@@ -1,7 +1,7 @@
 {
-  "count": 462,
+  "count": 463,
   "groups": {
-    "arnor": 13,
+    "arnor": 14,
     "men": 11,
     "앙그반드": 4,
     "앙마르": 3,
@@ -26,8 +26,23 @@
     "rohan": 46,
     "gondor": 59
   },
-  "pending": 48,
+  "pending": 47,
   "units": [
+    {
+      "id": "halbarad_mounted",
+      "name": "할바라드(기마)",
+      "group": "아르노르",
+      "role": "hero",
+      "image": "art/full-roster-night-rebuild-20261019/units/halbarad_mounted.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/halbarad_mounted.png",
+      "old": "tokens/halbarad_mounted.png",
+      "status": "검토 대기",
+      "body": "인간 기수 5등신 · 하이앵글 프론트뷰",
+      "pose": "회색 수목 깃발·검 · 갈색 말",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/halbarad_mounted.png?v=9ad2e327176dfa39718410010e88b70d1e3b14e9",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/halbarad_mounted.png?v=9ad2e327176dfa39718410010e88b70d1e3b14e9",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/halbarad_mounted.png"
+    },
     {
       "id": "arnor_knight",
       "name": "아르노르 기사",
