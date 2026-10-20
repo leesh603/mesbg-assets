@@ -1,6 +1,18 @@
-# 전체 재제작 검토 — 157종
+# 전체 재제작 검토 — 159종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 프레알라프 (frealaf)
+
+![프레알라프](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/frealaf.png?v=f091126123392de8d6a16a0d25b58ffb85ede584)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/frealaf.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/frealaf.png?v=f091126123392de8d6a16a0d25b58ffb85ede584)
+
+### 헤라 (hera)
+
+![헤라](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/hera.png?v=3eed58613f6d00cff4e196e09ad6329010548e1c)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/hera.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/hera.png?v=3eed58613f6d00cff4e196e09ad6329010548e1c)
 
 ### 할레스 (haleth)
 

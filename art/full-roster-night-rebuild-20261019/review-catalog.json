@@ -1,12 +1,42 @@
 {
-  "count": 157,
+  "count": 159,
   "groups": {
     "gondor": 59,
     "mordor": 73,
-    "rohan": 25
+    "rohan": 27
   },
-  "pending": 353,
+  "pending": 351,
   "units": [
+    {
+      "id": "frealaf",
+      "name": "프레알라프",
+      "group": "로한",
+      "role": "hero",
+      "image": "art/full-roster-night-rebuild-20261019/units/frealaf.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/frealaf.png",
+      "old": "tokens/frealaf.png",
+      "status": "검토 대기",
+      "body": "인간 5등신 · 하이앵글 프론트뷰",
+      "pose": "표준 인간 뼈대 고정 · 낮은 도끼와 방패",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/frealaf.png?v=f091126123392de8d6a16a0d25b58ffb85ede584",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/frealaf.png?v=f091126123392de8d6a16a0d25b58ffb85ede584",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/frealaf.png"
+    },
+    {
+      "id": "hera",
+      "name": "헤라",
+      "group": "로한",
+      "role": "hero",
+      "image": "art/full-roster-night-rebuild-20261019/units/hera.png",
+      "thumb": "art/full-roster-night-rebuild-20261019/units/hera.png",
+      "old": "tokens/hera.png",
+      "status": "검토 대기",
+      "body": "인간 5등신 · 하이앵글 프론트뷰",
+      "pose": "표준 인간 뼈대 고정 · 방패와 도끼",
+      "imageURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/hera.png?v=3eed58613f6d00cff4e196e09ad6329010548e1c",
+      "thumbURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/hera.png?v=3eed58613f6d00cff4e196e09ad6329010548e1c",
+      "oldURL": "https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/hera.png"
+    },
     {
       "id": "haleth",
       "name": "할레스",

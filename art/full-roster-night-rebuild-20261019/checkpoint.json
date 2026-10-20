@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T00:15:21.354Z",
+  "updatedAt": "2026-10-20T00:24:25.169Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 353,
-    "newlyGeneratedThisSession": 25,
-    "visuallyReviewedThisSession": 25,
+    "pending": 351,
+    "newlyGeneratedThisSession": 27,
+    "visuallyReviewedThisSession": 27,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 25,
-    "persistedReviewAssets": 157,
+    "generatedReviewAssets": 27,
+    "persistedReviewAssets": 159,
     "revisedAfterRejection": 5
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -40,7 +40,9 @@
     "style": "신규 곤도르·모르도르 픽셀 밀도·색감·명암·윤곽선",
     "batchSize": "5–10",
     "center": "몸체; 무기·장식 제외",
-    "deployment": "승인 전 main 병합·배포 금지"
+    "deployment": "승인 전 main 병합·배포 금지",
+    "proportionReference": "art/rebuild-skeletons/bases/human.png and human-mounted.png are immutable anatomy references; do not derive proportions from newly generated dressed characters.",
+    "proportionGate": "Compare skull-to-chin, shoulder-to-pelvis, femur and shin lengths against original skeleton; do not use plume, beard, hair volume, weapon or whole-horse height as head/body measurements. Slimness changes widths, not bone lengths. Human target 5-head body."
   },
   "resume": {
     "nextAction": "Continue nextIds, then next pending faction. Save small batches and refresh every unified gallery artifact together.",
@@ -48,8 +50,8 @@
       "eorl_the_young",
       "helm_hammerhand",
       "sons_of_eorl",
-      "hera",
-      "frealaf"
+      "rohan_yeoman",
+      "eomund"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
@@ -3887,8 +3889,13 @@
       "faction": "rohan",
       "role": "hero",
       "original": "tokens/hera.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "rohan",
+      "path": "art/full-roster-night-rebuild-20261019/units/hera.png",
+      "blobSHA": "3eed58613f6d00cff4e196e09ad6329010548e1c",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "frealaf",
@@ -3896,8 +3903,13 @@
       "faction": "rohan",
       "role": "hero",
       "original": "tokens/frealaf.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "rohan",
+      "path": "art/full-roster-night-rebuild-20261019/units/frealaf.png",
+      "blobSHA": "f091126123392de8d6a16a0d25b58ffb85ede584",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "rohan_yeoman",
@@ -5157,14 +5169,14 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 157,
+    "count": 159,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
       "gondor": 59,
       "mordor": 73,
-      "rohan": 25
+      "rohan": 27
     },
     "updatePolicy": "Every batch must update the unified catalog, all-character HTML and all-character Markdown gallery together. Never replace these pages with Rohan-only galleries. Visible card count must equal total persisted review assets. Keep existing/new comparison and filters. Use refs/heads/art/full-roster-night-rebuild-20261019 absolute raw image URLs so previews work without main deployment.",
     "browserTested": false,
@@ -5190,6 +5202,28 @@
         "witchking_foot"
       ],
       "reference": "art/full-roster-night-rebuild-20261019/references/gw-witchking/official-model-detail.jpg"
+    },
+    "proportionDrift20261020": {
+      "reason": "사용자 지적: 최근 생성본 등신 상승. 프레임/장비가 아닌 원래 표준 뼈대 직접 참조로 재검수",
+      "correctedCandidates": [
+        "hera",
+        "frealaf"
+      ],
+      "uncommittedHeld": [
+        "eorl_the_young",
+        "helm_hammerhand",
+        "sons_of_eorl"
+      ],
+      "reviewPreviouslySaved": [
+        "grimbold",
+        "harding",
+        "rohan_royal_guard_mounted",
+        "dunhere",
+        "haleth"
+      ],
+      "approval": "pending",
+      "referenceFoot": "art/rebuild-skeletons/bases/human.png",
+      "referenceMounted": "art/rebuild-skeletons/bases/human-mounted.png"
     }
   }
 }

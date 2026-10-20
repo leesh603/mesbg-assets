@@ -1,0 +1,24 @@
+{
+  "batch": "rohan-006-proportionfix",
+  "tool": "image_gen",
+  "units": [
+    {
+      "id": "hera",
+      "pose": "표준 인간 뼈대 고정 · 방패와 도끼",
+      "prompt": "EDIT/SKIN the neutral HUMAN BODY in IMAGE1 into the character from IMAGE2. IMAGE1 IS THE LOCKED ANATOMY AND CAMERA MASTER, not merely a mood reference. Preserve IMAGE1 exact size of anatomical skull, skull-to-chin length, head-to-shoulder ratio, crown/chin/shoulder/pelvis/knee/ankle locations, short forearms/thighs/shins and compact FIVE-HEAD adult silhouette. The new sprite must be a costume worn OVER THIS SAME BODY, not a newly invented tall hero. Keep its elevated HIGH-ANGLE FRONT view looking down25–30deg: top of head/shoulders visible. DO NOT lengthen torso, thighs, shins or shrink head for beauty/slenderness. Character identity may alter waist width slightly; bone LENGTHS are immutable. Image2 supplies clothing/equipment/face identity ONLY, ignore its proportions. Original body template on 1199x1312 canvas: crown approximately y110, chin y340, belt/pelvis y640, near boot y1210, far boot y1020. Preserve corresponding ratios even if whole figure uniformly scaled to fit padding. Anatomical skull→chin about1/5 of crown→sole, don't count hair, beard, helmet crest as extra head. Crisp hand-placed PIXEL clusters, dark stepped outlines and restrained earthy palette EXACTLY like image1; no smooth illustration, gradients, photoreal or small-head fashion proportions. All weapons/boots/hair fully contained with clear margin. True transparent RGBA, no base, shadow, ground, label, glow or additional figure. ONE sprite only. HERA female adult: long golden blond braid viewerLEFT, green short cloak with modest pale-fur shoulder trim and silver clasp, mail shoulders, leather bodice over green tunic, green split skirt panels, leather belt, brown gloves/boots. Keep SAME large anatomical head and short limbs as image1; feminine only by face/braid/narrower waist, NOT elongated body/legs. Small AXE down by viewerLEFT hip and green round white-horse shield viewerRIGHT; adjust only forearm angles to hold them, keep upperarm/forearm lengths. Feet and knee arrangement exactly template. No sword, no royal redcrest/crown.",
+      "blobSHA": "3eed58613f6d00cff4e196e09ad6329010548e1c",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-1f9c8937-71cd-4f0c-ae22-9020a4c7745a.png"
+    },
+    {
+      "id": "frealaf",
+      "pose": "표준 인간 뼈대 고정 · 낮은 도끼와 방패",
+      "prompt": "EDIT/SKIN the neutral HUMAN BODY in IMAGE1 into the character from IMAGE2. IMAGE1 IS THE LOCKED ANATOMY AND CAMERA MASTER, not merely a mood reference. Preserve IMAGE1 exact size of anatomical skull, skull-to-chin length, head-to-shoulder ratio, crown/chin/shoulder/pelvis/knee/ankle locations, short forearms/thighs/shins and compact FIVE-HEAD adult silhouette. The new sprite must be a costume worn OVER THIS SAME BODY, not a newly invented tall hero. Keep its elevated HIGH-ANGLE FRONT view looking down25–30deg: top of head/shoulders visible. DO NOT lengthen torso, thighs, shins or shrink head for beauty/slenderness. Character identity may alter waist width slightly; bone LENGTHS are immutable. Image2 supplies clothing/equipment/face identity ONLY, ignore its proportions. Original body template on 1199x1312 canvas: crown approximately y110, chin y340, belt/pelvis y640, near boot y1210, far boot y1020. Preserve corresponding ratios even if whole figure uniformly scaled to fit padding. Anatomical skull→chin about1/5 of crown→sole, don't count hair, beard, helmet crest as extra head. Crisp hand-placed PIXEL clusters, dark stepped outlines and restrained earthy palette EXACTLY like image1; no smooth illustration, gradients, photoreal or small-head fashion proportions. All weapons/boots/hair fully contained with clear margin. True transparent RGBA, no base, shadow, ground, label, glow or additional figure. ONE sprite only. FREALAF male adult: medium brown shoulder-length hair and short beard, green hood thrown back, green cloak silver clasp/pale border, dark chainmail, plain steel shoulder/knee plates, leather belt/brown boots. Same compact normal human body length and head size as image1. Crescent-blade steel AXE with wood handle in viewerLEFT hand, green round white-horse shield viewerRIGHT; axe blade points diagonally down outward left and shield held near right ribs, subtly different forearm angles but same bone lengths. Legs and pelvis exactly template. No crown, no royal fur, no redplume.",
+      "blobSHA": "f091126123392de8d6a16a0d25b58ffb85ede584",
+      "approval": "pending",
+      "inGameVerified": false,
+      "generatedPath": "/workspace/scratch/b57ccc107719/generated_images/exec-71d27744-c28b-4151-bd8b-573bdf8a9126.png"
+    }
+  ]
+}
