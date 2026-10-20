@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-20T03:16:21.813Z",
+  "updatedAt": "2026-10-20T03:23:06.497Z",
   "repository": "leesh603/mesbg-assets",
   "branch": "art/full-roster-night-rebuild-20261019",
   "baseMain": "3f60319f2a02b5837f456ac1a6b241c0dac047e7",
@@ -9,12 +9,12 @@
   "counts": {
     "characters": 510,
     "restoredReviewAssets": 132,
-    "pending": 201,
-    "newlyGeneratedThisSession": 177,
-    "visuallyReviewedThisSession": 182,
+    "pending": 196,
+    "newlyGeneratedThisSession": 182,
+    "visuallyReviewedThisSession": 187,
     "excludedTerrain": 77,
-    "generatedReviewAssets": 177,
-    "persistedReviewAssets": 309,
+    "generatedReviewAssets": 182,
+    "persistedReviewAssets": 314,
     "revisedAfterRejection": 14
   },
   "countingPolicy": "Count character IDs only; exclude 77 terrain IDs. Standard-body trial assets remain references and are not added as 10 extra completions; avoid double counting. Restored means original binary blobs exist and have been copied, not final visual acceptance.",
@@ -53,9 +53,9 @@
     "nextIds": [
       "cave_troll",
       "orc_shaman",
-      "haradrim_spearman",
       "frodo",
-      "balrog"
+      "balrog",
+      "barrow_wight"
     ],
     "commitPolicy": "5–10 IDs per batch; persist verified asset paths and blob SHAs, then update branch head using an expected-SHA lease.",
     "environmentRequired": false
@@ -386,8 +386,13 @@
       "faction": "harad",
       "role": "infantry",
       "original": "tokens/haradrim_spearman.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "harad",
+      "path": "art/full-roster-night-rebuild-20261019/units/haradrim_spearman.png",
+      "blobSHA": "fcac5dc5b1218faa2451cf7620ef2fa7d3a71ca6",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "legolas",
@@ -1251,8 +1256,13 @@
       "faction": "harad",
       "role": "infantry",
       "original": "tokens/haradrim_spear.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "harad",
+      "path": "art/full-roster-night-rebuild-20261019/units/haradrim_spear.png",
+      "blobSHA": "6599f0597f56b58c88219a9fdbbf0b8098241f10",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "haradrim_bow",
@@ -1260,8 +1270,13 @@
       "faction": "harad",
       "role": "infantry",
       "original": "tokens/haradrim_bow.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "harad",
+      "path": "art/full-roster-night-rebuild-20261019/units/haradrim_bow.png",
+      "blobSHA": "0d8ea680a5e6b0624dfd39c2d3b1b94e18d3564f",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "haradrim_priest",
@@ -1269,8 +1284,13 @@
       "faction": "harad",
       "role": "support",
       "original": "tokens/haradrim_priest.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "harad",
+      "path": "art/full-roster-night-rebuild-20261019/units/haradrim_priest.png",
+      "blobSHA": "6b6385e7471eba5ecb72fe3d64fb06505e1151e4",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "easterling_phalanx",
@@ -2212,8 +2232,13 @@
       "faction": "harad",
       "role": "hero",
       "original": "tokens/harad_chieftain.png",
-      "status": "pending",
-      "visualReviewThisSession": false
+      "status": "generated_review_asset",
+      "visualReviewThisSession": true,
+      "source": "harad",
+      "path": "art/full-roster-night-rebuild-20261019/units/harad_chieftain.png",
+      "blobSHA": "e93f9e1f4ef2d9599a72cd066b8696808029c80c",
+      "approval": "pending",
+      "inGameVerified": false
     },
     {
       "id": "uruk_captain",
@@ -6971,11 +6996,12 @@
     "Current generated outputs inspected visually. Browser and in-game size checks pending."
   ],
   "reviewGallery": {
-    "count": 309,
+    "count": 314,
     "path": "art/full-roster-night-rebuild-20261019/index.html",
     "catalog": "art/full-roster-night-rebuild-20261019/review-catalog.json",
     "fallback": "art/full-roster-night-rebuild-20261019/GALLERY.md",
     "groups": {
+      "harad": 5,
       "maiar": 9,
       "난쟁이": 16,
       "isengard": 29,

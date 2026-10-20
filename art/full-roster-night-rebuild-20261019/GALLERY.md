@@ -1,6 +1,36 @@
-# 전체 재제작 검토 — 309종
+# 전체 재제작 검토 — 314종
 
 [전체 검토 페이지](https://htmlpreview.github.io/?https://github.com/leesh603/mesbg-assets/blob/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/index.html)
+
+### 하라드 족장 (harad_chieftain)
+
+![하라드 족장](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/harad_chieftain.png?v=e93f9e1f4ef2d9599a72cd066b8696808029c80c)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/harad_chieftain.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/harad_chieftain.png?v=e93f9e1f4ef2d9599a72cd066b8696808029c80c)
+
+### 하라드림 전사제 (haradrim_priest)
+
+![하라드림 전사제](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/haradrim_priest.png?v=6b6385e7471eba5ecb72fe3d64fb06505e1151e4)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/haradrim_priest.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/haradrim_priest.png?v=6b6385e7471eba5ecb72fe3d64fb06505e1151e4)
+
+### 하라드림 궁수 (haradrim_bow)
+
+![하라드림 궁수](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/haradrim_bow.png?v=0d8ea680a5e6b0624dfd39c2d3b1b94e18d3564f)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/haradrim_bow.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/haradrim_bow.png?v=0d8ea680a5e6b0624dfd39c2d3b1b94e18d3564f)
+
+### 하라드림 창병 (haradrim_spear)
+
+![하라드림 창병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/haradrim_spear.png?v=6599f0597f56b58c88219a9fdbbf0b8098241f10)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/haradrim_spear.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/haradrim_spear.png?v=6599f0597f56b58c88219a9fdbbf0b8098241f10)
+
+### 하라드림 창병 (haradrim_spearman)
+
+![하라드림 창병](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/haradrim_spearman.png?v=fcac5dc5b1218faa2451cf7620ef2fa7d3a71ca6)
+
+[기존](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/tokens/haradrim_spearman.png) · [신규 원화](https://raw.githubusercontent.com/leesh603/mesbg-assets/refs/heads/art/full-roster-night-rebuild-20261019/art/full-roster-night-rebuild-20261019/units/haradrim_spearman.png?v=fcac5dc5b1218faa2451cf7620ef2fa7d3a71ca6)
 
 ### 로스고벨 토끼썰매 (rhosgobel_rabbit)
 
