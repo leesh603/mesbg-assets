@@ -18,4 +18,4 @@ test('river, chasm and forest combat complete through the production AI without 
   console.log(JSON.stringify({map:key,phase:q.phase,round:q.round,steps,survivors:q.alive('good').length}));
  }
 });
-test('preparation save carries a versioned authored layout and unchanged placements',()=>{const h=scenario('osgiliath');h.q.phase='preparation';h.q.save();const s=JSON.parse(h.store.get('mesbg-endless-save'));assert.equal(s.tactical.version,2);assert.equal(s.tactical.battlefield.key,'osgiliath');const old=s.tactical.terrain;assert.equal(h.q.resume(),true);assert.equal(JSON.stringify(h.q.terrain),JSON.stringify(old));});
+test('preparation save carries a versioned authored layout and unchanged placements',()=>{const h=scenario('osgiliath');h.q.phase='preparation';h.q.save();const s=JSON.parse(h.store.get('mesbg-endless-save'));assert.equal(s.tactical.version,3);assert.equal(s.tactical.battlefield.key,'osgiliath');const old=s.tactical.terrain;assert.equal(h.q.resume(),true);assert.equal(JSON.stringify(h.q.terrain),JSON.stringify(old));});

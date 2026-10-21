@@ -1,0 +1,6155 @@
+{
+  "errors": [],
+  "failed": [],
+  "maps": [
+    {
+      "key": "minas_tirith",
+      "stage": 1,
+      "units": 4,
+      "terrain": 11,
+      "cache": 1,
+      "missing": [
+        "aragorn",
+        "warrior_minas_tirith",
+        "rohan_rider",
+        "orc_sword"
+      ]
+    },
+    {
+      "key": "minas_tirith",
+      "stage": 2,
+      "units": 4,
+      "terrain": 12,
+      "cache": 1,
+      "missing": []
+    },
+    {
+      "key": "minas_tirith",
+      "stage": 3,
+      "units": 4,
+      "terrain": 13,
+      "cache": 1,
+      "missing": []
+    },
+    {
+      "key": "minas_tirith",
+      "stage": 4,
+      "units": 4,
+      "terrain": 14,
+      "cache": 1,
+      "missing": []
+    },
+    {
+      "key": "minas_tirith",
+      "stage": 5,
+      "units": 4,
+      "terrain": 15,
+      "cache": 1,
+      "missing": []
+    },
+    {
+      "key": "osgiliath",
+      "stage": 1,
+      "units": 4,
+      "terrain": 12,
+      "cache": 2,
+      "missing": []
+    },
+    {
+      "key": "osgiliath",
+      "stage": 2,
+      "units": 4,
+      "terrain": 13,
+      "cache": 2,
+      "missing": []
+    },
+    {
+      "key": "osgiliath",
+      "stage": 3,
+      "units": 4,
+      "terrain": 14,
+      "cache": 2,
+      "missing": []
+    },
+    {
+      "key": "osgiliath",
+      "stage": 4,
+      "units": 4,
+      "terrain": 15,
+      "cache": 2,
+      "missing": []
+    },
+    {
+      "key": "osgiliath",
+      "stage": 5,
+      "units": 4,
+      "terrain": 16,
+      "cache": 2,
+      "missing": []
+    },
+    {
+      "key": "amon_sul",
+      "stage": 1,
+      "units": 4,
+      "terrain": 8,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "amon_sul",
+      "stage": 2,
+      "units": 4,
+      "terrain": 9,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "amon_sul",
+      "stage": 3,
+      "units": 4,
+      "terrain": 10,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "amon_sul",
+      "stage": 4,
+      "units": 4,
+      "terrain": 11,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "amon_sul",
+      "stage": 5,
+      "units": 4,
+      "terrain": 12,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "helms_deep",
+      "stage": 1,
+      "units": 4,
+      "terrain": 13,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "helms_deep",
+      "stage": 2,
+      "units": 4,
+      "terrain": 14,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "helms_deep",
+      "stage": 3,
+      "units": 4,
+      "terrain": 15,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "helms_deep",
+      "stage": 4,
+      "units": 4,
+      "terrain": 16,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "helms_deep",
+      "stage": 5,
+      "units": 4,
+      "terrain": 17,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "fangorn",
+      "stage": 1,
+      "units": 4,
+      "terrain": 12,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "fangorn",
+      "stage": 2,
+      "units": 4,
+      "terrain": 13,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "fangorn",
+      "stage": 3,
+      "units": 4,
+      "terrain": 14,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "fangorn",
+      "stage": 4,
+      "units": 4,
+      "terrain": 15,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "fangorn",
+      "stage": 5,
+      "units": 4,
+      "terrain": 16,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "edoras",
+      "stage": 1,
+      "units": 4,
+      "terrain": 8,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "edoras",
+      "stage": 2,
+      "units": 4,
+      "terrain": 9,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "edoras",
+      "stage": 3,
+      "units": 4,
+      "terrain": 10,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "edoras",
+      "stage": 4,
+      "units": 4,
+      "terrain": 11,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "edoras",
+      "stage": 5,
+      "units": 4,
+      "terrain": 12,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "moria",
+      "stage": 1,
+      "units": 4,
+      "terrain": 8,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "moria",
+      "stage": 2,
+      "units": 4,
+      "terrain": 9,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "moria",
+      "stage": 3,
+      "units": 4,
+      "terrain": 10,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "moria",
+      "stage": 4,
+      "units": 4,
+      "terrain": 11,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "moria",
+      "stage": 5,
+      "units": 4,
+      "terrain": 12,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "isengard",
+      "stage": 1,
+      "units": 4,
+      "terrain": 10,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "isengard",
+      "stage": 2,
+      "units": 4,
+      "terrain": 11,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "isengard",
+      "stage": 3,
+      "units": 4,
+      "terrain": 12,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "isengard",
+      "stage": 4,
+      "units": 4,
+      "terrain": 13,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "isengard",
+      "stage": 5,
+      "units": 4,
+      "terrain": 14,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "black_gate",
+      "stage": 1,
+      "units": 4,
+      "terrain": 8,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "black_gate",
+      "stage": 2,
+      "units": 4,
+      "terrain": 9,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "black_gate",
+      "stage": 3,
+      "units": 4,
+      "terrain": 10,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "black_gate",
+      "stage": 4,
+      "units": 4,
+      "terrain": 11,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "black_gate",
+      "stage": 5,
+      "units": 4,
+      "terrain": 12,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "gorgoroth",
+      "stage": 1,
+      "units": 4,
+      "terrain": 6,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "gorgoroth",
+      "stage": 2,
+      "units": 4,
+      "terrain": 7,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "gorgoroth",
+      "stage": 3,
+      "units": 4,
+      "terrain": 8,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "gorgoroth",
+      "stage": 4,
+      "units": 4,
+      "terrain": 9,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "gorgoroth",
+      "stage": 5,
+      "units": 4,
+      "terrain": 10,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "rivendell",
+      "stage": 1,
+      "units": 4,
+      "terrain": 10,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "rivendell",
+      "stage": 2,
+      "units": 4,
+      "terrain": 11,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "rivendell",
+      "stage": 3,
+      "units": 4,
+      "terrain": 12,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "rivendell",
+      "stage": 4,
+      "units": 4,
+      "terrain": 13,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "rivendell",
+      "stage": 5,
+      "units": 4,
+      "terrain": 14,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "lothlorien",
+      "stage": 1,
+      "units": 4,
+      "terrain": 7,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "lothlorien",
+      "stage": 2,
+      "units": 4,
+      "terrain": 8,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "lothlorien",
+      "stage": 3,
+      "units": 4,
+      "terrain": 9,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "lothlorien",
+      "stage": 4,
+      "units": 4,
+      "terrain": 10,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "lothlorien",
+      "stage": 5,
+      "units": 4,
+      "terrain": 11,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "pelennor",
+      "stage": 1,
+      "units": 4,
+      "terrain": 7,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "pelennor",
+      "stage": 2,
+      "units": 4,
+      "terrain": 8,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "pelennor",
+      "stage": 3,
+      "units": 4,
+      "terrain": 9,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "pelennor",
+      "stage": 4,
+      "units": 4,
+      "terrain": 10,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "pelennor",
+      "stage": 5,
+      "units": 4,
+      "terrain": 11,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "dead_marshes",
+      "stage": 1,
+      "units": 4,
+      "terrain": 15,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "dead_marshes",
+      "stage": 2,
+      "units": 4,
+      "terrain": 16,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "dead_marshes",
+      "stage": 3,
+      "units": 4,
+      "terrain": 17,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "dead_marshes",
+      "stage": 4,
+      "units": 4,
+      "terrain": 18,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "dead_marshes",
+      "stage": 5,
+      "units": 4,
+      "terrain": 19,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "dunharrow",
+      "stage": 1,
+      "units": 4,
+      "terrain": 7,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "dunharrow",
+      "stage": 2,
+      "units": 4,
+      "terrain": 8,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "dunharrow",
+      "stage": 3,
+      "units": 4,
+      "terrain": 9,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "dunharrow",
+      "stage": 4,
+      "units": 4,
+      "terrain": 10,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "dunharrow",
+      "stage": 5,
+      "units": 4,
+      "terrain": 11,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "erebor",
+      "stage": 1,
+      "units": 4,
+      "terrain": 12,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "erebor",
+      "stage": 2,
+      "units": 4,
+      "terrain": 13,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "erebor",
+      "stage": 3,
+      "units": 4,
+      "terrain": 14,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "erebor",
+      "stage": 4,
+      "units": 4,
+      "terrain": 15,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "erebor",
+      "stage": 5,
+      "units": 4,
+      "terrain": 16,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "mirkwood",
+      "stage": 1,
+      "units": 4,
+      "terrain": 8,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "mirkwood",
+      "stage": 2,
+      "units": 4,
+      "terrain": 9,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "mirkwood",
+      "stage": 3,
+      "units": 4,
+      "terrain": 10,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "mirkwood",
+      "stage": 4,
+      "units": 4,
+      "terrain": 11,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "mirkwood",
+      "stage": 5,
+      "units": 4,
+      "terrain": 12,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "dol_guldur",
+      "stage": 1,
+      "units": 4,
+      "terrain": 7,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "dol_guldur",
+      "stage": 2,
+      "units": 4,
+      "terrain": 8,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "dol_guldur",
+      "stage": 3,
+      "units": 4,
+      "terrain": 9,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "dol_guldur",
+      "stage": 4,
+      "units": 4,
+      "terrain": 10,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "dol_guldur",
+      "stage": 5,
+      "units": 4,
+      "terrain": 11,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "gondolin",
+      "stage": 1,
+      "units": 4,
+      "terrain": 11,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "gondolin",
+      "stage": 2,
+      "units": 4,
+      "terrain": 12,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "gondolin",
+      "stage": 3,
+      "units": 4,
+      "terrain": 13,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "gondolin",
+      "stage": 4,
+      "units": 4,
+      "terrain": 14,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "gondolin",
+      "stage": 5,
+      "units": 4,
+      "terrain": 15,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "angband",
+      "stage": 1,
+      "units": 4,
+      "terrain": 10,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "angband",
+      "stage": 2,
+      "units": 4,
+      "terrain": 11,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "angband",
+      "stage": 3,
+      "units": 4,
+      "terrain": 12,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "angband",
+      "stage": 4,
+      "units": 4,
+      "terrain": 13,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "angband",
+      "stage": 5,
+      "units": 4,
+      "terrain": 14,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "minas_court",
+      "stage": 1,
+      "units": 4,
+      "terrain": 6,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "minas_court",
+      "stage": 2,
+      "units": 4,
+      "terrain": 7,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "minas_court",
+      "stage": 3,
+      "units": 4,
+      "terrain": 8,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "minas_court",
+      "stage": 4,
+      "units": 4,
+      "terrain": 9,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "minas_court",
+      "stage": 5,
+      "units": 4,
+      "terrain": 10,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "orthanc",
+      "stage": 1,
+      "units": 4,
+      "terrain": 6,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "orthanc",
+      "stage": 2,
+      "units": 4,
+      "terrain": 7,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "orthanc",
+      "stage": 3,
+      "units": 4,
+      "terrain": 8,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "orthanc",
+      "stage": 4,
+      "units": 4,
+      "terrain": 9,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "orthanc",
+      "stage": 5,
+      "units": 4,
+      "terrain": 10,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "barad_dur",
+      "stage": 1,
+      "units": 4,
+      "terrain": 6,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "barad_dur",
+      "stage": 2,
+      "units": 4,
+      "terrain": 7,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "barad_dur",
+      "stage": 3,
+      "units": 4,
+      "terrain": 8,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "barad_dur",
+      "stage": 4,
+      "units": 4,
+      "terrain": 9,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "barad_dur",
+      "stage": 5,
+      "units": 4,
+      "terrain": 10,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "minas_morgul",
+      "stage": 1,
+      "units": 4,
+      "terrain": 13,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "minas_morgul",
+      "stage": 2,
+      "units": 4,
+      "terrain": 14,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "minas_morgul",
+      "stage": 3,
+      "units": 4,
+      "terrain": 15,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "minas_morgul",
+      "stage": 4,
+      "units": 4,
+      "terrain": 16,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "minas_morgul",
+      "stage": 5,
+      "units": 4,
+      "terrain": 17,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "dale",
+      "stage": 1,
+      "units": 4,
+      "terrain": 10,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "dale",
+      "stage": 2,
+      "units": 4,
+      "terrain": 11,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "dale",
+      "stage": 3,
+      "units": 4,
+      "terrain": 12,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "dale",
+      "stage": 4,
+      "units": 4,
+      "terrain": 13,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "dale",
+      "stage": 5,
+      "units": 4,
+      "terrain": 14,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "hornburg",
+      "stage": 1,
+      "units": 4,
+      "terrain": 8,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "hornburg",
+      "stage": 2,
+      "units": 4,
+      "terrain": 9,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "hornburg",
+      "stage": 3,
+      "units": 4,
+      "terrain": 10,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "hornburg",
+      "stage": 4,
+      "units": 4,
+      "terrain": 11,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "hornburg",
+      "stage": 5,
+      "units": 4,
+      "terrain": 12,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "erebor_hall",
+      "stage": 1,
+      "units": 4,
+      "terrain": 6,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "erebor_hall",
+      "stage": 2,
+      "units": 4,
+      "terrain": 7,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "erebor_hall",
+      "stage": 3,
+      "units": 4,
+      "terrain": 8,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "erebor_hall",
+      "stage": 4,
+      "units": 4,
+      "terrain": 9,
+      "cache": 3,
+      "missing": []
+    },
+    {
+      "key": "erebor_hall",
+      "stage": 5,
+      "units": 4,
+      "terrain": 10,
+      "cache": 3,
+      "missing": []
+    }
+  ],
+  "title": [
+    {
+      "width": 320,
+      "overflow": false,
+      "buttons": [
+        {
+          "x": 20,
+          "y": 538.796875,
+          "right": 69.15625,
+          "bottom": 606.953125,
+          "width": 49.15625,
+          "label": "도전"
+        },
+        {
+          "x": 73.953125,
+          "y": 538.796875,
+          "right": 123.109375,
+          "bottom": 606.953125,
+          "width": 49.15625,
+          "label": "도감"
+        },
+        {
+          "x": 127.90625,
+          "y": 538.796875,
+          "right": 177.078125,
+          "bottom": 606.96875,
+          "width": 49.171875,
+          "label": "명예"
+        },
+        {
+          "x": 181.875,
+          "y": 538.796875,
+          "right": 231.03125,
+          "bottom": 606.953125,
+          "width": 49.15625,
+          "label": "대전"
+        },
+        {
+          "x": 235.828125,
+          "y": 538.796875,
+          "right": 284.984375,
+          "bottom": 606.953125,
+          "width": 49.15625,
+          "label": "설정"
+        }
+      ],
+      "dpr": 1
+    },
+    {
+      "width": 320,
+      "overflow": false,
+      "buttons": [
+        {
+          "x": 19.046875,
+          "y": 535.1875,
+          "right": 68.578125,
+          "bottom": 606.4375,
+          "width": 49.53125,
+          "label": "도전"
+        },
+        {
+          "x": 73.375,
+          "y": 535.1875,
+          "right": 122.921875,
+          "bottom": 606.453125,
+          "width": 49.546875,
+          "label": "도감"
+        },
+        {
+          "x": 127.71875,
+          "y": 535.1875,
+          "right": 177.265625,
+          "bottom": 606.453125,
+          "width": 49.546875,
+          "label": "명예"
+        },
+        {
+          "x": 182.0625,
+          "y": 535.1875,
+          "right": 231.609375,
+          "bottom": 606.453125,
+          "width": 49.546875,
+          "label": "대전"
+        },
+        {
+          "x": 236.40625,
+          "y": 535.1875,
+          "right": 285.953125,
+          "bottom": 606.453125,
+          "width": 49.546875,
+          "label": "설정"
+        }
+      ],
+      "dpr": 2.625
+    },
+    {
+      "width": 360,
+      "overflow": false,
+      "buttons": [
+        {
+          "x": 20,
+          "y": 540.578125,
+          "right": 76.6875,
+          "bottom": 616.265625,
+          "width": 56.6875,
+          "label": "도전"
+        },
+        {
+          "x": 82.078125,
+          "y": 540.578125,
+          "right": 138.765625,
+          "bottom": 616.265625,
+          "width": 56.6875,
+          "label": "도감"
+        },
+        {
+          "x": 144.15625,
+          "y": 540.578125,
+          "right": 200.84375,
+          "bottom": 616.265625,
+          "width": 56.6875,
+          "label": "명예"
+        },
+        {
+          "x": 206.234375,
+          "y": 540.578125,
+          "right": 262.921875,
+          "bottom": 616.265625,
+          "width": 56.6875,
+          "label": "대전"
+        },
+        {
+          "x": 268.3125,
+          "y": 540.578125,
+          "right": 325,
+          "bottom": 616.265625,
+          "width": 56.6875,
+          "label": "설정"
+        }
+      ],
+      "dpr": 1
+    },
+    {
+      "width": 360,
+      "overflow": false,
+      "buttons": [
+        {
+          "x": 19.046875,
+          "y": 536.09375,
+          "right": 76.109375,
+          "bottom": 614.875,
+          "width": 57.0625,
+          "label": "도전"
+        },
+        {
+          "x": 81.5,
+          "y": 536.09375,
+          "right": 138.5625,
+          "bottom": 614.875,
+          "width": 57.0625,
+          "label": "도감"
+        },
+        {
+          "x": 143.953125,
+          "y": 536.09375,
+          "right": 201.03125,
+          "bottom": 614.890625,
+          "width": 57.078125,
+          "label": "명예"
+        },
+        {
+          "x": 206.421875,
+          "y": 536.09375,
+          "right": 263.484375,
+          "bottom": 614.875,
+          "width": 57.0625,
+          "label": "대전"
+        },
+        {
+          "x": 268.875,
+          "y": 536.09375,
+          "right": 325.9375,
+          "bottom": 614.875,
+          "width": 57.0625,
+          "label": "설정"
+        }
+      ],
+      "dpr": 2.625
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "buttons": [
+        {
+          "x": 20,
+          "y": 539.515625,
+          "right": 82.3125,
+          "bottom": 620.515625,
+          "width": 62.3125,
+          "label": "도전"
+        },
+        {
+          "x": 88.15625,
+          "y": 539.515625,
+          "right": 150.484375,
+          "bottom": 620.515625,
+          "width": 62.328125,
+          "label": "도감"
+        },
+        {
+          "x": 156.328125,
+          "y": 539.515625,
+          "right": 218.65625,
+          "bottom": 620.515625,
+          "width": 62.328125,
+          "label": "명예"
+        },
+        {
+          "x": 224.5,
+          "y": 539.515625,
+          "right": 286.828125,
+          "bottom": 620.515625,
+          "width": 62.328125,
+          "label": "대전"
+        },
+        {
+          "x": 292.671875,
+          "y": 539.515625,
+          "right": 355,
+          "bottom": 620.515625,
+          "width": 62.328125,
+          "label": "설정"
+        }
+      ],
+      "dpr": 1
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "buttons": [
+        {
+          "x": 19.046875,
+          "y": 535.109375,
+          "right": 81.75,
+          "bottom": 615.875,
+          "width": 62.703125,
+          "label": "도전"
+        },
+        {
+          "x": 87.59375,
+          "y": 535.109375,
+          "right": 150.296875,
+          "bottom": 615.875,
+          "width": 62.703125,
+          "label": "도감"
+        },
+        {
+          "x": 156.140625,
+          "y": 535.109375,
+          "right": 218.84375,
+          "bottom": 615.875,
+          "width": 62.703125,
+          "label": "명예"
+        },
+        {
+          "x": 224.6875,
+          "y": 535.109375,
+          "right": 287.390625,
+          "bottom": 615.875,
+          "width": 62.703125,
+          "label": "대전"
+        },
+        {
+          "x": 293.234375,
+          "y": 535.109375,
+          "right": 355.9375,
+          "bottom": 615.875,
+          "width": 62.703125,
+          "label": "설정"
+        }
+      ],
+      "dpr": 2.625
+    },
+    {
+      "width": 412,
+      "overflow": false,
+      "buttons": [
+        {
+          "x": 20,
+          "y": 539.515625,
+          "right": 86.453125,
+          "bottom": 620.515625,
+          "width": 66.453125,
+          "label": "도전"
+        },
+        {
+          "x": 92.625,
+          "y": 539.515625,
+          "right": 159.09375,
+          "bottom": 620.515625,
+          "width": 66.46875,
+          "label": "도감"
+        },
+        {
+          "x": 165.265625,
+          "y": 539.515625,
+          "right": 231.71875,
+          "bottom": 620.515625,
+          "width": 66.453125,
+          "label": "명예"
+        },
+        {
+          "x": 237.890625,
+          "y": 539.515625,
+          "right": 304.359375,
+          "bottom": 620.515625,
+          "width": 66.46875,
+          "label": "대전"
+        },
+        {
+          "x": 310.53125,
+          "y": 539.515625,
+          "right": 377,
+          "bottom": 620.515625,
+          "width": 66.46875,
+          "label": "설정"
+        }
+      ],
+      "dpr": 1
+    },
+    {
+      "width": 412,
+      "overflow": false,
+      "buttons": [
+        {
+          "x": 19.046875,
+          "y": 535.109375,
+          "right": 85.890625,
+          "bottom": 615.875,
+          "width": 66.84375,
+          "label": "도전"
+        },
+        {
+          "x": 92.0625,
+          "y": 535.109375,
+          "right": 158.90625,
+          "bottom": 615.875,
+          "width": 66.84375,
+          "label": "도감"
+        },
+        {
+          "x": 165.078125,
+          "y": 535.109375,
+          "right": 231.921875,
+          "bottom": 615.875,
+          "width": 66.84375,
+          "label": "명예"
+        },
+        {
+          "x": 238.09375,
+          "y": 535.109375,
+          "right": 304.9375,
+          "bottom": 615.875,
+          "width": 66.84375,
+          "label": "대전"
+        },
+        {
+          "x": 311.109375,
+          "y": 535.109375,
+          "right": 377.953125,
+          "bottom": 615.875,
+          "width": 66.84375,
+          "label": "설정"
+        }
+      ],
+      "dpr": 2.625
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "buttons": [
+        {
+          "x": 164,
+          "y": 539.515625,
+          "right": 241,
+          "bottom": 620.515625,
+          "width": 77,
+          "label": "도전"
+        },
+        {
+          "x": 251,
+          "y": 539.515625,
+          "right": 328,
+          "bottom": 620.515625,
+          "width": 77,
+          "label": "도감"
+        },
+        {
+          "x": 338,
+          "y": 539.515625,
+          "right": 415,
+          "bottom": 620.515625,
+          "width": 77,
+          "label": "명예"
+        },
+        {
+          "x": 425,
+          "y": 539.515625,
+          "right": 502,
+          "bottom": 620.515625,
+          "width": 77,
+          "label": "대전"
+        },
+        {
+          "x": 512,
+          "y": 539.515625,
+          "right": 589,
+          "bottom": 620.515625,
+          "width": 77,
+          "label": "설정"
+        }
+      ],
+      "dpr": 1
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "buttons": [
+        {
+          "x": 163.046875,
+          "y": 535.109375,
+          "right": 240.421875,
+          "bottom": 615.875,
+          "width": 77.375,
+          "label": "도전"
+        },
+        {
+          "x": 250.421875,
+          "y": 535.109375,
+          "right": 327.796875,
+          "bottom": 615.875,
+          "width": 77.375,
+          "label": "도감"
+        },
+        {
+          "x": 337.796875,
+          "y": 535.109375,
+          "right": 415.1875,
+          "bottom": 615.875,
+          "width": 77.390625,
+          "label": "명예"
+        },
+        {
+          "x": 425.1875,
+          "y": 535.109375,
+          "right": 502.5625,
+          "bottom": 615.875,
+          "width": 77.375,
+          "label": "대전"
+        },
+        {
+          "x": 512.5625,
+          "y": 535.109375,
+          "right": 589.9375,
+          "bottom": 615.875,
+          "width": 77.375,
+          "label": "설정"
+        }
+      ],
+      "dpr": 2.625
+    }
+  ],
+  "tokens": [
+    {
+      "id": "aragorn",
+      "loaded": true,
+      "w": 348,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 113.71438711304042,
+      "displayHeight": 125.47794440059633
+    },
+    {
+      "id": "gandalf",
+      "loaded": true,
+      "w": 343,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 122.16040512600834,
+      "displayHeight": 136.76266929558952
+    },
+    {
+      "id": "warrior_minas_tirith",
+      "loaded": true,
+      "w": 341,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 95.43400467070887,
+      "displayHeight": 107.46820467317363
+    },
+    {
+      "id": "orc_sword",
+      "loaded": true,
+      "w": 349,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 79.72266078687574,
+      "displayHeight": 87.71777003484321
+    },
+    {
+      "id": "cave_troll",
+      "loaded": true,
+      "w": 298,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 172.89029535864984,
+      "displayHeight": 222.78481012658233
+    },
+    {
+      "id": "glorfindel_foot",
+      "loaded": true,
+      "w": 340,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 90.81563995215312,
+      "displayHeight": 102.56825218125527
+    },
+    {
+      "id": "glorfindel_mounted",
+      "loaded": true,
+      "w": 358,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 113.71862155532756,
+      "displayHeight": 121.97751585822847
+    },
+    {
+      "id": "witchking_fellbeast",
+      "loaded": true,
+      "w": 384,
+      "h": 265,
+      "visible": true,
+      "displayWidth": 370.6199460916442,
+      "displayHeight": 255.76636904761904
+    },
+    {
+      "id": "saruman",
+      "loaded": true,
+      "w": 343,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 89.64668198114272,
+      "displayHeight": 100.36246612466124
+    },
+    {
+      "id": "orc_captain",
+      "loaded": true,
+      "w": 356,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 112.03097578097578,
+      "displayHeight": 120.84240084240085
+    },
+    {
+      "id": "orc_archer",
+      "loaded": true,
+      "w": 353,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 87.29529565182646,
+      "displayHeight": 94.96145476006052
+    },
+    {
+      "id": "warg_rider",
+      "loaded": true,
+      "w": 247,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 64.21149537173083,
+      "displayHeight": 99.82677822973538
+    },
+    {
+      "id": "legolas",
+      "loaded": true,
+      "w": 335,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 89.51638106031037,
+      "displayHeight": 102.60982187211695
+    },
+    {
+      "id": "gimli",
+      "loaded": true,
+      "w": 384,
+      "h": 378,
+      "visible": true,
+      "displayWidth": 74.83204184235113,
+      "displayHeight": 73.6627911885644
+    },
+    {
+      "id": "boromir",
+      "loaded": true,
+      "w": 344,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 84.28638741599023,
+      "displayHeight": 94.0871301387798
+    },
+    {
+      "id": "elrond",
+      "loaded": true,
+      "w": 355,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 86.9459216262115,
+      "displayHeight": 94.04854620976117
+    },
+    {
+      "id": "gondor_archer",
+      "loaded": true,
+      "w": 353,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 99.96435374133814,
+      "displayHeight": 108.74309302173894
+    },
+    {
+      "id": "elf_swordsman",
+      "loaded": true,
+      "w": 355,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 91.7937727883526,
+      "displayHeight": 99.29241901613351
+    },
+    {
+      "id": "dwarf_guardian",
+      "loaded": true,
+      "w": 384,
+      "h": 376,
+      "visible": true,
+      "displayWidth": 75.3029755788902,
+      "displayHeight": 73.73416358766332
+    },
+    {
+      "id": "ithilien_ranger",
+      "loaded": true,
+      "w": 352,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 97.31804586241276,
+      "displayHeight": 106.16514094081393
+    },
+    {
+      "id": "rohan_rider",
+      "loaded": true,
+      "w": 290,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 85.23009479527106,
+      "displayHeight": 112.85640138408306
+    },
+    {
+      "id": "balrog",
+      "loaded": true,
+      "w": 384,
+      "h": 382,
+      "visible": true,
+      "displayWidth": 385.99063102783134,
+      "displayHeight": 383.9802631578947
+    },
+    {
+      "id": "moria_goblin",
+      "loaded": true,
+      "w": 349,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 62.66464034319839,
+      "displayHeight": 68.94905986185725
+    },
+    {
+      "id": "uruk_berserker",
+      "loaded": true,
+      "w": 351,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 98.03694449107827,
+      "displayHeight": 107.25409311844462
+    },
+    {
+      "id": "sauron",
+      "loaded": true,
+      "w": 380,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 178.13184595872255,
+      "displayHeight": 180.00691802144593
+    },
+    {
+      "id": "mt_spear",
+      "loaded": true,
+      "w": 353,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 103.70546271718148,
+      "displayHeight": 112.81274131274131
+    },
+    {
+      "id": "citadel_guard",
+      "loaded": true,
+      "w": 343,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 98.35351738934058,
+      "displayHeight": 110.11006028427633
+    },
+    {
+      "id": "great_eagle",
+      "loaded": true,
+      "w": 384,
+      "h": 349,
+      "visible": true,
+      "displayWidth": 403.77329239540563,
+      "displayHeight": 366.97103918228277
+    },
+    {
+      "id": "theoden",
+      "loaded": true,
+      "w": 383,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 136.4566482207246,
+      "displayHeight": 136.8129318975411
+    },
+    {
+      "id": "gothmog",
+      "loaded": true,
+      "w": 384,
+      "h": 381,
+      "visible": true,
+      "displayWidth": 107.25017982291423,
+      "displayHeight": 106.41228779304771
+    },
+    {
+      "id": "morgoth",
+      "loaded": true,
+      "w": 361,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 281.54178592521924,
+      "displayHeight": 299.4793512334742
+    },
+    {
+      "id": "gundabad_warg_rider",
+      "loaded": true,
+      "w": 333,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 93.47799788390564,
+      "displayHeight": 107.79444801026958
+    },
+    {
+      "id": "haradrim_raider",
+      "loaded": true,
+      "w": 190,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 65.7380684632447,
+      "displayHeight": 132.8600962625577
+    },
+    {
+      "id": "dragon_knight",
+      "loaded": true,
+      "w": 355,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 91.73336868374922,
+      "displayHeight": 99.22708049171749
+    },
+    {
+      "id": "khandish_horseman",
+      "loaded": true,
+      "w": 270,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 109.52474435986794,
+      "displayHeight": 155.76852531181217
+    },
+    {
+      "id": "khandish_chieftain",
+      "loaded": true,
+      "w": 352,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 96.21094758585075,
+      "displayHeight": 104.95739736638264
+    },
+    {
+      "id": "khandish_chariot",
+      "loaded": true,
+      "w": 269,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 281.2886751163731,
+      "displayHeight": 401.5421979356404
+    },
+    {
+      "id": "sons_of_eorl",
+      "loaded": true,
+      "w": 259,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 80.1488436212563,
+      "displayHeight": 118.83071795583946
+    },
+    {
+      "id": "dead_rider",
+      "loaded": true,
+      "w": 352,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 108.8386140485934,
+      "displayHeight": 118.73303350755643
+    },
+    {
+      "id": "fingolfin_mounted",
+      "loaded": true,
+      "w": 384,
+      "h": 382,
+      "visible": true,
+      "displayWidth": 116.40681369729406,
+      "displayHeight": 115.80052820928732
+    },
+    {
+      "id": "turgon",
+      "loaded": true,
+      "w": 356,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 111.62083333333334,
+      "displayHeight": 120.4
+    },
+    {
+      "id": "fingon",
+      "loaded": true,
+      "w": 363,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 123.67018614891911,
+      "displayHeight": 130.8246597277822
+    },
+    {
+      "id": "ecthelion",
+      "loaded": true,
+      "w": 359,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 93.80121527777777,
+      "displayHeight": 100.33333333333333
+    },
+    {
+      "id": "maedhros",
+      "loaded": true,
+      "w": 352,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 96.27882599580711,
+      "displayHeight": 105.0314465408805
+    },
+    {
+      "id": "finrod_felagund",
+      "loaded": true,
+      "w": 356,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 94.0660020849622,
+      "displayHeight": 101.46445168715024
+    },
+    {
+      "id": "celegorm",
+      "loaded": true,
+      "w": 357,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 95.34599585380838,
+      "displayHeight": 102.55703755703757
+    },
+    {
+      "id": "tuor",
+      "loaded": true,
+      "w": 352,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 100.89679261061754,
+      "displayHeight": 110.06922830249187
+    },
+    {
+      "id": "hurin_thalion",
+      "loaded": true,
+      "w": 355,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 95.94743344331475,
+      "displayHeight": 103.78539279502215
+    },
+    {
+      "id": "thingol",
+      "loaded": true,
+      "w": 354,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 91.46817961851089,
+      "displayHeight": 99.21972026414738
+    },
+    {
+      "id": "tom_bombadil",
+      "loaded": true,
+      "w": 361,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 111.7495563880126,
+      "displayHeight": 118.86933421882782
+    },
+    {
+      "id": "goldberry",
+      "loaded": true,
+      "w": 355,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 86.92898329079931,
+      "displayHeight": 94.03022417934348
+    },
+    {
+      "id": "witchking_foot",
+      "loaded": true,
+      "w": 384,
+      "h": 382,
+      "visible": true,
+      "displayWidth": 107.828532959423,
+      "displayHeight": 107.266926016926
+    },
+    {
+      "id": "witchking_mounted",
+      "loaded": true,
+      "w": 349,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 158.98494653154316,
+      "displayHeight": 174.92899561063774
+    },
+    {
+      "id": "witchking_mounted_sheet",
+      "loaded": true,
+      "w": 342,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 167.04067535932052,
+      "displayHeight": 187.55444250871076
+    },
+    {
+      "id": "witchking_foot_mace",
+      "loaded": true,
+      "w": 384,
+      "h": 375,
+      "visible": true,
+      "displayWidth": 142.65848077750846,
+      "displayHeight": 139.3149226342856
+    },
+    {
+      "id": "nazgul_sword",
+      "loaded": true,
+      "w": 363,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 101.35307631707894,
+      "displayHeight": 107.21647742633144
+    },
+    {
+      "id": "orc_shaman",
+      "loaded": true,
+      "w": 347,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 90.16484454395327,
+      "displayHeight": 99.77896341463416
+    },
+    {
+      "id": "orc_spearman",
+      "loaded": true,
+      "w": 354,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 86.5190183909095,
+      "displayHeight": 93.85113859352894
+    },
+    {
+      "id": "uruk_swordshield",
+      "loaded": true,
+      "w": 302,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 84.30424540017485,
+      "displayHeight": 107.19480209823557
+    },
+    {
+      "id": "morannon_orc",
+      "loaded": true,
+      "w": 354,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 79.15196733757499,
+      "displayHeight": 85.85976117974236
+    },
+    {
+      "id": "haradrim_spearman",
+      "loaded": true,
+      "w": 353,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 101.19823991466255,
+      "displayHeight": 110.08533747090769
+    },
+    {
+      "id": "eowyn",
+      "loaded": true,
+      "w": 353,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 86.42751417219858,
+      "displayHeight": 94.01746584171178
+    },
+    {
+      "id": "frodo",
+      "loaded": true,
+      "w": 353,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 54.32395748368678,
+      "displayHeight": 59.09461663947798
+    },
+    {
+      "id": "rohan_royal_guard",
+      "loaded": true,
+      "w": 315,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 88.12874183599418,
+      "displayHeight": 107.43313290483101
+    },
+    {
+      "id": "mountain_troll",
+      "loaded": true,
+      "w": 383,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 219.589678964679,
+      "displayHeight": 220.16302016302018
+    },
+    {
+      "id": "shelob",
+      "loaded": true,
+      "w": 384,
+      "h": 383,
+      "visible": true,
+      "displayWidth": 376.60102909178937,
+      "displayHeight": 375.6202972451961
+    },
+    {
+      "id": "barrow_wight",
+      "loaded": true,
+      "w": 357,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 88.32693501445029,
+      "displayHeight": 95.0071233768877
+    },
+    {
+      "id": "nazgul_sword_2",
+      "loaded": true,
+      "w": 344,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 96.07823949812543,
+      "displayHeight": 107.25012781186093
+    },
+    {
+      "id": "nazgul_mace",
+      "loaded": true,
+      "w": 363,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 129.69189833467638,
+      "displayHeight": 137.19473542841797
+    },
+    {
+      "id": "nazgul_mounted",
+      "loaded": true,
+      "w": 363,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 127.26830187799266,
+      "displayHeight": 134.6309309122567
+    },
+    {
+      "id": "morgul_knight",
+      "loaded": true,
+      "w": 356,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 94.04507133592737,
+      "displayHeight": 101.44187469942727
+    },
+    {
+      "id": "dwimmerlaik",
+      "loaded": true,
+      "w": 347,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 103.274920568322,
+      "displayHeight": 114.28694379895
+    },
+    {
+      "id": "mt_swordshield",
+      "loaded": true,
+      "w": 271,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 69.29808211202,
+      "displayHeight": 98.1935923653715
+    },
+    {
+      "id": "mt_spearshield",
+      "loaded": true,
+      "w": 339,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 88.6012396256775,
+      "displayHeight": 100.36246612466124
+    },
+    {
+      "id": "mt_bowman",
+      "loaded": true,
+      "w": 353,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 97.60514138087667,
+      "displayHeight": 106.17669770610948
+    },
+    {
+      "id": "mt_captain",
+      "loaded": true,
+      "w": 358,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 96.76173236575376,
+      "displayHeight": 103.78912074985877
+    },
+    {
+      "id": "mt_fountain_guard",
+      "loaded": true,
+      "w": 359,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 104.28242265651687,
+      "displayHeight": 111.54442980529939
+    },
+    {
+      "id": "orc_sword2",
+      "loaded": true,
+      "w": 354,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 76.60538086695112,
+      "displayHeight": 83.09736229635377
+    },
+    {
+      "id": "orc_swordshield",
+      "loaded": true,
+      "w": 381,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 82.4535395365544,
+      "displayHeight": 83.10278000534616
+    },
+    {
+      "id": "orc_spear2",
+      "loaded": true,
+      "w": 372,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 101.730497170574,
+      "displayHeight": 105.01212611156025
+    },
+    {
+      "id": "orc_twohanded",
+      "loaded": true,
+      "w": 349,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 108.28003181501035,
+      "displayHeight": 119.13906079359305
+    },
+    {
+      "id": "orc_bow",
+      "loaded": true,
+      "w": 380,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 94.0249043252684,
+      "displayHeight": 95.01464016027123
+    },
+    {
+      "id": "orc_drummer",
+      "loaded": true,
+      "w": 376,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 80.50054073590911,
+      "displayHeight": 82.21331819837526
+    },
+    {
+      "id": "dwarf_axeshield",
+      "loaded": true,
+      "w": 384,
+      "h": 371,
+      "visible": true,
+      "displayWidth": 77.13194873500943,
+      "displayHeight": 74.52071088720963
+    },
+    {
+      "id": "dwarf_2haxe",
+      "loaded": true,
+      "w": 351,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 94.58911938674918,
+      "displayHeight": 103.48211351712729
+    },
+    {
+      "id": "dwarf_ranger",
+      "loaded": true,
+      "w": 351,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 67.94590069980696,
+      "displayHeight": 74.33397683397683
+    },
+    {
+      "id": "khazad_guard",
+      "loaded": true,
+      "w": 384,
+      "h": 371,
+      "visible": true,
+      "displayWidth": 77.13194873500943,
+      "displayHeight": 74.52071088720963
+    },
+    {
+      "id": "iron_guard",
+      "loaded": true,
+      "w": 350,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 70.75030193236715,
+      "displayHeight": 77.6231884057971
+    },
+    {
+      "id": "dwarf_banner",
+      "loaded": true,
+      "w": 362,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 70.81696909872447,
+      "displayHeight": 75.1207628008569
+    },
+    {
+      "id": "elf_swordshield",
+      "loaded": true,
+      "w": 353,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 91.16963755356613,
+      "displayHeight": 99.17603631889347
+    },
+    {
+      "id": "elf_spear",
+      "loaded": true,
+      "w": 358,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 94.60152283705666,
+      "displayHeight": 101.47202449561385
+    },
+    {
+      "id": "elf_bow",
+      "loaded": true,
+      "w": 355,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 91.6914560731899,
+      "displayHeight": 99.18174403409837
+    },
+    {
+      "id": "elf_glaive",
+      "loaded": true,
+      "w": 347,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 89.69550758565622,
+      "displayHeight": 99.25958188153311
+    },
+    {
+      "id": "galadhrim_warrior",
+      "loaded": true,
+      "w": 353,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 112.1221805477171,
+      "displayHeight": 121.96860433519366
+    },
+    {
+      "id": "elf_knight",
+      "loaded": true,
+      "w": 384,
+      "h": 348,
+      "visible": true,
+      "displayWidth": 125.11489336597742,
+      "displayHeight": 113.38537211291704
+    },
+    {
+      "id": "uruk_swordshield2",
+      "loaded": true,
+      "w": 320,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 89.32291666666669,
+      "displayHeight": 107.1875
+    },
+    {
+      "id": "uruk_pike",
+      "loaded": true,
+      "w": 331,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 124.94025182811832,
+      "displayHeight": 144.94579064047562
+    },
+    {
+      "id": "uruk_crossbow",
+      "loaded": true,
+      "w": 352,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 108.36763237355285,
+      "displayHeight": 118.21923531660312
+    },
+    {
+      "id": "uruk_scout",
+      "loaded": true,
+      "w": 352,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 103.60421996152857,
+      "displayHeight": 113.02278541257661
+    },
+    {
+      "id": "uruk_berserker2",
+      "loaded": true,
+      "w": 349,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 122.99515631572166,
+      "displayHeight": 135.32991411242728
+    },
+    {
+      "id": "uruk_banner",
+      "loaded": true,
+      "w": 350,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 140.0654654259378,
+      "displayHeight": 153.67182492445744
+    },
+    {
+      "id": "haradrim_spear",
+      "loaded": true,
+      "w": 344,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 89.93446091797317,
+      "displayHeight": 100.39195637355147
+    },
+    {
+      "id": "haradrim_bow",
+      "loaded": true,
+      "w": 349,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 94.36018501483508,
+      "displayHeight": 103.82324081861509
+    },
+    {
+      "id": "haradrim_priest",
+      "loaded": true,
+      "w": 357,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 98.77298513302036,
+      "displayHeight": 106.24321089938323
+    },
+    {
+      "id": "easterling_phalanx",
+      "loaded": true,
+      "w": 344,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 92.93003594727736,
+      "displayHeight": 103.73585408068168
+    },
+    {
+      "id": "easterling_swordshield",
+      "loaded": true,
+      "w": 340,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 83.23856780888032,
+      "displayHeight": 94.01061776061776
+    },
+    {
+      "id": "easterling_kataphrakt",
+      "loaded": true,
+      "w": 279,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 91.15851711512262,
+      "displayHeight": 125.4654859218892
+    },
+    {
+      "id": "dol_amroth_knight",
+      "loaded": true,
+      "w": 384,
+      "h": 381,
+      "visible": true,
+      "displayWidth": 116.71234339203767,
+      "displayHeight": 115.80052820928736
+    },
+    {
+      "id": "gondor_knight",
+      "loaded": true,
+      "w": 353,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 109.22795636839362,
+      "displayHeight": 118.82021315995226
+    },
+    {
+      "id": "osgiliath_veteran",
+      "loaded": true,
+      "w": 353,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 86.5035141660831,
+      "displayHeight": 94.1001400560224
+    },
+    {
+      "id": "lossarnach_axeman",
+      "loaded": true,
+      "w": 351,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 89.76632777361318,
+      "displayHeight": 98.20589705147427
+    },
+    {
+      "id": "pelennor_militia",
+      "loaded": true,
+      "w": 340,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 99.93027815666404,
+      "displayHeight": 112.86243180046763
+    },
+    {
+      "id": "rohan_swordshield",
+      "loaded": true,
+      "w": 361,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 92.27670313225912,
+      "displayHeight": 98.15582826256926
+    },
+    {
+      "id": "rohan_spear",
+      "loaded": true,
+      "w": 353,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 109.15571760574336,
+      "displayHeight": 118.74163048330156
+    },
+    {
+      "id": "rohan_archer",
+      "loaded": true,
+      "w": 351,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 100.72088274245176,
+      "displayHeight": 110.19036744473355
+    },
+    {
+      "id": "eomer",
+      "loaded": true,
+      "w": 286,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 86.20409563848575,
+      "displayHeight": 115.74256197614872
+    },
+    {
+      "id": "rohan_outrider",
+      "loaded": true,
+      "w": 284,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 85.59846767719694,
+      "displayHeight": 115.73877319733671
+    },
+    {
+      "id": "rohan_banner",
+      "loaded": true,
+      "w": 254,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 90.47135984023238,
+      "displayHeight": 136.7755991285403
+    },
+    {
+      "id": "black_numenorean",
+      "loaded": true,
+      "w": 313,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 78.25186647266484,
+      "displayHeight": 96.00228985783801
+    },
+    {
+      "id": "black_numenorean_mounted",
+      "loaded": true,
+      "w": 347,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 107.38683314155162,
+      "displayHeight": 118.83730238142888
+    },
+    {
+      "id": "orc_tracker",
+      "loaded": true,
+      "w": 349,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 85.35014272477282,
+      "displayHeight": 93.90961262553802
+    },
+    {
+      "id": "war_troll",
+      "loaded": true,
+      "w": 353,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 193.10292809959353,
+      "displayHeight": 210.06097560975613
+    },
+    {
+      "id": "black_guard",
+      "loaded": true,
+      "w": 356,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 99.43543742302278,
+      "displayHeight": 107.25620216415942
+    },
+    {
+      "id": "orc_taskmaster",
+      "loaded": true,
+      "w": 350,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 94.51192964123997,
+      "displayHeight": 103.6930885206747
+    },
+    {
+      "id": "goblin_spear",
+      "loaded": true,
+      "w": 363,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 86.87406541463908,
+      "displayHeight": 91.89983779399836
+    },
+    {
+      "id": "goblin_shield",
+      "loaded": true,
+      "w": 357,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 65.43160421074994,
+      "displayHeight": 70.38021293257135
+    },
+    {
+      "id": "goblin_bow",
+      "loaded": true,
+      "w": 349,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 69.07117152705551,
+      "displayHeight": 75.99807984638772
+    },
+    {
+      "id": "goblin_prowler",
+      "loaded": true,
+      "w": 378,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 68.53047717184528,
+      "displayHeight": 69.61826252377934
+    },
+    {
+      "id": "goblin_king",
+      "loaded": true,
+      "w": 379,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 179.70110105493748,
+      "displayHeight": 182.07182798178363
+    },
+    {
+      "id": "goblin_shaman",
+      "loaded": true,
+      "w": 357,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 64.70461518500427,
+      "displayHeight": 69.59824154353402
+    },
+    {
+      "id": "dunlending_warrior",
+      "loaded": true,
+      "w": 305,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 75.49753289473684,
+      "displayHeight": 95.05263157894737
+    },
+    {
+      "id": "dunlending_huscarl",
+      "loaded": true,
+      "w": 354,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 86.67551518962848,
+      "displayHeight": 94.02089783281735
+    },
+    {
+      "id": "warg",
+      "loaded": true,
+      "w": 343,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 132.71573452681935,
+      "displayHeight": 148.57971445568114
+    },
+    {
+      "id": "uruk_sapper",
+      "loaded": true,
+      "w": 357,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 99.61044662164343,
+      "displayHeight": 107.14400981151563
+    },
+    {
+      "id": "uruk_scout_archer",
+      "loaded": true,
+      "w": 353,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 108.67549496552319,
+      "displayHeight": 118.21923531660312
+    },
+    {
+      "id": "crebain_swarm",
+      "loaded": true,
+      "w": 381,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 109.90898569023574,
+      "displayHeight": 110.7744107744108
+    },
+    {
+      "id": "hobbit_shirriff",
+      "loaded": true,
+      "w": 384,
+      "h": 374,
+      "visible": true,
+      "displayWidth": 73.73861372372168,
+      "displayHeight": 71.81833732466643
+    },
+    {
+      "id": "hobbit_bounder",
+      "loaded": true,
+      "w": 379,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 81.08791493775932,
+      "displayHeight": 82.15767634854771
+    },
+    {
+      "id": "ent",
+      "loaded": true,
+      "w": 384,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 264.3023860146468,
+      "displayHeight": 264.3023860146468
+    },
+    {
+      "id": "beorning",
+      "loaded": true,
+      "w": 338,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 98.3950866627497,
+      "displayHeight": 111.78613396004701
+    },
+    {
+      "id": "ranger_north",
+      "loaded": true,
+      "w": 354,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 86.66603824806951,
+      "displayHeight": 94.01061776061776
+    },
+    {
+      "id": "faramir",
+      "loaded": true,
+      "w": 341,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 83.52635456647369,
+      "displayHeight": 94.05900338277388
+    },
+    {
+      "id": "haldir",
+      "loaded": true,
+      "w": 341,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 92.20499781277341,
+      "displayHeight": 103.83202099737534
+    },
+    {
+      "id": "galadriel",
+      "loaded": true,
+      "w": 375,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 91.83254205071114,
+      "displayHeight": 94.0365230599282
+    },
+    {
+      "id": "gamling",
+      "loaded": true,
+      "w": 360,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 111.4357813860893,
+      "displayHeight": 118.86483347849526
+    },
+    {
+      "id": "samwise",
+      "loaded": true,
+      "w": 384,
+      "h": 383,
+      "visible": true,
+      "displayWidth": 59.22583588937615,
+      "displayHeight": 59.071601941747566
+    },
+    {
+      "id": "mouth_of_sauron",
+      "loaded": true,
+      "w": 384,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 132.72352003002158,
+      "displayHeight": 132.72352003002158
+    },
+    {
+      "id": "lurtz",
+      "loaded": true,
+      "w": 350,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 107.74405871388632,
+      "displayHeight": 118.21062441752099
+    },
+    {
+      "id": "sharku",
+      "loaded": true,
+      "w": 348,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 88.37537343834875,
+      "displayHeight": 97.5176534492124
+    },
+    {
+      "id": "grima",
+      "loaded": true,
+      "w": 343,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 83.98527852413073,
+      "displayHeight": 94.0243351407178
+    },
+    {
+      "id": "khamul",
+      "loaded": true,
+      "w": 360,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 128.52953240360952,
+      "displayHeight": 137.0981678971835
+    },
+    {
+      "id": "fingolfin",
+      "loaded": true,
+      "w": 354,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 94.55510747959471,
+      "displayHeight": 102.56825218125527
+    },
+    {
+      "id": "imrahil",
+      "loaded": true,
+      "w": 358,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 103.95266481078028,
+      "displayHeight": 111.50229968530621
+    },
+    {
+      "id": "merry",
+      "loaded": true,
+      "w": 379,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 58.2546814014996,
+      "displayHeight": 59.02321281840592
+    },
+    {
+      "id": "pippin",
+      "loaded": true,
+      "w": 384,
+      "h": 379,
+      "visible": true,
+      "displayWidth": 59.8812988520378,
+      "displayHeight": 59.10159443990188
+    },
+    {
+      "id": "beorn",
+      "loaded": true,
+      "w": 354,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 98.77338404499098,
+      "displayHeight": 107.14400981151563
+    },
+    {
+      "id": "elendil",
+      "loaded": true,
+      "w": 353,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 93.22518382619175,
+      "displayHeight": 101.41209798656553
+    },
+    {
+      "id": "melkor",
+      "loaded": true,
+      "w": 368,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 283.60067814293166,
+      "displayHeight": 295.93114241001564
+    },
+    {
+      "id": "mumakil",
+      "loaded": true,
+      "w": 357,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 482.4669251334022,
+      "displayHeight": 518.9560203115586
+    },
+    {
+      "id": "smaug",
+      "loaded": true,
+      "w": 384,
+      "h": 383,
+      "visible": true,
+      "displayWidth": 1035.6436636327664,
+      "displayHeight": 1032.9466749253895
+    },
+    {
+      "id": "ungoliant",
+      "loaded": true,
+      "w": 377,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 391.82671809195637,
+      "displayHeight": 399.1020152448574
+    },
+    {
+      "id": "bolg",
+      "loaded": true,
+      "w": 384,
+      "h": 378,
+      "visible": true,
+      "displayWidth": 108.94809981270011,
+      "displayHeight": 107.24578575312668
+    },
+    {
+      "id": "easterling_warlord",
+      "loaded": true,
+      "w": 336,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 95.22342418454305,
+      "displayHeight": 108.82677049662064
+    },
+    {
+      "id": "radagast",
+      "loaded": true,
+      "w": 352,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 107.53121370499423,
+      "displayHeight": 117.30677858726642
+    },
+    {
+      "id": "thranduil",
+      "loaded": true,
+      "w": 350,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 91.41254805347562,
+      "displayHeight": 100.29262415009896
+    },
+    {
+      "id": "celeborn",
+      "loaded": true,
+      "w": 350,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 92.47373928081701,
+      "displayHeight": 101.45690252523924
+    },
+    {
+      "id": "bilbo",
+      "loaded": true,
+      "w": 384,
+      "h": 376,
+      "visible": true,
+      "displayWidth": 59.75778562861396,
+      "displayHeight": 58.51283176135117
+    },
+    {
+      "id": "king_of_the_dead",
+      "loaded": true,
+      "w": 347,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 114.87345298265488,
+      "displayHeight": 127.12220733527226
+    },
+    {
+      "id": "dead_soldier",
+      "loaded": true,
+      "w": 349,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 85.4419416626448,
+      "displayHeight": 94.01061776061776
+    },
+    {
+      "id": "olog_hai",
+      "loaded": true,
+      "w": 380,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 220.21419009370814,
+      "displayHeight": 222.5322341999577
+    },
+    {
+      "id": "watcher_in_the_water",
+      "loaded": true,
+      "w": 384,
+      "h": 338,
+      "visible": true,
+      "displayWidth": 516.0125619652763,
+      "displayHeight": 454.19855714651925
+    },
+    {
+      "id": "mirkwood_spider",
+      "loaded": true,
+      "w": 384,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 166.03108857625747,
+      "displayHeight": 166.03108857625747
+    },
+    {
+      "id": "harad_chieftain",
+      "loaded": true,
+      "w": 359,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 97.06114862017799,
+      "displayHeight": 103.82028153244664
+    },
+    {
+      "id": "uruk_captain",
+      "loaded": true,
+      "w": 366,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 102.23638749834785,
+      "displayHeight": 107.26440655564366
+    },
+    {
+      "id": "hill_troll",
+      "loaded": true,
+      "w": 362,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 204.86523401930432,
+      "displayHeight": 217.3156073574941
+    },
+    {
+      "id": "feanor",
+      "loaded": true,
+      "w": 355,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 93.73973520714756,
+      "displayHeight": 101.39734737899906
+    },
+    {
+      "id": "luthien",
+      "loaded": true,
+      "w": 340,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 96.35136982288961,
+      "displayHeight": 108.82037062349885
+    },
+    {
+      "id": "beren",
+      "loaded": true,
+      "w": 351,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 85.93158029681467,
+      "displayHeight": 94.01061776061776
+    },
+    {
+      "id": "turin",
+      "loaded": true,
+      "w": 336,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 82.25929054054053,
+      "displayHeight": 94.01061776061776
+    },
+    {
+      "id": "beleg",
+      "loaded": true,
+      "w": 384,
+      "h": 383,
+      "visible": true,
+      "displayWidth": 106.52497166973322,
+      "displayHeight": 106.24756288934331
+    },
+    {
+      "id": "huan",
+      "loaded": true,
+      "w": 260,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 89.50539448886234,
+      "displayHeight": 132.19258262970436
+    },
+    {
+      "id": "glaurung",
+      "loaded": true,
+      "w": 380,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 488.0997474747475,
+      "displayHeight": 493.23763955342906
+    },
+    {
+      "id": "carcharoth",
+      "loaded": true,
+      "w": 374,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 213.02453843136834,
+      "displayHeight": 218.7203817049343
+    },
+    {
+      "id": "gothmog_balrog",
+      "loaded": true,
+      "w": 384,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 377.799043062201,
+      "displayHeight": 377.799043062201
+    },
+    {
+      "id": "draugluin",
+      "loaded": true,
+      "w": 384,
+      "h": 381,
+      "visible": true,
+      "displayWidth": 209.01019290792698,
+      "displayHeight": 207.37730077583382
+    },
+    {
+      "id": "thuringwethil",
+      "loaded": true,
+      "w": 264,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 86.18918211163127,
+      "displayHeight": 125.36608307146366
+    },
+    {
+      "id": "boldog",
+      "loaded": true,
+      "w": 352,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 90.0220722971847,
+      "displayHeight": 98.20589705147425
+    },
+    {
+      "id": "thorin",
+      "loaded": true,
+      "w": 348,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 68.07675099650208,
+      "displayHeight": 75.11917351338161
+    },
+    {
+      "id": "tauriel",
+      "loaded": true,
+      "w": 339,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 83.09114133649909,
+      "displayHeight": 94.12093885904322
+    },
+    {
+      "id": "bard",
+      "loaded": true,
+      "w": 356,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 96.17178138729865,
+      "displayHeight": 103.73585408068168
+    },
+    {
+      "id": "dain",
+      "loaded": true,
+      "w": 354,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 83.2819786808794,
+      "displayHeight": 90.33977348434377
+    },
+    {
+      "id": "fili",
+      "loaded": true,
+      "w": 348,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 67.37499596565969,
+      "displayHeight": 74.34482313452105
+    },
+    {
+      "id": "kili",
+      "loaded": true,
+      "w": 352,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 75.24958390142451,
+      "displayHeight": 82.09045516519038
+    },
+    {
+      "id": "azog",
+      "loaded": true,
+      "w": 279,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 86.73723337369597,
+      "displayHeight": 119.3802781917536
+    },
+    {
+      "id": "azog_warg_rider",
+      "loaded": true,
+      "w": 344,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 106.92024089985222,
+      "displayHeight": 119.3528270509978
+    },
+    {
+      "id": "necromancer",
+      "loaded": true,
+      "w": 348,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 106.00022952466739,
+      "displayHeight": 116.96577050997783
+    },
+    {
+      "id": "hunter_orc",
+      "loaded": true,
+      "w": 378,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 91.29228329809723,
+      "displayHeight": 92.74136715997179
+    },
+    {
+      "id": "gundabad_orc",
+      "loaded": true,
+      "w": 349,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 79.72266078687574,
+      "displayHeight": 87.71777003484321
+    },
+    {
+      "id": "goblin_mercenary",
+      "loaded": true,
+      "w": 378,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 73.16160046871053,
+      "displayHeight": 74.32289571424562
+    },
+    {
+      "id": "halbarad",
+      "loaded": true,
+      "w": 349,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 117.27622994700931,
+      "displayHeight": 129.03745644599306
+    },
+    {
+      "id": "beregond",
+      "loaded": true,
+      "w": 328,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 82.96313762008229,
+      "displayHeight": 97.12757575034024
+    },
+    {
+      "id": "elladan",
+      "loaded": true,
+      "w": 348,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 85.2033284190513,
+      "displayHeight": 94.01746584171178
+    },
+    {
+      "id": "elrohir",
+      "loaded": true,
+      "w": 353,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 97.61938324903936,
+      "displayHeight": 106.19219027657539
+    },
+    {
+      "id": "grimbeorn",
+      "loaded": true,
+      "w": 349,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 97.41418464442927,
+      "displayHeight": 107.18351548269581
+    },
+    {
+      "id": "ghan_buri_ghan",
+      "loaded": true,
+      "w": 260,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 73.63820074550323,
+      "displayHeight": 108.75795802412784
+    },
+    {
+      "id": "suladan",
+      "loaded": true,
+      "w": 357,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 96.44895202727331,
+      "displayHeight": 103.74341058395784
+    },
+    {
+      "id": "corsair_umbra",
+      "loaded": true,
+      "w": 347,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 84.9369157318376,
+      "displayHeight": 93.99358974358974
+    },
+    {
+      "id": "variag_horseman",
+      "loaded": true,
+      "w": 277,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 93.0732279836621,
+      "displayHeight": 129.02570233114167
+    },
+    {
+      "id": "shagrat",
+      "loaded": true,
+      "w": 355,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 99.09261067708337,
+      "displayHeight": 107.18750000000001
+    },
+    {
+      "id": "gorbag",
+      "loaded": true,
+      "w": 348,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 75.3539046620935,
+      "displayHeight": 83.1491361788618
+    },
+    {
+      "id": "warg_alpha",
+      "loaded": true,
+      "w": 370,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 144.95553846463181,
+      "displayHeight": 150.44034262275304
+    },
+    {
+      "id": "balin",
+      "loaded": true,
+      "w": 360,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 71.19954265261482,
+      "displayHeight": 75.94617882945582
+    },
+    {
+      "id": "dwalin",
+      "loaded": true,
+      "w": 357,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 69.83990210444907,
+      "displayHeight": 75.12191150730656
+    },
+    {
+      "id": "gloin",
+      "loaded": true,
+      "w": 354,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 68.5366338271366,
+      "displayHeight": 74.34482313452105
+    },
+    {
+      "id": "oin",
+      "loaded": true,
+      "w": 352,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 68.14444229612444,
+      "displayHeight": 74.33939159577211
+    },
+    {
+      "id": "nori",
+      "loaded": true,
+      "w": 358,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 70.07691752874749,
+      "displayHeight": 75.16630260066769
+    },
+    {
+      "id": "ori",
+      "loaded": true,
+      "w": 333,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 64.51395878338572,
+      "displayHeight": 74.3944749934538
+    },
+    {
+      "id": "dori",
+      "loaded": true,
+      "w": 353,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 70.62012429271299,
+      "displayHeight": 76.82189158187475
+    },
+    {
+      "id": "bifur",
+      "loaded": true,
+      "w": 346,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 69.19486114982529,
+      "displayHeight": 76.79429676743615
+    },
+    {
+      "id": "bofur",
+      "loaded": true,
+      "w": 345,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 86.65190534260053,
+      "displayHeight": 96.44733812045973
+    },
+    {
+      "id": "bombur",
+      "loaded": true,
+      "w": 350,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 69.252150092977,
+      "displayHeight": 75.97950181629477
+    },
+    {
+      "id": "goat_rider",
+      "loaded": true,
+      "w": 259,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 84.5169051449214,
+      "displayHeight": 125.30691728050122
+    },
+    {
+      "id": "gollum",
+      "loaded": true,
+      "w": 376,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 57.82097138554219,
+      "displayHeight": 59.05120481927712
+    },
+    {
+      "id": "gil_galad",
+      "loaded": true,
+      "w": 356,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 99.6210217562367,
+      "displayHeight": 107.45638301796318
+    },
+    {
+      "id": "cirdan",
+      "loaded": true,
+      "w": 349,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 85.53588711286716,
+      "displayHeight": 94.11398467432949
+    },
+    {
+      "id": "arwen",
+      "loaded": true,
+      "w": 289,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 70.8393088566119,
+      "displayHeight": 94.1255868544601
+    },
+    {
+      "id": "lindir",
+      "loaded": true,
+      "w": 283,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 69.33822803389354,
+      "displayHeight": 94.08438008839265
+    },
+    {
+      "id": "erestor",
+      "loaded": true,
+      "w": 334,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 81.77100401841447,
+      "displayHeight": 94.01217228464418
+    },
+    {
+      "id": "elf_seer",
+      "loaded": true,
+      "w": 345,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 90.16940315887533,
+      "displayHeight": 100.36246612466124
+    },
+    {
+      "id": "rumil",
+      "loaded": true,
+      "w": 331,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 96.15441593315832,
+      "displayHeight": 111.55074235145861
+    },
+    {
+      "id": "orophin",
+      "loaded": true,
+      "w": 337,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 107.07602074317519,
+      "displayHeight": 122.00947170735691
+    },
+    {
+      "id": "mirkwood_sentinel",
+      "loaded": true,
+      "w": 287,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 74.95586206783574,
+      "displayHeight": 100.28937642525754
+    },
+    {
+      "id": "noldor_warrior",
+      "loaded": true,
+      "w": 352,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 89.91666946018125,
+      "displayHeight": 98.09091213837954
+    },
+    {
+      "id": "silvan_archer",
+      "loaded": true,
+      "w": 300,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 81.09388617565324,
+      "displayHeight": 103.80017430483615
+    },
+    {
+      "id": "elven_lancer",
+      "loaded": true,
+      "w": 384,
+      "h": 364,
+      "visible": true,
+      "displayWidth": 125.70512381265443,
+      "displayHeight": 119.15798194741201
+    },
+    {
+      "id": "imrahil_mounted",
+      "loaded": true,
+      "w": 384,
+      "h": 381,
+      "visible": true,
+      "displayWidth": 126.38967192656831,
+      "displayHeight": 125.402252614642
+    },
+    {
+      "id": "gandalf_mounted",
+      "loaded": true,
+      "w": 278,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 130.8192213488266,
+      "displayHeight": 180.69993164730005
+    },
+    {
+      "id": "thranduil_mounted",
+      "loaded": true,
+      "w": 384,
+      "h": 356,
+      "visible": true,
+      "displayWidth": 157.80755519250437,
+      "displayHeight": 146.30075429305091
+    },
+    {
+      "id": "aragorn_mounted",
+      "loaded": true,
+      "w": 348,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 146.1931322469886,
+      "displayHeight": 161.316559720815
+    },
+    {
+      "id": "blackroot_archer",
+      "loaded": true,
+      "w": 348,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 98.54842805095092,
+      "displayHeight": 108.74309302173894
+    },
+    {
+      "id": "half_troll",
+      "loaded": true,
+      "w": 356,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 119.56835453019416,
+      "displayHeight": 128.97260713369258
+    },
+    {
+      "id": "cave_drake",
+      "loaded": true,
+      "w": 376,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 286.3743125822504,
+      "displayHeight": 292.46738306272385
+    },
+    {
+      "id": "bat_swarm",
+      "loaded": true,
+      "w": 384,
+      "h": 359,
+      "visible": true,
+      "displayWidth": 142.7741859975188,
+      "displayHeight": 133.47899159663868
+    },
+    {
+      "id": "muzgur",
+      "loaded": true,
+      "w": 347,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 80.9847337724596,
+      "displayHeight": 89.61999356952302
+    },
+    {
+      "id": "buhrdur",
+      "loaded": true,
+      "w": 359,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 198.49693961069,
+      "displayHeight": 212.31984626881604
+    },
+    {
+      "id": "mahud_chieftain",
+      "loaded": true,
+      "w": 355,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 99.45062387144196,
+      "displayHeight": 107.57475934263019
+    },
+    {
+      "id": "eowyn_mounted",
+      "loaded": true,
+      "w": 261,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 78.67216642302652,
+      "displayHeight": 115.7475551970965
+    },
+    {
+      "id": "forlong",
+      "loaded": true,
+      "w": 357,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 87.45851330021536,
+      "displayHeight": 94.07302270947534
+    },
+    {
+      "id": "erkenbrand",
+      "loaded": true,
+      "w": 338,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 104.56760232813907,
+      "displayHeight": 118.79869613611066
+    },
+    {
+      "id": "damrod",
+      "loaded": true,
+      "w": 355,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 95.97248046728271,
+      "displayHeight": 103.8124859139058
+    },
+    {
+      "id": "mablung",
+      "loaded": true,
+      "w": 351,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 100.60282571334402,
+      "displayHeight": 110.0612110368208
+    },
+    {
+      "id": "duinhir",
+      "loaded": true,
+      "w": 350,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 85.68676097972974,
+      "displayHeight": 94.01061776061776
+    },
+    {
+      "id": "ugluk",
+      "loaded": true,
+      "w": 337,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 115.73774827932606,
+      "displayHeight": 131.87921465656143
+    },
+    {
+      "id": "mauhur",
+      "loaded": true,
+      "w": 341,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 83.53256955982322,
+      "displayHeight": 94.06600208496222
+    },
+    {
+      "id": "vrasku",
+      "loaded": true,
+      "w": 355,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 110.68386192493794,
+      "displayHeight": 119.72564219486244
+    },
+    {
+      "id": "stone_troll",
+      "loaded": true,
+      "w": 290,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 164.17492152786272,
+      "displayHeight": 217.3902409196527
+    },
+    {
+      "id": "werewolf",
+      "loaded": true,
+      "w": 346,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 191.83248321006548,
+      "displayHeight": 212.90079061463916
+    },
+    {
+      "id": "gulavhar",
+      "loaded": true,
+      "w": 363,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 224.8065034405781,
+      "displayHeight": 237.81183835036362
+    },
+    {
+      "id": "dark_marshal",
+      "loaded": true,
+      "w": 352,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 98.20816683853224,
+      "displayHeight": 107.13618200567156
+    },
+    {
+      "id": "shadow_lord",
+      "loaded": true,
+      "w": 354,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 108.99132032550727,
+      "displayHeight": 118.22787289546551
+    },
+    {
+      "id": "betrayer",
+      "loaded": true,
+      "w": 339,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 94.56055689873621,
+      "displayHeight": 107.11284321272774
+    },
+    {
+      "id": "tainted",
+      "loaded": true,
+      "w": 381,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 123.01206946429787,
+      "displayHeight": 123.9806684364577
+    },
+    {
+      "id": "undying",
+      "loaded": true,
+      "w": 353,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 121.23271555668279,
+      "displayHeight": 131.87921465656143
+    },
+    {
+      "id": "knight_of_umbar",
+      "loaded": true,
+      "w": 349,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 122.99515631572166,
+      "displayHeight": 135.32991411242728
+    },
+    {
+      "id": "isildur",
+      "loaded": true,
+      "w": 354,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 115.60133804949807,
+      "displayHeight": 125.39806161301486
+    },
+    {
+      "id": "gandalf_white",
+      "loaded": true,
+      "w": 357,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 98.75462782540922,
+      "displayHeight": 106.22346522396955
+    },
+    {
+      "id": "denethor",
+      "loaded": true,
+      "w": 303,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 80.10288631713969,
+      "displayHeight": 101.51652919399882
+    },
+    {
+      "id": "huorn",
+      "loaded": true,
+      "w": 380,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 277.8433333333333,
+      "displayHeight": 280.768
+    },
+    {
+      "id": "boromir_mounted",
+      "loaded": true,
+      "w": 383,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 140.7425703882882,
+      "displayHeight": 141.11004446240904
+    },
+    {
+      "id": "elrond_mounted",
+      "loaded": true,
+      "w": 354,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 112.41531297463746,
+      "displayHeight": 121.94203441316608
+    },
+    {
+      "id": "gandalf_white_mounted",
+      "loaded": true,
+      "w": 287,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 86.56881185335133,
+      "displayHeight": 115.82726045883942
+    },
+    {
+      "id": "theoden_foot",
+      "loaded": true,
+      "w": 352,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 103.41167953667953,
+      "displayHeight": 112.81274131274131
+    },
+    {
+      "id": "dain_boar",
+      "loaded": true,
+      "w": 302,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 76.4334004075768,
+      "displayHeight": 97.1868402533427
+    },
+    {
+      "id": "faramir_mounted",
+      "loaded": true,
+      "w": 265,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 77.84971386316872,
+      "displayHeight": 112.80864197530863
+    },
+    {
+      "id": "eomer_foot",
+      "loaded": true,
+      "w": 349,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 95.45739646849594,
+      "displayHeight": 105.03048780487806
+    },
+    {
+      "id": "elfhelm",
+      "loaded": true,
+      "w": 349,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 94.39140132702903,
+      "displayHeight": 103.85758770653048
+    },
+    {
+      "id": "elfhelm_mounted",
+      "loaded": true,
+      "w": 239,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 68.54967489232102,
+      "displayHeight": 110.13838978515177
+    },
+    {
+      "id": "warg_rider_spear",
+      "loaded": true,
+      "w": 289,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 81.05794000379294,
+      "displayHeight": 107.70328360365566
+    },
+    {
+      "id": "warg_rider_bow",
+      "loaded": true,
+      "w": 276,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 75.46875,
+      "displayHeight": 105
+    },
+    {
+      "id": "warg_chieftain",
+      "loaded": true,
+      "w": 248,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 64.47338894391481,
+      "displayHeight": 99.82976352606164
+    },
+    {
+      "id": "wild_warg",
+      "loaded": true,
+      "w": 384,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 150.45804988662127,
+      "displayHeight": 150.45804988662127
+    },
+    {
+      "id": "wild_warg_alpha",
+      "loaded": true,
+      "w": 335,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 132.86568578375284,
+      "displayHeight": 152.29977116704802
+    },
+    {
+      "id": "ancalagon",
+      "loaded": true,
+      "w": 384,
+      "h": 261,
+      "visible": true,
+      "displayWidth": 1144.0472681851993,
+      "displayHeight": 777.5946275946276
+    },
+    {
+      "id": "nazgul_fellbeast",
+      "loaded": true,
+      "w": 380,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 207.96160454665602,
+      "displayHeight": 210.1506740681998
+    },
+    {
+      "id": "fellbeast",
+      "loaded": true,
+      "w": 383,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 677.7207219791716,
+      "displayHeight": 679.4902277806838
+    },
+    {
+      "id": "quickbeam",
+      "loaded": true,
+      "w": 367,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 255.68615232408547,
+      "displayHeight": 267.52992504754445
+    },
+    {
+      "id": "aragorn_blackgate",
+      "loaded": true,
+      "w": 351,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 116.26630623600651,
+      "displayHeight": 127.19732648041739
+    },
+    {
+      "id": "aragorn_blackgate_mounted",
+      "loaded": true,
+      "w": 355,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 130.3662863477317,
+      "displayHeight": 141.01592664092666
+    },
+    {
+      "id": "azog_foot",
+      "loaded": true,
+      "w": 352,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 145.21630304105324,
+      "displayHeight": 158.41778513569446
+    },
+    {
+      "id": "anborn",
+      "loaded": true,
+      "w": 352,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 90.91798894583118,
+      "displayHeight": 99.18326066817949
+    },
+    {
+      "id": "hirluin",
+      "loaded": true,
+      "w": 355,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 100.54912974880891,
+      "displayHeight": 108.76300231983836
+    },
+    {
+      "id": "madril",
+      "loaded": true,
+      "w": 351,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 94.82105412062309,
+      "displayHeight": 103.73585408068168
+    },
+    {
+      "id": "irolas",
+      "loaded": true,
+      "w": 354,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 97.89592541121793,
+      "displayHeight": 106.19219027657539
+    },
+    {
+      "id": "hurin",
+      "loaded": true,
+      "w": 354,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 88.5359063218106,
+      "displayHeight": 96.03894923043862
+    },
+    {
+      "id": "cirion",
+      "loaded": true,
+      "w": 356,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 87.19729778774483,
+      "displayHeight": 94.05551222048881
+    },
+    {
+      "id": "theodred",
+      "loaded": true,
+      "w": 375,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 137.71361331240033,
+      "displayHeight": 141.01874003189795
+    },
+    {
+      "id": "hama",
+      "loaded": true,
+      "w": 354,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 90.4440158500471,
+      "displayHeight": 98.10876295598331
+    },
+    {
+      "id": "deorwine",
+      "loaded": true,
+      "w": 352,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 90.91136662565235,
+      "displayHeight": 99.17603631889347
+    },
+    {
+      "id": "grimbold",
+      "loaded": true,
+      "w": 353,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 86.42751417219858,
+      "displayHeight": 94.01746584171178
+    },
+    {
+      "id": "harding",
+      "loaded": true,
+      "w": 344,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 93.02675188320073,
+      "displayHeight": 103.84381605566593
+    },
+    {
+      "id": "rohan_royal_guard_mounted",
+      "loaded": true,
+      "w": 290,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 100.24775664397991,
+      "displayHeight": 132.74185707340789
+    },
+    {
+      "id": "arvedui",
+      "loaded": true,
+      "w": 352,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 98.57027922957803,
+      "displayHeight": 107.53121370499422
+    },
+    {
+      "id": "malbeth",
+      "loaded": true,
+      "w": 352,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 86.17639961389962,
+      "displayHeight": 94.01061776061776
+    },
+    {
+      "id": "numenorean_captain",
+      "loaded": true,
+      "w": 363,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 95.94438434303699,
+      "displayHeight": 101.4948859166011
+    },
+    {
+      "id": "numenorean_warrior",
+      "loaded": true,
+      "w": 374,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 103.43207196029776,
+      "displayHeight": 106.1976353816961
+    },
+    {
+      "id": "numenorean_spearman",
+      "loaded": true,
+      "w": 349,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 96.59102611632888,
+      "displayHeight": 106.27780523974295
+    },
+    {
+      "id": "arnor_warrior",
+      "loaded": true,
+      "w": 351,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 100.63227549889137,
+      "displayHeight": 110.09342960562475
+    },
+    {
+      "id": "hasharin",
+      "loaded": true,
+      "w": 346,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 84.70133233476828,
+      "displayHeight": 94.00379079928041
+    },
+    {
+      "id": "golden_king",
+      "loaded": true,
+      "w": 341,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 92.13304104305966,
+      "displayHeight": 103.75099050010238
+    },
+    {
+      "id": "mahud_beastmaster",
+      "loaded": true,
+      "w": 353,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 95.3822491149693,
+      "displayHeight": 103.75859393809691
+    },
+    {
+      "id": "watcher_karna",
+      "loaded": true,
+      "w": 384,
+      "h": 365,
+      "visible": true,
+      "displayWidth": 508.66261486204144,
+      "displayHeight": 483.49441256418004
+    },
+    {
+      "id": "mahud_camel_raider",
+      "loaded": true,
+      "w": 288,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 82.59693341022421,
+      "displayHeight": 110.12924454696562
+    },
+    {
+      "id": "amdur",
+      "loaded": true,
+      "w": 358,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 107.88689737300312,
+      "displayHeight": 115.7222586347296
+    },
+    {
+      "id": "easterling_priest",
+      "loaded": true,
+      "w": 348,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 92.00586158131192,
+      "displayHeight": 101.52370933110281
+    },
+    {
+      "id": "easterling_archer",
+      "loaded": true,
+      "w": 353,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 95.47325119897204,
+      "displayHeight": 103.85758770653048
+    },
+    {
+      "id": "variag_warrior",
+      "loaded": true,
+      "w": 353,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 101.21314079750718,
+      "displayHeight": 110.10154692986617
+    },
+    {
+      "id": "forsaken",
+      "loaded": true,
+      "w": 350,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 110.27921303656599,
+      "displayHeight": 120.99205087440382
+    },
+    {
+      "id": "castellan",
+      "loaded": true,
+      "w": 353,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 90.18194516777547,
+      "displayHeight": 98.10160607486057
+    },
+    {
+      "id": "dungeon_keeper",
+      "loaded": true,
+      "w": 370,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 91.53161316906915,
+      "displayHeight": 94.99497150519609
+    },
+    {
+      "id": "kardush",
+      "loaded": true,
+      "w": 353,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 96.49134503491075,
+      "displayHeight": 104.96508921644684
+    },
+    {
+      "id": "morgul_stalker",
+      "loaded": true,
+      "w": 352,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 76.16143550743318,
+      "displayHeight": 83.0852023717453
+    },
+    {
+      "id": "numenorean_marshal",
+      "loaded": true,
+      "w": 355,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 86.95558906480397,
+      "displayHeight": 94.05900338277388
+    },
+    {
+      "id": "thrydan",
+      "loaded": true,
+      "w": 352,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 86.17639961389962,
+      "displayHeight": 94.01061776061776
+    },
+    {
+      "id": "gorulf",
+      "loaded": true,
+      "w": 355,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 87.01284712229256,
+      "displayHeight": 94.12093885904322
+    },
+    {
+      "id": "dunlending_berserker",
+      "loaded": true,
+      "w": 354,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 98.8712115765593,
+      "displayHeight": 107.25012781186093
+    },
+    {
+      "id": "dunlending_shaman",
+      "loaded": true,
+      "w": 350,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 94.6444185208619,
+      "displayHeight": 103.83844774860276
+    },
+    {
+      "id": "dunlending_archer",
+      "loaded": true,
+      "w": 349,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 94.29797254150702,
+      "displayHeight": 103.75478927203065
+    },
+    {
+      "id": "ruffian",
+      "loaded": true,
+      "w": 344,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 84.28878990938348,
+      "displayHeight": 94.08981199186994
+    },
+    {
+      "id": "paladin_took",
+      "loaded": true,
+      "w": 294,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 45.230245224180045,
+      "displayHeight": 59.07623866015353
+    },
+    {
+      "id": "farmer_maggot",
+      "loaded": true,
+      "w": 305,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 50.59957925318192,
+      "displayHeight": 63.705699781055266
+    },
+    {
+      "id": "fredegar",
+      "loaded": true,
+      "w": 342,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 52.635219805257094,
+      "displayHeight": 59.09919416730621
+    },
+    {
+      "id": "durin_vi",
+      "loaded": true,
+      "w": 352,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 68.91474112109543,
+      "displayHeight": 75.17971758664956
+    },
+    {
+      "id": "dead_spearman",
+      "loaded": true,
+      "w": 338,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 105.9186293436293,
+      "displayHeight": 120.33359073359071
+    },
+    {
+      "id": "stone_giant",
+      "loaded": true,
+      "w": 382,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 375.0099450833638,
+      "displayHeight": 376.97334793720336
+    },
+    {
+      "id": "arathorn",
+      "loaded": true,
+      "w": 306,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 75.00254386758321,
+      "displayHeight": 94.12083936324169
+    },
+    {
+      "id": "angbor",
+      "loaded": true,
+      "w": 344,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 87.95351990544363,
+      "displayHeight": 98.1806733828208
+    },
+    {
+      "id": "dunhere",
+      "loaded": true,
+      "w": 352,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 90.91136662565235,
+      "displayHeight": 99.17603631889347
+    },
+    {
+      "id": "haleth",
+      "loaded": true,
+      "w": 351,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 85.93783987093968,
+      "displayHeight": 94.01746584171178
+    },
+    {
+      "id": "bandobras",
+      "loaded": true,
+      "w": 293,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 44.58925341934162,
+      "displayHeight": 58.43779287722587
+    },
+    {
+      "id": "gildor",
+      "loaded": true,
+      "w": 353,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 95.36829150035707,
+      "displayHeight": 103.74341058395784
+    },
+    {
+      "id": "grishnakh",
+      "loaded": true,
+      "w": 354,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 76.5941709364527,
+      "displayHeight": 83.0852023717453
+    },
+    {
+      "id": "snaga",
+      "loaded": true,
+      "w": 338,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 73.18098107298475,
+      "displayHeight": 83.140522875817
+    },
+    {
+      "id": "zagdush",
+      "loaded": true,
+      "w": 349,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 76.39118060885137,
+      "displayHeight": 84.05218726016884
+    },
+    {
+      "id": "dalamyr",
+      "loaded": true,
+      "w": 353,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 101.18343122598861,
+      "displayHeight": 110.06922830249187
+    },
+    {
+      "id": "goblin_drummer",
+      "loaded": true,
+      "w": 355,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 72.78655958398133,
+      "displayHeight": 78.73250388802488
+    },
+    {
+      "id": "yazneg",
+      "loaded": true,
+      "w": 352,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 95.06254114549043,
+      "displayHeight": 103.70459034053502
+    },
+    {
+      "id": "eorl_the_young",
+      "loaded": true,
+      "w": 266,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 86.88808572754812,
+      "displayHeight": 125.43242450894165
+    },
+    {
+      "id": "helm_hammerhand",
+      "loaded": true,
+      "w": 352,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 98.21534232722269,
+      "displayHeight": 107.14400981151563
+    },
+    {
+      "id": "dervorin",
+      "loaded": true,
+      "w": 357,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 99.94140624999999,
+      "displayHeight": 107.49999999999999
+    },
+    {
+      "id": "dol_amroth_man_at_arms",
+      "loaded": true,
+      "w": 357,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 92.25704050640526,
+      "displayHeight": 99.23446373798213
+    },
+    {
+      "id": "numenorean_archer",
+      "loaded": true,
+      "w": 362,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 98.92432988322716,
+      "displayHeight": 104.93630573248404
+    },
+    {
+      "id": "vault_warden",
+      "loaded": true,
+      "w": 354,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 79.27709675007245,
+      "displayHeight": 85.9954947797396
+    },
+    {
+      "id": "palace_guard",
+      "loaded": true,
+      "w": 331,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 94.86169624897322,
+      "displayHeight": 110.05103129790247
+    },
+    {
+      "id": "hobbit_militia",
+      "loaded": true,
+      "w": 384,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 83.41235738627944,
+      "displayHeight": 83.41235738627944
+    },
+    {
+      "id": "guritz",
+      "loaded": true,
+      "w": 354,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 76.60538086695112,
+      "displayHeight": 83.09736229635377
+    },
+    {
+      "id": "targsh",
+      "loaded": true,
+      "w": 344,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 80.37451700813413,
+      "displayHeight": 89.72039107884741
+    },
+    {
+      "id": "durburz",
+      "loaded": true,
+      "w": 375,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 67.98917699695379,
+      "displayHeight": 69.62091724488069
+    },
+    {
+      "id": "goblin_scribe",
+      "loaded": true,
+      "w": 346,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 64.82343669444921,
+      "displayHeight": 71.9427736724523
+    },
+    {
+      "id": "fimbul",
+      "loaded": true,
+      "w": 384,
+      "h": 380,
+      "visible": true,
+      "displayWidth": 84.08903544929926,
+      "displayHeight": 83.21310799670239
+    },
+    {
+      "id": "narzug",
+      "loaded": true,
+      "w": 379,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 92.62813191729855,
+      "displayHeight": 93.85013893467715
+    },
+    {
+      "id": "great_beast_gorgoroth",
+      "loaded": true,
+      "w": 347,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 385.4820884146341,
+      "displayHeight": 426.5853658536585
+    },
+    {
+      "id": "abrakhan_guard",
+      "loaded": true,
+      "w": 352,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 93.99698486014881,
+      "displayHeight": 102.54216530198053
+    },
+    {
+      "id": "corsair_bosun",
+      "loaded": true,
+      "w": 348,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 84.42087510095492,
+      "displayHeight": 93.15406907691576
+    },
+    {
+      "id": "spider_queen",
+      "loaded": true,
+      "w": 380,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 327.394709809964,
+      "displayHeight": 330.8409699132268
+    },
+    {
+      "id": "mablung_sindar",
+      "loaded": true,
+      "w": 343,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 96.07635457839262,
+      "displayHeight": 107.56070016939583
+    },
+    {
+      "id": "melian",
+      "loaded": true,
+      "w": 332,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 89.78845804370542,
+      "displayHeight": 103.85171050838217
+    },
+    {
+      "id": "mim",
+      "loaded": true,
+      "w": 343,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 67.15332947147742,
+      "displayHeight": 75.18040383978814
+    },
+    {
+      "id": "doriath_warrior",
+      "loaded": true,
+      "w": 354,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 90.46726970901709,
+      "displayHeight": 98.13398748096768
+    },
+    {
+      "id": "falathrim_archer",
+      "loaded": true,
+      "w": 292,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 78.93647477561125,
+      "displayHeight": 103.80687093779014
+    },
+    {
+      "id": "nargothrond_ranger",
+      "loaded": true,
+      "w": 346,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 95.78189660361458,
+      "displayHeight": 106.30129565256647
+    },
+    {
+      "id": "edain_warrior",
+      "loaded": true,
+      "w": 286,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 70.02939551767678,
+      "displayHeight": 94.02548209366391
+    },
+    {
+      "id": "gondolin_guard",
+      "loaded": true,
+      "w": 360,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 105.80007530120484,
+      "displayHeight": 112.85341365461849
+    },
+    {
+      "id": "mirkwood_captain",
+      "loaded": true,
+      "w": 359,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 120.57032666407667,
+      "displayHeight": 128.96658896658897
+    },
+    {
+      "id": "mordor_uruk",
+      "loaded": true,
+      "w": 348,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 108.42581086964408,
+      "displayHeight": 119.64227406305554
+    },
+    {
+      "id": "morgul_orc",
+      "loaded": true,
+      "w": 348,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 76.09968968192398,
+      "displayHeight": 83.97207137315749
+    },
+    {
+      "id": "morgul_rat",
+      "loaded": true,
+      "w": 351,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 78.38919853032756,
+      "displayHeight": 85.75912317847802
+    },
+    {
+      "id": "ufthak",
+      "loaded": true,
+      "w": 350,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 75.81204498699582,
+      "displayHeight": 83.1766436428754
+    },
+    {
+      "id": "orc_sergeant",
+      "loaded": true,
+      "w": 355,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 99.69012850672685,
+      "displayHeight": 107.83382914530455
+    },
+    {
+      "id": "ashrak",
+      "loaded": true,
+      "w": 332,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 71.83511372634824,
+      "displayHeight": 83.08639659914978
+    },
+    {
+      "id": "isengard_troll",
+      "loaded": true,
+      "w": 355,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 200.88178514649098,
+      "displayHeight": 217.29184646831706
+    },
+    {
+      "id": "dunlending_horseman",
+      "loaded": true,
+      "w": 347,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 104.64475884993226,
+      "displayHeight": 115.8028455284553
+    },
+    {
+      "id": "wulf",
+      "loaded": true,
+      "w": 342,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 83.82646117133537,
+      "displayHeight": 94.12093885904322
+    },
+    {
+      "id": "hera",
+      "loaded": true,
+      "w": 342,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 83.74656043929403,
+      "displayHeight": 94.03122575640032
+    },
+    {
+      "id": "frealaf",
+      "loaded": true,
+      "w": 327,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 80.07346568318464,
+      "displayHeight": 94.03122575640032
+    },
+    {
+      "id": "rohan_yeoman",
+      "loaded": true,
+      "w": 350,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 85.73404947916667,
+      "displayHeight": 94.0625
+    },
+    {
+      "id": "serpent_guard",
+      "loaded": true,
+      "w": 357,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 96.49515086206895,
+      "displayHeight": 103.79310344827584
+    },
+    {
+      "id": "corsair_crossbowman",
+      "loaded": true,
+      "w": 290,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 71.07836445277978,
+      "displayHeight": 94.11755844781875
+    },
+    {
+      "id": "mahud_blowpipe",
+      "loaded": true,
+      "w": 351,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 97.0521377469907,
+      "displayHeight": 106.17669770610948
+    },
+    {
+      "id": "khandish_warrior",
+      "loaded": true,
+      "w": 346,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 84.7788410135078,
+      "displayHeight": 94.08981199186994
+    },
+    {
+      "id": "easterling_mounted_archer",
+      "loaded": true,
+      "w": 319,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 101.31181528750976,
+      "displayHeight": 121.9552886219553
+    },
+    {
+      "id": "far_harad_chieftain",
+      "loaded": true,
+      "w": 342,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 110.10832628127147,
+      "displayHeight": 123.63040143862061
+    },
+    {
+      "id": "numenorean_knight",
+      "loaded": true,
+      "w": 338,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 99.32048220519785,
+      "displayHeight": 112.8374709076804
+    },
+    {
+      "id": "arnor_archer",
+      "loaded": true,
+      "w": 353,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 95.36134502729332,
+      "displayHeight": 103.73585408068168
+    },
+    {
+      "id": "duilin",
+      "loaded": true,
+      "w": 351,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 94.92881650624072,
+      "displayHeight": 103.85374797263943
+    },
+    {
+      "id": "derufin",
+      "loaded": true,
+      "w": 356,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 87.18119024108609,
+      "displayHeight": 94.0381377881378
+    },
+    {
+      "id": "hirgon",
+      "loaded": true,
+      "w": 349,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 85.5139176696943,
+      "displayHeight": 94.08981199186994
+    },
+    {
+      "id": "pippin_citadel",
+      "loaded": true,
+      "w": 343,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 58.86906773931855,
+      "displayHeight": 65.90589507842077
+    },
+    {
+      "id": "beorn_bear",
+      "loaded": true,
+      "w": 288,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 141.19463948150147,
+      "displayHeight": 188.25951930866864
+    },
+    {
+      "id": "gwaihir",
+      "loaded": true,
+      "w": 328,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 468.34013857955944,
+      "displayHeight": 548.3006500443623
+    },
+    {
+      "id": "lobelia",
+      "loaded": true,
+      "w": 291,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 48.275336998509346,
+      "displayHeight": 63.70353748256904
+    },
+    {
+      "id": "will_whitfoot",
+      "loaded": true,
+      "w": 314,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 48.27744632111599,
+      "displayHeight": 59.039934354485794
+    },
+    {
+      "id": "dwarf_shieldbearers",
+      "loaded": true,
+      "w": 352,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 67.44931937451717,
+      "displayHeight": 73.58107568129145
+    },
+    {
+      "id": "iron_hills_captain",
+      "loaded": true,
+      "w": 353,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 75.40199374251098,
+      "displayHeight": 82.02369857542271
+    },
+    {
+      "id": "pallando",
+      "loaded": true,
+      "w": 353,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 116.8512255968242,
+      "displayHeight": 127.1129479580184
+    },
+    {
+      "id": "alatar",
+      "loaded": true,
+      "w": 349,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 115.66270303452849,
+      "displayHeight": 127.26211451363594
+    },
+    {
+      "id": "annatar",
+      "loaded": true,
+      "w": 349,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 108.77703318503028,
+      "displayHeight": 119.6859047078843
+    },
+    {
+      "id": "sauron_wolf",
+      "loaded": true,
+      "w": 359,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 213.22812464875798,
+      "displayHeight": 228.07687984713945
+    },
+    {
+      "id": "landroval",
+      "loaded": true,
+      "w": 371,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 465.778307868228,
+      "displayHeight": 482.0993806506727
+    },
+    {
+      "id": "meneldor",
+      "loaded": true,
+      "w": 384,
+      "h": 356,
+      "visible": true,
+      "displayWidth": 435.58231325042567,
+      "displayHeight": 403.8211029092488
+    },
+    {
+      "id": "leaflock",
+      "loaded": true,
+      "w": 366,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 264.55323159127505,
+      "displayHeight": 277.56404625969844
+    },
+    {
+      "id": "beechbone",
+      "loaded": true,
+      "w": 291,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 195.67318378103766,
+      "displayHeight": 258.2079126182765
+    },
+    {
+      "id": "azaghal",
+      "loaded": true,
+      "w": 363,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 72.61792297564187,
+      "displayHeight": 76.81895984200132
+    },
+    {
+      "id": "nain",
+      "loaded": true,
+      "w": 356,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 68.93904696281885,
+      "displayHeight": 74.36121919584954
+    },
+    {
+      "id": "maglor",
+      "loaded": true,
+      "w": 353,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 93.23882778654298,
+      "displayHeight": 101.42694014173514
+    },
+    {
+      "id": "gwindor",
+      "loaded": true,
+      "w": 347,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 89.7201032662989,
+      "displayHeight": 99.28680015636539
+    },
+    {
+      "id": "celebrimbor",
+      "loaded": true,
+      "w": 352,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 86.26162716615698,
+      "displayHeight": 94.10359327217125
+    },
+    {
+      "id": "daeron",
+      "loaded": true,
+      "w": 350,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 85.73086245825743,
+      "displayHeight": 94.05900338277388
+    },
+    {
+      "id": "earnur",
+      "loaded": true,
+      "w": 367,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 94.82321921781327,
+      "displayHeight": 99.21557542136321
+    },
+    {
+      "id": "sangarunya",
+      "loaded": true,
+      "w": 354,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 86.68503624418155,
+      "displayHeight": 94.03122575640032
+    },
+    {
+      "id": "huor",
+      "loaded": true,
+      "w": 354,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 109.50493676644993,
+      "displayHeight": 118.78501615343723
+    },
+    {
+      "id": "barahir",
+      "loaded": true,
+      "w": 277,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 67.82567328110652,
+      "displayHeight": 94.02548209366391
+    },
+    {
+      "id": "elendur",
+      "loaded": true,
+      "w": 333,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 81.56679199599922,
+      "displayHeight": 94.05900338277388
+    },
+    {
+      "id": "arpharazon",
+      "loaded": true,
+      "w": 349,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 96.61237547590027,
+      "displayHeight": 106.30129565256647
+    },
+    {
+      "id": "esgaroth_archer",
+      "loaded": true,
+      "w": 345,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 95.4070459516107,
+      "displayHeight": 106.19219027657539
+    },
+    {
+      "id": "dale_warrior",
+      "loaded": true,
+      "w": 352,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 85.28798312303468,
+      "displayHeight": 93.04143613421965
+    },
+    {
+      "id": "galadhrim_knight",
+      "loaded": true,
+      "w": 369,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 117.21567567567564,
+      "displayHeight": 121.98054054054053
+    },
+    {
+      "id": "mahud_raider",
+      "loaded": true,
+      "w": 349,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 94.39140132702903,
+      "displayHeight": 103.85758770653048
+    },
+    {
+      "id": "camel_rider",
+      "loaded": true,
+      "w": 336,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 106.75828774393729,
+      "displayHeight": 122.00947170735691
+    },
+    {
+      "id": "morgul_duellist",
+      "loaded": true,
+      "w": 338,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 82.74892917471043,
+      "displayHeight": 94.01061776061776
+    },
+    {
+      "id": "troll_shaman",
+      "loaded": true,
+      "w": 350,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 205.52401644706103,
+      "displayHeight": 225.48920661620411
+    },
+    {
+      "id": "rhosgobel_rabbit",
+      "loaded": true,
+      "w": 283,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 237.5668056510775,
+      "displayHeight": 322.35213204951856
+    },
+    {
+      "id": "thorondor",
+      "loaded": true,
+      "w": 384,
+      "h": 381,
+      "visible": true,
+      "displayWidth": 668.9701240112271,
+      "displayHeight": 663.7437949173893
+    },
+    {
+      "id": "anarion",
+      "loaded": true,
+      "w": 360,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 88.2153258816121,
+      "displayHeight": 94.0963476070529
+    },
+    {
+      "id": "earendil",
+      "loaded": true,
+      "w": 353,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 87.32457408459469,
+      "displayHeight": 94.99330438664124
+    },
+    {
+      "id": "maeglin",
+      "loaded": true,
+      "w": 360,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 88.21999359732071,
+      "displayHeight": 94.10132650380876
+    },
+    {
+      "id": "eol",
+      "loaded": true,
+      "w": 351,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 85.93158029681467,
+      "displayHeight": 94.01061776061776
+    },
+    {
+      "id": "galdor",
+      "loaded": true,
+      "w": 342,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 95.72444760978318,
+      "displayHeight": 107.48008152677411
+    },
+    {
+      "id": "thrain",
+      "loaded": true,
+      "w": 354,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 67.82017474027784,
+      "displayHeight": 73.56764717589459
+    },
+    {
+      "id": "thror",
+      "loaded": true,
+      "w": 354,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 67.82759088442755,
+      "displayHeight": 73.57569180683667
+    },
+    {
+      "id": "golfimbul",
+      "loaded": true,
+      "w": 352,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 99.42803098540801,
+      "displayHeight": 108.46694289317239
+    },
+    {
+      "id": "eomund",
+      "loaded": true,
+      "w": 257,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 86.3413541470607,
+      "displayHeight": 129.00809335591947
+    },
+    {
+      "id": "guthlaf",
+      "loaded": true,
+      "w": 341,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 114.49566911385885,
+      "displayHeight": 128.9335394126739
+    },
+    {
+      "id": "corsair_captain",
+      "loaded": true,
+      "w": 351,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 85.05188275886813,
+      "displayHeight": 93.0482136165395
+    },
+    {
+      "id": "butterbur",
+      "loaded": true,
+      "w": 290,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 70.34682348079517,
+      "displayHeight": 93.14889729870808
+    },
+    {
+      "id": "bill_ferny",
+      "loaded": true,
+      "w": 358,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 87.72325453219251,
+      "displayHeight": 94.09421715184894
+    },
+    {
+      "id": "scatha",
+      "loaded": true,
+      "w": 384,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 604.4490789016337,
+      "displayHeight": 604.4490789016337
+    },
+    {
+      "id": "war_hound",
+      "loaded": true,
+      "w": 279,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 109.67613431998983,
+      "displayHeight": 150.95209884901826
+    },
+    {
+      "id": "ingold",
+      "loaded": true,
+      "w": 343,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 84.0420825659525,
+      "displayHeight": 94.08792917004595
+    },
+    {
+      "id": "deorwine_mounted",
+      "loaded": true,
+      "w": 344,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 112.4263952892985,
+      "displayHeight": 125.49923195084483
+    },
+    {
+      "id": "grimbold_mounted",
+      "loaded": true,
+      "w": 272,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 78.0207005226875,
+      "displayHeight": 110.14687132614708
+    },
+    {
+      "id": "harding_mounted",
+      "loaded": true,
+      "w": 343,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 112.01750240148495,
+      "displayHeight": 125.40734962731842
+    },
+    {
+      "id": "dunhere_mounted",
+      "loaded": true,
+      "w": 264,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 107.02289943303282,
+      "displayHeight": 155.6696719025932
+    },
+    {
+      "id": "guthlaf_mounted",
+      "loaded": true,
+      "w": 348,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 136.32532547048206,
+      "displayHeight": 150.42794534673882
+    },
+    {
+      "id": "fingon_mounted",
+      "loaded": true,
+      "w": 208,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 71.9401331961356,
+      "displayHeight": 132.81255359286573
+    },
+    {
+      "id": "ecthelion_mounted",
+      "loaded": true,
+      "w": 382,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 144.88103322416018,
+      "displayHeight": 145.63957266512438
+    },
+    {
+      "id": "finrod_felagund_mounted",
+      "loaded": true,
+      "w": 379,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 120.37410466686785,
+      "displayHeight": 121.96215354110093
+    },
+    {
+      "id": "maedhros_mounted",
+      "loaded": true,
+      "w": 384,
+      "h": 380,
+      "visible": true,
+      "displayWidth": 126.84080998229783,
+      "displayHeight": 125.51955154498224
+    },
+    {
+      "id": "celegorm_mounted",
+      "loaded": true,
+      "w": 183,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 53.76854259221864,
+      "displayHeight": 112.82579429186862
+    },
+    {
+      "id": "thingol_mounted",
+      "loaded": true,
+      "w": 384,
+      "h": 349,
+      "visible": true,
+      "displayWidth": 138.79890064908483,
+      "displayHeight": 126.14795918367345
+    },
+    {
+      "id": "turgon_mounted",
+      "loaded": true,
+      "w": 357,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 123.43415612840467,
+      "displayHeight": 132.7695124742504
+    },
+    {
+      "id": "cirdan_mounted",
+      "loaded": true,
+      "w": 353,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 129.6507433776304,
+      "displayHeight": 141.03650271107668
+    },
+    {
+      "id": "gil_galad_mounted",
+      "loaded": true,
+      "w": 384,
+      "h": 378,
+      "visible": true,
+      "displayWidth": 123.99747679553033,
+      "displayHeight": 122.06001622060016
+    },
+    {
+      "id": "gamling_mounted",
+      "loaded": true,
+      "w": 384,
+      "h": 352,
+      "visible": true,
+      "displayWidth": 164.8228694382541,
+      "displayHeight": 151.08763031839956
+    },
+    {
+      "id": "erkenbrand_mounted",
+      "loaded": true,
+      "w": 245,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 77.84158080494286,
+      "displayHeight": 122.00476338407371
+    },
+    {
+      "id": "eorl_the_young_mounted",
+      "loaded": true,
+      "w": 229,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 74.80582967836257,
+      "displayHeight": 125.43859649122805
+    },
+    {
+      "id": "frealaf_mounted",
+      "loaded": true,
+      "w": 262,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 83.28692447417596,
+      "displayHeight": 122.06938548886859
+    },
+    {
+      "id": "thrydan_mounted",
+      "loaded": true,
+      "w": 345,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 106.80305220843071,
+      "displayHeight": 118.87644071894897
+    },
+    {
+      "id": "hera_mounted",
+      "loaded": true,
+      "w": 214,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 61.34247607953674,
+      "displayHeight": 110.07248044178556
+    },
+    {
+      "id": "elendil_mounted",
+      "loaded": true,
+      "w": 349,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 110.94915162010751,
+      "displayHeight": 122.07585736997503
+    },
+    {
+      "id": "isildur_mounted",
+      "loaded": true,
+      "w": 384,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 132.72352003002158,
+      "displayHeight": 132.72352003002158
+    },
+    {
+      "id": "anarion_mounted",
+      "loaded": true,
+      "w": 335,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 115.79779696321253,
+      "displayHeight": 132.73538517574212
+    },
+    {
+      "id": "cirion_mounted",
+      "loaded": true,
+      "w": 384,
+      "h": 372,
+      "visible": true,
+      "displayWidth": 133.3454691473698,
+      "displayHeight": 129.1784232365145
+    },
+    {
+      "id": "earnur_mounted",
+      "loaded": true,
+      "w": 384,
+      "h": 382,
+      "visible": true,
+      "displayWidth": 129.7154901941738,
+      "displayHeight": 129.03988868274584
+    },
+    {
+      "id": "arvedui_mounted",
+      "loaded": true,
+      "w": 349,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 120.76546934487538,
+      "displayHeight": 132.87661956570815
+    },
+    {
+      "id": "arathorn_mounted",
+      "loaded": true,
+      "w": 349,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 102.65064894314402,
+      "displayHeight": 112.94512663085187
+    },
+    {
+      "id": "halbarad_mounted",
+      "loaded": true,
+      "w": 347,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 135.90096444488572,
+      "displayHeight": 150.39184537993117
+    },
+    {
+      "id": "khamul_mounted",
+      "loaded": true,
+      "w": 234,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 106.64698060075095,
+      "displayHeight": 175.01042970379643
+    },
+    {
+      "id": "dark_marshal_mounted",
+      "loaded": true,
+      "w": 384,
+      "h": 382,
+      "visible": true,
+      "displayWidth": 138.95675447512048,
+      "displayHeight": 138.2330213788959
+    },
+    {
+      "id": "dwimmerlaik_mounted",
+      "loaded": true,
+      "w": 286,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 97.72745768229169,
+      "displayHeight": 131.21448863636365
+    },
+    {
+      "id": "shadow_lord_mounted",
+      "loaded": true,
+      "w": 380,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 133.17753205984963,
+      "displayHeight": 134.57940081837435
+    },
+    {
+      "id": "forsaken_mounted",
+      "loaded": true,
+      "w": 300,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 100.0177809388336,
+      "displayHeight": 128.02275960170698
+    },
+    {
+      "id": "tainted_mounted",
+      "loaded": true,
+      "w": 315,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 107.73279214905936,
+      "displayHeight": 131.33140376266283
+    },
+    {
+      "id": "undying_mounted",
+      "loaded": true,
+      "w": 259,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 126.45298136900855,
+      "displayHeight": 187.48241253165747
+    },
+    {
+      "id": "betrayer_mounted",
+      "loaded": true,
+      "w": 271,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 115.77253798255227,
+      "displayHeight": 164.04669588671612
+    },
+    {
+      "id": "bolg_mounted",
+      "loaded": true,
+      "w": 347,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 110.29216920453929,
+      "displayHeight": 122.05242932144984
+    },
+    {
+      "id": "guritz_mounted",
+      "loaded": true,
+      "w": 357,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 90.59453426640927,
+      "displayHeight": 97.44622173193602
+    },
+    {
+      "id": "feanor_mounted",
+      "loaded": true,
+      "w": 384,
+      "h": 380,
+      "visible": true,
+      "displayWidth": 123.35445283241258,
+      "displayHeight": 122.06951061540828
+    },
+    {
+      "id": "turin_mounted",
+      "loaded": true,
+      "w": 357,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 113.5197159005799,
+      "displayHeight": 122.10524063255653
+    },
+    {
+      "id": "tuor_mounted",
+      "loaded": true,
+      "w": 356,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 104.71160349036687,
+      "displayHeight": 112.94734758511481
+    },
+    {
+      "id": "beleg_mounted",
+      "loaded": true,
+      "w": 384,
+      "h": 338,
+      "visible": true,
+      "displayWidth": 143.47468770545692,
+      "displayHeight": 126.28761574074073
+    },
+    {
+      "id": "hurin_thalion_mounted",
+      "loaded": true,
+      "w": 347,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 110.26511545210315,
+      "displayHeight": 122.02249087494988
+    },
+    {
+      "id": "maeglin_mounted",
+      "loaded": true,
+      "w": 384,
+      "h": 383,
+      "visible": true,
+      "displayWidth": 122.32223793204007,
+      "displayHeight": 122.00369043742538
+    },
+    {
+      "id": "citadel_guard_bow",
+      "loaded": true,
+      "w": 357,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 102.32998568747291,
+      "displayHeight": 110.06922830249187
+    },
+    {
+      "id": "osgiliath_spearshield",
+      "loaded": true,
+      "w": 349,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 90.21248457462254,
+      "displayHeight": 99.25958188153311
+    },
+    {
+      "id": "osgiliath_bow",
+      "loaded": true,
+      "w": 354,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 97.97844711279009,
+      "displayHeight": 106.28170534268753
+    },
+    {
+      "id": "dol_amroth_swordshield",
+      "loaded": true,
+      "w": 341,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 83.5829981044361,
+      "displayHeight": 94.12278965426235
+    },
+    {
+      "id": "dol_amroth_knight_foot",
+      "loaded": true,
+      "w": 358,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 92.52929505135388,
+      "displayHeight": 99.24929971988797
+    },
+    {
+      "id": "rohan_helmingas",
+      "loaded": true,
+      "w": 357,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 101.15683466049005,
+      "displayHeight": 108.80735156758593
+    },
+    {
+      "id": "rohan_redshield",
+      "loaded": true,
+      "w": 353,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 112.0977555933532,
+      "displayHeight": 121.94203441316608
+    },
+    {
+      "id": "ironhills_warrior",
+      "loaded": true,
+      "w": 362,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 70.07140033395258,
+      "displayHeight": 74.32988322717623
+    },
+    {
+      "id": "ironhills_spearshield",
+      "loaded": true,
+      "w": 357,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 79.04115973312402,
+      "displayHeight": 85.01906257008298
+    },
+    {
+      "id": "ironhills_crossbow",
+      "loaded": true,
+      "w": 325,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 62.93592770482058,
+      "displayHeight": 74.36121919584954
+    },
+    {
+      "id": "galadhrim_bow",
+      "loaded": true,
+      "w": 351,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 99.37633037925376,
+      "displayHeight": 108.71940417559385
+    },
+    {
+      "id": "galadhrim_elite_bow",
+      "loaded": true,
+      "w": 354,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 101.46267892456916,
+      "displayHeight": 110.0612110368208
+    },
+    {
+      "id": "mirkwood_ranger",
+      "loaded": true,
+      "w": 352,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 98.49448802465044,
+      "displayHeight": 107.44853239052776
+    },
+    {
+      "id": "arnor_knight",
+      "loaded": true,
+      "w": 352,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 100.90416454125813,
+      "displayHeight": 110.07727040864523
+    },
+    {
+      "id": "arnor_ranger",
+      "loaded": true,
+      "w": 339,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 91.68338688209575,
+      "displayHeight": 103.85374797263943
+    },
+    {
+      "id": "morannon_swordshield",
+      "loaded": true,
+      "w": 301,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 67.95877277945186,
+      "displayHeight": 86.6982350408954
+    },
+    {
+      "id": "orc_elite_tracker",
+      "loaded": true,
+      "w": 349,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 88.5019775346449,
+      "displayHeight": 97.37753402092733
+    },
+    {
+      "id": "dale_guard",
+      "loaded": true,
+      "w": 356,
+      "h": 384,
+      "visible": true,
+      "displayWidth": 86.30476804123712,
+      "displayHeight": 93.09278350515464
+    }
+  ]
+}

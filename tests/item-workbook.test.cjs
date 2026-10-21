@@ -1,6 +1,6 @@
 const fs=require('fs'),assert=require('node:assert/strict'),test=require('node:test'),create=require('./campaign-harness.cjs');
 const src=fs.readFileSync('src/game.js','utf8');
-function setup(){const h=create();h.run(src.slice(src.indexOf('// Spreadsheet equipment revisions')));h.q.start('hotseat');h.q.units=[];h.q.phase='reward';h.q.campStep='shop';h.q.gold=10000;h.q.capacityBought=8;return h;}
+function setup(){const h=create();h.run(src.slice(src.indexOf('// Spreadsheet equipment revisions'),src.indexOf('// ── Dragon arrival:')));h.q.start('hotseat');h.q.units=[];h.q.phase='reward';h.q.campStep='shop';h.q.gold=10000;h.q.capacityBought=8;return h;}
 function equip(h,u,id){const i=h.run('LWB_EQUIP').findIndex(x=>x.id===id);assert(h.q.buyEquip(i,u.uid),id);}
 test('spreadsheet stat edits apply and unequip restores them',()=>{const h=setup(),u=h.q.spawn('aragorn','good',{x:850,y:500}),s=u.stats.strength,d=u.stats.defence;equip(h,u,'war_gauntlets');assert.equal(u.stats.strength,s+1);assert.equal(h.q.unequip('war_gauntlets',u.uid),true);assert.equal(u.stats.strength,s);equip(h,u,'mithril_helm');assert.equal(u.stats.defence,d+1);});
 test('red arrow recruits three temporary riders every battle without accumulation',()=>{const h=setup(),u=h.q.spawn('aragorn','good',{x:850,y:500});equip(h,u,'red_arrow');for(let i=0;i<2;i++){h.q.prepareStage();const support=h.q.alive('good').filter(v=>v.id==='rohan_rider'&&v.temporary);assert.equal(support.length,3);assert(support.every(v=>v.autoAlly));}});

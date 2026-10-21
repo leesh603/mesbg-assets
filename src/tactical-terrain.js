@@ -153,78 +153,88 @@ function plan(u,to,units,terrain,budget,options={}){
 function prefix(u,path,terrain,budget){let left=budget,result={x:u.x,y:u.y};for(let i=1;i<path.length;i++){const a=path[i-1],b=path[i],c=cost(u,a,b,terrain);if(c<=left){left-=c;result=b;continue;}let lo=0,hi=1;for(let n=0;n<14;n++){const f=(lo+hi)/2,p={x:a.x+(b.x-a.x)*f,y:a.y+(b.y-a.y)*f};if(cost(u,a,p,terrain)<=left)lo=f;else hi=f;}return{x:a.x+(b.x-a.x)*lo,y:a.y+(b.y-a.y)*lo};}return result;}
 function sight(a,b,terrain){let cover=false;for(const t of terrain){if(!t.active||t.decoration||t.los==='clear'||t.surface==='deep'||t.surface==='shallow'||t.surface==='bridge'||t.surface==='chasm'||t.z==='hill')continue;const n=Math.ceil(dist(a,b)/12);for(let i=1;i<n;i++)if(contains({x:a.x+(b.x-a.x)*i/n,y:a.y+(b.y-a.y)*i/n},t)){if(t.los==='blocked'||(!t.los&&t.kind==='block'))return'blocked';cover=true;break;}}return cover?'cover':'clear';}
 function object(type,x,y,scale=1,angle=0){const d=TYPES[type];return{id:'terrain-'+type+'-'+x+'-'+y,type,x,y,w:d.cw*scale||d.w*scale,h:d.ch*scale||d.h*scale,drawW:d.w*scale,drawH:d.h*scale,shape:d.shape,angle,frame:d.frame,kind:d.jump?'cover':'block',jump:!!d.jump,los:d.los,surface:d.slow?'rubble':undefined,active:true,tactical:true,label:d.label};}
+// Authored Middle-earth battlefields. Coordinates are physical world units.
+// Each region owns its silhouettes, crossing geometry and approach routes.
+const REGIONAL_PLANS={
+ minas_tirith:{identity:'백색 성문과 람마스 에코르 농지',objects:[['whitewall',310,205,1.5],['whitewall',770,205,1.25,'minas_tirith'],['whitewall',1600,205,1.25],['whitewall',2060,205,1.5],['stone',400,710],['stone',1940,920],['fence',760,1050,.8],['oak',2080,540,.9],['rock',210,1120,.8]],roads:[[[1165,80],[1165,620],[1370,1000],[1460,1380]],[[260,1250],[730,950],[1165,620]]],roadWidths:[210,95],features:'gondor-fields'},
+ osgiliath:{identity:'안두인 양안의 무너진 곤도르 도시',water:{points:[[-180,660],[370,660],[690,710],[1120,850],[1660,870],[2480,1000]],bank:280,deep:185,cross:[[400,300],[1630,310]]},objects:[['ruin',260,340,.95,'osgiliath'],['whitewall',770,445,.8],['ruin',1830,480,1.05],['ruin',2100,610,.8],['ruin',740,1180,1.1],['whitewall',1950,1230,.8],['rock',1210,1100,.65],['ruin',160,1140,.7]],roads:[[[400,120],[400,1250]],[[1630,120],[1630,1340]],[[700,450],[1400,450],[2030,620]],[[420,1180],[1270,1180],[2000,1260]]],roadWidths:[130,145,100,100],features:'ruined-quays'},
+ amon_sul:{identity:'웨더톱의 원형 폐성터와 돌계단',objects:[['ruin',1100,650,1.55,'amon_sul'],['ruin',680,520,.75],['rock',1520,570,1.05],['rock',1680,810,.85],['ruin',750,970,.8],['rock',1380,1050,.75],['dead',300,420,.8],['rock',2040,1120,.8]],roads:[[[360,1350],[560,1030],[470,770],[560,510],[930,350],[1510,350],[1830,620],[1840,1010],[1680,1340]]],roadWidths:[125],features:'weathered-ring'},
+ helms_deep:{identity:'호른부르크 산벽과 디핑 방어선',water:{points:[[-160,1060],[440,1060],[870,1010],[1270,975],[1770,1020],[2480,1150]],bank:115,deep:45,cross:[[1150,330],[1870,280,true]]},objects:[['cliff',150,350,1.25],['cliff',110,780,1.3],['cliff',2180,330,1.3],['cliff',2210,770,1.3],['whitewall',620,700,1.15],['whitewall',1710,700,1.15],['whitewall',1960,210,1.4,'helms_deep'],['stone',470,1220,.85],['rock',1680,1240,.7]],roads:[[[1165,90],[1165,620],[1150,1130],[1030,1380]],[[1150,1160],[1860,1160],[1930,1380]]],roadWidths:[170,115],features:'deeping-wall'},
+ fangorn:{identity:'팡고른 고목의 뿌리길과 엔트워시',water:{points:[[-160,900],[420,960],[850,880],[1300,700],[1760,670],[2480,650]],bank:150,deep:65,cross:[[570,330,true],[1750,290,true]]},objects:[['oak',420,490,1.25,'fangorn'],['oak',170,750,1.2],['oak',830,550,1.1],['oak',1270,1040,1.3],['oak',1740,1070,1.15],['oak',2040,490,1.1],['dead',2080,1230,1.1],['rock',510,1220,.85]],roads:[[[570,120],[570,700],[570,1150],[900,1380]],[[1770,100],[1760,850],[1900,1380]]],roadWidths:[100,85],features:'root-canopy'},
+ edoras:{identity:'메두셀드 황금 전당과 스노우번 초원',water:{points:[[-150,1110],[400,1080],[850,1110],[1360,1160],[1900,1080],[2480,1090]],bank:100,deep:0,cross:[]},objects:[['palisade',1680,205,1.45,'edoras'],['palisade',600,520,.85],['palisade',1800,540,.85],['fence',360,840,.9],['fence',720,980,.8],['stone',1980,830,.85],['rock',2100,1280,.6]],roads:[[[1680,50],[1430,400],[1180,730],[1260,1050],[1450,1380]],[[120,590],[650,680],[1180,730],[2190,620]]],roadWidths:[160,95],features:'rohan-pasture'},
+ moria:{identity:'카자드둠의 석주와 심연 위 좁은 다리',water:{kind:'chasm',points:[[-180,900],[390,900],[830,805],[1190,805],[1680,720],[2480,720]],bank:250,deep:250,cross:[[1120,330]]},objects:[['rock',390,440,1.3,'moria'],['rock',1830,390,1.3,'moria'],['rock',400,1210,1.3,'moria'],['rock',1830,1210,1.3,'moria'],['rim',125,770,.85],['rim',2220,860,.8]],roads:[[[1120,80],[1120,1380]],[[390,420],[1830,420]],[[390,1210],[1830,1210]]],roadWidths:[115,180,180],features:'dwarven-abyss'},
+ isengard:{identity:'아이센가드 원형 방벽과 벌목된 제련장',objects:[['darkwall',400,430,1.2],['darkwall',1930,430,1.2],['darkwall',210,810,1.1],['darkwall',2120,810,1.1],['darkwall',550,1170,1.15],['darkwall',1780,1170,1.15],['rock',740,740,1.35,'isengard'],['rock',1620,820,1.2,'isengard'],['burnt',600,300,.8],['dead',1810,250,.8]],roads:[[[1165,40],[1165,1410]],[[160,680],[2160,680]],[[500,270],[650,480],[1150,680],[1680,1080],[1800,1370]]],roadWidths:[190,130,100],features:'isengard-ring'},
+ black_gate:{identity:'모란논 흑철 성문과 우둔의 자갈길',objects:[['darkwall',270,680,1.5],['darkwall',730,680,1.3,'black_gate'],['darkwall',1610,680,1.3,'black_gate'],['darkwall',2070,680,1.5],['cliff',140,1070,1.25],['cliff',2200,1110,1.25],['rock',560,330,.8],['rock',1830,345,.8]],roads:[[[1165,80],[1165,1370]],[[570,1330],[850,1110],[1165,890],[1480,1110],[1830,1330]]],roadWidths:[260,120],features:'morannon-road'},
+ gorgoroth:{identity:'고르고로스 화산재와 갈라진 현무암',objects:[['rock',430,540,1.7,'gorgoroth'],['rock',1570,700,1.8,'gorgoroth'],['cliff',2120,440,1.0],['rock',650,1080,1.4,'gorgoroth'],['rock',2070,1150,1.15,'gorgoroth'],['burnt',180,1140,.9]],roads:[[[1165,100],[980,470],[1050,850],[1300,1280],[1460,1400]],[[1650,120],[1840,570],[1900,880],[1690,1360]]],roadWidths:[150,110],features:'ash-fissures'},
+ rivendell:{identity:'브루이넨 물굽이와 붉은 지붕의 엘프 정원',water:{points:[[-180,1120],[360,1050],[800,860],[1190,620],[1690,630],[2480,680]],bank:215,deep:125,cross:[[490,300],[1570,310]]},objects:[['ruin',1880,240,1.4,'rivendell'],['stone',1210,1080,.75],['oak',480,480,.85],['oak',2020,1050,.95],['rock',150,1290,.8],['rock',2230,860,.85]],roads:[[[490,100],[490,1380]],[[1570,80],[1570,1070],[1880,1370]],[[500,400],[1130,310],[1880,400]]],roadWidths:[115,125,100],features:'elven-terraces'},
+ lothlorien:{identity:'황금 말로른 군락과 실버로드 여울',water:{points:[[-160,1180],[500,1180],[990,1100],[1430,1030],[1910,1030],[2480,930]],bank:105,deep:0,cross:[]},objects:[['oak',380,440,1.3,'lothlorien'],['oak',900,720,1.15,'lothlorien'],['oak',1920,520,1.4,'lothlorien'],['oak',1450,1150,1.1,'lothlorien'],['oak',200,1060,1.15,'lothlorien'],['rock',2150,1210,.7]],roads:[[[1150,100],[1300,450],[1350,770],[1050,1030],[900,1400]],[[200,650],[500,800],[1350,770],[2130,840]]],roadWidths:[95,75],features:'golden-flets'},
+ pelennor:{identity:'펠렌노르 곡식밭과 열린 기병 돌격로',objects:[['ruin',330,420,1.3,'pelennor'],['ruin',1910,1100,1.05,'pelennor'],['stone',400,760,1.05],['fence',690,820,.85],['stone',1730,580,1.05],['fence',2030,740,.85],['oak',210,1180,.75]],roads:[[[1060,50],[1060,530],[1310,1000],[1310,1410]],[[100,1020],[700,990],[1310,1000],[2230,970]]],roadWidths:[230,100],features:'harvest-fields'},
+ dead_marshes:{identity:'죽음늪의 끊어진 둑과 가라앉은 무덤',water:{points:[[-160,560],[440,590],[900,660],[1440,710],[1910,630],[2480,660]],bank:240,deep:130,cross:[[710,300,true],[1850,300,true]]},pools:[[350,1080,210,145],[1280,1050,260,140],[2000,1160,180,125]],objects:[['dead',360,350,.85],['rock',1060,385,1.2,'dead_marshes'],['rock',1540,1100,1.15,'dead_marshes'],['dead',2100,390,.85],['burnt',560,1230,.8]],roads:[[[710,80],[710,930],[890,1160],[890,1380]],[[1850,80],[1850,920],[1690,1280],[1690,1380]]],roadWidths:[80,75],features:'sunken-barrows'},
+ dunharrow:{identity:'던해로 입석과 망자의 길로 오르는 산길',objects:[['cliff',190,500,1.4],['cliff',420,960,1.2],['cliff',2150,430,1.3],['cliff',1970,940,1.35],['rock',750,490,1.1,'dunharrow'],['rock',1550,780,1.1,'dunharrow'],['rock',800,1170,.85,'dunharrow']],roads:[[[1165,60],[1310,400],[1110,700],[1160,1040],[1290,1400]]],roadWidths:[165],features:'mountain-switchback'},
+ erebor:{identity:'외로운 산의 황금 산문과 러닝 강',water:{points:[[-160,1080],[380,1080],[820,1000],[1320,1060],[1840,1190],[2480,1180]],bank:155,deep:80,cross:[[600,300],[1510,300]]},objects:[['ruin',1200,210,1.6,'erebor'],['cliff',280,420,1.3],['cliff',2100,420,1.3],['rock',510,730,1.1],['rock',1880,820,1.1],['rock',2100,1310,.7]],roads:[[[1200,80],[1200,490],[1000,730],[600,1000],[600,1390]],[[1200,490],[1500,790],[1510,1380]]],roadWidths:[190,140],features:'lonely-mountain'},
+ mirkwood:{identity:'어둠숲 검은 수목과 거미줄 사냥길',objects:[['oak',260,430,1.2,'mirkwood'],['oak',690,630,1.15,'mirkwood'],['oak',1210,540,1.35,'mirkwood'],['oak',1690,820,1.2,'mirkwood'],['oak',2100,430,1.2,'mirkwood'],['oak',310,1110,1.2,'mirkwood'],['dead',1020,1050,1.1],['oak',2080,1180,1.25,'mirkwood']],roads:[[[470,90],[470,580],[430,820],[810,930],[700,1370]],[[1870,80],[1860,580],[2080,780],[2020,1000],[1730,1380]]],roadWidths:[85,85],features:'webbed-thickets'},
+ dol_guldur:{identity:'돌 굴두르의 부서진 계단과 죽은 숲',objects:[['darkwall',580,500,1.4,'dol_guldur'],['ruin',1680,650,1.1],['darkwall',1950,1150,1.2,'dol_guldur'],['dead',220,620,1.2],['dead',2180,340,1.2],['burnt',820,1080,1.1],['ruin',1240,900,.75]],roads:[[[1165,70],[1100,440],[1350,680],[1480,1100],[1165,1380]],[[400,1300],[500,900],[1100,440]]],roadWidths:[135,100],features:'necromancer-stairs'},
+ gondolin:{identity:'곤돌린 은백색 성문과 숨겨진 산중 정원',objects:[['whitewall',330,280,1.1],['whitewall',2000,280,1.1],['whitewall',1640,600,1.45,'gondolin'],['whitewall',650,940,1.1,'gondolin'],['cliff',130,800,1.1],['cliff',2220,1010,1.1],['oak',1960,1190,.75]],roads:[[[1080,40],[1080,490],[950,790],[1220,1080],[1220,1400]],[[1080,490],[1880,490]],[[430,1190],[1220,1080],[1870,1190]]],roadWidths:[185,100,110],features:'hidden-city'},
+ angband:{identity:'앙그반드 철문과 탕고로드림의 화산 협곡',objects:[['darkwall',1165,180,1.65,'angband'],['cliff',190,480,1.4],['cliff',2100,600,1.4],['cliff',370,1010,1.15],['cliff',1970,1200,1.15],['darkwall',710,800,1.1],['darkwall',1660,970,1.1],['rock',1880,280,.9,'gorgoroth']],roads:[[[1165,60],[1165,570],[1320,820],[1165,1080],[1165,1400]]],roadWidths:[200],features:'iron-ravine'},
+ minas_court:{identity:'미나스 티리스 백색나무와 석조 회랑',objects:[['rock',650,760,1.1,'minas_court'],['whitewall',250,480,1.2],['whitewall',2080,480,1.2],['whitewall',250,1060,1.2],['whitewall',2080,1060,1.2],['stone',1600,790,.8]],roads:[[[1165,60],[1165,1390]],[[200,760],[2100,760]]],roadWidths:[260,175],features:'white-tree-court'},
+ orthanc:{identity:'오르상크 흑요석 기단과 사방으로 뻗은 공성로',objects:[['rock',1165,700,1.65,'orthanc'],['darkwall',420,450,1.15],['darkwall',1910,450,1.15],['darkwall',420,1080,1.15],['darkwall',1910,1080,1.15],['rock',670,880,.8,'isengard']],roads:[[[1165,50],[760,440],[740,980],[1165,1400]],[[1165,50],[1570,440],[1590,980],[1165,1400]],[[160,760],[780,760]],[[1560,760],[2170,760]]],roadWidths:[145,145,100,100],features:'orthanc-radials'},
+ barad_dur:{identity:'바랏두르 거대 흑탑과 층층의 방벽',objects:[['darkwall',1800,220,1.65,'barad_dur'],['darkwall',550,610,1.15],['darkwall',1740,850,1.25],['rock',270,1050,1.5,'gorgoroth'],['darkwall',770,1160,1.0],['cliff',2180,660,1.1]],roads:[[[1780,80],[1340,420],[1130,790],[1270,1130],[1480,1390]],[[270,330],[890,430],[1130,790]]],roadWidths:[220,120],features:'dark-tower-approach'},
+ minas_morgul:{identity:'미나스 모르굴 창백한 성벽과 모르굴두인',water:{points:[[-160,1020],[420,1020],[860,930],[1330,900],[1860,960],[2480,1010]],bank:180,deep:110,cross:[[1165,320]]},objects:[['darkwall',700,490,1.25,'minas_morgul'],['darkwall',1660,490,1.25,'minas_morgul'],['dead',250,770,1.05],['dead',2080,730,1.05],['cliff',210,1200,1.0],['rock',1940,1220,.85]],roads:[[[1165,50],[1165,1380]]],roadWidths:[200],features:'morgul-withering'},
+ dale:{identity:'데일 상점가와 러닝 강의 붉은 지붕',water:{points:[[-160,840],[440,810],[940,800],[1430,730],[1880,710],[2480,720]],bank:195,deep:115,cross:[[530,300],[1790,300]]},objects:[['ruin',270,400,1.15,'dale'],['ruin',1165,460,1.05,'dale'],['ruin',2050,420,1.1,'dale'],['ruin',880,1170,1.15,'dale'],['stone',2110,1040,.8],['ruin',180,1220,.8]],roads:[[[530,100],[530,1370]],[[1790,100],[1790,1370]],[[100,500],[2150,500]],[[480,1120],[1770,1120]]],roadWidths:[130,130,120,125],features:'dale-market'},
+ hornburg:{identity:'혼부르크 견고한 석조 안뜰과 방어 회랑',objects:[['whitewall',1165,205,1.65,'hornburg'],['stone',420,690,1.1],['stone',1910,690,1.1],['whitewall',230,1050,1.15],['whitewall',2100,1050,1.15],['palisade',790,1020,.75]],roads:[[[1165,70],[1165,1380]],[[290,500],[1165,500],[2040,500]],[[1165,920],[1730,1120],[1900,1380]]],roadWidths:[220,130,110],features:'hornburg-stonework'},
+ erebor_hall:{identity:'에레보르 왕의 전당 녹색 석주와 황금 기하문양',objects:[['rock',390,430,1.4,'erebor_hall'],['rock',1940,430,1.4,'erebor_hall'],['rock',660,830,1.4,'erebor_hall'],['rock',1670,830,1.4,'erebor_hall'],['rock',390,1220,1.4,'erebor_hall'],['rock',1940,1220,1.4,'erebor_hall']],roads:[[[1165,40],[1165,1410]],[[160,640],[2170,640]],[[160,1040],[2170,1040]]],roadWidths:[250,155,155],features:'dwarven-royal'}
+};
+
+const ART_ASPECT={"minas_tirith":0.762125,"osgiliath":0.793981,"amon_sul":0.92623,"helms_deep":0.804627,"edoras":0.557875,"pelennor":0.741206,"minas_court":1.0,"dale":0.810069,"hornburg":0.814815,"fangorn":0.946262,"rivendell":1.207715,"lothlorien":1.056,"moria":1.607656,"dunharrow":0.897243,"erebor":0.853301,"mirkwood":0.962963,"gondolin":0.983294,"erebor_hall":1.85782,"isengard":0.768293,"black_gate":0.607375,"gorgoroth":0.874674,"dead_marshes":0.742991,"dol_guldur":0.969274,"angband":0.69265,"orthanc":1.968421,"barad_dur":1.100865,"minas_morgul":0.989333};
 function build(key,stage=1){
- const theme=THEMES[key]||THEMES.pelennor,progress=Math.max(0,Math.min(4,(stage-1)%5)),terrain=[],roads=[],decals=[],bridges=[];
- const add=(type,x,y,s=1,a=0)=>{const t=object(type,x,y,s,a);terrain.push(t);return t;};
- const ribbon=(id,surface,points,w)=>{const xs=points.map(p=>p[0]),ys=points.map(p=>p[1]);const t={id,x:(Math.min(...xs)+Math.max(...xs))/2,y:(Math.min(...ys)+Math.max(...ys))/2,w,h:Math.max(...ys)-Math.min(...ys)+w,points,shape:'ribbon',surface,kind:'surface',los:'clear',active:true,tactical:true};terrain.push(t);return t;};
- const river=['river','stream','chasm','marsh'].includes(theme.layout)||(theme.layout==='valley'&&key==='helms_deep');
+ key=THEMES[key]?key:'pelennor';
+ const theme=THEMES[key],plan=REGIONAL_PLANS[key],progress=Math.max(0,Math.min(4,(stage-1)%5)),terrain=[],roads=plan.roads.map(p=>p.map(q=>q.slice())),decals=[],bridges=[];
+ const add=(type,x,y,s=1,art)=>{
+  const t=object(type,x,y,s);if(art){
+   const tree=['fangorn','lothlorien','mirkwood'].includes(art),pillar=['moria','erebor_hall'].includes(art),tower=['orthanc','barad_dur'].includes(art);
+   t.art=art;if(t.y<285)t.y=305;
+   const desired=(tree?385:pillar?220:tower?350:465)*s,aspect=ART_ASPECT[art]||1;
+   t.drawH=Math.min(desired*aspect,(t.y-22)/.919);t.drawW=t.drawH/aspect;t.w=t.drawW*(tree?.44:pillar?.78:.72);t.h=t.drawH*.18;t.shape=tree?'ellipse':'rect';t.label=REGIONAL_PLANS[art]?.identity||THEMES[key].title;
+   if(['minas_tirith','gondolin','erebor','minas_morgul','hornburg','angband'].includes(art)){
+    t.decoration=true;
+    for(const side of[-1,1])terrain.push({id:t.id+'-pier-'+side,x:t.x+side*t.drawW*.28,y:t.y,w:t.drawW*.23,h:t.h,shape:'ellipse',kind:'block',active:true,tactical:true,renderHidden:true,los:'blocked'});
+   }
+  }terrain.push(t);return t;
+ };
+ for(const row of plan.objects)add(...row);
+ for(const t of terrain.filter(t=>t.type&&!t.art)){
+  if(key==='moria'&&t.type==='rim')t.skin='abyss-edge';
+  else if(['cliff','rim','rock'].includes(t.type)&&['gorgoroth','black_gate','angband','barad_dur','isengard','minas_morgul'].includes(key))t.skin='basalt';
+  else if(t.type==='cliff')t.skin='white-cliff';
+ }
+ const ribbon=(id,surface,points,w)=>{const xs=points.map(p=>p[0]),ys=points.map(p=>p[1]);const t={id,x:(Math.min(...xs)+Math.max(...xs))/2,y:(Math.min(...ys)+Math.max(...ys))/2,w,h:Math.max(...ys)-Math.min(...ys)+w,points:points.map(p=>p.slice()),shape:'ribbon',surface,kind:'surface',los:'clear',active:true,tactical:true};terrain.push(t);return t;};
  let water=null;
- if(river){
-  const points=[[-150,800],[440,820],[850,780],[1250,815],[1750,790],[2480,830]],chasm=theme.layout==='chasm',stream=theme.layout==='stream'||key==='helms_deep',marsh=theme.layout==='marsh';
-  const width=chasm?205:stream?140:190;
-  water=ribbon('water-bank',chasm?'chasm':'shallow',points,width+40);
-  ribbon('water-depth',chasm?'chasm':'deep',points,chasm?width:stream?65:135);
-  const xs=theme.cross||[1110,1830];
-  for(const [i,x]of xs.entries()){
-   // Linear interpolation keeps bridge decks aligned with their actual river.
-   const seg=points.findIndex((p,j)=>j&&x<=p[0]),a=points[seg-1],b=points[seg],y=a[1]+(b[1]-a[1])*(x-a[0])/(b[0]-a[0]);
-   const ford=(stream||marsh)&&i===1;
-   const t={id:'crossing-'+i,x,y,w:i===0?340:270,h:width+180,surface:'bridge',over:chasm?'chasm':'deep',shape:'rect',kind:'surface',active:true,tactical:true,ford,label:ford?'밝은 여울 · 이동 50%':chasm?'카자드둠 석교':'다리 · 정상 이동',type:ford?null:theme.ground==='meadow'||theme.ground==='forest'?'woodbridge':'stonebridge'};
-   if(ford){t.surface='bridge';t.ford=true;}else{t.frame=TYPES[t.type].frame;t.drawW=t.w/.68;t.drawH=t.h+35;}
-   terrain.push(t);bridges.push(t);roads.push([[x,350],[x,y],[x,1260]]);
+ if(plan.water){const q=plan.water,chasm=q.kind==='chasm';water=ribbon('water-bank',chasm?'chasm':'shallow',q.points,q.bank);if(q.deep&&!chasm)ribbon('water-depth','deep',q.points,q.deep);
+  for(const [i,c]of q.cross.entries()){const [cx,cw,ford=false]=c,j=q.points.findIndex((p,n)=>n&&cx<=p[0]),a=q.points[j-1],b=q.points[j],slope=(b[1]-a[1])/(b[0]-a[0]),y=a[1]+slope*(cx-a[0]),angle=Math.atan(slope)*180/Math.PI;
+   const type=key==='fangorn'||key==='edoras'?'woodbridge':'stonebridge',t={id:'crossing-'+i,x:cx,y,w:cw,h:q.bank+310,angle,surface:'bridge',over:chasm?'chasm':'deep',shape:'rect',kind:'surface',active:true,tactical:true,ford,label:ford?'여울 · 이동 50%':chasm?'카자드둠 석교':'다리 · 정상 이동',type:ford?null:type};
+   if(!ford){t.frame=TYPES[type].frame;t.drawW=t.w/.92;t.drawH=t.h+20;if(key==='moria'){t.bridgeStyle='dwarf';t.skin='khazad-bridge';}}terrain.push(t);bridges.push(t);
   }
  }
- // Hand-authored routes stay stable over the five stages; damage is additive.
- const p=theme.palette;
- if(['gate','ring'].includes(theme.layout)){
-  for(const x of[300,675,1655,2030])add(p[0],x,215,1.06);
-  for(const x of[380,1950]){add(p[1],x,650,1.05);add(p[2],x,1080,1.0);}
-  add(p[0],650,940,.8);add(p[0],1680,940,.8);roads.push([[1165,160],[1165,700],[1165,1340]]);
- }else if(theme.layout==='court'){
-  for(const x of[420,1910])for(const y of[480,960])add(p[0],x,y,1.25);
-  for(const x of[870,1470])add(p[1],x,800,1.12);
-  roads.push([[1165,180],[1165,1300]],[[210,730],[2120,730]]);
- }else if(theme.layout==='valley'){
-  for(const x of[150,2180])for(const y of[340,750,1160])add('cliff',x,y,1.2);
-  add(p[1],715,990,1.1);add(p[1],1615,1030,1.1);add('rock',580,485,.95);add('rock',1740,500,.95);
-  roads.push([[1165,120],[1200,680],[1100,1320]]);
- }else if(theme.layout==='forest'){
-  for(const [x,y]of[[300,350],[520,610],[310,1080],[790,840],[1030,850],[1250,840],[1500,820],[1760,550],[1960,950],[2080,1240]])add(p[Math.floor(x/230)%p.length],x,y,1.15);
-  roads.push([[650,220],[660,670],[580,1040],[950,1310]],[[1650,220],[1650,670],[1790,1040],[1420,1310]]);
- }else if(['river','stream','chasm','marsh'].includes(theme.layout)){
-  for(const [x,y,i]of[[320,520,0],[2000,460,0],[360,1090,1],[1980,1080,1],[1180,1100,2],[1180,490,2]])add(i===2&&['cliff','rim'].includes(p[i%p.length])?'rock':p[i%p.length],x,y,i===2?.8:1.1);
-  if(theme.layout==='chasm'){add('rim',280,800,1.1);add('rim',2160,820,1.1);}
- }else if(theme.layout==='fields'){
-  for(const [x,y,type]of[[480,660,'stone'],[810,840,'fence'],[1630,700,'stone'],[1880,1040,'fence'],[330,1060,'oak'],[1920,420,'rock']])add(type,x,y,1.1);
-  roads.push([[1165,150],[1165,1330]],[[300,500],[1900,1120]]);
- }else{
-  for(const [x,y,i]of[[330,510,0],[600,800,1],[1165,800,0],[1730,815,1],[2040,540,2],[430,1180,2],[1860,1170,0]])add(p[i%p.length],x,y,.85);
-  roads.push([[1165,170],[980,530],[930,1020],[1165,1320]],[[580,200],[500,710],[610,1320]]);
+ for(const [i,p]of (plan.pools||[]).entries()){const [x,y,w,h]=p;terrain.push({id:'marsh-pool-'+i,x,y,w:w+40,h:h+40,shape:'ellipse',surface:'shallow',kind:'surface',los:'clear',active:true,tactical:true},{id:'marsh-depth-'+i,x,y,w,h,shape:'ellipse',surface:'deep',kind:'surface',los:'clear',active:true,tactical:true});}
+ // No object relocation at runtime: the authored silhouettes and approaches
+ // remain exactly where the artist put them, including after save/resume.
+ const anchors=terrain.filter(t=>t.type&&!t.surface&&!['cliff','rim'].includes(t.type));
+ const indoor=['moria','erebor_hall','minas_court','hornburg','orthanc'].includes(key);
+ for(let i=0;i<progress*3;i++){const a=anchors[(i*3+1)%anchors.length];if(!a)continue;const x=Math.max(130,Math.min(WIDTH-130,a.x+(i%2?1:-1)*(a.w/2+95))),y=Math.min(HEIGHT-155,a.y+130+(i%3)*22);decals.push({x,y,w:120+(i%3)*30,h:75+(i%2)*20,angle:i*47,alpha:.12+progress*.04,kind:indoor?'dust':theme.ground==='forest'?'leafburn':'scorch'});
+  if(i%3===0){const t=add('rubble',x,y,.68);if(bridges.some(b=>Math.abs(t.x-b.x)<b.w/2+190&&Math.abs(t.y-b.y)<b.h/2+190))t.active=false;}
  }
- // Keep authored bridge approaches open for every supported ground base.
- for(const t of terrain.filter(t=>t.type&&!t.surface))for(const c of bridges){
-  if(Math.abs(t.x-c.x)<c.w/2+t.w/2+145&&Math.abs(t.y-c.y)<c.h/2+t.h/2+145){
-   t.x=Math.max(220,Math.min(WIDTH-220,c.x+(t.x<c.x?-1:1)*(c.w/2+t.w/2+190)));
-  }
- }
- // Trees form small forests with discrete gaps, not invisible solid rectangles.
- if(['forest','meadow'].includes(theme.ground)&&theme.layout!=='forest'){
-  for(const [x,y]of[[140,410],[2100,320],[160,1200],[2140,1210]])add(theme.ground==='forest'?'oak':'rock',x,y,.85);
- }
- for(let i=0;i<progress*3;i++){
-  const anchors=terrain.filter(t=>t.type&&!t.surface&&t.type!=='cliff'&&t.type!=='rim'),a=anchors[i%anchors.length];if(!a)continue;
-  const x=Math.max(120,Math.min(WIDTH-120,a.x+(i%2?1:-1)*(a.w/2+90))),y=Math.min(HEIGHT-140,a.y+100+(i%3)*18);
-  // Scorching is decoration; walkable rubble is explicitly slow, never a wall.
-  decals.push({x,y,w:150+(i%3)*25,h:90+(i%2)*25,angle:i*43,alpha:.15+progress*.04});
-  if(i%3===0){const t=add('rubble',x,y,.75);if(bridges.some(b=>contains(t,b,160)))t.active=false;}
- }
- for(const t of terrain){if(t.type&&progress>=2&&['oak','pine'].includes(t.type)&&Math.floor(t.x/100)%4===0)t.scorched=true;}
- return{version:2,key,stage,progress,phase:['접근','교전','격전','포위','결전'][progress],theme,terrain,roads,decals,bridges,water};
+ for(const t of anchors){t.damage=progress>=2&&['ruin','whitewall','darkwall','palisade'].includes(t.type)?progress-1:0;if(progress>=2&&['oak','pine'].includes(t.type)&&key!=='lothlorien'&&Math.floor(t.x/90)%3===0)t.scorched=true;}
+ const fx=[];
+ if(progress){const sites=anchors.filter(t=>t.art||['ruin','burnt','dead','palisade'].includes(t.type));for(const [i,a]of sites.slice(0,Math.min(progress+1,5)).entries()){
+  const wood=['edoras','pelennor','dale','hornburg'].includes(key),forest=['fangorn','lothlorien','mirkwood'].includes(key),kind=indoor?'dust':forest?'leaves':wood&&progress>=2?'fire':'smoke';
+  fx.push({kind,x:a.x+a.w*.30,y:a.y+a.h*.45,w:kind==='smoke'?62:kind==='dust'?110:kind==='leaves'?80:90,h:kind==='smoke'?155:kind==='dust'?70:kind==='leaves'?65:100,alpha:kind==='smoke'?.38:kind==='leaves'?.60:.82});
+ }}
+ return{version:3,key,stage,progress,fx,phase:['접근','교전','격전','포위','결전'][progress],theme:{...theme,identity:plan.identity,features:plan.features},terrain,roads,roadWidths:plan.roadWidths,decals,bridges,water};
 }
 // Fords carve a genuine passage out of the deep core but retain shallow cost.
 const baseSpeed=speed;
 function surfaceSpeed(u,p,terrain){if(flying(u))return 1;const c=terrain.find(t=>t.active&&t.surface==='bridge'&&contains(p,t));if(c)return c.ford?.5:1;return baseSpeed(u,p,terrain);}
 speed=surfaceSpeed;
-root.MESBGTerrain={version:2,TYPES,THEMES,WIDTH,HEIGHT,CELL,contains,signed,blocks,legal,line,cost,speed,plan,route,prefix,sight,build,pathCost,stamp};
+root.MESBGTerrain={version:3,TYPES,THEMES,REGIONAL_PLANS,WIDTH,HEIGHT,CELL,contains,signed,blocks,legal,line,cost,speed,plan,route,prefix,sight,build,pathCost,stamp};
 if(typeof module!=='undefined'&&module.exports)module.exports=root.MESBGTerrain;
 })(typeof window!=='undefined'?window:globalThis);

@@ -69,7 +69,7 @@ test('campaign victory never creates the defeat overlay',()=>{
 
 test('action and render failures always release input locks and resume scheduling',async()=>{
  const code=source.split('\n').find(s=>s.startsWith('Rt=async function(fn){if(At)return;wt.unlock();'));
- const ctx={At:false,Tt:{busy:false},wt:{unlock(){}},Jt:0,clearTimeout(){},resetGestures(){},renderDock(){},localStorage:{setItem(){}},console:{error(){}},Xt(){},Yt(){throw Error('render');},me(){ctx.scheduled++;},scheduled:0,ut:()=>({classList:{add(){}}})};vm.createContext(ctx);vm.runInContext(code,ctx);
+ const ctx={At:false,Tt:{busy:false},wt:{unlock(){},play(){}},Jt:0,clearTimeout(){},resetGestures(){},renderDock(){},localStorage:{setItem(){}},console:{error(){}},Xt(){},Yt(){throw Error('render');},me(){ctx.scheduled++;},scheduled:0,ut:()=>({classList:{add(){}}})};vm.createContext(ctx);vm.runInContext(code,ctx);
  await ctx.Rt(()=>{throw Error('action');});assert.equal(ctx.At,false);assert.equal(ctx.Tt.busy,false);assert.equal(ctx.scheduled,1);
  ctx.q={drain:()=>[{type:'UnitMoved'}]};ctx.$e=async()=>{};ctx.Tt.play=async()=>{throw Error('animation');};await ctx.Rt(()=>{});assert.equal(ctx.At,false);assert.equal(ctx.Tt.busy,false);assert.equal(ctx.scheduled,2);
 });

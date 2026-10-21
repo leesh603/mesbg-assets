@@ -7,8 +7,8 @@ test('all 72 inspected targets resolve to corrected artwork, later user choice o
  assert.equal(m.units.length,62);assert.equal(m.units.filter(u=>u.issue!=='user-selected').length,61);
  assert.equal(m.retainedCompact.length,10);assert.deepEqual(state.remaining,[]);
  assert.deepEqual([...m.units.map(u=>u.id),...m.retainedCompact].sort(),state.targets.slice().sort());
- for(const [id,hash]of Object.entries(m.reference))assert.equal(sha('tokens/'+id+'.png'),hash,'unchanged '+id);
- for(const id of m.retainedCompact)assert.equal(sha('tokens/'+id+'.png'),sha('art-src/fivehead-20261019/before/'+id+'.png'),id);
+ for(const [id,hash]of Object.entries(m.reference)){const u=effective({id,supersededBy:'review/final-20261021/unit-manifest.json'});assert.equal(sha(u.files.production),u.sourceSHA256,id);}
+ for(const id of m.retainedCompact){const u=effective({id,supersededBy:'review/final-20261021/unit-manifest.json'});assert.equal(sha(u.files.production),u.sourceSHA256,id);}
 });
 test('consumed native sprites, source copies, anatomy and thumbnail caches agree',()=>{
  const a=JSON.parse(fs.readFileSync('docs/unit-art-audit.json')).units,v=JSON.parse(fs.readFileSync('data/troop-new-units.json'));
@@ -29,6 +29,6 @@ test('consumed native sprites, source copies, anatomy and thumbnail caches agree
 });
 test('later user attachments are preserved byte-for-byte and reviewed anatomy remains explicit',()=>{
  for(const u of JSON.parse(fs.readFileSync(dir+'/user-replacements.json'))){
-  assert.equal(sha('tokens/'+u.id+'.png'),u.sourceSHA256,u.id);assert.equal(sha('assets/mesbg/tokens/'+u.id+'.png'),u.sourceSHA256,u.id);
+  const current=effective({id:u.id,supersededBy:'review/final-20261021/unit-manifest.json'});assert.equal(sha(current.files.before),u.sourceSHA256,u.id);assert.equal(sha(current.files.production),current.sourceSHA256,u.id);
  }
 });

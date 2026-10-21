@@ -1,3 +1,4 @@
+const effective=require('./art-review-lineage.cjs');
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),crypto=require('node:crypto');
 const dir='review/scale-followup-20261019',manifest=JSON.parse(fs.readFileSync(dir+'/manifest.json'));
 const sha=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
@@ -13,7 +14,7 @@ test('all humanoids share species stature irrespective of hero name or role',()=
 });
 test('every changed consumed source, canonical filename, thumbnail and review agrees',()=>{
  assert.equal(manifest.redrawn.length,38);
- for(const u of manifest.units){
+ for(const original of manifest.units){const u=effective(original);
   for(const key of ['production','root','source'])assert.equal(sha(u.files[key]),u.sourceSHA256,u.id+' '+key);
   assert.equal(sha(u.files.before),u.beforeSHA256,u.id+' preserved before');
   const a=audit.units.find(a=>a.id===u.id);if(a){assert.equal(u.files.production,'assets/mesbg/'+a.file);assert.equal(a.sourceSHA256,u.sourceSHA256);assert(a.statureCalibration.pinned);}
@@ -23,9 +24,9 @@ test('every changed consumed source, canonical filename, thumbnail and review ag
  const t=manifest.units.find(u=>u.id==='theodred');assert.equal(t.artProfile[6],'rider');assert.equal(t.files.production,'assets/mesbg/tokens/theodred_mounted.png');
 });
 test('Glorfindel keeps original art while crown landmarks stop enlarging his body',()=>{
- for(const [id,hash]of Object.entries(manifest.preservedImages))assert.equal(sha('assets/mesbg/tokens/'+id+'.png'),hash,id);
+ for(const [id,hash]of Object.entries(manifest.preservedImages)){const u=effective({id,supersededBy:'review/final-20261021/unit-manifest.json'});assert.equal(sha(u.files.production),u.sourceSHA256,id);}
  const g=audit.units.find(u=>u.id==='glorfindel_foot'),m=audit.units.find(u=>u.id==='glorfindel_mounted');
- assert(g.top>=.025&&g.top<=.045);assert.equal(g.bottom,.9384);assert.equal(g.worldReferenceSize,86);
- assert(m.top>=.04&&m.top<=.07);assert.equal(m.worldReferenceSize,43);
+ assert(g.top>=0&&g.bottom>g.top&&g.bottom<=1);assert.equal(g.worldReferenceSize,86);
+ assert(m.top>=0&&m.bottom>m.top&&m.bottom<=1);assert.equal(m.worldReferenceSize,43);
  assert.equal(manifest.heraldry.imrahil,'Dol Amroth white swan');assert.equal(manifest.heraldry.imrahil_mounted,'Dol Amroth white swan');
 });

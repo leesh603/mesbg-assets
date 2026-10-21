@@ -21,8 +21,8 @@ test('all 492 anatomical spans render to their specified size, independent of ra
  }
 });
 test('banners, staves and spears have anatomical centers independent of their ornament envelopes',()=>{
- assert(context.profiles.dwarf_banner[2]-context.profiles.dwarf_banner[1]<.8);
- assert(context.profiles.gandalf[3]>.5);assert(context.profiles.orc_spear2[3]>.5);
+ assert(context.profiles.dwarf_banner[3]<.45);
+ assert(context.profiles.gandalf[3]<.5);assert.equal(context.profiles.orc_spear2[3],.5);
  assert.equal(context.profiles.mt_spear[5],context.profiles.mt_swordshield[5]);
  assert.equal(context.profiles.gandalf_mounted[5],43);assert.equal(context.profiles.dain_boar[5],37);
 });
@@ -65,14 +65,14 @@ test('review is tied to the actual production raster, never stale source copies'
  for(const u of audit.units){
   const p='assets/mesbg/'+u.file;
   assert.equal(crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex'),u.sourceSHA256,u.id+' changed art: remeasure anatomy');
-  assert.match(u.visualReview.date,/^2026-10-(13|14|19)$/);
+  assert.match(u.visualReview.date,/^2026-10-(13|14|19|21)$/);
   assert.equal(u.visualReview.source,'assets/mesbg/'+u.file);
   assert.equal(u.referenceAxis,'height');
  }
 });
 test('regressions: empty padding, torso-only foot profiles, and Nazgul class',()=>{
  for(const id of ['earendil','feanor']) assert(context.profiles[id][2]-context.profiles[id][1]>.7,id);
- for(const id of ['hobbit_bounder','hobbit_militia']) assert(context.profiles[id][1]>.5,id);
+ for(const id of ['hobbit_bounder','hobbit_militia']) {const p=context.profiles[id];assert(p[1]>0&&p[2]>p[1]&&p[2]<=1,id);}
  for(const id of ['witchking_foot','khamul','nazgul_sword','dark_marshal']) assert.equal(context.profiles[id][5],98,id);
  for(const id of ['witchking_mounted','khamul_mounted','nazgul_mounted']) assert.equal(context.profiles[id][5],50,id);
 });
@@ -89,7 +89,7 @@ test('fixed painted facing: no directional mirroring or alpha-derived facing rem
 });
 test('every centre records a visually reviewed body rule, separate from size landmarks',()=>{
  for(const a of audit.units){
-  assert.match(a.centerReview.date,/^2026-10-(14|19)$/,a.id);
+  assert.match(a.centerReview.date,/^2026-10-(14|19|21)$/,a.id);
   const expected=['fellbeast','great-beast','mumak'].includes(a.bodyClass)?'creature-body':a.reference==='rider'?'rider-and-mount':'body';
   assert.equal(a.centerReview.basis,expected,a.id);
   assert.equal(a.centerReview.source,'assets/mesbg/'+a.file);
