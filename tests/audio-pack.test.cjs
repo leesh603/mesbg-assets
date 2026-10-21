@@ -37,3 +37,7 @@ test('decoded cache stays within 8 MiB and the WebKit/MP3 fallback honors the sa
  for(const name of ['large-a.wav','large-b.wav','large-c.wav'])await e._buffer(name);
  assert(e._decodedBytes<=8*1024*1024);assert.equal(e.buffers.size,1);assert(e.buffers.has('large-c.wav'));
 });
+test('music never uses a media element, so other apps keep playing and no media control appears',async()=>{
+ const {engine:e,state:s}=setup();await e.unlock();await flush();assert.equal(e.music.dataset.ostTrack,'main');assert.equal(s.appended||0,0);assert.equal(s.music,1);assert.equal(e.music.paused,false);
+ e._pauseMusic();assert.equal(e.music.paused,true);e._syncMusic();await flush();assert.equal(e.music.paused,false);assert.equal(s.music,2);
+});

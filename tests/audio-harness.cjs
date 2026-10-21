@@ -8,9 +8,9 @@ function setup(){
   constructor(){this.state='running';this.currentTime=1;this.destination=new Node();}resume(){this.state='running';return Promise.resolve();}suspend(){this.state='suspended';return Promise.resolve();}
   decodeAudioData(){return Promise.resolve({duration:.2,length:4410,numberOfChannels:1});}createGain(){return new Node();}createBiquadFilter(){return new Node();}createMediaElementSource(){return new Node();}
   createDynamicsCompressor(){const n=new Node();for(const k of ['threshold','knee','ratio','attack','release'])n[k]=new Param();return n;}
-  createBufferSource(){return {playbackRate:{},connect(){},disconnect(){},start(){state.started.push(this);},stop(){this.onended?.();}};}
+  createBufferSource(){return {playbackRate:{},connect(){},disconnect(){},start(){if(!this._music)state.started.push(this);else state.music=(state.music||0)+1;},stop(){this.onended?.();}};}
  }
- const context={Audio,window:{AudioContext:AC},document:{hidden:false,body:{append(){}},getElementById(){return null;}},performance:{now:()=>state.clock},console,qt:1,localStorage:{setItem:(k,v)=>state.storage[k]=v},setTimeout:fn=>{const id=state.timers.size+1;state.timers.set(id,fn);return id;},clearTimeout:id=>state.timers.delete(id),fetch:async url=>{state.fetches.push(url);return {ok:true,arrayBuffer:async()=>new ArrayBuffer(1)};}};
+ const context={Audio,window:{AudioContext:AC},document:{hidden:false,body:{append(){state.appended=(state.appended||0)+1;}},getElementById(){return null;}},performance:{now:()=>state.clock},console,qt:1,localStorage:{setItem:(k,v)=>state.storage[k]=v},setTimeout:fn=>{const id=state.timers.size+1;state.timers.set(id,fn);return id;},clearTimeout:id=>state.timers.delete(id),fetch:async url=>{if(/audio\/ost\//.test(url))state.ostFetches=(state.ostFetches||0)+1;else state.fetches.push(url);return {ok:true,arrayBuffer:async()=>new ArrayBuffer(1)};}};
  const source=fs.readFileSync(path.join(__dirname,'../src/game.js'),'utf8');vm.createContext(context);vm.runInContext(source.slice(source.indexOf('const Ye = '),source.indexOf('function be(Z, Y)'))+';this.Engine=We;this.effects=Ye;',context);
  return {state,context,engine:new context.Engine(),source,AC,Audio};
 }

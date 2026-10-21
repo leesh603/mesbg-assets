@@ -6836,8 +6836,8 @@ Ae=[{id:"warrior_minas_tirith",name_ko:"미나스 티리스 전사",name_en:"War
 }
 class Ve extends Ot.Scene {
     constructor() { super("battle"); lt(this, "b"); lt(this, "soundFX"); lt(this, "asset"); lt(this, "onPoint"); lt(this, "onUnit"); lt(this, "onDrop"); lt(this, "tokens", new Map); lt(this, "rings"); lt(this, "terrainLayer"); lt(this, "labels"); lt(this, "dragStart"); lt(this, "dragUnit", ""); lt(this, "busy", !1); lt(this, "focusedUid", ""); lt(this, "preview"); lt(this, "previewPlan"); lt(this, "previewAt", 0); }
-    preload() { this.load.maxParallelDownloads = 8; this.load.image("gate-art", this.asset("backgrounds/bg_minas_gate.png?v=p2")); this.load.image("terr_barricade", this.asset("tokens/terr_barricade.png?v=p2")); this.load.image("terr_bomb", this.asset("tokens/terr_bomb.png?v=p2")), this.load.image("terr_ballista", this.asset("tokens/terr_ballista.png?v=p2")), this.load.image("terr_brazier", this.asset("tokens/terr_brazier.png?v=p2"));for(const _tk of["terr_trebuchet","terr_crates","terr_bone_pile","terr_chain_post","terr_spike_line","terr_chest_closed","terr_great_wall","terr_palisade_long"])this.load.image(_tk,this.asset("tokens/"+_tk+".png?v=p2"));for(const _pp of new Set([...Object.values(MAP_PROPS||{}),...Object.values(MAP_PROP_SETS||{})].flat(3).filter(a=>Array.isArray(a)).map(a=>a[0]).filter(a=>typeof a==='string'&&a.startsWith('terr_'))))if(!this.textures.exists(_pp))this.load.image(_pp,this.asset('tokens/'+_pp+'.png?v=p2'));for(const _sk of["st_fear","st_prone","st_shield","st_aim","st_snare","st_crown","st_cart","st_lair","st_done","st_warn","st_bow","ui_heart","eye_sauron","trap_ballista","trap_scorpion","trap_snare","trap_barrel","trap_oil","trap_spike","trap_firepot","node_treasure","relic_map_scroll","ui_star","ui_flag","tr_champion"])this.load.image(_sk,"icons/"+_sk+".png"); for (const b of this.b.meta.values())
-        if (b.side === 'terrain' && b.file) this.load.image(b.id, this.asset(b.file)); }
+    preload() { this.load.maxParallelDownloads = 8; /* gate-art: replaced by the world ground in the drawMap override; not loaded. */ this.load.image("terr_barricade", this.asset("tokens/terr_barricade.png?v=p2")); this.load.image("terr_bomb", this.asset("tokens/terr_bomb.png?v=p2")), this.load.image("terr_ballista", this.asset("tokens/terr_ballista.png?v=p2")), this.load.image("terr_brazier", this.asset("tokens/terr_brazier.png?v=p2"));for(const _tk of["terr_trebuchet","terr_crates","terr_bone_pile","terr_chain_post","terr_spike_line","terr_chest_closed"])this.load.image(_tk,this.asset("tokens/"+_tk+".png?v=p2"));/* MAP_PROPS art is no longer drawn (mapProps has no callers); not preloaded. */for(const _sk of["st_fear","st_prone","st_shield","st_aim","st_snare","st_crown","st_cart","st_lair","st_done","st_warn","st_bow","ui_heart","eye_sauron","trap_ballista","trap_scorpion","trap_snare","trap_barrel","trap_oil","trap_spike","trap_firepot","node_treasure","relic_map_scroll","ui_star","ui_flag","tr_champion"])this.load.image(_sk,"icons/"+_sk+".png"); /* Terrain pieces on the field now; others stream in through _wantTex. */const _onField=new Set((this.b.units||[]).map(u=>u.id));for (const b of this.b.meta.values())
+        if (b.side === 'terrain' && b.file && _onField.has(b.id)) this.load.image(b.id, this.asset(b.file)); }
     create() { this.drawMap(), this.terrainLayer = this.add.container(0, 0), this.rings = this.add.graphics().setDepth(3), this.labels = this.add.container(0, 0).setDepth(8), this.underlay = this.add.container(0, 0).setDepth(4), this.cameras.main.setBounds(0, 0, pt.width, pt.height), this.cameras.main.setZoom(this.scale.width < 850 ? .95 : 1.05), (() => { const _g = this.b ? this.b.alive('good').filter(u => u.x >= 0) : []; const _cx = _g.length ? _g.reduce((a, u) => a + u.x, 0) / _g.length : 1165, _cy = _g.length ? _g.reduce((a, u) => a + u.y, 0) / _g.length : (285 + pt.deployY) / 2; this.cameras.main.centerOn(Math.max(200, Math.min(pt.width - 200, _cx)), _cy); })(), this.input.addPointer(1), this.input.on("pointerdown", b => { this.dragStart = { x: b.worldX, y: b.worldY }; const H = this.hit({ x: b.worldX, y: b.worldY }); this.dragUnit = (H == null ? void 0 : H.uid) || ""; }), this.input.on("pointerup", b => { if (this.busy)
         return; const H = { x: b.worldX, y: b.worldY }; if (!this.dragUnit && this.dragStart && Math.hypot(b.x - b.downX, b.y - b.downY) > 10) {
         this.dragStart = void 0;
@@ -7091,14 +7091,56 @@ class We {
         Object.assign(this._sfxLimiter.threshold,{value:-12});this._sfxLimiter.knee.value=8;
         this._sfxLimiter.ratio.value=4;this._sfxLimiter.attack.value=.003;this._sfxLimiter.release.value=.12;
         this._sfxBus.connect(highpass);highpass.connect(lowpass);lowpass.connect(this._sfxLimiter);this._sfxLimiter.connect(this.context.destination);
+        // Music runs on Web Audio buffers, never <audio> elements: a media
+        // element takes the phone's audio focus (stopping the player's own
+        // music) and pins a media control in the status bar. 'ambient' lets
+        // iOS mix the game with whatever is already playing.
+        try{if(typeof navigator!=='undefined'){if(navigator.audioSession)navigator.audioSession.type='ambient';if(navigator.mediaSession){navigator.mediaSession.metadata=null;navigator.mediaSession.playbackState='none';}}}catch{}
         for(let i=0;i<2;i++){
-            const audio=new Audio();audio.preload='none';audio.hidden=true;
-            audio.id='lwb-background-music'+(i?'-next':'');audio.setAttribute('playsinline','');audio.setAttribute('aria-hidden','true');
-            document.body.append(audio);const gain=this.context.createGain();gain.gain.value=0;
-            gain.connect(this._musicBus);const source=this.context.createMediaElementSource(audio);source.connect(gain);
-            this._slots.push({audio,gain,source,track:null});
+            const gain=this.context.createGain();gain.gain.value=0;gain.connect(this._musicBus);
+            this._slots.push({audio:this._transport(gain),gain,track:null});
         }
         return true;
+    }
+    // Minimal media-element-shaped transport over AudioBufferSourceNode.
+    _transport(gain) {
+        const eng=this,ctx=this.context;
+        return {dataset:{},src:'',loop:true,playbackRate:1,volume:1,paused:true,ended:false,onerror:null,
+            _node:null,_buf:null,_bufSrc:'',_off:0,_at:0,_gen:0,
+            setAttribute(){},load(){},
+            canPlayType(type){try{return eng._canPlay(type);}catch{return '';}},
+            removeAttribute(k){if(k!=='src')return;this.pause();this.src='';this._buf=null;this._bufSrc='';this._off=0;this.ended=false;},
+            pause(){
+                ++this._gen;
+                if(this._node){const n=this._node;this._node=null;n.onended=null;try{n.stop();}catch{}try{n.disconnect();}catch{}
+                    if(this._buf?.duration)this._off=(this._off+ctx.currentTime-this._at)%this._buf.duration;}
+                this.paused=true;
+            },
+            play(){
+                const gen=++this._gen,src=this.src;if(!src)return Promise.resolve();this.ended=false;
+                const ready=this._bufSrc===src&&this._buf?Promise.resolve(this._buf):eng._musicBuffer(src);
+                return ready.then(buf=>{
+                    if(gen!==this._gen||src!==this.src||this._node)return;
+                    this._buf=buf;this._bufSrc=src;
+                    const n=ctx.createBufferSource();n._music=true;n.buffer=buf;n.loop=this.loop;n.connect(gain);
+                    n.onended=()=>{if(this._node!==n)return;this._node=null;this.paused=true;this.ended=true;this._off=0;try{n.disconnect();}catch{}};
+                    const off=buf.duration?this._off%buf.duration:0;this._off=off;this._at=ctx.currentTime;
+                    n.start(0,off);this._node=n;this.paused=false;
+                },()=>{
+                    if(gen===this._gen&&src===this.src)this.onerror?.();
+                    const e=new Error('OST decode failed');e.name='EncodingError';throw e;
+                });
+            }};
+    }
+    _canPlay(type) { return typeof Audio!=='undefined'?new Audio().canPlayType(type):''; }
+    _musicBuffer(url) {
+        this._musicBufs??=new Map();if(this._musicBufs.has(url))return this._musicBufs.get(url);
+        const p=fetch(url).then(r=>{if(!r.ok)throw new Error('OST '+r.status);return r.arrayBuffer();})
+            .then(data=>new Promise((res,rej)=>{const r=this.context.decodeAudioData(data,res,rej);if(r&&r.then)r.then(res,rej);}));
+        this._musicBufs.set(url,p);p.catch(()=>this._musicBufs.delete(url));
+        // Decoded tracks are large; keep only the playing one and the one fading in.
+        while(this._musicBufs.size>2)this._musicBufs.delete(this._musicBufs.keys().next().value);
+        return p;
     }
     _applyMusicVolume() {
         if(this._musicBus)this._musicBus.gain.setTargetAtTime(this.muted?0:this._effVol(),this.context.currentTime,.08);
@@ -7107,11 +7149,6 @@ class We {
     unlock() {
         this._unlocked=true;if(this.muted||document.hidden||!this._ensureContext())return Promise.resolve();
         const resumed=this.context.state==='suspended'?this.context.resume().catch(()=>{}):Promise.resolve();
-        for(const slot of this._slots)if(!slot.activated){
-            slot.activated=true;
-            slot.audio.src='data:audio/wav;base64,UklGRnQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YVAAAACAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgA==';
-            slot.audio.play().then(()=>{if(!slot.track)slot.audio.pause();}).catch(()=>{});
-        }
         this._syncMusic();return resumed;
     }
     _hold(slot) {
@@ -11539,10 +11576,13 @@ Ve.prototype.preload = function () {
     { const _bf = new Set(); for (const [, u] of q.meta) if (u.side !== 'terrain') _bf.add(baseFile(u)); for (const f of _bf) { const url=this.asset(f); this.load.image('basefile:' + f, url.startsWith('data:') ? url : url + (url.includes('?') ? '&' : '?') + 'v=bases-v3'); } }
     oldPreload.call(this);
     {
-        const name = CX.maps[visualMapIdx(q.mapIndex)];
+        // Only the battlefield actually being fought: its ground and its landmark
+        // art. Other regions stream in on demand (worldArtWant) so the first
+        // battle is not blocked behind 27 regions' worth of images.
+        const name = q.battlefield?.key || CX.maps[visualMapIdx(q.mapIndex)];
         this.load.image('world-ground-'+name,this.asset('world/ground-'+name+'.webp?v=middleearth2'));
         for(const type of Object.keys(Terrain.TYPES))this.load.image('terrain-'+type,this.asset('world/'+type+'.png?v=middleearth2'));
-        for(const key of Object.keys(Terrain.THEMES))this.load.image('region-'+key,this.asset('world/region-'+key+'.png?v=middleearth2'));for(const key of ['abyss-edge','basalt','white-cliff','khazad-bridge','fx-fire','fx-smoke','fx-dust','fx-leaves'])this.load.image('world-'+key,this.asset('world/'+key+'.png?v=middleearth2'));
+        for(const key of new Set([name,...(q.terrain||[]).map(t=>t.art).filter(Boolean)]))if(Terrain.THEMES[key])this.load.image('region-'+key,this.asset('world/region-'+key+'.png?v=middleearth2'));for(const key of ['abyss-edge','basalt','white-cliff','khazad-bridge','fx-fire','fx-smoke','fx-dust','fx-leaves'])this.load.image('world-'+key,this.asset('world/'+key+'.png?v=middleearth2'));
         for(const m of ['shallow','deep','chasm','road'])this.load.image('terrain-material-'+m,this.asset('world/'+m+'.webp?v=middleearth2'));
     }
     for (const name of ['slash', 'thrust', 'smash', 'shoot', 'cast', 'pounce', 'rally', 'blood', 'clash', 'prone', 'terror', 'charge', 'halfmove'])
@@ -11572,7 +11612,7 @@ Ve.prototype._wantTex = function (id) {
     if (!this.textures.exists('unit-pending')) { const g0 = this.add.graphics(); g0.generateTexture('unit-pending', 64, 64); g0.destroy(); }
     return 'unit-pending';
 };
-Ve.prototype.drawMap = function () { const name=CX.maps[visualMapIdx(this.b.mapIndex||0)];this.b.battlefield ||= Terrain.build(name,this.b.wave+1);this.backdrop=this.add.image(pt.width/2,pt.height/2,'world-ground-'+name).setDisplaySize(pt.width,pt.height);this.boundary=this.add.graphics().setDepth(2);this.objectiveLabel=this.add.text(0,0,'',{fontFamily:'Pretendard',fontSize:'22px',color:'#e7ddbd',backgroundColor:'#20231de6',padding:{x:10,y:6}}).setOrigin(.5).setDepth(4); };
+Ve.prototype.drawMap = function () { const name=this.b.battlefield?.key||CX.maps[visualMapIdx(this.b.mapIndex||0)];this.b.battlefield ||= Terrain.build(name,this.b.wave+1);this.backdrop=this.add.image(pt.width/2,pt.height/2,'world-ground-'+name).setDisplaySize(pt.width,pt.height);this.boundary=this.add.graphics().setDepth(2);this.objectiveLabel=this.add.text(0,0,'',{fontFamily:'Pretendard',fontSize:'22px',color:'#e7ddbd',backgroundColor:'#20231de6',padding:{x:10,y:6}}).setOrigin(.5).setDepth(4); };
 // Selection prefers the active unit, then the moving side, then the nearest base within reach.
 Ve.prototype.hit = function (b) { const near = this.b.alive().filter(u => ht(b, u) <= u.radius + 10); near.sort((u, v) => ht(b, u) - (u.uid === this.b.selected ? 16 : u.side === this.b.side ? 8 : 0) - (ht(b, v) - (v.uid === this.b.selected ? 16 : v.side === this.b.side ? 8 : 0))); return near[0]; };
 Ve.prototype.create = function () {
@@ -18593,10 +18633,22 @@ function terrainCanvas(scene,key,paint){
  scene.textures.addCanvas(key,c).setFilter(Ot.Textures.FilterMode.NEAREST);return scene.add.image(pt.width/2,pt.height/2,key).setDisplaySize(pt.width,pt.height);
 }
 function terrainStroke(x,points,width,style){x.save();x.strokeStyle=style;x.lineWidth=width;x.lineJoin='round';x.lineCap='round';x.beginPath();points.forEach((p,i)=>i?x.lineTo(p[0],p[1]):x.moveTo(p[0],p[1]));x.stroke();x.restore();}
+function worldArtWant(scene,keys){
+ scene._worldArtQ ||= new Set();
+ const todo=keys.filter(k=>!scene._worldArtQ.has(k)&&!scene.textures.exists(k));if(!todo.length)return;
+ for(const k of todo){scene._worldArtQ.add(k);const file=k.startsWith('region-')?'world/region-'+k.slice(7)+'.png':'world/'+k.slice(6)+'.png';
+  scene.load.once('filecomplete-image-'+k,()=>{scene._worldArtQ.delete(k);try{renderBattlefield(scene);}catch(e){}});
+  scene.load.image(k,scene.asset(file+'?v=middleearth2'));}
+ scene.load.start();
+}
 function renderBattlefield(scene){
  const b=scene.b,field=b.battlefield;if(!field)return;
  const guide=document.getElementById('terrain-guide');if(guide)guide.hidden=!['preparation','move','shoot','fight'].includes(b.phase);
- const key=[field.key,field.stage,Terrain.stamp(b.terrain)].join('|');if(scene._terrainStamp===key)return;
+ // Landmark/skin art for this field; anything not yet loaded is streamed in
+ // and the field repaints as soon as it lands (key includes what is ready).
+ const objTex=[...new Set(b.terrain.filter(t=>t.active&&t.tactical&&t.type&&!t.renderHidden&&(t.art||t.skin)).map(t=>t.art?'region-'+t.art:'world-'+t.skin))];
+ const lacking=objTex.filter(k=>!scene.textures.exists(k));if(lacking.length)worldArtWant(scene,lacking);
+ const key=[field.key,field.stage,Terrain.stamp(b.terrain),lacking.length].join('|');if(scene._terrainStamp===key)return;
  // Wait for all critical materials; never paint blank boxes as substitute art.
  const files=['road','shallow','deep','chasm'].map(m=>'terrain-material-'+m).concat(Object.keys(Terrain.TYPES).map(t=>'terrain-'+t));
  if(files.some(k=>!scene.textures.exists(k)))return;
