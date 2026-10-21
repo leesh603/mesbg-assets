@@ -1,0 +1,17 @@
+name: Import verified final game artwork
+on:
+  push:
+    branches: [transfer/final-game-art-20261021]
+    paths: [.art-transfer/ready.json]
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Verify and import exact release into integration branch
+        run: python3 .art-transfer/import-release.py
