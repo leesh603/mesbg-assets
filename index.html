@@ -12691,7 +12691,8 @@ ut('help').onclick = () => { if (At)
  * world pixels are intentionally separate; only this adapter moves camera.
  * No network dependencies. Native Pointer Events own all field gestures.
  * -------------------------------------------------------------------- */
-const UX = {version:'1.9-hud-polish', dpr:1, zoom:.9, width:1, height:1, ready:false,
+const BATTLE_ZOOM=1.05;
+const UX = {version:'1.9-hud-polish', dpr:1, zoom:BATTLE_ZOOM, width:1, height:1, ready:false,
     cameraMode:'tactical', pointers:new Map(), gesture:null, stage:null, rosterKey:'', reduced:matchMedia('(prefers-reduced-motion: reduce)').matches};
 const mobileLayout = () => matchMedia('(max-width:900px)').matches || document.body.classList.contains('force-mobile');
 const touchLayout = () => matchMedia('(pointer:coarse)').matches || mobileLayout();
@@ -12848,7 +12849,7 @@ Ve.prototype.sync=function(){
     }
     if(this.b.phase==='menu'){UX.stage=null;return;}
     const stage=(this.b.phase==='preparation'?this.b.wave+1:this.b.wave)+'/'+(this.b.mapIndex||0);
-    if(stage!==UX.stage&&['preparation','move','shoot','fight'].includes(this.b.phase)){UX.stage=stage;const _foes=this.b.phase==='move'?this.b.alive('evil'):[];let team=_foes.length?_foes:this.b.alive(['move','shoot'].includes(this.b.phase)?this.b.side:'good');if(this.b.phase==='preparation'){const _pl=team.filter(u=>u.x>=0);team=_pl.length?_pl:[{x:1165,y:pt.deployY||690}];}const x=team.length?team.reduce((n,u)=>n+u.x,0)/team.length:1165;const z=mobileLayout()?Math.max(.82,Math.min(1.05,UX.height/(pt.height*.5))):.95;const y=this.b.phase==='preparation'||_foes.length?(team.length?team.reduce((n,u)=>n+u.y,0)/team.length:690):this.b.mission==='defense'?(mobileLayout()&&innerHeight>innerWidth?600-Math.min(78,UX.height*.16)/z:590):690;panTo(x,y,z,430)}
+    if(stage!==UX.stage&&['preparation','move','shoot','fight'].includes(this.b.phase)){UX.stage=stage;const _foes=this.b.phase==='move'?this.b.alive('evil'):[];let team=_foes.length?_foes:this.b.alive(['move','shoot'].includes(this.b.phase)?this.b.side:'good');if(this.b.phase==='preparation'){const _pl=team.filter(u=>u.x>=0);team=_pl.length?_pl:[{x:1165,y:pt.deployY||690}];}const x=team.length?team.reduce((n,u)=>n+u.x,0)/team.length:1165;const z=mobileLayout()?Math.max(BATTLE_ZOOM,Math.min(1.25,UX.height/(pt.height*.42))):1;const y=this.b.phase==='preparation'||_foes.length?(team.length?team.reduce((n,u)=>n+u.y,0)/team.length:690):this.b.mission==='defense'?(mobileLayout()&&innerHeight>innerWidth?600-Math.min(78,UX.height*.16)/z:590):690;panTo(x,y,z,430)}
     updateWorldUI();
 };
 const clarityRings=Ve.prototype.drawRings;
@@ -18715,8 +18716,18 @@ const worldUpdate=Ve.prototype.update;
 Ve.prototype.update=function(t){worldUpdate.call(this,t);const A=window.MESBGWorldArt,b=this.b;if(!A||!b?.battlefield)return;
  // Depth follows animated ground coordinates. Tactical UI remains above this band.
  for(const c of this.tokens.values())if(c.depth>=5&&c.depth<5.1)c.setDepth(A.depth(c.y));
+ if(this._xray)for(const [uid,over] of this._xray){const c=this.tokens.get(uid);if(c&&c.depth<=over)c.setDepth(over+.00001);}
  if((this._worldOcclusionAt||0)>t)return;this._worldOcclusionAt=t+80;
- const units=b.alive();for(const sp of this._terrainObjects?.getChildren()||[]){const tr=sp.getData('worldTerrain');if(!tr)continue;const fade=units.some(u=>A.overlap({...tr,y:sp.getData('worldAnchorY')},u,unitHeadLift(u)||86,sp.getData('worldDimensions')));const alpha=fade?.43:1;if(sp.alpha!==alpha)sp.setAlpha(alpha);}
+ // Large regional landmarks (Weathertop's ruin etc.) stay solid; a unit
+ // standing behind one is drawn just in front of it, instead of the whole landmark turning into a flickering ghost.
+ // Small props (trees, rocks) keep the gentle fade.
+ const units=b.alive(),xray=new Map();
+ for(const sp of this._terrainObjects?.getChildren()||[]){const tr=sp.getData('worldTerrain');if(!tr)continue;
+  const probe={...tr,y:sp.getData('worldAnchorY')},dims=sp.getData('worldDimensions');
+  if(tr.art){if(sp.alpha!==1)sp.setAlpha(1);for(const u of units)if(A.overlap(probe,u,unitHeadLift(u)||86,dims))xray.set(u.uid,Math.max(xray.get(u.uid)||0,sp.depth));continue;}
+  const fade=units.some(u=>A.overlap(probe,u,unitHeadLift(u)||86,dims));const alpha=fade?.55:1;if(sp.alpha!==alpha)sp.setAlpha(alpha);}
+ this._xray=xray;
+ for(const [uid,over] of xray){const c=this.tokens.get(uid);if(c&&c.depth<=over)c.setDepth(over+.00001);}
 };
 window.MESBG.worldArt=window.MESBGWorldArt;
 const tacticalResume=P.resume;
@@ -19147,7 +19158,9 @@ Yt=function(){
   if(ready()&&this.rings){this.rings.fillStyle(0x5faed6,.16);this.rings.fillRect(24,285,pt.width-48,pt.deployY-285);this.rings.lineStyle(2/Math.max(.12,UX.zoom),0x93d5f2,.85);this.rings.strokeRect(24,285,pt.width-48,pt.deployY-285);}
   return result;
  };
- function restore(){if(mounted){home.insertBefore(game,anchor?.parentNode===home?anchor:null);mounted=false;}}
+ function restore(){if(mounted){home.insertBefore(game,anchor?.parentNode===home?anchor:null);mounted=false;
+  // Leaving the camp's whole-field preview: battle opens at the normal close camera again.
+  UX.zoom=BATTLE_ZOOM;UX.cameraMode='tactical';requestAnimationFrame(()=>{if(mounted||!UX.ready)return;resizeBattle(true);setCamera(pt.width/2,q.phase==='preparation'?(285+pt.deployY)/2:pt.height/2,BATTLE_ZOOM,'tactical');});}}
  function fit(){if(!mounted||!UX.ready)return;resizeBattle(true);setCamera(pt.width/2,390,Math.min(UX.width/pt.width,UX.height/800),'overview');}
  const render=Yt;
  Yt=function(){
@@ -19158,7 +19171,7 @@ Yt=function(){
   const leave=document.getElementById('leave-camp');if(!leave)return result;
   const panel=document.createElement('section');panel.id='ready-deployment';
   const owned=q.permanent(),active=owned.filter(u=>!u.inReserve),selected=q.unit(q.selected);
-  panel.innerHTML='<h3>출전 편성 · 배치</h3><p class="ready-deployment-summary">출전 '+q.deployedPoints()+' / '+q.capacity()+'pt · '+active.length+'명 · 대기 '+(owned.length-active.length)+'명</p><p>부대를 고른 뒤 푸른 구역의 위치를 누르거나 병력을 끌어 배치하세요.</p><div id="ready-battlefield" aria-label="출전 부대 배치 전장"></div><div class="ready-map-tools"><button type="button" data-ready-view="all">전체 배치</button><button type="button" data-ready-view="unit">선택 부대 확대</button><span>'+esc(selected?.name||'부대를 선택하세요')+'</span></div><p class="ready-deployment-error" role="status" aria-live="polite">'+esc(q.deploymentError||'')+'</p><div class="ready-unit-list">'+owned.map(u=>'<div class="ready-unit '+(u.inReserve?'is-reserve':'is-deployed')+'"><button type="button" data-ready-select="'+u.uid+'" '+(u.inReserve?'disabled':'')+' aria-pressed="'+(u.uid===q.selected)+'">'+unitImage(u.id)+'<span><b>'+esc(u.name)+'</b><small>'+q.unitFormationPoints(u)+'pt · '+(u.inReserve?'대기':'출전')+'</small></span></button><button type="button" class="secondary" data-ready-toggle="'+u.uid+'">'+(u.inReserve?'출전':'대기')+'</button></div>').join('')+'</div>';
+  panel.innerHTML='<h3>출전 편성 · 배치</h3><p class="ready-deployment-summary">출전 '+q.deployedPoints()+' / '+q.capacity()+'pt · '+active.length+'명 · 대기 '+(owned.length-active.length)+'명</p><p>부대를 고른 뒤 푸른 구역의 위치를 누르거나 병력을 끌어 배치하세요.</p><div id="ready-battlefield" aria-label="출전 부대 배치 전장"></div><div class="ready-map-tools"><button type="button" data-ready-view="all">전장 전체 보기</button><button type="button" data-ready-view="unit">선택 부대 확대</button><span>'+esc(selected?.name||'부대를 선택하세요')+'</span></div><p class="ready-deployment-error" role="status" aria-live="polite">'+esc(q.deploymentError||'')+'</p><div class="ready-unit-list">'+owned.map(u=>'<div class="ready-unit '+(u.inReserve?'is-reserve':'is-deployed')+'"><button type="button" data-ready-select="'+u.uid+'" '+(u.inReserve?'disabled':'')+' aria-pressed="'+(u.uid===q.selected)+'">'+unitImage(u.id)+'<span><b>'+esc(u.name)+'</b><small>'+q.unitFormationPoints(u)+'pt · '+(u.inReserve?'대기':'출전')+'</small></span></button><button type="button" class="secondary" data-ready-toggle="'+u.uid+'">'+(u.inReserve?'출전':'대기')+'</button></div>').join('')+'</div>';
   const overview=document.querySelector('.ready-overview');(overview||leave.parentNode).insertAdjacentElement('afterend',panel);
   panel.querySelector('#ready-battlefield').appendChild(game);mounted=true;
   panel.querySelectorAll('[data-ready-select]').forEach(el=>el.onclick=()=>{q.selected=el.dataset.readySelect;q.save();Tt.sync();Yt();});
@@ -19361,7 +19374,7 @@ if(window.MESBG){MESBG.quirks=TROOP_QUIRKS;}
    With soles on the base centre, figures rise above their bases, so lower (nearer) units draw in front.
    Only tokens on the default layer are sorted; anything another effect raised stays where it is. */
 {const _yu=Ve.prototype.update;Ve.prototype.update=function(t){_yu.call(this,t);if(!this.tokens)return;
-    for(const c of this.tokens.values()){if(c.depth<5||c.depth>=5.1)continue;const d=5+Math.max(0,Math.min(9999,c.y))/100000;if(Math.abs(c.depth-d)>1e-7)c.setDepth(d);}};}
+    const xr=this._xray;for(const [uid,c] of this.tokens){if(c.depth<5||c.depth>=5.1)continue;let d=5+Math.max(0,Math.min(9999,c.y))/100000;const o=xr?.get(uid);if(o!==undefined&&d<=o)d=o+.00001;if(Math.abs(c.depth-d)>1e-7)c.setDepth(d);}};}
 {const _hit=Ve.prototype.hit;Ve.prototype.hit=function(p){const r=_hit.apply(this,arguments);if(r||!this.b)return r;
     // Tapping the body above the base picks the frontmost figure there.
     return this.b.alive().filter(u=>{const lift=unitHeadLift(u);if(!lift)return false;const half=Math.max(u.radius*.75,18);return Math.abs(p.x-u.x)<=half&&p.y<=u.y&&p.y>=u.y-lift;}).sort((a,b)=>b.y-a.y)[0];};}
@@ -22210,9 +22223,9 @@ html body.lwb-polished{--body:Pretendard,"Apple SD Gothic Neo","Malgun Gothic",s
 #app#app#app#app#app#app#app .recruit-card[data-draft] .recruit-combat{justify-content:center!important}
 #app#app#app#app#app#app#app .recruit-card[data-draft] > em{justify-self:center!important}
 #app#app#app#app#app#app#app .recruit-card[data-draft] .pick-mark:not(.why){display:none!important}
-#app#app#app#app#app#app#app .recruit-card[data-draft].is-picked .pick-mark{display:grid!important;place-items:center;position:absolute!important;top:-8px!important;right:-8px!important;left:auto!important;width:26px!important;height:26px!important;padding:0!important;
- border-radius:50%!important;font-size:0!important;color:transparent!important;background:radial-gradient(circle at 35% 30%,#fff6cf,#e7c068 55%,#a67a22)!important;box-shadow:0 0 0 2px #0a0806,0 2px 4px rgba(0,0,0,.6)!important;z-index:3}
-#app#app#app#app#app#app#app .recruit-card[data-draft].is-picked .pick-mark::before{content:"✓"!important;font:700 15px/1 var(--body);color:#3a2404}
+/* Picked: a 12px pixel badge drawn at 2x, matching the card frames (no glossy orb). */
+#app#app#app#app#app#app#app .recruit-card[data-draft].is-picked .pick-mark{display:block!important;position:absolute!important;top:-6px!important;right:-6px!important;left:auto!important;width:24px!important;height:24px!important;padding:0!important;margin:0!important;border:0!important;border-radius:0!important;font-size:0!important;color:transparent!important;background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' shape-rendering='crispEdges'><path fill='%230a0806' d='M1 0h10v12H1zM0 1h12v10H0z'/><path fill='%23e7c068' d='M1 1h10v10H1z'/><path fill='%23fff0b8' d='M1 1h10v1H1zM1 1h1v10H1z'/><path fill='%23a67a22' d='M1 10h10v1H1zM10 1h1v10h-1z'/><path fill='%232b1a04' d='M3 5h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM4 7h1v1h-1zM5 7h1v1h-1zM5 8h1v1h-1zM6 6h1v1h-1zM6 7h1v1h-1zM7 5h1v1h-1zM7 6h1v1h-1zM8 4h1v1h-1zM8 5h1v1h-1zM9 3h1v1h-1zM9 4h1v1h-1z'/></svg>") center/24px 24px no-repeat!important;box-shadow:none!important;filter:drop-shadow(0 2px 0 rgba(0,0,0,.55));image-rendering:pixelated;z-index:3}
+#app#app#app#app#app#app#app .recruit-card[data-draft].is-picked .pick-mark::before{content:none!important}
 #app#app#app#app#app#app#app .recruit-card[data-draft] .pick-mark.why{grid-area:price!important;justify-self:center!important;background:none!important;box-shadow:none!important}
 #app#app#app#app#app#app#app .recruit-card[data-draft]{overflow:visible!important}
 /* top bar wave box: one face */
