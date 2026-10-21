@@ -1392,3 +1392,7 @@ html body #app#app#app#app #active-tag.dim{opacity:.4}
 html body #app#app#app#app #active-tag.below{transform:translate(-50%,0)!important}
 html body #app#app#app#app #active-tag.below::after{top:-6px;bottom:auto;clip-path:polygon(50% 0,100% 100%,0 100%)}
 html body #app#app#app#app #active-tag.hidden{display:none!important}
+
+/* Deployment dialog: auto deploy beside confirm */
+#warband-deployment .deployment-actions{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;margin-top:10px}
+#warband-deployment .deployment-actions button{flex:1 1 120px;white-space:nowrap}

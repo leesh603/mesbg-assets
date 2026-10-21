@@ -128,6 +128,41 @@ P.leaveCamp=function(){
  if(this._retrySnapshot)this._retrySnapshot.units=structuredClone(this.units);
  this.save();return result;
 };
+// Auto deploy: fill the point limit (heroes first, then the costliest that
+// still fit) and lay out a formation — foot and heroes in the front line
+// facing the enemy, cavalry on its wings, shooters and wizards behind.
+P.autoDeploy=function(){
+ if(!this.canEditDeployment())return false;
+ const owned=this.permanent(),pts=u=>this.unitFormationPoints(u),cap=this.capacity();
+ for(const u of owned){u.inReserve=true;u.x=-1000;u.y=-1000;}
+ const hero=u=>u.traits.includes('hero')?1:0;
+ const order=owned.slice().sort((a,b)=>hero(b)-hero(a)||pts(b)-pts(a));
+ let used=0;const chosen=[];for(const u of order)if(used+pts(u)<=cap){chosen.push(u);used+=pts(u);}
+ const back=u=>!!u.stats?.shootRange&&!u.traits.includes('mounted')||u.traits.includes('wizard');
+ const horse=u=>u.traits.includes('mounted')&&!back(u);
+ const rank=(a,b)=>hero(b)-hero(a)||pts(b)-pts(a);
+ const front=chosen.filter(u=>!back(u)&&!horse(u)).sort(rank),rear=chosen.filter(back).sort(rank),wings=chosen.filter(horse);
+ // Centre-out order: best unit in the middle, then alternately right and left.
+ const centreOut=list=>{const out=[];list.forEach((u,i)=>i%2?out.unshift(u):out.push(u));return out;};
+ const frontLine=centreOut(front),half=Math.ceil(wings.length/2);
+ const lines=[[...wings.slice(0,half),...frontLine,...wings.slice(half)],centreOut(rear)];
+ const [top,bottom]=deployZone(),flip=top!==285,rowY=flip?[top+60,top+215]:[bottom-60,bottom-215];
+ const place=(u,want)=>{
+  u.inReserve=false;
+  for(let r=0;r<=260;r+=26)for(let k=0;k<(r?12:1);k++){const a=k*Math.PI/6,p={x:Math.round(want.x+Math.cos(a)*r),y:Math.round(want.y+Math.sin(a)*r*.6)};
+   if(p.y<top+(u.radius||20)||p.y>bottom||p.x<40||p.x>pt.width-40)continue;if(Et(u,p,this.alive(),this.terrain)){Object.assign(u,p);return true;}}
+  if(this.placeInDeployment(u))return true;u.inReserve=true;u.x=-1000;u.y=-1000;return false;
+ };
+ lines.forEach((line,li)=>{
+  const gap=u=>2*(u.radius||20)+16,width=line.reduce((n,u)=>n+gap(u),0);let x=Mt.objective.x-width/2;
+  for(const u of line){x+=gap(u)/2;place(u,{x,y:rowY[li]});x+=gap(u)/2;}
+ });
+ for(const u of this.alive('good'))this.refreshUnit?.(u);
+ for(const u of chosen)if(!u.inReserve)u.deploymentPosition={x:u.x,y:u.y};
+ this.selected=frontLine[Math.floor(frontLine.length/2)]?.uid||this.alive('good').find(u=>!u.temporary)?.uid||'';
+ this.deploymentError=chosen.some(u=>u.inReserve)?'일부 부대는 빈 공간이 없어 대기로 남았습니다':'';
+ this.save();return true;
+};
 P.departReady=function(){
  if(!this.prepareReadyDeployment())return false;
  this.deploymentError=this.deploymentReason();if(this.deploymentError)return false;
