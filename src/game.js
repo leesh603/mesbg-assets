@@ -12854,7 +12854,7 @@ async function heroCutin(scene,u,action,cost='Might −1'){
     const hold=qt>=8?380:qt>=4?560:qt>=2?820:1250;
     await hcWait(20);el.classList.add('on');await hcWait(hold);el.classList.add('out');await hcWait(200);el.remove();
 }
-{const _hp=Ve.prototype.play;Ve.prototype.play=function(event){try{if(event&&event.type==='Heroic'&&event.uid&&this.b){const u=this.b.unit(event.uid),m=String(event.message||'').split(/·|—/).pop().replace(/\(AI\)/,'').trim();heroCutin(this,u,m);}}catch(e){console.error('[cutin]',e);}return _hp.apply(this,arguments);};}
+{const _hp=Ve.prototype.play;Ve.prototype.play=function(event){try{if(event&&(event.type==='Heroic'||event.type==='HeroSkill')&&event.uid&&this.b){const u=this.b.unit(event.uid),m=String(event.message||'').split(/·|—/).pop().replace(/\(AI\)/,'').trim(),cost=event.type==='Heroic'?'Might −1':'';Promise.resolve(heroCutin(this,u,m,cost)).catch(e=>console.error('[cutin]',e));}}catch(e){console.error('[cutin]',e);}return _hp.apply(this,arguments);};}
 if(window.MESBG)MESBG.heroCutin=(uid,act)=>heroCutin(Tt,q.unit(uid),act);
 
 /* ==== Nemesis captains (reference: Shadow of Mordor nemesis, XCOM 2 Chosen) ====
