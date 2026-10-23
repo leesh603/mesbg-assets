@@ -1,0 +1,42 @@
+{
+  "started": "2026-10-23T14:15:52.577Z",
+  "checks": [
+    {
+      "name": "syntax",
+      "status": "passed",
+      "started": "2026-10-23T14:15:52.579Z",
+      "code": 0,
+      "signal": null,
+      "timedOut": false,
+      "finished": "2026-10-23T14:15:52.716Z"
+    },
+    {
+      "name": "online-build",
+      "status": "passed",
+      "started": "2026-10-23T14:15:52.718Z",
+      "code": 0,
+      "signal": null,
+      "timedOut": false,
+      "finished": "2026-10-23T14:15:52.998Z"
+    },
+    {
+      "name": "combat-audio",
+      "status": "passed",
+      "started": "2026-10-23T14:15:52.999Z",
+      "code": 0,
+      "signal": null,
+      "timedOut": false,
+      "finished": "2026-10-23T14:15:53.821Z"
+    },
+    {
+      "name": "terrain",
+      "status": "passed",
+      "started": "2026-10-23T14:15:53.821Z",
+      "code": 0,
+      "signal": null,
+      "timedOut": false,
+      "finished": "2026-10-23T14:17:15.819Z"
+    }
+  ],
+  "finished": "2026-10-23T14:17:15.819Z"
+}
