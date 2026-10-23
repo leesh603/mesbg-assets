@@ -434,11 +434,11 @@ class We {
     _url(file) { const url=this.asset(file); return url.startsWith('data:')?url:url+(url.includes('?')?'&':'?')+'audio=lwb-foley-3'; }
     setScene(phase,map,boss,heroDuel=false) {
         const region=['helms_deep','edoras','dunharrow','hornburg'].includes(map)?'rohan':
-            ['black_gate','gorgoroth','dol_guldur','angband','isengard','dead_marshes','barad_dur','minas_morgul'].includes(map)?'mordor':'gondor';
+            ['black_gate','gorgoroth','dol_guldur','angband','isengard','orthanc','dead_marshes','barad_dur','minas_morgul'].includes(map)?'mordor':map?'gondor':'battle';
         const menu=!phase||['menu','loading'].includes(phase);
         this.mood=menu?3:['reward','result'].includes(phase)?0:boss||heroDuel?2:1;
         const track=menu?'main':['reward','result'].includes(phase)?'aftermath':
-            phase==='preparation'?region:boss||heroDuel?'heroes-bosses':'battle';
+            boss||heroDuel?'heroes-bosses':region;
         if(this._desired!==track){this._desired=track;this._syncMusic();}
         else this._applyMusicVolume();
     }
@@ -7015,6 +7015,17 @@ async function scoped(scene,fn){
     try{return await fn(own);}finally{for(const node of nodes)if(node?.scene)node.destroy();}
 }
 function duration(ms){return window._lwbFx||qt>=20?0:ms/clamp(qt||1,1,8);}
+// Separate anticipation, contact and recovery. Move the painted body, not its base.
+function combatBeat(shape,mounted,t){
+    const heavy=['cleave','smash'].includes(shape),shot=shape==='arrow'||shape==='fire';
+    const ready=heavy?.30:shot?.26:.20,contact=shot?.65:.59;
+    const attack=clamp((t-ready)/(contact-ready),0,1),recover=clamp((t-contact)/(1-contact),0,1);
+    const prep=clamp(t/ready,0,1),drive=Math.sin(attack*Math.PI/2)*(1-recover),wind=t<ready?prep:1-attack;
+    const still=['magic','fire'].includes(shape),reach=mounted?13:shape==='thrust'?11:heavy?7:5;
+    const forward=still?0:shot?-(t>=ready?Math.sin(recover*Math.PI)*3:prep*2):drive*reach-wind*(heavy?4:2);
+    const twist=still?0:shot?-.018*wind:(heavy?-.07:shape==='thrust'?-.018:-.045)*wind+(heavy?.06:.025)*drive;
+    return{ready,contact,attack,recover,forward,twist,drop:heavy?Math.sin(attack*Math.PI)*2:mounted?Math.sin(attack*Math.PI)*-2:0};
+}
 function saveSprite(sprite){return {x:sprite.x,y:sprite.y,rotation:sprite.rotation,scaleX:sprite.scaleX,scaleY:sprite.scaleY,alpha:sprite.alpha,lock:sprite.getData('fxLock'),tinted:sprite.isTinted,tints:[sprite.tintTopLeft,sprite.tintTopRight,sprite.tintBottomLeft,sprite.tintBottomRight]};}
 function restoreSprite(sprite,s){if(!sprite?.scene)return;sprite.setPosition(s.x,s.y).setRotation(s.rotation).setScale(s.scaleX,s.scaleY).setAlpha(s.alpha);s.tinted?sprite.setTint(...s.tints):sprite.clearTint();sprite.setData('fxLock',s.lock);}
 function origin(scene,result,uid){return (result.pushVectors||[]).find(v=>v.uid===uid)?.from||scene.b.unit(uid);}
@@ -7031,14 +7042,15 @@ Ve.prototype.combat=async function(result){
         try{
             if(enabled)await scoped(scene,async own=>{
                 const g=own(scene.add.graphics().setDepth(18)),nm=label(scene,own,bp,hit.killed?'격파':hit.wound?'−1':hit.prevented?'보호':'막음',hit.killed?MAT.gold.edge:hit.wound?MAT.blood.edge:MAT.steel.edge);
-                const lunge=!calm&&!a.traits?.includes('static')&&!a.traits?.includes('lair')&&result.kind!=='shot'?Math.min(14,r*.25):0;
-                scene.soundFX?.play(result.kind==='shot'?(shape==='fire'?'cast':'arrow_release'):shape==='magic'||shape==='fire'?'cast':shape==='thrust'?'spear_thrust':'sword_swing');
-                if(shape==='arrow')scene.soundFX?.play('arrow_fly');
-                let impacted=false;
-                await frame(scene,duration(calm?190:shape==='arrow'||shape==='fire'?540:480),t=>{
-                    g.clear();const strike=clamp((t-.13)/.43,0,1),impact=clamp((t-.56)/.44,0,1),fade=1-clamp((t-.78)/.22,0,1);g.setAlpha(fade);
-                    if(!calm){const motion=t<.56?Math.sin(Math.PI*strike)*lunge:(1-impact)*lunge*.25;ac.setPosition(ax+Math.cos(angle)*motion,ay+Math.sin(angle)*motion);
-                        if(t>=.13&&t<.66){
+                const canMove=!calm&&!a.traits?.includes('static')&&!a.traits?.includes('lair'),mounted=a.traits?.includes('mounted');
+                let impacted=false,released=false,flying=false;
+                await frame(scene,duration(calm?190:shape==='arrow'||shape==='fire'?620:['cleave','smash'].includes(shape)?600:480),t=>{
+                    const beat=combatBeat(shape,mounted,t),strike=beat.attack,impact=beat.recover,fade=1-clamp((t-.84)/.16,0,1);
+                    g.clear();g.setAlpha(fade);
+                    if(!released&&t>=beat.ready){released=true;scene.soundFX?.play(result.kind==='shot'?(shape==='fire'?'cast':'arrow_release'):shape==='magic'||shape==='fire'?'cast':shape==='thrust'?'spear_thrust':'sword_swing');}
+                    if(shape==='arrow'&&!flying&&qt<4&&t>=beat.ready+.16){flying=true;scene.soundFX?.play('arrow_fly');}
+                    if(!calm){if(canMove)as.setPosition(asave.x+Math.cos(angle)*beat.forward,asave.y+Math.sin(angle)*beat.forward+beat.drop).setRotation(asave.rotation+beat.twist);
+                        if(t>=beat.ready&&t<beat.contact+.10){
                             if(shape==='slash'||shape==='cleave')arc(g,{x:bp.x-Math.cos(angle)*r*.35,y:bp.y-Math.sin(angle)*r*.35},r*(shape==='cleave'?1.15:.95),angle-2.2,angle+1.15,strike,mat,shape==='cleave'?15:12);
                             else if(shape==='claw'){
                                 for(let i=-1;i<=1;i++){const head=clamp(strike-i*.07,0,1),tail=Math.max(0,head-.48);
@@ -7056,7 +7068,7 @@ Ve.prototype.combat=async function(result){
                             else {rune(g,ap,clamp(a.radius||36,22,50)*.8,mat,t);const p=mix(ap,bp,strike);ink(g,p.x,p.y,9,mat.mid);ink(g,p.x,p.y,3,mat.edge);}
                         }
                     }
-                    if(t>=.56){if(!impacted){impacted=true;scene.soundFX?.play(combatAudioImpact(scene,a,b,hit,result.kind));}
+                    if(t>=beat.contact){if(!impacted){impacted=true;scene.soundFX?.play(combatAudioImpact(scene,a,b,hit,result.kind));}
                         const material=hit.wound?shape==='fire'?MAT.fire:shape==='smash'?MAT.earth:MAT.blood:MAT.gold;
                         burst(g,bp,r*(calm?.45:1.05),impact,material,calm?4:hit.killed?14:10);
                         if(!hit.wound)arc(g,bp,r*.65,angle+Math.PI-.8,angle+Math.PI+.8,1,MAT.gold,6);
@@ -11915,7 +11927,7 @@ ut('help').onclick = () => {
  * Logical art pixel = 2 world units. Can run in the browser or build-time canvas.
  * Base-centre navigation coordinates stay authoritative in tactical-terrain.js. */
 (function(root){'use strict';
-const VERSION='middle-earth-20261021-2',SCALE=2,W=1165,H=728;
+const VERSION='battlefield-20261023-1',SCALE=2,W=1165,H=728;
 // Material indices: meadow, woodland, limestone, earth, basalt, dungeon, marsh, scree, goldleaf.
 const REGIONS={
  minas_tirith:{material:0,secondary:2,scheme:'gondor',pattern:'approach',light:0xf5f2e9,landmark:'whitegate',accent:'#aeb3a2'},
@@ -12023,8 +12035,31 @@ function paintGround(ctx,key,atlas){
  const shade=ctx.createRadialGradient(W*.52,H*.52,100,W*.5,H*.5,W*.67);shade.addColorStop(0,'rgba(0,0,0,0)');shade.addColorStop(1,'rgba(8,15,18,'+(['dwarven-abyss','webbed-thickets'].includes(feature)?'.38':'.16')+')');ctx.fillStyle=shade;ctx.fillRect(0,0,W,H);
  return{key,pattern:feature,material:r.material,width:W,height:H};
 }
+// Cached at terrain rebuild, never in the combat frame loop. Existing terrain
+// shapes, collision boundaries and baked painted textures remain authoritative.
+function paintAtmosphere(ctx,key,width=W*SCALE,height=H*SCALE){
+ const r=region(key),rnd=random(seed(key+'-light')),sx=width/W,sy=height/H;
+ ctx.save();ctx.scale(sx,sy);
+ const underground=['moria','erebor_hall','orthanc','angband'].includes(key),forest=['fangorn','mirkwood','lothlorien','dol_guldur'].includes(key),evil=['mordor','industry','marsh'].includes(r.scheme);
+ // Directional daylight; cool ground shade unifies warm masonry and figures.
+ const daylight=ctx.createLinearGradient(0,0,W,H);
+ daylight.addColorStop(0,underground?'rgba(17,24,35,.20)':evil?'rgba(57,65,60,.06)':'rgba(239,220,167,.11)');
+ daylight.addColorStop(.52,'rgba(0,0,0,0)');daylight.addColorStop(1,underground?'rgba(10,16,25,.24)':forest?'rgba(15,34,29,.21)':'rgba(20,32,41,.13)');ctx.fillStyle=daylight;ctx.fillRect(0,0,W,H);
+ if(forest){
+  for(let i=0;i<7;i++){
+   const x=rnd()*W,y=rnd()*H,rad=75+rnd()*100,g=ctx.createRadialGradient(x,y,rad*.18,x,y,rad);
+   g.addColorStop(0,'rgba(10,25,23,.12)');g.addColorStop(1,'rgba(10,25,23,0)');ctx.fillStyle=g;ctx.fillRect(x-rad,y-rad,rad*2,rad*2);
+  }
+ }
+ if(underground){
+  for(const x of[180,975])for(const y of[190,535]){
+   const g=ctx.createRadialGradient(x,y,8,x,y,125);g.addColorStop(0,'rgba(206,152,70,.15)');g.addColorStop(.4,'rgba(176,115,50,.07)');g.addColorStop(1,'rgba(125,80,40,0)');ctx.fillStyle=g;ctx.fillRect(x-125,y-125,250,250);
+  }
+ }
+ ctx.restore();return{key,underground,forest,evil};
+}
 function overlap(t,u,head=86,override){if(!t.active||t.surface==='bridge'||!t.type||t.type==='rubble')return false;const dims=override||SIZE[t.type]||[t.drawW,t.drawH],w=dims[0],h=dims[1];return u.y<t.y+10&&u.y>t.y-h-head*.25&&Math.abs(u.x-t.x)<w*.44+(u.radius||38)*.35;}
-root.MESBGWorldArt={VERSION,SCALE,W,H,REGIONS,SIZE,LANDMARKS,LANDMARK_NAMES,depth,region,paintGround,overlap};if(typeof module!=='undefined'&&module.exports)module.exports=root.MESBGWorldArt;
+root.MESBGWorldArt={VERSION,SCALE,W,H,REGIONS,SIZE,LANDMARKS,LANDMARK_NAMES,depth,region,paintGround,paintAtmosphere,overlap};if(typeof module!=='undefined'&&module.exports)module.exports=root.MESBGWorldArt;
 })(typeof window!=='undefined'?window:globalThis);
 
 /*__WORLD_ART_END__*/
@@ -12084,6 +12119,7 @@ function renderBattlefield(scene){
    x.save();x.translate(d.x,d.y);x.rotate(d.angle*Math.PI/180);const g=x.createRadialGradient(0,0,12,0,0,d.w/2);g.addColorStop(0,(d.kind==='dust'?'rgba(108,111,111,':d.kind==='leafburn'?'rgba(51,42,22,':'rgba(25,23,18,')+d.alpha+')');g.addColorStop(.6,'rgba(35,28,22,'+d.alpha*.6+')');g.addColorStop(1,'rgba(35,28,22,0)');x.fillStyle=g;x.scale(1,d.h/d.w);x.beginPath();x.arc(0,0,d.w/2,0,Math.PI*2);x.fill();x.restore();
   }
   for(const f of field.fx||[]){const k='world-fx-'+f.kind;if(!scene.textures.exists(k))continue;x.save();x.globalAlpha=f.alpha;x.drawImage(scene.textures.get(k).getSourceImage(),f.x-f.w/2,f.y-f.h,f.w,f.h);x.restore();}
+  window.MESBGWorldArt.paintAtmosphere(x,field.key,pt.width,pt.height);
  }).setDepth(.5);
  scene._terrainObjects=scene.add.group();
  const A=window.MESBGWorldArt;
@@ -12111,7 +12147,7 @@ Ve.prototype.sync=function(){worldSync.apply(this,arguments);worldIntegration(th
 function worldIntegration(scene){const b=scene.b,A=window.MESBGWorldArt;if(!b?.battlefield||!A)return;const light=A.region(b.battlefield.key).light;
  for(const u of b.alive()){const c=scene.tokens.get(u.uid),sp=c?.getByName('token');if(!sp)continue;const old=sp.getData('worldTint');if(sp.tintTopLeft===0xffffff||sp.tintTopLeft===old){sp.setTint(light);sp.setData('worldTint',light);}/* Bases stay visible: units stand on the tilted faction discs (high-angle front view). */}
  if(!scene.textures.exists('__world-ripple')){const cv=document.createElement('canvas');cv.width=48;cv.height=18;const x=cv.getContext('2d');x.strokeStyle='rgba(170,192,183,.65)';x.lineWidth=1;x.beginPath();x.ellipse(24,9,20,5,0,0,Math.PI*2);x.stroke();x.strokeStyle='rgba(55,88,88,.40)';x.beginPath();x.ellipse(24,9,14,3,0,0,Math.PI*2);x.stroke();scene.textures.addCanvas('__world-ripple',cv).setFilter(Ot.Textures.FilterMode.NEAREST);}
- for(const u of b.alive()){const c=scene.tokens.get(u.uid);if(!c)continue;let water=c.getByName('world-ripple');const wet=b.terrain.some(t=>t.active&&(t.surface==='shallow'||t.ford)&&Terrain.contains(u,t))&&!u.traits.includes('flying');if(wet&&!water){water=scene.add.image(0,4,'__world-ripple').setName('world-ripple');c.addAt(water,1);}if(water)water.setVisible(wet).setDisplaySize(Math.max(38,u.radius*1.5),Math.max(14,u.radius*.42));}
+ for(const u of b.alive()){const c=scene.tokens.get(u.uid);if(!c)continue;let water=c.getByName('world-ripple');const onBridge=b.terrain.some(t=>t.active&&t.surface==='bridge'&&!t.ford&&Terrain.contains(u,t));const wet=!onBridge&&b.terrain.some(t=>t.active&&(t.surface==='shallow'||t.ford)&&Terrain.contains(u,t))&&!u.traits.includes('flying');if(wet&&!water){water=scene.add.image(0,4,'__world-ripple').setName('world-ripple');c.addAt(water,1);}if(water)water.setPosition(0,4).setVisible(wet).setDisplaySize(Math.max(38,u.radius*1.5),Math.max(14,u.radius*.42));}
 
 }
 const worldUpdate=Ve.prototype.update;

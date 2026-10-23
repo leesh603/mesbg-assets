@@ -48,3 +48,19 @@ test('an area boss impact uses each victim location and keeps the area fire mate
  const s=setup();await s.scene.battleFXEvent({type:'BossImpact',uid:'b',at:{x:900,y:900,radius:150,fx:'meteor'},message:'보스의 일격'});
  assert.ok(s.draws.length>0);assert.ok(s.draws.every(p=>Math.hypot(p.x-s.b.x,p.y-s.b.y)<100));assert.ok(s.draws.some(p=>p.color===0xe99b48));assert.ok(s.objects.slice(4).every(n=>!n.scene));
 });
+test('attack anticipation keeps the base planted and restores painted body poses',async()=>{
+ for(const weapon of ['sword','twohanded_axe','spear','hammer']){
+  const s=setup({weapon});let movedBase=false,bodyMoved=false,turned=false;
+  const move=s.ac.setPosition.bind(s.ac);s.ac.setPosition=(x,y)=>{if(x!==100||y!==200)movedBase=true;return move(x,y);};
+  const pose=s.as.setPosition.bind(s.as),turn=s.as.setRotation.bind(s.as);
+  s.as.setPosition=(x,y)=>{if(Math.abs(x)+Math.abs(y)>.1)bodyMoved=true;return pose(x,y);};
+  s.as.setRotation=r=>{if(Math.abs(r)>.001)turned=true;return turn(r);};
+  await s.scene.combat(s.result);assert(!movedBase,weapon+' base slid');assert(bodyMoved,weapon+' body never moved');assert(turned,weapon+' no preparation pose');clean(s);
+ }
+});
+test('bow release, flight and impact follow their visual beats in order',async()=>{
+ const s=setup({kind:'shot',weapon:'bow'});await s.scene.combat(s.result);
+ assert.deepEqual(s.sounds,['arrow_release','arrow_fly','arrow_impact']);clean(s);
+ const fast=setup({kind:'shot',weapon:'bow',speed:8});await fast.scene.combat(fast.result);
+ assert.deepEqual(fast.sounds,['arrow_release','arrow_impact']);clean(fast);
+});

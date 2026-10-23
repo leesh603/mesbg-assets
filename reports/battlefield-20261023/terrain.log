@@ -1,0 +1,24 @@
+{"map":"osgiliath","phase":"reward","round":11,"steps":158,"survivors":3}
+{"map":"moria","phase":"reward","round":10,"steps":178,"survivors":5}
+{"map":"fangorn","phase":"reward","round":13,"steps":222,"survivors":4}
+{"map":"mirkwood","phase":"reward","round":9,"steps":160,"survivors":4}
+✔ 27 regions place normal units, escort carts and purge lairs on legal ground (9186.066576ms)
+✔ river, chasm and forest combat complete through the production AI without terrain shortcuts (67162.747558ms)
+✔ preparation save carries a versioned authored layout and unchanged placements (65.503375ms)
+✔ shallow water doubles traversed movement cost, not the entire move (12.17388ms)
+✔ deep river rejects endpoints and complete segments; swimming/mountain never bypass it (16.342971ms)
+✔ bridge opens only its deck for the full unit footprint; bank clipping forbidden (0.547187ms)
+✔ path finds off-axis bridge without water shortcuts, using real weighted cost (6.89921ms)
+✔ trees/rocks/ruined walls block, low fences require crossing but cannot be landing sites (1.536713ms)
+✔ no disappearing stable landmarks over progress, rubble is visibly slow and passable (4.071084ms)
+✔ all 27 regions / five progress steps have a traversable deployment-to-objective route for infantry and large ground units (5229.920231ms)
+✔ AI waypoint never exceeds the movement budget even in a ford (0.651354ms)
+✔ water does not block arrows but walls and woods do (0.296088ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 81929.860447

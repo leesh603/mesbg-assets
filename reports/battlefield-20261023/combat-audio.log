@@ -1,0 +1,19 @@
+✔ weapon and spell renders complete, restore sprites and remove all temporary objects (150.42079ms)
+✔ render exception restores position, tint and locks and propagates to the action wrapper (3.129721ms)
+✔ effects off and instant speed apply death/displacement without cosmetic nodes or waits (3.312608ms)
+✔ reduced motion does not lunge or recoil and does not displace static structures (2.339707ms)
+✔ shutdown and suspended RAF both finish and release the presentation locks (363.07976ms)
+✔ all cosmetic events route once while casualty housekeeping still runs exactly once (6.552916ms)
+✔ combat casualty is not animated twice when UnitKilled follows its strike result (5.290313ms)
+✔ an area boss impact uses each victim location and keeps the area fire material (3.573337ms)
+✔ attack anticipation keeps the base planted and restores painted body poses (16.07448ms)
+✔ bow release, flight and impact follow their visual beats in order (5.310348ms)
+✔ every registered region keeps its OST through preparation, movement, shooting and melee (15.496757ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 751.534966
