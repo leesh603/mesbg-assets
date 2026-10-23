@@ -36,7 +36,7 @@ The shared disk filled again, and an earlier browser process hit the cgroup OOM 
 
 ## Next step
 
-PR #49 already exists. Preserve these verified results on its existing branch, merge within the user's existing authorization, and verify the Pages deployment and served source.
+PR #49 merged into main as `7a8c590eac86806d8901aced823f91233520fe6d`. GitHub Pages run `39970321617` completed successfully. The served index Git blob matches `c4cf54c7c3b243d98f7bbc98822670e42cc7847f`. Post-deployment PC and mobile engine smoke checks passed with six friendly units, rendered terrain, no overflow and no page errors. See `reports/battlefield-20261023/live.json` on this work branch. Do not repeat this completed implementation; the original new artwork/music scope below remains open.
 
 ## Remaining original scope
 

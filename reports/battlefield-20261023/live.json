@@ -1,0 +1,24 @@
+{
+  "sha": "7a8c590eac86806d8901aced823f91233520fe6d",
+  "results": [
+    {
+      "device": "pc",
+      "phase": "preparation",
+      "good": 6,
+      "overflow": false,
+      "terrain": 7,
+      "errors": []
+    },
+    {
+      "device": "mobile",
+      "phase": "preparation",
+      "good": 6,
+      "overflow": false,
+      "terrain": 7,
+      "errors": []
+    }
+  ],
+  "workflow": "https://github.com/leesh603/mesbg-assets/actions/runs/39970321617",
+  "workflowConclusion": "success",
+  "servedIndexBlob": "c4cf54c7c3b243d98f7bbc98822670e42cc7847f"
+}
