@@ -2,7 +2,7 @@
  * Logical art pixel = 2 world units. Can run in the browser or build-time canvas.
  * Base-centre navigation coordinates stay authoritative in tactical-terrain.js. */
 (function(root){'use strict';
-const VERSION='middle-earth-20261021-2',SCALE=2,W=1165,H=728;
+const VERSION='battlefield-20261023-1',SCALE=2,W=1165,H=728;
 // Material indices: meadow, woodland, limestone, earth, basalt, dungeon, marsh, scree, goldleaf.
 const REGIONS={
  minas_tirith:{material:0,secondary:2,scheme:'gondor',pattern:'approach',light:0xf5f2e9,landmark:'whitegate',accent:'#aeb3a2'},
@@ -110,6 +110,29 @@ function paintGround(ctx,key,atlas){
  const shade=ctx.createRadialGradient(W*.52,H*.52,100,W*.5,H*.5,W*.67);shade.addColorStop(0,'rgba(0,0,0,0)');shade.addColorStop(1,'rgba(8,15,18,'+(['dwarven-abyss','webbed-thickets'].includes(feature)?'.38':'.16')+')');ctx.fillStyle=shade;ctx.fillRect(0,0,W,H);
  return{key,pattern:feature,material:r.material,width:W,height:H};
 }
+// Cached at terrain rebuild, never in the combat frame loop. Existing terrain
+// shapes, collision boundaries and baked painted textures remain authoritative.
+function paintAtmosphere(ctx,key,width=W*SCALE,height=H*SCALE){
+ const r=region(key),rnd=random(seed(key+'-light')),sx=width/W,sy=height/H;
+ ctx.save();ctx.scale(sx,sy);
+ const underground=['moria','erebor_hall','orthanc','angband'].includes(key),forest=['fangorn','mirkwood','lothlorien','dol_guldur'].includes(key),evil=['mordor','industry','marsh'].includes(r.scheme);
+ // Directional daylight; cool ground shade unifies warm masonry and figures.
+ const daylight=ctx.createLinearGradient(0,0,W,H);
+ daylight.addColorStop(0,underground?'rgba(17,24,35,.20)':evil?'rgba(57,65,60,.06)':'rgba(239,220,167,.11)');
+ daylight.addColorStop(.52,'rgba(0,0,0,0)');daylight.addColorStop(1,underground?'rgba(10,16,25,.24)':forest?'rgba(15,34,29,.21)':'rgba(20,32,41,.13)');ctx.fillStyle=daylight;ctx.fillRect(0,0,W,H);
+ if(forest){
+  for(let i=0;i<7;i++){
+   const x=rnd()*W,y=rnd()*H,rad=75+rnd()*100,g=ctx.createRadialGradient(x,y,rad*.18,x,y,rad);
+   g.addColorStop(0,'rgba(10,25,23,.12)');g.addColorStop(1,'rgba(10,25,23,0)');ctx.fillStyle=g;ctx.fillRect(x-rad,y-rad,rad*2,rad*2);
+  }
+ }
+ if(underground){
+  for(const x of[180,975])for(const y of[190,535]){
+   const g=ctx.createRadialGradient(x,y,8,x,y,125);g.addColorStop(0,'rgba(206,152,70,.15)');g.addColorStop(.4,'rgba(176,115,50,.07)');g.addColorStop(1,'rgba(125,80,40,0)');ctx.fillStyle=g;ctx.fillRect(x-125,y-125,250,250);
+  }
+ }
+ ctx.restore();return{key,underground,forest,evil};
+}
 function overlap(t,u,head=86,override){if(!t.active||t.surface==='bridge'||!t.type||t.type==='rubble')return false;const dims=override||SIZE[t.type]||[t.drawW,t.drawH],w=dims[0],h=dims[1];return u.y<t.y+10&&u.y>t.y-h-head*.25&&Math.abs(u.x-t.x)<w*.44+(u.radius||38)*.35;}
-root.MESBGWorldArt={VERSION,SCALE,W,H,REGIONS,SIZE,LANDMARKS,LANDMARK_NAMES,depth,region,paintGround,overlap};if(typeof module!=='undefined'&&module.exports)module.exports=root.MESBGWorldArt;
+root.MESBGWorldArt={VERSION,SCALE,W,H,REGIONS,SIZE,LANDMARKS,LANDMARK_NAMES,depth,region,paintGround,paintAtmosphere,overlap};if(typeof module!=='undefined'&&module.exports)module.exports=root.MESBGWorldArt;
 })(typeof window!=='undefined'?window:globalThis);
